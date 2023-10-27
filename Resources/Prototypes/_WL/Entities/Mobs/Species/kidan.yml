@@ -12,11 +12,19 @@
     - type: Icon
       sprite: _WL/Mobs/Species/Kidan/parts.rsi
       state: kidan_full
+    - type: KidanAccent
     - type: Vocal
       sounds:
         Male: MaleKidan
         Female: FemaleKidan
         Unsexed: MaleKidan
+    - type: IntrinsicRadioReceiver
+    - type: ActiveRadio
+      channels:
+      - hitin
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - hitin
     
 - type: entity
   save: false

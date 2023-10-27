@@ -90,7 +90,7 @@
 - type: radioChannel # WL - Kidan
   id: hitin
   name: Хитин
-  keycode: 'Х'
+  keycode: 'х'
   frequency: 4944
   color: "#cc7722"
   longRange: true
