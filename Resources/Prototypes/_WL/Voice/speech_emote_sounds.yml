@@ -79,15 +79,17 @@
     Scream:
       collection: KidanSoundM
     Laugh:
-      collection: FemaleLaugh
+      collection: KidanLaugh
     Snore:
       collection: Snores
+    Sneeze:
+      collection: KidanSneeze
     Whistle:
       collection: Whistles
     Sigh:
-      collection: FemaleSigh
+      collection: KidanSigh
     Crying:
-      collection: FemaleCry
+      collection: KidanCrying
 
 - type: emoteSounds
   id: MaleKidan
@@ -97,15 +99,17 @@
     Scream:
       collection: KidanSoundM
     Laugh:
-      collection: MaleLaugh
+      collection: KidanLaugh
     Snore:
       collection: Snores
+    Sneeze:
+      collection: KidanSneeze
     Whistle:
       collection: Whistles
     Sigh:
-      collection: MaleSigh
+      collection: KidanSigh
     Crying:
-      collection: MaleCry
+      collection: KidanCrying
 
 - type: emoteSounds
   id: FemaleTayar
@@ -124,7 +128,7 @@
       collection: FemaleSigh
     Crying:
       collection: FemaleCry
-      
+
 - type: emoteSounds
   id: MaleTayar
   params:
