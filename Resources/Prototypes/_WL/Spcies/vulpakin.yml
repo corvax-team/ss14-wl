@@ -52,7 +52,7 @@
     HeadTop:
       points: 1
       required: true
-      defaultMarkings: [ FoxEars ]
+      defaultMarkings: [ VulpkaninesEars ]
     HeadSide:
       points: 0
       required: false
@@ -65,7 +65,7 @@
     Socks: # WL-Underwear
       points: 1
       required: false
-  
+
 - type: humanoidBaseSprite
   id: MobVulpkaninHead
   baseSprite:
