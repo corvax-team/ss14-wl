@@ -15,7 +15,7 @@
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
-        stomach: OrganAnimalStomach
+        stomach: OrganReptilianStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
       connections:
@@ -47,4 +47,3 @@
       part: RightFootHumanoidTayar
     left foot:
       part: LeftFootHumanoidTayar
-      
