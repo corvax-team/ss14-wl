@@ -5,6 +5,8 @@
   id: BaseMobVulpkanin
   abstract: true
   components:
+    - type: Body
+      prototype: Vulpkanin
     - type: HumanoidAppearance
       species: Vulpkanines
     - type: Hunger

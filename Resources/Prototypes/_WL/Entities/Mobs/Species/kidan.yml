@@ -7,6 +7,8 @@
   components:
     - type: HumanoidAppearance
       species: HumanoidKidanes
+    - type: Body
+      prototype: HumanoidKidan
     - type: Hunger
     - type: Thirst
     - type: Icon
@@ -25,7 +27,7 @@
     - type: IntrinsicRadioTransmitter
       channels:
       - hitin
-    
+
 - type: entity
   save: false
   name: Urist McHands

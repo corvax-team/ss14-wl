@@ -7,6 +7,8 @@
   components:
     - type: HumanoidAppearance
       species: HumanoidTayares
+    - type: Body
+      prototype: HumanoidTayar
     - type: Hunger
     - type: Thirst
     - type: Icon
@@ -17,7 +19,7 @@
         Male: MaleTayar
         Female: FemaleTayar
         Unsexed: MaleTayar
-    
+
 - type: entity
   save: false
   name: Urist McHands
