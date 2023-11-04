@@ -14,6 +14,7 @@
     - type: Icon
       sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
       state: vulp_full
+    - type: VulpAccent
 
 - type: entity
   save: false
