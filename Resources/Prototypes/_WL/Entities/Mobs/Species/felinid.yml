@@ -57,7 +57,7 @@
     context: "human"
   - type: OwOAccent
   - type: Item
-    size: 130
+    size: Huge
   - type: MobMover
   - type: InputMover
   - type: Respirator

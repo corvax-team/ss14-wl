@@ -35,13 +35,13 @@
     - map: [ "jumpsuit" ] # WL-Underwear: Moved
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
-    - map: [ "id" ]
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
+    - map: [ "id" ]
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
@@ -350,13 +350,13 @@
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-    - map: [ "id" ]
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
     - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
+    - map: [ "id" ]
     - map: [ "neck" ]
     - map: [ "back" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]

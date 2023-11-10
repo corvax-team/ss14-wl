@@ -35,7 +35,7 @@ namespace Content.Server.Communications
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
-        private const int MaxMessageLength = 256;
+        private const int MaxMessageLength = 512;
         private const int MaxMessageNewlines = 2;
         private const float UIUpdateInterval = 5.0f;
 
@@ -255,7 +255,7 @@ namespace Content.Server.Communications
 
                 if (_idCardSystem.TryFindIdCard(mob, out var id))
                 {
-                    author = $"{id.FullName} ({CultureInfo.CurrentCulture.TextInfo.ToTitleCase(id.JobTitle ?? string.Empty)})".Trim();
+                    author = $"{id.Comp.FullName} ({CultureInfo.CurrentCulture.TextInfo.ToTitleCase(id.Comp.JobTitle ?? string.Empty)})".Trim();
                 }
             }
 

@@ -5,6 +5,8 @@
   id: BaseMobVulpkanin
   abstract: true
   components:
+    - type: Body
+      prototype: Vulpkanin
     - type: HumanoidAppearance
       species: Vulpkanines
     - type: Hunger
@@ -12,6 +14,7 @@
     - type: Icon
       sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
       state: vulp_full
+    - type: VulpAccent
 
 - type: entity
   save: false

@@ -98,7 +98,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         EntityUid? station,
         EntityUid? entity = null)
     {
-        _prototypeManager.TryIndex(job?.PrototypeId ?? string.Empty, out JobPrototype? prototype);
+        _prototypeManager.TryIndex(job?.Prototype ?? string.Empty, out JobPrototype? prototype);
 
         // If we're not spawning a humanoid, we're gonna exit early without doing all the humanoid stuff.
         if (prototype?.JobEntity != null)
@@ -163,7 +163,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
     private void DoJobSpecials(JobComponent? job, EntityUid entity)
     {
-        if (!_prototypeManager.TryIndex(job?.PrototypeId ?? string.Empty, out JobPrototype? prototype))
+        if (!_prototypeManager.TryIndex(job?.Prototype ?? string.Empty, out JobPrototype? prototype))
             return;
 
         foreach (var jobSpecial in prototype.Special)

@@ -22,3 +22,6 @@
     - type: LizardAccent
     - type: ReplacementAccent
       accent: dwarf
+    - type: OwOAccent
+    - type: KidanAccent
+    - type: VulpAccent
