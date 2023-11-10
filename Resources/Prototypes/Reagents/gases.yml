@@ -172,6 +172,10 @@
         conditions:
         - !type:OrganType
           type: Slime
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Biorobotic # Corvax WL androids
       # Converts Nitrogen into CO2
       - !type:ModifyLungGas
         conditions:
@@ -186,6 +190,13 @@
           type: Slime
         ratios:
           NitrousOxide: 1.0
+          Nitrogen: -1.0
+      - !type:ModifyLungGas # Corvax WL androids
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        ratios:
+          CarbonDioxide: 2.0
           Nitrogen: -1.0
 
 - type: reagent

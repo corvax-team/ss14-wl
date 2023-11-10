@@ -1,0 +1,16 @@
+- type: latheRecipe
+  id: BioTube
+  result: BioTube1
+  completetime: 1
+  materials:
+    Steel: 25
+    Plastic: 50
+
+- type: latheRecipe
+  id: TiriumPack
+  result: TiriumPack
+  completetime: 1
+  materials:
+    Steel: 50
+    Plastic: 75
+    Plasma: 10
