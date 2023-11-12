@@ -12,6 +12,8 @@
       - Piercing
       - Heat
       - Shock
+      - Cold
+      - Caustic
   - type: Bloodstream
     bloodReagent: Tirium
     bloodlossDamage:
@@ -22,6 +24,37 @@
       types:
         Bloodloss:
           -1.05
+    ChemicalMaxVolume: 0
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [Touch, Ingestion, Injection]
+      effects:
+      - !type:HealthChange
+        scaled: true
+        damage:
+          types:
+            Shock: 0.5
+      - !type:Electrocute
+        probability: 0.5
+      - !type:PopupMessage
+        type: Local
+        visualType: LargeCaution
+        messages: "Вы чувствуете короткое замыкание."
+        probability: 0.25
+      - !type:PopupMessage
+        type: Local
+        visualType: MediumCaution
+        messages: "Искрится"
+        probability: 0.25
   - type: StatusEffects
     allowed:
       - Stun
@@ -88,7 +121,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 10
+        Blunt: 8
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -113,7 +146,6 @@
   - type: MobPrice
     price: 6000 # Android biocomponents are appreciated in the market...
     deathPenalty: 1000
-  - type: Hunger
   - type: Perishable
   - type: PowerCellSlot
     cellSlotId: cell_slot

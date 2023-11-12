@@ -196,7 +196,7 @@
         - !type:OrganType
           type: Biorobotic
         ratios:
-          CarbonDioxide: 2.0
+          CarbonDioxide: 1.0
           Nitrogen: -1.0
 
 - type: reagent

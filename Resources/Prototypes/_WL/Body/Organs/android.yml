@@ -42,7 +42,7 @@
   id: OrganAndroidEyes
   parent: BaseAndroidOrgan
   name: биосинтетические глаза
-  description: "Они очень живые... Для электронных..."
+  description: "Они слишком живые... Для электронных..."
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -127,9 +127,6 @@
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
     state: heart-on
-  - type: Metabolizer
-    maxReagents: 2
-    metabolizerTypes: [ Biorobotic ]
 
 - type: entity
   id: OrganAndroidStomach
@@ -156,9 +153,7 @@
     groups:
     - id: Food
     - id: Drink
-  - type: Battery
-    maxCharge: 1800
-    startingCharge: 1800
+
 
 - type: entity
   id: OrganAndroidLiver
@@ -186,3 +181,4 @@
     maxReagents: 5
     metabolizerTypes: [ Biorobotic ]
     removeEmpty: true
+
