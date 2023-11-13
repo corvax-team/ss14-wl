@@ -41,7 +41,7 @@
         conditions:
         - !type:OrganType
           type: Moth
-     
+
 
 - type: reagent
   id: BuzzochloricBees
@@ -136,6 +136,9 @@
         - !type:HasTag
           invert: true
           tag: Bee
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: GroundBee

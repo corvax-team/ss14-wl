@@ -20,6 +20,33 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.3
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Ale
@@ -66,6 +93,33 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.1
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Cognac
@@ -87,6 +141,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: DeadRum
@@ -107,6 +181,33 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Ethanol
@@ -161,8 +262,38 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
       - !type:Drunk
         boozePower: 2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Gin
@@ -184,6 +315,33 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: CoffeeLiqueur
@@ -240,12 +398,43 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
     Poison:
       effects:
       - !type:HealthChange
         damage:
           types:
             Poison: 1
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Rum
@@ -267,6 +456,33 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Sake
@@ -293,6 +509,33 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Vermouth
@@ -326,6 +569,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Whiskey
@@ -347,6 +610,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Wine
@@ -381,6 +664,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.3
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 # Mixed Alcohol
 
@@ -464,6 +767,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: AtomicBomb
@@ -484,9 +807,33 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:AdjustReagent
         reagent: Uranium
         amount: 0.05
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: B52
@@ -507,6 +854,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: BahamaMama
@@ -563,6 +930,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: BlackRussian
@@ -583,6 +970,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: BloodyMary
@@ -627,6 +1034,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: CubaLibre
@@ -647,6 +1074,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: DemonsBlood
@@ -693,6 +1140,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
     Medicine:
       effects:
       - !type:HealthChange
@@ -702,6 +1169,10 @@
             Brute: -1
             Airloss: -1
             Toxin: -1
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: DriestMartini
@@ -722,6 +1193,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: ErikaSurprise
@@ -754,6 +1245,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: GinFizz
@@ -774,6 +1285,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: GinTonic
@@ -794,6 +1325,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Goldschlager
@@ -814,6 +1365,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Grog
@@ -882,6 +1453,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: IrishCream
@@ -902,6 +1493,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: IrishCoffee
@@ -922,6 +1533,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: LongIslandIcedTea
@@ -942,6 +1573,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Manhattan
@@ -1010,6 +1661,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Mead
@@ -1051,6 +1722,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.25
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Neurotoxin
@@ -1071,6 +1762,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.25
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
     Poison:
       effects:
       - !type:HealthChange
@@ -1097,6 +1808,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: RedMead
@@ -1141,6 +1872,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: CogChamp
@@ -1164,6 +1915,26 @@
         - !type:AdjustReagent
           reagent: Ethanol
           amount: 0.15
+          conditions: # WL android race
+          - !type:OrganType
+            type: Biorobotic
+            shouldHave: false
+        - !type:HealthChange # WL android race
+          conditions:
+          - !type:ReagentThreshold
+            min: 10
+          - !type:OrganType
+            type: Biorobotic
+          damage:
+            types:
+              Shock: 1
+        - !type:Electrocute
+          probability: 0.1
+          conditions:
+          - !type:OrganType
+            type: Biorobotic
+          - !type:ReagentThreshold
+            min: 10
 
 - type: reagent
   id: Silencer
@@ -1252,6 +2023,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: ThreeMileIsland
@@ -1272,6 +2063,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
       - !type:AdjustReagent
         reagent: Uranium
         amount: 0.05
@@ -1307,6 +2118,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: VodkaTonic
@@ -1327,6 +2158,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: WhiskeyCola
@@ -1347,6 +2198,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: WhiskeySoda
@@ -1367,6 +2238,26 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.07
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: WhiteRussian
@@ -1387,3 +2278,23 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.15
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10

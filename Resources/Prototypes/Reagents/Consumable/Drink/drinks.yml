@@ -15,6 +15,26 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Cream
@@ -29,6 +49,22 @@
       effects:
       - !type:SatiateThirst
         factor: 1
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: CafeLatte
@@ -109,6 +145,26 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: JuiceBerryPoison
@@ -122,6 +178,22 @@
     Drink:
       effects:
       - !type:SatiateThirst
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
     Poison:
       effects:
       - !type:HealthChange
@@ -145,6 +217,22 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Milk
@@ -165,6 +253,22 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: MilkGoat
@@ -186,6 +290,22 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: MilkSoy
@@ -209,6 +329,22 @@
       effects:
       - !type:SatiateThirst
         factor: -2
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Nothing
@@ -242,6 +378,22 @@
       effects:
       - !type:SatiateThirst
         factor: 6
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
     Poison:
       effects:
       - !type:HealthChange
@@ -287,6 +439,26 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: TonicWater
@@ -314,6 +486,22 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Ice
@@ -342,6 +530,22 @@
       effects:
       - !type:SatiateHunger
         factor: 1
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: HotRamen
@@ -356,6 +560,22 @@
       effects:
       - !type:SatiateHunger
         factor: 4
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Shock: 1
+      - !type:Electrocute
+        probability: 0.1
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+        - !type:ReagentThreshold
+          min: 10
 
 - type: reagent
   id: Pilk
@@ -370,6 +590,22 @@
       effects:
         - !type:SatiateThirst
           factor: 1
+        - !type:HealthChange # WL android race
+          conditions:
+          - !type:ReagentThreshold
+            min: 10
+          - !type:OrganType
+            type: Biorobotic
+          damage:
+            types:
+              Shock: 1
+        - !type:Electrocute
+          probability: 0.1
+          conditions:
+          - !type:OrganType
+            type: Biorobotic
+          - !type:ReagentThreshold
+            min: 10
 
 - type: reagent
   id: Posca
@@ -432,3 +668,23 @@
       effects:
         - !type:SatiateThirst
           factor: 1
+          conditions: # WL android race
+          - !type:OrganType
+            type: Biorobotic
+            shouldHave: false
+        - !type:HealthChange # WL android race
+          conditions:
+          - !type:ReagentThreshold
+            min: 10
+          - !type:OrganType
+            type: Biorobotic
+          damage:
+            types:
+              Shock: 1
+        - !type:Electrocute
+          probability: 0.1
+          conditions:
+          - !type:OrganType
+            type: Biorobotic
+          - !type:ReagentThreshold
+            min: 10

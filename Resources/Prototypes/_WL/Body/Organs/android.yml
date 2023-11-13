@@ -127,6 +127,13 @@
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
     state: heart-on
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Biorobotic]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
 
 - type: entity
   id: OrganAndroidStomach
@@ -154,7 +161,6 @@
     - id: Food
     - id: Drink
 
-
 - type: entity
   id: OrganAndroidLiver
   parent: BaseAndroidOrgan
@@ -164,6 +170,11 @@
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
     state: liver
+  - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
+    maxReagents: 1
+    metabolizerTypes: [ Biorobotic ]
+    groups:
+    - id: Alcohol
 
 - type: entity
   id: OrganAndroidKidneys
@@ -181,4 +192,3 @@
     maxReagents: 5
     metabolizerTypes: [ Biorobotic ]
     removeEmpty: true
-

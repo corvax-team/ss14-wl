@@ -12,6 +12,10 @@
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:Drunk
         slurSpeech: false
         boozePower: 20
@@ -35,6 +39,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Brute: 2
@@ -125,6 +132,10 @@
             Radiation: -3
           groups:
             Brute: 0.5
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: Bicaridine
@@ -141,10 +152,17 @@
         damage:
           groups:
             Brute: -2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Asphyxiation: 0.5
@@ -182,6 +200,9 @@
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 150.0
+          - !type:OrganType # WL android race
+            type: Biorobotic
+            shouldHave: false
           damage:
           # todo scale with temp like SS13
             groups:
@@ -226,10 +247,17 @@
             Heat: -1.5
             Shock: -1.5
             Cold: -1.5
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Asphyxiation: 1
@@ -257,10 +285,17 @@
           types:
             Asphyxiation: -1
             Bloodloss: -0.5
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
             min: 20
+          - !type:OrganType # WL android race
+            type: Biorobotic
+            shouldHave: false
         damage:
           types:
             Asphyxiation: 3
@@ -282,6 +317,10 @@
           types:
             Asphyxiation: -3.5
             Bloodloss: -3
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -293,6 +332,9 @@
         conditions:
           - !type:ReagentThreshold
             min: 25
+          - !type:OrganType # WL android race
+            type: Biorobotic
+            shouldHave: false
         damage:
           types:
             Asphyxiation: 5
@@ -318,6 +360,9 @@
         - !type:ReagentThreshold
           min: 0
           max: 20
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Asphyxiation: -3
@@ -329,6 +374,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Asphyxiation: 1
@@ -422,11 +470,18 @@
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Asphyxiation: -5
       - !type:ModifyBleedAmount
         amount: -0.25
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: Kelotane
@@ -445,6 +500,10 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:SatiateThirst
         factor: -10
         conditions:
@@ -460,6 +519,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: Leporazine
@@ -476,6 +538,10 @@
         damage:
           types:
             Cold: -4
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -508,6 +574,10 @@
         damage:
           types:
             Heat: 0.5
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
@@ -515,6 +585,15 @@
         damage:
           types:
             Poison: 3
+      - !type:HealthChange # WL android race
+        conditions:
+          - !type:ReagentThreshold
+            min: 30
+          - !type:OrganType
+            type: Biorobotic
+        damage:
+          types:
+            Shock: 3
       - !type:ChemVomit
         probability: 0.15
         conditions:
@@ -608,6 +687,10 @@
       effects:
       - !type:ModifyBleedAmount
         amount: -0.5
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: Saline
@@ -624,6 +707,10 @@
           factor: 6
         - !type:ModifyBloodLevel
           amount: 6
+          conditions: # WL android race
+          - !type:OrganType
+            type: Biorobotic
+            shouldHave: false
 
 - type: reagent
   id: Siderlac
@@ -640,6 +727,10 @@
         damage:
           types:
             Caustic: -5
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: Stellibinin
@@ -711,9 +802,21 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Bloodloss: 3
+      - !type:HealthChange # WL android race
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        - !type:OrganType
+          type: Biorobotic
+        damage:
+          types:
+            Caustic: 3
 
 - type: reagent
   id: Tricordrazine
@@ -730,6 +833,9 @@
         conditions:
         - !type:TotalDamage
           max: 50
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           groups:
             Brute: -1
@@ -773,6 +879,10 @@
             Toxin: -2
             Airloss: -2
             Brute: -2
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: Ultravasculine
@@ -790,6 +900,9 @@
         - !type:ReagentThreshold
           min: 0
           max: 30
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           groups:
             Toxin: -3
@@ -798,6 +911,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           groups:
             Toxin: -1
@@ -907,10 +1023,17 @@
         damage:
           types:
             Caustic: -3
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 16
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Heat: 2

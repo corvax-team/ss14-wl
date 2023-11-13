@@ -38,22 +38,13 @@
     - reagents: [ Water ]
       methods: [Touch, Ingestion, Injection]
       effects:
-      - !type:HealthChange
-        scaled: true
-        damage:
-          types:
-            Shock: 0.5
       - !type:Electrocute
         probability: 0.5
+        electrocuteDamageScale: 1
       - !type:PopupMessage
         type: Local
         visualType: LargeCaution
-        messages: "Вы чувствуете короткое замыкание."
-        probability: 0.25
-      - !type:PopupMessage
-        type: Local
-        visualType: MediumCaution
-        messages: "Искрится"
+        messages: "Вы чувствуете жжение."
         probability: 0.25
   - type: StatusEffects
     allowed:
@@ -72,6 +63,13 @@
   - type: Icon
     sprite: _WL/Mobs/Species/Android/parts.rsi
     state: full
+  - type: Sprite
+    layers:
+    - map: ["enum.BorgVisualLayers.Light"]
+      sprite: _WL/Mobs/Species/Android/parts.rsi
+      state: light
+      shader: unshaded
+      visible: false
   - type: Temperature
     heatDamageThreshold: 460
     coldDamageThreshold: 275 #293.3 предел
@@ -151,8 +149,14 @@
     cellSlotId: cell_slot
     fitsInCharger: true
   - type: PowerCellDraw
-    drawRate: 0.8
+    drawRate: 0.3
   - type: BorgChassis
+    maxModules: 5
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+    hasMindState: light
+    noMindState: light
   - type: ItemSlots
     slots:
       cell_slot:
@@ -164,6 +168,7 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }
+  - type: Uncloneable
 
 - type: entity
   save: false

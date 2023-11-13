@@ -81,6 +81,10 @@
             Poison: 4
       - !type:ChemVomit
         probability: 0.25
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: Ichor
@@ -107,6 +111,10 @@
             Toxin: -2
           types:
             Bloodloss: -5
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
   # Just in case you REALLY want to water your plants
   plantMetabolism:
   - !type:PlantAdjustWater

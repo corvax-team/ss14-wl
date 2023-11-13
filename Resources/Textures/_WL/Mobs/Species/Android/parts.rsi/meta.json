@@ -19,6 +19,10 @@
             "directions": 4
         },
         {
+            "name": "light",
+            "directions": 4
+        },
+        {
             "name": "l_arm",
             "directions": 4
         },

@@ -19,6 +19,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Poison: 2 # this is added to the base damage of the meth.
@@ -28,18 +31,34 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:Jitter
       - !type:GenericStatusEffect
         key: Stun
         time: 3
         type: Remove
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 3
         type: Remove
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -67,6 +86,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         damage:
           types:
             Poison: 2 # this is added to the base damage of the meth.
@@ -76,10 +98,18 @@
         key: Stun
         time: 1
         type: Remove
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 1
         type: Remove
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
       - !type:PopupMessage
         visualType: Medium
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
@@ -142,6 +172,9 @@
           - !type:TotalDamage
             min: 70
             max: 120 # you've got a chance to get out of crit
+          - !type:OrganType # WL android race
+            type: Biorobotic
+            shouldHave: false
           damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
             groups:
               Burn: -1
@@ -268,6 +301,9 @@
         - !type:ReagentThreshold
           reagent: Nocturine
           min: 8
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         key: ForcedSleep
         component: ForcedSleeping
         refresh: false
@@ -288,6 +324,10 @@
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
+        conditions: # WL android race
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 
 - type: reagent
   id: NorepinephricAcid
@@ -324,6 +364,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
         probability: 0.03
         #If anyone wants to add a light dimming or grayscale effect when under 20u, be my guest
       - !type:GenericStatusEffect
@@ -332,3 +375,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+        - !type:OrganType # WL android race
+          type: Biorobotic
+          shouldHave: false
