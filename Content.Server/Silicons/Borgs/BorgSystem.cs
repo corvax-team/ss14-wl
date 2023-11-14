@@ -130,7 +130,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     {
         base.OnInserted(uid, component, args);
 
-        if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(args.Entity, out var mindId, out var mind))
+        if (HasComp<BorgBrainComponent>(args.Entity) & !_tag.HasTag(uid, "AndroidBrainTag") && _mind.TryGetMind(args.Entity, out var mindId, out var mind)) // WL android species //
         {
             _mind.TransferTo(mindId, uid, mind: mind);
         }
