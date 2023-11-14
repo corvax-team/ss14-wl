@@ -752,10 +752,10 @@
         - !type:ModifyBloodLevel
           amount: 6
 # WL android species start
-        conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+          conditions:
+            - !type:OrganType
+              type: Biorobotic
+              shouldHave: false
 # WL android species end
 
 - type: reagent
