@@ -136,17 +136,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
         }
     }
 
-    protected override void OnRemoved(EntityUid uid, BorgChassisComponent component, EntRemovedFromContainerMessage args)
-    {
-        base.OnRemoved(uid, component, args);
-
-        if (!_tag.HasTag(uid, "AndroidBodyTag") && HasComp<BorgBrainComponent>(args.Entity) & // WL android species //
-            _mind.TryGetMind(uid, out var mindId, out var mind))
-        {
-            _mind.TransferTo(mindId, args.Entity, mind: mind);
-        }
-    }
-
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
         BorgActivate(uid, component);
