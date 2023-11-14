@@ -132,6 +132,7 @@
   - SyringeBluespace
 
 # look into revisiting this later once medical isn't a hellhole
+# WL tech tweaks start
 - type: technology
   id: Cloning
   name: research-technology-cloning
@@ -146,3 +147,4 @@
   - MedicalScannerMachineCircuitboard
   - CloningConsoleComputerCircuitboard
   - BiomassReclaimerMachineCircuitboard
+# WL tech tweaks end
