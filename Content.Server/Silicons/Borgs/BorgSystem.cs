@@ -126,15 +126,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
     }
 
     // todo: consider transferring over the ghost role? managing that might suck.
-    protected override void OnInserted(EntityUid uid, BorgChassisComponent component, EntInsertedIntoContainerMessage args)
-    {
-        base.OnInserted(uid, component, args);
-
-        if (HasComp<BorgBrainComponent>(args.Entity) & !_tag.HasTag(uid, "AndroidBodyTag") && _mind.TryGetMind(args.Entity, out var mindId, out var mind)) // WL android species //
-        {
-            _mind.TransferTo(mindId, uid, mind: mind);
-        }
-    }
 
     private void OnMindAdded(EntityUid uid, BorgChassisComponent component, MindAddedMessage args)
     {
