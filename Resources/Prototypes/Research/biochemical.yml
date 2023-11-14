@@ -132,17 +132,17 @@
   - SyringeBluespace
 
 # look into revisiting this later once medical isn't a hellhole
-#- type: technology
-#  id: Cloning
-#  name: research-technology-cloning
-#  icon:
-#    sprite: Structures/Machines/cloning.rsi
-#    state: pod_0
-#  discipline: Biochemical
-#  tier: 3
-#  cost: 15000
-#  recipeUnlocks:
-#  - CloningPodMachineCircuitboard
-#  - MedicalScannerMachineCircuitboard
-#  - CloningConsoleComputerCircuitboard
-#  - BiomassReclaimerMachineCircuitboard
+- type: technology
+  id: Cloning
+  name: research-technology-cloning
+  icon:
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  discipline: Biochemical
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - CloningPodMachineCircuitboard
+  - MedicalScannerMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  - BiomassReclaimerMachineCircuitboard
