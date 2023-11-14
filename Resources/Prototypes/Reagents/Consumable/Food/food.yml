@@ -11,7 +11,8 @@
     Food:
       effects:
       - !type:SatiateHunger
-      - !type:HealthChange # WL android race
+# WL android species start
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -27,6 +28,7 @@
           type: Biorobotic
         - !type:ReagentThreshold
           min: 10
+# WL android species end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1.5
@@ -51,11 +53,12 @@
           groups:
             Brute: -0.5
             Burn: -0.5
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-      - !type:HealthChange # WL android race
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -71,13 +74,16 @@
           type: Biorobotic
         - !type:ReagentThreshold
           min: 10
+# WL android species end
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleedAmount
         amount: -0.25
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
   # Lets plants benefit too
   plantMetabolism:
@@ -103,11 +109,12 @@
         damage:
           groups:
             Brute: -0.4
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-      - !type:HealthChange # WL android race
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -123,12 +130,15 @@
           type: Biorobotic
         - !type:ReagentThreshold
           min: 10
+# WL android species end
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
       - !type:SatiateHunger
   pricePerUnit: 3
 

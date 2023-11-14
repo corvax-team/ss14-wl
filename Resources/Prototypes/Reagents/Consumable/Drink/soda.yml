@@ -42,11 +42,8 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.05
-        conditions: # WL android race
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-      - !type:HealthChange # WL android race
+# WL android species start
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -62,6 +59,7 @@
           type: Biorobotic
         - !type:ReagentThreshold
           min: 10
+# WL android species end
 
 - type: reagent
   id: GrapeSoda
@@ -173,11 +171,8 @@
       - !type:AdjustReagent
         reagent: Theobromine
         amount: 0.1
-        conditions: # WL android race
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-      - !type:HealthChange # WL android race
+# WL android species start
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -193,6 +188,7 @@
           type: Biorobotic
         - !type:ReagentThreshold
           min: 10
+# WL android species end
     Poison:
       effects:
       - !type:HealthChange

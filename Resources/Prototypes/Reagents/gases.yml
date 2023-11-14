@@ -172,10 +172,12 @@
         conditions:
         - !type:OrganType
           type: Slime
+# WL android species start
       - !type:Oxygenate
         conditions:
         - !type:OrganType
-          type: Biorobotic # Corvax WL androids
+          type: Biorobotic
+# WL android species end
       # Converts Nitrogen into CO2
       - !type:ModifyLungGas
         conditions:
@@ -191,13 +193,15 @@
         ratios:
           NitrousOxide: 1.0
           Nitrogen: -1.0
-      - !type:ModifyLungGas # Corvax WL androids
+# WL android species start
+      - !type:ModifyLungGas
         conditions:
         - !type:OrganType
           type: Biorobotic
         ratios:
           CarbonDioxide: 1.0
           Nitrogen: -1.0
+# WL android species end
 
 - type: reagent
   id: Miasma

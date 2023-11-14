@@ -8,7 +8,8 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-      - !type:HealthChange # WL android race
+# WL android species start
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -24,6 +25,7 @@
           type: Biorobotic
         - !type:ReagentThreshold
           min: 10
+# WL android species end
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
@@ -45,7 +47,8 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:HealthChange # WL android race
+# WL android species start
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -61,6 +64,7 @@
           type: Biorobotic
         - !type:ReagentThreshold
           min: 10
+# WL android species end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1
@@ -81,11 +85,8 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.06
-        conditions: # WL android race
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-      - !type:HealthChange # WL android race
+# WL android species start
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -101,6 +102,7 @@
           type: Biorobotic
         - !type:ReagentThreshold
           min: 10
+# WL android species end
   reactiveEffects:
     Flammable:
       methods: [ Touch ]

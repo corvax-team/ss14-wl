@@ -12,10 +12,12 @@
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
       - !type:Drunk
         slurSpeech: false
         boozePower: 20
@@ -39,9 +41,11 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
-        - !type:OrganType # WL android race
+ # WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+ # WL android species end
         damage:
           types:
             Brute: 2
@@ -132,10 +136,12 @@
             Radiation: -3
           groups:
             Brute: 0.5
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Bicaridine
@@ -152,17 +158,21 @@
         damage:
           groups:
             Brute: -2
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           types:
             Asphyxiation: 0.5
@@ -200,9 +210,11 @@
           - !type:Temperature
             # this is a little arbitrary but they gotta be pretty cold
             max: 150.0
-          - !type:OrganType # WL android race
+# WL android species start
+          - !type:OrganType
             type: Biorobotic
             shouldHave: false
+# WL android species end
           damage:
           # todo scale with temp like SS13
             groups:
@@ -247,17 +259,21 @@
             Heat: -1.5
             Shock: -1.5
             Cold: -1.5
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           types:
             Asphyxiation: 1
@@ -285,17 +301,21 @@
           types:
             Asphyxiation: -1
             Bloodloss: -0.5
-        conditions: # WL android race
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+# WL android species start
+        conditions:
+          - !type:OrganType
+            type: Biorobotic
+            shouldHave: false
+# WL android species end
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
             min: 20
-          - !type:OrganType # WL android race
+# WL android species start
+          - !type:OrganType
             type: Biorobotic
             shouldHave: false
+# WL android species end
         damage:
           types:
             Asphyxiation: 3
@@ -317,10 +337,12 @@
           types:
             Asphyxiation: -3.5
             Bloodloss: -3
-        conditions: # WL android race
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+# WL android species start
+        conditions:
+          - !type:OrganType
+            type: Biorobotic
+            shouldHave: false
+# WL android species end
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -332,9 +354,11 @@
         conditions:
           - !type:ReagentThreshold
             min: 25
-          - !type:OrganType # WL android race
+# WL android species start
+          - !type:OrganType
             type: Biorobotic
             shouldHave: false
+# WL android species end
         damage:
           types:
             Asphyxiation: 5
@@ -360,9 +384,11 @@
         - !type:ReagentThreshold
           min: 0
           max: 20
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           types:
             Asphyxiation: -3
@@ -374,9 +400,11 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           types:
             Asphyxiation: 1
@@ -470,18 +498,22 @@
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           types:
             Asphyxiation: -5
       - !type:ModifyBleedAmount
         amount: -0.25
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Kelotane
@@ -500,10 +532,12 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
       - !type:SatiateThirst
         factor: -10
         conditions:
@@ -519,9 +553,11 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Leporazine
@@ -538,10 +574,12 @@
         damage:
           types:
             Cold: -4
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -574,10 +612,12 @@
         damage:
           types:
             Heat: 0.5
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
@@ -585,7 +625,8 @@
         damage:
           types:
             Poison: 3
-      - !type:HealthChange # WL android race
+# WL android species start
+      - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
             min: 30
@@ -594,6 +635,7 @@
         damage:
           types:
             Shock: 3
+# WL android species end
       - !type:ChemVomit
         probability: 0.15
         conditions:
@@ -687,10 +729,12 @@
       effects:
       - !type:ModifyBleedAmount
         amount: -0.5
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Saline
@@ -707,10 +751,12 @@
           factor: 6
         - !type:ModifyBloodLevel
           amount: 6
-          conditions: # WL android race
-          - !type:OrganType
-            type: Biorobotic
-            shouldHave: false
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Siderlac
@@ -727,10 +773,12 @@
         damage:
           types:
             Caustic: -5
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Stellibinin
@@ -774,10 +822,22 @@
         key: Stun
         time: 3.0
         type: Remove
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 3.0
         type: Remove
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       - !type:GenericStatusEffect
         key: SeeingRainbows
         time: 15.0
@@ -802,13 +862,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           types:
             Bloodloss: 3
-      - !type:HealthChange # WL android race
+# WL android species start
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
@@ -817,6 +880,7 @@
         damage:
           types:
             Caustic: 3
+# WL android species end
 
 - type: reagent
   id: Tricordrazine
@@ -833,9 +897,11 @@
         conditions:
         - !type:TotalDamage
           max: 50
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           groups:
             Brute: -1
@@ -879,10 +945,12 @@
             Toxin: -2
             Airloss: -2
             Brute: -2
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Ultravasculine
@@ -900,9 +968,11 @@
         - !type:ReagentThreshold
           min: 0
           max: 30
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           groups:
             Toxin: -3
@@ -911,9 +981,11 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           groups:
             Toxin: -1
@@ -1023,17 +1095,21 @@
         damage:
           types:
             Caustic: -3
-        conditions: # WL android race
+# WL android species start
+        conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 16
-        - !type:OrganType # WL android race
+# WL android species start
+        - !type:OrganType
           type: Biorobotic
           shouldHave: false
+# WL android species end
         damage:
           types:
             Heat: 2

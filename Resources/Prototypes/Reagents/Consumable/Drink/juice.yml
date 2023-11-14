@@ -45,11 +45,8 @@
       - !type:AdjustReagent
         reagent: Nutriment
         amount: 0.5
-        conditions: # WL android race
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-      - !type:HealthChange # WL android race
+# WL android species start
+      - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
@@ -65,6 +62,7 @@
           type: Biorobotic
         - !type:ReagentThreshold
           min: 10
+# WL android species end
 
 - type: reagent
   id: JuiceGrape
