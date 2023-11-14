@@ -164,6 +164,9 @@
   - type: Tag
     tags:
     - AndroidBrainTag
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
 
 - type: entity
   save: false
