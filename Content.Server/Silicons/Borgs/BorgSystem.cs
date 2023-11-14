@@ -19,6 +19,7 @@ using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Wires;
+using Content.Shared.Tag; // WL android species //
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
@@ -43,6 +44,8 @@ public sealed partial class BorgSystem : SharedBorgSystem
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+
+    [Dependency] private readonly TagSystem _tag = default!; // WL android species
 
     [ValidatePrototypeId<JobPrototype>]
     public const string BorgJobId = "Borg";
@@ -137,7 +140,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     {
         base.OnRemoved(uid, component, args);
 
-        if (HasComp<BorgBrainComponent>(args.Entity) &
+        if (HasComp<BorgBrainComponent>(args.Entity) & !_tag.HasTag(uid, "AndroidBrainTag") & // WL android species //
             _mind.TryGetMind(uid, out var mindId, out var mind))
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
