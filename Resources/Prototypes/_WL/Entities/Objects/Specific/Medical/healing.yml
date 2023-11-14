@@ -32,6 +32,7 @@
 - type: entity
   id: BioTube1
   parent: BioTube
+  suffix: Один
   components:
   - type: Stack
     stackType: BioTube
@@ -39,6 +40,7 @@
 
 - type: entity
   name: Пакет с тириумом
+  suffix: Полный
   description: Поможет восстановить потеряную биожидкость.
   parent: BaseHealingItem
   id: TiriumPack
@@ -69,6 +71,7 @@
 - type: entity
   id: TiriumPack1
   parent: TiriumPack
+  suffix: Один
   components:
   - type: Stack
     stackType: BioTube
