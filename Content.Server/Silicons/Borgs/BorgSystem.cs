@@ -130,7 +130,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     {
         base.OnInserted(uid, component, args);
 
-        if (HasComp<BorgBrainComponent>(args.Entity) & !_tag.HasTag(uid, "AndroidBrainTag") && _mind.TryGetMind(args.Entity, out var mindId, out var mind)) // WL android species //
+        if (HasComp<BorgBrainComponent>(args.Entity) & !_tag.HasTag(uid, "AndroidBodyTag") && _mind.TryGetMind(args.Entity, out var mindId, out var mind)) // WL android species //
         {
             _mind.TransferTo(mindId, uid, mind: mind);
         }
@@ -140,7 +140,7 @@ public sealed partial class BorgSystem : SharedBorgSystem
     {
         base.OnRemoved(uid, component, args);
 
-        if (!_tag.HasTag(uid, "AndroidBrainTag") && HasComp<BorgBrainComponent>(args.Entity) & // WL android species //
+        if (!_tag.HasTag(uid, "AndroidBodyTag") && HasComp<BorgBrainComponent>(args.Entity) & // WL android species //
             _mind.TryGetMind(uid, out var mindId, out var mind))
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
@@ -204,10 +204,14 @@ public sealed partial class BorgSystem : SharedBorgSystem
 
     private void OnBrainMindAdded(EntityUid uid, BorgBrainComponent component, MindAddedMessage args)
     {
+
         if (!Container.TryGetOuterContainer(uid, Transform(uid), out var container))
             return;
 
         var containerEnt = container.Owner;
+
+        if (_tag.HasTag(containerEnt, "AndroidBodyTag")) // WL android species //
+            return;
 
         if (!TryComp<BorgChassisComponent>(containerEnt, out var chassisComponent) ||
             container.ID != chassisComponent.BrainContainerId)

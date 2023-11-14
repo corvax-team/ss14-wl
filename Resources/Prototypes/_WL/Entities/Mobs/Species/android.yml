@@ -163,7 +163,7 @@
   - type: Uncloneable
   - type: Tag
     tags:
-    - AndroidBrainTag
+    - AndroidBodyTag
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
@@ -180,4 +180,4 @@
     species: Android
 
 - type: Tag
-  id: AndroidBrainTag
+  id: AndroidBodyTag

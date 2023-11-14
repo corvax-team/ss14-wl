@@ -9,6 +9,9 @@
         reagents:
           - ReagentId: Tirium
             Quantity: 10
+    - type: Tag
+      tags:
+      - AndroidBodyTag
 
 - type: entity
   id: TorsoAndroid
