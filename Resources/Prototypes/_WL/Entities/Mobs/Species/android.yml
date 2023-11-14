@@ -87,7 +87,7 @@
     thresholds:
       0: Alive
       85: Critical
-      260: Dead
+      250: Dead
   - type: Destructible
     thresholds:
       - trigger:
