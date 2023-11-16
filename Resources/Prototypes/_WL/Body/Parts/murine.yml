@@ -1,0 +1,101 @@
+- type: entity
+  id: PartHumanoidMurine
+  parent: [BaseItem, BasePart]
+  name: "базовая конечность мурина"
+  abstract: true
+
+- type: entity
+  id: TorsoHumanoidMurine
+  name: "торс мурина"
+  parent: [PartHumanoidMurine, BaseTorso]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Murine/parts.rsi
+      state: torso_m
+
+- type: entity
+  id: HeadHumanoidMurine
+  name: "голова мурина"
+  parent: [PartHumanoidMurine, BaseHead]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Murine/parts.rsi
+      state: head_m
+
+- type: entity
+  id: LeftArmHumanoidMurine
+  name: "левая рука мурина"
+  parent: [PartHumanoidMurine, BaseLeftArm]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Murine/parts.rsi
+      state: l_arm
+
+- type: entity
+  id: RightArmHumanoidMurine
+  name: "правая рука мурина"
+  parent: [PartHumanoidMurine, BaseRightArm]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Murine/parts.rsi
+      state: r_arm
+
+- type: entity
+  id: LeftHandHumanoidMurine
+  name: "левая ладонь мурина"
+  parent: [PartHumanoidMurine, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: l_hand
+
+- type: entity
+  id: RightHandHumanoidMurine
+  name: "правая ладонь мурина"
+  parent: [PartHumanoidMurine, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: r_hand
+
+- type: entity
+  id: LeftLegHumanoidMurine
+  name: "левая нога мурина"
+  parent: [PartHumanoidMurine, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: l_leg
+  - type: MovementBodyPart
+    walkSpeed : 2.7
+    sprintSpeed : 4.5
+
+- type: entity
+  id: RightLegHumanoidMurine
+  name: "правая нога мурина"
+  parent: [PartHumanoidMurine, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: r_leg
+  - type: MovementBodyPart
+    walkSpeed : 2.7
+    sprintSpeed : 4.5
+
+- type: entity
+  id: LeftFootHumanoidMurine
+  name: "левая стопа мурина"
+  parent: [PartHumanoidMurine, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: l_foot
+
+- type: entity
+  id: RightFootHumanoidMurine
+  name: "правая стопа мурина"
+  parent: [PartHumanoidMurine, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: r_foot

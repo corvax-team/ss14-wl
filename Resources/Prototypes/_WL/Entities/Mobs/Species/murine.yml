@@ -1,0 +1,62 @@
+- type: entity
+  save: false
+  name: Урист МакМурин
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobHumanoidMurine
+  abstract: true
+  components:
+  - type: HumanoidAppearance
+    species: Murine
+  - type: Hunger
+    baseDecayRate: 0.032
+  - type: Item
+    size: Huge
+  - type: CanEscapeInventory
+    baseResistTime: 1
+  - type: MultiHandedItem
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+  - type: Speech
+    speechSounds: Squeak
+    audioParams:
+      volume: -5
+  - type: Perishable
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Piercing: 5
+  - type: Thirst
+    baseDecayRate: 0.12
+  - type: Icon
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: full
+  - type: Body
+    prototype: HumanoidMurine
+    requiredLegs: 2
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  - type: Stamina
+    critThreshold: 60
+
+- type: entity
+  save: false
+  name: Урист МакМурин
+  parent: MobHumanDummy
+  id: MobMurineDummy
+  noSpawn: true
+  description: A dummy vulp meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Murine

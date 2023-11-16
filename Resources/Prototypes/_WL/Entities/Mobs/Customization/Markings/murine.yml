@@ -1,0 +1,17 @@
+- type: marking
+  id: MurineTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Murine]
+  sprites:
+    - sprite: _WL/Mobs/Customization/murine_parts.rsi
+      state: tail
+
+- type: marking
+  id: MurineEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Murine]
+  sprites:
+    - sprite: _WL/Mobs/Customization/murine_parts.rsi
+      state: ears
