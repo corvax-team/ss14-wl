@@ -1,0 +1,11 @@
+- type: damageContainer
+  id: BioRobotic
+  supportedGroups:
+    - Airloss
+    - Brute
+  supportedTypes:
+    - Heat
+    - Cold
+    - Shock
+    - Bloodstream
+    - Caustic

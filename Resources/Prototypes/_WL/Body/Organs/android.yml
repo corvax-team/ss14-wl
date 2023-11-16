@@ -1,0 +1,197 @@
+- type: entity
+  id: BaseAndroidOrgan
+  parent: BaseItem
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Android/organs.rsi
+    - type: Organ
+    - type: Food
+    - type: Extractable
+      grindableSolutionName: organ
+    - type: SolutionContainerManager
+      solutions:
+        organ:
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 10
+        food:
+          maxVol: 5
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 5
+    - type: FlavorProfile
+      flavors:
+        - people
+    - type: Tag
+      tags:
+      - AndroidBodyTag
+
+- type: entity
+  id: OrganAndroidBrain
+  parent: BaseAndroidOrgan
+  name: биосинтетический мозг
+  description: "Источник совершенного интелекта. Буп!"
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    state: brain
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: BlockMovement
+
+- type: entity
+  id: OrganAndroidEyes
+  parent: BaseAndroidOrgan
+  name: биосинтетические глаза
+  description: "Они слишком живые... Для электронных..."
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+
+
+- type: entity
+  id: OrganAndroidTongue
+  parent: BaseAndroidOrgan
+  name: искуственный язык
+  description: "Механическая мышца с датчиками, заменяющими человеческие рецепторы."
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    state: tongue
+
+- type: entity
+  id: OrganAndroidAppendix
+  parent: BaseAndroidOrgan
+  name: искуственный аппендикс
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    layers:
+    - state: appendix
+    - state: appendix-inflamed
+      visible: false
+
+- type: entity
+  id: OrganAndroidEars
+  parent: BaseAndroidOrgan
+  name: биосинтетические уши
+  description: "Безупречный слух."
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    state: ears
+
+- type: entity
+  id: OrganAndroidLungs
+  parent: BaseAndroidOrgan
+  name: биосинтетические лёгкие
+  description: "Дыши сколько влезет!"
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Biorobotic ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+
+- type: entity
+  id: OrganAndroidHeart
+  parent: BaseAndroidOrgan
+  name: биосинтетическое сердце
+  description: "Оно тяжелее, чем человеческое..."
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    state: heart-on
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Biorobotic]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: OrganAndroidStomach
+  parent: BaseAndroidOrgan
+  name: биосинтетический желудок
+  description: "Андроиды же не едят..."
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    state: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [ Biorobotic ]
+    groups:
+    - id: Food
+    - id: Drink
+
+- type: entity
+  id: OrganAndroidLiver
+  parent: BaseAndroidOrgan
+  name: биосинтетическая печень
+  description: "Попробуй загубить такую."
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    state: liver
+  - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
+    maxReagents: 1
+    metabolizerTypes: [ Biorobotic ]
+    groups:
+    - id: Alcohol
+
+- type: entity
+  id: OrganAndroidKidneys
+  parent: BaseAndroidOrgan
+  name: механические почки
+  description: "Возможно они нужны..."
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/organs.rsi
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+  # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [ Biorobotic ]
+    removeEmpty: true

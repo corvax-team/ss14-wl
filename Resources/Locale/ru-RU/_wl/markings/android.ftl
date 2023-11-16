@@ -1,0 +1,1 @@
+marking-AndroidSensors = Андроид, диоды

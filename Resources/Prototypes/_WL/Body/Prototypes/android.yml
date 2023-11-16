@@ -1,0 +1,49 @@
+- type: body
+  id: Android
+  name: "android"
+  root: torso
+  slots:
+    head:
+      part: HeadAndroid
+      connections:
+      - torso
+      organs:
+        brain: OrganAndroidBrain
+        eyes: OrganAndroidEyes
+    torso:
+      part: TorsoAndroid
+      connections:
+      - left arm
+      - right arm
+      - left leg
+      - right leg
+      organs:
+        heart: OrganAndroidHeart
+        lungs: OrganAndroidLungs
+        stomach: OrganAndroidStomach
+        liver: OrganAndroidLiver
+        kidneys: OrganAndroidKidneys
+    right arm:
+      part: RightArmAndroid
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmAndroid
+      connections:
+      - left hand
+    right hand:
+      part: RightHandAndroid
+    left hand:
+      part: LeftHandAndroid
+    right leg:
+      part: RightLegAndroid
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegAndroid
+      connections:
+      - left foot
+    right foot:
+      part: RightFootAndroid
+    left foot:
+      part: LeftFootAndroid

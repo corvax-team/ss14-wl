@@ -405,6 +405,8 @@
     staticRecipes:
     - MMI
     - PositronicBrain
+    - BioTube # WL android species
+    - TiriumPack # WL android species
     - SciFlash
     - BorgModuleCable
     - BorgModuleFireExtinguisher

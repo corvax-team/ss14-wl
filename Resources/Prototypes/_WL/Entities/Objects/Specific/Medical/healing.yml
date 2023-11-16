@@ -1,0 +1,78 @@
+- type: entity
+  name: Био трубка
+  description: Заменяет андроидам вены.
+  suffix: Полный
+  parent: BaseHealingItem
+  id: BioTube
+  components:
+  - type: Tag
+    tags:
+    - Gauze
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/medical.rsi
+    state: bio_tube
+  - type: Healing
+    damageContainers:
+      - BioRobotic
+    damage:
+      types:
+        Slash: -5
+        Piercing: -10
+    bloodlossModifier: -10
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: BioTube
+    count: 10
+  - type: StackPrice
+    price: 100
+
+- type: entity
+  id: BioTube1
+  parent: BioTube
+  suffix: Один
+  components:
+  - type: Stack
+    stackType: BioTube
+    count: 1
+
+- type: entity
+  name: Пакет с тириумом
+  suffix: Полный
+  description: Поможет восстановить потеряную биожидкость.
+  parent: BaseHealingItem
+  id: TiriumPack
+  components:
+  - type: Tag
+    tags:
+    - Bloodpack
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/medical.rsi
+    state: tirium_pack
+  - type: Healing
+    damageContainers:
+      - BioRobotic
+    damage:
+      types:
+        Bloodloss: -0.6
+    ModifyBloodLevel: 15
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: TiriumPack
+    count: 10
+  - type: StackPrice
+    price: 100
+
+- type: entity
+  id: TiriumPack1
+  parent: TiriumPack
+  suffix: Один
+  components:
+  - type: Stack
+    stackType: BioTube
+    count: 1

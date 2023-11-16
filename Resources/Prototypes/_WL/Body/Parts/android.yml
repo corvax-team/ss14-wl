@@ -1,0 +1,120 @@
+- type: entity
+  id: PartAndroid
+  parent: BasePart
+  name: "android body part"
+  abstract: true
+  components:
+    - type: Extractable
+      juiceSolution:
+        reagents:
+          - ReagentId: Tirium
+            Quantity: 10
+    - type: Tag
+      tags:
+      - AndroidBodyTag
+
+- type: entity
+  id: TorsoAndroid
+  name: "туловище андроида"
+  parent: [PartAndroid, BaseTorso]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Android/parts.rsi
+      state: "torso_m"
+    - type: Extractable
+      juiceSolution:
+        reagents:
+          - ReagentId: Tirium
+            Quantity: 20
+
+- type: entity
+  id: HeadAndroid
+  name: "голова андроида"
+  parent: [PartAndroid, BaseHead]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Tirium
+          Quantity: 20
+
+- type: entity
+  id: LeftArmAndroid
+  name: "левая рука андроида"
+  parent: [PartAndroid, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmAndroid
+  name: "правая рука андроида"
+  parent: [PartAndroid, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandAndroid
+  name: "левая ладонь андроида"
+  parent: [PartAndroid, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandAndroid
+  name: "правая ладонь андроида"
+  parent: [PartAndroid, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegAndroid
+  name: "левая нога андроида"
+  parent: [PartAndroid, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: "l_leg"
+  - type: MovementBodyPart
+    walkSpeed : 2.7
+    sprintSpeed : 4.5
+
+- type: entity
+  id: RightLegAndroid
+  name: "правая нога андроида"
+  parent: [PartAndroid, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: "r_leg"
+  - type: MovementBodyPart
+    walkSpeed : 2.7
+    sprintSpeed : 4.5
+
+- type: entity
+  id: LeftFootAndroid
+  name: "левая стопа андроида"
+  parent: [PartAndroid, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootAndroid
+  name: "правая стопа андроида"
+  parent: [PartAndroid, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: "r_foot"

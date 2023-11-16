@@ -9,6 +9,9 @@
   components:
   - type: Sprite
     layers:
+    - map: ["enum.BorgVisualLayers.Light"] # WL android race
+      shader: unshaded
+      visible: false
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]

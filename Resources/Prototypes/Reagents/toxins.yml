@@ -64,6 +64,11 @@
         - !type:ReagentThreshold
           reagent: ChloralHydrate
           min: 15
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
         key: ForcedSleep
         component: ForcedSleeping
         refresh: false
@@ -73,6 +78,11 @@
         - !type:ReagentThreshold
           reagent: ChloralHydrate
           min: 20
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
         damage:
           types:
             Poison: 1.5
@@ -286,6 +296,12 @@
         damage:
           types:
             Asphyxiation: 2
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -304,6 +320,12 @@
         damage:
           groups:
             Airloss: 7
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
 
 - type: reagent
   id: MindbreakerToxin
@@ -333,11 +355,22 @@
         damage:
           groups:
             Brute: 2
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 45
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
         damage:
           groups:
             Brute: 2
@@ -510,6 +543,12 @@
         component: Pacified
         refresh: false
         type: Add
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Honk
@@ -536,7 +575,7 @@
         damage:
           types:
             Poison: 0.06
-            
+
 
 - type: reagent
   id: Lead

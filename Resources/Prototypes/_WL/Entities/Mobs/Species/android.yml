@@ -1,0 +1,178 @@
+- type: entity
+  save: false
+  name: Urist McAndroid
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobAndroid
+  abstract: true
+  components:
+  - type: HealthExaminable
+    examinableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+      - Cold
+      - Caustic
+  - type: Bloodstream
+    bloodReagent: Tirium
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          1.05
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -1.05
+    ChemicalMaxVolume: 0
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [Touch, Ingestion, Injection]
+      effects:
+      - !type:Electrocute
+        probability: 0.05
+        electrocuteDamageScale: 1
+      - !type:PopupMessage
+        type: Local
+        visualType: LargeCaution
+        messages: "Вы чувствуете жжение внутри."
+        probability: 0.25
+  - type: StatusEffects
+    allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - Electrocution
+      - SlurredSpeech
+      - RatvarianLanguage
+      - PressureImmunity
+      - Muted
+      - Pacified
+      - TemporaryBlindness
+      - StaminaModifier
+  - type: Icon
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: full
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+  - type: Temperature
+    heatDamageThreshold: 460
+    coldDamageThreshold: 270.3 #293.3 предел
+    currentTemperature: 310.15
+    specificHeat: 42 #42
+    coldDamage:
+      types:
+        Cold: 0.2 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 0.1 #per second, scales with temperature & other constants
+  - type: HumanoidAppearance
+    species: Android
+  - type: Body
+    prototype: Android
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: BioRobotic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 600
+        behaviors:
+          - !type:GibBehavior { }
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      0: 0.6
+      60: 0.4
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#1d5386"
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 8
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+      - id: Plastic
+        amount: 5
+  - type: Repairable
+    damage:
+      types:
+        Blunt: -10
+        Slash: -10
+        Piercing: -10
+        Heat: -10
+        Shock: -10
+        Caustic: -10
+        Asphyxiation: -10
+    fuelCost: 5
+    doAfterDelay: 3
+  - type: Speech
+    speechSounds: Pai
+  - type: TypingIndicator
+    proto: robot
+  - type: MobPrice
+    price: 6000 # Android biocomponents are appreciated in the market...
+    deathPenalty: 1000
+  - type: Perishable
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: true
+  - type: PowerCellDraw
+    drawRate: 1
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: light
+    noMindState: light
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+        disableEject: true
+        locked: true
+        insertOnInteract: true
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot { }
+  - type: Uncloneable
+  - type: Tag
+    tags:
+    - AndroidBodyTag
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+
+- type: entity
+  save: false
+  name: Урист МакАндроид
+  description: A dummy android meant to be used in character setup.
+  id: MobAndroidDummy
+  parent: MobHumanDummy
+  noSpawn: true
+  components:
+  - type: HumanoidAppearance
+    species: Android
+
+- type: Tag
+  id: AndroidBodyTag

@@ -1,0 +1,141 @@
+- type: species
+  id: Android
+  name: Андроид
+  roundStart: true
+  prototype: MobAndroid
+  sprites: MobAndroidSprites
+  markingLimits: MobAndroidMarkingLimits
+  dollPrototype: MobAndroidDummy
+  skinColoration: Hues
+
+- type: speciesBaseSprites
+  id: MobAndroidSprites
+  sprites:
+    Head: MobAndroidHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Chest: MobAndroidTorso
+    HeadTop: MobHumanoidAnyMarking # Corvax-Sponsors
+    Tail: MobHumanoidAnyMarking # Corvax-Sponsors
+    Eyes: MobHumanoidEyes
+    LArm: MobAndroidLArm
+    RArm: MobAndroidRArm
+    LHand: MobAndroidLHand
+    RHand: MobAndroidRHand
+    LLeg: MobAndroidLLeg
+    RLeg: MobAndroidRLeg
+    LFoot: MobAndroidLFoot
+    RFoot: MobAndroidRFoot
+    Groin: MobHumanoidAnyMarking # WL-Underwear
+    Breast: MobHumanoidAnyMarking # WL-Underwear
+    Foots: MobHumanoidAnyMarking # WL-Underwear
+
+- type: markingPoints
+  id: MobAndroidMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Underwear: # WL-Underwear
+      points: 1
+      required: false
+    Undershirt: # WL-Underwear
+      points: 1
+      required: false
+    Socks: # WL-Underwear
+      points: 1
+      required: false
+    Overlay:
+      points: 1
+      required: true
+      defaultMarkings: [ AndroidSensors ]
+
+- type: humanoidBaseSprite
+  id: MobAndroidHeadMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobAndroidHeadFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobAndroidHead
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobAndroidTorso
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAndroidTorsoMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAndroidTorsoFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobAndroidLLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobAndroidLArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobAndroidLHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobAndroidLFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobAndroidRLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobAndroidRArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobAndroidRHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobAndroidRFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Android/parts.rsi
+    state: r_foot

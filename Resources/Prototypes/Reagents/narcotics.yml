@@ -19,6 +19,11 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
         damage:
           types:
             Poison: 2 # this is added to the base damage of the meth.
@@ -28,24 +33,53 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       - !type:Jitter
       - !type:GenericStatusEffect
         key: Stun
         time: 3
         type: Remove
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 3
         type: Remove
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
     Medicine:
       effects:
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentThreshold
           min: 20
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Ephedrine
@@ -63,10 +97,21 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 20
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
         damage:
           types:
             Poison: 2 # this is added to the base damage of the meth.
@@ -76,10 +121,22 @@
         key: Stun
         time: 1
         type: Remove
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 1
         type: Remove
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       - !type:PopupMessage
         visualType: Medium
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
@@ -91,6 +148,11 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
 
 - type: reagent
   id: Stimulants
@@ -142,6 +204,9 @@
           - !type:TotalDamage
             min: 70
             max: 120 # you've got a chance to get out of crit
+          - !type:OrganType # WL android race
+            type: Biorobotic
+            shouldHave: false
           damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
             groups:
               Burn: -1
@@ -268,6 +333,11 @@
         - !type:ReagentThreshold
           reagent: Nocturine
           min: 8
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
         key: ForcedSleep
         component: ForcedSleeping
         refresh: false
@@ -288,6 +358,12 @@
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
 
 - type: reagent
   id: NorepinephricAcid
@@ -324,6 +400,11 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
         probability: 0.03
         #If anyone wants to add a light dimming or grayscale effect when under 20u, be my guest
       - !type:GenericStatusEffect
@@ -332,3 +413,8 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end

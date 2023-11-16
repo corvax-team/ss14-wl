@@ -1,0 +1,14 @@
+
+- type: marking
+  id: AndroidSensors
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Android]
+  sprites:
+  - sprite: _WL/Mobs/Customization/android_parts.rsi
+    state: sensors
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#159CFF"

@@ -1,0 +1,15 @@
+- type: stack
+  id: BioTube
+  name: био трубка
+  icon: { sprite: "_WL/Entities/Objects/Specific/Medical/medical.rsi", state: bio_tube }
+  spawn: BioTube
+  maxCount: 10
+  itemSize: 1
+
+- type: stack
+  id: TiriumPack
+  name: пакет тириума
+  icon: { sprite: "_WL/Entities/Objects/Specific/Medical/medical.rsi", state: tirium_pack }
+  spawn: TiriumPack
+  maxCount: 10
+  itemSize: 1
