@@ -32,3 +32,8 @@
     - /Audio/_WL/Voice/Kidan/sneeze2.ogg
     - /Audio/_WL/Voice/Kidan/sneeze2.ogg
     - /Audio/_WL/Voice/Kidan/sneeze3.ogg
+
+- type: soundCollection
+  id: MurineLaugh
+  files:
+    - /Audio/_WL/Voice/Murine/murine_laugh.ogg

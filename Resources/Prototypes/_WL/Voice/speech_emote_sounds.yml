@@ -146,3 +146,39 @@
       collection: MaleSigh
     Crying:
       collection: MaleCry
+
+- type: emoteSounds
+  id: FemaleMurine
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: MurineScream
+    Laugh:
+      collection: MurineLaugh
+    Snore:
+      collection: Snores
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+
+- type: emoteSounds
+  id: MaleMurine
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: MurineScream
+    Laugh:
+      collection: MurineLaugh
+    Snore:
+      collection: Snores
+    Whistle:
+      collection: Whistles
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
