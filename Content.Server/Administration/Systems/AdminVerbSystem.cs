@@ -156,6 +156,21 @@ namespace Content.Server.Administration.Systems
                         Impact = LogImpact.Extreme,
                         ConfirmationPopup = true
                     });
+
+                    // EraseManifest
+                    args.Verbs.Add(new Verb
+                    {
+                        Text = Loc.GetString("Манифест"),
+                        Message = Loc.GetString("Убирает игрока из манифеста"),
+                        Category = VerbCategory.Admin,
+                        Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png")),
+                        Act = () =>
+                        {
+                            _adminSystem.EraseManifest(targetActor.PlayerSession);
+                        },
+                        Impact = LogImpact.Extreme,
+                        ConfirmationPopup = true
+                    });
                 }
 
                 // Admin Logs

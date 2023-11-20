@@ -393,5 +393,34 @@ namespace Content.Server.Administration.Systems
 
             _gameTicker.SpawnObserver(player);
         }
+        public void EraseManifest(ICommonSession player)
+        {
+            var entity = player.AttachedEntity;
+            if (entity != null && !TerminatingOrDeleted(entity.Value))
+            {
+                foreach (var item in _inventory.GetHandOrInventoryEntities(entity.Value))
+                {
+                    if (TryComp(item, out PdaComponent? pda) &&
+                        TryComp(pda.ContainedId, out StationRecordKeyStorageComponent? keyStorage) &&
+                        keyStorage.Key is { } key &&
+                        _stationRecords.TryGetRecord(key.OriginStation, key, out GeneralStationRecord? record))
+                    {
+                        if (TryComp(entity, out DnaComponent? dna) &&
+                            dna.DNA != record.DNA)
+                        {
+                            continue;
+                        }
+
+                        if (TryComp(entity, out FingerprintComponent? fingerPrint) &&
+                            fingerPrint.Fingerprint != record.Fingerprint)
+                        {
+                            continue;
+                        }
+
+                        _stationRecords.RemoveRecord(key.OriginStation, key);
+                    }
+                }
+            }
+        }
     }
 }
