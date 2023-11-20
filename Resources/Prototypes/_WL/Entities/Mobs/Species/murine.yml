@@ -21,6 +21,7 @@
       Unsexed: Mouse
   - type: Speech
     speechSounds: Squeak
+    speechVerb: SmallMob
     audioParams:
       volume: -5
   - type: Perishable
@@ -54,7 +55,7 @@
   save: false
   name: Урист МакМурин
   parent: MobHumanDummy
-  id: MobMurineDummy
+  id: MobHumanoidMurineDummy
   noSpawn: true
   description: A dummy vulp meant to be used in character setup.
   components:

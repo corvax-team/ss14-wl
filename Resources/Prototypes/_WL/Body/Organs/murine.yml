@@ -20,6 +20,10 @@
   parent: BaseAnimalOrgan
   name: почки мурина
   components:
+  - type: Sprite
+    layers:
+    - state: kidney-l
+    - state: kidney-r
   - type: Organ
   - type: Metabolizer
     updateFrequency: 0.5
@@ -33,6 +37,8 @@
   name: печень мурина
   noSpawn: true
   components:
+  - type: Sprite
+    state: liver
   - type: Organ
   - type: Metabolizer
     maxReagents: 1
@@ -47,6 +53,8 @@
   parent: OrganRatStomach
   name: желудок мурина
   components:
+  - type: Sprite
+    state: stomach
   - type: Metabolizer
     maxReagents: 3
     updateFrequency: 0.5

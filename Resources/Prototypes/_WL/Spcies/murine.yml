@@ -20,7 +20,7 @@
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
-    Eyes: MobHumanoidEyes
+    Eyes: MobMurineEyes
     LArm: MobMurineLArm
     RArm: MobMurineRArm
     LHand: MobMurineLHand
@@ -73,7 +73,19 @@
     state: head_m
 
 - type: humanoidBaseSprite
+  id: MobMurineEyes
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
   id: MobMurineHeadMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMurineHeadFemale
   baseSprite:
     sprite: _WL/Mobs/Species/Murine/parts.rsi
     state: head_m

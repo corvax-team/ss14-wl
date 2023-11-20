@@ -2,4 +2,4 @@
   save: false
   name: Урист МакМурин
   parent: [BaseMobHumanoidMurine, BaseMob]
-  id: MobMurine
+  id: MobHumanoidMurine
