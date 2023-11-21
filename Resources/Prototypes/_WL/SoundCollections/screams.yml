@@ -26,9 +26,3 @@
   files:
     - /Audio/_WL/Voice/Tayar/mscream_1.ogg
     - /Audio/_WL/Voice/Tayar/mscream_2.ogg
-
-- type: soundCollection
-  id: MurineScream
-  files:
-    - /Audio/_WL/Voice/Murine/murine_scream.ogg
-    - /Audio/Animals/mouse_squeak.ogg

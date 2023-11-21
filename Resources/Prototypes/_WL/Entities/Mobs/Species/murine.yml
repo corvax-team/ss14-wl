@@ -16,9 +16,9 @@
   - type: MultiHandedItem
   - type: Vocal
     sounds:
-      Male: MaleMurine
-      Female: FemaleMurine
-      Unsexed: MaleMurine
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
   - type: Speech
     speechSounds: Squeak
     speechVerb: SmallMob
