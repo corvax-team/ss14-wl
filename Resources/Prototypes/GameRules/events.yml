@@ -69,7 +69,8 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
+    minimumPlayers: 10 # Corvax WL adjustments
+    weight: 5 # Corvax WL adjustments
     duration: 1
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
