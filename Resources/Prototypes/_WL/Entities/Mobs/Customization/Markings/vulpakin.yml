@@ -12,11 +12,47 @@
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanines]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+    layers:
+      vulp_ear_inner:
+        type:
+          !type:SimpleColoring
+            color: "#FFC0CB"
   sprites:
-  - sprite: Corvax/Mobs/Customization/fox_parts.rsi
-    state: ears_fox_outer
-  - sprite: Corvax/Mobs/Customization/fox_parts.rsi
-    state: ears_fox_inner
+    - sprite: _WL/Mobs/Customization/vulpakin_parts.rsi
+      state: vulp_ear
+    - sprite: _WL/Mobs/Customization/vulpakin_parts.rsi
+      state: vulp_ear_inner
+
+#- type: marking
+#  id: PawSocks
+#  markingCategory: Overlay
+#  bodyPart: RFoot #highest possible layer
+#  speciesRestriction: [Vulpkanines]
+#  sprites:
+#    - sprite: _WL/Mobs/Customization/vulpakin_parts.rsi
+#      state: pawsocks
+
+- type: marking
+  id: VulpkaninesBelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Vulpkanines]
+  sprites:
+    - sprite: _WL/Mobs/Customization/vulpakin_parts.rsi
+      state: vulp_belly-torso
+
+- type: marking
+  id: VulpkaninesSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Vulpkanines]
+  sprites:
+    - sprite: _WL/Mobs/Customization/vulpakin_parts.rsi
+      state: vulp_face
 
 - type: marking
   id: VulpkaninesTailFox
@@ -37,26 +73,6 @@
       state: fox_tail
     - sprite: _WL/Mobs/Customization/vulpakin_parts.rsi
       state: fox_tail_outer
-
-- type: marking
-  id: VulpkaninesTailKitsune
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Vulpkanines]
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
-    layers:
-      kitsune_tail_outer:
-        type:
-          !type:SimpleColoring
-            color: "#FFFFFF"
-  sprites:
-    - sprite: _WL/Mobs/Customization/vulpakin_parts.rsi
-      state: kitsune_tail
-    - sprite: _WL/Mobs/Customization/vulpakin_parts.rsi
-      state: kitsune_tail_outer
 
 - type: marking
   id: VulpkaninesTailOtie

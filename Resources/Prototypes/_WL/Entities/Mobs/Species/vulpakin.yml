@@ -7,14 +7,37 @@
   components:
     - type: Body
       prototype: Vulpkanin
+      requiredLegs: 2
     - type: HumanoidAppearance
       species: Vulpkanines
     - type: Hunger
     - type: Thirst
     - type: Icon
       sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-      state: vulp_full
+      state: full
     - type: VulpAccent
+    - type: Inventory
+      speciesId: digi
+    - type: Eye
+      zoom: "1.125, 1.125"
+    - type: MeleeWeapon
+      animation: WeaponArcClaw
+      soundHit:
+        collection: AlienClaw
+      damage:
+        types:
+          Slash: 8
+    - type: LightweightDrunk
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: Vulpkanin
+    - type: Respirator
+      damage:
+        types:
+          Asphyxiation: 2.0
+      damageRecovery:
+        types:
+          Asphyxiation: -2.0
 
 - type: entity
   save: false

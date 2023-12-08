@@ -40,7 +40,7 @@
       points: 1
       required: false
     FacialHair:
-      points: 1
+      points: 0
       required: false
     Tail:
       points: 1
@@ -48,13 +48,14 @@
       defaultMarkings: [ VulpkaninesTail ]
     Snout:
       points: 1
-      required: false
+      required: true
+      defaultMarkings: [ VulpkaninesSnout ]
     HeadTop:
       points: 1
       required: true
       defaultMarkings: [ VulpkaninesEars ]
     HeadSide:
-      points: 0
+      points: 1
       required: false
     Underwear: # WL-Underwear
       points: 1
@@ -70,82 +71,82 @@
   id: MobVulpkaninHead
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_head_m
+    state: head_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHeadMale
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_head_m
+    state: head_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninHeadFemale
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_head_f
+    state: head_f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninTorso
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_torso_m
+    state: torso_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninTorsoMale
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_torso_m
+    state: torso_m
 
 - type: humanoidBaseSprite
   id: MobVulpkaninTorsoFemale
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_torso_f
+    state: torso_f
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLLeg
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_l_leg
+    state: l_leg
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLHand
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_l_hand
+    state: l_hand
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLArm
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_l_arm
+    state: l_arm
 
 - type: humanoidBaseSprite
   id: MobVulpkaninLFoot
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_l_foot
+    state: l_foot
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRLeg
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_r_leg
+    state: r_leg
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRHand
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_r_hand
+    state: r_hand
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRArm
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_r_arm
+    state: r_arm
 
 - type: humanoidBaseSprite
   id: MobVulpkaninRFoot
   baseSprite:
     sprite: _WL/Mobs/Species/Vulpakin/parts.rsi
-    state: vulp_r_foot
+    state: r_foot
