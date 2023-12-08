@@ -1,0 +1,43 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from races WL prototype",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ears",
+            "directions": 4
+        },
+        {
+            "name": "tail",
+            "directions": 4
+        },
+        {
+            "name": "hand_left",
+            "directions": 4
+        },
+        {
+            "name": "hand_right",
+            "directions": 4
+        },
+        {
+            "name": "arm_right",
+            "directions": 4
+        },
+        {
+            "name": "arm_left",
+            "directions": 4
+        },
+        {
+            "name": "leg_left",
+            "directions": 4
+        },
+        {
+            "name": "leg_right",
+            "directions": 4
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+- type: entity
+  id: OrganMurineHeart
+  parent: BaseAnimalOrgan
+  name: сердце мурина
+  components:
+  - type: Sprite
+    state: heart-on
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 2
+    updateFrequency: 0.5
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: OrganMurineKidneys
+  parent: BaseAnimalOrgan
+  name: почки мурина
+  components:
+  - type: Sprite
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+  - type: Organ
+  - type: Metabolizer
+    updateFrequency: 0.5
+    maxReagents: 5
+    metabolizerTypes: [ Animal ]
+    removeEmpty: true
+
+- type: entity
+  id: OrganMurineLiver
+  parent: BaseAnimalOrgan
+  name: печень мурина
+  noSpawn: true
+  components:
+  - type: Sprite
+    state: liver
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 1
+    updateFrequency: 0.5
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  id: OrganMurineStomach
+  parent: OrganRatStomach
+  name: желудок мурина
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Metabolizer
+    maxReagents: 3
+    updateFrequency: 0.5
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Food
+    - id: Drink

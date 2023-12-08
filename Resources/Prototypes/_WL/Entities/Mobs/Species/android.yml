@@ -24,7 +24,7 @@
       types:
         Bloodloss:
           -1.05
-    ChemicalMaxVolume: 0
+    chemicalMaxVolume: 0
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -112,9 +112,9 @@
         Blunt: 8
   - type: Butcherable
     butcheringType: Spike
-    spawned:
-      - id: Plastic
-        amount: 5
+#    spawned:
+#      - id: Plastic
+#        amount: 5
   - type: Repairable
     damage:
       types:

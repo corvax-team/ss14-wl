@@ -41,7 +41,6 @@
   - type: Perishable
   - type: CanEscapeInventory
     baseResistTime: 1
-  - type: MultiHandedItem
 
 - type: entity
   save: false
@@ -57,7 +56,11 @@
     context: "human"
   - type: OwOAccent
   - type: Item
-    size: Huge
+    size: Ginormous
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
+  - type: MultiHandedItem
   - type: MobMover
   - type: InputMover
   - type: Respirator

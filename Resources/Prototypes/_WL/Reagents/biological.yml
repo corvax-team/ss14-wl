@@ -3,7 +3,7 @@
   name: тириум
   group: Biological
   desc: Голубая кровь андроида...
-  flavor: химически-масляно
+  flavor: oily
   color: "#224dff"
   recognizable: true
   physicalDesc: reagent-physical-desc-viscous

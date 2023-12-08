@@ -1,0 +1,157 @@
+- type: species
+  id: Murine
+  name: Мурин
+  roundStart: true
+  prototype: MobHumanoidMurine
+  sprites: MobMurineSprites
+  defaultSkinTone: "#FFFFFF"
+  markingLimits: MobMurineMarkingLimits
+  dollPrototype: MobHumanoidMurineDummy
+  skinColoration: Hues
+
+- type: speciesBaseSprites
+  id: MobMurineSprites
+  sprites:
+    Head: MobMurineHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobMurineTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobMurineEyes
+    LArm: MobMurineLArm
+    RArm: MobMurineRArm
+    LHand: MobMurineLHand
+    RHand: MobMurineRHand
+    LLeg: MobMurineLLeg
+    RLeg: MobMurineRLeg
+    LFoot: MobMurineLFoot
+    RFoot: MobMurineRFoot
+    Groin: MobHumanoidAnyMarking # WL-Underwear
+    Breast: MobHumanoidAnyMarking # WL-Underwear
+    Foots: MobHumanoidAnyMarking # WL-Underwear
+
+- type: markingPoints
+  id: MobMurineMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ MurineTail ]
+    Snout:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ MurineEars ]
+    HeadSide:
+      points: 0
+      required: false
+    Underwear: # WL-Underwear
+      points: 1
+      required: false
+    Undershirt: # WL-Underwear
+      points: 1
+      required: false
+    Socks: # WL-Underwear
+      points: 1
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobMurineHead
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMurineEyes
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobMurineHeadMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMurineHeadFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMurineTorso
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobMurineTorsoMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobMurineTorsoFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobMurineLLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobMurineLHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobMurineLArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobMurineLFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobMurineRLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobMurineRHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobMurineRArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobMurineRFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: r_foot

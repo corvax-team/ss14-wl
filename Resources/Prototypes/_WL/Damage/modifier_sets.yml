@@ -1,0 +1,7 @@
+- type: damageModifierSet
+  id: Murine
+  coefficients:
+    Poison: 0.5
+    Radiation: 0.5
+    Cold: 0.8
+    Heat: 1.2
