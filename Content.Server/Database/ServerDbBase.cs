@@ -585,7 +585,8 @@ namespace Content.Server.Database
             string userName,
             IPAddress address,
             ImmutableArray<byte> hwId,
-            ConnectionDenyReason? denied);
+            ConnectionDenyReason? denied,
+            int serverId);
 
         public async Task AddServerBanHitsAsync(int connection, IEnumerable<ServerBanDef> bans)
         {

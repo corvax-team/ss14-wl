@@ -306,6 +306,8 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
+  - type: FireVisuals
+    alternateState: Standing
 
 - type: entity
   save: false
