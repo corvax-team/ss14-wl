@@ -1,5 +1,0 @@
-- type: entity
-  save: false
-  name: Урист МакВульп
-  parent: [BaseMobVulpkanin, BaseMob]
-  id: MobVulpkanin

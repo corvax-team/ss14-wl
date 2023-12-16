@@ -35,6 +35,24 @@
 # WL android species end
 
 - type: reagent
+  id: HotCocoa
+  name: reagent-name-cocoa
+  parent: BaseDrink
+  desc: reagent-desc-cocoa
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: chocolate
+  color: "#664300"
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Theobromine
+        amount: 0.05
+
+- type: reagent
   id: Cream
   name: reagent-name-cream
   group: Drinks
@@ -658,47 +676,3 @@
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/rewriter.rsi
     state: icon
-
-- type: reagent
-  id: TheMartinez
-  name: reagent-name-the-martinez
-  parent: BaseDrink
-  desc: reagent-desc-the-martinez
-  physicalDesc: reagent-physical-desc-vibrant
-  flavor: themartinez
-  color: "#75b1f0"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/the_martinez.rsi
-    state: icon
-
-- type: reagent
-  id: WhiteGilgamesh
-  name: reagent-name-white-gilgamesh
-  parent: BaseDrink
-  desc: reagent-desc-white-gilgamesh
-  physicalDesc: reagent-physical-desc-creamy
-  flavor: white-gilgamesh
-  color: "#e5d27e"
-  metabolisms:
-    Drink:
-      effects:
-        - !type:SatiateThirst
-          factor: 1
-# WL android species start
-        - !type:HealthChange
-          conditions:
-          - !type:ReagentThreshold
-            min: 10
-          - !type:OrganType
-            type: Biorobotic
-          damage:
-            types:
-              Shock: 1
-        - !type:Electrocute
-          probability: 0.1
-          conditions:
-          - !type:OrganType
-            type: Biorobotic
-          - !type:ReagentThreshold
-            min: 10
-# WL android species end

@@ -49,6 +49,7 @@ namespace Content.IntegrationTests.Tests
 			"CorvaxSpectrum",
             "CorvaxGate",
             "CorvaxSilly",
+            "CorvaxOutpost",
             // Corvax-End
             "Dev",
             "TestTeg",
@@ -67,7 +68,7 @@ namespace Content.IntegrationTests.Tests
             "Saltern",
             "Core",
             "Marathon",
-            "Kettle",
+            "Gemini",
             "MeteorArena",
             "Atlas"
         };
