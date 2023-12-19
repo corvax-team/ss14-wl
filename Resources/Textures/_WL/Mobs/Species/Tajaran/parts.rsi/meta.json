@@ -8,50 +8,54 @@
   },
   "states": [
 		{
-      "name": "tayar_full"
+      "name": "tajaran_full"
     },
     {
-      "name": "tayar_head_m",
+      "name": "tajaran_head_m",
       "directions": 4
     },
     {
-      "name": "tayar_l_arm",
+      "name": "tajaran_l_arm",
       "directions": 4
     },
     {
-      "name": "tayar_l_foot",
+      "name": "tajaran_l_foot",
       "directions": 4
     },
     {
-      "name": "tayar_l_hand",
+      "name": "tajaran_l_hand",
       "directions": 4
     },
     {
-      "name": "tayar_l_leg",
+      "name": "tajaran_l_leg",
       "directions": 4
     },
     {
-      "name": "tayar_pawsocks",
+      "name": "tajaran_pawsocks",
       "directions": 4
     },
     {
-      "name": "tayar_r_arm",
+      "name": "tajaran_r_arm",
       "directions": 4
     },
     {
-      "name": "tayar_r_foot",
+      "name": "tajaran_r_foot",
       "directions": 4
     },
     {
-      "name": "tayar_r_hand",
+      "name": "tajaran_r_hand",
       "directions": 4
     },
     {
-      "name": "tayar_r_leg",
+      "name": "tajaran_r_leg",
       "directions": 4
     },
     {
-      "name": "tayar_torso_m",
+      "name": "tajaran_torso_m",
+      "directions": 4
+    },
+    {
+      "name": "tajaran_torso_f",
       "directions": 4
     }
   ]

@@ -1,0 +1,79 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Skyrat /tg/ from https://github.com/Skyrat-SS13/Skyrat-tg/tree/686569101b779fc089142a1faeae91773db60bc6/modular_skyrat/master_files/icons/mob/sprite_accessory, markings from https://github.com/Skyrat-SS13/Skyrat-tg/tree/686569101b779fc089142a1faeae91773db60bc6/modular_skyrat/master_files/icons/mob/body_markings",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "tajaran_chest_f",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_chest_m",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_ears",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_ears_secondary",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_head",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_snout_primary",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_snout_secondary",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_tail",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_tail_tiger",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_tail_tiger_secondary",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_tail_tiger_tertiary",
+            "directions": 4
+        },
+        {
+            "name": "tiger_chest_f",
+            "directions": 4
+        },
+        {
+            "name": "tiger_chest_m",
+            "directions": 4
+        },
+        {
+            "name": "tiger_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "tiger_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "tiger_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "tiger_r_leg",
+            "directions": 4
+        }
+    ]
+}

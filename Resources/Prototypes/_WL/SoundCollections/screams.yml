@@ -16,13 +16,13 @@
     - /Audio/_WL/Voice/Kidan/scream_2.ogg
 
 - type: soundCollection
-  id: TayarSoundF
+  id: TajaranSoundF
   files:
-    - /Audio/_WL/Voice/Tayar/fscream_1.ogg
-    - /Audio/_WL/Voice/Tayar/fscream_2.ogg
+    - /Audio/_WL/Voice/Tajaran/fscream_1.ogg
+    - /Audio/_WL/Voice/Tajaran/fscream_2.ogg
 
 - type: soundCollection
-  id: TayarSoundM
+  id: TajaranSoundM
   files:
-    - /Audio/_WL/Voice/Tayar/mscream_1.ogg
-    - /Audio/_WL/Voice/Tayar/mscream_2.ogg
+    - /Audio/_WL/Voice/Tajaran/mscream_1.ogg
+    - /Audio/_WL/Voice/Tajaran/mscream_2.ogg

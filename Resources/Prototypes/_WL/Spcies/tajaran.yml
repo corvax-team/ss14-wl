@@ -1,0 +1,160 @@
+- type: species
+  id: Tajaran
+  name: Таяран
+  roundStart: true
+  prototype: MobHumanoidTajaran
+  sprites: MobHumanoidTajaranSprites
+  defaultSkinTone: "#ffc0cb"
+  markingLimits: MobTajaranMarkingLimits
+  dollPrototype: MobHumanoidTajaranDummy
+  skinColoration: Hues
+
+- type: markingPoints
+  id: MobTajaranMarkingLimits
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ TajaranTail ]
+    Snout:
+      points: 1
+      required: true
+      defaultMarkings: [ TajaranSnout ]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ TajaranEars ]
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [ TajaranChestMale ]
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 4
+      required: false
+    HeadSide:
+      points: 0
+      required: false
+    Underwear: # WL-Underwear
+      points: 1
+      required: false
+    Undershirt: # WL-Underwear
+      points: 1
+      required: false
+    Socks: # WL-Underwear
+      points: 1
+      required: false
+
+- type: speciesBaseSprites
+  id: MobHumanoidTajaranSprites
+  sprites:
+    Head: MobHumanoidTajaranHead
+    Snout: MobHumanoidAnyMarking
+    Chest: MobHumanoidTajaranTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobHumanoidEyes
+    LArm: MobHumanoidTajaranLArm
+    RArm: MobHumanoidTajaranRArm
+    LHand: MobHumanoidTajaranLHand
+    RHand: MobHumanoidTajaranRHand
+    LLeg: MobHumanoidTajaranLLeg
+    RLeg: MobHumanoidTajaranRLeg
+    LFoot: MobHumanoidTajaranLFoot
+    RFoot: MobHumanoidTajaranRFoot
+    Groin: MobHumanoidAnyMarking # WL-Underwear
+    Breast: MobHumanoidAnyMarking # WL-Underwear
+    Foots: MobHumanoidAnyMarking # WL-Underwear
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranHead
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_head_m
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranHeadMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_head_m
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranHeadFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_head_m
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranTorso
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_torso_m
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranTorsoMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_torso_m
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranTorsoFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_torso_f
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranLLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_l_leg
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranLHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_l_hand
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranLArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_l_arm
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranLFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_l_foot
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranRLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_r_leg
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranRHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_r_hand
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranRArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_r_arm
+
+- type: humanoidBaseSprite
+  id: MobHumanoidTajaranRFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    state: tajaran_r_foot
