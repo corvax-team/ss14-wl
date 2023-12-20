@@ -135,7 +135,6 @@
   - type: MobPrice
     price: 6000 # Android biocomponents are appreciated in the market...
     deathPenalty: 1000
-  - type: Perishable
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
