@@ -1,61 +1,57 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/blob/7869517d7347ab32b64c6e4b322a204135edd744/modular_skyrat/master_files/icons/mob/sprite_accessory/tails.dmi and https://github.com/Skyrat-SS13/Skyrat-tg/blob/7869517d7347ab32b64c6e4b322a204135edd744/modular_skyrat/master_files/icons/mob/body_markings/akula_markings.dmi",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/blob/c6f55533bdfbcfac6d01a3047c972c78463e36eb/icons/mob/human_races/r_tajaran.dmi",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
 		{
-      "name": "tajaran_full"
+      "name": "preview"
     },
     {
-      "name": "tajaran_head_m",
+      "name": "head_m",
       "directions": 4
     },
     {
-      "name": "tajaran_l_arm",
+      "name": "l_arm",
       "directions": 4
     },
     {
-      "name": "tajaran_l_foot",
+      "name": "l_foot",
       "directions": 4
     },
     {
-      "name": "tajaran_l_hand",
+      "name": "l_hand",
       "directions": 4
     },
     {
-      "name": "tajaran_l_leg",
+      "name": "l_leg",
       "directions": 4
     },
     {
-      "name": "tajaran_pawsocks",
+      "name": "r_arm",
       "directions": 4
     },
     {
-      "name": "tajaran_r_arm",
+      "name": "r_foot",
       "directions": 4
     },
     {
-      "name": "tajaran_r_foot",
+      "name": "r_hand",
       "directions": 4
     },
     {
-      "name": "tajaran_r_hand",
+      "name": "r_leg",
       "directions": 4
     },
     {
-      "name": "tajaran_r_leg",
+      "name": "torso_m",
       "directions": 4
     },
     {
-      "name": "tajaran_torso_m",
-      "directions": 4
-    },
-    {
-      "name": "tajaran_torso_f",
+      "name": "torso_f",
       "directions": 4
     }
   ]

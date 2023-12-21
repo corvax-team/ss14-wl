@@ -1,38 +1,46 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Skyrat /tg/ from https://github.com/Skyrat-SS13/Skyrat-tg/tree/686569101b779fc089142a1faeae91773db60bc6/modular_skyrat/master_files/icons/mob/sprite_accessory, markings from https://github.com/Skyrat-SS13/Skyrat-tg/tree/686569101b779fc089142a1faeae91773db60bc6/modular_skyrat/master_files/icons/mob/body_markings",
+    "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/tree/c6f55533bdfbcfac6d01a3047c972c78463e36eb/icons/mob/sprite_accessories/tajaran",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "tajaran_chest_f",
+            "name": "muzzle",
             "directions": 4
         },
         {
-            "name": "tajaran_chest_m",
+            "name": "muzzle2",
             "directions": 4
         },
         {
-            "name": "tajaran_ears",
+            "name": "nose",
             "directions": 4
         },
         {
-            "name": "tajaran_ears_secondary",
+            "name": "patch",
             "directions": 4
         },
         {
-            "name": "tajaran_head",
+            "name": "patch_s",
             "directions": 4
         },
         {
-            "name": "tajaran_snout_primary",
+            "name": "points",
             "directions": 4
         },
         {
-            "name": "tajaran_snout_secondary",
+            "name": "points_s",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_ears_in",
+            "directions": 4
+        },
+        {
+            "name": "tajaran_ears_out",
             "directions": 4
         },
         {
@@ -40,39 +48,11 @@
             "directions": 4
         },
         {
-            "name": "tajaran_tail_tiger",
+            "name": "tiger_face",
             "directions": 4
         },
         {
-            "name": "tajaran_tail_tiger_secondary",
-            "directions": 4
-        },
-        {
-            "name": "tajaran_tail_tiger_tertiary",
-            "directions": 4
-        },
-        {
-            "name": "tiger_chest_f",
-            "directions": 4
-        },
-        {
-            "name": "tiger_chest_m",
-            "directions": 4
-        },
-        {
-            "name": "tiger_l_arm",
-            "directions": 4
-        },
-        {
-            "name": "tiger_l_leg",
-            "directions": 4
-        },
-        {
-            "name": "tiger_r_arm",
-            "directions": 4
-        },
-        {
-            "name": "tiger_r_leg",
+            "name": "tiger_tail",
             "directions": 4
         }
     ]

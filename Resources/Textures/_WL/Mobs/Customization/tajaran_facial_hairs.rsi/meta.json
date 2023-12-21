@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/tree/c6f55533bdfbcfac6d01a3047c972c78463e36eb/icons/mob/sprite_accessories/tajaran",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "goatee_faded",
+            "directions": 4
+        },
+        {
+            "name": "goatee",
+            "directions": 4
+        },
+        {
+            "name": "moustache",
+            "directions": 4
+        },
+        {
+            "name": "mutton",
+            "directions": 4
+        },
+        {
+            "name": "pencilstache",
+            "directions": 4
+        },
+        {
+            "name": "sideburns",
+            "directions": 4
+        },
+        {
+            "name": "smallstache",
+            "directions": 4
+        }
+    ]
+}

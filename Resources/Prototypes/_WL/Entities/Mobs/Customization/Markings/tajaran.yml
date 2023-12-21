@@ -5,31 +5,65 @@
   speciesRestriction: [Tajaran]
   sprites:
   - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_snout_primary
+    state: muzzle
   - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_head
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_snout_secondary
+    state: nose
 
 - type: marking
-  id: TajaranChestMale
-  bodyPart: Chest
-  markingCategory: Chest
+  id: TajaranSnoutAlt
+  bodyPart: Snout
+  markingCategory: Snout
   speciesRestriction: [Tajaran]
-  sexRestriction: Male
   sprites:
   - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_chest_m
+    state: muzzle2
+  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
+    state: nose
 
 - type: marking
-  id: TajaranChestFemale
-  bodyPart: Chest
-  markingCategory: Chest
+  id: TajaranHeadTiger
+  bodyPart: Head
+  markingCategory: Head
   speciesRestriction: [Tajaran]
-  sexRestriction: Female
   sprites:
   - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_chest_f
+    state: tiger_face
+
+- type: marking
+  id: TajaranHeadPatches
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
+    state: patch
+
+- type: marking
+  id: TajaranPatches
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
+    state: patch_s
+
+- type: marking
+  id: TajaranPoints
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
+    state: points_s
+
+- type: marking
+  id: TajaranHeadPoints
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajaran]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
+    state: points
 
 - type: marking
   id: TajaranTail
@@ -47,71 +81,9 @@
   speciesRestriction: [Tajaran]
   sprites:
   - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_tail_tiger
+    state: tajaran_tail
   - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_tail_tiger_secondary
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_tail_tiger_tertiary
-
-- type: marking
-  id: TajaranChestTigerMale
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Tajaran]
-  sexRestriction: Male
-  sprites:
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_chest_m
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tiger_chest_m
-
-- type: marking
-  id: TajaranChestTigerFemale
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Tajaran]
-  sexRestriction: Female
-  sprites:
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_chest_f
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tiger_chest_f
-
-- type: marking
-  id: TajaranLArmTiger
-  bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Tajaran]
-  sprites:
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tiger_l_arm
-
-- type: marking
-  id: TajaranRArmTiger
-  bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Tajaran]
-  sprites:
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tiger_r_arm
-
-- type: marking
-  id: TajaranLLegTiger
-  bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Tajaran]
-  sprites:
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tiger_l_leg
-
-- type: marking
-  id: TajaranRLegTiger
-  bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Tajaran]
-  sprites:
-  - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tiger_r_leg
+    state: tiger_tail
 
 - type: marking
   id: TajaranEars
@@ -120,6 +92,6 @@
   speciesRestriction: [Tajaran]
   sprites:
   - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_ears
+    state: tajaran_ears_in
   - sprite: _WL/Mobs/Customization/tajaran_parts.rsi
-    state: tajaran_ears_secondary
+    state: tajaran_ears_out

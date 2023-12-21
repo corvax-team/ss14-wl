@@ -1,0 +1,159 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/ParadiseSS13/Paradise/tree/c6f55533bdfbcfac6d01a3047c972c78463e36eb/icons/mob/sprite_accessories/tajaran",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bangs",
+            "directions": 4
+        },
+        {
+            "name": "bedhead",
+            "directions": 4
+        },
+        {
+            "name": "bob",
+            "directions": 4
+        },
+        {
+            "name": "braid_beads",
+            "directions": 4
+        },
+        {
+            "name": "braid",
+            "directions": 4
+        },
+        {
+            "name": "clean",
+            "directions": 4
+        },
+        {
+            "name": "combedback",
+            "directions": 4
+        },
+        {
+            "name": "curly",
+            "directions": 4
+        },
+        {
+            "name": "cuttail",
+            "directions": 4
+        },
+        {
+            "name": "dreadlocks",
+            "directions": 4
+        },
+        {
+            "name": "earrings",
+            "directions": 4
+        },
+        {
+            "name": "fingerwave",
+            "directions": 4
+        },
+        {
+            "name": "hairbun",
+            "directions": 4
+        },
+        {
+            "name": "hairribbons",
+            "directions": 4
+        },
+        {
+            "name": "ladiesretro",
+            "directions": 4
+        },
+        {
+            "name": "longtail",
+            "directions": 4
+        },
+        {
+            "name": "long",
+            "directions": 4
+        },
+        {
+            "name": "lynx",
+            "directions": 4
+        },
+        {
+            "name": "marmalade",
+            "directions": 4
+        },
+        {
+            "name": "messylong",
+            "directions": 4
+        },
+        {
+            "name": "messy",
+            "directions": 4
+        },
+        {
+            "name": "metal",
+            "directions": 4
+        },
+        {
+            "name": "mohawk",
+            "directions": 4
+        },
+        {
+            "name": "overeye",
+            "directions": 4
+        },
+        {
+            "name": "plait",
+            "directions": 4
+        },
+        {
+            "name": "ponytail",
+            "directions": 4
+        },
+        {
+            "name": "punk",
+            "directions": 4
+        },
+        {
+            "name": "rattail",
+            "directions": 4
+        },
+        {
+            "name": "shaggy",
+            "directions": 4
+        },
+        {
+            "name": "shy",
+            "directions": 4
+        },
+        {
+            "name": "sidebraid",
+            "directions": 4
+        },
+        {
+            "name": "spikey",
+            "directions": 4
+        },
+        {
+            "name": "straight",
+            "directions": 4
+        },
+        {
+            "name": "tailedbangs",
+            "directions": 4
+        },
+        {
+            "name": "tail",
+            "directions": 4
+        },
+        {
+            "name": "tough",
+            "directions": 4
+        },
+        {
+            "name": "victory",
+            "directions": 4
+        }
+    ]
+}
