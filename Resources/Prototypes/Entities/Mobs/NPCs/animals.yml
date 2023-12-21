@@ -1112,7 +1112,8 @@
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
-    normalState: Monkey_burning
+    normalState: monkey_small_fire # Corvax WL /tg/ resprite
+    alternateState: monkey_big_fire # Corvax WL /tg/ resprite
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -1750,7 +1751,8 @@
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
-    normalState: Monkey_burning
+    normalState: monkey_small_fire # Corvax WL /tg/ resprite
+    alternateState: monkey_big_fire # Corvax WL /tg/ resprite
   - type: Butcherable
     butcheringType: Spike
     spawned:
