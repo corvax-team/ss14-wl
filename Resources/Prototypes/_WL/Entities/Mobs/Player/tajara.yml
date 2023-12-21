@@ -1,0 +1,5 @@
+- type: entity
+  save: false
+  name: Урист МакТаяр
+  parent: [BaseMobHumanoidTajara, BaseMob]
+  id: MobHumanoidTajara

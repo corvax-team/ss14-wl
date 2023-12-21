@@ -2,24 +2,24 @@
   save: false
   name: Урист МакТаяр
   parent: BaseMobSpeciesOrganic
-  id: BaseMobHumanoidTajaran
+  id: BaseMobHumanoidTajara
   abstract: true
   components:
     - type: HumanoidAppearance
-      species: Tajaran
+      species: Tajara
     - type: GrowlingAccent
     - type: Body
-      prototype: HumanoidTajaran
+      prototype: HumanoidTajara
     - type: Hunger
     - type: Thirst
     - type: Icon
-      sprite: _WL/Mobs/Species/Tajaran/parts.rsi
-      state: tajaran_full
+      sprite: _WL/Mobs/Species/Tajara/parts.rsi
+      state: tajara_full
     - type: Vocal
       sounds:
-        Male: MaleTajaran
-        Female: FemaleTajaran
-        Unsexed: MaleTajaran
+        Male: MaleTajara
+        Female: FemaleTajara
+        Unsexed: MaleTajara
     - type: MeleeWeapon
       animation: WeaponArcClaw
       soundHit:
@@ -32,9 +32,9 @@
   save: false
   name: Urist McHands
   parent: MobHumanDummy
-  id: MobHumanoidTajaranDummy
+  id: MobHumanoidTajaraDummy
   noSpawn: true
-  description: A dummy Tajaran meant to be used in character setup.
+  description: A dummy Tajara meant to be used in character setup.
   components:
     - type: HumanoidAppearance
-      species: Tajaran
+      species: Tajara

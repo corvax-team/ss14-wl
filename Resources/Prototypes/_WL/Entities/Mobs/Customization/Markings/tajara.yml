@@ -1,0 +1,97 @@
+- type: marking
+  id: TajaraSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: muzzle
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: nose
+
+- type: marking
+  id: TajaraSnoutAlt
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: muzzle2
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: nose
+
+- type: marking
+  id: TajaraHeadTiger
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: tiger_face
+
+- type: marking
+  id: TajaraHeadPatches
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: patch
+
+- type: marking
+  id: TajaraPatches
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: patch_s
+
+- type: marking
+  id: TajaraPoints
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: points_s
+
+- type: marking
+  id: TajaraHeadPoints
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: points
+
+- type: marking
+  id: TajaraTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: tajara_tail
+
+- type: marking
+  id: TajaraTailTiger
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: tajara_tail
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: tiger_tail
+
+- type: marking
+  id: TajaraEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: tajara_ears_in
+  - sprite: _WL/Mobs/Customization/tajara_parts.rsi
+    state: tajara_ears_out

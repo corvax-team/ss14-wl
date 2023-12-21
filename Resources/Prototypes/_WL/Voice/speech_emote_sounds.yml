@@ -112,12 +112,12 @@
       collection: KidanCrying
 
 - type: emoteSounds
-  id: FemaleTajaran
+  id: FemaleTajara
   params:
     variation: 0.125
   sounds:
     Scream:
-      collection: TajaranSoundF
+      collection: TajaraSoundF
     Laugh:
       collection: FemaleLaugh
     Snore:
@@ -130,12 +130,12 @@
       collection: FemaleCry
 
 - type: emoteSounds
-  id: MaleTajaran
+  id: MaleTajara
   params:
     variation: 0.125
   sounds:
     Scream:
-      collection: TajaranSoundM
+      collection: TajaraSoundM
     Laugh:
       collection: MaleLaugh
     Snore:

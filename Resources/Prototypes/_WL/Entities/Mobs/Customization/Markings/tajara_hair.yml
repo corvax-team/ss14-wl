@@ -1,0 +1,332 @@
+- type: marking
+  id: TajaraHairBangs
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: bangs
+
+- type: marking
+  id: TajaraHairBedhead
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: bedhead
+
+- type: marking
+  id: TajaraHairBob
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: bob
+
+- type: marking
+  id: TajaraHairBraidbeads
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: braid_beads
+
+- type: marking
+  id: TajaraHairBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: braid
+
+- type: marking
+  id: TajaraHairClean
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: clean
+
+- type: marking
+  id: TajaraHairCombedback
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: combedback
+
+- type: marking
+  id: TajaraHairCurly
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: curly
+
+- type: marking
+  id: TajaraHairCuttail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: cuttail
+
+- type: marking
+  id: TajaraHairDreadlocks
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: dreadlocks
+
+- type: marking
+  id: TajaraHairEarrings
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: earrings
+
+- type: marking
+  id: TajaraHairFingerwave
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: fingerwave
+
+- type: marking
+  id: TajaraHairHairbun
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: hairbun
+
+- type: marking
+  id: TajaraHairHairribbons
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: hairribbons
+
+- type: marking
+  id: TajaraHairLadiesretro
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: ladiesretro
+
+- type: marking
+  id: TajaraHairLong
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: long
+
+- type: marking
+  id: TajaraHairLongtail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: longtail
+
+- type: marking
+  id: TajaraHairLynx
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: lynx
+
+- type: marking
+  id: TajaraHairMarmalade
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: marmalade
+
+- type: marking
+  id: TajaraHairMessy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: messy
+
+- type: marking
+  id: TajaraHairMessylong
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: messylong
+
+- type: marking
+  id: TajaraHairMetal
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: metal
+
+- type: marking
+  id: TajaraHairMohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: mohawk
+
+- type: marking
+  id: TajaraHairOvereye
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: overeye
+
+- type: marking
+  id: TajaraHairPlait
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: plait
+
+- type: marking
+  id: TajaraHairPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: ponytail
+
+- type: marking
+  id: TajaraHairPunk
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: punk
+
+- type: marking
+  id: TajaraHairRattail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: rattail
+
+- type: marking
+  id: TajaraHairShaggy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: shaggy
+
+- type: marking
+  id: TajaraHairShy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: shy
+
+- type: marking
+  id: TajaraHairSidebraid
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: sidebraid
+
+- type: marking
+  id: TajaraHairSpikey
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: spikey
+
+- type: marking
+  id: TajaraHairStraight
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: straight
+
+- type: marking
+  id: TajaraHairTail
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: tail
+
+- type: marking
+  id: TajaraHairTailedBangs
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: tailedbangs
+
+- type: marking
+  id: TajaraHairTough
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: tough
+
+- type: marking
+  id: TajaraHairVictory
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_hairs.rsi
+    state: victory

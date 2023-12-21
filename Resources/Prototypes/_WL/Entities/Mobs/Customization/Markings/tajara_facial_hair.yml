@@ -1,0 +1,62 @@
+- type: marking
+  id: TajaraFacialHairGoateeFaded
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_facial_hairs.rsi
+    state: goatee_faded
+
+- type: marking
+  id: TajaraFacialHairGoatee
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_facial_hairs.rsi
+    state: goatee
+
+- type: marking
+  id: TajaraFacialHairMoustache
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_facial_hairs.rsi
+    state: moustache
+
+- type: marking
+  id: TajaraFacialHairMutton
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_facial_hairs.rsi
+    state: mutton
+
+- type: marking
+  id: TajaraFacialHairPencilstache
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_facial_hairs.rsi
+    state: pencilstache
+
+- type: marking
+  id: TajaraFacialHairSideburns
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_facial_hairs.rsi
+    state: sideburns
+
+- type: marking
+  id: TajaraFacialHairSmallstache
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Tajara]
+  sprites:
+  - sprite: _WL/Mobs/Customization/tajara_facial_hairs.rsi
+    state: smallstache

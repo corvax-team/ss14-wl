@@ -1,16 +1,16 @@
 - type: species
-  id: Tajaran
+  id: Tajara
   name: Таяран
   roundStart: true
-  prototype: MobHumanoidTajaran
-  sprites: MobHumanoidTajaranSprites
+  prototype: MobHumanoidTajara
+  sprites: MobHumanoidTajaraSprites
   defaultSkinTone: "#ffc0cb"
-  markingLimits: MobTajaranMarkingLimits
-  dollPrototype: MobHumanoidTajaranDummy
+  markingLimits: MobTajaraMarkingLimits
+  dollPrototype: MobHumanoidTajaraDummy
   skinColoration: Hues
 
 - type: markingPoints
-  id: MobTajaranMarkingLimits
+  id: MobTajaraMarkingLimits
   onlyWhitelisted: true
   points:
     Hair:
@@ -22,15 +22,15 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ TajaranTail ]
+      defaultMarkings: [ TajaraTail ]
     Snout:
       points: 1
       required: true
-      defaultMarkings: [ TajaranSnout ]
+      defaultMarkings: [ TajaraSnout ]
     HeadTop:
       points: 1
       required: true
-      defaultMarkings: [ TajaranEars ]
+      defaultMarkings: [ TajaraEars ]
     Overlay:
       points: 1
       required: false
@@ -57,109 +57,109 @@
       required: false
 
 - type: speciesBaseSprites
-  id: MobHumanoidTajaranSprites
+  id: MobHumanoidTajaraSprites
   sprites:
-    Head: MobHumanoidTajaranHead
+    Head: MobHumanoidTajaraHead
     Snout: MobHumanoidAnyMarking
-    Chest: MobHumanoidTajaranTorso
+    Chest: MobHumanoidTajaraTorso
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
-    LArm: MobHumanoidTajaranLArm
-    RArm: MobHumanoidTajaranRArm
-    LHand: MobHumanoidTajaranLHand
-    RHand: MobHumanoidTajaranRHand
-    LLeg: MobHumanoidTajaranLLeg
-    RLeg: MobHumanoidTajaranRLeg
-    LFoot: MobHumanoidTajaranLFoot
-    RFoot: MobHumanoidTajaranRFoot
+    LArm: MobHumanoidTajaraLArm
+    RArm: MobHumanoidTajaraRArm
+    LHand: MobHumanoidTajaraLHand
+    RHand: MobHumanoidTajaraRHand
+    LLeg: MobHumanoidTajaraLLeg
+    RLeg: MobHumanoidTajaraRLeg
+    LFoot: MobHumanoidTajaraLFoot
+    RFoot: MobHumanoidTajaraRFoot
     Groin: MobHumanoidAnyMarking # WL-Underwear
     Breast: MobHumanoidAnyMarking # WL-Underwear
     Foots: MobHumanoidAnyMarking # WL-Underwear
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranHead
+  id: MobHumanoidTajaraHead
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranHeadMale
+  id: MobHumanoidTajaraHeadMale
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranHeadFemale
+  id: MobHumanoidTajaraHeadFemale
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: head_m
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranTorso
+  id: MobHumanoidTajaraTorso
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranTorsoMale
+  id: MobHumanoidTajaraTorsoMale
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: torso_m
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranTorsoFemale
+  id: MobHumanoidTajaraTorsoFemale
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: torso_f
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranLLeg
+  id: MobHumanoidTajaraLLeg
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: l_leg
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranLHand
+  id: MobHumanoidTajaraLHand
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: l_hand
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranLArm
+  id: MobHumanoidTajaraLArm
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: l_arm
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranLFoot
+  id: MobHumanoidTajaraLFoot
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: l_foot
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranRLeg
+  id: MobHumanoidTajaraRLeg
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: r_leg
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranRHand
+  id: MobHumanoidTajaraRHand
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: r_hand
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranRArm
+  id: MobHumanoidTajaraRArm
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: r_arm
 
 - type: humanoidBaseSprite
-  id: MobHumanoidTajaranRFoot
+  id: MobHumanoidTajaraRFoot
   baseSprite:
-    sprite: _WL/Mobs/Species/Tajaran/parts.rsi
+    sprite: _WL/Mobs/Species/Tajara/parts.rsi
     state: r_foot
