@@ -308,11 +308,11 @@
   - type: Sprite
     sprite: Objects/Specific/Chemistry/syringe.rsi
     layers:
+      - state: syringe_base0
+        map: ["enum.SolutionContainerLayers.Base"]
       - state: syringe1
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
-      - state: syringe_base0
-        map: ["enum.SolutionContainerLayers.Base"]
   - type: Icon
     sprite: Objects/Specific/Chemistry/syringe.rsi
     state: "syringe_base0"
@@ -360,11 +360,11 @@
   components:
   - type: Sprite
     layers:
+    - state: bluespace_base0
+      map: ["enum.SolutionContainerLayers.Base"]
     - state: syringe1
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
-    - state: bluespace_base0
-      map: ["enum.SolutionContainerLayers.Base"]
   - type: Icon
     sprite: Objects/Specific/Chemistry/syringe.rsi
     state: bluespace_base0
