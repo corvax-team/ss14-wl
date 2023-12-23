@@ -334,7 +334,7 @@
     solution: injector
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 2
+    maxFillLevels: 4 # WL resprite
     fillBaseName: syringe
   - type: Tag
     tags:
@@ -376,7 +376,7 @@
     delay: 2.5
     injectOnly: false
   - type: SolutionContainerVisuals
-    maxFillLevels: 2
+    maxFillLevels: 4 # WL resprite
     fillBaseName: syringe
   - type: Tag
     tags:

@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"license": "CC-BY-SA-3.0",
-	"copyright": "Taken from cev-eris https://github.com/discordia-space/CEV-Eris/commit/989b7b343045f30120c198ee100c9fee7ff8a989, bluespace syringe sprites modified by EmoGarbage404 (github), cryo syringe sprites by Ubaser",
+	"copyright": "Taken from /tg/station at https://github.com/tgstation/tgstation/commit/ed9e0a911ec939db2ffcbc5fd7b886a0f7dfffab, cryo syringe sprites by Ubaser",
 	"size": {
 		"x": 32,
 		"y": 32
@@ -12,7 +12,63 @@
 			"delays": [
 			  [
 				0.1,
-				0.1
+				0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+			  ]
+			]
+		},
+        {
+			"name": "bluespace_base1",
+			"delays": [
+			  [
+				0.1,
+				0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+			  ]
+			]
+		},
+        {
+			"name": "bluespace_base2",
+			"delays": [
+			  [
+				0.1,
+				0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+			  ]
+			]
+		},
+        {
+			"name": "bluespace_base3",
+			"delays": [
+			  [
+				0.1,
+				0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
+			  ]
+			]
+		},
+        {
+			"name": "bluespace_base4",
+			"delays": [
+			  [
+				0.1,
+				0.1,
+                0.1,
+                0.1,
+                0.1,
+                0.1
 			  ]
 			]
 		},
@@ -56,6 +112,12 @@
 		},
 		{
 			"name": "syringe2"
+		},
+        {
+			"name": "syringe3"
+		},
+        {
+			"name": "syringe4"
 		},
 		{
       "name": "0-inhand-left",
