@@ -436,6 +436,9 @@
     equippedPrefix: mouse
     slots:
     - HEAD
+  - type: Tag
+    tags:
+    - WhitelistCischi #Corvax WL
 
 - type: entity
   parent: BasePlushie
@@ -456,6 +459,9 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/quack.ogg
+  - type: Tag
+    tags:
+    - WhitelistCischi #Corvax WL
 
 - type: entity
   parent: BasePlushie

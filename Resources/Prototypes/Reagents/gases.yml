@@ -26,6 +26,25 @@
         conditions:
         - !type:OrganType
           type: Plant
+      # WL Cischi species start
+      - !type:Oxygenate
+        conditions:
+        - !type:OrganType
+          type: Cischi
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
+        conditions:
+        - !type:OrganType
+          type: Cischi
+          shouldHave: true
+      - !type:SatiateHunger
+        factor: -0.005
+        conditions:
+        - !type:OrganType
+          type: Cischi
+          shouldHave: true
+      # WL Cischi species end
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -121,11 +140,20 @@
         conditions:
         - !type:OrganType
           type: Plant
+        # WL Cischi species start
+        - !type:OrganType
+          type: Cischi
+        # WL Cischi species end
       - !type:HealthChange
         conditions:
         - !type:OrganType
           type: Plant
           shouldHave: false
+        # WL Cischi species start
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+        # WL Cischi species end
         # Don't want people to get toxin damage from the gas they just
         # exhaled, right?
         - !type:ReagentThreshold
@@ -306,6 +334,20 @@
         damage:
           types:
             Cellular: 0.5
+      # WL Cischi species start
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Cischi
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Cellular: -0.01
+            Brute: -0.02
+            Burn: -0.02
+            Toxin: -0.02
+      # WL Cischi species end
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold

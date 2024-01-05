@@ -1,0 +1,74 @@
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodChickenTabaka
+  name: "цыплёнок табака"
+  description: "Мягкий и сочный цыпленок с дымком."
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - cischi1
+    - type: Food
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
+      state: chickentabaka
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 7
+          - ReagentId: Vitamin
+            Quantity: 3
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodCutletCischi
+  name: "Котлета по-цисчански"
+  description: "Сочная котлета с запахом козы завернутая в вареный лист табака."
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - cischi2
+    - type: Food
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
+      state: cutletcischi
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 15
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 7
+          - ReagentId: Vitamin
+            Quantity: 3
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodOnionSliceCischi
+  name: "луковые колечки"
+  description: "Жареные луковые кольца с ароматным сыром в удобном конусе."
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - cischi3
+    - type: Food
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
+      state: onionslicecischi
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 20
+          reagents:
+          - ReagentId: Nutriment
+            Quantity: 10
+          - ReagentId: Vitamin
+            Quantity: 5

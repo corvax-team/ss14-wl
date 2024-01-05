@@ -1,0 +1,139 @@
+- type: entity
+  id: TorsoCischi
+  name: "cischi torso"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: torso_m
+    - type: BodyPart
+      partType: Torso
+    - type: Extractable
+      juiceSolution:
+        reagents:
+        - ReagentId: Fat
+          Quantity: 10
+        - ReagentId: Cryoxadone
+          Quantity: 20
+
+- type: entity
+  id: HeadCischi
+  name: "cischi head"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: head_m
+    - type: BodyPart
+      partType: Head
+      vital: true
+    - type: Input
+      context: "ghost"
+    - type: Tag
+      tags:
+        - Head
+    - type: Extractable
+      juiceSolution:
+        reagents:
+        - ReagentId: Fat
+          Quantity: 5
+        - ReagentId: Cryoxadone
+          Quantity: 10
+
+- type: entity
+  id: LeftArmCischi
+  name: "left cischi arm"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: l_arm
+    - type: BodyPart
+      partType: Arm
+      symmetry: Left
+
+- type: entity
+  id: RightArmCischi
+  name: "right cischi arm"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: r_arm
+    - type: BodyPart
+      partType: Arm
+      symmetry: Right
+
+- type: entity
+  id: LeftHandCischi
+  name: "left cischi hand"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: l_hand
+    - type: BodyPart
+      partType: Hand
+      symmetry: Left
+
+- type: entity
+  id: RightHandCischi
+  name: "right cischi hand"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: r_hand
+    - type: BodyPart
+      partType: Hand
+      symmetry: Right
+
+- type: entity
+  id: LeftLegCischi
+  name: "left cischi leg"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: l_leg
+    - type: BodyPart
+      partType: Leg
+      symmetry: Left
+    - type: MovementBodyPart
+
+- type: entity
+  id: RightLegCischi
+  name: "right cischi leg"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: r_leg
+    - type: BodyPart
+      partType: Leg
+      symmetry: Right
+    - type: MovementBodyPart
+
+- type: entity
+  id: LeftFootCischi
+  name: "left cischi foot"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: l_foot
+    - type: BodyPart
+      partType: Foot
+      symmetry: Left
+
+- type: entity
+  id: RightFootCischi
+  name: "right cischi foot"
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Cischi/parts.rsi
+      state: r_foot
+    - type: BodyPart
+      partType: Foot
+      symmetry: Right

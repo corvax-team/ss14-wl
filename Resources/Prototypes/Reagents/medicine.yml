@@ -70,6 +70,13 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
+# WL Cischi species start
+    Cischi:
+      effects:
+      - !type:Jitter
+      - !type:AdjustTemperature
+        amount: 1
+# WL Cischi species end
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: -10
@@ -142,6 +149,17 @@
           type: Biorobotic
           shouldHave: false
 # WL android species end
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -3
+          groups:
+            Brute: 0.5
+      - !type:ChemVomit
+        probability: 0.02
 
 - type: reagent
   id: Bicaridine
@@ -279,6 +297,15 @@
         conditions:
         - !type:ReagentThreshold
           min: 10
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -2
+          groups:
+            Burn: -2
 
 - type: reagent
   id: Dexalin
@@ -430,6 +457,32 @@
         key: KnockedDown
         time: 0.75
         type: Remove
+      # WL Cischi species start
+      - !type:AdjustTemperature
+        amount: -2
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        - !type:OrganType
+          type: Cischi
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        - !type:OrganType
+          type: Cischi
+        damage:
+          types:
+            Poison: -2
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.5
+        sprintSpeedModifier: 0.5
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        - !type:OrganType
+          type: Cischi
+      # WL Cischi species end
 
 - type: reagent
   id: Hyronalin
@@ -459,6 +512,24 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+           Heat: 2
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
 
 - type: reagent
   id: Ipecac
@@ -476,6 +547,24 @@
         - !type:ReagentThreshold
           min: 4
         probability: 0.3
+    # WL Cischi species
+    Cischi:
+      effects:
+      - !type:Jitter
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Ipecac
+          min: 10
+        damage:
+          types:
+            Poison: -6
+      - !type:Paralyze
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Ipecac
+          min: 10
+        paralyzeTime: 20
 
 - type: reagent
   id: Inaprovaline
@@ -553,6 +642,13 @@
           type: Biorobotic
           shouldHave: false
 # WL android species end
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Posion: -3
 
 - type: reagent
   id: Leporazine
@@ -593,6 +689,13 @@
       - !type:AdjustReagent
         reagent: Fresium
         amount: -5
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Bloodloss: -8
 
 - type: reagent
   id: Barozine
@@ -777,6 +880,16 @@
           type: Biorobotic
           shouldHave: false
 # WL android species end
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: -6
+            Heat: -4
+            Shock: -4
+            Cold: -4
 
 - type: reagent
   id: Stellibinin
@@ -800,6 +913,11 @@
           min: 1
         reagent: Amatoxin
         amount: -3
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:ChemVomit
+        probability: 0.3
 
 - type: reagent
   id: Synaptizine
@@ -879,6 +997,20 @@
           types:
             Caustic: 3
 # WL android species end
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 10
+        refresh: false
+      - !type:PopupMessage
+        visualType: Medium
+        messages: ["Вокруг всё кажется таким смешным...", "Вы хотите посмеяться"]
+        type: Pvs
+        probability: 0.05
 
 - type: reagent
   id: Tricordrazine
@@ -1002,6 +1134,14 @@
           min: 1
         reagent: Ultravasculine
         amount: 0.5
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: -4.5
+            Poison: 1.5
 
 - type: reagent
   id: Oculine
@@ -1111,6 +1251,45 @@
         damage:
           types:
             Heat: 2
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        type: Local
+        visualType: Medium
+        messages: [ "generic-reagent-effect-nauseous" ]
+        probability: 0.2
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        probability: 0.02
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Caustic: -3
+          groups:
+            Brute: 1
+            Burn: 1
+            Toxin: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 16
+        damage:
+          types:
+            Heat: 2
+          groups:
+            Brute: 2
+            Burn: 2
+            Toxin: 2
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold

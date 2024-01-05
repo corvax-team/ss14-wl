@@ -1,3 +1,7 @@
 - type: metabolizerType
   id: Biorobotic
   name: biorobotic
+
+- type: metabolizerType
+  id: Cischi
+  name: cischi

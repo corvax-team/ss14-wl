@@ -18,6 +18,7 @@
     tags:
     - DroneUsable
     - WhitelistChameleon
+    - WhitelistCischi #Corvax WL
 
 - type: entity
   parent: WeldingMaskBase

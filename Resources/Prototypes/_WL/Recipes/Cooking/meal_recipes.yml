@@ -1,0 +1,33 @@
+- type: microwaveMealRecipe
+  id: RecipeChickenTabaka
+  name: "Цыплёнок табака"
+  result: FoodChickenTabaka
+  time: 30
+  solids:
+    FoodMeatChickenCutlet: 1
+    FoodGarlic: 2
+    LeavesTobacco: 2
+
+- type: microwaveMealRecipe
+  id: RecipeCutletCischi
+  name: "Котлета по-цисчански"
+  result: FoodCutletCischi
+  time: 15
+  solids:
+    FoodMeatCutlet: 1
+    FoodOnionRedSlice: 2
+    LeavesTobacco: 1
+    FoodEgg: 1
+    FoodChevre: 1
+
+- type: microwaveMealRecipe
+  id: RecipeOnionSliceCischi
+  name: "Луковые колечки"
+  result: FoodOnionSliceCischi
+  time: 15
+  reagents:
+    Oil: 5
+  solids:
+    FoodOnionSlice: 5
+    LeavesTobacco: 1
+    FoodChevre: 1

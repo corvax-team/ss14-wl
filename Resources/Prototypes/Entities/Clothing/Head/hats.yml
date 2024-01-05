@@ -578,6 +578,9 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/papersack.rsi
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - WhitelistCischi
 
 - type: entity
   parent: ClothingHeadBase
@@ -590,6 +593,9 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/papersacksmile.rsi
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - WhitelistCischi
 
 - type: entity
   parent: ClothingHeadBase

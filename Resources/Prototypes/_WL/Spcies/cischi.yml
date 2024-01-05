@@ -1,0 +1,146 @@
+- type: species
+  id: Cischi
+  name: Цисчи
+  roundStart: true
+  prototype: MobCischi
+  sprites: MobCischiSprites
+  defaultSkinTone: "#00D79D"
+  markingLimits: MobCischiMarkingLimits
+  dollPrototype: MobCischiDummy
+  skinColoration: Hues
+
+- type: speciesBaseSprites
+  id: MobCischiSprites
+  sprites:
+    Head: MobCischiHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Chest: MobCischiTorso
+    HeadTop: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobCischiEyes
+    LArm: MobCischiLArm
+    RArm: MobCischiRArm
+    LHand: MobCischiLHand
+    RHand: MobCischiRHand
+    LLeg: MobCischiLLeg
+    RLeg: MobCischiRLeg
+    LFoot: MobCischiLFoot
+    RFoot: MobCischiRFoot
+    Groin: MobHumanoidAnyMarking # WL-Underwear
+    Breast: MobHumanoidAnyMarking # WL-Underwear
+    Foots: MobHumanoidAnyMarking # WL-Underwear
+
+- type: markingPoints
+  id: MobCischiMarkingLimits
+  points:
+    Head:
+      points: 0
+      required: false
+    Chest:
+      points: 0
+      required: false
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ CischiTail ]
+    Snout:
+      points: 0
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    HeadSide:
+      points: 0
+      required: false
+    Underwear: # WL-Underwear
+      points: 1
+      required: false
+    Undershirt: # WL-Underwear
+      points: 1
+      required: false
+    Socks: # WL-Underwear
+      points: 1
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobCischiEyes
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: eyes
+- type: humanoidBaseSprite
+  id: MobCischiHeadMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: head_m
+- type: humanoidBaseSprite
+  id: MobCischiHeadFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: head_f
+- type: humanoidBaseSprite
+  id: MobCischiHead
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: head_m
+- type: humanoidBaseSprite
+  id: MobCischiTorso
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: torso_m
+- type: humanoidBaseSprite
+  id: MobCischiTorsoMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: torso_m
+- type: humanoidBaseSprite
+  id: MobCischiTorsoFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: torso_f
+- type: humanoidBaseSprite
+  id: MobCischiLLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: l_leg
+- type: humanoidBaseSprite
+  id: MobCischiLArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: l_arm
+- type: humanoidBaseSprite
+  id: MobCischiLHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: l_hand
+- type: humanoidBaseSprite
+  id: MobCischiLFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: l_foot
+- type: humanoidBaseSprite
+  id: MobCischiRLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: r_leg
+- type: humanoidBaseSprite
+  id: MobCischiRArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: r_arm
+- type: humanoidBaseSprite
+  id: MobCischiRHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: r_hand
+- type: humanoidBaseSprite
+  id: MobCischiRFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Cischi/parts.rsi
+    state: r_foot

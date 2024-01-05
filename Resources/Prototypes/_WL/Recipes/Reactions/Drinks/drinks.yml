@@ -1,0 +1,19 @@
+- type: reaction
+  id: DeathHorseRecipe
+  reactants:
+    Nicotine:
+      amount: 1
+    Hooch:
+      amount: 1
+  products:
+    DeathHorse: 2
+
+- type: reaction
+  id: SpoonOfTarRecipe
+  reactants:
+    Nicotine:
+      amount: 1
+    Goldschlager:
+      amount: 5
+  products:
+    SpoonOfTar: 6

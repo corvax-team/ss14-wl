@@ -35,6 +35,12 @@
           groups:
             Brute: -3
             Burn: -1.25
+    Cischi:
+       effects:
+       - !type:HealthChange
+         damage:
+           groups:
+             Toxin: 1
   plantMetabolism:
     - !type:PlantAdjustWater
       amount: 0.5
