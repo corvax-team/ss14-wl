@@ -27,8 +27,8 @@
         Bloodloss:
           -1.0
   - type: Temperature
-    heatDamageThreshold: 400
-    coldDamageThreshold: 285
+    heatDamageThreshold: 370
+    coldDamageThreshold: 265
     currentTemperature: 310.15
     specificHeat: 42
     coldDamage:
