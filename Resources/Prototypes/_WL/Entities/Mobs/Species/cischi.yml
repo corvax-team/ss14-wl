@@ -54,6 +54,8 @@
     radius: 2
     color: "#10ad83"
   - type: CischiAccent
+  - type: ReplacementAccent
+    accent: cischi
 
 - type: entity
   save: false
