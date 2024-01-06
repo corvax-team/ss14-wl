@@ -9,6 +9,6 @@
 - type: damageModifierSet
   id: Cischi
   coefficients:
-    Blunt: 0.
-    Slach: 0.
-    Piercing: 0.8
+    Poison: 0.8
+    Radiation: 0.8
+    Cold: 0.5
