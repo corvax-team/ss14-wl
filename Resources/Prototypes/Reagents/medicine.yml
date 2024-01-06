@@ -205,6 +205,13 @@
         - !type:ReagentThreshold
           min: 15
       - !type:Drunk
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:Emote
+        emote: Laugh
+        showInChat: false
+      - !type:Drunk
 
 - type: reagent
   id: Cryoxadone
@@ -598,6 +605,12 @@
           type: Biorobotic
           shouldHave: false
 # WL android species end
+    Cischi:
+      effects:
+      - !type:Emote
+        emote: Laugh
+        showInChat: false
+      - !type:Drunk
 
 - type: reagent
   id: Kelotane
@@ -1055,6 +1068,13 @@
       # what the hell, this isn't satiating at all!!
       - !type:SatiateHunger
         factor: -1
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Cischi
+        damage:
+          types:
+            Poison: -8
 
   # Should heal quite literally everything, use in very small amounts
 - type: reagent

@@ -428,6 +428,15 @@
             min: 3
           - !type:OrganType
             type: Animal
+      # WL Cischi species start
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Cischi
+        damage:
+          groups:
+            Brute: -1
+            Burn: -1
 
 - type: reagent
   id: Amatoxin
