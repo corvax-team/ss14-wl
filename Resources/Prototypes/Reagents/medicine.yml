@@ -648,7 +648,7 @@
       - !type:HealthChange
         damage:
           types:
-            Posion: -3
+            Posion: -2
 
 - type: reagent
   id: Leporazine
@@ -887,9 +887,9 @@
         damage:
           types:
             Caustic: -6
-            Heat: -4
+            Heat: -1
             Shock: -4
-            Cold: -4
+            Cold: -1
 
 - type: reagent
   id: Stellibinin
