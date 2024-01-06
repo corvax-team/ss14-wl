@@ -1,8 +1,8 @@
 - type: reagent
   id: Tirium
-  name: тириум
+  name: reagent-name-tirium
   group: Biological
-  desc: Голубая кровь андроида...
+  desc: reagent-desc-tirium
   flavor: oily
   color: "#224dff"
   recognizable: true

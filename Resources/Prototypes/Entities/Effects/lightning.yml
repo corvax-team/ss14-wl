@@ -43,6 +43,7 @@
   id: LightningRevenant
   parent: BaseLightning
   # noSpawn: true  # Corvax-WL
+  save: false
   components:
     - type: Sprite
       sprite: /Textures/Effects/lightning.rsi
@@ -67,6 +68,7 @@
   id: ChargedLightning
   parent: BaseLightning
   # noSpawn: true  # Corvax-WL
+  save: false
   components:
     - type: Sprite
       sprite: /Textures/Effects/lightning.rsi
@@ -86,6 +88,7 @@
   id: SuperchargedLightning
   parent: ChargedLightning
   # noSpawn: true  # Corvax-WL
+  save: false
   components:
     - type: Sprite
       sprite: /Textures/Effects/lightning.rsi
@@ -112,6 +115,7 @@
   id: HyperchargedLightning
   parent: ChargedLightning
   # noSpawn: true  # Corvax-WL
+  save: false
   components:
     - type: Sprite
       sprite: /Textures/Effects/lightning.rsi
