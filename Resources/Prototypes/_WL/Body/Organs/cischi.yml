@@ -60,6 +60,7 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+    - id: Cischi
 
 - type: entity
   id: OrganCischiStomach
@@ -81,7 +82,6 @@
     groups:
     - id: Food
     - id: Drink
-    - id: Cischi
 
 - type: entity
   id: OrganCischiLiver

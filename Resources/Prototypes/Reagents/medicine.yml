@@ -41,11 +41,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
- # WL android species start
+ # WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
- # WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Brute: 2
@@ -76,6 +81,9 @@
       - !type:Jitter
       - !type:AdjustTemperature
         amount: 1
+      - !type:AdjustReagent
+        reagent: Histamine
+        amount: 0.5
 # WL Cischi species end
   plantMetabolism:
   - !type:PlantAdjustToxins
@@ -143,13 +151,17 @@
             Radiation: -3
           groups:
             Brute: 0.5
-# WL android species start
+# WL pecies start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
-# WL Cischi species
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
     Cischi:
       effects:
       - !type:HealthChange
@@ -176,21 +188,31 @@
         damage:
           groups:
             Brute: -2
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Asphyxiation: 0.5
@@ -279,21 +301,31 @@
             Heat: -1.5
             Shock: -1.5
             Cold: -1.5
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Asphyxiation: 1
@@ -413,11 +445,16 @@
         - !type:ReagentThreshold
           min: 0
           max: 20
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Asphyxiation: -3
@@ -429,11 +466,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Asphyxiation: 1
@@ -589,22 +631,32 @@
           # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Asphyxiation: -5
       - !type:ModifyBleedAmount
         amount: -0.25
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
     Cischi:
       effects:
       - !type:Emote
@@ -629,12 +681,17 @@
             Heat: -0.33
             Shock: -0.33
             Cold: -0.33
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
       - !type:SatiateThirst
         factor: -10
         conditions:
@@ -678,12 +735,17 @@
         damage:
           types:
             Cold: -4
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -887,12 +949,17 @@
         damage:
           types:
             Caustic: -5
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
 # WL Cischi species
     Cischi:
       effects:
@@ -916,6 +983,13 @@
     Medicine:
       effects:
       - !type:HealthChange
+# WL species start
+        conditions:
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Poison: -4
@@ -991,11 +1065,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Bloodloss: 3
@@ -1118,11 +1197,16 @@
         - !type:ReagentThreshold
           min: 0
           max: 30
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           groups:
             Toxin: -3
@@ -1131,11 +1215,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           groups:
             Toxin: -1
@@ -1253,21 +1342,31 @@
         damage:
           types:
             Caustic: -3
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 16
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Heat: 2
