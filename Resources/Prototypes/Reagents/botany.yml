@@ -209,6 +209,12 @@
         - !type:OrganType
           type: Rat
           shouldHave: false
+# WL species start
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         - !type:ReagentThreshold
           reagent: Ammonia
           min: 1
@@ -222,6 +228,12 @@
         - !type:OrganType
           type: Rat
           shouldHave: false
+# WL species start
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         - !type:ReagentThreshold
           reagent: Ammonia
           min: 0.8
@@ -247,7 +259,9 @@
           groups:
             Brute: -5
             Burn: -5
-
+    Cischi:
+      effects:
+      - !type:Drunk
 
 - type: reagent
   id: Diethylamine

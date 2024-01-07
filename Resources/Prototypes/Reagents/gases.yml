@@ -72,9 +72,24 @@
     Poison:
       effects:
       - !type:HealthChange
+# WL species start
+        # Cischi
+        conditions:
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Poison: 3
+# WL species start
+        # Cischi
+      - !type:HealthChange
+        conditions:
+        damage:
+          types:
+            Asphyxiation: 3
+# WL species end
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
@@ -83,10 +98,27 @@
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: true
+# WL species start
+        # Cischi
+        conditions:
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         damage:
           types:
             Poison:
               1
+# WL species start
+        # Cischi
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Cischi
+        damage:
+          types:
+            Asphyxiation: 1
+# WL species end
       # Cant be added until I add metabolism effects on reagent removal
       #- !type:AdjustAlert
       #  alertType: Toxins
