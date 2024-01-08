@@ -4,7 +4,7 @@
   parent: BaseAlcohol
   desc: "Кони любят этот напиток"
   physicalDesc: смертельно
-  flavor: lyrran4
+  flavor: cischi4
   color: "#050101"
   metamorphicSprite:
     sprite: _WL/Entities/Objects/Consumable/Drinks/cischi.rsi
@@ -45,7 +45,7 @@
   parent: BaseAlcohol
   desc: "Выблюй свои кишки!"
   physicalDesc: "сильно пахнущий"
-  flavor: lyrran5
+  flavor: cischi5
   color: "#8a7c06"
   metamorphicSprite:
     sprite: _WL/Entities/Objects/Consumable/Drinks/cischi.rsi
