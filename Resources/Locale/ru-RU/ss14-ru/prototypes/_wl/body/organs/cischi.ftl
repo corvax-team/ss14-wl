@@ -1,0 +1,12 @@
+ent-BaseCischiOrgan = { ent-BaseAnimalOrgan }
+    .desc = { ent-BaseAnimalOrgan.desc }
+ent-OrganCischiLungs = cischi lungs
+    .desc = { ent-BaseCischiOrgan.desc }
+ent-OrganCischiHeart = cischi heart
+    .desc = { ent-BaseCischiOrgan.desc }
+ent-OrganCischiStomach = cischi stomach
+    .desc = { ent-BaseCischiOrgan.desc }
+ent-OrganCischiLiver = cischi liver
+    .desc = { ent-BaseCischiOrgan.desc }
+ent-OrganCischiKidneys = cischi kidneys
+    .desc = { ent-BaseCischiOrgan.desc }

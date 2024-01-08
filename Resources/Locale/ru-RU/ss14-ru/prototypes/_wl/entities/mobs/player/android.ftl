@@ -1,2 +1,2 @@
 ent-MobAndroid = Урист МакАндроид
-     .desc = { ent-BaseMobAndroid.desc }
+    .desc = { ent-BaseMobAndroid.desc }
