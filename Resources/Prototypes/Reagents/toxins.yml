@@ -541,11 +541,24 @@
         conditions:
         - !type:ReagentThreshold
           min: 1
+# WL species start
+        # Cischi
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+# WL species end
         - !type:OrganType
           type: Animal
         damage:
           types:
             Poison: 0.06
+# WL Cischi species
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.01
 
 - type: reagent
   id: Pax
