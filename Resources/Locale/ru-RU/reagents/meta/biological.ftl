@@ -12,5 +12,3 @@ reagent-name-fat = жир
 reagent-desc-fat = Независимо от того, как он был получен, его применение важно.
 reagent-name-vomit = рвота
 reagent-desc-vomit = Вы можете увидеть в ней несколько кусков чьей-то последней еды.
-reagent-name-tirium = тириум
-reagent-desc-tirium = Голубая кровь андроида...

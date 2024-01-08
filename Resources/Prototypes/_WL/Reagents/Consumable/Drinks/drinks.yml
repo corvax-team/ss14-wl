@@ -1,9 +1,9 @@
 - type: reagent
   id: DeathHorse
-  name: "смерть коня"
+  name: reagent-name-deathhorse
   parent: BaseAlcohol
-  desc: "Кони любят этот напиток"
-  physicalDesc: смертельно
+  desc: reagent-desc-deathhorse
+  physicalDesc: reagent-physical-desc-deathly
   flavor: cischi4
   color: "#050101"
   metamorphicSprite:
@@ -41,10 +41,10 @@
 
 - type: reagent
   id: SpoonOfTar
-  name: "ложка дёгтя"
+  name: reagent-name-spoonoftar
   parent: BaseAlcohol
-  desc: "Выблюй свои кишки!"
-  physicalDesc: "сильно пахнущий"
+  desc: reagent-desc-spoonoftar
+  physicalDesc: reagent-physical-desc-strong-smelling
   flavor: cischi5
   color: "#8a7c06"
   metamorphicSprite:
