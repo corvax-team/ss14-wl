@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: RoseBoxCargo
+  icon:
+    sprite: _WL/Entities/Objects/Misc/rosebox.rsi
+    state: icon
+  product: RoseBox
+  cost: 600
+  category: Service
+  group: market
