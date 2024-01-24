@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by mryikes (wzzker21) and Figleo for Corvax WL",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "fluffy_tail",
+            "directions": 4
+        },
+        {
+            "name": "fox_tail",
+            "directions": 4
+        },
+        {
+            "name": "fox_tail_outer",
+            "directions": 4
+        },
+        {
+            "name": "messy_tail",
+            "directions": 4
+        },
+        {
+            "name": "otie_tail",
+            "directions": 4
+        }
+    ]
+}

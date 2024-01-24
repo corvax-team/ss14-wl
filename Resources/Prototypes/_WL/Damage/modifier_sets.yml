@@ -5,3 +5,10 @@
     Radiation: 0.5
     Cold: 0.8
     Heat: 1.2
+
+- type: damageModifierSet
+  id: Cischi
+  coefficients:
+    Poison: 0.8
+    Radiation: 0.8
+    Cold: 0.5

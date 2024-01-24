@@ -59,6 +59,7 @@ ent-SpiderClownSpawn = { ent-BaseGameRule }
 
 
 
+
 #    .desc = { ent-BaseGameRule.desc }
 
 #ent-LoneOpsSpawn = { ent-BaseGameRule }
@@ -68,4 +69,6 @@ ent-MassHallucinations = { ent-BaseGameRule }
 ent-ImmovableRodSpawn = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
 ent-IonStorm = { ent-BaseGameRule }
+    .desc = { ent-BaseGameRule.desc }
+ent-MimicVendorRule = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }

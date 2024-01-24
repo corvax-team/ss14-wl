@@ -17,8 +17,8 @@ chat-manager-no-radio-key = Не задан ключ канала!
 chat-manager-no-such-channel = Нет канала с ключём '{ $key }'!
 chat-manager-whisper-headset-on-message = Вы не можете шептать в радио!
 chat-manager-server-wrap-message = [bold]{ $message }[/bold]
-chat-manager-sender-announcement-wrap-message = [font size=14][bold]{$sender} Объявление:[/font][font size=12]
-                                                {$message}[/bold][/font]
+chat-manager-sender-announcement-wrap-message = [font size=14][bold]Объявление { $sender }:[/font][font size=12]
+                                                { $message }[/bold][/font]
 chat-manager-entity-say-wrap-message = [BubbleHeader][bold]{ $entityName }[/bold][/BubbleHeader] { $verb }, [font={ $fontType } size={ $fontSize } ]"[BubbleContent]{ $message }[/BubbleContent]"[/font]
 chat-manager-entity-say-bold-wrap-message = [BubbleHeader][bold]{ $entityName }[/bold][/BubbleHeader] { $verb }, [font={ $fontType } size={ $fontSize }]"[BubbleContent][bold]{ $message }[/bold][/BubbleContent]"[/font]
 chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader]{ $entityName }[/BubbleHeader] шепчет,"[BubbleContent]{ $message }[/BubbleContent]"[/italic][/font]

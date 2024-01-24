@@ -1,8 +1,7 @@
 ent-MobElementalBase = { "" }
     .desc = { "" }
 ent-MobOreCrab = ore crab
-
-  .desc = { ent-['MobElementalBase', 'MobCombat'].desc }
+  .desc = { ent-MobElementalBase.desc }
 ent-MobQuartzCrab = { ent-MobOreCrab }
     .desc = An ore crab made from Quartz.
 ent-MobIronCrab = { ent-MobOreCrab }
@@ -39,4 +38,16 @@ ent-ReagentSlimeNapalm = { ent-ReagentSlime }
     .desc = { ent-ReagentSlime.desc }
 ent-ReagentSlimeOmnizine = { ent-ReagentSlime }
     .suffix = Omnizine
+    .desc = { ent-ReagentSlime.desc }
+ent-ReagentSlimeMuteToxin = { ent-ReagentSlime }
+    .suffix = Mute Toxin
+    .desc = { ent-ReagentSlime.desc }
+ent-ReagentSlimeNorepinephricAcid = { ent-ReagentSlime }
+    .suffix = Norepinephric Acid
+    .desc = { ent-ReagentSlime.desc }
+ent-ReagentSlimeEphedrine = { ent-ReagentSlime }
+    .suffix = Ephedrine
+    .desc = { ent-ReagentSlime.desc }
+ent-ReagentSlimeRobustHarvest = { ent-ReagentSlime }
+    .suffix = Robust Harvest
     .desc = { ent-ReagentSlime.desc }

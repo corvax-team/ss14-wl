@@ -1,0 +1,63 @@
+- type: reagent
+  id: DeathHorse
+  name: reagent-name-deathhorse
+  parent: BaseAlcohol
+  desc: reagent-desc-deathhorse
+  physicalDesc: reagent-physical-desc-deathly
+  flavor: cischi4
+  color: "#050101"
+  metamorphicSprite:
+    sprite: _WL/Entities/Objects/Consumable/Drinks/cischi.rsi
+    state: death_horse
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Cischi
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 7
+        damage:
+          types:
+            Poison: 6
+    Cischi:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -2
+            Burn: -2
+            Airloss: -2
+            Toxin: -2
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
+
+- type: reagent
+  id: SpoonOfTar
+  name: reagent-name-spoonoftar
+  parent: BaseAlcohol
+  desc: reagent-desc-spoonoftar
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: cischi5
+  color: "#8a7c06"
+  metamorphicSprite:
+    sprite: _WL/Entities/Objects/Consumable/Drinks/cischi.rsi
+    state: spoon_of_tar
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2

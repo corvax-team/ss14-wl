@@ -1,0 +1,49 @@
+- type: body
+  id: Cischi
+  name: "cischi"
+  root: torso
+  slots:
+    head:
+      part: HeadCischi
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoCischi
+      connections:
+      - left arm
+      - right arm
+      - left leg
+      - right leg
+      organs:
+        heart: OrganCischiHeart
+        lungs: OrganCischiLungs
+        stomach: OrganCischiStomach
+        liver: OrganCischiLiver
+        kidneys: OrganCischiKidneys
+    right arm:
+      part: RightArmCischi
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmCischi
+      connections:
+      - left hand
+    right hand:
+      part: RightHandCischi
+    left hand:
+      part: LeftHandCischi
+    right leg:
+      part: RightLegCischi
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegCischi
+      connections:
+      - left foot
+    right foot:
+      part: RightFootCischi
+    left foot:
+      part: LeftFootCischi

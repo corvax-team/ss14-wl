@@ -1,0 +1,27 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Art for Corvax WL",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+        {
+            "name": "spoon_of_tar"
+        },
+        {
+          "name": "death_horse",
+          "delays": [
+              [
+                  0.2,
+                  0.2,
+                  0.2,
+                  0.2,
+                  0.2,
+                  0.2
+              ]
+          ]
+        }
+    ]
+}

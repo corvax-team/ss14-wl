@@ -21,6 +21,16 @@
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin]
+# Coloring for Corvax WL
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+    layers:
+      vulp_ear_inner:
+        type:
+          !type:SimpleColoring
+            color: "#FFC0CB"
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
       state: vulp_ear

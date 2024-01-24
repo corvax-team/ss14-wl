@@ -1,0 +1,116 @@
+- type: entity
+  id: BaseCischiOrgan
+  parent: BaseAnimalOrgan
+  abstract: true
+  components:
+  - type: Organ
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Cryoxadone
+          Quantity: 10
+
+- type: entity
+  id: OrganCischiLungs
+  parent: BaseCischiOrgan
+  name: cischi lungs
+  description: ""
+  components:
+  - type: Sprite
+    layers:
+    - state: lung-l
+    - state: lung-r
+  - type: Organ
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Cischi ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100.0
+        canReact: false
+
+- type: entity
+  id: OrganCischiHeart
+  parent: BaseCischiOrgan
+  name: cischi heart
+  description: ""
+  components:
+  - type: Sprite
+    state: heart-on
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [Cischi]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+    - id: Cischi
+
+- type: entity
+  id: OrganCischiStomach
+  parent: BaseCischiOrgan
+  name: cischi stomach
+  description: ""
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Organ
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Cischi]
+    groups:
+    - id: Food
+    - id: Drink
+
+- type: entity
+  id: OrganCischiLiver
+  parent: BaseCischiOrgan
+  name: cischi liver
+  description: ""
+  components:
+  - type: Sprite
+    state: liver
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [Cischi]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  id: OrganCischiKidneys
+  parent: BaseCischiOrgan
+  name: cischi kidneys
+  description: ""
+  components:
+  - type: Sprite
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [Cischi]
+    removeEmpty: true

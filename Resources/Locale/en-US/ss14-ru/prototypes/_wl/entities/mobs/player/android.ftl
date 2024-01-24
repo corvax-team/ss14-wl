@@ -1,3 +1,2 @@
 ent-MobAndroid = Урист МакАндроид
-
-  .desc = { ent-['BaseMobAndroid', 'BaseMob'].desc }
+  .desc = { ent-BaseMobAndroid.desc }

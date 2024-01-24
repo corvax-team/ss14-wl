@@ -1,0 +1,8 @@
+- type: marking
+  id: CischiTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Cischi]
+  sprites:
+    - sprite: _WL/Mobs/Customization/cischi_parts.rsi
+      state: tail

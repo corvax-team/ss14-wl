@@ -1,0 +1,46 @@
+- type: marking
+  id: VulpTail #Вообще это FoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+    layers:
+      fox_tail_outer:
+        type:
+          !type:SimpleColoring
+            color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
+      state: fox_tail
+    - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
+      state: fox_tail_outer
+
+- type: marking
+  id: OtieTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
+      state: otie_tail
+
+- type: marking
+  id: MessyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
+      state: messy_tail
+
+- type: marking
+  id: FluffyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
+      state: fluffy_tail

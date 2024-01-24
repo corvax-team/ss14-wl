@@ -14,7 +14,7 @@
     - type: Thirst
     - type: Icon
       sprite: _WL/Mobs/Species/Tajara/parts.rsi
-      state: tajara_full
+      state: preview
     - type: Vocal
       sounds:
         Male: MaleTajara

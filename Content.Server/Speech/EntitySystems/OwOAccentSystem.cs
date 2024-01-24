@@ -29,7 +29,7 @@ namespace Content.Server.Speech.EntitySystems
                 message = message.Replace(word, repl);
             }
 
-            return message.Replace("!", _random.Pick(Faces))
+            return message.Replace(")", _random.Pick(Faces))
                 // Corvax-Localization-Start
                 .Replace("р", "в").Replace("Р", "В")
                 .Replace("л", "в").Replace("Л", "В")

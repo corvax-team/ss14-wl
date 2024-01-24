@@ -1,2 +1,5 @@
 - type: metabolismGroup
   id: BioRobotic
+
+- type: metabolismGroup
+  id: Cischi

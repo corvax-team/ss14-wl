@@ -155,7 +155,7 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }
-  - type: Uncloneable
+  - type: Unrevivable
   - type: Tag
     tags:
     - AndroidBodyTag

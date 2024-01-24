@@ -1,0 +1,63 @@
+- type: entity
+  save: false
+  name: Урист МакЛистик
+  parent: BaseMobSpeciesOrganic
+  id: MobCischi
+  components:
+  - type: Hunger
+  - type: Thirst
+  - type: HumanoidAppearance
+    species: Cischi
+  - type: Damageable
+    damageModifierSet: Cischi
+  - type: Inventory
+    templateId: cischi
+    speciesId: digi
+  - type: Bloodstream
+    bloodReagent: Cryoxadone
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          1.0
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -1.0
+  - type: Temperature
+    heatDamageThreshold: 370
+    coldDamageThreshold: 265
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 0.1
+    heatDamage:
+      types:
+        Heat: 0.1
+  - type: Barotrauma
+    highPressureMultiplier: 2
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 2.0
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: Body
+    prototype: Cischi
+    requiredLegs: 2
+  - type: PointLight
+    energy: 1
+    radius: 2
+    color: "#10ad83"
+  - type: CischiAccent
+  - type: ReplacementAccent
+    accent: cischi
+
+- type: entity
+  save: false
+  name: Chischi Dummy
+  parent: MobCischi
+  id: MobCischiDummy
+  noSpawn: true
+  description: A dummy felinid meant to be used in character setup.

@@ -1,17 +1,13 @@
 ent-BaseThiefObjective = { ent-BaseObjective }
     .desc = { ent-BaseObjective.desc }
-ent-BaseThiefStealObjective = { ent-['BaseThiefObjective', 'BaseStealObjective'] }
-
-  .desc = { ent-['BaseThiefObjective', 'BaseStealObjective'].desc }
-ent-BaseThiefStealCollectionObjective = { ent-['BaseThiefObjective', 'BaseStealObjective'] }
-
-  .desc = { ent-['BaseThiefObjective', 'BaseStealObjective'].desc }
-ent-BaseThiefStealStructureObjective = { ent-['BaseThiefObjective', 'BaseStealObjective'] }
-
-  .desc = { ent-['BaseThiefObjective', 'BaseStealObjective'].desc }
-ent-BaseThiefStealAnimalObjective = { ent-['BaseThiefObjective', 'BaseStealObjective'] }
-
-  .desc = { ent-['BaseThiefObjective', 'BaseStealObjective'].desc }
+ent-BaseThiefStealObjective = { ent-BaseThiefObjective }
+  .desc = { ent-BaseThiefObjective.desc }
+ent-BaseThiefStealCollectionObjective = { ent-BaseThiefObjective }
+  .desc = { ent-BaseThiefObjective.desc }
+ent-BaseThiefStealStructureObjective = { ent-BaseThiefObjective }
+  .desc = { ent-BaseThiefObjective.desc }
+ent-BaseThiefStealAnimalObjective = { ent-BaseThiefObjective }
+  .desc = { ent-BaseThiefObjective.desc }
 ent-FigurineStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
 ent-HeadCloakStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
@@ -26,8 +22,6 @@ ent-TechnologyDiskStealCollectionObjective = { ent-BaseThiefStealCollectionObjec
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
 ent-IDCardsStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
-ent-EncryptionKeyStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
-    .desc = { ent-BaseThiefStealCollectionObjective.desc }
 ent-CannabisStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
     .desc = { ent-BaseThiefStealCollectionObjective.desc }
 ent-LAMPStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
@@ -35,8 +29,6 @@ ent-LAMPStealCollectionObjective = { ent-BaseThiefStealCollectionObjective }
 ent-ForensicScannerStealObjective = { ent-BaseThiefStealObjective }
     .desc = { ent-BaseThiefStealObjective.desc }
 ent-FlippoEngravedLighterStealObjective = { ent-BaseThiefStealObjective }
-    .desc = { ent-BaseThiefStealObjective.desc }
-ent-AmmoTechFabCircuitboardStealObjective = { ent-BaseThiefStealObjective }
     .desc = { ent-BaseThiefStealObjective.desc }
 ent-ClothingHeadHatWardenStealObjective = { ent-BaseThiefStealObjective }
     .desc = { ent-BaseThiefStealObjective.desc }
@@ -103,6 +95,8 @@ ent-ShivaStealObjective = { ent-BaseThiefStealAnimalObjective }
 ent-SmileStealObjective = { ent-BaseThiefStealAnimalObjective }
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
 ent-PunPunStealObjective = { ent-BaseThiefStealAnimalObjective }
+    .desc = { ent-BaseThiefStealAnimalObjective.desc }
+ent-TropicoStealObjective = { ent-BaseThiefStealAnimalObjective }
     .desc = { ent-BaseThiefStealAnimalObjective.desc }
 ent-EscapeThiefShuttleObjective = Escape to centcom alive and unrestrained.
     .desc = You don't want your illegal activities to be discovered by anyone, do you?

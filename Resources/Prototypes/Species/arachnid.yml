@@ -67,6 +67,12 @@
     Chest:
       points: 1
       required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
     Underwear: # WL-Underwear
       points: 1
       required: false
