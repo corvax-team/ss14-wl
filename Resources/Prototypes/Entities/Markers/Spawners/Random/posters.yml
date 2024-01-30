@@ -149,4 +149,15 @@
       - PosterLegitPeriodicTable
       - PosterLegitRenault
       - PosterLegitNTTGC
+      # Corvax WL start
+      - PosterLegitSafetyMothPoisoning
+      - PosterLegitSafetyMothBoH
+      - PosterLegitSafetyMothSmokey
+      - PosterLegitSafetyMothSupermatter
+      - PosterLegitSafetyMothMeth
+      - PosterLegitSafetyMothDelam
+      - PosterLegitSafetyMothEpi
+      - PosterLegitSafetyMothHardhat
+      - PosterLegitSafetyMothPiping
+      # Corvax WL end
     chance: 1
