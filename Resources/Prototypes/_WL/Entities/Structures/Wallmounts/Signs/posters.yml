@@ -1,0 +1,39 @@
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSafetyMothPoisoning
+  name: "Ниан-хранитель - Отравление"
+  description: "Этот информационный плакат использует Ниана-хранителя™, чтобы рассказать читателям, что нельзя отравлять пончики."
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Structures/Wallmounts/posters.rsi
+    state: poster1_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSafetyMothBoH
+  name: "Ниан-хранитель - БСР"
+  description: "Этот информационный плакат использует Ниана-хранителя™, чтобы проинформировать читателя об опасностях, которые таят в себе блюспейс рюкзаки."
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Structures/Wallmounts/posters.rsi
+    state: poster2_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSafetyMothSmokey
+  name: "Ниан-хранитель - Куришь?"
+  description: "Этот информационный плакат использует Ниана-хранителя™ для пропаганды безопасного обращения с плазмой, или борьбы с поджогами. Мы не знаем."
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Structures/Wallmounts/posters.rsi
+    state: poster3_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSafetyMothSupermatter
+  name: "Ниан-хранитель - Суперматерия"
+  description: "Этот информационный плакат использует Ниана-хранителя™ для пропаганды правильной техники безопасности при работе рядом с кристаллом суперматерии."
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Structures/Wallmounts/posters.rsi
+    state: poster4_legit
