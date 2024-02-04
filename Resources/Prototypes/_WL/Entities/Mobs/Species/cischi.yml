@@ -12,7 +12,7 @@
     damageModifierSet: Cischi
   - type: Inventory
     templateId: cischi
-    speciesId: digi
+    speciesId: reptilian
   - type: Bloodstream
     bloodReagent: Cryoxadone
     bloodlossDamage:
