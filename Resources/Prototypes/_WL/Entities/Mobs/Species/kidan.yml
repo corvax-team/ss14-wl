@@ -9,6 +9,8 @@
       species: HumanoidKidanes
     - type: Body
       prototype: HumanoidKidan
+    - type: Damageable
+      damageModifierSet: Kidan
     - type: Hunger
     - type: Thirst
     - type: Icon

@@ -12,3 +12,9 @@
     Poison: 0.8
     Radiation: 0.8
     Cold: 0.5
+
+- type: damageModifierSet
+  id: Kidan
+  coefficients:
+    Cold: 1.2
+    Poison: 1.8

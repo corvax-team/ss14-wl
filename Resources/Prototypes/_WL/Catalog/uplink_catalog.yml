@@ -1,0 +1,16 @@
+- type: listing
+  id: uplinkterminator
+  name: Коробка с цветами
+  description: Коробка с замаскированным дробовиком под кучей роз.
+  productEntity: RoseBoxFake
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Chef
+    - Mime
+    - Bartender
+    - Librarian

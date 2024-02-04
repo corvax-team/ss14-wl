@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  name: Урист МакЛистик
+  name: Урист МакЦисчи
   parent: BaseMobSpeciesOrganic
   id: MobCischi
   components:

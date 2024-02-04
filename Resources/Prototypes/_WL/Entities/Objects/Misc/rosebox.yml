@@ -1,0 +1,55 @@
+- type: entity
+  name: Букет цветов в коробке
+  id: RoseBoxFake
+  parent: BaseItem
+  suffix: Fake
+  description: Букет элитных цветов не выглядящий на свой вес. На этикетке написано, что это розы.
+  components:
+    - type: SpawnItemsOnUse
+      items:
+        - id: WeaponShotgunKammerer
+      sound:
+        path: /Audio/Effects/unwrap.ogg
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Misc/rosebox.rsi
+      state: icon
+    - type: StaticPrice
+      price: 1000
+
+#Fake
+- type: entity
+  name: Букет цветов в коробке
+  id: RoseBox
+  parent: BaseItem
+  description: Букет элитных цветов. На этикетке написано, что это розы.
+  components:
+    - type: SpawnItemsOnUse
+      items:
+        - id: Rose
+      sound:
+        path: /Audio/Effects/unwrap.ogg
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Misc/rosebox.rsi
+      state: icon
+    - type: StaticPrice
+      price: 550
+
+- type: entity
+  name: Роза
+  parent: ProduceBase
+  id: Rose
+  description: Искусственно выращенные розы с плантаций. Хороший подарок вашей девушке.
+  components:
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Specific/Hydroponics/rose.rsi
+      state: rose
+    - type: MeleeWeapon
+      attackRate: 1
+      damage:
+        types:
+          Piercing: 5
+    - type: StaminaDamageOnHit
+      damage: 5
+    - type: StaticPrice
+      price: 500
+
