@@ -43,10 +43,16 @@
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
   sprites:
-    - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
+#    - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
+#      state: wolf_tail
+#    - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
+#      state: wolf_tail_inner
+# Corvax WL start
+    - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
       state: wolf_tail
-    - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
+    - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
       state: wolf_tail_inner
+# Corvax WL end
 
 - type: marking
   id: FoxBelly
