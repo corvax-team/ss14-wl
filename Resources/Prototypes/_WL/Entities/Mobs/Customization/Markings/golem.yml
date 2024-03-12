@@ -1,0 +1,17 @@
+- type: marking
+  id: GolemRocks
+  bodyPart: head
+  markingCategory: Head
+  speciesRestriction: [Golem]
+  sprites:
+  - sprite: _WL/Mobs/Customization/golem_parts.rsi
+    state: head_rocks
+
+- type: marking
+  id: GolemCurled
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Golem]
+  sprites:
+  - sprite: _WL/Mobs/Customization/golem_parts.rsi
+    state: head_curled

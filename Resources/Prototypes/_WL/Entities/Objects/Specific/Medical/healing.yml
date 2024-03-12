@@ -76,3 +76,94 @@
   - type: Stack
     stackType: BioTube
     count: 1
+
+#Минеральная мазь (углерод 50, кремний 50, 1 мазь микроволновка 30 секунд=10 мази) - лечит 4 брут, 2.5 холод и тепло, 3.5 кислота
+- type: entity
+  name: минеральная мазь
+  description: Используется для замазывания трещин.
+  parent: BaseHealingItem
+  id: MineralOintment
+  suffix: Полный
+  components:
+  - type: Tag
+    tags:
+    - Ointment
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/medical.rsi
+    state: ointment-mineral
+  - type: Item
+    sprite: _WL/Entities/Objects/Specific/Medical/medical.rsi
+    heldPrefix: ointment-mineral
+  - type: Healing
+    damageContainers:
+      - Golemical
+    damage:
+      groups:
+        Brute: -4
+      types:
+        Cold: -2.5
+        Heat: -2.5
+        Caustic: -3.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MineralOintment
+    count: 10
+  - type: StackPrice
+    price: 20
+
+- type: entity
+  id: MineralOintment1
+  parent: MineralOintment
+  suffix: Один
+  components:
+  - type: Stack
+    stackType: MineralOintment
+    count: 1
+
+#Минеральная паста (20 пепел, 20 бритвиум, 10 артифексум, 10 космический клей, 1 минеральная мазь 30 секунд в микроволновке=10 пасты) - 15 брут, 6 холод
+- type: entity
+  name: минеральная паста
+  description: Используется для заделки дыр и приклеивания оторванных конечностей
+  parent: BaseHealingItem
+  id: MineralPaste
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Brutepack
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/medical.rsi
+    state: paste-mineral
+  - type: Item
+    sprite: _WL/Entities/Objects/Specific/Medical/medical.rsi
+    heldPrefix: paste-mineral
+  - type: Healing
+    damageContainers:
+      - Golemical
+    damage:
+      groups:
+        Brute: -15
+      types:
+        Cold: -6
+    bloodlossModifier: -10
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+  - type: Stack
+    stackType: MineralPaste
+    count: 10
+  - type: StackPrice
+    price: 20
+
+- type: entity
+  id: MineralPaste1
+  parent: MineralPaste
+  suffix: Один
+  components:
+  - type: Stack
+    stackType: MineralPaste
+    count: 1

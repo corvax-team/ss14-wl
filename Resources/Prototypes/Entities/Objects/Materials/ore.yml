@@ -9,6 +9,8 @@
   - type: Item
     sprite: Objects/Materials/ore.rsi
     size: Normal
+  - type: Food
+    requiresSpecialDigestion: true
   - type: Tag
     tags:
     - Ore
@@ -51,8 +53,19 @@
       RawGold: 500
   - type: Extractable
     grindableSolutionName: goldore
+  #- type: Healing
+  #  damageContainers:
+  #    - Golemical
+  #  damage:
+  #    groups:
+  #      Brute: -6
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Gold
+          Quantity: 10
       goldore:
         reagents:
         - ReagentId: Gold

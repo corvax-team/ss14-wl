@@ -32,3 +32,11 @@
     - /Audio/_WL/Voice/Kidan/sneeze2.ogg
     - /Audio/_WL/Voice/Kidan/sneeze2.ogg
     - /Audio/_WL/Voice/Kidan/sneeze3.ogg
+
+- type: soundCollection
+  id: GolemLaugh
+  files:
+    - /Audio/_WL/Voice/Golem/rustle_2.ogg
+    - /Audio/_WL/Voice/Golem/rustle_3.ogg
+    - /Audio/_WL/Voice/Golem/rustle_4.ogg
+# clap

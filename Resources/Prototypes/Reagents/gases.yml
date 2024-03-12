@@ -70,6 +70,12 @@
   - !type:FlammableTileReaction
     temperatureMultiplier: 1.5
   metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
     Poison:
       effects:
       - !type:HealthChange
@@ -439,3 +445,23 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
+# WL golem species start
+    Golem:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 160.15
+        amount: -30000
+      - !type:SatiateHunger
+        factor: 3
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Frezon
+          min: 5
+        key: ForcedSleep
+        component: ForcedSleeping
+        refresh: false
+        type: Add
+# WL golem species end

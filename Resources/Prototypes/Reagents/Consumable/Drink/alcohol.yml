@@ -296,6 +296,12 @@
         - !type:ReagentThreshold
           min: 10
 # WL android species end
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
 
 - type: reagent
   id: Gin

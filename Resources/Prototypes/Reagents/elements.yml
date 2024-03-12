@@ -8,6 +8,16 @@
   color: "#848789"
   boilingPoint: 2327.0
   meltingPoint: 660.0
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          groups:
+            Brute: -3
 
 - type: reagent
   id: Carbon
@@ -19,6 +29,13 @@
   color: "#22282b"
   boilingPoint: 4200.0
   meltingPoint: 3550.0
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
 
 - type: reagent
   id: Chlorine
@@ -71,6 +88,13 @@
             Poison: 0.1
     Medicine:
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          groups:
+            Brute: -3
       - !type:ModifyBloodLevel
         condition:
         - !type:OrganType
@@ -115,6 +139,22 @@
   color: "#F7C430"
   boilingPoint: 2700.0
   meltingPoint: 1064.76
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          groups:
+            Brute: -3
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
 
 - type: reagent
   id: Hydrogen
@@ -126,6 +166,13 @@
   color: "#808080"
   boilingPoint: -253.0
   meltingPoint: -259.2
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
 
 - type: reagent
   id: Iodine
@@ -137,6 +184,16 @@
   color: "#BC8A00"
   boilingPoint: 184.3
   meltingPoint: 113.7
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          types:
+            Radiation: -1
 
 - type: reagent
   id: Iron
@@ -162,6 +219,13 @@
             Poison: 0.1
     Medicine:
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          groups:
+            Brute: -3
       - !type:ModifyBloodLevel
         condition:
         - !type:OrganType
@@ -227,6 +291,18 @@
   color: "#c6c8cc"
   meltingPoint: 65.5
   boilingPoint: 759.0
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          groups:
+            Burn: -0.75
+          types:
+            Caustic: -0.125
 
 - type: reagent
   id: Phosphorus
@@ -257,6 +333,13 @@
   color: "#00ff04"
   meltingPoint: 700.0
   boilingPoint: 1737.0
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
 
 - type: reagent
   id: Silicon
@@ -269,6 +352,12 @@
   boilingPoint: 3265.0
   meltingPoint: 1414.0
   metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
     Poison:
       effects:
       - !type:HealthChange
@@ -286,6 +375,22 @@
   color: "#d0d0d0"
   boilingPoint: 2212.0
   meltingPoint: 960.5
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          groups:
+            Brute: -3
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
 
 - type: reagent
   id: Sulfur
@@ -298,6 +403,17 @@
   boilingPoint: 445.0
   meltingPoint: 120.0
   metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          groups:
+            Burn: -0.75
+          types:
+            Caustic: -0.125
     Poison:
       effects:
       - !type:HealthChange
@@ -315,6 +431,16 @@
   color: "#c6c8cc"
   meltingPoint: 97.8
   boilingPoint: 883.0
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          types:
+            Caustic: -0.5
 
 - type: reagent
   id: Uranium
@@ -337,6 +463,12 @@
     prob: 0.2
     amount: 0.1
   metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
     Poison:
       effects:
       - !type:HealthChange
@@ -354,3 +486,13 @@
   color: "#bababa"
   meltingPoint: 419.5
   boilingPoint: 907.0
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Golem
+        damage:
+          groups:
+            Brute: -3

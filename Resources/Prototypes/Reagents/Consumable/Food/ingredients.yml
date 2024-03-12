@@ -179,6 +179,13 @@
   meltingPoint: -16.0
   tileReactions:
   - !type:FlammableTileReaction {}
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
 
 - type: reagent
   id: CapsaicinOil
@@ -198,6 +205,10 @@
       - !type:AdjustReagent
         reagent: Nutriment #Oils enhance nutrition
         amount: 0.75
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
     Poison:
       effects:
         - !type:AdjustTemperature

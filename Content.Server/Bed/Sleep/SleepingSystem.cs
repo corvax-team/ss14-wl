@@ -19,6 +19,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Buckle;
+using Content.Shared._WL.Slippery;
 
 namespace Content.Server.Bed.Sleep
 {
@@ -29,7 +32,12 @@ namespace Content.Server.Bed.Sleep
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
-
+        // WL Golem species start
+        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototype = default!;
+        [Dependency] private readonly IEntityManager _entity = default!;
+        [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+        // WL Golem species end
         [ValidatePrototypeId<EntityPrototype>] public const string SleepActionId = "ActionSleep";
 
         public override void Initialize()
@@ -176,6 +184,20 @@ namespace Content.Server.Bed.Sleep
         private void OnInit(EntityUid uid, ForcedSleepingComponent component, ComponentInit args)
         {
             TrySleeping(uid);
+            // WL Golem species start
+            // TODO: Fall sound
+            if (!_buckle.IsBuckled(uid))
+            {
+                if (_entity.TryGetComponent<HardSlipComponent>(uid, out var hardslip))
+                {
+                    if (hardslip is not null)
+                    {
+                        var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Blunt"), hardslip.FallDamage);
+                        _damageableSystem.TryChangeDamage(uid, damageSpec);
+                    }
+                }
+            }
+            // WL Golem species end
         }
 
         /// <summary>

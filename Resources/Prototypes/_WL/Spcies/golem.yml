@@ -1,0 +1,155 @@
+- type: species
+  id: Golem
+  name: Голем
+  roundStart: true
+  prototype: MobGolem
+  sprites: MobGolemSprites
+  defaultSkinTone: "#FFFFFF"
+  markingLimits: MobGolemMarkingLimits
+  dollPrototype: MobGolemDummy
+  skinColoration: Hues
+  maleFirstNames: names_golem_first
+  femaleFirstNames: names_golem_first
+  maleLastNames: names_golem_last
+  femaleLastNames: names_golem_last
+
+- type: speciesBaseSprites
+  id: MobGolemSprites
+  sprites:
+    Head: MobGolemHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobGolemTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobGolemLArm
+    RArm: MobGolemRArm
+    LHand: MobGolemLHand
+    RHand: MobGolemRHand
+    LLeg: MobGolemLLeg
+    RLeg: MobGolemRLeg
+    LFoot: MobGolemLFoot
+    RFoot: MobGolemRFoot
+    Groin: MobHumanoidAnyMarking # WL-Underwear
+    Breast: MobHumanoidAnyMarking # WL-Underwear
+    Foots: MobHumanoidAnyMarking # WL-Underwear
+
+- type: markingPoints
+  id: MobGolemMarkingLimits
+  points:
+    Head:
+      points: 1
+      required: false
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 0
+      required: false
+    Snout:
+      points: 0
+      required: false
+    HeadTop:
+      points: 0
+      required: false
+    HeadSide:
+      points: 0
+      required: false
+    Underwear: # WL-Underwear
+      points: 1
+      required: false
+    Undershirt: # WL-Underwear
+      points: 1
+      required: false
+    Socks: # WL-Underwear
+      points: 1
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobGolemHeadMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobGolemHeadFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobGolemHead
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobGolemTorso
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobGolemTorsoMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobGolemTorsoFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: torso
+
+- type: humanoidBaseSprite
+  id: MobGolemLLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobGolemLHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobGolemLArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobGolemLFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobGolemRLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobGolemRHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobGolemRArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobGolemRFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+    state: r_foot

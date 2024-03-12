@@ -21,6 +21,12 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+// WL Golem species start
+using Content.Shared.Damage.Prototypes;
+using Content.Shared._WL.Slippery;
+using Robust.Shared.Prototypes;
+using Content.Shared.Buckle;
+// WL Golem species end
 
 namespace Content.Shared.Damage.Systems;
 
@@ -34,7 +40,12 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
+    // WL Golem species start
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    // WL Golem species end
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
     /// </summary>
@@ -364,6 +375,20 @@ public sealed partial class StaminaSystem : EntitySystem
         component.StaminaDamage = component.CritThreshold;
 
         _stunSystem.TryParalyze(uid, component.StunTime, true);
+
+        // WL Golem species start
+        if (!_buckle.IsBuckled(uid))
+        {
+            if (_entity.TryGetComponent<HardSlipComponent>(uid, out var hardslip))
+            {
+                if (hardslip is not null)
+                {
+                    var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Blunt"), hardslip.FallDamage);
+                    _damageableSystem.TryChangeDamage(uid, damageSpec);
+                }
+            }
+        }
+        // WL Golem species end
 
         // Give them buffer before being able to be re-stunned
         component.NextUpdate = _timing.CurTime + component.StunTime + StamCritBufferTime;

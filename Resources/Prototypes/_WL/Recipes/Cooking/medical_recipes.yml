@@ -1,0 +1,23 @@
+- type: microwaveMealRecipe
+  id: RecipeMineralOintment
+  name: mineral ointment recipe
+  result: MineralOintment
+  time: 30
+  solids:
+    Ointment: 1
+  reagents:
+    Carbon: 50
+    Silicon: 50
+
+- type: microwaveMealRecipe
+  id: RecipeMineralPaste
+  name: mineral paste recipe
+  result: MineralPaste
+  time: 30
+  solids:
+    Ointment: 1
+  reagents:
+    Ash: 20
+    Razorium: 20
+    SpaceGlue: 20
+    Artifexium: 20

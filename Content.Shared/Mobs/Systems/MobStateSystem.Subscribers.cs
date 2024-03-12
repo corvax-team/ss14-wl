@@ -16,11 +16,23 @@ using Content.Shared.Standing;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
-
+// WL Golem species start
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Buckle;
+using Content.Shared.Damage;
+using Robust.Shared.Prototypes;
+using Content.Shared._WL.Slippery;
+// WL Golem species end
 namespace Content.Shared.Mobs.Systems;
 
 public partial class MobStateSystem
 {
+    // WL Golem species start
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    // WL Golem species end
     //General purpose event subscriptions. If you can avoid it register these events inside their own systems
     private void SubscribeEvents()
     {
@@ -88,6 +100,21 @@ public partial class MobStateSystem
                 break;
             case MobState.Critical:
                 _standing.Down(target);
+
+                // WL Golem species start
+                if (!_buckle.IsBuckled(target))
+                {
+                    if (_entity.TryGetComponent<HardSlipComponent>(target, out var hardslip))
+                    {
+                        if (hardslip is not null)
+                        {
+                            var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Blunt"), hardslip.FallDamage);
+                            _damageableSystem.TryChangeDamage(target, damageSpec);
+                        }
+                    }
+                }
+                // WL Golem species end
+
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             case MobState.Dead:

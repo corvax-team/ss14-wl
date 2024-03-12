@@ -135,12 +135,17 @@
             Poison: 4
       - !type:ChemVomit
         probability: 0.25
-# WL android species start
+# WL species start
         conditions:
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
 
 - type: reagent
   id: Ichor
@@ -169,12 +174,29 @@
             Toxin: -2
           types:
             Bloodloss: -5
-# WL android species start
+# WL species start
         conditions:
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+      # Golem
+      - !type:MovespeedModifier
+        walkSpeedModifier: 2
+        sprintSpeedModifier: 2
+        conditions:
+        - !type:OrganType
+          type: Golem
+      - !type:SatiateHunger
+        factor: -3
+        conditions:
+        - !type:OrganType
+          type: Golem
+# WL species end
   # Just in case you REALLY want to water your plants
   plantMetabolism:
   - !type:PlantAdjustWater
@@ -197,6 +219,13 @@
     collection: FootstepBlood
     params:
       volume: 6
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem
 
 - type: reagent
   id: Vomit

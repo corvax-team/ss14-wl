@@ -8,3 +8,13 @@
     - Cold
     - Shock
     - Caustic
+
+- type: damageContainer
+  id: Golemical
+  supportedGroups:
+    - Brute
+    - Burn
+  supportedTypes:
+    - Radiation
+    - Caustic
+    - Heat

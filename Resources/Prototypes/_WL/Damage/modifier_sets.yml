@@ -18,3 +18,18 @@
   coefficients:
     Cold: 1.2
     Poison: 1.8
+
+- type: damageModifierSet
+  id: Golem
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.6
+    Piercing: 0.6
+    Heat: 0.2
+    Caustic: 0.2
+    Cold: 0.2 #почему камень получает урон от холода?
+    Radiation: 0.2
+    Asphyxiation: 0.0
+    Cellular: 0.0
+    Poison: 0.0
+    Shock: 0.0

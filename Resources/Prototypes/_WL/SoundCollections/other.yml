@@ -1,0 +1,4 @@
+- type: soundCollection
+  id: BareFootGolem
+  files:
+    - /Audio/_WL/Voice/Golem/barefoot1.ogg

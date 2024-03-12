@@ -19,11 +19,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         damage:
           types:
             Poison: 2 # this is added to the base damage of the meth.
@@ -33,53 +38,78 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
-# WL android species start
+# WL species start
         conditions:
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:Jitter
       - !type:GenericStatusEffect
         key: Stun
         time: 3
         type: Remove
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 3
         type: Remove
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
     Medicine:
       effects:
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentThreshold
           min: 20
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
 
 - type: reagent
   id: Ephedrine
@@ -97,21 +127,31 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 20
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         damage:
           types:
             Poison: 2 # this is added to the base damage of the meth.
@@ -121,22 +161,32 @@
         key: Stun
         time: 1
         type: Remove
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:GenericStatusEffect
         key: KnockedDown
         time: 1
         type: Remove
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:PopupMessage
         visualType: Medium
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
@@ -148,11 +198,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 30
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
 
 - type: reagent
   id: Stimulants
@@ -169,12 +224,25 @@
       metabolismRate: 1.0
       effects:
       - !type:MovespeedModifier
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold
             min: 80 #please wait 3 minutes before using another stimpack
+# WL species start
+          # Golem
+          - !type:OrganType
+            type: Golem
+            shouldHave: false
+# WL species end
         damage:
           types:
             Poison: 1
@@ -204,9 +272,16 @@
           - !type:TotalDamage
             min: 70
             max: 120 # you've got a chance to get out of crit
-          - !type:OrganType # WL android race
+# WL species start
+          # Android
+          - !type:OrganType
             type: Biorobotic
             shouldHave: false
+          # Golem
+          - !type:OrganType
+            type: Golem
+            shouldHave: false
+# WL species end
           damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
             groups:
               Burn: -1
@@ -230,6 +305,13 @@
     Narcotic:
       effects:
       - !type:GenericStatusEffect
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
@@ -249,6 +331,13 @@
     Narcotic:
       effects:
       - !type:GenericStatusEffect
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
@@ -291,24 +380,59 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:HealthChange
         damage:
           types:
             Poison: 2
+# WL species start
         conditions:
+        # Cischi
         - !type:OrganType
           type: Cischi
           shouldHave: false
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
         time: 10
         refresh: false
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:ChemVomit # Vomiting is a symptom of brain damage
         probability: 0.05
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 5
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
     Cischi:
        effects:
        - !type:AdjustTemperature
@@ -339,6 +463,13 @@
         type: Add
         time: 5
         refresh: false
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
 
 - type: reagent
   id: Bananadine
@@ -357,6 +488,13 @@
         type: Add
         time: 5
         refresh: false
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
 - type: reagent
@@ -376,11 +514,16 @@
         - !type:ReagentThreshold
           reagent: Nocturine
           min: 8
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         key: ForcedSleep
         component: ForcedSleeping
         refresh: false
@@ -401,12 +544,17 @@
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
-# WL android species start
+# WL species start
+        # Android
         conditions:
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
 
 - type: reagent
   id: NorepinephricAcid
@@ -443,11 +591,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         probability: 0.03
         #If anyone wants to add a light dimming or grayscale effect when under 20u, be my guest
       - !type:GenericStatusEffect
@@ -456,11 +609,16 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
-# WL android species start
+# WL species start
+        # Android
         - !type:OrganType
           type: Biorobotic
           shouldHave: false
-# WL android species end
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
 
 - type: reagent
   id: TearGas
@@ -476,6 +634,13 @@
     Narcotic:
       effects:
       - !type:PopupMessage
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         type: Local
         probability: 0.08
         messages:
@@ -498,7 +663,20 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
+# WL species start
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
       - !type:Emote
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         emote: Scream
         probability: 0.08
       - !type:GenericStatusEffect
@@ -507,3 +685,9 @@
         conditions:
         - !type:ReagentThreshold
           min: 20
+# WL species start
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end

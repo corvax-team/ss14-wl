@@ -5,3 +5,7 @@
 - type: metabolizerType
   id: Cischi
   name: cischi
+
+- type: metabolizerType
+  id: Golem
+  name: golem

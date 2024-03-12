@@ -3,3 +3,6 @@
 
 - type: metabolismGroup
   id: Cischi
+
+- type: metabolismGroup
+  id: Golem

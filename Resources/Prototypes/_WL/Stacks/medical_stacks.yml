@@ -13,3 +13,19 @@
   spawn: TiriumPack
   maxCount: 10
   itemSize: 1
+
+- type: stack
+  id: MineralOintment
+  name: минеральная мазь
+  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
+  spawn: MineralOintment
+  maxCount: 10
+  itemSize: 1
+
+- type: stack
+  id: MineralPaste
+  name: минеральная паста
+  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
+  spawn: MineralPaste
+  maxCount: 10
+  itemSize: 1

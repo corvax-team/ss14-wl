@@ -12,6 +12,28 @@
        },
        {
          "name": "bio_tube"
+       },
+       {
+         "name": "ointment-mineral"
+       },
+       {
+         "name": "ointment-mineral-inhand-left",
+         "directions": 4
+       },
+       {
+         "name": "ointment-mineral-inhand-right",
+         "directions": 4
+       },
+       {
+         "name": "paste-mineral"
+       },
+       {
+         "name": "paste-mineral-inhand-left",
+         "directions": 4
+       },
+       {
+         "name": "paste-mineral-inhand-right",
+         "directions": 4
        }
     ]
 }

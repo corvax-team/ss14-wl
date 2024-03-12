@@ -38,6 +38,13 @@
     Medicine:
       effects:
       - !type:HealthChange
+# WL species start
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
+# WL species end
         damage:
           types:
             Poison: -1
@@ -166,3 +173,10 @@
   color: "#E6E6DA"
   physicalDesc: reagent-physical-desc-crystalline
   slippery: false
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Golem

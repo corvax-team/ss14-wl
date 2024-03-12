@@ -146,3 +146,13 @@
       collection: MaleSigh
     Crying:
       collection: MaleCry
+
+- type: emoteSounds
+  id: UnisexGolem
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: GolemScream
+    Laugh:
+      collection: GolemLaugh

@@ -1,0 +1,101 @@
+- type: entity
+  id: PartGolem
+  parent: [BaseItem, BasePart]
+  name: "Golem body part"
+  abstract: true
+
+- type: entity
+  id: TorsoGolem
+  name: "Golem torso"
+  parent: [PartGolem, BaseTorso]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: torso
+
+- type: entity
+  id: HeadGolem
+  name: "Golem head"
+  parent: [PartGolem, BaseHead]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: head
+
+- type: entity
+  id: LeftArmGolem
+  name: "left Golem arm"
+  parent: [PartGolem, BaseLeftArm]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: l_arm
+
+- type: entity
+  id: RightArmGolem
+  name: "right Golem arm"
+  parent: [PartGolem, BaseRightArm]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: r_arm
+
+- type: entity
+  id: LeftHandGolem
+  name: "left Golem hand"
+  parent: [PartGolem, BaseLeftHand]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: l_hand
+
+- type: entity
+  id: RightHandGolem
+  name: "right Golem hand"
+  parent: [PartGolem, BaseRightHand]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: r_hand
+
+- type: entity
+  id: LeftLegGolem
+  name: "left Golem leg"
+  parent: [PartGolem, BaseLeftLeg]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: l_leg
+    - type: MovementBodyPart
+      walkSpeed : 1.5
+      sprintSpeed : 2.7
+
+- type: entity
+  id: RightLegGolem
+  name: "right Golem leg"
+  parent: [PartGolem, BaseRightLeg]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: r_leg
+    - type: MovementBodyPart
+      walkSpeed : 1.5
+      sprintSpeed : 2.7
+
+- type: entity
+  id: LeftFootGolem
+  name: "left Golem foot"
+  parent: [PartGolem, BaseLeftFoot]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: l_foot
+
+- type: entity
+  id: RightFootGolem
+  name: "right Golem foot"
+  parent: [PartGolem, BaseRightFoot]
+  components:
+    - type: Sprite
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: r_foot

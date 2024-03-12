@@ -1,0 +1,136 @@
+- type: entity
+  id: BaseGolemOrgan
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Golem/organs.rsi
+  - type: Organ
+
+- type: entity
+  id: OrganGolemSpark
+  parent: BaseGolemOrgan
+  name: искра
+  description: "Могз"
+  components:
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    program: 52 # микрофон на 1 режиме
+  - type: UserInterface
+    interfaces:
+    - key: enum.InstrumentUiKey.Key
+      type: InstrumentBoundUserInterface
+  - type: Sprite
+    state: spark
+  #  sprite: Objects/Fun/pai.rsi
+  #  layers:
+  #  - state: pai-base
+  #  - state: pai-off-overlay
+  #    shader: unshaded
+  #    map: ["screen"]
+  - type: Input
+    context: "human"
+  - type: BlockMovement
+  - type: Examiner
+  - type: DoAfter
+  - type: Actions
+  - type: TypingIndicator
+    proto: robot
+  - type: Item
+    size: Small
+    sprite: _WL/Mobs/Species/Golem/organs.rsi
+    heldPrefix: spark
+  - type: TTS # Corvax-TTS
+    voice: TrainingRobot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+    # This has to be installed because otherwise they're not "alive",
+    #  so they can ghost and come back.
+    # Note that the personal AI never "dies".
+  - type: MobState
+    allowedStates:
+      - Alive
+  - type: Appearance
+  #- type: GenericVisualizer
+  #  visuals:
+  #    enum.ToggleableGhostRoleVisuals.Status:
+  #      screen:
+  #        Off: { state: pai-off-overlay }
+  #        On: { state: pai-on-overlay }
+  - type: Tag
+    tags:
+    - MindTransferTarget
+
+- type: entity
+  id: OrganGolemFurnace
+  parent: BaseGolemOrgan
+  name: печь
+  description: "Pairing suggestion: chianti and fava beans."
+  components:
+  - type: Sprite
+    state: spark
+  - type: Organ
+  - type: EntityHeater
+  - type: ItemPlacer
+    maxEntities: 1
+    whitelist:
+      components:
+      - Temperature
+  - type: PlaceableSurface
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Ore
+      - Trash
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 20
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+      output:
+        maxVol: 0 #exists only for the overflow stuff on material reclaimer
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [Golem]
+    updateFrequency: 0.5
+    removeEmpty: true
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+    - id: Food
+    - id: Drink
+    - id: Medicine
+    - id: Poison
+  - type: CollideMaterialReclaimer
+  - type: MaterialReclaimer
+    enabled: true
+    efficiency: 0.25
+    scaleProcessSpeed: false #instant!
+    minimumProcessDuration: 0
+    whitelist:
+      components:
+      - PhysicalComposition
+      - MobState
+      - SpaceGarbage
+      tags:
+      - Trash
+      - Recyclable
+    blacklist:
+      components:
+      - Material
+      - Pda
+      - IdCard
+      tags:
+      - HighRiskItem
+    sound:
+      path: /Audio/Effects/saw.ogg
+      params:
+        volume: -3
+    cutOffSound: false
+  - type: MaterialStorage

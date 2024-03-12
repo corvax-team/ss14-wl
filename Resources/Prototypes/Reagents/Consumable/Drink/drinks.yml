@@ -561,6 +561,22 @@
         - !type:ReagentThreshold
           min: 10
 # WL android species end
+# WL golem species start
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 160.15
+        # Golem
+        - !type:OrganType
+          type: Golem
+        amount: -30000
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+# WL golem species end
 
 - type: reagent
   id: Ice
@@ -575,6 +591,25 @@
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
+  metabolisms:
+    Drink:
+      effects:
+# WL golem species start
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          min: 160.15
+        # Golem
+        - !type:OrganType
+          type: Golem
+        amount: -30000
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+        # Golem
+        - !type:OrganType
+          type: Golem
+# WL golem species end
 
 - type: reagent
   id: DryRamen
