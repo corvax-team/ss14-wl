@@ -20,14 +20,6 @@
             "directions": 4
         },
         {
-            "name": "wolf_tail",
-            "directions": 4
-        },
-        {
-            "name": "wolf_tail_inner",
-            "directions": 4
-        },
-        {
             "name": "messy_tail",
             "directions": 4
         },
