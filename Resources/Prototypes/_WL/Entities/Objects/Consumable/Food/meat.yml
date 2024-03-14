@@ -79,6 +79,7 @@
   name: "пеммикан"
   description: "Высококопитательный малогабаритный брикет."
   components:
+  - type: Item
   - type: FlavorProfile
     flavors:
       - lyrran6
@@ -96,4 +97,27 @@
           Quantity: 7
         - ReagentId: Vitamin
           Quantity: 3
+
+- type: entity
+  name: "эчпочмак"
+  parent: FoodInjectableBase
+  id: FoodEchpochmak
+  description: 'Сочный запечённый треугольник. Любимое лакомство иллюминатов.'
+  components:
   - type: Item
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - onion
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/echpochmak.rsi # <<< Вставьте актуальный путь
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 10
+          - ReagentId: Protein
+            Quantity: 10
