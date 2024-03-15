@@ -182,27 +182,6 @@ namespace Content.Server.Administration.Systems
                         Impact = LogImpact.Extreme,
                         ConfirmationPopup = true
                     });
-
-                    // Wl-height
-                    if (EntityManager.HasComponent<HumanoidAppearanceComponent>(args.Target))
-                    {
-                        args.Verbs.Add(new Verb
-                        {
-                            Text = Loc.GetString("Изменить рост"),
-                            Message = Loc.GetString("Изменяет рост игрока"),
-                            Category = VerbCategory.Admin,
-                            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
-                            Act = () =>
-                            {
-                                _quickDialog.OpenDialog(player, "Изменение роста", "Рост", (int newHeight) =>
-                                {
-                                    _adminSystem.HeightChange(targetActor.PlayerSession, newHeight);
-                                });
-                            },
-                            Impact = LogImpact.Extreme,
-                            ConfirmationPopup = true
-                        });
-                    }
                     // Corvax WL end
 
                 // Respawn
@@ -519,6 +498,28 @@ namespace Content.Server.Administration.Systems
                     Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/spill.svg.192dpi.png")),
                     Act = () => OpenEditSolutionsEui(player, args.Target),
                     Impact = LogImpact.Medium // maybe high depending on WHAT reagents they add...
+                };
+                args.Verbs.Add(verb);
+            }
+
+            // Wl-height
+            if (EntityManager.HasComponent<HumanoidAppearanceComponent>(args.Target))
+            {
+                Verb verb = new()
+                {
+                    Text = Loc.GetString("Изменить рост"),
+                    Message = Loc.GetString("Изменяет рост игрока"),
+                    Category = VerbCategory.Debug,
+                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+                    Act = () =>
+                    {
+                        _quickDialog.OpenDialog(player, "Изменение роста", "Рост", (int newHeight) =>
+                        {
+                            _adminSystem.HeightChange(args.Target, newHeight);
+                        });
+                    },
+                    Impact = LogImpact.Extreme,
+                    ConfirmationPopup = true
                 };
                 args.Verbs.Add(verb);
             }

@@ -427,10 +427,9 @@ namespace Content.Server.Administration.Systems
         }
 // Corvax WL start
 // WL-Height
-        public void HeightChange(ICommonSession player, int value)
+        public void HeightChange(EntityUid player, int value)
         {
-            var entity = player.AttachedEntity;
-            if (TryComp<HumanoidAppearanceComponent>(entity, out var humanoid))
+            if (TryComp<HumanoidAppearanceComponent>(player, out var humanoid))
             {
                 humanoid.Height = value;
 
