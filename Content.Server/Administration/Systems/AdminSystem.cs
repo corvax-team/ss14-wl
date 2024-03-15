@@ -32,6 +32,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Shared.Humanoid;
 
 namespace Content.Server.Administration.Systems
 {
@@ -53,6 +54,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
+        [Dependency] private readonly SharedHumanoidAppearanceSystem _profile = default!;
 
         private readonly Dictionary<NetUserId, PlayerInfo> _playerList = new();
 
@@ -423,5 +425,18 @@ namespace Content.Server.Administration.Systems
                 }
             }
         }
+// Corvax WL start
+// WL-Height
+        public void HeightChange(ICommonSession player, int value)
+        {
+            var entity = player.AttachedEntity;
+            if (TryComp<HumanoidAppearanceComponent>(entity, out var humanoid))
+            {
+                humanoid.Height = value;
+
+                _profile.ApplyHeight(humanoid);
+            }
+        }
+// Corvax WL end
     }
 }

@@ -37,6 +37,9 @@ using System.Linq;
 using System.Numerics;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Humanoid;
+
 
 namespace Content.Server.Administration.Systems
 {
@@ -163,6 +166,8 @@ namespace Content.Server.Administration.Systems
                         Impact = LogImpact.Extreme,
                         ConfirmationPopup = true
                     });
+
+                    // Corvax WL start
                     // EraseManifest
                     args.Verbs.Add(new Verb
                     {
@@ -177,6 +182,28 @@ namespace Content.Server.Administration.Systems
                         Impact = LogImpact.Extreme,
                         ConfirmationPopup = true
                     });
+
+                    // Wl-height
+                    if (EntityManager.HasComponent<HumanoidAppearanceComponent>(args.Target))
+                    {
+                        args.Verbs.Add(new Verb
+                        {
+                            Text = Loc.GetString("Изменить рост"),
+                            Message = Loc.GetString("Изменяет рост игрока"),
+                            Category = VerbCategory.Admin,
+                            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+                            Act = () =>
+                            {
+                                _quickDialog.OpenDialog(player, "Изменение роста", "Рост", (int newHeight) =>
+                                {
+                                    _adminSystem.HeightChange(targetActor.PlayerSession, newHeight);
+                                });
+                            },
+                            Impact = LogImpact.Extreme,
+                            ConfirmationPopup = true
+                        });
+                    }
+                    // Corvax WL end
 
                 // Respawn
                     args.Verbs.Add(new Verb()
