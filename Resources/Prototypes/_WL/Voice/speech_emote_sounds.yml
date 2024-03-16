@@ -154,7 +154,11 @@
       collection: GolemScream
     Laugh:
       collection: GolemLaugh
+    params:
+      variation: 0.1
+
+- type: emoteSounds
+  id: GolemBodyEmotes
+  sounds:
     Clap:
       collection: GolemClap
-  params:
-    variation: 0.1
