@@ -8,21 +8,25 @@
   - type: Organ
 
 - type: entity
-  id: OrganGolemSpark
+  id: OrganGolemCore
   parent: BaseGolemOrgan
   name: искра
-  description: "Могз"
+  description: "Тюрьма для души"
   components:
   - type: Instrument
     allowPercussion: false
     handheld: false
+    bank: 1
     program: 52 # микрофон на 1 режиме
   - type: UserInterface
     interfaces:
     - key: enum.InstrumentUiKey.Key
       type: InstrumentBoundUserInterface
   - type: Sprite
-    state: spark
+    layers:
+    - state: core-off
+      map: ["fire"]
+  - type: ToggleableGhostRole
   #  sprite: Objects/Fun/pai.rsi
   #  layers:
   #  - state: pai-base
@@ -31,21 +35,19 @@
   #    map: ["screen"]
   - type: Input
     context: "human"
+  - type: GolemCore # Играет музыку
+    midiActionId: "ActionGolemCorePlayMidi"
   - type: BlockMovement
   - type: Examiner
   - type: DoAfter
   - type: Actions
   - type: TypingIndicator
-    proto: robot
-  - type: Item
-    size: Small
-    sprite: _WL/Mobs/Species/Golem/organs.rsi
-    heldPrefix: spark
+    proto: moth
   - type: TTS # Corvax-TTS
-    voice: TrainingRobot
+    voice: The_Lord_of_the_Rings_Gollum
   - type: Speech
-    speechVerb: Robotic
-    speechSounds: Pai
+    speechVerb: Moth
+    speechSounds: Tenor
     # This has to be installed because otherwise they're not "alive",
     #  so they can ghost and come back.
     # Note that the personal AI never "dies".
@@ -53,32 +55,47 @@
     allowedStates:
       - Alive
   - type: Appearance
-  #- type: GenericVisualizer
-  #  visuals:
-  #    enum.ToggleableGhostRoleVisuals.Status:
-  #      screen:
-  #        Off: { state: pai-off-overlay }
-  #        On: { state: pai-on-overlay }
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        fire:
+          Off: { state: core-off }
+          On: { state: core-on }
   - type: Tag
     tags:
     - MindTransferTarget
 
 - type: entity
-  id: OrganGolemFurnace
-  parent: BaseGolemOrgan
-  name: печь
-  description: "Pairing suggestion: chianti and fava beans."
+  id: ActionGolemCorePlayMidi
+  name: Play MIDI
+  description: Open your portable MIDI interface to soothe your owner.
+  noSpawn: true
   components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon: Objects/Fun/Instruments/microphone.rsi/icon.png
+    event: !type:OpenUiActionEvent
+      key: enum.InstrumentUiKey.Key
+
+- type: entity
+  id: OrganGolemFurnace
+  name: печь
+  parent: BaseHeaterMachine
+  description: "Излучает уют и даже можно использовать для готовки если зафиксировать"
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
   - type: Sprite
-    state: spark
+    sprite: _WL/Mobs/Species/Golem/organs.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: stomach-off
+    - map: ["enum.EntityHeaterVisuals.Setting"]
+      visible: false
   - type: Organ
-  - type: EntityHeater
-  - type: ItemPlacer
-    maxEntities: 1
-    whitelist:
-      components:
-      - Temperature
-  - type: PlaceableSurface
   - type: Stomach
     specialDigestible:
       tags:
@@ -93,8 +110,6 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-      output:
-        maxVol: 0 #exists only for the overflow stuff on material reclaimer
   - type: Metabolizer
     maxReagents: 2
     metabolizerTypes: [Golem]
@@ -107,30 +122,25 @@
     - id: Drink
     - id: Medicine
     - id: Poison
-  - type: CollideMaterialReclaimer
-  - type: MaterialReclaimer
-    enabled: true
-    efficiency: 0.25
-    scaleProcessSpeed: false #instant!
-    minimumProcessDuration: 0
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: EntityHeater
+    power: 1200
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
+  - type: ItemPlacer
+    maxEntities: 1
     whitelist:
       components:
-      - PhysicalComposition
-      - MobState
-      - SpaceGarbage
-      tags:
-      - Trash
-      - Recyclable
-    blacklist:
-      components:
-      - Material
-      - Pda
-      - IdCard
-      tags:
-      - HighRiskItem
-    sound:
-      path: /Audio/Effects/saw.ogg
-      params:
-        volume: -3
-    cutOffSound: false
-  - type: MaterialStorage
+      - Temperature
+  - type: PlaceableSurface
+  - type: GenericVisualizer
+    visuals:
+      enum.EntityHeaterVisuals.Setting:
+        enum.EntityHeaterVisuals.Setting:
+          Off: { visible: false }
+          Low: { visible: true, state: stomach-on }
+          Medium: { visible: true, state: stomach-on }
+          High: { visible: true, state: stomach-on }
+  - type: Appearance

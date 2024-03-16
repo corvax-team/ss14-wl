@@ -6,7 +6,7 @@
     head:
       part: HeadGolem
       organs:
-        brain: OrganGolemSpark
+        brain: OrganGolemCore
       connections:
         - torso
     torso:
