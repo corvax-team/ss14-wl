@@ -37,6 +37,9 @@ using System.Linq;
 using System.Numerics;
 using Robust.Shared.Physics.Components;
 using static Content.Shared.Configurable.ConfigurationComponent;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Humanoid;
+
 
 namespace Content.Server.Administration.Systems
 {
@@ -67,7 +70,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly StationSystem _stations = default!;
         [Dependency] private readonly StationSpawningSystem _spawning = default!;
 
-        private readonly Dictionary<ICommonSession, EditSolutionsEui> _openSolutionUis = new();
+        private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
         public override void Initialize()
         {
@@ -163,6 +166,8 @@ namespace Content.Server.Administration.Systems
                         Impact = LogImpact.Extreme,
                         ConfirmationPopup = true
                     });
+
+                    // Corvax WL start
                     // EraseManifest
                     args.Verbs.Add(new Verb
                     {
@@ -177,6 +182,7 @@ namespace Content.Server.Administration.Systems
                         Impact = LogImpact.Extreme,
                         ConfirmationPopup = true
                     });
+                    // Corvax WL end
 
                 // Respawn
                     args.Verbs.Add(new Verb()
@@ -495,15 +501,40 @@ namespace Content.Server.Administration.Systems
                 };
                 args.Verbs.Add(verb);
             }
+
+            // Wl-height
+            if (EntityManager.HasComponent<HumanoidAppearanceComponent>(args.Target))
+            {
+                Verb verb = new()
+                {
+                    Text = Loc.GetString("Изменить рост"),
+                    Message = Loc.GetString("Изменяет рост игрока"),
+                    Category = VerbCategory.Debug,
+                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+                    Act = () =>
+                    {
+                        _quickDialog.OpenDialog(player, "Изменение роста", "Рост", (int newHeight) =>
+                        {
+                            _adminSystem.HeightChange(args.Target, newHeight);
+                        });
+                    },
+                    Impact = LogImpact.Extreme,
+                    ConfirmationPopup = true
+                };
+                args.Verbs.Add(verb);
+            }
         }
 
         #region SolutionsEui
         private void OnSolutionChanged(Entity<SolutionContainerManagerComponent> entity, ref SolutionContainerChangedEvent args)
         {
-            foreach (var eui in _openSolutionUis.Values)
+            foreach (var list in _openSolutionUis.Values)
             {
-                if (eui.Target == entity.Owner)
-                    eui.StateDirty();
+                foreach (var eui in list)
+                {
+                    if (eui.Target == entity.Owner)
+                        eui.StateDirty();
+                }
             }
         }
 
@@ -512,22 +543,33 @@ namespace Content.Server.Administration.Systems
             if (session.AttachedEntity == null)
                 return;
 
-            if (_openSolutionUis.ContainsKey(session))
-                _openSolutionUis[session].Close();
-
-            var eui = _openSolutionUis[session] = new EditSolutionsEui(uid);
+            var eui = new EditSolutionsEui(uid);
             _euiManager.OpenEui(eui, session);
+            eui.StateDirty();
 
-           eui.StateDirty();
+            if (!_openSolutionUis.ContainsKey(session)) {
+                _openSolutionUis[session] = new List<EditSolutionsEui>();
+            }
+
+            _openSolutionUis[session].Add(eui);
         }
 
-        public void OnEditSolutionsEuiClosed(ICommonSession session)
+        public void OnEditSolutionsEuiClosed(ICommonSession session, EditSolutionsEui eui)
         {
-            _openSolutionUis.Remove(session, out var eui);
+            _openSolutionUis[session].Remove(eui);
+            if (_openSolutionUis[session].Count == 0)
+              _openSolutionUis.Remove(session);
         }
 
         private void Reset(RoundRestartCleanupEvent ev)
         {
+            foreach (var euis in _openSolutionUis.Values)
+            {
+                foreach (var eui in euis.ToList())
+                {
+                    eui.Close();
+                }
+            }
             _openSolutionUis.Clear();
         }
         #endregion

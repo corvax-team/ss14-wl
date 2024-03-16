@@ -6,7 +6,6 @@ namespace Content.Server._WL.Speech.EntitySystems
 {
     public sealed class CischiAccentSystem : EntitySystem
     {
-        [Dependency] private readonly IRobustRandom _random = default!;
 
         public override void Initialize()
         {
