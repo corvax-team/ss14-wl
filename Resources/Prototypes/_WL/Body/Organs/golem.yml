@@ -37,7 +37,6 @@
     context: "human"
   - type: GolemCore # Играет музыку
     midiActionId: "ActionGolemCorePlayMidi"
-  - type: BlockMovement
   - type: Examiner
   - type: DoAfter
   - type: Actions
@@ -64,6 +63,11 @@
   - type: Tag
     tags:
     - MindTransferTarget
+  - type: MobMover
+  - type: InputMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0.15
+    baseSprintSpeed: 0.3
 
 - type: entity
   id: ActionGolemCorePlayMidi
