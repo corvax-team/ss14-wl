@@ -43,7 +43,7 @@
   - type: TypingIndicator
     proto: moth
   - type: TTS # Corvax-TTS
-    voice: The_Lord_of_the_Rings_Gollum
+    voice: Gollum
   - type: Speech
     speechVerb: Moth
     speechSounds: Tenor
