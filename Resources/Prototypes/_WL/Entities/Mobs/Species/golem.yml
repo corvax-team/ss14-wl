@@ -164,8 +164,8 @@
         Male: UnisexGolem
         Female: UnisexGolem
         Unsexed: UnisexGolem
-    #- type: BodyEmotes Выдает ошибку о метадате, хз как чинить пока без хлопаний
-    #  soundsId: GolemBodyEmotes
+    - type: BodyEmotes
+      soundsId: GolemBodyEmotes
     - type: Physics
       bodyType: Dynamic
       awake: true
