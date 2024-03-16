@@ -36,7 +36,11 @@
 - type: soundCollection
   id: GolemLaugh
   files:
+    - /Audio/_WL/Voice/Golem/rustle_1.ogg
     - /Audio/_WL/Voice/Golem/rustle_2.ogg
     - /Audio/_WL/Voice/Golem/rustle_3.ogg
-    - /Audio/_WL/Voice/Golem/rustle_4.ogg
-# clap
+
+- type: soundCollection
+  id: GolemClap
+  files:
+    - /Audio/_WL/Voice/Golem/clap1.ogg

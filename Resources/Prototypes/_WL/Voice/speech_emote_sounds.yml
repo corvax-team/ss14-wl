@@ -149,10 +149,12 @@
 
 - type: emoteSounds
   id: UnisexGolem
-  params:
-    variation: 0.125
   sounds:
     Scream:
       collection: GolemScream
     Laugh:
       collection: GolemLaugh
+    Clap:
+      collection: GolemClap
+  params:
+    variation: 0.1
