@@ -571,7 +571,7 @@
           type: Golem
         amount: -30000
       - !type:SatiateHunger
-        factor: 1.5
+        factor: -1.5
         conditions:
         # Golem
         - !type:OrganType
@@ -604,7 +604,7 @@
           type: Golem
         amount: -30000
       - !type:SatiateHunger
-        factor: 1.5
+        factor: -1.5
         conditions:
         # Golem
         - !type:OrganType
