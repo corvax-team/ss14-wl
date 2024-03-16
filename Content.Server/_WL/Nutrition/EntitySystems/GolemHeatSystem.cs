@@ -16,7 +16,7 @@ namespace Content.Server._WL.Nutrition.EntitySystems
         [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!;
 
-        private const int HeatChangeAmount = 250;
+        private const int HeatChangeAmount = 4000;
         private const float SprintSpeed = 3.24f;
         private const float WalkSpeed = 1.8f;
         private const int Acceleration = 20;

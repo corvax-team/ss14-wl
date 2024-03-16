@@ -12,7 +12,7 @@
     - type: Hunger
       thresholds:
         Overfed: 200
-        Okay: 180
+        Okay: 185
         Peckish: 100
         Starving: 50
         Dead: 0
@@ -77,7 +77,7 @@
         150: Critical
         200: Dead
     - type: Temperature
-      heatDamageThreshold: 373.15
+      heatDamageThreshold: 1273.15
       coldDamageThreshold: 275
       currentTemperature: 334
       specificHeat: 42
@@ -164,6 +164,8 @@
         Male: UnisexGolem
         Female: UnisexGolem
         Unsexed: UnisexGolem
+    #- type: BodyEmotes Выдает ошибку о метадате, хз как чинить пока без хлопаний
+    #  soundsId: GolemBodyEmotes
     - type: Physics
       bodyType: Dynamic
       awake: true
