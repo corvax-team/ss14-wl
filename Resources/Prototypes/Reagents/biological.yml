@@ -192,7 +192,7 @@
         - !type:OrganType
           type: Golem
       - !type:SatiateHunger
-        factor: -3
+        factor: 10
         conditions:
         - !type:OrganType
           type: Golem
