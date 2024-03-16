@@ -10,7 +10,13 @@
       damageContainer: Golemical
       damageModifierSet: Golem
     - type: Hunger
-      baseDecayRate: 0.005
+      thresholds:
+        Overfed: 200
+        Okay: 180
+        Peckish: 100
+        Starving: 50
+        Dead: 0
+      baseDecayRate: 0.03
     - type: HardSlip
       fallDamage: 14 # почти 10 с учетом их резиста
     #- type: Butcherable
@@ -88,7 +94,7 @@
       sweatHeatRegulation: 0
       shiveringHeatRegulation: 50000
       normalBodyTemperature: 334
-      thermalRegulationTemperatureThreshold: 25
+      thermalRegulationTemperatureThreshold: 50000
     - type: Tool
       speed: 2
       qualities:
