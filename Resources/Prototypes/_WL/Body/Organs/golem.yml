@@ -101,6 +101,7 @@
       tags:
       - Ore
       - Trash
+      - Wooden
   - type: SolutionContainerManager
     solutions:
       stomach:
