@@ -98,6 +98,7 @@
       - state: lung-l
       - state: lung-r
   - type: Lung
+    alert: LowNitrogen
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false

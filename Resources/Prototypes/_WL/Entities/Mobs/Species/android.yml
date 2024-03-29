@@ -1,10 +1,21 @@
 - type: entity
   save: false
   name: Urist McAndroid
-  parent: BaseMobSpeciesOrganic
+  parent:
+  - MobBloodstream
+  - MobRespirator
+  - MobAtmosStandard
+  - MobFlammable
+  - BaseMobSpecies
   id: BaseMobAndroid
   abstract: true
   components:
+  - type: Flashable
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.50 #per second, scales with pressure and other constants.
+        Heat: 0.1
   - type: HealthExaminable
     examinableTypes:
       - Blunt
@@ -24,7 +35,7 @@
       types:
         Bloodloss:
           -1.05
-    chemicalMaxVolume: 0
+    chemicalMaxVolume: 250
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -58,8 +69,9 @@
       - PressureImmunity
       - Muted
       - Pacified
-      - TemporaryBlindness
       - StaminaModifier
+      - TemporaryBlindness
+  - type: Blindable
   - type: Icon
     sprite: _WL/Mobs/Species/Android/parts.rsi
     state: full
@@ -76,6 +88,14 @@
     heatDamage:
       types:
         Heat: 0.1 #per second, scales with temperature & other constants
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 500
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 25
   - type: HumanoidAppearance
     species: Android
   - type: Body
@@ -112,9 +132,9 @@
         Blunt: 8
   - type: Butcherable
     butcheringType: Spike
-#    spawned:
-#      - id: Plastic
-#        amount: 5
+    spawned:
+      - id: Plastic
+        amount: 5
   - type: Repairable
     damage:
       types:
@@ -155,7 +175,16 @@
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }
-  - type: Unrevivable
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 1.0
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+  - type: FireVisuals
+    normalState: human_small_fire # Corvax WL /tg/ resprite
+    alternateState: human_big_fire # Corvax WL /tg/ resprite
   - type: Tag
     tags:
     - AndroidBodyTag
