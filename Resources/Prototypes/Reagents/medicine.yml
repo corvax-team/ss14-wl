@@ -262,9 +262,9 @@
             # this is a little arbitrary but they gotta be pretty cold
             max: 213.0
 # WL android species start
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+          - !type:OrganType
+            type: Biorobotic
+            shouldHave: false
 # WL android species end
           damage:
           # todo scale with temp like SS13
@@ -1731,9 +1731,9 @@
           - !type:Temperature
             max: 213.0
 # WL android species start
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+          - !type:OrganType
+            type: Biorobotic
+            shouldHave: false
 # WL android species end
           damage:
             groups:
