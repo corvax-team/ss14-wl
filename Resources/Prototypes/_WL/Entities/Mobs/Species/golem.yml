@@ -18,7 +18,7 @@
         Dead: 0
       baseDecayRate: 0.03
     - type: HardSlip
-      fallDamage: 14 # почти 10 с учетом их резиста
+      fallDamage: 14 # учитывает резисты, урон меньше
     #- type: Butcherable
     #  butcheringType: Spike
     #  spawned:
@@ -34,6 +34,8 @@
           collection:
             MetalLaserImpact
     - type: FlashImmunity
+    - type: Inventory
+      speciesId: reptilian
     - type: Puller
       needsHands: true
     - type: Bloodstream
@@ -201,7 +203,7 @@
         collection: BareFootGolem
         params:
           variation: 0.2
-          volume: -5
+          volume: -15
     - type: GolemHeat
     - type: GolemAccent
     - type: AtmosExposed
