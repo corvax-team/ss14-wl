@@ -159,6 +159,8 @@
           Blunt: 15
     - type: Speech
       speechSounds: Bass
+    - type: TypingIndicator
+      proto: golem
     - type: Vocal
       sounds:
         Male: UnisexGolem

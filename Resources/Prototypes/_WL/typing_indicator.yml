@@ -1,0 +1,5 @@
+- type: typingIndicator
+  id: golem
+  typingState: golem0
+  idleState: golem3 # Corvax-TypingIndicator
+  offset: 0.07, 0.125

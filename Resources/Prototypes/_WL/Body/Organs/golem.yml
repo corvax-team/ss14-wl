@@ -41,7 +41,7 @@
   - type: DoAfter
   - type: Actions
   - type: TypingIndicator
-    proto: moth
+    proto: golem
   - type: TTS # Corvax-TTS
     voice: Gollum
   - type: Speech
