@@ -12,6 +12,8 @@
   femaleFirstNames: names_golem_first
   maleLastNames: names_golem_last
   femaleLastNames: names_golem_last
+  sexes:
+  - Unsexed
 
 - type: speciesBaseSprites
   id: MobGolemSprites
