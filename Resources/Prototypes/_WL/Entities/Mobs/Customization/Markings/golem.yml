@@ -15,3 +15,12 @@
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: head_curled
+
+- type: marking
+  id: GolemMale
+  bodyPart: Torso
+  markingCategory: Torso
+  speciesRestriction: [Golem]
+  sprites:
+  - sprite: _WL/Mobs/Customization/golem_parts.rsi
+    state: torso_male

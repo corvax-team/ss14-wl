@@ -14,6 +14,10 @@
         {
             "name": "head_curled",
             "directions": 4
+        },
+        {
+            "name": "torso_male",
+            "directions": 4
         }
     ]
 }
