@@ -3,7 +3,6 @@
   maps:
   - CorvaxDelta
   - CorvaxAvrite
-  - CorvaxSpectrum
   - CorvaxGate
   - CorvaxSilly
   - CorvaxOutpost
@@ -12,6 +11,7 @@
   - CorvaxMaus
   - CorvaxIshimura
   - CorvaxPaper
+  - Atlas
   - Bagel
   - Box
   - Cluster
@@ -23,3 +23,4 @@
   - Origin
   - Saltern
   - Packed
+  - Reach

@@ -1,9 +1,12 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Inventory;
+using Robust.Shared.Network;
+using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -38,13 +41,14 @@ public sealed class SlipperySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<SlipperyComponent, StepTriggerAttemptEvent>(HandleAttemptCollide);
-        SubscribeLocalEvent<SlipperyComponent, StepTriggeredEvent>(HandleStepTrigger);
+        SubscribeLocalEvent<SlipperyComponent, StepTriggeredOffEvent>(HandleStepTrigger);
         SubscribeLocalEvent<NoSlipComponent, SlipAttemptEvent>(OnNoSlipAttempt);
+        SubscribeLocalEvent<ThrownItemComponent, SlipCausingAttemptEvent>(OnThrownSlipAttempt);
         // as long as slip-resistant mice are never added, this should be fine (otherwise a mouse-hat will transfer it's power to the wearer).
         SubscribeLocalEvent<NoSlipComponent, InventoryRelayedEvent<SlipAttemptEvent>>((e, c, ev) => OnNoSlipAttempt(e, c, ev.Args));
     }
 
-    private void HandleStepTrigger(EntityUid uid, SlipperyComponent component, ref StepTriggeredEvent args)
+    private void HandleStepTrigger(EntityUid uid, SlipperyComponent component, ref StepTriggeredOffEvent args)
     {
         TrySlip(uid, component, args.Tripper);
     }
@@ -62,6 +66,11 @@ public sealed class SlipperySystem : EntitySystem
         args.Cancel();
     }
 
+    private void OnThrownSlipAttempt(EntityUid uid, ThrownItemComponent comp, ref SlipCausingAttemptEvent args)
+    {
+        args.Cancelled = true;
+    }
+
     private bool CanSlip(EntityUid uid, EntityUid toSlip)
     {
         return !_container.IsEntityInContainer(uid)
@@ -76,6 +85,11 @@ public sealed class SlipperySystem : EntitySystem
         var attemptEv = new SlipAttemptEvent();
         RaiseLocalEvent(other, attemptEv);
         if (attemptEv.Cancelled)
+            return;
+
+        var attemptCausingEv = new SlipCausingAttemptEvent();
+        RaiseLocalEvent(uid, ref attemptCausingEv);
+        if (attemptCausingEv.Cancelled)
             return;
 
         var ev = new SlipEvent(other);
@@ -127,7 +141,13 @@ public sealed class SlipAttemptEvent : CancellableEntityEventArgs, IInventoryRel
 }
 
 /// <summary>
-///     This event is raised directed at an entity that CAUSED some other entity to slip (e.g., the banana peel).
+/// Raised on an entity that is causing the slip event (e.g, the banana peel), to determine if the slip attempt should be cancelled.
 /// </summary>
+/// <param name="Cancelled">If the slip should be cancelled</param>
+[ByRefEvent]
+public record struct SlipCausingAttemptEvent (bool Cancelled);
+
+/// Raised on an entity that CAUSED some other entity to slip (e.g., the banana peel).
+/// <param name="Slipped">The entity being slipped</param>
 [ByRefEvent]
 public readonly record struct SlipEvent(EntityUid Slipped);

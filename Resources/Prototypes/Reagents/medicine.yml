@@ -324,6 +324,10 @@
           - !type:OrganType
             type: Golem
             shouldHave: false
+          # Android
+          - !type:OrganType
+            type: Biorobotic
+            shouldHave: false
 # WL species end
           damage:
           # todo scale with temp like SS13
@@ -1067,6 +1071,10 @@
         - !type:OrganType
           type: Golem
           shouldHave: false
+        # Android
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 # WL species end
         damage:
           groups:
@@ -1756,6 +1764,10 @@
         - !type:OrganType
           type: Golem
           shouldHave: false
+        # Android
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 # WL species end
       - !type:HealthChange
         conditions:
@@ -1801,6 +1813,10 @@
         - !type:OrganType
           type: Golem
           shouldHave: false
+        # Android
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 # WL species end
       - !type:HealthChange
         conditions:
@@ -1845,6 +1861,10 @@
         - !type:OrganType
           type: Golem
           shouldHave: false
+        # Android
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 # WL species end
       - !type:HealthChange
         conditions:
@@ -1883,6 +1903,11 @@
         condition:
         - !type:TotalDamage
           max: 50
+# WL android species start
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
         damage:
           types:
             Blunt: -0.2
@@ -1912,6 +1937,10 @@
         # Golem
         - !type:OrganType
           type: Golem
+          shouldHave: false
+        # Android
+        - !type:OrganType
+          type: Biorobotic
           shouldHave: false
 # WL species end
       # od causes massive bleeding
@@ -1975,6 +2004,10 @@
         - !type:OrganType
           type: Golem
           shouldHave: false
+        # Android
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 # WL species end
       - !type:AdjustReagent
         reagent: Licoxide
@@ -1985,6 +2018,12 @@
       # makes you a little chilly when not oding
       - !type:AdjustTemperature
         amount: -5000
+# WL android species start
+        conditions:
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
+# WL android species end
       # od makes you freeze to death
       - !type:HealthChange
         conditions:
@@ -2042,6 +2081,10 @@
           - !type:OrganType
             type: Golem
             shouldHave: false
+          # Android
+          - !type:OrganType
+            type: Biorobotic
+            shouldHave: false
 # WL species end
           damage:
             groups:
@@ -2070,6 +2113,10 @@
         # Golem
         - !type:OrganType
           type: Golem
+          shouldHave: false
+        # Android
+        - !type:OrganType
+          type: Biorobotic
           shouldHave: false
 # WL species end
         damage:
