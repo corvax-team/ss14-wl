@@ -1,0 +1,14 @@
+- type: entity
+  noSpawn: true
+  parent: BaseObjective
+  id: HijackAPCsObjective
+  name: Hijack all the APC's on the station
+  components:
+  - type: Objective
+    difficulty: 1
+    issuer: hell
+    unique: false
+    icon:
+      sprite: Structures/Power/apc.rsi
+      state: static
+  - type: HijackAPCCondition

@@ -52,7 +52,12 @@ namespace Content.Shared.Alert
         SuitPower,
         BorgHealth,
         BorgCrit,
-        BorgDead
+        // Corvax WL start
+        BorgDead,
+        Electricity,
+        WithoutElectricityWarning
+
+        // Corvax WL end
     }
 
 }

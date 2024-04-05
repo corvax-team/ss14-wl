@@ -1,0 +1,65 @@
+- type: alertOrder
+  id: PulseDemonAlertOrder
+  order:
+    - category: Health
+    - category: Pressure
+
+- type: alert
+  id: Electricity
+  category: Health
+  icons:
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity0
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity1
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity2
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity3
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity4
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity5
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity6
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity7
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity8
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity9
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity10
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity11
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity12
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity13
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity14
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity15
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity16
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity17
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity18
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity19
+  - sprite: /Textures/Interface/Alerts/pulse_demon_electricity.rsi
+    state: electricity20
+  name: alerts-pulse-demon-electricity-name
+  description: alerts-pulse-demon-electricity-desc
+  minSeverity: 0
+  maxSeverity: 20
+
+- type: alert
+  id: WithoutElectricityWarning
+  category: Pressure
+  icons:
+  - sprite: /Textures/Interface/Alerts/stamina.rsi
+    state: stamina0
+  name: alerts-without-electricity-warning-name
+  description: alerts-without-electricity-warning-desc

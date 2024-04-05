@@ -1,5 +1,6 @@
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
+using Content.Shared._WL.Store;
 
 namespace Content.Shared.Store;
 

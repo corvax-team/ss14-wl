@@ -3,6 +3,9 @@
   parent: BaseStructure
   id: BaseMachine
   components:
+  - type: Tag
+    tags:
+      - Machine
   - type: InteractionOutline
   - type: Anchorable
     delay: 2

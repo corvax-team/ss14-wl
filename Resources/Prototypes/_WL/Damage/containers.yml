@@ -18,3 +18,8 @@
     - Radiation
     - Caustic
     - Heat
+
+- type: damageContainer
+  id: PulseDemon
+  supportedGroups:
+    - Burn

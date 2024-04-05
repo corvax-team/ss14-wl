@@ -1,0 +1,1 @@
+ent-HijackAPCsObjective = Взломать все ЛКП на станции

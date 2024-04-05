@@ -13,6 +13,7 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._WL.Store;
 
 namespace Content.Client.Store.Ui;
 

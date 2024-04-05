@@ -2,6 +2,7 @@
 using Content.Server.Store.Systems;
 using Content.Shared.Store;
 using Robust.Shared.Prototypes;
+using Content.Shared._WL.Store;
 
 namespace Content.Server.Store.Conditions;
 

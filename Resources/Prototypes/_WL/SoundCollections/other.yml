@@ -2,3 +2,12 @@
   id: BareFootGolem
   files:
     - /Audio/_WL/Voice/Golem/barefoot1.ogg
+
+- type: speechSounds
+  id: Spark
+  saySound:
+    path: /Audio/Effects/sparks1.ogg
+  askSound:
+    path: /Audio/Effects/sparks2.ogg
+  exclaimSound:
+    path: /Audio/Effects/sparks3.ogg

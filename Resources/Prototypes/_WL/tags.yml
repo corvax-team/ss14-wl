@@ -1,0 +1,14 @@
+- type: Tag
+  id: HijackedDevice
+
+- type: Tag
+  id: Apc
+
+- type: Tag
+  id: PulseDemonAbsorbable
+
+- type: Tag
+  id: Machine
+
+- type: Tag
+  id: Console

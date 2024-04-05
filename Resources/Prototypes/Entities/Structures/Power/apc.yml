@@ -141,6 +141,10 @@
     priority: 1
   - type: StaticPrice
     price: 500
+  - type: Tag
+    tags:
+      - Apc
+      - PulseDemonAbsorbable
 
 # APC under construction
 - type: entity

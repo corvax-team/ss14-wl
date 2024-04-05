@@ -1,0 +1,4 @@
+- type: currency
+  id: Energy
+  displayName: store-currency-display-energy
+  canWithdraw: false

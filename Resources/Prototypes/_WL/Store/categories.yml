@@ -1,0 +1,10 @@
+#pulse demon
+- type: storeCategory
+  id: PulseDemonAbilities
+  name: store-category-abilities
+  priority: 0
+
+- type: storeCategory
+  id: PulseDemonUpgrades
+  name: store-category-pulse-demon-upgrades
+  priority: 1

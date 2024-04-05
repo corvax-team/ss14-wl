@@ -360,7 +360,6 @@
         - Scientist
         - Borg
 # Corvax-HiddenDesc-End
-          
 - type: entity
   parent: GrenadeBase
   id: SmokeGrenade

@@ -1,0 +1,126 @@
+﻿- type: entity
+  id: MobPulseDemon
+  name: pulse demon
+  description: Run and hide before YOUR electricity becomes his next meal!
+  components:
+  - type: ArrivalsBlacklist
+  - type: StutteringAccent
+    matchRandomProb: 0.4
+  - type: TTS
+  - type: EmitSoundOnSpawn
+    sound:
+      params:
+        pitch: 0.95
+      path: /Audio/Effects/tesla_consume.ogg
+  - type: MindContainer
+  - type: LagCompensation
+  - type: GenericVisualizer
+    visuals:
+      enum.PulseDemonState.IsHiding:
+        enum.PulseDemonVisualLayers.Demon:
+         True: {visible: false}
+         False: { visible: true }
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-pulse-demon-name
+    description: ghost-role-information-pulse-demon-description
+    rules: ghost-role-information-pulse-demon-rules
+  - type: MobMover
+  - type: BlurryVision
+    correctionPower: 1
+    magnitude: 1
+  - type: InputMover
+  - type: Input
+    context: ghost
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 2.5
+  - type: Sprite
+    noRot: true
+    drawdepth: -3
+    sprite: Mobs/Demons/pulse.rsi
+    layers:
+    - state: pulsedemon
+      map: [ "enum.PulseDemonVisualLayers.Demon" ]
+  - type: InteractionOutline
+  - type: Clickable
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - Corporeal
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 80
+        mask:
+         - GhostImpassable
+         - 256
+        layer:
+         - BulletImpassable
+         - Opaque
+  - type: MovementIgnoreGravity
+  - type: Damageable
+    damageContainer: PulseDemon
+  - type: Examiner
+  - type: NoSlip
+  - type: Actions
+  - type: Eye
+    drawFov: true
+    visMask:
+      - 4
+  - type: RandomMetadata
+    nameSegments:
+    - pulse_demon_adjective
+    - pulse_demon_noun
+  - type: ContentEye
+    maxZoom: 1.2, 1.2
+  - type: Appearance
+  - type: DoAfter
+  - type: Alerts
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: GhostTakeoverAvailable
+  - type: PointLight
+    color: "#f7fa69"
+    radius: 2.3
+    energy: 2
+  - type: UserInterface
+    interfaces:
+    - key: enum.StoreUiKey.Key
+      type: StoreBoundUserInterface
+  - type: Emoting
+  - type: Speech
+    speechSounds: Spark
+    speechVerb: Electricity
+  - type: Tag
+    tags:
+      - CannotSuicide
+  - type: Electrified
+    requirePower: false
+    onInteractUsing: false
+    onBump: false
+    shockTime: 3
+  - type: Battery
+    maxCharge: 10000
+    startingCharge: 5000
+  - type: PulseDemon
+    demonDamageModifier: 1000
+    onElectromagneticTamperActions:
+    - !type:EncryptionKeyHolderAction
+    - !type:VendingMachineAction
+  - type: Store
+    refundAllowed: false
+    balance:
+      Energy: 5000
+    categories:
+    - PulseDemonAbilities
+    - PulseDemonUpgrades
+    currencyWhitelist:
+    - Energy

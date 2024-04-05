@@ -1,0 +1,414 @@
+#Remote drain
+- type: listing
+  id: PulseDemonDrain
+  name: Удалённое поглощение
+  priority: 1
+  productUpgradeID: PulseDemonDrainUpgrade
+  description: Используется для поглощения энергии.
+  productAction: PulseDemonActionRemoteAbsorption
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  cost:
+    Energy: 10000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PulseDemonDrainUpgrade
+  name: Улучшить Удалённое поглощение
+  priority: 2
+  productUpgradeID: PulseDemonDrain
+  description: Улучшает способность Удалённое поглощение. Увеличивет дальность способности и скорость перезарядки.
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  icon:
+    sprite: Interface/Actions/pulse_demon.rsi
+    state: update
+  priceModifyFunctions:
+    Energy: !type:LinearDependenceFunction
+      coefM: 15000
+      coefB: 20000
+  cost:
+    Energy: 15000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+     stock: 3
+  - !type:BuyBeforeCondition
+     whitelist:
+     - PulseDemonDrain
+
+#Cable hop
+- type: listing
+  id: PulseDemonCableHop
+  name: Прыжок по кабелям
+  priority: 3
+  productUpgradeID: PulseDemonCableHopUpgrade
+  description: Используется для перемещения в труднодоступные области(если там есть кабель).
+  productAction: PulseDemonActionCableHop
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  cost:
+    Energy: 15000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PulseDemonCableHopUpgrade
+  name: Улучшить Прыжок по кабелям
+  priority: 4
+  productUpgradeID: PulseDemonCableHop
+  description: Улучшает способность Прыжок по кабелям. Увеличивая дальность способности и скорость перезарядки.
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  icon:
+    sprite: Interface/Actions/pulse_demon.rsi
+    state: update
+  cost:
+    Energy: 20000
+  priceModifyFunctions:
+    Energy: !type:LinearDependenceFunction
+      coefM: 10000
+      coefB: 20000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+     stock: 3
+  - !type:BuyBeforeCondition
+     whitelist:
+     - PulseDemonCableHop
+
+#Hide
+- type: listing
+  id: PulseDemonHideInWires
+  name: Спрятаться
+  priority: 6
+  productUpgradeID: PulseDemonHideInWiresUpgrade
+  description: Позволяет вам спрятаться в проводах.
+  productAction: PulseDemonActionHide
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  cost:
+    Energy: 5000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PulseDemonHideInWiresUpgrade
+  name: Улучшить Спрятаться
+  priority: 7
+  productUpgradeID: PulseDemonHideInWires
+  description: Улучшает способность Спрятаться. Уменьшается время перезарядки способности.
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  priceModifyFunctions:
+    Energy: !type:LinearDependenceFunction
+      coefM: 4000
+      coefB: 7000
+  icon:
+    sprite: Interface/Actions/pulse_demon.rsi
+    state: update
+  cost:
+    Energy: 7000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+     stock: 2
+  - !type:BuyBeforeCondition
+     whitelist:
+     - PulseDemonHideInWires
+
+#Self sustaining
+- type: listing
+  id: PulseDemonSelfSustaining
+  name: Независимое существование
+  priority: 8
+  productUpgradeID: PulseDemonSelfSustainingUpgrade
+  description: Позволяет на некоторое время покидать провода.
+  productAction: PulseDemonActionSelfSustaining
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  cost:
+    Energy: 25000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PulseDemonSelfSustainingUpgrade
+  name: Улучшить Независимое существование
+  priority: 9
+  productUpgradeID: PulseDemonSelfSustaining
+  description: Улучшает способность Независимое существование. Увеличивается продолжительность существования.
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  priceModifyFunctions:
+    Energy: !type:LinearDependenceFunction
+      coefM: 15000
+      coefB: 20000
+  icon:
+    sprite: Interface/Actions/pulse_demon.rsi
+    state: update
+  cost:
+    Energy: 10000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+     stock: 2
+  - !type:BuyBeforeCondition
+     whitelist:
+     - PulseDemonSelfSustaining
+
+#emp
+- type: listing
+  id: PulseDemonEmp
+  name: Электромагнитный импульс
+  priority: 10
+  productUpgradeID: PulseDemonEmpUpgrade
+  description: Создаёт мощный электромагнитный импульс. Не заденьте себя!
+  productAction: PulseDemonActionEmp
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  cost:
+    Energy: 15000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PulseDemonEmpUpgrade
+  name: Улучшить Электромагнитный импульс
+  priority: 11
+  productUpgradeID: PulseDemonEmp
+  description: Улучшает способность Электромагнитный импульс. Увеличивается радиус ЭМИ и сила ЭМИ.
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  priceModifyFunctions:
+    Energy: !type:LinearDependenceFunction
+      coefM: 10000
+      coefB: 20000
+  icon:
+    sprite: Interface/Actions/pulse_demon.rsi
+    state: update
+  cost:
+    Energy: 20000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+     stock: 3
+  - !type:BuyBeforeCondition
+     whitelist:
+     - PulseDemonEmp
+
+#Overload
+- type: listing
+  id: PulseDemonOverload
+  name: Перегрузка техники
+  priority: 12
+  productUpgradeID: PulseDemonOverloadUpgrade
+  description: Заставляет технику взорваться!
+  productAction: PulseDemonActionOverloadMachine
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  cost:
+    Energy: 20000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PulseDemonOverloadUpgrade
+  name: Улучшить Перегрузка техники
+  priority: 13
+  productUpgradeID: PulseDemonOverload
+  description: Улучшает способность Перегрузка техники. Увеличивается сила взрыва и радиус. Уменьшается время подготовки к взрыву.
+  priceModifyFunctions:
+    Energy: !type:LinearDependenceFunction
+      coefM: 10000
+      coefB: 20000
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  icon:
+    sprite: Interface/Actions/pulse_demon.rsi
+    state: update
+  cost:
+    Energy: 20000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+     stock: 3
+  - !type:BuyBeforeCondition
+     whitelist:
+     - PulseDemonOverload
+
+#Electromagnetic Tamper
+- type: listing
+  id: PulseDemonElectromagneticTamper
+  name: Перенастройка техники
+  priority: 14
+  description: Позволяет взаимодействовать со взломанной техникой. Результат зависит от типа техники. Внимание, после перенастройки техника выключается.
+  productAction: PulseDemonActionElectromagneticTamper
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  cost:
+    Energy: 10000
+  categories:
+  - PulseDemonAbilities
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+
+##Characteristics
+
+
+- type: listing
+  id: ListingPulseDemonAbsorptionUpgrade
+  name: Улучшение Поглощения
+  priority: 0
+  description: Увеличивает количество энергии, поглощаемое за раз.
+  icon:
+    sprite: Structures/Power/cell_recharger.rsi
+    state: empty
+  priceModifyFunctions:
+    Energy: !type:LinearDependenceFunction
+      coefM: 15000
+      coefB: 15000
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  - !type:PulseDemonShopUpgradeEvent
+    characteristicUpgrade: absorption
+  cost:
+    Energy: 15000
+  categories:
+  - PulseDemonUpgrades
+
+- type: listing
+  id: ListingPulseDemonHijackspeedUpgrade
+  name: Улучшение Скорости взлома
+  priority: 1
+  description: Увеличивает скорость взлома ЛКП.
+  icon:
+    sprite: Structures/Power/apc.rsi
+    state: static
+  priceModifyFunctions:
+    Energy: !type:LinearDependenceFunction
+      coefM: 15000
+      coefB: 10000
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  - !type:PulseDemonShopUpgradeEvent
+    characteristicUpgrade: hijackspeed
+  cost:
+    Energy: 10000
+  categories:
+  - PulseDemonUpgrades
+
+- type: listing
+  id: ListingPulseDemonCapacityUpgrade
+  name: Улучшение Вместимости
+  priority: 2
+  description: Увеличивает максимальное количество энергии, которое вы можете в себя вместить.
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: adv_capacitor
+  priceModifyFunctions:
+    Energy: !type:QuadraticDependenceFunction
+      coefA: 10000
+      coefB: 10000
+      coefC: 0
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  - !type:PulseDemonShopUpgradeEvent
+    characteristicUpgrade: capacity
+  cost:
+    Energy: 10000
+  categories:
+  - PulseDemonUpgrades
+
+- type: listing
+  id: ListingPulseDemonEnduranceUpgrade
+  name: Улучшение Выносливости
+  priority: 3
+  description: Улучшение выносливости увеличит время, которое вы можете провести вне заряженного кабеля, не учитывая способность Независимое Существование.
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: adv_scan_module
+  priceModifyFunctions:
+    Energy: !type:QuadraticDependenceFunction
+      coefA: 10000
+      coefB: 10000
+      coefC: 0
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  - !type:PulseDemonShopUpgradeEvent
+    characteristicUpgrade: endurance
+  cost:
+    Energy: 10000
+  categories:
+  - PulseDemonUpgrades
+
+- type: listing
+  id: ListingPulseDemonEfficiencyUpgrade
+  name: Улучшение Эффективности
+  priority: 4
+  description: Уменьшает время, которое требуется на единичное высасывание энергии.
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: high_micro_laser
+  priceModifyFunctions:
+    Energy: !type:QuadraticDependenceFunction
+      coefA: 20000
+      coefB: 10000
+      coefC: 0
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  - !type:PulseDemonShopUpgradeEvent
+    characteristicUpgrade: efficiency
+  cost:
+    Energy: 10000
+  categories:
+  - PulseDemonUpgrades
+
+- type: listing
+  id: ListingPulseDemonSpeedUpgrade
+  name: Улучшение Скорости
+  priority: 5
+  description: Увеличивает вашу скорость.
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: nano_mani
+  priceModifyFunctions:
+    Energy: !type:QuadraticDependenceFunction
+      coefA: 10000
+      coefB: 0
+      coefC: 10000
+  productEvents:
+  - !type:PulseDemonShopPurchaseEvent
+  - !type:PulseDemonShopUpgradeEvent
+    characteristicUpgrade: speed
+  cost:
+    Energy: 15000
+  categories:
+  - PulseDemonUpgrades

@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseGameRule
+  id: PulseDemonSpawn
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: 1
+    earliestStart: 70
+    reoccurrenceDelay: 90
+    minimumPlayers: 20
+  - type: PulseDemonSpawnRule
+    prototype: SpawnPointPulseDemon

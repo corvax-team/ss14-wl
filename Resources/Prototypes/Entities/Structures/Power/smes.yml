@@ -8,6 +8,9 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: Tag
+      tags:
+        - PulseDemonAbsorbable
     - type: AmbientSound
       volume: -7
       range: 3
