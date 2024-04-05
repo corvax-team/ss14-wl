@@ -21,3 +21,10 @@
     - type: VulpAccent
     - type: CischiAccent
     - type: GolemAccent
+
+- type: trait
+  id: Southern
+  name: trait-southern-name
+  description: trait-southern-desc
+  components:
+    - type: SouthernAccent

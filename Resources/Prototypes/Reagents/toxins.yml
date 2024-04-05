@@ -571,6 +571,7 @@
   color: "#D6CE7B"
   metabolisms:
     Poison:
+      metabolismRate: 0.2
       effects:
       - !type:HealthChange
 # WL species start
@@ -582,7 +583,7 @@
 # WL species end
         damage:
           types:
-            Poison: 6
+            Poison: 3
 
 - type: reagent
   id: VentCrud
