@@ -20,7 +20,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
-
+using Robust.Shared.Map;
 
 namespace Content.Server._WL.PulseDemon.Systems;
 
@@ -34,6 +34,7 @@ public sealed partial class PulseDemonSystem : EntitySystem
     [Dependency] private readonly PowerNetSystem _power = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _move = default!;
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly IMapManager _map = default!;
 
     #region WallSpawnOffsets
     private static readonly List<Vector2> Offsets = new()
@@ -55,6 +56,7 @@ public sealed partial class PulseDemonSystem : EntitySystem
     public const string EnergyCurrencyPrototype = "Energy";
 
     public const int InvisibleWallsLayer = 1024;
+    public const float WithoutTurfDamageFactor = 10;
 
     public override void Initialize()
     {
@@ -95,7 +97,10 @@ public sealed partial class PulseDemonSystem : EntitySystem
 
             _alerts.ShowAlert(uid, AlertType.WithoutElectricityWarning);
 
-            var damageValue = battery.MaxCharge * GetEndurance(pulseDemonComp) / _gameTiming.TickRate;
+            var factor = transform.Coordinates.GetTileRef(EntityManager, _map) == null
+                ? WithoutTurfDamageFactor
+                : 1;
+            var damageValue = battery.MaxCharge * GetEndurance(pulseDemonComp) / _gameTiming.TickRate * factor;
             DealBatteryDamage(battery, damageValue);
         }
     }
@@ -364,10 +369,12 @@ public sealed partial class PulseDemonSystem : EntitySystem
 
         foreach (var ent in cables)
         {
-            var coords = Transform(ent.Item1.Owner).Coordinates;
+            var xForm = Transform(ent.Item1.Owner);
+            if (xForm.GridUid == null)
+                continue;
 
             EnsureComp<MarkeredCableComponent>(ent.Item1.Owner);
-            var marker = EntityManager.SpawnEntity(MarkerCablePrototypeID, coords);
+            var marker = EntityManager.SpawnEntity(MarkerCablePrototypeID, xForm.Coordinates);
             var markeredCable = Comp<DemonCableMarkerComponent>(marker);
             markeredCable.Entity = ent.Item1.Owner;
         }
@@ -375,22 +382,19 @@ public sealed partial class PulseDemonSystem : EntitySystem
 
     private void UpdateWallsAroundDemon(TransformComponent demonTransform)
     {
-        if (demonTransform.GridUid == null)
-            return;
 
         demonTransform.Coordinates.Position
             .Floored()
             .Deconstruct(out var flooredX, out var flooredY);
 
-        var tileCenterCoordsAttachDemon = demonTransform.Coordinates.WithPosition(new Vector2(flooredX + 0.5f, flooredY + 0.5f));
-
-        var tileCenterCoords = tileCenterCoordsAttachDemon.WithEntityId((EntityUid) demonTransform.GridUid);
-
         foreach (var offset in Offsets)
         {
-            var oldPosition = tileCenterCoords.Position;
+            var oldPosition = demonTransform.Coordinates;
 
-            var offsetPosition = tileCenterCoords.WithPosition(oldPosition + offset);
+            var offsetPosition = oldPosition.WithPosition(oldPosition.Position + offset);
+
+            if (offsetPosition.GetTileRef(EntityManager, _map) == null)
+                continue;
 
             var entites = offsetPosition.GetEntitiesInTile(LookupFlags.Uncontained, _lookup)
                 .Where(entity => HasComp<DemonInvisibleWallComponent>(entity) || HasComp<CableComponent>(entity));
