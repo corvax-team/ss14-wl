@@ -52,6 +52,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     /// <summary>
     /// Specific customizeable conditions that determine whether or not the listing can be purchased.
     /// </summary>
+    [NonSerialized]
     [DataField("conditions", serverOnly: true)]
     public List<ListingCondition>? Conditions = new List<ListingCondition>(); // Используйте скобки () // инициализация полем по умолчанию
 
