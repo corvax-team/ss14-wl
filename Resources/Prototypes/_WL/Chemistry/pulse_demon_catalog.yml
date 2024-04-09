@@ -37,7 +37,7 @@
   - PulseDemonAbilities
   conditions:
   - !type:ListingLimitedStockCondition
-     stock: 3
+    stock: 3
   - !type:BuyBeforeCondition
      whitelist:
      - PulseDemonDrain
@@ -81,7 +81,7 @@
   - PulseDemonAbilities
   conditions:
   - !type:ListingLimitedStockCondition
-     stock: 3
+    stock: 3
   - !type:BuyBeforeCondition
      whitelist:
      - PulseDemonCableHop
@@ -125,7 +125,7 @@
   - PulseDemonAbilities
   conditions:
   - !type:ListingLimitedStockCondition
-     stock: 2
+    stock: 2
   - !type:BuyBeforeCondition
      whitelist:
      - PulseDemonHideInWires
@@ -169,7 +169,7 @@
   - PulseDemonAbilities
   conditions:
   - !type:ListingLimitedStockCondition
-     stock: 2
+    stock: 2
   - !type:BuyBeforeCondition
      whitelist:
      - PulseDemonSelfSustaining
@@ -213,7 +213,7 @@
   - PulseDemonAbilities
   conditions:
   - !type:ListingLimitedStockCondition
-     stock: 3
+    stock: 3
   - !type:BuyBeforeCondition
      whitelist:
      - PulseDemonEmp
@@ -257,7 +257,7 @@
   - PulseDemonAbilities
   conditions:
   - !type:ListingLimitedStockCondition
-     stock: 3
+    stock: 3
   - !type:BuyBeforeCondition
      whitelist:
      - PulseDemonOverload

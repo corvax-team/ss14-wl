@@ -59,7 +59,7 @@
       sprite: Interface/Actions/pulse_demon.rsi
       state: emag
     event: !type:PulseDemonElectromagneticTamperActionEvent
-      cost: 100000
+      cost: 10000
 
 #Self-Sustaining
 - type: entity
@@ -76,7 +76,7 @@
       sprite: Interface/Actions/pulse_demon.rsi
       state: self_sustaining
     event: !type:PulseDemonSelfSustainingActionEvent
-      cost: 40000
+      cost: 3500
       timeOutside: 10
   - type: ActionUpgrade
     effectedLevels:
@@ -93,7 +93,7 @@
   - type: InstantAction
     useDelay: 150
     event: !type:PulseDemonSelfSustainingActionEvent
-      cost: 30000
+      cost: 4000
       timeOutside: 15
 
 - type: entity
@@ -106,7 +106,7 @@
   - type: InstantAction
     useDelay: 120
     event: !type:PulseDemonSelfSustainingActionEvent
-      cost: 20000
+      cost: 4500
       timeOutside: 20
 
 #Hide
@@ -123,8 +123,8 @@
       sprite: Interface/Actions/pulse_demon.rsi
       state: hide
     event: !type:PulseDemonHideActionEvent
-      cost: 4000
-      hidingTime: 100
+      cost: 3000
+      hidingTime: 15
   - type: ActionUpgrade
     effectedLevels:
       2: PulseDemonActionHideII
@@ -140,8 +140,8 @@
   - type: InstantAction
     useDelay: 210
     event: !type:PulseDemonHideActionEvent
-      cost: 4000
-      hidingTime: 120
+      cost: 3000
+      hidingTime: 30
 
 - type: entity
   id: PulseDemonActionHideIII
@@ -154,7 +154,7 @@
     useDelay: 180
     event: !type:PulseDemonHideActionEvent
       cost: 4000
-      hidingTime: 140
+      hidingTime: 60
 
 #Absorption
 - type: entity
@@ -192,7 +192,7 @@
   components:
   - type: EntityTargetAction
     event: !type:PulseDemonAbsorptionActionEvent
-      cost: 10000
+      cost: 4500
     useDelay: 20
     priority: 2
     range: 6
@@ -214,13 +214,13 @@
   components:
   - type: EntityTargetAction
     event: !type:PulseDemonAbsorptionActionEvent
-      cost: 9000
+      cost: 4000
     useDelay: 15
     range: 7
     icon:
       sprite: Interface/Actions/pulse_demon.rsi
       state: remotedrain
-      
+
 - type: entity
   id: PulseDemonActionRemoteAbsorptionIII
   name: Remote Absorption III
@@ -230,7 +230,7 @@
   components:
   - type: EntityTargetAction
     event: !type:PulseDemonAbsorptionActionEvent
-      cost: 8000
+      cost: 3500
     useDelay: 12
     range: 7.5
     icon:
@@ -246,7 +246,7 @@
   components:
   - type: EntityTargetAction
     event: !type:PulseDemonAbsorptionActionEvent
-      cost: 7000
+      cost: 3500
     useDelay: 10
     range: 8
     icon:
@@ -272,7 +272,7 @@
       sprite: Interface/Actions/pulse_demon.rsi
       state: cablejump
     event: !type:PulseDemonCableHopActionEvent
-      cost: 20000
+      cost: 2000
   - type: ActionUpgrade
     effectedLevels:
       2: PulseDemonActionCableHopII
@@ -288,13 +288,13 @@
   components:
   - type: WorldTargetAction
     event: !type:PulseDemonCableHopActionEvent
-      cost: 15000
+      cost: 2500
     useDelay: 25
     range: 5
     icon:
       sprite: Interface/Actions/pulse_demon.rsi
       state: cablejump
-      
+
 - type: entity
   id: PulseDemonActionCableHopIII
   name: Cable jump III
@@ -304,7 +304,7 @@
   components:
   - type: WorldTargetAction
     event: !type:PulseDemonCableHopActionEvent
-      cost: 13000
+      cost: 3000
     useDelay: 23
     range: 7
     icon:
@@ -320,7 +320,7 @@
   components:
   - type: WorldTargetAction
     event: !type:PulseDemonCableHopActionEvent
-      cost: 11000
+      cost: 4000
     useDelay: 20
     range: 8
     icon:
@@ -346,7 +346,7 @@
       state: emp
       radius: 1
     event: !type:PulseDemonEmpActionEvent
-      cost: 20000
+      cost: 10000
   - type: ActionUpgrade
     effectedLevels:
       2: PulseDemonActionEmpII
@@ -362,7 +362,7 @@
   components:
   - type: WorldTargetAction
     event: !type:PulseDemonEmpActionEvent
-      cost: 17000
+      cost: 15000
       radius: 1.4
       batteryDamage: 75000
     useDelay: 85
@@ -370,7 +370,7 @@
     icon:
       sprite: Interface/Actions/pulse_demon.rsi
       state: emp
-      
+
 - type: entity
   id: PulseDemonActionEmpIII
   name: Emp III
@@ -380,7 +380,7 @@
   components:
   - type: WorldTargetAction
     event: !type:PulseDemonEmpActionEvent
-      cost: 15000
+      cost: 20000
       radius: 1.7
       batteryDamage: 100000
     useDelay: 75
@@ -398,7 +398,7 @@
   components:
   - type: WorldTargetAction
     event: !type:PulseDemonEmpActionEvent
-      cost: 13000
+      cost: 25000
       radius: 2
       batteryDamage: 125000
     useDelay: 60
@@ -406,7 +406,7 @@
     icon:
       sprite: Interface/Actions/pulse_demon.rsi
       state: emp
-      
+
 #Overload machine
 - type: entity
   id: PulseDemonActionOverloadMachine
@@ -434,7 +434,7 @@
       sprite: Interface/Actions/pulse_demon.rsi
       state: overload
     event: !type:PulseDemonOverloadMachineActionEvent
-      cost: 50000
+      cost: 10000
   - type: ActionUpgrade
     effectedLevels:
       2: PulseDemonActionOverloadMachineII
@@ -455,7 +455,7 @@
       explosionForce: 100.0
       radius: 2
       explosionPreparation: 4.5
-      cost: 40000
+      cost: 9000
 
 - type: entity
   id: PulseDemonActionOverloadMachineIII
@@ -471,7 +471,7 @@
       explosionForce: 130.0
       radius: 2.2
       explosionPreparation: 4
-      cost: 30000
+      cost: 8500
 
 - type: entity
   id: PulseDemonActionOverloadMachineIIII
@@ -487,4 +487,4 @@
       explosionForce: 130.0
       radius: 2.4
       explosionPreparation: 3.5
-      cost: 25000
+      cost: 7000

@@ -243,7 +243,7 @@ public sealed partial class PulseDemonSystem : EntitySystem
     /// </summary>
     public static float GetCapacity(PulseDemonComponent pulseDemonComp)
     {
-        return pulseDemonComp.BaseCapacity * MathF.Pow(pulseDemonComp.CapacityLevel, 2);
+        return pulseDemonComp.BaseCapacity * pulseDemonComp.CapacityLevel;
     }
 
     /// <summary>
