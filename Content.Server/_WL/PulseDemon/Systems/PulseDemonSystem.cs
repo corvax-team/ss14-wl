@@ -382,11 +382,6 @@ public sealed partial class PulseDemonSystem : EntitySystem
 
     private void UpdateWallsAroundDemon(TransformComponent demonTransform)
     {
-
-        demonTransform.Coordinates.Position
-            .Floored()
-            .Deconstruct(out var flooredX, out var flooredY);
-
         foreach (var offset in Offsets)
         {
             var oldPosition = demonTransform.Coordinates;

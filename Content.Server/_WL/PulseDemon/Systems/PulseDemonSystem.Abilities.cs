@@ -14,7 +14,6 @@ using System.Linq;
 using Content.Server.Power.NodeGroups;
 using Content.Shared.Emag.Components;
 using Content.Shared.Access.Components;
-using Content.Shared.Light.Components;
 using Content.Server._WL.PulseDemon.Components;
 
 namespace Content.Server._WL.PulseDemon.Systems;
