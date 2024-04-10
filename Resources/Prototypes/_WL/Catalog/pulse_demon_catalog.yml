@@ -293,14 +293,14 @@
     state: empty
   priceModifyFunctions:
     Energy: !type:LinearDependenceFunction
-      coefM: 15000
-      coefB: 15000
+      coefM: 7000
+      coefB: 7000
   productEvents:
   - !type:PulseDemonShopPurchaseEvent
   - !type:PulseDemonShopUpgradeEvent
     characteristicUpgrade: absorption
   cost:
-    Energy: 15000
+    Energy: 7000
   categories:
   - PulseDemonUpgrades
 
@@ -314,14 +314,14 @@
     state: static
   priceModifyFunctions:
     Energy: !type:LinearDependenceFunction
-      coefM: 15000
-      coefB: 10000
+      coefM: 8000
+      coefB: 8000
   productEvents:
   - !type:PulseDemonShopPurchaseEvent
   - !type:PulseDemonShopUpgradeEvent
     characteristicUpgrade: hijackspeed
   cost:
-    Energy: 10000
+    Energy: 8300
   categories:
   - PulseDemonUpgrades
 
@@ -334,16 +334,15 @@
     sprite: Objects/Misc/stock_parts.rsi
     state: adv_capacitor
   priceModifyFunctions:
-    Energy: !type:QuadraticDependenceFunction
-      coefA: 10000
-      coefB: 10000
-      coefC: 0
+    Energy: !type:LinearDependenceFunction
+      coefM: 9000
+      coefB: 9000
   productEvents:
   - !type:PulseDemonShopPurchaseEvent
   - !type:PulseDemonShopUpgradeEvent
     characteristicUpgrade: capacity
   cost:
-    Energy: 10000
+    Energy: 9000
   categories:
   - PulseDemonUpgrades
 
@@ -356,16 +355,15 @@
     sprite: Objects/Misc/stock_parts.rsi
     state: adv_scan_module
   priceModifyFunctions:
-    Energy: !type:QuadraticDependenceFunction
-      coefA: 10000
-      coefB: 10000
-      coefC: 0
+    Energy: !type:LinearDependenceFunction
+      coefM: 6000
+      coefB: 6000
   productEvents:
   - !type:PulseDemonShopPurchaseEvent
   - !type:PulseDemonShopUpgradeEvent
     characteristicUpgrade: endurance
   cost:
-    Energy: 10000
+    Energy: 6500
   categories:
   - PulseDemonUpgrades
 
@@ -378,16 +376,15 @@
     sprite: Objects/Misc/stock_parts.rsi
     state: high_micro_laser
   priceModifyFunctions:
-    Energy: !type:QuadraticDependenceFunction
-      coefA: 20000
-      coefB: 10000
-      coefC: 0
+    Energy: !type:LinearDependenceFunction
+      coefM: 8500
+      coefB: 8500
   productEvents:
   - !type:PulseDemonShopPurchaseEvent
   - !type:PulseDemonShopUpgradeEvent
     characteristicUpgrade: efficiency
   cost:
-    Energy: 10000
+    Energy: 6000
   categories:
   - PulseDemonUpgrades
 
@@ -400,15 +397,14 @@
     sprite: Objects/Misc/stock_parts.rsi
     state: nano_mani
   priceModifyFunctions:
-    Energy: !type:QuadraticDependenceFunction
-      coefA: 10000
-      coefB: 0
-      coefC: 10000
+    Energy: !type:LinearDependenceFunction
+      coefM: 7000
+      coefB: 5500
   productEvents:
   - !type:PulseDemonShopPurchaseEvent
   - !type:PulseDemonShopUpgradeEvent
     characteristicUpgrade: speed
   cost:
-    Energy: 15000
+    Energy: 8700
   categories:
   - PulseDemonUpgrades

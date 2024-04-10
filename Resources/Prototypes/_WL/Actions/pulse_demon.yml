@@ -171,7 +171,7 @@
        - PulseDemonAbsorbable
     range: 1
     deselectOnMiss: true
-    checkCanAccess: true
+    checkCanAccess: false
     checkCanInteract: false
     repeat: false
     itemIconStyle: BigAction
@@ -194,7 +194,6 @@
     event: !type:PulseDemonAbsorptionActionEvent
       cost: 4500
     useDelay: 20
-    priority: 2
     range: 6
     icon:
       sprite: Interface/Actions/pulse_demon.rsi

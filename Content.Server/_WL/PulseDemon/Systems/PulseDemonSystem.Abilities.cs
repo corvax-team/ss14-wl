@@ -28,6 +28,8 @@ public sealed partial class PulseDemonSystem
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly SharedPointLightSystem _light = default!;
+
+
     public const string PulseDemonExplosionType = "ElectricExplosion";
 
     public const string PulseDemonExplosiveParticlePrototype = "EffectSparks4";
@@ -215,13 +217,11 @@ public sealed partial class PulseDemonSystem
         };
 
         _doAfter.TryStartDoAfter(doAfter);
-
     }
 
     private void OnHideDoAfter(EntityUid uid, PulseDemonComponent comp, PulseDemonHideDoAfterEvent args)
     {
         Hide(uid, false);
-        _light.SetEnabled(uid, true);
     }
 
     private void Hide(EntityUid demonUid, bool hide)
@@ -246,8 +246,6 @@ public sealed partial class PulseDemonSystem
         _physics.SetCollisionLayer(demonUid, fixtureId.Value.Key, fixtureId.Value.Value, collisionLayer);
 
         _appearance.SetData(demonUid, PulseDemonState.IsHiding, hide);
-
-        _light.SetEnabled(demonUid, false);
     }
     #endregion
 
@@ -322,27 +320,24 @@ public sealed partial class PulseDemonSystem
         if (args.Handled)
             return;
 
-        args.Handled = true;
-
         var targetBattery = Comp<BatteryComponent>(args.Target);
         var pulseDemonBattery = Comp<BatteryComponent>(args.Performer);
-
-        if (!CheckEnergyAndDealBatteryDamage(pulseDemonBattery, args.Cost))
-            return;
 
         if (!CheckTargetAndDemonEnergy(pulseDemonBattery, targetBattery))
             return;
 
+        if (!CheckEnergyAndDealBatteryDamage(pulseDemonBattery, args.Cost))
+            return;
+
         var doAfter = new DoAfterArgs(EntityManager, args.Performer, GetEfficiency(comp), new PulseDemonAbsorptionDoAfterEvent(), args.Performer, args.Target, args.Performer)
         {
-            BreakOnDamage = true,
             BreakOnMove = true,
-            //Hidden = true,
             BlockDuplicate = true,
+            BreakOnDamage = true,
             DuplicateCondition = DuplicateConditions.SameTool
         };
 
-        _doAfter.TryStartDoAfter(doAfter);
+        args.Handled = _doAfter.TryStartDoAfter(doAfter);
     }
 
     private void OnAbsorptionDoAfter(EntityUid uid, PulseDemonComponent comp, PulseDemonAbsorptionDoAfterEvent args)
@@ -352,8 +347,6 @@ public sealed partial class PulseDemonSystem
 
         if (args.Target == null)
             return;
-
-        args.Handled = true;
 
         var targetBattery = Comp<BatteryComponent>((EntityUid) args.Target);
         var pulseDemonBattery = Comp<BatteryComponent>(args.User);
@@ -365,12 +358,12 @@ public sealed partial class PulseDemonSystem
         if (targetBattery.CurrentCharge < damageTargetBatteryValue)
         {
             DealBatteryDamage(pulseDemonBattery, -targetBattery.CurrentCharge);
-            DealBatteryDamage(targetBattery, targetBattery.CurrentCharge*100);
+            DealBatteryDamage(targetBattery, targetBattery.CurrentCharge * 100);
         }
         else
         {
             DealBatteryDamage(pulseDemonBattery, -damageTargetBatteryValue);
-            DealBatteryDamage(targetBattery, damageTargetBatteryValue*100);
+            DealBatteryDamage(targetBattery, damageTargetBatteryValue * 100);
         }
 
 
