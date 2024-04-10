@@ -55,7 +55,7 @@ public sealed partial class PulseDemonSystem : EntitySystem
 
     public const string EnergyCurrencyPrototype = "Energy";
 
-    public const int InvisibleWallsLayer = 1024;
+    public const int InvisibleWallsLayer = 256;
     public const float WithoutTurfDamageFactor = 10;
 
     public override void Initialize()
