@@ -76,7 +76,7 @@
       sprite: Interface/Actions/pulse_demon.rsi
       state: self_sustaining
     event: !type:PulseDemonSelfSustainingActionEvent
-      cost: 3500
+      cost: 2500
       timeOutside: 10
   - type: ActionUpgrade
     effectedLevels:
@@ -93,7 +93,7 @@
   - type: InstantAction
     useDelay: 150
     event: !type:PulseDemonSelfSustainingActionEvent
-      cost: 4000
+      cost: 2500
       timeOutside: 15
 
 - type: entity
@@ -117,13 +117,13 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 240
+    useDelay: 120
     itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/pulse_demon.rsi
       state: hide
     event: !type:PulseDemonHideActionEvent
-      cost: 3000
+      cost: 1000
       hidingTime: 15
   - type: ActionUpgrade
     effectedLevels:
@@ -138,9 +138,9 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 210
+    useDelay: 100
     event: !type:PulseDemonHideActionEvent
-      cost: 3000
+      cost: 1500
       hidingTime: 30
 
 - type: entity
@@ -151,9 +151,9 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 180
+    useDelay: 60
     event: !type:PulseDemonHideActionEvent
-      cost: 4000
+      cost: 3000
       hidingTime: 60
 
 #Absorption
@@ -192,7 +192,7 @@
   components:
   - type: EntityTargetAction
     event: !type:PulseDemonAbsorptionActionEvent
-      cost: 4500
+      cost: 2000
     useDelay: 20
     range: 6
     icon:
@@ -213,7 +213,7 @@
   components:
   - type: EntityTargetAction
     event: !type:PulseDemonAbsorptionActionEvent
-      cost: 4000
+      cost: 1500
     useDelay: 15
     range: 7
     icon:
@@ -229,7 +229,7 @@
   components:
   - type: EntityTargetAction
     event: !type:PulseDemonAbsorptionActionEvent
-      cost: 3500
+      cost: 1500
     useDelay: 12
     range: 7.5
     icon:
@@ -245,7 +245,7 @@
   components:
   - type: EntityTargetAction
     event: !type:PulseDemonAbsorptionActionEvent
-      cost: 3500
+      cost: 1000
     useDelay: 10
     range: 8
     icon:

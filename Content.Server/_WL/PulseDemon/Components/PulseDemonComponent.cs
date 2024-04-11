@@ -49,6 +49,11 @@ public sealed partial class PulseDemonComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly), Access(typeof(PulseDemonSystem))]
     public TimeSpan CurrentTime = TimeSpan.Zero;
+    /// <summary>
+    /// Is it hiding?
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool IsHiding { get; set; }
 
     /// <summary>
     /// It shows how much the damage from the hit will be multiplied.
