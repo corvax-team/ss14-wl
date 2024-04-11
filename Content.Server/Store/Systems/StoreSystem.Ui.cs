@@ -268,16 +268,10 @@ public sealed partial class StoreSystem
 
         if (listing.PriceModifyFunctions != null)
         {
-            foreach (var compListing in component.Listings)
+            foreach (var currency in listing.PriceModifyFunctions)
             {
-                if (compListing.ID != listing.ID)
-                    continue;
-
-                foreach (var currency in listing.PriceModifyFunctions)
-                {
-                    if (compListing.Cost.TryGetValue(currency.Key, out var value))
-                        compListing.Cost[currency.Key] = currency.Value.Function(new PriceModifyArgs(listing.PurchaseAmount, value.Float()));
-                }
+                if (listing.Cost.TryGetValue(currency.Key, out var value))
+                    listing.Cost[currency.Key] = currency.Value.Function(new PriceModifyArgs(listing.PurchaseAmount, value.Float()));
             }
         }
 

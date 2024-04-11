@@ -19,7 +19,7 @@ namespace Content.Shared.Store;
 /// </summary>
 [Serializable, NetSerializable]
 [Virtual, DataDefinition]
-public partial class ListingData : IEquatable<ListingData>, ICloneable
+public partial class ListingData : IEquatable<ListingData>
 {
     [ViewVariables]
     [IdDataField]
@@ -156,7 +156,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     /// DON'T BE DUMB AND MODIFY THE PROTOTYPES
     /// </summary>
     /// <returns>A unique copy of the listing data.</returns>
-    public object Clone()
+    public ListingData Clone()
     {
         return new ListingData
         {
@@ -164,7 +164,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             Name = Name,
             Description = Description,
             Categories = Categories,
-            Cost = Cost,
+            Cost = new Dictionary<string, FixedPoint2>(Cost),
             Conditions = Conditions,
             Icon = Icon,
             Priority = Priority,
@@ -175,7 +175,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductEvents = ProductEvents,
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
-            PriceModifyFunctions = PriceModifyFunctions
+            PriceModifyFunctions = new Dictionary<string, PriceModify>(PriceModifyFunctions)
         };
     }
 }
