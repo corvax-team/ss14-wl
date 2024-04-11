@@ -207,6 +207,7 @@ public sealed partial class PulseDemonSystem
             return;
 
         Hide(uid, true);
+        comp.IsHiding = true;
 
         args.Handled = true;
 
@@ -222,6 +223,8 @@ public sealed partial class PulseDemonSystem
     private void OnHideDoAfter(EntityUid uid, PulseDemonComponent comp, PulseDemonHideDoAfterEvent args)
     {
         Hide(uid, false);
+        _light.SetEnabled(uid, true);
+        comp.IsHiding = false;
     }
 
     private void Hide(EntityUid demonUid, bool hide)
@@ -246,6 +249,7 @@ public sealed partial class PulseDemonSystem
         _physics.SetCollisionLayer(demonUid, fixtureId.Value.Key, fixtureId.Value.Value, collisionLayer);
 
         _appearance.SetData(demonUid, PulseDemonState.IsHiding, hide);
+        _light.SetEnabled(demonUid, false);
     }
     #endregion
 
@@ -319,6 +323,12 @@ public sealed partial class PulseDemonSystem
     {
         if (args.Handled)
             return;
+
+        if (comp.IsHiding)
+        {
+            OnHideDoAfter(uid, comp, new PulseDemonHideDoAfterEvent());
+            return;
+        }
 
         var targetBattery = Comp<BatteryComponent>(args.Target);
         var pulseDemonBattery = Comp<BatteryComponent>(args.Performer);
