@@ -30,9 +30,11 @@ public sealed partial class PulseDemonSystem
     [Dependency] private readonly SharedPointLightSystem _light = default!;
 
 
-    public const string PulseDemonExplosionType = "ElectricExplosion";
+    private const string PulseDemonExplosionType = "ElectricExplosion";
 
-    public const string PulseDemonExplosiveParticlePrototype = "EffectSparks4";
+    private const string PulseDemonExplosiveParticlePrototype = "EffectSparks4";
+
+    private const float PulseDemonDoAfterDistanceThresholdRange = 50000f;
 
     private void InitializeAbilities()
     {
@@ -127,22 +129,21 @@ public sealed partial class PulseDemonSystem
         explsoiveComp.Exploded = false;
         explsoiveComp.CanCreateVacuum = false;
 
-        args.Handled = true;
-
-        var doAfter = new DoAfterArgs(EntityManager, args.Performer, args.ExplosionPreparation, new PulseDemonOverloadMachineDoAfterEvent(),
+        var doAfter = new DoAfterArgs(EntityManager, explosiveParticle, args.ExplosionPreparation, new PulseDemonOverloadMachineDoAfterEvent(),
             explosiveParticle, explosiveParticle, null)
         {
             Hidden = true,
             BreakOnDamage = false,
-            BreakOnMove = false
+            BreakOnMove = false,
+            RequireCanInteract = false
         };
 
-        _doAfter.TryStartDoAfter(doAfter);
+        args.Handled = _doAfter.TryStartDoAfter(doAfter);
     }
 
     private void OnOverloadDoAfter(EntityUid uid, ExplosiveComponent comp, PulseDemonOverloadMachineDoAfterEvent args)
     {
-        if (args.Cancelled || args.Args.Target == null)
+        if (args.Args.Target == null)
             return;
 
         _explosion.TriggerExplosive((EntityUid) args.Args.Target, comp, true, comp.TotalIntensity);
@@ -177,8 +178,6 @@ public sealed partial class PulseDemonSystem
         if (!CheckEnergyAndDealBatteryDamage(pulseDemonBattery, args.Cost))
             return;
 
-        args.Handled = true;
-
         SetCanExistOutsideCableValue(comp, true);
 
         var doAfter = new DoAfterArgs(EntityManager, args.Performer, args.TimeOutside, new PulseDemonSelfSustainingDoAfterEvent(), args.Performer, args.Performer, null)
@@ -187,7 +186,7 @@ public sealed partial class PulseDemonSystem
             BreakOnDamage = false
         };
 
-        _doAfter.TryStartDoAfter(doAfter);
+        args.Handled = _doAfter.TryStartDoAfter(doAfter);
     }
 
     private void OnSelfSustainingDoAfter(EntityUid uid, PulseDemonComponent comp, PulseDemonSelfSustainingDoAfterEvent args)
@@ -209,15 +208,14 @@ public sealed partial class PulseDemonSystem
         Hide(uid, true);
         comp.IsHiding = true;
 
-        args.Handled = true;
-
         var doAfter = new DoAfterArgs(EntityManager, args.Performer, args.HidingTime, new PulseDemonHideDoAfterEvent(), args.Performer, args.Performer, null)
         {
             Hidden = true,
-            BreakOnDamage = true
+            BreakOnDamage = true,
+            DistanceThreshold = PulseDemonDoAfterDistanceThresholdRange
         };
 
-        _doAfter.TryStartDoAfter(doAfter);
+        args.Handled = _doAfter.TryStartDoAfter(doAfter);
     }
 
     private void OnHideDoAfter(EntityUid uid, PulseDemonComponent comp, PulseDemonHideDoAfterEvent args)
@@ -277,7 +275,8 @@ public sealed partial class PulseDemonSystem
             BreakOnMove = true,
             BlockDuplicate = true,
             DuplicateCondition = DuplicateConditions.SameTool,
-            RequireCanInteract = true
+            RequireCanInteract = true,
+            DistanceThreshold = PulseDemonDoAfterDistanceThresholdRange
         };
 
         _doAfter.TryStartDoAfter(doAfter);
@@ -344,7 +343,8 @@ public sealed partial class PulseDemonSystem
             BreakOnMove = true,
             BlockDuplicate = true,
             BreakOnDamage = true,
-            DuplicateCondition = DuplicateConditions.SameTool
+            DuplicateCondition = DuplicateConditions.SameTool,
+            DistanceThreshold = PulseDemonDoAfterDistanceThresholdRange
         };
 
         args.Handled = _doAfter.TryStartDoAfter(doAfter);

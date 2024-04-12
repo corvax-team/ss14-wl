@@ -48,6 +48,7 @@
   id: EffectSparks4
   noSpawn: true
   components:
+  - type: DoAfter
   - type: Sprite
     drawdepth: Effects
     noRot: true
