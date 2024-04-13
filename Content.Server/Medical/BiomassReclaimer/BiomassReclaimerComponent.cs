@@ -1,4 +1,6 @@
+using Content.Shared._WL.Slimes.Components;
 using Content.Shared.Storage;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
@@ -13,9 +15,33 @@ namespace Content.Server.Medical.BiomassReclaimer
         public float RandomMessTimer = 0f;
 
         /// <summary>
+        /// The current type of corpse recycling.
+        /// </summary>
+        [DataField, ViewVariables(VVAccess.ReadOnly)]
+        public BiomassReclaimerProcessType CurrentProcessType = BiomassReclaimerProcessType.Biomass;
+
+        /// <summary>
+        /// How many entities has reclaimer processed with the type <see cref="BiomassReclaimerProcessType.Cube"/>.
+        /// </summary>
+        [ViewVariables]
+        public Dictionary<string, int> RecycledRehydratableEntitiesAmount = new();
+
+        /// <summary>
+        /// Prototype and amount of slime cores.
+        /// </summary>
+        public (string, int)? CoreToSpawn = null;
+
+        /// <summary>
+        /// The boundary at which the <see cref="RecycledRehydratableEntitiesAmount"/> reaches, the cube will be spawned.
+        /// </summary>
+        [ViewVariables]
+        [DataField]
+        public int RecycledRehydratableEntitiesBound = 5;
+
+        /// <summary>
         /// The interval for <see cref="RandomMessTimer"/>.
         /// </summary>
-        [ViewVariables(VVAccess.ReadWrite), DataField]
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
         public TimeSpan RandomMessInterval = TimeSpan.FromSeconds(5);
 
         /// <summary>

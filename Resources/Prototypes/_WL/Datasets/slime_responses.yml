@@ -1,0 +1,10 @@
+﻿- type: dataset
+  id: HelloSlimeCommandDataset
+  values:
+  - "slime-hello-response-1"
+  - "slime-hello-response-2"
+  - "slime-hello-response-3"
+  - "slime-hello-response-4"
+  - "slime-hello-response-5"
+  - "slime-hello-response-6"
+  - "slime-hello-response-7"

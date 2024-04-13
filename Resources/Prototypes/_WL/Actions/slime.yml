@@ -1,0 +1,22 @@
+- type: entity
+  id: ActionSlimeEat
+  name: Eat
+  description: Allows you to eat macaques alive.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: true
+    checkCanInteract: true
+    deselectOnMiss: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Fluids/blood1.ogg
+    whitelist:
+      components:
+      - MobState
+    range: 1.2
+    itemIconStyle: BigAction
+    icon:
+      sprite: _WL/Interface/Actions/actions_slime.rsi
+      state: slimeeat
+    event: !type:SlimeEatingActionEvent
+    useDelay: 10

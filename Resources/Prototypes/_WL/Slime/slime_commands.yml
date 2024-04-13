@@ -1,0 +1,12 @@
+- type: slimeCommand
+  id: HelloSlimeCommand
+  minPoints: 0
+  command: !type:HelloSlimeCommand
+    dataset: HelloSlimeCommandDataset
+  keywords: ["привет", "прив", "пр", "здрасть", "здрасте", "здарова", "салют", "васап", "здравия", "приветствую", "hello", "hi", "здравствуйте", "мяу", "хэй", "хей", "приветствовать", "пвивет"]
+
+- type: slimeCommand
+  id: SaySlimeCommand
+  command: !type:SaySlimeCommand
+  minPoints: 0
+  keywords: ["скажи", "произнеси", "скажешь", "say", "скажжжи", "скажжи"]

@@ -259,6 +259,8 @@
       - PowerDrill
       - MiningDrill
       - AnomalyScanner
+      - SlimeScanner
+      - XenobiologyComputerCircuitboard
       - AnomalyLocator
       - AnomalyLocatorWide
       - Scalpel

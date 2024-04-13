@@ -1,0 +1,120 @@
+# Тир слайма определяется следующим образом:
+# Тир N слайм - слайм, до которого требуется сделать N ацикличных шагов по графу мутаций слаймов.
+
+# При добавлении новой мутации, слайма, экстракта и т.п
+# сортируйте по Тирам.
+
+# Tier 0
+- type: slimeMutation
+  id: GreySlimeMutations
+  slimeGroup: grey
+  mutations:
+  - proto: MobSimpleSlimeBlue
+    conditions:
+    - !type:RandomMutationCondition
+      conditions:
+      - !type:RelationshipThresholdMutationCondition
+  - proto: MobSimpleSlimePurple
+  - proto: MobSimpleSlimeOrange
+  - proto: MobSimpleSlimeMetal
+
+# Tier 1
+- type: slimeMutation
+  id: BlueSlimeMutations
+  slimeGroup: blue
+  mutations:
+  - proto: MobSimpleSlimeDarkBlue
+  - proto: MobSimpleSlimePink
+  - proto: MobSimpleSlimeSilver
+
+- type: slimeMutation
+  id: MetalSlimeMutations
+  slimeGroup: metal
+  mutations:
+  - proto: MobSimpleSlimeSilver
+  - proto: MobSimpleSlimeGold
+  - proto: MobSimpleSlimeYellow
+
+- type: slimeMutation
+  id: OrangeSlimeMutations
+  slimeGroup: orange
+  mutations:
+  - proto: MobSimpleSlimeYellow
+  - proto: MobSimpleSlimeRed
+  - proto: MobSimpleSlimeDarkPurple
+
+- type: slimeMutation
+  id: PurpleSlimeMutations
+  slimeGroup: purple
+  mutations:
+  - proto: MobSimpleSlimeDarkPurple
+  - proto: MobSimpleSlimeDarkBlue
+  - proto: MobSimpleSlimeGreen
+
+# Tier 2
+- type: slimeMutation
+  id: YellowSlimeMutations
+  slimeGroup: yellow
+  mutations:
+  - proto: MobSimpleSlimeOrange
+  - proto: MobSimpleSlimeMetal
+  - proto: MobSimpleSlimeBluespace
+    weight: 0.1
+
+- type: slimeMutation
+  id: SilverSlimeMutations
+  slimeGroup: silver
+  mutations:
+  - proto: MobSimpleSlimeBlue
+  - proto: MobSimpleSlimeMetal
+  - proto: MobSimpleSlimePyrite
+    weight: 0.35
+
+- type: slimeMutation
+  id: DarkBlueSlimeMutations
+  slimeGroup: dark blue
+  mutations:
+  - proto: MobSimpleSlimeBlue
+  - proto: MobSimpleSlimePurple
+  - proto: MobSimpleSlimeCerulean
+    weight: 0.4
+
+- type: slimeMutation
+  id: DarkPurpleSlimeMutations
+  slimeGroup: dark purple
+  mutations:
+  - proto: MobSimpleSlimePurple
+  - proto: MobSimpleSlimeOrange
+  - proto: MobSimpleSlimeSepia
+    weight: 0.4
+
+- type: slimeMutation
+  id: RedSlimeMutations
+  slimeGroup: red
+  mutations:
+  - proto: MobSimpleSlimeOil
+
+- type: slimeMutation
+  id: GreenSlimeMutations
+  slimeGroup: green
+  mutations:
+  - proto: MobSimpleSlimeBlack
+
+- type: slimeMutation
+  id: PinkSlimeMutations
+  slimeGroup: pink
+  mutations:
+  - proto: MobSimpleSlimeLightPink
+
+- type: slimeMutation
+  id: GoldSlimeMutations
+  slimeGroup: gold
+  mutations:
+  - proto: MobSimpleSlimeAdamantine
+  - proto: MobSimpleSlimeJade
+
+- type: slimeMutation
+  id: JadeSlimeMutations
+  slimeGroup: jade
+  mutations:
+  - proto: MobSimpleSlimeRuby

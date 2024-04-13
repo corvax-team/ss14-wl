@@ -1,0 +1,12 @@
+ent-ActionXenobioConsoleReturn = Вернуться
+    .desc = Покинуть консоль.
+ent-ActionXenobioConsoleEjectMonkey = Выпустить существо
+    .desc = Выпускает существо из кубиков, вставленных в консоль.
+ent-ActionXenobioConsolePickUpMonkey = Поднять существо
+    .desc = Помещает существ в буфер консоли.
+ent-ActionXenobioConsoleEjectPicked = Выпустить поднятое существо
+    .desc = Выпускает существ из буфера консоли в место клика в том порядке, в каком они были подняты.
+ent-ActionXenobioConsoleInject = Вколоть
+    .desc = Перемещает жидкость, количество которой задано в мензурке, в слайма.
+ent-ActionXenobioConsoleScanSlime = Сканировать
+    .desc = Сканирует слайма. Позволяет получить подробную характеристику состояния слайма.

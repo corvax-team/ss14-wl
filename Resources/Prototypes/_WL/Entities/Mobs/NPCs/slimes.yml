@@ -1,0 +1,855 @@
+﻿- type: entity
+  name: basic slime
+  id: MobAdultSlimes #SimpleMobSlimeBase
+  abstract: true
+  parent: [ SimpleMobBase, MobCombat ]
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: Hunger
+    baseDecayRate: 1
+    currentThreshold: Starving
+    starvingSlowdownModifier: 1
+    thresholds:
+      Overfed: 400
+      Okay: 300
+      Peckish: 220
+      Starving: 100
+      Dead: 0
+  - type: Icon
+    sprite: _WL/Mobs/Aliens/slimes.rsi
+    state: grey adult slime
+  - type: Temperature
+    heatDamageThreshold: 325
+    coldDamageThreshold: 230
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 5
+    heatDamage:
+      types:
+        Heat: 1.5
+  - type: NPCRetaliation
+    attackMemoryLength: 3
+  - type: NoSlip
+  - type: Slime
+    slimeGroupName: grey
+    corePrototype: GreySlimeCore
+    humanoidStageSkinColor: "#8f8f8f"
+    growProbability: 0.6
+    eatProbability: 0.33
+    tastePreferences:
+      tags:
+      - SlimeFood
+    growthData:
+       Young:
+         coreAmount: 1
+         damage: 7
+         attackRate: 1
+         speed: 4
+         fixtureShape: 0.4
+         splitCost: 1
+         splitPointsAmount: 0
+         growthStageBound: 15
+       Adult:
+         coreAmount: 2
+         damage: 15
+         attackRate: 0.9
+         speed: 3.3
+         fixtureShape: 0.43
+         splitCost: 3
+         splitPointsAmount: 3
+         growthStageBound: 25
+       Old:
+         coreAmount: 4
+         damage: 25
+         attackRate: 0.8
+         speed: 3
+         fixtureShape: 0.47
+         splitCost: 4
+         splitPointsAmount: 6
+         growthStageBound: 45
+       Ancient:
+         coreAmount: 6
+         damage: 32
+         attackRate: 0.7
+         speed: 2.8
+         fixtureShape: 0.50
+         splitCost: 14
+         splitPointsAmount: 8
+         growthStageBound: 65
+  - type: Appearance
+  - type: ZombieImmune
+  - type: GenericVisualizer
+    visuals:
+     enum.SlimeVisualState.Face:
+       enum.SlimeVisualLayers.FaceLayer:
+        Dead: 
+          state: aslime-angry
+          shader: unshaded
+        Starving: 
+          state: aslime-sad
+          shader: unshaded
+        Peckish: 
+          state: aslime-pout
+          shader: unshaded
+        Okay: 
+          state: aslime-_3
+          shader: unshaded
+        Overfed: 
+          state: aslime-_33
+          shader: unshaded
+     enum.SlimeVisualState.Body:
+       enum.SlimeVisualLayers.FaceLayer:
+        Dead: { visible: false }
+        Young:
+         scale: 1, 1
+        Adult:
+         scale: 1.05, 1.05
+        Old: 
+         scale: 1.5, 1.5 
+        Ancient: 
+         scale: 1.75, 1.75 
+       enum.SlimeLifeStage.Dead:
+        Dead: { visible: true }
+        Young: { visible: false }
+        Adult: { visible: false }
+        Old: { visible: false }
+        Ancient: { visible: false }
+       enum.SlimeLifeStage.Young:
+        Dead: { visible: false }
+        Young: { visible: true }
+        Adult: { visible: false }
+        Old: { visible: false }
+        Ancient: { visible: false }
+       enum.SlimeLifeStage.Adult:
+        Dead: { visible: false }
+        Young: { visible: false }
+        Adult: { visible: true }
+        Old: { visible: false }
+        Ancient: { visible: false }
+       enum.SlimeLifeStage.Old:
+        Dead: { visible: false }
+        Young: { visible: false }
+        Adult: { visible: false }
+        Old: 
+          visible: true
+          scale: 1.5, 1.5
+        Ancient: { visible: false }
+       enum.SlimeLifeStage.Ancient:
+        Dead: { visible: false }
+        Young: { visible: false }
+        Adult: { visible: false }
+        Old: { visible: false }
+        Ancient: 
+          visible: true
+          scale: 1.75, 1.75
+  - type: NpcFactionMember
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _WL/Mobs/Aliens/slimes.rsi
+    layers:
+    - map: [ "enum.SlimeVisualLayers.FaceLayer" ]
+      state: aslime-_33
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: 3
+  - type: Tag
+    tags:
+    - FootstepSound
+    - Slime
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+    maxSaturation: 15
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: Bloodstream
+    bloodReagent: Slime
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.45
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaled: true
+        damage:
+          types:
+            Heat: 10
+      - !type:PopupMessage
+        type: Local
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: Body
+    prototype: Slimes
+    requiredLegs: 1
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/punch3.ogg
+    angle: 0
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 4
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-slimes
+    interactFailureString: petting-failure-generic
+  # - type: ReplacementAccent
+    # accent: slimes #Тогда команды, которые требуют ответа не будут работать, а свой акцент кодить лень. Пусть болтают
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-slimes-name
+    description: ghost-role-information-slimes-description
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Slime
+  - type: TypingIndicator
+    proto: slime
+  - type: ActiveListener
+    range: 7
+  - type: TTS
+    voice: Chen
+
+# Tier 0?
+- type: entity
+  name: grey slime
+  id: MobSimpleSlimeGrey
+  parent: MobAdultSlimes
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: grey baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: grey baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: grey adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: grey adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: grey adult slime
+
+# Tier 1
+- type: entity
+  name: blue slime
+  id: MobSimpleSlimeBlue
+  parent: MobAdultSlimes
+  components:
+  - type: Butcherable
+    spawned: 
+    - id: FoodFrozenSundae
+      prob: 0.2
+    butcheringType: Knife
+  - type: Icon
+    state: blue adult slime
+  - type: Slime
+    slimeGroupName: blue
+    corePrototype: BlueSlimeCore
+    humanoidStageSkinColor: "#437acc"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: blue baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: blue baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: blue adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: blue adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: blue adult slime
+
+- type: entity
+  name: purple slime
+  id: MobSimpleSlimePurple
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: purple adult slime
+  - type: Slime
+    canBeAngry: false
+    slimeGroupName: purple
+    corePrototype: PurpleSlimeCore
+    humanoidStageSkinColor: "#ba43cc"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: purple baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: purple baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: purple adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: purple adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: purple adult slime
+
+- type: entity
+  name: orange slime
+  id: MobSimpleSlimeOrange
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: orange adult slime
+  - type: Slime
+    slimeGroupName: orange
+    corePrototype: OrangeSlimeCore
+    humanoidStageSkinColor: "#fca014"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: orange baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: orange baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: orange adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: orange adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: orange adult slime
+
+- type: entity
+  name: metal slime
+  id: MobSimpleSlimeMetal
+  parent: MobAdultSlimes
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      170: Dead
+  - type: Icon
+    state: metal adult slime
+  - type: Slime
+    slimeGroupName: metal
+    corePrototype: MetalSlimeCore
+    humanoidStageSkinColor: "#7d776e"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: metal baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: metal baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: metal adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: metal adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: metal adult slime
+
+# Tier 2
+- type: entity
+  name: dark blue slime
+  id: MobSimpleSlimeDarkBlue
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: dark blue adult slime
+  - type: Slime
+    slimeGroupName: dark blue
+    corePrototype: DarkBlueSlimeCore
+    humanoidStageSkinColor: "#0212a1"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: dark blue baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: dark blue baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: dark blue adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: dark blue adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: dark blue adult slime
+
+- type: entity
+  name: pink slime
+  id: MobSimpleSlimePink
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: pink adult slime
+  - type: Slime
+    slimeGroupName: pink
+    corePrototype: PinkSlimeCore
+    humanoidStageSkinColor: "#fc05d3"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: pink baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: pink baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: pink adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: pink adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: pink adult slime
+
+- type: entity
+  name: silver slime
+  id: MobSimpleSlimeSilver
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: silver adult slime
+  - type: Slime
+    slimeGroupName: silver
+    corePrototype: SilverSlimeCore
+    humanoidStageSkinColor: "#c7c7c7"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: silver baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: silver baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: silver adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: silver adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: silver adult slime
+
+- type: entity
+  name: gold slime
+  id: MobSimpleSlimeGold
+  parent: MobAdultSlimes
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Dead
+  - type: Icon
+    state: gold adult slime
+  - type: Slime
+    slimeGroupName: gold
+    corePrototype: GoldSlimeCore
+    humanoidStageSkinColor: "#b5b016"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: gold baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: gold baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: gold adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: gold adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: gold adult slime
+
+- type: entity
+  name: yellow slime
+  id: MobSimpleSlimeYellow
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: yellow adult slime
+  - type: Slime
+    slimeGroupName: yellow
+    corePrototype: YellowSlimeCore
+    humanoidStageSkinColor: "#fcf768"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: yellow baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: yellow baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: yellow adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: yellow adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: yellow adult slime
+
+- type: entity
+  name: red slime
+  id: MobSimpleSlimeRed
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: red adult slime
+  - type: Slime
+    slimeGroupName: red
+    corePrototype: RedSlimeCore
+    humanoidStageSkinColor: "#fc1c1c"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: red baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: red baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: red adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: red adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: red adult slime
+
+- type: entity
+  name: dark purple slime
+  id: MobSimpleSlimeDarkPurple
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: dark purple adult slime
+  - type: Slime
+    canBeAngry: false
+    slimeGroupName: dark purple
+    corePrototype: DarkPurpleSlimeCore
+    humanoidStageSkinColor: "#4f016b"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: dark purple baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: dark purple baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: dark purple adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: dark purple adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: dark purple adult slime
+
+- type: entity
+  name: green slime
+  id: MobSimpleSlimeGreen
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: green adult slime
+  - type: Slime
+    slimeGroupName: green
+    corePrototype: GreenSlimeCore
+    humanoidStageSkinColor: "#2afa31"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: green baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: green baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: green adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: green adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: green adult slime
+
+# Tier 3
+- type: entity
+  name: bluespace slime
+  id: MobSimpleSlimeBluespace
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: bluespace adult slime
+  - type: Slime
+    slimeGroupName: bluespace
+    corePrototype: BluespaceSlimeCore
+    humanoidStageSkinColor: "#dbdbdb"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: bluespace baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: bluespace baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: bluespace adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: bluespace adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: bluespace adult slime
+
+- type: entity
+  name: pyrite slime
+  id: MobSimpleSlimePyrite
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: pyrite adult slime
+  - type: Slime
+    slimeGroupName: pyrite
+    corePrototype: PyriteSlimeCore
+    humanoidStageSkinColor: "#ffc800"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: pyrite baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: pyrite baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: pyrite adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: pyrite adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: pyrite adult slime
+
+- type: entity
+  name: cerulean slime
+  id: MobSimpleSlimeCerulean
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: cerulean adult slime
+  - type: Slime
+    slimeGroupName: cerulean
+    corePrototype: CeruleanSlimeCore
+    humanoidStageSkinColor: "#123b78"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: cerulean baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: cerulean baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: cerulean adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: cerulean adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: cerulean adult slime
+
+- type: entity
+  name: sepia slime
+  id: MobSimpleSlimeSepia
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: sepia adult slime
+  - type: Slime
+    slimeGroupName: sepia
+    corePrototype: SepiaSlimeCore
+    humanoidStageSkinColor: "#704214"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: sepia baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: sepia baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: sepia adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: sepia adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: sepia adult slime
+
+- type: entity
+  name: oil slime
+  id: MobSimpleSlimeOil
+  parent: MobAdultSlimes
+  components:
+  - type: IgniteOnHeatDamage
+  - type: Icon
+    state: oil adult slime
+  - type: Slime
+    slimeGroupName: oil
+    corePrototype: OilSlimeCore
+    humanoidStageSkinColor: "#261f18"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: oil baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: oil baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: oil adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: oil adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: oil adult slime
+
+- type: entity
+  name: black slime
+  id: MobSimpleSlimeBlack
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: black adult slime
+  - type: Slime
+    slimeGroupName: black
+    corePrototype: BlackSlimeCore
+    humanoidStageSkinColor: "#030202"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: black baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: black baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: black adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: black adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: black adult slime
+
+- type: entity
+  name: light pink slime
+  id: MobSimpleSlimeLightPink
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: light pink adult slime
+  - type: Slime
+    slimeGroupName: light pink
+    corePrototype: LightPinkSlimeCore
+    humanoidStageSkinColor: "#fc90f2"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: light pink baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: light pink baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: light pink adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: light pink adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: light pink adult slime
+
+- type: entity
+  name: adamantine slime
+  id: MobSimpleSlimeAdamantine
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: adamantine adult slime
+  - type: Slime
+    slimeGroupName: adamantine
+    corePrototype: AdamantineSlimeCore
+    humanoidStageSkinColor: "#077064"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: adamantine baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: adamantine baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: adamantine adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: adamantine adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: adamantine adult slime
+
+- type: entity
+  name: jade slime
+  id: MobSimpleSlimeJade
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: jade adult slime
+  - type: Slime
+    slimeGroupName: jade
+    corePrototype: JadeSlimeCore
+    humanoidStageSkinColor: "#3c7f09"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: jade baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: jade baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: jade adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: jade adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: jade adult slime
+
+# Tier 4
+- type: entity
+  name: ruby slime
+  id: MobSimpleSlimeRuby
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: ruby adult slime
+  - type: Slime
+    slimeGroupName: ruby
+    corePrototype: RubySlimeCore
+    humanoidStageSkinColor: "#ad2131"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: ruby baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: ruby baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: ruby adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: ruby adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: ruby adult slime
+
+# Rainbow
+- type: entity
+  name: rainbow slime
+  id: MobSimpleSlimeRainbow
+  parent: MobAdultSlimes
+  components:
+  - type: Icon
+    state: rainbow adult slime
+  - type: Slime
+    slimeGroupName: rainbow
+    corePrototype: RainbowSlimeCore
+    humanoidStageSkinColor: "#2fc23d"
+  - type: Sprite
+    layers:
+    - map: [ "enum.SlimeLifeStage.Dead" ]
+      state: rainbow baby slime dead-nocore
+    - map: [ "enum.SlimeLifeStage.Young" ]
+      state: rainbow baby slime
+    - map: [ "enum.SlimeLifeStage.Adult" ]
+      state: rainbow adult slime
+    - map: [ "enum.SlimeLifeStage.Old" ]
+      state: rainbow adult slime
+    - map: [ "enum.SlimeLifeStage.Ancient" ]
+      state: rainbow adult slime

@@ -138,6 +138,8 @@
     - SeeingRainbows
     - Electrocution
     - Drunk
+    - BluespaceTeleport
+    - Fireproof
     - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
@@ -265,6 +267,8 @@
     - KnockedDown
     - SlowedDown
     - Stutter
+    - BluespaceTeleport
+    - Fireproof
     - SeeingRainbows
     - Electrocution
     - ForcedSleep

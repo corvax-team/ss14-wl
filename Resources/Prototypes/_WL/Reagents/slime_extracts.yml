@@ -1,0 +1,184 @@
+- type: reagent
+  id: SlimeExractBase
+  group: Biological
+  flavor: slimy
+  name: reagent-name-grey-extract
+  recognizable: false
+  slippery: false
+  viscosity: 0.25
+  physicalDesc: reagent-physical-desc-viscous
+  desc: reagent-desc-base-extract
+  abstract: true
+  tileReactions:
+    - !type:SpillTileReaction
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.3
+    Poison:
+      effects:
+      - !type:SplitSlime
+        probability: 0.4
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6
+
+# Tier 0
+- type: reagent
+  id: GreySlimeExtract
+  parent: SlimeExractBase
+  desc: reagent-desc-base-extract
+  name: reagent-name-grey-extract
+  color: "#87878c"
+
+# Tier 1
+- type: reagent
+  id: BlueSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-blue-extract
+  color: "#437acc"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: IceCrust
+
+- type: reagent
+  id: PurpleSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-purple-extract
+  color: "#ba43cc"
+
+- type: reagent
+  id: OrangeSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-orange-extract
+  color: "#fca014"
+  flavor: orange
+
+- type: reagent
+  id: MetalSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-metal-extract
+  color: "#7d776e"
+
+# Tier 2
+- type: reagent
+  id: DarkBlueSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-dark-blue-extract
+  color: "#0212a1"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: IceCrust
+
+- type: reagent
+  id: PinkSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-pink-extract
+  color: "#fc05d3"
+
+- type: reagent
+  id: SilverSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-silver-extract
+  color: "#c7c7c7"
+
+- type: reagent
+  id: GoldSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-gold-extract
+  color: "#b5b016"
+
+- type: reagent
+  id: YellowSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-yellow-extract
+  color: "#fcf768"
+
+- type: reagent
+  id: RedSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-red-extract
+  color: "#fc1c1c"
+
+- type: reagent
+  id: DarkPurpleSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-dark-purple-extract
+  color: "#4f016b"
+
+- type: reagent
+  id: GreenSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-green-extract
+  color: "#2afa31"
+
+# Tier 3
+- type: reagent
+  id: BluespaceSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-bluespace-extract
+  color: "#dbdbdb"
+
+- type: reagent
+  id: PyriteSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-pyrite-extract
+  color: "#ffc800"
+
+- type: reagent
+  id: CeruleanSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-cerulean-extract
+  color: "#123b78"
+
+- type: reagent
+  id: SepiaSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-sepia-extract
+  color: "#704214"
+
+- type: reagent
+  id: OilSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-oil-extract
+  color: "#261f18"
+
+- type: reagent
+  id: BlackSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-black-extract
+  color: "#030202"
+
+- type: reagent
+  id: LightPinkSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-light-pink-extract
+  color: "#fc90f2"
+
+- type: reagent
+  id: AdamantineSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-adamantine-extract
+  color: "#077064"
+
+- type: reagent
+  id: JadeSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-jade-extract
+  color: "#3c7f09"
+
+# Tier 4
+- type: reagent
+  id: RubySlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-ruby-extract
+  color: "#ad2131"
+
+# Rainbow
+- type: reagent
+  id: RainbowSlimeExtract
+  parent: SlimeExractBase
+  name: reagent-name-rainbow-extract
+  color: "#2fc23d"

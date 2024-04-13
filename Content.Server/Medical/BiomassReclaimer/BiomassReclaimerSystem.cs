@@ -30,6 +30,11 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Linq;
+using Robust.Server.GameObjects;
+using Content.Shared.Verbs;
+using Content.Shared.Examine;
+using Content.Server._WL.Slimes;
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
@@ -49,6 +54,8 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly SharedMindSystem _minds = default!;
+        [Dependency] private readonly IPrototypeManager _protoMan = default!;
+        [Dependency] private readonly TransformSystem _transform = default!;
 
         [ValidatePrototypeId<MaterialPrototype>]
         public const string BiomassPrototype = "Biomass";
@@ -85,9 +92,30 @@ namespace Content.Server.Medical.BiomassReclaimer
                     continue;
                 }
 
-                var actualYield = (int) (reclaimer.CurrentExpectedYield); // can only have integer biomass
-                reclaimer.CurrentExpectedYield = reclaimer.CurrentExpectedYield - actualYield; // store non-integer leftovers
-                _material.SpawnMultipleFromMaterial(actualYield, BiomassPrototype, Transform(uid).Coordinates);
+                var reclaimerCoords = Transform(uid).Coordinates;
+
+                if (reclaimer.CurrentProcessType is BiomassReclaimerProcessType.Biomass)
+                {
+                    var actualYield = (int) (reclaimer.CurrentExpectedYield); // can only have integer biomass
+                    reclaimer.CurrentExpectedYield = reclaimer.CurrentExpectedYield - actualYield; // store non-integer leftovers
+                    _material.SpawnMultipleFromMaterial(actualYield, BiomassPrototype, reclaimerCoords);
+                }
+
+                foreach (var entityAndAmount in reclaimer.RecycledRehydratableEntitiesAmount)
+                {
+                    if (entityAndAmount.Value >= reclaimer.RecycledRehydratableEntitiesBound)
+                    {
+                        reclaimer.RecycledRehydratableEntitiesAmount[entityAndAmount.Key] = 0;
+                        EntityManager.SpawnEntity(entityAndAmount.Key, reclaimerCoords);
+                    }
+                }
+
+                if (reclaimer.CoreToSpawn != null)
+                {
+                    EntityManager.SpawnEntities(reclaimerCoords.ToMap(EntityManager, _transform), reclaimer.CoreToSpawn.Value.Item1, reclaimer.CoreToSpawn.Value.Item2);
+
+                    reclaimer.CoreToSpawn = null;
+                }
 
                 reclaimer.BloodReagent = null;
                 reclaimer.SpawnedEntities.Clear();
@@ -101,10 +129,51 @@ namespace Content.Server.Medical.BiomassReclaimer
             SubscribeLocalEvent<ActiveBiomassReclaimerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<ActiveBiomassReclaimerComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
             SubscribeLocalEvent<BiomassReclaimerComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
+            SubscribeLocalEvent<BiomassReclaimerComponent, GetVerbsEvent<AlternativeVerb>>(OnVerb);
             SubscribeLocalEvent<BiomassReclaimerComponent, ClimbedOnEvent>(OnClimbedOn);
+            SubscribeLocalEvent<BiomassReclaimerComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<BiomassReclaimerComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<BiomassReclaimerComponent, SuicideEvent>(OnSuicide);
             SubscribeLocalEvent<BiomassReclaimerComponent, ReclaimerDoAfterEvent>(OnDoAfter);
+        }
+
+        private void OnVerb(Entity<BiomassReclaimerComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+        {
+            if (!args.CanInteract || !args.CanAccess)
+                return;
+
+            if (HasComp<ActiveBiomassReclaimerComponent>(ent.Owner))
+                return;
+
+            var comp = ent.Comp;
+
+            var verb = new AlternativeVerb()
+            {
+                Act = () =>
+                {
+                    var values = Enum.GetValues<BiomassReclaimerProcessType>();
+                    var last = values.Max();
+                    var first = values.Min();
+                    if (comp.CurrentProcessType != last)
+                        comp.CurrentProcessType += 1;
+                    else comp.CurrentProcessType = first;
+
+                    var type = Enum.GetName(comp.CurrentProcessType) ?? "";
+                    _popup.PopupEntity(Loc.GetString("biomass-reclaimer-current-type", ("type", type)), ent.Owner, PopupType.Medium);
+                },
+                Text = Loc.GetString("verb-categories-select-type"),
+                Priority = -1
+            };
+
+
+            args.Verbs.Add(verb);
+        }
+
+        private void OnExamined(Entity<BiomassReclaimerComponent> ent, ref ExaminedEvent args)
+        {
+            var type = Enum.GetName(ent.Comp.CurrentProcessType) ?? "";
+
+            args.PushMarkup(Loc.GetString("biomass-reclaimer-current-type", ("type", type)));
         }
 
         private void OnSuicide(Entity<BiomassReclaimerComponent> ent, ref SuicideEvent args)
@@ -165,8 +234,8 @@ namespace Content.Server.Medical.BiomassReclaimer
             var delay = reclaimer.Comp.BaseInsertionDelay * physics.FixturesMass;
             _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, new ReclaimerDoAfterEvent(), reclaimer, target: args.Target, used: args.Used)
             {
-                NeedHand = true,
-                BreakOnMove = true
+                BreakOnMove = true,
+                NeedHand = true
             });
         }
 
@@ -197,7 +266,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             args.Handled = true;
         }
 
-        private void StartProcessing(EntityUid toProcess, Entity<BiomassReclaimerComponent> ent, PhysicsComponent? physics = null)
+        public void StartProcessing(EntityUid toProcess, Entity<BiomassReclaimerComponent> ent, PhysicsComponent? physics = null)
         {
             if (!Resolve(toProcess, ref physics))
                 return;
@@ -214,17 +283,42 @@ namespace Content.Server.Medical.BiomassReclaimer
                 component.SpawnedEntities = butcherableComponent.SpawnedEntities;
             }
 
-            var expectedYield = physics.FixturesMass * component.YieldPerUnitMass;
-            if (HasComp<ProduceComponent>(toProcess))
-                expectedYield *= component.ProduceYieldMultiplier;
-            component.CurrentExpectedYield += expectedYield;
+            if (component.CurrentProcessType is BiomassReclaimerProcessType.Biomass)
+            {
+                var expectedYield = physics.FixturesMass * component.YieldPerUnitMass;
+                if (HasComp<ProduceComponent>(toProcess))
+                    expectedYield *= component.ProduceYieldMultiplier;
+                component.CurrentExpectedYield += expectedYield;
+            }
+            else if (component.CurrentProcessType is BiomassReclaimerProcessType.Core &&
+                TryComp<SlimeComponent>(toProcess, out var slimeComp))
+            {
+                component.CoreToSpawn = (slimeComp.CorePrototype, slimeComp.CoreAmount);
+            }
+            else if (component.CurrentProcessType is BiomassReclaimerProcessType.Cube)
+            {
+                var processEntityProto = Prototype(toProcess)?.ID;
+                var cubePrototype = _protoMan.EnumeratePrototypes<EntityPrototype>()
+                    .Where(proto => proto.Components.Values
+                       .Any(entry => entry.Component is RehydratableComponent rehydratable && rehydratable.PossibleSpawns
+                          .Any(spawn => spawn.Equals(processEntityProto))))
+                    .FirstOrDefault();
+
+                if (cubePrototype != null)
+                {
+                    if (!component.RecycledRehydratableEntitiesAmount.TryAdd(cubePrototype.ID, 1))
+                        component.RecycledRehydratableEntitiesAmount[cubePrototype.ID] += 1;
+                }
+            }
 
             component.ProcessingTimer = physics.FixturesMass * component.ProcessingTimePerUnitMass;
+            if (component.CurrentProcessType is BiomassReclaimerProcessType.Core)
+                component.ProcessingTimer *= 0.2f;
 
             QueueDel(toProcess);
         }
 
-        private bool CanGib(Entity<BiomassReclaimerComponent> reclaimer, EntityUid dragged)
+        public bool CanGib(Entity<BiomassReclaimerComponent> reclaimer, EntityUid dragged)
         {
             if (HasComp<ActiveBiomassReclaimerComponent>(reclaimer))
                 return false;

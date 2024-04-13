@@ -1,0 +1,202 @@
+- type: reagent
+  id: Pyrostop
+  name: reagent-name-pyrostop
+  desc: reagent-desc-pyrostop
+  flavor: cold
+  color: "#421091"
+  physicalDesc: reagent-physical-desc-robust
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cold: 0.5
+      - !type:GenericStatusEffect
+        key: Fireproof
+        component: Fireproof
+        time: 2
+        refresh: false
+
+- type: reagent
+  id: BluespaceMatter
+  name: reagent-name-bluespace-matter
+  desc: reagent-desc-bluespace-matter
+  flavor: chaos
+  color: "#118b9c"
+  physicalDesc: reagent-physical-desc-ionizing
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AdjustReagent
+        reagent: Cryoxadone
+        amount: 0.5
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: BluespaceTeleport
+        component: BluespaceTeleport
+        time: 2
+        refresh: true
+      - !type:Drunk
+
+- type: reagent
+  id: Luminophore
+  name: reagent-name-luminophore
+  desc: reagent-desc-luminophore
+  flavor: electrons
+  color: "#effc5b"
+  physicalDesc: reagent-physical-desc-glowing
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.5
+    Narcotic:
+      effects:
+      - !type:Luminescent
+        color: "#ced106"
+        radius: 0.09
+        energy: 0.03
+      - !type:AdjustReagent
+        reagent: Licoxide
+        amount: 0.5
+
+- type: reagent
+  id: SpeedPotion
+  name: reagent-name-speed-potion
+  desc: reagent-desc-speed-potion
+  flavor: light
+  color: "#4eb1cf"
+  physicalDesc: reagent-physical-desc-energizing
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:MovespeedModifier
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        walkSpeedModifier: 1.2
+        sprintSpeedModifier: 1.2
+
+- type: reagent
+  id: SlimeMutationToxin
+  name: reagent-name-mutation-toxin
+  desc: reagent-desc-mutation-toxin
+  flavor: lostfriendship
+  color: "#24d140"
+  physicalDesc: reagent-physical-desc-volatile
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Posion: 1
+      - !type:ChangeSpecies
+        prototype: Slime
+
+- type: reagent
+  id: AdvancedSlimeMutationToxin
+  name: reagent-name-mutation-toxin
+  desc: reagent-desc-mutation-toxin
+  flavor: lostfriendship
+  color: "#073b10"
+  physicalDesc: reagent-physical-desc-volatile
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Posion: 4
+      - !type:Polymorph
+        prototype: Slime
+        conditions:
+        - !type:ComponentsCondition
+          blacklist:
+            components:
+            - HumanoidAppearance
+
+- type: reagent
+  id: HumanMutationToxin
+  name: reagent-name-mutation-toxin
+  desc: reagent-desc-mutation-toxin
+  flavor: lostfriendship
+  color: "#24d140"
+  physicalDesc: reagent-physical-desc-volatile
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Posion: 1
+      - !type:ChangeSpecies
+        prototype: Human
+
+- type: reagent
+  id: LizardMutationToxin
+  name: reagent-name-mutation-toxin
+  desc: reagent-desc-mutation-toxin
+  flavor: lostfriendship
+  color: "#24d140"
+  physicalDesc: reagent-physical-desc-volatile
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Posion: 1
+      - !type:ChangeSpecies
+        prototype: Lizard
+
+- type: reagent
+  id: DocilityPotion
+  name: reagent-name-docility-potion
+  desc: reagent-desc-docility-potion
+  flavor: punishment
+  color: "#d94ed4"
+  physicalDesc: reagent-physical-desc-fluffy
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ChangeFaction
+        faction: SimpleNeutral
+        method: Set
+        conditions:
+        - !type:ComponentsCondition
+          whitelist:
+            components:
+            - HTN
+            - NpcFactionMember
+        - !type:ReagentThreshold
+          min: 5
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+
+- type: reagent
+  id: ChangeSexPotion
+  name: reagent-name-change-sex-potion
+  desc: reagent-desc-change-sex-potion
+  flavor: punishment
+  color: "#5c215a"
+  physicalDesc: reagent-physical-desc-strong-smelling 
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:ChangeSex
+        probability: 0.7
+        conditions:
+        - !type:ComponentsCondition
+          whitelist:
+            components:
+            - HumanoidAppearance
+      - !type:ChemVomit
+        probability: 0.3

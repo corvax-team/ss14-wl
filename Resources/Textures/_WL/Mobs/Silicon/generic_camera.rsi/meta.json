@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA 3.0",
+  "copyright": "Taken from TG station build from SS13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "generic_camera",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  ]
+}

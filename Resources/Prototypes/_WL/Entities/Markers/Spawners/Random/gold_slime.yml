@@ -1,0 +1,56 @@
+- type: entity
+  id: RandomGoldSlimeAngryEntities
+  name: gold slime angry entities random spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _WL/Mobs/Aliens/slimes.rsi
+        state: gold adult slime
+  - type: RandomSpawner
+    prototypes:
+      - MobXenoRouny
+      - MobXenoRunner
+      - MobCarpHolo
+      - MobXenoDrone
+      - MobCobraSpace
+      - MobCarp
+      - MobTick
+      - MobSpiderSpace
+      - MobCarpMagic
+      - MobXenoRavager
+      - MobGiantSpiderAngry
+      - MobIronCrab
+      - MobQuartzCrab
+      - MobUraniumCrab
+      - MobSilverCrab
+    chance: 1
+
+- type: entity
+  id: RandomGoldSlimePeacefulEntities
+  name: gold slime peacful entities random spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _WL/Mobs/Aliens/slimes.rsi
+        state: gold adult slime
+  - type: RandomSpawner
+    prototypes:
+      - MobPig
+      - MobCatFloppa
+      - MobGorilla
+      - MobMonkey
+      - MobKobold
+      - MobGoose
+      - MobRacoon
+      - MobSnake
+      - MobKangaroo
+      - MobGoat
+      - MobCow
+      - MobChicken2
+      - MobPenguin
+      - MobGiantSpider
+    chance: 1

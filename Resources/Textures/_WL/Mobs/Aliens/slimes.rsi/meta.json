@@ -1,0 +1,815 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blue slime extract"
+    },
+    {
+      "name": "blue adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "blue baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "blue baby slime dead"
+    },
+    {
+      "name": "blue baby slime dead-nocore"
+    },
+    {
+      "name": "aslime-pout",
+      "directions": 4
+    },
+    {
+      "name": "aslime-sad",
+      "directions": 4
+    },
+    {
+      "name": "aslime-angry",
+      "directions": 4
+    },
+    {
+      "name": "aslime-mischievous",
+      "directions": 4
+    },
+    {
+      "name": "aslime-_3",
+      "directions": 4
+    },
+    {
+      "name": "aslime-_33",
+      "directions": 4
+    },
+    {
+      "name": "dark blue slime extract"
+    },
+    {
+      "name": "dark blue adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "dark blue baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "dark blue baby slime dead"
+    },
+    {
+      "name": "dark blue baby slime dead-nocore"
+    },
+    {
+      "name": "green slime extract"
+    },
+    {
+      "name": "green adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "green baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "green baby slime dead"
+    },
+    {
+      "name": "green baby slime dead-nocore"
+    },
+    {
+      "name": "grey slime extract"
+    },
+    {
+      "name": "grey adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "grey baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "grey baby slime dead"
+    },
+    {
+      "name": "grey baby slime dead-nocore"
+    },
+    {
+      "name": "purple slime extract"
+    },
+    {
+      "name": "purple adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "purple baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "purple baby slime dead"
+    },
+    {
+      "name": "purple baby slime dead-nocore"
+    },
+    {
+      "name": "orange slime extract"
+    },
+    {
+      "name": "orange adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "orange baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "orange baby slime dead"
+    },
+    {
+      "name": "orange baby slime dead-nocore"
+    },
+    {
+      "name": "pink slime extract"
+    },
+    {
+      "name": "pink adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pink baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pink baby slime dead"
+    },
+    {
+      "name": "pink baby slime dead-nocore"
+    },
+    {
+      "name": "dark purple slime extract"
+    },
+    {
+      "name": "dark purple adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "dark purple baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "dark purple baby slime dead"
+    },
+    {
+      "name": "dark purple baby slime dead-nocore"
+    },
+    {
+      "name": "red slime extract"
+    },
+    {
+      "name": "red adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "red baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "red baby slime dead"
+    },
+    {
+      "name": "red baby slime dead-nocore"
+    },
+    {
+      "name": "yellow slime extract"
+    },
+    {
+      "name": "yellow adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "yellow baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "yellow baby slime dead"
+    },
+    {
+      "name": "yellow baby slime dead-nocore"
+    },
+    {
+      "name": "gold slime extract"
+    },
+    {
+      "name": "gold adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "gold baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "gold baby slime dead"
+    },
+    {
+      "name": "gold baby slime dead-nocore"
+    },
+    {
+      "name": "metal slime extract"
+    },
+    {
+      "name": "metal adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "metal baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "metal baby slime dead"
+    },
+    {
+      "name": "metal baby slime dead-nocore"
+    },
+    {
+      "name": "silver slime extract"
+    },
+    {
+      "name": "silver adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "silver baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "silver baby slime dead"
+    },
+    {
+      "name": "silver baby slime dead-nocore"
+    },
+    {
+      "name": "light pink slime extract"
+    },
+    {
+      "name": "light pink adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "light pink baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "light pink baby slime dead"
+    },
+    {
+      "name": "light pink baby slime dead-nocore"
+    },
+    {
+      "name": "black slime extract"
+    },
+    {
+      "name": "black adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "black baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "black baby slime dead"
+    },
+    {
+      "name": "black baby slime dead-nocore"
+    },
+    {
+      "name": "rainbow slime extract",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rainbow adult slime",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rainbow baby slime",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rainbow baby slime dead",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "rainbow baby slime dead-nocore"
+    },
+    {
+      "name": "adamantine slime extract"
+    },
+    {
+      "name": "adamantine adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "adamantine baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "adamantine baby slime dead"
+    },
+    {
+      "name": "adamantine baby slime dead-nocore"
+    },
+    {
+      "name": "oil slime extract"
+    },
+    {
+      "name": "oil adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "oil baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "oil baby slime dead"
+    },
+    {
+      "name": "oil baby slime dead-nocore"
+    },
+    {
+      "name": "bluespace slime extract",
+      "delays": [
+        [
+          3,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bluespace adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bluespace baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bluespace baby slime dead"
+    },
+    {
+      "name": "bluespace baby slime dead-nocore"
+    },
+    {
+      "name": "pyrite slime extract"
+    },
+    {
+      "name": "pyrite adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pyrite baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "pyrite baby slime dead"
+    },
+    {
+      "name": "pyrite baby slime dead-nocore"
+    },
+    {
+      "name": "sepia slime extract"
+    },
+    {
+      "name": "sepia adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "sepia baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "sepia baby slime dead"
+    },
+    {
+      "name": "sepia baby slime dead-nocore"
+    },
+    {
+      "name": "cerulean slime extract"
+    },
+    {
+      "name": "cerulean adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "cerulean baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "cerulean baby slime dead"
+    },
+    {
+      "name": "cerulean baby slime dead-nocore"
+    },
+    {
+      "name": "jade slime extract"
+    },
+    {
+      "name": "jade adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "jade baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "jade baby slime dead"
+    },
+    {
+      "name": "jade baby slime dead-nocore"
+    },
+    {
+      "name": "ruby slime extract"
+    },
+    {
+      "name": "ruby adult slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "ruby baby slime",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "ruby baby slime dead"
+    },
+    {
+      "name": "ruby baby slime dead-nocore"
+    }
+  ]
+}

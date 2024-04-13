@@ -1,0 +1,674 @@
+# Grey slime
+- type: reaction
+  id: GreyExtractWithPlasma
+  impact: Low
+  quantized: true
+  reactants:
+    GreySlimeExtract:
+      amount: 5
+    Plasma:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MobSimpleSlimeGrey
+
+- type: reaction
+  id: GreyExtractWithBlood
+  impact: Low
+  quantized: true
+  reactants:
+    GreySlimeExtract:
+      amount: 10
+    Blood:
+      amount: 10
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MonkeyCube
+    number: 3
+
+- type: reaction
+  id: GreyExtractWithWater
+  impact: Low
+  reactants:
+    GreySlimeExtract:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  products:
+    Epinephrine: 1
+
+- type: reaction
+  id: GreyExtractWithFiber
+  impact: Low
+  quantized: true
+  reactants:
+    GreySlimeExtract:
+      amount: 5
+    Fiber:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ClothingUniformJumpsuitColorGrey
+
+# Orange slime
+- type: reaction
+  id: OrangeExtractWithPlasma
+  impact: High
+  reactants:
+    OrangeSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  effects:
+  - !type:CreateGas
+    gas: Plasma
+    factor: 0.3
+    temperature: 1400
+
+- type: reaction
+  id: OrangeExtractWithBlood
+  impact: Medium
+  reactants:
+    OrangeSlimeExtract:
+      amount: 0.5
+    Blood:
+      amount: 0.5
+  products:
+    CapsaicinOil: 1
+
+- type: reaction
+  id: OrangeExtractWithWater
+  impact: Medium
+  reactants:
+    OrangeSlimeExtract:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  effects:
+    - !type:AreaReactionEffect
+      duration: 25
+      prototypeId: Smoke
+      sound:
+        path: /Audio/Effects/smoke.ogg
+
+- type: reaction
+  id: OrangeExtractWithGreyExtract
+  impact: Medium
+  quantized: true
+  reactants:
+    OrangeSlimeExtract:
+      amount: 1
+    GreySlimeExtract:
+      amount: 1
+    Radium:
+      amount: 1
+  effects:
+  - !type:KnockDownReactionEffect
+
+# Purple slime
+- type: reaction
+  id: PurpleExtractWithPlasma
+  impact: Low
+  reactants:
+    PurpleSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  products:
+    SlimeSteroid: 1
+
+- type: reaction
+  id: PurpleExtractWithBlood
+  impact: Low
+  reactants:
+    PurpleSlimeExtract:
+      amount: 0.5
+    Blood:
+      amount: 0.5
+  products:
+    Omnizine: 0.01
+
+- type: reaction
+  id: PurpleExtractWithWater
+  impact: Medium
+  reactants:
+    PurpleSlimeExtract:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  products:
+    HeartbreakerToxin: 0.25
+
+# Blue slime
+- type: reaction
+  id: BlueExtractWithPlasma
+  impact: Low
+  reactants:
+    BlueSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  products:
+    Frostoil: 1
+
+- type: reaction
+  id: BlueExtractWithBlood
+  impact: Low
+  reactants:
+    BlueSlimeExtract:
+      amount: 0.5
+    Blood:
+      amount: 0.5
+  products:
+    SlimeStabilizer: 1
+
+- type: reaction
+  id: BlueExtractWithWater
+  impact: Low
+  reactants:
+    BlueSlimeExtract:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  effects:
+    - !type:AreaReactionEffect
+      duration: 20
+      prototypeId: IronMetalFoam
+      sound:
+        path: /Audio/Effects/extinguish.ogg
+
+- type: reaction
+  id: BlueExtractWithOrangeExtract
+  impact: Low
+  reactants:
+    BlueSlimeExtract:
+      amount: 0.5
+    OrangeSlimeExtract:
+      amount: 0.5
+  products:
+    Water: 1
+
+# Metal slime
+- type: reaction
+  id: MetalExtractWithPlasma
+  impact: Low
+  quantized: true
+  reactants:
+    MetalSlimeExtract:
+      amount: 5
+    Plasma:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: SheetPlasteel1
+  - !type:CreateEntityReactionEffect
+    entity: SheetSteel1
+    amount: 2
+
+- type: reaction
+  id: MetalExtractWithWater
+  impact: Low
+  quantized: true
+  reactants:
+    MetalSlimeExtract:
+      amount: 5
+    Water:
+      amount: 10
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: SheetRGlass1
+  - !type:CreateEntityReactionEffect
+    entity: SheetGlass1
+    amount: 2
+
+- type: reaction
+  id: MetalExtractWithBlood
+  impact: Low
+  quantized: true
+  reactants:
+    MetalSlimeExtract:
+      amount: 5
+    Blood:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MobSpawnCrabIron
+
+# Yellow slime
+- type: reaction
+  id: YellowExtractWithPlasma
+  impact: Low
+  quantized: true
+  reactants:
+    YellowSlimeExtract:
+      amount: 1
+    Plasma:
+      amount: 1
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: FoodBanana
+
+- type: reaction
+  id: YellowExtractWithBlood
+  impact: Low
+  quantized: true
+  reactants:
+    YellowSlimeExtract:
+      amount: 15
+    Blood:
+      amount: 15
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: ClothingHandsGlovesFingerlessInsulated
+
+- type: reaction
+  id: YellowExtractWithWater
+  impact: Low
+  reactants:
+    YellowSlimeExtract:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  products:
+    Licoxide: 1
+
+# Dark Purple
+- type: reaction
+  id: DarkPurpleExtractWithPlasma
+  impact: Low
+  quantized: true
+  reactants:
+    DarkPurpleSlimeExtract:
+      amount: 5
+    Plasma:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: SheetPlasma1
+
+- type: reaction
+  id: DarkPurpleExtractWithBlood
+  impact: Low
+  quantized: true
+  reactants:
+    DarkPurpleSlimeExtract:
+      amount: 1
+    Plasma:
+      amount: 1
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: CandlePurpleInfinite
+
+- type: reaction
+  id: DarkPurpleExtractWithWater
+  impact: High
+  quantized: true
+  reactants:
+    DarkPurpleSlimeExtract:
+      amount: 5
+    Water:
+      amount: 5
+  effects:
+  - !type:GravityWellReactionEffect
+    lifeTime: 4.0
+    radialAcceleration: 20
+    tangentialAcceleration: 2
+
+# Dark Blue
+- type: reaction
+  id: DarkBlueExtractWithPlasma
+  impact: Medium
+  reactants:
+    DarkBlueSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  products:
+    Cryoxadone: 1
+  effects:
+  - !type:CreateGas
+    gas: Nitrogen
+    factor: 1
+    temperature: -300
+
+- type: reaction
+  id: DarkBlueExtractWithBlood
+  impact: High
+  reactants:
+    DarkBlueSlimeExtract:
+      amount: 5
+    Blood:
+      amount: 5
+  products:
+    PolypyryliumOligomers: 20
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MobLuminousPerson
+
+- type: reaction
+  id: DarkBlueExtractWithWater
+  impact: Low
+  reactants:
+    DarkBlueSlimeExtract:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  products:
+    Pyrostop: 1
+
+# Silver
+- type: reaction
+  id: SilverExtractWithPlasma
+  impact: Low
+  quantized: true
+  reactants:
+    SilverSlimeExtract:
+      amount: 1
+    Plasma:
+      amount: 1
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: RandomFoodBakedWhole
+
+- type: reaction
+  id: SilverExtractWithWater
+  impact: Low
+  quantized: true
+  reactants:
+    SilverSlimeExtract:
+      amount: 1
+    Water:
+      amount: 1
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: RandomDrinkGlass
+
+- type: reaction
+  id: SilverExtractWithBlood
+  impact: High
+  quantized: true
+  reactants:
+    SilverSlimeExtract:
+      amount: 5
+    Blood:
+      amount: 5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: MobSpawnCrabSilver
+
+# Bluespace
+- type: reaction
+  id: BluespaceExtractWithPlasma
+  impact: Low
+  reactants:
+    BluespaceSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  products:
+    BluespaceMatter: 1
+
+- type: reaction
+  id: BluespaceExtractWithBlood
+  impact: High
+  reactants:
+    BluespaceSlimeExtract:
+      amount: 3
+    Blood:
+      amount: 3
+  effects:
+  - !type:TeleportReactionEffect
+    searchRadius: 0.8
+    teleportRadius: 1.4
+    whitelist:
+      components:
+      - MobState
+
+- type: reaction
+  id: BluespaceExtractWithWater
+  impact: Low
+  reactants:
+    BluespaceSlimeExtract:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  products:
+    Luminophore: 1
+
+# Sepia
+
+# Cerulean
+
+# Pyrite 
+
+# Red
+- type: reaction
+  id: RedExtractWithPlasma
+  impact: Low
+  reactants:
+    RedSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  products:
+    SuperSlimeStabilizer: 1
+
+- type: reaction
+  id: RedExtractWithBlood
+  impact: High
+  reactants:
+    RedSlimeExtract:
+      amount: 2
+    Blood:
+      amount: 2
+  effects:
+  - !type:ChangeFaction
+    faction: Dragon
+    method: Set
+    radius: 5
+    whitelist:
+      components:
+      - Slime
+
+- type: reaction
+  id: RedExtractWithWater
+  impact: Low
+  reactants:
+    RedSlimeExtract:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  products:
+    SpeedPotion: 1
+
+# Green slime
+- type: reaction
+  id: GreenExtractWithPlasma
+  impact: Medium
+  reactants:
+    GreenSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  products:
+    SlimeMutationToxin: 0.05
+
+- type: reaction
+  id: GreenExtractWithBlood
+  impact: Medium
+  reactants:
+    GreenSlimeExtract:
+      amount: 0.5
+    Blood:
+      amount: 0.5
+  products:
+    HumanMutationToxin: 0.05
+
+- type: reaction
+  id: GreenExtractWithRadium
+  impact: Medium
+  reactants:
+    GreenSlimeExtract:
+      amount: 0.5
+    Radium:
+      amount: 0.5
+  products:
+    LizardMutationToxin: 0.05
+
+# Pink
+- type: reaction
+  id: PinkExtractWithPlasma
+  impact: Medium
+  reactants:
+    PinkSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  products:
+    DocilityPotion: 1
+
+- type: reaction
+  id: PinkExtractWithBlood
+  impact: Medium
+  reactants:
+    PinkSlimeExtract:
+      amount: 0.5
+    Blood:
+      amount: 0.5
+  products:
+    ChangeSexPotion: 1
+
+- type: reaction
+  id: PinkExtractWithWater
+  impact: Low
+  quantized: true
+  reactants:
+    PinkSlimeExtract:
+      amount: 2
+    Water:
+      amount: 2
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: EffectHearts
+
+# Gold
+- type: reaction
+  id: GoldExtractWithPlasma
+  impact: High
+  quantized: true
+  reactants:
+    GoldSlimeExtract:
+      amount: 5
+    Plasma:
+      amount: 10
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: RandomGoldSlimeAngryEntities
+    amount: 2
+
+- type: reaction
+  id: GoldExtractWithBlood
+  impact: High
+  quantized: true
+  reactants:
+    GoldSlimeExtract:
+      amount: 5
+    Blood:
+      amount: 10
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: RandomGoldSlimeAngryEntities
+
+- type: reaction
+  id: GoldExtractWithWater
+  impact: Medium
+  quantized: true
+  reactants:
+    GoldSlimeExtract:
+      amount: 5
+    Water:
+      amount: 10
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: RandomGoldSlimePeacefulEntities
+
+# Oil
+- type: reaction
+  id: OilExtractWithRedExtractAndPlasma
+  impact: High
+  priority: 1
+  reactants:
+    OilSlimeExtract:
+      amount: 2
+    RedSlimeExtract:
+      amount: 2
+  effects:
+  - !type:ExplosionReactionEffect
+    explosionType: FireBomb
+  - !type:CreateGas
+    gas: Oxygen
+    temperature: 2400
+
+- type: reaction
+  id: OilExtractWithPlasma
+  impact: High
+  quantized: true
+  reactants:
+    OilSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  effects:
+  - !type:CreateEntityReactionEffect
+    entity: SheetPlastic1
+
+- type: reaction
+  id: OilExtractWithBlood
+  impact: Low
+  reactants:
+    OilSlimeExtract:
+      amount: 0.5
+    Blood:
+      amount: 0.5
+  products:
+    Cornoil: 1
+
+- type: reaction
+  id: OilExtractWithWater
+  impact: Low
+  reactants:
+    OilSlimeExtract:
+      amount: 0.5
+    Water:
+      amount: 0.5
+  products:
+    WeldingFuel: 1
+
+# Black
+# Отличается от зеленого тем, что превращает любую сущность, которая сможет метаболизировать, в слайма
+- type: reaction
+  id: BlackExtractWithPlasma
+  impact: High
+  reactants:
+    BlackSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  products:
+    AdvancedSlimeMutationToxin: 1
+
+# Light Pink
+- type: reaction
+  id: LightPinkExtractWithPlasma
+  impact: Low
+  reactants:
+    LightPinkSlimeExtract:
+      amount: 0.5
+    Plasma:
+      amount: 0.5
+  products:
+    Cognizine: 1
+
+# Jade
+
+# Ruby

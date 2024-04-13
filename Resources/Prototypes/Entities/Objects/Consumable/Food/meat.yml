@@ -677,38 +677,6 @@
 # Cooked
 
 - type: entity
-  parent: FoodBase
-  id: MaterialSmileExtract
-  name: smile extract
-  description: It's a real panacea. But at what cost?
-  components:
-  - type: Extractable
-    grindableSolutionName: food
-  - type: FlavorProfile
-    flavors:
-      - sweet
-  - type: Sprite
-    sprite: Mobs/Aliens/slimes.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: rainbow_slime_extract
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Omnizine
-          Quantity: 30
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Iron
-          Quantity: 10
-  - type: StaticPrice
-    price: 3000 #It has so much Omnizin in it
-  - type: Tag
-    tags:
-    - Meat
-
-- type: entity
   name: steak
   parent: FoodMeatBase
   id: FoodMeatCooked

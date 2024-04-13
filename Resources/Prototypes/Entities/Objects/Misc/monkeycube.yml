@@ -4,13 +4,21 @@
   id: MonkeyCubeBox
   description: Drymate brand monkey cubes. Just add water!
   components:
+  - type: Dumpable
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      components:
+        - Rehydratable
+      tags:
+        - MonkeyCube
   - type: StorageFill
     contents:
       - id: MonkeyCubeWrapped
         amount: 6
-  - type: Storage
-    grid:
-    - 0,0,2,1
   - type: Sprite
     sprite: Objects/Misc/monkeycube.rsi
     state: box

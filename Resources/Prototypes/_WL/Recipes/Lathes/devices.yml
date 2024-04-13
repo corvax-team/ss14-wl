@@ -1,0 +1,8 @@
+- type: latheRecipe
+  id: SlimeScanner
+  result: HandheldSlimeScanner
+  category: Tools
+  completetime: 3
+  materials:
+    Steel: 300
+    Plastic: 200

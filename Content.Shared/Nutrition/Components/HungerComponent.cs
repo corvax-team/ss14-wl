@@ -46,7 +46,7 @@ public sealed partial class HungerComponent : Component
     /// </summary>
     [DataField("currentThreshold"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public HungerThreshold CurrentThreshold;
+    public HungerThreshold CurrentThreshold = HungerThreshold.Okay;
 
     /// <summary>
     /// A dictionary relating HungerThreshold to the amount of <see cref="CurrentHunger"/> needed for each one

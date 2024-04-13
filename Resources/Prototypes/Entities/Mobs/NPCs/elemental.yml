@@ -225,14 +225,14 @@
   name: Reagent slime
   id: ReagentSlime
   suffix: Water
-  parent: [ MobAdultSlimes, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat ]
   description: It consists of a liquid, and it wants to dissolve you in itself.
   components:
   - type: GhostRole
     description: ghost-role-information-angry-slimes-description
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Dragon
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/elemental.rsi

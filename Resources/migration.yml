@@ -282,3 +282,15 @@ ClothingOuterArmorScaf: ClothingOuterArmorBasic
 ClothingNeckFlowerWreath: ClothingHeadHatFlowerWreath
 ClothingHeadHatFlowerCrown: ClothingHeadHatFlowerWreath
 BriefcaseSyndieBase: null
+
+# 2024-04-12
+BiomassReclaimer: CorpseReclaimer
+SpawnMobSmile: null
+MaterialSmileExtract: null
+MobSlimesPet: null
+SpawnMobAdultSlimesBlue: null
+SpawnMobAdultSlimesBlueAngry: null
+SpawnMobAdultSlimesGreen: null
+SpawnMobAdultSlimesGreenAngry: null
+SpawnMobAdultSlimesYellow: null
+SpawnMobAdultSlimesYellowAngry: null

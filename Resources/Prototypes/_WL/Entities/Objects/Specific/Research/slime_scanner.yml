@@ -1,0 +1,41 @@
+- type: entity
+  id: HandheldSlimeScanner
+  parent: [BaseItem, PowerCellSlotSmallItem]
+  name: slime scanner
+  description: A hand-held body scanner capable of distinguishing vital signs of the subject.
+  components:
+  - type: SlimeScanner
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: PowerCellDraw
+    drawRate: 1
+  - type: ActivatableUIRequiresPowerCell
+  - type: Sprite
+    sprite: _WL/Objects/Specific/Xenobiology/Slime_scanner.rsi
+    state: slime_scanner
+    layers:
+      - state: slime_scanner
+      - state: slime_scanner_powered
+        shader: unshaded
+        visible: false
+        map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Item
+  - type: ActivatableUI
+    key: enum.SlimeScannerUiKey.Key
+    closeOnHandDeselect: false
+  - type: UserInterface
+    interfaces:
+      - key: enum.SlimeScannerUiKey.Key
+        type: SlimeScannerBoundUserInterface
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerCellSlotVisuals.Enabled:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: GuideHelp
+    guides:
+      - Xenobiology

@@ -1,0 +1,5 @@
+﻿- type: statusEffect
+  id: Fireproof
+
+- type: statusEffect
+  id: BluespaceTeleport

@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "slimesplit"
+    },
+    {
+      "name": "slimeswap"
+    },
+    {
+      "name": "slimegrow"
+    },
+    {
+      "name": "slimeeat"
+    },
+    {
+      "name": "slimeheal"
+    },
+    {
+      "name": "slimeconsume"
+    },
+    {
+      "name": "slimeeject"
+    },
+    {
+      "name": "slimeuse1"
+    },
+    {
+      "name": "slimeuse2"
+    },
+    {
+      "name": "send_mind"
+    },
+    {
+      "name": "mindlink"
+    },
+    {
+      "name": "link_speech"
+    },
+    {
+      "name": "consume"
+    },
+    {
+      "name": "metabolic_boost"
+    },
+    {
+      "name": "gel_cocoon"
+    },
+    {
+      "name": "globules"
+    }
+  ]
+}

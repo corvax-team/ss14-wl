@@ -1,0 +1,16 @@
+- type: npcFaction
+  id: SlimeFriend
+  hostile:
+  - SlimeEnemy
+
+- type: npcFaction
+  id: SlimeAngry
+  hostile:
+    - NanoTrasen
+    - Syndicate
+    - Xeno
+    - PetsNT
+    - Zombie
+    - Revolutionary
+  friendly:
+  - SlimeFriend

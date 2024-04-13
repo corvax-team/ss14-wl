@@ -23,18 +23,15 @@ public sealed class HungerSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HungerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<HungerComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<HungerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HungerComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
         SubscribeLocalEvent<HungerComponent, RejuvenateEvent>(OnRejuvenate);
     }
 
-    private void OnMapInit(EntityUid uid, HungerComponent component, MapInitEvent args)
+    private void OnComponentInit(EntityUid uid, HungerComponent component, ComponentInit args)
     {
-        var amount = _random.Next(
-            (int) component.Thresholds[HungerThreshold.Peckish] + 10,
-            (int) component.Thresholds[HungerThreshold.Okay]);
-        SetHunger(uid, amount, component);
+        SetHunger(uid, component.Thresholds[component.CurrentThreshold], component);
     }
 
     private void OnShutdown(EntityUid uid, HungerComponent component, ComponentShutdown args)

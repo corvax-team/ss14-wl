@@ -1,4 +1,4 @@
-﻿using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
@@ -15,7 +15,10 @@ public sealed partial class CreateGas : ReagentEffect
     ///     For each unit consumed, how many moles of gas should be created?
     /// </summary>
     [DataField]
-    public float Multiplier = 3f;
+    public float Factor = 3f;
+
+    [DataField]
+    public float Temperature = 2.7f;
 
     public override bool ShouldLog => true;
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
@@ -25,8 +28,9 @@ public sealed partial class CreateGas : ReagentEffect
 
         return Loc.GetString("reagent-effect-guidebook-create-gas",
             ("chance", Probability),
-            ("moles", Multiplier),
-            ("gas", gasProto.Name));
+            ("moles", Factor),
+            ("gas", gasProto.Name),
+            ("temp", Temperature));
     }
 
     public override LogImpact LogImpact => LogImpact.High;
@@ -37,9 +41,9 @@ public sealed partial class CreateGas : ReagentEffect
 
         var tileMix = atmosSys.GetContainingMixture(args.SolutionEntity, false, true);
 
+        tileMix?.AdjustMoles(Gas, args.Quantity.Float() * Factor);
+
         if (tileMix != null)
-        {
-            tileMix.AdjustMoles(Gas, args.Quantity.Float() * Multiplier);
-        }
+            tileMix.Temperature = Temperature;
     }
 }

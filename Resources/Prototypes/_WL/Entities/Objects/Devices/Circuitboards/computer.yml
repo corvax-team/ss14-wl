@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: XenobiologyComputerCircuitboard
+  name: xenobiology computer board
+  description: A computer printed circuit board for a xenobiology computer.
+  components:
+    - type: Sprite
+      state: cpu_science
+    - type: ComputerBoard
+      prototype: XenobiologyConsole

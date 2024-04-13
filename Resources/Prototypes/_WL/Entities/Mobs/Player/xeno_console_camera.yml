@@ -1,0 +1,175 @@
+- type: entity
+  noSpawn: true
+  name: camera
+  id: XenoConsoleCamera
+  components:
+  - type: CargoSellBlacklist
+  - type: LagCompensation
+  - type: MobMover
+  - type: Examiner
+  - type: Appearance
+  - type: MobStateActions
+  - type: XenobiologyConsoleCamera
+  - type: RotationVisuals
+    defaultRotation: 0
+    horizontalRotation: 0
+  - type: DoAfter
+  - type: InputMover
+  - type: Clickable
+  - type: CameraRecoil
+  - type: MindContainer
+  - type: StatusIcon
+  - type: Eye
+    visMask: 2
+  - type: Input
+    context: "human"
+  - type: ContentEye
+    maxZoom: 1, 1
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 6
+    baseWalkSpeed: 4
+  - type: MovementIgnoreGravity
+  - type: Physics
+    bodyType: KinematicController
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: Visibility
+    layer: 2
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Sprite
+    overrideContainerOcclusion: true
+    sprite: _WL/Mobs/Silicon/generic_camera.rsi
+    drawdepth: Ghosts
+    noRot: true
+    layers:
+    - shader: unshaded
+      state: generic_camera
+  - type: UserInterface
+    interfaces:
+      - key: enum.SlimeScannerUiKey.Key
+        type: SlimeScannerBoundUserInterface
+  - type: Actions
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 10
+        mask:
+        - Impassable
+        layer:
+        - None
+
+- type: entity
+  id: ActionXenobioConsoleReturn
+  name: Return
+  description: Exit the console.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Interface/eject.png
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:XenobioReturnActionEvent
+    useDelay: 1
+
+- type: entity
+  id: ActionXenobioConsoleEjectMonkey
+  name: Eject entity
+  description: Ejects entity from rehydratable cubes in the xenobiologist's console.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: 
+      sprite: _WL/Mobs/Animals/monkey.rsi
+      state: icon
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    event: !type:XenobioEjectEntityActionEvent
+    useDelay: 1
+
+- type: entity
+  id: ActionXenobioConsolePickUpMonkey
+  name: Pick up entity
+  description: Pick up entities and places them in the buffer.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon: 
+      sprite: _WL/Mobs/Aliens/slimes.rsi
+      state: blue baby slime dead
+    checkCanInteract: false
+    checkCanAccess: false
+    repeat: true
+    range: 12
+    whitelist:
+      components:
+      - MobState
+    itemIconStyle: BigAction
+    event: !type:XenobioPickUpEntityActionEvent
+    useDelay: 0
+
+- type: entity
+  id: ActionXenobioConsoleEjectPicked
+  name: Eject picked entities
+  description: Eject entities that are in the buffer.
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    repeat: true
+    checkCanInteract: false
+    checkCanAccess: false
+    range: 12
+    icon:
+      sprite: _WL/Interface/Misc/slime.rsi
+      state: eject_slime
+    itemIconStyle: BigAction
+    event: !type:XenobioEjectPickedEntitiesActionEvent
+    useDelay: 0
+
+- type: entity
+  id: ActionXenobioConsoleInject
+  name: Inject
+  description: Injects a specified number of units of a liquid, which is taken from a beaker in the console, into the entity.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    repeat: true
+    checkCanInteract: false
+    checkCanAccess: false
+    range: 12
+    whitelist:
+      tags: 
+      - SlimeFood
+      - Slime
+    icon:
+      sprite: Objects/Specific/Chemistry/beaker_large.rsi
+      state: beakerlarge
+    itemIconStyle: BigAction
+    event: !type:XenobioInjectLiquidActionEvent
+    useDelay: 1
+
+- type: entity
+  id: ActionXenobioConsoleScanSlime
+  name: Scan
+  description: Scans the slime, showing its detailed description.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    repeat: false
+    deselectOnMiss: true
+    checkCanInteract: false
+    checkCanAccess: false
+    whitelist:
+      components:
+      - MobState
+    range: 12
+    icon:
+      sprite: _WL/Objects/Specific/Xenobiology/Slime_scanner.rsi
+      state: icon
+    itemIconStyle: BigAction
+    event: !type:XenobioScanActionEvent
+    useDelay: 2

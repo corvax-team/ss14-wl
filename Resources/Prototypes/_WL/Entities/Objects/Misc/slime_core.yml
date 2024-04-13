@@ -1,0 +1,482 @@
+- type: entity
+  id: BaseSlimeCore
+  name: slime core
+  parent: BaseItem
+  noSpawn: true
+  abstract: true
+  description: It's pretty solid. Stolen from slime.
+  components:
+    - type: Appearance
+    - type: StaticPrice
+      price: 300
+    - type: SlimeCore
+      researchPoints: 100
+    - type: Sprite
+      sprite: _WL/Mobs/Aliens/slimes.rsi
+      drawdepth: Items
+    - type: Clickable
+    - type: Transform
+      anchored: false
+    - type: Physics
+    - type: Item
+      size: Tiny
+    - type: Extractable
+      grindableSolutionName: core
+    - type: SolutionContainerManager
+      solutions:
+        core:
+          canMix: false
+          canReact: false
+          maxVol: 20
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.2
+          density: 20
+          mask:
+            - ItemMask
+          restitution: 0.3
+          friction: 0.2
+
+# Tier 0
+- type: entity
+  parent: BaseSlimeCore
+  id: GreySlimeCore
+  name: grey slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 1
+  - type: StaticPrice
+    price: 400
+  - type: Sprite
+    state: grey slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: GreySlimeExtract
+          Quantity: 10
+
+# Tier 1
+- type: entity
+  parent: BaseSlimeCore
+  id: BlueSlimeCore
+  name: blue slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 400
+  - type: StaticPrice
+    price: 600
+  - type: Sprite
+    state: blue slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: BlueSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: PurpleSlimeCore
+  name: purple slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 400
+  - type: StaticPrice
+    price: 600
+  - type: Sprite
+    state: purple slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: PurpleSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: OrangeSlimeCore
+  name: orange slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 400
+  - type: StaticPrice
+    price: 600
+  - type: Sprite
+    state: orange slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: OrangeSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: MetalSlimeCore
+  name: metal slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 400
+  - type: StaticPrice
+    price: 600
+  - type: Sprite
+    state: metal slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: MetalSlimeExtract
+          Quantity: 10
+
+# Tier 2
+- type: entity
+  parent: BaseSlimeCore
+  id: DarkBlueSlimeCore
+  name: dark blue slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 700
+  - type: StaticPrice
+    price: 800
+  - type: Sprite
+    state: dark blue slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: DarkBlueSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: PinkSlimeCore
+  name: pink slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 700
+  - type: StaticPrice
+    price: 800
+  - type: Sprite
+    state: pink slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: PinkSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: SilverSlimeCore
+  name: silver slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 700
+  - type: StaticPrice
+    price: 800
+  - type: Sprite
+    state: silver slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: SilverSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: GoldSlimeCore
+  name: gold slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 700
+  - type: StaticPrice
+    price: 1000
+  - type: Sprite
+    state: gold slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: GoldSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: YellowSlimeCore
+  name: yellow slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 700
+  - type: StaticPrice
+    price: 800
+  - type: Sprite
+    state: yellow slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: YellowSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: RedSlimeCore
+  name: red slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 700
+  - type: StaticPrice
+    price: 800
+  - type: Sprite
+    state: red slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: RedSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: DarkPurpleSlimeCore
+  name: dark purple slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 700
+  - type: StaticPrice
+    price: 800
+  - type: Sprite
+    state: dark purple slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: DarkPurpleSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: GreenSlimeCore
+  name: green slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 700
+  - type: StaticPrice
+    price: 800
+  - type: Sprite
+    state: green slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: GreenSlimeExtract
+          Quantity: 10
+
+# Tier 3
+- type: entity
+  parent: BaseSlimeCore
+  id: BluespaceSlimeCore
+  name: bluespace slime core
+  components:
+  - type: SingularityDistortion
+    intensity: 1
+    falloffPower: 1.3
+  - type: StaticPrice
+    price: 1200
+  - type: SlimeCore
+    researchPoints: 1200
+  - type: Sprite
+    state: bluespace slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: BluespaceSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: PyriteSlimeCore
+  name: pyrite slime core
+  components:
+  - type: StaticPrice
+    price: 1200
+  - type: SlimeCore
+    researchPoints: 1200
+  - type: Sprite
+    state: pyrite slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: PyriteSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: CeruleanSlimeCore
+  name: cerulean slime core
+  components:
+  - type: StaticPrice
+    price: 1200
+  - type: SlimeCore
+    researchPoints: 1200
+  - type: Sprite
+    state: cerulean slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: CeruleanSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: SepiaSlimeCore
+  name: sepia slime core
+  components:
+  - type: StaticPrice
+    price: 1200
+  - type: SlimeCore
+    researchPoints: 1200
+  - type: Sprite
+    state: sepia slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: SepiaSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: OilSlimeCore
+  name: oil slime core
+  components:
+  - type: StaticPrice
+    price: 1200
+  - type: SlimeCore
+    researchPoints: 1200
+  - type: Sprite
+    state: oil slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: OilSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: BlackSlimeCore
+  name: black slime core
+  components:
+  - type: StaticPrice
+    price: 1200
+  - type: SlimeCore
+    researchPoints: 1200
+  - type: Sprite
+    state: black slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: BlackSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: LightPinkSlimeCore
+  name: light pink slime core
+  components:
+  - type: StaticPrice
+    price: 1200
+  - type: SlimeCore
+    researchPoints: 1200
+  - type: Sprite
+    state: light pink slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: LightPinkSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: AdamantineSlimeCore
+  name: adamantine slime core
+  components:
+  - type: StaticPrice
+    price: 1200
+  - type: SlimeCore
+    researchPoints: 1200
+  - type: Sprite
+    state: adamantine slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: AdamantineSlimeExtract
+          Quantity: 10
+
+- type: entity
+  parent: BaseSlimeCore
+  id: JadeSlimeCore
+  name: jade slime core
+  components:
+  - type: StaticPrice
+    price: 1200
+  - type: SlimeCore
+    researchPoints: 1200
+  - type: Sprite
+    state: jade slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: JadeSlimeExtract
+          Quantity: 10
+
+# Tier 4
+- type: entity
+  parent: BaseSlimeCore
+  id: RubySlimeCore
+  name: ruby slime core
+  components:
+  - type: StaticPrice
+    price: 1700
+  - type: SlimeCore
+    researchPoints: 1600
+  - type: Sprite
+    state: ruby slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: RubySlimeExtract
+          Quantity: 10
+
+# Rainbow
+- type: entity
+  parent: BaseSlimeCore
+  id: RainbowSlimeCore
+  name: rainbow slime core
+  components:
+  - type: SlimeCore
+    researchPoints: 6000
+  - type: StaticPrice
+    price: 5000
+  - type: Sprite
+    state: rainbow slime extract
+  - type: SolutionContainerManager
+    solutions:
+      core:
+        reagents:
+        - ReagentId: RainbowSlimeExtract
+          Quantity: 10

@@ -1,0 +1,23 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/BeeStation/BeeStation-Hornet/blob/0b841f6303141d1d5eda0b380e2b64c55b0e1cc0/code/game/objects/effects/contraband.dm#L613",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "poster1_legit"
+        },
+        {
+            "name": "poster2_legit"
+        },
+        {
+            "name": "poster3_legit"
+        },
+        {
+            "name": "poster4_legit"
+        }
+    ]
+}

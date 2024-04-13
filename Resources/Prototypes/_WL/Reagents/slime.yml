@@ -1,0 +1,76 @@
+- type: reagent
+  id: SlimeSteroid
+  name: reagent-name-slime-steroid
+  desc: reagent-desc-slime-steroid
+  flavor: salty
+  color: "#d9d1b4"
+  physicalDesc: reagent-physical-desc-thick
+  metabolisms:
+    Poison:
+      effects:
+      - !type:ChangeMutationProbability
+        probability: 0.9
+        increaseChance: 0.5
+        conditions:
+        - !type:OrganType
+          type: Slime
+
+- type: reagent
+  id: SlimeStabilizer
+  name: reagent-name-slime-stabilizer
+  desc: reagent-desc-slime-stabilizer
+  flavor: tingly
+  color: "#bd9c24"
+  physicalDesc: reagent-physical-desc-roaring
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        damage:
+          types:
+            Radiation: 3
+      - !type:StabilizeSlimeGenerations
+        probability: 0.4
+        factor: 0.4
+        increase: false
+        recursive: true
+        conditions:
+        - !type:OrganType
+          type: Slime
+
+- type: reagent
+  id: SuperSlimeStabilizer
+  name: reagent-name-super-slime-stabilizer
+  desc: reagent-desc-super-slime-stabilizer
+  flavor: hope
+  color: "#665516"
+  physicalDesc: reagent-physical-desc-foamy
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Slime
+        damage:
+          types:
+            Poison: -1
+    Poison:
+      effects:
+      - !type:StabilizeSlimeGenerations
+        probability: 0.9
+        factor: 0.2
+        recursive: true
+        increase: true
+        conditions:
+        - !type:OrganType
+          type: Slime
+      - !type:SplitSlime
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Slime

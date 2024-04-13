@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server._WL.Slimes;
+using Content.Server._WL.Slimes.Systems;
 using Content.Server.Administration.Components;
 using Content.Server.Atmos;
 using Content.Server.Atmos.Components;
@@ -13,6 +15,7 @@ using Content.Server.Stack;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._WL.Slimes.Enums;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -55,6 +58,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly SlimeSystem _slime = default!;
 
     private void AddTricksVerbs(GetVerbsEvent<Verb> args)
     {
@@ -88,6 +92,64 @@ public sealed partial class AdminVerbSystem
                     Priority = (int) (bolts.BoltsDown ? TricksVerbPriorities.Unbolt : TricksVerbPriorities.Bolt),
                 };
                 args.Verbs.Add(bolt);
+            }
+
+            if (TryComp<SlimeComponent>(args.Target, out var slimeComp) && slimeComp.CurrentAge is not SlimeLifeStage.Dead)
+            {
+                var rsi = new ResPath("/Textures/_WL/Interface/Misc/slime.rsi");
+
+                Verb growth = new()
+                {
+                    Text = Loc.GetString("grow-slime-verb-get-data-text"),
+                    Category = VerbCategory.Tricks,
+                    Icon = new SpriteSpecifier.Rsi(rsi, "happy"),
+                    Act = () =>
+                    {
+                        _slime.SetGrowStage(args.Target, slimeComp.CurrentAge + 1, slimeComp);
+
+                        if (slimeComp.CurrentAge is SlimeLifeStage.Humanoid)
+                            _slime.Humanoidization(args.Target, slimeComp);
+                    },
+                    Impact = LogImpact.Medium,
+                    Message = Loc.GetString("grow-slime-verb-get-data-desc"),
+                    Priority = -1,
+                };
+
+                Verb degrade = new()
+                {
+                    Text = Loc.GetString("degrade-slime-verb-get-data-text"),
+                    Category = VerbCategory.Tricks,
+                    Icon = new SpriteSpecifier.Rsi(rsi, "angryslime"),
+                    Act = () =>
+                    {
+                        _slime.SetGrowStage(args.Target, slimeComp.CurrentAge - 1, slimeComp);
+                    },
+                    Impact = LogImpact.Medium,
+                    Message = Loc.GetString("degrade-slime-verb-get-data-desc"),
+                    Priority = -1,
+                };
+
+                Verb split = new()
+                {
+                    Text = Loc.GetString("split-slime-verb-get-data-text"),
+                    Category = VerbCategory.Tricks,
+                    Icon = new SpriteSpecifier.Rsi(rsi, "minislime"),
+                    Act = () =>
+                    {
+                        _slime.Split(args.Target, slimeComp);
+                    },
+                    Impact = LogImpact.Medium,
+                    Message = Loc.GetString("split-slime-verb-get-data-desc"),
+                    Priority = -1,
+                };
+
+                args.Verbs.Add(growth);
+
+                if (slimeComp.CurrentAge is not SlimeLifeStage.Young)
+                {
+                    args.Verbs.Add(split);
+                    args.Verbs.Add(degrade);
+                }
             }
 
             if (TryComp<AirlockComponent>(args.Target, out var airlock))

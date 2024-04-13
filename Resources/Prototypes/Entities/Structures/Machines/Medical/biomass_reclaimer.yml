@@ -1,7 +1,7 @@
 - type: entity
-  id: BiomassReclaimer
+  id: CorpseReclaimer
   parent: [ BaseMachinePowered, ConstructibleMachine ]
-  name: biomass reclaimer
+  name: corpse reclaimer
   description: Reclaims biomass from corpses. Gruesome.
   placement:
     mode: SnapgridCenter

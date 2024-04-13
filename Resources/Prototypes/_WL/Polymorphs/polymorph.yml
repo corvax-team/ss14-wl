@@ -1,0 +1,36 @@
+# Slime mutation toxins polymorphs
+- type: polymorph
+  id: Slime
+  configuration:
+    entity: MobSlimePerson
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    inventory: Transfer
+    revertOnDeath: false
+    revertOnCrit: false
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: Human
+  configuration:
+    entity: MobHuman
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    inventory: Transfer
+    revertOnDeath: false
+    revertOnCrit: false
+    allowRepeatedMorphs: true
+
+- type: polymorph
+  id: Lizard
+  configuration:
+    entity: MobReptilian
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    inventory: Transfer
+    revertOnDeath: false
+    revertOnCrit: false
+    allowRepeatedMorphs: true

@@ -1,0 +1,32 @@
+- type: entity
+  name: xeno bag
+  id: XenoBag
+  parent: BaseStorageItem
+  description: A bag for storing xenobiology products, such as slime cores, rehydratable cubes, bottles.
+  components:
+  - type: MagnetPickup
+  - type: Sprite
+    sprite: _WL/Objects/Specific/Xenobiology/xeno_bag.rsi
+    state: icon
+  - type: Clothing
+    sprite: _WL/Objects/Specific/Xenobiology/xeno_bag.rsi
+    quickEquip: false
+    slots:
+    - belt
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,10,4
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      components:
+        - FitsInDispenser
+        - Rehydratable
+        - SlimeCore
+      tags:
+        - Bottle
+        - Syringe
+  - type: Dumpable

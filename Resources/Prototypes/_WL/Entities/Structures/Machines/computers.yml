@@ -1,0 +1,56 @@
+- type: entity
+  parent: BaseComputer
+  id: XenobiologyConsole
+  name: xenobiology console
+  description: Used for contactless interaction with slimes.
+  components:
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelist:
+          tags:
+          - GlassBeaker
+  - type: XenobiologyConsole
+    audio: !type:SoundPathSpecifier
+      path: /Audio/Machines/id_insert.ogg
+      params:
+        volume: -1
+        maxDistance: 7
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#c143cc"
+  - type: Rotatable
+    rotateWhileAnchored: false
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      sprite: _WL/Structures/Machines/computers.rsi
+      state: slime_comp
+    - map: ["computerLayerKeys"]
+      state: tech_key
+  - type: Computer
+    board: XenobiologyComputerCircuitboard
+  - type: ResearchClient
+  - type: ActiveRadio
+    channels:
+    - Science
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+    rightClickOnly: true
+  - type: UserInterface
+    interfaces:
+    - key: enum.ResearchClientUiKey.Key
+      type: ResearchClientBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+    priority: Low
+  - type: AccessReader
+    access: [["Research"]]
+  - type: GuideHelp
+    guides:
+    - Xenobiology
