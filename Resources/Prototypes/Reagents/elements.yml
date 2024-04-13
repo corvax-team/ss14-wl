@@ -96,7 +96,7 @@
           groups:
             Brute: -3
       - !type:ModifyBloodLevel
-        condition:
+        conditions:
         - !type:OrganType
           type: Arachnid
           shouldHave: true
@@ -227,7 +227,7 @@
           groups:
             Brute: -3
       - !type:ModifyBloodLevel
-        condition:
+        conditions:
         - !type:OrganType
           type: Arachnid
           shouldHave: false

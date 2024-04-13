@@ -416,7 +416,7 @@
           types:
             Asphyxiation: 1
             Cold: 2
-        groups:
+          groups:
             Brute: 0.5
       - !type:Jitter
         conditions:
@@ -1900,7 +1900,7 @@
     Medicine:
       effects:
       - !type:HealthChange
-        condition:
+        conditions:
         - !type:TotalDamage
           max: 50
 # WL android species start
