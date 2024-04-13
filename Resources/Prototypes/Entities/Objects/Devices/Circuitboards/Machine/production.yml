@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: AutolatheMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: autolathe machine board
@@ -588,7 +588,7 @@
   description: A machine printed circuit board for a biomass reclaimer.
   components:
     - type: MachineBoard
-      prototype: BiomassReclaimer
+      prototype: CorpseReclaimer
       requirements:
         MatterBin: 2
         Manipulator: 1

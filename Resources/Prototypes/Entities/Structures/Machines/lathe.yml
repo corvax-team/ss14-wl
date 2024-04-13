@@ -260,7 +260,6 @@
       - MiningDrill
       - AnomalyScanner
       - SlimeScanner
-      - XenobiologyComputerCircuitboard
       - AnomalyLocator
       - AnomalyLocatorWide
       - Scalpel
@@ -393,6 +392,7 @@
       - CloningPodMachineCircuitboard
       - MedicalScannerMachineCircuitboard
       - CryoPodMachineCircuitboard
+      - XenobiologyComputerCircuitboard
       - VaccinatorMachineCircuitboard
       - DiagnoserMachineCircuitboard
       - BiomassReclaimerMachineCircuitboard

@@ -1,5 +1,5 @@
 - type: latheRecipe
-  id: XenobiologyConsoleCircuitboard
+  id: XenobiologyComputerCircuitboard
   result: XenobiologyComputerCircuitboard
   category: Circuitry
   completetime: 5

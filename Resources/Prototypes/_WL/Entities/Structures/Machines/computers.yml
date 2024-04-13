@@ -39,6 +39,16 @@
   - type: ActiveRadio
     channels:
     - Science
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
   - type: ActivatableUI
     key: enum.ResearchClientUiKey.Key
     rightClickOnly: true

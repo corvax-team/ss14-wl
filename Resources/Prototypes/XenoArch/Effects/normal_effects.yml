@@ -354,8 +354,6 @@
   - type: SpawnArtifact
     maxSpawns: 5
     spawns:
-    - id: MobAdultSlimesYellowAngry
-      orGroup: fauna
     - id: MobAngryBee
       orGroup: fauna
     - id: MobBearSpace
