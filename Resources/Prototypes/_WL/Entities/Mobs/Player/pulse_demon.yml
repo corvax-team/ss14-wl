@@ -7,6 +7,7 @@
   - type: StutteringAccent
     matchRandomProb: 0.4
   - type: TTS
+    voice: Hagraven
   - type: EmitSoundOnSpawn
     sound:
       params:
