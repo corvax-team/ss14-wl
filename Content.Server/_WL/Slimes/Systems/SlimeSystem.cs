@@ -2,6 +2,7 @@ using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
+using Content.Server.Interaction;
 using Content.Server.Mind;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
@@ -63,6 +64,7 @@ public sealed partial class SlimeSystem : EntitySystem
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
 
+
     [ValidatePrototypeId<DamageTypePrototype>]
     private const string CausticDamageTypePrototype = "Caustic";
 
@@ -75,10 +77,12 @@ public sealed partial class SlimeSystem : EntitySystem
     [ValidatePrototypeId<NpcFactionPrototype>]
     private const string SlimeFriendFaction = "SlimeFriend";
 
+    private const float SlimeVisionRange = 7.5f;
+
     /// <summary>
     /// A purely conditional value is needed to limit some functions depending on the relationship with the slime.
     /// </summary>
-    private const int SlimeFriendRelationshipPoints = 1;
+    private const int SlimeFriendRelationshipPoints = 90;
 
     public override void Initialize()
     {
@@ -265,6 +269,8 @@ public sealed partial class SlimeSystem : EntitySystem
         if (args.Target == null)
             return;
 
+        var slimeCoords = Transform(uid).Coordinates;
+
         if (args.Handled || args.Cancelled || !IsDoAfterAllowed(uid, args.Target.Value))
         {
             MakeSlimeToLeaveTarget(uid, comp);
@@ -280,12 +286,14 @@ public sealed partial class SlimeSystem : EntitySystem
         _damageable.TryChangeDamage(args.Target, damage, true, false);
         _hunger.ModifyHunger(uid, growthData.HungerSupply);
 
-        var slimeCoords = Transform(uid).Coordinates;
-
         //Building relationships
         var playersAround = EntityQueryEnumerator<ActorComponent, MobStateComponent>();
         while (playersAround.MoveNext(out var playerUid, out _, out _))
         {
+            var targetCoords = Transform(playerUid).Coordinates;
+            if (!targetCoords.InRange(EntityManager, _transform, slimeCoords, SlimeVisionRange))
+                continue;
+
             ChangeSlimeRelationship(uid, playerUid, 1, comp);
         }
 
@@ -547,10 +555,6 @@ public sealed partial class SlimeSystem : EntitySystem
             return false;
 
         if (HasComp<SlimeComponent>(target))
-            return false;
-
-        var targetCoords = Transform(target).Coordinates;
-        if (!targetCoords.InRange(EntityManager, _transform, targetCoords, 8f))
             return false;
 
         if (slimeComp.Relationships.TryGetValue(target, out var value))

@@ -371,14 +371,16 @@
     minimumPlayers: 15
     weight: 5
     duration: 60
-  # - type: VentCrittersRule
-    # entries:
-    # - id: MobAdultSlimesBlueAngry
-      # prob: 0.02
-    # - id: MobAdultSlimesGreenAngry
-      # prob: 0.02
-    # - id: MobAdultSlimesYellowAngry
-      # prob: 0.02
+  - type: VentCrittersRule
+    entries:
+    - id: MobSimpleSlimeGrey
+      prob: 0.02
+    - id: MobSimpleSlimeBlue
+      prob: 0.02
+    - id: MobSimpleSlimePurple
+      prob: 0.02
+    - id: MobSimpleSlimeOrange
+      prob: 0.02
 
 - type: entity
   id: SpiderSpawn

@@ -1,0 +1,266 @@
+﻿- type: entity
+  name: basic slime
+  id: SimpleMobSlimeBase
+  abstract: true
+  parent: [ SimpleMobBase, MobCombat ]
+  description: It looks so much like jelly. I wonder what it tastes like?
+  components:
+  - type: Hunger
+    baseDecayRate: 1
+    currentThreshold: Dead
+    starvingSlowdownModifier: 1
+    thresholds:
+      Overfed: 400
+      Okay: 300
+      Peckish: 220
+      Starving: 100
+      Dead: 0
+  - type: Icon
+    sprite: _WL/Mobs/Aliens/slimes.rsi
+    state: grey adult slime
+  - type: Temperature
+    heatDamageThreshold: 340
+    coldDamageThreshold: 230
+    currentTemperature: 310.15
+    specificHeat: 42
+    coldDamage:
+      types:
+        Cold: 5
+    heatDamage:
+      types:
+        Heat: 1.5
+  - type: NPCRetaliation
+    attackMemoryLength: 3
+  - type: NoSlip
+  - type: Slime
+    slimeGroupName: grey
+    corePrototype: GreySlimeCore
+    humanoidStageSkinColor: "#8f8f8f"
+    growProbability: 0.6
+    eatProbability: 0.33
+    tastePreferences:
+      tags:
+      - SlimeFood
+    growthData:
+       Young:
+         coreAmount: 1
+         damage: 7
+         attackRate: 1
+         speed: 4
+         fixtureShape: 0.4
+         splitCost: 1
+         splitPointsAmount: 0
+         growthStageBound: 15
+       Adult:
+         coreAmount: 2
+         damage: 15
+         attackRate: 0.9
+         speed: 3.3
+         fixtureShape: 0.43
+         splitCost: 3
+         splitPointsAmount: 3
+         growthStageBound: 25
+       Old:
+         coreAmount: 4
+         damage: 25
+         attackRate: 0.8
+         speed: 3
+         fixtureShape: 0.47
+         splitCost: 4
+         splitPointsAmount: 6
+         growthStageBound: 45
+       Ancient:
+         coreAmount: 6
+         damage: 32
+         attackRate: 0.7
+         speed: 2.8
+         fixtureShape: 0.50
+         splitCost: 14
+         splitPointsAmount: 8
+         growthStageBound: 65
+  - type: Appearance
+  - type: ZombieImmune
+  - type: GenericVisualizer
+    visuals:
+     enum.SlimeVisualState.Face:
+       enum.SlimeVisualLayers.FaceLayer:
+        Dead: 
+          state: aslime-angry
+          shader: unshaded
+        Starving: 
+          state: aslime-sad
+          shader: unshaded
+        Peckish: 
+          state: aslime-pout
+          shader: unshaded
+        Okay: 
+          state: aslime-_3
+          shader: unshaded
+        Overfed: 
+          state: aslime-_33
+          shader: unshaded
+     enum.SlimeVisualState.Body:
+       enum.SlimeVisualLayers.FaceLayer:
+        Dead: { visible: false }
+        Young:
+         scale: 1, 1
+        Adult:
+         scale: 1.05, 1.05
+        Old: 
+         scale: 1.5, 1.5 
+        Ancient: 
+         scale: 1.75, 1.75 
+       enum.SlimeLifeStage.Dead:
+        Dead: { visible: true }
+        Young: { visible: false }
+        Adult: { visible: false }
+        Old: { visible: false }
+        Ancient: { visible: false }
+       enum.SlimeLifeStage.Young:
+        Dead: { visible: false }
+        Young: { visible: true }
+        Adult: { visible: false }
+        Old: { visible: false }
+        Ancient: { visible: false }
+       enum.SlimeLifeStage.Adult:
+        Dead: { visible: false }
+        Young: { visible: false }
+        Adult: { visible: true }
+        Old: { visible: false }
+        Ancient: { visible: false }
+       enum.SlimeLifeStage.Old:
+        Dead: { visible: false }
+        Young: { visible: false }
+        Adult: { visible: false }
+        Old: 
+          visible: true
+          scale: 1.5, 1.5
+        Ancient: { visible: false }
+       enum.SlimeLifeStage.Ancient:
+        Dead: { visible: false }
+        Young: { visible: false }
+        Adult: { visible: false }
+        Old: { visible: false }
+        Ancient: 
+          visible: true
+          scale: 1.75, 1.75
+  - type: NpcFactionMember
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Sprite
+    drawdepth: OverMobs
+    sprite: _WL/Mobs/Aliens/slimes.rsi
+    layers:
+    - map: [ "enum.SlimeVisualLayers.FaceLayer" ]
+      state: aslime-_33
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.30
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: 3
+  - type: Tag
+    tags:
+    - FootstepSound
+    - Slime
+    - DoorBumpOpener
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 0.2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
+    maxSaturation: 15
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Slime
+  - type: Bloodstream
+    bloodReagent: Slime
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          0.5
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.45
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaled: true
+        damage:
+          types:
+            Heat: 10
+      - !type:PopupMessage
+        type: Local
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: Body
+    prototype: Slimes
+    requiredLegs: 1
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/punch3.ogg
+    angle: 0
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 6
+        Structural: 4
+        Caustic: 4
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-slimes
+    interactFailureString: petting-failure-generic
+  # - type: ReplacementAccent
+    # accent: slimes #Тогда команды, которые требуют ответа будут заменяться на вот эти фразы, свой акцент кодить лень. Пусть болтают
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-slimes-name
+    description: ghost-role-information-slimes-description
+  - type: Puller
+    needsHands: false
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Slime
+  - type: TypingIndicator
+    proto: slime
+  - type: ActiveListener
+    range: 7
+  - type: TTS
+    voice: Chen

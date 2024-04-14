@@ -52,8 +52,6 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
     [ValidatePrototypeId<TagPrototype>]
     private const string MonkeyCubeTag = "MonkeyCube";
 
-    private const float CameraMaxDistance = 10f; // TODO change to CCvar
-
     public const string XenobiologyConsoleBeakerSlot = "beakerSlot";
 
     public override void Initialize()
@@ -88,13 +86,14 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
         var query = EntityQueryEnumerator<ActiveXenobiologyConsoleUserComponent>();
         while (query.MoveNext(out var uid, out var activeComp))
         {
-            if (activeComp.Camera == null)
+            if (activeComp.Camera == null ||
+                !TryComp<XenobiologyConsoleComponent>(activeComp.Console, out var consoleComp))
                 continue;
 
             var consoleCoords = Transform(activeComp.Console).Coordinates;
             var markerCoords = Transform(activeComp.Camera.Value).Coordinates;
 
-            if (markerCoords.InRange(EntityManager, _transform, consoleCoords, CameraMaxDistance))
+            if (markerCoords.InRange(EntityManager, _transform, consoleCoords, consoleComp.CameraMaxDistance))
                 continue;
 
             Return(uid, activeComp);
