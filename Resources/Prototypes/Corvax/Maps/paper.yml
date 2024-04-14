@@ -1,7 +1,7 @@
 - type: gameMap
   id: CorvaxPaper
   mapName: 'Paper Station'
-  mapPath: /Maps/corvax_paper.yml
+  mapPath: /Maps/_WL/corvax_paper.yml
   minPlayers: 14
   maxPlayers: 65
   stations:

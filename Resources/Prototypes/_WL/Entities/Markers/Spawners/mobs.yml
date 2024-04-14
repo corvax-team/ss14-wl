@@ -1,0 +1,13 @@
+- type: entity
+  name: Grey slime spawner
+  id: SpawnMobSimpleSlimeGrey
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _WL/Mobs/Aliens/slimes.rsi
+        state: grey adult slime
+  - type: ConditionalSpawner
+    prototypes:
+    - MobSimpleSlimeGrey
