@@ -1,0 +1,4 @@
+- type: guideEntry
+  id: FoodRec
+  name: Рецепты ВЛ
+  text: "/ServerInfo/Guidebook/_WL/Service/FoodRecipesChild.xml"

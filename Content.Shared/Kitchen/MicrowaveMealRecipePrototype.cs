@@ -31,6 +31,9 @@ namespace Content.Shared.Kitchen
         [DataField("time")]
         public uint CookTime { get; private set; } = 5;
 
+        [DataField]
+        public string Group = "";
+
         public string Name => Loc.GetString(_name);
 
         // TODO Turn this into a ReagentQuantity[]

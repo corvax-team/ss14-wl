@@ -1,0 +1,33 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              Orientation="Vertical"
+              xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+              xmlns:style="clr-namespace:Content.Client.Stylesheets"
+              Margin="5 5 5 5">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BorderThickness="1" BorderColor="#777777"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer Name="NameBackground" HorizontalExpand="True" VerticalExpand="False">
+                <RichTextLabel Name="RecipeName" HorizontalAlignment="Center"/>
+            </PanelContainer>
+            <BoxContainer Name="RecipesContainer" HorizontalExpand="True" Orientation="Horizontal">
+                <BoxContainer HorizontalExpand="True" Name="RecipeReactants" Orientation="Vertical">
+                    
+                </BoxContainer>
+
+                
+                <BoxContainer HorizontalExpand="True" Orientation="Vertical">
+                    <TextureRect HorizontalExpand="True" TexturePath="/Textures/_WL/Interface/Misc/microwave.png"/>
+                    <RichTextLabel HorizontalExpand="True" Name="CookingTime"/>
+                </BoxContainer>
+
+                
+                <BoxContainer HorizontalExpand="True" VerticalExpand="True" Name="RecipeProducts" Orientation="Vertical">
+
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>
