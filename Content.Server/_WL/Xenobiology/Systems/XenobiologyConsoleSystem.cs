@@ -1,5 +1,6 @@
 using Content.Server._WL.Slimes;
 using Content.Server.Actions;
+using Content.Server.Administration.Commands;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Medical.BiomassReclaimer;
 using Content.Server.Mind;
@@ -19,6 +20,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Research.Components;
+using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -51,6 +53,9 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
 
     [ValidatePrototypeId<TagPrototype>]
     private const string MonkeyCubeTag = "MonkeyCube";
+
+    [ValidatePrototypeId<TagPrototype>]
+    private const string BoxCardboardTag = "BoxCardboard";
 
     public const string XenobiologyConsoleBeakerSlot = "beakerSlot";
 
@@ -167,13 +172,14 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
             return;
         }
 
-        if (TryComp<RehydratableComponent>(args.Used, out var rehydratableComp))
+        var entProtos = GetEntityPrototypesFromCube(args.Used);
+        if (entProtos.Count > 0)
         {
-            foreach (var entityProto in rehydratableComp.PossibleSpawns)
+            foreach (var entityProto in entProtos)
             {
-                if (!comp.RehydratableCubes.TryAdd(entityProto, 1))
-                    comp.RehydratableCubes[entityProto] += 1;
+                AddEntityInBuffer(uid, entityProto, comp);
             }
+
             _audio.PlayPvs(comp.InsertSound, uid);
             QueueDel(args.Used);
         }
@@ -186,29 +192,58 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
             _audio.PlayPvs(comp.InsertSound, uid);
             QueueDel(args.Used);
         }
-        else if (_tag.HasTag(args.Used, MonkeyCubeTag) && TryComp<SpawnItemsOnUseComponent>(args.Used, out var spawnItemOnUseComp))
+        else if (TryComp<StorageComponent>(args.Used, out var storageComp))
+        {
+            foreach (var cube in storageComp.StoredItems)
+            {
+                var entities = GetEntityPrototypesFromCube(cube.Key);
+                foreach (var entity in entities)
+                {
+                    AddEntityInBuffer(uid, entity, comp);
+                }
+            }
+
+            _audio.PlayPvs(comp.InsertSound, uid);
+        }
+    }
+
+    public List<EntProtoId> GetEntityPrototypesFromCube(EntityUid cube, bool deleteCube = true)
+    {
+        var toReturn = new List<EntProtoId>();
+        if (TryComp<RehydratableComponent>(cube, out var rehydComp))
+        {
+            toReturn = rehydComp.PossibleSpawns;
+        }
+        else if (_tag.HasTag(cube, MonkeyCubeTag)
+            && TryComp<SpawnItemsOnUseComponent>(cube, out var spawnItemOnUseComp))
         {
             foreach (var item in spawnItemOnUseComp.Items)
             {
                 if (item.PrototypeId == null)
                     continue;
 
-                var rehydComp = _protoMan.Index<EntityPrototype>(item.PrototypeId.Value.Id).Components.Values
-                    .Where(comp => comp.Component is RehydratableComponent)
-                    .FirstOrDefault();
-
-                if (rehydComp?.Component is not RehydratableComponent enumerable)
+                if (_protoMan.Index<EntityPrototype>(item.PrototypeId.Value.Id).Components.Values
+                    .FirstOrDefault(comp => comp.Component is RehydratableComponent)?.Component is not RehydratableComponent rehyd)
                     continue;
 
-                foreach (var spawn in enumerable.PossibleSpawns)
-                {
-                    if (!comp.RehydratableCubes.TryAdd(spawn.Id, 1))
-                        comp.RehydratableCubes[spawn.Id] += 1;
-                }
+                foreach (var spawn in rehyd.PossibleSpawns)
+                    toReturn.Add(spawn);
             }
-            _audio.PlayPvs(comp.InsertSound, uid);
-            QueueDel(args.Used);
         }
+
+        if (deleteCube && toReturn.Count > 0)
+            QueueDel(cube);
+
+        return toReturn;
+    }
+
+    public void AddEntityInBuffer(EntityUid console, EntProtoId target, XenobiologyConsoleComponent? comp = null)
+    {
+        if (!Resolve(console, ref comp))
+            return;
+
+        if (!comp.RehydratableCubes.TryAdd(target, 1))
+            comp.RehydratableCubes[target] += 1;
     }
 
     private void OnUnanchor(EntityUid uid, XenobiologyConsoleComponent comp, AnchorStateChangedEvent args)

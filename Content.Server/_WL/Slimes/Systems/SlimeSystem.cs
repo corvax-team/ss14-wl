@@ -2,7 +2,6 @@ using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
-using Content.Server.Interaction;
 using Content.Server.Mind;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
