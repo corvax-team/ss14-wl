@@ -10,7 +10,7 @@ public sealed partial class XenobiologyConsoleComponent : Component
     public bool IsAvailable = true;
 
     [DataField]
-    public float CameraMaxDistance = 10f;
+    public float CameraMaxDistance = 6f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? User = null;
