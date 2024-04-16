@@ -2,6 +2,7 @@
   id: RecipeAloeCream
   name: aloe cream recipe
   result: AloeCream
+  group: Medical
   time: 10
   solids:
     FoodAloe: 1
@@ -10,6 +11,7 @@
   id: RecipeMedicatedSuture
   name: medicated suture recipe
   result: MedicatedSuture
+  group: Medical
   time: 10
   solids:
     FoodPoppy: 1
@@ -21,6 +23,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRegenerativeMesh
+  group: Medical
   name: regenerative mesh recipe
   result: RegenerativeMesh
   time: 10
