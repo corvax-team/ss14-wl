@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.Slimes;
@@ -13,6 +14,8 @@ namespace Content.Shared._WL.Slimes;
 public abstract partial class SlimeTransformationCondition
 {
     public abstract bool Condition(SlimeTransformationConditionArgs args);
+
+    public abstract SlimeTransformationCondition GetRandomCondition(IEntityManager entMan, IPrototypeManager protoMan, IRobustRandom random);
 
     public abstract string GetDescriptionString(IEntityManager entityManager, IPrototypeManager protoMan);
 }

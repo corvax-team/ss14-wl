@@ -15,7 +15,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 using System.Linq;
 using Content.Server._WL.Slimes.Systems;
 using Content.Shared._WL.Xenobiology.Events;
@@ -23,6 +22,7 @@ using Content.Server._WL.Slimes;
 using Content.Shared._WL.Xenobiology;
 using Content.Shared._WL.Slimes.Prototypes;
 using Content.Shared._WL.Slimes.Components;
+using Robust.Shared.Utility;
 
 namespace Content.Server._WL.Xenobiology.Systems;
 
@@ -51,20 +51,18 @@ public sealed class SlimeScannerSystem : EntitySystem
     public override void Update(float frameTime)
     {
         var scannerQuery = EntityQueryEnumerator<SlimeScannerComponent, TransformComponent>();
-        while (scannerQuery.MoveNext(out var uid, out var component, out var transform))
+        while (scannerQuery.MoveNext(out var uid, out var component, out _))
         {
             if (component.NextUpdate > _timing.CurTime)
                 continue;
 
-            UpdateScannedUser(uid, component.ScannedEntity);
-
-            if (component.ScannedEntity is not { } slime)
-                continue;
-
             component.NextUpdate = _timing.CurTime + component.UpdateInterval;
 
-            if (!TryComp<TransformComponent>(slime, out var slimeTransform))
+            if (component.ScannedEntity != null && component.ScanningEntity != null)
                 continue;
+
+            var relPoints = GetRelationships(component.ScanningEntity, component.ScannedEntity) ?? 0;
+            UpdateScannedUser(uid, component.ScannedEntity, relPoints);
         }
     }
 
@@ -78,13 +76,23 @@ public sealed class SlimeScannerSystem : EntitySystem
 
         _audio.PlayPvs(comp.ScanningBeginSound, uid);
 
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, comp.ScanDelay, new SlimeScannerDoAfterEvent(), uid, target: args.Target, used: uid)
+        args.Handled = _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, comp.ScanDelay, new SlimeScannerDoAfterEvent(), uid, target: args.Target, used: uid)
         {
             BreakOnMove = true,
             BlockDuplicate = true,
             DuplicateCondition = DuplicateConditions.SameTarget
         });
-        args.Handled = true;
+    }
+
+    public int? GetRelationships(EntityUid? scanningEntity, EntityUid? slime, SlimeComponent? slimeComp = null)
+    {
+        if (scanningEntity == null || slime == null)
+            return null;
+
+        if (!Resolve(slime.Value, ref slimeComp))
+            return null;
+
+        return slimeComp.Relationships.FirstOrNull(x => x.Key.Equals(scanningEntity.Value))?.Value;
     }
 
     private void OnDoAfter(EntityUid uid, SlimeScannerComponent comp, SlimeScannerDoAfterEvent args)
@@ -95,7 +103,7 @@ public sealed class SlimeScannerSystem : EntitySystem
         _audio.PlayPvs(comp.ScanningEndSound, uid);
 
         OpenUserInterface(args.User, uid);
-        BeginScanningSlime(uid, args.Target.Value, comp);
+        BeginScanningSlime(uid, args.User, args.Target.Value);
         args.Handled = true;
     }
 
@@ -125,55 +133,63 @@ public sealed class SlimeScannerSystem : EntitySystem
         _uiSystem.OpenUi(ui, actor.PlayerSession);
     }
 
-    private void BeginScanningSlime(EntityUid uid, EntityUid target, SlimeScannerComponent? comp = null)
+    private void BeginScanningSlime(EntityUid scanner, EntityUid user, EntityUid target, SlimeScannerComponent? comp = null)
     {
-        if (!Resolve(uid, ref comp))
+        if (!Resolve(scanner, ref comp))
             return;
 
         comp.ScannedEntity = target;
+        comp.ScanningEntity = user;
 
-        _cell.SetPowerCellDrawEnabled(uid, true);
+        _cell.SetPowerCellDrawEnabled(scanner, true);
 
-        UpdateScannedUser(uid, target);
+        UpdateScannedUser(scanner, target, GetRelationships(user, target) ?? 0);
     }
 
-    private void StopScanningSlime(EntityUid uid, EntityUid target, SlimeScannerComponent? comp = null)
+    private void StopScanningSlime(EntityUid scanner, EntityUid target, SlimeScannerComponent? comp = null)
     {
-        if (!Resolve(uid, ref comp))
+        if (!Resolve(scanner, ref comp))
             return;
 
         _cell.SetPowerCellDrawEnabled(target, false);
 
         comp.ScannedEntity = null;
+        comp.ScanningEntity = null;
     }
 
-    public void UpdateScannedUser(EntityUid entity, EntityUid? slime)
+    public void UpdateScannedUser(EntityUid scanner, EntityUid? slime, int relationshipPoints)
     {
-        if (!_uiSystem.TryGetUi(entity, SlimeScannerUiKey.Key, out var ui))
+        if (!_uiSystem.TryGetUi(scanner, SlimeScannerUiKey.Key, out var ui))
             return;
 
         if (slime != null &&
             TryComp<SlimeComponent>(slime, out var slimeComp) &&
             TryComp<MobStateComponent>(slime, out var mobState) && mobState.CurrentState is not Shared.Mobs.MobState.Dead)
         {
-            //Ключ словаря - прототип сущности, значение - форматированная строка
+            //Условия мутаций
+            //Ключ словаря - прототип сущности, значение - форматированная строка(описание)
             var strings = new Dictionary<string, string>();
             _protoMan.EnumeratePrototypes<SlimeMutationPrototype>()
                 .Where(mutation => mutation.SlimeGroup.Equals(slimeComp.SlimeGroupName, StringComparison.CurrentCultureIgnoreCase))
                 .FirstOrDefault()?.MutationsData.ForEach(data =>
                 {
-                    strings.Add(data.Prototype, string.Join(Loc.GetString("slime-scanner-window-if-separator", ("andoror", data.RequiredAll ? "and" : "or")),
-                        data.MutationConditions.Select(cond => cond.GetDescriptionString(EntityManager, _protoMan).Trim())));
+                    var conditionsStrings = data.MutationConditions
+                        .Select(x => x.GetDescriptionString(EntityManager, _protoMan));
+
+                    strings.Add(data.Prototype, JoinStringWithUnions(conditionsStrings, data.RequiredAll) ?? "");
                 });
 
+            //Цена ядра
             var slimeCoreProto = _protoMan.Index<EntityPrototype>(slimeComp.CorePrototype);
             var slimeCoreCost = slimeCoreProto.Components.Values.FirstOrDefault(comp => comp.Component is StaticPriceComponent)?.Component as StaticPriceComponent;
             var slimeCoreResearchCost = slimeCoreProto.Components.Values.FirstOrDefault(comp => comp.Component is SlimeCoreComponent)?.Component as SlimeCoreComponent;
 
+            //Цвет ядра слайма
             var slimeCoreReagentColor =
                 (slimeCoreProto.Components.Values.FirstOrDefault(comp => comp.Component is SolutionContainerManagerComponent)?.Component as SolutionContainerManagerComponent)?
                 .Solutions?.FirstOrDefault().Value.GetColor(_protoMan) ?? Color.MediumPurple;
 
+            //Текущий голод
             var hungerComp = EnsureComp<HungerComponent>(slime.Value);
 
             var msg = new SlimeScannerScannedUserMessage(
@@ -188,7 +204,7 @@ public sealed class SlimeScannerSystem : EntitySystem
                 hungerComp.Thresholds[HungerThreshold.Okay],
                 slimeComp.GrowthStage,
                 slimeComp.GrowthData[slimeComp.CurrentAge].GrowthStageBound,
-                slimeComp.Relationships.FirstOrNull(rship => rship.Key.Equals(entity))?.Value ?? 0);
+                relationshipPoints);
 
             _uiSystem.SendUiMessage(ui, msg);
         }
@@ -196,6 +212,16 @@ public sealed class SlimeScannerSystem : EntitySystem
         {
             _uiSystem.SendUiMessage(ui, new SlimeScannerScannedUserMessage(null));
         }
+    }
+
+    private string? JoinStringWithUnions(IEnumerable<string>? @string, bool isAndUnion)
+    {
+        if (@string is null || !@string.Any())
+            return null;
+
+        var separator = Loc.GetString("slime-scanner-window-if-separator", ("andoror", isAndUnion ? "and" : "or"));
+        var toReturn = string.Join(separator, @string).Trim();
+        return toReturn;
     }
 }
 

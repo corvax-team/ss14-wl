@@ -20,27 +20,17 @@ slime-transformation-condition-reagent-inside = слайм содержит в �
        *[1] все перечисленные реагенты
     }: { $reagents }
 
-slime-transformation-condition-tile-temperature = { $separator }рядом есть { $gas ->
-        [0] любой газ
-       *[other] { $gas }
-    } { $state ->
-        *[bothnull] { $separator }
-        [other] с температурой 
-        } { $min ->
-        [0] { $separator }
-       *[other] больше { $min }K
-    } { $state ->
-        [both] и
-       *[other] { $separator } 
-        } { $max ->
-        [0] { $separator }
-       *[other] меньше { $max }K
-    }
-
-slime-transformation-condition-life-stage = стадия жизни слайма { $both ->
-  [0] находится в пределах с { $min } до { $max }
-  *[1] - { $min }
+slime-transformation-condition-tile-temperature = рядом есть { $gas ->
+    *[other] { $gas }
+    [0] любой газ
+}, находящийся {$state ->
+    [bothnull] при любой температуре
+    *[both] при температуре в пределах от {$min}K до {$max}K
+    [maxnull] при температуре {$min}K и более
+    [minnull] при температуре {$max}K и менее
 }
+
+slime-transformation-condition-life-stage = стадия жизни слайма ниже {$max}
 
 slime-transformation-condition-job-nearby = в радиусе { $radius }м { $white ->
   [0] {""}

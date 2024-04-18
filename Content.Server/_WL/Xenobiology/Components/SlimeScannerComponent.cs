@@ -35,6 +35,12 @@ public sealed partial class SlimeScannerComponent : Component
     public EntityUid? ScannedEntity;
 
     /// <summary>
+    /// Which entity has been scanning, for continuous updates
+    /// </summary>
+    [DataField]
+    public EntityUid? ScanningEntity;
+
+    /// <summary>
     /// The maximum range in tiles at which the analyzer can receive continuous updates
     /// </summary>
     [DataField]

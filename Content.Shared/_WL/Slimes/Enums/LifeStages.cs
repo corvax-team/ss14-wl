@@ -3,7 +3,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._WL.Slimes.Enums;
 
 [Serializable, NetSerializable]
-public enum SlimeLifeStage
+public enum SlimeLifeStage : int
 {
     Dead, //The Dead stage is necessary for the correct display of the sprite of the deceased slime. (Too lazy to make a visualizer)
     Young,

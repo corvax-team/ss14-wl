@@ -69,17 +69,7 @@ namespace Content.Client._WL.SlimeScanner.UI
                 $"{Loc.GetString("slime-scanner-window-or-separator")} " +
                 $"{msg.CoreResearchPoints ?? 0f} {Loc.GetString("slime-scanner-window-research-point-prefix")}")); //Результат -- "Стоимость ядра: 6$ или 1200 О.И."
 
-            if (msg.RelationshipPoints > 0)
-            {
-                RelationshipPoints.SetMessage(FormattedMessage.FromMarkup(msg.RelationshipPoints.ToString()));
-                RelationshipPoints.Visible = true;
-                RelationshipTitle.Visible = true;
-            }
-            else
-            {
-                RelationshipPoints.Visible = false;
-                RelationshipTitle.Visible = false;
-            }
+            RelationshipPoints.SetMessage(FormattedMessage.FromMarkup(msg.RelationshipPoints.ToString()));
 
             if (msg.FormattedMutationCondDesc.Count > 0)
             {

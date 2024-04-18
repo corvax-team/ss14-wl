@@ -36,24 +36,30 @@ public sealed partial class SlimeMutationPrototype : IPrototype
     /// <param name="entMan"></param>
     /// <returns><see cref="EntityPrototype.ID"/></returns>
     /// <exception cref="InvalidOperationException">If the "weights" in the prototype are placed incorrectly.</exception>
-    public string GetMutation(EntityUid slime, IRobustRandom? random = null, IEntityManager? entMan = null)
+    public string? GetRandomMutation(
+        EntityUid slime,
+        IRobustRandom? random = null,
+        IEntityManager? entMan = null)
     {
         IoCManager.Resolve(ref random);
         IoCManager.Resolve(ref entMan);
 
         var args = new SlimeTransformationConditionArgs(slime, entMan);
 
-        var picked = MutationsData.Where(x =>
+        var picked = MutationsData.Where(data =>
         {
-            if (x.MutationConditions.Count == 0)
+            var conditions = data.MutationConditions;
+
+            if (conditions.Count == 0)
                 return true;
-            else
-            {
-                if (x.RequiredAll)
-                    return x.MutationConditions.TrueForAll(cond => cond.Condition(args));
-                else return x.MutationConditions.Any(cond => cond.Condition(args));
-            }
+
+            return data.RequiredAll
+                ? conditions.TrueForAll(condition => condition.Condition(args))
+                : conditions.Any(condition => condition.Condition(args));
         });
+
+        if (!picked.Any())
+            return null;
 
         var sum = picked.Sum(data => data.Weight);
         var accumulated = 0f;

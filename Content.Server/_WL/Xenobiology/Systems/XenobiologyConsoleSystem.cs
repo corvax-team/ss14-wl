@@ -114,7 +114,7 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
             {
                 consoleCameraComp.NextUpdate = _gameTiming.CurTime + consoleCameraComp.UiUpdateInterval;
 
-                _slimeScanner.UpdateScannedUser(uid, consoleCameraComp.ScannedEntity.Value);
+                _slimeScanner.UpdateScannedUser(uid, consoleCameraComp.ScannedEntity.Value, _slimeScanner.GetRelationships(consoleCameraComp.User, consoleCameraComp.ScannedEntity) ?? 0);
             }
 
             if (!_ui.IsUiOpen(uid, SlimeScannerUiKey.Key))
@@ -456,9 +456,9 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
         if (!_ui.IsUiOpen(uid, SlimeScannerUiKey.Key))
         {
             _ui.OpenUi(bui, actor.PlayerSession);
-            _slimeScanner.UpdateScannedUser(uid, args.Target);
+            _slimeScanner.UpdateScannedUser(uid, args.Target, _slimeScanner.GetRelationships(comp.User, comp.ScannedEntity) ?? 0);
         }
-        else _slimeScanner.UpdateScannedUser(uid, args.Target);
+        else _slimeScanner.UpdateScannedUser(uid, args.Target, _slimeScanner.GetRelationships(comp.User, comp.ScannedEntity) ?? 0);
 
         args.Handled = true;
     }

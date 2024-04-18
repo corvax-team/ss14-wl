@@ -10,10 +10,6 @@
   slimeGroup: grey
   mutations:
   - proto: MobSimpleSlimeBlue
-    conditions:
-    - !type:RandomMutationCondition
-      conditions:
-      - !type:RelationshipThresholdMutationCondition
   - proto: MobSimpleSlimePurple
   - proto: MobSimpleSlimeOrange
   - proto: MobSimpleSlimeMetal

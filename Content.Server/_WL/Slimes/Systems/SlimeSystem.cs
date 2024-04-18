@@ -1,4 +1,6 @@
 using Content.Server.Actions;
+using Content.Server.Body.Systems;
+using Content.Server.Chemistry.ReagentEffects.StatusEffects;
 using Content.Server.DoAfter;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
@@ -106,9 +108,11 @@ public sealed partial class SlimeSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<SlimeComponent, HungerComponent, MobStateComponent, ActionsComponent>();
-        while (query.MoveNext(out var uid, out var slimeComp, out var hungerComp, out var mobState, out var actions))
+        var query = EntityQuery<SlimeComponent, HungerComponent, MobStateComponent, ActionsComponent>().ToArray();
+        foreach (var (slimeComp, hungerComp, mobState, actions) in query)
         {
+            var uid = slimeComp.Owner;
+
             //Dead neither grow, nor feed, nor kill
             if (mobState.CurrentState is MobState.Dead)
                 continue;
@@ -286,8 +290,8 @@ public sealed partial class SlimeSystem : EntitySystem
         _hunger.ModifyHunger(uid, growthData.HungerSupply);
 
         //Building relationships
-        var playersAround = EntityQueryEnumerator<ActorComponent, MobStateComponent>();
-        while (playersAround.MoveNext(out var playerUid, out _, out _))
+        var playersAround = EntityQueryEnumerator<MobStateComponent>();
+        while (playersAround.MoveNext(out var playerUid, out _))
         {
             var targetCoords = Transform(playerUid).Coordinates;
             if (!targetCoords.InRange(EntityManager, _transform, slimeCoords, SlimeVisionRange))
@@ -361,8 +365,6 @@ public sealed partial class SlimeSystem : EntitySystem
     /// <param name="slimeComponent"></param>
     public void Split(EntityUid slime, SlimeComponent? slimeComponent = null)
     {
-        //TODO weight-based mutation choose
-
         if (!Resolve(slime, ref slimeComponent, false))
             return;
 
@@ -383,15 +385,13 @@ public sealed partial class SlimeSystem : EntitySystem
         {
             var stage = (SlimeLifeStage) _random.Next(1, (int) slimeComponent.CurrentAge);
 
-            string chosenMutation;
+            string? chosenMutation = null;
             if (_random.Prob(slimeComponent.CurrentMutationProbability) && mutationPrototype is not null)
             {
-                chosenMutation = mutationPrototype.GetMutation(slime, _random, EntityManager);
+                chosenMutation = mutationPrototype.GetRandomMutation(slime, _random, EntityManager);
             }
-            else
-            {
-                chosenMutation = splittingSlimePrototype;
-            }
+
+            chosenMutation ??= splittingSlimePrototype;
 
             var spawnedSlime = SpawnNearby(splittingSlimeCoords, chosenMutation);
             SetGrowStage(spawnedSlime, stage);

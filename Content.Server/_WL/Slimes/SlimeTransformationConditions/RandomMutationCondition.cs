@@ -1,32 +1,42 @@
 using Content.Shared._WL.Slimes;
+using Content.Shared._WL.Slimes.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using System.Linq;
 
 namespace Content.Server._WL.Slimes.SlimeTransformationConditions;
 
 public sealed partial class RandomMutationCondition : SlimeTransformationCondition
 {
-    [DataField(required: true)]
+    [DataField]
     public List<SlimeTransformationCondition> Conditions = new();
+
+    private SlimeTransformationCondition? ChosenCondition = null;
 
     public override bool Condition(SlimeTransformationConditionArgs args)
     {
-        var _random = IoCManager.Resolve<IRobustRandom>();
+        var random = IoCManager.Resolve<IRobustRandom>();
+        var protoMan = IoCManager.Resolve<IPrototypeManager>();
 
-        var condition = _random.Pick(Conditions);
+        ChosenCondition ??= random.Pick(Conditions).GetRandomCondition(args.EntityManager, protoMan, random);
 
-        if (Conditions.Count > 1)
-            Conditions.RemoveRange(1, Conditions.Count - 1);
-
-        return condition.Condition(args);
+        return ChosenCondition.Condition(args);
     }
 
     public override string GetDescriptionString(IEntityManager entityManager, IPrototypeManager protoMan)
     {
-        if (Conditions.Count > 1)
-            Conditions.RemoveRange(1, Conditions.Count - 1);
+        var random = IoCManager.Resolve<IRobustRandom>();
 
-        return Conditions.First().GetDescriptionString(entityManager, protoMan);
+        ChosenCondition ??= random.Pick(Conditions).GetRandomCondition(entityManager, protoMan, random);
+
+        return ChosenCondition.GetDescriptionString(entityManager, protoMan);
+    }
+
+    public override SlimeTransformationCondition GetRandomCondition(IEntityManager entMan, IPrototypeManager protoMan, IRobustRandom random)
+    {
+        ChosenCondition ??= random.Pick(Conditions).GetRandomCondition(entMan, protoMan, random);
+
+        return ChosenCondition.GetRandomCondition(entMan, protoMan, random);
     }
 }

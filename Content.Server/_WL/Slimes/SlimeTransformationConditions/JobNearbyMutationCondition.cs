@@ -1,8 +1,10 @@
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Shared._WL.Slimes;
+using Content.Shared.FixedPoint;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using System.Linq;
 
@@ -20,7 +22,7 @@ public sealed partial class JobNearbyMutationCondition : SlimeTransformationCond
     public List<string> Blacklist = new();
 
     [DataField]
-    public float Radius = 1f;
+    public FixedPoint2 Radius = 1f;
 
     public override bool Condition(SlimeTransformationConditionArgs args)
     {
@@ -29,7 +31,7 @@ public sealed partial class JobNearbyMutationCondition : SlimeTransformationCond
         var mindSystem = entityManager.System<MindSystem>();
         var entityLookup = entityManager.System<EntityLookupSystem>();
 
-        var entities = entityLookup.GetEntitiesInRange(args.Slime, Radius, LookupFlags.Dynamic);
+        var entities = entityLookup.GetEntitiesInRange(args.Slime, Radius.Float(), LookupFlags.Dynamic);
 
         var workers = 0;
         var successes = 0;
@@ -57,6 +59,27 @@ public sealed partial class JobNearbyMutationCondition : SlimeTransformationCond
         return workers != 0 && (WhitelistRequiredAll
                 ? workers == successes
                 : successes > 0);
+    }
+
+    public override SlimeTransformationCondition GetRandomCondition(IEntityManager entMan, IPrototypeManager protoMan, IRobustRandom random)
+    {
+        var jobs = protoMan.EnumeratePrototypes<JobPrototype>()
+            .ToList();
+        var toReturn = new List<string>();
+
+        var pickTimes = random.Next(1, 4);
+        for (var i = 0; i < pickTimes; i++)
+        {
+            toReturn.Add(random.PickAndTake(jobs).ID);
+        }
+
+
+        return new JobNearbyMutationCondition()
+        {
+            Whitelist = toReturn,
+            WhitelistRequiredAll = random.Prob(0.5f),
+            Radius = random.NextFloat(1, 6)
+        };
     }
 
     public override string GetDescriptionString(IEntityManager entityManager, IPrototypeManager protoMan)
