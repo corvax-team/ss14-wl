@@ -1580,7 +1580,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("ui.separated_chat_size", "0.6,0", CVar.CLIENTONLY | CVar.ARCHIVE);
 
         public static readonly CVarDef<int> SetupCharacterMainUITraitsAmount =
-            CVarDef.Create("ui.character_setup_traits_amount", 7, CVar.REPLICATED);
+            CVarDef.Create("ui.character_setup_traits_amount", 100, CVar.REPLICATED);
 
         /*
         * Accessibility
