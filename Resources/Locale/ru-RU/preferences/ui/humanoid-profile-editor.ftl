@@ -49,3 +49,7 @@ humanoid-profile-editor-job-priority-never-button = Никогда
 humanoid-profile-editor-naming-rules-warning = Внимание: Оскорбительные или странные имена и описания могут повлечь за собой беседу с администрацией. Прочитайте \[Правила\].
 humanoid-profile-editor-markings-tab = Черты внешности
 humanoid-profile-editor-flavortext-tab = Описание
+humanoid-profile-editor-traits-amount-first = Выбрано черт:
+humanoid-profile-editor-traits-amount-second = [color=gray]{ $chosen }[/color] из [color=gray]{ $max }[/color]
+humanoid-profile-editor-traits-points-sum-first = Суммарное количество очков:
+humanoid-profile-editor-traits-points-sum-second = [color={ $color }]{ $sum }[/color]

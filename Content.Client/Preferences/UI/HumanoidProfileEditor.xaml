@@ -167,6 +167,14 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Traits -->
+                    <BoxContainer Margin="0 0 0 7" Orientation="Horizontal">
+                        <Label Text="{Loc 'humanoid-profile-editor-traits-points-sum-first'}" />
+                        <RichTextLabel Name="CTraitsPointsSum" Margin="5 0 0 0" />
+                    </BoxContainer>
+                    <BoxContainer Margin="0 0 0 16" Orientation="Horizontal">
+                        <Label Text="{Loc 'humanoid-profile-editor-traits-amount-first'}" />
+                        <RichTextLabel Name="CTraitsAmount" Margin="5 0 0 0" />
+                    </BoxContainer>
                     <ScrollContainer VerticalExpand="True">
                         <BoxContainer Name="CTraitsList" Orientation="Vertical" />
                     </ScrollContainer>

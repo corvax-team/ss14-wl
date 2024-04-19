@@ -404,10 +404,7 @@ namespace Content.Shared.Preferences
             }
             else
             {
-                if (list.Contains(traitId))
-                {
-                    list.Remove(traitId);
-                }
+                list.Remove(traitId);
             }
             return new(this, _jobPriorities, _antagPreferences, list);
         }
