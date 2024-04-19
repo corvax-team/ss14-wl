@@ -17,6 +17,7 @@ preload = false
 
 [salvage]
 expedition_cooldown = 30.0
+expedition_duration = 1200.0
 
 [shuttle]
 grid_fill = false

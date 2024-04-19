@@ -7,6 +7,7 @@ soft_max_players = 70
 map_rotation = true
 role_timers = false
 peaceful_end = false
+cryo_sleep_rejoining = true
 
 [atmos]
 space_wind = true
@@ -23,6 +24,9 @@ enabled = true
 [ic]
 flavor_text = true
 punctuation = true
+
+[salvage]
+expedition_duration = 1200.0
 
 [shuttle]
 auto_call_time = 0
