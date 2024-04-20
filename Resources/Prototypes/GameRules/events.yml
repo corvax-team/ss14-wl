@@ -93,7 +93,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 5
+    weight: 4
     duration: 1
     earliestStart: 60 # Corvax WL changes
     reoccurrenceDelay: 60
@@ -309,7 +309,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 5 # Corvax WL changes
+    weight: 2.5 # Corvax WL changes
     duration: 1
     earliestStart: 60 # Corvax WL changes
     minimumPlayers: 20
@@ -473,7 +473,7 @@
     startAnnouncement: station-event-immovable-rod-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 5
+    weight: 2.5
     duration: 1
     earliestStart: 45
     minimumPlayers: 25
