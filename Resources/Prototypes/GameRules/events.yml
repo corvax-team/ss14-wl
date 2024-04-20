@@ -58,7 +58,7 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
-    minimumPlayers: 25
+    minimumPlayers: 20 # Corvax WL changes
     weight: 5
     duration: 1
   - type: BureaucraticErrorRule
@@ -81,7 +81,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 5 # Corvax WL adjustments
+    weight: 5 # Corvax WL changes
     duration: 1
     minimumPlayers: 10
   - type: RandomEntityStorageSpawnRule
@@ -95,9 +95,9 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    earliestStart: 45
+    earliestStart: 60 # Corvax WL changes
     reoccurrenceDelay: 60
-    minimumPlayers: 20
+    minimumPlayers: 25 # Corvax WL changes
   - type: RandomSpawnRule
     prototype: SpawnPointGhostDragon
 
@@ -107,11 +107,11 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
+    weight: 5
     duration: 1
-    earliestStart: 30
+    earliestStart: 45 # Corvax WL changes
     reoccurrenceDelay: 60
-    minimumPlayers: 40
+    minimumPlayers: 30 # Corvax WL changes
   - type: NinjaSpawnRule
 
 - type: entity
@@ -205,8 +205,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
-    earliestStart: 30
-    minimumPlayers: 35
+    earliestStart: 45
+    minimumPlayers: 25 # Corvax WL changes
     weight: 5
     duration: 50
   - type: VentCrittersRule
@@ -231,7 +231,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
-    weight: 5
+    weight: 7.5 # Corvax WL changes
     duration: 50
   - type: VentCrittersRule
     entries:
@@ -255,7 +255,7 @@
        volume: -4
     startDelay: 24
     duration: 60
-    maxDuration: 120
+    maxDuration: 100 # Corvax WL changes
   - type: PowerGridCheckRule
 
 - type: entity
@@ -309,9 +309,9 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 8
+    weight: 5 # Corvax WL changes
     duration: 1
-    earliestStart: 30
+    earliestStart: 60 # Corvax WL changes
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: SpawnPointGhostTerminator
@@ -345,8 +345,8 @@
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 15
-    minimumPlayers: 15
-    weight: 5
+    minimumPlayers: 10 # Corvax WL changes
+    weight: 7.5 # Corvax WL changes
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -390,7 +390,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
-    earliestStart: 20
+    earliestStart: 30 # Corvax WL changes
     minimumPlayers: 15
     weight: 5
     duration: 60
@@ -409,7 +409,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
-    earliestStart: 20
+    earliestStart: 30 # Corvax WL changes
     minimumPlayers: 15
     weight: 1
     duration: 60
@@ -476,7 +476,7 @@
     weight: 5
     duration: 1
     earliestStart: 45
-    minimumPlayers: 20
+    minimumPlayers: 25
   - type: ImmovableRodRule
     rodPrototypes:
     - id: ImmovableRodKeepTilesStill
