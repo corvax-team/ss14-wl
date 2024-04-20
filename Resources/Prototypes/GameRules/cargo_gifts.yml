@@ -94,7 +94,7 @@
       startDelay: 10
       duration: 120
       minimumPlayers: 20 # Corvax WL changes
-      earliestStart: 30 # Corvax WL changes
+      earliestStart: 20
     - type: CargoGiftsRule
       description: cargo-gift-cleaning
       sender: cargo-gift-default-sender
