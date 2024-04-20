@@ -255,7 +255,7 @@
        volume: -4
     startDelay: 24
     duration: 60
-    maxDuration: 100 # Corvax WL changes
+    maxDuration: 120
   - type: PowerGridCheckRule
 
 - type: entity
