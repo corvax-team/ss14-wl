@@ -681,20 +681,25 @@ namespace Content.Client.Preferences.UI
             #endregion Antags
 
             #region Traits
+            // Добавляем обработчик кнопке очистки черт
+            CTraitsClearButton.OnPressed += _ => ClearAllChosenTraits();
+
+            // Инициализируем список доступных черт
+            _traitPreferences = new List<TraitPreferenceSelector>();
 
             _tabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
 
-            var traits = prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
-
-            _traitPreferences = new List<TraitPreferenceSelector>();
+            var traits = prototypeManager.EnumeratePrototypes<TraitPrototype>()
+                .OrderBy(t => Loc.GetString(t.Name));
 
             var maxTraitsAmount = _configurationManager.GetCVar(CCVars.SetupCharacterMainUITraitsAmount);
-
-            if (traits.Count > 0)
+ 
+            if (traits.Any())
             {
                 foreach (var trait in traits)
                 {
                     var selector = new TraitPreferenceSelector(trait);
+
                     _traitsList.AddChild(selector);
                     _traitPreferences.Add(selector);
 
@@ -710,6 +715,7 @@ namespace Content.Client.Preferences.UI
                             else unchosen.Add(pref);
                         }
 
+                        // Обновляем доступность черт
                         if (preference)
                         {
                             if (chosen.Count >= maxTraitsAmount)
@@ -719,6 +725,16 @@ namespace Content.Client.Preferences.UI
                         }
                         else unchosen.ForEach(x => x.Disabled = false);
 
+                        if (Profile is null)
+                            return;
+
+                        _traitPreferences.ForEach(trait =>
+                        {
+                            if (chosen.Any(x => trait.Trait.BlockTraits.Contains(x.Trait.ID)))
+                                trait.Disabled = true;
+                        });
+
+                        // Обновляем количество выбранных черт и колиичество оставшихся очков
                         UpdateTraitsAmountAndPoints(chosen, maxTraitsAmount);
 
                         IsDirty = true;
@@ -1865,6 +1881,16 @@ namespace Content.Client.Preferences.UI
             }
         }
 
+        public void ClearAllChosenTraits()
+        {
+            _traitPreferences.ForEach(trait =>
+            {
+                trait.Preference = false;
+                Profile = Profile?.WithTraitPreference(trait.Trait.ID, false);
+                trait.Disabled = false;
+            });
+        }
+
         private sealed class AntagPreferenceSelector : RequirementsSelector<AntagPrototype>
         {
             // 0 is yes and 1 is no
@@ -1920,7 +1946,14 @@ namespace Content.Client.Preferences.UI
             public bool Disabled
             {
                 get => _checkBox.Disabled;
-                set => _checkBox.Disabled = value;
+                set
+                {
+                    _checkBox.Disabled = value;
+
+                    if (value == true)
+                        Modulate = Color.Gray;
+                    else Modulate = Color.White;
+                }
             }
 
             public event Action<bool, TraitPreferenceSelector>? PreferenceChanged;

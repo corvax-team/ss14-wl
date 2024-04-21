@@ -53,3 +53,4 @@ humanoid-profile-editor-traits-amount-first = Выбрано черт:
 humanoid-profile-editor-traits-amount-second = [color=gray]{ $chosen }[/color] из [color=gray]{ $max }[/color]
 humanoid-profile-editor-traits-points-sum-first = Суммарное количество очков:
 humanoid-profile-editor-traits-points-sum-second = [color={ $color }]{ $sum }[/color]
+humanoid-profile-editor-traits-clear-button-text = Сбросить черты

@@ -178,6 +178,12 @@
                     <ScrollContainer VerticalExpand="True">
                         <BoxContainer Name="CTraitsList" Orientation="Vertical" />
                     </ScrollContainer>
+                    <Button
+                        Name="CTraitsClearButton"
+                        TextAlign="Center"
+                        Text="{Loc 'humanoid-profile-editor-traits-clear-button-text'}"
+                        VerticalAlignment="Bottom"
+                        HorizontalExpand="True" />
                 </BoxContainer>
                 <BoxContainer Name="CMarkingsTab" Orientation="Vertical" Margin="10">
                     <!-- Markings -->

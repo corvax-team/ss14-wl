@@ -1,9 +1,10 @@
 using Content.Shared.Whitelist;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-// don't worry about it
 
 namespace Content.Shared.Traits
 {
@@ -11,7 +12,17 @@ namespace Content.Shared.Traits
     ///     Describes a trait.
     /// </summary>
     [Prototype("trait")]
-    public sealed partial class TraitPrototype : IPrototype
+    [Serializable, NetSerializable]
+    [DataDefinition]
+    public sealed partial class TraitPrototype : TraitPrototypeData, IPrototype
+    {
+
+    }
+
+    [DataDefinition]
+    [Serializable, NetSerializable]
+    [Virtual]
+    public partial class TraitPrototypeData
     {
         [ViewVariables]
         [IdDataField]
@@ -54,14 +65,24 @@ namespace Content.Shared.Traits
         ///     Эффекты, которые должны выполняться после спавна, выполняются после добавления специфичных компонентов.
         ///     Эффекты, выполняющиеся перед спавном, не проверяют игрока на наличие компонентов из <see cref="Whitelist"/> и <see cref="Blacklist"/>, потому что сущности игрока еще как бы нету, мда.
         /// </summary>
-        [DataField("effects")]
-        public List<TraitEffectEntry>? Effects = null;
+        [NonSerialized]
+        [DataField("effects", serverOnly: true)]
+        public List<TraitEffectEntry> Effects = new();
+
+        /// <summary>
+        ///     Черты, которые блокируют эту черту, если те выбраны.
+        ///     Чтобы работало корректно надо в обоих чертах(та которая блокирует, та которая блокируется) указать блокировку.
+        ///     Иначе возможна ситуация, когда игрок выбрал одну черту, а потом выбрал другую черту, которая должна блокировать эту, но эта уже выбрана.
+        /// </summary>
+        [DataField("blockTraits", customTypeSerializer: typeof(PrototypeIdListSerializer<TraitPrototype>))]
+        public List<string> BlockTraits = new();
 
         /// <summary>
         ///     The components that get added to the player, when they pick this trait.
         /// </summary>
+        [NonSerialized]
         [DataField("components")]
-        public ComponentRegistry Components { get; private set; } = default!;
+        public ComponentRegistry Components = default!;
 
         /// <summary>
         ///     Gear that is given to the player, when they pick this trait.
@@ -76,6 +97,7 @@ namespace Content.Shared.Traits
     /// </summary>
     [DataDefinition]
     [UsedImplicitly]
+    [NetSerializable, Serializable]
     public sealed partial class TraitEffectEntry
     {
         /// <summary>
@@ -83,12 +105,6 @@ namespace Content.Shared.Traits
         /// </summary>
         [DataField(required: true, serverOnly: true)]
         public TraitEffect Effect;
-
-        /// <summary>
-        ///     Будет ли эффект выполняться после спавна игрока или же до?
-        /// </summary>
-        [DataField]
-        public bool IsAfterSpawn = true;
 
         /// <summary>
         ///     Приоритет выполнения эффектов.

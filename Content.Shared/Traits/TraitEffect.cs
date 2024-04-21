@@ -20,6 +20,5 @@ namespace Content.Shared.Traits
         HumanoidCharacterProfile Profile,
         bool LateJoin,
         // ММ, хрень
-        HandledEntityEventArgs? BeforeSpawnEvent = null,
         EntityEventArgs? AfterSpawnEvent = null);
 }

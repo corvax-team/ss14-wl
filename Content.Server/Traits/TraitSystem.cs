@@ -18,33 +18,7 @@ public sealed class TraitSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PlayerBeforeSpawnEvent>(OnBeforePlayerSpawn);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
-    }
-
-    //Нужно для TraitEffect-ов, которые должны выполняться до спавна игрока, например... мх, тихий спавн!
-    //Без всяких оповещений.
-    private void OnBeforePlayerSpawn(PlayerBeforeSpawnEvent args)
-    {
-        foreach (var traitId in args.Profile.TraitPreferences)
-        {
-            if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
-            {
-                Log.Warning($"No trait found with ID {traitId}!");
-                return;
-            }
-
-            // Do effect
-            var effectArgs = new TraitEffectArgs(args.Player, args.JobId, args.Station, args.Profile, args.LateJoin, /* В эффекте будет приводиться к нужному типу */BeforeSpawnEvent: args);
-            traitPrototype.Effects?
-                .OrderByDescending(x => x.Priority)
-                .ToList() //Слишком лень писать через foreach :genius:
-                .ForEach(effect =>
-                {
-                    if (!effect.IsAfterSpawn)
-                        effect.Effect.Effect(effectArgs);
-                });
-        }
     }
 
     // When the player is spawned in, add all trait components selected during character creation
@@ -63,17 +37,6 @@ public sealed class TraitSystem : EntitySystem
 
             if (traitPrototype.Blacklist != null && traitPrototype.Blacklist.IsValid(args.Mob))
                 continue;
-
-            // Do effects
-            var effectArgs = new TraitEffectArgs(args.Player, args.JobId, args.Station, args.Profile, args.LateJoin, /* В эффекте будет приводиться к нужному типу */AfterSpawnEvent: args);
-            traitPrototype.Effects?
-                .OrderByDescending(x => x.Priority)
-                .ToList() //Слишком лень писать через foreach :genius:
-                .ForEach(effect =>
-                {
-                    if (effect.IsAfterSpawn)
-                        effect.Effect.Effect(effectArgs);
-                });
 
             // Add all components required by the prototype
             foreach (var entry in traitPrototype.Components.Values)
@@ -97,6 +60,16 @@ public sealed class TraitSystem : EntitySystem
                 _sharedHandsSystem.TryPickup(args.Mob, inhandEntity, checkActionBlocker: false,
                     handsComp: handsComponent);
             }
+
+            // Do effects
+            var effectArgs = new TraitEffectArgs(args.Player, args.JobId, args.Station, args.Profile, args.LateJoin, /* В эффекте будет приводиться к нужному типу */AfterSpawnEvent: args);
+            traitPrototype.Effects?
+                .OrderByDescending(x => x.Priority)
+                .ToList() //Слишком лень писать через foreach :genius:
+                .ForEach(effect =>
+                {
+                    effect.Effect.Effect(effectArgs);
+                });
         }
     }
 }

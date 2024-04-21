@@ -30,6 +30,7 @@
   <ItemGroup>
     <Folder Include="Objectives\Interfaces\" />
     <Folder Include="Tools\Systems\" />
+    <Folder Include="Traits\TraitEffects\" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>
