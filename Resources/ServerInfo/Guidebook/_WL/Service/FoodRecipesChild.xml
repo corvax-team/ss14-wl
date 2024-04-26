@@ -1,0 +1,51 @@
+<Document>
+# Здесь можно увидеть всевозможные рецепты, существующие в игре.
+
+## Бургеры
+<GuideFoodRecipeGroupEmbed Group="Burger"/>
+
+## Бутерброды
+<GuideFoodRecipeGroupEmbed Group="Bread"/>
+
+## Пиццы
+<GuideFoodRecipeGroupEmbed Group="Pizza"/>
+
+## Итальянская пища
+<GuideFoodRecipeGroupEmbed Group="Italian"/>
+
+## Супы
+<GuideFoodRecipeGroupEmbed Group="Soup"/>
+
+## Пироги
+<GuideFoodRecipeGroupEmbed Group="Pie"/>
+
+## Тарты
+<GuideFoodRecipeGroupEmbed Group="Tart"/>
+
+## Донк-пакеты
+<GuideFoodRecipeGroupEmbed Group="Donk"/>
+
+## Остро-мясное
+<GuideFoodRecipeGroupEmbed Group="Spicy"/>
+
+## Салаты
+<GuideFoodRecipeGroupEmbed Group="Salad"/>
+
+## Курительное
+<GuideFoodRecipeGroupEmbed Group="Tabak"/>
+
+## Шашлыки
+<GuideFoodRecipeGroupEmbed Group="Kebab"/>
+
+## Шашлыки
+<GuideFoodRecipeGroupEmbed Group="Taco"/>
+
+## Торты
+<GuideFoodRecipeGroupEmbed Group="Cake"/>
+
+## Медицинское
+<GuideFoodRecipeGroupEmbed Group="Medical"/>
+
+## Другое
+<GuideFoodRecipeGroupEmbed Group="Other"/>
+</Document>

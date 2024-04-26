@@ -97,6 +97,11 @@
     grindableSolutionName: ironore
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Iron
+          Quantity: 10
       ironore:
         reagents:
         - ReagentId: Iron
@@ -133,6 +138,11 @@
     grindableSolutionName: plasmaore
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 10
       plasmaore:
         reagents:
         - ReagentId: Plasma
@@ -164,6 +174,11 @@
     grindableSolutionName: silverore
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Silver
+          Quantity: 10
       silverore:
         reagents:
         - ReagentId: Silver
@@ -195,6 +210,11 @@
     grindableSolutionName: quartzore
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Silicon
+          Quantity: 10
       quartzaore:
         reagents:
         - ReagentId: Silicon
@@ -231,6 +251,14 @@
     grindableSolutionName: uraniumore
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Uranium
+          Quantity: 8
+        - ReagentId: Radium
+          Quantity: 2
+        canReact: false
       uraniumore:
         reagents:
         - ReagentId: Uranium
@@ -270,6 +298,15 @@
     grindableSolutionName: bananiumore
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Honk
+          Quantity: 5
       bananiumore:
         reagents:
         - ReagentId: Nutriment
@@ -302,6 +339,19 @@
     grindableSolutionName: coal
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Carbon
+          Quantity: 8.4
+        - ReagentId: Ammonia
+          Quantity: 0.8
+        - ReagentId: Hydrogen
+          Quantity: 0.5
+        - ReagentId: Sulfur
+          Quantity: 0.2
+        - ReagentId: Mercury
+          Quantity: 0.1
       coal:
         reagents:
         - ReagentId: Carbon
@@ -344,6 +394,13 @@
     grindableSolutionName: saltore
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: TableSalt
+          Quantity: 10
+        - ReagentId: Iodine
+          Quantity: 5
       saltore:
         reagents:
         - ReagentId: TableSalt

@@ -145,10 +145,10 @@
         - "enum.HumanoidVisualLayers.RLeg"
       damageOverlayGroups:
         Brute:
-          sprite: _WL\Mobs\Effects\brute_damage.rsi
+          sprite: _WL/Mobs/Effects/brute_damage.rsi
           color: "#3b3c3d"
         Burn:
-          sprite: _WL\Mobs\Effects\burn_damage.rsi
+          sprite: _WL/Mobs/Effects/burn_damage.rsi
     - type: MeleeWeapon
       hidden: true
       soundHit:

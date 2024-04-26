@@ -235,6 +235,8 @@
   - type: Appearance
   - type: Item
     heldPrefix: wood
+  - type: Food
+    requiresSpecialDigestion: true
   - type: Tag
     tags:
     - Wooden
@@ -243,6 +245,11 @@
     grindableSolutionName: wood
   - type: SolutionContainerManager
     solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 10
       wood:
         reagents:
         - ReagentId: Cellulose

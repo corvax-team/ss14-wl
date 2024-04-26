@@ -35,9 +35,10 @@
   name: guide-entry-chef
   text: "/ServerInfo/Guidebook/Service/Chef.xml"
   children:
-  - Food Recipes
+  - Cooking
+  - FoodRec
 
 - type: guideEntry
-  id: Food Recipes
+  id: Cooking
   name: guide-entry-foodrecipes
   text: "/ServerInfo/Guidebook/Service/FoodRecipes.xml"

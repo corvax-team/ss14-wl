@@ -1,6 +1,7 @@
 - type: microwaveMealRecipe
   id: RecipeChickenTabaka
   name: "цыплёнок табака"
+  group: Meat
   result: FoodChickenTabaka
   time: 30
   solids:
@@ -11,6 +12,7 @@
 - type: microwaveMealRecipe
   id: RecipeCutletCischi
   name: "котлета по-цисчански"
+  group: Meat
   result: FoodCutletCischi
   time: 15
   solids:

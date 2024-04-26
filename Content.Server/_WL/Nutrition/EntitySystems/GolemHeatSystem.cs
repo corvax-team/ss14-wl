@@ -5,6 +5,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Body.Systems;
+using Content.Server._WL.Nutrition.Components;
 
 namespace Content.Server._WL.Nutrition.EntitySystems
 {
@@ -46,7 +47,7 @@ namespace Content.Server._WL.Nutrition.EntitySystems
         {
             base.Update(frameTime);
 
-            var query = _entityManager.EntityQuery<HungerComponent>();
+            var query = _entityManager.EntityQuery<GolemHeatComponent>();
             foreach (var entity in query)
             {
                 ChangeGolemHeat(entity.Owner);

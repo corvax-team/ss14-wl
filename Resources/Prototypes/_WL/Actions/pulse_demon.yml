@@ -70,7 +70,6 @@
   components:
   - type: InstantAction
     useDelay: 180
-    repeat: false
     itemIconStyle: BigAction
     icon:
       sprite: Interface/Actions/pulse_demon.rsi

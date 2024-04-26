@@ -1,5 +1,16 @@
-﻿using Robust.Shared.Audio;
+using Content.Server.Mind;
+using Content.Server.Roles.Jobs;
+using Content.Shared.Roles;
+using JetBrains.Annotations;
+using Robust.Server.Player;
+using Robust.Shared.Audio;
+using Robust.Shared.Enums;
+using Robust.Shared.Player;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using System.Linq;
+using System.Numerics;
+using System.Security.Policy;
 
 namespace Content.Server.StationEvents.Components;
 
@@ -61,13 +72,13 @@ public sealed partial class StationEventComponent : Component
     public TimeSpan? MaxDuration;
 
     /// <summary>
-    ///     How many players need to be present on station for the event to run
+    ///     Содержит настройки ивента, связанные с количеством игроков/должностей.
     /// </summary>
     /// <remarks>
     ///     To avoid running deadly events with low-pop
     /// </remarks>
-    [DataField("minimumPlayers")]
-    public int MinimumPlayers;
+    [DataField("spawnConfig")]
+    public EventPlayersConfiguration SpawnConfiguration;
 
     /// <summary>
     ///     How many times this even can occur in a single round
@@ -88,4 +99,57 @@ public sealed partial class StationEventComponent : Component
     [DataField("endTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan? EndTime;
+}
+
+[UsedImplicitly]
+[DataDefinition]
+public sealed partial class EventPlayersConfiguration
+{
+    [DataField]
+    public MinMaxPlayers StandartConfig = new();
+
+    [DataField(customTypeSerializer: typeof(PrototypeIdDictionarySerializer<MinMaxPlayers, JobPrototype>))]
+    public Dictionary<string, MinMaxPlayers> JobConfig = new();
+
+
+    public bool IsEventPassed(IPlayerManager playerMan, JobSystem jobSystem, MindSystem mindSystem)
+    {
+        if (playerMan.PlayerCount < StandartConfig.MinPlayers
+            || playerMan.PlayerCount > StandartConfig.MaxPlayers)
+            return false;
+
+        var jobNsessions = new Dictionary<string, int>();
+
+        var sessions = playerMan.Sessions
+            .Where(session => !session.ClientSide && session.Status == SessionStatus.InGame);
+
+        foreach (var session in sessions)
+        {
+            if (!mindSystem.TryGetMind(session, out var mindId, out _))
+                continue;
+
+            if (!jobSystem.MindTryGetJobName(mindId, out var jobName))
+                continue;
+
+            if (!jobNsessions.TryAdd(jobName, 1))
+                jobNsessions[jobName] += 1;
+        }
+
+        var jobConfigPassed = !JobConfig
+            .Any(config => jobNsessions
+                .Any(jobNsession => jobNsession.Key.Equals(config.Key) && (jobNsession.Value > config.Value.MaxPlayers || jobNsession.Value < config.Value.MinPlayers)));
+
+        return jobConfigPassed;
+    }
+
+    [UsedImplicitly]
+    [DataDefinition]
+    public sealed partial class MinMaxPlayers
+    {
+        [DataField]
+        public int MinPlayers = 0;
+
+        [DataField]
+        public int MaxPlayers = 150;
+    }
 }

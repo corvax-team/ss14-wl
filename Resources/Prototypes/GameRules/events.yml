@@ -48,7 +48,9 @@
   - type: StationEvent
     weight: 10
     duration: 1
-    minimumPlayers: 15
+    spawnConfig:
+      standartConfig:
+        minPlayers: 15
   - type: BreakerFlipRule
 
 - type: entity
@@ -58,7 +60,9 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
-    minimumPlayers: 20 # Corvax WL changes
+    spawnConfig:
+      standartConfig:
+        minPlayers: 20
     weight: 5
     duration: 1
   - type: BureaucraticErrorRule
@@ -70,7 +74,9 @@
   components:
   - type: StationEvent
     startAnnouncement: station-event-clerical-error-announcement
-    minimumPlayers: 15
+    spawnConfig:
+      standartConfig:
+        minPlayers: 15
     weight: 5
     duration: 1
   - type: ClericalErrorRule
@@ -83,7 +89,9 @@
   - type: StationEvent
     weight: 5 # Corvax WL changes
     duration: 1
-    minimumPlayers: 10
+    spawnConfig:
+      standartConfig:
+        minPlayers: 10
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -97,7 +105,9 @@
     duration: 1
     earliestStart: 60 # Corvax WL changes
     reoccurrenceDelay: 60
-    minimumPlayers: 25 # Corvax WL changes
+    spawnConfig:
+      standartConfig:
+        minPlayers: 25
   - type: RandomSpawnRule
     prototype: SpawnPointGhostDragon
 
@@ -111,7 +121,9 @@
     duration: 1
     earliestStart: 45 # Corvax WL changes
     reoccurrenceDelay: 60
-    minimumPlayers: 30 # Corvax WL changes
+    spawnConfig:
+      standartConfig:
+        minPlayers: 30
   - type: NinjaSpawnRule
 
 - type: entity
@@ -123,7 +135,9 @@
     weight: 7.5
     duration: 1
     earliestStart: 45
-    minimumPlayers: 20
+    spawnConfig:
+      standartConfig:
+        minPlayers: 20
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -154,7 +168,9 @@
       params:
         volume: -4
     earliestStart: 10
-    minimumPlayers: 5
+    spawnConfig:
+      standartConfig:
+        minPlayers: 5
     weight: 10
     startDelay: 20
   - type: GasLeakRule
@@ -166,7 +182,9 @@
   components:
   - type: StationEvent
     earliestStart: 15
-    minimumPlayers: 15
+    spawnConfig:
+      standartConfig:
+        minPlayers: 15
     weight: 5
     startDelay: 50
     duration: 240
@@ -180,7 +198,9 @@
   - type: StationEvent
     earliestStart: 30
     weight: 7.5
-    minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
+    spawnConfig:
+      standartConfig:
+        minPlayers: 10
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
     startAudio:
@@ -206,7 +226,9 @@
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 45
-    minimumPlayers: 25 # Corvax WL changes
+    spawnConfig:
+      standartConfig:
+        minPlayers: 25
     weight: 5
     duration: 50
   - type: VentCrittersRule
@@ -311,8 +333,10 @@
   - type: StationEvent
     weight: 2.5 # Corvax WL changes
     duration: 1
-    earliestStart: 60 # Corvax WL changes
-    minimumPlayers: 20
+    earliestStart: 60
+    spawnConfig:
+      standartConfig:
+        minPlayers: 20
   - type: RandomSpawnRule
     prototype: SpawnPointGhostTerminator
 
@@ -328,7 +352,9 @@
       params:
         volume: -4
     earliestStart: 15
-    minimumPlayers: 15
+    spawnConfig:
+      standartConfig:
+        minPlayers: 15
     weight: 5
     startDelay: 50
     duration: 60
@@ -345,8 +371,10 @@
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 15
-    minimumPlayers: 10 # Corvax WL changes
-    weight: 7.5 # Corvax WL changes
+    spawnConfig:
+      standartConfig:
+        minPlayers: 10
+    weight: 7.5
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -368,7 +396,9 @@
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 20
-    minimumPlayers: 15
+    spawnConfig:
+      standartConfig:
+        minPlayers: 15
     weight: 5
     duration: 60
   - type: VentCrittersRule
@@ -390,8 +420,10 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
-    earliestStart: 30 # Corvax WL changes
-    minimumPlayers: 15
+    earliestStart: 30
+    spawnConfig:
+      standartConfig:
+        minPlayers: 15
     weight: 5
     duration: 60
   - type: VentCrittersRule
@@ -409,8 +441,10 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
-    earliestStart: 30 # Corvax WL changes
-    minimumPlayers: 15
+    earliestStart: 30
+    spawnConfig:
+      standartConfig:
+        minPlayers: 15
     weight: 1
     duration: 60
   - type: VentCrittersRule
@@ -476,7 +510,9 @@
     weight: 2.5
     duration: 1
     earliestStart: 45
-    minimumPlayers: 25
+    spawnConfig:
+      standartConfig:
+        minPlayers: 25
   - type: ImmovableRodRule
     rodPrototypes:
     - id: ImmovableRodKeepTilesStill
@@ -520,8 +556,10 @@
   parent: BaseGameRule
   noSpawn: true
   components:
-    - type: StationEvent
-      earliestStart: 0
-      minimumPlayers: 20
-      weight: 5
-    - type: MobReplacementRule
+  - type: StationEvent
+    earliestStart: 0
+    spawnConfig:
+      standartConfig:
+        minPlayers: 20
+    weight: 5
+  - type: MobReplacementRule
