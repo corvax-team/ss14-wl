@@ -5,7 +5,7 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from baystation at commit https://github.com/Baystation12/Baystation12/commit/a929584d9db319eb7484113221be25cfa1d5dc09. Label sprites by Vermidia.",
+  "copyright": "Taken from SierraBay at commit https://github.com/SierraBay/SierraBay12/commit/efd3bc69944841d31f26a056788089246a435dfe.",
   "states": [
     {
       "name": "artifact_container"
