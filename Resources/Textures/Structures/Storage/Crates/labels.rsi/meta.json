@@ -8,32 +8,16 @@
   },
   "states": [
     {
-      "name": "icon"
+      "name": "paper"
     },
     {
-      "name": "base"
+      "name": "invoice"
     },
     {
-      "name": "closed"
+      "name": "bounty"
     },
     {
-      "name": "open"
-    },
-    {
-      "name": "welded"
-    },
-    {
-      "name": "sparking",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
+      "name": "captains_paper"
     }
   ]
 }

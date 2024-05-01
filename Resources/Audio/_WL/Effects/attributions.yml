@@ -1,0 +1,4 @@
+- files: ["crate_close", "crate_open", "closet_open", "closet_close"]
+  license: "CC-BY-3.0"
+  copyright: 'Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/bbb45c5901d4c38c4a0950dee60bd051c365fc76, crate_close.ogg and crate_open.ogg are made by lawnjelly'
+  source: "https://freesound.org/people/lawnjelly/sounds/156892/"

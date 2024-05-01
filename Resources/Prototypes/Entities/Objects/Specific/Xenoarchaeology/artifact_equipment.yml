@@ -43,6 +43,10 @@
       sprite: Structures/Storage/Crates/artifact.rsi
       state: artifact_container_icon
     - type: EntityStorage
+      openSound:
+        path: /Audio/_WL/Effects/crate_open.ogg
+      closeSound:
+        path: /Audio/_WL/Effects/crate_close.ogg
       capacity: 1
       whitelist:
         components:
@@ -91,7 +95,7 @@
           enum.PaperLabelVisuals.Layer:
             True: { offset: "0.0,0.3125" }
             False: { offset: "0.0,0.0" }
-            
+
     - type: LockVisuals
     - type: ItemSlots
     - type: ContainerContainer

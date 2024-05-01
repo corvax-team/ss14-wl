@@ -38,6 +38,10 @@
         layer:
         - MachineLayer
   - type: EntityStorage
+    openSound:
+      path: /Audio/_WL/Effects/crate_open.ogg
+    closeSound:
+      path: /Audio/_WL/Effects/crate_close.ogg
   - type: PlaceableSurface
     isPlaceable: false # defaults to closed.
   - type: Damageable

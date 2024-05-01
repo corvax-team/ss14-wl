@@ -140,7 +140,7 @@
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
-      map: ["enum.PaperLabelVisuals.Layer"]  
+      map: ["enum.PaperLabelVisuals.Layer"]
   - type: Construction
     graph: WebStructures
     node: crate
@@ -317,6 +317,10 @@
   components:
   - type: EntityStorage
     airtight: false
+    openSound:
+      path: /Audio/Effects/closetopen.ogg
+    closeSound:
+      path: /Audio/Effects/closetclose.ogg
   - type: Sprite
     sprite: Structures/Storage/Crates/livestock.rsi
     layers:
@@ -326,7 +330,7 @@
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.25,0.625"
-      map: ["enum.PaperLabelVisuals.Layer"]  
+      map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
     sprite: Structures/Storage/Crates/livestock.rsi
     state: base
@@ -381,7 +385,7 @@
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.125"
-      map: ["enum.PaperLabelVisuals.Layer"]   
+      map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
     sprite: Structures/Storage/Crates/cage.rsi
   - type: Destructible
@@ -483,7 +487,7 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
-      map: ["enum.PaperLabelVisuals.Layer"] 
+      map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
     sprite: Structures/Storage/Crates/coffin.rsi
     state: base
@@ -525,7 +529,7 @@
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.28125,0.625"
-      map: ["enum.PaperLabelVisuals.Layer"] 
+      map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
     sprite: Structures/Storage/Crates/wooden_grave.rsi
     state: base
@@ -573,7 +577,7 @@
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.3125,0.5625"
-      map: ["enum.PaperLabelVisuals.Layer"] 
+      map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
     sprite: Structures/Storage/Crates/stone_grave.rsi
     state: base
