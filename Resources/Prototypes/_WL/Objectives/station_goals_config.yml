@@ -1,5 +1,0 @@
-- type: stationGoalConfiguration
-  id: StationGoalConfig
-  minGoals: 4
-  maxGoals: 6
-  priority: -1
