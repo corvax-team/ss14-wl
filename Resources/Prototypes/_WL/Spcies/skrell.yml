@@ -1,0 +1,159 @@
+- type: species
+  id: Skrell
+  name: Скрелл
+  roundStart: true
+  prototype: MobSkrell
+  sprites: MobSkrellSprites
+  defaultSkinTone: "#60FF8D"
+  markingLimits: MobSkrellMarkingLimits
+  dollPrototype: MobSkrellDummy
+  skinColoration: Hues
+
+- type: speciesBaseSprites
+  id: MobSkrellSprites
+  sprites:
+    Head: MobSkrellHead
+    Hair: MobSkrellMarkingFollowSkin
+    FacialHair: MobSkrellMarkingFollowSkin
+    Snout: MobHumanoidAnyMarking
+    Chest: MobSkrellTorso
+    HeadTop: MobHumanoidAnyMarking # Corvax-Sponsors
+    Tail: MobHumanoidAnyMarking # Corvax-Sponsors
+    Eyes: MobSkrellEyes
+    LArm: MobSkrellLArm
+    RArm: MobSkrellRArm
+    LHand: MobSkrellLHand
+    RHand: MobSkrellRHand
+    LLeg: MobSkrellLLeg
+    RLeg: MobSkrellRLeg
+    LFoot: MobSkrellLFoot
+    RFoot: MobSkrellRFoot
+    Groin: MobHumanoidAnyMarking # WL-Underwear
+    Breast: MobHumanoidAnyMarking # WL-Underwear
+    Foots: MobHumanoidAnyMarking # WL-Underwear
+
+- type: markingPoints
+  id: MobSkrellMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: true
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+    Underwear: # WL-Underwear
+      points: 1
+      required: false
+    Undershirt: # WL-Underwear
+      points: 1
+      required: false
+    Socks: # WL-Underwear
+      points: 1
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobSkrellMarkingFollowSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobSkrellEyes
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: skrell_eyes
+
+- type: humanoidBaseSprite
+  id: MobSkrellHead
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobSkrellHeadMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobSkrellHeadFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobSkrellTorso
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobSkrellTorsoMale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobSkrellTorsoFemale
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobSkrellLLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobSkrellLHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobSkrellLArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobSkrellLFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobSkrellRLeg
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobSkrellRHand
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobSkrellRArm
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobSkrellRFoot
+  baseSprite:
+    sprite: _WL/Mobs/Species/Skrell/parts.rsi
+    state: r_foot

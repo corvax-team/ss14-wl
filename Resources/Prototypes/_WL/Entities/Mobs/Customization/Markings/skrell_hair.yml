@@ -1,0 +1,117 @@
+- type: marking
+  id: SkrellFlipFlap
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: flipflap
+
+- type: marking
+  id: SkrellLong
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: long
+
+- type: marking
+  id: SkrellPulledBackFemale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Female
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: pulledback_f
+
+- type: marking
+  id: SkrellPulledBackMale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Male
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: pulledback_m
+
+- type: marking
+  id: SkrellTentacleOverEyeFemale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Female
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: tentacleovereye_f
+
+- type: marking
+  id: SkrellTentacleOverEyeMale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Male
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: tentacleovereye_m
+
+- type: marking
+  id: SkrellTentaclesFemale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Female
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: tentacles_f
+
+- type: marking
+  id: SkrellTentaclesMale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Male
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: tentacles_m
+
+- type: marking
+  id: SkrellVeryLongFemale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Female
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: verylong_f
+
+- type: marking
+  id: SkrellVeryShortMale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Male
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: veryshort_m
+
+- type: marking
+  id: SkrellWavyFemale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Female
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: wavy_f
+
+- type: marking
+  id: SkrellWavyMale
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Skrell]
+  sexRestriction: Male
+  sprites:
+  - sprite: _WL/Mobs/Customization/skrell_hairs.rsi
+    state: wavy_m

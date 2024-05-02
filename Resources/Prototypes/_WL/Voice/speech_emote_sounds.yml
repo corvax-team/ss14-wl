@@ -168,3 +168,33 @@
       collection: GolemClap
   params:
     variation: 0.125
+
+- type: emoteSounds
+  id: UnisexSkrell
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: SkrellTrill
+    Laugh:
+      collection: SkrellLaugh
+    Sneeze:
+      collection: SkrellTrill
+    Cough:
+      collection: SkrellTrill
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: SkrellWarbles
+    Snore:
+      collection: SkrellAnger
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: SkrellWarbles
+    Crying:
+      collection: SkrellAnger
+    Whistle:
+      collection: SkrellPeep
+    Weh:
+      collection: Weh

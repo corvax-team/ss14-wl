@@ -9,3 +9,7 @@
 - type: metabolizerType
   id: Golem
   name: metabolizer-type-golem
+
+- type: metabolizerType
+  id: Skrell
+  name: skrell

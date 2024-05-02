@@ -1,0 +1,39 @@
+- type: entity
+  save: false
+  name: "Урист КвакСкрелл"
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobSkrell
+  abstract: true
+  components:
+    - type: HumanoidAppearance
+      species: Skrell
+    - type: Hunger
+    - type: Icon
+      sprite: _WL/Mobs/Species/Skrell/parts.rsi
+      state: full
+    - type: Thirst
+    - type: Perishable
+    - type: Butcherable
+      butcheringType: Spike
+      spawned:
+        - id: FoodMeat
+          amount: 5
+    - type: Vocal
+      sounds:
+        Male: UnisexSkrell
+        Female: UnisexSkrell
+        Unsexed: UnisexSkrell
+    - type: Speech
+      speechSounds: Slime
+      speechVerb: Skrell
+
+- type: entity
+  save: false
+  name: "Урист КвакСкрелл"
+  parent: MobHumanDummy
+  id: MobSkrellDummy
+  noSpawn: true
+  description: A dummy skrell meant to be used in character setup.
+  components:
+    - type: HumanoidAppearance
+      species: Skrell

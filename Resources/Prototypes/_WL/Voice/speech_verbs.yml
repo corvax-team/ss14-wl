@@ -1,0 +1,8 @@
+- type: speechVerb
+  id: Skrell
+  name: "Скрелл"
+  speechVerbStrings:
+  - "трелит"
+  - "квакает"
+  - chat-speech-verb-vox-1
+  - chat-speech-verb-parrot-3

@@ -1,0 +1,173 @@
+- type: entity
+  id: BaseSkrellOrgan
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Skrell/organs.rsi
+  - type: Organ
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Tag
+    tags:
+      - Meat
+
+- type: entity
+  id: OrganSkrellBrain
+  parent: BaseSkrellOrgan
+  name: "мозг скрелла"
+  description: "Источник невероятного, бесконечного интеллекта. Хонк."
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Skrell/organs.rsi
+    state: brain
+  - type: Organ
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: InputMover
+  - type: Examiner
+  - type: BlockMovement
+  - type: BadFood
+  - type: Tag
+    tags:
+      - Meat
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - people
+
+- type: entity
+  id: OrganSkrellStomach
+  parent: BaseSkrellOrgan
+  name: "желудок скрелла"
+  description: "Мерзость. Не перевариваю его."
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+    state: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Stomach
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Skrell]
+    groups:
+    - id: Food
+    - id: Drink
+
+- type: entity
+  id: OrganSkrellLungs
+  parent: BaseSkrellOrgan
+  name: "лёгкие скрелла"
+  description: "Фильтрует кислород из атмосферы... Ну или гидросферы."
+  components:
+  - type: Sprite
+    state: lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  id: OrganSkrellHeart
+  parent: BaseSkrellOrgan
+  name: "сердце скрелла"
+  description: "Мне жаль того бессердечного ублюдка, который его потерял."
+  components:
+  - type: Sprite
+    state: heart-on
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [Skrell]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+
+- type: entity
+  id: OrganSkrellLiver
+  parent: BaseSkrellOrgan
+  name: "печень скрелла"
+  description: "Рекомендуется подавать с бобами, под кьянти."
+  components:
+  - type: Sprite
+    state: liver
+  - type: Metabolizer
+    maxReagents: 1
+    metabolizerTypes: [Skrell]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  id: OrganSkrellKidneys
+  parent: BaseSkrellOrgan
+  name: "почки скрелла"
+  description: "Выводят токсины из кровеносной системы."
+  components:
+  - type: Sprite
+    state: kidneys
+  # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [Skrell]
+    removeEmpty: true
+
+- type: entity
+  id: OrganSkrellEyes
+  parent: BaseSkrellOrgan
+  name: "глаза скрелла"
+  description: "Я тебя вижу!"
+  components:
+  - type: Sprite
+    state: eyes

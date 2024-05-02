@@ -33,3 +33,9 @@
     - /Audio/_WL/Voice/Golem/scream_1.ogg
     - /Audio/_WL/Voice/Golem/scream_2.ogg
     - /Audio/_WL/Voice/Golem/scream_3.ogg
+
+- type: soundCollection
+  id: SkrellTrill
+  files:
+    - /Audio/_WL/Voice/Skrell/trill1.ogg
+    - /Audio/_WL/Voice/Skrell/trill2.ogg

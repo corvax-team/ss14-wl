@@ -44,3 +44,26 @@
   id: GolemClap
   files:
     - /Audio/_WL/Voice/Golem/clap_1.ogg
+
+- type: soundCollection
+  id: SkrellLaugh
+  files:
+    - /Audio/_WL/Voice/Skrell/laughter1.ogg
+
+- type: soundCollection
+  id: SkrellPeep
+  files:
+    - /Audio/_WL/Voice/Skrell/peep1.ogg
+
+- type: soundCollection
+  id: SkrellWarbles
+  files:
+    - /Audio/_WL/Voice/Skrell/warble1.ogg
+    - /Audio/_WL/Voice/Skrell/warble2.ogg
+    - /Audio/_WL/Voice/Skrell/warble3.ogg
+
+- type: soundCollection
+  id: SkrellAnger
+  files:
+    - /Audio/_WL/Voice/Skrell/anger1.ogg
+    - /Audio/_WL/Voice/Skrell/anger2.ogg

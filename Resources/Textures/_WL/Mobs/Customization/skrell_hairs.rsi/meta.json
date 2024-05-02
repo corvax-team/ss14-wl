@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TauCeti at commit https://github.com/TauCetiStation/TauCetiClassic/commit/296be8dbaf9d4c352e98b307976c4605f3f134ad",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "veryshort_m",
+      "directions": 4
+    },
+    {
+      "name": "tentacles_f",
+      "directions": 4
+    },
+    {
+      "name": "tentacles_m",
+      "directions": 4
+    },
+    {
+      "name": "wavy_f",
+      "directions": 4
+    },
+    {
+      "name": "wavy_m",
+      "directions": 4
+    },
+    {
+      "name": "pulledback_f",
+      "directions": 4
+    },
+    {
+      "name": "pulledback_m",
+      "directions": 4
+    },
+    {
+      "name": "long",
+      "directions": 4
+    },
+    {
+      "name": "verylong_f",
+      "directions": 4
+    },
+    {
+      "name": "tentacleovereye_f",
+      "directions": 4
+    },
+    {
+      "name": "tentacleovereye_m",
+      "directions": 4
+    },
+    {
+      "name": "flipflap",
+      "directions": 4
+    }
+  ]
+}

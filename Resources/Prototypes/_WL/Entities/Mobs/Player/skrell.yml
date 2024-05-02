@@ -1,0 +1,5 @@
+- type: entity
+  save: false
+  parent: BaseMobSkrell
+  id: MobSkrell
+  name: "Урист КвакСкрелл"
