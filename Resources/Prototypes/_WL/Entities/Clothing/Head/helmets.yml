@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHelmetHeavyDSS
+  name: армированный шлем
+  description: Улучшенная версия обычного шлема Службы Безопасности, оснащённая противоосколочным забралом.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Helmets/secheavy.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Helmets/secheavy.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.95

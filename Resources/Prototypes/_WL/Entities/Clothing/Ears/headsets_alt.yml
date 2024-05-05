@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetTacticDSS
+  name: тактические наушники
+  description: Защищают слух носителя от громких звуков, а также выполняют функцию стандартной гарнитуры.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: _WL/Clothing/Ears/Headsets/tactic.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Ears/Headsets/tactic.rsi

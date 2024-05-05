@@ -5,8 +5,10 @@
     ClothingBackpackSatchelSecurity: 3
     ClothingBackpackDuffelSecurity: 3
     ClothingUniformJumpsuitSec: 3
+    ClothingUniformJumpsuitDSS: 3 # Corvax WL
     ClothingShoesBootsJack: 3
     ClothingHeadHatBeretSecurity: 3
+    ClothingHeadHatBeretDSS: 3 # Corvax WL
     ClothingHeadHatSecsoft: 3
     ClothingHeadBandRed: 3
     ClothingHandsGlovesColorBlack: 3
@@ -18,8 +20,9 @@
     ClothingHeadsetSecurity: 3
     ClothingOuterWinterSec: 2
     ClothingOuterArmorBasic: 2
+    ClothingOuterVestArmorSec: 2 # Corvax WL
     ClothingNeckScarfStripedRed: 3
-    ClothingOuterArmorBasicSlim: 2 
+    ClothingOuterArmorBasicSlim: 2
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2

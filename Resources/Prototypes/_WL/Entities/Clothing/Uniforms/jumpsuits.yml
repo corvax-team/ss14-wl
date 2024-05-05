@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDSS
+  name: тактический комбинезон ДСБ
+  description: Стильный и до предела удобный тактический комбинезон, выполненный в тонах Департамента Службы Безопасности.s
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/dss.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/dss.rsi

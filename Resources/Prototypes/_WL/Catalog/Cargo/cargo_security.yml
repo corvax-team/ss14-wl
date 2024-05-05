@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: SecurityArmorDSS
+  icon:
+    sprite: _WL/Clothing/Head/Helmets/secheavy.rsi
+    state: icon
+  product: CrateSecurityDSS
+  cost: 18000
+  category: cargoproduct-category-name-security
+  group: market
