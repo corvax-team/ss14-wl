@@ -4,6 +4,14 @@
   description: job-description-musician
   playTimeTracker: JobMusician
   startingGear: MusicianGear
+  subnames:
+  - диджей
+  - пианист
+  - гитарист
+  - джазмен
+  - певец
+  - поэт
+  - артист
   icon: "JobIconMusician"
   supervisors: job-supervisors-hop # Corvax-JobSupervisors
   access:

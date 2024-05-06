@@ -3,6 +3,9 @@
   name: job-name-technical-assistant
   description: job-description-technical-assistant
   playTimeTracker: JobTechnicalAssistant
+  subnames:
+  - инженерный ассистент
+  - инженер-стажёр
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 3600 #1 hr

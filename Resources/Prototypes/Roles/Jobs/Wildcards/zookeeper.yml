@@ -4,6 +4,8 @@
   description: job-description-zookeeper
   playTimeTracker: JobZookeeper
   startingGear: ZookeeperGear
+  subnames:
+  - ветеринар
   icon: "JobIconZookeeper"
   supervisors: job-supervisors-hop
   access:

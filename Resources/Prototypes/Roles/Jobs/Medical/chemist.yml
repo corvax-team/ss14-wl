@@ -3,6 +3,9 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
+  subnames:
+  - фармацевт
+  - химик-стажёр
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

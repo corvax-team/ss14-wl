@@ -3,6 +3,10 @@
   name: job-name-clown
   description: job-description-clown
   playTimeTracker: JobClown
+  subnames:
+  - комик
+  - шут
+  - юморист
   requirements:
   - !type:OverallPlaytimeRequirement
       time: 90000 #25 hrs # Corvax-RoleTime

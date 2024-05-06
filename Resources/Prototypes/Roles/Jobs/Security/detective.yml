@@ -3,6 +3,10 @@
   name: job-name-detective
   description: job-description-detective
   playTimeTracker: JobDetective
+  subnames:
+  - криминалист
+  - судмедэксперт
+  - сыщик
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
