@@ -3,10 +3,6 @@
   name: job-name-engineer
   description: job-description-engineer
   playTimeTracker: JobStationEngineer
-  subnames:
-  - электрик
-  - механик
-  - специалист по двигателям
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

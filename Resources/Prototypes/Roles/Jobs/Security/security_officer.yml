@@ -3,10 +3,6 @@
   name: job-name-security
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
-  subnames:
-  - офицер охраны
-  - оперативник СБ
-  - инструктор СБ
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

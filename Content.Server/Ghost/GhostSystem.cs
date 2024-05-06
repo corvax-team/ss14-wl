@@ -3,7 +3,6 @@ using System.Numerics;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
-using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
 using Content.Shared.Actions;
@@ -17,7 +16,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Roles.Jobs;
 using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -44,7 +42,6 @@ namespace Content.Server.Ghost
         [Dependency] private readonly GameTicker _ticker = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
-        [Dependency] private readonly RoleSystem _role = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -348,9 +345,7 @@ namespace Content.Server.Ghost
 
                 TryComp<MindContainerComponent>(attached, out var mind);
 
-                var jobName = string.Empty;
-                if (_jobs.MindTryGetJob(mind?.Mind, out _, out var jobProto))
-                    jobName = _role.GetSubnameByEntity(attached, jobProto.ID) ?? jobProto.LocalizedName;
+                var jobName = _jobs.MindTryGetJobName(mind?.Mind);
                 var playerInfo = $"{Comp<MetaDataComponent>(attached).EntityName} ({jobName})";
 
                 if (_mobState.IsAlive(attached) || _mobState.IsCritical(attached))

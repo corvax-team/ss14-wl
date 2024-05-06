@@ -16,7 +16,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
-using Content.Client.Roles;
 
 namespace Content.Client.LateJoin
 {
@@ -222,8 +221,6 @@ namespace Content.Client.LateJoin
                     _jobCategories[id][department.ID] = category;
                     jobList.AddChild(category);
 
-                    var roleSystem = _entitySystem.GetEntitySystem<RoleSystem>();
-
                     foreach (var prototype in jobsAvailable)
                     {
                         var value = stationAvailable[prototype.ID];
@@ -233,9 +230,7 @@ namespace Content.Client.LateJoin
                             Margin = new Thickness(5f, 0, 0, 0)
                         };
 
-                        var jobLocalizedName = roleSystem.GetChosenSubname(prototype.ID) ?? prototype.LocalizedName;
-
-                        var jobButton = new JobButton(jobLabel, prototype.ID, jobLocalizedName, value);
+                        var jobButton = new JobButton(jobLabel, prototype.ID, prototype.LocalizedName, value);
 
                         var jobSelector = new BoxContainer
                         {

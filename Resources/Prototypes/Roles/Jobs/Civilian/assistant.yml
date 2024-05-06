@@ -2,12 +2,6 @@
   id: Passenger
   name: job-name-passenger
   description: job-description-passenger
-  subnames:
-  - ассистент
-  - художник
-  - юрист
-  - фрилансер
-  - экипаж вне службы
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"

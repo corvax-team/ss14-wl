@@ -3,10 +3,6 @@
   name: job-name-psychologist
   description: job-description-psychologist
   playTimeTracker: JobPsychologist
-  subnames:
-  - психиатр
-  - психотерапевт
-  - консультант
   startingGear: PsychologistGear
   icon: "JobIconPsychologist"
   supervisors: job-supervisors-cmo

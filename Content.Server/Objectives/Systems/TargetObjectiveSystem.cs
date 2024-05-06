@@ -1,6 +1,4 @@
 using Content.Server.Objectives.Components;
-using Content.Server.Roles;
-using Content.Server.Roles.Jobs;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
@@ -15,8 +13,7 @@ namespace Content.Server.Objectives.Systems;
 public sealed class TargetObjectiveSystem : EntitySystem
 {
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly JobSystem _job = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
+    [Dependency] private readonly SharedJobSystem _job = default!;
 
     public override void Initialize()
     {
@@ -64,11 +61,7 @@ public sealed class TargetObjectiveSystem : EntitySystem
             targetName = mind.CharacterName;
         }
 
-        var jobName = "Unknown";
-
-        if (_job.MindTryGetJob(mind?.OwnedEntity, out _, out var jobProto))
-            jobName = _role.GetSubnameByEntity(target, jobProto.ID) ?? jobProto.LocalizedName;
-
+        var jobName = _job.MindTryGetJobName(target);
         return Loc.GetString(title, ("targetName", targetName), ("job", jobName));
     }
 

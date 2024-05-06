@@ -3,10 +3,6 @@
   name: job-name-salvagespec
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
-  subnames:
-  - шахтёр
-  - старатель
-  - полевой исследователь
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo

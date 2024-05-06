@@ -1,7 +1,6 @@
 using Content.Client.Players.PlayTimeTracking;
 using Content.Shared.Roles;
 using Robust.Client.UserInterface.Controls;
-using System.Numerics;
 
 namespace Content.Client.Preferences.UI;
 
@@ -28,17 +27,8 @@ public sealed class AntagPreferenceSelector : RequirementsSelector<AntagPrototyp
         };
         var title = Loc.GetString(proto.Name);
         var description = Loc.GetString(proto.Objective);
-
-        var titleLabel = new Label()
-        {
-            Margin = new Thickness(5f, 0, 5f, 0),
-            Text = title,
-            MinSize = new Vector2(250, 0),
-            MouseFilter = MouseFilterMode.Stop,
-            ToolTip = description
-        };
-
-        Setup(null, items, titleLabel);
+        // Not supported yet get fucked.
+        Setup(null, items, title, 250, description);
 
         // immediately lock requirements if they arent met.
         // another function checks Disabled after creating the selector so this has to be done now
