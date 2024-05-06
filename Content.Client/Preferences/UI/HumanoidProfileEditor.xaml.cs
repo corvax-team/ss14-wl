@@ -856,21 +856,7 @@ namespace Content.Client.Preferences.UI
                         SetDirty();
                     };
 
-                    selector.SubnameChanged += (id, subname, isSilent) =>
-                    {
-                        Profile = Profile?.WithJobSubname(job.ID, subname);
-
-                        if (!isSilent)
-                            SetDirty();
-                    };
                 }
-            }
-
-            foreach (var selector in _jobPriorities)
-            {
-                if (Profile?.JobSubnames.TryGetValue(selector.Job.ID, out var subname) == true && !string.IsNullOrEmpty(subname) && subname != "Unknown"/*мде*/)
-                    continue;
-                else Profile = Profile?.WithJobSubname(selector.Job.ID, selector.Job.LocalizedName);
             }
 
             if (Profile is not null)
@@ -1297,21 +1283,6 @@ namespace Content.Client.Preferences.UI
             _spawnPriorityButton.SelectId((int) Profile.SpawnPriority);
         }
 
-        private void UpdateJobSubnameControls()
-        {
-            if (Profile == null)
-                return;
-
-            foreach (var jobSelector in _jobPriorities)
-            {
-                var jobId = jobSelector.Job.ID;
-                if (!Profile.JobSubnames.TryGetValue(jobId, out var subname))
-                    continue;
-
-                jobSelector.SelectJobSubname(subname);
-            }
-        }
-
         private void UpdateHairPickers()
         {
             if (Profile == null)
@@ -1530,7 +1501,6 @@ namespace Content.Client.Preferences.UI
             UpdateUnderwearPicker(); // WL-Underwear
             UpdateUndershirtPicker(); // WL-Underwear
             UpdateSocksPicker(); // WL-Underwear
-            UpdateJobSubnameControls(); // WL-Subroles
 
             _preferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
         }

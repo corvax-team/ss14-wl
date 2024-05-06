@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Mind;
-using Content.Shared.Preferences;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -14,12 +13,35 @@ namespace Content.Shared.Roles;
 public abstract class SharedRoleSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] protected readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _minds = default!;
 
     // TODO please lord make role entities
     private readonly HashSet<Type> _antagTypes = new();
+
+    public override void Initialize()
+    {
+        // TODO make roles entities
+        SubscribeLocalEvent<JobComponent, MindGetAllRolesEvent>(OnJobGetAllRoles);
+    }
+
+    private void OnJobGetAllRoles(EntityUid uid, JobComponent component, ref MindGetAllRolesEvent args)
+    {
+        var name = "game-ticker-unknown-role";
+        var prototype = "";
+        string? playTimeTracker = null;
+        if (component.Prototype != null && _prototypes.TryIndex(component.Prototype, out JobPrototype? job))
+        {
+            name = job.Name;
+            prototype = job.ID;
+            playTimeTracker = job.PlayTimeTracker;
+        }
+
+        name = Loc.GetString(name);
+
+        args.Roles.Add(new RoleInfo(component, name, false, playTimeTracker, prototype));
+    }
 
     protected void SubscribeAntagEvents<T>() where T : AntagonistRoleComponent
     {

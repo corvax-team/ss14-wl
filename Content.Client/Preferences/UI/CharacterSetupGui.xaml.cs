@@ -5,7 +5,6 @@ using Content.Client.Info;
 using Content.Client.Info.PlaytimeStats;
 using Content.Client.Lobby;
 using Content.Client.Resources;
-using Content.Client.Roles;
 using Content.Client.Stylesheets;
 using Content.Corvax.Interfaces.Client;
 using Content.Shared.Clothing;
@@ -223,10 +222,7 @@ namespace Content.Client.Preferences.UI
                 var highPriorityJob = humanoid?.JobPriorities.SingleOrDefault(p => p.Value == JobPriority.High).Key;
                 if (highPriorityJob != null)
                 {
-                    var roleSystem = EntitySystem.Get<RoleSystem>();
-                    var jobProto = IoCManager.Resolve<IPrototypeManager>().Index<JobPrototype>(highPriorityJob);
-
-                    var jobName = jobProto.LocalizedName;
+                    var jobName = IoCManager.Resolve<IPrototypeManager>().Index<JobPrototype>(highPriorityJob).LocalizedName;
                     description = $"{description}\n{jobName}";
                 }
 

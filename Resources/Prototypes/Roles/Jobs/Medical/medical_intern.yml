@@ -3,10 +3,6 @@
   name: job-name-intern
   description: job-description-intern
   playTimeTracker: JobMedicalIntern
-  subnames:
-  - медсестра
-  - медбрат
-  - санитар
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

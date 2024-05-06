@@ -2,8 +2,6 @@
   id: AtmosphericTechnician
   name: job-name-atmostech
   description: job-description-atmostech
-  subnames:
-  - пожарный
   playTimeTracker: JobAtmosphericTechnician
   requirements:
     - !type:DepartmentTimeRequirement
