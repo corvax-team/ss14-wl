@@ -19,6 +19,10 @@ namespace Content.Server.Database.Migrations.Sqlite
             //    table: "profile",
             //    newName: "ooc_text");
 
+            migrationBuilder.DropColumn(
+                name: "height",
+                table: "profile");
+
             migrationBuilder.AddColumn<int>(
                 name: "height",
                 table: "profile",
@@ -109,6 +113,13 @@ namespace Content.Server.Database.Migrations.Sqlite
             //migrationBuilder.DropTable(
             //    name: "profile_role_loadout");
 
+            migrationBuilder.AddColumn<int>(
+                name: "height",
+                table: "profile",
+                type: "INTEGER",
+                nullable: false,
+                defaultValue: 0);
+
             migrationBuilder.DropColumn(
                 name: "height",
                 table: "profile");
@@ -118,12 +129,12 @@ namespace Content.Server.Database.Migrations.Sqlite
             //    table: "profile",
             //    newName: "clothing");
 
-            migrationBuilder.AddColumn<string>(
-                name: "backpack",
-                table: "profile",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "");
+            //migrationBuilder.AddColumn<string>(
+            //    name: "backpack",
+            //    table: "profile",
+            //    type: "TEXT",
+            //    nullable: false,
+            //    defaultValue: "");
         }
     }
 }
