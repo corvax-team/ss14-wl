@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
@@ -77,6 +77,32 @@ public abstract class SharedJobSystem : EntitySystem
     }
 
     /// <summary>
+    ///     Tries to get the job name for this mind.
+    ///     Returns unknown if not found.
+    /// </summary>
+    public bool MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId, out string name)
+    {
+        if (MindTryGetJob(mindId, out _, out var jobProto))
+        {
+            name = Loc.GetString(jobProto.LocalizedName);
+            return true;
+        }
+
+        name = Loc.GetString("generic-unknown-title");
+        return false;
+    }
+
+    /// <summary>
+    ///     Tries to get the job name for this mind.
+    ///     Returns unknown if not found.
+    /// </summary>
+    public string MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId)
+    {
+        MindTryGetJobName(mindId, out var name);
+        return name;
+    }
+
+    /// <summary>
     /// Like <see cref="TryGetDepartment"/> but ignores any non-primary departments.
     /// For example, with CE it will return Engineering but with captain it will
     /// not return anything, since Command is not a primary department.
@@ -116,32 +142,6 @@ public abstract class SharedJobSystem : EntitySystem
         return TryComp(mindId, out comp) &&
                comp.Prototype != null &&
                _prototypes.TryIndex(comp.Prototype, out prototype);
-    }
-
-    /// <summary>
-    ///     Tries to get the job name for this mind.
-    ///     Returns unknown if not found.
-    /// </summary>
-    public bool MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId, out string name)
-    {
-        if (MindTryGetJob(mindId, out _, out var prototype))
-        {
-            name = prototype.LocalizedName;
-            return true;
-        }
-
-        name = Loc.GetString("generic-unknown-title");
-        return false;
-    }
-
-    /// <summary>
-    ///     Tries to get the job name for this mind.
-    ///     Returns unknown if not found.
-    /// </summary>
-    public string MindTryGetJobName([NotNullWhen(true)] EntityUid? mindId)
-    {
-        MindTryGetJobName(mindId, out var name);
-        return name;
     }
 
     public bool CanBeAntag(ICommonSession player)

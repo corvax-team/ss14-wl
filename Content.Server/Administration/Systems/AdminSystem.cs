@@ -33,6 +33,8 @@ using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Content.Shared.Humanoid;
+using Content.Server.Roles.Jobs;
+using Content.Server.Roles;
 
 namespace Content.Server.Administration.Systems
 {
@@ -43,13 +45,13 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly IConfigurationManager _config = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly HandsSystem _hands = default!;
-        [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly JobSystem _jobs = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly MindSystem _minds = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly PhysicsSystem _physics = default!;
         [Dependency] private readonly PlayTimeTrackingManager _playTime = default!;
-        [Dependency] private readonly SharedRoleSystem _role = default!;
+        [Dependency] private readonly RoleSystem _role = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
@@ -226,7 +228,9 @@ namespace Content.Server.Administration.Systems
             if (_minds.TryGetMind(session, out var mindId, out _))
             {
                 antag = _role.MindIsAntagonist(mindId);
-                startingRole = _jobs.MindTryGetJobName(mindId);
+
+                if (_jobs.MindTryGetJob(mindId, out _, out var jobProto))
+                    startingRole = _role.GetSubnameBySesssion(session, jobProto.ID) ?? jobProto.LocalizedName;
             }
 
             var connected = session != null && session.Status is SessionStatus.Connected or SessionStatus.InGame;
