@@ -5,6 +5,7 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using System.Linq;
 
 namespace Content.Shared.Roles
 {
@@ -24,14 +25,18 @@ namespace Content.Shared.Roles
         [DataField("supervisors")]
         public string Supervisors { get; private set; } = "nobody";
 
-        /// <summary>
-        ///     The name of this job as displayed to players.
-        /// </summary>
         [DataField("name")]
-        public string Name { get; private set; } = string.Empty;
+        public string Name { get; private set; } = "Unknown";
 
         [ViewVariables(VVAccess.ReadOnly)]
         public string LocalizedName => Loc.GetString(Name);
+
+        /// <summary>
+        ///     The possible names of this job.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadOnly)]
+        [DataField("subnames")]
+        public List<string> Subnames { get; private set; } = new();
 
         /// <summary>
         ///     The name of this job as displayed to players.

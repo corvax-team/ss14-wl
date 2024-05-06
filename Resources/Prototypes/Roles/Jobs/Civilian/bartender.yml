@@ -3,6 +3,8 @@
   name: job-name-bartender
   description: job-description-bartender
   playTimeTracker: JobBartender
+  subnames:
+  - бариста
   requirements:
     - !type:DepartmentTimeRequirement
       department: Civilian

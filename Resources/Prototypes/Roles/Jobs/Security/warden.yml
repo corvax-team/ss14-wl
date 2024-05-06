@@ -3,6 +3,9 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobWarden
+  subnames:
+  - надзиратель
+  - сержант охраны
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

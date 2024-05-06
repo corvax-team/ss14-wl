@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Forensics;
 using Content.Server.GameTicking;
+using Content.Server.Roles;
+using Content.Shared.CrewManifest;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
@@ -35,6 +37,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly StationRecordKeyStorageSystem _keyStorage = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
 
     public override void Initialize()
     {
@@ -56,7 +59,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     {
         // TODO make PlayerSpawnCompleteEvent.JobId a ProtoId
         if (string.IsNullOrEmpty(jobId)
-            || !_prototypeManager.HasIndex<JobPrototype>(jobId))
+            || !_prototypeManager.TryIndex<JobPrototype>(jobId, out var jobProto))
             return;
 
         if (!_inventory.TryGetSlotEntity(player, "id", out var idUid))
@@ -65,7 +68,9 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         TryComp<FingerprintComponent>(player, out var fingerprintComponent);
         TryComp<DnaComponent>(player, out var dnaComponent);
 
-        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records);
+        var jobName = _role.GetSubnameByEntity(player, jobId) ?? jobProto.LocalizedName;
+
+        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, jobName, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records);
     }
 
 
@@ -104,6 +109,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         string species,
         Gender gender,
         string jobId,
+        string jobName,
         string? mobFingerprint,
         string? dna,
         HumanoidCharacterProfile profile,
@@ -124,7 +130,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         {
             Name = name,
             Age = age,
-            JobTitle = jobPrototype.LocalizedName,
+            JobTitle = jobName,
             JobIcon = jobPrototype.Icon,
             JobPrototype = jobId,
             Species = species,

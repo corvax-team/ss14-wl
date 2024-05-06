@@ -3,6 +3,10 @@
   name: job-name-reporter
   description: job-description-reporter
   playTimeTracker: JobReporter
+  subnames:
+  - журналист
+  - корреспондент
+  - газетчик
   startingGear: ReporterGear
   icon: "JobIconReporter"
   supervisors: job-supervisors-hop

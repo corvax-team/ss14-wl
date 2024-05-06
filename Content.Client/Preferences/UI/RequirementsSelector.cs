@@ -7,6 +7,7 @@ using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Preferences.Loadouts.Effects;
 using Content.Shared.Roles;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Prototypes;
@@ -75,7 +76,7 @@ public abstract class RequirementsSelector<T> : BoxContainer where T : IPrototyp
     /// <summary>
     /// Actually adds the controls, must be called in the inheriting class' constructor.
     /// </summary>
-    protected void Setup(RoleLoadout? loadout, (string, int)[] items, string title, int titleSize, string? description, TextureRect? icon = null)
+    protected void Setup(RoleLoadout? loadout, (string, int)[] items, Control title, TextureRect? icon = null)
     {
         _loadout = loadout;
 
@@ -84,19 +85,10 @@ public abstract class RequirementsSelector<T> : BoxContainer where T : IPrototyp
             Options.AddItem(Loc.GetString(text), value);
         }
 
-        var titleLabel = new Label()
-        {
-            Margin = new Thickness(5f, 0, 5f, 0),
-            Text = title,
-            MinSize = new Vector2(titleSize, 0),
-            MouseFilter = MouseFilterMode.Stop,
-            ToolTip = description
-        };
-
         if (icon != null)
             AddChild(icon);
 
-        AddChild(titleLabel);
+        AddChild(title);
         AddChild(Options);
         AddChild(_lockStripe);
 
