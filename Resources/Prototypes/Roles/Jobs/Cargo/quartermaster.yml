@@ -3,8 +3,6 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
-  subnames:
-  - начальник снабжения
   requirements:
 #    - !type:RoleTimeRequirement
 #      role: JobCargoTechnician

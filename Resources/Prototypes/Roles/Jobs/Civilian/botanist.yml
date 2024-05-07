@@ -4,11 +4,6 @@
   description: job-description-botanist
   playTimeTracker: JobBotanist
   startingGear: BotanistGear
-  subnames:
-  - садовник
-  - флорист
-  - фермер
-  - агроном
   icon: "JobIconBotanist"
   supervisors: job-supervisors-hop
   access:

@@ -3,8 +3,6 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
-  subnames:
-  - директор исследований
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science

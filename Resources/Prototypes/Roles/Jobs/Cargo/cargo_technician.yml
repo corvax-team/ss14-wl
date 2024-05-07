@@ -4,9 +4,6 @@
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
   startingGear: CargoTechGear
-  subnames:
-  - работник склада
-  - курьер
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   access:

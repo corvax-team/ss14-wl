@@ -3,10 +3,6 @@
   name: job-name-research-assistant
   description: job-description-research-assistant
   playTimeTracker: JobResearchAssistant
-  subnames:
-  - лаборант
-  - студент-учёный
-  - научный клерк
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science

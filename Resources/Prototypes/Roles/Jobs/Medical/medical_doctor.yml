@@ -3,9 +3,6 @@
   name: job-name-doctor
   description: job-description-doctor
   playTimeTracker: JobMedicalDoctor
-  subnames:
-  - хирург
-  - вирусолог
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

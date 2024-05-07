@@ -3,12 +3,6 @@
   name: job-name-scientist
   description: job-description-scientist
   playTimeTracker: JobScientist
-  subnames:
-  - робототехник
-  - ксеноархеолог
-  - аномалист
-  - ксенобиолог
-  - химик-исследователь
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science

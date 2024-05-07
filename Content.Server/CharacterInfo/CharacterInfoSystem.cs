@@ -1,4 +1,4 @@
-using Content.Server.Mind;
+﻿using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Shared.CharacterInfo;
@@ -49,8 +49,8 @@ public sealed class CharacterInfoSystem : EntitySystem
                 objectives[issuer].Add(info.Value);
             }
 
-            if (_jobs.MindTryGetJob(mindId, out _, out var jobProto))
-                jobTitle = _roles.GetSubnameByEntity(mindId, jobProto.ID) ?? jobProto.LocalizedName;
+            if (_jobs.MindTryGetJobName(mindId, out var jobName))
+                jobTitle = jobName;
 
             // Get briefing
             briefing = _roles.MindGetBriefing(mindId);
