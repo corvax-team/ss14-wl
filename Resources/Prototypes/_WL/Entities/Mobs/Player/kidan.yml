@@ -3,4 +3,7 @@
   name: Urist McKidan
   parent: [BaseMobHumanoidKidan, BaseMob]
   id: MobHumanoidKidan
-  
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+      randomizeTTS: true

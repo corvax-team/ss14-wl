@@ -3,3 +3,7 @@
   name: Urist McHands The Dwarf
   parent: BaseMobDwarf
   id: MobDwarf
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+      randomizeTTS: true

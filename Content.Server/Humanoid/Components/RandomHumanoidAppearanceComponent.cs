@@ -7,4 +7,5 @@ namespace Content.Server.CharacterAppearance.Components;
 public sealed partial class RandomHumanoidAppearanceComponent : Component
 {
     [DataField("randomizeName")] public bool RandomizeName = true;
+    [DataField("randomizeTTS")] public bool RandomizeTTS = true;
 }

@@ -3,3 +3,7 @@
   name: Урист МакТаяр
   parent: [BaseMobHumanoidTajara, BaseMob]
   id: MobHumanoidTajara
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+      randomizeTTS: true

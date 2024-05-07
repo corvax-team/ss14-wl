@@ -11,3 +11,6 @@
     damageRecovery:
       types:
         Asphyxiation: -0.5
+  - type: RandomHumanoidAppearance
+    randomizeName: true
+    randomizeTTS: true

@@ -3,6 +3,10 @@
   name: Urist McHands
   parent: BaseMobHuman
   id: MobHuman
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+      randomizeTTS: true
 
 #Syndie
 - type: entity

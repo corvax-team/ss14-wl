@@ -1,7 +1,9 @@
 - type: entity
   save: false
-  parent: 
-  - BaseMobAndroid
-  - BaseMob
+  parent: [ BaseMobAndroid, BaseMob ]
   id: MobAndroid
   name: Урист МакАндроид
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+      randomizeTTS: true
