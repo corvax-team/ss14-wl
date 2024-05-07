@@ -11,6 +11,9 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+      randomizeTTS: true
 
 # Reformed Diona
 - type: entity
@@ -20,4 +23,4 @@
   name: Reformed Diona
   components:
     - type: IsDeadIC
-    - type: RandomHumanoidAppearance 
+    - type: RandomHumanoidAppearance

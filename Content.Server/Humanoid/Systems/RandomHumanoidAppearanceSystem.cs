@@ -30,5 +30,7 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
 
         if (component.RandomizeName)
             _metaData.SetEntityName(uid, profile.Name);
+        if (component.RandomizeTTS)
+                humanoid.Voice = profile.Voice;
     }
 }

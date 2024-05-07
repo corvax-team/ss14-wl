@@ -4,5 +4,8 @@
   suffix: Urisst' Mzhand
   parent: BaseMobReptilian
   id: MobReptilian
-
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+      randomizeTTS: true
 #Weh
