@@ -1,8 +1,9 @@
 - type: entity
   save: false
-  name: Урист МакЦисчи
+  name: Base Cischi
   parent: BaseMobSpeciesOrganic
-  id: MobCischi
+  id: BaseMobCischi
+  abstract: true
   components:
   - type: Hunger
   - type: Thirst
@@ -73,7 +74,7 @@
 - type: entity
   save: false
   name: Chischi Dummy
-  parent: MobCischi
+  parent: BaseMobCischi
   id: MobCischiDummy
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.
