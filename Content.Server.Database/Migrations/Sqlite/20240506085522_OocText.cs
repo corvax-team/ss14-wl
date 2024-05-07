@@ -34,7 +34,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 nullable: false,
                 defaultValue: 140);
 
-            migrationBuilder.AddColumn<int>(
+            migrationBuilder.AddColumn<string>(
                 name: "ooc_text",
                 table: "profile",
                 type: "TEXT",
