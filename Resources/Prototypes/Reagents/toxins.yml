@@ -669,10 +669,10 @@
           type: Animal
           shouldHave: false
 # WL species start
-          # Golem
-          - !type:OrganType
-            type: Golem
-            shouldHave: false
+        # Golem
+        - !type:OrganType
+          type: Golem
+          shouldHave: false
 # WL species end
         damage:
           types:

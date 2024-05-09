@@ -1,11 +1,11 @@
 - type: metabolismGroup
   id: BioRobotic
-  name: BioRobotic
+  name: metabolism-group-biorobotic
 
 - type: metabolismGroup
   id: Cischi
-  name: Cischi
+  name: metabolism-group-cischi
 
 - type: metabolismGroup
   id: Golem
-  name: Golem
+  name: metabolism-group-golem

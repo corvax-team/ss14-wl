@@ -176,7 +176,6 @@
     spawnConfig:
       standartConfig:
         minPlayers: 5
-    weight: 10
     startDelay: 20
   - type: GasLeakRule
 
