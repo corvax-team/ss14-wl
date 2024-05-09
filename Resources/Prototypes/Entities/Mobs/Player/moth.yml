@@ -3,7 +3,3 @@
   name: Urist McFluff
   parent: BaseMobMoth
   id: MobMoth
-  components:
-    - type: RandomHumanoidAppearance
-      randomizeName: true
-      randomizeTTS: true

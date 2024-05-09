@@ -3,7 +3,3 @@
   parent: [ BaseMobGolem, BaseMob ]
   id: MobGolem
   name: Урист МакГолем
-  components:
-    - type: RandomHumanoidAppearance
-      randomizeName: true
-      randomizeTTS: true

@@ -3,7 +3,3 @@
   name: Urist McFish
   parent: [BaseMobAkula, BaseMob]
   id: MobAkula
-  components:
-    - type: RandomHumanoidAppearance
-      randomizeName: true
-      randomizeTTS: true

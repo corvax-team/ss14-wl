@@ -3,7 +3,3 @@
   name: Урист МакМурин
   parent: [BaseMobHumanoidMurine, BaseMob]
   id: MobHumanoidMurine
-  components:
-    - type: RandomHumanoidAppearance
-      randomizeName: true
-      randomizeTTS: true
