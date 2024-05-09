@@ -3,3 +3,7 @@
   parent: [ BaseMobCischi, BaseMob ]
   id: MobCischi
   name: Урист МакЦисчи
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: true
+      randomizeTTS: true

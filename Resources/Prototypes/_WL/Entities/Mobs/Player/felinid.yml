@@ -1,8 +1,8 @@
 - type: entity
   save: false
-  name: Urist McVulp
-  parent: [BaseMobVulpkanin, BaseMob]
-  id: MobVulpkanin
+  name: Урист МакФелинид
+  parent: [ MobFelinidBase, BaseMob ]
+  id: MobFelinid
   components:
     - type: RandomHumanoidAppearance
       randomizeName: true

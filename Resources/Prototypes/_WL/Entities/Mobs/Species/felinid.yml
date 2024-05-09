@@ -41,14 +41,7 @@
   - type: Perishable
   - type: CanEscapeInventory
     baseResistTime: 1
-
-- type: entity
-  save: false
-  name: Урист МакФелинид
-  parent: MobFelinidBase
-  id: MobFelinid
-  components:
-  - type: CombatMode
+    - type: CombatMode
     canDisarm: true
   - type: MindContainer
     showExamineInfo: true
