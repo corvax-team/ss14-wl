@@ -41,7 +41,7 @@
   - type: Perishable
   - type: CanEscapeInventory
     baseResistTime: 1
-    - type: CombatMode
+  - type: CombatMode
     canDisarm: true
   - type: MindContainer
     showExamineInfo: true
