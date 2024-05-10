@@ -182,8 +182,8 @@
     useDelay: 10 # prevent spam
     priority: -20
     icon:
-      sprite: Mobs/Aliens/slimes.rsi
-      state: blue_adult_slime
+      sprite: _WL/Mobs/Aliens/slimes.rsi
+      state: blue adult slime
     event: !type:MorphIntoGeras
 
 - type: entity
