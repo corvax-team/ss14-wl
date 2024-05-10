@@ -1,0 +1,62 @@
+- type: entity
+  id: MarkerCable
+  noSpawn: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: DemonCableMarker
+  - type: NodeContainer
+    nodes:
+      power:
+        !type:CableNode
+        nodeGroupID: Default
+  - type: CableVis
+    node: power
+  - type: CableVisualizer
+    statePrefix: lvcable_
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Appearance
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: Visibility
+    layer: 4
+  - type: Sprite
+    drawdepth: -4 #FloorTiles
+    sprite: Structures/Power/Cables/lv_cable.rsi
+    layers:
+      - state: lvcable_0
+        shader: unshaded
+        color: red
+
+- type: entity
+  noSpawn: true
+  id: MarkerWall
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: DemonInvisibleWall
+  - type: Sprite
+    sprite: Markers/marker_wall.rsi
+    state: nothing
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - 256

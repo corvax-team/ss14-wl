@@ -1,10 +1,11 @@
-﻿using Content.Shared.CrewManifest;
+using Content.Shared.CrewManifest;
 using Content.Shared.StatusIcon;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 using Content.Shared.Roles;
+using Content.Client.Message;
 
 namespace Content.Client.CrewManifest.UI;
 
@@ -39,7 +40,16 @@ public sealed class CrewManifestSection : BoxContainer
             {
                 HorizontalExpand = true,
             };
-            name.SetMessage(entry.Name);
+
+            var statusString = entry.Status switch
+            {
+                CrewManifestEntryStatus.Inactive => "[color=red]НЕАКТИВЕН[/color]",
+                CrewManifestEntryStatus.Cryo => "[color=#216a94]ЗАМОРОЖЕН[/color]",
+                CrewManifestEntryStatus.Active => "[color=green]АКТИВЕН[/color]",
+                _ => "[color=gray]НЕИЗВЕСТНО[/color]"
+            };
+
+            name.SetMarkup($"{entry.Name} {statusString}");
 
             var titleContainer = new BoxContainer()
             {

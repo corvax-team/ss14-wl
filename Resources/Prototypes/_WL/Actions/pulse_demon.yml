@@ -1,0 +1,488 @@
+- type: entity
+  id: PulseDemonActionShop
+  name: Shop
+  description: Opens the ability shop.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Interface/Actions/shop.png
+    event: !type:PulseDemonShopActionEvent
+
+- type: entity
+  id: PulseDemonActionHijackAPC
+  name: Hijack APC
+  description: Allows you to hack APC to gain control over devices.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    useDelay: 3
+    priority: 1
+    whitelist:
+      tags:
+       - Apc
+    range: 1
+    deselectOnMiss: true
+    checkCanAccess: false
+    checkCanInteract: false
+    repeat: false
+    itemIconStyle: BigAction
+    canTargetSelf: false
+    sound: !type:SoundCollectionSpecifier
+      collection: sparks
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: remotehack
+    event: !type:PulseDemonApcHijackActionEvent
+
+- type: entity
+  id: PulseDemonActionElectromagneticTamper
+  name: Electromagnetic Tamper
+  description: Allows you to interact with machines and consoles, what happens depends on the machine.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    priority: 1
+    range: 2.3
+    whitelist:
+      tags:
+      - Machine
+      - CanPilot #Для боргов
+    deselectOnMiss: true
+    checkCanAccess: false
+    checkCanInteract: false
+    repeat: false
+    itemIconStyle: BigAction
+    canTargetSelf: false
+    sound: !type:SoundCollectionSpecifier
+      collection: sparks
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: emag
+    event: !type:PulseDemonElectromagneticTamperActionEvent
+      cost: 10000
+
+#Self-Sustaining
+- type: entity
+  id: PulseDemonActionSelfSustaining
+  name: Self-Sustaining
+  description: Your power allows you to leave the wires for a while. If you do not make it back in time, then you will face an unenviable fate. It will cost 40000 units of energy.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 180
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: self_sustaining
+    event: !type:PulseDemonSelfSustainingActionEvent
+      cost: 2500
+      timeOutside: 10
+  - type: ActionUpgrade
+    effectedLevels:
+      2: PulseDemonActionSelfSustainingII
+      3: PulseDemonActionSelfSustainingIII
+
+- type: entity
+  id: PulseDemonActionSelfSustainingII
+  name: Self-Sustaining II
+  parent: PulseDemonActionSelfSustaining
+  description: Your power allows you to leave the wires for a while. If you do not make it back in time, then you will face an unenviable fate. It will cost 30000 units of energy.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 150
+    event: !type:PulseDemonSelfSustainingActionEvent
+      cost: 2500
+      timeOutside: 15
+
+- type: entity
+  id: PulseDemonActionSelfSustainingIII
+  name: Self-Sustaining III
+  parent: PulseDemonActionSelfSustaining
+  description: You enter into the wires, which makes you invisible. Trying to drain energy or hijack APC will force you to get out of the wires. It will cost 20000 units of energy.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 120
+    event: !type:PulseDemonSelfSustainingActionEvent
+      cost: 4500
+      timeOutside: 20
+
+#Hide
+- type: entity
+  id: PulseDemonActionHide
+  name: Hide
+  description: You enter into the wires, which makes you invisible. Trying to drain energy or hijack APC will force you to get out of the wires.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 120
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: hide
+    event: !type:PulseDemonHideActionEvent
+      cost: 1000
+      hidingTime: 15
+  - type: ActionUpgrade
+    effectedLevels:
+      2: PulseDemonActionHideII
+      3: PulseDemonActionHideIII
+
+- type: entity
+  id: PulseDemonActionHideII
+  name: Hide II
+  parent: PulseDemonActionHide
+  description: You enter into the wires, which makes you invisible. Trying to drain energy or hijack APC will force you to get out of the wires.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 100
+    event: !type:PulseDemonHideActionEvent
+      cost: 1500
+      hidingTime: 30
+
+- type: entity
+  id: PulseDemonActionHideIII
+  name: Hide III
+  parent: PulseDemonActionHide
+  description: You enter into the wires, which makes you invisible. Trying to drain energy or hijack APC will force you to get out of the wires.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 60
+    event: !type:PulseDemonHideActionEvent
+      cost: 3000
+      hidingTime: 60
+
+#Absorption
+- type: entity
+  id: PulseDemonActionAbsorption
+  name: Absorption
+  description: Drains the energy from the devices.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    useDelay: 5
+    priority: 1
+    whitelist:
+      tags:
+       - PulseDemonAbsorbable
+    range: 1
+    deselectOnMiss: true
+    checkCanAccess: false
+    checkCanInteract: false
+    repeat: false
+    itemIconStyle: BigAction
+    canTargetSelf: false
+    sound: !type:SoundCollectionSpecifier
+      collection: sparks
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: steal
+    event: !type:PulseDemonAbsorptionActionEvent
+
+- type: entity
+  id: PulseDemonActionRemoteAbsorption
+  name: Remote Absorption
+  parent: PulseDemonActionAbsorption
+  description: Drains energy from devices at a distance of 6 tiles.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    event: !type:PulseDemonAbsorptionActionEvent
+      cost: 2000
+    useDelay: 20
+    range: 6
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: remotedrain
+  - type: ActionUpgrade
+    effectedLevels:
+      2: PulseDemonActionRemoteAbsorptionII
+      3: PulseDemonActionRemoteAbsorptionIII
+      4: PulseDemonActionRemoteAbsorptionIIII
+
+- type: entity
+  id: PulseDemonActionRemoteAbsorptionII
+  name: Remote Absorption II
+  parent: PulseDemonActionRemoteAbsorption
+  description: Drains energy from devices at a distance of 7 tiles.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    event: !type:PulseDemonAbsorptionActionEvent
+      cost: 1500
+    useDelay: 15
+    range: 7
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: remotedrain
+
+- type: entity
+  id: PulseDemonActionRemoteAbsorptionIII
+  name: Remote Absorption III
+  parent: PulseDemonActionRemoteAbsorption
+  description: Drains energy from devices at a distance of 7.5 tiles.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    event: !type:PulseDemonAbsorptionActionEvent
+      cost: 1500
+    useDelay: 12
+    range: 7.5
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: remotedrain
+
+- type: entity
+  id: PulseDemonActionRemoteAbsorptionIIII
+  name: Remote Absorption IIII
+  parent: PulseDemonActionRemoteAbsorption
+  description: Drains energy from devices at a distance of 8 tiles.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    event: !type:PulseDemonAbsorptionActionEvent
+      cost: 1000
+    useDelay: 10
+    range: 8
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: remotedrain
+
+#cable jump
+- type: entity
+  id: PulseDemonActionCableHop
+  name: Cable jump
+  description: Allows you to make a jump to an available cable within a radius of 4 tiles. It will cost 20,000 units of energy.
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    checkCanAccess: false
+    checkCanInteract: true
+    useDelay: 30
+    priority: 2
+    range: 4
+    repeat: false
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: cablejump
+    event: !type:PulseDemonCableHopActionEvent
+      cost: 2000
+  - type: ActionUpgrade
+    effectedLevels:
+      2: PulseDemonActionCableHopII
+      3: PulseDemonActionCableHopIII
+      4: PulseDemonActionCableHopIIII
+
+- type: entity
+  id: PulseDemonActionCableHopII
+  name: Cable jump II
+  parent: PulseDemonActionCableHop
+  description: Allows you to make a jump to an available cable within a radius of 5 tiles. It will cost 15,000 units of energy.
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    event: !type:PulseDemonCableHopActionEvent
+      cost: 2500
+    useDelay: 25
+    range: 5
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: cablejump
+
+- type: entity
+  id: PulseDemonActionCableHopIII
+  name: Cable jump III
+  parent: PulseDemonActionCableHop
+  description: Allows you to make a jump to an available cable within a radius of 7 tiles. It will cost 13,000 units of energy.
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    event: !type:PulseDemonCableHopActionEvent
+      cost: 3000
+    useDelay: 23
+    range: 7
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: cablejump
+
+- type: entity
+  id: PulseDemonActionCableHopIIII
+  name: Cable jump IIII
+  parent: PulseDemonActionCableHop
+  description: Allows you to make a jump to an available cable within a radius of 8 tiles. It will cost 11,000 units of energy.
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    event: !type:PulseDemonCableHopActionEvent
+      cost: 4000
+    useDelay: 20
+    range: 8
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: cablejump
+
+#emp
+- type: entity
+  id: PulseDemonActionEmp
+  name: Emp
+  description: Creates a powerful electromagnetic pulse. Don't hurt yourself!
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    checkCanAccess: false
+    checkCanInteract: false
+    useDelay: 95
+    range: 5
+    repeat: false
+    itemIconStyle: BigAction
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: emp
+      radius: 1
+    event: !type:PulseDemonEmpActionEvent
+      cost: 10000
+  - type: ActionUpgrade
+    effectedLevels:
+      2: PulseDemonActionEmpII
+      3: PulseDemonActionEmpIII
+      4: PulseDemonActionEmpIIII
+
+- type: entity
+  id: PulseDemonActionEmpII
+  name: Emp II
+  parent: PulseDemonActionEmp
+  description: Creates a powerful electromagnetic pulse. Don't hurt yourself!
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    event: !type:PulseDemonEmpActionEvent
+      cost: 15000
+      radius: 1.4
+      batteryDamage: 75000
+    useDelay: 85
+    range: 6
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: emp
+
+- type: entity
+  id: PulseDemonActionEmpIII
+  name: Emp III
+  parent: PulseDemonActionEmp
+  description: Creates a powerful electromagnetic pulse. Don't hurt yourself!
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    event: !type:PulseDemonEmpActionEvent
+      cost: 20000
+      radius: 1.7
+      batteryDamage: 100000
+    useDelay: 75
+    range: 7
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: emp
+
+- type: entity
+  id: PulseDemonActionEmpIIII
+  name: Emp IIII
+  parent: PulseDemonActionEmp
+  description: Creates a powerful electromagnetic pulse. Don't hurt yourself!
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    event: !type:PulseDemonEmpActionEvent
+      cost: 25000
+      radius: 2
+      batteryDamage: 125000
+    useDelay: 60
+    range: 8
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: emp
+
+#Overload machine
+- type: entity
+  id: PulseDemonActionOverloadMachine
+  name: Overload machine
+  description: Makes machinery explode. Don't blow yourself up!
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    useDelay: 55
+    priority: 1
+    whitelist:
+      tags:
+       - Machine
+       - Airlock
+       - Console
+       - GlassAirlock
+    range: 6
+    deselectOnMiss: true
+    checkCanAccess: true
+    checkCanInteract: false
+    repeat: false
+    itemIconStyle: BigAction
+    canTargetSelf: false
+    icon:
+      sprite: Interface/Actions/pulse_demon.rsi
+      state: overload
+    event: !type:PulseDemonOverloadMachineActionEvent
+      cost: 10000
+  - type: ActionUpgrade
+    effectedLevels:
+      2: PulseDemonActionOverloadMachineII
+      3: PulseDemonActionOverloadMachineIII
+      4: PulseDemonActionOverloadMachineIIII
+
+- type: entity
+  id: PulseDemonActionOverloadMachineII
+  name: Overload machine II
+  parent: PulseDemonActionOverloadMachine
+  description: Makes machinery explode. Don't blow yourself up!
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    useDelay: 50
+    range: 6
+    event: !type:PulseDemonOverloadMachineActionEvent
+      explosionForce: 100.0
+      radius: 2
+      explosionPreparation: 4.5
+      cost: 9000
+
+- type: entity
+  id: PulseDemonActionOverloadMachineIII
+  name: Overload machine III
+  parent: PulseDemonActionOverloadMachine
+  description: Makes machinery explode. Don't blow yourself up!
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    useDelay: 42
+    range: 6.5
+    event: !type:PulseDemonOverloadMachineActionEvent
+      explosionForce: 130.0
+      radius: 2.2
+      explosionPreparation: 4
+      cost: 8500
+
+- type: entity
+  id: PulseDemonActionOverloadMachineIIII
+  name: Overload machine IIII
+  parent: PulseDemonActionOverloadMachine
+  description: Makes machinery explode. Don't blow yourself up!
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    useDelay: 33
+    range: 7
+    event: !type:PulseDemonOverloadMachineActionEvent
+      explosionForce: 130.0
+      radius: 2.4
+      explosionPreparation: 3.5
+      cost: 7000

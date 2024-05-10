@@ -4,7 +4,9 @@
   noSpawn: true
   components:
   - type: StationEvent
-    minimumPlayers: 2
+    spawnConfig:
+      standartConfig:
+        minPlayers: 5
     weight: 5
     duration: 1
     reoccurrenceDelay: 40

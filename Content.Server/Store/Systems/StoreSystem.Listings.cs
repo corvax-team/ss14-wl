@@ -1,5 +1,6 @@
 using Content.Server.Store.Components;
 using Content.Shared.Store;
+using Content.Shared._WL.Store;
 
 namespace Content.Server.Store.Systems;
 
@@ -27,7 +28,7 @@ public sealed partial class StoreSystem
 
         foreach (var listing in allListings)
         {
-            allData.Add((ListingData) listing.Clone());
+            allData.Add(listing.Clone());
         }
 
         return allData;
@@ -86,14 +87,14 @@ public sealed partial class StoreSystem
 
         foreach (var listing in listings)
         {
-            if (!ListingHasCategory(listing, categories))
-                continue;
+            if (!ListingHasCategory(listing, categories)) continue;
 
+            var args = new ListingConditionArgs(buyer, storeEntity, listing, EntityManager);
+            var conditionsMet = true;
+
+            // Если Conditions не инициализирован, считаем что все условия выполняются (это должно быть в соответствии с вашей логикой)
             if (listing.Conditions != null)
             {
-                var args = new ListingConditionArgs(buyer, storeEntity, listing, EntityManager);
-                var conditionsMet = true;
-
                 foreach (var condition in listing.Conditions)
                 {
                     if (!condition.Condition(args))
@@ -102,12 +103,13 @@ public sealed partial class StoreSystem
                         break;
                     }
                 }
-
-                if (!conditionsMet)
-                    continue;
             }
 
-            yield return listing;
+            if (conditionsMet)
+            {
+                // Возвращаем listing, если все условия выполнились
+                yield return listing;
+            }
         }
     }
 

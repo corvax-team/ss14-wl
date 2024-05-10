@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-3.0",
+  "copyright": "Taken from ss220 Paradise for SS14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cablejump"
+    },
+    {
+      "name": "cameraview"
+    },
+    {
+      "name": "emag"
+    },
+    {
+      "name": "emp"
+    },
+    {
+      "name": "overload"
+    },
+    {
+      "name": "remotehack"
+    },
+    {
+      "name": "remotedrain"
+    },
+    {
+      "name": "steal"
+    },
+    {
+      "name": "update"
+    },
+    {
+      "name": "whisper"
+    },
+    {
+      "name": "self_sustaining"
+    },
+    {
+      "name": "hide"
+    }
+  ]
+}

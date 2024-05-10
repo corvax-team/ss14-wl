@@ -242,6 +242,8 @@
     whitelist:
       components:
       - BorgChassis
+      tags:
+      - AndroidBodyTag
   - type: Construction
     containers:
     - machine_parts
@@ -281,6 +283,7 @@
             visible: true
             state: borgcharger1
   - type: EntityStorage
+    airtight: false
     capacity: 1
     whitelist:
       components:

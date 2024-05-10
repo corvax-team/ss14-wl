@@ -27,6 +27,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Content.Shared.CrewManifest;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Content.Server.Bed.Cryostorage;
 
@@ -79,9 +81,7 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
     private void OnRemoveItemBuiMessage(Entity<CryostorageComponent> ent, ref CryostorageRemoveItemBuiMessage args)
     {
         var (_, comp) = ent;
-        if (args.Session.AttachedEntity is not { } attachedEntity)
-            return;
-
+        var attachedEntity = args.Actor;
         var cryoContained = GetEntity(args.StoredEntity);
 
         if (!comp.StoredPlayers.Contains(cryoContained) || !IsInPausedMap(cryoContained))
@@ -114,6 +114,7 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
         AdminLog.Add(LogType.Action, LogImpact.High,
             $"{ToPrettyString(attachedEntity):player} removed item {ToPrettyString(entity)} from cryostorage-contained player " +
             $"{ToPrettyString(cryoContained):player}, stored in cryostorage {ToPrettyString(ent)}");
+
         _container.TryRemoveFromContainer(entity.Value);
         _transform.SetCoordinates(entity.Value, Transform(attachedEntity).Coordinates);
         _hands.PickupOrDrop(attachedEntity, entity.Value);
@@ -122,8 +123,8 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
 
     private void UpdateCryostorageUIState(Entity<CryostorageComponent> ent)
     {
-        var state = new CryostorageBuiState(GetAllContainedData(ent).ToList());
-        _ui.TrySetUiState(ent, CryostorageUIKey.Key, state);
+        var state = new CryostorageBuiState(GetAllContainedData(ent));
+        _ui.SetUiState(ent.Owner, CryostorageUIKey.Key, state);
     }
 
     private void OnPlayerSpawned(Entity<CryostorageContainedComponent> ent, ref PlayerSpawnCompleteEvent args)
@@ -225,13 +226,16 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
         if (!TryComp<StationRecordsComponent>(station, out var stationRecords))
             return;
 
-        var key = new StationRecordKey(_stationRecords.GetRecordByName(station.Value, name) ?? default(uint), station.Value);
-        var jobName = "Unknown";
+        var jobName = Loc.GetString("earlyleave-cryo-job-unknown");
+        var recordId = _stationRecords.GetRecordByName(station.Value, name);
+        if (recordId != null)
+        {
+            var key = new StationRecordKey(recordId.Value, station.Value);
+            if (_stationRecords.TryGetRecord<GeneralStationRecord>(key, out var entry, stationRecords))
+                jobName = entry.JobTitle;
 
-        if (_stationRecords.TryGetRecord<GeneralStationRecord>(key, out var entry, stationRecords))
-            jobName = entry.JobTitle;
-
-        _stationRecords.RemoveRecord(key, stationRecords);
+            UpdateStatus(ent.Owner, CrewManifestEntryStatus.Inactive);
+        }
 
         _chatSystem.DispatchStationAnnouncement(station.Value,
             Loc.GetString(
@@ -273,6 +277,30 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
         UpdateCryostorageUIState((cryostorage, cryostorageComponent));
     }
 
+    public void UpdateStatus(EntityUid player, CrewManifestEntryStatus status)
+    {
+        var station = _station.GetOwningStation(player);
+
+        if (station != null)
+        {
+            var name = Name(player);
+
+            var recordId = _stationRecords.GetRecordByName(station.Value, name);
+
+            if (recordId == null)
+                return;
+
+            var recordKey = new StationRecordKey(recordId.Value, station.Value);
+
+            if (_stationRecords.TryGetRecord<GeneralStationRecord>(recordKey, out var entry))
+            {
+                entry.ManifestStatus = status;
+
+                _stationRecords.Synchronize(station.Value);
+            }
+        }
+    }
+
     protected override void OnInsertedContainer(Entity<CryostorageComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
         var (uid, comp) = ent;
@@ -288,14 +316,28 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
         var msg = Loc.GetString(locKey, ("time", comp.GracePeriod.TotalMinutes));
         if (TryComp<ActorComponent>(args.Entity, out var actor))
             _chatManager.ChatMessageToOne(ChatChannel.Server, msg, msg, uid, false, actor.PlayerSession.Channel);
+
+        UpdateStatus(args.Entity, CrewManifestEntryStatus.Cryo);
     }
 
-    private IEnumerable<CryostorageContainedPlayerData> GetAllContainedData(Entity<CryostorageComponent> ent)
+    protected override void OnRemovedContainer(Entity<CryostorageComponent> ent, ref EntRemovedFromContainerMessage args)
     {
+        base.OnRemovedContainer(ent, ref args);
+
+        UpdateStatus(args.Entity, CrewManifestEntryStatus.Active);
+    }
+
+    private List<CryostorageContainedPlayerData> GetAllContainedData(Entity<CryostorageComponent> ent)
+    {
+        var data = new List<CryostorageContainedPlayerData>();
+        data.EnsureCapacity(ent.Comp.StoredPlayers.Count);
+
         foreach (var contained in ent.Comp.StoredPlayers)
         {
-            yield return GetContainedData(contained);
+            data.Add(GetContainedData(contained));
         }
+
+        return data;
     }
 
     private CryostorageContainedPlayerData GetContainedData(EntityUid uid)

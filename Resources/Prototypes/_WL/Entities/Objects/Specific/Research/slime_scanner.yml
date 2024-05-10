@@ -27,7 +27,7 @@
     closeOnHandDeselect: false
   - type: UserInterface
     interfaces:
-      - key: enum.SlimeScannerUiKey.Key
+       enum.SlimeScannerUiKey.Key: 
         type: SlimeScannerBoundUserInterface
   - type: Appearance
   - type: GenericVisualizer

@@ -1,11 +1,13 @@
 using System.Linq;
 using Content.Server.Administration;
+using Content.Server.Bed.Cryostorage;
 using Content.Server.EUI;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
 using Content.Shared.Administration;
+using Content.Shared.Bed.Cryostorage;
 using Content.Shared.CCVar;
 using Content.Shared.CrewManifest;
 using Content.Shared.GameTicking;
@@ -26,6 +28,7 @@ public sealed class CrewManifestSystem : EntitySystem
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly CryostorageSystem _cryostage = default!;
 
     /// <summary>
     ///     Cached crew manifest entries. The alternative is to outright
@@ -100,12 +103,12 @@ public sealed class CrewManifestSystem : EntitySystem
             return;
 
         var owningStation = _stationSystem.GetOwningStation(uid);
-        if (owningStation == null || ev.Session is not { } session)
+        if (owningStation == null || !TryComp(ev.Actor, out ActorComponent? actorComp))
         {
             return;
         }
 
-        CloseEui(owningStation.Value, session, uid);
+        CloseEui(owningStation.Value, actorComp.PlayerSession, uid);
     }
 
     /// <summary>
@@ -136,12 +139,12 @@ public sealed class CrewManifestSystem : EntitySystem
         {
             Log.Error(
                 "{User} tried to open crew manifest from wrong UI: {Key}. Correct owned is {ExpectedKey}",
-                msg.Session, msg.UiKey, component.OwnerKey);
+                msg.Actor, msg.UiKey, component.OwnerKey);
             return;
         }
 
         var owningStation = _stationSystem.GetOwningStation(uid);
-        if (owningStation == null || msg.Session is not { } session)
+        if (owningStation == null || !TryComp(msg.Actor, out ActorComponent? actorComp))
         {
             return;
         }
@@ -151,7 +154,7 @@ public sealed class CrewManifestSystem : EntitySystem
             return;
         }
 
-        OpenEui(owningStation.Value, session, uid);
+        OpenEui(owningStation.Value, actorComp.PlayerSession, uid);
     }
 
     /// <summary>
@@ -230,7 +233,7 @@ public sealed class CrewManifestSystem : EntitySystem
         foreach (var recordObject in iter)
         {
             var record = recordObject.Item2;
-            var entry = new CrewManifestEntry(record.Name, record.JobTitle, record.JobIcon, record.JobPrototype);
+            var entry = new CrewManifestEntry(record.Name, record.JobTitle, record.JobIcon, record.JobPrototype, record.ManifestStatus);
 
             _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);
             entriesSort.Add((job, entry));

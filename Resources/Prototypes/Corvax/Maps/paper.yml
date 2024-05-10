@@ -3,7 +3,7 @@
   mapName: 'Paper Station'
   mapPath: /Maps/_WL/corvax_paper.yml
   minPlayers: 14
-  maxPlayers: 65
+  maxPlayers: 50
   stations:
     CorvaxPaper:
       stationProto: StandardNanotrasenStation

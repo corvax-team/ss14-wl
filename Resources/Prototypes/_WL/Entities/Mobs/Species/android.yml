@@ -10,6 +10,7 @@
   id: BaseMobAndroid
   abstract: true
   components:
+  - type: ZombieImmune
   - type: Flashable
   - type: Barotrauma
     damage:
@@ -61,6 +62,7 @@
     allowed:
       - Stun
       - KnockedDown
+      - ForcedSleep
       - SlowedDown
       - Stutter
       - Electrocution
@@ -103,6 +105,7 @@
     requiredLegs: 2
   - type: Damageable
     damageContainer: BioRobotic
+    damageModifierSet: BioRobotic
   - type: Destructible
     thresholds:
       - trigger:
@@ -159,7 +162,10 @@
     cellSlotId: cell_slot
     fitsInCharger: true
   - type: PowerCellDraw
-    drawRate: 1
+    drawRate: 0.8
+  - type: LockedWiresPanel
+  - type: WiresPanel
+  - type: Android
   - type: BorgChassis
     maxModules: 0
     hasMindState: light
@@ -170,8 +176,10 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
         disableEject: true
-        locked: true
+        locked: false
         insertOnInteract: true
+  - type: InteractionPopup
+    successChance: 0
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }

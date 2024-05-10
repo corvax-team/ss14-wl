@@ -1,3 +1,4 @@
+using Content.Shared.CrewManifest;
 using Robust.Shared.Enums;
 using Robust.Shared.Serialization;
 
@@ -68,4 +69,13 @@ public sealed record GeneralStationRecord
     /// </summary>
     [DataField]
     public string? DNA;
+
+    /// <summary>
+    ///     Статус игрока.
+    ///     "Активен" - если игрок не находится в криокапсуле и не уничтожен в ней.
+    ///     "Заморожен" - если игрок находится в капсуле.
+    ///     "Неактивен" - если игрок уничтожен в капсуле.
+    /// </summary>
+    [DataField]
+    public CrewManifestEntryStatus ManifestStatus = CrewManifestEntryStatus.Active;
 }

@@ -1,5 +1,6 @@
 using Content.Shared.FixedPoint;
 using Content.Shared.Store;
+using Content.Shared._WL.Store;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

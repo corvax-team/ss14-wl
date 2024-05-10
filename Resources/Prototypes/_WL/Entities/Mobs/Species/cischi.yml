@@ -1,8 +1,9 @@
 - type: entity
   save: false
-  name: Урист МакЦисчи
+  name: Base Cischi
   parent: BaseMobSpeciesOrganic
-  id: MobCischi
+  id: BaseMobCischi
+  abstract: true
   components:
   - type: Hunger
   - type: Thirst
@@ -49,7 +50,9 @@
     normalBodyTemperature: 283.15
     thermalRegulationTemperatureThreshold: 5
   - type: Barotrauma
-    highPressureMultiplier: 2
+    damage:
+      types:
+        Blunt: 0.3
   - type: Respirator
     damage:
       types:
@@ -71,7 +74,7 @@
 - type: entity
   save: false
   name: Chischi Dummy
-  parent: MobCischi
+  parent: BaseMobCischi
   id: MobCischiDummy
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.

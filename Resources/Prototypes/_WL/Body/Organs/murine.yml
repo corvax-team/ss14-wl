@@ -8,7 +8,7 @@
   - type: Organ
   - type: Metabolizer
     maxReagents: 2
-    updateFrequency: 0.5
+    updateInterval: 0.5
     metabolizerTypes: [ Animal ]
     groups:
     - id: Medicine
@@ -26,7 +26,7 @@
     - state: kidney-r
   - type: Organ
   - type: Metabolizer
-    updateFrequency: 0.5
+    updateInterval: 0.5
     maxReagents: 5
     metabolizerTypes: [ Animal ]
     removeEmpty: true
@@ -42,7 +42,7 @@
   - type: Organ
   - type: Metabolizer
     maxReagents: 1
-    updateFrequency: 0.5
+    updateInterval: 0.5
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
@@ -57,7 +57,7 @@
     state: stomach
   - type: Metabolizer
     maxReagents: 3
-    updateFrequency: 0.5
+    updateInterval: 0.5
     metabolizerTypes: [ Animal ]
     groups:
     - id: Food

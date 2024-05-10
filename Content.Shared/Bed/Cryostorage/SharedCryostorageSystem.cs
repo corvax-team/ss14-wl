@@ -68,7 +68,7 @@ public abstract class SharedCryostorageSystem : EntitySystem
         Dirty(args.Entity, containedComp);
     }
 
-    private void OnRemovedContainer(Entity<CryostorageComponent> ent, ref EntRemovedFromContainerMessage args)
+    protected virtual void OnRemovedContainer(Entity<CryostorageComponent> ent, ref EntRemovedFromContainerMessage args)
     {
         var (_, comp) = ent;
         if (args.Container.ID != comp.ContainerId)

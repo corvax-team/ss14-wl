@@ -1,0 +1,17 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointPulseDemon
+  name: спавнер токовый дух
+  components:
+  - type: GhostRole
+    name: ghost-role-information-pulse-demon-name
+    description: ghost-role-information-pulse-demon-description
+    rules: ghost-role-information-pulse-demon-rules
+  - type: GhostRoleMobSpawner
+    prototype: MobPulseDemon
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Mobs/Demons/pulse.rsi
+      state: pulsedemon

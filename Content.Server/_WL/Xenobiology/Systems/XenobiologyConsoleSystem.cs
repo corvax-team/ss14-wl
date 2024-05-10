@@ -445,9 +445,6 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
             return;
         }
 
-        if (!_ui.TryGetUi(uid, SlimeScannerUiKey.Key, out var bui))
-            return;
-
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
 
@@ -455,7 +452,7 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
 
         if (!_ui.IsUiOpen(uid, SlimeScannerUiKey.Key))
         {
-            _ui.OpenUi(bui, actor.PlayerSession);
+            _ui.OpenUi(uid, SlimeScannerUiKey.Key, actor.PlayerSession);
             _slimeScanner.UpdateScannedUser(uid, args.Target, _slimeScanner.GetRelationships(comp.User, comp.ScannedEntity) ?? 0);
         }
         else _slimeScanner.UpdateScannedUser(uid, args.Target, _slimeScanner.GetRelationships(comp.User, comp.ScannedEntity) ?? 0);
@@ -488,8 +485,7 @@ public sealed partial class XenobiologyConsoleSystem : EntitySystem
         if (!_mind.TryGetMind(comp.Camera.Value, out var mindId, out var mindComp))
             return;
 
-        if (_ui.TryGetUi(comp.Camera.Value, SlimeScannerUiKey.Key, out var bui) && mindComp.Session != null)
-            _ui.CloseUi(bui, mindComp.Session);
+        _ui.CloseUi(comp.Camera.Value, SlimeScannerUiKey.Key, mindComp.Session);
 
         _mind.TransferTo(mindId, user, mind: mindComp);
 

@@ -1,11 +1,11 @@
 - type: metabolizerType
   id: Biorobotic
-  name: biorobotic
+  name: metabolizer-type-biorobotic
 
 - type: metabolizerType
   id: Cischi
-  name: cischi
+  name: metabolizer-type-cischi
 
 - type: metabolizerType
   id: Golem
-  name: golem
+  name: metabolizer-type-golem

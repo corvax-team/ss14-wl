@@ -31,6 +31,7 @@
         - AppraisalTool
         - JawsOfLife
         - GPS
+        - WeldingMask
       components:
         - SprayPainter
         - NetworkConfigurator
@@ -472,12 +473,20 @@
         - Sidearm
         - MagazinePistol
         - MagazineMagnum
+        - CombatKnife
+        - Truncheon
       components:
         - Stunbaton
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
         - Handcuff
+        - BallisticAmmoProvider
+        - CartridgeAmmo
+        - DoorRemote
+        - Whistle
+        - HolosignProjector
+        - BalloonPopper
   - type: ItemMapper
     mapLayers:
       flashbang:
@@ -514,6 +523,8 @@
         name: Sabre
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
         whitelist:
           tags:
           - CaptainSabre
@@ -606,11 +617,48 @@
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+      - 0,0,7,1
+      - 9,0,10,0
+      - 9,0,9,1
+    whitelist:
+      tags:
+        - CigPack
+        - Taser
+        - SecBeltEquip
+        - Radio
+        - Sidearm
+        - MagazinePistol
+        - MagazineMagnum
+        - CombatKnife
+        - Truncheon
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - PillCanister
+      components:
+        - Stunbaton
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - Hypospray
+        - Flash
+        - Handcuff
+        - BallisticAmmoProvider
+        - CartridgeAmmo
+        - Injector
+        - Pill
+  - type: Appearance
 
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltMercWebbing
-  name: mercenarie webbing
+  name: mercenary webbing
   description: Ideal for storing everything from ammo to weapons and combat essentials.
   components:
   - type: Sprite

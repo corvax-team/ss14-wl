@@ -1,0 +1,5 @@
+- type: guideEntry
+  id: FoodRec
+  name: Рецепты
+  text: "/ServerInfo/Guidebook/_WL/Service/FoodRecipesChild.xml"
+  filterEnabled: True

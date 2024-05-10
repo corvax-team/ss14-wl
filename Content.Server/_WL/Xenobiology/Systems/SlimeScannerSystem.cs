@@ -127,10 +127,10 @@ public sealed class SlimeScannerSystem : EntitySystem
 
     private void OpenUserInterface(EntityUid user, EntityUid scanner)
     {
-        if (!TryComp<ActorComponent>(user, out var actor) || !_uiSystem.TryGetUi(scanner, SlimeScannerUiKey.Key, out var ui))
+        if (!TryComp<ActorComponent>(user, out var actor))
             return;
 
-        _uiSystem.OpenUi(ui, actor.PlayerSession);
+        _uiSystem.OpenUi(scanner, SlimeScannerUiKey.Key, actor.PlayerSession);
     }
 
     private void BeginScanningSlime(EntityUid scanner, EntityUid user, EntityUid target, SlimeScannerComponent? comp = null)
@@ -159,7 +159,7 @@ public sealed class SlimeScannerSystem : EntitySystem
 
     public void UpdateScannedUser(EntityUid scanner, EntityUid? slime, int relationshipPoints)
     {
-        if (!_uiSystem.TryGetUi(scanner, SlimeScannerUiKey.Key, out var ui))
+        if (!_uiSystem.TryGetOpenUi(scanner, SlimeScannerUiKey.Key, out _))
             return;
 
         if (slime != null &&
@@ -206,11 +206,11 @@ public sealed class SlimeScannerSystem : EntitySystem
                 slimeComp.GrowthData[slimeComp.CurrentAge].GrowthStageBound,
                 relationshipPoints);
 
-            _uiSystem.SendUiMessage(ui, msg);
+            _uiSystem.ServerSendUiMessage(scanner, SlimeScannerUiKey.Key, msg);
         }
         else
         {
-            _uiSystem.SendUiMessage(ui, new SlimeScannerScannedUserMessage(null));
+            _uiSystem.ServerSendUiMessage(scanner, SlimeScannerUiKey.Key, new SlimeScannerScannedUserMessage(null));
         }
     }
 

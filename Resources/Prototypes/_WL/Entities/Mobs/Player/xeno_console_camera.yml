@@ -48,7 +48,7 @@
       state: generic_camera
   - type: UserInterface
     interfaces:
-      - key: enum.SlimeScannerUiKey.Key
+      enum.SlimeScannerUiKey.Key: 
         type: SlimeScannerBoundUserInterface
   - type: Actions
   - type: Fixtures

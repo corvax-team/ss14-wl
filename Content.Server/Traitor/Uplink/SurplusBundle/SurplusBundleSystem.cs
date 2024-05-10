@@ -5,6 +5,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Store;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared._WL.Store;
 
 namespace Content.Server.Traitor.Uplink.SurplusBundle;
 

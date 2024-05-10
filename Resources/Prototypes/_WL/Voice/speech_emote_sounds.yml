@@ -40,6 +40,8 @@
   params:
     variation: 0.125
   sounds:
+    Meow:
+      collection: CatPurr
     Scream:
       collection: CatScreams
     Laugh:
@@ -58,6 +60,8 @@
   params:
     variation: 0.125
   sounds:
+    Meow:
+      collection: CatPurr
     Scream:
       collection: CatScreams
     Laugh:

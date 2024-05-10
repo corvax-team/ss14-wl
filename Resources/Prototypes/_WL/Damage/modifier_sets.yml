@@ -7,6 +7,11 @@
     Heat: 1.2
 
 - type: damageModifierSet
+  id: BioRobotic
+  coefficients:
+    Radiation: 0.5
+
+- type: damageModifierSet
   id: Cischi
   coefficients:
     Poison: 0.8

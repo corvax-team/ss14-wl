@@ -1,0 +1,52 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              Orientation="Vertical"
+              xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+              xmlns:style="clr-namespace:Content.Client.Stylesheets"
+              Margin="5 5 5 5">
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BorderThickness="1" BorderColor="#777777"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer Name="NameBackground" HorizontalExpand="True" VerticalExpand="False">
+                <RichTextLabel Name="RecipeName" HorizontalAlignment="Center"/>
+            </PanelContainer>
+            <BoxContainer Name="RecipesContainer" HorizontalExpand="True" Orientation="Horizontal">
+                <BoxContainer
+                    HorizontalExpand="True"
+                    Name="RecipeReactants"
+                    Orientation="Vertical"
+                    Margin="7 5 0 5">
+                    
+                </BoxContainer>
+
+                
+                <BoxContainer
+                    HorizontalExpand="True"
+                    Orientation="Vertical"
+                    VerticalAlignment ="Center"
+                    HorizontalAlignment="Center"
+                    Margin="5 0 0 0">
+                    <TextureRect
+                        HorizontalExpand="True"
+                        TexturePath="/Textures/_WL/Interface/Misc/microwave.png"
+                        TextureScale="2 2"
+                        Name="CookingTypeTexture"/>
+                    <RichTextLabel HorizontalExpand="True" Name="CookingTypeDesc"/>
+                </BoxContainer>
+
+                
+                <BoxContainer
+                    HorizontalExpand="True"
+                    VerticalExpand="True"
+                    Name="RecipeProducts"
+                    Orientation="Vertical"
+                    VerticalAlignment ="Center"
+                    HorizontalAlignment="Center">
+
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>

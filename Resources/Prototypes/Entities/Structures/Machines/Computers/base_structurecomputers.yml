@@ -60,3 +60,6 @@
         ents: []
   - type: LightningTarget
     priority: 1
+  - type: Tag
+    tags:
+      - Console

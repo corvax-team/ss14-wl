@@ -133,3 +133,15 @@
 # STOP
 # BEFORE YOU ADD MORE EXPLOSION TYPES CONSIDER IF AN EXISTING ONE IS SUITABLE
 # ADDING NEW ONES IS PROHIBITIVELY EXPENSIVE
+
+- type: explosion
+  id: ElectricExplosion
+  damagePerIntensity:
+    types:
+      Heat: 10
+      Shock: 10
+      Structural: 10
+  intensityPerState: 5
+  lightColor: Yellow
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 6

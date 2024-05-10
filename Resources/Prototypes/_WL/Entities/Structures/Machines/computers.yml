@@ -54,8 +54,8 @@
     rightClickOnly: true
   - type: UserInterface
     interfaces:
-    - key: enum.ResearchClientUiKey.Key
-      type: ResearchClientBoundUserInterface
+      enum.ResearchClientUiKey.Key: 
+        type: ResearchClientBoundUserInterface
   - type: ApcPowerReceiver
     powerLoad: 1000
     priority: Low

@@ -1,0 +1,73 @@
+{
+    "version": 1,
+    "copyright": "Was made by Pupchansky",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+     {
+        "name": "electricity0"
+     },
+     {
+        "name": "electricity1"
+     },
+     {
+        "name": "electricity2"
+     },
+     {
+        "name": "electricity3"
+     },
+     {
+        "name": "electricity4"
+     },
+     {
+        "name": "electricity5"
+     },
+     {
+        "name": "electricity6"
+     },
+     {
+        "name": "electricity7"
+     },
+     {
+        "name": "electricity8"
+     },
+     {
+        "name": "electricity9"
+     },
+     {
+        "name": "electricity10"
+     },
+     {
+        "name": "electricity11"
+     },
+     {
+        "name": "electricity12"
+     },
+     {
+        "name": "electricity13"
+     },
+     {
+        "name": "electricity14"
+     },
+     {
+        "name": "electricity15"
+     },
+     {
+        "name": "electricity16"
+     },
+     {
+        "name": "electricity17"
+     },
+     {
+        "name": "electricity18"
+     },
+     {
+        "name": "electricity19"
+     },
+     {
+        "name": "electricity20"
+     }
+   ]
+}

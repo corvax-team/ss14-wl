@@ -8,6 +8,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: Tag
+    tags:
+      - PulseDemonAbsorbable
   - type: Sprite # TODO: add sprite for maintenance panel open
     sprite: Structures/Power/substation.rsi
     snapCardinals: true
@@ -213,6 +216,9 @@
     totalIntensity: 100
   - type: StationInfiniteBatteryTarget
   - type: WallMount
+  - type: Tag
+    tags:
+      - PulseDemonAbsorbable
 
 # Substations in use
 
@@ -241,6 +247,16 @@
   - type: Battery
     maxCharge: 2000000
     startingCharge: 2000000
+  - type: ContainerFill
+    containers:
+      board: [ WallmountSubstationElectronics ]
+      capacitor: [ CapacitorStockPart ]
+      powercell: [ PowerCellSmall ]
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+      capacitor: !type:Container
+      powercell: !type:Container
 
 # Construction Frame
 - type: entity

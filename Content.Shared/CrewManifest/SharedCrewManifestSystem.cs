@@ -54,12 +54,15 @@ public sealed class CrewManifestEntry
 
     public string JobPrototype { get; }
 
-    public CrewManifestEntry(string name, string jobTitle, string jobIcon, string jobPrototype)
+    public CrewManifestEntryStatus Status { get; }
+
+    public CrewManifestEntry(string name, string jobTitle, string jobIcon, string jobPrototype, CrewManifestEntryStatus status)
     {
         Name = name;
         JobTitle = jobTitle;
         JobIcon = jobIcon;
         JobPrototype = jobPrototype;
+        Status = status;
     }
 }
 
@@ -70,3 +73,11 @@ public sealed class CrewManifestEntry
 [Serializable, NetSerializable]
 public sealed class CrewManifestOpenUiMessage : BoundUserInterfaceMessage
 {}
+
+[Serializable, NetSerializable]
+public enum CrewManifestEntryStatus : byte
+{
+    Inactive,
+    Cryo,
+    Active
+}

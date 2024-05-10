@@ -8,11 +8,6 @@
         <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
             <SpriteView Name="CharSprite" Scale="8 8" VerticalAlignment="Center" />
             <RichTextLabel Name="Name" Margin="0 5 0 0" HorizontalAlignment="Center" />
-            <!-- <BoxContainer Name="ErpStatusBox"  Margin="0 5 0 0" Orientation="Horizontal"> -->
-            <!--     <Label Text="{Loc 'character-information-ui-erp-status'}"></Label> -->
-            <!--     <Label Text=" "></Label> -->
-            <!--     <RichTextLabel Name="ErpStatusText" /> -->
-            <!-- </BoxContainer> -->
         </BoxContainer>
 
         <PanelContainer Name="Separator" MinSize="2 5" MaxWidth="2" Margin="8 0 8 0">

@@ -6,6 +6,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: AndroidChargeTarget
   - type: AmbientOnPowered
   - type: AmbientSound
     volume: -9
@@ -81,8 +82,8 @@
   - type: ExtensionCableProvider
   - type: UserInterface
     interfaces:
-    - key: enum.ApcUiKey.Key
-      type: ApcBoundUserInterface
+      enum.ApcUiKey.Key:
+        type: ApcBoundUserInterface
   - type: ActivatableUI
     inHandsOnly: false
     singleUser: true
@@ -138,6 +139,10 @@
     priority: 1
   - type: StaticPrice
     price: 500
+  - type: Tag
+    tags:
+      - Apc
+      - PulseDemonAbsorbable
 
 # APC under construction
 - type: entity

@@ -1,4 +1,4 @@
-﻿using Content.Server.Examine;
+using Content.Server.Examine;
 using Content.Server.Preferences.Managers;
 using Content.Shared._WL.CharacterInformation;
 using Content.Shared.IdentityManagement;
@@ -36,7 +36,7 @@ public sealed class CharacterInformationSystem : EntitySystem
         {
             Act = () =>
             {
-                _userInterfaceSystem.TryOpen(args.User, CharacterInformationUiKey.Key, actor.PlayerSession);
+                _userInterfaceSystem.TryOpenUi(args.User, CharacterInformationUiKey.Key, args.User);
                 UpdateUI(args.User, args.Target);
             },
             Text = Loc.GetString("detail-examinable-verb-text"),
@@ -59,7 +59,7 @@ public sealed class CharacterInformationSystem : EntitySystem
             profile = (HumanoidCharacterProfile) _preferencesManager.GetPreferences(actor.PlayerSession.UserId).SelectedCharacter;
 
         var charName = Identity.Name(targetUid, EntityManager);
-        var state = new CharacterInformationBuiState(GetNetEntity(targetUid), charName, charInfo.FlavorText, profile?.OocText, profile?.ErpStatus);
-        _userInterfaceSystem.TrySetUiState(uid, CharacterInformationUiKey.Key, state);
+        var state = new CharacterInformationBuiState(GetNetEntity(targetUid), charName, charInfo.FlavorText, profile?.OocText);
+        _userInterfaceSystem.SetUiState(uid, CharacterInformationUiKey.Key, state);
     }
 }

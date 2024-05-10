@@ -4,7 +4,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
+    weight: 5
     startDelay: 10
     duration: 120
     earliestStart: 20
@@ -24,11 +24,13 @@
   noSpawn: true
   components:
     - type: StationEvent
-      weight: 6
+      weight: 3 # Corvax WL changes
       startDelay: 10
       duration: 240
-      minimumPlayers: 50
-      earliestStart: 40
+      spawnConfig:
+        standartConfig:
+           minPlayers: 40
+      earliestStart: 60 # Corvax WL changes
     - type: CargoGiftsRule
       description: cargo-gift-pizza-large
       sender: cargo-gift-default-sender
@@ -44,11 +46,13 @@
   noSpawn: true
   components:
     - type: StationEvent
-      weight: 4
+      weight: 5
       startDelay: 10
       duration: 240
-      earliestStart: 30
-      minimumPlayers: 10
+      earliestStart: 45 # Corvax WL changes
+      spawnConfig:
+        standartConfig:
+           minPlayers: 10
     - type: CargoGiftsRule
       description: cargo-gift-eng
       sender: cargo-gift-default-sender
@@ -70,8 +74,10 @@
       weight: 4
       startDelay: 10
       duration: 120
-      minimumPlayers: 40
-      earliestStart: 30
+      spawnConfig:
+        standartConfig:
+           minPlayers: 20
+      earliestStart: 45 # Corvax WL changes
     - type: CargoGiftsRule
       description: cargo-gift-vending
       sender: cargo-gift-default-sender
@@ -90,10 +96,12 @@
   noSpawn: true
   components:
     - type: StationEvent
-      weight: 8
+      weight: 6
       startDelay: 10
       duration: 120
-      minimumPlayers: 30
+      spawnConfig:
+        standartConfig:
+           minPlayers: 20 # Corvax WL changes
       earliestStart: 20
     - type: CargoGiftsRule
       description: cargo-gift-cleaning
@@ -113,8 +121,10 @@
       weight: 8
       startDelay: 10
       duration: 120
-      earliestStart: 20
-      minimumPlayers: 30
+      earliestStart: 30 # Corvax WL changes
+      spawnConfig:
+        standartConfig:
+           minPlayers: 20 # Corvax WL changes
     - type: CargoGiftsRule
       description: cargo-gift-medical-supply
       sender: cargo-gift-default-sender
@@ -132,11 +142,13 @@
   noSpawn: true
   components:
     - type: StationEvent
-      weight: 6
+      weight: 4
       startDelay: 10
       duration: 120
-      earliestStart: 10
-      minimumPlayers: 40
+      earliestStart: 30 # Corvax WL changes
+      spawnConfig:
+        standartConfig:
+           minPlayers: 25 # Corvax WL changes
     - type: CargoGiftsRule
       description: cargo-gift-space-protection
       sender: cargo-gift-default-sender
@@ -154,11 +166,13 @@
   noSpawn: true
   components:
     - type: StationEvent
-      weight: 3
+      weight: 4
       startDelay: 10
       duration: 120
-      earliestStart: 20
-      minimumPlayers: 40
+      earliestStart: 30 # Corvax WL changes
+      spawnConfig:
+        standartConfig:
+           minPlayers: 25 # Corvax WL changes
     - type: CargoGiftsRule
       description: cargo-gift-fire-protection
       sender: cargo-gift-default-sender
@@ -174,11 +188,13 @@
   noSpawn: true
   components:
     - type: StationEvent
-      weight: 2
+      weight: 3
       startDelay: 10
       duration: 120
-      earliestStart: 20
-      minimumPlayers: 50
+      earliestStart: 30 # Corvax WL changes
+      spawnConfig:
+        standartConfig:
+           minPlayers: 25 # Corvax WL changes
     - type: CargoGiftsRule
       description: cargo-gift-security-guns
       sender: cargo-gift-default-sender
@@ -198,8 +214,10 @@
       weight: 4
       startDelay: 10
       duration: 120
-      earliestStart: 20
-      minimumPlayers: 50
+      earliestStart: 30 # Corvax WL changes
+      spawnConfig:
+        standartConfig:
+           minPlayers: 25 # Corvax WL changes
     - type: CargoGiftsRule
       description: cargo-gift-security-riot
       sender: cargo-gift-default-sender

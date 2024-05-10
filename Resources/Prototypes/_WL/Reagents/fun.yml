@@ -95,7 +95,7 @@
       - !type:HealthChange
         damage:
           types:
-            Posion: 1
+            Poison: 1
       - !type:ChangeSpecies
         prototype: Slime
 
@@ -112,7 +112,7 @@
       - !type:HealthChange
         damage:
           types:
-            Posion: 4
+            Poison: 4
       - !type:Polymorph
         prototype: Slime
         conditions:
@@ -134,7 +134,7 @@
       - !type:HealthChange
         damage:
           types:
-            Posion: 1
+            Poison: 1
       - !type:ChangeSpecies
         prototype: Human
 
@@ -151,7 +151,7 @@
       - !type:HealthChange
         damage:
           types:
-            Posion: 1
+            Poison: 1
       - !type:ChangeSpecies
         prototype: Lizard
 

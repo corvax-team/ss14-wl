@@ -1,5 +1,5 @@
 - type: entity
   save: false
-  parent: [BaseMobGolem, BaseMob]
+  parent: [ BaseMobGolem, BaseMob ]
   id: MobGolem
   name: Урист МакГолем

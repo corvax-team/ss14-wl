@@ -2,11 +2,10 @@ using System.Linq;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Utility;
+using Content.Shared._WL.Store;
 
 namespace Content.Shared.Store;
 
@@ -17,11 +16,11 @@ namespace Content.Shared.Store;
 /// </summary>
 [Serializable, NetSerializable]
 [Virtual, DataDefinition]
-public partial class ListingData : IEquatable<ListingData>, ICloneable
+public partial class ListingData : IEquatable<ListingData>
 {
     [ViewVariables]
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; private set; } = string.Empty;
 
     /// <summary>
     /// The name of the listing. If empty, uses the entity's name (if present)
@@ -38,21 +37,28 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     /// <summary>
     /// The categories that this listing applies to. Used for filtering a listing for a store.
     /// </summary>
-    [DataField("categories", required: true, customTypeSerializer: typeof(PrototypeIdListSerializer<StoreCategoryPrototype>))]
-    public List<string> Categories = new();
+    [DataField("categories", required: true)]
+    public List<ProtoId<StoreCategoryPrototype>> Categories = new();
 
     /// <summary>
     /// The cost of the listing. String represents the currency type while the FixedPoint2 represents the amount of that currency.
     /// </summary>
-    [DataField("cost", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<FixedPoint2, CurrencyPrototype>))]
-    public Dictionary<string, FixedPoint2> Cost = new();
+    [DataField("cost")]
+    public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Cost = new();
 
     /// <summary>
     /// Specific customizeable conditions that determine whether or not the listing can be purchased.
     /// </summary>
     [NonSerialized]
     [DataField("conditions", serverOnly: true)]
-    public List<ListingCondition>? Conditions;
+    public List<ListingCondition>? Conditions = new List<ListingCondition>(); // Используйте скобки () // инициализация полем по умолчанию
+
+    /// <summary>
+    /// Sets a new value for each currency in the dictionary after purchase.
+    /// </summary>
+    [NonSerialized]
+    [DataField("priceModifyFunctions", serverOnly: true, customTypeSerializer: typeof(PrototypeIdDictionarySerializer<PriceModify, CurrencyPrototype>))]
+    public Dictionary<string, PriceModify> PriceModifyFunctions = new();
 
     /// <summary>
     /// The icon for the listing. If null, uses the icon for the entity or action.
@@ -95,11 +101,9 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     /// <summary>
     /// The event that is broadcast when the listing is purchased.
     /// </summary>
-    [DataField("productEvent")]
-    public object? ProductEvent;
-
-    [DataField]
-    public bool RaiseProductEventOnUser;
+    [NonSerialized]
+    [DataField("productEvents")]
+    public List<object> ProductEvents = new();
 
     /// <summary>
     /// used internally for tracking how many times an item was purchased.
@@ -123,7 +127,6 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             Description != listing.Description ||
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
-            ProductEvent?.GetType() != listing.ProductEvent?.GetType() ||
             RestockTime != listing.RestockTime)
             return false;
 
@@ -150,7 +153,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     /// DON'T BE DUMB AND MODIFY THE PROTOTYPES
     /// </summary>
     /// <returns>A unique copy of the listing data.</returns>
-    public object Clone()
+    public ListingData Clone()
     {
         return new ListingData
         {
@@ -158,7 +161,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             Name = Name,
             Description = Description,
             Categories = Categories,
-            Cost = Cost,
+            Cost = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(Cost),
             Conditions = Conditions,
             Icon = Icon,
             Priority = Priority,
@@ -166,9 +169,10 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductAction = ProductAction,
             ProductUpgradeID = ProductUpgradeID,
             ProductActionEntity = ProductActionEntity,
-            ProductEvent = ProductEvent,
+            ProductEvents = ProductEvents,
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
+            PriceModifyFunctions = new Dictionary<string, PriceModify>(PriceModifyFunctions)
         };
     }
 }
