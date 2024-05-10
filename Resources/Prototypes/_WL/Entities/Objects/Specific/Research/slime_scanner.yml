@@ -8,6 +8,7 @@
   - type: ItemSlots
     slots:
       cell_slot:
+        startingItem: PowerCellMedium
         name: power-cell-slot-component-slot-name-default
   - type: PowerCellDraw
     drawRate: 1
