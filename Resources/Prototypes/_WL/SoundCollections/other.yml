@@ -11,3 +11,8 @@
     path: /Audio/Effects/sparks2.ogg
   exclaimSound:
     path: /Audio/Effects/sparks3.ogg
+
+- type: soundCollection
+  id: BareFootCischi
+  files:
+    - /Audio/_WL/Voice/Cischi/barefoot1.ogg

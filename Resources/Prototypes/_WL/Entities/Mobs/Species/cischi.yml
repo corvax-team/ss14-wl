@@ -70,6 +70,12 @@
   - type: CischiAccent
   - type: ReplacementAccent
     accent: cischi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: BareFootCischi
+      params:
+        variation: 0.2
+        volume: -14
 
 - type: entity
   save: false
