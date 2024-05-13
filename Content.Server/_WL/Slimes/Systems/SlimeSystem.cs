@@ -1,6 +1,4 @@
 using Content.Server.Actions;
-using Content.Server.Body.Systems;
-using Content.Server.Chemistry.ReagentEffects.StatusEffects;
 using Content.Server.DoAfter;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
@@ -187,7 +185,7 @@ public sealed partial class SlimeSystem : EntitySystem
 
     private void OnInit(EntityUid uid, SlimeComponent comp, ComponentInit args)
     {
-        SetGrowStage(uid, comp.CurrentAge, comp, true, true, true, true);
+        SetGrowStage(uid, comp.CurrentAge, comp, true, true, true);
 
         comp.CurrentMutationProbability = _random.NextFloat(comp.MinMutationProbabilityBound, comp.MaxMutationProbabilityBound);
         comp.EatActionContainer = _actions.AddAction(uid, SlimeEatActionPrototype);
@@ -432,7 +430,6 @@ public sealed partial class SlimeSystem : EntitySystem
     public void SetGrowStage(EntityUid slime,
         SlimeLifeStage stage,
         SlimeComponent? slimeComponent = null,
-        bool addPrefix = true,
         bool addSpeedDebuff = true,
         bool addAttackBuffs = true,
         bool isShapeIncrease = true)
@@ -441,20 +438,6 @@ public sealed partial class SlimeSystem : EntitySystem
             return;
 
         slimeComponent.CurrentAge = stage;
-
-        //Prefix
-        if (addPrefix && TryComp<MetaDataComponent>(slime, out var metadata))
-        {
-            var prefix = Enum.GetName(stage)?.ToString().ToLower();
-            var name = metadata.EntityPrototype?.Name;
-            var identifier = "";
-            if (TryComp<NameIdentifierComponent>(slime, out var nameIdentifierComp))
-                identifier = nameIdentifierComp.FullIdentifier.ToString();
-
-            //shit
-            if (name != null && prefix != null)
-                _metaData.SetEntityName(slime, (GetLocLifeStage(slimeComponent.CurrentAge).ToLower() + " " + name + " " + identifier).TrimEnd(), metadata);
-        }
 
         if (stage is SlimeLifeStage.Humanoid)
             return;

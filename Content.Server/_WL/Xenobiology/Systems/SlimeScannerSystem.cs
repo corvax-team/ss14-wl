@@ -159,9 +159,6 @@ public sealed class SlimeScannerSystem : EntitySystem
 
     public void UpdateScannedUser(EntityUid scanner, EntityUid? slime, int relationshipPoints)
     {
-        if (!_uiSystem.TryGetOpenUi(scanner, SlimeScannerUiKey.Key, out _))
-            return;
-
         if (slime != null &&
             TryComp<SlimeComponent>(slime, out var slimeComp) &&
             TryComp<MobStateComponent>(slime, out var mobState) && mobState.CurrentState is not Shared.Mobs.MobState.Dead)
