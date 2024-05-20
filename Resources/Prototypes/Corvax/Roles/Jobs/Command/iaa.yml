@@ -2,6 +2,8 @@
   id: IAA
   name: job-name-iaa
   playTimeTracker: JobIAA
+  blockForRaces:
+  - Felinid
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command

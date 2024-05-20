@@ -3,6 +3,8 @@
   name: job-name-security
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
+  blockForRaces:
+  - Felinid
   subnames:
   - офицер охраны
   - оперативник СБ

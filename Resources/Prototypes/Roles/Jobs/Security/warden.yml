@@ -3,6 +3,8 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobWarden
+  blockForRaces:
+  - Felinid
   subnames:
   - надзиратель
   - сержант охраны

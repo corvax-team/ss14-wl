@@ -2,6 +2,8 @@
   id: Pilot
   name: job-name-pilot
   playTimeTracker: JobPilot
+  blockForRaces:
+  - Felinid
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security

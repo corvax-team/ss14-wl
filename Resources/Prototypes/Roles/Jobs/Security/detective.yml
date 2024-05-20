@@ -3,6 +3,8 @@
   name: job-name-detective
   description: job-description-detective
   playTimeTracker: JobDetective
+  blockForRaces:
+  - Felinid
   subnames:
   - криминалист
   - судмедэксперт

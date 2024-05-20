@@ -3,6 +3,8 @@
   name: job-name-hos
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
+  blockForRaces:
+  - Felinid
   subnames:
   - шериф
   requirements:

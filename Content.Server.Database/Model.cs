@@ -93,6 +93,10 @@ namespace Content.Server.Database
                 .HasIndex(j => new { j.ProfileId, j.JobName })
                 .IsUnique();
 
+            modelBuilder.Entity<JobForcedEnable>()
+                .HasIndex(j => new { j.ProfileId, j.JobName })
+                .IsUnique();
+
             modelBuilder.Entity<AssignedUserId>()
                 .HasIndex(p => p.UserName)
                 .IsUnique();
@@ -367,6 +371,7 @@ namespace Content.Server.Database
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
         public List<JobSubname> JobSubnames { get; } = new();
+        public List<JobForcedEnable> JobForcedEnables { get; } = new();
 
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
@@ -384,6 +389,16 @@ namespace Content.Server.Database
 
         public string JobName { get; set; } = null!;
         public DbJobPriority Priority { get; set; }
+    }
+
+    public class JobForcedEnable
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string JobName { get; set; } = null!;
+        public int IsForcedEnable { get; set; }
     }
 
     public class JobSubname

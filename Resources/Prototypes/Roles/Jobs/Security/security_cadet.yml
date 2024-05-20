@@ -3,6 +3,8 @@
   name: job-name-cadet
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
+  blockForRaces:
+  - Felinid
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 #10 hrs # Corvax-RoleTime

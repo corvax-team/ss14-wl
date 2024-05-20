@@ -3,6 +3,8 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
+  blockForRaces:
+  - Felinid
   subnames:
   - начальник снабжения
   requirements:

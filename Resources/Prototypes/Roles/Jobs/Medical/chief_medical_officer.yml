@@ -5,6 +5,8 @@
   name: job-name-cmo
   description: job-description-cmo
   playTimeTracker: JobChiefMedicalOfficer
+  blockForRaces:
+  - Felinid
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist

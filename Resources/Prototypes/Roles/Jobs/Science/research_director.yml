@@ -3,6 +3,8 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
+  blockForRaces:
+  - Felinid
   subnames:
   - директор исследований
   requirements:

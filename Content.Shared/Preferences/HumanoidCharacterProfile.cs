@@ -36,6 +36,15 @@ namespace Content.Shared.Preferences
         [DataField]
         private Dictionary<string, string> _jobSubnames = new();
 
+        [DataField]
+        private Dictionary<string, bool> _jobForcedEnables = new();
+
+        [DataField]
+        public string OocText { get; private set; } = ""; // WL-OOCText
+
+        [DataField("height")]
+        public int Height { get; private set; } = 150; // WL-Height
+
         /// <summary>
         /// Job preferences for initial spawn.
         /// </summary>
@@ -126,6 +135,10 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlySet<string> TraitPreferences => _traitPreferences;
 
+        public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames; // WL-Subnames
+
+        public IReadOnlyDictionary<string, bool> JobsForcedEnables => _jobForcedEnables; // WL-BlockRolesForSpecies
+
         /// <summary>
         /// If we're unable to get one of our preferred jobs do we spawn as a fallback job or do we stay in lobby.
         /// </summary>
@@ -152,7 +165,8 @@ namespace Content.Shared.Preferences
 
             HashSet<string> antagPreferences,
             HashSet<string> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            Dictionary<string, bool> jobsForcedEnables)
         {
             Name = name;
             FlavorText = flavortext;
@@ -171,6 +185,7 @@ namespace Content.Shared.Preferences
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
             _jobSubnames = jobSubnames;
+            _jobForcedEnables = jobsForcedEnables;
         }
 
 
@@ -192,7 +207,8 @@ namespace Content.Shared.Preferences
                 new Dictionary<string, string>(other.JobSubnames),
                 new HashSet<string>(other.AntagPreferences),
                 new HashSet<string>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                new Dictionary<string, bool>(other.JobsForcedEnables))
         {
         }
 
@@ -281,13 +297,6 @@ namespace Content.Shared.Preferences
             };
         }
 
-        [DataField] public string OocText { get; private set; } = ""; // WL-OOCText
-
-        [DataField("height")] public int Height { get; private set; } = 150; // WL-Height
-
-        public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames;
-
-
         public HumanoidCharacterProfile WithName(string name)
         {
             return new(this) { Name = name };
@@ -366,6 +375,18 @@ namespace Content.Shared.Preferences
             return new(this)
             {
                 _jobSubnames = dict
+            };
+        }
+
+        public HumanoidCharacterProfile WithJobForcedEnable(string jobId, bool value)
+        {
+            var dict = new Dictionary<string, bool>(_jobForcedEnables);
+
+            dict[jobId] = value;
+
+            return new(this)
+            {
+                _jobForcedEnables = dict
             };
         }
 
@@ -463,6 +484,7 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (!_jobSubnames.SequenceEqual(other._jobSubnames)) return false; // WL-JobSubnames
+            if (!_jobForcedEnables.SequenceEqual(other._jobForcedEnables)) return false; // WL-JobSubnames
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -685,6 +707,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(_jobSubnames);
             hashCode.Add(Height);
             hashCode.Add(OocText);
+            hashCode.Add(_jobForcedEnables);
             return hashCode.ToHashCode();
         }
 

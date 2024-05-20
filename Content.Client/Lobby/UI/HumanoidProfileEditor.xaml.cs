@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -262,6 +263,7 @@ namespace Content.Client.Lobby.UI
                     return;
 
                 SetAge(newAge);
+                RefreshJobs();
             };
 
             #endregion Age
@@ -315,6 +317,7 @@ namespace Content.Client.Lobby.UI
                 SetSpecies(_species[args.Id].ID);
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
+                RefreshJobs();
             };
 
             #region Skin
@@ -1026,6 +1029,33 @@ namespace Content.Client.Lobby.UI
             }
         }
 
+        private bool IsJobAllowed(JobPrototype job, out FormattedMessage reason)
+        {
+            reason = new();
+
+            if (Profile == null)
+                return true;
+
+            if (Profile.JobsForcedEnables.TryGetValue(job.ID, out var value) && value == true)
+                return true;
+
+            var minAge = Profile.Age < job.MinAge;
+            var maxAge = Profile.Age > job.MaxAge;
+            var race = job.BlockForRaces.Contains(Profile.Species);
+
+            if (minAge || maxAge || race)
+            {
+                if (minAge || maxAge)
+                    reason.PushMarkup($"Возраст вашего [color=yellow]персонажа[/color] должен находиться в пределах от {minAge} до {maxAge}!");
+                if (race)
+                    reason.PushMarkup("Данная должность заблокирована для выбранной вами расы!");
+
+                return false;
+            }
+
+            return true;
+        }
+
         /// <summary>
         /// Refreshes all job selectors.
         /// </summary>
@@ -1121,6 +1151,10 @@ namespace Content.Client.Lobby.UI
                     if (!_requirements.IsAllowed(job, out var reason))
                     {
                         selector.LockRequirements(reason);
+                    }
+                    else if (!IsJobAllowed(job, out var secondReason))
+                    {
+                        selector.LockRequirements(secondReason);
                     }
                     else
                     {

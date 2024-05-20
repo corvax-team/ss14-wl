@@ -1,4 +1,5 @@
 using Content.Shared.Access;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
@@ -31,12 +32,32 @@ namespace Content.Shared.Roles
         [ViewVariables(VVAccess.ReadOnly)]
         public string LocalizedName => Loc.GetString(Name);
 
+        // WL-Subnames-start: Pupchansky
+
         /// <summary>
         ///     The possible names of this job.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
         [DataField("subnames")]
         public List<string> Subnames { get; private set; } = new();
+
+        // WL-Subnames-end: Pupchansky
+
+        // WL-BlockJobs-start: Pupchansky
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<SpeciesPrototype>))]
+        public List<string> BlockForRaces { get; private set; } = new();
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        [DataField]
+        public int MinAge { get; private set; } = 18;
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        [DataField]
+        public int MaxAge { get; private set; } = 666;
+
+        // WL-BlockJobs-end: Pupchansky
 
         /// <summary>
         ///     The name of this job as displayed to players.

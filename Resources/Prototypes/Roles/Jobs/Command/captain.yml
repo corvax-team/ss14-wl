@@ -3,6 +3,8 @@
   name: job-name-captain
   description: job-description-captain
   playTimeTracker: JobCaptain
+  blockForRaces:
+  - Felinid
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

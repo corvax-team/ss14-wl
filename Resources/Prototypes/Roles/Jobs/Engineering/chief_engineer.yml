@@ -3,6 +3,8 @@
   description: job-description-ce
   name: job-name-ce
   playTimeTracker: JobChiefEngineer
+  blockForRaces:
+  - Felinid
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician

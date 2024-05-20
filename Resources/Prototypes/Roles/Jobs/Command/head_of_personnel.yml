@@ -3,6 +3,8 @@
   name: job-name-hop
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
+  blockForRaces:
+  - Felinid
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

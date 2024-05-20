@@ -44,6 +44,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.JobSubnames)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                .Include(p => p.Profiles).ThenInclude(h => h.JobForcedEnables)
                 .Include(p => p.Profiles)
                     .ThenInclude(h => h.Loadouts)
                     .ThenInclude(l => l.Groups)
@@ -95,6 +96,7 @@ namespace Content.Server.Database
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)
                 .Include(p => p.JobSubnames)
+                .Include(p => p.JobForcedEnables)
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
                 .Include(p => p.Loadouts)
@@ -267,7 +269,8 @@ namespace Content.Server.Database
                 jobSubnames,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                profile.JobForcedEnables.ToDictionary(x => x.JobName, x => x.IsForcedEnable switch { 1 => true, 0 => false, _ => false })
             );
         }
 
@@ -301,6 +304,12 @@ namespace Content.Server.Database
             profile.Markings = markings;
             profile.Slot = slot;
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
+
+            profile.JobForcedEnables.Clear();
+            profile.JobForcedEnables.AddRange(
+                humanoid.JobsForcedEnables
+                    .Select(j => new JobForcedEnable() { JobName = j.Key, IsForcedEnable = j.Value switch { true => 1, false => 0 } })
+            );
 
             profile.Jobs.Clear();
             profile.Jobs.AddRange(
