@@ -1,7 +1,9 @@
 using Content.Server.Administration;
+using Content.Server.Administration.Logs;
 using Content.Server.Preferences.Managers;
 using Content.Shared._WL.Commands.Events;
 using Content.Shared.Administration;
+using Content.Shared.Database;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Player;
@@ -19,6 +21,7 @@ namespace Content.Server._WL.Commands
         [Dependency] private readonly IPlayerManager _playMan = default!;
         [Dependency] private readonly IServerPreferencesManager _prefMan = default!;
         [Dependency] private readonly IPrototypeManager _protoMan = default!;
+        [Dependency] private readonly IAdminLogManager _adminLogMan = default!;
 
         public override string Command => "forceenablejob";
         public override string Description => "Позволяет включить/выключить проверку на расу и возраст для должности определенного игрока.";
@@ -97,6 +100,14 @@ namespace Content.Server._WL.Commands
                 var newProfile = profile.Item2.WithJobForcedEnable(args[2], boolean);
                 forceEnableSys.Save(session, newProfile, profile.Key);
             }
+
+            if (shell.Player != null)
+                _adminLogMan.Add(LogType.Chat, LogImpact.High,
+                    $"{shell.Player.Name} {boolean switch
+                    {
+                        true => "включил",
+                        false => "отключил"
+                    }} проверку на возраст и расу для должности {args[2]} у игрока {session.Name}");
         }
     }
 
