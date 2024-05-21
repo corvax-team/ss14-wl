@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pinkchip6"
+    },
+    {
+      "name": "pinkchip7"
+    },
+    {
+      "name": "pokercaseclose"
+    },
+    {
+      "name": "pokercaseopen"
+    },
+    {
+      "name": "purplechip"
+    },
+    {
+      "name": "purplechip2"
+    },
+    {
+      "name": "purplechip3"
+    },
+    {
+      "name": "purplechip4"
+    },
+    {
+      "name": "purplechip5"
+    },
+    {
+      "name": "purplechip6"
+    },
+    {
+      "name": "purplechip7"
+    },
+    {
+      "name": "redchip"
+    },
+    {
+      "name": "redchip2"
+    },
+    {
+      "name": "redchip3"
+    },
+    {
+      "name": "redchip4"
+    },
+    {
+      "name": "redchip5"
+    },
+    {
+      "name": "redchip6"
+    },
+    {
+      "name": "redchip7"
+    },
+    {
+      "name": "yellowchip"
+    },
+    {
+      "name": "yellowchip2"
+    },
+    {
+      "name": "yellowchip3"
+    },
+    {
+      "name": "yellowchip4"
+    },
+    {
+      "name": "yellowchip5"
+    },
+    {
+      "name": "yellowchip6"
+    },
+    {
+      "name": "yellowchip7"
+    },
+    {
+      "name": "azurechip"
+    },
+    {
+      "name": "azurechip2"
+    },
+    {
+      "name": "azurechip3"
+    },
+    {
+      "name": "azurechip4"
+    },
+    {
+      "name": "azurechip5"
+    },
+    {
+      "name": "azurechip6"
+    },
+    {
+      "name": "azurechip7"
+    },
+    {
+      "name": "bluechip"
+    },
+    {
+      "name": "bluechip2"
+    },
+    {
+      "name": "bluechip3"
+    },
+    {
+      "name": "bluechip4"
+    },
+    {
+      "name": "bluechip5"
+    },
+    {
+      "name": "bluechip6"
+    },
+    {
+      "name": "bluechip7"
+    },
+    {
+      "name": "greenchip"
+    },
+    {
+      "name": "greenchip2"
+    },
+    {
+      "name": "greenchip3"
+    },
+    {
+      "name": "greenchip4"
+    },
+    {
+      "name": "greenchip5"
+    },
+    {
+      "name": "greenchip6"
+    },
+    {
+      "name": "greenchip7"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "pinkchip"
+    },
+    {
+      "name": "pinkchip2"
+    },
+    {
+      "name": "pinkchip3"
+    },
+    {
+      "name": "pinkchip4"
+    },
+    {
+      "name": "pinkchip5"
+    }
+  ]
+}

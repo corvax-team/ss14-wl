@@ -182,6 +182,8 @@
         amount: 6
       - id: PaperCNCSheet
         amount: 6
+      - id: PokerCardBoxFilled
+      - id: ChipsCaseFilled
 
 - type: entity
   id: CrateFunSadTromboneImplants

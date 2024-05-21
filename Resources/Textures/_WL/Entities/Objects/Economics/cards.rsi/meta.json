@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "9diamonds"
+    },
+    {
+      "name": "9heart"
+    },
+    {
+      "name": "9tref"
+    },
+    {
+      "name": "10clubs"
+    },
+    {
+      "name": "10diamonds"
+    },
+    {
+      "name": "10heart"
+    },
+    {
+      "name": "10tref"
+    },
+    {
+      "name": "jackclubs"
+    },
+    {
+      "name": "jackdiamonds"
+    },
+    {
+      "name": "jackheart"
+    },
+    {
+      "name": "jacktref"
+    },
+    {
+      "name": "kingclubs"
+    },
+    {
+      "name": "kingdiamonds"
+    },
+    {
+      "name": "kingheart"
+    },
+    {
+      "name": "kingtref"
+    },
+    {
+      "name": "package"
+    },
+    {
+      "name": "queenclubs"
+    },
+    {
+      "name": "queendiamonds"
+    },
+    {
+      "name": "queenheart"
+    },
+    {
+      "name": "queentref"
+    },
+    {
+      "name": "rubashka"
+    },
+    {
+      "name": "1clubs"
+    },
+    {
+      "name": "1diamonds"
+    },
+    {
+      "name": "1heart"
+    },
+    {
+      "name": "1tref"
+    },
+    {
+      "name": "2clubs"
+    },
+    {
+      "name": "2diamonds"
+    },
+    {
+      "name": "2heart"
+    },
+    {
+      "name": "2tref"
+    },
+    {
+      "name": "3clubs"
+    },
+    {
+      "name": "3diamonds"
+    },
+    {
+      "name": "3heart"
+    },
+    {
+      "name": "3tref"
+    },
+    {
+      "name": "4clubs"
+    },
+    {
+      "name": "4diamonds"
+    },
+    {
+      "name": "4heart"
+    },
+    {
+      "name": "4tref"
+    },
+    {
+      "name": "5clubs"
+    },
+    {
+      "name": "5diamonds"
+    },
+    {
+      "name": "5heart"
+    },
+    {
+      "name": "5tref"
+    },
+    {
+      "name": "6clubs"
+    },
+    {
+      "name": "6diamonds"
+    },
+    {
+      "name": "6heart"
+    },
+    {
+      "name": "6tref"
+    },
+    {
+      "name": "7clubs"
+    },
+    {
+      "name": "7diamonds"
+    },
+    {
+      "name": "7heart"
+    },
+    {
+      "name": "7tref"
+    },
+    {
+      "name": "8clubs"
+    },
+    {
+      "name": "8diamonds"
+    },
+    {
+      "name": "8heart"
+    },
+    {
+      "name": "8tref"
+    },
+    {
+      "name": "9clubs"
+    }
+  ]
+}

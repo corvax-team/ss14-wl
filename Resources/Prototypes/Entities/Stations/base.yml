@@ -3,6 +3,8 @@
   abstract: true
   components:
     - type: StationData
+    - type: StationType
+      stationType: Research
 
 - type: entity
   id: BaseRandomStation
@@ -14,7 +16,8 @@
   id: BaseStationCargo
   abstract: true
   components:
-    - type: StationBankAccount
+    - type: BankAccountHolder
+    - type: EconomicsUser
     - type: StationCargoOrderDatabase
     - type: StationCargoBountyDatabase
 

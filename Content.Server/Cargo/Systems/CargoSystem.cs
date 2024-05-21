@@ -19,6 +19,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
+using Content.Server._WL.Economics.Components;
 
 namespace Content.Server.Cargo.Systems;
 
@@ -78,9 +79,9 @@ public sealed partial class CargoSystem : SharedCargoSystem
     }
 
     [PublicAPI]
-    public void UpdateBankAccount(EntityUid uid, StationBankAccountComponent component, int balanceAdded)
+    public void UpdateBankAccount(EntityUid uid, BankAccountHolderComponent component, int balanceAdded)
     {
-        component.Balance += balanceAdded;
+        component.Account.AdjustBalance(balanceAdded);
         var query = EntityQueryEnumerator<CargoOrderConsoleComponent>();
 
         while (query.MoveNext(out var oUid, out var _))

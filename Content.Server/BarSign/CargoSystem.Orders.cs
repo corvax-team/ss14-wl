@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Server._WL.Economics.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Paper;
@@ -53,7 +54,7 @@ namespace Content.Server.Cargo.Systems
 
             var stationUid = _station.GetOwningStation(args.Used);
 
-            if (!TryComp(stationUid, out StationBankAccountComponent? bank))
+            if (!TryComp(stationUid, out BankAccountHolderComponent? bank))
                 return;
 
             _audio.PlayPvs(component.ConfirmSound, uid);
@@ -81,11 +82,6 @@ namespace Content.Server.Cargo.Systems
             while (_timer > Delay)
             {
                 _timer -= Delay;
-
-                foreach (var account in EntityQuery<StationBankAccountComponent>())
-                {
-                    account.Balance += account.IncreasePerSecond * Delay;
-                }
 
                 var query = EntityQueryEnumerator<CargoOrderConsoleComponent>();
                 while (query.MoveNext(out var uid, out var _))
@@ -115,7 +111,7 @@ namespace Content.Server.Cargo.Systems
             var station = _station.GetOwningStation(uid);
 
             // No station to deduct from.
-            if (!TryComp(station, out StationBankAccountComponent? bank) ||
+            if (!TryComp(station, out BankAccountHolderComponent? bank) ||
                 !TryComp(station, out StationDataComponent? stationData) ||
                 !TryGetOrderDatabase(station, out var orderDatabase))
             {
@@ -163,7 +159,7 @@ namespace Content.Server.Cargo.Systems
             var cost = order.Price * order.OrderQuantity;
 
             // Not enough balance
-            if (cost > bank.Balance)
+            if (cost > bank.Account.Balance)
             {
                 ConsolePopup(args.Actor, Loc.GetString("cargo-console-insufficient-funds", ("cost", cost)));
                 PlayDenySound(uid, component);
@@ -204,10 +200,10 @@ namespace Content.Server.Cargo.Systems
 
             // Log order approval
             _adminLogger.Add(LogType.Action, LogImpact.Low,
-                $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] with balance at {bank.Balance}");
+                $"{ToPrettyString(player):user} approved order [orderId:{order.OrderId}, quantity:{order.OrderQuantity}, product:{order.ProductId}, requester:{order.Requester}, reason:{order.Reason}] with balance at {bank.Account.Balance}");
 
             orderDatabase.Orders.Remove(order);
-            DeductFunds(bank, cost);
+            bank.Account.AdjustBalance(-cost);
             UpdateOrders(station.Value);
         }
 
@@ -317,7 +313,7 @@ namespace Content.Server.Cargo.Systems
         {
             if (station == null ||
                 !TryComp<StationCargoOrderDatabaseComponent>(station, out var orderDatabase) ||
-                !TryComp<StationBankAccountComponent>(station, out var bankAccount)) return;
+                !TryComp<BankAccountHolderComponent>(station, out var bankAccount)) return;
 
             if (_uiSystem.HasUi(consoleUid, CargoConsoleUiKey.Orders))
             {
@@ -325,7 +321,7 @@ namespace Content.Server.Cargo.Systems
                     MetaData(station.Value).EntityName,
                     GetOutstandingOrderCount(orderDatabase),
                     orderDatabase.Capacity,
-                    bankAccount.Balance,
+                    (int) bankAccount.Account.Balance,
                     orderDatabase.Orders
                 ));
             }
@@ -515,11 +511,6 @@ namespace Content.Server.Cargo.Systems
 
             return true;
 
-        }
-
-        private void DeductFunds(StationBankAccountComponent component, int amount)
-        {
-            component.Balance = Math.Max(0, component.Balance - amount);
         }
 
         #region Station

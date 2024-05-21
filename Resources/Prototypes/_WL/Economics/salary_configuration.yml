@@ -1,0 +1,25 @@
+- type: salaryConfiguration
+  id: SalaryConfiguration
+  interval: 1.0 # В секундах
+  coefficients:
+  - !type:JobWageCoefficient
+    jobs:
+      SecurityOfficer: 1.1
+      MedicalDoctor: 1.1
+      Psychologist: 1.1
+      Chemist: 1.2
+      AtmosphericTechnician: 1.2
+      StationEngineer: 1.2
+      SalvageSpecialist: 1.2
+      Paramedic: 1.3
+      Detective: 1.3
+      Pilot: 1.3
+      Scientist: 1.3
+      HeadOfPersonnel: 1.4
+      Quartermaster: 1.4
+      Warden: 1.5
+      ChiefEngineer: 1.8
+      ResearchDirector: 1.8
+      ChiefMedicalOfficer: 1.8
+      HeadOfSecurity: 1.8
+      Captain: 2.5
