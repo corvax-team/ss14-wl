@@ -5,7 +5,7 @@ namespace Content.Shared._WL.Economics
 {
     [UsedImplicitly]
     [Serializable, NetSerializable]
-    public sealed partial class BankAccount : IEquatable<BankAccount>
+    public sealed class BankAccount : IEquatable<BankAccount>
     {
         private readonly SharedEconomicSystem _ecoSystem;
 

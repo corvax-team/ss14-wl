@@ -3,6 +3,7 @@
   parent: BaseStorageItem
   name: card bin
   description: What secrets lie at the bottom of its endless stack?
+  abstract: true
   components:
   - type: PokerCardContainer
   - type: Storage
@@ -12,6 +13,7 @@
     whitelist:
       tags:
         - PlayableCard
+        - TarotCard
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:

@@ -11,6 +11,9 @@ namespace Content.Server._WL.Economics.Components
         [DataField]
         public string FlippedCardName = "перевёрнутая карта";
 
+        [DataField]
+        public bool FlipPopup = true;
+
         public string OriginalName = "";
     }
 }

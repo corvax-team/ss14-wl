@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites taken from https://github.com/goonstation/goonstation/blob/927e9065e58c0317fc6f82d092732e3ef33dbfff/icons/obj/items/playing_card.dmi and modified by Figleo for Corvax WL",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "tarot-1-1"
+    },
+    {
+      "name": "tarot-1-2"
+    },
+    {
+      "name": "tarot-1-3"
+    },
+    {
+      "name": "tarot-1-4"
+    },
+    {
+      "name": "tarot-1-5"
+    },
+    {
+      "name": "tarot-1-6"
+    },
+    {
+      "name": "tarot-1-7"
+    },
+    {
+      "name": "tarot-1-8"
+    },
+    {
+      "name": "tarot-1-9"
+    },
+    {
+      "name": "tarot-1-10"
+    },
+    {
+      "name": "tarot-1-11"
+    },
+    {
+      "name": "tarot-1-12"
+    },
+    {
+      "name": "tarot-1-13"
+    },
+    {
+      "name": "tarot-1-14"
+    },
+    {
+      "name": "tarot-2-1"
+    },
+    {
+      "name": "tarot-2-2"
+    },
+    {
+      "name": "tarot-2-3"
+    },
+    {
+      "name": "tarot-2-4"
+    },
+    {
+      "name": "tarot-2-5"
+    },
+    {
+      "name": "tarot-2-6"
+    },
+    {
+      "name": "tarot-2-7"
+    },
+    {
+      "name": "tarot-2-8"
+    },
+    {
+      "name": "tarot-2-9"
+    },
+    {
+      "name": "tarot-2-10"
+    },
+    {
+      "name": "tarot-2-11"
+    },
+    {
+      "name": "tarot-2-12"
+    },
+    {
+      "name": "tarot-2-13"
+    },
+    {
+      "name": "tarot-2-14"
+    },
+    {
+      "name": "tarot-3-1"
+    },
+    {
+      "name": "tarot-3-2"
+    },
+    {
+      "name": "tarot-3-3"
+    },
+    {
+      "name": "tarot-3-4"
+    },
+    {
+      "name": "tarot-3-5"
+    },
+    {
+      "name": "tarot-3-6"
+    },
+    {
+      "name": "tarot-3-7"
+    },
+    {
+      "name": "tarot-3-8"
+    },
+    {
+      "name": "tarot-3-9"
+    },
+    {
+      "name": "tarot-3-10"
+    },
+    {
+      "name": "tarot-3-11"
+    },
+    {
+      "name": "tarot-3-12"
+    },
+    {
+      "name": "tarot-3-13"
+    },
+    {
+      "name": "tarot-3-14"
+    },
+    {
+      "name": "tarot-4-1"
+    },
+    {
+      "name": "tarot-4-2"
+    },
+    {
+      "name": "tarot-4-3"
+    },
+    {
+      "name": "tarot-4-4"
+    },
+    {
+      "name": "tarot-4-5"
+    },
+    {
+      "name": "tarot-4-6"
+    },
+    {
+      "name": "tarot-4-7"
+    },
+    {
+      "name": "tarot-4-8"
+    },
+    {
+      "name": "tarot-4-9"
+    },
+    {
+      "name": "tarot-4-10"
+    },
+    {
+      "name": "tarot-4-11"
+    },
+    {
+      "name": "tarot-4-12"
+    },
+    {
+      "name": "tarot-4-13"
+    },
+    {
+      "name": "tarot-4-14"
+    },
+    {
+      "name": "tarot-5-1"
+    },
+    {
+      "name": "tarot-5-2"
+    },
+    {
+      "name": "tarot-5-3"
+    },
+    {
+      "name": "tarot-5-4"
+    },
+    {
+      "name": "tarot-5-5"
+    },
+    {
+      "name": "tarot-5-6"
+    },
+    {
+      "name": "tarot-5-7"
+    },
+    {
+      "name": "tarot-5-8"
+    },
+    {
+      "name": "tarot-5-9"
+    },
+    {
+      "name": "tarot-5-10"
+    },
+    {
+      "name": "tarot-5-11"
+    },
+    {
+      "name": "tarot-5-12"
+    },
+    {
+      "name": "tarot-5-13"
+    },
+    {
+      "name": "tarot-5-14"
+    },
+    {
+      "name": "tarot-5-15"
+    },
+    {
+      "name": "tarot-5-16"
+    },
+    {
+      "name": "tarot-5-17"
+    },
+    {
+      "name": "tarot-5-18"
+    },
+    {
+      "name": "tarot-5-19"
+    },
+    {
+      "name": "tarot-5-20"
+    },
+    {
+      "name": "tarot-5-21"
+    },
+    {
+      "name": "tarot-5-22"
+    },
+    {
+      "name": "tarot-back"
+    }
+  ]
+}

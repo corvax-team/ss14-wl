@@ -92,7 +92,8 @@ namespace Content.Server._WL.Economics.Systems
                     if (_container.RemoveEntity(cardBox, pickedCard, containerManagerComp, force: true))
                         _hands.TryPickupAnyHand(args.User, pickedCard, animateUser: true);
 
-                    _popup.PopupEntity($"{Identity.Name(args.User, EntityManager)} вытащил карту из колоды.", cardBox);
+                    if (comp.TakePopup)
+                        _popup.PopupEntity($"{Identity.Name(args.User, EntityManager)} вытащил карту из колоды.", cardBox);
                 },
                 IconEntity = GetNetEntity(cardBox),
                 Priority = -1,
@@ -126,7 +127,7 @@ namespace Content.Server._WL.Economics.Systems
                 _appearance.SetData(card, PokerCardState.IsFlipped, false);
                 _metaData.SetEntityName(card, comp.OriginalName);
 
-                if (user != null)
+                if (user != null && comp.FlipPopup)
                     _popup.PopupEntity($"{Identity.Name(user.Value, EntityManager)} вскрыл карту!", card);
             }
             else

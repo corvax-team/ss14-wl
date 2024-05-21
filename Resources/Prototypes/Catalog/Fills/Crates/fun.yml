@@ -182,8 +182,9 @@
         amount: 6
       - id: PaperCNCSheet
         amount: 6
-      - id: PokerCardBoxFilled
-      - id: ChipsCaseFilled
+      - id: PokerCardBoxFilled # WL-economics
+      - id: ChipsCaseFilled # WL-economics
+      - id: TarotCardBox # WL-economics
 
 - type: entity
   id: CrateFunSadTromboneImplants

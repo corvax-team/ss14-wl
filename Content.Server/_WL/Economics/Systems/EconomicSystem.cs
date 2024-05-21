@@ -3,6 +3,7 @@ using Content.Server._WL.Economics.Prototypes;
 using Content.Server.Medical.SuitSensors;
 using Content.Server.Station.Systems;
 using Content.Shared._WL.Economics;
+using Content.Shared._WL.Economics.Components;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;

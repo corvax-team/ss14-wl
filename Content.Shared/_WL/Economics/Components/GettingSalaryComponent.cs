@@ -5,7 +5,6 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._WL.Economics.Components
 {
     [RegisterComponent, NetworkedComponent]
-    [NetSerializable, Serializable]
     [AutoGenerateComponentState]
     public sealed partial class GettingSalaryComponent : Component
     {

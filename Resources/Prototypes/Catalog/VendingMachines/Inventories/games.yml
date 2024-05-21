@@ -17,5 +17,6 @@
     PaperCNCSheet: 6
     MysteryFigureBox: 2
     BooksBag: 3
-    ChipsCaseFilled: 2
-    PokerCardBoxFilled: 5
+    ChipsCaseFilled: 2 # WL-economics
+    PokerCardBoxFilled: 5 # WL-economics
+    TarotCardBox: 2 # WL-economics

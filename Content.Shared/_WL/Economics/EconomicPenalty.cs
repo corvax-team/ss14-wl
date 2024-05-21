@@ -1,9 +1,13 @@
+using Robust.Shared.Network;
+using Robust.Shared.Serialization;
+
 namespace Content.Shared._WL.Economics
 {
+    [Serializable, NetSerializable]
     public readonly record struct EconomicPenalty(
         float Coefficient,
-        EntityUid PenaltyTarget,
+        NetEntity PenaltyTarget,
         string Reason,
         TimeSpan? RemoveTime = null,
-        EntityUid? User = null);
+        NetEntity? User = null);
 }
