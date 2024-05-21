@@ -6,7 +6,8 @@
   subnames:
   - шахтёр
   - старатель
-  - полевой исследователь
+  - исследователь
+  - пилот-исследователь
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo

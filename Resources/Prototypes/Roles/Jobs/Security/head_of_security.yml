@@ -3,6 +3,8 @@
   name: job-name-hos
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
+  subnames:
+  - шериф
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden

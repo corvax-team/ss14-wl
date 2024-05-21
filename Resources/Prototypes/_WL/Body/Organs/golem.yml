@@ -6,6 +6,9 @@
   - type: Sprite
     sprite: _WL/Mobs/Species/Golem/organs.rsi
   - type: Organ
+  - type: Tag
+    tags:
+      - Trash
 
 - type: entity
   id: OrganGolemCore

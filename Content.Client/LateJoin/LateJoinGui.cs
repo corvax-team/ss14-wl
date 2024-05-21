@@ -33,6 +33,7 @@ namespace Content.Client.LateJoin
         private readonly ClientGameTicker _gameTicker;
         private readonly SpriteSystem _sprites;
         private readonly CrewManifestSystem _crewManifest;
+        private readonly RoleSystem _roleSys = default!;
 
         private readonly Dictionary<NetEntity, Dictionary<string, List<JobButton>>> _jobButtons = new();
         private readonly Dictionary<NetEntity, Dictionary<string, BoxContainer>> _jobCategories = new();
@@ -47,6 +48,7 @@ namespace Content.Client.LateJoin
             _sprites = _entitySystem.GetEntitySystem<SpriteSystem>();
             _crewManifest = _entitySystem.GetEntitySystem<CrewManifestSystem>();
             _gameTicker = _entitySystem.GetEntitySystem<ClientGameTicker>();
+            _roleSys = _entitySystem.GetEntitySystem<RoleSystem>();
 
             Title = Loc.GetString("late-join-gui-title");
 
@@ -222,8 +224,6 @@ namespace Content.Client.LateJoin
                     _jobCategories[id][department.ID] = category;
                     jobList.AddChild(category);
 
-                    var roleSystem = _entitySystem.GetEntitySystem<RoleSystem>();
-
                     foreach (var prototype in jobsAvailable)
                     {
                         var value = stationAvailable[prototype.ID];
@@ -233,7 +233,7 @@ namespace Content.Client.LateJoin
                             Margin = new Thickness(5f, 0, 0, 0)
                         };
 
-                        var jobLocalizedName = roleSystem.GetChosenSubname(prototype.ID) ?? prototype.LocalizedName;
+                        var jobLocalizedName = _roleSys.GetChosenSubname(prototype.ID) ?? prototype.LocalizedName;
 
                         var jobButton = new JobButton(jobLabel, prototype.ID, jobLocalizedName, value);
 

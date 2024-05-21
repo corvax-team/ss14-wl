@@ -37,27 +37,19 @@ public sealed class PresetIdCardSystem : EntitySystem
 
     private void PlayerJobsAssigned(PlayerSpawnCompleteEvent ev)
     {
-        // Go over all ID cards and make sure they're correctly configured for extended access.
-
-        var player = ev.Player;
-
-        if (player.AttachedEntity == null)
+        if (ev.JobId == null)
             return;
 
-        if (!TryComp<ContainerManagerComponent>(player.AttachedEntity.Value, out var containersComp))
+        if (!TryComp<ContainerManagerComponent>(ev.Mob, out var containersComp))
             return;
 
-        if (!_container.TryGetContainer(player.AttachedEntity.Value, IDItemSlot, out var idContainer, containersComp))
+        if (!_container.TryGetContainer(ev.Mob, IDItemSlot, out var idContainer, containersComp))
             return;
+
+        var jobProto = _prototypeManager.Index<JobPrototype>(ev.JobId);
 
         foreach (var containedEntity in idContainer.ContainedEntities)
         {
-            var station = _stationSystem.GetOwningStation(containedEntity);
-
-            // If we're not on an extended access station, the ID is already configured correctly from MapInit.
-            if (station == null || !Comp<StationJobsComponent>(station.Value).ExtendedAccess)
-                continue;
-
             EntityUid? card = null;
             PresetIdCardComponent? preset = null;
 
@@ -77,7 +69,10 @@ public sealed class PresetIdCardSystem : EntitySystem
             if (card == null || preset == null)
                 continue;
 
-            SetupIdAccess(card.Value, preset, true, player);
+            if (!ev.Profile.JobSubnames.TryGetValue(ev.JobId, out var subname))
+                subname = jobProto.LocalizedName;
+
+            SetupIdAccess(card.Value, preset, true, subname);
             SetupIdName(card.Value, preset);
         }
     }
@@ -109,7 +104,7 @@ public sealed class PresetIdCardSystem : EntitySystem
 
     private void SetupIdAccess(EntityUid uid, PresetIdCardComponent id, bool extended, ICommonSession? user = null)
     {
-        if (id.JobName == null )
+        if (id.JobName == null)
             return;
 
         if (!_prototypeManager.TryIndex(id.JobName, out JobPrototype? job))
@@ -121,6 +116,28 @@ public sealed class PresetIdCardSystem : EntitySystem
         _accessSystem.SetAccessToJob(uid, job, extended);
 
         var jobName = _role.GetSubnameBySesssion(user, job.ID) ?? job.LocalizedName;
+        _cardSystem.TryChangeJobTitle(uid, jobName);
+        _cardSystem.TryChangeJobDepartment(uid, job);
+
+        if (_prototypeManager.TryIndex<StatusIconPrototype>(job.Icon, out var jobIcon))
+        {
+            _cardSystem.TryChangeJobIcon(uid, jobIcon);
+        }
+    }
+
+    private void SetupIdAccess(EntityUid uid, PresetIdCardComponent id, bool extended, string jobName)
+    {
+        if (id.JobName == null)
+            return;
+
+        if (!_prototypeManager.TryIndex(id.JobName, out JobPrototype? job))
+        {
+            Log.Error($"Invalid job id ({id.JobName}) for preset card");
+            return;
+        }
+
+        _accessSystem.SetAccessToJob(uid, job, extended);
+
         _cardSystem.TryChangeJobTitle(uid, jobName);
         _cardSystem.TryChangeJobDepartment(uid, job);
 

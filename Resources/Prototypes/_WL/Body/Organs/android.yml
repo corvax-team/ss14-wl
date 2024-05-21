@@ -26,6 +26,7 @@
     - type: Tag
       tags:
       - AndroidBodyTag
+      - Trash
 
 - type: entity
   id: OrganAndroidBrain

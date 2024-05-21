@@ -26,6 +26,7 @@
   - type: Tag
     tags:
       - Meat
+      - Trash
 
 - type: entity
   id: BaseHumanOrgan
@@ -53,6 +54,7 @@
   - type: Tag
     tags:
       - Meat
+      - Trash
   - type: SolutionContainerManager
     solutions:
       organ:

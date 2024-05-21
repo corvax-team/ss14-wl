@@ -7,6 +7,7 @@
   - офицер охраны
   - оперативник СБ
   - инструктор СБ
+  - патрульный офицер
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

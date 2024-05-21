@@ -6,6 +6,8 @@
   subnames:
   - хирург
   - вирусолог
+  - генетик
+  - патологанатом
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

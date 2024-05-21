@@ -7,6 +7,7 @@
   - криминалист
   - судмедэксперт
   - сыщик
+  - следователь
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
