@@ -1,9 +1,11 @@
+using System.IO;
 using System.Linq;
 using System.Numerics;
 using Content.Server.Advertise;
 using Content.Server.Advertise.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Emp;
+using Content.Server.Materials;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Access.Components;
@@ -15,6 +17,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Emp;
+using Content.Shared.Materials;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
@@ -24,6 +27,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.VendingMachines
 {
@@ -38,6 +42,7 @@ namespace Content.Server.VendingMachines
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly SpeakOnUIClosedSystem _speakOnUIClosed = default!;
+        [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
 
         public override void Initialize()
         {
@@ -64,6 +69,10 @@ namespace Content.Server.VendingMachines
             SubscribeLocalEvent<VendingMachineComponent, RestockDoAfterEvent>(OnDoAfter);
 
             SubscribeLocalEvent<VendingMachineRestockComponent, PriceCalculationEvent>(OnPriceCalculation);
+
+            //WL-economics-start
+            SubscribeLocalEvent<VendingMachineComponent, MaterialEntityInsertAttemptEvent>(OnMaterialInsert);
+            //WL-economics-end
         }
 
         private void OnComponentMapInit(EntityUid uid, VendingMachineComponent component, MapInitEvent args)
@@ -192,6 +201,19 @@ namespace Content.Server.VendingMachines
             args.Handled = true;
         }
 
+        //WL-economics-start
+        private void OnMaterialInsert(EntityUid uid, VendingMachineComponent component, MaterialEntityInsertAttemptEvent args)
+        {
+            if (!TryComp<ApcPowerReceiverComponent>(uid, out var apcPowerRecComp) ||
+                !apcPowerRecComp.Powered ||
+                apcPowerRecComp.PowerDisabled)
+                args.Cancel();
+
+            var msg = new VendingMachineInterfaceState(component.Inventory.Values.ToList());
+            _userInterfaceSystem.SetUiState(uid, VendingMachineUiKey.Key, msg);
+        }
+        //WL-economics-end
+
         /// <summary>
         /// Sets the <see cref="VendingMachineComponent.CanShoot"/> property of the vending machine.
         /// </summary>
@@ -266,6 +288,21 @@ namespace Content.Server.VendingMachines
                 return;
             }
 
+            //WL-economics-start
+            if (TryComp<MaterialStorageComponent>(uid, out var materialStorageComp))
+            {
+                foreach (var cost in entry.Cost)
+                {
+                    if (!_materialStorage.CanChangeMaterialAmount(uid, cost.Key, (int) -cost.Value, materialStorageComp))
+                    {
+                        Popup.PopupEntity(Loc.GetString("В автомате недостаточно средств для совершения покупки!"), uid);
+                        Deny(uid, vendComponent);
+                        return;
+                    }
+                }
+            }
+            //WL-economics-end
+
             if (entry.Amount <= 0)
             {
                 Popup.PopupEntity(Loc.GetString("vending-machine-component-try-eject-out-of-stock"), uid);
@@ -284,6 +321,15 @@ namespace Content.Server.VendingMachines
 
             if (TryComp(uid, out SpeakOnUIClosedComponent? speakComponent))
                 _speakOnUIClosed.TrySetFlag((uid, speakComponent));
+
+            //WL-economics-start
+            foreach (var cost in entry.Cost)
+            {
+                _materialStorage.TryChangeMaterialAmount(uid, cost.Key, (int) -cost.Value, materialStorageComp, true);
+            }
+
+            Dirty(uid, vendComponent);
+            //WL-economics-end
 
             entry.Amount--;
             UpdateVendingMachineInterfaceState(uid, vendComponent);
@@ -484,7 +530,7 @@ namespace Content.Server.VendingMachines
 
                 if (PrototypeManager.TryIndex(vendingInventory, out VendingMachineInventoryPrototype? inventoryPrototype))
                 {
-                    foreach (var (item, amount) in inventoryPrototype.StartingInventory)
+                    foreach (var (item, amount, _) in inventoryPrototype.StartingInventory)
                     {
                         if (PrototypeManager.TryIndex(item, out EntityPrototype? entity))
                             total += _pricing.GetEstimatedPrice(entity) * amount;

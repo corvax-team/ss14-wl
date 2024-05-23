@@ -8,6 +8,8 @@ using Content.Client.Stylesheets;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using FancyWindow = Content.Client.UserInterface.Controls.FancyWindow;
+using Robust.Shared.Utility;
+using Content.Client.Message;
 
 namespace Content.Client.VendingMachines.UI
 {
@@ -41,9 +43,15 @@ namespace Content.Client.VendingMachines.UI
         /// Populates the list of available items on the vending machine interface
         /// and sets icons based on their prototypes
         /// </summary>
-        public void Populate(List<VendingMachineInventoryEntry> inventory, out List<int> filteredInventory,  string? filter = null)
+        public void Populate(List<VendingMachineInventoryEntry> inventory, out List<int> filteredInventory, float? creditsAmount, string? filter = null)
         {
             filteredInventory = new();
+
+            if (creditsAmount == null)
+                Balance.Visible = false;
+            else Balance.Visible = true;
+
+            Balance.SetMarkup($"[color=gray]Баланс:[/color] {creditsAmount ?? 0}$");
 
             if (inventory.Count == 0)
             {
@@ -93,7 +101,11 @@ namespace Content.Client.VendingMachines.UI
                 if (itemName.Length > longestEntry.Length)
                     longestEntry = itemName;
 
-                vendingItem.Text = $"{itemName} [{entry.Amount}]";
+                var cost = entry.Cost.FirstOrNull();
+
+                vendingItem.Text = cost == null || cost.Value.Value == 0f
+                    ? $"{itemName} [{entry.Amount} шт.]"
+                    : $"{itemName} [{entry.Amount} шт. {cost.Value.Value}$]";
                 vendingItem.Icon = icon;
                 filteredInventory.Add(i);
             }

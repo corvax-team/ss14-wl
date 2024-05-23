@@ -11,7 +11,7 @@ namespace Content.Server._WL.Economics.WageCoefficients
         public Dictionary<string, float> JobsAndCoefs = new();
 
         public override string Name => "Коэффициент по профессии";
-        public override string Initials => "К.П.";
+        public override string Initials => "К.п.";
         public override string Description => "";
 
         public override float Calculate(IEntityManager entMan, EntityUid holder, SuitSensorStatus status)

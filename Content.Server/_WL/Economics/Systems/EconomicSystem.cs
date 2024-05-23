@@ -1,5 +1,6 @@
 using Content.Server._WL.Economics.Components;
 using Content.Server._WL.Economics.Prototypes;
+using Content.Server.Cargo.Systems;
 using Content.Server.Medical.SuitSensors;
 using Content.Server.Station.Systems;
 using Content.Shared._WL.Economics;
@@ -27,6 +28,8 @@ namespace Content.Server._WL.Economics.Systems
             SubscribeLocalEvent<BankAccountHolderComponent, ComponentShutdown>(OnShutdown);
 
             SubscribeLocalEvent<BankAccountHolderComponent, StationRenamedEvent>(OnStationRenamed);
+
+            SubscribeLocalEvent<BankAccountHolderComponent, PriceCalculationEvent>(OnGetPrice);
 
             SalaryConfiguration = _protoMan.EnumeratePrototypes<SalaryGettingConfigurationPrototype>()
                 .First();
@@ -108,6 +111,12 @@ namespace Content.Server._WL.Economics.Systems
         {
             comp.Account.SetAccountName(args.NewName);
             comp.Account.Log("RENAMED", $"название счёта было изменено с '{args.OldName}' на '{args.NewName}'");
+        }
+
+        [Obsolete("Возможен абуз с узнаванием баланса карты без банкомата")]
+        private void OnGetPrice(EntityUid holder, BankAccountHolderComponent comp, ref PriceCalculationEvent args)
+        {
+            args.Price += comp.Account.Balance;
         }
     }
 }

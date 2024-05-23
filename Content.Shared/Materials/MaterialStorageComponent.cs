@@ -1,6 +1,7 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -74,6 +75,19 @@ public enum MaterialStorageVisuals : byte
 {
     Inserting
 }
+
+//WL-economics-start
+[Serializable, NetSerializable]
+public sealed partial class MaterialEntityInsertAttemptEvent : CancellableEntityEventArgs
+{
+    public readonly NetEntity User;
+
+    public MaterialEntityInsertAttemptEvent(NetEntity user)
+    {
+        User = user;
+    }
+}
+//WL-economics-end
 
 /// <summary>
 /// event raised on the materialStorage when a material entity is inserted into it.

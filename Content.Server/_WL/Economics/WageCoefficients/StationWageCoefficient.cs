@@ -13,7 +13,7 @@ namespace Content.Server._WL.Economics.WageCoefficients
 
         public override string Name => "Коэффициент по станции";
         public override string Description => "";
-        public override string Initials => "К.С.";
+        public override string Initials => "К.н.с.";
         public override float Calculate(IEntityManager entMan, EntityUid holder, SuitSensorStatus sensorStatus)
         {
             var stationSys = entMan.System<StationSystem>();

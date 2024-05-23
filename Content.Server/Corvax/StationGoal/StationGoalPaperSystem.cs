@@ -50,15 +50,23 @@ namespace Content.Server.Corvax.StationGoal
             [italic]Место для печатей[/italic]
             """;
 
+        private readonly Dictionary<EntityUid, List<StationGoalPrototype>> _goals = new();
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
+            SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundCleanup);
         }
 
         private void OnRoundStarted(RoundStartedEvent ev)
         {
             SendRandomStationGoalsWithConfig();
+        }
+
+        private void OnRoundCleanup(RoundRestartCleanupEvent ev)
+        {
+            _goals.Clear();
         }
 
         /// <summary>
@@ -74,7 +82,9 @@ namespace Content.Server.Corvax.StationGoal
                 if (!fax.ReceiveStationGoal)
                     continue;
 
-                if (!TryComp<MetaDataComponent>(_station.GetOwningStation(uid), out var meta))
+                var station = _station.GetOwningStation(uid);
+
+                if (!TryComp<MetaDataComponent>(station, out var meta))
                     continue;
 
                 var stationId = StationIdRegex.Match(meta.EntityName).Groups[1].Value;
@@ -95,10 +105,21 @@ namespace Content.Server.Corvax.StationGoal
 
                 _faxSystem.Receive(uid, printout, null, fax);
 
+                if (!_goals.TryAdd(station.Value, [goal]))
+                    _goals[station.Value].Add(goal);
+
                 wasSent = true;
             }
 
             return wasSent;
+        }
+
+        public List<StationGoalPrototype> GetStationGoals(EntityUid station)
+        {
+            if (!_goals.TryGetValue(station, out var goals))
+                goals = new();
+
+            return goals;
         }
 
         public void SendRandomStationGoalsWithConfig()

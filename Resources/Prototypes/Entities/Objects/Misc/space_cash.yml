@@ -13,25 +13,18 @@
   - type: PhysicalComposition
     materialComposition:
       Credit: 1
-  - type: StaticPrice
-    price: 0
   - type: Stack
     stackType: Credit
     count: 1
     baseLayer: base
-    layerStates:
-    - cash
-    - cash_10
-    - cash_100
-    - cash_500
-    - cash_1000
-    - cash_1000000
+  - type: StaticPrice
+    price: 0
   - type: Sprite
     sprite: Objects/Economy/cash.rsi
     state: cash
-    layers:
-    - state: cash
-      map: ["base"]
+    # layers:
+    # - state: cash
+      # map: ["base"]
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures
@@ -53,12 +46,6 @@
   icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
   price: 1
 
-- type: stack
-  id: Credit
-  name: speso
-  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
-  spawn: SpaceCash
-
 - type: entity
   parent: SpaceCash
   id: SpaceCash10
@@ -67,8 +54,13 @@
   - type: Icon
     sprite: Objects/Economy/cash.rsi
     state: cash_10
+  - type: Sprite
+    state: cash_10
   - type: Stack
-    count: 10
+    stackType: Credit10
+  - type: PhysicalComposition
+    materialComposition:
+      Credit: 10
 
 - type: entity
   parent: SpaceCash
@@ -78,8 +70,13 @@
   - type: Icon
     sprite: Objects/Economy/cash.rsi
     state: cash_100
+  - type: Sprite
+    state: cash_100
   - type: Stack
-    count: 100
+    stackType: Credit100
+  - type: PhysicalComposition
+    materialComposition:
+      Credit: 100
 
 - type: entity
   parent: SpaceCash
@@ -89,8 +86,13 @@
   - type: Icon
     sprite: Objects/Economy/cash.rsi
     state: cash_500
+  - type: Sprite
+    state: cash_500
   - type: Stack
-    count: 500
+    stackType: Credit500
+  - type: PhysicalComposition
+    materialComposition:
+      Credit: 500
 
 - type: entity
   parent: SpaceCash
@@ -100,19 +102,13 @@
   - type: Icon
     sprite: Objects/Economy/cash.rsi
     state: cash_1000
-  - type: Stack
-    count: 1000
-
-- type: entity
-  parent: SpaceCash
-  id: SpaceCash2500
-  suffix: 2500
-  components:
-  - type: Icon
-    sprite: Objects/Economy/cash.rsi
+  - type: Sprite
     state: cash_1000
   - type: Stack
-    count: 2500
+    stackType: Credit1000
+  - type: PhysicalComposition
+    materialComposition:
+      Credit: 1000
 
 - type: entity
   parent: SpaceCash
@@ -121,50 +117,11 @@
   components:
   - type: Icon
     sprite: Objects/Economy/cash.rsi
-    state: cash_1000
+    state: cash_5000
+  - type: Sprite
+    state: cash_5000
   - type: Stack
-    count: 5000
-
-- type: entity
-  parent: SpaceCash
-  id: SpaceCash10000
-  suffix: 10000
-  components:
-  - type: Icon
-    sprite: Objects/Economy/cash.rsi
-    state: cash_1000
-  - type: Stack
-    count: 10000
-
-- type: entity
-  parent: SpaceCash
-  id: SpaceCash20000
-  suffix: 20000
-  components:
-  - type: Icon
-    sprite: Objects/Economy/cash.rsi
-    state: cash_1000
-  - type: Stack
-    count: 20000
-
-- type: entity
-  parent: SpaceCash
-  id: SpaceCash30000
-  suffix: 30000
-  components:
-  - type: Icon
-    sprite: Objects/Economy/cash.rsi
-    state: cash_1000
-  - type: Stack
-    count: 30000
-
-- type: entity
-  parent: SpaceCash
-  id: SpaceCash1000000
-  suffix: 1000000
-  components:
-  - type: Icon
-    sprite: Objects/Economy/cash.rsi
-    state: cash_1000000
-  - type: Stack
-    count: 1000000
+    stackType: Credit5000
+  - type: PhysicalComposition
+    materialComposition:
+      Credit: 5000

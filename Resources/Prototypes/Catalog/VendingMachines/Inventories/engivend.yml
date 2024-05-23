@@ -1,10 +1,17 @@
 - type: vendingMachineInventory
   id: EngiVendInventory
   startingInventory:
-    ClothingEyesGlassesMeson: 4
-    ClothingHeadHatWelding: 6
-    Multitool: 4
-    NetworkConfigurator: 5
-    PowerCellMedium: 5
-    ClothingHandsGlovesColorYellow: 6
-    BoxInflatable: 2
+    - id: ClothingEyesGlassesMeson
+      amount: 4
+    - id: ClothingHeadHatWelding
+      amount: 6
+    - id: Multitool
+      amount: 4
+    - id: NetworkConfigurator
+      amount: 5
+    - id: PowerCellMedium
+      amount: 5
+    - id: ClothingHandsGlovesColorYellow
+      amount: 6
+    - id: BoxInflatable
+      amount: 2

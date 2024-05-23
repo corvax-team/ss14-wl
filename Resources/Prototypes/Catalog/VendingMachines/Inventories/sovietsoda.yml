@@ -1,6 +1,8 @@
 - type: vendingMachineInventory
   id: BodaInventory
   startingInventory:
-    DrinkSodaWaterCan: 10 #typically hacked product. Default product is "soda"
+    - id: DrinkSodaWaterCan
+      amount: 10 #typically hacked product. Default product is "soda"
   contrabandInventory:
-    DrinkColaCan: 10
+    - id: DrinkColaCan
+      amount: 10

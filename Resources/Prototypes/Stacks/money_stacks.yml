@@ -1,0 +1,41 @@
+﻿- type: stack
+  id: Credit
+  name: speso
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash }
+  spawn: SpaceCash
+  maxCount: 100
+
+- type: stack
+  id: Credit10
+  name: speso
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash_10 }
+  spawn: SpaceCash10
+  maxCount: 100
+
+- type: stack
+  id: Credit100
+  name: speso
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash_100 }
+  spawn: SpaceCash100
+  maxCount: 100
+
+- type: stack
+  id: Credit500
+  name: speso
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash_500 }
+  spawn: SpaceCash500
+  maxCount: 100
+
+- type: stack
+  id: Credit1000
+  name: speso
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash_1000 }
+  spawn: SpaceCash1000
+  maxCount: 100
+
+- type: stack
+  id: Credit5000
+  name: speso
+  icon: { sprite: /Textures/Objects/Economy/cash.rsi, state: cash_5000 }
+  spawn: SpaceCash5000
+  maxCount: 100

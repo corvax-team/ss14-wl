@@ -33,15 +33,6 @@ namespace Content.Shared._WL.Economics
         }
 
         #region Operations
-        public BankAccount Clone()
-        {
-            return new BankAccount(
-                _ecoSystem,
-                AccountName,
-                Balance,
-                Status);
-        }
-
         public void SetAccountName(string newName)
         {
             AccountName = newName;
@@ -92,6 +83,15 @@ namespace Content.Shared._WL.Economics
                 return false;
 
             return true;
+        }
+
+        public BankAccount Clone()
+        {
+            return new BankAccount(
+                _ecoSystem,
+                AccountName,
+                Balance,
+                Status);
         }
         #endregion
     }

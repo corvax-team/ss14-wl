@@ -1,10 +1,12 @@
 using Content.Shared.Actions;
+using Content.Shared.Store;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared.VendingMachines
 {
@@ -198,11 +200,14 @@ namespace Content.Shared.VendingMachines
         public string ID;
         [ViewVariables(VVAccess.ReadWrite)]
         public uint Amount;
-        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount)
+        [ViewVariables(VVAccess.ReadWrite)]
+        public Dictionary<string, float> Cost;
+        public VendingMachineInventoryEntry(InventoryType type, string id, uint amount, Dictionary<string, float> cost)
         {
             Type = type;
             ID = id;
             Amount = amount;
+            Cost = cost;
         }
     }
 

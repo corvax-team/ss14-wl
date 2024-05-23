@@ -11,7 +11,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
     /// </summary>
     [Serializable]
     [DataDefinition]
-    public sealed partial class DumpRestockInventory: IThresholdBehavior
+    public sealed partial class DumpRestockInventory : IThresholdBehavior
     {
         /// <summary>
         ///     The percent of each inventory entry that will be salvaged
@@ -34,8 +34,11 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
             if (!system.PrototypeManager.TryIndex(randomInventory, out VendingMachineInventoryPrototype? packPrototype))
                 return;
 
-            foreach (var (entityId, count) in packPrototype.StartingInventory)
+            foreach (var entry in packPrototype.StartingInventory)
             {
+                var entityId = entry.Prototype;
+                var count = entry.Amount;
+
                 var toSpawn = (int) Math.Round(count * Percent);
 
                 if (toSpawn == 0) continue;

@@ -16,17 +16,21 @@ namespace Content.Client.VendingMachines
         [ViewVariables]
         private List<int> _cachedFilteredIndex = new();
 
+        private readonly VendingMachineSystem _vending = default!;
+        private readonly VendingMachineComponent _vendingMachineComponent = default!;
+
         public VendingMachineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
+            _vending = EntMan.System<VendingMachineSystem>();
+
+            _vendingMachineComponent = EntMan.GetComponent<VendingMachineComponent>(Owner);
         }
 
         protected override void Open()
         {
             base.Open();
 
-            var vendingMachineSys = EntMan.System<VendingMachineSystem>();
-
-            _cachedInventory = vendingMachineSys.GetAllInventory(Owner);
+            _cachedInventory = _vending.GetAllInventory(Owner);
 
             _menu = new VendingMachineMenu { Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName };
 
@@ -34,7 +38,7 @@ namespace Content.Client.VendingMachines
             _menu.OnItemSelected += OnItemSelected;
             _menu.OnSearchChanged += OnSearchChanged;
 
-            _menu.Populate(_cachedInventory, out _cachedFilteredIndex);
+            _menu.Populate(_cachedInventory, out _cachedFilteredIndex, _vending.GetBalance("Credit", Owner, _vendingMachineComponent));
 
             _menu.OpenCenteredLeft();
         }
@@ -48,7 +52,7 @@ namespace Content.Client.VendingMachines
 
             _cachedInventory = newState.Inventory;
 
-            _menu?.Populate(_cachedInventory, out _cachedFilteredIndex, _menu.SearchBar.Text);
+            _menu?.Populate(_cachedInventory, out _cachedFilteredIndex, _vending.GetBalance("Credit", Owner, _vendingMachineComponent), _menu.SearchBar.Text);
         }
 
         private void OnItemSelected(ItemList.ItemListSelectedEventArgs args)
@@ -80,7 +84,7 @@ namespace Content.Client.VendingMachines
 
         private void OnSearchChanged(string? filter)
         {
-            _menu?.Populate(_cachedInventory, out _cachedFilteredIndex, filter);
+            _menu?.Populate(_cachedInventory, out _cachedFilteredIndex, _vending.GetBalance("Credit", Owner, _vendingMachineComponent), filter);
         }
     }
 }

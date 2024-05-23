@@ -1,35 +1,62 @@
 - type: vendingMachineInventory
   id: LawDrobeInventory
   startingInventory:
-    ClothingUniformJumpsuitLawyerBlue: 1
-    ClothingUniformJumpskirtLawyerBlue: 1
-    ClothingUniformJumpsuitLawyerPurple: 1
-    ClothingUniformJumpskirtLawyerPurple: 1
-    ClothingUniformJumpsuitLawyerRed: 1
-    ClothingUniformJumpskirtLawyerRed: 1
-    ClothingUniformJumpsuitLawyerBlack: 1
-    ClothingUniformJumpskirtLawyerBlack: 1
-    ClothingUniformJumpsuitLawyerGood: 1
-    ClothingUniformJumpskirtLawyerGood: 1
-    ClothingShoesBootsLaceup: 2
-    ClothingHeadsetIAA: 2 # Corvax-IAA
-    ClothingNeckLawyerbadge: 2
-    BriefcaseBrown: 2
+    - id: ClothingUniformJumpsuitLawyerBlue
+      amount: 1
+    - id: ClothingUniformJumpskirtLawyerBlue
+      amount: 1
+    - id: ClothingUniformJumpsuitLawyerPurple
+      amount: 1
+    - id: ClothingUniformJumpskirtLawyerPurple
+      amount: 1
+    - id: ClothingUniformJumpsuitLawyerRed
+      amount: 1
+    - id: ClothingUniformJumpskirtLawyerRed
+      amount: 1
+    - id: ClothingUniformJumpsuitLawyerBlack
+      amount: 1
+    - id: ClothingUniformJumpskirtLawyerBlack
+      amount: 1
+    - id: ClothingUniformJumpsuitLawyerGood
+      amount: 1
+    - id: ClothingUniformJumpskirtLawyerGood
+      amount: 1
+    - id: ClothingShoesBootsLaceup
+      amount: 2
+    - id: ClothingHeadsetIAA
+      amount: 2 # Corvax-IAA
+    - id: ClothingNeckLawyerbadge
+      amount: 2
+    - id: BriefcaseBrown
+      amount: 2
     # Corvax-LawyerDrip-Start
-    ClothingHandsGlovesColorWhite: 1
-    ClothingHandsGlovesColorGray: 1
-    ClothingHandsGlovesColorBlack: 1
-    ClothingHandsGlovesColorRed: 1
-    ClothingHandsGlovesColorBlue: 1
-    ClothingHeadHatBowlerHat: 1
-    ClothingHeadHatOutlawHat: 1
-    ClothingHeadHatTophat: 1
+    - id: ClothingHandsGlovesColorWhite
+      amount: 1
+    - id: ClothingHandsGlovesColorGray
+      amount: 1
+    - id: ClothingHandsGlovesColorBlack
+      amount: 1
+    - id: ClothingHandsGlovesColorRed
+      amount: 1
+    - id: ClothingHandsGlovesColorBlue
+      amount: 1
+    - id: ClothingHeadHatBowlerHat
+      amount: 1
+    - id: ClothingHeadHatOutlawHat
+      amount: 1
+    - id: ClothingHeadHatTophat
+      amount: 1
     # Corvax-LawyerDrip-End
-    LuxuryPen: 2
+    - id: LuxuryPen
+      amount: 2
   contrabandInventory:
-    ClothingOuterRobesJudge: 1
-    ClothingHeadHatPwig: 1
+    - id: ClothingOuterRobesJudge
+      amount: 1
+    - id: ClothingHeadHatPwig
+      amount: 1
     # "Legally" obtained currency
-    SpaceCash100: 2
+    - id: SpaceCash100
+      amount: 2
   emaggedInventory:
-    CyberPen: 1
+    - id: CyberPen
+      amount: 1

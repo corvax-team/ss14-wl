@@ -8,6 +8,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
+using Content.Shared.Materials;
 
 namespace Content.Shared.VendingMachines;
 
@@ -19,6 +20,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly IRobustRandom Randomizer = default!;
+    [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
 
     public override void Initialize()
     {
@@ -43,10 +45,22 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         if (!PrototypeManager.TryIndex(component.PackPrototypeId, out VendingMachineInventoryPrototype? packPrototype))
             return;
 
-        AddInventoryFromPrototype(uid, packPrototype.StartingInventory, InventoryType.Regular, component, restockQuality);
-        AddInventoryFromPrototype(uid, packPrototype.EmaggedInventory, InventoryType.Emagged, component, restockQuality);
-        AddInventoryFromPrototype(uid, packPrototype.ContrabandInventory, InventoryType.Contraband, component, restockQuality);
+        //WL-economics-start: Changed
+        AddInventoryFromPrototype(uid, packPrototype.StartingInventory.ToDictionary(x => x.Prototype, x => (x.Amount, x.Cost)), InventoryType.Regular, component, restockQuality);
+        AddInventoryFromPrototype(uid, packPrototype.EmaggedInventory?.ToDictionary(x => x.Prototype, x => (x.Amount, x.Cost)), InventoryType.Emagged, component, restockQuality);
+        AddInventoryFromPrototype(uid, packPrototype.ContrabandInventory?.ToDictionary(x => x.Prototype, x => (x.Amount, x.Cost)), InventoryType.Contraband, component, restockQuality);
+        //WL-economics-end: Changed
     }
+
+    //WL-economics-start
+    public float? GetBalance(string materialId, EntityUid machine, VendingMachineComponent? vendComp = null, MaterialStorageComponent? matStorage = null)
+    {
+        if (!Resolve(machine, ref vendComp) || !Resolve(machine, ref matStorage))
+            return null;
+
+        return _materialStorage.GetMaterialAmount(machine, materialId, matStorage);
+    }
+    //WL-economics-end
 
     /// <summary>
     /// Returns all of the vending machine's inventory. Only includes emagged and contraband inventories if
@@ -80,7 +94,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         return GetAllInventory(uid, component).Where(_ => _.Amount > 0).ToList();
     }
 
-    private void AddInventoryFromPrototype(EntityUid uid, Dictionary<string, uint>? entries,
+    private void AddInventoryFromPrototype(EntityUid uid, Dictionary<string, (uint, float)>? entries,
         InventoryType type,
         VendingMachineComponent? component = null, float restockQuality = 1.0f)
     {
@@ -105,7 +119,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                 return;
         }
 
-        foreach (var (id, amount) in entries)
+        foreach (var (id, (amount, cost)) in entries)
         {
             if (PrototypeManager.HasIndex<EntityPrototype>(id))
             {
@@ -127,7 +141,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     // losing the rest of the restock.
                     entry.Amount = Math.Min(entry.Amount + amount, 3 * restock);
                 else
-                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock));
+                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock, new() { { "Credit", cost } }));
             }
         }
     }

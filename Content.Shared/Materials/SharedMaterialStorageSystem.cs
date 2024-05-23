@@ -245,6 +245,11 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (HasComp<UnremoveableComponent>(toInsert))
             return false;
 
+        var attemptEvent = new MaterialEntityInsertAttemptEvent(GetNetEntity(user));
+        RaiseLocalEvent(receiver, attemptEvent);
+        if (attemptEvent.Cancelled)
+            return false;
+
         // Material Whitelist checked implicitly by CanChangeMaterialAmount();
 
         var multiplier = TryComp<StackComponent>(toInsert, out var stackComponent) ? stackComponent.Count : 1;

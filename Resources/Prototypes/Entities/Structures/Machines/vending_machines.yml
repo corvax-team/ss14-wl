@@ -5,6 +5,13 @@
   description: Just add capitalism!
   abstract: true
   components:
+  - type: MaterialStorage
+    storageLimit: 10000
+    whitelist:
+      components:
+      - Cash
+    materialWhitelist:
+    - Credit
   - type: AmbientOnPowered
   - type: AmbientSound
     volume: -9
