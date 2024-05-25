@@ -28,10 +28,10 @@ namespace Content.Server._WL.DayNight
             while (query.MoveNext(out var map, out var dayNightComp))
             {
                 if (!TryComp<MapLightComponent>(map, out var mapLightComp))
-                    return;
+                    continue;
 
                 if (!TryComp<MapComponent>(map, out var mapComponent))
-                    return;
+                    continue;
 
                 if (!dayNightComp.WasInit || mapComponent.MapPaused)
                     continue;
