@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace Content.Shared._WL.DayNight
+namespace Content.Server._WL.DayNight
 {
     [RegisterComponent]
     public sealed partial class DayNightComponent : Component

@@ -42,6 +42,9 @@ entities:
     components:
     - type: MetaData
       name: map 3
+    - type: DayNight
+      fullCycle: 1200
+      ratio: 2, 1
     - type: Transform
     - type: Map
       mapPaused: True

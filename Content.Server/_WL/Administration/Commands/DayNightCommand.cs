@@ -1,5 +1,5 @@
+using Content.Server._WL.DayNight;
 using Content.Server.Administration;
-using Content.Shared._WL.DayNight;
 using Content.Shared.Administration;
 using Robust.Server.GameObjects;
 using Robust.Shared.Console;

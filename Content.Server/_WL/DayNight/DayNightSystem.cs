@@ -1,16 +1,17 @@
+using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
 
-namespace Content.Shared._WL.DayNight
+namespace Content.Server._WL.DayNight
 {
     public sealed partial class DayNightSystem : EntitySystem
     {
         [Dependency] private readonly IGameTiming _gameTime = default!;
         [Dependency] private readonly IPrototypeManager _protoMan = default!;
-        [Dependency] private readonly SharedMapSystem _mapSys = default!;
+        [Dependency] private readonly MapSystem _mapSys = default!;
 
         public override void Initialize()
         {
@@ -23,13 +24,13 @@ namespace Content.Shared._WL.DayNight
         {
             base.Update(frameTime);
 
-            var query = EntityQueryEnumerator<MapComponent>();
-            while (query.MoveNext(out var map, out var mapComponent))
+            var query = EntityQueryEnumerator<DayNightComponent>();
+            while (query.MoveNext(out var map, out var dayNightComp))
             {
                 if (!TryComp<MapLightComponent>(map, out var mapLightComp))
                     return;
 
-                if (!TryComp<DayNightComponent>(map, out var dayNightComp))
+                if (!TryComp<MapComponent>(map, out var mapComponent))
                     return;
 
                 if (!dayNightComp.WasInit || mapComponent.MapPaused)
