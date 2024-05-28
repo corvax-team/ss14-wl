@@ -49,3 +49,10 @@
       amount: 1
     - id: ClothingHeadHatCowboyBlack
       amount: 1
+    - id: ClothingHeadHatBeretDSS # Corvax WL
+      amount: 3
+    - id: ClothingOuterVestArmorSec # Corvax WL
+      amount: 2
+    - id: ClothingUniformJumpsuitDSS # Corvax WL
+      amount: 3
+

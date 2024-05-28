@@ -1,0 +1,21 @@
+- type: entity
+  id: CrateSecurityDSS
+  parent: CrateSecgear
+  name: ящик тяжёлого снаряжения
+  description: Один комплект тяжёлого снаряжения Департамента Службы Безопасности, способный защитить практически от всего.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUniformJumpsuitDSS
+      - id: ClothingOuterVestHeavyDSS
+      - id: ClothingHeadHelmetHeavyDSS
+      - id: ClothingHeadsetTacticDSS
+      - id: ClothingMaskGasSwat
+      - id: ClothingShoesBootsJackSecFilled
+      - id: ClothingEyesGlassesSecurity
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingBackpackSecurity
+      - id: ClothingBeltSecurityWebbing
+      - id: FlashlightSeclite
+      - id: DoubleEmergencyOxygenTankFilled
+      - id: DoubleEmergencyNitrogenTankFilled

@@ -7,7 +7,7 @@
   - хирург
   - вирусолог
   - генетик
-  - патологанатом
+  - патологоанатом
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

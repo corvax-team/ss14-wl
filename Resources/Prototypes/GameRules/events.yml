@@ -494,10 +494,12 @@
   noSpawn: true
   components:
   - type: StationEvent
-    earliestStart: 25
-    weight: 2.5
-    minimumPlayers: 15
-    reoccurrenceDelay: 60
+    earliestStart: 30
+    weight: 8
+    maxOccurrences: 1 # can only happen once per round
+    spawnConfig:
+      standartConfig:
+        minPlayers: 15
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -627,6 +629,6 @@
     spawnConfig:
       standartConfig:
         minPlayers: 20
-      maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
+    maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
   - type: MobReplacementRule

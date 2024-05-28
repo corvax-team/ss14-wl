@@ -134,8 +134,6 @@
         type: Remove
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
-          min: 20
 # WL species start
         # Golem
         - !type:OrganType

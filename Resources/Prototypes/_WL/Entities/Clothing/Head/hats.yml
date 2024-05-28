@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretDSS
+  name: берет ДСБ
+  description: Демонстрирует статус лучших из лучших.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_security_black.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_security_black.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon

@@ -64,6 +64,9 @@ entities:
     components:
     - type: MetaData
       name: map 113
+    - type: DayNight
+      fullCycle: 1200
+      ratio: 2, 1
     - type: Transform
     - type: Map
     - type: PhysicsMap
