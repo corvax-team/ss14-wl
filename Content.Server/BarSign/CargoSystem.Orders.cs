@@ -4,6 +4,7 @@ using Content.Server.Cargo.Components;
 using Content.Server.Labels.Components;
 using Content.Server.Paper;
 using Content.Server.Station.Components;
+using Content.Shared._WL.Economics.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
 using Content.Shared.Cargo.Components;
@@ -112,6 +113,7 @@ namespace Content.Server.Cargo.Systems
 
             // No station to deduct from.
             if (!TryComp(station, out BankAccountHolderComponent? bank) ||
+                bank.Account == null ||
                 !TryComp(station, out StationDataComponent? stationData) ||
                 !TryGetOrderDatabase(station, out var orderDatabase))
             {
@@ -313,7 +315,8 @@ namespace Content.Server.Cargo.Systems
         {
             if (station == null ||
                 !TryComp<StationCargoOrderDatabaseComponent>(station, out var orderDatabase) ||
-                !TryComp<BankAccountHolderComponent>(station, out var bankAccount)) return;
+                !TryComp<BankAccountHolderComponent>(station, out var bankAccount) ||
+                bankAccount.Account == null) return;
 
             if (_uiSystem.HasUi(consoleUid, CargoConsoleUiKey.Orders))
             {

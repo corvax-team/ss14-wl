@@ -16,8 +16,8 @@
   id: BaseStationCargo
   abstract: true
   components:
-    - type: BankAccountHolder
-    - type: EconomicsUser
+    - type: BankAccountHolder # WL-Economics
+    - type: EconomicsUser # WL-Economics
     - type: StationCargoOrderDatabase
     - type: StationCargoBountyDatabase
 

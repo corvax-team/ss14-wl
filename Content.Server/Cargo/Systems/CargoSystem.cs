@@ -20,6 +20,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using Content.Server._WL.Economics.Components;
+using Content.Shared._WL.Economics.Components;
 
 namespace Content.Server.Cargo.Systems;
 

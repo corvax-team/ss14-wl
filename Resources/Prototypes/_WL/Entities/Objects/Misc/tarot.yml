@@ -27,7 +27,7 @@
   - type: Appearance
   - type: EmitSoundOnUse
     sound:
-      path: _WL/Entities/Objects/Misc/Tarot/Sounds/.ogg
+      path: /Audio/_WL/Effects/flip.ogg
       params:
         variation: 0.125
         volume: 20

@@ -1,34 +1,34 @@
-- type: sponsorTier
-  id: Dvorjanin
-  name: Дворянин
+# - type: sponsorTier
+#   id: Dvorjanin
+#   name: Дворянин
 
-- type: sponsorTier
-  id: Voivode
-  name: Воевода
-  extraCharSlots: 5
-  oocColor: "#ffff00"
-  ghostTheme: HereticGhost
+# - type: sponsorTier
+#   id: Voivode
+#   name: Воевода
+#   extraCharSlots: 5
+#   oocColor: "#ffff00"
+#   ghostTheme: HereticGhost
 
-- type: sponsorTier
-  id: Boyarin
-  name: Боярин
-  priorityJion: true
-  extraCharSlots: 5
-  oocColor: "#0000ff"
-  ghostTheme: RevGhost
+# - type: sponsorTier
+#   id: Boyarin
+#   name: Боярин
+#   priorityJion: true
+#   extraCharSlots: 5
+#   oocColor: "#0000ff"
+#   ghostTheme: RevGhost
 
-- type: sponsorTier
-  id: Knyaz
-  name: Князь
-  priorityJion: true
-  extraCharSlots: 5
-  oocColor: "#ff3333"
-  ghostTheme: SyndicateGhost
+# - type: sponsorTier
+#   id: Knyaz
+#   name: Князь
+#   priorityJion: true
+#   extraCharSlots: 5
+#   oocColor: "#ff3333"
+#   ghostTheme: SyndicateGhost
 
-- type: sponsorTier
-  id: Tsesarevich
-  name: Цесаревич
-  priorityJion: true
-  extraCharSlots: 5
-  oocColor: "#00D26A"
-  ghostTheme: NinjaGhost
+# - type: sponsorTier
+#   id: Tsesarevich
+#   name: Цесаревич
+#   priorityJion: true
+#   extraCharSlots: 5
+#   oocColor: "#00D26A"
+#   ghostTheme: NinjaGhost

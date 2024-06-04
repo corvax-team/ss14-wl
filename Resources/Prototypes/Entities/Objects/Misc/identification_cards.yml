@@ -17,6 +17,8 @@
     storedRotation: -90
   - type: Access
   - type: IdCard
+  - type: BankAccountHolder
+    startBalance: 0
   - type: StationRecordKeyStorage
   - type: Tag
     tags:

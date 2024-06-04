@@ -1,6 +1,5 @@
 - type: salaryConfiguration
   id: SalaryConfiguration
-  interval: 60.0 # В секундах
   coefficients:
   - !type:JobWageCoefficient
     jobs:

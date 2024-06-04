@@ -72,7 +72,7 @@ namespace Content.Server._WL.Economics.Systems
             if (!args.CanInteract || !args.CanAccess)
                 return;
 
-            var verb = new AlternativeVerb()
+            var firstVerb = new AlternativeVerb()
             {
                 Act = () =>
                 {
@@ -100,7 +100,34 @@ namespace Content.Server._WL.Economics.Systems
                 Text = "Вытащить случайную карту"
             };
 
-            args.Verbs.Add(verb);
+            var secondVerb = new AlternativeVerb()
+            {
+                Act = () =>
+                {
+                    if (!TryComp<ContainerManagerComponent>(cardBox, out var containerManagerComp))
+                        return;
+
+                    if (!_container.TryGetContainer(cardBox, CardBoxContainer, out var container, containerManagerComp))
+                        return;
+
+                    if (container.ContainedEntities.Count == 0)
+                    {
+                        _popup.PopupCursor("В коробке нет карт!", args.User);
+                        return;
+                    }
+
+                    foreach (var card in container.ContainedEntities)
+                    {
+                        FlipCard(card);
+                    }
+                },
+                IconEntity = GetNetEntity(cardBox),
+                Priority = -1,
+                Text = "Перевернуть все карты в колоде"
+            };
+
+            args.Verbs.Add(firstVerb);
+            args.Verbs.Add(secondVerb);
         }
 
         private void OnCardBoxExamine(EntityUid cardBox, PokerCardContainerComponent comp, ExaminedEvent args)

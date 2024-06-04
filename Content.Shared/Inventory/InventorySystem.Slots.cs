@@ -30,8 +30,8 @@ public partial class InventorySystem : EntitySystem
     /// <summary>
     /// Tries to find an entity in the specified slot with the specified component.
     /// </summary>
-    public bool TryGetInventoryEntity<T>(Entity<InventoryComponent?> entity, out EntityUid targetUid)
-        where T : IComponent, IClothingSlots
+    public bool TryGetInventoryEntity<T>(Entity<InventoryComponent?> entity, SlotFlags slots, [NotNullWhen(true)] out Entity<T>? targetUid)
+        where T : IComponent
     {
         if (TryGetContainerSlotEnumerator(entity.Owner, out var containerSlotEnumerator))
         {
@@ -40,15 +40,41 @@ public partial class InventorySystem : EntitySystem
                 if (!TryComp<T>(item, out var required))
                     continue;
 
-                if ((((IClothingSlots) required).Slots & slot.SlotFlags) == 0x0)
+                if ((slots & slot.SlotFlags) == 0x0)
                     continue;
 
-                targetUid = item;
+                targetUid = (item, required);
                 return true;
             }
         }
 
-        targetUid = EntityUid.Invalid;
+        targetUid = null;
+        return false;
+    }
+
+    public bool TryGetInventoryEntity<Comp1, Comp2>(Entity<InventoryComponent?> entity, SlotFlags slots, [NotNullWhen(true)] out Entity<Comp1, Comp2>? targetUid)
+        where Comp1 : IComponent
+        where Comp2 : IComponent
+    {
+        if (TryGetContainerSlotEnumerator(entity.Owner, out var containerSlotEnumerator))
+        {
+            while (containerSlotEnumerator.NextItem(out var item, out var slot))
+            {
+                if ((slots & slot.SlotFlags) == 0x0)
+                    continue;
+
+                if (!TryComp<Comp1>(item, out var required1))
+                    continue;
+
+                if (!TryComp<Comp2>(item, out var required2))
+                    continue
+
+                targetUid = (item, required1, required2);
+                return true;
+            }
+        }
+
+        targetUid = null;
         return false;
     }
 

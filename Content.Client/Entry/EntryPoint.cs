@@ -122,6 +122,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("stationGoal"); // Corvax-StationGoal
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
+            _prototypeManager.RegisterIgnore("salaryConfiguration"); //WL-Economics
 
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
