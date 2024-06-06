@@ -58,3 +58,6 @@
     whitelist:
       tags:
         - MonkeyWearable
+    blocks:
+    - INNERCLOTHING
+    - IDCARD

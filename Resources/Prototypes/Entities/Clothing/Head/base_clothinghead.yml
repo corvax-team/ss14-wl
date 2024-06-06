@@ -142,6 +142,12 @@
     slots:
     - Hair
     - Snout
+  - type: ExtraBlockingInventorySlots # WL-Changes
+    slots:
+    - EYES
+    - EARS
+    - MASK
+    - NECK
 
 - type: entity
   abstract: true
@@ -185,6 +191,12 @@
     slots:
     - Hair
     - Snout
+  - type: ExtraBlockingInventorySlots # WL-Changes
+    slots:
+    - EYES
+    - EARS
+    - MASK
+    - NECK
 
 - type: entity
   abstract: true

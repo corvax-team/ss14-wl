@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Inventory;
 
@@ -55,4 +56,11 @@ public sealed partial class SlotDefinition
     ///     Entity blacklist for CanEquip checks.
     /// </summary>
     [DataField("blacklist")] public EntityWhitelist? Blacklist = null;
+
+    //WL-BlockClothingSlots-start
+    /// <summary>
+    /// Содержит флаги, слоты с которыми блокируются, когда кто-то пытается надеть/снять одежду в эти слоты.
+    /// </summary>
+    [DataField("blocks")] public List<SlotFlags> BlockSlots = new();
+    //WL-BlockClothingSlots-end
 }

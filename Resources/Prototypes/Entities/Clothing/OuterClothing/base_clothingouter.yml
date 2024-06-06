@@ -16,6 +16,11 @@
   components:
   - type: Item
     size: Huge
+  - type: ExtraBlockingInventorySlots
+    slots:
+    - GLOVES
+    - LEGS
+    - FEET
   - type: Clothing
     slots:
     - outerClothing
