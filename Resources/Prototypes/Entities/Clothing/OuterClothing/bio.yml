@@ -5,6 +5,11 @@
   suffix: Generic
   description: A suit that protects against biological contamination.
   components:
+  - type: ExtraBlockingInventorySlots
+    slots:
+    - GLOVES
+    - LEGS
+    - FEET
   - type: Sprite
     sprite: Clothing/OuterClothing/Bio/general.rsi
   - type: Clothing
