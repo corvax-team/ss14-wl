@@ -47,8 +47,6 @@
       path: /Audio/Corvax/Announcements/flux.ogg
       params:
         volume: -4
-    weight: 8
-    duration: 35
   - type: AnomalySpawnRule
 
 - type: entity

@@ -25,7 +25,6 @@
     exitAction: TurretExitStateAction
   - type: Sprite
     noRot: false
-  - type: Flashable
 # WL-Changes-end
   - type: Physics
     bodyType: Static
