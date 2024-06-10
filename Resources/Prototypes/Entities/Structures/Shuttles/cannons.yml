@@ -3,6 +3,7 @@
 - type: entity
   id: ShuttleGunBase
   name: shittle gun
+  parent: BaseMob
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -13,10 +14,26 @@
   - type: Anchorable
   - type: Pullable
   - type: Rotatable
+# WL-Changes-start
+  - type: CombatMode
+    toggleMouseRotator: false
+    canDisarm: false
+  - type: MouseRotator
+    angleTolerance: 5
+    simple4DirMode: false
+  - type: BuckleableTurret
+    exitAction: TurretExitStateAction
+  - type: Sprite
+    noRot: false
+  - type: Flashable
+# WL-Changes-end
   - type: Physics
     bodyType: Static
   - type: ContainerContainer
   - type: Gun
+    #WL-Changes-start
+    fireRate: 1.5
+    #WL-Changes-end
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto

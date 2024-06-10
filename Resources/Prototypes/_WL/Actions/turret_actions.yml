@@ -1,0 +1,8 @@
+- type: entity
+  id: TurretExitStateAction
+  name: Перестать управлять
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Interface/eject.png
+    event: !type:TurretExitRidingActionEvent
