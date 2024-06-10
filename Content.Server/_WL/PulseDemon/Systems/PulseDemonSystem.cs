@@ -23,6 +23,7 @@ using System.Numerics;
 using Robust.Shared.Map;
 using Content.Shared._WL.PulseDemon;
 using Content.Shared.Actions;
+using Content.Shared.Store.Components;
 
 namespace Content.Server._WL.PulseDemon.Systems;
 

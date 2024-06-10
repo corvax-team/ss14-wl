@@ -1,26 +1,40 @@
 - type: entity
-  id: GiftsPizzaPartySmall
+  id: CargoGiftsBase
   parent: BaseGameRule
+  abstract: true
+  components:
+  - type: GameRule
+    delay:
+      min: 10
+      max: 10
+  - type: StationEvent
+    startColor: "#18abf5"
+    startAudio:
+      path: /Audio/Announcements/announce.ogg
+  - type: CargoGiftsRule
+    sender: cargo-gift-default-sender
+
+- type: entity
+  id: GiftsPizzaPartySmall
+  parent: CargoGiftsBase
   noSpawn: true
   components:
   - type: StationEvent
     weight: 5
-    startDelay: 10
     duration: 120
     earliestStart: 20
   - type: CargoGiftsRule
     description: cargo-gift-pizza-small
-    sender: cargo-gift-default-sender
     dest: cargo-gift-dest-bar
     gifts:
-      FoodPizzaLarge: 1              # 16 pizzas
+      FoodPizza: 1              # 4 pizzas
       FoodBarSupply: 1
       FoodSoftdrinks: 1
       CrateVendingMachineRestockRobustSoftdrinks: 1
 
 - type: entity
   id: GiftsPizzaPartyLarge
-  parent: BaseGameRule
+  parent: CargoGiftsBase
   noSpawn: true
   components:
     - type: StationEvent
@@ -42,7 +56,7 @@
 
 - type: entity
   id: GiftsEngineering
-  parent: BaseGameRule
+  parent: CargoGiftsBase
   noSpawn: true
   components:
     - type: StationEvent
@@ -67,7 +81,7 @@
 
 - type: entity
   id: GiftsVendingRestock
-  parent: BaseGameRule
+  parent: CargoGiftsBase
   noSpawn: true
   components:
     - type: StationEvent
@@ -92,7 +106,7 @@
 
 - type: entity
   id: GiftsJanitor
-  parent: BaseGameRule
+  parent: CargoGiftsBase
   noSpawn: true
   components:
     - type: StationEvent
@@ -114,7 +128,7 @@
 
 - type: entity
   id: GiftsMedical
-  parent: BaseGameRule
+  parent: CargoGiftsBase
   noSpawn: true
   components:
     - type: StationEvent
@@ -138,7 +152,7 @@
 
 - type: entity
   id: GiftsSpacingSupplies
-  parent: BaseGameRule
+  parent: CargoGiftsBase
   noSpawn: true
   components:
     - type: StationEvent
@@ -162,7 +176,7 @@
 
 - type: entity
   id: GiftsFireProtection
-  parent: BaseGameRule
+  parent: CargoGiftsBase
   noSpawn: true
   components:
     - type: StationEvent
@@ -184,7 +198,7 @@
 
 - type: entity
   id: GiftsSecurityGuns
-  parent: BaseGameRule
+  parent: CargoGiftsBase
   noSpawn: true
   components:
     - type: StationEvent
@@ -207,7 +221,7 @@
 
 - type: entity
   id: GiftsSecurityRiot
-  parent: BaseGameRule
+  parent: CargoGiftsBase
   noSpawn: true
   components:
     - type: StationEvent

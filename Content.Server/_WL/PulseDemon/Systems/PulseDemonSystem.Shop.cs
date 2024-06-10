@@ -3,6 +3,7 @@ using Content.Server._WL.PulseDemon.Components;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared._WL.PulseDemon;
+using Content.Shared.Store.Components;
 
 namespace Content.Server._WL.PulseDemon.Systems;
 
