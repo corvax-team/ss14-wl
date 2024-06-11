@@ -30,4 +30,17 @@
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
+  <ItemGroup>
+    <EmbeddedResource Remove="_WL\Turrets\TurretMinderConsoleWindow.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Update="_WL\Turrets\TurretMinderConsoleWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AdditionalFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="_WL\Turrets\TurretMinderConsoleWindow.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

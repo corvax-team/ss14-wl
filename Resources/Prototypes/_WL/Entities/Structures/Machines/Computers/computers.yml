@@ -1,0 +1,34 @@
+- type: entity
+  parent: BaseComputer
+  id: ComputerTurretMinder
+  name: консоль управления турелями
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      sprite: _WL/Structures/Machines/computers.rsi
+      state: helm
+    - map: ["computerLayerKeys"]
+      sprite: _WL/Structures/Machines/computers.rsi
+      state: security_key
+  - type: ActivatableUI
+    key: enum.ConsoleTurretMinderUiKey.Key
+  - type: UserInterface
+    interfaces:
+        enum.ConsoleTurretMinderUiKey.Key:
+          type: ConsoleTurretMinderBoundUserInterface
+  - type: Computer
+    board: TurretMinderComputerCircuitboard
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+  - type: DeviceLinkSource
+    range: 5
+    ports:
+      - ArtifactAnalyzerSender
+  - type: ApcPowerReceiver
+    powerLoad: 900

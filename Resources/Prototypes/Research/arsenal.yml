@@ -160,6 +160,7 @@
   - ShuttleGunSvalinnMachineGunCircuitboard
   - ShuttleGunPerforatorCircuitboard
   - ShuttleGunFriendshipCircuitboard
+  - TurretConsoleCircuitBoardRecipe # WL-Changes
   technologyPrerequisites:
   - SalvageWeapons
 

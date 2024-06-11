@@ -1,0 +1,37 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "Made by Flareguy for Space Station 14",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+          "name": "helm",
+          "directions": 4,
+          "delays": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ]
+        },
+        {
+          "name": "security_key",
+          "directions": 4
+        }
+    ]
+}

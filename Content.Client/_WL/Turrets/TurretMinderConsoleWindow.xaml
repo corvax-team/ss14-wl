@@ -1,0 +1,7 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            Title="{Loc 'ame-window-title'}"
+            MinSize="250 250">
+    <BoxContainer Name="ButtonsContainer" Margin="20" Orientation="Vertical">
+        
+    </BoxContainer>
+</DefaultWindow>

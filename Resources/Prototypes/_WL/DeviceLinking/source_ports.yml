@@ -1,0 +1,4 @@
+- type: sourcePort
+  id: TurretMinderConsoleConnect
+  name: Консоль
+  description: Передатчик сигнала консоли управления турелями.

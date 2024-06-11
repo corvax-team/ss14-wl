@@ -1,20 +1,20 @@
 using Content.Server._WL.Turrets.Components;
 using Content.Server.Actions;
+using Content.Server.DeviceLinking.Systems;
 using Content.Server.DoAfter;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
+using Content.Shared._WL.Turrets;
 using Content.Shared._WL.Turrets.Events;
-using Content.Shared.CombatMode;
 using Content.Shared.Damage;
-using Content.Shared.Database;
 using Content.Shared.Destructible;
-using Content.Shared.DoAfter;
+using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.StatusEffect;
-using Content.Shared.Verbs;
-using Content.Shared.Weapons.Melee;
 using Robust.Server.GameObjects;
+using System.Linq;
 
 namespace Content.Server._WL.Turrets.Systems
 {
@@ -23,15 +23,19 @@ namespace Content.Server._WL.Turrets.Systems
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly ActionsSystem _actions = default!;
+        [Dependency] private readonly UserInterfaceSystem _ui = default!;
+        [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
-            SubscribeLocalEvent<BuckleableTurretComponent, GetVerbsEvent<AlternativeVerb>>(OnVerb);
             SubscribeLocalEvent<BuckleableTurretComponent, MapInitEvent>(OnMapInit);
-            SubscribeLocalEvent<BuckleableTurretComponent, TurretRidingRequestDoAfterEvent>(OnDoAfter);
             SubscribeLocalEvent<BuckleableTurretComponent, TurretExitRidingActionEvent>(OnExitAction);
+
+            SubscribeLocalEvent<TurretMinderConsoleComponent, NewLinkEvent>(OnLink);
+
+            SubscribeLocalEvent<TurretMinderConsolePressedUiButtonMessage>(OnMessage);
 
             //Attempts
             SubscribeLocalEvent<BuckledOnTurretComponent, DamageChangedEvent>(OnDamageChanged);
@@ -65,62 +69,29 @@ namespace Content.Server._WL.Turrets.Systems
             => Unvisit(comp);
         #endregion
 
-        private void OnVerb(EntityUid turret, BuckleableTurretComponent comp, GetVerbsEvent<AlternativeVerb> args)
+        private void OnLink(EntityUid console, TurretMinderConsoleComponent comp, NewLinkEvent args)
         {
-            if (!args.CanInteract || !args.CanAccess)
-                return;
-
-            if (comp.Riding)
-                return;
-
-            if (!TryComp<TransformComponent>(turret, out var xform) || !xform.Anchored)
-                return;
-
-            if (HasComp<BuckleableTurretComponent>(args.User))
-                return;
-
-            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, comp.RideTime, new TurretRidingRequestDoAfterEvent(), turret, turret, null)
-            {
-                BlockDuplicate = true,
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                BreakOnHandChange = true,
-                NeedHand = true,
-                RequireCanInteract = true,
-                DuplicateCondition = DuplicateConditions.SameTarget
-            };
-
-            var verb = new AlternativeVerb()
-            {
-                Act = () =>
-                {
-                    _doAfter.TryStartDoAfter(doAfterArgs);
-                },
-                ConfirmationPopup = true,
-                IconEntity = GetNetEntity(turret),
-                Text = "Управлять",
-                Impact = LogImpact.Medium
-            };
-
-            args.Verbs.Add(verb);
+            UpdateUiState(console);
         }
 
-        private void OnDoAfter(EntityUid turret, BuckleableTurretComponent comp, TurretRidingRequestDoAfterEvent args)
+        private void OnMessage(TurretMinderConsolePressedUiButtonMessage args)
         {
-            if (args.Cancelled || args.Handled)
-                return;
+            var turret = GetEntity(args.Turret);
+            var user = GetEntity(args.Entity);
 
-            var mind = _mind.GetMind(args.User);
+            var comp = EnsureComp<BuckleableTurretComponent>(turret);
+
+            var mind = _mind.GetMind(user);
             if (mind == null)
                 return;
 
-            var buckledComp = EnsureComp<BuckledOnTurretComponent>(args.User);
+            var buckledComp = EnsureComp<BuckledOnTurretComponent>(user);
 
             buckledComp.Turret = (turret, comp);
             var mindComp = Comp<MindComponent>(mind.Value);
             buckledComp.Mind = (mind.Value, mindComp);
 
-            comp.User = (args.User, buckledComp);
+            comp.User = (user, buckledComp);
             comp.Riding = true;
 
             _mind.Visit(mind.Value, turret, mindComp);
@@ -138,14 +109,13 @@ namespace Content.Server._WL.Turrets.Systems
 
         private void OnGhost(GhostAttemptHandleEvent args)
         {
-            Logger.Debug("1");
             var ent = args.Mind.OwnedEntity;
             if (ent == null)
                 return;
-            Logger.Debug("2");
+
             if (!TryComp<BuckledOnTurretComponent>(ent, out var buckledComp))
                 return;
-            Logger.Debug("3");
+
             Unvisit(buckledComp.Turret?.Comp);
         }
 
@@ -170,6 +140,20 @@ namespace Content.Server._WL.Turrets.Systems
         private void Unvisit(BuckledOnTurretComponent? comp)
         {
             Unvisit(comp?.Turret?.Comp);
+        }
+
+        public void UpdateUiState(Entity<UserInterfaceComponent?> console, DeviceLinkSourceComponent? devicelinkComp = null)
+        {
+            if (!Resolve(console.Owner, ref devicelinkComp))
+                return;
+
+            var netEntities = devicelinkComp.LinkedPorts
+                .Where(x => TryComp<BuckleableTurretComponent>(x.Key, out var turretComp) && !turretComp.Riding)
+                .Select(x => GetNetEntity(x.Key));
+
+            var state = new TurretMinderConsoleBoundUserInterfaceState(netEntities);
+
+            _ui.SetUiState(console, ConsoleTurretMinderUiKey.Key, state);
         }
     }
 }
