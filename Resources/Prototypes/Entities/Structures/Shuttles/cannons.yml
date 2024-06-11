@@ -28,6 +28,9 @@
     noRot: false
   - type: InputMover
     canMove: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
 # WL-Changes-end
   - type: Physics
     bodyType: Static

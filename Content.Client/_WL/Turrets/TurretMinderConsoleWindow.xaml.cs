@@ -90,7 +90,7 @@ public sealed partial class TurretMinderConsoleWindow : DefaultWindow
         if (entry.Disabled)
         {
             button.Disabled = true;
-            button.Text = "Занято";
+            button.Text = "Недоступно";
         }
 
         if (entry.Prototype != null)

@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: TurretMinderComputerCircuitboard
-  name: консоль управления турелями
+  name: консоль управления корабельными орудиями
   components:
     - type: Sprite
       state: cpu_science

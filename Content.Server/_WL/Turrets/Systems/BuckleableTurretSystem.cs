@@ -2,15 +2,18 @@ using Content.Server._WL.Turrets.Components;
 using Content.Server.Actions;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.DeviceNetwork.Components;
+using Content.Server.DoAfter;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Server.Power.Components;
 using Content.Shared._WL.Turrets;
 using Content.Shared._WL.Turrets.Events;
+using Content.Shared.Construction.Components;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.DoAfter;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.StatusEffect;
@@ -23,7 +26,7 @@ namespace Content.Server._WL.Turrets.Systems
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly ActionsSystem _actions = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
-        [Dependency] private readonly DeviceLinkSystem _deviceLink = default!;
+        [Dependency] private readonly DoAfterSystem _doAfter = default!;
 
         public override void Initialize()
         {
@@ -62,8 +65,16 @@ namespace Content.Server._WL.Turrets.Systems
             Unvisit(comp);
         }
 
-        private void OnAnchorChanged(EntityUid user, BuckleableTurretComponent comp, ref AnchorStateChangedEvent args)
-            => Unvisit(comp);
+        private void OnAnchorChanged(EntityUid turret, BuckleableTurretComponent comp, AnchorStateChangedEvent args)
+        {
+            Unvisit(comp);
+
+            var consoles = GetLinkedConsoles((turret, comp, null));
+            foreach (var console in consoles)
+            {
+                UpdateUiState((console.Owner, console.Comp));
+            }
+        }
         private void OnMove(EntityUid user, BuckledOnTurretComponent comp, ref MoveEvent args)
             => Unvisit(comp);
         private void OnStatusEffectAdded(EntityUid user, BuckledOnTurretComponent comp, ref StatusEffectAddedEvent args)
@@ -71,7 +82,15 @@ namespace Content.Server._WL.Turrets.Systems
         private void OnMobStateChanged(EntityUid user, BuckledOnTurretComponent comp, ref MobStateChangedEvent args)
             => Unvisit(comp);
         private void OnTerminate(EntityUid turret, BuckleableTurretComponent comp, DestructionEventArgs args)
-            => Unvisit(comp);
+        {
+            Unvisit(comp);
+
+            var consoles = GetLinkedConsoles((turret, comp, null));
+            foreach (var console in consoles)
+            {
+                UpdateUiState((console.Owner, console.Comp));
+            }
+        }
         private void OnConsoleTerminate(EntityUid console, TurretMinderConsoleComponent comp, DestructionEventArgs args)
             => Unvisit((console, comp));
         private void OnConsolePowerChanged(EntityUid console, TurretMinderConsoleComponent comp, ref PowerChangedEvent args)
@@ -85,12 +104,12 @@ namespace Content.Server._WL.Turrets.Systems
 
         private void OnLink(EntityUid console, TurretMinderConsoleComponent comp, NewLinkEvent args)
         {
-            UpdateUiState(console);
+            UpdateUiState((console, comp, null));
         }
 
         private void OnUiOpen(EntityUid console, TurretMinderConsoleComponent comp, BoundUIOpenedEvent args)
         {
-            UpdateUiState(console);
+            UpdateUiState((console, comp, null));
         }
 
         private void OnMessage(TurretMinderConsolePressedUiButtonMessage args)
@@ -101,6 +120,12 @@ namespace Content.Server._WL.Turrets.Systems
 
             var user = args.Actor;
 
+            // Отменяем все DoAfter-ы
+            if (TryComp<DoAfterComponent>(user, out var doAfterComp))
+                foreach (var doafter in doAfterComp.AwaitedDoAfters)
+                    _doAfter.Cancel(user, doafter.Key, doAfterComp);
+
+            // Инициализация
             var comp = EnsureComp<BuckleableTurretComponent>(turret);
 
             var mind = _mind.GetMind(user);
@@ -116,6 +141,7 @@ namespace Content.Server._WL.Turrets.Systems
             comp.User = (user, buckledComp);
             comp.Riding = true;
 
+            // Перемещаем сознание
             _mind.Visit(mind.Value, turret, mindComp);
         }
 
@@ -181,7 +207,9 @@ namespace Content.Server._WL.Turrets.Systems
             }
         }
 
-        public void UpdateUiState(Entity<UserInterfaceComponent?> console, DeviceLinkSourceComponent? devicelinkComp = null)
+        public void UpdateUiState(
+            Entity<TurretMinderConsoleComponent, UserInterfaceComponent?> console,
+            DeviceLinkSourceComponent? devicelinkComp = null)
         {
             if (!Resolve(console.Owner, ref devicelinkComp))
                 return;
@@ -215,7 +243,28 @@ namespace Content.Server._WL.Turrets.Systems
 
             var state = new TurretMinderConsoleBoundUserInterfaceState(dict);
 
-            _ui.SetUiState(console, ConsoleTurretMinderUiKey.Key, state);
+            _ui.SetUiState((console.Owner, console.Comp2), ConsoleTurretMinderUiKey.Key, state);
+        }
+
+        public List<Entity<TurretMinderConsoleComponent>> GetLinkedConsoles(Entity<BuckleableTurretComponent, DeviceLinkSinkComponent?> turret)
+        {
+            var list = new List<Entity<TurretMinderConsoleComponent>>();
+
+            if (!Resolve(turret.Owner, ref turret.Comp2))
+                return list;
+
+            foreach (var entity in turret.Comp2.LinkedSources)
+            {
+                if (!entity.IsValid())
+                    continue;
+
+                if (!TryComp<TurretMinderConsoleComponent>(entity, out var turretConsoleComp))
+                    continue;
+
+                list.Add((entity, turretConsoleComp));
+            }
+
+            return list;
         }
     }
 }
