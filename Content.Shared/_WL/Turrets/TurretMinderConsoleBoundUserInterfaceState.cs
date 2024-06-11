@@ -1,3 +1,4 @@
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.Turrets
@@ -14,5 +15,8 @@ namespace Content.Shared._WL.Turrets
     }
 
     [Serializable, NetSerializable]
-    public readonly record struct TurretMinderConsoleBUIStateEntry(bool Disabled, string Address);
+    public readonly record struct TurretMinderConsoleBUIStateEntry(
+        bool Disabled,
+        string Address,
+        string? Prototype);
 }

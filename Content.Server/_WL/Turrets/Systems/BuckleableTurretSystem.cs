@@ -14,8 +14,6 @@ using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.StatusEffect;
-using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
 
 namespace Content.Server._WL.Turrets.Systems
@@ -98,6 +96,9 @@ namespace Content.Server._WL.Turrets.Systems
         private void OnMessage(TurretMinderConsolePressedUiButtonMessage args)
         {
             var turret = GetEntity(args.Turret);
+            if (!turret.IsValid())
+                return;
+
             var user = args.Actor;
 
             var comp = EnsureComp<BuckleableTurretComponent>(turret);
@@ -145,7 +146,7 @@ namespace Content.Server._WL.Turrets.Systems
             if (comp?.User == null)
                 return;
 
-            RemComp<BuckledOnTurretComponent>(comp.User.Value.Owner); // '!' потому что тремя строками выше мы уже проверили юзера на null.
+            RemComp<BuckledOnTurretComponent>(comp.User.Value.Owner);
 
             var mind = comp.User.Value.Comp.Mind;
 
@@ -206,7 +207,10 @@ namespace Content.Server._WL.Turrets.Systems
                 if (!TryComp<DeviceNetworkComponent>(ent, out var deviceNetworkComp))
                     continue;
 
-                dict.Add(GetNetEntity(ent), new(comp.Riding || !transformComp.Anchored, deviceNetworkComp.Address));
+                dict.Add(GetNetEntity(ent), new(
+                    comp.Riding || !transformComp.Anchored,
+                    deviceNetworkComp.Address,
+                    Prototype(ent)?.ID));
             }
 
             var state = new TurretMinderConsoleBoundUserInterfaceState(dict);
