@@ -1,7 +1,10 @@
 <DefaultWindow xmlns="https://spacestation14.io"
-            Title="{Loc 'ame-window-title'}"
-            MinSize="250 250">
-    <BoxContainer Name="ButtonsContainer" Margin="20" Orientation="Vertical">
+            Title="Консоль управления орудиями"
+            MinSize="250 250"
+            HorizontalExpand="True"
+            VerticalExpand="True"
+            Resizable="False">
+    <BoxContainer Name="ButtonsContainer" Margin="20 5 20 5" Orientation="Vertical">
         
     </BoxContainer>
 </DefaultWindow>

@@ -29,6 +29,7 @@
   - type: DeviceLinkSource
     range: 5
     ports:
-      - ArtifactAnalyzerSender
+      - TurretMinderConsoleConnect
   - type: ApcPowerReceiver
     powerLoad: 900
+  - type: TurretMinderConsole

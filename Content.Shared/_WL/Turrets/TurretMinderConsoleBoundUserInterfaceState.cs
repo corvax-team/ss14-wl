@@ -5,11 +5,14 @@ namespace Content.Shared._WL.Turrets
     [Serializable, NetSerializable]
     public sealed partial class TurretMinderConsoleBoundUserInterfaceState : BoundUserInterfaceState
     {
-        public readonly IEnumerable<NetEntity> NetEntities;
+        public readonly Dictionary<NetEntity, TurretMinderConsoleBUIStateEntry> NetEntities;
 
-        public TurretMinderConsoleBoundUserInterfaceState(IEnumerable<NetEntity> netEntities)
+        public TurretMinderConsoleBoundUserInterfaceState(Dictionary<NetEntity, TurretMinderConsoleBUIStateEntry> netEntities)
         {
             NetEntities = netEntities;
         }
     }
+
+    [Serializable, NetSerializable]
+    public readonly record struct TurretMinderConsoleBUIStateEntry(bool Disabled, string Address);
 }

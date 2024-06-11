@@ -1,9 +1,10 @@
 using Content.Server._WL.Turrets.Components;
 using Content.Server.Actions;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.DoAfter;
+using Content.Server.DeviceNetwork.Components;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
+using Content.Server.Power.Components;
 using Content.Shared._WL.Turrets;
 using Content.Shared._WL.Turrets.Events;
 using Content.Shared.Damage;
@@ -13,14 +14,14 @@ using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.StatusEffect;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
-using System.Linq;
 
 namespace Content.Server._WL.Turrets.Systems
 {
     public sealed partial class BuckleableTurretSystem : EntitySystem
     {
-        [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly ActionsSystem _actions = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
@@ -34,18 +35,24 @@ namespace Content.Server._WL.Turrets.Systems
             SubscribeLocalEvent<BuckleableTurretComponent, TurretExitRidingActionEvent>(OnExitAction);
 
             SubscribeLocalEvent<TurretMinderConsoleComponent, NewLinkEvent>(OnLink);
+            SubscribeLocalEvent<TurretMinderConsoleComponent, BoundUIOpenedEvent>(OnUiOpen);
 
             SubscribeLocalEvent<TurretMinderConsolePressedUiButtonMessage>(OnMessage);
 
+            SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhost);
+
             //Attempts
             SubscribeLocalEvent<BuckledOnTurretComponent, DamageChangedEvent>(OnDamageChanged);
-            SubscribeLocalEvent<BuckleableTurretComponent, AnchorStateChangedEvent>(OnAnchorChanged);
             SubscribeLocalEvent<BuckledOnTurretComponent, MoveEvent>(OnMove);
             SubscribeLocalEvent<BuckledOnTurretComponent, StatusEffectAddedEvent>(OnStatusEffectAdded);
             SubscribeLocalEvent<BuckledOnTurretComponent, MobStateChangedEvent>(OnMobStateChanged);
+
+            SubscribeLocalEvent<BuckleableTurretComponent, AnchorStateChangedEvent>(OnAnchorChanged);
             SubscribeLocalEvent<BuckleableTurretComponent, DestructionEventArgs>(OnTerminate);
 
-            SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhost);
+            SubscribeLocalEvent<TurretMinderConsoleComponent, DestructionEventArgs>(OnConsoleTerminate);
+            SubscribeLocalEvent<TurretMinderConsoleComponent, PowerChangedEvent>(OnConsolePowerChanged);
+            SubscribeLocalEvent<TurretMinderConsoleComponent, AnchorStateChangedEvent>(OnConsoleAnchorChanged);
         }
 
         #region Attempts
@@ -67,6 +74,15 @@ namespace Content.Server._WL.Turrets.Systems
             => Unvisit(comp);
         private void OnTerminate(EntityUid turret, BuckleableTurretComponent comp, DestructionEventArgs args)
             => Unvisit(comp);
+        private void OnConsoleTerminate(EntityUid console, TurretMinderConsoleComponent comp, DestructionEventArgs args)
+            => Unvisit((console, comp));
+        private void OnConsolePowerChanged(EntityUid console, TurretMinderConsoleComponent comp, ref PowerChangedEvent args)
+        {
+            if (!args.Powered)
+                Unvisit((console, comp));
+        }
+        private void OnConsoleAnchorChanged(EntityUid console, TurretMinderConsoleComponent comp, AnchorStateChangedEvent args)
+            => Unvisit((console, comp));
         #endregion
 
         private void OnLink(EntityUid console, TurretMinderConsoleComponent comp, NewLinkEvent args)
@@ -74,10 +90,15 @@ namespace Content.Server._WL.Turrets.Systems
             UpdateUiState(console);
         }
 
+        private void OnUiOpen(EntityUid console, TurretMinderConsoleComponent comp, BoundUIOpenedEvent args)
+        {
+            UpdateUiState(console);
+        }
+
         private void OnMessage(TurretMinderConsolePressedUiButtonMessage args)
         {
             var turret = GetEntity(args.Turret);
-            var user = GetEntity(args.Entity);
+            var user = args.Actor;
 
             var comp = EnsureComp<BuckleableTurretComponent>(turret);
 
@@ -119,7 +140,7 @@ namespace Content.Server._WL.Turrets.Systems
             Unvisit(buckledComp.Turret?.Comp);
         }
 
-        private void Unvisit(BuckleableTurretComponent? comp)
+        public void Unvisit(BuckleableTurretComponent? comp)
         {
             if (comp?.User == null)
                 return;
@@ -137,9 +158,26 @@ namespace Content.Server._WL.Turrets.Systems
             _mind.UnVisit(mind.Value.Owner, mind.Value.Comp);
         }
 
-        private void Unvisit(BuckledOnTurretComponent? comp)
+        public void Unvisit(BuckledOnTurretComponent? comp)
         {
             Unvisit(comp?.Turret?.Comp);
+        }
+
+        public void Unvisit(Entity<TurretMinderConsoleComponent>? console, DeviceLinkSourceComponent? comp = null)
+        {
+            if (console == null)
+                return;
+
+            if (!Resolve(console.Value.Owner, ref comp))
+                return;
+
+            foreach (var entity in comp.LinkedPorts)
+            {
+                if (!TryComp<BuckleableTurretComponent>(entity.Key, out var turretComp))
+                    continue;
+
+                Unvisit(turretComp);
+            }
         }
 
         public void UpdateUiState(Entity<UserInterfaceComponent?> console, DeviceLinkSourceComponent? devicelinkComp = null)
@@ -147,11 +185,31 @@ namespace Content.Server._WL.Turrets.Systems
             if (!Resolve(console.Owner, ref devicelinkComp))
                 return;
 
-            var netEntities = devicelinkComp.LinkedPorts
-                .Where(x => TryComp<BuckleableTurretComponent>(x.Key, out var turretComp) && !turretComp.Riding)
-                .Select(x => GetNetEntity(x.Key));
+            var dict = new Dictionary<NetEntity, TurretMinderConsoleBUIStateEntry>();
 
-            var state = new TurretMinderConsoleBoundUserInterfaceState(netEntities);
+            foreach (var entity in devicelinkComp.LinkedPorts)
+            {
+                var ent = entity.Key;
+
+                if (!ent.IsValid())
+                    continue;
+
+                if (TerminatingOrDeleted(ent))
+                    continue;
+
+                if (!TryComp<BuckleableTurretComponent>(ent, out var comp))
+                    continue;
+
+                if (!TryComp<TransformComponent>(ent, out var transformComp))
+                    continue;
+
+                if (!TryComp<DeviceNetworkComponent>(ent, out var deviceNetworkComp))
+                    continue;
+
+                dict.Add(GetNetEntity(ent), new(comp.Riding || !transformComp.Anchored, deviceNetworkComp.Address));
+            }
+
+            var state = new TurretMinderConsoleBoundUserInterfaceState(dict);
 
             _ui.SetUiState(console, ConsoleTurretMinderUiKey.Key, state);
         }
