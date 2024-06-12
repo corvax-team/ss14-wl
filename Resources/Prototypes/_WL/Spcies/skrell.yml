@@ -8,6 +8,11 @@
   markingLimits: MobSkrellMarkingLimits
   dollPrototype: MobSkrellDummy
   skinColoration: Hues
+  maleFirstNames: names_skrell_first
+  femaleFirstNames: names_skrell_first
+  maleLastNames: names_skrell_last
+  femaleLastNames: names_skrell_last
+  naming: FirstLastFirstLast
 
 - type: speciesBaseSprites
   id: MobSkrellSprites

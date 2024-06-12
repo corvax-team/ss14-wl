@@ -39,6 +39,10 @@ namespace Content.Shared.Humanoid
                 default:
                     return Loc.GetString("namepreset-firstlast",
                         ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto, gender))); // Corvax-LastnameGender
+                case SpeciesNaming.FirstLastFirstLast:
+                    return Loc.GetString("namepreset-firstlastfirstlast",
+                        ("first1", GetFirstName(speciesProto, gender)), ("last1", GetLastName(speciesProto, gender)),
+                        ("first2", GetFirstName(speciesProto, gender)), ("last2", GetLastName(speciesProto, gender))); // Corvax WL Skrell names
             }
         }
 

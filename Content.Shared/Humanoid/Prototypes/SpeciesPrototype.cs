@@ -173,4 +173,5 @@ public enum SpeciesNaming : byte
     FirstLast,
     FirstDashFirst,
     TheFirstofLast,
+    FirstLastFirstLast // Corvax WL Skrell names
 }
