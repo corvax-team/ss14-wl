@@ -29,12 +29,24 @@ namespace Content.Shared.Roles
         [ViewVariables(VVAccess.ReadOnly)]
         public string LocalizedName => Loc.GetString(Name);
 
+        //WL-Subnames-start
         /// <summary>
         ///     The possible names of this job.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
         [DataField("subnames")]
         public List<string> Subnames { get; private set; } = new();
+        //WL-Subnames-end
+
+        //WL-Skills-start
+        [ViewVariables(VVAccess.ReadOnly)]
+        [DataField]
+        public int SkillPoints { get; private set; } = 10;
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        [DataField]
+        public int MinAge { get; private set; } = 18;
+        //WL-Skills-end
 
         /// <summary>
         ///     The name of this job as displayed to players.

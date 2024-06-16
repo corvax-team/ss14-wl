@@ -3,10 +3,14 @@
   name: job-name-psychologist
   description: job-description-psychologist
   playTimeTracker: JobPsychologist
+  #WL-Changes-start
+  skillPoints: 16
+  minAge: 27
   subnames:
   - психиатр
   - психотерапевт
   - консультант
+  #WL-Changes-end
   startingGear: PsychologistGear
   icon: "JobIconPsychologist"
   supervisors: job-supervisors-cmo

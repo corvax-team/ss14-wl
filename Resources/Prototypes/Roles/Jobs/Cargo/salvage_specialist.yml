@@ -3,11 +3,14 @@
   name: job-name-salvagespec
   description: job-description-salvagespec
   playTimeTracker: JobSalvageSpecialist
+  #WL-Changes-start
+  skillPoints: 16
   subnames:
   - шахтёр
   - старатель
   - исследователь
   - пилот-исследователь
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo

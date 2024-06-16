@@ -4,6 +4,8 @@
   description: job-description-chaplain
   playTimeTracker: JobChaplain
   startingGear: ChaplainGear
+  #WL-Changes-start
+  skillPoints: 14
   subnames:
   - капеллан
   - монах
@@ -12,6 +14,7 @@
   - раввин
   - клирик
   - жрец
+  #WL-Changes-end
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
   access:

@@ -3,8 +3,12 @@
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobQuartermaster
+  #WL-Changes-start
+  skillPoints: 16
+  minAge: 28
   subnames:
   - начальник снабжения
+  #WL-Changes-end
   requirements:
 #    - !type:RoleTimeRequirement
 #      role: JobCargoTechnician

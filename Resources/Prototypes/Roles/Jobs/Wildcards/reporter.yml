@@ -3,10 +3,14 @@
   name: job-name-reporter
   description: job-description-reporter
   playTimeTracker: JobReporter
+  #WL-Changes-start
+  skillPoints: 14
+  minAge: 22
   subnames:
   - журналист
   - корреспондент
   - газетчик
+  #WL-Changes-end
   startingGear: ReporterGear
   icon: "JobIconReporter"
   supervisors: job-supervisors-hop

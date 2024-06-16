@@ -3,11 +3,15 @@
   name: job-name-security
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
+  #WL-Changes-start
+  skillPoints: 18
+  minAge: 22
   subnames:
   - офицер охраны
   - оперативник СБ
   - инструктор СБ
   - патрульный офицер
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

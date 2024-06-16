@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
+using Content.Shared._WL.Skills;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -44,6 +45,7 @@ namespace Content.Server.Database
                 .Preference
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.JobSubnames)
+                .Include(p => p.Profiles).ThenInclude(h => h.Skills)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
                 .Include(p => p.Profiles)
@@ -97,6 +99,7 @@ namespace Content.Server.Database
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)
                 .Include(p => p.JobSubnames)
+                .Include(p => p.Skills)
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
                 .Include(p => p.Loadouts)
@@ -188,7 +191,7 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
-            var jobSubnames = profile.JobSubnames.ToDictionary(x => x.JobName, x => x.Subname);
+            var jobSubnames = profile.JobSubnames.ToDictionary(x => x.JobName, x => x.Subname); //WL-Subnames
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -243,6 +246,10 @@ namespace Content.Server.Database
                 loadouts[role.RoleName] = loadout;
             }
 
+            //WL-Skills-start
+            var skills = profile.Skills.ToDictionary(k => k.JobName, v => v.SkillEntries.ToDictionary(seKey => seKey.SkillName, seV => (SkillLevel) seV.SkillLevel));
+            //WL-Skills-end
+
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
                 profile.FlavorText,
@@ -266,10 +273,12 @@ namespace Content.Server.Database
                 spawnPriority,
                 jobs,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
-                jobSubnames,
+                jobSubnames, //WL-Subnames
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                skills, //WL-Skills
+                profile.SkillsChosenJob //WL-Skills
             );
         }
 
@@ -311,11 +320,30 @@ namespace Content.Server.Database
                     .Select(j => new Job() { JobName = j.Key, Priority = (DbJobPriority) j.Value })
             );
 
+            //WL-Subnames-start
             profile.JobSubnames.Clear();
             profile.JobSubnames.AddRange(
                 humanoid.JobSubnames
                     .Select(js => new JobSubname() { JobName = js.Key, Subname = js.Value })
             );
+            //WL-Subnames-end
+
+            //WL-Skills-start
+            profile.Skills.Clear();
+            profile.Skills.AddRange(
+                humanoid.Skills
+                    .Select(s =>
+                    {
+                        var skillEntries = s.Value.Select(se => new SkillEntry() { SkillName = se.Key, SkillLevel = (int) se.Value });
+
+                        var skill = new Skill() { JobName = s.Key };
+                        skill.SkillEntries.AddRange(skillEntries);
+
+                        return skill;
+                    }));
+
+            profile.SkillsChosenJob = humanoid.SkillsChosenJob;
+            //WL-Skills-end
 
             profile.Antags.Clear();
             profile.Antags.AddRange(

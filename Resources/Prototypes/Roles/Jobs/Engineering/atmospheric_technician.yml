@@ -3,6 +3,10 @@
   name: job-name-atmostech
   description: job-description-atmostech
   playTimeTracker: JobAtmosphericTechnician
+  #WL-Changes-start
+  skillPoints: 18
+  minAge: 25
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

@@ -3,8 +3,9 @@
          xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
          xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
          xmlns:ui="clr-namespace:Content.Client.Lobby.UI"
+         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
          HorizontalExpand="True">
-        <!-- Left side -->
+    <!-- Left side -->
         <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
             <!-- Middle container -->
             <BoxContainer Orientation="Horizontal" SeparationOverride="10" HorizontalExpand="True">
@@ -138,6 +139,27 @@
                         <BoxContainer Name="JobList" Orientation="Vertical" />
                     </ScrollContainer>
                 </BoxContainer>
+                <!-- WL-Skills-start -->
+                <BoxContainer Orientation="Vertical" Margin="10">
+                    <!-- Skills -->
+                    <OptionButton Name="SkillsJobOptionsButton" HorizontalExpand="True" />
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 0 0 20">
+                        <Label Text="Оставшееся количество очков:" Margin="0 20 10 0" />
+                        <Label Name="SkillPoints" Margin="0 20 0 0" />
+                    </BoxContainer>
+                    <ScrollContainer VerticalExpand="True">
+                        <PanelContainer HorizontalExpand="True">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BorderThickness="3" BorderColor="#581163" />
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer
+                                Name="SkillsList"
+                                Orientation="Vertical"
+                                HorizontalExpand="True" />
+                        </PanelContainer>
+                    </ScrollContainer>
+                </BoxContainer>
+                <!-- WL-Skills-end-->
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Antags -->
                     <ScrollContainer VerticalExpand="True">

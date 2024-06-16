@@ -4,11 +4,14 @@
   description: job-description-botanist
   playTimeTracker: JobBotanist
   startingGear: BotanistGear
+  #WL-Changes-start
+  skillPoints: 14
   subnames:
   - садовник
   - флорист
   - фермер
   - агроном
+  #WL-Changes-end
   icon: "JobIconBotanist"
   supervisors: job-supervisors-hop
   access:

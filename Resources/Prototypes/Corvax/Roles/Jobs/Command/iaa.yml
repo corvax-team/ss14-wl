@@ -2,6 +2,10 @@
   id: IAA
   name: job-name-iaa
   playTimeTracker: JobIAA
+  #WL-Changes-start
+  skillPoints: 18
+  minAge: 30
+  #WL-Changes-end
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command

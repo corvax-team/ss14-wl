@@ -1,0 +1,6 @@
+- type: skillsConfiguration
+  id: Standart
+  ageModifier:
+   23: 3
+   31: 3
+   46: 2

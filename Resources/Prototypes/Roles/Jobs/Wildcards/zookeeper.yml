@@ -4,8 +4,12 @@
   description: job-description-zookeeper
   playTimeTracker: JobZookeeper
   startingGear: ZookeeperGear
+  #WL-Changes-start
+  minAge: 22
+  skillPoints: 16
   subnames:
   - ветеринар
+  #WL-Changes-end
   icon: "JobIconZookeeper"
   supervisors: job-supervisors-hop
   access:

@@ -3,8 +3,12 @@
   name: job-name-hop
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
+  #WL-Changes-start
+  skillPoints: 22
+  minAge: 30
   subnames:
   - сервис-администратор
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

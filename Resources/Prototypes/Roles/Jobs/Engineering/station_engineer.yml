@@ -3,11 +3,15 @@
   name: job-name-engineer
   description: job-description-engineer
   playTimeTracker: JobStationEngineer
+  #WL-Changes-start
+  skillPoints: 20
+  minAge: 25
   subnames:
   - электрик
   - механик
   - реакторный техник
   - инженер-структурщик
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

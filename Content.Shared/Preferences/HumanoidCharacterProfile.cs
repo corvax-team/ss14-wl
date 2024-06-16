@@ -1,5 +1,8 @@
+using System.Collections.Immutable;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._WL.Skills;
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.GameTicking;
@@ -16,6 +19,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using SixLabors.ImageSharp.Processing;
 
 namespace Content.Shared.Preferences
 {
@@ -32,9 +36,18 @@ namespace Content.Shared.Preferences
         public const int MaxNameLength = 32;
         public const int MaxDescLength = 512 * 2; // WL-CharacterInfo: Increase
 
-
+        //WL-Subnames-start
         [DataField]
         private Dictionary<string, string> _jobSubnames = new();
+        //WL-Subnames-end
+
+        //WL-Skills-start
+        [DataField]
+        private Dictionary<string, Dictionary<string, SkillLevel>> _skills = new();
+
+        [DataField]
+        public string SkillsChosenJob { get; set; } = "МЯУМЯУМЯУМЯУМЯУМЯУММЯУ";
+        //WL-Skills-end
 
         /// <summary>
         /// Job preferences for initial spawn.
@@ -152,7 +165,9 @@ namespace Content.Shared.Preferences
 
             HashSet<string> antagPreferences,
             HashSet<string> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            Dictionary<string, Dictionary<string, SkillLevel>> skills, //WL-Skills
+            string skillsChosenJob /*WL-Skills*/)
         {
             Name = name;
             FlavorText = flavortext;
@@ -171,6 +186,8 @@ namespace Content.Shared.Preferences
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
             _jobSubnames = jobSubnames;
+            _skills = skills; //WL-Skills
+            SkillsChosenJob = skillsChosenJob; //WL-Skills
         }
 
 
@@ -192,7 +209,9 @@ namespace Content.Shared.Preferences
                 new Dictionary<string, string>(other.JobSubnames),
                 new HashSet<string>(other.AntagPreferences),
                 new HashSet<string>(other.TraitPreferences),
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                other.Skills.ToDictionary(x => x.Key, x => x.Value.ToDictionary()), //WL-Skills
+                other.SkillsChosenJob /*WL-Skills*/)
         {
         }
 
@@ -285,8 +304,19 @@ namespace Content.Shared.Preferences
 
         [DataField("height")] public int Height { get; private set; } = 150; // WL-Height
 
+        //WL-Subnames-start
         public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames;
+        //WL-Subnames-end
 
+        //WL-Skills-start
+        //Пиздец...
+        /// <summary>
+        /// НЕ МЕНЯЙТЕ!!!!!!!!!!!!!!!
+        /// ИСПОЛЬЗУЙТЕ МЕТОД <see cref="WithSkillLevel(string, string, SkillLevel)"/>
+        /// </summary>
+        public IReadOnlyDictionary<string, Dictionary<string, SkillLevel>> Skills
+            => _skills;
+        //WL-Skills-end
 
         public HumanoidCharacterProfile WithName(string name)
         {
@@ -357,6 +387,7 @@ namespace Content.Shared.Preferences
             };
         }
 
+        //WL-Subnames-start
         public HumanoidCharacterProfile WithJobSubname(string jobId, string subname)
         {
             var dict = new Dictionary<string, string>(_jobSubnames);
@@ -368,6 +399,22 @@ namespace Content.Shared.Preferences
                 _jobSubnames = dict
             };
         }
+        //WL-Subnames-end
+
+        //WL-Skills-start
+        public HumanoidCharacterProfile WithSkillLevel(string jobId, string skillId, SkillLevel level)
+        {
+            var dict = new Dictionary<string, Dictionary<string, SkillLevel>>(_skills);
+
+            if (!dict.TryAdd(jobId, new() { { skillId, level } }))
+                dict[jobId][skillId] = level;
+
+            return new(this)
+            {
+                _skills = dict
+            };
+        }
+        //WL-Skills-end
 
         public HumanoidCharacterProfile WithJobPriority(string jobId, JobPriority priority)
         {
@@ -463,6 +510,25 @@ namespace Content.Shared.Preferences
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (!_jobSubnames.SequenceEqual(other._jobSubnames)) return false; // WL-JobSubnames
+            if (SkillsChosenJob != other.SkillsChosenJob) return false; //WL-Skills
+
+            //WL-Skills-start: ДЭЭМ, сложная логика, пон?
+            if (_skills.Count != other._skills.Count)
+                return false;
+
+            for (var indexer = 0; indexer < _skills.Count; indexer++)
+            {
+                var our = _skills.ElementAt(indexer);
+                var their = other._skills.ElementAt(indexer);
+
+                if (our.Key != their.Key)
+                    return false;
+
+                if (!our.Value.SequenceEqual(their.Value))
+                    return false;
+            }
+            //WL-Skills-end
+
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -682,9 +748,11 @@ namespace Content.Shared.Preferences
             hashCode.Add(Appearance);
             hashCode.Add((int) SpawnPriority);
             hashCode.Add((int) PreferenceUnavailable);
-            hashCode.Add(_jobSubnames);
-            hashCode.Add(Height);
-            hashCode.Add(OocText);
+            hashCode.Add(_jobSubnames); //WL-Subnames
+            hashCode.Add(_skills); //WL-Skills
+            hashCode.Add(SkillsChosenJob); //WL-Skills
+            hashCode.Add(Height); //WL-Height
+            hashCode.Add(OocText); //WL-OocText
             return hashCode.ToHashCode();
         }
 

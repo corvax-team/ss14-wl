@@ -784,6 +784,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("sex");
 
+                    b.Property<string>("SkillsChosenJob")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("skills_chosen_job");
+
                     b.Property<string>("SkinColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -1227,6 +1232,58 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsUnique();
 
                     b.ToTable("server_unban", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.Skill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("skill_id");
+
+                    b.Property<string>("JobName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("job_name");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_skill");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("skill", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.SkillEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("skill_entry_id");
+
+                    b.Property<int>("SkillId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("skill_id");
+
+                    b.Property<int>("SkillLevel")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("skill_level");
+
+                    b.Property<string>("SkillName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("skill_name");
+
+                    b.HasKey("Id")
+                        .HasName("PK_skill_entry");
+
+                    b.HasIndex("SkillId");
+
+                    b.ToTable("skill_entry", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
@@ -1746,6 +1803,30 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Ban");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Skill", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("Skills")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_skill_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.SkillEntry", b =>
+                {
+                    b.HasOne("Content.Server.Database.Skill", "Skill")
+                        .WithMany("SkillEntries")
+                        .HasForeignKey("SkillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_skill_entry_skill_skill_id");
+
+                    b.Navigation("Skill");
+                });
+
             modelBuilder.Entity("Content.Server.Database.Trait", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -1851,6 +1932,8 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.Navigation("Loadouts");
 
+                    b.Navigation("Skills");
+
                     b.Navigation("Traits");
                 });
 
@@ -1886,6 +1969,11 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.ServerRoleBan", b =>
                 {
                     b.Navigation("Unban");
+                });
+
+            modelBuilder.Entity("Content.Server.Database.Skill", b =>
+                {
+                    b.Navigation("SkillEntries");
                 });
 #pragma warning restore 612, 618
         }

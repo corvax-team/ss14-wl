@@ -4,9 +4,12 @@
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
   startingGear: CargoTechGear
+  #WL-Changes-start
+  skillPoints: 14
   subnames:
   - работник склада
   - курьер
+  #WL-Changes-end
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   access:

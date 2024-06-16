@@ -3,8 +3,12 @@
   name: job-name-cadet
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
+  #WL-Changes-start
+  skillPoints: 16
+  minAge: 20
   subnames:
   - рекрут СБ
+  #WL-Changes-end
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 #10 hrs # Corvax-RoleTime

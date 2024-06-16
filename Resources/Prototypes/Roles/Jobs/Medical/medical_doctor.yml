@@ -3,11 +3,15 @@
   name: job-name-doctor
   description: job-description-doctor
   playTimeTracker: JobMedicalDoctor
+  #WL-Changes-start
+  skillPoints: 22
+  minAge: 26
   subnames:
   - хирург
   - вирусолог
   - генетик
   - патологоанатом
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

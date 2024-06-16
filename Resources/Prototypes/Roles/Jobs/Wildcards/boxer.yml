@@ -5,6 +5,8 @@
   playTimeTracker: JobBoxer
   startingGear: BoxerGear
   icon: "JobIconBoxer"
+  #WL-Changes-start
+  skillPoints: 14
   subnames:
   - кикбоксер
   - каратист
@@ -13,6 +15,7 @@
   - айкидока
   - сумоист
   - тхэквондист
+  #WL-Changes-start
   supervisors: job-supervisors-hop
   access:
   - Service

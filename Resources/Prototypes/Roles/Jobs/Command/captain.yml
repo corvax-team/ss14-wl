@@ -3,6 +3,10 @@
   name: job-name-captain
   description: job-description-captain
   playTimeTracker: JobCaptain
+  #WL-Changes-start
+  minAge: 35
+  skillPoints: 20
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

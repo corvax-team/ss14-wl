@@ -3,9 +3,13 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
+  #WL-Changes-start
+  skillPoints: 20
+  minAge: 24
   subnames:
   - фармацевт
   - химик-стажёр
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

@@ -6,6 +6,9 @@
   startingGear: JanitorGear
   icon: "JobIconJanitor"
   supervisors: job-supervisors-hop
+  #WL-Changes-start
+  skillPoints: 14
+  #WL-Changes-end
   access:
   - Service
   - Janitor

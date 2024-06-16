@@ -5,6 +5,10 @@
   name: job-name-cmo
   description: job-description-cmo
   playTimeTracker: JobChiefMedicalOfficer
+  #WL-Changes-start
+  skillPoints: 25
+  minAge: 35
+  #WL-Changes-end
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist

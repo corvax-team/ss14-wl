@@ -3,8 +3,12 @@
   name: job-name-rd
   description: job-description-rd
   playTimeTracker: JobResearchDirector
+  #WL-Changes-start
+  skillPoints: 25
+  minAge: 35
   subnames:
   - директор исследований
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science

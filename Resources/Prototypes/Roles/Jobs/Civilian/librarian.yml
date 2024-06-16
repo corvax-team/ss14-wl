@@ -3,9 +3,13 @@
   name: job-name-librarian
   description: job-description-librarian
   playTimeTracker: JobLibrarian
+  #WL-Changes-start
+  minAge: 22
+  skillPoints: 14
   subnames:
   - куратор
   - архивариус
+  #WL-Changes-end
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
   supervisors: job-supervisors-hop

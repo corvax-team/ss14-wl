@@ -3,10 +3,13 @@
   name: job-name-clown
   description: job-description-clown
   playTimeTracker: JobClown
+  #WL-Changes-start
+  skillPoints: 14
   subnames:
   - комик
   - шут
   - юморист
+  #WL-Changes-end
   requirements:
   - !type:OverallPlaytimeRequirement
       time: 90000 #25 hrs # Corvax-RoleTime

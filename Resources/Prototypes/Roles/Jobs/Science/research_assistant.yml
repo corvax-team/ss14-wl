@@ -3,10 +3,14 @@
   name: job-name-research-assistant
   description: job-description-research-assistant
   playTimeTracker: JobResearchAssistant
+  #WL-Changes-start
+  skillPoints: 16
+  minAge: 20
   subnames:
   - лаборант
   - студент-учёный
   - научный клерк
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science

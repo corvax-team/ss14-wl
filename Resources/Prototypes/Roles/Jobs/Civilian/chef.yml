@@ -3,6 +3,8 @@
   name: job-name-chef
   description: job-description-chef
   playTimeTracker: JobChef
+  #WL-Changes-start
+  skillPoints: 14
   subnames:
   - су-шеф
   - мясник
@@ -10,6 +12,7 @@
   - пекарь
   - повар
   - кулинар
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Civilian

@@ -4,6 +4,8 @@
   description: job-description-musician
   playTimeTracker: JobMusician
   startingGear: MusicianGear
+  #WL-Changes-start
+  skillPoints: 14
   subnames:
   - диджей
   - пианист
@@ -12,6 +14,7 @@
   - певец
   - поэт
   - артист
+  #WL-Changes-end
   icon: "JobIconMusician"
   supervisors: job-supervisors-hop # Corvax-JobSupervisors
   access:

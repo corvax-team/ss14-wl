@@ -2,8 +2,12 @@
   id: Pilot
   name: job-name-pilot
   playTimeTracker: JobPilot
+  #WL-Changes-start
+  skillPoints: 18
+  minAge: 23
   subnames:
   - космический патрульный
+  #WL-Changes-end
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security

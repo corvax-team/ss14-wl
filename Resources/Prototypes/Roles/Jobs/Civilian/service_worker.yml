@@ -4,11 +4,14 @@
   description: job-description-serviceworker
   playTimeTracker: JobServiceWorker
   startingGear: ServiceWorkerGear
+  #WL-Changes-start
+  skillPoints: 14
   subnames:
   - официант
   - стюард
   - сервисный ассистент
   - крупье
+  #WL-Changes-end
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
   canBeAntag: true # Corvax-MRP: Available not only for newbies

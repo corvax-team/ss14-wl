@@ -1,8 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
+using Content.Client.Lobby;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Content.Shared.Players.JobWhitelist;
 using Content.Shared.Players.PlayTimeTracking;
+using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Client;
 using Robust.Client.Player;
@@ -22,6 +24,10 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+
+    //WL-Skills-start
+    [Dependency] private readonly IClientPreferencesManager _prefMan = default!;
+    //WL-Skills-end
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<string> _roleBans = new();
@@ -105,6 +111,16 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         var player = _playerManager.LocalSession;
         if (player == null)
             return true;
+
+        /*WL-Skills-start*/
+        var profile = (HumanoidCharacterProfile?) _prefMan.Preferences?.SelectedCharacter;
+        if (profile != null && profile.Age < job.MinAge)
+        {
+            reason =
+                FormattedMessage.FromMarkupOrThrow($"Текущий возраст не позволяет выбрать эту должность.\nМинимальный возраст - {job.MinAge}, текущий возраст - {profile.Age}");
+            return false;
+        }
+        /*WL-Skills-end*/
 
         return CheckRoleTime(job.Requirements, out reason);
     }

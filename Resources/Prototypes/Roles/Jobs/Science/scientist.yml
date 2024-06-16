@@ -3,12 +3,16 @@
   name: job-name-scientist
   description: job-description-scientist
   playTimeTracker: JobScientist
+  #WL-Changes-start
+  skillPoints: 20
+  minAge: 25
   subnames:
   - робототехник
   - ксеноархеолог
   - аномалист
   - ксенобиолог
   - химик-исследователь
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science

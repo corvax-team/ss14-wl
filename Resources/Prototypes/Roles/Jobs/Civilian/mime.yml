@@ -3,8 +3,11 @@
   name: job-name-mime
   description: job-description-mime
   playTimeTracker: JobMime
+  #WL-Changes-start
+  skillPoints: 14
   subnames:
   - пантомимист
+  #WL-Changes-end
   requirements:
   - !type:OverallPlaytimeRequirement
       time: 90000 #25 hrs # Corvax-RoleTime

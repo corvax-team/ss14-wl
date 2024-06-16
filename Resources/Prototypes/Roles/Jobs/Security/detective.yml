@@ -3,10 +3,14 @@
   name: job-name-detective
   description: job-description-detective
   playTimeTracker: JobDetective
+  #WL-Changes-start
+  skillPoints: 20
+  minAge: 25
   subnames:
   - криминалист
   - сыщик
   - следователь
+  #WL-Changes-end
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security

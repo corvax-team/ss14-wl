@@ -3,6 +3,10 @@
   name: job-name-hos
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
+  #WL-Changes-start
+  skillPoints: 25
+  minAge: 30
+  #WL-Changes-end
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden

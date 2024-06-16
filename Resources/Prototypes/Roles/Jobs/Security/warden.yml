@@ -3,9 +3,13 @@
   name: job-name-warden
   description: job-description-warden
   playTimeTracker: JobWarden
+  #WL-Changes-start
+  skillPoints: 22
+  minAge: 26
   subnames:
   - надзиратель
   - сержант охраны
+  #WL-Changes-end
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

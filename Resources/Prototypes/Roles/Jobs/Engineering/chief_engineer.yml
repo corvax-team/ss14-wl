@@ -3,6 +3,10 @@
   description: job-description-ce
   name: job-name-ce
   playTimeTracker: JobChiefEngineer
+  #WL-Changes-start
+  minAge: 30
+  skillPoints: 25
+  #WL-Changes-end
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician

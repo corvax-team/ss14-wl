@@ -374,8 +374,9 @@ namespace Content.Server.Database
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
-        public List<JobSubname> JobSubnames { get; } = new();
-
+        public List<JobSubname> JobSubnames { get; } = new(); //WL-Subnames
+        public List<Skill> Skills { get; } = new(); //WL-Skills
+        public string SkillsChosenJob { get; set; } = null!; //WL-Skills
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
@@ -394,6 +395,7 @@ namespace Content.Server.Database
         public DbJobPriority Priority { get; set; }
     }
 
+    //WL-Subnames-start
     public class JobSubname
     {
         public int Id { get; set; }
@@ -403,6 +405,27 @@ namespace Content.Server.Database
         public string JobName { get; set; } = null!;
         public string Subname { get; set; } = null!;
     }
+    //WL-Subnames-end
+
+    //WL-Skills-start
+    public class Skill
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+        public string JobName { get; set; } = null!;
+        public List<SkillEntry> SkillEntries { get; } = new();
+    }
+
+    public class SkillEntry
+    {
+        public int Id { get; set; }
+        public Skill Skill { get; set; } = null!;
+        public int SkillId { get; set; }
+        public string SkillName { get; set; } = null!;
+        public int SkillLevel { get; set; }
+    }
+    //WL-Skills-end
 
     public enum DbJobPriority
     {
