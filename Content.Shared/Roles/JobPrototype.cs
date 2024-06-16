@@ -41,7 +41,7 @@ namespace Content.Shared.Roles
         //WL-Skills-start
         [ViewVariables(VVAccess.ReadOnly)]
         [DataField]
-        public int SkillPoints { get; private set; } = 10;
+        public int SkillPoints { get; private set; } = int.MinValue;
 
         [ViewVariables(VVAccess.ReadOnly)]
         [DataField]

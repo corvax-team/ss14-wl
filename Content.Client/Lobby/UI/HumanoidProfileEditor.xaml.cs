@@ -133,7 +133,7 @@ namespace Content.Client.Lobby.UI
             Config = config;
             Options = new(RadioOptionsLayout.Horizontal)
             {
-                HorizontalAlignment = HAlignment.Right,
+                HorizontalAlignment = HAlignment.Center,
                 FirstButtonStyle = StyleBase.ButtonOpenRight,
                 ButtonStyle = StyleBase.ButtonOpenBoth,
                 LastButtonStyle = StyleBase.ButtonOpenLeft,
@@ -165,7 +165,14 @@ namespace Content.Client.Lobby.UI
                 if (!Skill.Info.TryGetValue(skill, out var info))
                     continue;
 
-                var id = Options.AddItem(SkillPrototype.GetSkillLocName(skill) + $"[{info.Points}]", skill, OnSelected);
+                var skillLocName = SkillPrototype.GetSkillLocName(skill);
+                var stringPoints = Limitation == null
+                    ? $"[{info.Points}]"
+                    : skill <= Limitation.MinSkillLevel
+                        ? $"[0]"
+                        : $"[{info.Points}]";
+
+                var id = Options.AddItem(skillLocName + stringPoints, skill, OnSelected);
                 first ??= id;
                 Options.Select(id);
 
@@ -1258,6 +1265,10 @@ namespace Content.Client.Lobby.UI
             var config = _prototypeManager.EnumeratePrototypes<SkillsConfigurationPrototype>()
                 .First();
 
+            if (Profile != null &&
+                _prototypeManager.TryIndex<JobPrototype>(Profile.SkillsChosenJob, out var chosen))
+                _skillsChosenJob = chosen;
+
             foreach (var job in jobs)
             {
                 _skillSelectors.Add(job.ID, new());
@@ -1270,7 +1281,8 @@ namespace Content.Client.Lobby.UI
 
                     var label = new RichTextLabel()
                     {
-                        Margin = new(0, 0, 10, 0)
+                        Margin = new(0, 0, 10, 0),
+                        ToolTip = skillProto.Description
                     };
                     label.SetMarkup(skillMarkup);
 
@@ -1308,10 +1320,14 @@ namespace Content.Client.Lobby.UI
                     var limitation = selector.Limitation;
                     foreach (var (level, button) in selector.Buttons)
                     {
+                        if (level > limitation?.MaxSkillLevel
+                            || level < limitation?.MinSkillLevel)
+                            continue;
+
                         var points = selector.GetPoints(level);
 
                         var changedButtonPoints = allPoints - selector.Points + points;
-                        if (changedButtonPoints >= maxPoints)
+                        if (changedButtonPoints > maxPoints)
                         {
                             var remaining = maxPoints - changedButtonPoints;
 
@@ -1322,7 +1338,12 @@ namespace Content.Client.Lobby.UI
                         }
                         else if (level <= limitation?.MaxSkillLevel &&
                             level >= limitation?.MinSkillLevel)
+                        {
+                            var info = selector.GetInfo(level);
+
                             button.Disabled = false;
+                            button.ToolTip = info?.Description;
+                        }
                     }
 
                     if (Profile != null && job.ID == _skillsChosenJob.ID)
