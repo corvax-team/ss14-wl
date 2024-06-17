@@ -44,6 +44,7 @@
   - type: Polymorphable
   - type: StatusIcon
   - type: TTS # Corvax-TTS
+  - type: SkillsHolder # WL-Changes
 
 # Used for mobs that have health and can take damage.
 - type: entity

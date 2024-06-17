@@ -44,8 +44,12 @@ namespace Content.Server.Database
             var prefs = await db.DbContext
                 .Preference
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
+                //WL-Changes-start
                 .Include(p => p.Profiles).ThenInclude(h => h.JobSubnames)
-                .Include(p => p.Profiles).ThenInclude(h => h.Skills)
+                .Include(p => p.Profiles)
+                    .ThenInclude(p => p.Skills)
+                    .ThenInclude(p => p.SkillEntries)
+                //WL-Changes-end
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
                 .Include(p => p.Profiles)
@@ -98,8 +102,11 @@ namespace Content.Server.Database
                 .Include(p => p.Preference)
                 .Where(p => p.Preference.UserId == userId.UserId)
                 .Include(p => p.Jobs)
+                //WL-Changes-start
                 .Include(p => p.JobSubnames)
                 .Include(p => p.Skills)
+                    .ThenInclude(p => p.SkillEntries)
+                //WL-Changes-end
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
                 .Include(p => p.Loadouts)
@@ -191,6 +198,7 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
+
             var jobSubnames = profile.JobSubnames.ToDictionary(x => x.JobName, x => x.Subname); //WL-Subnames
 
             var sex = Sex.Male;

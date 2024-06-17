@@ -4,7 +4,6 @@ using Content.Shared._WL.Skills;
 using Content.Shared._WL.Skills.Components;
 using Content.Shared._WL.Skills.Systems;
 using Content.Shared.Database;
-using Robust.Shared.Prototypes;
 using System.Text;
 
 namespace Content.Server._WL.Skills
@@ -12,7 +11,6 @@ namespace Content.Server._WL.Skills
     public sealed partial class SkillsSystem : SharedSkillsSystem
     {
         [Dependency] private readonly IAdminLogManager _adminLog = default!;
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
         public override void Initialize()
         {
@@ -47,7 +45,7 @@ namespace Content.Server._WL.Skills
 
                 // Логгирование
                 if (_protoMan.TryIndex<SkillPrototype>(skill.Key, out var skillProto))
-                    logMessage.AppendLine($"- {skillProto.Name}: уровень {SkillPrototype.GetSkillLocName(skill.Value)}");
+                    logMessage.AppendLine($"- {skillProto.Name}: уровень {SkillsSystem.GetSkillLocName(skill.Value)}");
             }
 
             _adminLog.Add(LogType.Skills, LogImpact.Medium, $"{logMessage.ToString()}");

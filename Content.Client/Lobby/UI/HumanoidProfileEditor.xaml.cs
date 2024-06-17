@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -12,6 +13,7 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._WL.Skills;
 using Content.Shared._WL.Skills.Prototypes;
+using Content.Shared._WL.Skills.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Corvax.CCCVars;
@@ -165,7 +167,7 @@ namespace Content.Client.Lobby.UI
                 if (!Skill.Info.TryGetValue(skill, out var info))
                     continue;
 
-                var skillLocName = SkillPrototype.GetSkillLocName(skill);
+                var skillLocName = SharedSkillsSystem.GetSkillLocName(skill);
                 var stringPoints = Limitation == null
                     ? $"[{info.Points}]"
                     : skill <= Limitation.MinSkillLevel
@@ -1306,54 +1308,92 @@ namespace Content.Client.Lobby.UI
                     }
 
                     if (Profile != null)
+                    {
+                        var sendToDB = true;
+
                         if (Profile.Skills.TryGetValue(job.ID, out var dict))
                             if (dict.TryGetValue(skillProto.ID, out var level))
+                            {
                                 skillSelector.Options.Select((int) level);
+                                sendToDB = false;
+                            }
+
+                        if (sendToDB)
+                            Profile =
+                                Profile?.WithSkillLevel(job.ID, skillProto.ID, skillSelector.Limitation?.MinSkillLevel ?? SkillLevel.Inexperienced);
+                    }
                 }
 
-                var selectors = _skillSelectors[job.ID];
-                foreach (var selector in selectors)
+                // Эта параша нужна, чтоб избежать ситуаций, когда игрок выбрал себе скиллов под ноль очков, потом поменял возраст на меньший и у него все заблокалось.
+                // Горели бы в аду такие багоюзеры.
+                // Но этот кодик всё решает.
+                if (!UpdateSkillsButtons(job.ID, out var selectors))
                 {
-                    var allPoints = SkillSelector.GetChosenPoints(selectors);
-                    var maxPoints = selector.GetMaxPoints(Profile?.Age);
-
-                    var limitation = selector.Limitation;
-                    foreach (var (level, button) in selector.Buttons)
+                    foreach (var selector in selectors)
                     {
-                        if (level > limitation?.MaxSkillLevel
-                            || level < limitation?.MinSkillLevel)
-                            continue;
-
-                        var points = selector.GetPoints(level);
-
-                        var changedButtonPoints = allPoints - selector.Points + points;
-                        if (changedButtonPoints > maxPoints)
-                        {
-                            var remaining = maxPoints - changedButtonPoints;
-
-                            button.Disabled = true;
-                            button.ToolTip = remaining == 0
-                                ? "Не осталось очков скиллов."
-                                : $"Не хватает {remaining} о.с";
-                        }
-                        else if (level <= limitation?.MaxSkillLevel &&
-                            level >= limitation?.MinSkillLevel)
-                        {
-                            var info = selector.GetInfo(level);
-
-                            button.Disabled = false;
-                            button.ToolTip = info?.Description;
-                        }
+                        var setLevel = selector.Limitation?.MinSkillLevel ?? SkillLevel.Inexperienced;
+                        selector.Options.Select((int) setLevel);
+                        Profile = Profile?.WithSkillLevel(job.ID, selector.Skill.ID, setLevel);
                     }
 
-                    if (Profile != null && job.ID == _skillsChosenJob.ID)
-                    {
-                        SkillPoints.Text = (maxPoints - allPoints).ToString();
-                    }
+                    UpdateSkillsButtons(job.ID, out _);
                 }
             }
 
             SyncSkills();
+        }
+
+        private bool UpdateSkillsButtons(string jobId, out List<SkillSelector> outSelector)
+        {
+            outSelector = new();
+
+            var selectors = _skillSelectors[jobId];
+            foreach (var selector in selectors)
+            {
+                var allPoints = SkillSelector.GetChosenPoints(selectors);
+                var maxPoints = selector.GetMaxPoints(Profile?.Age);
+
+                var limitation = selector.Limitation;
+                foreach (var (level, button) in selector.Buttons)
+                {
+                    if (level > limitation?.MaxSkillLevel
+                        || level < limitation?.MinSkillLevel)
+                        continue;
+
+                    var points = selector.GetPoints(level);
+
+                    var changedButtonPoints = allPoints - selector.Points + points;
+                    if (changedButtonPoints > maxPoints)
+                    {
+                        var remaining = maxPoints - changedButtonPoints;
+
+                        button.Disabled = true;
+                        button.ToolTip = remaining == 0
+                            ? "Не осталось очков скиллов."
+                            : $"Не хватает {-remaining} о.с";
+                    }
+                    else if (level <= limitation?.MaxSkillLevel &&
+                        level >= limitation?.MinSkillLevel)
+                    {
+                        var info = selector.GetInfo(level);
+
+                        button.Disabled = false;
+                        button.ToolTip = info?.Description;
+                    }
+
+                    if (button.Disabled && level == selector.Selected)
+                    {
+                        outSelector.Add(selector);
+                    }
+                }
+
+                if (Profile != null && jobId == _skillsChosenJob.ID)
+                {
+                    SkillPoints.Text = (maxPoints - allPoints).ToString();
+                }
+            }
+
+            return outSelector.Count == 0;
         }
         //WL-Skills-end
 

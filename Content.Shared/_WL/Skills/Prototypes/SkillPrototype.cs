@@ -1,7 +1,6 @@
 using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 
 namespace Content.Shared._WL.Skills
 {
@@ -16,14 +15,14 @@ namespace Content.Shared._WL.Skills
         ///     Содержит информацию о каждом уровне скилла.
         /// </summary>
         [DataField(required: true)]
-        public Dictionary<SkillLevel, SkillLevelInfo> Info = new();
+        public Dictionary<SkillLevel, SkillLevelInfo> Info { get; private set; } = new();
 
         /// <summary>
         ///     Цвет имени скилла.
         ///     Отображается в меню редактирования персонажа.
         /// </summary>
         [DataField("color")]
-        public Color? NameColor = null;
+        public Color? NameColor { get; private set; } = null;
 
         /// <summary>
         ///     Имя скилла.
@@ -40,30 +39,11 @@ namespace Content.Shared._WL.Skills
         /// <summary>
         ///     Ограничения для определенных должностей.
         /// </summary>
-        [DataField(customTypeSerializer: typeof(PrototypeIdDictionarySerializer<SkillLimitation, JobPrototype>))]
-        public Dictionary<string, SkillLimitation> JobLimitations = new();
+        [DataField]
+        public Dictionary<ProtoId<JobPrototype>, SkillLimitation> JobLimitations { get; private set; } = new();
 
         public string Name => Loc.GetString(_name.Id);
         public string Description => Loc.GetString(_desc.Id);
-
-        public static string GetSkillLocName(SkillLevel skill)
-        {
-            switch (skill)
-            {
-                case SkillLevel.Inexperienced:
-                    return "Неопытный";
-                case SkillLevel.Basic:
-                    return "Базовый";
-                case SkillLevel.Trained:
-                    return "Обученный";
-                case SkillLevel.Experienced:
-                    return "Опытный";
-                case SkillLevel.Master:
-                    return "Мастер";
-                default:
-                    throw new();
-            };
-        }
     }
 
 

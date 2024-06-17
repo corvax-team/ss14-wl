@@ -94,6 +94,14 @@ namespace Content.Server.Database
                 .HasIndex(j => new { j.ProfileId, j.JobName })
                 .IsUnique();
 
+            modelBuilder.Entity<SkillEntry>()
+                .HasIndex(s => new { s.SkillId, s.SkillName })
+                .IsUnique();
+
+            modelBuilder.Entity<Skill>()
+                .HasIndex(s => new { s.JobName, s.ProfileId })
+                .IsUnique();
+
             modelBuilder.Entity<AssignedUserId>()
                 .HasIndex(p => p.UserName)
                 .IsUnique();
