@@ -12,3 +12,11 @@
   maxLimit: 3
   loadouts:
   - BoxFolderClipboard
+
+- type: loadoutGroup
+  id: AtmosHead
+  name: "Атмосферный техник, голова"
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - SeniorEngineerBeret

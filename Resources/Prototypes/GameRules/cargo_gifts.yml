@@ -17,7 +17,6 @@
 - type: entity
   id: GiftsPizzaPartySmall
   parent: CargoGiftsBase
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 5
@@ -35,11 +34,9 @@
 - type: entity
   id: GiftsPizzaPartyLarge
   parent: CargoGiftsBase
-  noSpawn: true
   components:
     - type: StationEvent
       weight: 3 # Corvax WL changes
-      startDelay: 10
       duration: 240
       spawnConfig:
         standartConfig:
@@ -57,11 +54,9 @@
 - type: entity
   id: GiftsEngineering
   parent: CargoGiftsBase
-  noSpawn: true
   components:
     - type: StationEvent
       weight: 5
-      startDelay: 10
       duration: 240
       earliestStart: 45 # Corvax WL changes
       spawnConfig:
@@ -82,11 +77,9 @@
 - type: entity
   id: GiftsVendingRestock
   parent: CargoGiftsBase
-  noSpawn: true
   components:
     - type: StationEvent
       weight: 6
-      startDelay: 10
       duration: 120
       spawnConfig:
         standartConfig:
@@ -107,11 +100,9 @@
 - type: entity
   id: GiftsJanitor
   parent: CargoGiftsBase
-  noSpawn: true
   components:
     - type: StationEvent
       weight: 6
-      startDelay: 10
       duration: 120
       spawnConfig:
         standartConfig:
@@ -129,11 +120,9 @@
 - type: entity
   id: GiftsMedical
   parent: CargoGiftsBase
-  noSpawn: true
   components:
     - type: StationEvent
       weight: 8
-      startDelay: 10
       duration: 120
       earliestStart: 30 # Corvax WL changes
       spawnConfig:
@@ -153,11 +142,9 @@
 - type: entity
   id: GiftsSpacingSupplies
   parent: CargoGiftsBase
-  noSpawn: true
   components:
     - type: StationEvent
       weight: 4
-      startDelay: 10
       duration: 120
       earliestStart: 30 # Corvax WL changes
       spawnConfig:
@@ -177,11 +164,9 @@
 - type: entity
   id: GiftsFireProtection
   parent: CargoGiftsBase
-  noSpawn: true
   components:
     - type: StationEvent
       weight: 4
-      startDelay: 10
       duration: 120
       earliestStart: 30 # Corvax WL changes
       spawnConfig:
@@ -199,11 +184,9 @@
 - type: entity
   id: GiftsSecurityGuns
   parent: CargoGiftsBase
-  noSpawn: true
   components:
     - type: StationEvent
       weight: 3
-      startDelay: 10
       duration: 120
       earliestStart: 30 # Corvax WL changes
       spawnConfig:
@@ -222,11 +205,9 @@
 - type: entity
   id: GiftsSecurityRiot
   parent: CargoGiftsBase
-  noSpawn: true
   components:
     - type: StationEvent
       weight: 4
-      startDelay: 10
       duration: 120
       earliestStart: 30 # Corvax WL changes
       spawnConfig:

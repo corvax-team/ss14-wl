@@ -22,3 +22,6 @@
     qualities:
       - Prying
   - type: Prying
+# White-List components
+  - type: Execution
+# White-List components end

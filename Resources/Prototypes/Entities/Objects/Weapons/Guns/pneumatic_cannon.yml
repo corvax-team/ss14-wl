@@ -103,6 +103,9 @@
     containers:
       storagebase: !type:Container
         ents: []
+# White-List components
+  - type: Execution
+# White-List components end
 
 # shoots bullets instead of throwing them, no other changes
 - type: entity

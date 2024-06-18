@@ -19,6 +19,9 @@
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: StaticPrice
     price: 500
+# White-List components
+  - type: Execution
+# White-List components end
   # No chamber because HMG may want its own
 
 - type: entity

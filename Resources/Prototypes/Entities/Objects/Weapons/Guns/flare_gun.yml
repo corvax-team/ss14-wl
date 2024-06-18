@@ -37,3 +37,6 @@
     slots:
     - Belt
     - suitStorage
+# White-List components
+  - type: Execution
+# White-List components end

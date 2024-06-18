@@ -45,6 +45,8 @@
   - type: StatusIcon
   - type: TTS # Corvax-TTS
   - type: SkillsHolder # WL-Changes
+  - type: RequireProjectileTarget
+    active: False
 
 # Used for mobs that have health and can take damage.
 - type: entity

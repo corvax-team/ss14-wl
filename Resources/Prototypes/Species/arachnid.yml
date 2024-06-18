@@ -17,6 +17,14 @@
     - names_arachnid_first
     - " "
     - names_arachnid_last
+    Neuter:
+    - names_arachnid_first
+    - " "
+    - names_arachnid_last
+    Epicene:
+    - names_arachnid_first
+    - " "
+    - names_arachnid_last
   sexes:
   - Unsexed
 

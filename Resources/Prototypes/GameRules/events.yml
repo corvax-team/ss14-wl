@@ -2,7 +2,6 @@
   id: BaseStationEvent
   parent: BaseGameRule
   abstract: true
-  noSpawn: true
   components:
     - type: GameRule
       delay:
@@ -13,7 +12,6 @@
   id: BaseStationEventShortDelay
   parent: BaseGameRule
   abstract: true
-  noSpawn: true
   components:
     - type: GameRule
       delay:
@@ -24,7 +22,6 @@
   id: BaseStationEventLongDelay
   parent: BaseGameRule
   abstract: true
-  noSpawn: true
   components:
     - type: GameRule
       delay:
@@ -34,17 +31,16 @@
 - type: entity
   id: AnomalySpawn
   parent: BaseStationEventShortDelay
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 8
-    startDelay: 30
     duration: 35
     spawnConfig:
       standartConfig:
         minPlayers: 5 # Corvax WL
-    startAudio: # Corvax-Announcements
-      path: /Audio/Corvax/Announcements/flux.ogg
+    startAnnouncementColor: "#18abf5"
+    startAudio:
+      path: /Audio/Corvax/Announcements/flux.ogg # Corvax-Announcements
       params:
         volume: -4
   - type: AnomalySpawnRule
@@ -52,7 +48,6 @@
 - type: entity
   id: BluespaceArtifact
   parent: BaseStationEventShortDelay
-  noSpawn: true
   components:
   - type: GameRule
     delay:
@@ -71,7 +66,6 @@
 - type: entity
   id: BluespaceLocker
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 1
@@ -83,7 +77,6 @@
 - type: entity
   id: BreakerFlip
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 7
@@ -96,7 +89,6 @@
 - type: entity
   id: BureaucraticError
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
@@ -110,7 +102,6 @@
 - type: entity
   id: ClericalError
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-clerical-error-announcement
@@ -124,7 +115,6 @@
 - type: entity
   parent: BaseGameRule
   id: ClosetSkeleton
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 5
@@ -138,23 +128,37 @@
 - type: entity
   parent: BaseGameRule
   id: DragonSpawn
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 5
-    duration: 1
-    earliestStart: 60 # Corvax WL changes
+    earliestStart: 120
     reoccurrenceDelay: 60
     spawnConfig:
       standartConfig:
         minPlayers: 25
-  - type: RandomSpawnRule
-    prototype: SpawnPointGhostDragon
+  - type: AntagRandomSpawn
+  - type: AntagSpawner
+    prototype: MobDragon
+  - type: AntagObjectives
+    objectives:
+    - CarpRiftsObjective
+    - DragonSurviveObjective
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindComponents:
+      - type: DragonRole
+        prototype: Dragon
+      - type: RoleBriefing
+        briefing: dragon-role-briefing
 
 - type: entity
   parent: BaseGameRule
   id: NinjaSpawn
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 5
@@ -169,12 +173,12 @@
 - type: entity
   parent: BaseGameRule
   id: RevenantSpawn
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 5
     duration: 1
     earliestStart: 45
+    reoccurrenceDelay: 90
     spawnConfig:
       standartConfig:
         minPlayers: 20
@@ -185,7 +189,6 @@
 #- type: entity
 #  id: FalseAlarm
 #  parent: BaseGameRule
-#  noSpawn: true
 #  components:
 #  - type: StationEvent
 #    weight: 15
@@ -195,7 +198,6 @@
 - type: entity
   id: GasLeak
   parent: BaseStationEventShortDelay
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-gas-leak-start-announcement
@@ -213,13 +215,11 @@
     spawnConfig: # Corvax WL
       standartConfig:
         minPlayers: 5
-    startDelay: 20
   - type: GasLeakRule
 
 - type: entity
   id: KudzuGrowth
   parent: BaseStationEventLongDelay
-  noSpawn: true
   components:
   - type: StationEvent
     earliestStart: 15
@@ -231,45 +231,44 @@
   - type: KudzuGrowthRule
 
 - type: entity
-  id: MeteorSwarm
-  parent: BaseStationEventLongDelay
-  noSpawn: true
-  components:
-  - type: StationEvent
-    earliestStart: 30
-    weight: 7.5
-    spawnConfig:
-      standartConfig:
-        minPlayers: 10
-    startAnnouncement: station-event-meteor-swarm-start-announcement
-    endAnnouncement: station-event-meteor-swarm-end-announcement
-    startAudio:
-      path: /Audio/Announcements/meteors_start.ogg
-      params:
-        volume: -4
-    endAudio:
-      path: /Audio/Announcements/meteors_end.ogg # Corvax-Announcements
-      params:
-        volume: -4
-    duration: null #ending is handled by MeteorSwarmRule
-  - type: MeteorSwarmRule
-
-- type: entity
   id: MouseMigration
   parent: BaseStationEventShortDelay
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    startDelay: 10
-    earliestStart: 45
+    earliestStart: 15
+    weight: 6
+    reoccurrenceDelay: 60
+    duration: 50
     spawnConfig:
       standartConfig:
-        minPlayers: 25
+        minPlayers: 15
+  - type: VentCrittersRule
+    entries:
+    - id: MobMouse
+      prob: 0.02
+    - id: MobMouse1
+      prob: 0.02
+    - id: MobMouse2
+      prob: 0.02
+    - id: MobMouseCancer
+      prob: 0.001
+# Events always spawn a critter regardless of Probability https://github.com/space-wizards/space-station-14/issues/28480 I added the Rat King to their own event with a player cap.
+
+- type: entity
+  id: KingRatMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
     weight: 6
     duration: 50
+    minimumPlayers: 15 # Hopefully this is enough for the Rat King's potential Army
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -287,7 +286,6 @@
 - type: entity
   id: CockroachMigration
   parent: BaseStationEventShortDelay
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
@@ -306,7 +304,6 @@
 - type: entity
   id: PowerGridCheck
   parent: BaseStationEventShortDelay
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 6
@@ -323,12 +320,11 @@
 - type: entity
   id: RandomSentience
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 6
     duration: 1
-    maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
+    maxOccurrences: 2 # this event has diminishing returns on interesting-ness, so we cap it
     startAudio:
       path: /Audio/Announcements/sentience.ogg # Corvax-Announcements
       params:
@@ -338,7 +334,6 @@
 - type: entity
   parent: BaseGameRule
   id: SolarFlare
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 8
@@ -369,7 +364,6 @@
 - type: entity
   id: VentClog
   parent: BaseStationEventLongDelay
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-clog-start-announcement
@@ -382,14 +376,12 @@
       standartConfig:
         minPlayers: 15
     weight: 6
-    startDelay: 50
     duration: 60
   - type: VentClogRule
 
 - type: entity
   id: SlimesSpawn
   parent: BaseStationEventShortDelay
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
@@ -413,13 +405,11 @@
 - type: entity
   id: SpiderSpawn
   parent: BaseStationEventShortDelay
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    startDelay: 10
     earliestStart: 30
     spawnConfig:
       standartConfig:
@@ -434,13 +424,11 @@
 - type: entity
   id: SpiderClownSpawn
   parent: BaseStationEventShortDelay
-  noSpawn: true
   components:
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    startDelay: 10
     earliestStart: 30
     spawnConfig:
       standartConfig:
@@ -523,7 +511,6 @@
 #         prototype: Nukeops
 
 - type: entity
-  noSpawn: true
   parent: BaseTraitorRule
   id: SleeperAgentsRule
   components:
@@ -545,13 +532,12 @@
       max: 2
       playerRatio: 10
       mindComponents:
-      - type: InitialInfectedRole
-        prototype: InitialInfected
+      - type: TraitorRole
+        prototype: Traitor
 
 - type: entity
   id: MassHallucinations
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     weight: 7
@@ -608,7 +594,6 @@
 #       orGroup: rodProto
 
 - type: entity
-  noSpawn: true
   parent: BaseGameRule
   id: IonStorm
   components:
@@ -621,7 +606,6 @@
 - type: entity
   id: MimicVendorRule
   parent: BaseGameRule
-  noSpawn: true
   components:
   - type: StationEvent
     earliestStart: 0

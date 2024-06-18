@@ -30,6 +30,9 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
+# White-List components
+  - type: Execution
+# White-List components End
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -65,6 +68,9 @@
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
+# White-List components
+  - type: Execution
+# White-List components End
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -235,6 +241,10 @@
     fireCost: 62.5
   - type: StaticPrice
     price: 300
+# White-List components
+  - type: Execution
+    damageModifier: 0
+# White-List components End
 
 - type: entity
   name: pulse pistol

@@ -47,6 +47,9 @@
     stealGroup: FireAxe
   - type: IgniteOnMeleeHit
     fireStacks: -4
+# White-List components
+  - type: Execution
+# White-List components
 
 - type: entity
   id: FireAxeFlaming

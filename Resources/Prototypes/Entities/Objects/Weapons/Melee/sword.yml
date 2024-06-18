@@ -32,6 +32,9 @@
     tags:
     - CaptainSabre
   - type: DisarmMalus
+# White-List components
+  - type: Execution
+# White-List components end
 
 - type: entity
   name: katana
@@ -57,6 +60,9 @@
     size: Normal
     sprite: Objects/Weapons/Melee/katana.rsi
   - type: DisarmMalus
+# White-List components
+  - type: Execution
+# White-List components end
 
 - type: entity
   name: energy katana
@@ -116,6 +122,9 @@
     size: Normal
     sprite: Objects/Weapons/Melee/machete.rsi
   - type: DisarmMalus
+# White-List components
+  - type: Execution
+# White-List components end
 
 - type: entity
   name: claymore
@@ -142,6 +151,9 @@
     slots:
     - back
   - type: DisarmMalus
+# White-List components
+  - type: Execution
+# White-List components end
 
 - type: entity
   name: cutlass
@@ -167,6 +179,9 @@
     size: Normal
     sprite: Objects/Weapons/Melee/cutlass.rsi
   - type: DisarmMalus
+# White-List components
+  - type: Execution
+# White-List components end
 
 - type: entity
   name: The Throngler
@@ -202,3 +217,6 @@
       size: Ginormous
       sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
     - type: DisarmMalus
+# White-List components
+    - type: Execution
+# White-List components end

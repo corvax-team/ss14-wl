@@ -49,6 +49,9 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
+# White-List components
+  - type: Execution
+# White-List components end
 
 - type: entity
   name: Deckard

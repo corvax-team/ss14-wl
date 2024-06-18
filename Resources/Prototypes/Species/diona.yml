@@ -18,6 +18,14 @@
     - DionaFirst
     - " "
     - DionaLast
+    Neuter:
+    - DionaFirst
+    - " "
+    - DionaLast
+    Epicene:
+    - DionaFirst
+    - " "
+    - DionaLast
 
 - type: speciesBaseSprites
   id: MobDionaSprites

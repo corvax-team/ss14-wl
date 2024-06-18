@@ -63,3 +63,4 @@
   - type: Tag
     tags:
       - Console
+  - type: RequireProjectileTarget

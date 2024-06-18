@@ -1,9 +1,9 @@
-using Content.Server.GameTicking.Components;
 using Content.Server.Power.Components;
 using Content.Server._WL.StationEvents.Components;
 using Content.Server.StationEvents.Events;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Shared.GameTicking.Components;
 
 
 namespace Content.Server._WL.StationEvents.Events;

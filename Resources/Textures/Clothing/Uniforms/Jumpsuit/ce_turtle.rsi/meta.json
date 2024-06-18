@@ -15,12 +15,12 @@
       "directions": 4
     },
     {
-      "name": "equipped-INNERCLOTHING-monkey",
+      "name": "equipped-INNERCLOTHING-reptilian",
       "directions": 4
     },
     {
-        "name": "equipped-INNERCLOTHING-reptilian",
-        "directions": 4
+      "name": "equipped-INNERCLOTHING-monkey",
+      "directions": 4
     },
     {
       "name": "inhand-left",

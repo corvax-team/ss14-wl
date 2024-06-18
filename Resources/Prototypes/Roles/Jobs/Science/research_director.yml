@@ -40,3 +40,7 @@
   equipment:
     id: RnDPDA
     ears: ClothingHeadsetRD
+  storage:
+    back:
+    - BoxSurvival
+    - Flash

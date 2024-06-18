@@ -31,10 +31,7 @@ namespace Content.Shared.Humanoid
             if (speciesProto.Naming.TryGetValue(gender, out var list))
                 return GetName(list);
             else
-            {
-                Log.Error($"{nameof(NamingSystem)}: Не был найден подходящий гендер в поле Naming прототипа SpeciesPrototype.");
-                return "error";
-            }
+                return GetName(speciesProto.Naming[Gender.Male]);
         }
 
         public string GetName(List<string> values)

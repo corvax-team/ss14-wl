@@ -122,7 +122,8 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         }
         /*WL-Skills-end*/
 
-        return CheckRoleTime(job.Requirements, out reason);
+        var reqs = _entManager.System<SharedRoleSystem>().GetJobRequirement(job);
+        return CheckRoleTime(reqs, out reason);
     }
 
     public bool CheckRoleTime(HashSet<JobRequirement>? requirements, [NotNullWhen(false)] out FormattedMessage? reason)

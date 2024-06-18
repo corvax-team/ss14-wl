@@ -49,6 +49,9 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
+# White-List components
+  - type: Execution
+# White-List components end
 
 - type: entity
   name: AKMS

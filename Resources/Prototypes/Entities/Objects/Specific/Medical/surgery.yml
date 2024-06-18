@@ -57,6 +57,9 @@
       path: /Audio/Items/drill_hit.ogg
   - type: StaticPrice
     price: 40
+# White-List components
+  - type: Execution
+# White-List components End
 
 # Scalpel
 
@@ -86,6 +89,9 @@
         Slash: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+# White-List components
+  - type: Execution
+# White-List components End
 
 - type: entity
   name: shiv
@@ -97,6 +103,9 @@
     state: shiv
   - type: Item
     heldPrefix: shiv
+# White-List components
+  - type: Execution
+# White-List components End
 
 - type: entity
   name: advanced scalpel
@@ -112,6 +121,9 @@
     damage:
       types:
         Slash: 12
+# White-List components
+  - type: Execution
+# White-List components End
 
 - type: entity
   name: laser scalpel
@@ -178,7 +190,7 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 1.0
+    speedModifier: 1.0
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity
@@ -200,7 +212,10 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 0.5
+    speedModifier: 0.5
+# White-List components
+  - type: Execution
+# White-List components End
 
 - type: entity
   name: circular saw
@@ -222,7 +237,14 @@
   - type: Tool
     qualities:
       - Sawing
+<<<<<<< HEAD
     speed: 1.5
+# White-List components
+  - type: Execution
+# White-List components End
+=======
+    speedModifier: 1.5
+>>>>>>> ups/master
 
 - type: entity
   name: advanced circular saw
@@ -245,4 +267,11 @@
   - type: Tool
     qualities:
       - Sawing
+<<<<<<< HEAD
     speed: 2.0
+# White-List components
+  - type: Execution
+# White-List components End
+=======
+    speedModifier: 2.0
+>>>>>>> ups/master

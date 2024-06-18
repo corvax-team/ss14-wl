@@ -111,6 +111,9 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: spear
+# White-List components
+  - type: Execution
+# White-List components end
 
 - type: entity
   name: reinforced spear

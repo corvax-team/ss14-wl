@@ -7,7 +7,6 @@ marking-TajaraSnout-muzzle = Морда
 marking-TajaraSnout-nose = Нос
 marking-TajaraSnoutAlt = Таяра, морда (альт)
 marking-TajaraSnout-muzzle2 = Морда
-marking-TajaraSnout-nose = Нос
 marking-TajaraHeadTiger = Таяра, тигриные полосы (голова)
 marking-TajaraHeadPatches = Таяра, пятна (голова)
 marking-TajaraHeadPoints = Таяра, пятна (альт, голова)
