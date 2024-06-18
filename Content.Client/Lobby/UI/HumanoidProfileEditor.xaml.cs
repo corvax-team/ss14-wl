@@ -1459,7 +1459,7 @@ namespace Content.Client.Lobby.UI
 
                 if (Profile != null && jobId == _skillsChosenJob.ID)
                 {
-                    SkillPoints.Text = (maxPoints - allPoints).ToString();
+                    SkillPoints.Text = $"[{maxPoints - allPoints}/{maxPoints}]";
                 }
             }
 
