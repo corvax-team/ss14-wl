@@ -45,7 +45,7 @@
        maxSkillLevel: Trained
     SecurityCadet:
        minSkillLevel: Basic
-       maxSkillLevel: Master
+       maxSkillLevel: Trained
     # Медицинский
     ChiefMedicalOfficer:
        minSkillLevel: Inexperienced
