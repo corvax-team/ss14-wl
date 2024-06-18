@@ -237,14 +237,10 @@
   - type: Tool
     qualities:
       - Sawing
-<<<<<<< HEAD
-    speed: 1.5
+    speedModifier: 1.5
 # White-List components
   - type: Execution
 # White-List components End
-=======
-    speedModifier: 1.5
->>>>>>> ups/master
 
 - type: entity
   name: advanced circular saw
@@ -267,11 +263,7 @@
   - type: Tool
     qualities:
       - Sawing
-<<<<<<< HEAD
-    speed: 2.0
+    speedModifier: 2.0
 # White-List components
   - type: Execution
 # White-List components End
-=======
-    speedModifier: 2.0
->>>>>>> ups/master
