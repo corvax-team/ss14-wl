@@ -1,0 +1,146 @@
+- type: skill
+  id: Botany
+  name: skill-botany-name
+  desc: skill-botany-desc
+  color: "#b1e7a0"
+  info:
+    Inexperienced:
+      points: 0
+      description: skill-botany-desc-level-1
+    Basic:
+      points: 1
+      description: skill-botany-desc-level-2
+    Trained:
+      points: 2
+      description: skill-botany-desc-level-3
+    Experienced:
+      points: 2
+      description: skill-botany-desc-level-4
+    Master:
+      points: 4
+      description: skill-botany-desc-level-5
+  jobLimitations:
+    # Командование
+    Captain:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    IAA:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    # Служба Безопасности
+    HeadOfSecurity:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Warden:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Pilot:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Detective:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    SecurityOfficer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    SecurityCadet:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    # Медицинский
+    ChiefMedicalOfficer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Chemist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    MedicalDoctor:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Paramedic:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Psychologist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    MedicalIntern:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    # Инженерный
+    ChiefEngineer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    AtmosphericTechnician:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    StationEngineer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    TechnicalAssistant:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    # Научный
+    ResearchDirector:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Scientist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    ResearchAssistant:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    # Снабжение
+    Quartermaster:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    SalvageSpecialist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    CargoTechnician:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    # Сервисный
+    HeadOfPersonnel:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Chef:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    Botanist:
+       minSkillLevel: Trained
+       maxSkillLevel: Master
+    Bartender:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    ServiceWorker:
+       minSkillLevel: Basic
+       maxSkillLevel: Experienced
+    Librarian:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Chaplain:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Zookeeper:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Reporter:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Clown:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Mime:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Musician:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Boxer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Janitor:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced
+    Passenger:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Experienced

@@ -1,0 +1,146 @@
+- type: skill
+  id: WeaponsHandling
+  name: skill-weapons-handling-name
+  desc: skill-weapons-handling-desc
+  color: "#caa1a1"
+  info:
+    Inexperienced:
+      points: 0
+      description: skill-weapons-handling-desc-level-1
+    Basic:
+      points: 2
+      description: skill-weapons-handling-desc-level-2
+    Trained:
+      points: 4
+      description: skill-weapons-handling-desc-level-3
+    Experienced:
+      points: 8
+      description: skill-weapons-handling-desc-level-4
+    Master:
+      points: 8
+      description: skill-weapons-handling-desc-level-5
+  jobLimitations:
+    # Командование
+    Captain:
+       minSkillLevel: Basic
+       maxSkillLevel: Trained
+    IAA:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    # Служба Безопасности
+    HeadOfSecurity:
+       minSkillLevel: Trained
+       maxSkillLevel: Master
+    Warden:
+       minSkillLevel: Trained
+       maxSkillLevel: Master
+    Pilot:
+       minSkillLevel: Trained
+       maxSkillLevel: Master
+    Detective:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    SecurityOfficer:
+       minSkillLevel: Trained
+       maxSkillLevel: Master
+    SecurityCadet:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    # Медицинский
+    ChiefMedicalOfficer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Chemist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    MedicalDoctor:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Paramedic:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Psychologist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    MedicalIntern:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    # Инженерный
+    ChiefEngineer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    AtmosphericTechnician:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    StationEngineer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    TechnicalAssistant:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    # Научный
+    ResearchDirector:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Scientist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    ResearchAssistant:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    # Снабжение
+    Quartermaster:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    SalvageSpecialist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    CargoTechnician:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    # Сервисный
+    HeadOfPersonnel:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Chef:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Botanist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Bartender:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    ServiceWorker:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Librarian:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Chaplain:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Zookeeper:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Reporter:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Clown:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Mime:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Musician:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Boxer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Janitor:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
+    Passenger:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Trained
