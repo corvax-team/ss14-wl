@@ -48,18 +48,20 @@ namespace Content.Shared._WL.Skills.Systems
         {
             var skillHolderComp = EnsureComp<SkillsHolderComponent>(holder);
 
+            var skills = _protoMan.EnumeratePrototypes<SkillPrototype>();
+
             if (comp.Adjust != null)
             {
                 var toAdjust = comp.Adjust.Value;
-                foreach (var skill in skillHolderComp.Skills)
+                foreach (var skill in skills)
                 {
-                    var proto = _protoMan.Index(skill.Key);
-
-                    var max = (int) SkillLevel.Master - (int) skill.Value;
+                    var min = skillHolderComp.Skills.FirstOrNull(s => s.Key.Id.Equals(skill.ID))?.Value
+                        ?? SkillLevel.Inexperienced;
+                    var max = (int) SkillLevel.Master - (int) min;
 
                     toAdjust = Math.Clamp(toAdjust, 0, max);
 
-                    SetSkill((holder, skillHolderComp), skill.Key.Id, skill.Value + toAdjust, null);
+                    SetSkill((holder, skillHolderComp), skill, min + toAdjust, null);
                 }
             }
             else
@@ -69,11 +71,9 @@ namespace Content.Shared._WL.Skills.Systems
                 if (_job.MindTryGetJob(mind, out _, out var jobProto))
                     job = jobProto;
 
-                foreach (var skill in skillHolderComp.Skills)
+                foreach (var skill in skills)
                 {
-                    var proto = _protoMan.Index(skill.Key);
-
-                    var limitation = job == null ? null : proto.JobLimitations[job.ID];
+                    var limitation = job == null ? null : skill.JobLimitations[job.ID];
 
                     var minLevel = SkillLevel.Inexperienced;
                     var maxLevel = SkillLevel.Master;
@@ -86,7 +86,7 @@ namespace Content.Shared._WL.Skills.Systems
 
                     var level = _random.Next((int) minLevel, (int) maxLevel + 1);
 
-                    SetSkill((holder, skillHolderComp), skill.Key.Id, (SkillLevel) level, null);
+                    SetSkill((holder, skillHolderComp), skill, (SkillLevel) level, null);
                 }
             }
         }
@@ -189,6 +189,30 @@ namespace Content.Shared._WL.Skills.Systems
             comp.Skills[skillId] = level;
 
             Dirty(holder.Owner, holder.Comp);
+        }
+
+        /// <summary>
+        /// Устанавливает скилл указанного ID на определённый уровень, если скилла(по какой-то причине) нет, то он будет добавлен.
+        /// </summary>
+        /// <param name="holder">Сущность.</param>
+        /// <param name="skill">Прототип скилла.</param>
+        /// <param name="level">Уровень скилла.</param>
+        /// <param name="needLog">Оставьте null, если логирование действий не требуется.</param>
+        public void SetSkill(Entity<SkillsHolderComponent?> holder, SkillPrototype skill, SkillLevel level, ICommonSession? needLog = null)
+        {
+            SetSkill(holder, skill.ID, level, needLog);
+        }
+
+        /// <summary>
+        /// Устанавливает скилл указанного ID на определённый уровень, если скилла(по какой-то причине) нет, то он будет добавлен.
+        /// </summary>
+        /// <param name="holder">Сущность.</param>
+        /// <param name="skill">Обёртка прототипа скилла.</param>
+        /// <param name="level">Уровень скилла.</param>
+        /// <param name="needLog">Оставьте null, если логирование действий не требуется.</param>
+        public void SetSkill(Entity<SkillsHolderComponent?> holder, ProtoId<SkillPrototype> skill, SkillLevel level, ICommonSession? needLog = null)
+        {
+            SetSkill(holder, skill.Id, level, needLog);
         }
 
         /// <summary>
