@@ -4,7 +4,10 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Cloning;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.Mind;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Roles;
+using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -22,6 +25,8 @@ namespace Content.Shared._WL.Skills.Systems
         [Dependency] protected readonly IConfigurationManager _confMan = default!;
         [Dependency] protected readonly IRobustRandom _random = default!;
         [Dependency] protected readonly DamageableSystem _damage = default!;
+        [Dependency] protected readonly SharedJobSystem _job = default!;
+        [Dependency] protected readonly SharedMindSystem _mind = default!;
 
         public SkillsConfigurationPrototype Config { get; private set; } = default!;
 
@@ -29,12 +34,61 @@ namespace Content.Shared._WL.Skills.Systems
         {
             base.Initialize();
 
+            SubscribeLocalEvent<RandomSkillsComponent, MapInitEvent>(OnRandomMapInit);
+
             SubscribeLocalEvent<SkillsHolderComponent, CloningEvent>(OnCloning);
 
             SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
 
             Config = _protoMan.EnumeratePrototypes<SkillsConfigurationPrototype>()
                 .MaxBy(x => x.Priority)!;
+        }
+
+        private void OnRandomMapInit(EntityUid holder, RandomSkillsComponent comp, MapInitEvent ev)
+        {
+            var skillHolderComp = EnsureComp<SkillsHolderComponent>(holder);
+
+            if (comp.Adjust != null)
+            {
+                var toAdjust = comp.Adjust.Value;
+                foreach (var skill in skillHolderComp.Skills)
+                {
+                    var proto = _protoMan.Index(skill.Key);
+
+                    var max = (int) SkillLevel.Master - (int) skill.Value;
+
+                    toAdjust = Math.Clamp(toAdjust, 0, max);
+
+                    SetSkill((holder, skillHolderComp), skill.Key.Id, skill.Value + toAdjust, null);
+                }
+            }
+            else
+            {
+                var job = (JobPrototype?) null;
+                var mind = _mind.GetMind(holder);
+                if (_job.MindTryGetJob(mind, out _, out var jobProto))
+                    job = jobProto;
+
+                foreach (var skill in skillHolderComp.Skills)
+                {
+                    var proto = _protoMan.Index(skill.Key);
+
+                    var limitation = job == null ? null : proto.JobLimitations[job.ID];
+
+                    var minLevel = SkillLevel.Inexperienced;
+                    var maxLevel = SkillLevel.Master;
+
+                    if (limitation != null)
+                    {
+                        minLevel = limitation.MinSkillLevel;
+                        maxLevel = limitation.MaxSkillLevel;
+                    }
+
+                    var level = _random.Next((int) minLevel, (int) maxLevel + 1);
+
+                    SetSkill((holder, skillHolderComp), skill.Key.Id, (SkillLevel) level, null);
+                }
+            }
         }
 
         private void OnCloning(EntityUid holder, SkillsHolderComponent comp, ref CloningEvent args)
