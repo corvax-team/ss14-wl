@@ -1,8 +1,14 @@
 using Content.Shared._WL.Skills.Components;
+using Content.Shared._WL.Skills.Prototypes;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Cloning;
+using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.Random.Helpers;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -13,14 +19,90 @@ namespace Content.Shared._WL.Skills.Systems
     {
         [Dependency] protected readonly IPrototypeManager _protoMan = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
+        [Dependency] protected readonly IConfigurationManager _confMan = default!;
+        [Dependency] protected readonly IRobustRandom _random = default!;
+        [Dependency] protected readonly DamageableSystem _damage = default!;
+
+        public SkillsConfigurationPrototype Config { get; private set; } = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
+            SubscribeLocalEvent<SkillsHolderComponent, CloningEvent>(OnCloning);
 
+            SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
+
+            Config = _protoMan.EnumeratePrototypes<SkillsConfigurationPrototype>()
+                .MaxBy(x => x.Priority)!;
         }
 
+        private void OnCloning(EntityUid holder, SkillsHolderComponent comp, ref CloningEvent args)
+        {
+            var cloned = args.Source;
+            var spawned = args.Target;
+
+            if (!TryComp<SkillsHolderComponent>(spawned, out var spawnedSkillsHolderComp))
+                return;
+
+            var ent = new Entity<SkillsHolderComponent?>(spawned, spawnedSkillsHolderComp);
+            foreach (var skill in comp.Skills)
+            {
+                SetSkill(ent, skill.Key.Id, skill.Value, null);
+            }
+
+            if (!TryComp<DamageableComponent>(cloned, out var damageableComp))
+                return;
+
+            var chance = comp.CloningNoPenaltyProbability;
+
+            foreach (var damage in damageableComp.Damage.DamageDict)
+            {
+                if (!Config.CloningConfig.CloningPenalties.TryGetValue(damage.Key, out var dict))
+                    continue;
+
+                var cached = (float?) null;
+                foreach (var item in dict)
+                {
+                    if (item.Key < damage.Value)
+                    {
+                        cached = item.Value;
+                        continue;
+                    }
+                }
+
+                if (cached != null)
+                    chance *= cached.Value;
+            }
+
+            chance = Math.Clamp(chance, 0f, 1f);
+
+            var isSuccessful = _random.Prob(chance);
+            if (!isSuccessful)
+            {
+                var count = _random.Pick(Config.CloningConfig.SkillsForgettingCountWeights);
+
+                var picked = _random.GetItems(spawnedSkillsHolderComp.Skills.Keys.ToList(), count, false);
+                foreach (var pick in picked)
+                {
+                    //TODO: отслеживать максимальное и минимальное значения скиллов и выбирать рандомно между ними.
+                    spawnedSkillsHolderComp.Skills[pick] = SkillLevel.Inexperienced;
+                }
+            }
+        }
+
+        private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+        {
+            if (!args.WasModified<SkillsConfigurationPrototype>())
+                return;
+
+            var proto = _protoMan.EnumeratePrototypes<SkillsConfigurationPrototype>()
+                .MaxBy(p => p.Priority)!;
+
+            Config = proto;
+        }
+
+        #region Public
         /// <summary>
         /// Устанавливает скилл указанного ID на определённый уровень, если скилла(по какой-то причине) нет, то он будет добавлен.
         /// </summary>
@@ -198,5 +280,6 @@ namespace Content.Shared._WL.Skills.Systems
                     return msg;
                 });
         }
+        #endregion
     }
 }

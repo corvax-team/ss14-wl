@@ -12,6 +12,7 @@ namespace Content.Shared._WL.Skills.Components
         /// <summary>
         /// Словарь со скиллами.
         /// Синхронизируется с клиентом(вдруг для каких-то клиентских штучек понадобится.)
+        /// По безопасности должно быть норм.
         /// </summary>
         [AutoNetworkedField]
         [DataField]
@@ -19,5 +20,11 @@ namespace Content.Shared._WL.Skills.Components
 
         [DataField(serverOnly: true)]
         public Dictionary<string, TimeSpan> ChangedSkills = new();
+
+        /// <summary>
+        /// Вероятность того, что после клонирования игрок ЗАБУДЕТ какой-то навык
+        /// </summary>
+        [DataField]
+        public float CloningNoPenaltyProbability = 0.9f;
     }
 }

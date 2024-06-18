@@ -4,3 +4,19 @@
    23: 3
    31: 3
    46: 2
+  cloningConfig:
+    cloningPenalties:
+      Asphyxiation:
+        240: 0.7
+        400: 0.2
+      Bloodloss:
+        350: 0.6
+        400: 0.3
+      Cellular:
+        300: 0.1
+      Radiation:
+        700: 0.2
+    forgetWeights:
+      1: 10
+      2: 5
+      3: 1
