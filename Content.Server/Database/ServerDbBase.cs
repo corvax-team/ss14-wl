@@ -283,11 +283,11 @@ namespace Content.Server.Database
                 jobs,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 jobSubnames, //WL-Subnames
+                skills, //WL-Skills
+                profile.SkillsChosenJob, //WL-Skills
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts,
-                skills, //WL-Skills
-                profile.SkillsChosenJob //WL-Skills
+                loadouts
             );
         }
 

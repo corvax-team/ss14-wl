@@ -1118,8 +1118,8 @@ namespace Content.Client.Lobby.UI
             AntagList.DisposeAllChildren();
             var items = new[]
             {
-                ("humanoid-profile-editor-antag-preference-yes-button", 0/*WL-Skills-start*/, (string?) null, (bool?) false/*WL-Skills-end*/),
-                ("humanoid-profile-editor-antag-preference-no-button", 1/*WL-Skills-start*/, (string?) null, (bool?) false/*WL-Skills-end*/)
+                ("humanoid-profile-editor-antag-preference-yes-button", 0),
+                ("humanoid-profile-editor-antag-preference-no-button", 1)
             };
 
             foreach (var antag in _prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
@@ -1492,10 +1492,10 @@ namespace Content.Client.Lobby.UI
 
             var items = new[]
             {
-                ("humanoid-profile-editor-job-priority-never-button", (int) JobPriority.Never/*WL-Skills-start*/, (string?) null, (bool?) false/*WL-Skills-end*/),
-                ("humanoid-profile-editor-job-priority-low-button", (int) JobPriority.Low/*WL-Skills-start*/, (string?) null, (bool?) false/*WL-Skills-end*/),
-                ("humanoid-profile-editor-job-priority-medium-button", (int) JobPriority.Medium/*WL-Skills-start*/, (string?) null, (bool?) false/*WL-Skills-end*/),
-                ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High/*WL-Skills-start*/, (string?) null, (bool?) false/*WL-Skills-end*/),
+                ("humanoid-profile-editor-job-priority-never-button", (int) JobPriority.Never),
+                ("humanoid-profile-editor-job-priority-low-button", (int) JobPriority.Low),
+                ("humanoid-profile-editor-job-priority-medium-button", (int) JobPriority.Medium),
+                ("humanoid-profile-editor-job-priority-high-button", (int) JobPriority.High),
             };
 
             foreach (var department in departments)
