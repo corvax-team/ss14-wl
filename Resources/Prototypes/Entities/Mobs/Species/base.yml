@@ -7,6 +7,7 @@
   id: BaseMobSpecies
   abstract: true
   components:
+  - type: StaminaWaster
   - type: Sprite
     layers:
     - map: ["enum.BorgVisualLayers.Light"] # WL android race
