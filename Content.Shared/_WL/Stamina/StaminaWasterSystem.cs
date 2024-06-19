@@ -72,9 +72,6 @@ namespace Content.Shared._WL.Stamina
                 if (!TryComp<StaminaComponent>(mover, out var staminaComp))
                     return;
 
-                if (!TryComp<PhysicsComponent>(mover, out var physicsComp))
-                    return;
-
                 if (!TryComp<InventoryComponent>(mover, out var inventoryComp))
                     return;
 
@@ -91,7 +88,7 @@ namespace Content.Shared._WL.Stamina
                     speed / Math.Clamp(movementComp.BaseSprintSpeed, 0.001f, float.MaxValue);
 
                 var pulling = pullerComp.Pulling;
-                if (speed <= movementComp.BaseWalkSpeed && pulling == null)
+                if (MathHelper.CloseTo(speed, movementComp.BaseWalkSpeed, 1E-02) && pulling == null)
                     return;
 
                 if (pulling != null)
@@ -105,7 +102,7 @@ namespace Content.Shared._WL.Stamina
                     entities.Add(container.ContainedEntity.Value);
                 }
 
-                var mass = physicsComp.Mass;
+                var mass = 0f;
                 foreach (var entity in entities)
                 {
                     if (!TryComp<PhysicsComponent>(entity, out var containedPhysicComp))
@@ -117,7 +114,7 @@ namespace Content.Shared._WL.Stamina
                 var staminaChangedValue =
                     Math.Clamp(mass * comp.PenaltyForOneMassUnit, 1f, float.MaxValue) * comp.StaminaPerSecond * speedRelativeToMaxPercentage / _timing.TickRate;
 
-                var ev = new StaminaWasteAttemptEvent((mover, physicsComp, movementComp, staminaComp), speed, staminaChangedValue);
+                var ev = new StaminaWasteAttemptEvent((mover, movementComp, staminaComp), speed, staminaChangedValue);
                 RaiseLocalEvent(mover, ev);
 
                 if (ev.Cancelled)
