@@ -1,4 +1,5 @@
 using Content.Shared._WL.Skills.Components;
+using Content.Shared._WL.Skills.Events;
 using Content.Shared._WL.Skills.Prototypes;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Cloning;
@@ -37,6 +38,7 @@ namespace Content.Shared._WL.Skills.Systems
             SubscribeLocalEvent<RandomSkillsComponent, MapInitEvent>(OnRandomMapInit);
 
             SubscribeLocalEvent<SkillsHolderComponent, CloningEvent>(OnCloning);
+            SubscribeLocalEvent<SkillsHolderComponent, SkillAddedEvent>(OnSkillAdded);
 
             SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
 
@@ -145,6 +147,24 @@ namespace Content.Shared._WL.Skills.Systems
             }
         }
 
+        private void OnSkillAdded(EntityUid holder, SkillsHolderComponent comp, ref SkillAddedEvent args)
+        {
+            var values = Enum.GetValues<SkillLevel>()
+                .Order();
+
+            foreach (var value in values)
+            {
+                if (value > args.Level)
+                    continue;
+
+                var info = GetSkillInfo(args.Prototype.Id, value);
+                if (info == null || info.ExtraComponents == null)
+                    continue;
+
+                EntityManager.AddComponents(holder, info.ExtraComponents);
+            }
+        }
+
         private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
         {
             if (!args.WasModified<SkillsConfigurationPrototype>())
@@ -189,6 +209,9 @@ namespace Content.Shared._WL.Skills.Systems
             comp.Skills[skillId] = level;
 
             Dirty(holder.Owner, holder.Comp);
+
+            var ev = new SkillAddedEvent((holder.Owner, comp), skillId, level);
+            RaiseLocalEvent(holder.Owner, ref ev);
         }
 
         /// <summary>
@@ -357,6 +380,33 @@ namespace Content.Shared._WL.Skills.Systems
 
                     return msg;
                 });
+        }
+
+        /// <summary>
+        /// Получает информацию об определенном уровне скилла для определенного прототипа скилла.
+        /// </summary>
+        public SkillLevelInfo? GetSkillInfo(string? skillid, SkillLevel level)
+        {
+            if (skillid == null)
+                return null;
+
+            if (!_protoMan.TryIndex<SkillPrototype>(skillid, out var proto))
+                return null;
+
+            return GetSkillInfo(proto, level);
+        }
+
+        /// <summary>
+        /// Получает информацию об определенном уровне скилла для определенного прототипа скилла.
+        /// </summary>
+        public SkillLevelInfo? GetSkillInfo(SkillPrototype? skill, SkillLevel level)
+        {
+            if (skill == null)
+                return null;
+
+            skill.Info.TryGetValue(level, out var info);
+
+            return info;
         }
         #endregion
     }

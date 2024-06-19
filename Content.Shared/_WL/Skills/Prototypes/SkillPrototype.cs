@@ -63,6 +63,12 @@ namespace Content.Shared._WL.Skills
         [DataField("description", required: true)]
         private LocId _desc;
 
+        /// <summary>
+        /// Компоненты, которые будут перезаписаны при добавлении навыка.
+        /// </summary>
+        [DataField("extra")]
+        public ComponentRegistry? ExtraComponents;
+
         public string Description => Loc.GetString(_desc.Id);
     }
 
