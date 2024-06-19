@@ -1,0 +1,146 @@
+- type: skill
+  id: Athletics
+  name: skill-athletics-name
+  desc: skill-athletics-desc
+  color: "#f4cccc"
+  info:
+    Inexperienced:
+      points: 0
+      description: skill-athletics-desc-level-1
+    Basic:
+      points: 1
+      description: skill-athletics-desc-level-2
+    Trained:
+      points: 2
+      description: skill-athletics-desc-level-3
+    Experienced:
+      points: 2
+      description: skill-athletics-desc-level-4
+    Master:
+      points: 4
+      description: skill-athletics-desc-level-5
+  jobLimitations:
+    # Командование
+    Captain:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    IAA:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    # Служба Безопасности
+    HeadOfSecurity:
+       minSkillLevel: Trained
+       maxSkillLevel: Master
+    Warden:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    Pilot:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    Detective:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    SecurityOfficer:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    SecurityCadet:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    # Медицинский
+    ChiefMedicalOfficer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Chemist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    MedicalDoctor:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Paramedic:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    Psychologist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    MedicalIntern:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    # Инженерный
+    ChiefEngineer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    AtmosphericTechnician:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    StationEngineer:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    TechnicalAssistant:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    # Научный
+    ResearchDirector:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Scientist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    ResearchAssistant:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    # Снабжение
+    Quartermaster:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    SalvageSpecialist:
+       minSkillLevel: Trained
+       maxSkillLevel: Master
+    CargoTechnician:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    # Сервисный
+    HeadOfPersonnel:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Chef:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Botanist:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Bartender:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    ServiceWorker:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Librarian:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Chaplain:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Zookeeper:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Reporter:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Clown:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    Mime:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    Musician:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
+    Boxer:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    Janitor:
+       minSkillLevel: Basic
+       maxSkillLevel: Master
+    Passenger:
+       minSkillLevel: Inexperienced
+       maxSkillLevel: Master
