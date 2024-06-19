@@ -1,6 +1,9 @@
 using System.Numerics;
+using Content.Shared._WL.CCVars;
 using Content.Shared.Movement.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.GameStates;
+using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Timing;
@@ -70,10 +73,17 @@ namespace Content.Shared.Movement.Components
 
         public const float LerpTime = 1.0f;
 
-        public bool Sprinting => (HeldMoveButtons & MoveButtons.Walk) == 0x0;
-
         [ViewVariables(VVAccess.ReadWrite)]
         public bool CanMove = true;
+
+        public bool Sprinting => /*WL-Changes-start*/RunningOnShift
+            ? (HeldMoveButtons & MoveButtons.Walk) == 0x0
+            : (HeldMoveButtons & MoveButtons.Walk) != 0x0/*WL-Changes-end*/;
+
+        //WL-Skills-start
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool RunningOnShift = false;
+        //WL-Skills-end
     }
 
     [Serializable, NetSerializable]
@@ -85,5 +95,6 @@ namespace Content.Shared.Movement.Components
         public Angle RelativeRotation;
         public TimeSpan LerpTarget;
         public bool CanMove;
+        public bool RunningOnShift;
     }
 }

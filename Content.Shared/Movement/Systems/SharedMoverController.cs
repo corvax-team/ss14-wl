@@ -399,6 +399,7 @@ namespace Content.Shared.Movement.Systems
                 return false;
 
             var coordinates = xform.Coordinates;
+
             var distanceNeeded = mover.Sprinting
                 ? mobMover.StepSoundMoveDistanceRunning
                 : mobMover.StepSoundMoveDistanceWalking;

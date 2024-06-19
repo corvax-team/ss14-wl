@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._WL.CCVars;
 using Content.Shared.CCVar;
 using Content.Shared.Follower.Components;
 using Content.Shared.Input;
@@ -108,6 +109,10 @@ namespace Content.Shared.Movement.Systems
             component.CanMove = state.CanMove;
             component.RelativeEntity = EnsureEntity<InputMoverComponent>(state.RelativeEntity, uid);
 
+            //WL-Skills-start
+            component.RunningOnShift = state.RunningOnShift;
+            //WL-Skills-end
+
             // Reset
             component.LastInputTick = GameTick.Zero;
             component.LastInputSubTick = 0;
@@ -130,6 +135,9 @@ namespace Content.Shared.Movement.Systems
                 HeldMoveButtons = component.HeldMoveButtons,
                 RelativeRotation = component.RelativeRotation,
                 TargetRelativeRotation = component.TargetRelativeRotation,
+                //WL-Skills-start
+                RunningOnShift = component.RunningOnShift
+                //WL-Skills-end
             };
         }
 
@@ -364,6 +372,7 @@ namespace Content.Shared.Movement.Systems
                 // So return a full-length vector as if it's a full tick.
                 // Physics system will have the correct time step anyways.
                 var immediateDir = DirVecForButtons(mover.HeldMoveButtons);
+
                 return mover.Sprinting ? (Vector2.Zero, immediateDir) : (immediateDir, Vector2.Zero);
             }
 

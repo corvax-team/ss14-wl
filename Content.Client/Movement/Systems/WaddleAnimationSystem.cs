@@ -1,6 +1,7 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Buckle;
 using Content.Client.Gravity;
+using Content.Shared._WL.CCVars;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
@@ -8,6 +9,7 @@ using Content.Shared.Movement.Systems;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Animations;
+using Robust.Shared.Configuration;
 
 namespace Content.Client.Movement.Systems;
 
@@ -19,6 +21,10 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
     [Dependency] private readonly BuckleSystem _buckle = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
+    private bool _runningOnShift = WLCVars.RunningOnShift.DefaultValue;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -26,6 +32,11 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
         SubscribeAllEvent<StartedWaddlingEvent>(OnStartWaddling);
         SubscribeLocalEvent<WaddleAnimationComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeAllEvent<StoppedWaddlingEvent>(OnStopWaddling);
+
+        //WL-Skills-start
+        _runningOnShift = _cfg.GetCVar(WLCVars.RunningOnShift);
+        Subs.CVar(_cfg, WLCVars.RunningOnShift, (value) => _runningOnShift = value);
+        //WL-Skills-end
     }
 
     private void OnStartWaddling(StartedWaddlingEvent msg, EntitySessionEventArgs args)
