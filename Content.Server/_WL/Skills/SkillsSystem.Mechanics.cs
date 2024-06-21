@@ -5,7 +5,6 @@ using Content.Shared._WL.Skills.Systems;
 using Content.Shared._WL.Stamina;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Damage.Components;
-using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Item;
 using Content.Shared.Movement.Pulling.Components;
