@@ -1,4 +1,3 @@
-using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
 using Content.Shared._WL.Skills.Components.Mechanics;
 using Content.Shared._WL.Skills.Systems;
@@ -13,13 +12,13 @@ using Content.Shared.Prying.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
 
-namespace Content.Server._WL.Skills
+namespace Content.Server._WL.Skills.Systems
 {
     public sealed partial class SkillsSystem : SharedSkillsSystem
     {
         [Dependency] private readonly HandsSystem _hands = default!;
 
-        public void InitializeMechanics()
+        public void InitializeAthleticsMechanics()
         {
             SubscribeLocalEvent<AthleticSkillComponent, MapInitEvent>(OnAthleticMapInit);
             SubscribeLocalEvent<AthleticSkillComponent, BeforeThrowEvent>(OnAthleticThrow);

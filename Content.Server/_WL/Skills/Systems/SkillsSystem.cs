@@ -6,7 +6,7 @@ using Content.Shared._WL.Skills.Systems;
 using Content.Shared.Database;
 using System.Text;
 
-namespace Content.Server._WL.Skills
+namespace Content.Server._WL.Skills.Systems
 {
     public sealed partial class SkillsSystem : SharedSkillsSystem
     {
@@ -18,7 +18,8 @@ namespace Content.Server._WL.Skills
 
             SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
 
-            InitializeMechanics();
+            InitializeAthleticsMechanics();
+            InitializeBuildingMechanics();
         }
 
         private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)

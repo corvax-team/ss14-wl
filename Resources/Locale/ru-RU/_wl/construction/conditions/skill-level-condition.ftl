@@ -1,0 +1,1 @@
+skill-level-construction-condition = [color={$color}]{$skillname}: {$skilllevel}[/color] 
