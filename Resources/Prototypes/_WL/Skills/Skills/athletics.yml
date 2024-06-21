@@ -7,18 +7,60 @@
     Inexperienced:
       points: 0
       description: skill-athletics-desc-level-1
+      extra:
+      - type: AthleticSkill
+        swm: 1.2
+        trm: 0.5
+        tswm: 2
+        bi: Huge
+        pwsm: 0.25
+        pssm: 0.25
+        ptm: 1.5
+        ctm: 1.5
+        stv: 2
     Basic:
       points: 1
       description: skill-athletics-desc-level-2
+      extra:
+      - type: AthleticSkill
+        trm: 0.75
+        tswm: 1.8
+        bi: null
+        pwsm: 0.5
+        pssm: 0.5
+        ptm: 1.25
+        ctm: 1.25
+        stv: 2.2
     Trained:
       points: 2
       description: skill-athletics-desc-level-3
+      extra:
+      - type: AthleticSkill
+        swm: 0.8
+        tswm: 1.5
+        bi: null
+        pwsm: 0.75
+        pssm: 0.75
+        stv: 2.6
     Experienced:
       points: 2
       description: skill-athletics-desc-level-4
+      extra:
+      - type: AthleticSkill
+        trm: 1.1
+        swm: 0.6
+        tswm: 1.5
+        ptm: 0.9
+        stv: 2.8
     Master:
       points: 4
       description: skill-athletics-desc-level-5
+      extra:
+      - type: AthleticSkill
+        trm: 1.25
+        swm: 0.5
+        ptm: 0.9
+        stv: 2.8
   jobLimitations:
     # Командование
     Captain:

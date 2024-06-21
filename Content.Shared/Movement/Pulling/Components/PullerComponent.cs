@@ -1,4 +1,4 @@
-﻿using Content.Shared.Alert;
+using Content.Shared.Alert;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -25,9 +25,17 @@ public sealed partial class PullerComponent : Component
     public TimeSpan ThrowCooldown = TimeSpan.FromSeconds(1);
 
     // Before changing how this is updated, please see SharedPullerSystem.RefreshMovementSpeed
-    public float WalkSpeedModifier => Pulling == default ? 1.0f : 0.95f;
+    public float WalkSpeedModifier => Pulling == default ? 1.0f : BaseWalkSpeedModifier;
 
-    public float SprintSpeedModifier => Pulling == default ? 1.0f : 0.95f;
+    public float SprintSpeedModifier => Pulling == default ? 1.0f : BaseSprintSpeedModifier;
+
+    //WL-Skills-start
+    [DataField]
+    public float BaseWalkSpeedModifier = 0.95f;
+
+    [DataField]
+    public float BaseSprintSpeedModifier = 0.95f;
+    //WL-Skills-end
 
     /// <summary>
     /// Entity currently being pulled if applicable.

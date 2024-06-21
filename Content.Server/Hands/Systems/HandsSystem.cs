@@ -229,5 +229,12 @@ namespace Content.Server.Hands.Systems
         }
 
         #endregion
+
+        //WL-Skills-start
+        public void ChangeThrowRange(Entity<HandsComponent> entity, float value, float minDistance = 0.1f)
+        {
+            entity.Comp.ThrowRange = Math.Clamp(value, minDistance, float.MaxValue);
+        }
+        //WL-Skills-end
     }
 }

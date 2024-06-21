@@ -489,4 +489,12 @@ public sealed class PullingSystem : EntitySystem
         StopPulling(pullableUid, pullable);
         return true;
     }
+
+    //WL-Skills-start
+    public static void ChangeBaseWalkingSpeeds(Entity<PullerComponent> entity, float baseWalkSpeed, float baseSprintSpeed)
+    {
+        entity.Comp.BaseSprintSpeedModifier = baseSprintSpeed;
+        entity.Comp.BaseWalkSpeedModifier = baseWalkSpeed;
+    }
+    //WL-Skills-end
 }

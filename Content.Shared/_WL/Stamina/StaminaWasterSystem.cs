@@ -3,8 +3,11 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 namespace Content.Shared._WL.Stamina
@@ -22,6 +25,7 @@ namespace Content.Shared._WL.Stamina
             UpdatesOutsidePrediction = true;
 
             SubscribeLocalEvent<StaminaWasterComponent, MoveEvent>(OnMove);
+            SubscribeLocalEvent<ThrownEvent>(OnThrown);
         }
 
         public override void Update(float frameTime)
@@ -54,6 +58,33 @@ namespace Content.Shared._WL.Stamina
             }
         }
 
+        private void OnThrown(ref ThrownEvent args)
+        {
+            if (args.User == null)
+                return;
+
+            var user = args.User.Value;
+            var thrown = args.Thrown;
+            if (!TryComp<StaminaWasterComponent>(user, out var staminaWasterComp) ||
+                !TryComp<StaminaComponent>(user, out var staminaComp))
+                return;
+
+            var damage = 0f;
+
+            if (TryComp<PhysicsComponent>(thrown, out var thrownPhysicsComp))
+                damage += thrownPhysicsComp.Mass * staminaWasterComp.ThrowPenaltyForOneMassUnit;
+
+            if (!CanAddDamage((user, staminaComp, staminaWasterComp), damage, out var need))
+            {
+                if (MathHelper.CloseTo(need.Value, 0f))
+                    return;
+
+                damage = Math.Clamp(damage, 0f, need.Value);
+            }
+
+            _stamina.TakeStaminaDamage(user, damage, staminaComp, null, null, false, null);
+        }
+
         //Ну видишь эту громадину?! А она выполняется 60 раз в секунду, ппц
         private async Task Calculate(EntityUid mover, StaminaWasterComponent comp, MoveEvent args)
         {
@@ -70,6 +101,9 @@ namespace Content.Shared._WL.Stamina
                     return;
 
                 if (!TryComp<StaminaComponent>(mover, out var staminaComp))
+                    return;
+
+                if (!CanWaste((mover, staminaComp, comp)))
                     return;
 
                 if (!TryComp<InventoryComponent>(mover, out var inventoryComp))
@@ -114,6 +148,10 @@ namespace Content.Shared._WL.Stamina
                 var staminaChangedValue =
                     Math.Clamp(mass * comp.PenaltyForOneMassUnit, 1f, float.MaxValue) * comp.StaminaPerSecond * speedRelativeToMaxPercentage / _timing.TickRate;
 
+                if (TryComp<HungerComponent>(mover, out var hungerComp))
+                    if (comp.HungerPenalties.TryGetValue(hungerComp.CurrentThreshold, out var hungerModifier))
+                        staminaChangedValue *= hungerModifier;
+
                 var ev = new StaminaWasteAttemptEvent((mover, movementComp, staminaComp), speed, staminaChangedValue);
                 RaiseLocalEvent(mover, ev);
 
@@ -126,6 +164,44 @@ namespace Content.Shared._WL.Stamina
             {
                 throw new Exception($"{nameof(StaminaWasterSystem)}: Неизвестная ошибка!!");
             }
+        }
+
+        public static bool CanWaste(Entity<StaminaComponent, StaminaWasterComponent> entity)
+        {
+            var ent = entity.Owner;
+            var staminaDamage = entity.Comp1.StaminaDamage;
+            var maxStamina = entity.Comp1.CritThreshold;
+            var minBound = entity.Comp2.MinStaminaBoundPercentage;
+
+            if (staminaDamage >= maxStamina * minBound)
+                return false;
+
+            return true;
+        }
+
+        public static bool CanAddDamage(
+            Entity<StaminaComponent, StaminaWasterComponent> entity,
+            float damage,
+            [NotNullWhen(false)] out float? need)
+        {
+            need = null;
+
+            var ent = entity.Owner;
+            var staminaDamage = entity.Comp1.StaminaDamage;
+            var maxStamina = entity.Comp1.CritThreshold;
+            var minBound = entity.Comp2.MinStaminaBoundPercentage;
+
+            if (!CanWaste(entity))
+            {
+                need = 0;
+                return false;
+            }
+
+            if (staminaDamage + damage <= minBound * maxStamina)
+                return true;
+
+            need = minBound * maxStamina - staminaDamage;
+            return false;
         }
     }
 }

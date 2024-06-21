@@ -17,6 +17,8 @@ namespace Content.Server._WL.Skills
             base.Initialize();
 
             SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
+
+            InitializeMechanics();
         }
 
         private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)

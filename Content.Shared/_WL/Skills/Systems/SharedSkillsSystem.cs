@@ -161,7 +161,7 @@ namespace Content.Shared._WL.Skills.Systems
                 if (info == null || info.ExtraComponents == null)
                     continue;
 
-                EntityManager.AddComponents(holder, info.ExtraComponents);
+                EntityManager.AddComponents(holder, info.ExtraComponents, true);
             }
         }
 

@@ -211,12 +211,15 @@ public sealed partial class ClimbSystem : VirtualController
         if (climbing.IsClimbing)
             return true;
 
-        var ev = new AttemptClimbEvent(user, entityToMove, climbable);
+        var ev = new AttemptClimbEvent(user, entityToMove, climbable)
+        {
+            /*WL-Skills-start*/DoAfterTime = comp.ClimbDelay/*WL-Skills-end*/
+        };
         RaiseLocalEvent(climbable, ref ev);
         if (ev.Cancelled)
             return false;
 
-        var args = new DoAfterArgs(EntityManager, user, comp.ClimbDelay, new ClimbDoAfterEvent(),
+        var args = new DoAfterArgs(EntityManager, user, /*WL-Skills-start*/ev.DoAfterTime/*WL-Skills-end*/, new ClimbDoAfterEvent(),
             entityToMove,
             target: climbable,
             used: entityToMove)
