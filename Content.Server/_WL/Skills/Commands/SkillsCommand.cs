@@ -1,4 +1,3 @@
-using Content.Server._WL.Skills.Systems;
 using Content.Server.Administration;
 using Content.Shared._WL.Skills;
 using Content.Shared._WL.Skills.Components;

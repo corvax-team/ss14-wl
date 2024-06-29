@@ -222,12 +222,7 @@ namespace Content.Client.Construction.UI
         {
             var spriteSys = _systemManager.GetEntitySystem<SpriteSystem>();
             _constructionView.ClearRecipeInfo();
-            _constructionView.SetRecipeInfo(
-                prototype.Name,
-                prototype.Description,
-                spriteSys.Frame0(prototype.Icon),
-                prototype.Type != ConstructionType.Item,
-                /*WL-Skills-start*/prototype/*WL-Skills-end*/);
+            _constructionView.SetRecipeInfo(prototype.Name, prototype.Description, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item);
 
             var stepList = _constructionView.RecipeStepList;
             GenerateStepList(prototype, stepList);

@@ -1,4 +1,3 @@
-using Content.Shared._WL.Skills;
 using Content.Shared.Construction.Conditions;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -11,11 +10,6 @@ namespace Content.Shared.Construction.Prototypes;
 public sealed partial class ConstructionPrototype : IPrototype
 {
     [DataField("conditions")] private List<IConstructionCondition> _conditions = new();
-
-    //WL-Skills-start
-    [DataField]
-    public Dictionary<ProtoId<SkillPrototype>, SkillLevel>? RequiredSkills = null;
-    //WL-Skills-end
 
     /// <summary>
     ///     Hide from the construction list
