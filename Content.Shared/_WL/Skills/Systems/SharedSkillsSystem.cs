@@ -303,6 +303,27 @@ namespace Content.Shared._WL.Skills.Systems
         }
 
         /// <summary>
+        /// Проверяет есть ли у сущности все скиллы с указанным минимыльным уровенем
+        /// </summary>
+        /// <param name="holder"></param>
+        /// <param name="dict"></param>
+        public bool HasAllSkillsMin(
+            Entity<SkillsHolderComponent?> holder,
+            IDictionary<ProtoId<SkillPrototype>, SkillLevel> dict)
+        {
+            foreach (var pair in dict)
+            {
+                var level = pair.Value;
+                var proto = pair.Key;
+
+                if (!HasSkillMin(holder, proto, level))
+                    return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
         /// Возвращает FormattedMessage формата: '[color=#FF11FFFF]Атмосферика[/color]: Мастер'.
         /// </summary>
         /// <param name="skillId">ID протоипа скилла.</param>
