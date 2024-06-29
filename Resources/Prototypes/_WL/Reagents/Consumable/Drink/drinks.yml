@@ -1,0 +1,39 @@
+#- type: reagent
+#  id: Berryshake
+#  name: reagent-name-berryshake
+#  parent: BaseDrink
+#  desc: reagent-desc-berryshake
+#  physicalDesc: reagent-physicalDesc-berryshake
+#  flavor: berryshake
+#  color: "#f2999d"
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#  metamorphicSprite:
+#    sprite: _WL/Objects/Consumable/Drinks/berryshake.rsi
+#    state: icon_empty
+#  metamorphicMaxFillLevels: 5
+#  metamorphicFillBaseName: fill-
+#  metamorphicChangeColor: false
+
+#- type: reagent
+#  id: Chocoshake
+#  name: reagent-name-chocoshake
+#  parent: BaseDrink
+#  desc: reagent-desc-chocoshake
+#  physicalDesc: reagent-physicalDesc-chocoshake
+#  flavor: chocoshake
+#  color: "#664300"
+#  metabolisms:
+#    Drink:
+#      effects:
+#      - !type:SatiateThirst
+#        factor: 2
+#  metamorphicSprite:
+#    sprite: _WL/Objects/Consumable/Drinks/chocoshake.rsi
+#    state: icon_empty
+#  metamorphicMaxFillLevels: 5
+#  metamorphicFillBaseName: fill-
+#  metamorphicChangeColor: false

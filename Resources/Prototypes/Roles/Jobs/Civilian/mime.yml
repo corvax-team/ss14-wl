@@ -35,7 +35,6 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - BoxSurvival
     - RubberStampMime
 
 - type: entity

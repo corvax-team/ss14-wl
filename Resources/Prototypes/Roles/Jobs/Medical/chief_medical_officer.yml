@@ -50,5 +50,4 @@
     belt: ClothingBeltMedicalFilled
   storage:
     back:
-    - BoxSurvivalMedical
     - Flash

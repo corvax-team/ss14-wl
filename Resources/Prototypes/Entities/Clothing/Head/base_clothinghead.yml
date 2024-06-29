@@ -143,6 +143,8 @@
     slots:
     - Hair
     - Snout
+    - HeadTop
+    - HeadSide
   - type: ExtraBlockingInventorySlots # WL-Changes
     slots:
     - EYES
@@ -173,8 +175,6 @@
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
     coefficient: 0.1
-  - type: FireProtection
-    reduction: 0.2
   - type: Armor
     modifiers:
       coefficients:
@@ -193,6 +193,8 @@
     slots:
     - Hair
     - Snout
+    - HeadTop
+    - HeadSide
   - type: ExtraBlockingInventorySlots # WL-Changes
     slots:
     - EYES
@@ -273,3 +275,5 @@
   - type: HideLayerClothing
     slots:
     - Hair
+    - HeadTop
+    - HeadSide

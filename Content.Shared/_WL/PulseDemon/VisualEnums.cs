@@ -13,3 +13,15 @@ public enum PulseDemonVisualLayers : byte
 {
     Demon
 }
+
+[Serializable, NetSerializable]
+public enum MarkeredCableKey : byte
+{
+    Key
+}
+
+[Serializable, NetSerializable]
+public enum MarkeredCableLayers : byte
+{
+    Layer
+}

@@ -1,0 +1,23 @@
+#- type: reaction
+#  id: Berryshake
+#  reactants:
+#    Cream:
+#      amount: 1
+#    Sugar:
+#      amount: 1
+#    JuiceBerry:
+#      amount: 1
+#  products:
+#    Berryshake: 3
+
+#- type: reaction
+#  id: Chocoshake
+#  reactants:
+#    Cream:
+#      amount: 1
+#    Sugar:
+#      amount: 1
+#    HotCocoa:
+#      amount: 1
+#  products:
+#    Chocoshake: 3

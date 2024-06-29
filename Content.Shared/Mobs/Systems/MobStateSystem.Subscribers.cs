@@ -1,4 +1,6 @@
 using Content.Shared.Bed.Sleep;
+﻿using Content.Shared.Bed.Sleep;
+using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Emoting;
@@ -10,13 +12,11 @@ using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Pointing;
-using Content.Shared.Projectiles;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
-using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Physics.Components;
 // WL Golem species start
 using Content.Shared.Damage.Prototypes;
@@ -24,8 +24,8 @@ using Content.Shared.Buckle;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Content.Shared._WL.Slippery;
+using Content.Shared.Buckle.Components;
 // WL Golem species end
-using Robust.Shared.Physics.Events;
 
 namespace Content.Shared.Mobs.Systems;
 
@@ -44,7 +44,7 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, ChangeDirectionAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, UseAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, AttackAttemptEvent>(CheckAct);
-        SubscribeLocalEvent<MobStateComponent, ConsciousAttemptEvent>(CheckAct);
+        SubscribeLocalEvent<MobStateComponent, ConsciousAttemptEvent>(CheckConcious);
         SubscribeLocalEvent<MobStateComponent, ThrowAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, SpeakAttemptEvent>(OnSpeakAttempt);
         SubscribeLocalEvent<MobStateComponent, IsEquippingAttemptEvent>(OnEquipAttempt);
@@ -59,6 +59,27 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, TryingToSleepEvent>(OnSleepAttempt);
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
+
+        SubscribeLocalEvent<MobStateComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
+    }
+
+    private void OnUnbuckleAttempt(Entity<MobStateComponent> ent, ref UnbuckleAttemptEvent args)
+    {
+        // TODO is this necessary?
+        // Shouldn't the interaction have already been blocked by a general interaction check?
+        if (args.User == ent.Owner && IsIncapacitated(ent))
+            args.Cancelled = true;
+    }
+
+    private void CheckConcious(Entity<MobStateComponent> ent, ref ConsciousAttemptEvent args)
+    {
+        switch (ent.Comp.CurrentState)
+        {
+            case MobState.Dead:
+            case MobState.Critical:
+                args.Cancelled = true;
+                break;
+        }
     }
 
     private void OnStateExitSubscribers(EntityUid target, MobStateComponent component, MobState state)

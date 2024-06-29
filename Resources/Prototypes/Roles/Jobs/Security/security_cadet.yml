@@ -43,6 +43,5 @@
     pocket2: HyperLinkBookCorporateLaw # Corvax-HyperLink
   storage:
     back:
-    - BoxSurvivalSecurity
     - Flash
     - MagazinePistol

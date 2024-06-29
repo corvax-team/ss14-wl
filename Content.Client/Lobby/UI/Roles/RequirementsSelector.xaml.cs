@@ -37,7 +37,7 @@ public sealed partial class RequirementsSelector : BoxContainer
             FirstButtonStyle = StyleBase.ButtonOpenRight,
             ButtonStyle = StyleBase.ButtonOpenBoth,
             LastButtonStyle = StyleBase.ButtonOpenLeft,
-            HorizontalExpand = true,
+            HorizontalExpand = true
         };
         //Override default radio option button width
         _options.GenerateItem = GenerateButton;
@@ -98,18 +98,21 @@ public sealed partial class RequirementsSelector : BoxContainer
         title.MinSize = new Vector2(titleSize, 0f);
         title.ToolTip = description;
         title.MouseFilter = MouseFilterMode.Stop;
+        title.HorizontalAlignment = HAlignment.Left;
+        title.HorizontalExpand = true;
 
         OptionsContainer.AddChild(title);
 
         if (icon != null)
         {
-            AddChild(icon);
+            OptionsContainer.AddChild(icon);
             icon.SetPositionFirst();
         }
 
         var optionsContainer = new BoxContainer()
         {
             SetWidth = 400,
+            HorizontalExpand = true
         };
 
         optionsContainer.AddChild(_options);

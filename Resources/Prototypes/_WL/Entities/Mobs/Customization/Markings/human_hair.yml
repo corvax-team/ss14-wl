@@ -1,0 +1,63 @@
+- type: marking
+  id: HumanHairVerybadlycut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: verybadlycut
+
+- type: marking
+  id: HumanHairPonytail8
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: ponytail8
+
+- type: marking
+  id: HumanHairOvereyetwo
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: overeyetwo
+
+- type: marking
+  id: HumanHairShavedmohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: shavedmohawk
+
+- type: marking
+  id: HumanHairEmo2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: emo2
+
+- type: marking
+  id: HumanHairComet
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: comet
+
+- type: marking
+  id: HumanHairBedheadv4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: bedheadv4
+
+- type: marking
+  id: HumanHairAllthefuzz
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: allthefuzz

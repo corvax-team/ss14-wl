@@ -21,9 +21,10 @@ using Robust.Shared.Utility;
 using System.Linq;
 using System.Numerics;
 using Robust.Shared.Map;
-using Content.Shared._WL.PulseDemon;
-using Content.Shared.Actions;
 using Content.Shared.Store.Components;
+using Content.Shared.Ghost;
+using System.Threading.Tasks;
+using Content.Shared._WL.PulseDemon;
 
 namespace Content.Server._WL.PulseDemon.Systems;
 
@@ -36,7 +37,6 @@ public sealed partial class PulseDemonSystem : EntitySystem
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly PowerNetSystem _power = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _move = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly IMapManager _map = default!;
 
     #region WallSpawnOffsets
@@ -66,6 +66,7 @@ public sealed partial class PulseDemonSystem : EntitySystem
         base.Initialize();
 
         UpdatesAfter.Add(typeof(PowerNetSystem));
+        UpdatesOutsidePrediction = true;
 
         SubscribeLocalEvent<PulseDemonComponent, MindAddedMessage>(OnPulseDemonMindGotAdded);
 
@@ -82,7 +83,7 @@ public sealed partial class PulseDemonSystem : EntitySystem
         InitializeShopEventsSubscribers();
     }
 
-    public override void Update(float frameTime)
+    public override async void Update(float frameTime)
     {
         base.Update(frameTime);
 
@@ -106,9 +107,11 @@ public sealed partial class PulseDemonSystem : EntitySystem
             var damageValue = battery.MaxCharge * GetEndurance(pulseDemonComp) / _gameTiming.TickRate * factor;
             DealBatteryDamage(battery, damageValue);
         }
+
+        await UpdateNotPoweredCables();
     }
 
-    private void OnPulseDemonMindGotAdded(EntityUid demonUid, PulseDemonComponent component, MindAddedMessage args)
+    private async void OnPulseDemonMindGotAdded(EntityUid demonUid, PulseDemonComponent component, MindAddedMessage args)
     {
         AddBaseActions(demonUid);
         InitializeComponentFields(demonUid, component);
@@ -116,8 +119,8 @@ public sealed partial class PulseDemonSystem : EntitySystem
         if (!TryComp<TransformComponent>(demonUid, out var transformComp))
             return;
 
-        UpdateCablesAroundDemon(transformComp);
-        UpdateWallsAroundDemon(transformComp);
+        await UpdateCablesAroundDemon(transformComp);
+        await UpdateWallsAroundDemon(transformComp);
 
         //if (!_mind.TryGetMind(demonUid, out var mindId, out var mindComp))
         //    return;
@@ -159,25 +162,27 @@ public sealed partial class PulseDemonSystem : EntitySystem
         }
     }
 
-    private void OnMove(EntityUid uid, PulseDemonComponent component, MoveEvent args)
+    private async void OnMove(EntityUid uid, PulseDemonComponent component, MoveEvent args)
     {
         TimeBasedParticlesSpawn(uid, component, args);
-
-        if (component.CanExistOutsideCable)
-            return;
 
         if (!TryComp<TransformComponent>(uid, out var transform))
             return;
 
-        UpdateWallsAroundDemon(transform);
-        UpdateWallsWithoutDemonAround();
-        UpdateCablesAroundDemon(transform);
-        UpdateMarkeredCablesWithoutCables();
+        var tasks = new List<Task>();
+
+        if (!component.CanExistOutsideCable)
+            tasks.Add(UpdateWallsAroundDemon(transform));
+        tasks.Add(UpdateWallsWithoutDemonAround());
+        tasks.Add(UpdateCablesAroundDemon(transform));
+        tasks.Add(UpdateMarkeredCablesWithoutCables());
+
+        await Task.WhenAll(tasks);
     }
 
     private void OnExamine(EntityUid uid, PulseDemonComponent component, ExaminedEvent args)
     {
-        if (args.Examiner == args.Examined)
+        if (args.Examiner == args.Examined || HasComp<GhostComponent>(args.Examiner))
         {
             args.PushMarkup(Loc.GetString("pulse-demon-levels"), 6);
             args.PushMarkup(Loc.GetString("pulse-demon-absorption-level", ("absorption", component.AbsorptrionLevel)), 5);
@@ -334,7 +339,7 @@ public sealed partial class PulseDemonSystem : EntitySystem
     #endregion
 
     #region OnMoveActions
-    public void UpdateWallsWithoutDemonAround()
+    public async Task UpdateWallsWithoutDemonAround()
     {
         var query = EntityQueryEnumerator<DemonInvisibleWallComponent, TransformComponent>();
         while (query.MoveNext(out var wallUid, out _, out _))
@@ -349,7 +354,7 @@ public sealed partial class PulseDemonSystem : EntitySystem
         }
     }
 
-    public void UpdateMarkeredCablesWithoutCables()
+    public async Task UpdateMarkeredCablesWithoutCables()
     {
         var entities = EntityQueryEnumerator<DemonCableMarkerComponent>();
         while (entities.MoveNext(out var uid, out var demonMarkeredCableComp))
@@ -361,14 +366,14 @@ public sealed partial class PulseDemonSystem : EntitySystem
         }
     }
 
-    private void UpdateCablesAroundDemon(TransformComponent demonTransform)
+    private async Task UpdateCablesAroundDemon(TransformComponent demonTransform)
     {
         if (demonTransform.GridUid == null)
             return;
 
         var cables = EntityQuery<CableComponent, TransformComponent>()
             .Where(cable => !HasComp<MarkeredCableComponent>(cable.Item1.Owner) && cable.Item2.Coordinates
-            .InRange(EntityManager, _transform, demonTransform.Coordinates, 13f));
+                .InRange(EntityManager, _transform, demonTransform.Coordinates, 13f));
 
         foreach (var ent in cables)
         {
@@ -383,7 +388,33 @@ public sealed partial class PulseDemonSystem : EntitySystem
         }
     }
 
-    private void UpdateWallsAroundDemon(TransformComponent demonTransform)
+    private async Task UpdateNotPoweredCables()
+    {
+        var query = EntityQueryEnumerator<DemonCableMarkerComponent, AppearanceComponent>();
+        while (query.MoveNext(out var uid, out var markeredCable, out var appearanceComp))
+        {
+            if (markeredCable.Entity == null)
+                continue;
+
+            var cable = markeredCable.Entity.Value;
+
+            if (!TryComp<NodeContainerComponent>(cable, out var nodeComp))
+                continue;
+
+            if (!nodeComp.Nodes.TryGetValue("power", out var node) || node.NodeGroup == null)
+                continue;
+
+            var network = (IBasePowerNet) node.NodeGroup;
+
+            var statistic = _power.GetNetworkStatistics(network.NetworkNode);
+
+            if (statistic.InStorageCurrent > 200f)
+                _appearance.SetData(uid, MarkeredCableKey.Key, true, appearanceComp);
+            else _appearance.SetData(uid, MarkeredCableKey.Key, false, appearanceComp);
+        }
+    }
+
+    private async Task UpdateWallsAroundDemon(TransformComponent demonTransform)
     {
         foreach (var offset in Offsets)
         {

@@ -227,10 +227,10 @@ public sealed class ExecutionSystem : EntitySystem
         args.Handled = true;
 
         if (internalMsg != null && externalMsg != null)
-        {
-            ShowExecutionInternalPopup(internalMsg, attacker, victim, uid);
-            ShowExecutionExternalPopup(externalMsg, attacker, victim, uid);
-        }
+           {
+        //     ShowExecutionInternalPopup(internalMsg, attacker, victim, uid);
+        //     ShowExecutionExternalPopup(externalMsg, attacker, victim, uid);
+           }
     }
 
     private void OnGetMeleeDamage(EntityUid uid, ExecutionComponent comp, ref GetMeleeDamageEvent args)

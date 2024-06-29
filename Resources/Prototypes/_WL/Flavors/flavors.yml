@@ -22,3 +22,14 @@
   id: cischi5
   flavorType: Base
   description: горько
+
+#- type: flavor
+#  id: berryshake
+#  flavorType: Base
+#  description: как ягодный милкшейк
+
+#- type: flavor
+#  id: chocoshake
+#  flavorType: Base
+#  description: как шоколадный милкшейк
+

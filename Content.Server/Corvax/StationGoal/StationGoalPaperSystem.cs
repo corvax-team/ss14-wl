@@ -1,12 +1,16 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server.Fax;
+using Content.Server.GameTicking.Events;
+using Content.Server.Station.Components;
+using Content.Server.Station.Systems;
 using Content.Shared.Fax.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Paper;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
+using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared._WL.StationGoal;
@@ -18,10 +22,11 @@ namespace Content.Server.Corvax.StationGoal
     /// </summary>
     public sealed class StationGoalPaperSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly FaxSystem _faxSystem = default!;
         [Dependency] private readonly StationSystem _station = default!;
+        [Dependency] private readonly FaxSystem _fax = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         private static readonly Regex StationIdRegex = new(@".*\s(\w+-\w+)$");
 
@@ -53,16 +58,16 @@ namespace Content.Server.Corvax.StationGoal
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
+            SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         }
 
-        private void OnRoundStarted(RoundStartedEvent ev)
+        private void OnRoundStarting(RoundStartingEvent ev)
         {
             SendRandomStationGoalsWithConfig();
         }
 
         /// <summary>
-        ///     Send a station goal to all faxes which are authorized to receive it.
+        ///     Send a station goal on selected station to all faxes which are authorized to receive it.
         /// </summary>
         /// <returns>True if at least one fax received paper</returns>
         public bool SendStationGoal(StationGoalPrototype goal)
@@ -93,12 +98,19 @@ namespace Content.Server.Corvax.StationGoal
                         new() { StampedName = Loc.GetString("stamp-component-stamped-name-centcom"), StampedColor = Color.FromHex("#006600") },
                     });
 
-                _faxSystem.Receive(uid, printout, null, fax);
+                _fax.Receive(uid, printout, null, fax);
 
                 wasSent = true;
             }
-
             return wasSent;
+        }
+
+        public bool SendStationGoal(string goalProto)
+        {
+            if (!_proto.TryIndex<StationGoalPrototype>(goalProto, out var proto))
+                return false;
+
+            return SendStationGoal(proto);
         }
 
         public void SendRandomStationGoalsWithConfig()
@@ -110,7 +122,7 @@ namespace Content.Server.Corvax.StationGoal
                 return;
             }
 
-            var allGoals = _prototypeManager.EnumeratePrototypes<StationGoalPrototype>();
+            var allGoals = _proto.EnumeratePrototypes<StationGoalPrototype>();
 
             var amount = _random.Next(config.MinGoals, config.MaxGoals + 1);
             var pickedGoals = PickRandomGoalByWeight(allGoals, amount);
@@ -172,7 +184,7 @@ namespace Content.Server.Corvax.StationGoal
 
         public StationGoalConfigurationPrototype? GetStationGoalsConfig()
         {
-            return _prototypeManager.EnumeratePrototypes<StationGoalConfigurationPrototype>()
+            return _proto.EnumeratePrototypes<StationGoalConfigurationPrototype>()
                 .OrderBy(x => x.Priority)
                 .FirstOrDefault();
         }
@@ -186,7 +198,7 @@ namespace Content.Server.Corvax.StationGoal
             var substringsFromCommand = RandomValueInStringRegex.Matches(content);
             foreach (var match in substringsFromCommand.ToList())
             {
-                var weightedRandomProto = _prototypeManager.Index<WeightedRandomPrototype>(match.Groups[1].Value);
+                var weightedRandomProto = _proto.Index<WeightedRandomPrototype>(match.Groups[1].Value);
                 toReplace.Add(match.Value, weightedRandomProto.Pick(_random));
             }
 

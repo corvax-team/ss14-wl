@@ -1,0 +1,22 @@
+#- type: entity
+#  name: echpochmak
+#  parent: FoodInjectableBase
+#  id: FoodEchpochmak
+#  description: Juicy baked triangle. Favorite delicacy of the Illuminati.
+#  components:
+#    - type: FlavorProfile
+#      flavors:
+#        - meaty
+#        - onion
+#    - type: Sprite
+#      sprite: _WL/Objects/Consumable/Food/echpochmak.rsi
+#      state: icon
+#    - type: SolutionContainerManager
+#      solutions:
+#        food:
+#          maxVol: 20
+#          reagents:
+#            - ReagentId: Nutriment
+#              Quantity: 10
+#            - ReagentId: Protein
+#              Quantity: 10

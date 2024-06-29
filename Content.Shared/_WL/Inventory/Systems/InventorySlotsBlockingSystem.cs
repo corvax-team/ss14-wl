@@ -3,7 +3,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Text;
 
 namespace Content.Shared._WL.Inventory.Systems
 {
@@ -19,12 +18,15 @@ namespace Content.Shared._WL.Inventory.Systems
             SubscribeLocalEvent<InventoryComponent, IsUnequippingAttemptEvent>(OnUnequip);
         }
 
-        private void OnEquip(EntityUid entity, InventoryComponent comp, IsEquippingAttemptEvent args)
+        private void OnEquip(EntityUid entity, InventoryComponent _, IsEquippingAttemptEvent args)
         {
             if (args.Cancelled)
                 return;
 
-            if (!IsSlotBlocked((entity, comp), args.SlotFlags, out var reasons))
+            if (!TryComp<InventoryComponent>(args.EquipTarget, out var comp))
+                return;
+
+            if (!IsSlotBlocked((args.EquipTarget, comp), args.SlotFlags, out var reasons))
                 return;
 
             var reason = $"Для начала нужно снять ";
@@ -36,12 +38,15 @@ namespace Content.Shared._WL.Inventory.Systems
             args.Cancel();
         }
 
-        private void OnUnequip(EntityUid entity, InventoryComponent comp, IsUnequippingAttemptEvent args)
+        private void OnUnequip(EntityUid entity, InventoryComponent _, IsUnequippingAttemptEvent args)
         {
             if (args.Cancelled)
                 return;
 
-            if (!IsSlotBlocked((entity, comp), args.Slot, out var reasons))
+            if (!TryComp<InventoryComponent>(args.UnEquipTarget, out var comp))
+                return;
+
+            if (!IsSlotBlocked((args.UnEquipTarget, comp), args.Slot, out var reasons))
                 return;
 
             var reason = $"Для начала нужно снять ";

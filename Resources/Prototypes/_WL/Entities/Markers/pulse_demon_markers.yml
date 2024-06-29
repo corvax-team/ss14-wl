@@ -32,7 +32,14 @@
     layers:
       - state: lvcable_0
         shader: unshaded
-        color: red
+        color: green
+        map: ["enum.MarkeredCableLayers.Layer"]
+  - type: GenericVisualizer
+    visuals:
+       enum.MarkeredCableKey.Key:
+         enum.MarkeredCableLayers.Layer:
+          True: { color: green }
+          False: { color: red }
 
 - type: entity
   noSpawn: true

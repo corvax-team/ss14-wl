@@ -42,3 +42,14 @@
   solids:
     FoodMeatCutlet: 3
     FoodGrape: 3
+
+#- type: microwaveMealRecipe
+#  id: RecipeEchpochmak
+#  name: echpochmak recipe
+#  result: FoodEchpochmak
+#  time: 5
+#  solids:
+#    FoodMeatMeatball: 1
+#    FoodDough: 1
+#    FoodOnionSlice: 1
+
