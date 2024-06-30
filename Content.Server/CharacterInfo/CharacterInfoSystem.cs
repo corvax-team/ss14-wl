@@ -1,10 +1,14 @@
 using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
+using Content.Shared._WL.Skills;
+using Content.Shared._WL.Skills.Components;
 using Content.Shared.CharacterInfo;
 using Content.Shared.Objectives;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
+using Robust.Shared.Prototypes;
+using System.Linq;
 
 namespace Content.Server.CharacterInfo;
 
@@ -14,6 +18,9 @@ public sealed class CharacterInfoSystem : EntitySystem
     [Dependency] private readonly MindSystem _minds = default!;
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly SharedObjectivesSystem _objectives = default!;
+    //WL-Skills-start
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    //WL-Skills-end
 
     public override void Initialize()
     {
@@ -56,6 +63,33 @@ public sealed class CharacterInfoSystem : EntitySystem
             briefing = _roles.MindGetBriefing(mindId);
         }
 
-        RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing), args.SenderSession);
+        //WL-Skills-start
+        var skillInfos = new List<SkillInfo>();
+        if (TryComp<SkillsHolderComponent>(entity, out var skillsHolderComp))
+        {
+            foreach (var skill in skillsHolderComp.Skills)
+            {
+                if (!_protoMan.TryIndex(skill.Key, out var skillProto))
+                    continue;
+
+                var skillDescs = skillProto.Info.ToDictionary(k => k.Key, v => v.Value.Description);
+
+                var info = new SkillInfo(
+                    skillProto.NameColor ?? Color.White,
+                    skill.Value,
+                    skillProto.Name,
+                    new(skillDescs));
+
+                skillInfos.Add(info);
+            }
+        }
+        //wl-Skills-end
+
+        RaiseNetworkEvent(new CharacterInfoEvent(
+            GetNetEntity(entity),
+            jobTitle,
+            objectives,
+            briefing,
+            skillInfos), args.SenderSession);
     }
 }

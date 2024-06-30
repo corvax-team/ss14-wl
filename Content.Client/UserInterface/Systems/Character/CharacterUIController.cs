@@ -1,10 +1,13 @@
 using System.Linq;
+using System.Text;
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
+using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Character.Controls;
 using Content.Client.UserInterface.Systems.Character.Windows;
 using Content.Client.UserInterface.Systems.Objectives.Controls;
+using Content.Shared._WL.Skills.Systems;
 using Content.Shared.Input;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
@@ -105,11 +108,19 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
             return;
         }
 
-        var (entity, job, objectives, briefing, entityName) = data;
+        var (
+            entity,
+            job,
+            objectives,
+            briefing,
+            entityName,
+            /*WL-Skills-start*/skills/*WL-Skills-end*/) = data;
 
         _window.SpriteView.SetEntity(entity);
         _window.NameLabel.Text = entityName;
         _window.SubText.Text = job;
+
+        //Objectives
         _window.Objectives.RemoveAllChildren();
         _window.ObjectivesLabel.Visible = objectives.Any();
 
@@ -163,6 +174,43 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         }
 
         _window.RolePlaceholder.Visible = briefing == null && !controls.Any() && !objectives.Any();
+
+        //WL-Skills-start
+        //Skills
+        _window.SkillsLabel.Visible = skills.Count != 0;
+        _window.Skills.RemoveAllChildren();
+
+        foreach (var skillInfo in skills)
+        {
+            var skillColor = skillInfo.Color.ToHex();
+            var skillName = skillInfo.Name;
+            var skillLevel = skillInfo.Level;
+            var descs = skillInfo.Descriptions
+                .OrderBy(x => x.Key);
+
+            var tooltip = string.Empty;
+            foreach (var desc in descs)
+            {
+                if (skillLevel < desc.Key)
+                    continue;
+
+                tooltip += $"{SharedSkillsSystem.GetSkillLocName(desc.Key)}:\n";
+                tooltip += $"{desc.Value}\n\n";
+            }
+
+            var skillLabel = new RichTextLabel()
+            {
+                MouseFilter = Control.MouseFilterMode.Stop,
+                ToolTip = tooltip.ToString(),
+                Margin = new(0, 4)
+            };
+            skillLabel.SetMarkup($"[color={skillColor}]{skillName}[/color]: {SharedSkillsSystem.GetSkillLocName(skillLevel)}");
+
+            _window.Skills.AddChild(skillLabel);
+        }
+
+        _window.SkillPlaceholder.Visible = skills.Count == 0;
+        //WL-Skills-end
     }
 
     private void CharacterDetached(EntityUid uid)
