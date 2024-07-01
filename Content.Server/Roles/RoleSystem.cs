@@ -60,7 +60,7 @@ public sealed class RoleSystem : SharedRoleSystem
             {
                 name = subname;
             }
-            else name = job.LocalizedName;
+            else name = Loc.GetString(job.Name);
         }
 
         name = Loc.GetString(name);

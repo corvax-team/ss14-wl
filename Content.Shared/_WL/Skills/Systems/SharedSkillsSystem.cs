@@ -69,7 +69,9 @@ namespace Content.Shared._WL.Skills.Systems
             else
             {
                 var job = (JobPrototype?) null;
-                var mind = _mind.GetMind(holder);
+                if (!_mind.TryGetMind(holder, out var mind, out _))
+                    return;
+
                 if (_job.MindTryGetJob(mind, out _, out var jobProto))
                     job = jobProto;
 
@@ -197,7 +199,7 @@ namespace Content.Shared._WL.Skills.Systems
                     skillProto.NameColor ?? Color.White,
                     skill.Value,
                     skillProto.Name,
-                    new(skillDescs));
+                    skillDescs);
 
                 skillInfos.Add(info);
             }
