@@ -1377,9 +1377,6 @@ namespace Content.Server.Database.Migrations.Postgres
 
                     b.HasIndex("ProfileId");
 
-                    b.HasIndex("JobName", "ProfileId")
-                        .IsUnique();
-
                     b.ToTable("skill", (string)null);
                 });
 
@@ -1408,8 +1405,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.HasKey("Id")
                         .HasName("PK_skill_entry");
 
-                    b.HasIndex("SkillId", "SkillName")
-                        .IsUnique();
+                    b.HasIndex("SkillId");
 
                     b.ToTable("skill_entry", (string)null);
                 });
