@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: Skills
+  name: guidebook-skills-name
+  text: "/ServerInfo/Guidebook/_WL/Skills/Skills.xml"
+  children:
+  - SkillsLevelsInfo
+
+- type: guideEntry
+  id: SkillsLevelsInfo
+  name: guidebook-skills-levels-info-name
+  text: "/ServerInfo/Guidebook/_WL/Skills/SkillsLevelsInfo.xml"
