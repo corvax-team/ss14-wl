@@ -1,9 +1,14 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client._WL.Skills;
 using Content.Client.Message;
+using Content.Shared._WL.Skills;
+using Content.Shared._WL.Skills.Systems;
 using Content.Shared.GameTicking;
+using Robust.Client.Player;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
+using Robust.Shared.Network;
 using Robust.Shared.Utility;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
@@ -14,10 +19,20 @@ namespace Content.Client.RoundEnd
         private readonly IEntityManager _entityManager;
         public int RoundId;
 
+        //WL-Skills-start
+        private readonly ClientSkillsSystem _skills;
+        [Dependency] private readonly IPlayerManager _playMan = default!;
+        //WL-Skills-end
+
         public RoundEndSummaryWindow(string gm, string roundEnd, TimeSpan roundTimeSpan, int roundId,
             RoundEndMessageEvent.RoundEndPlayerInfo[] info, IEntityManager entityManager)
         {
             _entityManager = entityManager;
+
+            //WL-Skills-start
+            IoCManager.InjectDependencies(this);
+            _skills = _entityManager.System<ClientSkillsSystem>();
+            //WL-Skills-end
 
             MinSize = SetSize = new Vector2(520, 580);
 
@@ -34,11 +49,93 @@ namespace Content.Client.RoundEnd
             roundEndTabs.AddChild(MakeRoundEndSummaryTab(gm, roundEnd, roundTimeSpan, roundId));
             roundEndTabs.AddChild(MakePlayerManifestTab(info));
 
+            //WL-Skills-start
+            roundEndTabs.AddChild(MakeRoundEndSkillsTab(info));
+            //WL-Skills-end
+
             Contents.AddChild(roundEndTabs);
 
             OpenCenteredRight();
             MoveToFront();
         }
+
+        //WL-Skills-start
+        private BoxContainer MakeRoundEndSkillsTab(RoundEndMessageEvent.RoundEndPlayerInfo[] infos)
+        {
+            var scrollBox = new ScrollContainer()
+            {
+                VerticalExpand = true
+            };
+
+            var roundEndSummaryTab = new BoxContainer()
+            {
+                Margin = new(10),
+                Name = "Навыки",
+                Orientation = LayoutOrientation.Vertical
+            };
+
+            var main = new BoxContainer()
+            {
+                Orientation = LayoutOrientation.Vertical
+            };
+
+            var playersSkills = new Dictionary<(string Name, Color Color), Dictionary<string, SkillLevel>>();
+            foreach (var info in infos)
+            {
+                var entityNullable = _entityManager.GetEntity(info.PlayerNetEntity);
+                if (entityNullable == null)
+                    continue;
+
+                var oocName = info.PlayerOOCName;
+                var entity = entityNullable.Value;
+
+                var skillsInfos = _skills.GetSkillInfosFromEntity(entity);
+                foreach (var skillInfo in skillsInfos)
+                {
+                    //УвУжасы
+                    if (!playersSkills.TryAdd((skillInfo.Name, skillInfo.Color), new() { { oocName, skillInfo.Level } }))
+                        playersSkills[(skillInfo.Name, skillInfo.Color)][oocName] = skillInfo.Level;
+                }
+            }
+
+            foreach (var playerSkill in playersSkills.OrderBy(s => s.Key))
+            {
+                var separatedBox = new BoxContainer()
+                {
+                    Margin = new(5, 5, 5, 20),
+                    Orientation = LayoutOrientation.Vertical
+                };
+
+                var skillNameLabel = new RichTextLabel();
+                var labelColor = playerSkill.Key.Color.ToHex();
+                var labelName = playerSkill.Key.Name;
+                skillNameLabel.SetMarkup($"[head=2][color={labelColor}]{labelName}[/color][/head]");
+
+                separatedBox.AddChild(skillNameLabel);
+
+                foreach (var userSkillLevel in playerSkill.Value)
+                {
+                    var name = userSkillLevel.Key;
+                    var level = userSkillLevel.Value;
+
+                    var label = new RichTextLabel();
+                    if (_playMan.LocalSession?.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase) == true)
+                        name = $"[color=yellow]{name}[/color]";
+
+                    label.SetMarkup($"\t\t{name}: {SharedSkillsSystem.GetSkillLocName(level)}");
+
+                    separatedBox.AddChild(label);
+                }
+
+                main.AddChild(separatedBox);
+            }
+
+            scrollBox.AddChild(main);
+            roundEndSummaryTab.AddChild(scrollBox);
+
+            return roundEndSummaryTab;
+        }
+        //WL-Skills-end
 
         private BoxContainer MakeRoundEndSummaryTab(string gamemode, string roundEnd, TimeSpan roundDuration, int roundId)
         {

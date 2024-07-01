@@ -157,7 +157,7 @@ namespace Content.Shared._WL.Skills.Systems
                 if (value > args.Level)
                     continue;
 
-                var info = GetSkillInfo(args.Prototype.Id, value);
+                var info = GetSkillLevelInfo(args.Prototype.Id, value);
                 if (info == null || info.ExtraComponents == null)
                     continue;
 
@@ -177,6 +177,34 @@ namespace Content.Shared._WL.Skills.Systems
         }
 
         #region Public
+        public List<SkillInfo> GetSkillInfosFromEntity(Entity<SkillsHolderComponent?> entity)
+        {
+            if (!Resolve(entity.Owner, ref entity.Comp))
+                return [];
+
+            var skillInfos = new List<SkillInfo>();
+
+            var skills = entity.Comp.Skills;
+
+            foreach (var skill in skills)
+            {
+                if (!_protoMan.TryIndex(skill.Key, out var skillProto))
+                    continue;
+
+                var skillDescs = skillProto.Info.ToDictionary(k => k.Key, v => v.Value.Description);
+
+                var info = new SkillInfo(
+                    skillProto.NameColor ?? Color.White,
+                    skill.Value,
+                    skillProto.Name,
+                    new(skillDescs));
+
+                skillInfos.Add(info);
+            }
+
+            return skillInfos;
+        }
+
         /// <summary>
         /// Устанавливает скилл указанного ID на определённый уровень, если скилла(по какой-то причине) нет, то он будет добавлен.
         /// </summary>
@@ -406,7 +434,7 @@ namespace Content.Shared._WL.Skills.Systems
         /// <summary>
         /// Получает информацию об определенном уровне скилла для определенного прототипа скилла.
         /// </summary>
-        public SkillLevelInfo? GetSkillInfo(string? skillid, SkillLevel level)
+        public SkillLevelInfo? GetSkillLevelInfo(string? skillid, SkillLevel level)
         {
             if (skillid == null)
                 return null;
