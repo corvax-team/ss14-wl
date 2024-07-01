@@ -181,7 +181,7 @@ namespace Content.Shared._WL.Skills.Systems
         #region Public
         public List<SkillInfo> GetSkillInfosFromEntity(Entity<SkillsHolderComponent?> entity)
         {
-            if (!Resolve(entity.Owner, ref entity.Comp))
+            if (!Resolve(entity.Owner, ref entity.Comp, false))
                 return [];
 
             var skillInfos = new List<SkillInfo>();
@@ -216,7 +216,7 @@ namespace Content.Shared._WL.Skills.Systems
         /// <param name="needLog">Оставьте null, если логирование действий не требуется.</param>
         public void SetSkill(Entity<SkillsHolderComponent?> holder, string skillId, SkillLevel level, ICommonSession? needLog = null)
         {
-            if (!Resolve(holder.Owner, ref holder.Comp))
+            if (!Resolve(holder.Owner, ref holder.Comp, false))
                 return;
 
             var comp = holder.Comp;
@@ -276,7 +276,7 @@ namespace Content.Shared._WL.Skills.Systems
         /// <returns>True - если у сущности есть скилл с указанным ID, false - если нет.</returns>
         public bool HasSkill(Entity<SkillsHolderComponent?> holder, string skillId)
         {
-            if (!Resolve(holder.Owner, ref holder.Comp))
+            if (!Resolve(holder.Owner, ref holder.Comp, false))
                 return false;
 
             return holder.Comp.Skills.ContainsKey(skillId);
@@ -293,7 +293,7 @@ namespace Content.Shared._WL.Skills.Systems
         {
             levelWithSkill = null;
 
-            if (!Resolve(holder.Owner, ref holder.Comp))
+            if (!Resolve(holder.Owner, ref holder.Comp, false))
                 return false;
 
             if (!holder.Comp.Skills.TryGetValue(skillId, out var level))
