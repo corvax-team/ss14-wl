@@ -4,7 +4,7 @@
   desc: skill-bureaucracy-desc
   color: "#F0C0C0"
   info:
-    Inexperienced:
+    Unskilled:
       points: 0
       description: skill-bureaucracy-desc-level-1
     Basic:
@@ -51,32 +51,32 @@
        minSkillLevel: Trained
        maxSkillLevel: Master
     Chemist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     MedicalDoctor:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Paramedic:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Psychologist:
        minSkillLevel: Basic
        maxSkillLevel: Master
     MedicalIntern:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     # Инженерный
     ChiefEngineer:
        minSkillLevel: Trained
        maxSkillLevel: Master
     AtmosphericTechnician:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     StationEngineer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     TechnicalAssistant:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     # Научный
     ResearchDirector:
@@ -86,14 +86,14 @@
        minSkillLevel: Basic
        maxSkillLevel: Master
     ResearchAssistant:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     # Снабжение
     Quartermaster:
        minSkillLevel: Trained
        maxSkillLevel: Master
     SalvageSpecialist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     CargoTechnician:
        minSkillLevel: Basic
@@ -103,16 +103,16 @@
        minSkillLevel: Trained
        maxSkillLevel: Master
     Chef:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Botanist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Bartender:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     ServiceWorker:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Librarian:
        minSkillLevel: Basic
@@ -121,26 +121,26 @@
        minSkillLevel: Basic
        maxSkillLevel: Master
     Zookeeper:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Reporter:
        minSkillLevel: Basic
        maxSkillLevel: Master
     Clown:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Mime:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Musician:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Boxer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Janitor:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Passenger:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master

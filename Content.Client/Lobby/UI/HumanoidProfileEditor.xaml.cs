@@ -1400,7 +1400,7 @@ namespace Content.Client.Lobby.UI
 
                         if (sendToDB)
                             Profile =
-                                Profile?.WithSkillLevel(job.ID, skillProto.ID, skillSelector.Limitation?.MinSkillLevel ?? SkillLevel.Inexperienced);
+                                Profile?.WithSkillLevel(job.ID, skillProto.ID, skillSelector.Limitation?.MinSkillLevel ?? SkillLevel.Unskilled);
                     }
                 }
 
@@ -1411,7 +1411,7 @@ namespace Content.Client.Lobby.UI
                 {
                     foreach (var selector in selectors)
                     {
-                        var setLevel = selector.Limitation?.MinSkillLevel ?? SkillLevel.Inexperienced;
+                        var setLevel = selector.Limitation?.MinSkillLevel ?? SkillLevel.Unskilled;
                         selector.Options.Select((int) setLevel);
                         Profile = Profile?.WithSkillLevel(job.ID, selector.Skill.ID, setLevel);
                     }

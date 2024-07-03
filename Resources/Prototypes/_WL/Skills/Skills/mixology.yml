@@ -4,7 +4,7 @@
   desc: skill-mixology-desc
   color: "#dacbbe"
   info:
-    Inexperienced:
+    Unskilled:
       points: 0
       description: skill-mixology-desc-level-1
     Basic:
@@ -22,91 +22,91 @@
   jobLimitations:
     # Командование
     Captain:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     IAA:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     # Служба Безопасности
     HeadOfSecurity:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Warden:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Pilot:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Detective:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     SecurityOfficer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     SecurityCadet:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     # Медицинский
     ChiefMedicalOfficer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Chemist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     MedicalDoctor:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Paramedic:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Psychologist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     MedicalIntern:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     # Инженерный
     ChiefEngineer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     AtmosphericTechnician:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     StationEngineer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     TechnicalAssistant:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     # Научный
     ResearchDirector:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Scientist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     ResearchAssistant:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     # Снабжение
     Quartermaster:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     SalvageSpecialist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     CargoTechnician:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     # Сервисный
     HeadOfPersonnel:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Chef:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Botanist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Bartender:
        minSkillLevel: Trained
@@ -115,32 +115,32 @@
        minSkillLevel: Basic
        maxSkillLevel: Experienced
     Librarian:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Chaplain:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Zookeeper:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Reporter:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Clown:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Mime:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Musician:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Boxer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Janitor:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced
     Passenger:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Experienced

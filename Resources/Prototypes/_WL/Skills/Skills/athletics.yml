@@ -4,7 +4,7 @@
   # desc: skill-athletics-desc
   # color: "#f4cccc"
   # info:
-    # Inexperienced:
+    # Unskilled:
       # points: 0
       # description: skill-athletics-desc-level-1
       # extra:
@@ -64,10 +64,10 @@
   # jobLimitations:
     # # Командование
     # Captain:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # IAA:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # # Служба Безопасности
     # HeadOfSecurity:
@@ -90,45 +90,45 @@
        # maxSkillLevel: Master
     # # Медицинский
     # ChiefMedicalOfficer:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Chemist:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # MedicalDoctor:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Paramedic:
        # minSkillLevel: Basic
        # maxSkillLevel: Master
     # Psychologist:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # MedicalIntern:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # # Инженерный
     # ChiefEngineer:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # AtmosphericTechnician:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # StationEngineer:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # TechnicalAssistant:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # # Научный
     # ResearchDirector:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Scientist:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # ResearchAssistant:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # # Снабжение
     # Quartermaster:
@@ -142,31 +142,31 @@
        # maxSkillLevel: Master
     # # Сервисный
     # HeadOfPersonnel:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Chef:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Botanist:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Bartender:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # ServiceWorker:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Librarian:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Chaplain:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Zookeeper:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Reporter:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Clown:
        # minSkillLevel: Basic
@@ -175,7 +175,7 @@
        # minSkillLevel: Basic
        # maxSkillLevel: Master
     # Musician:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master
     # Boxer:
        # minSkillLevel: Basic
@@ -184,5 +184,5 @@
        # minSkillLevel: Basic
        # maxSkillLevel: Master
     # Passenger:
-       # minSkillLevel: Inexperienced
+       # minSkillLevel: Unskilled
        # maxSkillLevel: Master

@@ -1,0 +1,137 @@
+- type: skill
+  id: ExosuitOperation
+  name: skill-exosuit-operation-name
+  desc: skill-exosuit-operation-desc
+  color: "#e0c9e6"
+  info:
+    Unskilled:
+      points: 0
+      description: skill-exosuit-operation-desc-level-1
+    Trained:
+      points: 2
+      description: skill-exosuit-operation-desc-level-3
+  jobLimitations:
+    # Командование
+    Captain:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    IAA:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    # Служба Безопасности
+    HeadOfSecurity:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Warden:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Pilot:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Detective:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    SecurityOfficer:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    SecurityCadet:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    # Медицинский
+    ChiefMedicalOfficer:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Chemist:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    MedicalDoctor:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Paramedic:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Psychologist:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    MedicalIntern:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    # Инженерный
+    ChiefEngineer:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    AtmosphericTechnician:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    StationEngineer:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    TechnicalAssistant:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    # Научный
+    ResearchDirector:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Scientist:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    ResearchAssistant:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    # Снабжение
+    Quartermaster:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    SalvageSpecialist:
+       minSkillLevel: Trained
+       maxSkillLevel: Trained
+    CargoTechnician:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    # Сервисный
+    HeadOfPersonnel:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Chef:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Botanist:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Bartender:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    ServiceWorker:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Librarian:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Chaplain:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Zookeeper:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Reporter:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Clown:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Mime:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Musician:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Boxer:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Janitor:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained
+    Passenger:
+       minSkillLevel: Unskilled
+       maxSkillLevel: Trained

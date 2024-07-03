@@ -58,7 +58,7 @@ namespace Content.Shared._WL.Skills.Systems
                 foreach (var skill in skills)
                 {
                     var min = skillHolderComp.Skills.FirstOrNull(s => s.Key.Id.Equals(skill.ID))?.Value
-                        ?? SkillLevel.Inexperienced;
+                        ?? SkillLevel.Unskilled;
                     var max = (int) SkillLevel.Master - (int) min;
 
                     toAdjust = Math.Clamp(toAdjust, 0, max);
@@ -79,7 +79,7 @@ namespace Content.Shared._WL.Skills.Systems
                 {
                     var limitation = job == null ? null : skill.JobLimitations[job.ID];
 
-                    var minLevel = SkillLevel.Inexperienced;
+                    var minLevel = SkillLevel.Unskilled;
                     var maxLevel = SkillLevel.Master;
 
                     if (limitation != null)
@@ -144,7 +144,7 @@ namespace Content.Shared._WL.Skills.Systems
                 foreach (var pick in picked)
                 {
                     //TODO: отслеживать максимальное и минимальное значения скиллов и выбирать рандомно между ними.
-                    spawnedSkillsHolderComp.Skills[pick] = SkillLevel.Inexperienced;
+                    spawnedSkillsHolderComp.Skills[pick] = SkillLevel.Unskilled;
                 }
             }
         }
@@ -406,7 +406,7 @@ namespace Content.Shared._WL.Skills.Systems
         {
             return skill switch
             {
-                SkillLevel.Inexperienced => "Неопытный",
+                SkillLevel.Unskilled => "Неопытный",
                 SkillLevel.Basic => "Базовый",
                 SkillLevel.Trained => "Обученный",
                 SkillLevel.Experienced => "Опытный",

@@ -4,7 +4,7 @@
   desc: skill-information-technology-desc
   color: "#d5a6bd"
   info:
-    Inexperienced:
+    Unskilled:
       points: 0
       description: skill-information-technology-desc-level-1
     Basic:
@@ -22,48 +22,48 @@
   jobLimitations:
     # Командование
     Captain:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     IAA:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     # Служба Безопасности
     HeadOfSecurity:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Warden:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Pilot:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Detective:
        minSkillLevel: Basic
        maxSkillLevel: Trained
     SecurityOfficer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     SecurityCadet:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     # Медицинский
     ChiefMedicalOfficer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Chemist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     MedicalDoctor:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Paramedic:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Psychologist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     MedicalIntern:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     # Инженерный
     ChiefEngineer:
@@ -86,61 +86,61 @@
        minSkillLevel: Basic
        maxSkillLevel: Master
     ResearchAssistant:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     # Снабжение
     Quartermaster:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     SalvageSpecialist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     CargoTechnician:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     # Сервисный
     HeadOfPersonnel:
        minSkillLevel: Basic
        maxSkillLevel: Master
     Chef:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Botanist:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Bartender:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     ServiceWorker:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Librarian:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Chaplain:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Zookeeper:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Reporter:
        minSkillLevel: Basic
        maxSkillLevel: Master
     Clown:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Mime:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Musician:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Boxer:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Janitor:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master
     Passenger:
-       minSkillLevel: Inexperienced
+       minSkillLevel: Unskilled
        maxSkillLevel: Master

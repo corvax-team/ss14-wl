@@ -1,0 +1,302 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken and modified from Paradise SS13 https://github.com/ParadiseSS13/Paradise/blob/master/icons/mob/hud/job_assets.dmi; engines, mixology, electicalengineering, informationtechnology, piloting, atmospherics, anatomy, athletics, close combat, construction, bureucracy, exosuitoperation made by ArRei",
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "anatomy-basic"
+        },
+        {
+            "name": "anatomy-experienced"
+        },
+        {
+            "name": "anatomy-master"
+        },
+        {
+            "name": "anatomy-trained"
+        },
+        {
+            "name": "anatomy-unskilled"
+        },
+        {
+            "name": "athletics-basic"
+        },
+        {
+            "name": "athletics-experienced"
+        },
+        {
+            "name": "athletics-master"
+        },
+        {
+            "name": "athletics-trained"
+        },
+        {
+            "name": "athletics-unskilled"
+        },
+        {
+            "name": "atmospherics-basic"
+        },
+        {
+            "name": "atmospherics-experienced"
+        },
+        {
+            "name": "atmospherics-master"
+        },
+        {
+            "name": "atmospherics-trained"
+        },
+        {
+            "name": "atmospherics-unskilled"
+        },
+        {
+            "name": "botany-basic"
+        },
+        {
+            "name": "botany-experienced"
+        },
+        {
+            "name": "botany-master"
+        },
+        {
+            "name": "botany-trained"
+        },
+        {
+            "name": "botany-unskilled"
+        },
+        {
+            "name": "bureucracy-basic"
+        },
+        {
+            "name": "bureucracy-experienced"
+        },
+        {
+            "name": "bureucracy-master"
+        },
+        {
+            "name": "bureucracy-trained"
+        },
+        {
+            "name": "bureucracy-unskilled"
+        },
+        {
+            "name": "chemistry-basic"
+        },
+        {
+            "name": "chemistry-experienced"
+        },
+        {
+            "name": "chemistry-master"
+        },
+        {
+            "name": "chemistry-trained"
+        },
+        {
+            "name": "chemistry-unskilled"
+        },
+        {
+            "name": "closecombat-basic"
+        },
+        {
+            "name": "closecombat-experienced"
+        },
+        {
+            "name": "closecombat-master"
+        },
+        {
+            "name": "closecombat-trained"
+        },
+        {
+            "name": "closecombat-unskilled"
+        },
+        {
+            "name": "complexdevices-basic"
+        },
+        {
+            "name": "complexdevices-experienced"
+        },
+        {
+            "name": "complexdevices-master"
+        },
+        {
+            "name": "complexdevices-trained"
+        },
+        {
+            "name": "complexdevices-unskilled"
+        },
+        {
+            "name": "construction-basic"
+        },
+        {
+            "name": "construction-experienced"
+        },
+        {
+            "name": "construction-master"
+        },
+        {
+            "name": "construction-trained"
+        },
+        {
+            "name": "construction-unskilled"
+        },
+        {
+            "name": "cooking-basic"
+        },
+        {
+            "name": "cooking-experienced"
+        },
+        {
+            "name": "cooking-master"
+        },
+        {
+            "name": "cooking-trained"
+        },
+        {
+            "name": "cooking-unskilled"
+        },
+        {
+            "name": "electricalengineering-basic"
+        },
+        {
+            "name": "electricalengineering-experienced"
+        },
+        {
+            "name": "electricalengineering-master"
+        },
+        {
+            "name": "electricalengineering-trained"
+        },
+        {
+            "name": "electricalengineering-unskilled"
+        },
+        {
+            "name": "engines-basic"
+        },
+        {
+            "name": "engines-experienced"
+        },
+        {
+            "name": "engines-master"
+        },
+        {
+            "name": "engines-trained"
+        },
+        {
+            "name": "engines-unskilled"
+        },
+        {
+            "name": "exosuitoperation-trained"
+        },
+        {
+            "name": "exosuitoperation-unskilled"
+        },
+        {
+            "name": "forensics-basic"
+        },
+        {
+            "name": "forensics-experienced"
+        },
+        {
+            "name": "forensics-master"
+        },
+        {
+            "name": "forensics-trained"
+        },
+        {
+            "name": "forensics-unskilled"
+        },
+        {
+            "name": "informationtechnology-basic"
+        },
+        {
+            "name": "informationtechnology-experienced"
+        },
+        {
+            "name": "informationtechnology-master"
+        },
+        {
+            "name": "informationtechnology-trained"
+        },
+        {
+            "name": "informationtechnology-unskilled"
+        },
+        {
+            "name": "medicine-basic"
+        },
+        {
+            "name": "medicine-experienced"
+        },
+        {
+            "name": "medicine-master"
+        },
+        {
+            "name": "medicine-trained"
+        },
+        {
+            "name": "medicine-unskilled"
+        },
+        {
+            "name": "mixology-basic"
+        },
+        {
+            "name": "mixology-experienced"
+        },
+        {
+            "name": "mixology-master"
+        },
+        {
+            "name": "mixology-trained"
+        },
+        {
+            "name": "mixology-unskilled"
+        },
+        {
+            "name": "piloting-basic"
+        },
+        {
+            "name": "piloting-experienced"
+        },
+        {
+            "name": "piloting-master"
+        },
+        {
+            "name": "piloting-trained"
+        },
+        {
+            "name": "piloting-unskilled"
+        },
+        {
+            "name": "science-basic"
+        },
+        {
+            "name": "science-experienced"
+        },
+        {
+            "name": "science-master"
+        },
+        {
+            "name": "science-trained"
+        },
+        {
+            "name": "science-unskilled"
+        },
+        {
+            "name": "weaponsexpertise-basic"
+        },
+        {
+            "name": "weaponsexpertise-experienced"
+        },
+        {
+            "name": "weaponsexpertise-master"
+        },
+        {
+            "name": "weaponsexpertise-trained"
+        },
+        {
+            "name": "weaponsexpertise-unskilled"
+        }
+    ]
+}

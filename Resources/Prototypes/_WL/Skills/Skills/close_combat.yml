@@ -1,0 +1,146 @@
+# - type: skill
+  # id: CloseCombat
+  # name: skill-close-combat-name
+  # desc: skill-close-combat-desc
+  # color: "#ea9999"
+  # info:
+    # Unskilled:
+      # points: 0
+      # description: skill-close-combat-desc-level-1
+    # Basic:
+      # points: 2
+      # description: skill-close-combat-desc-level-2
+    # Trained:
+      # points: 2
+      # description: skill-close-combat-desc-level-3
+    # Experienced:
+      # points: 4
+      # description: skill-close-combat-desc-level-4
+    # Master:
+      # points: 4
+      # description: skill-close-combat-desc-level-5
+  # jobLimitations:
+    # # Командование
+    # Captain:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # IAA:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # # Служба Безопасности
+    # HeadOfSecurity:
+       # minSkillLevel: Trained
+       # maxSkillLevel: Master
+    # Warden:
+       # minSkillLevel: Trained
+       # maxSkillLevel: Master
+    # Pilot:
+       # minSkillLevel: Trained
+       # maxSkillLevel: Master
+    # Detective:
+       # minSkillLevel: Basic
+       # maxSkillLevel: Master
+    # SecurityOfficer:
+       # minSkillLevel: Trained
+       # maxSkillLevel: Master
+    # SecurityCadet:
+       # minSkillLevel: Basic
+       # maxSkillLevel: Master
+    # # Медицинский
+    # ChiefMedicalOfficer:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Chemist:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # MedicalDoctor:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Paramedic:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Psychologist:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # MedicalIntern:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # # Инженерный
+    # ChiefEngineer:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # AtmosphericTechnician:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # StationEngineer:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # TechnicalAssistant:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # # Научный
+    # ResearchDirector:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Scientist:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # ResearchAssistant:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # # Снабжение
+    # Quartermaster:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # SalvageSpecialist:
+       # minSkillLevel: Basic
+       # maxSkillLevel: Master
+    # CargoTechnician:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # # Сервисный
+    # HeadOfPersonnel:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Chef:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Botanist:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Bartender:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # ServiceWorker:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Librarian:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Chaplain:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Zookeeper:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Reporter:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Clown:
+       # minSkillLevel: Basic
+       # maxSkillLevel: Trained
+    # Mime:
+       # minSkillLevel: Basic
+       # maxSkillLevel: Trained
+    # Musician:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
+    # Boxer:
+       # minSkillLevel: Trained
+       # maxSkillLevel: Master
+    # Janitor:
+       # minSkillLevel: Basic
+       # maxSkillLevel: Trained
+    # Passenger:
+       # minSkillLevel: Unskilled
+       # maxSkillLevel: Trained
