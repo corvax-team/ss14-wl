@@ -3,6 +3,7 @@
   name: skill-medicine-name
   desc: skill-medicine-desc
   color: "#a5d4eb"
+  priority: 13
   info:
     Unskilled:
       points: 0

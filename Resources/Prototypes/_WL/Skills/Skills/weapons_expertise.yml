@@ -3,6 +3,7 @@
   name: skill-weapons-expertise-name
   desc: skill-weapons-expertise-desc
   color: "#caa1a1"
+  priority: 19
   info:
     Unskilled:
       points: 0

@@ -2,6 +2,7 @@
   # id: Athletics
   # name: skill-athletics-name
   # desc: skill-athletics-desc
+  # priority: 2
   # color: "#f4cccc"
   # info:
     # Unskilled:

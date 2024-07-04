@@ -3,6 +3,7 @@
   name: skill-botany-name
   desc: skill-botany-desc
   color: "#b1e7a0"
+  priority: 20
   info:
     Unskilled:
       points: 0

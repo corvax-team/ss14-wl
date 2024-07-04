@@ -3,6 +3,7 @@
   name: skill-engines-name
   desc: skill-engines-desc
   color: "#f4f78d"
+  priority: 10
   info:
     Unskilled:
       points: 0

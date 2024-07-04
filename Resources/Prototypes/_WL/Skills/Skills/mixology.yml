@@ -3,6 +3,7 @@
   name: skill-mixology-name
   desc: skill-mixology-desc
   color: "#dacbbe"
+  priority: 22
   info:
     Unskilled:
       points: 0

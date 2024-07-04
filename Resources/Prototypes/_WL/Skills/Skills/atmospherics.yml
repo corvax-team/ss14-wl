@@ -3,6 +3,7 @@
   name: skill-atmospherics-name
   desc: skill-atmospherics-desc
   color: "#b4e4d4"
+  priority: 7
   info:
     Unskilled:
       points: 0

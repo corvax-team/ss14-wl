@@ -3,6 +3,7 @@
   name: skill-electrical-engineering-name
   desc: skill-electrical-engineering-desc
   color: "#fae9c1"
+  priority: 9
   info:
     Unskilled:
       points: 0

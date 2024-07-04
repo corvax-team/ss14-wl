@@ -2,6 +2,7 @@
   id: Piloting
   name: skill-piloting-name
   desc: skill-piloting-desc
+  priority: 4
   color: "#cad6e4"
   info:
     Unskilled:

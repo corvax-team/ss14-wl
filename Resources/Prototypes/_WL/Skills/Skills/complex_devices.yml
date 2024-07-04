@@ -2,6 +2,7 @@
   id: ComplexDevices
   name: skill-complex-devices-name
   desc: skill-complex-devices-desc
+  priority: 15
   color: "#cab5dd"
   info:
     Unskilled:

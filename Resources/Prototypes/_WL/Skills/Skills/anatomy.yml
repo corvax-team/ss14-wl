@@ -2,6 +2,7 @@
   id: Anatomy
   name: skill-anatomy-name
   desc: skill-anatomy-desc
+  priority: 11
   color: "#b7dff0"
   info:
     Unskilled:

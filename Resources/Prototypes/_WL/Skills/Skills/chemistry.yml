@@ -2,6 +2,7 @@
   id: Chemistry
   name: skill-chemistry-name
   desc: skill-chemistry-desc
+  priority: 12
   color: "#ffc7b0"
   info:
     Unskilled:

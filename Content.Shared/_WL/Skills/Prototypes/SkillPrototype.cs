@@ -25,6 +25,12 @@ namespace Content.Shared._WL.Skills
         public Color? NameColor { get; private set; } = null;
 
         /// <summary>
+        ///     Приоритет расположения навыков в меню редактирования персонажа.
+        /// </summary>
+        [DataField]
+        public int Priority { get; private set; } = 0;
+
+        /// <summary>
         ///     Имя скилла.
         /// </summary>
         [DataField("name", required: true)]

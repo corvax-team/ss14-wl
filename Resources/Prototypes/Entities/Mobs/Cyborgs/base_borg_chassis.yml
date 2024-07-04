@@ -6,6 +6,28 @@
   save: false
   abstract: true
   components:
+  # WL-Skills-start
+  - type: SkillsHolder
+    skills:
+      Piloting: Experienced
+      Mixology: Experienced
+      InformationTechnology: Experienced
+      Science: Experienced
+      Construction: Experienced
+      ComplexDevices: Experienced
+      ElectricalEngineering: Experienced
+      Bureaucracy: Experienced
+      Engines: Experienced
+      ExosuitOperation: Trained
+      Atmospherics: Experienced
+      Anatomy: Experienced
+      Medicine: Experienced
+      Chemistry: Experienced
+      Cooking: Experienced
+      WeaponsExpertise: Experienced
+      Forensics: Experienced
+      Botany: Experienced
+  # Wl-Skills-end
   - type: Reactive
     groups:
       Acidic: [Touch]

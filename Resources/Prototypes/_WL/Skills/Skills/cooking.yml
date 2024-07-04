@@ -3,6 +3,7 @@
   name: skill-cooking-name
   desc: skill-cooking-desc
   color: "#ebb59f"
+  priority: 21
   info:
     Unskilled:
       points: 0

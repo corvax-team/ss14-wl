@@ -3,6 +3,7 @@
   name: skill-information-technology-name
   desc: skill-information-technology-desc
   color: "#d5a6bd"
+  priority: 6
   info:
     Unskilled:
       points: 0

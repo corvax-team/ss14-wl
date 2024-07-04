@@ -3,6 +3,7 @@
   name: skill-science-name
   desc: skill-science-desc
   color: "#eca8eb"
+  priority: 16
   info:
     Unskilled:
       points: 0

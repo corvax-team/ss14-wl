@@ -3,6 +3,7 @@
   name: skill-exosuit-operation-name
   desc: skill-exosuit-operation-desc
   color: "#e0c9e6"
+  priority: 5
   info:
     Unskilled:
       points: 0

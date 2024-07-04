@@ -3,6 +3,7 @@
   name: skill-construction-name
   desc: skill-construction-desc
   color: "#f0d5c7"
+  priority: 8
   info:
     Unskilled:
       points: 0

@@ -3,6 +3,7 @@
   name: skill-forensics-name
   desc: skill-forensics-desc
   color: "#e78080"
+  priority: 17
   info:
     Unskilled:
       points: 0
