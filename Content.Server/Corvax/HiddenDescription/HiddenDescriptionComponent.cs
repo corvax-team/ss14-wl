@@ -1,3 +1,4 @@
+using Content.Shared._WL.Skills;
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
@@ -41,6 +42,11 @@ public readonly partial record struct HiddenDescriptionEntry()
     /// </summary>
     [DataField]
     public EntityWhitelist WhitelistBody { get; init; } = new();
+
+    //WL-Skills-start
+    [DataField]
+    public Dictionary<ProtoId<SkillPrototype>, SkillLevel> WhitelistSkills { get; init; } = new();
+    //WL-Skills-end
 
     /// <summary>
     /// The player's mind has to have some job role to access the hidden information
