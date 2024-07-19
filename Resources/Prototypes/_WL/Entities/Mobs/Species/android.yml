@@ -153,6 +153,7 @@
         Asphyxiation: -10
         Bloodloss: -10
     fuelCost: 5
+    bleedAmountReduce: -100
     doAfterDelay: 3
   - type: Speech
     speechSounds: Pai

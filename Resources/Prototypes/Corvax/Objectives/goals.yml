@@ -251,3 +251,15 @@
   department: Civilian
   text: |
        - Собрать полный ящик {{StationGoalRandomServiceCrate}} и отправить его на атоматическую торговую станцию.
+# =======
+  # id: VirusologyAmbusol
+  # text: station-goal-delta-ambusol
+  # spawns:
+  # - PillRomerol
+  # - PillRomerol
+  # - PillRomerol
+
+# - type: stationGoal
+  # id: SectorSecurity
+  # text: station-goal-split-secure
+# >>>>>>> ups/master

@@ -61,7 +61,7 @@ namespace Content.Server._WL.Skills
                 if (itemComp.Size == comp.BlockedItemSize)
                     args.Cancelled = true;
 
-            args.ThrowStrength *= comp.ThrowForceModifier;
+            //args.ThrowStrength *= comp.ThrowForceModifier;
         }
 
         private void OnPry(EntityUid airlock, PhysicsComponent comp, ref GetPryTimeModifierEvent args)

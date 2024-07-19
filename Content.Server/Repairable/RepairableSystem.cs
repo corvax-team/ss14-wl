@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
@@ -14,6 +15,9 @@ namespace Content.Server.Repairable
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger= default!;
+        //WL-Changes-start
+        [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+        //WL-Changes-end
 
         public override void Initialize()
         {
@@ -41,6 +45,10 @@ namespace Content.Server.Repairable
                 _damageableSystem.SetAllDamage(uid, damageable, 0);
                 _adminLogger.Add(LogType.Healed, $"{ToPrettyString(args.User):user} repaired {ToPrettyString(uid):target} back to full health");
             }
+
+            //WL-Changes-start
+            _bloodstream.TryModifyBleedAmount(uid, component.BleedAmountReduce);
+            //WL-Changes-end
 
             var str = Loc.GetString("comp-repairable-repair",
                 ("target", uid),
