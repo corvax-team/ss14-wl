@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Client.Stylesheets;
 using Content.Shared.CCVar;
 using Content.Shared.Procedural;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Salvage.Expeditions.Modifiers;
 using JetBrains.Annotations;
@@ -9,6 +10,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Client.Salvage.UI;
 
@@ -64,8 +66,11 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
             var offering = new OfferingWindowOption();
             offering.Title = Loc.GetString($"salvage-expedition-type");
 
-            var difficultyId = "Moderate";
-            var difficultyProto = _protoManager.Index<SalvageDifficultyPrototype>(difficultyId);
+            //WL-Changes-start
+            //var difficultyId = "Moderate";
+            var difficultyProto = _protoManager.Index<SalvageDifficultyPrototype>(missionParams.Difficulty);
+            //WL-Changes-end
+
             // TODO: Selectable difficulty soon.
             var mission = salvage.GetMission(difficultyProto, missionParams.Seed);
 
@@ -80,7 +85,7 @@ public sealed class SalvageExpeditionConsoleBoundUserInterface : BoundUserInterf
 
             offering.AddContent(new Label
             {
-                Text = Loc.GetString("salvage-expedition-difficulty-Moderate"),
+                /*WL-Changes*/Text = Loc.GetString($"salvage-expedition-difficulty-{difficultyProto.ID}"),
                 FontColorOverride = difficultyColor,
                 HorizontalAlignment = Control.HAlignment.Left,
                 Margin = new Thickness(0f, 0f, 0f, 5f),
