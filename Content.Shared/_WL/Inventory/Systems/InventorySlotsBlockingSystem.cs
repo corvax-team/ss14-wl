@@ -31,7 +31,7 @@ namespace Content.Shared._WL.Inventory.Systems
 
             var reason = $"Для начала нужно снять ";
 
-            var stringReasons = reasons.Select(e => Identity.Name(e, EntityManager));
+            var stringReasons = reasons.Select(e => Identity.Name(e.Key, EntityManager));
             reason += string.Join(" и ", stringReasons);
 
             args.Reason = reason;
@@ -51,21 +51,21 @@ namespace Content.Shared._WL.Inventory.Systems
 
             var reason = $"Для начала нужно снять ";
 
-            var stringReasons = reasons.Select(e => Identity.Name(e, EntityManager));
+            var stringReasons = reasons.Select(e => Identity.Name(e.Key, EntityManager));
             reason += string.Join(" и ", stringReasons);
 
             args.Reason = reason;
             args.Cancel();
         }
 
-        public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, SlotDefinition slotDef, [NotNullWhen(true)] out List<EntityUid>? reasons)
+        public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, SlotDefinition slotDef, [NotNullWhen(true)] out Dictionary<EntityUid, SlotFlags>? reasons)
         {
             var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef.SlotFlags, out var reass);
             reasons = reass;
             return blocked;
         }
 
-        public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, SlotFlags slotFlags, [NotNullWhen(true)] out List<EntityUid>? reasons)
+        public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, SlotFlags slotFlags, [NotNullWhen(true)] out Dictionary<EntityUid, SlotFlags>? reasons)
         {
             reasons = new();
 
@@ -85,14 +85,14 @@ namespace Content.Shared._WL.Inventory.Systems
                 var inventorySlotDef = inventoryComp.Slots[indexer];
                 if (inventorySlotDef.BlockSlots.Any(s => s.HasFlag(slotFlags)) || extraSlots.HasFlag(slotFlags))
                 {
-                    reasons.Add(slotEntity.Value);
+                    reasons.Add(slotEntity.Value, inventorySlotDef.SlotFlags);
                 }
             }
 
             return reasons.Count > 0;
         }
 
-        public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, string slot, [NotNullWhen(true)] out List<EntityUid>? reasons)
+        public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, string slot, [NotNullWhen(true)] out Dictionary<EntityUid, SlotFlags>? reasons)
         {
             reasons = new();
 
@@ -102,6 +102,23 @@ namespace Content.Shared._WL.Inventory.Systems
             var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef, out var reass);
             reasons = reass;
             return blocked;
+        }
+
+        public Dictionary<EntityUid, SlotFlags> GetBlockedClothes(Entity<InventoryComponent> ent)
+        {
+            var dict = new Dictionary<EntityUid, SlotFlags>();
+            var comp = ent.Comp;
+            var slots = comp.Slots;
+
+            foreach (var slot in slots)
+            {
+                if (!IsSlotBlocked(ent, slot, out var blocked))
+                    continue;
+
+                dict = dict.Union(blocked).ToDictionary();
+            }
+
+            return dict;
         }
     }
 }
