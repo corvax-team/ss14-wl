@@ -2,34 +2,56 @@ using Content.Shared._WL.Inventory.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Player;
+using Robust.Shared.Physics.Events;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Content.Shared._WL.BloodClothing
 {
     public abstract partial class SharedFluidOnClothingSystem : EntitySystem
     {
-        [Dependency] protected readonly SharedSolutionContainerMixerSystem _solutionMix = default!;
         [Dependency] protected readonly SharedSolutionContainerSystem _solution = default!;
         [Dependency] protected readonly InventorySystem _inventory = default!;
         [Dependency] protected readonly InventorySlotsBlockingSystem _invSlotsBlock = default!;
 
+        [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+
         public const SlotFlags ExcludeSlotFlags =
-            SlotFlags.EYES |
-            SlotFlags.MASK |
             SlotFlags.EARS |
             SlotFlags.NECK |
             SlotFlags.BELT |
-            SlotFlags.BACK;
+            SlotFlags.BACK |
+            SlotFlags.OUTERCLOTHING;
+
+        [Obsolete("ДОБАВИТЬ ЛОКАЛИЗАЦИЮ И ЦВЕТОВЫЕ ТЕГИ")]
+        public static readonly Func<float, string> PersonExaminedPollutionMessage = (float pollution) =>
+        {
+            return pollution switch
+            {
+                <= 0.15f => "Одежда носителя выглядит чистой.",
+                <= 0.45f => "Одежда носителя выглядит слегка грязной.",
+                <= 0.75f => "Одежда носителя выглядит грязной.",
+                _ => "Одежда носителя выглядит крайне грязной."
+            };
+        };
 
         public override void Initialize()
         {
             base.Initialize();
+
+            SubscribeLocalEvent<PuddleComponent, StartCollideEvent>(OnStartCollide);
+            SubscribeLocalEvent<PuddleComponent, EndCollideEvent>(OnEndCollide);
+
+            SubscribeLocalEvent<FluidableClothingComponent, ExaminedEvent>(OnFluidableExamined);
+            SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(OnInventoryExamined);
 
             SubscribeLocalEvent<SolutionContainerManagerComponent, MeleeHitEvent>(OnMeleeHit, [typeof(SharedPuddleSystem), typeof(OpenableSystem)]);
         }
@@ -38,7 +60,74 @@ namespace Content.Shared._WL.BloodClothing
         {
             base.Update(frameTime);
 
+        }
 
+        private void OnStartCollide(EntityUid puddle, PuddleComponent comp, StartCollideEvent args)
+        {
+            var other = args.OtherEntity;
+
+            if (!TryComp<InventoryComponent>(other, out var inventoryComp))
+                return;
+
+            SetAbsorbingEntityByPlayer((other, inventoryComp), comp.Solution);
+        }
+
+        private void OnEndCollide(EntityUid ent, PuddleComponent comp, EndCollideEvent args)
+        {
+            var other = args.OtherEntity;
+
+            if (!TryComp<InventoryComponent>(other, out var inventoryComp))
+                return;
+
+            SetAbsorbingEntityByPlayer((other, inventoryComp), null);
+        }
+
+        private void OnFluidableExamined(EntityUid ent, FluidableClothingComponent comp, ExaminedEvent args)
+        {
+            if (!args.IsInDetailsRange)
+                return;
+
+            
+        }
+
+        private void OnInventoryExamined(EntityUid ent, InventoryComponent comp, ExaminedEvent args)
+        {
+            if (!args.IsInDetailsRange)
+                return;
+
+            var clothes = _invSlotsBlock.GetAvailableWornClothes<FluidableClothingComponent>(
+                    ent: (ent, null, comp),
+                    excludeFlags: ExcludeSlotFlags
+                );
+
+            if (!clothes.Any())
+                return;
+
+            var max = 0f;
+            var sum = 0f;
+
+            foreach (var cloth in clothes)
+            {
+                var clothEntity = cloth.Owner;
+                var fluidableComp = cloth.Comp;
+
+                if (!_solution.TryGetSolution(clothEntity, fluidableComp.Solution, out _, out var solution))
+                    continue;
+
+                max += solution.MaxVolume.Float();
+                sum += solution.Volume.Float();
+            }
+
+            var pollutionStageFloatNumber = 0f;
+            if (max != 0f)
+                pollutionStageFloatNumber = sum / max;
+
+            var msg = PersonExaminedPollutionMessage.Invoke(pollutionStageFloatNumber);
+
+            args.PushMarkup(
+                markup: Loc.GetString(msg),
+                priority: -3
+            );
         }
 
         private void OnMeleeHit(EntityUid weapon, SolutionContainerManagerComponent weaponSolComp, MeleeHitEvent args)
@@ -48,67 +137,117 @@ namespace Content.Shared._WL.BloodClothing
 
             var targets = args.HitEntities;
 
-            if (!_solution.TryGetDrainableSolution(weapon, out var solutionEntity, out var solution))
+            if (!_solution.TryGetDrainableSolution(weapon, out _, out var solution))
                 return;
 
             foreach (var target in targets)
             {
-                var clothes = GetWornClothes(target, SlotFlags.All, ExcludeSlotFlags);
-                var clothesCount = clothes.Count();
-
-                if (clothesCount == 0)
-                    continue;
-
-                var maxFluidTake = solution.MaxVolume / clothesCount;
-
-                foreach (var cloth in clothes)
-                {
-                    var clothEntity = cloth.Owner;
-                    var comp = cloth.Comp;
-
-                    if (!_solution.TryGetSolution(clothEntity, comp.Solution, out var clothSolutionEntity, out var clothSolution))
-                        continue;
-
-                    if (clothSolutionEntity == null)
-                        continue;
-
-                    var fluidAmountTaken = maxFluidTake * comp.MaxFluidTakeAtPercentage;
-
-                    if (clothSolution.Volume + fluidAmountTaken > clothSolution.MaxVolume)
-                        continue;
-                    else
-                    {
-                        _solution.TryTransferSolution(clothSolutionEntity, solution, fluidAmountTaken);
-                    }
-                }
+                TryFillPlayerClothesFromSolution(target, solution);
             }
         }
 
         #region Public
-        public IEnumerable<Entity<FluidableClothingComponent>> GetWornClothes(
-            Entity<HandsComponent?, InventoryComponent?> ent,
-            SlotFlags searchFlags,
-            SlotFlags excludeFlags)
+        public bool TryFillPlayerClothesFromSolution(
+                Entity<HandsComponent?, InventoryComponent?> player,
+                Solution origin,
+                [NotNullWhen(true)] out List<Entity<FluidableClothingComponent, SolutionComponent>>? clothesList,
+                FixedPoint2? amount = null,
+                SlotFlags searchClothingFlags = SlotFlags.All,
+                SlotFlags excludeClothingFlags = ExcludeSlotFlags
+            )
         {
-            var list = new List<Entity<FluidableClothingComponent>>();
+            clothesList = null;
 
-            if (!Resolve(ent.Owner, ref ent.Comp2))
-                return list;
+            var clothes = _invSlotsBlock.GetAvailableWornClothes<FluidableClothingComponent>(player, searchClothingFlags, excludeClothingFlags);
+            var clothesCount = clothes.Count();
 
-            var blocked = _invSlotsBlock.GetBlockedClothes((ent.Owner, ent.Comp2));
-
-            foreach (var e in _inventory.GetHandOrInventoryEntities(ent, searchFlags))
+            if (clothesCount == 0)
             {
-                if (!TryComp<FluidableClothingComponent>(e, out var comp))
-                    continue;
-
-                if (blocked.TryGetValue(e, out var flags) || flags.HasFlag(excludeFlags))
-                    continue;
-
-                list.Add(new Entity<FluidableClothingComponent>(e, comp));
+                return false;
             }
 
-            return list;
+            var maxFluidTake = (
+                amount == null
+                    ? origin.Volume
+                    : Math.Min(origin.Volume.Float(), amount.Value.Float())
+                    ) / clothesCount;
+
+            clothesList = new();
+
+            foreach (var cloth in clothes)
+            {
+                var clothEntity = cloth.Owner;
+                var comp = cloth.Comp;
+
+                if (!_solution.TryGetSolution(clothEntity, comp.Solution, out var clothSolutionEntity, out var clothSolution))
+                    continue;
+
+                if (clothSolutionEntity == null)
+                    continue;
+
+                clothesList.Add((cloth.Owner, cloth.Comp, clothSolutionEntity.Value.Comp));
+
+                var fluidAmountTaken = maxFluidTake * comp.MaxFluidTakeAtPercentage;
+
+
+
+
+
+
+
+
+
+                //ДОДЕЛАТЬ ЛОГИКУ ПЕРЕНОСА ЖИДКОСТИ
+
+
+
+
+
+
+
+
+
+
+
+
+                if (clothSolution.Volume + fluidAmountTaken > clothSolution.MaxVolume)
+                    continue;
+                else
+                {
+                    _solution.TryTransferSolution(clothSolutionEntity.Value, origin, fluidAmountTaken);
+                }
+            }
+
+            return clothesCount != 0;
+        }
+
+        public bool TryFillPlayerClothesFromSolution(
+                Entity<HandsComponent?, InventoryComponent?> player,
+                Solution origin,
+                FixedPoint2? amount = null,
+                SlotFlags searchClothingFlags = SlotFlags.All,
+                SlotFlags excludeClothingFlags = ExcludeSlotFlags
+            )
+        {
+            return TryFillPlayerClothesFromSolution(player, origin, out _, amount, searchClothingFlags, excludeClothingFlags);
+        }
+
+        public void SetAbsorbingEntityByPlayer(
+                Entity<InventoryComponent?> player,
+                Entity<SolutionComponent>? absorbingTarget,
+                SlotFlags searchFlags = SlotFlags.FEET
+            )
+        {
+            if (!_inventory.TryGetInventoryEntities(player, searchFlags, out var drainableEntities))
+                return;
+
+            foreach (var ent in drainableEntities)
+            {
+                if (!TryComp<FluidableClothingComponent>(ent, out var comp))
+                    continue;
+
+                comp.AbsorbingEntity = absorbingTarget;
+            }
         }
         #endregion
     }

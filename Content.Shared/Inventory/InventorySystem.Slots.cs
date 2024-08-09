@@ -52,6 +52,30 @@ public partial class InventorySystem : EntitySystem
         return false;
     }
 
+    //WL-Changes-start
+    public bool TryGetInventoryEntities(Entity<InventoryComponent?> entity, SlotFlags searchFlags, [NotNullWhen(true)] out List<EntityUid>? targetUids)
+    {
+        targetUids = null;
+
+        if (!TryGetContainerSlotEnumerator(entity, out var containerSlotEnumerator))
+        {
+            return false;
+        }
+
+        targetUids = new();
+
+        while (containerSlotEnumerator.NextItem(out var item, out var slot))
+        {
+            if (!slot.SlotFlags.HasFlag(searchFlags))
+                continue;
+
+            targetUids.Add(item);
+        }
+
+        return targetUids.Count != 0;
+    }
+    //WL-Changes-end
+
     protected virtual void OnInit(EntityUid uid, InventoryComponent component, ComponentInit args)
     {
         if (!_prototypeManager.TryIndex(component.TemplateId, out InventoryTemplatePrototype? invTemplate))
