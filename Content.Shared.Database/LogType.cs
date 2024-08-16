@@ -110,5 +110,21 @@ public enum LogType
     /// A player did an item-use interaction of an item they were holding onto another object.
     /// </summary>
     InteractUsing = 92,
-    Skills = 93 //WL-Skills
+
+    /// <summary>
+    /// Storage & entity-storage related interactions
+    /// </summary>
+    Storage = 93,
+
+    //WL-Changes-start
+    /// <summary>
+    /// Использование консольной ВЛ-команды.
+    /// </summary>
+    WLCommand = 94,
+
+    /// <summary>
+    /// Любые манипуляции со скиллами сущности.
+    /// </summary>
+    Skills = 95 //WL-Skills
+    //WL-Changes-end
 }

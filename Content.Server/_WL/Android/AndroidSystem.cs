@@ -1,15 +1,24 @@
 using Content.Server.DoAfter;
+using Content.Server.EntityEffects.Effects;
+using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
+using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
+using Content.Server.Speech.Components;
+using Content.Server.StationEvents.Components;
 using Content.Server.Traits.Assorted;
 using Content.Shared._WL.Android;
 using Content.Shared._WL.Light.Events;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Chemistry;
 using Content.Shared.DoAfter;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.StatusEffect;
@@ -24,28 +33,34 @@ namespace Content.Server._WL.Android
         [Dependency] private readonly BatterySystem _battery = default!;
         [Dependency] private readonly PowerCellSystem _powerCell = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
-        [Dependency] private readonly NarcolepsySystem _narcolepsy = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+        [Dependency] private readonly MovementSpeedModifierSystem _move = default!;
+        [Dependency] private readonly PopupSystem _popup = default!;
 
+        [ViewVariables(VVAccess.ReadOnly)]
         private const float AndroidDoAfterChargeTime = 1f;
 
+        [ViewVariables(VVAccess.ReadOnly)]
         [ValidatePrototypeId<StatusEffectPrototype>]
         private const string ForcedSleepStatusEffect = "ForcedSleep";
 
-        public override void Initialize()
+       public override void Initialize()
         {
             base.Initialize();
 
             SubscribeLocalEvent<AndroidChargeTargetComponent, GetVerbsEvent<AlternativeVerb>>(OnVerb);
+
+            SubscribeLocalEvent<GameRuleStartedEvent>(OnGameRuleStart);
+            SubscribeLocalEvent<GameRuleEndedEvent>(OnGameRuleEnd);
+
             SubscribeLocalEvent<AndroidComponent, AndroidChargeEvent>(OnDoAfter);
             SubscribeLocalEvent<AndroidComponent, StatusEffectAddedEvent>(OnSleepBegin);
             SubscribeLocalEvent<AndroidComponent, StatusEffectEndedEvent>(OnSleepEnd);
-
             SubscribeLocalEvent<AndroidComponent, MobStateChangedEvent>(OnMobstateChanged);
-
             SubscribeLocalEvent<AndroidComponent, BeforeDealHeatDamageFromLightBulbEvent>(OnGetLightBulb);
+            SubscribeLocalEvent<AndroidComponent, RefreshMovementSpeedModifiersEvent>(OnModifiersRefresh);
         }
 
         public override void Update(float frameTime)
@@ -64,14 +79,52 @@ namespace Content.Server._WL.Android
 
                 if (!powerCellDrawComp.CanDraw)
                 {
-                    _powerCell.SetPowerCellDrawEnabled(uid, false, powerCellDrawComp);
+                    _powerCell.SetDrawEnabled((uid, powerCellDrawComp), false);
                     continue;
                 }
 
-                if (powerCellDrawComp.Drawing)
-                    continue;
+                _powerCell.SetDrawEnabled((uid, powerCellDrawComp), true);
+            }
+        }
 
-                _powerCell.SetPowerCellDrawEnabled(uid, true, powerCellDrawComp);
+        private void OnModifiersRefresh(EntityUid android, AndroidComponent comp, RefreshMovementSpeedModifiersEvent args)
+        {
+            if (comp.IsUnderIonStorm)
+                args.ModifySpeed(comp.IonStormSlownessFactor, comp.IonStormSlownessFactor);
+        }
+
+        private void OnGameRuleStart(ref GameRuleStartedEvent args)
+        {
+            if (!TryComp<IonStormRuleComponent>(args.RuleEntity, out _))
+                return;
+
+            var query = EntityQueryEnumerator<AndroidComponent, MovementSpeedModifierComponent>();
+            while (query.MoveNext(out var android, out var androidComp, out var movementSpeedComp))
+            {
+                if (!_random.Prob(androidComp.IonStormSlownessProbability))
+                    return;
+
+                androidComp.IsUnderIonStorm = true;
+                _move.RefreshMovementSpeedModifiers(android, movementSpeedComp);
+
+                _popup.PopupEntity(androidComp.IonStormPopupMessage, android, android, Shared.Popups.PopupType.Medium);
+
+                EnsureComp<StutteringAccentComponent>(android);
+            }
+        }
+
+        private void OnGameRuleEnd(ref GameRuleEndedEvent args)
+        {
+            if (!TryComp<IonStormRuleComponent>(args.RuleEntity, out _))
+                return;
+
+            var query = EntityQueryEnumerator<AndroidComponent, MovementSpeedModifierComponent>();
+            while (query.MoveNext(out var android, out var androidComp, out var movementSpeedComp))
+            {
+                androidComp.IsUnderIonStorm = false;
+                _move.RefreshMovementSpeedModifiers(android, movementSpeedComp);
+
+                RemComp<StutteringAccentComponent>(android);
             }
         }
 

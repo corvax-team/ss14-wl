@@ -94,6 +94,14 @@
           type: Golem
           shouldHave: false
 # WL species end
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
+        type: Remove
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -187,6 +195,14 @@
           type: Golem
           shouldHave: false
 # WL species end
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
+        type: Remove
       - !type:PopupMessage
         visualType: Medium
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
@@ -269,6 +285,14 @@
       - !type:GenericStatusEffect
         key: ForcedSleep
         time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Haloperidol
+          max: 0.01
+        key: Drowsiness
+        time: 10
         type: Remove
     Medicine:
       metabolismRate: 1.0
@@ -625,6 +649,10 @@
         - !type:OrganType
           type: Golem
           shouldHave: false
+        #Android
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 # WL species end
         type: Local
         probability: 0.08
@@ -653,6 +681,10 @@
         - !type:OrganType
           type: Golem
           shouldHave: false
+        #Android
+        - !type:OrganType
+          type: Biorobotic
+          shouldHave: false
 # WL species end
       - !type:Emote
 # WL species start
@@ -660,6 +692,10 @@
         # Golem
         - !type:OrganType
           type: Golem
+          shouldHave: false
+        #Android
+        - !type:OrganType
+          type: Biorobotic
           shouldHave: false
 # WL species end
         emote: Scream
@@ -674,6 +710,10 @@
         # Golem
         - !type:OrganType
           type: Golem
+          shouldHave: false
+        #Android
+        - !type:OrganType
+          type: Biorobotic
           shouldHave: false
 # WL species end
 

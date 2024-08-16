@@ -37,7 +37,7 @@ namespace Content.Shared.Preferences
         public const int MaxNameLength = 32;
         public const int MaxDescLength = 512 * 2; // WL-CharacterInfo: Increase
 
-        //WL-Subnames-start
+        //WL-Changes-start
         [DataField]
         private Dictionary<string, string> _jobSubnames = new();
         //WL-Subnames-end
@@ -49,6 +49,10 @@ namespace Content.Shared.Preferences
         [DataField]
         public string SkillsChosenJob { get; set; } = "МЯУМЯУМЯУМЯУМЯУМЯУММЯУ";
         //WL-Skills-end
+
+        [DataField]
+        private Dictionary<string, bool> _jobUnblockings = new();
+        //WL-Changes-end
 
         /// <summary>
         /// Job preferences for initial spawn.
@@ -162,15 +166,21 @@ namespace Content.Shared.Preferences
             Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
             PreferenceUnavailableMode preferenceUnavailable,
 
+            //WL-Changes-start
             Dictionary<string, string> jobSubnames,
 
             Dictionary<string, Dictionary<string, SkillLevel>> skills, //WL-Skills
             string skillsChosenJob, /*WL-Skills*/
+            //WL-Changes-end
 
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
 
-            Dictionary<string, RoleLoadout> loadouts)
+            Dictionary<string, RoleLoadout> loadouts,
+            //WL-Changes-start
+            Dictionary<string, bool> jobUnblockings
+            //WL-Changes-end
+            )
         {
             Name = name;
             FlavorText = flavortext;
@@ -189,9 +199,13 @@ namespace Content.Shared.Preferences
             _traitPreferences = traitPreferences;
             _loadouts = loadouts;
 
+            //WL-Changes-start
             _jobSubnames = jobSubnames;
             _skills = skills; //WL-Skills
             SkillsChosenJob = skillsChosenJob; //WL-Skills
+
+            _jobUnblockings = jobUnblockings;
+            //WL-Changes-end
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -224,7 +238,7 @@ namespace Content.Shared.Preferences
                 other.SpawnPriority,
                 new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
                 other.PreferenceUnavailable,
-                new Dictionary<string, string>(other.JobSubnames),
+                new Dictionary<string, string>(other.JobSubnames), //WL-Changs
 
                 other.Skills.ToDictionary(x => x.Key, x => x.Value.ToDictionary()), //WL-Skills
                 other.SkillsChosenJob, /*WL-Skills*/
@@ -232,7 +246,8 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
 
-                new Dictionary<string, RoleLoadout>(other.Loadouts))
+                new Dictionary<string, RoleLoadout>(other.Loadouts),
+                new(other.JobUnblockings))
         {
         }
 
@@ -321,15 +336,13 @@ namespace Content.Shared.Preferences
             };
         }
 
+        //WL-Changes-start
         [DataField] public string OocText { get; private set; } = ""; // WL-OOCText
 
         [DataField("height")] public int Height { get; private set; } = 150; // WL-Height
 
-        //WL-Subnames-start
         public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames;
-        //WL-Subnames-end
 
-        //WL-Skills-start
         //Пиздец...
         /// <summary>
         /// НЕ МЕНЯЙТЕ!!!!!!!!!!!!!!!
@@ -337,7 +350,8 @@ namespace Content.Shared.Preferences
         /// </summary>
         public IReadOnlyDictionary<string, Dictionary<string, SkillLevel>> Skills
             => _skills;
-        //WL-Skills-end
+        public IReadOnlyDictionary<string, bool> JobUnblockings => _jobUnblockings;
+        //WL-Changes-end
 
         public HumanoidCharacterProfile WithName(string name)
         {
@@ -424,7 +438,7 @@ namespace Content.Shared.Preferences
             };
         }
 
-        //WL-Subnames-start
+        //WL-Changes-start
         public HumanoidCharacterProfile WithJobSubname(string jobId, string subname)
         {
             var dict = new Dictionary<string, string>(_jobSubnames);
@@ -452,6 +466,19 @@ namespace Content.Shared.Preferences
             };
         }
         //WL-Skills-end
+
+        public HumanoidCharacterProfile WithJobUnblocking(string jobId, bool value)
+        {
+            var dict = new Dictionary<string, bool>(_jobUnblockings);
+
+            dict[jobId] = value;
+
+            return new(this)
+            {
+                _jobUnblockings = dict
+            };
+        }
+        //WL-Changes-end
 
         public HumanoidCharacterProfile WithJobPriority(ProtoId<JobPrototype> jobId, JobPriority priority)
         {
@@ -617,6 +644,7 @@ namespace Content.Shared.Preferences
             }
             //WL-Skills-end
 
+            if (!_jobUnblockings.SequenceEqual(other._jobUnblockings)) return false; // WL-Changes
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -886,11 +914,16 @@ namespace Content.Shared.Preferences
             hashCode.Add(Appearance);
             hashCode.Add((int) SpawnPriority);
             hashCode.Add((int) PreferenceUnavailable);
-            hashCode.Add(_jobSubnames); //WL-Subnames
+
+            //WL-Changes-start
+            hashCode.Add(_jobSubnames);
+            hashCode.Add(_jobUnblockings);
+            hashCode.Add(Height);
+            hashCode.Add(OocText);
             hashCode.Add(_skills); //WL-Skills
             hashCode.Add(SkillsChosenJob); //WL-Skills
-            hashCode.Add(Height); //WL-Height
-            hashCode.Add(OocText); //WL-OocText
+            //WL-Changes-end
+
             return hashCode.ToHashCode();
         }
 

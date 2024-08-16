@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Client.Lobby;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
@@ -6,6 +7,7 @@ using Content.Shared.Players.JobWhitelist;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Microsoft.CodeAnalysis;
 using Robust.Client;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
@@ -24,10 +26,6 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
-
-    //WL-Skills-start
-    [Dependency] private readonly IClientPreferencesManager _prefMan = default!;
-    //WL-Skills-end
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<string> _roleBans = new();
@@ -95,7 +93,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         Updated?.Invoke();
     }
 
-    public bool IsAllowed(JobPrototype job, [NotNullWhen(false)] out FormattedMessage? reason)
+    public bool IsAllowed(JobPrototype job, HumanoidCharacterProfile? profile, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = null;
 
@@ -112,31 +110,43 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         if (player == null)
             return true;
 
-        /*WL-Skills-start*/
-        var profile = (HumanoidCharacterProfile?) _prefMan.Preferences?.SelectedCharacter;
-        if (profile != null && profile.Age < job.MinAge)
-        {
-            reason =
-                FormattedMessage.FromMarkupOrThrow($"Текущий возраст не позволяет выбрать эту должность.\nМинимальный возраст - {job.MinAge}, текущий возраст - {profile.Age}");
-            return false;
-        }
-        /*WL-Skills-end*/
-
-        var reqs = _entManager.System<SharedRoleSystem>().GetJobRequirement(job);
-        return CheckRoleTime(reqs, out reason);
+        return CheckRoleRequirements(job, profile, out reason);
     }
 
-    public bool CheckRoleTime(HashSet<JobRequirement>? requirements, [NotNullWhen(false)] out FormattedMessage? reason)
+    public bool CheckRoleRequirements(JobPrototype job, HumanoidCharacterProfile? profile, [NotNullWhen(false)] out FormattedMessage? reason)
+    {
+        var reqs = _entManager.System<SharedRoleSystem>().GetJobRequirement(job);
+        return CheckRoleRequirements(reqs, profile, out reason, job);
+    }
+
+    public bool CheckRoleRequirements(
+        HashSet<JobRequirement>? requirements,
+        HumanoidCharacterProfile? profile,
+        [NotNullWhen(false)] out FormattedMessage? reason,
+        /*WL-Changes-start*/JobPrototype? job = null/*WL-Changes-end*/)
     {
         reason = null;
 
-        if (requirements == null || !_cfg.GetCVar(CCVars.GameRoleTimers))
+        if (requirements == null /*WL-Changes-start*//*|| !_cfg.GetCVar(CCVars.GameRoleTimers)*//*WL-Changes-end*/)
             return true;
 
         var reasons = new List<string>();
         foreach (var requirement in requirements)
         {
-            if (JobRequirements.TryRequirementMet(requirement, _roles, out var jobReason, _entManager, _prototypes))
+            //WL-Changes-start
+            if (requirement.CheckingCVars != null)
+            {
+                if (!requirement.CheckingCVars
+                    .ToList()
+                    .TrueForAll(req =>
+                {
+                    return _cfg.GetCVar(req.CVar) == req.Value;
+                }))
+                    continue;
+            }
+            //WL-Changes-end
+
+            if (requirement.Check(_entManager, _prototypes, profile, job, _roles, out var jobReason))
                 continue;
 
             reasons.Add(jobReason.ToMarkup());

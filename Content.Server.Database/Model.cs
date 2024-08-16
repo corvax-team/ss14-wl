@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Net;
 using System.Text.Json;
+using Content.Server.Database.Migrations.Sqlite;
 using Content.Shared.Database;
 using Microsoft.EntityFrameworkCore;
 using NpgsqlTypes;
@@ -91,9 +92,15 @@ namespace Content.Server.Database
                 .HasIndex(j => new { j.ProfileId, j.JobName })
                 .IsUnique();
 
+            //WL-Changes-start
+            modelBuilder.Entity<JobUnblocking>()
+                .HasIndex(j => new { j.ProfileId, j.JobName })
+                .IsUnique();
+
             modelBuilder.Entity<JobSubname>()
                 .HasIndex(j => new { j.ProfileId, j.JobName })
                 .IsUnique();
+
 
             modelBuilder.Entity<SkillEntry>()
                 .HasIndex(s => new { s.SkillId, s.SkillName })
@@ -102,6 +109,7 @@ namespace Content.Server.Database
             modelBuilder.Entity<Skill>()
                 .HasIndex(s => new { s.JobName, s.ProfileId })
                 .IsUnique();
+            //WL-Changes-end
 
             modelBuilder.Entity<AssignedUserId>()
                 .HasIndex(p => p.UserName)
@@ -364,6 +372,7 @@ namespace Content.Server.Database
 
     public class Profile
     {
+
         public int Id { get; set; }
         public int Slot { get; set; }
         [Column("char_name")] public string CharacterName { get; set; } = null!;
@@ -389,6 +398,8 @@ namespace Content.Server.Database
         public List<JobSubname> JobSubnames { get; } = new(); //WL-Subnames
         public List<Skill> Skills { get; } = new(); //WL-Skills
         public string SkillsChosenJob { get; set; } = null!; //WL-Skills
+
+        public List<JobUnblocking> JobUnblockings { get; } = new(); //WL-Changes
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
@@ -407,7 +418,17 @@ namespace Content.Server.Database
         public DbJobPriority Priority { get; set; }
     }
 
-    //WL-Subnames-start
+    //WL-Changes-start
+    public class JobUnblocking
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string JobName { get; set; } = null!;
+        public bool ForceUnblocked { get; set; }
+    }
+
     public class JobSubname
     {
         public int Id { get; set; }
@@ -417,6 +438,7 @@ namespace Content.Server.Database
         public string JobName { get; set; } = null!;
         public string Subname { get; set; } = null!;
     }
+
     //WL-Subnames-end
 
     //WL-Skills-start
@@ -535,7 +557,7 @@ namespace Content.Server.Database
         /*
          * Insert extra data here like custom descriptions or colors or whatever.
          */
-    }
+}
 
     #endregion
 
@@ -950,6 +972,13 @@ namespace Content.Server.Database
         Whitelist = 1,
         Full = 2,
         Panic = 3,
+        /*
+         * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
+         * 
+         * If baby jail is removed, please reserve this value for as long as can reasonably be done to prevent causing ambiguity in connection denial reasons.
+         * Reservation by commenting out the value is likely sufficient for this purpose, but may impact projects which depend on SS14 like SS14.Admin.
+         */
+        BabyJail = 4,
     }
 
     public class ServerBanHit

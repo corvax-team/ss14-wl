@@ -18,7 +18,6 @@
       displayName: Suit
       blocks:
       - INNERCLOTHING
-      - IDCARD
     - name: gloves
       slotTexture: gloves
       slotFlags: GLOVES
@@ -109,8 +108,6 @@
       uiWindowPos: 3,1
       strippingWindowPos: 1,5
       displayName: Belt
-      blocks:
-      - OUTERCLOTHING
     - name: back
       slotTexture: back
       fullTextureName: template_small

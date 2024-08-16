@@ -43,10 +43,6 @@ namespace Content.Shared.Roles
         [ViewVariables(VVAccess.ReadOnly)]
         [DataField]
         public int SkillPoints { get; private set; } = int.MinValue;
-
-        [ViewVariables(VVAccess.ReadOnly)]
-        [DataField]
-        public int MinAge { get; private set; } = 18;
         //WL-Skills-end
 
         /// <summary>
@@ -104,8 +100,8 @@ namespace Content.Shared.Roles
         [DataField("antagAdvantage")]
         public int AntagAdvantage = 0;
 
-        [DataField("startingGear", customTypeSerializer: typeof(PrototypeIdSerializer<StartingGearPrototype>))]
-        public string? StartingGear { get; private set; }
+        [DataField]
+        public ProtoId<StartingGearPrototype>? StartingGear { get; private set; }
 
         /// <summary>
         /// Use this to spawn in as a non-humanoid (borg, test subject, etc.)

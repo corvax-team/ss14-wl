@@ -5,9 +5,9 @@
     - Brute
   supportedTypes:
     - Heat
-    - Cold
     - Shock
     - Caustic
+    - Radiation
 
 - type: damageContainer
   id: Golemical

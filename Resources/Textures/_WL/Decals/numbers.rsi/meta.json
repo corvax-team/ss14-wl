@@ -1,0 +1,51 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Decals by varttist (discord)",
+    "states": [
+        {
+            "name": "number_0"
+
+        },
+        {
+            "name": "number_1"
+
+        },
+        {
+            "name": "number_2"
+
+        },
+        {
+            "name": "number_3"
+
+        },
+        {
+            "name": "number_4"
+
+        },
+        {
+            "name": "number_5"
+
+        },
+        {
+            "name": "number_6"
+
+        },
+        {
+            "name": "number_7"
+
+        },
+        {
+            "name": "number_8"
+
+        },
+        {
+            "name": "number_9"
+
+        }
+    ]
+}

@@ -1,17 +1,9 @@
 - type: loadout
   id: WardenBlueCoat
-  equipment: WardenBlueForm
-
-- type: startingGear
-  id: WardenBlueForm
   equipment:
     outerClothing: ClothingOuterCoatWardenAlt
 
 - type: loadout
-  id: WardenBlueHatAlt
-  equipment: WardenBlueHatAlt
-
-- type: startingGear
   id: WardenBlueHatAlt
   equipment:
     head: ClothingHeadHatCapWardenAlt

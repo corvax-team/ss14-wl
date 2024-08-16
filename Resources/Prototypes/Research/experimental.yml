@@ -12,6 +12,8 @@
   recipeUnlocks:
   - ProximitySensor
   - ExosuitFabricatorMachineCircuitboard
+  - BioTube # WL-Changes
+  - TiriumPack # WL-Changes
 
 - type: technology
   id: BasicAnomalousResearch

@@ -1,10 +1,9 @@
-﻿- type: job
+- type: job
   id: Captain
   name: job-name-captain
   description: job-description-captain
   playTimeTracker: JobCaptain
   #WL-Changes-start
-  minAge: 35
   skillPoints: 20
   #WL-Changes-end
   requirements:
@@ -22,6 +21,8 @@
 #      time: 54000 # 15 hours
     - !type:OverallPlaytimeRequirement
       time: 504000 #140 hrs # Corvax-RoleTime
+    - !type:AgeRequirement
+      minAge: 35
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

@@ -1,0 +1,15 @@
+- type: salvageDifficulty
+  id: Hazardous
+  lootBudget: 55
+  mobBudget: 70
+  modifierBudget: 3
+  color: "#7d1379"
+  recommendedPlayers: 3
+
+- type: salvageDifficulty
+  id: Extreme
+  lootBudget: 90
+  mobBudget: 120
+  modifierBudget: 4
+  color: "#7d1313"
+  recommendedPlayers: 4

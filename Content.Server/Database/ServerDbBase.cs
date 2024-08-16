@@ -50,6 +50,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles)
                     .ThenInclude(p => p.Skills)
                     .ThenInclude(p => p.SkillEntries)
+                .Include(p => p.Profiles).ThenInclude(h => h.JobUnblockings)
                 //WL-Changes-end
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
@@ -107,6 +108,7 @@ namespace Content.Server.Database
                 .Include(p => p.JobSubnames)
                 .Include(p => p.Skills)
                     .ThenInclude(p => p.SkillEntries)
+                .Include(p => p.JobUnblockings)
                 //WL-Changes-end
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
@@ -196,7 +198,10 @@ namespace Content.Server.Database
 
         private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
         {
+            //WL-Changes-start
             var jobSubnames = profile.JobSubnames.ToDictionary(x => x.JobName, x => x.Subname); //WL-Subnames
+            var jobUnblockings = profile.JobUnblockings.ToDictionary(k => k.JobName, v => v.ForceUnblocked);
+            //WL-Changes-end
 
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
@@ -287,7 +292,8 @@ namespace Content.Server.Database
                 profile.SkillsChosenJob, //WL-Skills
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                jobUnblockings
             );
         }
 
@@ -353,6 +359,13 @@ namespace Content.Server.Database
 
             profile.SkillsChosenJob = humanoid.SkillsChosenJob;
             //WL-Skills-end
+
+            profile.JobUnblockings.Clear();
+            profile.JobUnblockings.AddRange(
+                humanoid.JobUnblockings
+                    .Select(ju => new JobUnblocking() { JobName = ju.Key, ForceUnblocked = ju.Value })
+            );
+            //WL-Changes-end
 
             profile.Antags.Clear();
             profile.Antags.AddRange(

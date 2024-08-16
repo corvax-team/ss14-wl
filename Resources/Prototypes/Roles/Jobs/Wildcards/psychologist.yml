@@ -5,7 +5,9 @@
   playTimeTracker: JobPsychologist
   #WL-Changes-start
   skillPoints: 16
-  minAge: 27
+  requirements:
+    - !type:AgeRequirement
+      minAge: 27
   subnames:
   - психиатр
   - психотерапевт

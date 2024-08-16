@@ -5,7 +5,6 @@
   playTimeTracker: JobQuartermaster
   #WL-Changes-start
   skillPoints: 16
-  minAge: 28
   subnames:
   - начальник снабжения
   #WL-Changes-end
@@ -21,6 +20,8 @@
       time: 54000 #15 hrs # Corvax-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
+    - !type:AgeRequirement
+      minAge: 28
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"

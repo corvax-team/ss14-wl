@@ -5,7 +5,6 @@
   playTimeTracker: JobParamedic
   #WL-Changes-start
   skillPoints: 18
-  minAge: 20
   #WL-Changes-end
   requirements:
     - !type:RoleTimeRequirement
@@ -13,6 +12,8 @@
       time: 14400 #4 hrs
     - !type:OverallPlaytimeRequirement
       time: 54000 # 15 hrs
+    - !type:AgeRequirement
+      minAge: 20
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo

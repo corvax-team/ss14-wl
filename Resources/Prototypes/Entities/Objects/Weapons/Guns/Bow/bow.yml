@@ -47,6 +47,7 @@
     container: projectiles
 # White-List components
   - type: Execution
+    damageModifier: 5
 # White-List components End
 
 - type: entity

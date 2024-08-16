@@ -99,18 +99,20 @@
     duration: 1
   - type: BureaucraticErrorRule
 
-- type: entity
-  id: ClericalError
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-clerical-error-announcement
-    spawnConfig:
-      standartConfig:
-        minPlayers: 15
-    weight: 5
-    duration: 1
-  - type: ClericalErrorRule
+#WL-Changes-start
+# - type: entity
+  # id: ClericalError
+  # parent: BaseGameRule
+  # components:
+  # - type: StationEvent
+    # startAnnouncement: station-event-clerical-error-announcement
+    # spawnConfig:
+      # standartConfig:
+        # minPlayers: 15
+    # weight: 5
+    # duration: 1
+  # - type: ClericalErrorRule
+#WL-Changes-end
 
 - type: entity
   parent: BaseGameRule
@@ -161,14 +163,52 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 5
-    duration: 1
+    weight: 6
+    duration: null
     earliestStart: 45 # Corvax WL changes
-    reoccurrenceDelay: 60
+    reoccurrenceDelay: 20
     spawnConfig:
       standartConfig:
         minPlayers: 30
-  - type: NinjaSpawnRule
+  - type: SpaceSpawnRule
+  - type: AntagLoadProfileRule
+  - type: AntagObjectives
+    objectives:
+    - StealResearchObjective
+    - DoorjackObjective
+    - SpiderChargeObjective
+    - TerrorObjective
+    - MassArrestObjective
+    - NinjaSurviveObjective
+  - type: AntagSelection
+    agentName: ninja-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSpaceNinja
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SpaceNinjaGear
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing:
+        text: ninja-role-greeting
+        color: Green
+        sound: /Audio/Misc/ninja_greeting.ogg
+      components:
+      - type: SpaceNinja
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: RandomMetadata
+        nameSegments:
+        - names_ninja_title
+        - names_ninja
+      mindComponents:
+      - type: NinjaRole
+        prototype: SpaceNinja
 
 - type: entity
   parent: BaseGameRule
@@ -442,39 +482,46 @@
     - id: MobClownSpider
       prob: 0.05
 
-#- type: entity
-#  id: ZombieOutbreak
-#  parent: BaseGameRule
-#  noSpawn: true
-#  components:
-#  - type: StationEvent
-#    earliestStart: 50
-#    minimumPlayers: 15
-#    weight: 3
-#    duration: 1
-#  - type: ZombieRule
-#  - type: AntagSelection
-#    definitions:
-#    - prefRoles: [ InitialInfected ]
-#      max: 3
-#      playerRatio: 10
-#      blacklist:
-#        components:
-#        - ZombieImmune
-#        - InitialInfectedExempt
-#      briefing:
-#        text: zombie-patientzero-role-greeting
-#        color: Plum
-#        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
-#      components:
-#      - type: PendingZombie #less time to prepare than normal
-#        minInitialInfectedGrace: 300
-#        maxInitialInfectedGrace: 450
-#      - type: ZombifyOnDeath
-#      - type: IncurableZombie
-#      mindComponents:
-#      - type: InitialInfectedRole
-#        prototype: InitialInfected
+- type: entity
+  id: ZombieOutbreak
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    earliestStart: 50
+    spawnConfig:
+      standartConfig:
+        minPlayers: 30
+    weight: 2
+    duration: 1
+  - type: ZombieRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ InitialInfected ]
+      max: 3
+      playerRatio: 10
+      blacklist:
+        components:
+        - ZombieImmune
+        - AntagImmune
+      briefing:
+        text: zombie-patientzero-role-greeting
+        color: Plum
+        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+      components:
+      - type: PendingZombie #less time to prepare than normal
+        minInitialInfectedGrace: 300
+        maxInitialInfectedGrace: 450
+      - type: ZombifyOnDeath
+      - type: IncurableZombie
+      - type: InitialInfected
+      # Corvax-Не знаю какой тег, морти поправь
+      - type: NpcFactionMember
+        addFriendlyFactions:
+        - Zombie
+      # Corvax
+      mindComponents:
+      - type: InitialInfectedRole
+        prototype: InitialInfected
 
 #  - type: entity
 #   noSpawn: true
@@ -527,6 +574,7 @@
     startAudio:
       path: /Audio/Announcements/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
+    occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:
@@ -607,7 +655,7 @@
   - type: StationEvent
     weight: 7
     reoccurrenceDelay: 20
-    duration: 1
+    duration: 60
   - type: IonStormRule
 
 - type: entity

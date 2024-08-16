@@ -1,4 +1,4 @@
-﻿namespace Content.Shared.Administration
+namespace Content.Shared.Administration
 {
     /// <summary>
     ///     Permissions that admins can have.
@@ -123,6 +123,13 @@
         ///     Lets you set the color of your OOC name.
         /// </summary>
         NameColor = 1 << 21,
+
+        //WL-Changes-start
+        /// <summary>
+        /// Права для анкетологов.
+        /// </summary>
+        QuestionnaireSpecialist = 1 << 22,
+        //WL-Changes-end
 
         /// <summary>
         ///     Dangerous host permissions like scsi.

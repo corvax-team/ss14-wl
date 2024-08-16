@@ -79,23 +79,21 @@ public sealed class ExecutionSystem : EntitySystem
         if (!CanExecuteWithAny(victim, attacker))
             return;
 
-        // TODO: This should just be on the weapons as a single execution message.
-        var defaultExecutionInternal = comp.DefaultInternalMeleeExecutionMessage;
-        var defaultExecutionExternal = comp.DefaultExternalMeleeExecutionMessage;
+        bool isSuicide = attacker == victim;
+        bool isMelee = !HasComp<GunComponent>(weapon);
 
-        if (HasComp<GunComponent>(weapon))
-        {
-            defaultExecutionExternal = comp.DefaultInternalGunExecutionMessage;
-            defaultExecutionInternal = comp.DefaultExternalGunExecutionMessage;
-        }
+        GetLocalizationValue(comp, isSuicide, isMelee, out string internalMessage, out string externalMessage);
 
-        var internalMsg = defaultExecutionInternal;
-        var externalMsg = defaultExecutionExternal;
-        ShowExecutionInternalPopup(internalMsg, attacker, victim, weapon);
-        ShowExecutionExternalPopup(externalMsg, attacker, victim, weapon);
+        ShowExecutionInternalPopup(internalMessage, attacker, victim, weapon);
+        ShowExecutionExternalPopup(externalMessage, attacker, victim, weapon);
+
+        float duration = comp.DoAfterDuration;
+
+        if (victim != attacker && _actionBlockerSystem.CanInteract(victim, null))
+            duration = comp.DoAfterDurationIfVictumResist;
 
         var doAfter =
-            new DoAfterArgs(EntityManager, attacker, comp.DoAfterDuration, new ExecutionDoAfterEvent(), weapon, target: victim, used: weapon)
+            new DoAfterArgs(EntityManager, attacker, duration, new ExecutionDoAfterEvent(), weapon, target: victim, used: weapon)
             {
                 BreakOnMove = true,
                 BreakOnHandChange = true,
@@ -109,7 +107,6 @@ public sealed class ExecutionSystem : EntitySystem
 
     private bool CanExecuteWithAny(EntityUid victim, EntityUid attacker)
     {
-        // Use suicide.
         if (victim == attacker)
             return true;
 
@@ -162,8 +159,9 @@ public sealed class ExecutionSystem : EntitySystem
         if (TryComp(uid, out MeleeWeaponComponent? melee))
         {
             _meleeSystem.AttemptLightAttack(attacker, weapon, melee, victim);
-            internalMsg = component.DefaultCompleteInternalMeleeExecutionMessage;
-            externalMsg = component.DefaultCompleteExternalMeleeExecutionMessage;
+
+            //internalMsg = component.DefaultCompleteInternalMeleeExecutionMessage;
+            //externalMsg = component.DefaultCompleteExternalMeleeExecutionMessage;
         }
         // TODO: Fcking shit code by GunSystem and HitscanPrototype
         else if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBatteryAmmo) &&
@@ -185,6 +183,7 @@ public sealed class ExecutionSystem : EntitySystem
             }
             else  //This number is set, because two Vectors with x0 y0 make Vector(NaN, Nan) direction, and this pass NaN value check... ¯\_(ツ)_/¯
             {
+                _gunSystem.SetTarget(laserGun, victim);
                 _gunSystem.AttemptShoot(attacker, uid, laserGun, new EntityCoordinates(victim, 0.01984f, -0.00451f));
                 _damageable.TryChangeDamage(victim, damageSpecifier, origin: attacker);
             }
@@ -193,22 +192,22 @@ public sealed class ExecutionSystem : EntitySystem
         }
         else if (TryComp(uid, out GunComponent? gun))
         {
-            var clumsyShot = false;
+            //var clumsyShot = false;
 
-            // TODO: This should just be an event or something instead to get this.
-            // TODO: Handle clumsy.
-            // TODO: Make check on open rifleBolt, empty mag, empty revolver and etc
+            //// TODO: This should just be an event or something instead to get this.
+            //// TODO: Handle clumsy.
+            //// TODO: Make check on open rifleBolt, empty mag, empty revolver and etc
 
-            if (clumsyShot)
-            {
-                internalMsg = "execution-popup-gun-empty";
-                externalMsg = "execution-popup-gun-empty";
-            }
-            else
-            {
-                internalMsg = component.DefaultCompleteInternalGunExecutionMessage;
-                externalMsg = component.DefaultCompleteExternalGunExecutionMessage;
-            }
+            //if (clumsyShot)
+            //{
+            //    internalMsg = "execution-popup-gun-empty";
+            //    externalMsg = "execution-popup-gun-empty";
+            //}
+            //else
+            //{
+            //    //internalMsg = component.DefaultCompleteInternalGunExecutionMessage;
+            //    //externalMsg = component.DefaultCompleteExternalGunExecutionMessage;
+            //}
 
             if(attacker == victim)
             {
@@ -216,6 +215,7 @@ public sealed class ExecutionSystem : EntitySystem
             }
             else
             {
+                _gunSystem.SetTarget(gun, victim);
                 //This number is set, because two Vectors with x0 y0 make Vector(NaN, Nan) direction, and this pass NaN value check... ¯\_(ツ)_/¯
                 _gunSystem.AttemptShoot(attacker, uid, gun, new EntityCoordinates(victim, 0.01984f, -0.00451f));
             }
@@ -226,11 +226,11 @@ public sealed class ExecutionSystem : EntitySystem
         component.Executing = false;
         args.Handled = true;
 
-        if (internalMsg != null && externalMsg != null)
-           {
-        //     ShowExecutionInternalPopup(internalMsg, attacker, victim, uid);
-        //     ShowExecutionExternalPopup(externalMsg, attacker, victim, uid);
-           }
+        //if (internalMsg != null && externalMsg != null)
+        //{
+        //    //ShowExecutionInternalPopup(internalMsg, attacker, victim, uid);
+        //    //ShowExecutionExternalPopup(externalMsg, attacker, victim, uid);
+        //}
     }
 
     private void OnGetMeleeDamage(EntityUid uid, ExecutionComponent comp, ref GetMeleeDamageEvent args)
@@ -265,8 +265,8 @@ public sealed class ExecutionSystem : EntitySystem
         {
             if(projectile.Damage.GetTotal() * comp.DamageModifier > staminaDamage)
                 projectile.Damage *= comp.DamageModifier;
-
         }
+
         comp.Executing = false;
     }
 
@@ -294,7 +294,6 @@ public sealed class ExecutionSystem : EntitySystem
         }
 
     }
-
     private void ShowExecutionExternalPopup(string locString, EntityUid attacker, EntityUid victim, EntityUid weapon)
     {
         _popupSystem.PopupEntity(
@@ -305,4 +304,34 @@ public sealed class ExecutionSystem : EntitySystem
             PopupType.MediumCaution
             );
     }
+    private void GetLocalizationValue(ExecutionComponent comp, bool isSuicide, bool isMelee, out string internalMessage, out string externalMessage)
+    {
+        if (isSuicide)
+        {
+            if (isMelee)
+            {
+                internalMessage = comp.InternalMeleeSuicideMessage;
+                externalMessage = comp.ExternalMeleeSuicideMessage;
+            }
+            else
+            {
+                internalMessage = comp.InternalGunSuicideMessage;
+                externalMessage = comp.ExternalGunSuicideMessage;
+            }
+        }
+        else
+        {
+            if (isMelee)
+            {
+                internalMessage = comp.InternalMeleeExecutionMessage;
+                externalMessage = comp.ExternalMeleeExecutionMessage;
+            }
+            else
+            {
+                internalMessage = comp.InternalGunExecutionMessage;
+                externalMessage = comp.tExternalGunExecutionMessage;
+            }
+        }
+    }
+
 }

@@ -17,12 +17,9 @@ public sealed class WLCVars
     public static readonly CVarDef<int> GhostReturnToLobbyButtonCooldown =
         CVarDef.Create("ghost.return_to_lobby_button_cooldown", 1200, CVar.SERVERONLY);
 
-    /*
-     * Управление
-     */
     /// <summary>
-    /// Бегает ли игрок на кнопку shift или идёт.
+    /// Нужно ли проверять игрока на возраст при выборе роли.
     /// </summary>
-    public static readonly CVarDef<bool> RunningOnShift =
-        CVarDef.Create("move.running_on_shift", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<bool> IsAgeCheckNeeded =
+        CVarDef.Create("game.is_age_check_needed", true, CVar.SERVER | CVar.REPLICATED);
 }

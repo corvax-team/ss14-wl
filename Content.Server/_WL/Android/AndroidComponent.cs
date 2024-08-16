@@ -21,6 +21,18 @@ namespace Content.Server._WL.Android
         [DataField]
         public TimeSpan SleepTimeMax = TimeSpan.FromSeconds(10f);
 
+        [DataField]
+        public float IonStormSlownessFactor = 0.3f;
+
+        [DataField]
+        public float IonStormSlownessProbability = 0.78f;
+
+        [DataField]
+        public string IonStormPopupMessage = "Вы чувствуете из-за электромагнитных колебаний ваше тело становится тяжелее, а мысли запутаннее";
+
+        [DataField]
+        public bool IsUnderIonStorm = false;
+
         public TimeSpan NextTime = TimeSpan.Zero;
     }
 }

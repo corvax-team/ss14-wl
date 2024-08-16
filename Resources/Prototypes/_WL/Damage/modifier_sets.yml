@@ -10,6 +10,7 @@
   id: BioRobotic
   coefficients:
     Radiation: 0.5
+    Shock: 1.3
 
 - type: damageModifierSet
   id: Cischi

@@ -5,7 +5,6 @@
   playTimeTracker: JobChemist
   #WL-Changes-start
   skillPoints: 20
-  minAge: 24
   subnames:
   - фармацевт
   - химик-стажёр
@@ -14,6 +13,8 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 18000 #5 hrs # Corvax-RoleTime
+    - !type:AgeRequirement
+      minAge: 24
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo

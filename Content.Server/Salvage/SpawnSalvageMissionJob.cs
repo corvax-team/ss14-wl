@@ -117,7 +117,7 @@ public sealed class SpawnSalvageMissionJob : Job<bool>
 
         // Setup mission configs
         // As we go through the config the rating will deplete so we'll go for most important to least important.
-        var difficultyId = "Moderate";
+        /*WL-Changes*/ var difficultyId = _missionParams.Difficulty/*"Moderate"*/;
         var difficultyProto = _prototypeManager.Index<SalvageDifficultyPrototype>(difficultyId);
 
         var mission = _entManager.System<SharedSalvageSystem>()

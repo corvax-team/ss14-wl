@@ -5,7 +5,9 @@
   playTimeTracker: JobReporter
   #WL-Changes-start
   skillPoints: 14
-  minAge: 22
+  requirements:
+    - !type:AgeRequirement
+      minAge: 22
   subnames:
   - журналист
   - корреспондент

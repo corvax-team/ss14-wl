@@ -1,0 +1,9 @@
+- type: entity
+  id: WallPlastitaniumIndestructibleSinguloimmune
+  parent: WallPlastitaniumIndestructible
+  name: субсветовая пластитановая стена
+  description: Это пластитановая стена покрытая тонким слоем естественного света который поставляется с солнечного Татувина. Если ты прислонишь лицо, то почувствуешь, словно стоишь снаружи, и солнце светит на тебя. От этого также загорятся волосы, поэтому не делай этого.
+  suffix: Singuloimmune, Indestructible, WL
+  components:
+  - type: ContainmentField
+    throwForce: 0

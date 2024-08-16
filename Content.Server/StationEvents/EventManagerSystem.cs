@@ -3,6 +3,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
+using Content.Server.RoundEnd;
 using Content.Server.StationEvents.Components;
 using Content.Shared.CCVar;
 using Robust.Server.Player;
@@ -22,6 +23,7 @@ public sealed class EventManagerSystem : EntitySystem
     [Dependency] public readonly GameTicker GameTicker = default!;
     [Dependency] public readonly JobSystem _job = default!;
     [Dependency] public readonly MindSystem _mind = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
 
     public bool EventsEnabled { get; private set; }
     private void SetEnabled(bool value) => EventsEnabled = value;
@@ -191,6 +193,11 @@ public sealed class EventManagerSystem : EntitySystem
         var lastRun = TimeSinceLastEvent(prototype);
         if (lastRun != TimeSpan.Zero && currentTime.TotalMinutes <
             stationEvent.ReoccurrenceDelay + lastRun.TotalMinutes)
+        {
+            return false;
+        }
+
+        if (_roundEnd.IsRoundEndRequested() && !stationEvent.OccursDuringRoundEnd)
         {
             return false;
         }

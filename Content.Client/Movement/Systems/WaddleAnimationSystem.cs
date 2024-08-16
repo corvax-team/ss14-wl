@@ -23,8 +23,6 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
 
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
-    private bool _runningOnShift = WLCVars.RunningOnShift.DefaultValue;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -32,11 +30,6 @@ public sealed class WaddleAnimationSystem : SharedWaddleAnimationSystem
         SubscribeAllEvent<StartedWaddlingEvent>(OnStartWaddling);
         SubscribeLocalEvent<WaddleAnimationComponent, AnimationCompletedEvent>(OnAnimationCompleted);
         SubscribeAllEvent<StoppedWaddlingEvent>(OnStopWaddling);
-
-        //WL-Skills-start
-        _runningOnShift = _cfg.GetCVar(WLCVars.RunningOnShift);
-        Subs.CVar(_cfg, WLCVars.RunningOnShift, (value) => _runningOnShift = value);
-        //WL-Skills-end
     }
 
     private void OnStartWaddling(StartedWaddlingEvent msg, EntitySessionEventArgs args)

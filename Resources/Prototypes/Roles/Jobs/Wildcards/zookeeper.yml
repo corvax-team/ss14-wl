@@ -5,8 +5,10 @@
   playTimeTracker: JobZookeeper
   startingGear: ZookeeperGear
   #WL-Changes-start
-  minAge: 22
   skillPoints: 16
+  requirements:
+    - !type:AgeRequirement
+      minAge: 22
   subnames:
   - ветеринар
   #WL-Changes-end

@@ -1,0 +1,42 @@
+- type: entity
+  id: InvisPortalBase
+  suffix: Невидимый, АДМИНАБУЗ, НЕ МАППИТЬ, Маркер
+  parent: [BasePortal, MarkerBase]
+  components:
+  - type: Portal
+    departureSound: /Audio/Effects/Footsteps/plating1.ogg # звук отправления (при заходе)
+    arrivalSound: /Audio/Effects/Footsteps/plating1.ogg # звук прибытия (при выходе)
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Effects/portal.rsi
+        state: portal-red
+
+- type: entity
+  id: InvisPortalChasmDepart
+  suffix: Невидимый, АДМИНАБУЗ, НЕ МАППИТЬ, Маркер
+  parent: [BasePortal, MarkerBase]
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Effects/portal.rsi
+        state: portal-red
+  - type: Portal
+    departureSound: /Audio/Effects/falling.ogg # звук отправления (при заходе)
+    arrivalSound: /Audio/Effects/falling.ogg # звук прибытия (при выходе)
+
+- type: entity
+  id: InvisPortalArrive
+  name: decoy portal
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Effects/portal.rsi
+        state: portal-blue
+

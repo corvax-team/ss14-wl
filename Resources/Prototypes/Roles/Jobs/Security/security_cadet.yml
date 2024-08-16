@@ -5,7 +5,6 @@
   playTimeTracker: JobSecurityCadet
   #WL-Changes-start
   skillPoints: 16
-  minAge: 20
   subnames:
   - рекрут СБ
   #WL-Changes-end
@@ -16,6 +15,8 @@
       department: Security
       time: 72000 #20 hrs # Corvax-RoleTime
       inverted: true # stop playing intern if you're good at security!
+    - !type:AgeRequirement
+      minAge: 22
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security

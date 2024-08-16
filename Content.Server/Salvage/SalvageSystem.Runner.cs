@@ -9,6 +9,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Localizations;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 
@@ -103,26 +104,10 @@ public sealed partial class SalvageSystem
 
         Announce(args.MapUid, Loc.GetString("salvage-expedition-announcement-countdown-minutes", ("duration", (component.EndTime - _timing.CurTime).Minutes)));
 
-        if (component.DungeonLocation != Vector2.Zero)
-        {
-            //WL-Changes-start
-            var dirLoc = component.DungeonLocation.GetDir() switch
-            {
-                Direction.Invalid => "XXX",
-                Direction.South => "юге",
-                Direction.SouthEast => "юго-востоке",
-                Direction.East => "востоке",
-                Direction.NorthEast => "северо-востоке",
-                Direction.North => "севере",
-                Direction.NorthWest => "северо-западе",
-                Direction.West => "западе",
-                Direction.SouthWest => "юго-западе",
-                _ => "XXX"
-            };
-            //WL-Changes-end
+        var directionLocalization = ContentLocalizationManager.FormatDirection(component.DungeonLocation.GetDir()).ToLower();
 
-            Announce(args.MapUid, Loc.GetString("salvage-expedition-announcement-dungeon", ("direction", /*WL-Changes-start*/ dirLoc /*WL-Changes-end*/)));
-        }
+        if (component.DungeonLocation != Vector2.Zero)
+            Announce(args.MapUid, Loc.GetString("salvage-expedition-announcement-dungeon", ("direction", directionLocalization)));
 
         component.Stage = ExpeditionStage.Running;
         Dirty(args.MapUid, component);

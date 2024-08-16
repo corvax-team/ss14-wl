@@ -166,6 +166,8 @@
   name: Morph into Geras
   description:  Morphs you into a Geras - a miniature version of you which allows you to move fast, at the cost of your inventory.
   components:
+  - type: ConfirmableAction
+    popup: gera-transformation-popup
   - type: InstantAction
     itemIconStyle: BigAction
     useDelay: 10 # prevent spam
@@ -339,3 +341,19 @@
       itemIconStyle: NoItem
       useDelay: 1 # emote spam
       event: !type:ToggleActionEvent
+
+#White-list Actions
+- type: entity
+  id: ActionToggleFall
+  name: standfallcrouch-action-name
+  description: standfallcrouch-action-description
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: _WL/Interface/Actions/StandFallCrawl/IconDownOn.png
+    iconOn: _WL/Interface/Actions/StandFallCrawl/IconDownOff.png
+    useDelay: 1.5
+    event: !type:ToggleStandCrouchActionEvent
+    priority: -10
+#White-list Actions END

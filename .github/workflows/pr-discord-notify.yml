@@ -1,0 +1,33 @@
+name: PR discord notify
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [master]
+  push:
+    branches: [master]
+
+jobs:
+  pr_notify:
+    runs-on: [self-hosted, linux]
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'master'
+    steps:
+    - uses: actions/checkout@v3.6.0
+    - name: Notify discord
+      run: python Tools/notify_discord.py
+      env:
+        PR_NOTIFY_WEBHOOK: ${{ secrets.PR_NOTIFY_WEBHOOK }}
+        PR_BODY: ${{ github.event.pull_request.body }}
+        PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+        PR_URL: ${{ github.event.pull_request.html_url }}
+  push_notify:
+    runs-on: [self-hosted, linux]
+    if: github.event_name == 'push'
+    steps:
+    - uses: actions/checkout@v3.6.0
+    - name: Notify discord
+      run: python3 Tools/notify_discord_push.py
+      env:
+        PR_NOTIFY_WEBHOOK: ${{ secrets.PR_NOTIFY_WEBHOOK }}
+        COMMITS: ${{ toJson(github.event.commits) }}
+        DEVELOPER_GITHUB_TOKEN: ${{ secrets.DEVELOPER_GITHUB_TOKEN }}

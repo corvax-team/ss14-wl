@@ -4,8 +4,10 @@
   description: job-description-librarian
   playTimeTracker: JobLibrarian
   #WL-Changes-start
-  minAge: 22
   skillPoints: 14
+  requirements:
+    - !type:AgeRequirement
+      minAge: 22
   subnames:
   - куратор
   - архивариус

@@ -40,6 +40,9 @@
         whitelist:
           tags:
             - CartridgePistol
+# White-List components
+  - type: Execution
+# White-List components End
 
 - type: entity
   id: MagazinePistolDebug
@@ -60,7 +63,7 @@
   id: BulletDebug
   name: bang, ded bullet
   parent: BaseBullet
-  noSpawn: true
+  categories: [ Debug, HideSpawnMenu ]
   suffix: DEBUG
   components:
   - type: Tag
@@ -103,6 +106,9 @@
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
+# White-List components
+  - type: Execution
+# White-List components End
 
 - type: entity
   name: bang stick 100dmg

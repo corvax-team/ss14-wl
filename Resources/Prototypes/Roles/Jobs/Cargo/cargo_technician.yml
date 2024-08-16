@@ -17,6 +17,9 @@
   - Maintenance
   extendedAccess:
   - Salvage
+  requirements:
+    - !type:AgeRequirement
+      minAge: 18
 
 - type: startingGear
   id: CargoTechGear

@@ -7,7 +7,6 @@
   playTimeTracker: JobChiefMedicalOfficer
   #WL-Changes-start
   skillPoints: 25
-  minAge: 35
   #WL-Changes-end
   requirements:
     - !type:RoleTimeRequirement
@@ -21,6 +20,8 @@
       time: 54000 #15 hrs # Corvax-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
+    - !type:AgeRequirement
+      minAge: 35
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"

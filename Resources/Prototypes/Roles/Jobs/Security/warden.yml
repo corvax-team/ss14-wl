@@ -5,7 +5,6 @@
   playTimeTracker: JobWarden
   #WL-Changes-start
   skillPoints: 22
-  minAge: 26
   subnames:
   - надзиратель
   - сержант охраны
@@ -14,6 +13,8 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 108000 #50 hrs # Corvax-RoleTime
+    - !type:AgeRequirement
+      minAge: 26
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos

@@ -4,6 +4,7 @@ using Content.Server.Salvage.Expeditions;
 using Content.Server.Salvage.Expeditions.Structure;
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
+using Content.Shared.Procedural;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage.Expeditions;
 using Robust.Shared.Audio;
@@ -11,6 +12,7 @@ using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Random;
 
 namespace Content.Server.Salvage;
 
@@ -139,13 +141,17 @@ public sealed partial class SalvageSystem
     {
         component.Missions.Clear();
 
+        //WL-Changes-start
+        var difficulties = _prototypeManager.EnumeratePrototypes<SalvageDifficultyPrototype>();
+        //WL-Changes-end
+
         for (var i = 0; i < MissionLimit; i++)
         {
             var mission = new SalvageMissionParams
             {
                 Index = component.NextIndex,
                 Seed = _random.Next(),
-                Difficulty = "Moderate",
+                /*WL-Changes*/Difficulty = _random.Pick((IReadOnlyList<SalvageDifficultyPrototype>) difficulties).ID,
             };
 
             component.Missions[component.NextIndex++] = mission;

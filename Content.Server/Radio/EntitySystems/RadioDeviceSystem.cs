@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._WL.Radio.Events;
 using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Popups;
@@ -214,8 +215,19 @@ public sealed class RadioDeviceSystem : EntitySystem
             ("speaker", Name(uid)),
             ("originalName", nameEv.Name));
 
+        //WL-Changes-start
+        var typeEv = new TransformSpeakerChatTypeEvent(args.MessageSource, InGameICChatType.Whisper);
+        RaiseLocalEvent(args.MessageSource, typeEv);
+        //WL-Changes-end
+
         // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
-        _chat.TrySendInGameICMessage(uid, args.Message, InGameICChatType.Whisper, ChatTransmitRange.GhostRangeLimit, nameOverride: name, checkRadioPrefix: false);
+        _chat.TrySendInGameICMessage(
+            uid,
+            args.Message,
+            /*WL-Changes-start*/typeEv.ChatType/*WL-Changes-end*/,
+            ChatTransmitRange.GhostRangeLimit,
+            nameOverride: name,
+            checkRadioPrefix: false);
     }
 
     private void OnIntercomEncryptionChannelsChanged(Entity<IntercomComponent> ent, ref EncryptionChannelsChangedEvent args)

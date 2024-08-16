@@ -5,7 +5,6 @@
   playTimeTracker: JobHeadOfPersonnel
   #WL-Changes-start
   skillPoints: 22
-  minAge: 30
   subnames:
   - сервис-администратор
   #WL-Changes-end
@@ -24,6 +23,8 @@
 #      time: 72000 # 20 hrs
     - !type:OverallPlaytimeRequirement
       time: 180000 #50 hrs # Corvax-RoleTime
+    - !type:AgeRequirement
+      minAge: 30
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"

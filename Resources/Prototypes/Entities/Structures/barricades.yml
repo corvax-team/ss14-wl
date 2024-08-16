@@ -25,7 +25,9 @@
         mask:
         - FullTileMask
         layer:
-        - WallLayer
+        #WL-Changes-start
+        - AirlockLayer
+        #WL-Changes-end
   - type: Damageable
     damageModifierSet: Wood
     damageContainer: StructuralInorganic

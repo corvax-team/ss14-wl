@@ -1,8 +1,5 @@
 - type: loadout
   id: StationEngineerLightreflectJacket
-  equipment: StationEngineerLightreflectJacket
-
-- type: startingGear
-  id: StationEngineerLightreflectJacket
   equipment:
     outerClothing: ClothingOuterVestHazard
+    

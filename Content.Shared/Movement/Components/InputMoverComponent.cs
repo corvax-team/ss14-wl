@@ -76,14 +76,7 @@ namespace Content.Shared.Movement.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public bool CanMove = true;
 
-        public bool Sprinting => /*WL-Changes-start*/RunningOnShift
-            ? (HeldMoveButtons & MoveButtons.Walk) == 0x0
-            : (HeldMoveButtons & MoveButtons.Walk) != 0x0/*WL-Changes-end*/;
-
-        //WL-Skills-start
-        [ViewVariables(VVAccess.ReadWrite)]
-        public bool RunningOnShift = false;
-        //WL-Skills-end
+        public bool Sprinting => (HeldMoveButtons & MoveButtons.Walk) == 0x0;
     }
 
     [Serializable, NetSerializable]
@@ -95,6 +88,5 @@ namespace Content.Shared.Movement.Components
         public Angle RelativeRotation;
         public TimeSpan LerpTarget;
         public bool CanMove;
-        public bool RunningOnShift;
     }
 }

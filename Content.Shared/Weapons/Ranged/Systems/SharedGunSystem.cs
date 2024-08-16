@@ -476,7 +476,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
 
         var ev = new MuzzleFlashEvent(GetNetEntity(gun), sprite, worldAngle);
-        CreateEffect(gun, ev, user);
+        CreateEffect(gun, ev, gun);
     }
 
     public void CauseImpulse(EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, EntityUid user, PhysicsComponent userPhysics)
@@ -534,6 +534,13 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         public List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier Sprite, float Distance)> Sprites = new();
     }
+
+//WL-Developers-start
+    public void SetTarget(GunComponent component, EntityUid target)
+    {
+        component.Target = target;
+    }
+//WL-Developers-end
 }
 
 /// <summary>

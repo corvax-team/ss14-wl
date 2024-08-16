@@ -1,0 +1,72 @@
+# Decals Numbers
+# Author: varttist (discord)
+
+- type: decal
+  id: number_0
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_0
+
+- type: decal
+  id: number_1
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_1
+
+- type: decal
+  id: number_2
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_2
+
+- type: decal
+  id: number_3
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_3
+
+- type: decal
+  id: number_4
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_4
+
+- type: decal
+  id: number_5
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_5
+
+- type: decal
+  id: number_6
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_6
+
+- type: decal
+  id: number_7
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_7
+
+- type: decal
+  id: number_8
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_8
+
+- type: decal
+  id: number_9
+  tags: ["number"]
+  sprite:
+    sprite: _WL/Decals/numbers.rsi
+    state: number_9

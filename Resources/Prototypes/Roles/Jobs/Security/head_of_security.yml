@@ -5,7 +5,6 @@
   playTimeTracker: JobHeadOfSecurity
   #WL-Changes-start
   skillPoints: 25
-  minAge: 30
   #WL-Changes-end
   requirements:
     - !type:RoleTimeRequirement
@@ -19,6 +18,8 @@
       time: 108000 #50 hrs # Corvax-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
+    - !type:AgeRequirement
+      minAge: 30
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

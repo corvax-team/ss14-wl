@@ -1,0 +1,27 @@
+- type: entity
+  id: CoolTeleporter
+  parent: HandTeleporter
+  name: админское портальное устройство Н
+  description: Как обычный, но круче. Делает невидимые порталы. Пропишите showmarkers чтобы увидеть их. Если вы не админ верните ближайшему админу.
+  suffix: Стелс, АДМИНАБУЗ, НЕ МАППИТЬ
+  components:
+  - type: HandTeleporter
+    firstPortalPrototype: InvisPortalBase
+    secondPortalPrototype: InvisPortalArrive
+    portalCreationDelay: 0
+    newPortalSound: /Audio/Machines/beep.ogg
+    clearPortalsSound: /Audio/Machines/button.ogg
+
+- type: entity
+  id: ChasmHandTeleporter
+  parent: HandTeleporter
+  name: админское портальное устройство НБ
+  description: Как обычный, но круче. Делает невидимые порталы со звуком падения. Пропишите showmarkers чтобы увидеть их. Если вы не админ верните ближайшему админу.
+  suffix: Бездна, АДМИНАБУЗ, НЕ МАППИТЬ
+  components:
+  - type: HandTeleporter
+    firstPortalPrototype: InvisPortalChasmDepart
+    secondPortalPrototype: InvisPortalArrive
+    portalCreationDelay: 0
+    newPortalSound: /Audio/Machines/beep.ogg
+    clearPortalsSound: /Audio/Machines/button.ogg

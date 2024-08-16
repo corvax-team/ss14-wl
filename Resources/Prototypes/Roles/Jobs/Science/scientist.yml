@@ -5,7 +5,6 @@
   playTimeTracker: JobScientist
   #WL-Changes-start
   skillPoints: 20
-  minAge: 25
   subnames:
   - робототехник
   - ксеноархеолог
@@ -17,6 +16,8 @@
     - !type:DepartmentTimeRequirement
       department: Science
       time: 18000 #5 hrs # Corvax-RoleTime
+    - !type:AgeRequirement
+      minAge: 25
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd
