@@ -39,6 +39,7 @@ namespace Content.Client.Info
             AddInfoButton("server-info-website-button", CCVars.InfoLinksWebsite);
             AddInfoButton("server-info-wiki-button", CCVars.InfoLinksWiki);
             AddInfoButton("server-info-forum-button", CCVars.InfoLinksForum);
+            AddInfoButton("server-info-telegram-button", CCVars.InfoLinksTelegram);
 
             //WL-Changes-start
             _playerSessionInfoUIController = UserInterfaceManager.GetUIController<PlayerSessionInfoUIController>();

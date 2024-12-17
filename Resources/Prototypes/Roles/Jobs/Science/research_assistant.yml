@@ -14,6 +14,11 @@
       inverted: true # stop playing intern if you're good at science!
     - !type:AgeRequirement
       minAge: 20
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 36000 #10 hrs # Corvax-RoleTime
+      inverted: true # stop playing intern if you're good at science!
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science
