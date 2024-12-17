@@ -408,6 +408,8 @@ namespace Content.Server.Ghost
 
         private void WarpTo(EntityUid uid, EntityUid target)
         {
+            _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(uid)} ghost warped to {ToPrettyString(target)}");
+
             if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target))
             {
                 _followerSystem.StartFollowingEntity(uid, target);

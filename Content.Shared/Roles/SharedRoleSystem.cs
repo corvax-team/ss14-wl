@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
-using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
 using Content.Shared.Roles.Jobs;
@@ -29,6 +28,8 @@ public abstract class SharedRoleSystem : EntitySystem
     public override void Initialize()
     {
         Subs.CVar(_cfg, CCVars.GameRoleTimerOverride, SetRequirementOverride, true);
+
+        SubscribeLocalEvent<MindRoleComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
     private void SetRequirementOverride(string value)
@@ -210,7 +211,6 @@ public abstract class SharedRoleSystem : EntitySystem
             }
 
             antagonist |= roleComp.Antag | roleComp.ExclusiveAntag;
-            _entityManager.DeleteEntity(role);
             delete.Add(role);
             found = true;
         }
@@ -220,7 +220,7 @@ public abstract class SharedRoleSystem : EntitySystem
 
         foreach (var role in delete)
         {
-            mind.Comp.MindRoles.Remove(role);
+            _entityManager.DeleteEntity(role);
         }
 
         if (mind.Comp.OwnedEntity != null)
@@ -234,6 +234,17 @@ public abstract class SharedRoleSystem : EntitySystem
             $"All roles of type '{typeof(T).Name}' removed from mind of {ToPrettyString(mind.Comp.OwnedEntity)}");
 
         return true;
+    }
+
+    // Removing the mind role's reference on component shutdown
+    // to make sure the reference gets removed even if the mind role entity was deleted by outside code
+    private void OnComponentShutdown(Entity<MindRoleComponent> ent, ref ComponentShutdown args)
+    {
+        //TODO: Just ensure that the tests don't spawn unassociated mind role entities
+        if (ent.Comp.Mind.Comp is null)
+            return;
+
+        ent.Comp.Mind.Comp.MindRoles.Remove(ent.Owner);
     }
 
     /// <summary>
