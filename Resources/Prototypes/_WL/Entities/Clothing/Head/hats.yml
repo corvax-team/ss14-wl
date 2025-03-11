@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretHoP
-  name: берет главы персонала
-  description: Синий берет. Пахнет бюрократией.
+  name: beret head of personnel
+  description: Blue beret. Smells like bureaucracy.
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Hats/beret_hop.rsi
@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCaptain
-  name: берет капитана
-  description: Синий берет с золотым значком NT. Заставляет окружающих уважать вас, но не вызывает желания работать. Слава NT!
+  name: beret сaptain
+  description: Blue beret with gold NT badge. Makes people respect you, but doesn't make you want to work. Glory to NT!
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Hats/beret_captain.rsi

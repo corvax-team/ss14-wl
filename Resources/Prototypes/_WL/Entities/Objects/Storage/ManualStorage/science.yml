@@ -5,7 +5,6 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Storage/ManualStorage/Science/small.rsi
-    state: icon
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Science/small.rsi
 
@@ -16,7 +15,6 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Storage/ManualStorage/Science/box.rsi
-    state: icon
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Science/box.rsi
 
@@ -27,6 +25,5 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Storage/ManualStorage/Science/big.rsi
-    state: icon
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Science/big.rsi

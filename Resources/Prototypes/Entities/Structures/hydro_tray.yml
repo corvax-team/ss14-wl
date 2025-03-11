@@ -20,7 +20,7 @@
   - type: Pullable
   - type: Sprite
     layers:
-      - sprite: Structures/Hydroponics/containers.rsi
+      - sprite: _WL/Structures/Hydroponics/containers.rsi #WL_Workers_hydrotray
         state: hydrotray3
       - sprite: Structures/Hydroponics/overlays.rsi
         state: lowhealth3

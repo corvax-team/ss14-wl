@@ -1,1 +1,1 @@
-lathe-category-storage = хранилища
+lathe-category-storage = Хранилища

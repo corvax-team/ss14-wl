@@ -14,11 +14,19 @@
         "name": "icon"
       },
       {
-        "name": "inhand",
+        "name": "inhand-right",
         "directions": 4
       },
       {
-        "name": "inhand-open",
+        "name": "inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "inhand-right-open",
+        "directions": 4
+      },
+      {
+        "name": "inhand-left-open",
         "directions": 4
       }
     ]

@@ -5,10 +5,9 @@
   description: A small storage that fits in your hand. Not a backpack or a box
   components:
   - type: Sprite
-    sprite: _WL/Objects/Storage/ManualStorage/default/small.rsi
-    state: icon
+    sprite: _WL/Objects/Storage/ManualStorage/Default/small.rsi
   - type: Item
-    sprite: _WL/Objects/Storage/ManualStorage/default/small.rsi
+    sprite: _WL/Objects/Storage/ManualStorage/Default/small.rsi
     size: Large
     shape:
     - 0,0,2,2
@@ -24,10 +23,9 @@
   description: A manual storage that can only be carried in two hands, although it is possible in one, but the instructions and the weight say the opposite
   components:
   - type: Sprite
-    sprite: _WL/Objects/Storage/ManualStorage/default/box.rsi
-    state: icon
+    sprite: _WL/Objects/Storage/ManualStorage/Default/box.rsi
   - type: Item
-    sprite: _WL/Objects/Storage/ManualStorage/default/box.rsi
+    sprite: _WL/Objects/Storage/ManualStorage/Default/box.rsi
     size: Ginormous
     shape:
     - 0,0,2,2
@@ -44,10 +42,9 @@
   description: Manual storage, which looks like a box, but made of steel! Why not plastic ones?! They're also heavy!
   components:
   - type: Sprite
-    sprite: _WL/Objects/Storage/ManualStorage/default/big.rsi
-    state: icon
+    sprite: _WL/Objects/Storage/ManualStorage/Default/big.rsi
   - type: Item
-    sprite: _WL/Objects/Storage/ManualStorage/default/big.rsi
+    sprite: _WL/Objects/Storage/ManualStorage/Default/big.rsi
     size: Ginormous
     shape:
     - 0,0,2,2

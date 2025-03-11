@@ -51,9 +51,9 @@ namespace Content.IntegrationTests.Tests
             "CorvaxOutpost",
             "CorvaxAstra",
             "CorvaxGelta",
+			"CorvaxCute",
 			"CorvaxIshimura",
 			"CorvaxPaper",
-			"CorvaxCute",
             "CorvaxPilgrim",
             "CorvaxSplit",
             "CorvaxTerra",
@@ -64,9 +64,9 @@ namespace Content.IntegrationTests.Tests
             "CorvaxAwesome",
             // Corvax-End
             // WL_Workers_Mappull
-            "CorvaxAlpha",
-            "NanoStation",
-			"CorvaxMaus",
+            "CorvaxWLAlpha",
+            "CorvaxWLNanoStation",
+			"CorvaxWLMaus",
             // WL_Workers_Mappull-END
             "Dev",
             "TestTeg",
@@ -84,12 +84,13 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Train",
             "Oasis",
-            "Cog",
             "Gate",
             "Amber",
             "Loop",
             "Plasma",
-            "Elkridge"
+            "Elkridge",
+            "Convex",
+            "Relic"
         };
 
         /// <summary>
