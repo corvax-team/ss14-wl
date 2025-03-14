@@ -28,6 +28,12 @@
       {
         "name": "inhand-left-open",
         "directions": 4
+      },
+      {
+        "name": "locked"
+      },
+      {
+        "name": "unlocked"
       }
     ]
   }

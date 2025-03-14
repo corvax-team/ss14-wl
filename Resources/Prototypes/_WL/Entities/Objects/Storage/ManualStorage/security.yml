@@ -5,9 +5,18 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Storage/ManualStorage/Security/small.rsi
-    state: icon
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+        shader: unshaded
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Security/small.rsi
+  - type: AccessReader
+    access: [["Security"]]
+  - type: Lock
+  - type: LockVisuals
 
 - type: entity
   id: ManualStorageSecurityBox
@@ -16,9 +25,18 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Storage/ManualStorage/Security/box.rsi
-    state: icon
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+        shader: unshaded
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Security/box.rsi
+  - type: AccessReader
+    access: [["Security"]]
+  - type: Lock
+  - type: LockVisuals
 
 - type: entity
   id: ManualStorageSecurityBig
@@ -27,6 +45,15 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Storage/ManualStorage/Security/big.rsi
-    state: icon
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+        shader: unshaded
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Security/big.rsi
+  - type: AccessReader
+    access: [["Security"]]
+  - type: Lock
+  - type: LockVisuals

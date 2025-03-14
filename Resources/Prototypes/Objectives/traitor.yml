@@ -75,7 +75,7 @@
 #    - type: Objective
 #      difficulty: 5 # insane, default config max difficulty
 #      icon:
-#        sprite: Objects/Tools/emag.rsi
+#        sprite: _WL/Objects/Tools/emag.rsi #WL Lyvsi PDA resprite
 #        state: icon
 #    - type: HijackShuttleCondition
 
