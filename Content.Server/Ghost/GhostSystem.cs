@@ -131,7 +131,8 @@ namespace Content.Server.Ghost
 
             Subs.CVar(_confMan, WLCVars.GhostReturnToLobbyButtonCooldown,
                 (newValue) => GhostReturnToLobbyButtonCooldown = TimeSpan.FromSeconds(newValue));
-            //WL-ReturnToLobby-end        }
+            //WL-ReturnToLobby-end
+        }
 
         private void OnGhostVis(Entity<GhostComponent> ent, ref GetVisMaskEvent args)
         {
