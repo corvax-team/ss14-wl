@@ -9,6 +9,6 @@ namespace Content.Shared.Eye
         None   = 0,
         Normal = 1 << 0,
         Ghost  = 1 << 1,
-        Predictive = 1 << 2
+        Subfloor = 1 << 2,
     }
 }

@@ -3,12 +3,13 @@ using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Client.Administration.Managers;
-using Content.Shared.Chat.TypingIndicator;
 using Content.Shared.Verbs;
+using Content.Shared.Chat.TypingIndicator;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.ContentPack;
+using Robust.Shared.Exceptions;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using SixLabors.ImageSharp;
@@ -24,6 +25,7 @@ public sealed class ContentSpriteSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IResourceManager _resManager = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
     //WL-Changes-start
     [Dependency] private readonly ILogManager _logMan = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
@@ -53,12 +55,12 @@ public sealed class ContentSpriteSystem : EntitySystem
     {
         base.Shutdown();
 
-        foreach (var queued in _control._queuedTextures)
+        foreach (var queued in _control.QueuedTextures)
         {
             queued.Tcs.SetCanceled();
         }
 
-        _control._queuedTextures.Clear();
+        _control.QueuedTextures.Clear();
 
         _ui.RootControl.RemoveChild(_control);
     }
@@ -95,7 +97,7 @@ public sealed class ContentSpriteSystem : EntitySystem
         Action<ContentSpriteControl<Rgba32>.QueueEntry, Image<Rgba32>> action,
         CancellationToken cancelToken = default)
     {
-        const string speechPath = "/Textures/Effects/speech.rsi"; //–Ø –µ–±–∞–ª –≤—ã—á–∏—Å–ª—è—Ç—å –ï–ë–£–ß–ò–ï TypingIndicator-—ã –°–£–ö–ê–ê–ê–ê. –ª–µ–≥—á–µ —Ç–∞–∫
+        const string speechPath = "/Textures/Effects/speech.rsi"; //ﬂ Â·‡Î ‚˚˜ËÒÎˇÚ¸ ≈¡”◊»≈ TypingIndicator-˚ —” ¿¿¿¿. ÎÂ„˜Â Ú‡Í
 
         if (!_timing.IsFirstTimePredicted)
             return;
@@ -135,13 +137,13 @@ public sealed class ContentSpriteSystem : EntitySystem
         var texture = _clyde.CreateRenderTarget(new Vector2i(size.X, size.Y), new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "export");
         var tcs = new TaskCompletionSource(cancelToken);
 
-        _control._queuedTextures.Enqueue((texture, direction, entity, tcs, action));
+        _control.QueuedTextures.Enqueue((texture, direction, entity, includeId, tcs));
 
         await tcs.Task;
     }
 
     /// <summary>
-    /// –°–æ—Ö—Ä–∞–Ω—è–µ—Ç —Å–ø—Ä–∞–π—Ç –≤ –¥–∏—Ä–µ–∫—Ç–æ—Ä–∏—é /Exports
+    /// —Óı‡ÌˇÂÚ ÒÔ‡ÈÚ ‚ ‰ËÂÍÚÓË˛ /Exports
     /// </summary>
     /// <param name="entity"></param>
     /// <param name="direction"></param>
@@ -192,13 +194,21 @@ public sealed class ContentSpriteSystem : EntitySystem
         if (!_adminManager.IsAdmin())
             return;
 
+        var target = ev.Target;
         Verb verb = new()
         {
             Text = Loc.GetString("export-entity-verb-get-data-text"),
             Category = VerbCategory.Debug,
-            Act = () =>
+            Act = async () =>
             {
-                Export(ev.Target);
+                try
+                {
+                    await Export(target);
+                }
+                catch (Exception e)
+                {
+                    _runtimeLog.LogException(e, $"{nameof(ContentSpriteSystem)}.{nameof(Export)}");
+                }
             },
         };
 
@@ -214,6 +224,12 @@ public sealed class ContentSpriteSystem : EntitySystem
         [Dependency] private readonly IEntityManager _entManager = default!;
         [Dependency] private readonly ILogManager _logMan = default!;
 
+        internal Queue<(
+            IRenderTexture Texture,
+            Direction Direction,
+            EntityUid Entity,
+            bool IncludeId,
+            TaskCompletionSource Tcs)> QueuedTextures = new();
         private readonly AppearanceSystem _appearance;
 
         internal readonly Queue<QueueEntry> _queuedTextures;
@@ -236,7 +252,7 @@ public sealed class ContentSpriteSystem : EntitySystem
         {
             base.Draw(handle);
 
-            while (_queuedTextures.TryDequeue(out var queued))
+            while (QueuedTextures.TryDequeue(out var queued))
             {
                 if (queued.Tcs.Task.IsCanceled)
                     continue;

@@ -111,6 +111,10 @@
     requirePower: true
     highVoltageNode: input
     mediumVoltageNode: output
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
 
 # Compact Wall Substation Base
 - type: entity
@@ -217,9 +221,14 @@
     totalIntensity: 100
   - type: StationInfiniteBatteryTarget
   - type: WallMount
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
   - type: Tag
     tags:
       - PulseDemonAbsorbable
+
 
 # Substations in use
 

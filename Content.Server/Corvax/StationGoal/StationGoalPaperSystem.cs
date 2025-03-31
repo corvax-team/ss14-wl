@@ -3,7 +3,6 @@ using Content.Server.GameTicking.Events;
 using Content.Server.Station.Systems;
 using Content.Shared._WL.StationGoal;
 using Content.Shared.Fax.Components;
-using Content.Shared.Paper;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Robust.Server.Player;
@@ -33,25 +32,25 @@ namespace Content.Server.Corvax.StationGoal
 
         private static readonly string BaseNTLogo =
             """
-            [color=#1b487e]███░███░░░░██░░░░[/color]
-            [color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Бланк документа[/head]
-            [color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-            [color=#1b487e]░░░░██░░██░██░██░[/color]    [bold]Station { $station } ЦК-КОМ[/bold]
-            [color=#1b487e]░░░░██░░░████░███[/color]
-            ═════════════════════════════════════════
-            ПРИКАЗ О НАЗНАЧЕНИИ ЦЕЛИ
-            ═════════════════════════════════════════
-            Дата: { $date }
+            [color=#1b487e]-----------------[/color]
+            [color=#1b487e]-----------------[/color]      [head=3]����� ���������[/head]
+            [color=#1b487e]-----------------[/color]               [head=3]NanoTrasen[/head]
+            [color=#1b487e]-----------------[/color]    [bold]Station { $station } ��-���[/bold]
+            [color=#1b487e]-----------------[/color]
+            =========================================
+            ������ � ���������� ����
+            =========================================
+            ����: { $date }
 
-            Уважаемое командование станции, задачами Вашей смены являются:
+            ��������� ������������ �������, �������� ����� ����� ��������:
 
             """;
 
         private static readonly string BaseEndOfGoal =
             """
 
-            ═════════════════════════════════════════
-            [italic]Место для печатей[/italic]
+            =========================================
+            [italic]����� ��� �������[/italic]
             """;
 
         public override void Initialize()

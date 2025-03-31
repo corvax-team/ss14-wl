@@ -15,6 +15,8 @@ namespace Content.Shared.Humanoid.Markings
         Undershirt, // WL-Underwear
         Chest,
         Underwear, // WL-Underwear
+        UndergarmentTop,
+        UndergarmentBottom,
         Arms,
         Socks, // WL-Underwear
         Legs,
@@ -37,6 +39,8 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
                 HumanoidVisualLayers.Groin => MarkingCategories.Underwear, // WL-Underwear
+                HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
+                HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
                 HumanoidVisualLayers.RArm => MarkingCategories.Arms,
                 HumanoidVisualLayers.LArm => MarkingCategories.Arms,
                 HumanoidVisualLayers.RHand => MarkingCategories.Arms,

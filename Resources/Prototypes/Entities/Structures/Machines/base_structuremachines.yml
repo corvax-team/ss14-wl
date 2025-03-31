@@ -3,6 +3,7 @@
   parent: BaseStructure
   id: BaseMachine
   components:
+  - type: Animateable
   - type: Tag
     tags:
       - Machine
@@ -60,6 +61,7 @@
   abstract: true
   id: ConstructibleMachine
   components:
+  - type: Animateable
   - type: Machine
   - type: ContainerContainer
     containers:

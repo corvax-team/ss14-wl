@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Mind;
 using Content.Shared.Store;
 using Content.Shared._WL.Store;
 using Content.Shared.Store.Components;
@@ -118,9 +119,12 @@ public sealed partial class StoreSystem
             var args = new ListingConditionArgs(buyer, storeEntity, listing, EntityManager);
             var conditionsMet = true;
 
-            // Р•СЃР»Рё Conditions РЅРµ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ, СЃС‡РёС‚Р°РµРј С‡С‚Рѕ РІСЃРµ СѓСЃР»РѕРІРёСЏ РІС‹РїРѕР»РЅСЏСЋС‚СЃСЏ (СЌС‚Рѕ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРё СЃ РІР°С€РµР№ Р»РѕРіРёРєРѕР№)
+            // Если Conditions не инициализирован, считаем что все условия выполняются (это должно быть в соответствии с вашей логикой)
             if (listing.Conditions != null)
             {
+                var args = new ListingConditionArgs(GetBuyerMind(buyer), storeEntity, listing, EntityManager);
+                var conditionsMet = true;
+
                 foreach (var condition in listing.Conditions)
                 {
                     if (!condition.Condition(args))
@@ -133,10 +137,23 @@ public sealed partial class StoreSystem
 
             if (conditionsMet)
             {
-                // Р’РѕР·РІСЂР°С‰Р°РµРј listing, РµСЃР»Рё РІСЃРµ СѓСЃР»РѕРІРёСЏ РІС‹РїРѕР»РЅРёР»РёСЃСЊ
+                // Возвращаем listing, если все условия выполнились
                 yield return listing;
             }
         }
+    }
+
+    /// <summary>
+    /// Returns the entity's mind entity, if it has one, to be used for listing conditions.
+    /// If it doesn't have one, or is a mind entity already, it returns itself.
+    /// </summary>
+    /// <param name="buyer">The buying entity.</param>
+    public EntityUid GetBuyerMind(EntityUid buyer)
+    {
+        if (!HasComp<MindComponent>(buyer) && _mind.TryGetMind(buyer, out var buyerMind, out var _))
+            return buyerMind;
+
+        return buyer;
     }
 
     /// <summary>
