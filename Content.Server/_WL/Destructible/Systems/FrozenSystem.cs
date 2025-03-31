@@ -1,6 +1,7 @@
 using Content.Server._WL.Destructible.Components;
 using Content.Server.Humanoid;
 using Content.Shared.Cloning;
+using Content.Shared.Cloning.Events;
 using Content.Shared.Damage;
 using Content.Shared.HealthExaminable;
 using Content.Shared.NameModifier.EntitySystems;
@@ -38,12 +39,12 @@ namespace Content.Server._WL.Destructible.Systems
 
         private void OnClone(EntityUid ent, FrozenComponent comp, ref CloningEvent args)
         {
-            var target = args.Target;
+            var target = args.CloneUid;
 
             _metaData.SetEntityName(target, comp.BaseName, raiseEvents: true);
             _appearance.SetSkinColor(target, comp.BaseSkinColor);
 
-            args.NameHandled = true;
+            //args.NameHandled = true;
         }
 
         private void OnHealthExamine(EntityUid ent, FrozenComponent comp, HealthBeingExaminedEvent args)
