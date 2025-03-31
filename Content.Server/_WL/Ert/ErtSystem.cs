@@ -10,7 +10,8 @@ using Content.Shared._WL.Math.Extensions;
 using Content.Shared._WL.Random.Extensions;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
-using Robust.Server.Maps;
+using Robust.Shared.EntitySerialization;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -52,15 +53,19 @@ namespace Content.Server._WL.Ert
 
             var path = _config.ShuttlePath(ert);
 
-            if (_mapLoader.TryLoad(map, path.CanonPath, out roots, options))
+            //if (_mapLoader.TryLoadMapWithId(map, path.CanonPath, out roots, options))
+            if (_mapLoader.TryLoadGrid(map, path, out var grid))
             {
 #if !FULL_RELEASE
-                if (options != null)
-                    Logger.Debug(options.Offset.ToString());
+                //if (options != null)
+                //    Logger.Debug(options.Offset.ToString());
 #endif
 
                 if (!_spawned.TryAdd(ert, 1))
                     _spawned[ert] += 1;
+
+                if (roots == null)
+                    return false;
 
                 if (roots.Count >= 1)
                 {
@@ -158,8 +163,9 @@ namespace Content.Server._WL.Ert
 
             var options = new MapLoadOptions()
             {
-                DoMapInit = true,
-                LoadMap = false,
+                
+                //DoMapInit = true,
+                //LoadMap = false,
                 Rotation = _random.NextAngle(),
                 Offset = result_coord
             };
