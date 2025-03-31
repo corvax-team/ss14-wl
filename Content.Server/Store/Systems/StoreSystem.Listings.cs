@@ -119,15 +119,15 @@ public sealed partial class StoreSystem
             var args = new ListingConditionArgs(buyer, storeEntity, listing, EntityManager);
             var conditionsMet = true;
 
-            // Если Conditions не инициализирован, считаем что все условия выполняются (это должно быть в соответствии с вашей логикой)
+            // Р•СЃР»Рё Conditions РЅРµ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ, СЃС‡РёС‚Р°РµРј С‡С‚Рѕ РІСЃРµ СѓСЃР»РѕРІРёСЏ РІС‹РїРѕР»РЅСЏСЋС‚СЃСЏ (СЌС‚Рѕ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРё СЃ РІР°С€РµР№ Р»РѕРіРёРєРѕР№)
             if (listing.Conditions != null)
             {
-                var args = new ListingConditionArgs(GetBuyerMind(buyer), storeEntity, listing, EntityManager);
-                var conditionsMet = true;
+                var args1 = new ListingConditionArgs(GetBuyerMind(buyer), storeEntity, listing, EntityManager);
+                //var conditionsMet = true;
 
                 foreach (var condition in listing.Conditions)
                 {
-                    if (!condition.Condition(args))
+                    if (!condition.Condition(args1))
                     {
                         conditionsMet = false;
                         break;
@@ -137,7 +137,7 @@ public sealed partial class StoreSystem
 
             if (conditionsMet)
             {
-                // Возвращаем listing, если все условия выполнились
+                // Р’РѕР·РІСЂР°С‰Р°РµРј listing, РµСЃР»Рё РІСЃРµ СѓСЃР»РѕРІРёСЏ РІС‹РїРѕР»РЅРёР»РёСЃСЊ
                 yield return listing;
             }
         }

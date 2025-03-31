@@ -11,20 +11,21 @@ namespace Content.Server._WL.PulseDemon.TamperActions
     {
         public override bool Action(ElectromagneticTamperActionArgs args)
         {
-            var _entityMan = args.EntityManager;
-            var _emag = _entityMan.System<EmagSystem>();
-            var _wires = _entityMan.System<WiresSystem>();
+            //var _entityMan = args.EntityManager;
+            //var _emag = _entityMan.System<EmagSystem>();
+            //var _wires = _entityMan.System<WiresSystem>();
 
-            if (!_entityMan.TryGetComponent<SiliconLawProviderComponent>(args.TargetUid, out _) ||
-                !_entityMan.TryGetComponent<WiresPanelComponent>(args.TargetUid, out var wiresPanelComp))
-                return false;
+            //if (!_entityMan.TryGetComponent<SiliconLawProviderComponent>(args.TargetUid, out _) ||
+            //    !_entityMan.TryGetComponent<WiresPanelComponent>(args.TargetUid, out var wiresPanelComp))
+            //    return false;
 
-            _entityMan.RemoveComponent<LockedWiresPanelComponent>(args.TargetUid);
+            //_entityMan.RemoveComponent<LockedWiresPanelComponent>(args.TargetUid);
 
-            _wires.TogglePanel(args.TargetUid, wiresPanelComp, true);
-            var result = _emag.DoEmagEffect(args.DemonUid, args.TargetUid);
-            _wires.TogglePanel(args.TargetUid, wiresPanelComp, false);
-            return result;
+            //_wires.TogglePanel(args.TargetUid, wiresPanelComp, true);
+            //var result = _emag.DoEmagEffect(args.DemonUid, args.TargetUid);
+            //_wires.TogglePanel(args.TargetUid, wiresPanelComp, false);
+            //return result;
+            return false;
         }
     }
 }

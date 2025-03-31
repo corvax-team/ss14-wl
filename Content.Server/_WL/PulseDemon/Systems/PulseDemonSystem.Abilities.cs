@@ -314,7 +314,7 @@ public sealed partial class PulseDemonSystem
         }
 
         EnsureComp<HijackedByPulseDemonComponent>(args.Target.Value);
-        _emag.DoEmagEffect(uid, args.Target.Value);
+        //_emag.DoEmagEffect(uid, args.Target.Value);
 
         accessComp.AccessKeys.Clear();
         accessComp.AccessLists.Clear();

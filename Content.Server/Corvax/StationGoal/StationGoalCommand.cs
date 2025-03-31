@@ -39,7 +39,7 @@ namespace Content.Server.Corvax.StationGoal
             }
 
             var stationGoalPaper = _entManager.System<StationGoalPaperSystem>();
-            if (!stationGoalPaper.SendStationGoal(euid.Value, protoId))
+            if (!stationGoalPaper.SendStationGoal(protoId))
             {
                 shell.WriteError("Station goal was not sent");
                 return;

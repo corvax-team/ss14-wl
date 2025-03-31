@@ -384,7 +384,7 @@ namespace Content.Server.GameTicking
 
             var ghost = _ghost.SpawnGhost(mind.Value);
             if (makeObserver)
-                _roles.MindAddRole(mind.Value, "MindRoleObserver");
+                _role.MindAddRole(mind.Value, "MindRoleObserver");
 
             _adminLogger.Add(LogType.LateJoin,
                 LogImpact.Low,

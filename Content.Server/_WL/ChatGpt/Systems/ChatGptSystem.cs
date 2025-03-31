@@ -190,7 +190,8 @@ namespace Content.Server._WL.ChatGpt.Systems
                 {
                     var pair = arguments.ToList().FirstOrDefault(a => a.Item1.Equals(id));
 
-                    @string = pair.Item2.ToString();
+                    if (pair.Item2 != null)
+                        @string = pair.Item2.ToString();
                 }
                 else
                 {
