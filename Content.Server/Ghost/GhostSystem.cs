@@ -196,7 +196,8 @@ namespace Content.Server.Ghost
         {
             _cachedSessionsDeathTime.Remove(args.Player.UserId);
         }
-        //WL-ReturnToLobby-end        private void OnGhostHearingAction(EntityUid uid, GhostComponent component, ToggleGhostHearingActionEvent args)
+        //WL-ReturnToLobby-end
+        private void OnGhostHearingAction(EntityUid uid, GhostComponent component, ToggleGhostHearingActionEvent args)
         {
             args.Handled = true;
 
