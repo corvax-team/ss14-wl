@@ -29,29 +29,32 @@ namespace Content.Client._WL.Poly
 
             try
             {
-                await _contentSpriteSystem.Export(ent, Direction.South, (queue, image) =>
-                {
-                    try
-                    {
-                        //TODO: проверить захватывает ли GC потоки, кхм
-                        using var stream = new MemoryStream(1024 * 14);
+                _sawmill.Error($"Да ну этот щиткод, я не буду это править!");
 
-                        image.SaveAsPng(stream);
+                //await _contentSpriteSystem.Export(ent, Direction.South, (queue, image) =>
+                //await _contentSpriteSystem.Export(ent, Direction.South, true) =>
+                //{
+                //    try
+                //    {
+                //        //TODO: проверить захватывает ли GC потоки, кхм
+                //        using var stream = new MemoryStream(1024 * 14);
 
-                        stream.Position = 0;
-                        var bytes = stream.GetBuffer();
+                //        image.SaveAsPng(stream);
 
-                        var ev = new PolyClientResponseEvent(bytes, args.QueryId);
+                //        stream.Position = 0;
+                //        var bytes = stream.GetBuffer();
 
-                        _sawmill.Info($"Запрос от Поли успешно обработан! Сущность: {ToPrettyString(args.Entity)}");
+                //        var ev = new PolyClientResponseEvent(bytes, args.QueryId);
 
-                        RaiseNetworkEvent(ev);
-                    }
-                    catch (Exception ex)
-                    {
-                        _sawmill.Error($"Неизвестная ошибка при рендере фотографии для Поли! {ex.Message}");
-                    }
-                });
+                //        _sawmill.Info($"Запрос от Поли успешно обработан! Сущность: {ToPrettyString(args.Entity)}");
+
+                //        RaiseNetworkEvent(ev);
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        _sawmill.Error($"Неизвестная ошибка при рендере фотографии для Поли! {ex.Message}");
+                //    }
+                //};
             }
             catch (Exception exc)
             {
