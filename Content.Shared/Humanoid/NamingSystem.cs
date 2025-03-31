@@ -29,17 +29,27 @@ namespace Content.Shared.Humanoid
                 Log.Warning($"Unable to find species {species} for name, falling back to Human");
             }
 
-            if (speciesProto.Naming.TryGetValue(gender, out var list))
-                return GetName(list);
-            else
-                return GetName(speciesProto.Naming[Gender.Male]);
+            switch (speciesProto.Naming)
+            {
+                case SpeciesNaming.First:
+                    return Loc.GetString("namepreset-first",
+                        ("first", GetFirstName(speciesProto, gender)));
+                case SpeciesNaming.TheFirstofLast:
+                    return Loc.GetString("namepreset-thefirstoflast",
+                        ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto, gender))); // Corvax-LastnameGender
+                case SpeciesNaming.FirstDashFirst:
+                    return Loc.GetString("namepreset-firstdashfirst",
+                        ("first1", GetFirstName(speciesProto, gender)), ("first2", GetFirstName(speciesProto, gender)));
+                case SpeciesNaming.FirstLast:
+                default:
+                    return Loc.GetString("namepreset-firstlast",
+                        ("first", GetFirstName(speciesProto, gender)), ("last", GetLastName(speciesProto, gender))); // Corvax-LastnameGender
+            }
         }
 
-        public string GetName(List<string> values)
+        public string GetFirstName(SpeciesPrototype speciesProto, Gender? gender = null)
         {
-            var content = new StringBuilder();
-
-            foreach (var value in values)
+            switch (gender)
             {
                 case Gender.Male:
                     return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.MaleFirstNames));
@@ -51,6 +61,7 @@ namespace Content.Shared.Humanoid
                     else
                         return _random.Pick(_prototypeManager.Index<LocalizedDatasetPrototype>(speciesProto.FemaleFirstNames));
             }
+        }
 
         // Corvax-LastnameGender-Start: Added custom gender split logic
         public string GetLastName(SpeciesPrototype speciesProto, Gender? gender = null)

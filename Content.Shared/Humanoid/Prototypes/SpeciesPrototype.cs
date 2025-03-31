@@ -111,11 +111,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     //// Corvax-LastnameGender-End
 
     [DataField]
-    public Dictionary<Gender, List<string>> Naming { get; private set; } = new()
-    {
-        { Gender.Male, new() { "names_first_male", " ", "names_last_male" } },
-        { Gender.Female, new() { "names_first_female", " ", "names_last_female" } }
-    };
+    public SpeciesNaming Naming { get; private set; } = SpeciesNaming.FirstLast;
     //WL-Changes-end
 
     [DataField]
@@ -178,4 +174,10 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField]
     public string GuideBookIcon = "SpeciesInfoDefault";
 }
-
+public enum SpeciesNaming : byte
+{
+    First,
+    FirstLast,
+    FirstDashFirst,
+    TheFirstofLast,
+}
