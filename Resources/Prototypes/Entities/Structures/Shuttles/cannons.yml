@@ -5,14 +5,10 @@
   name: shittle gun
   parent: BaseMob
   abstract: true
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Appearance
-  - type: Clickable
   - type: InteractionOutline
   - type: Anchorable
-  - type: Pullable
   - type: Rotatable
 # WL-Changes-start
   - type: CombatMode
@@ -42,22 +38,9 @@
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0.45"
-        density: 450
-        mask:
-        - MachineMask
-        layer:
-        - MachineLayer
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Electronic
-  - type: Transform
-    anchored: true
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
@@ -83,7 +66,7 @@
   parent: [ ShuttleGunBase, ConstructibleMachine]
   name: LSE-400c "Svalinn machine gun"
   description: Basic stationary laser unit. Effective against live targets and electronics. Uses regular power cells to fire, and has an extremely high rate of fire.
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   #WL-Changes-start
   - type: MouseRotator
@@ -141,7 +124,7 @@
   parent: [ ShuttleGunBase, ConstructibleMachine]
   name: LSE-1200c "Perforator"
   description: Advanced stationary laser unit. Annihilates electronics and is extremely dangerous to health! Uses the power cage to fire.
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shuttles/laser.rsi
@@ -197,7 +180,7 @@
   parent: [ShuttleGunBase, ConstructibleMachine]
   name: EXP-320g "Friendship"
   description: A small stationary grenade launcher that holds 2 grenades.
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   #WL-Changes-start
   - type: MouseRotator
@@ -255,7 +238,7 @@
   parent: [ShuttleGunBase, ConstructibleMachine]
   name: EXP-2100g "Duster"
   description: A powerful stationary grenade launcher. A cartridge is required for use.
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   #WL-Changes-start
   - type: MouseRotator
@@ -357,7 +340,7 @@
   parent: [ ShuttleGunBase, ConstructibleMachine]
   name: PTK-800 "Matter Dematerializer"
   description: Salvage stationary mining turret. Gradually accumulates charges on its own, extremely effective for asteroid excavation.
-  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
   #WL-Changes-start
   - type: MouseRotator

@@ -15,6 +15,8 @@
     Head: MobSlimeHead
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobSlimeTorso
     HeadTop: MobHumanoidAnyMarking # Corvax Sponsors
     Tail: MobHumanoidAnyMarking # Corvax Sponsors
@@ -55,12 +57,6 @@
     Arms:
       points: 4
       required: false
-    Underwear: # WL-Underwear
-      points: 1
-      required: false
-    Undershirt: # WL-Underwear
-      points: 1
-      required: false
     Socks: # WL-Underwear
       points: 1
       required: false
@@ -68,7 +64,7 @@
 - type: humanoidBaseSprite
   id: MobSlimeMarkingFollowSkin
   markingsMatchSkin: true
-  layerAlpha: 0.5
+  layerAlpha: 0.72
 
 - type: humanoidBaseSprite
   id: MobSlimeHead

@@ -75,12 +75,6 @@
     Arms:
       points: 4
       required: false
-    Underwear: # WL-Underwear
-      points: 1
-      required: false
-    Undershirt: # WL-Underwear
-      points: 1
-      required: false
     Socks: # WL-Underwear
       points: 1
       required: false

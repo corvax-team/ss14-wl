@@ -9,6 +9,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.ContentPack;
+using Robust.Shared.Exceptions;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using SixLabors.ImageSharp;
@@ -24,6 +25,8 @@ public sealed class ContentSpriteSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IResourceManager _resManager = default!;
     [Dependency] private readonly IUserInterfaceManager _ui = default!;
+    [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
+
     //WL-Changes-start
     [Dependency] private readonly ILogManager _logMan = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
@@ -192,13 +195,21 @@ public sealed class ContentSpriteSystem : EntitySystem
         if (!_adminManager.IsAdmin())
             return;
 
+        var target = ev.Target;
         Verb verb = new()
         {
             Text = Loc.GetString("export-entity-verb-get-data-text"),
             Category = VerbCategory.Debug,
-            Act = () =>
+            Act = async () =>
             {
-                Export(ev.Target);
+                try
+                {
+                    await Export(target);
+                }
+                catch (Exception e)
+                {
+                    _runtimeLog.LogException(e, $"{nameof(ContentSpriteSystem)}.{nameof(Export)}");
+                }
             },
         };
 

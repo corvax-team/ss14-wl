@@ -23,6 +23,8 @@
   sprites:
     Head: MobReptilianHead
     Snout: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobReptilianTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -64,6 +66,12 @@
     HeadSide:
       points: 1
       required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Chest:
       points: 3
       required: false
@@ -72,12 +80,6 @@
       required: false
     Arms:
       points: 2
-      required: false
-    Underwear: # WL-Underwear
-      points: 1
-      required: false
-    Undershirt: # WL-Underwear
-      points: 1
       required: false
     Socks: # WL-Underwear
       points: 1

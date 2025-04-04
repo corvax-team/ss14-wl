@@ -53,8 +53,8 @@ public sealed partial class NavMapBeaconWindow : FancyWindow
 
     private void OnTextChanged(LineEdit.LineEditEventArgs obj)
     {
-        if (obj.Text.Length > HumanoidCharacterProfile.MaxNameLength)
-            obj.Control.Text = obj.Text.Substring(0, HumanoidCharacterProfile.MaxNameLength);
+        if (obj.Text.Length > HumanoidCharacterProfile.MaxLoadoutNameLength)
+            obj.Control.Text = obj.Text.Substring(0, HumanoidCharacterProfile.MaxLoadoutNameLength);
 
         TryEnableApplyButton();
     }

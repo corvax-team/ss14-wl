@@ -147,7 +147,11 @@
   - type: Tag
     tags:
       - Apc
-      - PulseDemonAbsorbable
+      - PulseDemonAbsorbable # WL-Changes
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
 
 # APC under construction
 - type: entity

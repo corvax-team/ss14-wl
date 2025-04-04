@@ -17,6 +17,10 @@
   requirements:
     - !type:AgeRequirement
       minAge: 18
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: BoxingDay
+    prototype: BoxCardboard
 
 - type: startingGear
   id: CargoTechGear

@@ -1,10 +1,12 @@
 using Robust.Shared.Enums;
+using Content.Shared.Dataset;
+using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Humanoid.Prototypes;
 
-[Prototype("species")]
+[Prototype]
 public sealed partial class SpeciesPrototype : IPrototype
 {
     /// <summary>
@@ -51,7 +53,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     // sprite accessories.
 
     [DataField("sprites")]
-    public string SpriteSet { get; private set; } = default!;
+    public ProtoId<HumanoidSpeciesBaseSpritesPrototype> SpriteSet { get; private set; } = default!;
 
     /// <summary>
     ///     Default skin tone for this species. This applies for non-human skin tones.
@@ -70,7 +72,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     ///     The limit of body markings that you can place on this species.
     /// </summary>
     [DataField("markingLimits")]
-    public string MarkingPoints { get; private set; } = default!;
+    public ProtoId<MarkingPointsPrototype> MarkingPoints { get; private set; } = default!;
 
     /// <summary>
     ///     Humanoid species variant used by this entity.
@@ -111,7 +113,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     {
         { Gender.Male, new() { "names_first_male", " ", "names_last_male" } },
         { Gender.Female, new() { "names_first_female", " ", "names_last_female" } }
-    };
+    }; // Приведите в нормальный вид, мне лень
     //WL-Changes-end
 
     [DataField]

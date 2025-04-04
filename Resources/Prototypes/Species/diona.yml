@@ -1,4 +1,3 @@
-
 - type: species
   id: Diona
   name: species-name-diona
@@ -33,6 +32,8 @@
     Head: MobDionaHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobDionaTorso
     Eyes: MobDionaEyes
     LArm: MobDionaLArm
@@ -57,6 +58,12 @@
     HeadSide:
       points: 1
       required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Chest:
       points: 1
       required: false
@@ -70,12 +77,6 @@
       points: 1
       required: true
       defaultMarkings: [ DionaVineOverlay ]
-    Underwear: # WL-Underwear
-      points: 0
-      required: false
-    Undershirt: # WL-Underwear
-      points: 0
-      required: false
     Socks: # WL-Underwear
       points: 0
       required: false

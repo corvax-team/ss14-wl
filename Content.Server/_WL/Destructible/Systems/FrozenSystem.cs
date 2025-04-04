@@ -1,6 +1,7 @@
 using Content.Server._WL.Destructible.Components;
 using Content.Server.Humanoid;
 using Content.Shared.Cloning;
+using Content.Shared.Cloning.Events;
 using Content.Shared.Damage;
 using Content.Shared.HealthExaminable;
 using Content.Shared.NameModifier.EntitySystems;
@@ -30,23 +31,21 @@ namespace Content.Server._WL.Destructible.Systems
             args.AddModifier(comp.BaseName, int.MinValue);
         }
 
-        private void BeforeDamageChanged(EntityUid ent, FrozenComponent comp, ref BeforeDamageChangedEvent args)
+        private void BeforeDamageChanged(EntityUid _, FrozenComponent comp, ref BeforeDamageChangedEvent args)
         {
             args.Damage.DamageDict[comp.FrozenDamage.Id] = 0f;
             args.Damage.TrimZeros();
         }
 
-        private void OnClone(EntityUid ent, FrozenComponent comp, ref CloningEvent args)
+        private void OnClone(EntityUid _, FrozenComponent comp, ref CloningEvent args)
         {
-            var target = args.Target;
+            var target = args.CloneUid;
 
             _metaData.SetEntityName(target, comp.BaseName, raiseEvents: true);
             _appearance.SetSkinColor(target, comp.BaseSkinColor);
-
-            args.NameHandled = true;
         }
 
-        private void OnHealthExamine(EntityUid ent, FrozenComponent comp, HealthBeingExaminedEvent args)
+        private void OnHealthExamine(EntityUid _, FrozenComponent comp, HealthBeingExaminedEvent args)
         {
             args.Message.AddMarkupOrThrow("\n" + Loc.GetString(comp.FrozenHealthString));
         }

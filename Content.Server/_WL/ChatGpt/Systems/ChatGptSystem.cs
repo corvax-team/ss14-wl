@@ -188,9 +188,9 @@ namespace Content.Server._WL.ChatGpt.Systems
 
                 if (proto == null && dataset == null)
                 {
-                    var pair = arguments.ToList().FirstOrDefault(a => a.Item1.Equals(id));
+                    var pair = arguments.ToList().FirstOrNull(a => a.Item1.Equals(id));
 
-                    @string = pair.Item2.ToString();
+                    @string = pair?.Item2.ToString();
                 }
                 else
                 {

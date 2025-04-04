@@ -2,6 +2,7 @@ using Content.Shared.Bed.Sleep;
 ﻿using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode.Pacification;
+using Content.Shared.Damage;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
@@ -59,6 +60,7 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, TryingToSleepEvent>(OnSleepAttempt);
         SubscribeLocalEvent<MobStateComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MobStateComponent, AttemptPacifiedAttackEvent>(OnAttemptPacifiedAttack);
+        SubscribeLocalEvent<MobStateComponent, DamageModifyEvent>(OnDamageModify);
 
         SubscribeLocalEvent<MobStateComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
     }
@@ -214,6 +216,11 @@ public partial class MobStateSystem
     private void OnAttemptPacifiedAttack(Entity<MobStateComponent> ent, ref AttemptPacifiedAttackEvent args)
     {
         args.Cancelled = true;
+    }
+
+    private void OnDamageModify(Entity<MobStateComponent> ent, ref DamageModifyEvent args)
+    {
+        args.Damage *= _damageable.UniversalMobDamageModifier;
     }
 
     #endregion

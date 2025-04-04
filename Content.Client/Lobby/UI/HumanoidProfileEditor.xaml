@@ -125,8 +125,8 @@
                             </BoxContainer>
                             <!-- WL-Underwear-Start -->
                             <BoxContainer Margin="10" Orientation="Horizontal">
-                                <humanoid:SingleMarkingPicker Name="CUnderwearPicker" Category="Underwear" />
-                                <humanoid:SingleMarkingPicker Name="CUndershirtPicker" Category="Undershirt" />
+                                <!-- <humanoid:SingleMarkingPicker Name="CUnderwearPicker" Category="Underwear" />
+                                <humanoid:SingleMarkingPicker Name="CUndershirtPicker" Category="Undershirt" /> -->
                                 <humanoid:SingleMarkingPicker Name="CSocksPicker" Category="Socks" />
                             </BoxContainer>
                             <!-- WL-Underwear-End -->

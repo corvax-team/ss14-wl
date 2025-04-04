@@ -20,3 +20,7 @@
     ChipsCaseFilled: 2 # WL-economics
     PokerCardBoxFilled: 2 # WL-economics
     TarotCardBox: 2 # WL-economics
+  contrabandInventory:
+    Basketball: 1
+    FoodSnackBoritos: 3
+    DrinkSpaceMountainWindCan: 3

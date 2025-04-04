@@ -6,6 +6,7 @@ using Content.Shared.Fax.Components;
 using Content.Shared.Paper;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
+using Content.Shared.GameTicking;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
@@ -13,6 +14,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text.RegularExpressions;
 
+//TODO-wl: Сравнить с версией основы и подправить, хз что у них там, я просто оставил нашу версию. 
 namespace Content.Server.Corvax.StationGoal
 {
     /// <summary>
@@ -56,11 +58,10 @@ namespace Content.Server.Corvax.StationGoal
 
         public override void Initialize()
         {
-            base.Initialize();
-            SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
+            SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
         }
 
-        private void OnRoundStarting(RoundStartingEvent ev)
+        private void OnRoundStarted(RoundStartedEvent ev)
         {
             SendRandomStationGoalsWithConfig();
         }
@@ -75,7 +76,7 @@ namespace Content.Server.Corvax.StationGoal
             var wasSent = false;
             while (enumerator.MoveNext(out var uid, out var fax))
             {
-                if (!fax.ReceiveStationGoal)
+                if (/*WL-Changes: !fax.ReceiveAllStationGoals &&*/ !(fax.ReceiveStationGoal /*&& _station.GetOwningStation(uid) == ent*/))
                     continue;
 
                 if (!TryComp<MetaDataComponent>(_station.GetOwningStation(uid), out var meta))
@@ -101,6 +102,7 @@ namespace Content.Server.Corvax.StationGoal
 
                 wasSent = true;
             }
+
             return wasSent;
         }
 

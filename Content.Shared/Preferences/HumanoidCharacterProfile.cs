@@ -30,9 +30,6 @@ namespace Content.Shared.Preferences
 
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
-        public const int MaxNameLength = 32;
-        public const int MaxDescLength = 512 * 2; // WL-CharacterInfo: Increase
-
         //WL-Changes-start
         [DataField]
         private Dictionary<string, string> _jobSubnames = new();
@@ -40,6 +37,9 @@ namespace Content.Shared.Preferences
         [DataField]
         private Dictionary<string, bool> _jobUnblockings = new();
         //WL-Changes-end
+
+        public const int MaxLoadoutNameLength = 48; // WL-CharacterInfo: Increase
+        public const int MaxDescLength = 512 * 3; // WL-CharacterInfo: Increase
 
         /// <summary>
         /// Job preferences for initial spawn.
@@ -631,9 +631,9 @@ namespace Content.Shared.Preferences
             {
                 name = GetName(Species, gender);
             }
-            else if (Name.Length > MaxNameLength)
+            else if (Name.Length > MaxLoadoutNameLength)
             {
-                name = Name[..MaxNameLength];
+                name = Name[..MaxLoadoutNameLength];
             }
             else
             {
