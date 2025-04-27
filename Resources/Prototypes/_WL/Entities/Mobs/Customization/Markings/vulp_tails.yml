@@ -5,9 +5,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_eevee_BEHIND_primary
+      state: m_tail_eevee_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_eevee_BEHIND_secondary
+      state: m_tail_eevee_secondary
 
 - type: marking
   id: FennecTail
@@ -16,9 +16,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_fennec_BEHIND_primary
+      state: m_tail_fennec_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_fennec_BEHIND_secondary
+      state: m_tail_fennec_secondary
 
 - type: marking
   id: FoxNTail
@@ -27,9 +27,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_fox_BEHIND_primary
+      state: m_tail_fox_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_fox_BEHIND_secondary
+      state: m_tail_fox_secondary
 
 - type: marking
   id: FoxN2Tail
@@ -38,7 +38,7 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_fox2_BEHIND_primary
+      state: m_tail_fox2_primary
 
 - type: marking
   id: FoxN3Tail
@@ -47,9 +47,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_fox3_BEHIND_primary
+      state: m_tail_fox3_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_fox3_BEHIND_secondary
+      state: m_tail_fox3_secondary
 
 - type: marking
   id: FoxannTail
@@ -58,9 +58,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_foxann_BEHIND_primary
+      state: m_tail_foxann_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_foxann_BEHIND_secondary
+      state: m_tail_foxann_secondary
 
 - type: marking
   id: HuskyTail
@@ -69,9 +69,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_husky_BEHIND_primary
+      state: m_tail_husky_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_husky_BEHIND_secondary
+      state: m_tail_husky_secondary
 
 - type: marking
   id: OtieTail
@@ -80,7 +80,7 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_otie_BEHIND_primary
+      state: m_tail_otie_primary
 
 - type: marking
   id: WolfNTail
@@ -89,7 +89,7 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_wolf_BEHIND
+      state: m_tail_wolf
 
 # Animated
 
@@ -100,9 +100,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_eevee_FRONT_primary
+      state: m_waggingtail_eevee_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_eevee_FRONT_secondary
+      state: m_waggingtail_eevee_secondary
 
 - type: marking
   id: FennecTailAnimated
@@ -111,9 +111,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_fennec_BEHIND_primary
+      state: m_waggingtail_fennec_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_fennec_BEHIND_secondary
+      state: m_waggingtail_fennec_secondary
 
 - type: marking
   id: FoxNTailAnimated
@@ -122,9 +122,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_fox_BEHIND_primary
+      state: m_waggingtail_fox_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_fox_BEHIND_secondary
+      state: m_waggingtail_fox_secondary
 
 - type: marking
   id: FoxN2TailAnimated
@@ -133,7 +133,7 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_fox2_BEHIND_primary
+      state: m_waggingtail_fox2_primary
 
 - type: marking
   id: FoxN3TailAnimated
@@ -142,9 +142,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_fox3_BEHIND_primary
+      state: m_waggingtail_fox3_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_fox3_BEHIND_secondary
+      state: m_waggingtail_fox3_secondary
 
 - type: marking
   id: FoxannTailAnimated
@@ -153,9 +153,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_foxann_BEHIND_primary
+      state: m_waggingtail_foxann_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_foxann_BEHIND_secondary
+      state: m_waggingtail_foxann_secondary
 
 - type: marking
   id: HuskyTailAnimated
@@ -164,9 +164,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_husky_FRONT_primary
+      state: m_waggingtail_husky_primary
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_husky_BEHIND_secondary
+      state: m_waggingtail_husky_secondary
 
 - type: marking
   id: OtieTailAnimated
@@ -175,7 +175,7 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_otie_BEHIND_primary
+      state: m_waggingtail_otie_primary
 
 - type: marking
   id: WolfNTailAnimated
@@ -184,4 +184,4 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_wolf_BEHIND
+      state: m_waggingtail_wolf
