@@ -8,19 +8,19 @@
   },
   "states": [
     {
-      "name": "m_ears_sandfox_large_ADJ",
+      "name": "m_ears_sandfox_large",
       "directions": 4
     },
     {
-      "name": "m_ears_sandfox_large_ADJ_inner",
+      "name": "m_ears_sandfox_large_inner",
       "directions": 4
     },
     {
-      "name": "m_ears_acrador_long_ADJ",
+      "name": "m_ears_acrador_long",
       "directions": 4
     },
     {
-      "name": "m_ears_acrador_long_ADJ_inner",
+      "name": "m_ears_acrador_long_inner",
       "directions": 4
     }
   ]
