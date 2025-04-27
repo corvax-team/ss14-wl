@@ -1,0 +1,21 @@
+- type: marking
+  id: FoxEarSandfoxLarge
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_sandfox_large_ADJ
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_sandfox_large_ADJ_inner
+
+- type: marking
+  id: FoxEarAcrador
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_acrador_long_ADJ
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_acrador_long_ADJ_inner
