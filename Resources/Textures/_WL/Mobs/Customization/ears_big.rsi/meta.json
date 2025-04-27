@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from FluffSTG at https://github.com/Fluffy-Frontier/FluffySTG/commit/cfd2c80e6837a60e94fcfe6c9453fac0b79def23#diff-bf08e93edb3b4bc8531e9c3ba7e7cb6b40ab4a91d6c46f8adaf1e3d8aab50768",
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "m_ears_sandfox_large",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_sandfox_large_inner",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_acrador_long",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_acrador_long_inner",
+      "directions": 4
+    }
+  ]
+}
