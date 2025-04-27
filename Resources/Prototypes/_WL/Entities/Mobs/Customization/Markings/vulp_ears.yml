@@ -1,21 +1,122 @@
-- type: marking
-  id: FoxEarSandfoxLarge
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _WL/Mobs/Customization/ears_big.rsi
-      state: m_ears_sandfox_large_ADJ
-    - sprite: _WL/Mobs/Customization/ears_big.rsi
-      state: m_ears_sandfox_large_ADJ_inner
+# - type: marking
+#   id: FoxEarSandfoxLarge
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _WL/Mobs/Customization/ears_big.rsi
+#       state: m_ears_sandfox_large_ADJ
+#     - sprite: _WL/Mobs/Customization/ears_big.rsi
+#       state: m_ears_sandfox_large_ADJ_inner
+
+# - type: marking
+#   id: FoxEarAcrador
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _WL/Mobs/Customization/ears_big.rsi
+#       state: m_ears_acrador_long_ADJ
+#     - sprite: _WL/Mobs/Customization/ears_big.rsi
+#       state: m_ears_acrador_long_ADJ_inner
 
 - type: marking
-  id: FoxEarAcrador
+  id: FoxEarFennec
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin]
   sprites:
-    - sprite: _WL/Mobs/Customization/ears_big.rsi
-      state: m_ears_acrador_long_ADJ
-    - sprite: _WL/Mobs/Customization/ears_big.rsi
-      state: m_ears_acrador_long_ADJ_inner
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_fennec_FRONT_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_fennec_FRONT_secondary
+
+- type: marking
+  id: FoxEarSabresune
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_sabresune_ADJ_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_sabresune_FRONT_secondary
+
+- type: marking
+  id: FoxEarWolf
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_wolf_FRONT_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_wolf_ADJ_tertiary
+
+- type: marking
+  id: FoxEarRaccoon
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_raccoon_FRONT_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_raccoon_ADJ_secondary
+
+- type: marking
+  id: FoxEarPossum
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_possum_FRONT_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_possum_FRONT_secondary
+
+- type: marking
+  id: FoxEarPerky
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_perky_FRONT_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_perky_FRONT_secondary
+
+- type: marking
+  id: FoxEarFloppy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_floppy_FRONT_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_floppy_FRONT_secondary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_floppy_FRONT_tertiary
+
+- type: marking
+  id: FoxEarBigWolf
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_bigwolf_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_bigwolf_FRONT_tertiary
+
+# - type: marking
+#   id: FoxEar
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _WL/Mobs/Customization/ears.rsi
+#       state: 
+#     - sprite: _WL/Mobs/Customization/ears.rsi
+#       state: 
