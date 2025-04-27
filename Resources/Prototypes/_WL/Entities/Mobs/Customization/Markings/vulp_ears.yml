@@ -1,24 +1,24 @@
-# - type: marking
-#   id: FoxEarSandfoxLarge
-#   bodyPart: HeadTop
-#   markingCategory: HeadTop
-#   speciesRestriction: [Vulpkanin]
-#   sprites:
-#     - sprite: _WL/Mobs/Customization/ears_big.rsi
-#       state: m_ears_sandfox_large_ADJ
-#     - sprite: _WL/Mobs/Customization/ears_big.rsi
-#       state: m_ears_sandfox_large_ADJ_inner
+- type: marking
+  id: FoxEarSandfoxLarge
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_sandfox_large
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_sandfox_large_inner
 
-# - type: marking
-#   id: FoxEarAcrador
-#   bodyPart: HeadTop
-#   markingCategory: HeadTop
-#   speciesRestriction: [Vulpkanin]
-#   sprites:
-#     - sprite: _WL/Mobs/Customization/ears_big.rsi
-#       state: m_ears_acrador_long_ADJ
-#     - sprite: _WL/Mobs/Customization/ears_big.rsi
-#       state: m_ears_acrador_long_ADJ_inner
+- type: marking
+  id: FoxEarAcrador
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_acrador_long
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_acrador_long_inner
 
 - type: marking
   id: FoxEarFennec
@@ -27,9 +27,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_fennec_FRONT_primary
+      state: m_ears_fennec_primary
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_fennec_FRONT_secondary
+      state: m_ears_fennec_tertiary
 
 - type: marking
   id: FoxEarSabresune
@@ -38,9 +38,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_sabresune_ADJ_primary
+      state: m_ears_sabresune_primary
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_sabresune_FRONT_secondary
+      state: m_ears_sabresune_secondary
 
 - type: marking
   id: FoxEarWolf
@@ -49,9 +49,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_wolf_FRONT_primary
+      state: m_ears_wolf_primary
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_wolf_ADJ_tertiary
+      state: m_ears_wolf_tertiary
 
 - type: marking
   id: FoxEarRaccoon
@@ -60,9 +60,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_raccoon_FRONT_primary
+      state: m_ears_raccoon_primary
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_raccoon_ADJ_secondary
+      state: m_ears_raccoon_secondary
 
 - type: marking
   id: FoxEarPossum
@@ -71,9 +71,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_possum_FRONT_primary
+      state: m_ears_possum_primary
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_possum_FRONT_secondary
+      state: m_ears_possum_secondary
 
 - type: marking
   id: FoxEarPerky
@@ -82,9 +82,9 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_perky_FRONT_primary
+      state: m_ears_perky_primary
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_perky_FRONT_secondary
+      state: m_ears_perky_secondary
 
 - type: marking
   id: FoxEarFloppy
@@ -93,11 +93,11 @@
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_floppy_FRONT_primary
+      state: m_ears_floppy_primary
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_floppy_FRONT_secondary
+      state: m_ears_floppy_secondary
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_floppy_FRONT_tertiary
+      state: m_ears_floppy_tertiary
 
 - type: marking
   id: FoxEarBigWolf
@@ -108,7 +108,7 @@
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_bigwolf_primary
     - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_bigwolf_FRONT_tertiary
+      state: m_ears_bigwolf_tertiary
 
 # - type: marking
 #   id: FoxEar
@@ -117,6 +117,6 @@
 #   speciesRestriction: [Vulpkanin]
 #   sprites:
 #     - sprite: _WL/Mobs/Customization/ears.rsi
-#       state: 
+#       state:
 #     - sprite: _WL/Mobs/Customization/ears.rsi
-#       state: 
+#       state:

@@ -8,79 +8,71 @@
   },
   "states": [
     {
-      "name": "m_ears_bigwolf_FRONT_primary",
+      "name": "m_ears_bigwolf_tertiary",
       "directions": 4
     },
     {
-      "name": "m_ears_bigwolf_FRONT_tertiary",
+      "name": "m_ears_bigwolf_primary",
       "directions": 4
     },
     {
-      "name": "m_ears_fennec_FRONT_primary",
+      "name": "m_ears_fennec_primary",
       "directions": 4
     },
     {
-      "name": "m_ears_fennec_FRONT_tertiary",
+      "name": "m_ears_fennec_tertiary",
       "directions": 4
     },
     {
-      "name": "m_ears_otie_ADJ_secondary",
+      "name": "m_ears_floppy_primary",
       "directions": 4
     },
     {
-      "name": "m_ears_otie_FRONT_primary",
+      "name": "m_ears_floppy_secondary",
       "directions": 4
     },
     {
-      "name": "m_ears_sabresune_ADJ_secondary",
+      "name": "m_ears_floppy_tertiary",
       "directions": 4
     },
     {
-      "name": "m_ears_sabresune_FRONT_primary",
+      "name": "m_ears_perky_primary",
       "directions": 4
     },
     {
-      "name": "m_ears_possum_FRONT_primary",
+      "name": "m_ears_perky_secondary",
       "directions": 4
     },
     {
-      "name": "m_ears_possum_FRONT_secondary",
+      "name": "m_ears_possum_primary",
       "directions": 4
     },
     {
-      "name": "m_ears_perky_FRONT_primary",
+      "name": "m_ears_possum_secondary",
       "directions": 4
     },
     {
-      "name": "m_ears_perky_FRONT_secondary",
+      "name": "m_ears_raccoon_secondary",
       "directions": 4
     },
     {
-      "name": "m_ears_wolf_ADJ_tertiary",
+      "name": "m_ears_raccoon_primary",
       "directions": 4
     },
     {
-      "name": "m_ears_wolf_FRONT_primary",
+      "name": "m_ears_sabresune_secondary",
       "directions": 4
     },
     {
-      "name": "m_ears_raccoon_ADJ_secondary",
+      "name": "m_ears_sabresune_primary",
       "directions": 4
     },
     {
-      "name": "m_ears_raccoon_FRONT_primary",
+      "name": "m_ears_wolf_tertiary",
       "directions": 4
     },
     {
-      "name": "m_ears_floppy_FRONT_primary",
-      "directions": 4
-    },
-    {
-      "name": "m_ears_floppy_FRONT_secondary",
-      "directions": 4
-    },
-    {
-      "name": "m_ears_floppy_FRONT_tertiary",
+      "name": "m_ears_wolf_primary",
       "directions": 4
     }
   ]
