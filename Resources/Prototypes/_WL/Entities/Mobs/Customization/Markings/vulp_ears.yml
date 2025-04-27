@@ -87,19 +87,6 @@
       state: m_ears_perky_secondary
 
 - type: marking
-  id: FoxEarFloppy
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_floppy_primary
-    - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_floppy_secondary
-    - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_floppy_tertiary
-
-- type: marking
   id: FoxEarBigWolf
   bodyPart: HeadTop
   markingCategory: HeadTop
