@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": null,
-  "copyright": null,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from FluffySTG at https://github.com/Fluffy-Frontier/FluffySTG/commit/9de35365203f49daa2f12483a63b31bff363637d",
   "size": {
     "x": 32,
     "y": 32
