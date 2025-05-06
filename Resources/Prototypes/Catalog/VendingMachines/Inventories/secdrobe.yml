@@ -23,7 +23,7 @@
     ClothingOuterArmorBasic: 2
     ClothingOuterVestArmorSec: 2 # Corvax WL
     ClothingNeckScarfStripedRed: 3
-    ClothingOuterArmorBasicSlim: 2
+    # ClothingOuterArmorBasicSlim: 2 # WL-Changes-RemovingSlimArmorFromSec
     ClothingEyesBlindfold: 1
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2

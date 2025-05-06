@@ -67,7 +67,7 @@
 
 - type: loadout
   id: TrooperUniform
-  equipment: 
+  equipment:
     jumpsuit: ClothingUniformSecurityTrooper
 
 - type: loadout
@@ -119,10 +119,12 @@
   equipment:
     outerClothing: ClothingOuterArmorBasic
 
-- type: loadout
-  id: ArmorVestSlim
-  equipment:
-    outerClothing: ClothingOuterArmorBasicSlim
+# WL-Changes-RemovingSlimArmorFromSec Start
+# - type: loadout
+#   id: ArmorVestSlim
+#   equipment:
+#     outerClothing: ClothingOuterArmorBasicSlim
+# WL-Changes-RemovingSlimArmorFromSec End
 
 - type: loadout
   id: SecurityOfficerWintercoat

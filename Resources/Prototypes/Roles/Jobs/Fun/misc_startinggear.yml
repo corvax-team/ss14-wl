@@ -81,7 +81,7 @@
     eyes: ClothingEyesGlassesSecurity
     head: ClothingHeadHelmetSwat
     mask: ClothingMaskGasSwat
-    outerClothing: ClothingOuterArmorBasicSlim
+    outerClothing: ClothingOuterArmorBasic # WL-Changes-RemovingSlimArmorFromSec
     ears: ClothingHeadsetSecurity
     gloves: ClothingHandsGlovesCombat
   storage:
