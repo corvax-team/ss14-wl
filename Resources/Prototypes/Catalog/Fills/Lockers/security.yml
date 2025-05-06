@@ -19,9 +19,11 @@
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
-      - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion
-      - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion
-      - id: ClothingBackpackWarden # Corvax-SecFashion
+      # WL-Changes-RemovingBlueSec Start
+      # - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion
+      # - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion
+      # - id: ClothingBackpackWarden # Corvax-SecFashion
+      # WL-Changes-RemovingBlueSec End
       - id: ClothingBackpackElectropack
         amount: 2
       - id: RemoteSignaller
@@ -36,7 +38,7 @@
     contents:
       - id: FlashlightSeclite
       - id: WeaponDisabler
-      - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion
+      # - id: ClothingHeadHatCapWardenAlt # Corvax-SecFashion # WL-Changes-RemovingBlueSec
       - id: ClothingBeltSecurityFilled
       - id: Flash
       - id: ClothingEyesGlassesSecurity
@@ -44,12 +46,12 @@
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden
       - id: ClothingOuterWinterWarden
-      - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion
+      # - id: ClothingOuterCoatWardenAlt # Corvax-SecFashion # WL-Changes-RemovingBlueSec
       - id: RubberStampWarden
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
-      - id: ClothingBackpackWarden # Corvax-SecFashion
+      # - id: ClothingBackpackWarden # Corvax-SecFashion # WL-Changes-RemovingBlueSec
       - id: ClothingBackpackElectropack
         amount: 2
       - id: RemoteSignaller
@@ -128,14 +130,14 @@
       - id: ClothingOuterCoatLabSecurityMedic # Corvax-Resprite
         prob: 0.5
         # Corvax-Brigmedic-Start
-      - id: ClothingMaskBreathMedicalSecurity 
-      - id: BoxBodyBag 
-      - id: Defibrillator 
-      - id: PowerCellHigh 
-        amount: 2 
-      - id: MedkitAdvancedFilled 
-      - id: BoxMiniSyringe 
-      - id: LauncherSyringe 
+      - id: ClothingMaskBreathMedicalSecurity
+      - id: BoxBodyBag
+      - id: Defibrillator
+      - id: PowerCellHigh
+        amount: 2
+      - id: MedkitAdvancedFilled
+      - id: BoxMiniSyringe
+      - id: LauncherSyringe
         # Corvax-Brigmedic-End
 
 - type: entity

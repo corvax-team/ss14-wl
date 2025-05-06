@@ -1,9 +1,0 @@
-- type: loadout
-  id: WardenBlueCoat
-  equipment:
-    outerClothing: ClothingOuterCoatWardenAlt
-
-- type: loadout
-  id: WardenBlueHatAlt
-  equipment:
-    head: ClothingHeadHatCapWardenAlt
