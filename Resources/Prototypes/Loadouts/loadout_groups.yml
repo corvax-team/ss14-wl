@@ -1027,7 +1027,6 @@
   loadouts:
   - WardenHead
   - WardenBeret
-  - WardenBlueHatAlt # WL-Changes
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -1042,7 +1041,6 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
-  - WardenBlueCoat # WL-Changes
 
 - type: loadoutGroup
   id: SecurityHead
@@ -1087,7 +1085,7 @@
   loadouts:
   - ArmorVestSec # Corvax
   - ArmorVest
-  - ArmorVestSlim
+  # - ArmorVestSlim # WL-Changes-RemovingSlimArmorFromSec
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup

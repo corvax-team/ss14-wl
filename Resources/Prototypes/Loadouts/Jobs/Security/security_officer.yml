@@ -119,12 +119,10 @@
   equipment:
     outerClothing: ClothingOuterArmorBasic
 
-# WL-Changes-RemovingSlimArmorFromSec Start
-# - type: loadout
-#   id: ArmorVestSlim
-#   equipment:
-#     outerClothing: ClothingOuterArmorBasicSlim
-# WL-Changes-RemovingSlimArmorFromSec End
+- type: loadout
+  id: ArmorVestSlim
+  equipment:
+    outerClothing: ClothingOuterArmorBasicSlim
 
 - type: loadout
   id: SecurityOfficerWintercoat
