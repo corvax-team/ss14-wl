@@ -18,3 +18,15 @@
 
 - type: Tag
   id: MeatDragon
+
+- type: Tag
+  id: PlayableCard
+
+- type: Tag
+  id: Chips
+
+- type: Tag
+  id: TarotCard
+
+- type: Tag
+  id: TarotDeck

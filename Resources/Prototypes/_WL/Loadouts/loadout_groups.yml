@@ -1,13 +1,13 @@
 - type: loadoutGroup
   id: MedicalDoctorNeck
-  name: "Врач, шея"
+  name: loadout-group-MedicalDoctorNeck
   minLimit: 0
   loadouts:
   - MedicalStethoscope
 
 - type: loadoutGroup
   id: Utility
-  name: Служебное
+  name: loadout-group-Utility
   minLimit: 0
   maxLimit: 3
   loadouts:
@@ -15,7 +15,7 @@
 
 - type: loadoutGroup
   id: AtmosHead
-  name: "Атмосферный техник, голова"
+  name: loadout-group-AtmosHead
   minLimit: 0
   maxLimit: 1
   loadouts:

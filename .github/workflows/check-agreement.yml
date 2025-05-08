@@ -1,28 +1,28 @@
-name: Check Contributor Agreement
+# name: Check Contributor Agreement
 
 
-on:
-  push:
-    branches:
-      - "**"
-  pull_request:
-    branches:
-      - "**"
+# on:
+#   push:
+#     branches:
+#       - "**"
+#   pull_request:
+#     branches:
+#       - "**"
 
-jobs:
-  check-cla:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+# jobs:
+#   check-cla:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      - name: Check if contributor agreement is accepted
-        run: |
-          echo "By pushing commits or creating a pull request, you agree to the terms of the LICENSE and CLA."
-          AGREED=$(git log -1 --pretty=%B | grep -i "^x$")
-          if [ -z "$AGREED" ]; then
-            echo "Commit message must include the letter 'x' to confirm agreement to the terms."
-            exit 1
-          else
-            echo "Terms accepted in commit message."
-          fi
+#       - name: Check if contributor agreement is accepted
+#         run: |
+#           echo "By pushing commits or creating a pull request, you agree to the terms of the LICENSE and CLA."
+#           AGREED=$(git log -1 --pretty=%B | grep -i "^x$")
+#           if [ -z "$AGREED" ]; then
+#             echo "Commit message must include the letter 'x' to confirm agreement to the terms."
+#             exit 1
+#           else
+#             echo "Terms accepted in commit message."
+#           fi

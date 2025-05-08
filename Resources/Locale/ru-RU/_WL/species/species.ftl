@@ -1,6 +1,6 @@
 ## Species Names WhiteList
 
-species-name-akula = Акула
+species-name-akula = Саренг
 species-name-android = Андроид
 species-name-cischi = Цисчи
 species-name-felinid = Фелинид

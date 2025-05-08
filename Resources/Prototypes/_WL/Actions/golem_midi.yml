@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionGolemCorePlayMidi
+  name: Play MIDI
+  description: Open your portable MIDI interface to soothe your owner.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon: Objects/Fun/Instruments/microphone.rsi/icon.png
+    event: !type:OpenUiActionEvent
+      key: enum.InstrumentUiKey.Key

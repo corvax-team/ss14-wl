@@ -19,7 +19,7 @@ namespace Content.Server._WL.ChatGpt.Elements.OpenAi.Functions
         private readonly IPrototypeManager _protoMan;
 
         [ValidatePrototypeId<EntityPrototype>]
-        private static readonly string BaseStationAlertProtoId = "stationAlerts";
+        private readonly string BaseStationAlertProtoId = "stationAlerts";
 
         public SetAlertLevelFunction(
             AlertLevelSystem alertLevelSys,

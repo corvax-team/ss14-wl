@@ -30,6 +30,7 @@
     stripTimeReduction: 2.5
   - type: Speech
     speechSounds: Alto
+    allowedEmotes: ['Purr']
   - type: DamageOnHighSpeedImpact
     damage:
       types:

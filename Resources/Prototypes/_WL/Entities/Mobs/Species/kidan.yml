@@ -25,10 +25,10 @@
     - type: IntrinsicRadioReceiver
     - type: ActiveRadio
       channels:
-      - hitin
+      - Hitin
     - type: IntrinsicRadioTransmitter
       channels:
-      - hitin
+      - Hitin
 
 - type: entity
   save: false

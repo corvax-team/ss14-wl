@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetTacticDSS
-  name: тактические наушники
-  description: Защищают слух носителя от громких звуков, а также выполняют функцию стандартной гарнитуры.
+  name: tactical headphones
+  description: They protect the wearer's hearing from loud noises, and also serve as a standard headset.
   components:
   - type: ContainerFill
     containers:

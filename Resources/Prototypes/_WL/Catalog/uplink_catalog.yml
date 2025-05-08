@@ -1,7 +1,7 @@
 - type: listing
   id: uplinkterminator
-  name: Коробка с цветами
-  description: Коробка с замаскированным дробовиком под кучей роз.
+  name: uplink-terminator-name
+  description: uplink-terminator-desc
   productEntity: RoseBoxFake
   cost:
     Telecrystal: 10

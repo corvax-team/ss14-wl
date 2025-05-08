@@ -1,0 +1,935 @@
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardAceOfCups
+  name: ace сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-1
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTwoOfCups
+  name: two сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-2
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardThreeOfCups
+  name: three сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-3
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardFourOfCups
+  name: four сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-4
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardFiveOfCups
+  name: five сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-5
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardSixOfCups
+  name: six сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-6
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardSevenOfCups
+  name: seven сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-7
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardEightOfCups
+  name: eight сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-8
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardNineOfCups
+  name: nine сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-9
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTenOfCups
+  name: ten сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-10
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardPageOfCups
+  name: page сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-11
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardKnightOfCups
+  name: knight сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-12
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardQueenOfCups
+  name: queen сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-13
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardKingOfCups
+  name: king сups
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-1-14
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardAceOfPentacles
+  name: ace pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-1
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTwoOfPentacles
+  name: two pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-2
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardThreeOfPentacles
+  name: three pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-3
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardFourOfPentacles
+  name: four pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-4
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardFiveOfPentacles
+  name: five pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-5
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardSixOfPentacles
+  name: six pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-6
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardSevenOfPentacles
+  name: seven pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-7
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardEightOfPentacles
+  name: eight pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-8
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardNineOfPentacles
+  name: nine pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-9
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTenOfPentacles
+  name: ten pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-10
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardPageOfPentacles
+  name: page pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-11
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardKnightOfPentacles
+  name: knight pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-12
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardQueenOfPentacles
+  name: queen pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-13
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardKingOfPentacles
+  name: king pentacles
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-2-14
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardAceOfSwords
+  name: ace swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-1
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTwoOfSwords
+  name: two swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-2
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardThreeOfSwords
+  name: three swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-3
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardFourOfSwords
+  name: four swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-4
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardFiveOfSwords
+  name: five swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-5
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardSixOfSwords
+  name: six swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-6
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardSevenOfSwords
+  name: seven swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-7
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardEightOfSwords
+  name: eight swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-8
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardNineOfSwords
+  name: nine swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-9
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTenOfSwords
+  name: ten swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-10
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardPageOfSwords
+  name: page swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-11
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardKnightOfSwords
+  name: knight swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-12
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardQueenOfSwords
+  name: queen swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-13
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardKingOfSwords
+  name: king swords
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-3-14
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardAceOfWands
+  name: ace wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-1
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTwoOfWands
+  name: two wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-2
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardThreeOfWands
+  name: three wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-3
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardFourOfWands
+  name: four wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-4
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardFiveOfWands
+  name: five wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-5
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardSixOfWands
+  name: six wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-6
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardSevenOfWands
+  name: seven wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-7
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardEightOfWands
+  name: eight wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-8
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardNineOfWands
+  name: nine wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-9
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTenOfWands
+  name: ten wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-10
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardPageOfWands
+  name: page wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-11
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardKnightOfWands
+  name: knight wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-12
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardQueenOfWands
+  name: queen wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-13
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardKingOfWands
+  name: king wands
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-4-14
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheFool
+  name: the fool - O
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-1
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheMagician
+  name: mag - I
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-2
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheHighPriestess
+  name: priestess - II
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-3
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheEmpress
+  name: the empress - III
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-4
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheEmperor
+  name: the emperor - IV
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-5
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheHierophant
+  name: the hierophant - V
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-6
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheLovers
+  name: the lovers - VI
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-7
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheChariot
+  name: the chariot - VII
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-8
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardJustice
+  name: justice - VIII
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-9
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheHermit
+  name: the hermit - IX
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-10
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardWheelOfFortune
+  name: fortune - X
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-11
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardStrength
+  name: strength - XI
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-12
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheHangedMan
+  name: the hanged man - XII
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-13
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardDeath
+  name: death - XIII
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-14
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTemperance
+  name: temperance - XIV
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-15
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheDevil
+  name: the devil - XV
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-16
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheTower
+  name: the tower - XVI
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-17
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheStar
+  name: the star - XVII
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-18
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheMoon
+  name: the moon - XVIII
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-19
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheSun
+  name: the sun - XIX
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-20
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardJudgement
+  name: judgement - XX
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-21
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BaseTarotCard
+  id: TarotCardTheWorld
+  name: the world - XXI
+  components:
+  - type: Sprite
+    layers:
+    - state: tarot-5-22
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: tarot-back
+      map: ["enum.PokerCardLayers.Flipped"]

@@ -67,21 +67,23 @@
             # silicon
             Borg: [ 1, 1 ]
             StationAi: [ 1, 1 ]
-        - type: StationGoal
-          goals:
-          - SolarPanels
-          - Artifacts
-          - Bank
-          - Zoo
-          - MiningOutpost
-          - Tesla
-          - SecurityTraining
-          - ShuttleMed
-          - ShuttleSec
-          - ShuttleRnd
-          - ShuttleSrv
-          - ShuttleEmergency
-          - Theatre
-          - CellAI
-          - Botany
-          - Bunker
+        # CorvaxWL-Changes start
+        # - type: StationGoal
+        #   goals:
+        #   - SolarPanels
+        #   - Artifacts
+        #   - Bank
+        #   - Zoo
+        #   - MiningOutpost
+        #   - Tesla
+        #   - SecurityTraining
+        #   - ShuttleMed
+        #   - ShuttleSec
+        #   - ShuttleRnd
+        #   - ShuttleSrv
+        #   - ShuttleEmergency
+        #   - Theatre
+        #   - CellAI
+        #   - Botany
+        #   - Bunker
+        # CorvaxWL-Changes end

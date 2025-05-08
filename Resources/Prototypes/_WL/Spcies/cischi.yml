@@ -1,6 +1,6 @@
 - type: species
   id: Cischi
-  name: Цисчи
+  name: species-name-cischi
   roundStart: true
   prototype: MobCischi
   sprites: MobCischiSprites

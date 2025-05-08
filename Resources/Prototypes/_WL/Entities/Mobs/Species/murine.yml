@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  name: Урист МакМурин
+  name: Urist McMurine
   parent: BaseMobSpeciesOrganic
   id: BaseMobHumanoidMurine
   abstract: true
@@ -56,7 +56,7 @@
 
 - type: entity
   save: false
-  name: Урист МакМурин
+  name: Urist McMurine
   parent: MobHumanDummy
   id: MobHumanoidMurineDummy
   categories: [ HideSpawnMenu ]

@@ -1,7 +1,7 @@
 - type: entity
   id: OrganMurineHeart
   parent: BaseAnimalOrgan
-  name: сердце мурина
+  name: Murin's heart
   components:
   - type: Sprite
     state: heart-on
@@ -18,7 +18,7 @@
 - type: entity
   id: OrganMurineKidneys
   parent: BaseAnimalOrgan
-  name: почки мурина
+  name: murin's kidneys
   components:
   - type: Sprite
     layers:
@@ -34,7 +34,7 @@
 - type: entity
   id: OrganMurineLiver
   parent: BaseAnimalOrgan
-  name: печень мурина
+  name: murin's liver
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -51,7 +51,7 @@
 - type: entity
   id: OrganMurineStomach
   parent: OrganRatStomach
-  name: желудок мурина
+  name: murin's stomach
   components:
   - type: Sprite
     state: stomach

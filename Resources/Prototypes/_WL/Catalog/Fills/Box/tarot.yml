@@ -1,0 +1,148 @@
+- type: entity
+  parent: BasePlayableCardBox
+  id: TarotCardDeck
+  name: deck of tarot cards
+  description: Cardboard box for storing cards.
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Misc/Tarot/box.rsi
+    scale: 0.8,0.8
+    state: deck
+  - type: Storage
+    grid:
+    - 0,0,7,9
+    maxItemSize: Small
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - TarotCard
+  - type: Item
+    shape:
+    - 0,0,1,0
+    size: Small
+  - type: Tag
+    tags:
+    - TarotDeck
+  - type: StorageFill
+    contents:
+    - id: TarotCardAceOfCups
+    - id: TarotCardTwoOfCups
+    - id: TarotCardThreeOfCups
+    - id: TarotCardFourOfCups
+    - id: TarotCardFiveOfCups
+    - id: TarotCardSixOfCups
+    - id: TarotCardSevenOfCups
+    - id: TarotCardEightOfCups
+    - id: TarotCardNineOfCups
+    - id: TarotCardTenOfCups
+    - id: TarotCardPageOfCups
+    - id: TarotCardKnightOfCups
+    - id: TarotCardQueenOfCups
+    - id: TarotCardKingOfCups
+    - id: TarotCardAceOfWands
+    - id: TarotCardTwoOfWands
+    - id: TarotCardThreeOfWands
+    - id: TarotCardFourOfWands
+    - id: TarotCardFiveOfWands
+    - id: TarotCardSixOfWands
+    - id: TarotCardSevenOfWands
+    - id: TarotCardEightOfWands
+    - id: TarotCardNineOfWands
+    - id: TarotCardTenOfWands
+    - id: TarotCardPageOfWands
+    - id: TarotCardKnightOfWands
+    - id: TarotCardQueenOfWands
+    - id: TarotCardKingOfWands
+    - id: TarotCardAceOfSwords
+    - id: TarotCardTwoOfSwords
+    - id: TarotCardThreeOfSwords
+    - id: TarotCardFourOfSwords
+    - id: TarotCardFiveOfSwords
+    - id: TarotCardSixOfSwords
+    - id: TarotCardSevenOfSwords
+    - id: TarotCardEightOfSwords
+    - id: TarotCardNineOfSwords
+    - id: TarotCardTenOfSwords
+    - id: TarotCardPageOfSwords
+    - id: TarotCardKnightOfSwords
+    - id: TarotCardQueenOfSwords
+    - id: TarotCardKingOfSwords
+    - id: TarotCardAceOfPentacles
+    - id: TarotCardTwoOfPentacles
+    - id: TarotCardThreeOfPentacles
+    - id: TarotCardFourOfPentacles
+    - id: TarotCardFiveOfPentacles
+    - id: TarotCardSixOfPentacles
+    - id: TarotCardSevenOfPentacles
+    - id: TarotCardEightOfPentacles
+    - id: TarotCardNineOfPentacles
+    - id: TarotCardTenOfPentacles
+    - id: TarotCardPageOfPentacles
+    - id: TarotCardKnightOfPentacles
+    - id: TarotCardQueenOfPentacles
+    - id: TarotCardKingOfPentacles
+    - id: TarotCardTheFool
+    - id: TarotCardTheMagician
+    - id: TarotCardTheHighPriestess
+    - id: TarotCardTheEmpress
+    - id: TarotCardTheEmperor
+    - id: TarotCardTheHierophant
+    - id: TarotCardTheLovers
+    - id: TarotCardTheChariot
+    - id: TarotCardJustice
+    - id: TarotCardTheHermit
+    - id: TarotCardWheelOfFortune
+    - id: TarotCardStrength
+    - id: TarotCardTheHangedMan
+    - id: TarotCardDeath
+    - id: TarotCardTemperance
+    - id: TarotCardTheDevil
+    - id: TarotCardTheTower
+    - id: TarotCardTheStar
+    - id: TarotCardTheMoon
+    - id: TarotCardTheSun
+    - id: TarotCardJudgement
+    - id: TarotCardTheWorld
+
+- type: entity
+  id: TarotCardBox
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  name: tarot box
+  description: Tarot originated in the XV century, but became popular for fortune-telling in the XVIII century. There are 14 cards of each of the four suits and 22 cards without suits, which are called high arcs.
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Misc/Tarot/box.rsi
+    scale: 0.6,0.6
+    state: box
+    layers:
+    - state: box
+    - state: box-open
+      map: ["openLayer"]
+      visible: false
+    - state: cards
+      map: ["box1"]
+      visible: false
+    - state: cards
+      map: ["box2"]
+      visible: false
+  - type: Storage
+    grid:
+    - 0,0,1,0
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - TarotDeck
+  - type: Item
+    size: Normal
+  - type: ItemCounter
+    count:
+      tags: [TarotDeck]
+    composite: true
+    layerStates:
+    - box1
+    - box2
+  - type: Appearance
+  - type: StorageFill
+    contents:
+    - id: TarotCardDeck

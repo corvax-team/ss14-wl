@@ -1,9 +1,9 @@
 - type: entity
-  name: Био трубка
-  description: Заменяет андроидам вены.
-  suffix: Полный
   parent: BaseHealingItem
   id: BioTube
+  name: bio tube
+  description: Replaces the veins of androids.
+  suffix: Full
   components:
   - type: Tag
     tags:
@@ -32,16 +32,16 @@
 - type: entity
   id: BioTube1
   parent: BioTube
-  suffix: Один
+  suffix: One
   components:
   - type: Stack
     stackType: BioTube
     count: 1
 
 - type: entity
-  name: Пакет с тириумом
-  suffix: Полный
-  description: Поможет восстановить потеряную биожидкость.
+  name: package with thirium
+  suffix: Full
+  description: It will help to restore the lost biofluid.
   parent: BaseHealingItem
   id: TiriumPack
   components:
@@ -71,7 +71,7 @@
 - type: entity
   id: TiriumPack1
   parent: TiriumPack
-  suffix: Один
+  suffix: One
   components:
   - type: Stack
     stackType: BioTube
@@ -79,11 +79,11 @@
 
 #Минеральная мазь (углерод 50, кремний 50, 1 мазь микроволновка 30 секунд=10 мази) - лечит 4 брут, 2.5 холод и тепло, 3.5 кислота
 - type: entity
-  name: минеральная мазь
-  description: Используется для замазывания трещин.
+  name: mineral ointment
+  description: It is used for sealing cracks.
   parent: BaseHealingItem
   id: MineralOintment
-  suffix: Полный
+  suffix: Full
   components:
   - type: Tag
     tags:
@@ -117,7 +117,7 @@
 - type: entity
   id: MineralOintment1
   parent: MineralOintment
-  suffix: Один
+  suffix: One
   components:
   - type: Stack
     stackType: MineralOintment
@@ -125,8 +125,8 @@
 
 #Минеральная паста (20 пепел, 20 бритвиум, 10 артифексум, 10 космический клей, 1 минеральная мазь 30 секунд в микроволновке=10 пасты) - 15 брут, 6 холод
 - type: entity
-  name: минеральная паста
-  description: Используется для заделки дыр и приклеивания оторванных конечностей
+  name: mineral paste
+  description: It is used for sealing holes and gluing severed limbs.
   parent: BaseHealingItem
   id: MineralPaste
   suffix: Full
@@ -162,7 +162,7 @@
 - type: entity
   id: MineralPaste1
   parent: MineralPaste
-  suffix: Один
+  suffix: One
   components:
   - type: Stack
     stackType: MineralPaste

@@ -1,7 +1,7 @@
 - type: entity
   save: false
-  parent: 
+  parent:
   - BaseMobAndroid
   - BaseMob
   id: MobAndroid
-  name: Урист МакАндроид
+  name: Urist McAndroid

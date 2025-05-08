@@ -67,14 +67,16 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
-        - type: StationGoal
-          goals:
-          - Singularity
-          - MiningOutpost
-          - SecurityTraining
-          - ShuttleMed
-          - ShuttleSrv
-          - ShuttleEmergency
-          - CellAI
-          - VirusologyAmbusol
-          - AstraRepair
+        # CorvaxWL-Changes start
+        # - type: StationGoal
+        #   goals:
+        #   - Singularity
+        #   - MiningOutpost
+        #   - SecurityTraining
+        #   - ShuttleMed
+        #   - ShuttleSrv
+        #   - ShuttleEmergency
+        #   - CellAI
+        #   - VirusologyAmbusol
+        #   - AstraRepair
+        # CorvaxWL-Changes end
