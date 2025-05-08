@@ -7,5 +7,8 @@ marking-HumanHairEmo2 = Эмо 2
 marking-HumanHairComet = Комета
 marking-HumanHairBedheadv4 = Небрежная 4
 marking-HumanHairAllthefuzz = Аллзефуз
-
-
+marking-HumanHairPigtail = Косичка
+marking-HumanHairPonytailLong = Красивый хвостик (Длинный)
+marking-HumanHairPonytailShort = Красивый хвостик (Короткий)
+marking-HumanHairShortCute = Изящная короткая
+marking-HumanHairShortCute2 = Изящная короткая (Заколка)

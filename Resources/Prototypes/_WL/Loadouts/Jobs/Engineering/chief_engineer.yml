@@ -1,0 +1,16 @@
+#WL Workers Lyvsi start engi resprite
+- type: loadout
+  id: ChiefEngineerParadeUniform
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChiefEngineerParade
+
+- type: loadout
+  id: ChiefEngineerParadeUniformJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtChiefEngineerParade
+
+- type: loadout
+  id: ChiefEngineerBeretWL
+  equipment:
+    head: ClothingHeadHatBeretChiefEngineer
+#WL Workers Lyvsi end

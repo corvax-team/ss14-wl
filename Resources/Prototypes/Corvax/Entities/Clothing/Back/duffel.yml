@@ -17,4 +17,4 @@
   description: A large duffel bag for all instruments you need to create singularity.
   components:
   - type: Sprite
-    sprite: Corvax/Back/Duffels/ce.rsi
+    sprite: _WL/Clothing/Back/Duffels/ce.rsi #WL Workers Lyvsi engi resprite

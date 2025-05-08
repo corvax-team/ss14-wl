@@ -1,0 +1,12 @@
+#WL Workers lyvsi start engi resprite
+- type: entity
+  parent: ClothingHeadHatHardhatBase
+  id: ClothingHeadSeniorEngineerHardhat
+  name: senior engineer hard hat
+  description: It's very colorful, so that the assistants can see who the daddy is here.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hardhats/senior_engineer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hardhats/senior_engineer.rsi
+#WL Workers lyvsi end

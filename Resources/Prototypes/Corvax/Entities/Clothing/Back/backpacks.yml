@@ -30,7 +30,7 @@
   description: Technicially progressive backpack.
   components:
   - type: Sprite
-    sprite: Corvax/Back/Backpacks/ce.rsi
+    sprite: _WL/Clothing/Back/Backpacks/ce.rsi #WL Workers Lyvsi engi resprite
 
 - type: entity
   parent: ClothingBackpack
@@ -40,4 +40,3 @@
   components:
   - type: Sprite
     sprite: Corvax/Back/Backpacks/warden.rsi
-    

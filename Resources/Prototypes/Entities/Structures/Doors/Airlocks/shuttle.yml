@@ -29,7 +29,7 @@
           position: "0,-0.5"
         hard: false
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/shuttle.rsi
+    sprite: _WL/Structures/Doors/Airlocks/Standard/shuttle.rsi #WL workers Lyvsi airlock resprite
     snapCardinals: false
   - type: Wires
     layoutId: Docking
@@ -69,7 +69,7 @@
   description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: _WL/Structures/Doors/Airlocks/Glass/shuttle.rsi #WL workers Lyvsi airlock resprite
   - type: Occluder
     enabled: false
   - type: PaintableAirlock
@@ -94,7 +94,7 @@
     noRot: false
   - type: Rotatable
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle.rsi
+    sprite: _WL/Structures/Doors/Airlocks/Glass/shuttle.rsi #WL workers Lyvsi airlock resprite
     state: closed
     snapCardinals: false
   - type: Construction
@@ -109,7 +109,7 @@
   description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi
+    sprite: _WL/Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi #WL workers Lyvsi airlock resprite
 
 - type: entity
   parent: AirlockShuttle
@@ -119,4 +119,4 @@
   description: Necessary for connecting two space craft together.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
+    sprite: _WL/Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi #WL workers Lyvsi airlock resprite
