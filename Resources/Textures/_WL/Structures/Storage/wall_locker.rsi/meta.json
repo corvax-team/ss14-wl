@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "For corvax WL from mmureixloL",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    { "name": "atmos_door" },
+    { "name": "black_door" },
+    { "name": "blue_door" },
+    { "name": "emergency" },
+    { "name": "emergency_door" },
+    { "name": "emergency_open" },
+    { "name": "fire" },
+    { "name": "fire_door" },
+    { "name": "fire_open" },
+    { "name": "generic" },
+    { "name": "generic_door" },
+    { "name": "generic_icon" },
+    { "name": "generic_open" },
+    { "name": "gray_door" },
+    { "name": "green_door" },
+    { "name": "locked" },
+    { "name": "med" },
+    { "name": "med_door" },
+    { "name": "med_open" },
+    { "name": "mixed_door" },
+    { "name": "orange_door" },
+    { "name": "pink_door" },
+    { "name": "red_door" },
+    { "name": "unlocked" },
+    { "name": "welded" },
+    { "name": "white_door" },
+    { "name": "yellow_door" }
+  ]
+}
