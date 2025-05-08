@@ -22,3 +22,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Drawn by Ubaser"
   source: "https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Parallaxes/core_planet.png"
+
+- files: ["AlphaBlackHole.png"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "created on the website https://deep-fold.itch.io/pixel-planet-generator by mofkkol1 (github)"
+  source: "https://github.com/corus-station/WL-Corvax/Resources/Textures/Parallaxes/AlphaBlackHole.png"

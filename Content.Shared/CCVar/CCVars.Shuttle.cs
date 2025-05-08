@@ -123,7 +123,7 @@ public sealed partial class CCVars
     ///     How long the emergency shuttle remains docked with the station, in seconds.
     /// </summary>
     public static readonly CVarDef<float> EmergencyShuttleDockTime =
-        CVarDef.Create("shuttle.emergency_dock_time", 180f, CVar.SERVERONLY);
+        CVarDef.Create("shuttle.emergency_dock_time", 300f, CVar.SERVERONLY); // WL_Workers_EmergencyShuttleDelayed
 
     /// <summary>
     ///     If the emergency shuttle can't dock at a priority port, the dock time will be multiplied with this value.

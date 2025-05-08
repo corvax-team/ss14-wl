@@ -729,7 +729,8 @@
   minLimit: 0
   loadouts:
   - ChiefEngineerHead
-  - ChiefEngineerBeret
+  - EngineerBeret
+  - ChiefEngineerBeretWL #WL Workers Lyvsi engi resprite
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -739,6 +740,8 @@
   - ChiefEngineerJumpskirt
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
+  - ChiefEngineerParadeUniform #WL Workers Lyvsi engi resprite
+  - ChiefEngineerParadeUniformJumpskirt #WL Workers Lyvsi engi resprite
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -768,16 +771,20 @@
   loadouts:
   - YellowJumpsuit
   - YellowJumpskirt
+  - EngineerAssistantJumpsuitCasual #WL Workers Lyvsi engi resprite
 
 - type: loadoutGroup
   id: StationEngineerHead
   name: loadout-group-station-engineer-head
   minLimit: 0
   loadouts:
+  - EngineerCap #WL Workers Lyvsi engi resprite
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
-  - SeniorEngineerBeret
+  - StationEngineerSeniorHardhat #WL Workers Lyvsi engi resprite
+  - EngineeringBeret
+  - StationEngineerSeniorBeret #WL Workers Lyvsi engi resprite
 
 - type: loadoutGroup
   id: StationEngineerJumpsuit

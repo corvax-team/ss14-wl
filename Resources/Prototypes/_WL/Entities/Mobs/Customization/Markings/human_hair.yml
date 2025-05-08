@@ -61,3 +61,43 @@
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: allthefuzz
+
+- type: marking
+  id: HumanHairPigtail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: pigtail
+
+- type: marking
+  id: HumanHairPonytailLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: ponytail_long
+
+- type: marking
+  id: HumanHairPonytailShort
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: ponytail_short
+
+- type: marking
+  id: HumanHairShortCute
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: short_cute
+
+- type: marking
+  id: HumanHairShortCute2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: short_cute2

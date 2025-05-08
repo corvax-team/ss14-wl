@@ -122,6 +122,10 @@
   - ClothingHeadHatWarden
   - ClothingUniformJumpsuitWarden
   - ClothingUniformJumpskirtWarden
+# Corvax-WL recipes start
+  - ClothingHeadHatBeretCaptain
+  - ClothingHeadHatBeretHoP
+# Corvax-WL recipes end
 
 - type: latheRecipePack
   id: ClothingService

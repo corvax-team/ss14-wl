@@ -53,3 +53,9 @@ marking-TajaraHairTail = Хвостик 3
 marking-TajaraHairTailedBangs = Хвостик (с чёлкой)
 marking-TajaraHairTough = Крутая
 marking-TajaraHairVictory = Победа
+
+marking-HumanHairPigtail = Косичка
+marking-HumanHairPonytailLong = Красивый хвостик (Длинный)
+marking-HumanHairPonytailShort = Красивый хвостик (Короткий)
+marking-HumanHairShortCute = Изящная короткая
+marking-HumanHairShortCute2 = Изящная короткая (Заколка)

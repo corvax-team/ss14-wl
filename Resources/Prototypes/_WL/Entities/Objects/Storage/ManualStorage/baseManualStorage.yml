@@ -1,0 +1,28 @@
+- type: entity
+  id: BaseManualStorage
+  parent: BaseStorageItem
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+      - map: [ base ]
+        state: icon
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: Storage
+    blacklist:
+      tags:
+        - ManualStorage
+  - type: Item
+    size: Ginormous
+  - type: Tag
+    tags:
+     - ManualStorage
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+  - type: Appearance

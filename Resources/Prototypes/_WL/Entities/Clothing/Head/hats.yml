@@ -16,8 +16,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretHoP
-  name: берет главы персонала
-  description: Синий берет. Пахнет бюрократией.
+  name: beret head of personnel
+  description: Blue beret. Smells like bureaucracy.
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Hats/beret_hop.rsi
@@ -27,11 +27,56 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCaptain
-  name: берет капитана
-  description: Синий берет с золотым значком NT. Заставляет окружающих уважать вас, но не вызывает желания работать. Слава NT!
+  name: beret сaptain
+  description: Blue beret with gold NT badge. Makes people respect you, but doesn't make you want to work. Glory to NT!
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Hats/beret_captain.rsi
   - type: Clothing
     sprite: _WL/Clothing/Head/Hats/beret_captain.rsi
 
+#WL Workers Lyvsi start
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretChiefEngineer
+  name: chief engineer beret
+  description: Designed for show-off, take care of your head.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_ce.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_ce.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: SeniorEngineerBeret
+  name: lead engineer
+  description: Underneath it may be a singularity... or baldness, who knows?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_senior_engineer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_senior_engineer.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingEngineerCap
+  name: engineer cap
+  description: Do not use as a fuse and do not put it in the AME meinstead of fuel.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/engineeringsoft.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/engineeringsoft.rsi
+
+#WL Workers Lyvsi end

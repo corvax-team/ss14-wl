@@ -7,10 +7,10 @@
   components:
   - type: Emag
   - type: Sprite
-    sprite: Objects/Tools/emag.rsi
+    sprite: _WL/Objects/Tools/emag.rsi
     state: icon
   - type: Item
-    sprite: Objects/Tools/emag.rsi
+    sprite: _WL/Objects/Tools/emag.rsi
     storedRotation: -90
 # Corvax-HiddenDesc-Start
   - type: HiddenDescription

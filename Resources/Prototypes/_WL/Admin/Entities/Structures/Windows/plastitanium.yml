@@ -1,8 +1,8 @@
 - type: entity
   id: PlastitaniumWindowIndestructibleSinguloimmune
   parent: Window
-  name: субсветовое пластитановое окно
-  description: Это пластитановое окно покрытое тонким слоем естественного света, который поставляется с солнечного Арра-Киса. Если ты прислонишь лицо, то почувствуешь, словно стоишь снаружи, и солнце светит на тебя. От этого также загорятся волосы, поэтому не делай этого.
+  name: sublight plustitanium window
+  description: This is a plasticine window covered with a thin layer of natural light that comes from a sunny Arra-Kisa. If you lean your face back, you will feel as if you are standing outside and the sun is shining on you. It will also set your hair on fire, so don't do it.
   suffix: Singuloimmune, Indestructible, WL
   components:
   - type: ContainmentField

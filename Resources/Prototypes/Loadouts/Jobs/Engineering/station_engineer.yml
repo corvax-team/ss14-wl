@@ -39,12 +39,19 @@
   equipment:
     head: ClothingHeadHatHardhatRed
 
+#WL Workers Lyvsi engi resprite start
+- type: loadout
+  id: EngineeringBeret
+  equipment:
+    head: ClothingHeadHatBeretEngineering
+
 - type: loadout
   id: SeniorEngineerBeret
   startingGear: EngineeringBeret
   effects:
   - !type:GroupLoadoutEffect
     proto: SeniorEngineering
+#WL Workers Lyvsi engi resprite end
 
 # Jumpsuit
 - type: loadout

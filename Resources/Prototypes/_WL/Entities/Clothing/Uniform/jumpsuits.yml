@@ -1,0 +1,23 @@
+#WL Workers Lyvsi start engi resprite
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitChiefEngineerParade
+  name:  chief engineer parade uniform
+  description: Put on when you need to unscrew on the light bulb in the presence of a representative of the Central Command
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/ce_parade.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/ce_parade.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCasualEngineerAssistant
+  name:  technical assistant's jumpsuit with straps
+  description: Designed for the assistant to show off his muscles.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/engassistant.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/engassistant.rsi
+#WL Workers Lyvsi end

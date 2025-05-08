@@ -11,6 +11,7 @@ secret_weight_prototype = "Secret"
 
 [server]
 lobby_name = "️🛰️ Corvax — Вайтлист ☕"
+rules_file = "CorvaxWLRuleset"
 
 [atmos]
 space_wind = true

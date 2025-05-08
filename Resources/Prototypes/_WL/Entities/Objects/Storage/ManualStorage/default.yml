@@ -1,0 +1,58 @@
+- type: entity
+  id: ManualStorageDefaultSmall
+  parent: BaseManualStorage
+  name: Small manual storage
+  description: A small storage that fits in your hand. Not a backpack or a box
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Default/small.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Default/small.rsi
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+
+- type: entity
+  id: ManualStorageDefaultBox
+  parent: BaseManualStorage
+  name: Average manual storage
+  description: A manual storage that can only be carried in two hands, although it is possible in one, but the instructions and the weight say the opposite
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Default/box.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Default/box.rsi
+    size: Ginormous
+    shape:
+    - 0,0,2,2
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,3,2
+  - type: MultiHandedItem
+
+- type: entity
+  id: ManualStorageDefaultBig
+  parent: BaseManualStorage
+  name: Big manual storage
+  description: Manual storage, which looks like a box, but made of steel! Why not plastic ones?! They're also heavy!
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Default/big.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Default/big.rsi
+    size: Ginormous
+    shape:
+    - 0,0,2,2
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,4,3
+  - type: MultiHandedItem
+  - type: HeldSpeedModifier
+    walkModifier: 0.6
+    sprintModifier: 0.6

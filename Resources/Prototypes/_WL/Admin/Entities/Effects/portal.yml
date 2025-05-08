@@ -1,6 +1,6 @@
 - type: entity
   id: InvisPortalBase
-  suffix: Невидимый, АДМИНАБУЗ, НЕ МАППИТЬ, Маркер
+  suffix: Invisible, ADMINBUS, DO NOT MAPP, Marker
   parent: [BasePortal, MarkerBase]
   components:
   - type: Portal
@@ -15,7 +15,7 @@
 
 - type: entity
   id: InvisPortalChasmDepart
-  suffix: Невидимый, АДМИНАБУЗ, НЕ МАППИТЬ, Маркер
+  suffix: Invisible, ADMINBUS, DO NOT MAPP, Marker
   parent: [BasePortal, MarkerBase]
   components:
   - type: Sprite

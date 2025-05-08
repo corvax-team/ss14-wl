@@ -1,9 +1,9 @@
 - type: entity
   id: CoolTeleporter
   parent: HandTeleporter
-  name: админское портальное устройство Н
-  description: Как обычный, но круче. Делает невидимые порталы. Пропишите showmarkers чтобы увидеть их. Если вы не админ верните ближайшему админу.
-  suffix: Стелс, АДМИНАБУЗ, НЕ МАППИТЬ
+  name: admin portal device N
+  description: Like the usual one, but cooler. Makes invisible portals. Write showmarkers to see them. If you are not an admin, return it to the nearest admin.
+  suffix: Stels, ADMINBUS, DO NOT MAP
   components:
   - type: HandTeleporter
     firstPortalPrototype: InvisPortalBase
@@ -15,9 +15,9 @@
 - type: entity
   id: ChasmHandTeleporter
   parent: HandTeleporter
-  name: админское портальное устройство НБ
-  description: Как обычный, но круче. Делает невидимые порталы со звуком падения. Пропишите showmarkers чтобы увидеть их. Если вы не админ верните ближайшему админу.
-  suffix: Бездна, АДМИНАБУЗ, НЕ МАППИТЬ
+  name: admin portal device NB
+  description: Like the usual one, but cooler. Makes invisible portals with the sound of falling. Write showmarkers to see them. If you are not an admin, return it to the nearest admin.
+  suffix: Abyss, ADMINBUS, DO NOT MAP
   components:
   - type: HandTeleporter
     firstPortalPrototype: InvisPortalChasmDepart

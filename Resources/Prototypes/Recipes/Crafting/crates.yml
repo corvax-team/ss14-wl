@@ -61,7 +61,7 @@
   targetNode: basebigbox
   category: construction-category-storage
   description: A big box for storing things or hiding in.
-  icon: { sprite: Structures/Storage/closet.rsi, state: cardboard }
+  icon: { sprite: _WL/Structures/Storage/closet.rsi, state: cardboard } #WL Lyvsi closet resprite
   objectType: Structure
 
 - type: construction

@@ -3,7 +3,7 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.ForceSay;
-using Content.Shared.Emoting;
+// using Content.Shared.Emoting; // WL_Workers_SLEEPING_EMOTES
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.IdentityManagement;
@@ -64,7 +64,7 @@ public sealed partial class SleepingSystem : EntitySystem
 
         SubscribeLocalEvent<ForcedSleepingComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SleepingComponent, UnbuckleAttemptEvent>(OnUnbuckleAttempt);
-        SubscribeLocalEvent<SleepingComponent, EmoteAttemptEvent>(OnEmoteAttempt);
+        // SubscribeLocalEvent<SleepingComponent, EmoteAttemptEvent>(OnEmoteAttempt); // WL_Workers_SLEEPING_EMOTES
 
         SubscribeLocalEvent<SleepingComponent, BeforeForceSayEvent>(OnChangeForceSay, after: new []{typeof(PainNumbnessSystem)});
     }
@@ -314,13 +314,15 @@ public sealed partial class SleepingSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
-    /// Prevents the use of emote actions while sleeping
-    /// </summary>
-    public void OnEmoteAttempt(Entity<SleepingComponent> ent, ref EmoteAttemptEvent args)
-    {
-        args.Cancel();
-    }
+    // WL_Workers_SLEEPING_EMOTES
+    // /// <summary>
+    // /// Prevents the use of emote actions while sleeping
+    // /// </summary>
+    // public void OnEmoteAttempt(Entity<SleepingComponent> ent, ref EmoteAttemptEvent args)
+    // {
+    //     args.Cancel();
+    // }
+    // WL_Workers_SLEEPING_EMOTES-END
 
     private void OnChangeForceSay(Entity<SleepingComponent> ent, ref BeforeForceSayEvent args)
     {

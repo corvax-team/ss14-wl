@@ -17,4 +17,4 @@
   description: A white satchel for best engineers.
   components:
   - type: Sprite
-    sprite: Corvax/Back/Satchels/ce.rsi
+    sprite: _WL/Clothing/Back/Satchels/ce.rsi #WL Workers Lyvsi engi resprite

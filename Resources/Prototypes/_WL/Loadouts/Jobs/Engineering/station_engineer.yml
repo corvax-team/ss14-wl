@@ -3,3 +3,19 @@
   equipment:
     outerClothing: ClothingOuterVestHazard
     
+#WL Workers Lyvsi start engi resprite
+- type: loadout
+  id: StationEngineerSeniorHardhat
+  equipment:
+    head: ClothingHeadSeniorEngineerHardhat
+
+- type: loadout
+  id: StationEngineerSeniorBeret
+  equipment:
+    head: SeniorEngineerBeret
+
+- type: loadout
+  id: EngineerCap
+  equipment:
+    head: ClothingEngineerCap
+#WL Workers Lyvsi end

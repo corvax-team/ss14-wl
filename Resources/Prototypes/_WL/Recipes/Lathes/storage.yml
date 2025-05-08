@@ -1,0 +1,147 @@
+# base
+
+- type: latheRecipe
+  abstract: true
+  id: BaseStorageRecipe
+  category: Storage
+  completetime: 2
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseStorageRecipe
+  id: BaseManualStorageSmallRecipe
+  materials:
+    Steel: 500
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseStorageRecipe
+  id: BaseManualStorageBoxRecipe
+  materials:
+    Steel: 1000
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseStorageRecipe
+  id: BaseManualStorageBigRecipe
+  materials:
+    Steel: 1500
+
+# Manual Storage - Defaul
+
+- type: latheRecipe
+  parent: BaseManualStorageSmallRecipe
+  id: ManualStorageDefaultSmallRecipe
+  result: ManualStorageDefaultSmall
+
+- type: latheRecipe
+  parent: BaseManualStorageBoxRecipe
+  id: ManualStorageDefaultBoxRecipe
+  result: ManualStorageDefaultBox
+
+- type: latheRecipe
+  parent: BaseManualStorageBigRecipe
+  id: ManualStorageDefaultBigRecipe
+  result: ManualStorageDefaultBig
+
+# Manual Storage - Cargo
+
+- type: latheRecipe
+  parent: BaseManualStorageSmallRecipe
+  id: ManualStorageCargoSmallRecipe
+  result: ManualStorageCargoSmall
+
+- type: latheRecipe
+  parent: BaseManualStorageBoxRecipe
+  id: ManualStorageCargoBoxRecipe
+  result: ManualStorageCargoBox
+
+- type: latheRecipe
+  parent: BaseManualStorageBigRecipe
+  id: ManualStorageCargoBigRecipe
+  result: ManualStorageCargoBig
+
+# Manual Storage - Engineer
+
+- type: latheRecipe
+  parent: BaseManualStorageSmallRecipe
+  id: ManualStorageEngineerSmallRecipe
+  result: ManualStorageEngineerSmall
+
+- type: latheRecipe
+  parent: BaseManualStorageBoxRecipe
+  id: ManualStorageEngineerBoxRecipe
+  result: ManualStorageEngineerBox
+
+- type: latheRecipe
+  parent: BaseManualStorageBigRecipe
+  id: ManualStorageEngineerBigRecipe
+  result: ManualStorageEngineerBig
+
+# Manual Storage - Medical
+
+- type: latheRecipe
+  parent: BaseManualStorageSmallRecipe
+  id: ManualStorageMedicalSmallRecipe
+  result: ManualStorageMedicalSmall
+
+- type: latheRecipe
+  parent: BaseManualStorageBoxRecipe
+  id: ManualStorageMedicalBoxRecipe
+  result: ManualStorageMedicalBox
+
+- type: latheRecipe
+  parent: BaseManualStorageBigRecipe
+  id: ManualStorageMedicalBigRecipe
+  result: ManualStorageMedicalBig
+
+# Manual Storage - Security
+
+- type: latheRecipe
+  parent: BaseManualStorageSmallRecipe
+  id: ManualStorageSecuritySmallRecipe
+  result: ManualStorageSecuritySmall
+
+- type: latheRecipe
+  parent: BaseManualStorageBoxRecipe
+  id: ManualStorageSecurityBoxRecipe
+  result: ManualStorageSecurityBox
+
+- type: latheRecipe
+  parent: BaseManualStorageBigRecipe
+  id: ManualStorageSecurityBigRecipe
+  result: ManualStorageSecurityBig
+
+# Manual Storage - Science
+
+- type: latheRecipe
+  parent: BaseManualStorageSmallRecipe
+  id: ManualStorageScienceSmallRecipe
+  result: ManualStorageScienceSmall
+
+- type: latheRecipe
+  parent: BaseManualStorageBoxRecipe
+  id: ManualStorageScienceBoxRecipe
+  result: ManualStorageScienceBox
+
+- type: latheRecipe
+  parent: BaseManualStorageBigRecipe
+  id: ManualStorageScienceBigRecipe
+  result: ManualStorageScienceBig
+
+# Manual Storage - Command
+
+- type: latheRecipe
+  parent: BaseManualStorageSmallRecipe
+  id: ManualStorageCommandSmallRecipe
+  result: ManualStorageCommandSmall
+
+- type: latheRecipe
+  parent: BaseManualStorageBoxRecipe
+  id: ManualStorageCommandBoxRecipe
+  result: ManualStorageCommandBox
+
+- type: latheRecipe
+  parent: BaseManualStorageBigRecipe
+  id: ManualStorageCommandBigRecipe
+  result: ManualStorageCommandBig
