@@ -7,7 +7,7 @@
     - type: Transform
       noRot: true
     - type: Sprite
-      sprite: Structures/Storage/closet.rsi
+      sprite: _WL/Structures/Storage/closet.rsi #WL Lyvsi closet resprite
       drawdepth: Effects
       noRot: true
       layers:
@@ -25,7 +25,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      sprite: Structures/Storage/closet.rsi
+      sprite: _WL/Structures/Storage/closet.rsi #WL Lyvsi closet resprite
       state: cardboard_special
       drawdepth: Effects
       offset: 0, 1

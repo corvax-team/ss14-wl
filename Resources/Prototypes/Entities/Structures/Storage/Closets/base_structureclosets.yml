@@ -11,7 +11,7 @@
     noRot: true
   - type: Sprite
     noRot: true
-    sprite: Structures/Storage/closet.rsi
+    sprite: _WL/Structures/Storage/closet.rsi #WL Lyvsi closet resprite
     layers:
     - state: generic
       map: ["enum.StorageVisualLayers.Base"]
@@ -147,7 +147,7 @@
   - type: Sprite
     drawdepth: WallMountedItems
     noRot: false
-    sprite: Structures/Storage/wall_locker.rsi
+    sprite: _WL/Structures/Storage/wall_locker.rsi #WL Lyvsi closet resprite
     layers:
     - state: generic
       map: ["enum.StorageVisualLayers.Base"]
@@ -211,7 +211,7 @@
   - type: Lock
   - type: LockVisuals
   - type: Sprite
-    sprite: Structures/Storage/wall_locker.rsi
+    sprite: _WL/Structures/Storage/wall_locker.rsi #WL Lyvsi closet resprite
     layers:
     - state: generic
       map: ["enum.StorageVisualLayers.Base"]
