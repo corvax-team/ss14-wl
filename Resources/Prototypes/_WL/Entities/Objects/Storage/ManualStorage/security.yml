@@ -1,0 +1,59 @@
+- type: entity
+  id: ManualStorageSecuritySmall
+  parent: ManualStorageDefaultSmall
+  name: Small manual storage of the Security Department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Security/small.rsi
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+        shader: unshaded
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Security/small.rsi
+  - type: AccessReader
+    access: [["Security"]]
+  - type: Lock
+  - type: LockVisuals
+
+- type: entity
+  id: ManualStorageSecurityBox
+  parent: ManualStorageDefaultBox
+  name: Average manual storage of the Security Department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Security/box.rsi
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+        shader: unshaded
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Security/box.rsi
+  - type: AccessReader
+    access: [["Security"]]
+  - type: Lock
+  - type: LockVisuals
+
+- type: entity
+  id: ManualStorageSecurityBig
+  parent: ManualStorageDefaultBig
+  name: Big manual storage of the Security Department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Security/big.rsi
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+        shader: unshaded
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Security/big.rsi
+  - type: AccessReader
+    access: [["Security"]]
+  - type: Lock
+  - type: LockVisuals

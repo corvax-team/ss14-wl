@@ -1,0 +1,29 @@
+- type: entity
+  id: ManualStorageScienceSmall
+  parent: ManualStorageDefaultSmall
+  name: Small manual storage of the RND
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Science/small.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Science/small.rsi
+
+- type: entity
+  id: ManualStorageScienceBox
+  parent: ManualStorageDefaultBox
+  name: Average manual storage of the RND
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Science/box.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Science/box.rsi
+
+- type: entity
+  id: ManualStorageScienceBig
+  parent: ManualStorageDefaultBig
+  name: Big manual storage of the RND
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Science/big.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Science/big.rsi

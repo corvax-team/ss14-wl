@@ -1,0 +1,29 @@
+- type: entity
+  id: ManualStorageEngineerSmall
+  parent: ManualStorageDefaultSmall
+  name: Small manual storage of the engineering department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Engineer/small.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Engineer/small.rsi
+
+- type: entity
+  id: ManualStorageEngineerBox
+  parent: ManualStorageDefaultBox
+  name: Average manual storage of the engineering department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Engineer/box.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Engineer/box.rsi
+
+- type: entity
+  id: ManualStorageEngineerBig
+  parent: ManualStorageDefaultBig
+  name: Big manual storage of the engineering department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Engineer/big.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Engineer/big.rsi

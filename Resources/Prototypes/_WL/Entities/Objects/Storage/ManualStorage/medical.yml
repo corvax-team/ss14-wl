@@ -1,0 +1,29 @@
+- type: entity
+  id: ManualStorageMedicalSmall
+  parent: ManualStorageDefaultSmall
+  name: Small manual storage of the medical department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Medical/small.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Medical/small.rsi
+
+- type: entity
+  id: ManualStorageMedicalBox
+  parent: ManualStorageDefaultBox
+  name: Average manual storage of the medical department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Medical/box.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Medical/box.rsi
+
+- type: entity
+  id: ManualStorageMedicalBig
+  parent: ManualStorageDefaultBig
+  name: Big manual storage of the medical department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Medical/big.rsi
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Medical/big.rsi

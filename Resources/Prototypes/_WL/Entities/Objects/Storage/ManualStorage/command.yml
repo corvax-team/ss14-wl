@@ -1,0 +1,59 @@
+- type: entity
+  id: ManualStorageCommandSmall
+  parent: ManualStorageDefaultSmall
+  name: Small manual storage of the command department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Command/small.rsi
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+        shader: unshaded
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Command/small.rsi
+  - type: AccessReader
+    access: [["Command"]]
+  - type: Lock
+  - type: LockVisuals
+
+- type: entity
+  id: ManualStorageCommandBox
+  parent: ManualStorageDefaultBox
+  name: Average manual storage of the command department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Command/box.rsi
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+        shader: unshaded
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Command/box.rsi
+  - type: AccessReader
+    access: [["Command"]]
+  - type: Lock
+  - type: LockVisuals
+
+- type: entity
+  id: ManualStorageCommandBig
+  parent: ManualStorageDefaultBig
+  name: Big manual storage of the command department
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Storage/ManualStorage/Command/big.rsi
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: locked
+        map: ["enum.LockVisualLayers.Lock"]
+        shader: unshaded
+  - type: Item
+    sprite: _WL/Objects/Storage/ManualStorage/Command/big.rsi
+  - type: AccessReader
+    access: [["Command"]]
+  - type: Lock
+  - type: LockVisuals

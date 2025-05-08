@@ -1,0 +1,1 @@
+lathe-category-storage = Хранилища
