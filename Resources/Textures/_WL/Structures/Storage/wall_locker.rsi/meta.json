@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "For corvax WL from mmureixloL",
+  "copyright": "For corvax WL from mmureixloL. n2, n2_open, n2_door Taken from shiptest at commmit https://github.com/shiptest-ss13/Shiptest/commit/440a15fb476a20d77ba28c1fe315c1b659032ce8, edited by Alekshhh, N2 lockers edited by Lamrr",
   "size": {
     "x": 32,
     "y": 32
@@ -33,6 +33,9 @@
     { "name": "unlocked" },
     { "name": "welded" },
     { "name": "white_door" },
-    { "name": "yellow_door" }
+    { "name": "yellow_door" },
+    { "name": "n2" },
+    { "name": "n2_open" },
+    { "name": "n2_door" }
   ]
 }

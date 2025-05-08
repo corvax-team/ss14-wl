@@ -4,10 +4,7 @@
     "x": 32,
     "y": 32
   },
-  "copyright": "For corvax WL from mmureixloL. abductor.png, abductor_door.png, abductor_open.png, agentbox.png, alien.png, alien_door.png, alien_open.png, armory.png, armory_door.png, armory_open.png, cardboard.png,
-cardboard_open.png, cardboard_special.png, cargo.png, cargo_door.png, cargo_open.png, cursed.png, ursed_door.png, cursed_open.png, cursed_whole.png, decursed.png,
-decursed_door.png, decursed_open.png, ecase.png, ecase_door.png, ecase_open.png, egun.png, metalbox.png, metalbox_open.png, oldcloset.png, shotguncase.png, shotguncase_door.png,
-shotguncase_open.png, tac.png, tac_door.png, tac_open.png. Attention! For technical reasons, these sprites are in this meta.json. They don't belong to us, and the original meta.json is on this path Resources\Textures\Structures\Storage\closet.rsi\meta.json",
+  "copyright": "For corvax WL from mmureixloL. abductor.png, abductor_door.png, abductor_open.png, agentbox.png, alien.png, alien_door.png, alien_open.png, armory.png, armory_door.png, armory_open.png, cardboard.png, cardboard_open.png, cardboard_special.png, cargo.png, cargo_door.png, cargo_open.png, cursed.png, ursed_door.png, cursed_open.png, cursed_whole.png, decursed.png, decursed_door.png, decursed_open.png, ecase.png, ecase_door.png, ecase_open.png, egun.png, metalbox.png, metalbox_open.png, oldcloset.png, shotguncase.png, shotguncase_door.png, shotguncase_open.png, tac.png, tac_door.png, tac_open.png. Attention! For technical reasons, these sprites are in this meta.json. They don't belong to us, and the original meta.json is on this path Resources\\Textures\\Structures\\Storage\\closet.rsi\\meta.json",
   "license": "CC-BY-SA-3.0",
   "states": [
     {
