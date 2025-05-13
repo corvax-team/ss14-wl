@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from FluffySTG at https://github.com/Fluffy-Frontier/FluffySTG/commit/b689d2ecf50c113a2b132c63efdb64b42cc0bf05",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "m_ears_bigwolf_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_bigwolf_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_fennec_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_fennec_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_floppy_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_floppy_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_floppy_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_perky_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_perky_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_possum_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_possum_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_raccoon_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_raccoon_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_sabresune_secondary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_sabresune_primary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_wolf_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "m_ears_wolf_primary",
+      "directions": 4
+    }
+  ]
+}

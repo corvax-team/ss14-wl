@@ -149,3 +149,76 @@
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_highlight_l_leg
+
+- type: marking
+  id: AkulaTailSegmented
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Akula]
+  sprites:
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_tail_segmentedtail_primary
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_tail_segmentedtail_secondary
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_tail_segmentedtail_tertiary
+
+- type: marking
+  id: AkulaTailSharknofin
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Akula]
+  sprites:
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_tail_sharknofin_primary
+
+- type: marking
+  id: AkulaTailOrca
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Akula]
+  sprites:
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_tail_orca_primary
+
+#Animated
+
+- type: marking
+  id: AkulaTailFishAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Akula]
+  sprites:
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_waggingtail_fish_primary
+
+- type: marking
+  id: AkulaTailSegmentedAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Akula]
+  sprites:
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_waggingtail_segmentedtail_primary
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_waggingtail_segmentedtail_secondary
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_waggingtail_segmentedtail_tertiary
+
+- type: marking
+  id: AkulaTailSharkAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Akula]
+  sprites:
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_waggingtail_shark_primary
+
+- type: marking
+  id: AkulaTailSharknofinAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Akula]
+  sprites:
+    - sprite: _WL\Mobs\Customization\all_tails.rsi
+      state: m_waggingtail_sharknofin_primary
