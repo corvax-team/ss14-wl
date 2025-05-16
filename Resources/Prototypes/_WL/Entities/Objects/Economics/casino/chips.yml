@@ -1,0 +1,174 @@
+- type: entity
+  parent: ChipsBase
+  id: Chips10
+  name: chips "10"
+  suffix: Полные
+  components:
+  - type: Stack
+    stackType: Chips10
+    count: 15
+    baseLayer: base
+    layerStates:
+    - azurechip
+    - azurechip2
+    - azurechip3
+    - azurechip4
+    - azurechip5
+    - azurechip6
+    - azurechip7
+  - type: Sprite
+    state: azurechip7
+    layers:
+    - state: azurechip7
+      map: ["base"]
+  - type: Appearance
+
+- type: entity
+  parent: ChipsBase
+  id: Chips25
+  name: chips "25"
+  suffix: Полные
+  components:
+  - type: Stack
+    stackType: Chips25
+    count: 15
+    baseLayer: base
+    layerStates:
+    - redchip
+    - redchip2
+    - redchip3
+    - redchip4
+    - redchip5
+    - redchip6
+    - redchip7
+  - type: Sprite
+    state: redchip7
+    layers:
+    - state: redchip7
+      map: ["base"]
+  - type: Appearance
+
+- type: entity
+  parent: ChipsBase
+  id: Chips50
+  name: chips "50"
+  suffix: Полные
+  components:
+  - type: Stack
+    stackType: Chips50
+    count: 15
+    baseLayer: base
+    layerStates:
+    - bluechip
+    - bluechip2
+    - bluechip3
+    - bluechip4
+    - bluechip5
+    - bluechip6
+    - bluechip7
+  - type: Sprite
+    state: bluechip7
+    layers:
+    - state: bluechip7
+      map: ["base"]
+  - type: Appearance
+
+- type: entity
+  parent: ChipsBase
+  id: Chips100
+  name: chips "100"
+  suffix: Полные
+  components:
+  - type: Stack
+    stackType: Chips100
+    count: 15
+    baseLayer: base
+    layerStates:
+    - greenchip
+    - greenchip2
+    - greenchip3
+    - greenchip4
+    - greenchip5
+    - greenchip6
+    - greenchip7
+  - type: Sprite
+    state: greenchip7
+    layers:
+    - state: greenchip7
+      map: ["base"]
+  - type: Appearance
+
+- type: entity
+  parent: ChipsBase
+  id: Chips250
+  name: chips "250"
+  suffix: Полные
+  components:
+  - type: Stack
+    stackType: Chips250
+    count: 15
+    baseLayer: base
+    layerStates:
+    - pinkchip
+    - pinkchip2
+    - pinkchip3
+    - pinkchip4
+    - pinkchip5
+    - pinkchip6
+    - pinkchip7
+  - type: Sprite
+    state: pinkchip7
+    layers:
+    - state: pinkchip7
+      map: ["base"]
+  - type: Appearance
+
+- type: entity
+  parent: ChipsBase
+  id: Chips500
+  name: chips "500"
+  suffix: Полные
+  components:
+  - type: Stack
+    stackType: Chips500
+    count: 15
+    baseLayer: base
+    layerStates:
+    - yellowchip
+    - yellowchip2
+    - yellowchip3
+    - yellowchip4
+    - yellowchip5
+    - yellowchip6
+    - yellowchip7
+  - type: Sprite
+    state: yellowchip7
+    layers:
+    - state: yellowchip7
+      map: ["base"]
+  - type: Appearance
+
+- type: entity
+  parent: ChipsBase
+  id: Chips2000
+  name: chips "2000"
+  suffix: Полные
+  components:
+  - type: Stack
+    stackType: Chips2000
+    count: 15
+    baseLayer: base
+    layerStates:
+    - purplechip
+    - purplechip2
+    - purplechip3
+    - purplechip4
+    - purplechip5
+    - purplechip6
+    - purplechip7
+  - type: Sprite
+    state: purplechip7
+    layers:
+    - state: purplechip7
+      map: ["base"]
+  - type: Appearance

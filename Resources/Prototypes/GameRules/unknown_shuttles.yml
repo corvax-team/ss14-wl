@@ -31,7 +31,7 @@
   id: UnknownShuttlesHostileTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-    - id: LoneOpsSpawn
+    # - id: LoneOpsSpawn
     - id: UnknownShuttleManOWar
     # - id: UnknownShuttleInstigator
 
@@ -47,10 +47,10 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     maxOccurrences: 1 # should be the same as [copies] in shuttle_incoming_event.yml
-    weight: 1.6 
+    weight: 1.6
     reoccurrenceDelay: 120
     duration: 1
-    spawnConfig:
+    spawnConfig: # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
   - type: RuleGrids
@@ -115,7 +115,9 @@
     startAnnouncement: null # It should be silent.
     weight: 1.6  # Hopefully this is uncommon enough, it needs to be uncommon enough that people wont waste time metaknowledging it.
     earliestStart: 45 # late to hopefully have enough ghosts to fill all roles quickly.
-    minimumPlayers: 25
+    spawnConfig: # CorvaxWL-Changes
+      standartConfig:
+        minPlayers: 25
   - type: LoadMapRule
     preloadedGrid: NTQuark
 

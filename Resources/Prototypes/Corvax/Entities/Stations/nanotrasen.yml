@@ -3,7 +3,7 @@
   id: NanotrasenStationNoArrivals
   parent:
     - BaseStation
-    - BaseStationGoal
+    # - BaseStationGoal # CorvaxWL
     - BaseStationNews
     - BaseStationCargo
     - BaseStationJobsSpawning

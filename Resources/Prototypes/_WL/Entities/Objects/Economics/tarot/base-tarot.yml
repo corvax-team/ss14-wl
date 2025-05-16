@@ -1,0 +1,52 @@
+- type: entity
+  name: tarot card
+  parent: BaseItem
+  id: BaseTarotCard
+  description: A plastic tarot card, sharp at the edges.
+  abstract: true
+  components:
+  - type: PokerCard
+    flipPopup: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PokerCardState.IsFlipped:
+        enum.PokerCardLayers.Flipped:
+         True: { visible: true }
+         False: { visible: false }
+        enum.PokerCardLayers.NonFlipped:
+         True: { visible: false }
+         False: { visible: true }
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Misc/Tarot/cards.rsi
+    scale: 0.8,0.8
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - TarotCard
+  - type: Appearance
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_WL/Effects/flip.ogg
+      params:
+        variation: 0.125
+        volume: 20
+  - type: EmbeddableProjectile
+    minimumSpeed: 3
+    removalTime: 0.5
+    offset: 0.0,0.0
+  - type: ThrowingAngle
+    angle: 315
+  - type: MeleeWeapon
+    wideAnimationRotation: -45
+    damage:
+      types:
+        Piercing: 1
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 2

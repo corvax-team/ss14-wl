@@ -121,7 +121,7 @@
       normalBodyTemperature: 334
       thermalRegulationTemperatureThreshold: 50000
     - type: Tool
-      speed: 2
+      speedModifier: 2
       qualities:
         - Prying
     - type: Prying
@@ -244,7 +244,7 @@
   save: false
   name: Golem Dummy
   id: MobGolemDummy
-  parent: MobHumanDummy
+  parent: BaseSpeciesDummy
   categories: [ HideSpawnMenu ]
   components:
     - type: HumanoidAppearance

@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretDSS
-  name: берет ДСБ
-  description: Демонстрирует статус лучших из лучших.
+  name: takes DSB
+  description: Demonstrates the status of the best of the best.
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Hats/beret_security_black.rsi
@@ -16,8 +16,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretHoP
-  name: берет главы персонала
-  description: Синий берет. Пахнет бюрократией.
+  name: beret head of personnel
+  description: Blue beret. Smells like bureaucracy.
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Hats/beret_hop.rsi

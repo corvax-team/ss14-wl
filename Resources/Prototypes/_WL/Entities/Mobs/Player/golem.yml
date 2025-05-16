@@ -2,4 +2,4 @@
   save: false
   parent: [ BaseMobGolem, BaseMob ]
   id: MobGolem
-  name: Урист МакГолем
+  name: Urist McGolem

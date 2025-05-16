@@ -1,6 +1,6 @@
 - type: species
   id: Android
-  name: Андроид
+  name: species-name-android
   roundStart: true
   prototype: MobAndroid
   sprites: MobAndroidSprites

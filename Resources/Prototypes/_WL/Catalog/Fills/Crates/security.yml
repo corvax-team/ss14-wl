@@ -1,8 +1,8 @@
 - type: entity
   id: CrateSecurityDSS
   parent: CrateSecgear
-  name: ящик тяжёлого снаряжения
-  description: Один комплект тяжёлого снаряжения Департамента Службы Безопасности, способный защитить практически от всего.
+  name: box of heavy equipment
+  description: One set of Heavy Security Department equipment, capable of protecting against almost anything.
   components:
   - type: StorageFill
     contents:

@@ -51,7 +51,9 @@
     earliestStart: 15
     weight: 6
     duration: 50
-    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
+    spawnConfig: # CorvaxWL-Changes
+      standartConfig:
+        minPlayers: 15
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -113,7 +115,9 @@
     earliestStart: 15
     weight: 6
     duration: 50
-    minimumPlayers: 30
+    spawnConfig: # CorvaxWL-Changes
+      standartConfig:
+        minPlayers: 30
   - type: VentCrittersRule
     entries:
     - id: MobSnail

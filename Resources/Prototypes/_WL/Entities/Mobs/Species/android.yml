@@ -58,7 +58,7 @@
       - !type:PopupMessage
         type: Local
         visualType: LargeCaution
-        messages: "Вы чувствуете жжение внутри."
+        messages: [ "android-hurt-water-popup" ]
         probability: 0.25
   - type: StatusEffects
     allowed:
@@ -196,7 +196,6 @@
   - type: ItemToggle
     activated: true
     onUse: false
-    toggleLight: false
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }
@@ -219,14 +218,11 @@
 
 - type: entity
   save: false
-  name: Урист МакАндроид
+  name: Urist McAndroid
   description: A dummy android meant to be used in character setup.
   id: MobAndroidDummy
-  parent: MobHumanDummy
+  parent: BaseSpeciesDummy
   categories: [ HideSpawnMenu ]
   components:
   - type: HumanoidAppearance
     species: Android
-
-- type: Tag
-  id: AndroidBodyTag

@@ -23,4 +23,19 @@
   id: MeatDragon
 
 - type: Tag
+  id: PlayableCard
+
+- type: Tag
+  id: Chips
+
+- type: Tag
+  id: TarotCard
+
+- type: Tag
+  id: TarotDeck
+
+- type: Tag
+  id: AndroidBodyTag
+
+- type: Tag
   id: ManualStorage

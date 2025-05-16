@@ -1,5 +1,5 @@
 - type: entity
   save: false
-  name: Урист МакМурин
+  name: Urist McMurine
   parent: [BaseMobHumanoidMurine, BaseMob]
   id: MobHumanoidMurine

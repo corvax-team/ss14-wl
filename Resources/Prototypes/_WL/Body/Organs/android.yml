@@ -31,8 +31,8 @@
 - type: entity
   id: OrganAndroidBrain
   parent: BaseAndroidOrgan
-  name: биосинтетический мозг
-  description: "Источник совершенного интелекта. Буп!"
+  name: biosynthetic brain
+  description: "The source of perfect intelligence. Boop!"
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -45,8 +45,8 @@
 - type: entity
   id: OrganAndroidEyes
   parent: BaseAndroidOrgan
-  name: биосинтетические глаза
-  description: "Они слишком живые... Для электронных..."
+  name: biosynthetic eyes
+  description: "They're too alive... For electronic devices..."
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -58,8 +58,8 @@
 - type: entity
   id: OrganAndroidTongue
   parent: BaseAndroidOrgan
-  name: искуственный язык
-  description: "Механическая мышца с датчиками, заменяющими человеческие рецепторы."
+  name: artificial language
+  description: "A mechanical muscle with sensors that replace human receptors."
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -68,7 +68,7 @@
 - type: entity
   id: OrganAndroidAppendix
   parent: BaseAndroidOrgan
-  name: искуственный аппендикс
+  name: artificial appendix
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -80,8 +80,8 @@
 - type: entity
   id: OrganAndroidEars
   parent: BaseAndroidOrgan
-  name: биосинтетические уши
-  description: "Безупречный слух."
+  name: biosynthetic ears
+  description: "Perfect hearing."
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -90,8 +90,8 @@
 - type: entity
   id: OrganAndroidLungs
   parent: BaseAndroidOrgan
-  name: биосинтетические лёгкие
-  description: "Дыши сколько влезет!"
+  name: biosynthetic lungs
+  description: "Breathe as much as you can!"
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -126,8 +126,8 @@
 - type: entity
   id: OrganAndroidHeart
   parent: BaseAndroidOrgan
-  name: биосинтетическое сердце
-  description: "Оно тяжелее, чем человеческое..."
+  name: biosynthetic heart
+  description: "It's heavier than a human's..."
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -143,8 +143,8 @@
 - type: entity
   id: OrganAndroidStomach
   parent: BaseAndroidOrgan
-  name: биосинтетический желудок
-  description: "Андроиды же не едят..."
+  name: biosynthetic stomach
+  description: "Androids don't eat..."
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -169,8 +169,8 @@
 - type: entity
   id: OrganAndroidLiver
   parent: BaseAndroidOrgan
-  name: биосинтетическая печень
-  description: "Попробуй загубить такую."
+  name: biosynthetic liver
+  description: "Try to ruin it."
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi
@@ -184,8 +184,8 @@
 - type: entity
   id: OrganAndroidKidneys
   parent: BaseAndroidOrgan
-  name: механические почки
-  description: "Возможно они нужны..."
+  name: mechanical kidneys
+  description: "Perhaps they are needed..."
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/organs.rsi

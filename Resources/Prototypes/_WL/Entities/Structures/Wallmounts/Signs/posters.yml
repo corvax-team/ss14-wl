@@ -1,8 +1,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSafetyMothPoisoning
-  name: "Ниан-хранитель - Отравление"
-  description: "Этот информационный плакат использует Ниана-хранителя™, чтобы рассказать читателям, что нельзя отравлять пончики."
+  name: "Nian the Guardian - Poisoning"
+  description: "This information poster uses Nian the Guardian to tell readers that donuts should not be poisoned."
   components:
   - type: Sprite
     sprite: _WL/Entities/Structures/Wallmounts/posters.rsi
@@ -11,8 +11,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSafetyMothBoH
-  name: "Ниан-хранитель - БСР"
-  description: "Этот информационный плакат использует Ниана-хранителя™, чтобы проинформировать читателя об опасностях, которые таят в себе блюспейс рюкзаки."
+  name: "Nian-the Guardian - BSR"
+  description: "This information poster uses a guardian Novel to inform the reader about the dangers of bluespace backpacks."
   components:
   - type: Sprite
     sprite: _WL/Entities/Structures/Wallmounts/posters.rsi
@@ -21,8 +21,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSafetyMothSmokey
-  name: "Ниан-хранитель - Куришь?"
-  description: "Этот информационный плакат использует Ниана-хранителя™ для пропаганды безопасного обращения с плазмой, или борьбы с поджогами. Мы не знаем."
+  name: "Nian the Guardian - Do you smoke?"
+  description: "This information poster uses Nian the Guardian to promote the safe handling of plasma, or the fight against arson. We don't know."
   components:
   - type: Sprite
     sprite: _WL/Entities/Structures/Wallmounts/posters.rsi
@@ -31,8 +31,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSafetyMothSupermatter
-  name: "Ниан-хранитель - Суперматерия"
-  description: "Этот информационный плакат использует Ниана-хранителя™ для пропаганды правильной техники безопасности при работе рядом с кристаллом суперматерии."
+  name: "Nian the Guardian is a Supermaterial"
+  description: "This information poster uses Nian the Guardian to promote proper safety practices when working near a supermaterial crystal."
   components:
   - type: Sprite
     sprite: _WL/Entities/Structures/Wallmounts/posters.rsi

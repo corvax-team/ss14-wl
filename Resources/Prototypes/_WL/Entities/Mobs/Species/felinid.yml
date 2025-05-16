@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Base felinid
-  parent: BaseMobHuman
+  parent: [ BaseMobHuman, BaseMobSpeciesOrganic]
   id: MobFelinidBase
   abstract: true
   components:
@@ -30,6 +30,7 @@
     stripTimeReduction: 2.5
   - type: Speech
     speechSounds: Alto
+    allowedEmotes: ['Purr']
   - type: DamageOnHighSpeedImpact
     damage:
       types:
@@ -39,56 +40,25 @@
   - type: Stamina
     critThreshold: 60
   - type: Perishable
-  - type: CanEscapeInventory
-    baseResistTime: 1
-
-- type: entity
-  save: false
-  name: Урист МакФелинид
-  parent: MobFelinidBase
-  id: MobFelinid
-  components:
-  - type: CombatMode
-    canDisarm: true
-  - type: MindContainer
-    showExamineInfo: true
-  - type: Input
-    context: "human"
-  - type: OwOAccent
-  - type: Item
-    size: Ginormous
-  - type: Sprite
-    sprite: Mobs/Species/Human/parts.rsi
-    state: full
-  - type: MultiHandedItem
-  - type: MobMover
-  - type: InputMover
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 1.5
-    damageRecovery:
-      types:
-        Asphyxiation: -1.5
-  - type: Alerts
-  - type: Actions
-  - type: Eye
-  - type: CameraRecoil
-  - type: Examiner
-  - type: CanHostGuardian
-  - type: NpcFactionMember
-    factions:
-    - NanoTrasen
+  # - type: CanEscapeInventory
+  #   baseResistTime: 1
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
     messagePerceivedByOthers: hugging-success-generic-others
+  - type: Input
+    context: "human"
+  - type: OwOAccent
+  # - type: Item
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: full
 
 - type: entity
   save: false
   name: Felinid Dummy
-  parent: MobHumanDummy
+  parent: BaseSpeciesDummy
   id: MobFelinidDummy
   categories: [ HideSpawnMenu ]
   description: A dummy felinid meant to be used in character setup.
