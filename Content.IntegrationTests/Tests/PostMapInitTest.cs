@@ -74,12 +74,17 @@ namespace Content.IntegrationTests.Tests
             "CorvaxTerra",
             "CorvaxFrame",
             "CorvaxPearl",
-            //"NanoStation", //WL-Changes
             "CorvaxTushkan",
             "CorvaxGlacier",
             "CorvaxAwesome",
 			"CorvaxChloris",
             // Corvax-End
+            // WL-Start
+			"CorvaxWLPaper",
+            "CorvaxWLAlpha",
+			"CorvaxWLMaus",
+            "CorvaxWLKolter",
+            // WL-End
             "Dev",
             "TestTeg",
             "Fland",

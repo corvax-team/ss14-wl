@@ -1,0 +1,19 @@
+- type: gameMapPool
+  id: WhitelistMapPool
+  maps:
+  # Highpop
+  - CorvaxWLAlpha # WL
+  - CorvaxPilgrim # будет удалено
+  - Bagel
+  # Midpop
+  - CorvaxWLPaper
+  - CorvaxOutpost
+  - CorvaxWLKolter
+  - CorvaxPearl # будет удалено
+  - Amber # будет удалено
+  - Marathon
+  # Lowpop
+  - CorvaxWLMaus # WL Reworked, возможно будет удалено
+  - CorvaxTushkan # Возможно будет удалено
+  - Omega
+  - Packed
