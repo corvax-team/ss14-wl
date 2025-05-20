@@ -12,6 +12,10 @@
     time: 18000 # 5 hrs
   - !type:AgeRequirement
     minAge: 26 # WL-Changes-AgeRequirement
+  - !type:TraitsRequirement
+    inverted: true
+    traits:
+    - Muted
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-cmo

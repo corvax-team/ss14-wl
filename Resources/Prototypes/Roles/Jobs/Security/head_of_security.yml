@@ -17,7 +17,10 @@
 #      time: 144000 #40 hrs
     - !type:AgeRequirement
       minAge: 27 # WL-Changes-AgeRequirement
-  weight: 10
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted  weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
   supervisors: job-supervisors-captain

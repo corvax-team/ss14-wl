@@ -4,7 +4,7 @@
   description: job-description-rd
   playTimeTracker: JobResearchDirector
   subnames:
-  - Male: РґРёСЂРµРєС‚РѕСЂ РёСЃСЃР»РµРґРѕРІР°РЅРёР№
+  - Male: директор исследований
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
@@ -13,7 +13,10 @@
 #      time: 144000 #40 hrs
     - !type:AgeRequirement
       minAge: 30 # WL-Changes-AgeRequirement
-  weight: 10
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted  weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain

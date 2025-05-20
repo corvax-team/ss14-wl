@@ -19,7 +19,10 @@
 #      time: 144000 #40 hrs
     - !type:AgeRequirement
       minAge: 30 # WL-Changes-AgeRequirement
-  weight: 10
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted  weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
   supervisors: job-supervisors-captain

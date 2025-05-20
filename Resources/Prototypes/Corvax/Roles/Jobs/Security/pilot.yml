@@ -4,14 +4,17 @@
   description: job-description-pilot
   playTimeTracker: JobPilot
   subnames:
-  - Male: РєРѕСЃРјРёС‡РµСЃРєРёР№ РїР°С‚СЂСѓР»СЊРЅС‹Р№
+  - Male: космический патрульный
   requirements:
   - !type:DepartmentTimeRequirement
     department: Security
     time: 72000 #20 hrs
   - !type:AgeRequirement
     minAge: 22 # WL-Changes-AgeRequirement
-  startingGear: PilotGear
+  - !type:TraitsRequirement
+    inverted: true
+    traits:
+    - Muted  startingGear: PilotGear
   icon: "JobIconPilot"
   supervisors: job-supervisors-hos
   canBeAntag: false

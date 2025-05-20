@@ -4,7 +4,7 @@
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
   subnames:
-  - Male: СЃРµСЂРІРёСЃ-Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ
+  - Male: сервис-администратор
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
@@ -22,7 +22,10 @@
       time: 180000 #50 hrs # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 26 # WL-Changes-AgeRequirement
-  weight: 20
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted  weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   supervisors: job-supervisors-captain

@@ -4,17 +4,20 @@
   description: job-description-security
   playTimeTracker: JobSecurityOfficer
   subnames:
-  - Male: РѕС„РёС†РµСЂ РѕС…СЂР°РЅС‹
-  - Male: РѕРїРµСЂР°С‚РёРІРЅРёРє РЎР‘
-  - Male: РёРЅСЃС‚СЂСѓРєС‚РѕСЂ РЎР‘
-  - Male: РїР°С‚СЂСѓР»СЊРЅС‹Р№ РѕС„РёС†РµСЂ
+  - Male: офицер охраны
+  - Male: оперативник СБ
+  - Male: инструктор СБ
+  - Male: патрульный офицер
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 #10 hrs # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 22
-  startingGear: SecurityOfficerGear
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted  startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false

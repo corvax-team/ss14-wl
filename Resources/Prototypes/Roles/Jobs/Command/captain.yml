@@ -1,4 +1,4 @@
-- type: job
+﻿- type: job
   id: Captain
   name: job-name-captain
   description: job-description-captain
@@ -20,7 +20,10 @@
       time: 504000 #140 hrs # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 30 # WL-Changes-AgeRequirement
-  weight: 20
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted  weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
   joinNotifyCrew: true
