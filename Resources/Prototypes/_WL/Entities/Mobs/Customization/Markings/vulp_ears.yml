@@ -64,16 +64,16 @@
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_raccoon_secondary
 
-- type: marking
-  id: FoxEarPossum
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
-  sprites:
-    - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_possum_primary
-    - sprite: _WL/Mobs/Customization/ears.rsi
-      state: m_ears_possum_secondary
+# - type: marking
+#   id: FoxEarPossum
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _WL/Mobs/Customization/ears.rsi
+#       state: m_ears_possum_primary
+#     - sprite: _WL/Mobs/Customization/ears.rsi
+#       state: m_ears_possum_secondary
 
 - type: marking
   id: FoxEarPerky
