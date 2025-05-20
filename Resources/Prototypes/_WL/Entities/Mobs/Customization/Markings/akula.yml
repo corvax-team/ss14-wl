@@ -187,7 +187,7 @@
   id: AkulaTailFishAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Akula]
+  speciesRestriction: []
   sprites:
     - sprite: _WL\Mobs\Customization\all_tails.rsi
       state: m_waggingtail_fish_primary
@@ -196,7 +196,7 @@
   id: AkulaTailSegmentedAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Akula]
+  speciesRestriction: []
   sprites:
     - sprite: _WL\Mobs\Customization\all_tails.rsi
       state: m_waggingtail_segmentedtail_primary
@@ -209,7 +209,7 @@
   id: AkulaTailSharkAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Akula]
+  speciesRestriction: []
   sprites:
     - sprite: _WL\Mobs\Customization\all_tails.rsi
       state: m_waggingtail_shark_primary
@@ -218,7 +218,7 @@
   id: AkulaTailSharknofinAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Akula]
+  speciesRestriction: []
   sprites:
     - sprite: _WL\Mobs\Customization\all_tails.rsi
       state: m_waggingtail_sharknofin_primary
