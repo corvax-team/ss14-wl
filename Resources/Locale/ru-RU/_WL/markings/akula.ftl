@@ -34,3 +34,7 @@ marking-AkulaRLegHighlight = Акула, Правая нога (Выделени
 marking-AkulaRLegHighlight-akula_highligh_r_leg = Акула, Правая нога (Выделение)
 marking-AkulaLLegHighlight = Акула, Левая нога (Выделение)
 marking-AkulaLLegHighlight-akula_highlight_l_leg = Акула, Левая нога (Выделение)
+
+marking-AkulaTailOrca = Акула, хвост (Косатка)
+marking-AkulaTailSegmented = Акула, хвост (Сегментированный)
+marking-AkulaTailSharknofin = Акула, хвост (Акула без плавника)

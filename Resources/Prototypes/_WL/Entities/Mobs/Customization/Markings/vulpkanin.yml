@@ -1,3 +1,116 @@
+# уши
+- type: marking
+  id: FoxEarSandfoxLarge
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_sandfox_large
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_sandfox_large_inner
+
+- type: marking
+  id: FoxEarAcrador
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_acrador_long
+    - sprite: _WL/Mobs/Customization/ears_big.rsi
+      state: m_ears_acrador_long_inner
+
+- type: marking
+  id: FoxEarFennec
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_fennec_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_fennec_tertiary
+
+- type: marking
+  id: FoxEarSabresune
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_sabresune_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_sabresune_secondary
+
+- type: marking
+  id: FoxEarWolf
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_wolf_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_wolf_tertiary
+
+- type: marking
+  id: FoxEarRaccoon
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_raccoon_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_raccoon_secondary
+
+# - type: marking
+#   id: FoxEarPossum
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _WL/Mobs/Customization/ears.rsi
+#       state: m_ears_possum_primary
+#     - sprite: _WL/Mobs/Customization/ears.rsi
+#       state: m_ears_possum_secondary
+
+- type: marking
+  id: FoxEarPerky
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_perky_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_perky_secondary
+
+- type: marking
+  id: FoxEarBigWolf
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_bigwolf_primary
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: m_ears_bigwolf_tertiary
+
+# - type: marking
+#   id: FoxEar
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Vulpkanin]
+#   sprites:
+#     - sprite: _WL/Mobs/Customization/ears.rsi
+#       state:
+#     - sprite: _WL/Mobs/Customization/ears.rsi
+#       state:
+
+# Хвосты
+
 - type: marking
   id: VulpTail #Вообще это FoxTail
   bodyPart: Tail
@@ -44,3 +157,191 @@
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
       state: fluffy_tail
+
+- type: marking
+  id: EeveeTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_eevee_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_eevee_secondary
+
+- type: marking
+  id: FennecTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_fennec_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_fennec_secondary
+
+- type: marking
+  id: FoxNTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_fox_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_fox_secondary
+
+- type: marking
+  id: FoxN2Tail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_fox2_primary
+
+- type: marking
+  id: FoxN3Tail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_fox3_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_fox3_secondary
+
+- type: marking
+  id: FoxannTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_foxann_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_foxann_secondary
+
+- type: marking
+  id: HuskyTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_husky_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_husky_secondary
+
+- type: marking
+  id: OtieTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_otie_primary
+
+- type: marking
+  id: WolfNTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_wolf
+
+# Animated
+
+- type: marking
+  id: EeveeTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_eevee_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_eevee_secondary
+
+- type: marking
+  id: FennecTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_fennec_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_fennec_secondary
+
+- type: marking
+  id: FoxNTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_fox_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_fox_secondary
+
+- type: marking
+  id: FoxN2TailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_fox2_primary
+
+- type: marking
+  id: FoxN3TailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_fox3_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_fox3_secondary
+
+- type: marking
+  id: FoxannTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_foxann_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_foxann_secondary
+
+- type: marking
+  id: HuskyTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_husky_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_husky_secondary
+
+- type: marking
+  id: OtieTailAltAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_otie_primary
+
+- type: marking
+  id: WolfNTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_wolf
