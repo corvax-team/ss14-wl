@@ -156,11 +156,11 @@
   markingCategory: Tail
   speciesRestriction: [Akula]
   sprites:
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_segmentedtail_primary
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_segmentedtail_secondary
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_segmentedtail_tertiary
 
 - type: marking
@@ -169,7 +169,7 @@
   markingCategory: Tail
   speciesRestriction: [Akula]
   sprites:
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_sharknofin_primary
 
 - type: marking
@@ -178,7 +178,7 @@
   markingCategory: Tail
   speciesRestriction: [Akula]
   sprites:
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_orca_primary
 
 #Animated
@@ -189,7 +189,7 @@
   markingCategory: Tail
   speciesRestriction: []
   sprites:
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_fish_primary
 
 - type: marking
@@ -198,11 +198,11 @@
   markingCategory: Tail
   speciesRestriction: []
   sprites:
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_segmentedtail_primary
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_segmentedtail_secondary
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_segmentedtail_tertiary
 
 - type: marking
@@ -211,7 +211,7 @@
   markingCategory: Tail
   speciesRestriction: []
   sprites:
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_shark_primary
 
 - type: marking
@@ -220,5 +220,5 @@
   markingCategory: Tail
   speciesRestriction: []
   sprites:
-    - sprite: _WL\Mobs\Customization\all_tails.rsi
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_sharknofin_primary
