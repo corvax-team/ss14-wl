@@ -30,6 +30,7 @@
         Male: MaleAkula
         Female: FemaleAkula
         Unsexed: MaleAkula
+    - type: Wagging
 
 - type: entity
   save: false
