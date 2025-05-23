@@ -1,4 +1,3 @@
-  # Workers-Manual-Storage-start: Litogin
 - type: latheRecipePack
   id: ManualStorageStatic
   recipes:
@@ -30,4 +29,3 @@
   - ManualStorageCommandSmallRecipe
   - ManualStorageCommandBoxRecipe
   - ManualStorageCommandBigRecipe
-  # WL-Workers-Manual-Storage-end: Litogin

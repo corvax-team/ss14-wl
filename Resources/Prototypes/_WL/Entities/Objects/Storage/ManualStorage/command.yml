@@ -31,6 +31,10 @@
       - state: locked
         map: ["enum.LockVisualLayers.Lock"]
         shader: unshaded
+      - state: paper
+        visible: false
+        sprite: _WL/Objects/Storage/ManualStorage/Paper/labels.rsi
+        map: ["enum.PaperLabelVisuals.Layer"]
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Command/box.rsi
   - type: AccessReader
@@ -51,6 +55,10 @@
       - state: locked
         map: ["enum.LockVisualLayers.Lock"]
         shader: unshaded
+      - state: paper
+        visible: false
+        sprite: _WL/Objects/Storage/ManualStorage/Paper/big_labels.rsi
+        map: ["enum.PaperLabelVisuals.Layer"]
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Command/big.rsi
   - type: AccessReader

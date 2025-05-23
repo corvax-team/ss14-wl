@@ -1,3 +1,7 @@
 - type: latheCategory
   id: Storage
   name: lathe-category-storage
+
+- type: latheCategory
+  id: Test
+  name: Тестовая категория
