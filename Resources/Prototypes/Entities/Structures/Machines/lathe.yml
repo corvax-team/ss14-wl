@@ -130,7 +130,7 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
-    - ManualStorageStatic
+    - ManualStorageStatic # WL-changes-storage
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
