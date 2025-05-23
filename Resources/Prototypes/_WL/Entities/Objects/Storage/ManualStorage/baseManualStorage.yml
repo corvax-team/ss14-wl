@@ -8,9 +8,6 @@
     sound:
       path: /Audio/Items/toolbox_drop.ogg
   - type: Storage
-    blacklist:
-      tags:
-        - ManualStorage
   - type: Item
     size: Ginormous
   - type: GenericVisualizer
@@ -43,3 +40,17 @@
         tags:
         - Book
   - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      paper_label: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
