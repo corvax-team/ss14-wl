@@ -339,7 +339,7 @@
   name: head of personnel's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
     - state: HOP-icon
   - type: Item
@@ -349,7 +349,7 @@
       right:
       - state: HOP-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
       - state: HOP-equipped-OUTERCLOTHING

@@ -358,9 +358,9 @@
   name: head of personnel's winter coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodhop.rsi
+    sprite: _WL/Clothing/Head/Hoods/Coat/hoodhop.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodhop.rsi
+    sprite: _WL/Clothing/Head/Hoods/Coat/hoodhop.rsi
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase

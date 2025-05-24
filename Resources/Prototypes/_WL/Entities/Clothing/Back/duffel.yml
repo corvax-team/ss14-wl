@@ -1,0 +1,8 @@
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseCommandContraband]
+  id: ClothingBackpackDuffelHoP
+  name: head of personnel backpack
+  description: In this backpack, I want to say "Statement, please."
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Duffels/hop.rsi
