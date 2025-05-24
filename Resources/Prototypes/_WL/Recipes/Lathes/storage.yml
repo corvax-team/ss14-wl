@@ -3,9 +3,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseStorageRecipe
-  category:
-  - Lights
-  completetime: 2
+  categories:
+  - Storage
 
 - type: latheRecipe
   abstract: true
@@ -13,8 +12,6 @@
   id: BaseManualStorageSmallRecipe
   materials:
     Steel: 100
-  category:
-  - Tools
 
 - type: latheRecipe
   abstract: true
