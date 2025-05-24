@@ -4,25 +4,53 @@
   abstract: true
   components:
   - type: Sprite
-    layers:
-      - map: [ base ]
-        state: icon
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/toolbox_drop.ogg
   - type: Storage
-    blacklist:
-      tags:
-        - ManualStorage
   - type: Item
     size: Ginormous
-  - type: Tag
-    tags:
-     - ManualStorage
   - type: GenericVisualizer
     visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
       enum.StorageVisuals.Open:
         base:
           True: { state: icon-open }
           False: { state: icon }
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          Bounty: { state: bounty }
+          CaptainsPaper: { state: captains_paper }
+          Invoice: { state: invoice }
   - type: Appearance
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      paper_label: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []

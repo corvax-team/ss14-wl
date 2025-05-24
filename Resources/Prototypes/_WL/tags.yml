@@ -36,6 +36,3 @@
 
 - type: Tag
   id: AndroidBodyTag
-
-- type: Tag
-  id: ManualStorage

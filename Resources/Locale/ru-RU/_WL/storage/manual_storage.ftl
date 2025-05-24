@@ -40,7 +40,7 @@ ent-ManualStorageSecurityBox = среднее ручное хранилище о
     .desc = { ent-ManualStorageDefaultBox.desc }
 
 ent-ManualStorageSecurityBig = большое ручное хранилище отдела службы безопастности
-    .desc = { ent-ManualStorageDefaultdBig.desc }
+    .desc = { ent-ManualStorageDefaultBig.desc }
 
 # Science
 
@@ -51,7 +51,7 @@ ent-ManualStorageScienceBox = среднее ручное хранилище Р�
     .desc = { ent-ManualStorageDefaultBox.desc }
 
 ent-ManualStorageScienceBig = большое ручное хранилище РНД
-    .desc = { ent-ManualStorageDefaultdBig.desc }
+    .desc = { ent-ManualStorageDefaultBig.desc }
 
 # Engineer
 
@@ -62,7 +62,7 @@ ent-ManualStorageEngineerBox = среднее ручное хранилище и
     .desc = { ent-ManualStorageDefaultBox.desc }
 
 ent-ManualStorageEngineerBig = большое ручное хранилище инженерного отдела
-    .desc = { ent-ManualStorageDefaultdBig.desc }
+    .desc = { ent-ManualStorageDefaultBig.desc }
 
 # Medical
 
@@ -73,4 +73,4 @@ ent-ManualStorageMedicalBox = среднее ручное хранилище м�
     .desc = { ent-ManualStorageDefaultBox.desc }
 
 ent-ManualStorageMedicalBig = большое ручное хранилище медецинского отдела
-    .desc = { ent-ManualStorageDefaultdBig.desc }
+    .desc = { ent-ManualStorageDefaultBig.desc }

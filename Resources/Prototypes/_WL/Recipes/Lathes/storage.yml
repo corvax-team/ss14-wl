@@ -3,29 +3,29 @@
 - type: latheRecipe
   abstract: true
   id: BaseStorageRecipe
-  category: Storage
-  completetime: 2
+  categories:
+  - Storage
 
 - type: latheRecipe
   abstract: true
   parent: BaseStorageRecipe
   id: BaseManualStorageSmallRecipe
   materials:
-    Steel: 500
+    Steel: 100
 
 - type: latheRecipe
   abstract: true
   parent: BaseStorageRecipe
   id: BaseManualStorageBoxRecipe
   materials:
-    Steel: 1000
+    Steel: 300
 
 - type: latheRecipe
   abstract: true
   parent: BaseStorageRecipe
   id: BaseManualStorageBigRecipe
   materials:
-    Steel: 1500
+    Steel: 500
 
 # Manual Storage - Defaul
 
