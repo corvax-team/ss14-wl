@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "For corvax WL from mishutka09 (discord: mishutka09)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "beakernoreact",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "lid_beakernoreact"
+    }
+  ]
+}

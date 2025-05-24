@@ -189,7 +189,7 @@
   result: Jug
   completetime: 4
   materials:
-    Plastic: 400
+    Glass: 400 # WL-Chages: Respright Day
 
 - type: latheRecipe
   id: RollerBedSpawnFolded

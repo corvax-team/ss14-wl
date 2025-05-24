@@ -5,4 +5,4 @@
   description: In this backpack, I want to say "Statement, please."
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/hop.rsi
+    sprite: _WL/Clothing/Back/Duffels/hop.rsi
