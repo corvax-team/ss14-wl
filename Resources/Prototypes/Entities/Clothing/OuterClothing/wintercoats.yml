@@ -125,7 +125,7 @@
   name: cargo winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Chages: Respright Day
     layers:
     - state: CARGO-icon
   - type: Item
@@ -135,7 +135,7 @@
       right:
       - state: CARGO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Chages: Respright Day
     clothingVisuals:
       outerClothing:
       - state: CARGO-equipped-OUTERCLOTHING

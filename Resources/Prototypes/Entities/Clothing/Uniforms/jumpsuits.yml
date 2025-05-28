@@ -75,9 +75,9 @@
   description: A sturdy jumpsuit, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/cargotech.rsi # WL-Chages: Respright Day
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/cargotech.rsi # WL-Chages: Respright Day
 
 - type: entity
   parent: ClothingUniformBase
@@ -519,9 +519,9 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/qm.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/qm.rsi # WL-Chages: Respright Day
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/qm.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/qm.rsi # WL-Chages: Respright Day
 
 - type: entity
   parent: [ClothingUniformBase, BaseCommandContraband]
