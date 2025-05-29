@@ -135,6 +135,7 @@
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
   - MiniGravityGeneratorCircuitboard
+  - ThrusterSmallMachineCircuitboard # WL-Changes
 
 - type: technology
   id: AdvancedAtmospherics
