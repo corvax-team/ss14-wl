@@ -2,7 +2,7 @@
   id: BaseBorgModule
   parent: BaseItem
   name: borg module
-  description: A piece of tech that gives cyborgs new abilities.
+  description: A piece of tech that gives borgs new abilities. #WL_Workers_Renames
   abstract: true
   components:
   - type: Item
@@ -277,7 +277,7 @@
 - type: entity
   id: BorgModuleCable
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: cable cyborg module
+  name: cable borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -296,7 +296,7 @@
 - type: entity
   id: BorgModuleFireExtinguisher
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: fire extinguisher cyborg module
+  name: fire extinguisher borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -311,7 +311,7 @@
 - type: entity
   id: BorgModuleGPS
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: GPS cyborg module
+  name: GPS borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -328,7 +328,7 @@
 - type: entity
   id: BorgModuleRadiationDetection
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: radiation detection cyborg module
+  name: radiation detection borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -343,7 +343,7 @@
 - type: entity
   id: BorgModuleTool
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: tool cyborg module
+  name: tool borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -364,7 +364,7 @@
 - type: entity
   id: BorgModuleAppraisal
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: appraisal cyborg module
+  name: appraisal borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -379,7 +379,7 @@
 - type: entity
   id: BorgModuleMining
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: mining cyborg module
+  name: mining borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -399,7 +399,7 @@
 - type: entity
   id: BorgModuleGrapplingGun
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
-  name: grappling gun cyborg module
+  name: grappling gun borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -416,7 +416,7 @@
 - type: entity
   id: BorgModuleAdvancedTool
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: advanced tool cyborg module
+  name: advanced tool borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -437,7 +437,7 @@
 - type: entity
   id: BorgModuleConstruction
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: construction cyborg module
+  name: construction borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -455,7 +455,7 @@
 - type: entity
   id: BorgModuleRCD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: RCD cyborg module
+  name: RCD borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -471,7 +471,7 @@
 - type: entity
   id: BorgModuleLightReplacer
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: light replacer cyborg module
+  name: light replacer borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -488,7 +488,7 @@
 - type: entity
   id: BorgModuleCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: cleaning cyborg module
+  name: cleaning borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -505,7 +505,7 @@
 - type: entity
   id: BorgModuleAdvancedCleaning
   parent: [ BaseBorgModuleJanitor, BaseProviderBorgModule ]
-  name: advanced cleaning cyborg module
+  name: advanced cleaning borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -525,7 +525,7 @@
 - type: entity
   id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: diagnosis cyborg module
+  name: diagnosis borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -541,7 +541,7 @@
 - type: entity
   id: BorgModuleTreatment
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: treatment cyborg module
+  name: treatment borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -561,7 +561,7 @@
 - type: entity
   id: BorgModuleDefibrillator
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: defibrillator cyborg module
+  name: defibrillator borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -576,7 +576,7 @@
 - type: entity
   id: BorgModuleAdvancedTreatment
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: advanced treatment cyborg module
+  name: advanced treatment borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -597,7 +597,7 @@
 - type: entity
   id: BorgModuleArtifact
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: artifact cyborg module
+  name: artifact borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -612,7 +612,7 @@
 - type: entity
   id: BorgModuleAnomaly
   parent: [ BaseBorgModuleScience, BaseProviderBorgModule ]
-  name: anomaly cyborg module
+  name: anomaly borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -632,7 +632,7 @@
 - type: entity
   id: BorgModuleService
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: service cyborg module
+  name: service borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -652,7 +652,7 @@
 - type: entity
   id: BorgModuleMusique
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: musique cyborg module
+  name: musique borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -669,7 +669,7 @@
 - type: entity
   id: BorgModuleGardening
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: gardening cyborg module
+  name: gardening borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -687,7 +687,7 @@
 - type: entity
   id: BorgModuleHarvesting
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: harvesting cyborg module
+  name: harvesting borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -704,7 +704,7 @@
 - type: entity
   id: BorgModuleClowning
   parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: clowning cyborg module
+  name: clowning borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -722,7 +722,7 @@
 - type: entity
   id: BorgModuleSyndicateWeapon
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: weapon cyborg module
+  name: weapon borg module #WL_Workers_Renames
   components:
   - type: Sprite
     layers:
@@ -771,7 +771,7 @@
 - type: entity
   id: BorgModuleOperative
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: operative cyborg module
+  name: operative borg module #WL_Workers_Renames
   description: A module that comes with a crowbar, an Emag, an Access Breaker and a syndicate pinpointer.
   components:
     - type: Sprite
@@ -805,7 +805,7 @@
 - type: entity
   id: BorgModuleEsword
   parent: [ BaseBorgModuleSyndicate, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: energy sword cyborg module
+  name: energy sword borg module #WL_Workers_Renames
   description: A module that comes with a double energy sword.
   components:
     - type: Sprite
@@ -837,7 +837,7 @@
 - type: entity
   id: BorgModuleL6C
   parent: [ BaseBorgModuleSyndicateAssault, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: L6C ROW cyborg module
+  name: L6C ROW borg module #WL_Workers_Renames
   description: A module that comes with a L6C.
   components:
     - type: Sprite
@@ -869,7 +869,7 @@
 - type: entity
   id: BorgModuleMartyr
   parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
-  name: martyr cyborg module
+  name: martyr borg module #WL_Workers_Renames
   description: "A module that comes with an explosive you probably don't want to handle yourself."
   components:
     - type: Sprite

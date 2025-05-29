@@ -30,7 +30,7 @@
 - type: entity
   id: LeftArmBorg
   parent: PartSilicon
-  name: cyborg left arm
+  name: borg left arm #WL_Workers_Renames
   components:
   - type: BodyPart
     partType: Hand
@@ -50,7 +50,7 @@
 - type: entity
   id: RightArmBorg
   parent: PartSilicon
-  name: cyborg right arm
+  name: borg right arm #WL_Workers_Renames
   components:
   - type: BodyPart
     partType: Hand
@@ -70,7 +70,7 @@
 - type: entity
   id: LeftLegBorg
   parent: PartSilicon
-  name: cyborg left leg
+  name: borg left leg #WL_Workers_Renames
   components:
   - type: BodyPart
     partType: Leg
@@ -90,7 +90,7 @@
 - type: entity
   id: RightLegBorg
   parent: PartSilicon
-  name: cyborg right leg
+  name: borg right leg #WL_Workers_Renames
   components:
   - type: BodyPart
     partType: Leg
@@ -110,7 +110,7 @@
 - type: entity
   id: LightHeadBorg
   parent: PartSilicon
-  name: cyborg head
+  name: borg head #WL_Workers_Renames
   components:
   - type: BodyPart
     partType: Head
@@ -128,7 +128,7 @@
 - type: entity
   id: TorsoBorg
   parent: PartSilicon
-  name: cyborg torso
+  name: borg torso #WL_Workers_Renames
   components:
   - type: BodyPart
     partType: Torso

@@ -146,8 +146,8 @@
 - type: entity
   parent: ReinforcementRadio
   id: ReinforcementRadioSyndicateCyborgAssault # Reinforcement radio exclusive to nukeops uplink
-  name: syndicate assault cyborg reinforcement radio
-  description: Call in a well armed assault cyborg, instantly!
+  name: syndicate assault borg reinforcement radio #WL_Workers_Renames
+  description: Call in a well armed assault borg, instantly! #WL_Workers_Renames
   suffix: NukeOps
   components:
     - type: GhostRole

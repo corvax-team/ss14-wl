@@ -713,7 +713,7 @@
 - type: entity
   id: BorgChargerCircuitboard
   parent: BaseMachineCircuitboard
-  name: cyborg recharging station machine board
+  name: borg recharging station machine board #WL_Workers_Renames
   description: A machine printed circuit board for a robot recharging station.
   components:
     - type: Sprite

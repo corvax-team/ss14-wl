@@ -221,8 +221,8 @@
 - type: entity
   parent: BaseRecharger
   id: BorgCharger
-  name: cyborg recharging station
-  description: A stationary charger for various robotic and cyborg entities. Surprisingly spacious.
+  name: borg recharging station #WL_Workers_Renames
+  description: A stationary charger for various robotic and borg entities. Surprisingly spacious. #WL_Workers_Renames
   components:
   - type: Sprite
     sprite: Structures/Power/borg_charger.rsi
