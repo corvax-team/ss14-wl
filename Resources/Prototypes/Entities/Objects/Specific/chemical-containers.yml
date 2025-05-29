@@ -9,7 +9,7 @@
         beaker:
           maxVol: 200
     - type: Sprite
-      sprite: Objects/Specific/Chemistry/jug.rsi
+      sprite: _WL/Objects/Specific/Chemistry/jug.rsi # WL-Chages: Respright Day
       layers:
         - state: jug
         - state: jug1
@@ -50,34 +50,45 @@
       inHandsFillBaseName: -fill-
     - type: StaticPrice
       price: 60
+# WL-Chages: Respright Day Start
     - type: Damageable
       damageContainer: Inorganic
+      damageModifierSet: Glass
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 200
-        behaviors:
-          - !type:DoActsBehavior
-            acts: [ "Destruction" ]
-      - trigger:
-          !type:DamageTrigger
-          damage: 20
+          damage: 5
         behaviors:
         - !type:PlaySoundBehavior
           sound:
-            collection: MetalBreak
+            collection: GlassBreak
             params:
               volume: -4
-        - !type:SpillBehavior { }
+        - !type:SpillBehavior
+            solution: beaker
         - !type:SpawnEntitiesBehavior
           spawn:
-            SheetPlastic1:
-              min: 0
-              max: 1
+            ShardGlass:
+              min: 1
+              max: 4
           transferForensics: true
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+    - type: DamageOnLand
+      damage:
+        types:
+          Blunt: 10 # glass resistance set reduces damage. Need to land twice (w/o hitting wall)
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Blunt: 5
+    - type: DamageOnHighSpeedImpact
+      minimumSpeed: 2
+      damage:
+        types:
+          Blunt: 5
+# WL-Chages: Respright Day End
     - type: Label
     - type: Tag
       tags:

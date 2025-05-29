@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterPostmanJacket
+  name: postman's jacket
+  description: Delivery is only in "perfect" condition
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Suits/postman.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Suits/postman.rsi

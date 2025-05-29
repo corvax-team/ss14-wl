@@ -37,7 +37,7 @@
       damageContainer: Box
     - type: Sprite
       noRot: true
-      sprite: Structures/Storage/closet.rsi
+      sprite: _WL/Structures/Storage/closet.rsi # WL-Chages: Respright Day
       layers:
       - state: cardboard
         map: ["enum.StorageVisualLayers.Base"]
