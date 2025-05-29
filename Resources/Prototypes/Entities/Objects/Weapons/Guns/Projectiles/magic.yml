@@ -110,7 +110,7 @@
         Brute: 0
   - type: Sprite
     noRot: true
-    sprite: Structures/Storage/closet.rsi
+    sprite: _WL/Structures/Storage/closet.rsi # WL-Chages: Respright Day
     layers:
     - state: cursed
       map: [ "enum.StorageVisualLayers.Base" ]
