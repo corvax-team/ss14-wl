@@ -135,6 +135,7 @@
     - ViroDrobeInventory
     - WinterDrobeInventory
     - CuraDrobeInventory
+    - CorpDrobeInventory
   - type: Sprite
     layers:
     - state: base
