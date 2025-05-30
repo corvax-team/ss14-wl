@@ -1,6 +1,6 @@
 - type: entity
   id: TurretExitStateAction
-  name: Перестать управлять
+  name: Stop managing
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

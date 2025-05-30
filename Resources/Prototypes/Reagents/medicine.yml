@@ -300,7 +300,7 @@
         showInChat: false
         probability: 0.50
       - !type:Drunk
-      boozePower: 2
+        boozePower: 2
 
 - type: reagent
   id: Cryoxadone
@@ -802,7 +802,7 @@
         showInChat: false
         probability: 0.50
       - !type:Drunk
-      boozePower: 2
+        boozePower: 2
 
 - type: reagent
   id: Kelotane
@@ -1398,7 +1398,7 @@
         refresh: false
       - !type:PopupMessage
         visualType: Medium
-        messages: ["Вокруг всё кажется таким смешным...", "Вы хотите посмеяться"]
+        messages: ["пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ...", "пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"]
         type: Pvs
         probability: 0.05
       - !type:Emote
@@ -1840,7 +1840,7 @@
         showInChat: false
         probability: 0.30
       - !type:Drunk
-      boozePower: 2
+        boozePower: 2
 
 - type: reagent
   id: Puncturase
@@ -1890,7 +1890,7 @@
         showInChat: false
         probability: 0.30
       - !type:Drunk
-      boozePower: 2
+        boozePower: 2
 
 - type: reagent
   id: Bruizine

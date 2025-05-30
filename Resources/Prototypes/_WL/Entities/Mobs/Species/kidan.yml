@@ -25,15 +25,15 @@
     - type: IntrinsicRadioReceiver
     - type: ActiveRadio
       channels:
-      - hitin
+      - Hitin
     - type: IntrinsicRadioTransmitter
       channels:
-      - hitin
+      - Hitin
 
 - type: entity
   save: false
   name: Urist McHands
-  parent: MobHumanDummy
+  parent: BaseSpeciesDummy
   id: MobHumanoidKidanDummy
   categories: [ HideSpawnMenu ]
   description: A dummy Kidan meant to be used in character setup.

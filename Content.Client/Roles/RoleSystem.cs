@@ -6,6 +6,7 @@ namespace Content.Client.Roles;
 
 public sealed class RoleSystem : SharedRoleSystem
 {
+    //WL-changes-start
     [Dependency] private readonly IClientPreferencesManager _prefMan = default!;
 
     public string? GetChosenSubname(string jobId)
@@ -19,4 +20,5 @@ public sealed class RoleSystem : SharedRoleSystem
 
         return subname;
     }
+    //WL-changes-end
 }

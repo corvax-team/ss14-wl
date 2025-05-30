@@ -1,0 +1,623 @@
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardTwoClub
+  name: two spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 2clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardThreeClub
+  name: three spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 3clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardFourClub
+  name: four spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 4clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardFiveClub
+  name: five spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 5clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardSixClub
+  name: six spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 6clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardSevenClub
+  name: seven spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 7clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardEightClub
+  name: eight spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 8clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardNineClub
+  name: nine spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 9clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardTenClub
+  name: ten spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 10clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardJackClub
+  name: jack spade
+  components:
+  - type: Sprite
+    layers:
+    - state: jackclubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardQueenClub
+  name: queen spade
+  components:
+  - type: Sprite
+    layers:
+    - state: queenclubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardKingClub
+  name: king spade
+  components:
+  - type: Sprite
+    layers:
+    - state: kingclubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardAceClub
+  name: ace spade
+  components:
+  - type: Sprite
+    layers:
+    - state: 1clubs
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardTwoSpade
+  name: two club
+  components:
+  - type: Sprite
+    layers:
+    - state: 2tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardThreeSpade
+  name: three club
+  components:
+  - type: Sprite
+    layers:
+    - state: 3tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardFourSpade
+  name: four club
+  components:
+  - type: Sprite
+    layers:
+    - state: 4tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardFiveSpade
+  name: five club
+  components:
+  - type: Sprite
+    layers:
+    - state: 5tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardSixSpade
+  name: six club
+  components:
+  - type: Sprite
+    layers:
+    - state: 6tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardSevenSpade
+  name: seven club
+  components:
+  - type: Sprite
+    layers:
+    - state: 7tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardEightSpade
+  name: eight club
+  components:
+  - type: Sprite
+    layers:
+    - state: 8tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardNineSpade
+  name: nine club
+  components:
+  - type: Sprite
+    layers:
+    - state: 9tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardTenSpade
+  name: ten club
+  components:
+  - type: Sprite
+    layers:
+    - state: 10tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardJackSpade
+  name: jack club
+  components:
+  - type: Sprite
+    layers:
+    - state: jacktref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardQueenSpade
+  name: queen club
+  components:
+  - type: Sprite
+    layers:
+    - state: queentref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardKingSpade
+  name: king club
+  components:
+  - type: Sprite
+    layers:
+    - state: kingtref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardAceSpade
+  name: ace club
+  components:
+  - type: Sprite
+    layers:
+    - state: 1tref
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardTwoHeart
+  name: two heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 2heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardThreeHeart
+  name: three heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 3heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardFourHeart
+  name: four heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 4heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardFiveHeart
+  name: five heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 5heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardSixHeart
+  name: six heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 6heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardSevenHeart
+  name: seven heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 7heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardEightHeart
+  name: eight heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 8heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardNineHeart
+  name: nine heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 9heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardTenHeart
+  name: ten heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 10heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardJackHeart
+  name: jack heart
+  components:
+  - type: Sprite
+    layers:
+    - state: jackheart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardQueenHeart
+  name: queen heart
+  components:
+  - type: Sprite
+    layers:
+    - state: queenheart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardKingHeart
+  name: king heart
+  components:
+  - type: Sprite
+    layers:
+    - state: kingheart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardAceHeart
+  name: ace heart
+  components:
+  - type: Sprite
+    layers:
+    - state: 1heart
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardTwoDiamond
+  name: two diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 2diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardThreeDiamond
+  name: three diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 3diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardFourDiamond
+  name: four diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 4diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardFiveDiamond
+  name: five diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 5diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardSixDiamond
+  name: six diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 6diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardSevenDiamond
+  name: seven diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 7diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardEightDiamond
+  name: eight diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 8diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardNineDiamond
+  name: nine diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 9diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardTenDiamond
+  name: ten diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 10diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardJackDiamond
+  name: jack diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: jackdiamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardQueenDiamond
+  name: queen diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: queendiamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardKingDiamond
+  name: king diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: kingdiamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]
+
+- type: entity
+  parent: BasePlayableCard
+  id: PokerCardAceDiamond
+  name: ace diamond
+  components:
+  - type: Sprite
+    layers:
+    - state: 1diamonds
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: rubashka
+      map: ["enum.PokerCardLayers.Flipped"]

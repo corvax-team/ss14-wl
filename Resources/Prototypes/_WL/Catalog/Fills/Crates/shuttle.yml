@@ -1,0 +1,29 @@
+- type: entity
+  parent: CrateEngineering
+  id: CrateEngineeringMediumThruster
+  name: thruster crate
+  description: Contains a medium thruster flatpack.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ThrusterMediumFlatpack
+
+- type: entity
+  parent: CrateEngineering
+  id: CrateEngineeringLargeThruster
+  name: thruster crate
+  description: Contains a large thruster flatpack.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ThrusterLargeFlatpack
+
+- type: entity
+  parent: CrateEngineering
+  id: CrateEngineeringSmallThruster
+  name: thruster crate
+  description: Contains a small thruster flatpack.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ThrusterSmallFlatpack

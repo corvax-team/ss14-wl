@@ -73,6 +73,15 @@ public sealed class RoleSystem : SharedRoleSystem
         return genericProfile as HumanoidCharacterProfile;
     }
 
+    public string? GetSubnameByMind(MindComponent mind, string jobId)
+    {
+        if (mind != null)
+            if (mind.OwnedEntity.HasValue)
+                return GetSubnameByEntity(mind.OwnedEntity.Value, jobId);
+
+        return null;
+    }
+
     public string? GetSubnameByEntity(EntityUid entity, string jobId)
     {
         var profile = GetProfileByEntity(entity);

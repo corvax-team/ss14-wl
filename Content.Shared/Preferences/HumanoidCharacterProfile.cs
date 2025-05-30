@@ -36,7 +36,7 @@ namespace Content.Shared.Preferences
 
         //WL-Changes-start
         [DataField]
-        private Dictionary<string, string> _jobSubnames = new();
+        private Dictionary<string, string> _jobSubnames = new(); //WL-changes
 
         [DataField]
         private Dictionary<string, bool> _jobUnblockings = new();
@@ -318,7 +318,7 @@ namespace Content.Shared.Preferences
         [DataField] public string OocText { get; private set; } = ""; // WL-OOCText
 
         [DataField("height")] public int Height { get; private set; } = 150; // WL-Height
-        public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames;
+        public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames; //WL-changes
         public IReadOnlyDictionary<string, bool> JobUnblockings => _jobUnblockings;
         //WL-Changes-end
 

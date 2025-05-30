@@ -1,9 +1,9 @@
 - type: entity
-  name: Букет цветов в коробке
   id: RoseBoxFake
   parent: BaseItem
+  name: bouquet of flowers in a box
   suffix: Fake
-  description: Букет элитных цветов не выглядящий на свой вес. На этикетке написано, что это розы.
+  description: A bouquet of elite flowers that does not look like its weight. The label says they're roses.
   components:
     - type: SpawnItemsOnUse
       items:
@@ -16,12 +16,12 @@
     - type: StaticPrice
       price: 1000
 
-#Fake
+
 - type: entity
-  name: Букет цветов в коробке
   id: RoseBox
   parent: BaseItem
-  description: Букет элитных цветов. На этикетке написано, что это розы.
+  name: bouquet of flowers in a box
+  description: A bouquet of elite flowers. The label says they're roses.
   components:
     - type: SpawnItemsOnUse
       items:
@@ -35,10 +35,10 @@
       price: 550
 
 - type: entity
-  name: Роза
   parent: ProduceBase
   id: Rose
-  description: Искусственно выращенные розы с плантаций. Хороший подарок вашей девушке.
+  name: rose
+  description: Artificially grown roses from plantations. A nice gift for your girlfriend.
   components:
     - type: Sprite
       sprite: _WL/Entities/Objects/Specific/Hydroponics/rose.rsi

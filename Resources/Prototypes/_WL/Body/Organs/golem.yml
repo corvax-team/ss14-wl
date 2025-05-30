@@ -13,8 +13,8 @@
 - type: entity
   id: OrganGolemCore
   parent: BaseGolemOrgan
-  name: Искра
-  description: "Тюрьма для души"
+  name: Spark
+  description: "A prison for the soul"
   components:
   - type: Instrument
     allowPercussion: false
@@ -81,22 +81,10 @@
     baseSprintSpeed: 0.3
 
 - type: entity
-  id: ActionGolemCorePlayMidi
-  name: Play MIDI
-  description: Open your portable MIDI interface to soothe your owner.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    icon: Objects/Fun/Instruments/microphone.rsi/icon.png
-    event: !type:OpenUiActionEvent
-      key: enum.InstrumentUiKey.Key
-
-- type: entity
   id: OrganGolemFurnace
-  name: печь
+  name: furnace
   parent: BaseHeaterMachine
-  description: "Излучает уют и даже можно использовать для готовки если зафиксировать"
+  description: "It radiates comfort and can even be used for cooking if fixed"
   components:
   - type: Transform
     anchored: false

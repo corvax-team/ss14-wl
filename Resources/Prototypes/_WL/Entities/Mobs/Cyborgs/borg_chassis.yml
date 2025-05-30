@@ -1,0 +1,7 @@
+- type: entity
+  id: BorgChassisScienceWL
+  parent: BorgChassisSelectable
+  name: science borg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: science

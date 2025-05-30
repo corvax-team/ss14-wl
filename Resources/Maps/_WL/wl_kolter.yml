@@ -18606,8 +18606,6 @@ entities:
 - proto: ActionToggleLight
   entities:
   - uid: 16669
-    mapInit: true
-    paused: true
     components:
     - type: Transform
       parent: 6676

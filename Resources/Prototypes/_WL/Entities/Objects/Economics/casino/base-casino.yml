@@ -1,0 +1,109 @@
+- type: entity
+  id: BasePlayableCardBox
+  parent: BaseStorageItem
+  name: card bin
+  description: What secrets lie at the bottom of its endless stack?
+  abstract: true
+  components:
+  - type: PokerCardContainer
+  - type: Storage
+    grid:
+    - 0,0,19,9
+    maxItemSize: Huge
+    whitelist:
+      tags:
+        - PlayableCard
+        - TarotCard
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: Appearance
+
+- type: entity
+  name: playable card
+  parent: BaseItem
+  abstract: true
+  id: BasePlayableCard
+  description: A plastic playing card, sharp at the edges
+  components:
+  - type: PokerCard
+  - type: GenericVisualizer
+    visuals:
+      enum.PokerCardState.IsFlipped:
+        enum.PokerCardLayers.Flipped:
+         True: { visible: true }
+         False: { visible: false }
+        enum.PokerCardLayers.NonFlipped:
+         True: { visible: false }
+         False: { visible: true }
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Economics/cards.rsi
+    scale: 0.5,0.5
+    drawdepth: Mobs
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - PlayableCard
+  - type: Appearance
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_WL/Economics/flip.ogg
+      params:
+        variation: 0.125
+        volume: 20
+  - type: EmbeddableProjectile
+    minimumSpeed: 3
+    removalTime: 0.5
+    offset: 0.0,0.0
+  - type: ThrowingAngle
+    angle: 315
+  - type: MeleeWeapon
+    wideAnimationRotation: -45
+    damage:
+      types:
+        Piercing: 1
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 2
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: ChipsBase
+  description: Special poker chips, very pleasant to the touch
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Economics/chips.rsi
+    scale: 0.5,0.5
+  - type: Item
+    size: Small
+    heldPrefix: megaPrefix
+  # TODO: Переделать фишки в материалы, что бы не было багов с ценами
+  # - type: StaticPrice
+  #   price: 5
+  - type: Tag
+    tags:
+    - Chips
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_WL/Economics/chipfall.ogg
+      params:
+        variation: 0.125
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_WL/Economics/chipsound.ogg
+      params:
+        variation: 0.125
+  - type: UseDelay
+    delay: 1

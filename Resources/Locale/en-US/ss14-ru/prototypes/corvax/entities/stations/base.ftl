@@ -1,4 +1,4 @@
-ent-BaseStationGoal = { "" }
-    .desc = { "" }
+#ent-BaseStationGoal = { "" }
+#    .desc = { "" }
 ent-BaseStationSiliconLawNTDefault = { "" }
     .desc = { "" }

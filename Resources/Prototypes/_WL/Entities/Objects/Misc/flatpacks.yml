@@ -1,0 +1,44 @@
+- type: entity
+  parent: BaseFlatpack
+  id: ThrusterMediumFlatpack
+  name: medium thruster flatpack
+  description: A flatpack used for constructing a medium thruster.
+  components:
+  - type: Flatpack
+    entity: ThrusterMediumUnanchored
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#cec8ac"
+    - state: icon-default
+
+- type: entity
+  parent: BaseFlatpack
+  id: ThrusterLargeFlatpack
+  name: large thruster flatpack
+  description: A flatpack used for constructing a large thruster.
+  components:
+  - type: Flatpack
+    entity: ThrusterLargeUnanchored
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#cec8ac"
+    - state: icon-default
+
+- type: entity
+  parent: BaseFlatpack
+  id: ThrusterSmallFlatpack
+  name: small thruster flatpack
+  description: A flatpack used for constructing a small thruster.
+  components:
+  - type: Flatpack
+    entity: ThrusterSmallUnanchored
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#cec8ac"
+    - state: icon-default

@@ -24,19 +24,19 @@ public sealed class PresetIdCardSystem : EntitySystem
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
+    [Dependency] private readonly RoleSystem _role = default!; //WL-Changes
+    [Dependency] private readonly ContainerSystem _container = default!; //WL-Changes
 
-    private static readonly string IDItemSlot = "id";
+    private static readonly string IDItemSlot = "id"; //WL-Changes
 
     public override void Initialize()
     {
         SubscribeLocalEvent<PresetIdCardComponent, MapInitEvent>(OnMapInit);
 
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(PlayerJobsAssigned);
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(PlayerJobsAssigned); //WL-Changes
     }
 
-    private void PlayerJobsAssigned(PlayerSpawnCompleteEvent ev)
+    private void PlayerJobsAssigned(PlayerSpawnCompleteEvent ev) //WL-Changes
     {
         if (ev.JobId == null)
             return;
@@ -70,10 +70,10 @@ public sealed class PresetIdCardSystem : EntitySystem
             if (card == null || preset == null)
                 continue;
 
-            if (!ev.Profile.JobSubnames.TryGetValue(ev.JobId, out var subname))
-                subname = jobProto.LocalizedName;
+            if (!ev.Profile.JobSubnames.TryGetValue(ev.JobId, out var subname)) //WL-Changes
+                subname = jobProto.LocalizedName; //WL-Changes
 
-            SetupIdAccess(card.Value, preset, true, subname);
+            SetupIdAccess(card.Value, preset, true, subname); //WL-Changes
             SetupIdName(card.Value, preset);
         }
     }
@@ -116,8 +116,8 @@ public sealed class PresetIdCardSystem : EntitySystem
 
         _accessSystem.SetAccessToJob(uid, job, extended);
 
-        var jobName = _role.GetSubnameBySesssion(user, job.ID) ?? job.LocalizedName;
-        _cardSystem.TryChangeJobTitle(uid, jobName);
+        var jobName = _role.GetSubnameBySesssion(user, job.ID) ?? job.LocalizedName; //WL-Changes
+        _cardSystem.TryChangeJobTitle(uid, jobName); //WL-Changes
         _cardSystem.TryChangeJobDepartment(uid, job);
 
         if (_prototypeManager.TryIndex<JobIconPrototype>(job.Icon, out var jobIcon))

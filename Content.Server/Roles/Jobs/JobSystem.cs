@@ -54,13 +54,13 @@ public sealed class JobSystem : SharedJobSystem
         //WL-Changes-end
 
         _chat.DispatchServerMessage(session, Loc.GetString("job-greet-introduce-job-name",
-            ("jobName", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))));
+            ("jobName", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName)))); //WL-Changes
 
         if (prototype.RequireAdminNotify)
             _chat.DispatchServerMessage(session, Loc.GetString("job-greet-important-disconnect-admin-notify"));
 
         _chat.DispatchServerMessage(session, Loc.GetString("job-greet-supervisors-warning", ("jobName", jobName),
-            ("supervisors", Loc.GetString(prototype.Supervisors))));
+            ("supervisors", Loc.GetString(prototype.Supervisors)))); //WL-Changes
     }
 
     public void MindAddJob(EntityUid mindId, string jobPrototypeId)

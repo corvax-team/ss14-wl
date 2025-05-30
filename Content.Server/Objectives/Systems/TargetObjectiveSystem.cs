@@ -66,8 +66,13 @@ public sealed class TargetObjectiveSystem : EntitySystem
 
         var jobName = "Unknown";
 
-        if (_job.MindTryGetJob(mind?.OwnedEntity, out var jobProto))
-            jobName = _role.GetSubnameByEntity(target, jobProto.ID) ?? jobProto.LocalizedName;
+        if (_job.MindTryGetJob(target, out var jobProto))
+        {
+            if (mind != null)
+                jobName = _role.GetSubnameByMind(mind, jobProto.ID) ?? jobProto.LocalizedName;
+            else
+                jobName = _role.GetSubnameByEntity(target, jobProto.ID) ?? jobProto.LocalizedName;
+        }
 
         return Loc.GetString(title, ("targetName", targetName), ("job", jobName));
     }

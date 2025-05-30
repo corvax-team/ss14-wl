@@ -1,0 +1,33 @@
+# sci borg
+- type: borgType
+  id: science
+
+  # Description
+  dummyPrototype: BorgChassisScienceWL
+
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleScience
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleArtifact
+  - BorgModuleAnomaly
+
+  radioChannels:
+  - Science
+
+  # Visual
+  inventoryTemplateId: borgShort
+  spriteBodyState: wl_scibot
+  spriteBodyMovementState: wl_scibot_moving
+  spriteHasMindState: wl_scibot_e
+  spriteNoMindState: wl_scibot_e_r
+  spriteToggleLightState: wl_scibot_l
+
+  # Pet
+  petSuccessString: petting-success-science-cyborg
+  petFailureString: petting-failure-science-cyborg

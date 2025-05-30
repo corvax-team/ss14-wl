@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHelmetHeavyDSS
-  name: армированный шлем
-  description: Улучшенная версия обычного шлема Службы Безопасности, оснащённая противоосколочным забралом.
+  name: reinforced helmet
+  description: An improved version of a regular Security helmet, equipped with a shatterproof visor.
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Helmets/secheavy.rsi

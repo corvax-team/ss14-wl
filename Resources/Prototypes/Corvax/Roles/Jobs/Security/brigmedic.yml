@@ -10,6 +10,8 @@
   - !type:DepartmentTimeRequirement
     department: Security
     time: 18000 # 5 hrs
+  - !type:AgeRequirement
+    minAge: 26 # WL-Changes-AgeRequirement
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-cmo
@@ -22,7 +24,7 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  
+
 - type: startingGear
   id: BrigmedicGear
   equipment:

@@ -72,6 +72,8 @@
   text: |
       - Наблюдение за состоянием экипажа. К концу смены не должно быть более чем 3 умерших!
 
+# CorvaxWL-Changes start
+
 # - type: stationGoal
   # id: Tesla
   # department: [ Engineering ]
@@ -128,6 +130,8 @@
   # text: station-goal-bunker
 
 # Special goals
+
+# CorvaxWL-Changes eng
 
 - type: stationGoal
   id: StationGoalCrewPsychologicalState
@@ -309,12 +313,15 @@
   text: |
        - Собрать полный ящик {{StationGoalRandomServiceCrate}} и отправить его на атоматическую торговую станцию.
 
-# WL-Changes-start
+
+# CorvaxWL-Changes-start
+
 # - type: stationGoal
   # id: SectorSecurity
   # text: station-goal-split-secure
-  
+
 # - type: stationGoal
   # id: AstraRepair
   # text: station-goal-astra-repair
-# WL-Changes-end
+
+# CorvaxWL-Changes-end

@@ -458,10 +458,12 @@ namespace Content.Server.Ghost
 
                 TryComp<MindContainerComponent>(attached, out var mind);
 
+                //WL-changes-start
                 var jobName = string.Empty;
                 if (_jobs.MindTryGetJob(mind?.Mind, out var jobProto))
                     jobName = _role.GetSubnameByEntity(attached, jobProto.ID) ?? jobProto.LocalizedName;
                 var playerInfo = $"{Comp<MetaDataComponent>(attached).EntityName} ({jobName})";
+                //WL-changes-end
 
                 if (_mobState.IsAlive(attached) || _mobState.IsCritical(attached))
                     yield return new GhostWarp(GetNetEntity(attached), playerInfo, false);

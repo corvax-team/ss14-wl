@@ -80,7 +80,7 @@
 - type: entity
   save: false
   name: Chischi Dummy
-  parent: BaseMobCischi
+  parent: BaseSpeciesDummy
   id: MobCischiDummy
   categories: [ HideSpawnMenu ]
   description: A dummy felinid meant to be used in character setup.

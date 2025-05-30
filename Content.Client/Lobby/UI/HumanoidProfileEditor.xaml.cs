@@ -51,6 +51,7 @@ namespace Content.Client.Lobby.UI
 
         public readonly OptionButton? Options;
 
+        // WL-changes start
         public SubnameSelector(JobPrototype job, Gender gender)
         {
             Job = job;
@@ -81,8 +82,9 @@ namespace Content.Client.Lobby.UI
 
                 AddChild(Options);
             }
-            else AddChild(new Label() { Text = _subnames.First()});
+            else AddChild(new Label() { Text = _subnames.First() });
         }
+        // WL-changes End
 
         public void SelectItem(int index, bool silent)
         {
@@ -155,7 +157,7 @@ namespace Content.Client.Lobby.UI
 
         private List<SpeciesPrototype> _species = new();
 
-        private List<(string, SubnameSelector, RequirementsSelector)> _jobPriorities = new();
+        private List<(string, SubnameSelector, RequirementsSelector)> _jobPriorities = new(); //WL-changes
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
 
@@ -245,9 +247,8 @@ namespace Content.Client.Lobby.UI
                 {
                     Profile = Profile?
                         .WithFlavorText(Rope.Collapse(_flavorTextEdit.TextRope).Trim())
-                        .WithOocText(Rope.Collapse(_oocTextEdit.TextRope).Trim());
+                        .WithOocText(Rope.Collapse(_oocTextEdit.TextRope).Trim()); //WL-Changes
                 }
-
                 Save?.Invoke();
             };
 
@@ -258,7 +259,7 @@ namespace Content.Client.Lobby.UI
             NameEdit.OnTextChanged += args => { SetName(args.Text); };
             NameRandomize.OnPressed += args => RandomizeName();
             RandomizeEverythingButton.OnPressed += args => { RandomizeEverything(); };
-            //WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]"); //WL-HRP: Чё-то тут было написано, короче, это хрп проект и бла-бла
+            //WarningLabel.SetMarkup($"[color=red]{Loc.GetString("humanoid-profile-editor-naming-rules-warning")}[/color]"); //WL-HRP: Чё-пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ-пїЅпїЅпїЅ
 
             #endregion Name
 
@@ -963,7 +964,7 @@ namespace Content.Client.Lobby.UI
                 var title = Loc.GetString(antag.Name);
                 var description = Loc.GetString(antag.Objective);
 
-                selector.Setup(items, new Label() { Text = title }, 250, description, guides: antag.Guides);
+                selector.Setup(items, new Label() { Text = title }, 250, description, guides: antag.Guides); //WL-Changes
 
                 selector.Select(Profile?.AntagPreferences.Contains(antag.ID) == true ? 0 : 1);
 
@@ -1190,7 +1191,7 @@ namespace Content.Client.Lobby.UI
 
                     category.AddChild(new PanelContainer
                     {
-                        PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#464966") },
+                        PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#464966") }, //WL-Changes
                         Children =
                         {
                             new Label
@@ -1244,10 +1245,10 @@ namespace Content.Client.Lobby.UI
 
                     selector.OnSelected += selectedPrio =>
                     {
-                        var selectedJobPrio = (JobPriority) selectedPrio;
+                        var selectedJobPrio = (JobPriority)selectedPrio;
                         Profile = Profile?.WithJobPriority(job.ID, selectedJobPrio);
 
-                        foreach (var (jobId, _, other) in _jobPriorities)
+                        foreach (var (jobId, _, other) in _jobPriorities)  //WL-Changes
                         {
                             // Sync other selectors with the same job in case of multiple department jobs
                             if (jobId == job.ID)
@@ -1256,7 +1257,7 @@ namespace Content.Client.Lobby.UI
                                 continue;
                             }
 
-                            if (selectedJobPrio != JobPriority.High || (JobPriority) other.Selected != JobPriority.High)
+                            if (selectedJobPrio != JobPriority.High || (JobPriority)other.Selected != JobPriority.High)
                                 continue;
 
                             // Lower any other high priorities to medium.
@@ -1271,9 +1272,11 @@ namespace Content.Client.Lobby.UI
                         SetDirty();
                     };
 
-                    var gender = Profile?.Gender ?? Gender.Male;
-                    var subnameSelector = new SubnameSelector(job, gender);
 
+                    var gender = Profile?.Gender ?? Gender.Male; //WL-Changes
+                    var subnameSelector = new SubnameSelector(job, gender); //WL-Changes
+
+                    //WL-Changes-start
                     subnameSelector.SubnameChanged += (id, subname, isSilent) =>
                     {
                         Profile = Profile?.WithJobSubname(job.ID, subname);
@@ -1292,6 +1295,8 @@ namespace Content.Client.Lobby.UI
                     }
 
                     selector.Setup(items, subnameSelector, 200, job.LocalizedDescription, icon, job.Guides);
+
+
 
                     if (Profile is not null)
                     {
@@ -1337,6 +1342,7 @@ namespace Content.Client.Lobby.UI
                         jobContainer.AddChild(loadoutWindowBtn);
                         category.AddChild(jobContainer);
                     }
+                    //WL-Changes-end
                 }
             }
 
@@ -1649,7 +1655,7 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         private void UpdateJobPriorities()
         {
-            foreach (var (jobId, _, prioritySelector) in _jobPriorities)
+            foreach (var (jobId, _, prioritySelector) in _jobPriorities) //WL-Changes
             {
                 var priority = Profile?.JobPriorities.GetValueOrDefault(jobId, JobPriority.Never) ?? JobPriority.Never;
                 prioritySelector.Select((int) priority);
@@ -1816,11 +1822,11 @@ namespace Content.Client.Lobby.UI
 
             foreach (var jobSelector in _jobPriorities)
             {
-                var jobId = jobSelector.Item1;
+                var jobId = jobSelector.Item1; //WL-Changes
                 if (!Profile.JobSubnames.TryGetValue(jobId, out var subname))
                     continue;
 
-                jobSelector.Item2.SelectItem(subname, true);
+                jobSelector.Item2.SelectItem(subname, true); //WL-Changes
             }
         }
 

@@ -22,8 +22,6 @@
     exitAction: TurretExitStateAction
   - type: Sprite
     noRot: false
-  - type: InputMover
-    canMove: false
   - type: MovementSpeedModifier
     baseWalkSpeed: 0
     baseSprintSpeed: 0

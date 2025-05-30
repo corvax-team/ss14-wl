@@ -522,9 +522,9 @@
     - state: icon-up
       map: ["foldedLayer"]
       visible: false
-  - type: TemperatureProtection # WL-modified
-    heatingCoefficient: 1.01    # WL-modified
-    coolingCoefficient: 0.4     # WL-modified
+  - type: TemperatureProtection # CorvaxWL-Changes
+    heatingCoefficient: 1.01    # CorvaxWL-Changes
+    coolingCoefficient: 0.4     # CorvaxWL-Changes
 
 
 - type: entity

@@ -1,8 +1,8 @@
 - type: entity
   parent: [ClothingOuterStorageBase, ClothingOuterStorageFoldableBase]
   id: ClothingOuterCoatCaptainTrench
-  name: тренч капитана
-  description: Модный тренч, пошитый мастерами своего дела. Состоит из текстиля отличного качества, но даже несмотря на это, он вряд-ли защитит вас от чего-либо.
+  name: captain's trench coat
+  description: A fashionable trench coat made by the masters of their craft. It consists of excellent quality textiles, but even so, it is unlikely to protect you from anything.
   components:
   - type: Sprite
     sprite: _WL/Clothing/OuterClothing/Coats/captain_trenchcoat.rsi
@@ -20,4 +20,4 @@
 - type: entity
   parent: [ClothingOuterCoatCaptainTrench, ClothingOuterStorageFoldableBaseOpened]
   id: ClothingOuterCoatCaptainTrenchOpened
-  name: тренч капитана
+  name: captain's trench coat

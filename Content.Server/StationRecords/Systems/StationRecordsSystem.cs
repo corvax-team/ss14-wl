@@ -92,7 +92,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     {
         // TODO make PlayerSpawnCompleteEvent.JobId a ProtoId
         if (string.IsNullOrEmpty(jobId)
-            || !_prototypeManager.TryIndex<JobPrototype>(jobId, out var jobProto))
+            || !_prototypeManager.TryIndex<JobPrototype>(jobId, out var jobProto)) //WL-changes
             return;
 
         if (!_inventory.TryGetSlotEntity(player, "id", out var idUid))
@@ -101,9 +101,9 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         TryComp<FingerprintComponent>(player, out var fingerprintComponent);
         TryComp<DnaComponent>(player, out var dnaComponent);
 
-        var jobName = _role.GetSubnameByEntity(player, jobId) ?? jobProto.LocalizedName;
+        var jobName = _role.GetSubnameByEntity(player, jobId) ?? jobProto.LocalizedName; //WL-changes
 
-        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, jobName, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records);
+        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, jobId, jobName, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records); //WL-changes
     }
 
 

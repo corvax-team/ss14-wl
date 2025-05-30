@@ -1,12 +1,12 @@
 - type: entity
   id: PartHumanoidMurine
   parent: [BaseItem, BasePart]
-  name: "базовая конечность мурина"
+  name: "murine body part"
   abstract: true
 
 - type: entity
   id: TorsoHumanoidMurine
-  name: "торс мурина"
+  name: "murine torso"
   parent: [PartHumanoidMurine, BaseTorso]
   components:
     - type: Sprite
@@ -15,7 +15,7 @@
 
 - type: entity
   id: HeadHumanoidMurine
-  name: "голова мурина"
+  name: "murine head"
   parent: [PartHumanoidMurine, BaseHead]
   components:
     - type: Sprite
@@ -24,7 +24,7 @@
 
 - type: entity
   id: LeftArmHumanoidMurine
-  name: "левая рука мурина"
+  name: "left murine arm"
   parent: [PartHumanoidMurine, BaseLeftArm]
   components:
     - type: Sprite
@@ -33,7 +33,7 @@
 
 - type: entity
   id: RightArmHumanoidMurine
-  name: "правая рука мурина"
+  name: "right murine arm"
   parent: [PartHumanoidMurine, BaseRightArm]
   components:
     - type: Sprite
@@ -42,7 +42,7 @@
 
 - type: entity
   id: LeftHandHumanoidMurine
-  name: "левая ладонь мурина"
+  name: "left murine hand"
   parent: [PartHumanoidMurine, BaseLeftHand]
   components:
   - type: Sprite
@@ -51,7 +51,7 @@
 
 - type: entity
   id: RightHandHumanoidMurine
-  name: "правая ладонь мурина"
+  name: "right murine hand"
   parent: [PartHumanoidMurine, BaseRightHand]
   components:
   - type: Sprite
@@ -60,7 +60,7 @@
 
 - type: entity
   id: LeftLegHumanoidMurine
-  name: "левая нога мурина"
+  name: "left murine leg"
   parent: [PartHumanoidMurine, BaseLeftLeg]
   components:
   - type: Sprite
@@ -72,7 +72,7 @@
 
 - type: entity
   id: RightLegHumanoidMurine
-  name: "правая нога мурина"
+  name: "right murine leg"
   parent: [PartHumanoidMurine, BaseRightLeg]
   components:
   - type: Sprite
@@ -84,7 +84,7 @@
 
 - type: entity
   id: LeftFootHumanoidMurine
-  name: "левая стопа мурина"
+  name: "left murine foot"
   parent: [PartHumanoidMurine, BaseLeftFoot]
   components:
   - type: Sprite
@@ -93,7 +93,7 @@
 
 - type: entity
   id: RightFootHumanoidMurine
-  name: "правая стопа мурина"
+  name: "right murine foot"
   parent: [PartHumanoidMurine, BaseRightFoot]
   components:
   - type: Sprite

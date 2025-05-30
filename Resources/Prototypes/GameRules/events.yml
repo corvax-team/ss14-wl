@@ -37,7 +37,7 @@
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
-    - id: LoneOpsSpawn
+    # - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
     - id: WizardSpawn
 
@@ -78,7 +78,7 @@
   - type: StationEvent
     weight: 8
     duration: 35
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 5 # Corvax WL
     startAnnouncementColor: "#18abf5"
@@ -124,7 +124,7 @@
   - type: StationEvent
     weight: 7
     duration: 1
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
   - type: BreakerFlipRule
@@ -135,7 +135,7 @@
   # components:
   # - type: StationEvent
     # startAnnouncement: station-event-bureaucratic-error-announcement
-    # spawnConfig:
+    # spawnConfig:  # CorvaxWL-Changes
       # standartConfig:
         # minPlayers: 20
     # weight: 5
@@ -149,7 +149,7 @@
   # components:
   # - type: StationEvent
     # startAnnouncement: station-event-clerical-error-announcement
-    # spawnConfig:
+    # spawnConfig:  # CorvaxWL-Changes
       # standartConfig:
         # minPlayers: 15
     # weight: 5
@@ -164,7 +164,7 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 10
   - type: RandomEntityStorageSpawnRule
@@ -178,7 +178,7 @@
     weight: 6.5
     earliestStart: 40
     reoccurrenceDelay: 60
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 25
     duration: null
@@ -211,7 +211,7 @@
     duration: null
     earliestStart: 45 # Corvax WL changes
     reoccurrenceDelay: 20
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 30
   - type: SpaceSpawnRule
@@ -263,7 +263,9 @@
     duration: null
     earliestStart: 20
     reoccurrenceDelay: 20
-    minimumPlayers: 15
+    spawnConfig:  # CorvaxWL-Changes
+      standartConfig:
+        minPlayers: 15
   - type: ParadoxCloneRule
     objectiveBlacklist:
       tags:
@@ -299,7 +301,7 @@
     duration: 1
     earliestStart: 45
     reoccurrenceDelay: 90
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 20
   - type: RandomSpawnRule
@@ -314,7 +316,9 @@
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 60
-    minimumPlayers: 10
+    spawnConfig:  # CorvaxWL-Changes
+      standartConfig:
+        minPlayers: 10
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:
@@ -371,7 +375,7 @@
       params:
         volume: -4
     earliestStart: 10
-    spawnConfig: # Corvax WL
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 5
   - type: GasLeakRule
@@ -382,7 +386,7 @@
   components:
   - type: StationEvent
     earliestStart: 15
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
     weight: 7
@@ -446,7 +450,7 @@
       params:
         volume: -4
     earliestStart: 15
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
     weight: 6
@@ -462,7 +466,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
     weight: 6
@@ -485,7 +489,9 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
-    minimumPlayers: 15
+    spawnConfig:  # CorvaxWL-Changes
+      standartConfig:
+        minPlayers: 15
     weight: 5
     duration: 60
   - type: VentCrittersRule
@@ -506,7 +512,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 30
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
     weight: 6
@@ -525,7 +531,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 30
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 20
     weight: 1.5
@@ -541,7 +547,7 @@
   components:
   - type: StationEvent
     earliestStart: 90
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 30
     weight: 1
@@ -582,7 +588,9 @@
 #  - type: StationEvent
 #    earliestStart: 35
 #    weight: 5.5
-#    minimumPlayers: 20
+#    spawnConfig:  # CorvaxWL-Changes
+#      standartConfig:
+#        minPlayers: 20
 #    duration: 1
 #  - type: RuleGrids
 #  - type: LoadMapRule
@@ -619,7 +627,7 @@
     earliestStart: 30
     weight: 5
     maxOccurrences: 1 # can only happen once per round
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
     startAnnouncement: station-event-communication-interception
@@ -673,7 +681,7 @@
   components:
   - type: StationEvent
     earliestStart: 0
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 20
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
@@ -688,7 +696,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 25
     reoccurrenceDelay: 20
@@ -710,7 +718,9 @@
   - type: StationEvent
     earliestStart: 0
     duration: 1
-    minimumPlayers: 1
+    spawnConfig:  # CorvaxWL-Changes
+      standartConfig:
+        minPlayers: 1
     maxOccurrences: 2
     weight: 10
   - type: RandomSpawnRule
@@ -724,7 +734,7 @@
     weight: 5
     earliestStart: 15
     reoccurrenceDelay: 20
-    spawnConfig:
+    spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 4
     duration: null

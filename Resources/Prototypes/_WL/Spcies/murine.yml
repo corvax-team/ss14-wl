@@ -1,6 +1,6 @@
 - type: species
   id: Murine
-  name: Мурин
+  name: species-name-murine
   roundStart: true
   prototype: MobHumanoidMurine
   sprites: MobMurineSprites

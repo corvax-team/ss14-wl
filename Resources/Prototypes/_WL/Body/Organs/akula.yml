@@ -1,7 +1,7 @@
 - type: entity
   id: OrganAkulaHeart
   parent: OrganAnimalHeart
-  name: сердце
+  name: heart
   categories: [ HideSpawnMenu ]
   components:
   - type: Metabolizer

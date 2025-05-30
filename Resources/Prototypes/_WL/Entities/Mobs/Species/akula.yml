@@ -35,7 +35,7 @@
 - type: entity
   save: false
   name: Urist McHands
-  parent: MobHumanDummy
+  parent: BaseSpeciesDummy
   id: MobAkulaDummy
   categories: [ HideSpawnMenu ]
   description: A dummy fish meant to be used in character setup.

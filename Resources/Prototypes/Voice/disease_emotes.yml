@@ -18,6 +18,7 @@
     #- BorgChassis
     - BorgTransponder
     # WL-Changes-end
+    - Ipc #corvax-species
   chatMessages: ["chat-emote-msg-cough"]
   chatTriggers:
     - cough
@@ -67,6 +68,7 @@
     #- BorgChassis
     - BorgTransponder
     # WL-Changes-end
+    - Ipc #corvax-species
   chatMessages: ["chat-emote-msg-yawn"]
   chatTriggers:
     - yawn

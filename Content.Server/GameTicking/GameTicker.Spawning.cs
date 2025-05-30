@@ -30,7 +30,7 @@ namespace Content.Server.GameTicking
     public sealed partial class GameTicker
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly JobSystem _jobs = default!;
+        [Dependency] private readonly JobSystem _jobs = default!; //WL-Changes
         [Dependency] private readonly AdminSystem _admin = default!;
 
         [ValidatePrototypeId<EntityPrototype>]
@@ -243,8 +243,7 @@ namespace Content.Server.GameTicking
             _mind.TransferTo(newMind, mob);
 
             _role.MindAddJobRole(newMind, silent: silent, jobPrototype:jobId);
-            var jobName = _role.GetSubnameBySesssion(player, jobPrototype.ID) ??
-                _jobs.MindTryGetJobName(newMind); // WL-changes
+            var jobName = _role.GetSubnameBySesssion(player, jobPrototype.ID) ?? _jobs.MindTryGetJobName(newMind); // WL-changes
             _admin.UpdatePlayerList(player);
 
             if (lateJoin && !silent)

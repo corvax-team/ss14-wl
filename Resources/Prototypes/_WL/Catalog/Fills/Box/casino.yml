@@ -1,0 +1,162 @@
+- type: entity
+  id: PokerCardBox
+  parent: BasePlayableCardBox
+  name: deck of cards
+  description: cardboard Card Storage Box
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Economics/cards.rsi
+    scale: 0.6,0.6
+    layers:
+    - state: package
+  - type: Storage
+    grid:
+    - 0,0,7,6
+    maxItemSize: Small
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - PlayableCard
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: Item
+    size: Small
+  - type: Appearance
+
+- type: entity
+  id: PokerCardBoxFilled
+  parent: PokerCardBox
+  suffix: Full
+  components:
+  - type: StorageFill
+    contents:
+    - id: PokerCardTwoClub
+    - id: PokerCardTwoSpade
+    - id: PokerCardTwoHeart
+    - id: PokerCardTwoDiamond
+    - id: PokerCardThreeClub
+    - id: PokerCardThreeSpade
+    - id: PokerCardThreeHeart
+    - id: PokerCardThreeDiamond
+    - id: PokerCardFourClub
+    - id: PokerCardFourSpade
+    - id: PokerCardFourHeart
+    - id: PokerCardFourDiamond
+    - id: PokerCardFiveClub
+    - id: PokerCardFiveSpade
+    - id: PokerCardFiveHeart
+    - id: PokerCardFiveDiamond
+    - id: PokerCardSixClub
+    - id: PokerCardSixSpade
+    - id: PokerCardSixHeart
+    - id: PokerCardSixDiamond
+    - id: PokerCardSevenClub
+    - id: PokerCardSevenSpade
+    - id: PokerCardSevenHeart
+    - id: PokerCardSevenDiamond
+    - id: PokerCardEightClub
+    - id: PokerCardEightSpade
+    - id: PokerCardEightHeart
+    - id: PokerCardEightDiamond
+    - id: PokerCardNineClub
+    - id: PokerCardNineSpade
+    - id: PokerCardNineHeart
+    - id: PokerCardNineDiamond
+    - id: PokerCardTenClub
+    - id: PokerCardTenSpade
+    - id: PokerCardTenHeart
+    - id: PokerCardTenDiamond
+    - id: PokerCardJackClub
+    - id: PokerCardJackSpade
+    - id: PokerCardJackHeart
+    - id: PokerCardJackDiamond
+    - id: PokerCardQueenClub
+    - id: PokerCardQueenSpade
+    - id: PokerCardQueenHeart
+    - id: PokerCardQueenDiamond
+    - id: PokerCardKingClub
+    - id: PokerCardKingSpade
+    - id: PokerCardKingHeart
+    - id: PokerCardKingDiamond
+    - id: PokerCardAceClub
+    - id: PokerCardAceSpade
+    - id: PokerCardAceHeart
+    - id: PokerCardAceDiamond
+
+- type: entity
+  id: BaseChipsCase
+  parent: [ BaseStorageItem, BaseBagOpenClose ]
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  name: case with chips
+  description: A large case with a variety of chips. Two of them!
+  components:
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Small
+    whitelist:
+      tags:
+        - Chips
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: Appearance
+
+- type: entity
+  id: ChipsCase
+  parent: BaseChipsCase
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Economics/chips.rsi
+    scale: 1,1
+    layers:
+    - state: pokercaseclose
+    - state: pokercaseopen
+      map: ["openLayer"]
+      visible: false
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: Item
+    size: Huge
+  - type: Appearance
+
+- type: entity
+  id: ChipsCaseFilled
+  suffix: Full
+  parent: ChipsCase
+  components:
+  - type: StorageFill
+    contents:
+    - id: Chips10
+    - id: Chips25
+    - id: Chips50
+    - id: Chips100
+    - id: Chips250
+    - id: Chips500
+    - id: Chips2000
+    - id: Chips10
+    - id: Chips25
+    - id: Chips50
+    - id: Chips100
+    - id: Chips250
+    - id: Chips500
+    - id: Chips2000

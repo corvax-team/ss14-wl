@@ -237,9 +237,9 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         _cardSystem.TryChangeFullName(cardId, characterName, card);
 
-        var jobName = _role.GetSubnameByEntity(entity, jobPrototype.ID)
-            ?? jobPrototype.LocalizedName;
-        _cardSystem.TryChangeJobTitle(cardId, jobName, card);
+        var jobName = _role.GetSubnameByEntity(entity, jobPrototype.ID) //WL-changes
+            ?? jobPrototype.LocalizedName; //WL-changes
+        _cardSystem.TryChangeJobTitle(cardId, jobName, card); //WL-changes
 
         if (_prototypeManager.TryIndex(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);

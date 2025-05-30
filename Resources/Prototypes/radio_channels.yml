@@ -96,9 +96,9 @@
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   longRange: true
 
-- type: radioChannel # WL - Kidan
-  id: hitin
-  name: Хитин
+- type: radioChannel # CorvaxWL - Kidan
+  id: Hitin
+  name: chat-radio-hitin
   keycode: 'х'
   frequency: 4944
   color: "#cc7722"

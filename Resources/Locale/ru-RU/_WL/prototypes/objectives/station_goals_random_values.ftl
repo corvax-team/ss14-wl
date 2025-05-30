@@ -1,0 +1,21 @@
+station_goals_random_values-StationGoalRandomMedicalKitsPair-1 = механических и физических повреждений
+
+station_goals_random_values-StationGoalRandomMedicalKitsPair-2 = механических повреждений и токсинов
+
+station_goals_random_values-StationGoalRandomMedicalKitsPair-3 = механических повреждений и радиации
+
+station_goals_random_values-StationGoalRandomMedicalKitsPair-4 = механических повреждений и кислородного голодания
+
+station_goals_random_values-StationGoalRandomMedicalKitsPair-5 = физических повреждений и токсинов
+
+station_goals_random_values-StationGoalRandomMedicalKitsPair-6 = физических повреждений и радиации
+
+station_goals_random_values-StationGoalRandomMedicalKitsPair-7 = физических повреждений и кислородного голодания
+
+station_goals_random_values-StationGoalRandomMedicalKitsPair-8 = токсинов и радиации
+
+station_goals_random_values-StationGoalRandomMedicalKitsPair-9 = токсинов и кислородного голодания
+
+station_goals_random_values-StationGoalRandomMedicalKitsPair-10 = радиации и кислородного голодания
+
+station-goal-StationGoalAliveCrew = тест {StationGoalRandomMedicalKitsPair}

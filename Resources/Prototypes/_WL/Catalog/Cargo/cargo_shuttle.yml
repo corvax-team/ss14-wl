@@ -1,0 +1,29 @@
+- type: cargoProduct
+  id: ShuttleThrusterMedium
+  icon:
+    sprite: Imperial/Structures/Thrusters/medium.rsi
+    state: base
+  product: CrateEngineeringMediumThruster
+  cost: 3000
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: cargoProduct
+  id: ShuttleThrusterLarge
+  icon:
+    sprite: Imperial/Structures/Thrusters/large.rsi
+    state: base
+  product: CrateEngineeringLargeThruster
+  cost: 6000
+  category: cargoproduct-category-name-shuttle
+  group: market
+
+- type: cargoProduct
+  id: ShuttleThrusterSmall
+  icon:
+    sprite: Imperial/Structures/Thrusters/small.rsi
+    state: base
+  product: CrateEngineeringSmallThruster
+  cost: 750
+  category: cargoproduct-category-name-shuttle
+  group: market

@@ -6,11 +6,11 @@
   dummyPrototype: BorgChassisGeneric
 
   # Functional
-  extraModuleCount: 5
+  extraModuleCount: 3 # WL-Changes: sciborg
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
-    - BorgModuleScience #until sciborgs are added
+    # - BorgModuleScience #until sciborgs are added # WL-Changes: sciborg
 
   defaultModules:
   - BorgModuleTool

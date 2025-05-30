@@ -1,8 +1,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterVestHeavyDSS
-  name: тяжёлый бронежилет
-  description: Бронежилет 5-го класса с дополнительным комплектом противоосколочной защиты. Достаточно увесистый.
+  name: heavy body armor
+  description: Bulletproof vest of the 5th class with an additional set of anti-shatter protection. It's quite heavy.
   components:
   - type: Sprite
     sprite: _WL/Clothing/OuterClothing/Vests/secheavy.rsi

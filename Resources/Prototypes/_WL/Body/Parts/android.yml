@@ -15,7 +15,7 @@
 
 - type: entity
   id: TorsoAndroid
-  name: "туловище андроида"
+  name: "akula torso"
   parent: [PartAndroid, BaseTorso]
   components:
     - type: Sprite
@@ -29,7 +29,7 @@
 
 - type: entity
   id: HeadAndroid
-  name: "голова андроида"
+  name: "akula head"
   parent: [PartAndroid, BaseHead]
   components:
   - type: Sprite
@@ -43,7 +43,7 @@
 
 - type: entity
   id: LeftArmAndroid
-  name: "левая рука андроида"
+  name: "left akula arm"
   parent: [PartAndroid, BaseLeftArm]
   components:
   - type: Sprite
@@ -52,7 +52,7 @@
 
 - type: entity
   id: RightArmAndroid
-  name: "правая рука андроида"
+  name: "right akula arm"
   parent: [PartAndroid, BaseRightArm]
   components:
   - type: Sprite
@@ -61,7 +61,7 @@
 
 - type: entity
   id: LeftHandAndroid
-  name: "левая ладонь андроида"
+  name: "left akula hand"
   parent: [PartAndroid, BaseLeftHand]
   components:
   - type: Sprite
@@ -70,7 +70,7 @@
 
 - type: entity
   id: RightHandAndroid
-  name: "правая ладонь андроида"
+  name: "right akula hand"
   parent: [PartAndroid, BaseRightHand]
   components:
   - type: Sprite
@@ -79,7 +79,7 @@
 
 - type: entity
   id: LeftLegAndroid
-  name: "левая нога андроида"
+  name: "left akula leg"
   parent: [PartAndroid, BaseLeftLeg]
   components:
   - type: Sprite
@@ -91,7 +91,7 @@
 
 - type: entity
   id: RightLegAndroid
-  name: "правая нога андроида"
+  name: "right akula leg"
   parent: [PartAndroid, BaseRightLeg]
   components:
   - type: Sprite
@@ -103,7 +103,7 @@
 
 - type: entity
   id: LeftFootAndroid
-  name: "левая стопа андроида"
+  name: "left akula foot"
   parent: [PartAndroid, BaseLeftFoot]
   components:
   - type: Sprite
@@ -112,7 +112,7 @@
 
 - type: entity
   id: RightFootAndroid
-  name: "правая стопа андроида"
+  name: "right akula foot"
   parent: [PartAndroid, BaseRightFoot]
   components:
   - type: Sprite

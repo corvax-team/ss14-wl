@@ -1,42 +1,42 @@
 - type: accent
   id: cischi
   wordReplacements:
-    голйэм: дадеоки
-    голйэма: дадеокинну
-    голйэму: дадеокид
-    голйэмом: дадеокоз
-    голйэмйэ: дадеокиз
-    голйэмы: дадео
-    голйэмов: даденну
-    голйэмам: дадеод
-    голйэмами: дадеоз
-    голйэмах: дадез
-    голйэмский: даде
-    табак: йака
-    табаки: йака
-    табака: йаканну
-    табаку: йакад
-    табаком: йаказ
-    табаке: йакз
-    табачный: йак
-    табадзный: йак
-    дракон: Му Лонг
-    дракона: Му Лонну
-    дракону: Му Лонд
-    драконом: Му Лонгоз
-    драконе: Му Лонгиз
-    драконы: Му Лон
-    драконов: Му Лонну
-    драконам: Му Лод
-    драконами: Му Лонз
-    драконах: Му Лоз
-    бог: Му Лонг
-    бога: Му Лонну
-    богу: Му Лонд
-    богом: Му Лонгоз
-    боге: Му Лонгиз
-    боги: Му Лон
-    богов: Му Лонну
-    богам: Му Лод
-    богами: Му Лонз
-    богах: Му Лоз
+    accent-cischi-words-1: accent-cischi-words-replace-1
+    accent-cischi-words-2: accent-cischi-words-replace-2
+    accent-cischi-words-3: accent-cischi-words-replace-3
+    accent-cischi-words-4: accent-cischi-words-replace-4
+    accent-cischi-words-5: accent-cischi-words-replace-5
+    accent-cischi-words-6: accent-cischi-words-replace-6
+    accent-cischi-words-7: accent-cischi-words-replace-7
+    accent-cischi-words-8: accent-cischi-words-replace-8
+    accent-cischi-words-9: accent-cischi-words-replace-9
+    accent-cischi-words-10: accent-cischi-words-replace-10
+    accent-cischi-words-11: accent-cischi-words-replace-11
+    accent-cischi-words-12: accent-cischi-words-replace-12
+    accent-cischi-words-13: accent-cischi-words-replace-13
+    accent-cischi-words-14: accent-cischi-words-replace-14
+    accent-cischi-words-15: accent-cischi-words-replace-15
+    accent-cischi-words-16: accent-cischi-words-replace-16
+    accent-cischi-words-17: accent-cischi-words-replace-17
+    accent-cischi-words-18: accent-cischi-words-replace-18
+    accent-cischi-words-19: accent-cischi-words-replace-19
+    accent-cischi-words-20: accent-cischi-words-replace-20
+    accent-cischi-words-21: accent-cischi-words-replace-21
+    accent-cischi-words-22: accent-cischi-words-replace-22
+    accent-cischi-words-23: accent-cischi-words-replace-23
+    accent-cischi-words-24: accent-cischi-words-replace-24
+    accent-cischi-words-25: accent-cischi-words-replace-25
+    accent-cischi-words-26: accent-cischi-words-replace-26
+    accent-cischi-words-27: accent-cischi-words-replace-27
+    accent-cischi-words-28: accent-cischi-words-replace-28
+    accent-cischi-words-29: accent-cischi-words-replace-29
+    accent-cischi-words-30: accent-cischi-words-replace-30
+    accent-cischi-words-31: accent-cischi-words-replace-31
+    accent-cischi-words-32: accent-cischi-words-replace-32
+    accent-cischi-words-33: accent-cischi-words-replace-33
+    accent-cischi-words-34: accent-cischi-words-replace-34
+    accent-cischi-words-35: accent-cischi-words-replace-35
+    accent-cischi-words-36: accent-cischi-words-replace-36
+    accent-cischi-words-37: accent-cischi-words-replace-37
+    accent-cischi-words-38: accent-cischi-words-replace-38
+    accent-cischi-words-39: accent-cischi-words-replace-39

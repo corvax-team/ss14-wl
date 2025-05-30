@@ -1,7 +1,7 @@
 ## UI
 
 research-console-menu-title = Консоль НИО
-research-console-menu-main-discipline = Основная дисциплина: [color={ $color }]{ $name }[/color]
+# research-console-menu-main-discipline = Основная дисциплина: [color={ $color }]{ $name }[/color] CorvaxWL change - No loc T3
 research-console-menu-server-research-button = Исследовать
 research-console-available-text = Доступные технологии
 research-console-unlocked-text = Исследованные технологии
