@@ -11,6 +11,10 @@
     time: 72000 #20 hrs
   - !type:AgeRequirement
     minAge: 22 # WL-Changes-AgeRequirement
+  - !type:TraitsRequirement
+    inverted: true
+    traits:
+    - Muted
   startingGear: PilotGear
   icon: "JobIconPilot"
   supervisors: job-supervisors-hos
