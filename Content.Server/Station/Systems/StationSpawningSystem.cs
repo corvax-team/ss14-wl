@@ -44,6 +44,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly RoleSystem _role = default!; // WL-Changes
 
     /// <summary>
     /// Attempts to spawn a player character onto the given station.
@@ -158,7 +159,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);
         RaiseLocalEvent(entity.Value, ref gearEquippedEv);
 
-        if (prototype != null && TryComp(entity.Value, out MetaDataComponent? metaData))
+        if (prototype != null && profile != null && TryComp(entity.Value, out MetaDataComponent? metaData))
         {
             SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station);
             //WL-changes Start

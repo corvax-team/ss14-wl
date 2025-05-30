@@ -163,7 +163,7 @@ namespace Content.Server.Ghost
 
         private void OnReturnToLobby(EntityUid ghost, GhostComponent component, GoLobbyActionEvent args)
         {
-            if (!_playerManager.TryGetSessionByEntity(ghost, out var session))
+            if (!_player.TryGetSessionByEntity(ghost, out var session))
                 return;
 
             _gameTicker.Respawn(session);
@@ -172,7 +172,7 @@ namespace Content.Server.Ghost
 
         private void OnAttached(EntityUid entity, GhostComponent component, PlayerAttachedEvent args)
         {
-            if (!_playerManager.TryGetSessionByEntity(entity, out var session))
+            if (!_player.TryGetSessionByEntity(entity, out var session))
                 return;
 
             _cachedSessionsDeathTime.TryAdd(session.UserId, _gameTiming.CurTime);
