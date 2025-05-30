@@ -105,9 +105,6 @@
     color: "#ffeead"
     enabled: false
     radius: 4
-# White-List components
-  - type: Execution
-# White-List components end
 
 - type: entity
   parent: [BaseWeaponCrusher, BaseSecurityCargoContraband]
