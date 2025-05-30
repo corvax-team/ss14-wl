@@ -1,5 +1,5 @@
 using Content.Server.DoAfter;
-using Content.Server.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Popups;

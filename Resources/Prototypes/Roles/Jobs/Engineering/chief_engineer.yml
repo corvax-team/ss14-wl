@@ -17,6 +17,10 @@
 #      time: 144000 #40 hrs
     - !type:AgeRequirement
       minAge: 30
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"

@@ -12,6 +12,10 @@
     time: 36000
   - !type:AgeRequirement
     minAge: 27 # WL-Changes-AgeRequirement
+  - !type:TraitsRequirement
+    inverted: true
+    traits:
+    - Muted
   startingGear: IAAGear
   icon: "JobIconIAA"
   supervisors: job-supervisors-centcom

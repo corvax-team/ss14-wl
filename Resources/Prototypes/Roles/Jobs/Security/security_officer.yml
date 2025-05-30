@@ -14,6 +14,10 @@
       time: 36000 #10 hrs # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 22
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

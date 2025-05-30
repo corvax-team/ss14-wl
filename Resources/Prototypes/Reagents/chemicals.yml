@@ -83,7 +83,7 @@
     Acidic:
       methods: [ Touch ]
       effects:
-      - !type:ActivateArtifact
+      - !type:ArtifactUnlock
         conditions:
         - !type:ReagentThreshold
           min: 5
@@ -172,6 +172,7 @@
   flavor: bitter
   color: "#E6E6DA"
   physicalDesc: reagent-physical-desc-crystalline
+  # WL-Changes-Start
   slippery: false
   metabolisms:
     Food:
@@ -180,6 +181,7 @@
         conditions:
         - !type:OrganType
           type: Golem
+  # WL-Changes-End
 
 - type: reagent
   id: Rororium

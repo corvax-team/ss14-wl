@@ -1,3 +1,4 @@
+using Content.Shared.Instruments;
 using Content.Server.Instruments;
 using Content.Shared.Mind.Components;
 using Content.Shared._WL.GolemCore;
