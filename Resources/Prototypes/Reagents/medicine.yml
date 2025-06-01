@@ -1493,6 +1493,7 @@
             Airloss: -2
             Brute: -2
 # WL android species start
+      - !type:HealthChange
         conditions:
         - !type:OrganType
           type: Biorobotic
