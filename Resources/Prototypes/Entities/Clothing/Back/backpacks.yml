@@ -179,7 +179,7 @@
   description: A robust backpack for stashing your loot.
   components:
     - type: Sprite
-      sprite: Clothing/Back/Backpacks/salvage.rsi
+      sprite: _WL/Clothing/Back/Backpacks/salvage.rsi # WL-Chages: Respright Day
 
 - type: entity
   parent: ClothingBackpack

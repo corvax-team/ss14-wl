@@ -27,9 +27,9 @@
   description: A sturdy jumpskirt, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/cargotech.rsi # WL-Chages: Respright Day
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/cargotech.rsi # WL-Chages: Respright Day
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -333,9 +333,9 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/qm.rsi # WL-Chages: Respright Day
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/qm.rsi # WL-Chages: Respright Day
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]

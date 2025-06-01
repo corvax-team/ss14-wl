@@ -80,3 +80,41 @@
     sprite: _WL/Clothing/Head/Soft/engineeringsoft.rsi
 
 #WL Workers Lyvsi end
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSupplyDepartmentBeret
+  name: beret supply department
+  description: Takes real men
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_cargo.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_cargo.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPostmanCap
+  name: postman cap
+  description: You can deliver letters anywhere with her
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/postman_cap.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/postman_cap.rsi
+
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatSalvageCap
+  name: salvage cap
+  description: We only take risks once in a lifetime.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/salvage_cap.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/salvage_cap.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatSalvageCap]
+  id: ClothingHeadHatSalvageCapFlipped
+  name: salvage cap

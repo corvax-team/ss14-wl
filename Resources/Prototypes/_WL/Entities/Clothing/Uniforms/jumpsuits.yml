@@ -8,3 +8,14 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/dss.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpsuit/dss.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPostman
+  name: postman's jumpsuit
+  description: Delivery is only in "perfect" condition
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/postman.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/postman.rsi
