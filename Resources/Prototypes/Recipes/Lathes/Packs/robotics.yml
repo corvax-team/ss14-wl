@@ -41,6 +41,7 @@
   recipes:
   - ProximitySensor
   - PersonalAIRecipe # WL-Changes
+  - AiRemoteBrain
 
 - type: latheRecipePack
   id: BorgModules

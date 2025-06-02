@@ -1,6 +1,7 @@
 using Content.Shared.Emag.Systems;
 using Content.Shared.Mind;
 using Content.Shared.Popups;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Wires;
@@ -31,6 +32,9 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
             return;
 
         if (_emag.CheckFlag(uid, EmagType.Interaction))
+            return;
+
+        if (HasComp<AiRemoteControllerComponent>(uid))
             return;
 
         // prevent self-emagging

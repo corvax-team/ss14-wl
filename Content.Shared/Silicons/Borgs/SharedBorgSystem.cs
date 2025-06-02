@@ -22,6 +22,9 @@ using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared._CorvaxNext.Silicons.Borgs;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Wires;
@@ -65,6 +68,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
     [Dependency] private readonly SharedHandheldLightSystem _handheldLight = default!;
     [Dependency] private readonly SharedAccessSystem _access = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!;
 
     [Dependency] private readonly TagSystem _tag = default!; // WL android species
 
@@ -198,6 +202,13 @@ public abstract partial class SharedBorgSystem : EntitySystem
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
+
+        if (HasComp<AiRemoteBrainComponent>(args.Entity))
+        {
+            _remoteSystem.ReturnMindIntoAi(chassis.Owner);
+            RemComp<AiRemoteControllerComponent>(chassis.Owner);
+            RemComp<StationAiVisionComponent>(chassis.Owner);
+        }
     }
 
     private void OnMindAdded(Entity<BorgChassisComponent> chassis, ref MindAddedMessage args)
@@ -233,6 +244,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
         var used = args.Used;
         TryComp<BorgBrainComponent>(used, out var brain);
         TryComp<BorgModuleComponent>(used, out var module);
+        TryComp<AiRemoteBrainComponent>(used, out var aiBrain);
 
         if (TryComp<WiresPanelComponent>(chassis, out var panel) && !panel.Open)
         {
@@ -265,6 +277,18 @@ public abstract partial class SharedBorgSystem : EntitySystem
             InsertModule(chassis, used);
             _adminLog.Add(LogType.Action, LogImpact.Low,
                 $"{args.User} installed module {used} into borg {chassis.Owner}");
+            args.Handled = true;
+            return;
+        }
+
+        if (chassis.Comp.BrainEntity == null
+            && aiBrain != null
+            && _whitelist.IsWhitelistPassOrNull(chassis.Comp.BrainWhitelist, used))
+        {
+            EnsureComp<AiRemoteControllerComponent>(chassis.Owner);
+            _container.Insert(used, chassis.Comp.BrainContainer);
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
+                $"{args.User} installed ai remote brain {used} into borg {chassis.Owner}");
             args.Handled = true;
         }
     }

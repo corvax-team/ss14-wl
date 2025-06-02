@@ -12,6 +12,7 @@
   recipeUnlocks:
   - PersonalAIRecipe # WL-Changes
   - ProximitySensor
+  - AiRemoteBrain
 
 - type: technology
   id: BasicAnomalousResearch

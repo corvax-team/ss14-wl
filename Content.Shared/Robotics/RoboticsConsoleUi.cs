@@ -123,7 +123,19 @@ public partial record struct CyborgControlData
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan Timeout = TimeSpan.Zero;
 
-    public CyborgControlData(SpriteSpecifier? chassisSprite, string chassisName, string name, float charge, float hpPercent, int moduleCount, bool hasBrain, bool canDisable)
+    [DataField]
+    public bool IsAiControllable;
+
+    public CyborgControlData(
+        SpriteSpecifier? chassisSprite,
+        string chassisName,
+        string name,
+        float charge,
+        float hpPercent,
+        int moduleCount,
+        bool hasBrain,
+        bool canDisable,
+        bool isAiControllable)
     {
         ChassisSprite = chassisSprite;
         ChassisName = chassisName;
@@ -133,6 +145,7 @@ public partial record struct CyborgControlData
         ModuleCount = moduleCount;
         HasBrain = hasBrain;
         CanDisable = canDisable;
+        IsAiControllable = isAiControllable;
     }
 }
 
