@@ -180,7 +180,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
 
-        targetHumanoid.Height = sourceHumanoid.Height; // WL-Height
+        // WL-Height-start
+        targetHumanoid.Height = sourceHumanoid.Height;
+        ApplyHeight(targetHumanoid);
+        // WL-Height-end
+
         SetTTSVoice(target, sourceHumanoid.Voice, targetHumanoid); // Corvax-TTS
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
