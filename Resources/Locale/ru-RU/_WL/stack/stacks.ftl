@@ -1,0 +1,11 @@
+stack-chips-10 = фишки "10"
+stack-chips-25 = фишки "25"
+stack-chips-50 = фишки "50"
+stack-chips-100 = фишки "100"
+stack-chips-250 = фишки "250"
+stack-chips-500 = фишки "500"
+stack-chips-2000 = фишки "2000"
+stack-biotube = биотрубки
+stack-tirium-pack = пакеты с тириумом
+stack-mineral-ointment = минеральные мази
+stack-mineral-paste = минеральные пасты

@@ -7,7 +7,6 @@
   color: "#224dff"
   recognizable: true
   physicalDesc: reagent-physical-desc-viscous
-  slippery: false
   viscosity: 0.25
   tileReactions:
     - !type:SpillTileReaction

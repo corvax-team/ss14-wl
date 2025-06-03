@@ -101,7 +101,7 @@
 - type: cargoProduct
   id: EvaKit
   icon:
-    sprite: Clothing/Head/Helmets/eva.rsi
+    sprite: _WL/Clothing/Head/Helmets/eva.rsi # WL-Changes: resprite
     state: icon
   product: CrateEvaKit
   cost: 5000

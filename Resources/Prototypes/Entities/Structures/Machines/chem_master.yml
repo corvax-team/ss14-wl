@@ -7,7 +7,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Machines/mixer.rsi
+    sprite: _WL/Structures/Machines/mixer.rsi # WL-Changes: resprite
     snapCardinals: true
     layers:
     - state: mixer_empty
@@ -15,8 +15,15 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: Icon
-    sprite: Structures/Machines/mixer.rsi
-    state: mixer_loaded
+    sprite: _WL/Structures/Machines/mixer.rsi # WL-Changes: resprite
+    state: mixer_empty
+  - type: ItemMapper
+    containerWhitelist: [beakerSlot]
+    mapLayers:
+      mixer_loaded:
+        whitelist:
+          components:
+          - FitsInDispenser
   - type: ChemMaster
     pillDosageLimit: 20
   - type: Physics

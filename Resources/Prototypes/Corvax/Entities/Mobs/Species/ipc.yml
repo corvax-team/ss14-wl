@@ -70,7 +70,7 @@
     drawRate: 0.8
   # no ToggleCellDraw since dont want to lose access when power is gone
   - type: AccessReader
-    access: [ ["Ipc"], ["Research"] ]
+    access: [ ["Ipc"] ]
   - type: Access
     enabled: true
     tags:
@@ -91,8 +91,9 @@
   - type: Ipc
   - type: ZombieImmune
   - type: Repairable
-    doAfterDelay: 30
-    selfRepairPenalty: 60
+    fuelCost: 30
+    doAfterDelay: 20
+    selfRepairPenalty: 2
   - type: DamagedSiliconAccent
   - type: Reflect
     reflectProb: 0.05
@@ -126,7 +127,8 @@
         color: "#cd7314"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-
+  - type: ProtectedFromStepTriggers
+  - type: EyeProtection
 
 - type: entity
   save: false
@@ -149,7 +151,6 @@
   - type: Fingerprint
   - type: Blindable
   # Other
-  - type: Perishable
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:
@@ -358,6 +359,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+    - Ipc
   - type: Temperature
     heatDamageThreshold: 325
     coldDamageThreshold: 260
@@ -372,8 +374,6 @@
   - type: TemperatureSpeed
     thresholds:
       293: 0.8
-      280: 0.6
-      260: 0.4
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100

@@ -107,7 +107,9 @@ namespace Content.IntegrationTests.Tests
             "Plasma",
             "Elkridge",
             "Convex",
-            "Relic"
+            "Relic",
+            "dm01-entryway"
+
         };
 
         /// <summary>

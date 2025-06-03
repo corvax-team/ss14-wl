@@ -1,7 +1,6 @@
 using Content.Server._WL.Turrets.Components;
 using Content.Server.Actions;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.DoAfter;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
@@ -19,6 +18,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Power;
 using Content.Shared.StatusEffect;
+using Content.Shared.DeviceNetwork.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server._WL.Turrets.Systems

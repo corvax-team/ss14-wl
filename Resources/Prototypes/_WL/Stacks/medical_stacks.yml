@@ -1,27 +1,27 @@
 - type: stack
   id: BioTube
-  name: bio tube
+  name: stack-biotube
   icon: { sprite: "_WL/Entities/Objects/Specific/Medical/medical.rsi", state: bio_tube }
   spawn: BioTube
   maxCount: 10
 
 - type: stack
   id: TiriumPack
-  name: tirium pack
+  name: stack-tirium-pack
   icon: { sprite: "_WL/Entities/Objects/Specific/Medical/medical.rsi", state: tirium_pack }
   spawn: TiriumPack
   maxCount: 10
 
 - type: stack
   id: MineralOintment
-  name: mineral ointment
+  name: stack-mineral-ointment
   icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
   spawn: MineralOintment
   maxCount: 10
 
 - type: stack
   id: MineralPaste
-  name: mineral paste
+  name: stack-mineral-paste
   icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
   spawn: MineralPaste
   maxCount: 10

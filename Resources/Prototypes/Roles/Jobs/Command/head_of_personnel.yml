@@ -13,6 +13,9 @@
       department: Medical
       time: 18000 #5 hrs # Corvax-RoleTime
     - !type:DepartmentTimeRequirement
+      department: Science
+      time: 9000 # 2.5 hrs
+    - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 #5 hrs # Corvax-RoleTime
 #    - !type:DepartmentTimeRequirement
@@ -22,6 +25,10 @@
       time: 180000 #50 hrs # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 26 # WL-Changes-AgeRequirement
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"

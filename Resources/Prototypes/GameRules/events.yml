@@ -581,43 +581,42 @@
       mindRoles:
       - MindRoleInitialInfected
 
-#- type: entity
-#  parent: BaseNukeopsRule
-#  id: LoneOpsSpawn
-#  components:
-#  - type: StationEvent
-#    earliestStart: 35
-#    weight: 5.5
-#    spawnConfig:  # CorvaxWL-Changes
-#      standartConfig:
-#        minPlayers: 20
-#    duration: 1
-#  - type: RuleGrids
-#  - type: LoadMapRule
-#    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
-#  - type: NukeopsRule
-#    roundEndBehavior: Nothing
-#  - type: AntagSelection
-#    definitions:
-#    - spawnerPrototype: SpawnPointLoneNukeOperative
-#      min: 1
-#      max: 1
-#      pickPlayer: false
-#      startingGear: SyndicateLoneOperativeGearFull
-#      roleLoadout:
-#      - RoleSurvivalNukie
-#      components:
-#      - type: NukeOperative
-#      - type: RandomMetadata
-#        nameSegments:
-#        - NamesSyndicatePrefix
-#        - NamesSyndicateNormal
-#        nameFormat: name-format-nukie-generic
-#      - type: NpcFactionMember
-#        factions:
-#        - Syndicate
-#      mindRoles:
-#      - MindRoleNukeops
+# WL-Changes: no fun allowed
+# - type: entity
+#   parent: BaseNukeopsRule
+#   id: LoneOpsSpawn
+#   components:
+#   - type: StationEvent
+#     earliestStart: 35
+#     weight: 5.5
+#     minimumPlayers: 20
+#     duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
+#   - type: RuleGrids
+#   - type: LoadMapRule
+#     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+#   - type: NukeopsRule
+#     roundEndBehavior: Nothing
+#   - type: AntagSelection
+#     definitions:
+#     - spawnerPrototype: SpawnPointLoneNukeOperative
+#       min: 1
+#       max: 1
+#       pickPlayer: false
+#       startingGear: SyndicateLoneOperativeGearFull
+#       roleLoadout:
+#       - RoleSurvivalNukie
+#       components:
+#       - type: NukeOperative
+#       - type: RandomMetadata
+#         nameSegments:
+#         - NamesSyndicatePrefix
+#         - NamesSyndicateNormal
+#         nameFormat: name-format-nukie-generic
+#       - type: NpcFactionMember
+#         factions:
+#         - Syndicate
+#       mindRoles:
+#       - MindRoleNukeops
 
 - type: entity
   parent: BaseTraitorRule
