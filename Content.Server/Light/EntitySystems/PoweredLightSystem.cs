@@ -5,27 +5,28 @@ using Content.Server.Emp;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Power.Components;
+using Content.Shared._WL.Light.Events;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.DeviceNetwork;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
+using Content.Shared.Power;
+using JetBrains.FormatRipper.Elf;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Audio.Systems;
-using Content.Shared._WL.Light.Events;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Damage.Components;
-using Content.Shared.DeviceNetwork;
-using Content.Shared.DeviceNetwork.Events;
-using Content.Shared.Power;
-using Robust.Shared.Player;
-using Robust.Shared.Audio;
 
 namespace Content.Server.Light.EntitySystems
 {
@@ -50,6 +51,10 @@ namespace Content.Server.Light.EntitySystems
         private static readonly TimeSpan ThunkDelay = TimeSpan.FromSeconds(2);
         public const string LightBulbContainer = "light_bulb";
 
+        // WL-Changes-start
+        private readonly List<(Entity<PoweredLightComponent>, Entity<LightBulbComponent>, TimeSpan)> _lightsToUpdate = new();
+        // WL-Changes-end
+
         public override void Initialize()
         {
             base.Initialize();
@@ -69,6 +74,27 @@ namespace Content.Server.Light.EntitySystems
             SubscribeLocalEvent<PoweredLightComponent, PoweredLightDoAfterEvent>(OnDoAfter);
             SubscribeLocalEvent<PoweredLightComponent, EmpPulseEvent>(OnEmpPulse);
         }
+
+        // WL-Changes-start
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+
+            for (var i = 0; i < _lightsToUpdate.Count; i++)
+            {
+                var ((uid, light), (_, lightBulb), time) = _lightsToUpdate[i];
+
+                if (_gameTiming.CurTime >= time)
+                {
+                    SetLight(uid, true, lightBulb.Color, light, lightBulb.LightRadius, lightBulb.LightEnergy, lightBulb.LightSoftness);
+                    _audio.PlayPvs(light.TurnOnSound, uid, light.TurnOnSound.Params.AddVolume(-10f));
+                    light.LastThunk = time;
+
+                    _lightsToUpdate.RemoveAt(i);
+                }
+            }
+        }
+        // WL-Changes-end
 
         private void OnInit(EntityUid uid, PoweredLightComponent light, ComponentInit args)
         {
@@ -279,14 +305,10 @@ namespace Content.Server.Light.EntitySystems
                             var y = (float)_random.Next(0, 10) / 10; // minor, so that our lamps will turn on more randomly
                             var f = x + y + 0.3; // major + minor + basetime
                             _appearance.SetData(uid, PoweredLightVisuals.BulbState, PoweredLightState.On, appearance);
-                            uid.SpawnTimer(TimeSpan.FromSeconds(f), () =>
-                                {
-                                    SetLight(uid, true, lightBulb.Color, light, lightBulb.LightRadius, lightBulb.LightEnergy, lightBulb.LightSoftness);
-                                    _audio.PlayPvs(light.TurnOnSound, uid, light.TurnOnSound.Params.AddVolume(-10f));
-                                    light.LastThunk = time;
-                                }
-                            );
 
+                            // WL-Changes-start
+                            _lightsToUpdate.Add(((uid, light), (bulbUid.Value, lightBulb), _gameTiming.CurTime + TimeSpan.FromSeconds(f)));
+                            // WL-Changes-end
                         }
                         else // if lamp was lit in previous <ThunkDelay> seconds, so that lamp wont go into cycle if not enough time has passed
                         {
