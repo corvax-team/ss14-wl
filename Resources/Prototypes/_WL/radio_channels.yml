@@ -1,7 +1,7 @@
-- type: radioChannel # CorvaxWL - Kidan 
-  id: Hitin 
-  name: chat-radio-hitin 
-  keycode: 'х' 
-  frequency: 4944 
-  color: "#cc7722" 
+- type: radioChannel # CorvaxWL - Kidan
+  id: Hitin
+  name: chat-radio-hitin
+  keycode: 'х'
+  frequency: 4944
+  color: "#cc7722"
   longRange: true
