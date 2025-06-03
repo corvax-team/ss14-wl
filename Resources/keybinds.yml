@@ -1,4 +1,4 @@
-﻿version: 1 # Not used right now, whatever.
+version: 1 # Not used right now, whatever.
 binds:
 - function: UIClick
   type: State
@@ -29,6 +29,11 @@ binds:
   type: Toggle
   mod1: Shift
   key: F4
+# WL-Changes-start
+- function: FallDownAndStandUp
+  type: State
+  key: F12
+# WL-Changes-end
 - function: MoveUp
   type: State
   key: W

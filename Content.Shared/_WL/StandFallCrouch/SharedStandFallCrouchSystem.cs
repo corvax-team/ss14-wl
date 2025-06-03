@@ -108,7 +108,7 @@ namespace Content.Shared._WL.StandFallCrouch
             return true;
         }
 
-        private void TryStartStandFallDoAfter(EntityUid victum, EntityUid attacker, StandFallCrouchComponent component, bool withPopup = false)
+        protected void TryStartStandFallDoAfter(EntityUid victum, EntityUid attacker, StandFallCrouchComponent component, bool withPopup = false)
         {
             if (!CanStandFallAny(victum, attacker))
                 return;
