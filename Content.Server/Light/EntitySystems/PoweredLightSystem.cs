@@ -301,6 +301,13 @@ namespace Content.Server.Light.EntitySystems
                             _appearance.SetData(uid, PoweredLightVisuals.BulbState, PoweredLightState.On, appearance);
 
                             // WL-Changes-start
+                            //uid.SpawnTimer(TimeSpan.FromSeconds(f), () =>
+                            //{
+                            //    SetLight(uid, true, lightBulb.Color, light, lightBulb.LightRadius, lightBulb.LightEnergy, lightBulb.LightSoftness);
+                            //    _audio.PlayPvs(light.TurnOnSound, uid, light.TurnOnSound.Params.AddVolume(-10f));
+                            //    light.LastThunk = time;
+                            //});
+
                             _lightsToUpdate.Add(((uid, light), (bulbUid.Value, lightBulb), _gameTiming.CurTime + TimeSpan.FromSeconds(f)));
                             // WL-Changes-end
                         }
