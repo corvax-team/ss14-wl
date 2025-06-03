@@ -396,17 +396,6 @@
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_dtiger_wagging
 
-# WL-Changes-Start
-- type: marking
-  id: LizardTailLargeAnimated
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
-  sprites:
-    - sprite: Mobs/Customization/reptilian_parts.rsi
-      state: tail_large_wagging
-# WL-Changes-End
-
 - type: marking
   id: LizardTailAquaticAnimated
   bodyPart: Tail
