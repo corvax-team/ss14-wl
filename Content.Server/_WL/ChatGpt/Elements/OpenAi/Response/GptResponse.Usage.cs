@@ -33,7 +33,7 @@ namespace Content.Server._WL.ChatGpt.Elements.Response
         public CompletionTokensDetail? CompletionDetail { get; set; } = null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [JsonPropertyName("prompt_tokens_details")]
         public PromptTokensDetail? PromptDetail { get; set; } = null;

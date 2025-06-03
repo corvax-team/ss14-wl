@@ -41,7 +41,7 @@ namespace Content.Server._WL.ChatGpt.Elements.OpenAi
         public abstract JsonSchemeType ReturnType { get; }
 
         /// <summary>
-        /// Превращает объект <see cref="ToolFunctionModel"/> в <see cref="GptChatTool"/>. 
+        /// Превращает объект <see cref="ToolFunctionModel"/> в <see cref="GptChatTool"/>.
         /// </summary>
         /// <returns></returns>
         public GptChatTool GetToolFunction()
