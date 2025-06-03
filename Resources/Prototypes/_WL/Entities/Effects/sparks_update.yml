@@ -18,7 +18,7 @@
     - HideContextMenu
   - type: AnimationPlayer
   - type: EmitSoundOnSpawn
-    sound: 
+    sound:
       collection: sparks
 
 - type: entity
@@ -41,7 +41,7 @@
     - HideContextMenu
   - type: AnimationPlayer
   - type: EmitSoundOnSpawn
-    sound: 
+    sound:
       collection: sparks
 
 - type: entity
@@ -63,5 +63,5 @@
     - HideContextMenu
   - type: AnimationPlayer
   - type: EmitSoundOnSpawn
-    sound: 
+    sound:
       collection: sparks

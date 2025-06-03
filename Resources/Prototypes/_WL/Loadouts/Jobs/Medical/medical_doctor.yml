@@ -6,11 +6,11 @@
 
 - type: loadout
   id: MedicalShoesColorBrown
-  equipment: 
+  equipment:
     shoes: ClothingShoesColorBrown
 
 - type: loadout
   id: BoxFolderClipboard
   storage:
-    back: 
+    back:
     - BoxFolderClipboard

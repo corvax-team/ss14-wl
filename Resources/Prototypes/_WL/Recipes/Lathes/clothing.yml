@@ -21,9 +21,9 @@
     Durathread: 50
 
 - type: latheRecipe
-  id: ClothingHeadHatBeretCaptain   
-  result: ClothingHeadHatBeretCaptain   
+  id: ClothingHeadHatBeretCaptain
+  result: ClothingHeadHatBeretCaptain
   completetime: 2
-  materials:  
+  materials:
     Cloth: 100
     Durathread: 50
