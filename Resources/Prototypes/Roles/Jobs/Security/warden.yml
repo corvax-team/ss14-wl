@@ -5,7 +5,6 @@
   playTimeTracker: JobWarden
   subnames:
   - Male: надзиратель
-  - Male: сержант охраны
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

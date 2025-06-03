@@ -5,8 +5,9 @@
   playTimeTracker: JobResearchAssistant
   subnames:
   - Male: лаборант
-  - Male: студент-учёный
+  - Male: научный ассистент
   - Male: научный клерк
+  - Male: младший научный сотрудник
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science

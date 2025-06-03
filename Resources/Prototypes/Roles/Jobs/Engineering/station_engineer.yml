@@ -6,7 +6,8 @@
   subnames:
   - Male: электрик
   - Male: механик
-  - Male: реакторный техник
+  - Male: управленец ГЭУ
+  - Male: техник систем коммуникации
   - Male: инженер-структурщик
   requirements:
     - !type:DepartmentTimeRequirement

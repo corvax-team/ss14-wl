@@ -12,6 +12,7 @@
   - Male: клирик
   - Male: жрец
     Female: жрица
+  - Male: религиовед
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
   access:

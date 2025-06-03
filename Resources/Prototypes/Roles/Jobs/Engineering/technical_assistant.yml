@@ -4,8 +4,8 @@
   description: job-description-technical-assistant
   playTimeTracker: JobTechnicalAssistant
   subnames:
-  - Male: инженерный ассистент
   - Male: инженер-стажёр
+  - Male: общесистемный техник
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 3600 #1 hr

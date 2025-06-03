@@ -5,6 +5,7 @@
   playTimeTracker: JobResearchDirector
   subnames:
   - Male: директор исследований
+  - Male: заведующий лабораторией
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science

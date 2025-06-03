@@ -9,7 +9,6 @@
   subnames:
   - Male: журналист
   - Male: корреспондент
-  - Male: газетчик
   startingGear: ReporterGear
   icon: "JobIconReporter"
   supervisors: job-supervisors-hop

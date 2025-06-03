@@ -3,8 +3,6 @@
   name: job-name-hop
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
-  subnames:
-  - Male: сервис-администратор
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

@@ -3,6 +3,8 @@
   name: job-name-atmostech
   description: job-description-atmostech
   playTimeTracker: JobAtmosphericTechnician
+  subnames:
+  - Male: техник СЖО
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
