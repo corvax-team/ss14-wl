@@ -143,6 +143,7 @@
   id: BaseMobSpeciesNotOrganic
   abstract: true
   components:
+  - type: CharacterInformation # WL-Changes
   - type: Barotrauma
     damage:
       types:
@@ -337,6 +338,8 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      enum.CharacterInformationUiKey.Key: # WL-CharacterInformation
+        type: CharacterInformationBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
