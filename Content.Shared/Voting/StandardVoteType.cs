@@ -23,7 +23,14 @@ public enum StandardVoteType : byte
     /// <summary>
     /// Vote to kick a player.
     /// </summary>
-    Votekick
+    Votekick,
+
+    // WL-Changes-start
+    /// <summary>
+    /// Vote to call an evacuation shuttle.
+    /// </summary>
+    EvacuationShuttle
+    // WL-Changes-end
 }
 
 /// <summary>
