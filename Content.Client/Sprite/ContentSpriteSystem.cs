@@ -97,8 +97,6 @@ public sealed class ContentSpriteSystem : EntitySystem
         Action<ContentSpriteControl<Rgba32>.QueueEntry, Image<Rgba32>> action,
         CancellationToken cancelToken = default)
     {
-        const string speechPath = "/Textures/Effects/speech.rsi"; //Я ебал вычислять ЕБУЧИЕ TypingIndicator-ы СУКАААА. легче так
-
         if (!_timing.IsFirstTimePredicted)
             return;
 
@@ -108,26 +106,12 @@ public sealed class ContentSpriteSystem : EntitySystem
         // Don't want to wait for engine pr
         var size = Vector2i.Zero;
 
-        var comp_scale = spriteComp.Scale;
-        var offset = spriteComp.Offset;
-
-        foreach (var layer_ in spriteComp.AllLayers)
+        foreach (var layer in spriteComp.AllLayers)
         {
-            if (layer_ is not SpriteComponent.Layer layer)
-                continue;
-
             if (!layer.Visible)
                 continue;
 
-            var pixel = layer.PixelSize;
-            var scale = layer.Scale;
-
-            var new_x = (int)MathF.Ceiling((float)pixel.X * scale.X * comp_scale.X + offset.X);
-            var new_y = (int)MathF.Ceiling((float)pixel.Y * scale.Y * comp_scale.Y + offset.Y);
-
-            var new_size = new Vector2i(new_x, new_y);
-
-            size = Vector2i.ComponentMax(size, new_size);
+            size = Vector2i.ComponentMax(size, layer.PixelSize);
         }
 
         // Stop asserts
