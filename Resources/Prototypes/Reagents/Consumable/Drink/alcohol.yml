@@ -274,9 +274,13 @@
           shouldHave: false
 # WL android species end
       - !type:Drunk
-        boozePower: 2
+        boozePower: 20 #2 # WL-Changes
 # WL android species start
         conditions:
+# WL-Changes-start
+        - !type:ReagentThreshold
+          min: 5 # От стопки вина вряд ли будет эффект
+# WL-Changes-end
         - !type:OrganType
           type: Biorobotic
           shouldHave: false

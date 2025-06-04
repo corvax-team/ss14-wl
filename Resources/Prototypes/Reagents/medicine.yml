@@ -300,7 +300,7 @@
         showInChat: false
         probability: 0.50
       - !type:Drunk
-        boozePower: 2
+        boozePower: 10 #2 # WL-Changes
 
 - type: reagent
   id: Cryoxadone
