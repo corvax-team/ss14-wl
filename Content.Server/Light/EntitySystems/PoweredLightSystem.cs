@@ -80,9 +80,12 @@ namespace Content.Server.Light.EntitySystems
 
                 if (_gameTiming.CurTime >= time)
                 {
-                    SetLight(uid, true, lightBulb.Color, light, lightBulb.LightRadius, lightBulb.LightEnergy, lightBulb.LightSoftness);
-                    _audio.PlayPvs(light.TurnOnSound, uid, light.TurnOnSound.Params.AddVolume(-10f));
-                    light.LastThunk = time;
+                    if (Exists(uid))
+                    {
+                        SetLight(uid, true, lightBulb.Color, light, lightBulb.LightRadius, lightBulb.LightEnergy, lightBulb.LightSoftness);
+                        _audio.PlayPvs(light.TurnOnSound, uid, light.TurnOnSound.Params.AddVolume(-10f));
+                        light.LastThunk = time;
+                    }
 
                     _lightsToUpdate.RemoveAt(i);
                 }
