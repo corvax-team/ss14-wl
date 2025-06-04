@@ -29,7 +29,6 @@ namespace Content.Shared._WL.StandFallCrouch
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
 
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
 
         public override void Initialize()
         {
