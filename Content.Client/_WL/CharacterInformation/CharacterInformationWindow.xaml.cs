@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._WL.CharacterInformation;
@@ -50,14 +50,12 @@ public sealed partial class CharacterInformationWindow : FancyWindow
             Separator.Visible = false;
             TextScroll.Visible = false;
             RootWindow.MinSize = new Vector2(280, 400);
-            RootWindow.SetSize = new Vector2(280, 400);
         }
         else
         {
             Separator.Visible = true;
             TextScroll.Visible = true;
             RootWindow.MinSize = new Vector2(700, 400);
-            RootWindow.SetSize = new Vector2(700, 400);
         }
     }
 }
