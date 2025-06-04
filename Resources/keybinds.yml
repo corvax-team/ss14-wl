@@ -32,7 +32,8 @@ binds:
 # WL-Changes-start
 - function: FallDownAndStandUp
   type: State
-  key: F12
+  mod1: Shift
+  key: C
 # WL-Changes-end
 - function: MoveUp
   type: State
