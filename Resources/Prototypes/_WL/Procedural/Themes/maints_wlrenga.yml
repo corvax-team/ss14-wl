@@ -31,12 +31,14 @@
   - MaintsRenga
 
 - type: entity
-  id: MaintsDepartmentalRengaRoomMarker
   parent: BaseRoomMarker
+  id: MaintsDepartmentalRengaRoomMarker
   name: Maints interior marker
   suffix: 15x15, Renga
   components:
   - type: RoomFill
+    minSize: 15,15
+    maxSize: 15,15
     roomWhitelist:
       tags:
       - MaintsRenga
