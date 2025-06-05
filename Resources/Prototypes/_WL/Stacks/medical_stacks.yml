@@ -6,10 +6,10 @@
   maxCount: 10
 
 - type: stack
-  id: TiriumPack
-  name: stack-tirium-pack
-  icon: { sprite: "_WL/Entities/Objects/Specific/Medical/medical.rsi", state: tirium_pack }
-  spawn: TiriumPack
+  id: RitiumPack # WL-Changes-Rename
+  name: stack-Ritium-pack # WL-Changes-Rename
+  icon: { sprite: "_WL/Entities/Objects/Specific/Medical/medical.rsi", state: ritium_pack } # WL-Changes-Rename
+  spawn: RitiumPack
   maxCount: 10
 
 - type: stack

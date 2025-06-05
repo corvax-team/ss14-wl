@@ -12,8 +12,6 @@
   recipeUnlocks:
   - PersonalAIRecipe # WL-Changes
   - ProximitySensor
-  - BioTube # WL-Changes
-  - TiriumPack # WL-Changes
 
 - type: technology
   id: BasicAnomalousResearch

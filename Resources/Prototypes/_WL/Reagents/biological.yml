@@ -1,8 +1,8 @@
 - type: reagent
-  id: Tirium
-  name: reagent-name-tirium
+  id: Ritium # WL-Changes-Rename
+  name: reagent-name-ritium # WL-Changes-Rename
   group: Biological
-  desc: reagent-desc-tirium
+  desc: reagent-desc-ritium # WL-Changes-Rename
   flavor: oily
   color: "#224dff"
   recognizable: true

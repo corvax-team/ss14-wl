@@ -7,8 +7,8 @@
     Plastic: 50
 
 - type: latheRecipe
-  id: TiriumPack
-  result: TiriumPack
+  id: RitiumPack
+  result: RitiumPack
   completetime: 1
   materials:
     Steel: 50

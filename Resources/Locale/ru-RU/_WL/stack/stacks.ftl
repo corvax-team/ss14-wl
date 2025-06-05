@@ -6,6 +6,6 @@ stack-chips-250 = фишки "250"
 stack-chips-500 = фишки "500"
 stack-chips-2000 = фишки "2000"
 stack-biotube = биотрубки
-stack-tirium-pack = пакеты с тириумом
+stack-ritium-pack = пакеты с ритиумом
 stack-mineral-ointment = минеральные мази
 stack-mineral-paste = минеральные пасты
