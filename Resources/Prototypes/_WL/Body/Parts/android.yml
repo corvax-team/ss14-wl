@@ -38,7 +38,7 @@
   - type: Extractable
     juiceSolution:
       reagents:
-        - ReagentId: Ritium # WL-Changes-Rename
+        - ReagentId: Ritium
           Quantity: 20
 
 - type: entity
