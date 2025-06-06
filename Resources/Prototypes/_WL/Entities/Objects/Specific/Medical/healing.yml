@@ -39,7 +39,7 @@
     count: 1
 
 - type: entity
-  name: package with ritium # WL-Changes-Rename
+  name: package with ritium
   suffix: Full
   description: It will help to restore the lost biofluid.
   parent: BaseHealingItem
