@@ -12,8 +12,6 @@
   recipeUnlocks:
   - PersonalAIRecipe # WL-Changes
   - ProximitySensor
-  - BioTube # WL-Changes
-  - TiriumPack # WL-Changes
 
 - type: technology
   id: BasicAnomalousResearch
@@ -163,3 +161,4 @@
   cost: 10000
   recipeUnlocks:
   - DeviceDesynchronizer
+

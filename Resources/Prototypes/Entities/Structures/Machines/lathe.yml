@@ -314,6 +314,7 @@
     - RoboticsStatic
     - BorgModulesStatic
     - BorgLimbsStatic
+    - AndroidHeal # WL-Changes: Android specie
     dynamicPacks:
     - Robotics
     - BorgModules

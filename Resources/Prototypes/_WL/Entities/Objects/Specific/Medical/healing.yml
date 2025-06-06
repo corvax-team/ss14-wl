@@ -39,18 +39,18 @@
     count: 1
 
 - type: entity
-  name: package with thirium
+  name: package with ritium
   suffix: Full
   description: It will help to restore the lost biofluid.
   parent: BaseHealingItem
-  id: TiriumPack
+  id: RitiumPack
   components:
   - type: Tag
     tags:
     - Bloodpack
   - type: Sprite
     sprite: _WL/Entities/Objects/Specific/Medical/medical.rsi
-    state: tirium_pack
+    state: ritium_pack
   - type: Healing
     damageContainers:
       - BioRobotic
@@ -63,14 +63,14 @@
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
-    stackType: TiriumPack
+    stackType: RitiumPack
     count: 10
   - type: StackPrice
     price: 100
 
 - type: entity
-  id: TiriumPack1
-  parent: TiriumPack
+  id: RitiumPack1
+  parent: RitiumPack
   suffix: One
   components:
   - type: Stack
