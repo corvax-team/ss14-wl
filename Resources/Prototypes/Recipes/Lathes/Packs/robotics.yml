@@ -29,7 +29,7 @@
   id: AndroidHeal
   recipes:
   - BioTube # WL android species
-  - RitiumPack # WL-Changes-Rename
+  - RitiumPack
 #WL-Workers-Recipes-END
 
 ## Dynamic
