@@ -7,7 +7,7 @@
 
 - type: stack
   id: RitiumPack # WL-Changes-Rename
-  name: stack-Ritium-pack # WL-Changes-Rename
+  name: stack-ritium-pack # WL-Changes-Rename
   icon: { sprite: "_WL/Entities/Objects/Specific/Medical/medical.rsi", state: ritium_pack } # WL-Changes-Rename
   spawn: RitiumPack
   maxCount: 10
