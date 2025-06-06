@@ -50,7 +50,7 @@
     - Bloodpack
   - type: Sprite
     sprite: _WL/Entities/Objects/Specific/Medical/medical.rsi
-    state: ritium_pack # WL-Changes-Rename
+    state: ritium_pack
   - type: Healing
     damageContainers:
       - BioRobotic
