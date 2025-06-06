@@ -43,7 +43,7 @@
   suffix: Full
   description: It will help to restore the lost biofluid.
   parent: BaseHealingItem
-  id: RitiumPack # WL-Changes-Rename
+  id: RitiumPack
   components:
   - type: Tag
     tags:
