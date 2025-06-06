@@ -63,7 +63,7 @@
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
-    stackType: RitiumPack # WL-Changes-Rename
+    stackType: RitiumPack
     count: 10
   - type: StackPrice
     price: 100
