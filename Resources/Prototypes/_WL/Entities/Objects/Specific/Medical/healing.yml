@@ -69,8 +69,8 @@
     price: 100
 
 - type: entity
-  id: RitiumPack1 # WL-Changes-Rename
-  parent: RitiumPack # WL-Changes-Rename
+  id: RitiumPack1
+  parent: RitiumPack
   suffix: One
   components:
   - type: Stack
