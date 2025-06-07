@@ -24,6 +24,6 @@
     sprite: Imperial/Structures/Thrusters/small.rsi
     state: base
   product: CrateEngineeringSmallThruster
-  cost: 750
+  cost: 500
   category: cargoproduct-category-name-shuttle
   group: market
