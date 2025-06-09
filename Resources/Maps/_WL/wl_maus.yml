@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/02/2025 20:16:58
-  entityCount: 20619
+  time: 06/09/2025 21:07:47
+  entityCount: 20623
 maps:
 - 1
 grids:
@@ -21742,12 +21742,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -36.5,-33.5
       parent: 2
-  - uid: 1012
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -35.5,-33.5
-      parent: 2
   - uid: 1013
     components:
     - type: Transform
@@ -22386,7 +22380,7 @@ entities:
   - uid: 1089
     components:
     - type: Transform
-      pos: -27.611292,-63.41255
+      pos: -28.346891,-63.517406
       parent: 2
 - proto: BoxBeaker
   entities:
@@ -50573,6 +50567,12 @@ entities:
     - type: Transform
       pos: -14.5,-32.5
       parent: 2
+  - uid: 12252
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -27.5,-63.5
+      parent: 2
   - uid: 18495
     components:
     - type: Transform
@@ -52989,12 +52989,6 @@ entities:
     components:
     - type: Transform
       pos: -46.46315,-76.61918
-      parent: 2
-  - uid: 6570
-    components:
-    - type: Transform
-      rot: -0.7853981633974483 rad
-      pos: -45.883392,-76.44079
       parent: 2
   - uid: 6571
     components:
@@ -56137,6 +56131,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -36.5,-64.5
       parent: 2
+- proto: ComputerSalvageJobBoard
+  entities:
+  - uid: 14702
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -27.5,-63.5
+      parent: 2
 - proto: ComputerShuttle
   entities:
   - uid: 18507
@@ -56830,6 +56832,41 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+- proto: CrateLockBoxEngineering
+  entities:
+  - uid: 18110
+    components:
+    - type: Transform
+      pos: -63.5,-14.5
+      parent: 2
+- proto: CrateLockBoxMedical
+  entities:
+  - uid: 12836
+    components:
+    - type: Transform
+      pos: -63.5,-32.5
+      parent: 2
+- proto: CrateLockBoxScience
+  entities:
+  - uid: 20622
+    components:
+    - type: Transform
+      pos: -45.5,-76.5
+      parent: 2
+- proto: CrateLockBoxSecurity
+  entities:
+  - uid: 20623
+    components:
+    - type: Transform
+      pos: -18.5,-9.5
+      parent: 2
+- proto: CrateLockBoxService
+  entities:
+  - uid: 1012
+    components:
+    - type: Transform
+      pos: -35.5,-33.5
+      parent: 2
 - proto: CrateMaterialPlastic
   entities:
   - uid: 7027
@@ -95043,6 +95080,13 @@ entities:
     - type: Transform
       pos: 5.5,3.5
       parent: 19645
+- proto: MachineMaterialSilo
+  entities:
+  - uid: 14596
+    components:
+    - type: Transform
+      pos: -41.5,-65.5
+      parent: 2
 - proto: MagazineBoxAntiMateriel
   entities:
   - uid: 11803
@@ -96131,7 +96175,7 @@ entities:
   - uid: 11908
     components:
     - type: Transform
-      pos: -28.006859,-63.52578
+      pos: -28.596891,-63.579906
       parent: 2
   - uid: 11909
     components:
@@ -99225,11 +99269,6 @@ entities:
     - type: Transform
       pos: -29.5,-0.5
       parent: 2
-  - uid: 12836
-    components:
-    - type: Transform
-      pos: -44.5,-66.5
-      parent: 2
 - proto: PottedPlant12
   entities:
   - uid: 12228
@@ -99387,10 +99426,10 @@ entities:
       parent: 2
 - proto: PottedPlantRandom
   entities:
-  - uid: 12252
+  - uid: 6570
     components:
     - type: Transform
-      pos: -63.5,-32.5
+      pos: -42.5,-67.5
       parent: 2
   - uid: 12253
     components:
@@ -99431,6 +99470,11 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-57.5
+      parent: 2
+  - uid: 20621
+    components:
+    - type: Transform
+      pos: -57.5,-32.5
       parent: 2
 - proto: PowerCellHighPrinted
   entities:
@@ -108225,7 +108269,7 @@ entities:
   - uid: 13629
     components:
     - type: Transform
-      pos: -41.499733,-65.39504
+      pos: -44.476414,-66.54121
       parent: 2
   - uid: 13630
     components:
@@ -108368,7 +108412,7 @@ entities:
   - uid: 13642
     components:
     - type: Transform
-      pos: -41.47001,-65.18692
+      pos: -44.36704,-66.33808
       parent: 2
   - uid: 13643
     components:
@@ -108579,7 +108623,7 @@ entities:
   - uid: 13655
     components:
     - type: Transform
-      pos: -41.54696,-65.414536
+      pos: -44.64829,-66.33808
       parent: 2
   - uid: 13656
     components:
@@ -115741,11 +115785,6 @@ entities:
     - type: Transform
       pos: -32.5,-14.5
       parent: 2
-  - uid: 14596
-    components:
-    - type: Transform
-      pos: -41.5,-65.5
-      parent: 2
   - uid: 14597
     components:
     - type: Transform
@@ -116356,11 +116395,6 @@ entities:
     components:
     - type: Transform
       pos: -29.5,10.5
-      parent: 2
-  - uid: 14702
-    components:
-    - type: Transform
-      pos: -27.5,-63.5
       parent: 2
   - uid: 14703
     components:
