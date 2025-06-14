@@ -54,21 +54,20 @@
   id: GiftsPizzaPartyLarge
   parent: CargoGiftsBase
   components:
-    - type: StationEvent
-      weight: 3 # Corvax WL changes
-      duration: 240
-      spawnConfig:
-        standartConfig:
-           minPlayers: 40
-      earliestStart: 60 # Corvax WL changes
-    - type: CargoGiftsRule
-      description: cargo-gift-pizza-large
-      sender: cargo-gift-default-sender
-      dest: cargo-gift-dest-bar
-      gifts:
-        FoodPizzaLarge: 4              # 64 pizzas
-        FoodBarSupply: 1
-        FoodSoftdrinksLarge: 1
+  - type: StationEvent
+    weight: 3 # WL-Changes
+    duration: 240
+    earliestStart: 60 # WL-Changes
+    spawnConfig:
+      standartConfig:
+         minPlayers: 40 # Corvax WL changes
+  - type: CargoGiftsRule
+    description: cargo-gift-pizza-large
+    dest: cargo-gift-dest-bar
+    gifts:
+      FoodPizza: 4              # 16 pizzas
+      FoodBarSupply: 1
+      FoodSoftdrinks: 2         # 32 sodas
 
 - type: entity
   id: GiftsEngineering
@@ -204,22 +203,22 @@
   id: GiftsSecurityGuns
   parent: CargoGiftsBase
   components:
-    - type: StationEvent
-      weight: 3
-      duration: 120
-      earliestStart: 30 # Corvax WL changes
-      spawnConfig:
-        standartConfig:
-           minPlayers: 25 # Corvax WL changes
-    - type: CargoGiftsRule
-      description: cargo-gift-security-guns
-      sender: cargo-gift-default-sender
-      dest: cargo-gift-dest-sec
-      gifts:
-        SecurityArmor: 3
-        ArmorySmg: 1
-        ArmoryShotgun: 1
-        ArmoryLaser: 1
+  - type: StationEvent
+    weight: 3
+    duration: 120
+    earliestStart: 30 # WL-Changes
+    spawnConfig:
+      standartConfig:
+         minPlayers: 25 # Corvax WL changes
+  - type: CargoGiftsRule
+    description: cargo-gift-security-guns
+    dest: cargo-gift-dest-sec
+    gifts:
+      SecurityArmor: 3
+      ArmorySmg: 1
+      ArmoryShotgun: 1
+      ArmoryLaser: 1
+      ArmoryRifle: 1
 
 - type: entity
   id: GiftsSecurityRiot

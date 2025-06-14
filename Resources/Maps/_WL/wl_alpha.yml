@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 06/02/2025 19:49:05
-  entityCount: 20476
+  time: 06/09/2025 20:35:08
+  entityCount: 20479
 maps:
 - 1
 grids:
@@ -86,9 +86,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: Parallax
@@ -6504,7 +6502,8 @@ entities:
           20,13:
             0: 47359
           20,14:
-            0: 48059
+            0: 39867
+            3: 8192
           20,15:
             0: 65291
           17,17:
@@ -7778,14 +7777,6 @@ entities:
     - type: Transform
       pos: 112.703865,38.709904
       parent: 2
-- proto: ActionToggleLight
-  entities:
-  - uid: 8536
-    components:
-    - type: Transform
-      parent: 8535
-    - type: InstantAction
-      container: 8535
 - proto: AirAlarm
   entities:
   - uid: 392
@@ -9955,7 +9946,7 @@ entities:
       pos: 41.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -154648
+      secondsUntilStateChange: -155025.75
       state: Opening
   - uid: 5201
     components:
@@ -10537,7 +10528,7 @@ entities:
       pos: 85.5,24.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35379.035
+      secondsUntilStateChange: -35756.785
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10781,7 +10772,7 @@ entities:
       pos: 127.5,61.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -55333.02
+      secondsUntilStateChange: -55710.77
       state: Opening
 - proto: AirlockMaintChapelLocked
   entities:
@@ -10902,7 +10893,7 @@ entities:
       pos: 127.5,20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41223.56
+      secondsUntilStateChange: -41601.31
       state: Opening
   - uid: 7289
     components:
@@ -11134,7 +11125,7 @@ entities:
       pos: 110.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -60533.23
+      secondsUntilStateChange: -60910.98
       state: Opening
   - uid: 6072
     components:
@@ -11184,7 +11175,7 @@ entities:
       pos: 39.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -87398.12
+      secondsUntilStateChange: -87775.87
       state: Opening
   - uid: 2534
     components:
@@ -11545,7 +11536,7 @@ entities:
       pos: 41.5,60.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -154650.88
+      secondsUntilStateChange: -155028.62
       state: Opening
 - proto: AirlockSecurityLocked
   entities:
@@ -46323,11 +46314,6 @@ entities:
     - type: Transform
       pos: 86.5,56.5
       parent: 2
-  - uid: 4779
-    components:
-    - type: Transform
-      pos: 103.5,49.5
-      parent: 2
   - uid: 5862
     components:
     - type: Transform
@@ -49685,6 +49671,14 @@ entities:
     - type: Transform
       pos: 128.5,66.5
       parent: 2
+- proto: ComputerSalvageJobBoard
+  entities:
+  - uid: 4779
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 126.5,64.5
+      parent: 2
 - proto: ComputerShuttle
   entities:
   - uid: 20002
@@ -50235,6 +50229,47 @@ entities:
     - type: Transform
       pos: 50.5,46.5
       parent: 2
+- proto: CrateLockBoxEngineering
+  entities:
+  - uid: 3336
+    components:
+    - type: Transform
+      pos: 103.5,49.5
+      parent: 2
+- proto: CrateLockBoxMedical
+  entities:
+  - uid: 20478
+    components:
+    - type: Transform
+      pos: 105.5,16.5
+      parent: 2
+- proto: CrateLockBoxScience
+  entities:
+  - uid: 3406
+    components:
+    - type: Transform
+      pos: 81.5,59.5
+      parent: 2
+  - uid: 20479
+    components:
+    - type: Transform
+      pos: 83.5,59.5
+      parent: 2
+    - type: Conveyed
+- proto: CrateLockBoxSecurity
+  entities:
+  - uid: 20477
+    components:
+    - type: Transform
+      pos: 30.5,56.5
+      parent: 2
+- proto: CrateLockBoxService
+  entities:
+  - uid: 3341
+    components:
+    - type: Transform
+      pos: 83.5,22.5
+      parent: 2
 - proto: CrateNPCChicken
   entities:
   - uid: 605
@@ -50248,21 +50283,6 @@ entities:
     components:
     - type: Transform
       pos: 32.5,37.5
-      parent: 2
-- proto: CrateScience
-  entities:
-  - uid: 3406
-    components:
-    - type: Transform
-      pos: 83.5,58.5
-      parent: 2
-    - type: Conveyed
-- proto: CrateScienceSecure
-  entities:
-  - uid: 3341
-    components:
-    - type: Transform
-      pos: 81.5,59.5
       parent: 2
 - proto: CrateTrashCart
   entities:
@@ -59917,20 +59937,6 @@ entities:
     - type: Transform
       pos: 115.4787,0.65953827
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 8536
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 8536
-    - type: ActionsContainer
   - uid: 8537
     components:
     - type: Transform
@@ -89664,6 +89670,13 @@ entities:
     - type: Transform
       pos: 9.5,70.5
       parent: 2
+- proto: MachineMaterialSilo
+  entities:
+  - uid: 6545
+    components:
+    - type: Transform
+      pos: 76.5,60.5
+      parent: 2
 - proto: MagazineLightRifle
   entities:
   - uid: 2954
@@ -90983,7 +90996,7 @@ entities:
       pos: 32.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -171213.84
+      secondsUntilStateChange: -171591.6
       state: Opening
 - proto: PaperWrittenAMEScribbles
   entities:
@@ -91755,13 +91768,6 @@ entities:
     components:
     - type: Transform
       pos: 25.5,58.5
-      parent: 2
-- proto: PottedPlant19
-  entities:
-  - uid: 6545
-    components:
-    - type: Transform
-      pos: 126.5,64.5
       parent: 2
 - proto: PottedPlant21
   entities:
@@ -105338,12 +105344,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 76.5,59.5
       parent: 2
-  - uid: 3336
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 76.5,60.5
-      parent: 2
   - uid: 3338
     components:
     - type: Transform
@@ -107999,7 +107999,7 @@ entities:
   - uid: 3324
     components:
     - type: Transform
-      pos: 76.48728,60.544304
+      pos: 76.5994,58.93629
       parent: 2
   - uid: 3409
     components:
@@ -129005,7 +129005,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -28656.143
+      secondsUntilStateChange: -29033.893
       state: Opening
 - proto: WindoorSecureChemistryLocked
   entities:
