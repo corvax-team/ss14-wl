@@ -12,7 +12,7 @@ public sealed class PAIAppearanceSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<PAIEmotionsComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
@@ -35,14 +35,14 @@ public sealed class PAIAppearanceSystem : EntitySystem
     {
         // Базовый слой спрайта ПИИ
         const string baseLayer = "base";
-        
+
         // Определяем состояние спрайта для каждой эмоции
         var spriteState = emotion switch
         {
-            PAIEmotion.Happy => "pai_happy",
-            PAIEmotion.Sad => "pai_sad", 
-            PAIEmotion.Angry => "pai_angry",
-            _ => "pai_neutral"
+            PAIEmotion.Happy => "pai-happy",
+            PAIEmotion.Sad => "pai_-ad",
+            PAIEmotion.Angry => "pai-angry",
+            _ => "pai-on-overlay"
         };
 
         // Устанавливаем состояние спрайта

@@ -30,6 +30,7 @@
     sprite: Objects/Fun/pai.rsi
     layers:
     - state: pai-base
+      map: ["base"]
     - state: pai-off-overlay
       shader: unshaded
       map: ["screen"]
@@ -102,9 +103,10 @@
       components:
         - SecretStash
         - WrappedParcel
-  - type: PAIEmotions
+  - type: PAIEmotionsComponent
     emotion: Neutral
     emotionCooldown: 3.0
+  - type: Appearance
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

@@ -9,7 +9,7 @@ namespace Content.Shared.PAI;
 /// Компонент для управления эмоциями ПИИ
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class PAIEmotionComponent : Component
+public sealed partial class PAIEmotionsComponent : Component
 {
     /// <summary>
     /// Текущая эмоция ПИИ

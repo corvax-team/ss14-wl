@@ -13,12 +13,12 @@ public sealed class PAIEmotionsSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<PAIEmotionsComponent, PAIEmotionActionEvent>(OnEmotionAction);
         SubscribeLocalEvent<PAIEmotionsComponent, PAIEmotionChangeDoAfterEvent>(OnEmotionChangeDoAfter);
         SubscribeLocalEvent<PAIEmotionsComponent, ComponentGetState>(OnGetState);
@@ -69,7 +69,7 @@ public sealed class PAIEmotionsSystem : EntitySystem
 
         component.CurrentEmotion = args.NewEmotion;
         component.LastEmotionChange = _timing.CurTime;
-        
+
         Dirty(uid, component);
         args.Handled = true;
 
@@ -101,7 +101,7 @@ public sealed class PAIEmotionsSystem : EntitySystem
 
         component.CurrentEmotion = state.CurrentEmotion;
         component.LastEmotionChange = state.LastEmotionChange;
-        
+
         UpdateAppearance(uid, component);
     }
 }
