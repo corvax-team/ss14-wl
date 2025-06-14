@@ -41,3 +41,42 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: PAIEmotionHappy
+  name: pai-emotion-happy-name
+  description: pai-emotion-happy-desc
+  productAction: ActionPAIEmotionHappy
+  cost:
+    SiliconMemory: 3
+  categories:
+  - PAIEmotions
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PAIEmotionSad
+  name: pai-emotion-sad-name
+  description: pai-emotion-sad-desc
+  productAction: ActionPAIEmotionSad
+  cost:
+    SiliconMemory: 3
+  categories:
+  - PAIEmotions
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: PAIEmotionAngry
+  name: pai-emotion-angry-name
+  description: pai-emotion-angry-desc
+  productAction: ActionPAIEmotionAngry
+  cost:
+    SiliconMemory: 3
+  categories:
+  - PAIEmotions
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

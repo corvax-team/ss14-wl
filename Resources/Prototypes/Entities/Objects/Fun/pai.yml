@@ -61,6 +61,7 @@
   - type: Store
     categories:
     - PAIAbilities
+    - PAIEmotions
     currencyWhitelist:
     - SiliconMemory
     balance:
@@ -89,12 +90,21 @@
           Off: { state: pai-off-overlay }
           Searching: { state: pai-searching-overlay }
           On: { state: pai-on-overlay }
+      enum.PAIEmotionVisuals.Emotion:
+        base:
+          Neutral: { state: pai-on-overlay }
+          Happy: { state: pai-happy }
+          Sad: { state: pai-sad }
+          Angry: { state: pai-angry }
   - type: StationMap
   - type: ChangeVoiceInContainer
     whitelist:
       components:
         - SecretStash
         - WrappedParcel
+  - type: PAIEmotions
+    emotion: Neutral
+    emotionCooldown: 3.0
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
@@ -210,3 +220,42 @@
       itemIconStyle: NoItem
       event: !type:OpenUiActionEvent
         key: enum.StationMapUiKey.Key
+
+- type: entity
+  id: ActionPAIEmotionHappy
+  name: Express Joy
+  description: Make your PAI express happiness and joy!
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: { sprite: Interface/Actions/pai-emotions.rsi, state: pai-happy }
+    itemIconStyle: NoItem
+    event: !type:PAIEmotionActionEvent
+      emotion: Happy
+
+- type: entity
+  id: ActionPAIEmotionSad
+  name: Express Melancholy
+  description: Make your PAI express sadness and melancholy.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: { sprite: Interface/Actions/pai-emotions.rsi, state: pai-sad }
+    itemIconStyle: NoItem
+    event: !type:PAIEmotionActionEvent
+      emotion: Sad
+
+- type: entity
+  id: ActionPAIEmotionAngry
+  name: Express Rage
+  description: Unleash your PAI's inner fury! Handle with care.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: { sprite: Interface/Actions/pai-emotions.rsi, state: pai-angry }
+    itemIconStyle: NoItem
+    event: !type:PAIEmotionActionEvent
+      emotion: Angry

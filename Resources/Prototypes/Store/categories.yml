@@ -100,6 +100,11 @@
   name: store-category-abilities
 
 - type: storeCategory
+  id: PAIEmotions
+  name: store-category-pai-emotions
+  priority: 2
+
+- type: storeCategory
   id: DiscountedItems
   name: store-discounted-items
   priority: 200

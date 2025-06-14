@@ -24,6 +24,7 @@ public sealed class PAISystem : SharedPAISystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly ToggleableGhostRoleSystem _toggleableGhostRole = default!;
+    [Dependency] private readonly PAIEmotionsSystem _emotions = default!;
 
     /// <summary>
     /// Possible symbols that can be part of a scrambled pai's name.
@@ -38,6 +39,7 @@ public sealed class PAISystem : SharedPAISystem
         SubscribeLocalEvent<PAIComponent, MindAddedMessage>(OnMindAdded);
         SubscribeLocalEvent<PAIComponent, MindRemovedMessage>(OnMindRemoved);
         SubscribeLocalEvent<PAIComponent, BeingMicrowavedEvent>(OnMicrowaved);
+        SubscribeLocalEvent<PAIComponent, PAIEmotionActionEvent>(OnEmotionAction);
 
         SubscribeLocalEvent<PAIComponent, PAIShopActionEvent>(OnShop);
     }
@@ -113,6 +115,14 @@ public sealed class PAISystem : SharedPAISystem
             return;
 
         _store.ToggleUi(args.Performer, ent, store);
+    }
+
+    private void OnEmotionAction(EntityUid uid, PAIComponent component, PAIEmotionActionEvent args)
+    {
+    if (!TryComp<PAIEmotionsComponent>(uid, out var emotions))
+        return;
+
+    _emotions.TryChangeEmotion(uid, args.Emotion, emotions);
     }
 
     public void PAITurningOff(EntityUid uid)
