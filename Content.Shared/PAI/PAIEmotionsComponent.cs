@@ -1,5 +1,4 @@
 using Content.Shared.DoAfter;
-using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -43,16 +42,6 @@ public enum PAIEmotion : byte
 }
 
 /// <summary>
-/// Событие действия смены эмоции ПИИ
-/// </summary>
-[Serializable, NetSerializable]
-public sealed partial class PAIEmotionActionEvent : InstantActionEvent
-{
-    [DataField("emotion", required: true)]
-    public PAIEmotion Emotion = PAIEmotion.Neutral;
-}
-
-/// <summary>
 /// Событие смены эмоции ПИИ через DoAfter
 /// </summary>
 [Serializable, NetSerializable]
@@ -64,4 +53,3 @@ public sealed partial class PAIEmotionChangeDoAfterEvent : SimpleDoAfterEvent
     {
         NewEmotion = newEmotion;
     }
-}

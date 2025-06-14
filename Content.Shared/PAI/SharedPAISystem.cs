@@ -33,11 +33,12 @@ public abstract class SharedPAISystem : EntitySystem
         _actions.RemoveAction(ent, ent.Comp.ShopAction);
     }
 }
+
 public sealed partial class PAIShopActionEvent : InstantActionEvent
 {
 }
+
 public sealed partial class PAIEmotionActionEvent : InstantActionEvent
 {
     [DataField("emotion", required: true)]
     public PAIEmotion Emotion = PAIEmotion.Neutral;
-}
