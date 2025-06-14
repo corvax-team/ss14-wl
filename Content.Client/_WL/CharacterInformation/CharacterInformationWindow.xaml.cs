@@ -19,6 +19,10 @@ public sealed partial class CharacterInformationWindow : FancyWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+
+        Tabs.SetTabTitle(0, Loc.GetString("character-information-ui-sprite"));
+        Tabs.SetTabTitle(1, Loc.GetString("character-information-ui-flavor-text"));
+        Tabs.SetTabTitle(2, Loc.GetString("character-information-ui-ooc-text"));
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -37,25 +41,25 @@ public sealed partial class CharacterInformationWindow : FancyWindow
         if (!string.IsNullOrEmpty(state.FlavorText))
         {
             FlavorText.SetMessage(state.FlavorText);
-            FlavorTextLabel.Visible = true;
-        }
-        if (!string.IsNullOrEmpty(state.OocText))
-        {
-            OocText.SetMessage(state.OocText);
-            OocTextLabel.Visible = true;
-        }
-
-        if (string.IsNullOrEmpty(state.FlavorText) && string.IsNullOrEmpty(state.OocText))
-        {
-            Separator.Visible = false;
-            TextScroll.Visible = false;
-            RootWindow.MinSize = new Vector2(280, 400);
+            FlavorTextLabel.Text = Loc.GetString("character-information-ui-flavor-text") + ":";
         }
         else
         {
-            Separator.Visible = true;
-            TextScroll.Visible = true;
-            RootWindow.MinSize = new Vector2(700, 400);
+            FlavorText.SetMessage("");
+            FlavorTextLabel.Text = Loc.GetString("character-information-ui-no-flavor-text");
         }
+
+        if (!string.IsNullOrEmpty(state.OocText))
+        {
+            OocText.SetMessage(state.OocText);
+            OocTextLabel.Text = Loc.GetString("character-information-ui-ooc-text") + ":";
+        }
+        else
+        {
+            OocText.SetMessage("");
+            OocTextLabel.Text = Loc.GetString("character-information-ui-no-ooc-text");
+        }
+
+        SetWidth = Size.X + 0.1f;
     }
 }
