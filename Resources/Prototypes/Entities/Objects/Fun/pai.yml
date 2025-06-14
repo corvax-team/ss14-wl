@@ -103,7 +103,7 @@
       components:
         - SecretStash
         - WrappedParcel
-  - type: PAIEmotionsComponent
+  - type: PAIEmotions
     emotion: Neutral
     emotionCooldown: 3.0
   - type: Appearance
