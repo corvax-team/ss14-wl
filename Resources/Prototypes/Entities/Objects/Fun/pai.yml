@@ -225,6 +225,7 @@
 
 - type: entity
   id: ActionPAIEmotionHappy
+  parent: BaseMentalAction
   name: Express Joy
   description: Make your PAI express happiness and joy!
   components:
@@ -238,6 +239,7 @@
 
 - type: entity
   id: ActionPAIEmotionSad
+  parent: BaseMentalAction
   name: Express Melancholy
   description: Make your PAI express sadness and melancholy.
   components:
@@ -251,6 +253,7 @@
 
 - type: entity
   id: ActionPAIEmotionAngry
+  parent: BaseMentalAction
   name: Express Rage
   description: Unleash your PAI's inner fury! Handle with care.
   components:
