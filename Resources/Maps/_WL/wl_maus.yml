@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 260.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/09/2025 21:07:47
-  entityCount: 20623
+  time: 06/14/2025 05:37:07
+  entityCount: 20601
 maps:
 - 1
 grids:
@@ -46290,76 +46290,6 @@ entities:
     - type: Transform
       pos: -18.494244,12.466522
       parent: 2
-- proto: CapacitorStockPart
-  entities:
-  - uid: 5451
-    components:
-    - type: Transform
-      pos: -14.203165,4.880273
-      parent: 2
-  - uid: 5452
-    components:
-    - type: Transform
-      pos: -14.203165,4.880273
-      parent: 2
-  - uid: 5453
-    components:
-    - type: Transform
-      pos: -14.203165,4.880273
-      parent: 2
-  - uid: 5454
-    components:
-    - type: Transform
-      pos: -14.203165,4.880273
-      parent: 2
-  - uid: 5455
-    components:
-    - type: Transform
-      pos: -14.21879,4.520898
-      parent: 2
-  - uid: 5456
-    components:
-    - type: Transform
-      pos: -14.21879,4.520898
-      parent: 2
-  - uid: 5457
-    components:
-    - type: Transform
-      pos: -14.21879,4.520898
-      parent: 2
-  - uid: 5458
-    components:
-    - type: Transform
-      pos: -14.234415,4.520898
-      parent: 2
-  - uid: 5459
-    components:
-    - type: Transform
-      pos: -65.76402,-8.310753
-      parent: 2
-  - uid: 5460
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -37.018177,-93.93169
-      parent: 2
-  - uid: 5461
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -38.008976,-93.95151
-      parent: 2
-  - uid: 19814
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -12.117065,3.6321106
-      parent: 19645
-  - uid: 19815
-    components:
-    - type: Transform
-      pos: -11.822876,2.8293457
-      parent: 19645
 - proto: CaptainIDCard
   entities:
   - uid: 5462
@@ -62431,19 +62361,16 @@ entities:
     - type: Transform
       pos: -60.597137,2.4941769
       parent: 2
-    - type: GasTank
   - uid: 35
     components:
     - type: Transform
       pos: -60.67739,-16.375868
       parent: 2
-    - type: GasTank
   - uid: 37
     components:
     - type: Transform
       pos: -60.885513,-16.301537
       parent: 2
-    - type: GasTank
   - uid: 7901
     components:
     - type: Transform
@@ -63869,7 +63796,6 @@ entities:
     - type: Transform
       pos: 7.2966156,3.4261322
       parent: 18684
-    - type: GasTank
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 8079
@@ -92954,8 +92880,6 @@ entities:
     components:
     - type: Transform
       parent: 52
-    - type: GasTank
-    - type: Jetpack
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -92989,8 +92913,6 @@ entities:
     - type: Transform
       pos: -80.43065,-27.481495
       parent: 2
-    - type: GasTank
-    - type: Jetpack
   - uid: 11663
     components:
     - type: Transform
@@ -93002,8 +92924,6 @@ entities:
     components:
     - type: Transform
       parent: 39
-    - type: GasTank
-    - type: Jetpack
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -96225,6 +96145,63 @@ entities:
       parent: 2
 - proto: MicroManipulatorStockPart
   entities:
+  - uid: 5451
+    components:
+    - type: Transform
+      pos: -14.203165,4.880273
+      parent: 2
+  - uid: 5452
+    components:
+    - type: Transform
+      pos: -14.203165,4.880273
+      parent: 2
+  - uid: 5453
+    components:
+    - type: Transform
+      pos: -14.203165,4.880273
+      parent: 2
+  - uid: 5454
+    components:
+    - type: Transform
+      pos: -14.203165,4.880273
+      parent: 2
+  - uid: 5455
+    components:
+    - type: Transform
+      pos: -14.21879,4.520898
+      parent: 2
+  - uid: 5456
+    components:
+    - type: Transform
+      pos: -14.21879,4.520898
+      parent: 2
+  - uid: 5457
+    components:
+    - type: Transform
+      pos: -14.21879,4.520898
+      parent: 2
+  - uid: 5458
+    components:
+    - type: Transform
+      pos: -14.234415,4.520898
+      parent: 2
+  - uid: 5459
+    components:
+    - type: Transform
+      pos: -65.76402,-8.310753
+      parent: 2
+  - uid: 5460
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -37.018177,-93.93169
+      parent: 2
+  - uid: 5461
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -38.008976,-93.95151
+      parent: 2
   - uid: 11915
     components:
     - type: Transform
@@ -96236,6 +96213,17 @@ entities:
     - type: Transform
       pos: -43.808067,-91.579445
       parent: 2
+  - uid: 19814
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.117065,3.6321106
+      parent: 19645
+  - uid: 19815
+    components:
+    - type: Transform
+      pos: -11.822876,2.8293457
+      parent: 19645
   - uid: 20115
     components:
     - type: Transform
@@ -96652,7 +96640,6 @@ entities:
     components:
     - type: Transform
       parent: 28
-    - type: GasTank
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -96893,14 +96880,12 @@ entities:
     components:
     - type: Transform
       parent: 10
-    - type: GasTank
     - type: Physics
       canCollide: False
   - uid: 18
     components:
     - type: Transform
       parent: 17
-    - type: GasTank
     - type: Physics
       canCollide: False
   - uid: 26
@@ -96908,12 +96893,10 @@ entities:
     - type: Transform
       pos: -80.34561,-30.474957
       parent: 2
-    - type: GasTank
   - uid: 50
     components:
     - type: Transform
       parent: 49
-    - type: GasTank
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -98435,14 +98418,12 @@ entities:
     - type: Transform
       pos: -69.33881,-7.2971864
       parent: 2
-    - type: GasTank
   - uid: 47
     components:
     - type: Transform
       rot: -1.1693705988362009 rad
       pos: -66.068375,-6.7322707
       parent: 2
-    - type: GasTank
 - proto: PlasmaWindowDirectional
   entities:
   - uid: 12110
@@ -137984,11 +137965,28 @@ entities:
     - type: Transform
       pos: -108.5,-55.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9
   - uid: 18113
     components:
     - type: Transform
       pos: -112.5,-59.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 9
+- proto: WeaponEnergyTurretAIControlPanel
+  entities:
+  - uid: 9
+    components:
+    - type: Transform
+      pos: -107.5,-54.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 18112
+      - 18113
 - proto: WeaponFlareGun
   entities:
   - uid: 18114
