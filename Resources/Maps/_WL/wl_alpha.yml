@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 260.2.0
+  engineVersion: 262.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/09/2025 20:35:08
+  time: 06/14/2025 05:30:03
   entityCount: 20479
 maps:
 - 1
@@ -9946,7 +9946,7 @@ entities:
       pos: 41.5,55.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -155025.75
+      secondsUntilStateChange: -155251.42
       state: Opening
   - uid: 5201
     components:
@@ -10528,7 +10528,7 @@ entities:
       pos: 85.5,24.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35756.785
+      secondsUntilStateChange: -35982.453
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10772,7 +10772,7 @@ entities:
       pos: 127.5,61.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -55710.77
+      secondsUntilStateChange: -55936.438
       state: Opening
 - proto: AirlockMaintChapelLocked
   entities:
@@ -10893,7 +10893,7 @@ entities:
       pos: 127.5,20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41601.31
+      secondsUntilStateChange: -41826.977
       state: Opening
   - uid: 7289
     components:
@@ -11125,7 +11125,7 @@ entities:
       pos: 110.5,5.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -60910.98
+      secondsUntilStateChange: -61136.65
       state: Opening
   - uid: 6072
     components:
@@ -11175,7 +11175,7 @@ entities:
       pos: 39.5,45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -87775.87
+      secondsUntilStateChange: -88001.54
       state: Opening
   - uid: 2534
     components:
@@ -11536,7 +11536,7 @@ entities:
       pos: 41.5,60.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -155028.62
+      secondsUntilStateChange: -155254.3
       state: Opening
 - proto: AirlockSecurityLocked
   entities:
@@ -38962,23 +38962,6 @@ entities:
     components:
     - type: Transform
       pos: 24.562576,81.33292
-      parent: 2
-- proto: CapacitorStockPart
-  entities:
-  - uid: 3435
-    components:
-    - type: Transform
-      pos: 94.431,56.71163
-      parent: 2
-  - uid: 3436
-    components:
-    - type: Transform
-      pos: 94.496765,56.536446
-      parent: 2
-  - uid: 7183
-    components:
-    - type: Transform
-      pos: 142.7315,-6.401238
       parent: 2
 - proto: CaptainIDCard
   entities:
@@ -89990,18 +89973,6 @@ entities:
     - type: Transform
       pos: 102.48694,76.53611
       parent: 2
-- proto: MatterBinStockPart
-  entities:
-  - uid: 3727
-    components:
-    - type: Transform
-      pos: 66.306595,71.7661
-      parent: 2
-  - uid: 3728
-    components:
-    - type: Transform
-      pos: 66.7184,71.637535
-      parent: 2
 - proto: Mattress
   entities:
   - uid: 6312
@@ -90173,6 +90144,33 @@ entities:
     components:
     - type: Transform
       pos: 112.43869,13.728901
+      parent: 2
+- proto: MicroManipulatorStockPart
+  entities:
+  - uid: 3435
+    components:
+    - type: Transform
+      pos: 94.431,56.71163
+      parent: 2
+  - uid: 3436
+    components:
+    - type: Transform
+      pos: 94.496765,56.536446
+      parent: 2
+  - uid: 3727
+    components:
+    - type: Transform
+      pos: 66.306595,71.7661
+      parent: 2
+  - uid: 3728
+    components:
+    - type: Transform
+      pos: 66.7184,71.637535
+      parent: 2
+  - uid: 7183
+    components:
+    - type: Transform
+      pos: 142.7315,-6.401238
       parent: 2
 - proto: MicrophoneInstrument
   entities:
@@ -90996,7 +90994,7 @@ entities:
       pos: 32.5,31.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -171591.6
+      secondsUntilStateChange: -171817.27
       state: Opening
 - proto: PaperWrittenAMEScribbles
   entities:
@@ -128618,24 +128616,50 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,32.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 8536
   - uid: 19344
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 3.5,36.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 8536
   - uid: 19345
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,37.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 8536
   - uid: 19346
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -4.5,31.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 8536
+- proto: WeaponEnergyTurretAIControlPanel
+  entities:
+  - uid: 8536
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,35.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 19344
+      - 19343
+      - 19346
+      - 19345
 - proto: WeaponFlareGun
   entities:
   - uid: 7425
@@ -129005,7 +129029,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -29033.893
+      secondsUntilStateChange: -29259.56
       state: Opening
 - proto: WindoorSecureChemistryLocked
   entities:
