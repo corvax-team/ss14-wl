@@ -1,0 +1,99 @@
+# Base
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodLolipopBase
+  abstract: true
+  name: lolipop
+  description: Very tasty lolipop.
+  components:
+  - type: Food
+    trash:
+    - FoodLolipopTrash
+  - type: Tag
+    tags:
+    - Lolipop
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/Food/Sweet/lolipop.rsi
+    scale: 0.5,0.5
+    layers:
+    - state: blue
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base: # TODO: Vox & IPC
+          blue: ""
+          lime: ""
+          orange: ""
+          pink: ""
+          purple: ""
+          yellow: ""
+  - type: Item
+    heldPrefix: blue
+  - type: Clothing
+  - type: StaticPrice
+    price: 1
+  - type: InjectableSolution
+    solution: smokable
+  - type: Smokable
+  - type: FlavorProfile
+    flavors:
+      - sweet
+
+# Lolipops
+# TODO:  varieties of lollipops, but then they need pack for them and removal from Getmore Chocolate Corp (snack.yml in inventories). That's what I made the base for, for the future.
+
+- type: entity
+  parent: FoodLolipopBase
+  id: FoodLolipop
+  name: lolipop
+  description: Very tasty lolipop.
+  components:
+  - type: Item
+    sprite: _WL/Objects/Consumable/Food/Sweet/lolipop.rsi
+    heldPrefix: blue
+    size: Tiny
+  - type: Clothing
+    sprite: _WL/Objects/Consumable/Food/Sweet/lolipop.rsi
+    slots: [ mask ]
+    quickEquip: false
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/Food/Sweet/lolipop.rsi
+    layers:
+    - state: blue
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+# Trash
+
+- type: entity
+  parent: BaseItem
+  id: FoodLolipopTrash
+  name: lolipop stick
+  description: It once held a tasty treat. Not so much anymore.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/Food/Sweet/lolipop.rsi
+    state: eaten
+    scale: 0.5,0.5
+  - type: Item
+    sprite: _WL/Objects/Consumable/Food/Sweet/lolipop.rsi
+    size: Tiny
+    heldPrefix: eaten
+  - type: Clothing
+    sprite: _WL/Objects/Consumable/Food/Sweet/lolipop.rsi
+    slots: [ mask ]
+    quickEquip: false
+    heldPrefix: eaten
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage

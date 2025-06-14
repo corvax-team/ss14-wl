@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "by reartint(discord) from https://github.com/corvax-team/ss14-wl.git",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blue"
+    },
+    {
+      "name": "blue-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "blue-equipped-MASK",
+      "directions": 4
+    },
+    {
+      "name": "yellow"
+    },
+    {
+      "name": "yellow-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "yellow-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "yellow-equipped-MASK",
+      "directions": 4
+    },
+    {
+      "name": "red"
+    },
+    {
+      "name": "red-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "red-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "red-equipped-MASK",
+      "directions": 4
+    }
+  ]
+}
