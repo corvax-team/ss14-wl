@@ -2,7 +2,7 @@
   id: WhitelistMapPool
   maps:
   # Highpop
-  - CorvaxWLAlpha # WL
+  # - CorvaxWLAlpha # на переработке
   - CorvaxPilgrim # будет удалено
   - Bagel
   # Midpop
