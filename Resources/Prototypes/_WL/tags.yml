@@ -36,3 +36,15 @@
 
 - type: Tag
   id: AndroidBodyTag
+
+- type: Tag
+  id: Gum
+
+- type: Tag
+  id: Jellybean
+
+- type: Tag
+  id: Mintstick
+
+- type: Tag
+  id: Lolipop

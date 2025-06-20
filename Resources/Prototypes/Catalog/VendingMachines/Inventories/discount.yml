@@ -8,6 +8,8 @@
     FoodSnackPopcorn: 3
     FoodSnackEnergy: 3
     CigPackMixed: 2
+    FoodGumBox: 2 # Corvax WL
   contrabandInventory:
     FoodSnackDanDanNoodles: 3
     FoodBakedBunHoney: 3
+    FoodGumPoison: 1 # Corvax WL

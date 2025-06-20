@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "by reartint(discord) from https://github.com/corvax-team/ss14-wl.git",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blue"
+    },
+    {
+      "name": "blue-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "lime"
+    },
+    {
+      "name": "lime-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "lime-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "orange"
+    },
+    {
+      "name": "orange-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "orange-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "pink"
+    },
+    {
+      "name": "pink-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "pink-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "purple"
+    },
+    {
+      "name": "purple-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "purple-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "yellow"
+    },
+    {
+      "name": "yellow-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "yellow-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-MASK",
+      "directions": 4
+    },
+    {
+      "name": "eaten"
+    },
+    {
+      "name": "eaten-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "eaten-inhand-right",
+      "directions": 4
+    }
+  ]
+}
