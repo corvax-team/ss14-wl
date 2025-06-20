@@ -91,10 +91,29 @@
     damage:
       types:
         Heat: 25
+  - type: Machine
+    board: ThrusterSmallMachineCircuitboard
   - type: ApcPowerReceiver
     powerLoad: 750
-  - type: Machine
-    board: ThrusterMachineCircuitboard
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalBreak
+        - !type:ChangeConstructionNodeBehavior
+          node: machineFrame
   - type: Sprite
     sprite: Imperial/Structures/Thrusters/small.rsi
     layers:
@@ -109,6 +128,8 @@
       shader: unshaded
       visible: false
       offset: 0, 1
+
+# Unanchored
 
 - type: entity
   id: ThrusterMediumUnanchored
@@ -133,3 +154,38 @@
   components:
     - type: Transform
       anchored: false
+
+# Debug
+
+- type: entity
+  id: ThrusterMediumDEBUG
+  parent: ThrusterMedium
+  suffix: DEBUG
+  components:
+  - type: Thruster
+    requireSpace: false
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+
+- type: entity
+  id: ThrusterLargeDEBUG
+  parent: ThrusterLarge
+  suffix: DEBUG
+  components:
+  - type: Thruster
+    requireSpace: false
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+
+- type: entity
+  id: ThrusterSmallDEBUG
+  parent: ThrusterSmall
+  suffix: DEBUG
+  components:
+  - type: Thruster
+    requireSpace: false
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
