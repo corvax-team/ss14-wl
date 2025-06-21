@@ -3,27 +3,34 @@
                       xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:style="clr-namespace:Content.Client.Stylesheets"
-                      Title="{Loc 'character-information-ui-title'}" Name="RootWindow" MinSize="700 350" Resizable="True"
-                      HorizontalExpand="True">
-    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" HorizontalExpand="True" VerticalExpand="True" Margin="8">
-        <BoxContainer Orientation="Vertical" VerticalAlignment="Center" HorizontalExpand="True">
-            <SpriteView Name="CharSprite" Scale="8 8" VerticalAlignment="Center" />
-            <RichTextLabel Name="Name" Margin="0 5 0 0" HorizontalAlignment="Center" />
+                      Title="{Loc 'character-information-ui-title'}" Name="RootWindow" MinSize="700 350" Resizable="True">
+    <TabContainer Name="Tabs" HorizontalExpand="True" Margin="4">
+        <BoxContainer Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <SpriteView Name="CharSprite" Scale="4 4" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <RichTextLabel Name="Name" Margin="0 5 0 0" HorizontalAlignment="Center"/>
         </BoxContainer>
 
-        <PanelContainer Name="Separator" MinSize="2 5" MaxWidth="2" Margin="8 0 8 0">
-            <PanelContainer.PanelOverride>
-                <graphics:StyleBoxFlat BackgroundColor="{x:Static style:StyleNano.NanoGold}" ContentMarginTopOverride="2" />
-            </PanelContainer.PanelOverride>
-        </PanelContainer>
-
-        <ScrollContainer Name="TextScroll" HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True" MinWidth="400">
-			<BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-				<Label Name="FlavorTextLabel" HorizontalExpand="True" Visible="False" Text="{Loc 'character-information-ui-flavor-text'}" />
-                <RichTextLabel Name="FlavorText" HorizontalExpand="True" />
-				<Label Name="OocTextLabel" HorizontalExpand="True" Visible="False" Text="{Loc 'character-information-ui-ooc-text'}" Margin="0 10 0 0" />
-				<RichTextLabel Name="OocText" HorizontalExpand="True" />
+        <ScrollContainer HorizontalExpand="True" HScrollEnabled="False" MinWidth="400">
+            <BoxContainer Orientation="Vertical">
+                <Label
+                    Name="FlavorTextLabel"
+                    HorizontalExpand="True"
+                    Margin="0 10 0 0"
+                    HorizontalAlignment="Center" />
+                <RichTextLabel Name="FlavorText" HorizontalExpand="True" Margin="8" />
             </BoxContainer>
         </ScrollContainer>
-    </BoxContainer>
+
+        <ScrollContainer HorizontalExpand="True" HScrollEnabled="False" MinWidth="400">
+            <BoxContainer Orientation="Vertical">
+                <Label
+                    Name="OocTextLabel"
+                    HorizontalExpand="True"
+                    Text="{Loc 'character-information-ui-ooc-text'}"
+                    Margin="0 10 0 0"
+                    HorizontalAlignment="Center" />
+                <RichTextLabel Name="OocText" HorizontalExpand="True" Margin="8" />
+            </BoxContainer>
+        </ScrollContainer>
+    </TabContainer>
 </controls:FancyWindow>
