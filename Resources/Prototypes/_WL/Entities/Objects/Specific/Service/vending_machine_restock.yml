@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseVendingMachineRestock
+  id: VendingMachineRestockCorp
+  name: Corp-O-Mat restock box
+  description: From formal halls to quiet corridors, timeless style suits every stage. Add a touch of classic to your day — load this into any Corp-O-Mat.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - CorpDrobeInventory
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_clothes
