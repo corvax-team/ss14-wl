@@ -75,7 +75,7 @@
     contents:
       - id: ClothingUniformJumpsuitColorWhite
       - id: ClothingUniformJumpskirtColorWhite
-      - id:  ClothingNeckTieWhite # WL-Changes: Респрайт РНД и новые вещи
+      - id: ClothingNeckTieWhite # WL-Changes: Респрайт РНД и новые вещи
       - id: ClothingNeckBtTieWhite # WL-Changes: Респрайт РНД и новые вещи
       - id: ClothingShoesColorWhite
         amount: 2
