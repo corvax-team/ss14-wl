@@ -161,6 +161,7 @@
     sprite: _WL/Clothing/Neck/BtTies/purplebt.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/BtTies/purplebt.rsi
+  - type: Tag
     tags:
     - HamsterWearable
     - WhitelistChameleon
