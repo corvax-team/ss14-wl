@@ -25,7 +25,7 @@
     sprite: Clothing/Neck/Ties/dettie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/dettie.rsi
-  # WL-Changes: Респрайт РНД и новые вещи Start
+  # WL-Changes-Start: Респрайт РНД и новые вещи Start
   - type: Tag
     tags:
     - HamsterWearable
