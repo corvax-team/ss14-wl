@@ -22,9 +22,9 @@
   description: A loosely tied necktie, a perfect accessory for the over-worked detective.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Ties/dettie.rsi
+    sprite: _WL/Clothing/Neck/Ties/dettie.rsi
   - type: Clothing
-    sprite: Clothing/Neck/Ties/dettie.rsi
+    sprite: _WL/Clothing/Neck/Ties/dettie.rsi
   # WL-Changes-Start: Респрайт РНД и новые вещи Start
   - type: Tag
     tags:
