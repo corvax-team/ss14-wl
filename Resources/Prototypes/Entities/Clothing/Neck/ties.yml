@@ -29,7 +29,7 @@
   - type: Tag
     tags:
     - HamsterWearable
-  # WL-Changes: Респрайт РНД и новые вещи End
+  # WL-Changes-End: Респрайт РНД и новые вещи End
 
 - type: entity
   parent: ClothingNeckBase
