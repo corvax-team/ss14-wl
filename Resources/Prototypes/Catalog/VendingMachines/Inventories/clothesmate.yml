@@ -81,6 +81,31 @@
     ClothingHeadRastaHat: 2
     ClothingBeltStorageWaistbag: 3
     ClothingEyesGlasses: 6
+   # Wl-Changes: Респрайт РНД и новые вещи Start
+    ClothingNeckTieGray: 4
+    ClothingNeckTieBlue: 4
+    ClothingNeckTieGreen: 4
+    ClothingNeckTieLightBlue: 4
+    ClothingNeckTieOrange: 4
+    ClothingNeckTiePink: 4
+    ClothingNeckTieRainbow: 4
+    ClothingNeckTiePurple: 4
+    ClothingNeckTieWhite: 4
+    ClothingNeckTieYellow: 4
+    ClothingNeckBtTieBlack: 4
+    ClothingNeckBtTieBlue: 4
+    ClothingNeckBtTieFriendship: 4
+    ClothingNeckBtTieGray: 4
+    ClothingNeckBtTieGreen: 4
+    ClothingNeckBtTieLightBlue: 4
+    ClothingNeckBtTieLong: 4
+    ClothingNeckBtTieOrange: 4
+    ClothingNeckBtTiePink: 4
+    ClothingNeckBtTiePurple: 4
+    ClothingNeckBtTieRed: 4
+    ClothingNeckBtTieWhite: 4
+    ClothingNeckBtTieYellow: 4
+    # Wl-Changes: Респрайт РНД и новые вещи End
     ClothingHandsGlovesColorBlack: 4
     ClothingHandsGlovesColorGray: 4
     ClothingHandsGlovesColorBrown: 2

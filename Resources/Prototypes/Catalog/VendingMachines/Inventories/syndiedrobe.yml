@@ -13,6 +13,8 @@
     ClothingUniformJumpsuitOperative: 5
     ClothingUniformJumpskirtOperative: 5
     ClothingNeckScarfStripedSyndieGreen: 2
+    ClothingNeckTieOperative: 3 # WL-Changes: Респрайт РНД и новые вещи
+    ClothingNeckTieSyndie: 3 # WL-Changes: Респрайт РНД и новые вещи
     ClothingNeckScarfStripedSyndieRed: 2
     ClothingShoesBootsWinterSyndicate: 2
   contrabandInventory:
@@ -24,4 +26,4 @@
     ClothingOuterWinterSyndieCapArmored: 1
     ClothingHeadHatTacticalMaidHeadband: 5
     ClothingUniformJumpskirtTacticalMaid: 5
-    ClothingHandsTacticalMaidGloves: 5 
+    ClothingHandsTacticalMaidGloves: 5
