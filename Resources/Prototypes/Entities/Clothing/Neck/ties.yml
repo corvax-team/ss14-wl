@@ -25,7 +25,12 @@
     sprite: Clothing/Neck/Ties/dettie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/dettie.rsi
-    
+  # WL-Changes: Респрайт РНД и новые вещи Start
+  - type: Tag
+    tags:
+    - HamsterWearable
+  # WL-Changes: Респрайт РНД и новые вещи End
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieSci
