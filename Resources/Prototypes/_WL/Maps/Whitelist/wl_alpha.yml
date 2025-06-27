@@ -1,11 +1,11 @@
 # Special Map for Corvax - Whitelist
 - type: gameMap
   id: CorvaxWLAlpha
-  mapName: 'Alpha Station'
+  mapName: 'Альфа'
   mapPath: /Maps/_WL/wl_alpha.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 10
+  minPlayers: 25
   stations:
     CorvaxAlpha:
       stationProto: StandardNanotrasenStation
@@ -18,39 +18,39 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml # TODO: Отдельный шаттл для Альфы
         - type: StationJobs
-          availableJobs:
-            # command
+          availableJobs: # Total jobs on the station: 59
+            # command: 3
             Captain: [ 1, 1 ]
             IAA: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            # cargo
+            # cargo: 6
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 3, 3 ]
-            # engineering
+            CargoTechnician: [ 2, 2 ]
+            # engineering: 7
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 2, 3 ]
-            StationEngineer: [ 3, 3 ]
+            AtmosphericTechnician: [ 2, 2 ]
+            StationEngineer: [ 2, 2 ]
             TechnicalAssistant: [ 2, 2 ]
-            # medical
+            # medical: 10
             ChiefMedicalOfficer: [ 1, 1 ]
-            MedicalDoctor: [ 3, 4 ]
+            MedicalDoctor: [ 2, 3 ]
             MedicalIntern: [ 2, 2 ]
             Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
-            # science
+            # science: 5
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 3, 3]
+            Scientist: [ 2, 2 ]
             ResearchAssistant: [ 2, 2 ]
-            # security
+            # security: 8
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 3, 3 ]
+            SecurityOfficer: [ 2, 2 ]
             SecurityCadet: [ 2, 2 ]
             Detective: [ 1, 1 ]
             Pilot: [ 1, 1 ]
-            # service
+            # service: 17
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
@@ -63,6 +63,6 @@
             Reporter: [ 2, 2 ]
             ServiceWorker: [ 2, 2 ]
             Passenger: [ -1, -1 ]
-            # silicon
+            # silicon: 3
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
