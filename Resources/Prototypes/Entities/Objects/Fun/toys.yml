@@ -721,6 +721,7 @@
     wideAnimationRotation: 90
     soundHit:
       path: /Audio/Items/Toys/rawr.ogg
+    animation: WeaponArcBite
   - type: Item
     heldPrefix: blue
     storedRotation: -90
@@ -1582,6 +1583,8 @@
   - type: Tag
     tags:
     - Balloon
+  - type: StaticPrice
+    price: 5000 # Entertainment.
 
 - type: entity
   parent: BaseItem
@@ -1745,7 +1748,7 @@
       color: white
       netsync: false
     - type: Appearance
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: blade
       inhandVisuals:
         left:
@@ -2048,8 +2051,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { state: icon }
           False: { state: icon-off }
   - type: ItemToggle

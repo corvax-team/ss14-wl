@@ -1,8 +1,9 @@
+#Head
 - type: marking
-  id: LizardTailLargeAnimated
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  id: kobaldushkiEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
   sprites:
-    - sprite: Mobs/Customization/reptilian_parts.rsi
-      state: tail_large_wagging
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: kobald_ushki

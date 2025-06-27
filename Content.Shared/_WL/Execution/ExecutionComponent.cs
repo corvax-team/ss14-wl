@@ -18,7 +18,7 @@ public sealed partial class ExecutionComponent : Component
     public float DoAfterDurationIfVictumResist = 10f;
 
     [DataField, AutoNetworkedField]
-    public float DamageModifier = 9f;
+    public float DamageModifier = 15f;
 
     // Not networked because this is transient inside of a tick.
     /// <summary>

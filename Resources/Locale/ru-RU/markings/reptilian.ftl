@@ -79,3 +79,5 @@ marking-LizardChestFin = Lizard Fin
 marking-LizardSnoutSplotch = Унатх, морда лица (Пятно)
 marking-LizardSnoutSplotch-snout_splotch_primary = Морда
 marking-LizardSnoutSplotch-snout_splotch_secondary = Нос
+marking-kobaldushkiEars = Унатх, уши (Кобольд)
+marking-kobaldushkiEars-kobald_ushki = Унатх, уши (Кобольд)

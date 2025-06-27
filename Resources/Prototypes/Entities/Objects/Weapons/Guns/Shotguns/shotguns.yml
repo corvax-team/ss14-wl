@@ -102,10 +102,8 @@
     zeroVisible: true
   - type: Appearance
   - type: StaticPrice
-    price: 500
-# White-List components
-  - type: Execution
-# White-List components End
+    price: 5000
+  - type: Execution # WL-Changes
 
 - type: entity
   name: double-barreled shotgun
