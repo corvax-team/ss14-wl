@@ -17,8 +17,6 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs: # Total jobs on the station: 55
             # command: 2
             Captain: [ 1, 1 ]

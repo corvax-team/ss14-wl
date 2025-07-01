@@ -2,7 +2,7 @@
 - type: gameMap
   id: CorvaxWLPrairie
   mapName: 'Прерия'
-  mapPath: /Uploaded/prairie.yml
+  mapPath: /Maps/_WL/wl_prairie.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
@@ -14,7 +14,7 @@
           mapNameTemplate: '{0} Прерия {1}'
           nameGenerator:
            !type:NanotrasenNameGenerator
-            prefixCreator: "MT"
+            prefixCreator: "VIS"
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency.yml
         - type: StationBiome
