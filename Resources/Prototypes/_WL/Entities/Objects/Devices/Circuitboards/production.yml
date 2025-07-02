@@ -8,6 +8,6 @@
   - type: MachineBoard
     prototype: ThrusterSmall
     stackRequirements:
-      Capacitor: 2
+      Manipulator: 1
       Steel: 5
       MetalRod: 2
