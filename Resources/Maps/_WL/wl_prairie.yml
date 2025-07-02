@@ -10026,15 +10026,6 @@ entities:
     - type: InstantAction
       originalIconColor: '#FFFFFFFF'
       container: 4582
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 4583
-    components:
-    - type: Transform
-      parent: 4582
-    - type: InstantAction
-      originalIconColor: '#FFFFFFFF'
-      container: 4582
 - proto: ActionToggleLight
   entities:
   - uid: 327
@@ -55534,13 +55525,11 @@ entities:
     - type: GasTank
       toggleActionEntity: 4584
     - type: Jetpack
-      toggleActionEntity: 4583
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
         actions: !type:Container
           ents:
-          - 4583
           - 4584
 - proto: Jukebox
   entities:

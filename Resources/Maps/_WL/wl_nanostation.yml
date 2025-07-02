@@ -65126,13 +65126,11 @@ entities:
     - type: GasTank
       toggleActionEntity: 6097
     - type: Jetpack
-      toggleActionEntity: 6036
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
         actions: !type:Container
           ents:
-          - 6036
           - 6097
 - proto: JetpackSecurityFilled
   entities:
