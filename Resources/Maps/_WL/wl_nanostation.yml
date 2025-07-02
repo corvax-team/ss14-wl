@@ -65112,13 +65112,11 @@ entities:
     - type: GasTank
       toggleActionEntity: 5890
     - type: Jetpack
-      toggleActionEntity: 5798
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
         actions: !type:Container
           ents:
-          - 5798
           - 5890
   - uid: 3786
     components:
