@@ -64793,27 +64793,6 @@ entities:
     - type: Transform
       pos: 1.6293766,-9.405072
       parent: 2
-- proto: ClothingHeadHatHardhatRed
-  entities:
-  - uid: 6676
-    components:
-    - type: Transform
-      pos: -21.44731,-16.209175
-      parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 16669
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 16669
-    - type: ActionsContainer
 - proto: ClothingHeadHatSurgcapBlue
   entities:
   - uid: 6677

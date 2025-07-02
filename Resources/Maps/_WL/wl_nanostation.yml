@@ -5205,24 +5205,6 @@ entities:
     components:
     - type: Transform
       parent: 10621
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 4968
-    components:
-    - type: Transform
-      parent: 4967
-  - uid: 5798
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2531
-  - uid: 6036
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 3786
 - proto: ActionToggleLight
   entities:
   - uid: 2121
