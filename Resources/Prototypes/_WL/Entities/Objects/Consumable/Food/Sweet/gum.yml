@@ -41,6 +41,7 @@
   name: gum
   parent: FoodGumBase
   id: FoodGumPink
+  description: Absolutely normal pink gum.
   components:
   - type: FlavorProfile
     flavors:
@@ -58,6 +59,7 @@
   name: gum
   parent: FoodGumBase
   id: FoodGumBlue
+  description: Absolutely normal blue gum.
   components:
   - type: FlavorProfile
     flavors:
@@ -74,6 +76,7 @@
   name: gum
   parent: FoodGumBase
   id: FoodGumYellow
+  description: Absolutely normal yellow gum.
   components:
   - type: FlavorProfile
     flavors:

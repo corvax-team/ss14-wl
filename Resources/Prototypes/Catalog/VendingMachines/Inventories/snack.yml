@@ -7,8 +7,8 @@
     FoodSnackPistachios: 3
     FoodSnackSus: 3
     FoodSnackSemki: 3
-    FoodLolipop: 3 # Corvax WL
-    FoodBoxJellybean: 2 # Corvax WL
-    FoodBoxMintsticks: 2 # Corvax WL
+    FoodLolipop: 3 #  WL-Changes
+    FoodBoxJellybean: 2 #  WL-Changes
+    FoodBoxMintsticks: 2 #  WL-Changes
   contrabandInventory:
     FoodSnackSyndi: 3
