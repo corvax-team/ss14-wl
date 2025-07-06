@@ -150833,9 +150833,9 @@ entities:
       pos: 48.5,-10.5
       parent: 2
     - type: NavMapBeacon
-      text: Церковь
+      text: Храм
     - type: WarpPoint
-      location: Сервис - Церковь
+      location: Сервис - Храм
 - proto: DefaultStationBeaconChemistry
   entities:
   - uid: 16169

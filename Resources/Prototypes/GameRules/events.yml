@@ -48,8 +48,8 @@
   components:
   - type: GameRule
     delay:
-      min:  10
-      max:  20
+      min:  20 # Corax-MRP # 10
+      max:  30 # Corax-MRP # 20
 
 - type: entity
   id: BaseStationEventShortDelay
@@ -58,8 +58,8 @@
   components:
   - type: GameRule
     delay:
-      min:  10
-      max:  20
+      min:  20 # Corax-MRP # 10
+      max:  30 # Corax-MRP # 20
 
 - type: entity
   id: BaseStationEventLongDelay
@@ -68,8 +68,8 @@
   components:
   - type: GameRule
     delay:
-      min:  40
-      max:  60
+      min:  50 # Corax-MRP # 40
+      max:  70 # Corax-MRP # 60
 
 - type: entity
   id: AnomalySpawn
@@ -176,8 +176,8 @@
   components:
   - type: StationEvent
     weight: 6.5
-    earliestStart: 40
-    reoccurrenceDelay: 60
+    earliestStart: 50 # Corax-MRP # 40
+    reoccurrenceDelay: 30 # Corax-MRP # 20
     spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 25
@@ -303,7 +303,7 @@
     reoccurrenceDelay: 90
     spawnConfig:  # CorvaxWL-Changes
       standartConfig:
-        minPlayers: 20
+        minPlayers: 30
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -314,7 +314,7 @@
   - type: StationEvent
     weight: 1 # rare
     duration: 1
-    earliestStart: 30
+    earliestStart: 40 # Corax-MRP # 30
     reoccurrenceDelay: 60
     spawnConfig:  # CorvaxWL-Changes
       standartConfig:
@@ -465,11 +465,11 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
+    earliestStart: 30 # Corax-MRP # 20
     spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
-    weight: 6
+    weight: 5
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -488,7 +488,7 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
+    earliestStart: 30 # Corax-MRP # 20
     spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
@@ -511,11 +511,11 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 30
+    earliestStart: 30 # Corax-MRP # 20
     spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 15
-    weight: 6
+    weight: 5
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -530,7 +530,7 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 30
+    earliestStart: 30 # Corax-MRP # 20
     spawnConfig:  # CorvaxWL-Changes
       standartConfig:
         minPlayers: 20
@@ -587,7 +587,7 @@
 #   id: LoneOpsSpawn
 #   components:
 #   - type: StationEvent
-#     earliestStart: 35
+#     earliestStart: 40 # Corax-MRP # 30
 #     weight: 5.5
 #     minimumPlayers: 20
 #     duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
@@ -623,8 +623,8 @@
   id: SleeperAgents
   components:
   - type: StationEvent
-    earliestStart: 30
-    weight: 5
+    earliestStart: 40 # Corax-MRP #
+    weight: 8
     maxOccurrences: 1 # can only happen once per round
     spawnConfig:  # CorvaxWL-Changes
       standartConfig:
