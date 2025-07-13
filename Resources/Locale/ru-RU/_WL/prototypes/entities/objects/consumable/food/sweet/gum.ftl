@@ -1,0 +1,11 @@
+ent-FoodGumBase = жвачка
+    .desc = Абсолютно нормальная жвачка.
+ent-FoodGumPink = { ent-FoodGumBase }
+    .desc = Абсолютно нормальная розовая жвачка.
+ent-FoodGumBlue = { ent-FoodGumBase }
+    .desc = Абсолютно нормальная синяя жвачка.
+ent-FoodGumYellow = { ent-FoodGumBase }
+    .desc = Абсолютно нормальная жёлтая жвачка.
+ent-FoodGumPoison = { ent-FoodGumBase }
+    .desc = { ent-FoodGumPink.desc }
+    .suffix = Яд

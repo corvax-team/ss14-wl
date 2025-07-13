@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "by reartint(discord) from https://github.com/corvax-team/ss14-wl.git",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "arachn"
+    },
+    {
+      "name": "cischi"
+    },
+    {
+      "name": "felin"
+    },
+    {
+      "name": "human"
+    },
+    {
+      "name": "kidan"
+    },
+    {
+      "name": "murine"
+    },
+    {
+      "name": "sareng"
+    },
+    {
+      "name": "slime"
+    },
+    {
+      "name": "tayara"
+    },
+    {
+      "name": "unath"
+    },
+    {
+      "name": "vulpa"
+    },
+    {
+      "name": "moth"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+# Base
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodMintstickBase
+  abstract: true
+  name: mint stick
+  description: Very tasty mint stick.
+  components:
+  - type: Food
+  - type: Tag
+    tags:
+    - Mintstick
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/sticks.rsi
+    scale: 0.5,0.5
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+  - type: Item
+    sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/sticks.rsi
+    size: Tiny
+  - type: Clothing
+    sprite: _WL/Objects/Consumable/Food/Sweet/mintsticks/sticks.rsi
+    slots: [ mask ]
+    equippedPrefix: blue
+    quickEquip: false
+  - type: StaticPrice
+    price: 1
+  - type: InjectableSolution
+    solution: smokable
+  - type: Smokable
+# Mint Sticks
+
+- type: entity
+  name: blue mint stick
+  parent: FoodMintstickBase
+  id: FoodMintstickBlue
+  components:
+  - type: FlavorProfile
+    flavors:
+      - minty
+      - berry
+  - type: Sprite
+    state: blue
+  - type: Item
+    heldPrefix: blue
+  - type: Clothing
+    equippedPrefix: blue
+# Tastes like berry, mint
+
+- type: entity
+  name: red mint stick
+  parent: FoodMintstickBase
+  id: FoodMintstickRed
+  components:
+  - type: FlavorProfile
+    flavors:
+      - minty
+  - type: Sprite
+    state: red
+  - type: Clothing
+    equippedPrefix: red
+  - type: Item
+    heldPrefix: red
+# Tastes like mint
+
+- type: entity
+  name: yellow mint stick
+  parent: FoodMintstickBase
+  id: FoodMintstickYellow
+  components:
+  - type: FlavorProfile
+    flavors:
+      - minty
+      - sour
+  - type: Sprite
+    state: yellow
+  - type: Item
+    heldPrefix: yellow
+  - type: Clothing
+    equippedPrefix: yellow
+# Tastes like sour, mint
+

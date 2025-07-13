@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "by mofkkol(discord) from https://github.com/corvax-team/ss14-wl.git",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "stick1"
+    },
+    {
+      "name": "stick2"
+    },
+    {
+      "name": "stick3"
+    },
+    {
+      "name": "stick4"
+    },
+    {
+      "name": "stick5"
+    },
+    {
+      "name": "stick6"
+    }
+  ]
+}

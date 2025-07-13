@@ -1,0 +1,47 @@
+# Base
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodJellybean
+  name: jellybean
+  description: Cute creatures made, as far as you know, out of marmalade. # TODO: Should change depending on name.
+  components:
+  - type: Tag
+    tags:
+      - Jellybean
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/Food/Sweet/jellybeans/jellybeans.rsi
+    layers:
+      - state: human
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+    scale: 0.75,0.75
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base: # TODO: Vox & IPC
+          slime: ""
+          arachn: ""
+          cischi: ""
+          felin: ""
+          human: ""
+          kidan: ""
+          moth: ""
+          murine: ""
+          sareng: ""
+          tayara: ""
+          unath: ""
+          vulpa: ""
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+  - type: Item
+    sprite: _WL/Objects/Consumable/Food/Sweet/jellybeans/jellybeans.rsi
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+      - sweet
