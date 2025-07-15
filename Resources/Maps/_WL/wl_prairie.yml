@@ -12673,24 +12673,18 @@ entities:
     components:
     - type: Transform
       parent: 64
-    - type: Summonable
-      summonActionEntity: 3724
     - type: Physics
       canCollide: False
   - uid: 5523
     components:
     - type: Transform
       parent: 64
-    - type: Summonable
-      summonActionEntity: 5524
     - type: Physics
       canCollide: False
   - uid: 10591
     components:
     - type: Transform
       parent: 3770
-    - type: Summonable
-      summonActionEntity: 10701
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -29580,8 +29574,6 @@ entities:
     - type: Transform
       pos: 32.63451,-64.465324
       parent: 1
-    - type: Stethoscope
-      actionEntity: 1195
 - proto: ClothingNeckSyndicakePin
   entities:
   - uid: 2606
@@ -54856,7 +54848,6 @@ entities:
       pos: 49.695187,-23.316626
       parent: 1
     - type: GasTank
-      toggleActionEntity: 4584
     - type: Jetpack
 - proto: Jukebox
   entities:

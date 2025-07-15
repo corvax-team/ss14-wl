@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 262.0.0
-  forkId: syndicate-wl
-  forkVersion: b16905c16627c0c827602f1a59a642179ccd1164
-  time: 06/26/2025 14:23:20
-  entityCount: 29333
+  forkId: ""
+  forkVersion: ""
+  time: 07/15/2025 08:13:39
+  entityCount: 29332
 maps:
 - 1
 grids:
@@ -22159,14 +22159,6 @@ entities:
     - type: Transform
       pos: 3.5209696,41.644913
       parent: 2
-- proto: ActionToggleInternals
-  entities:
-  - uid: 6
-    components:
-    - type: Transform
-      parent: 5
-    - type: Transform
-      parent: 6676
 - proto: AdvMopItem
   entities:
   - uid: 26756
@@ -24347,7 +24339,7 @@ entities:
       pos: 13.5,4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -144694.3
+      secondsUntilStateChange: -144732.03
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -25974,7 +25966,7 @@ entities:
       pos: 17.5,2.5
       parent: 26755
     - type: Door
-      secondsUntilStateChange: -8625.775
+      secondsUntilStateChange: -8663.517
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -64210,10 +64202,6 @@ entities:
         - 0
         - 0
         - 0
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: ClosetMaintenanceFilledRandom
   entities:
   - uid: 6594
@@ -109111,10 +109099,6 @@ entities:
     components:
     - type: Transform
       parent: 4
-    - type: GasTank
-      toggleActionEntity: 6
-    - type: Jetpack
-      toggleActionEntity: 7
     - type: Physics
       canCollide: False
 - proto: JetpackMini
@@ -112179,11 +112163,11 @@ entities:
                 Мне это так надоело...
 
 
-          У меня такое чувство, что он не доносит сообщения до 
+          У меня такое чувство, что он не доносит сообщения до
                                                                                                    получателя..
 
 
-                              МhЕ КОНEU 
+                              МhЕ КОНEU
                                                              ОНИ НАW^И МОИ 3АПИСИ!!
   - uid: 12643
     components:
@@ -131348,6 +131332,23 @@ entities:
     components:
     - type: Transform
       pos: -19.5,33.5
+      parent: 2
+- proto: SpawnPointHeadOfPersonnel
+  entities:
+  - uid: 6
+    components:
+    - type: Transform
+      pos: -25.5,-3.5
+      parent: 2
+  - uid: 7
+    components:
+    - type: Transform
+      pos: -29.5,-2.5
+      parent: 2
+  - uid: 6676
+    components:
+    - type: Transform
+      pos: -25.5,-0.5
       parent: 2
 - proto: SpawnPointHeadOfSecurity
   entities:

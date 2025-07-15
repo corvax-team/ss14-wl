@@ -32702,8 +32702,6 @@ entities:
       rot: -2.9103830456733704E-11 rad
       pos: 4.60781,12.49023
       parent: 2
-    - type: Stethoscope
-      actionEntity: 764
     - type: Physics
       canCollide: False
 - proto: ClothingNeckSyndicakePin
@@ -64691,10 +64689,6 @@ entities:
       rot: -2.9103830456733704E-11 rad
       pos: 37.23493,44.696987
       parent: 2
-    - type: GasTank
-      toggleActionEntity: 4969
-    - type: Jetpack
-      toggleActionEntity: 4968
     - type: Physics
       canCollide: False
   - uid: 7350
@@ -67405,7 +67399,7 @@ entities:
         Я назову этот коктейль - [bold] "Мечты бармена" [/bold]
 
 
-        Вот она, моя мечта! 
+        Вот она, моя мечта!
 
 
         [italic] Серб, на вкус как вода с краской... [/italic]
