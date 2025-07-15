@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 262.0.0
-  forkId: syndicate-wl
-  forkVersion: dd2db55b382b6f92f9ff8e9ab718e90f0097ae02
-  time: 06/17/2025 11:50:25
-  entityCount: 13881
+  forkId: ""
+  forkVersion: ""
+  time: 07/15/2025 08:29:26
+  entityCount: 13869
 maps:
 - 1
 grids:
@@ -10341,7 +10341,7 @@ entities:
   - uid: 8715
     components:
     - type: Transform
-      pos: -7.5,5.8
+      pos: -7.5,5.5
       parent: 2
   - uid: 9401
     components:
@@ -64665,7 +64665,6 @@ entities:
       parent: 2
     - type: GasTank
       toggleActionEntity: 5890
-    - type: Jetpack
   - uid: 3786
     components:
     - type: Transform
@@ -64673,7 +64672,6 @@ entities:
       parent: 2
     - type: GasTank
       toggleActionEntity: 6097
-    - type: Jetpack
 - proto: JetpackSecurityFilled
   entities:
   - uid: 2843
@@ -67512,6 +67510,9 @@ entities:
       dnas: []
       fibers: []
       fingerprints: []
+    - type: ContainerContainer
+      containers:
+        solution@food: !type:ContainerSlot {}
 - proto: PaperBin10
   entities:
   - uid: 6151
@@ -79819,6 +79820,13 @@ entities:
     components:
     - type: Transform
       pos: -4.5,5.5
+      parent: 2
+- proto: SpawnPointLawyer
+  entities:
+  - uid: 764
+    components:
+    - type: Transform
+      pos: 45.5,33.5
       parent: 2
 - proto: SpawnPointLibrarian
   entities:
