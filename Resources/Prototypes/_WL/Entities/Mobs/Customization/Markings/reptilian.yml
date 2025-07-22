@@ -7,3 +7,124 @@
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: kobald_ushki
+
+- type: marking
+  id: geckoTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_gecko_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_gecko_secondary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_gecko_tertiary
+
+- type: marking
+  id: snakedualTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_snakedual_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_snakedual_secondary
+
+- type: marking
+  id: snakestripeTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_snakestripe_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_snakestripe_secondary
+
+- type: marking
+  id: snakestripealtTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_snakestripealt_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_snakestripealt_secondary
+
+- type: marking
+  id: snakeTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_snaketail
+
+- type: marking
+  id: snakeunderTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_snakeunder_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_tail_snakeunder_secondary
+
+# Animated
+
+- type: marking
+  id: snakedualTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_snakedual_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_snakedual_secondary
+
+- type: marking
+  id: snakestripeTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_snakestripe_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_snakestripe_secondary
+
+- type: marking
+  id: snakestripealtTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_snakestripealt_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_snakestripealt_secondary
+
+- type: marking
+  id: snakeTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_snaketail
+
+- type: marking
+  id: snakeunderTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_snakeunder_primary
+    - sprite: _WL/Mobs/Customization/all_tails.rsi
+      state: m_waggingtail_snakeunder_secondary
