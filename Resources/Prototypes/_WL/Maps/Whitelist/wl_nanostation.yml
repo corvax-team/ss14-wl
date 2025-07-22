@@ -1,0 +1,70 @@
+# Special Map for Corvax - Whitelist
+- type: gameMap
+  id: CorvaxWLNanoStation
+  mapName: 'НаноСтейшн'
+  mapPath: /Maps/_WL/wl_nanostation.yml
+  minPlayers: 0
+  maxPlayers: 25
+  stations:
+    CorvaxNanoStation:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} НаноСтейшн {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'MFV' # mofkkol + Vissent = MFV
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
+        - type: StationJobs
+          availableJobs: # Total jobs on the station: 55
+            # command: 2
+            Captain: [ 1, 1 ]
+            IAA: [ 1, 1 ]
+            # cargo: 5
+            Quartermaster: [ 1, 1 ]
+            SalvageSpecialist: [ 2, 2 ]
+            CargoTechnician: [ 2, 2 ]
+            # engineering: 6
+            ChiefEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 2, 2 ]
+            TechnicalAssistant: [ 2, 2 ]
+            # medical: 9
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 2, 2 ]
+            MedicalIntern: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
+            Chemist: [ 2, 2 ]
+            Psychologist: [ 1, 1 ]
+            # science: 6
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 3, 3 ]
+            ResearchAssistant: [ 2, 2 ]
+            # security: 9
+            HeadOfSecurity: [ 1, 1 ]
+            Warden: [ 1, 1 ]
+            SecurityOfficer: [ 2, 2 ]
+            SecurityCadet: [ 2, 2 ]
+            Detective: [ 1, 1 ]
+            Pilot: [ 1, 1 ]
+            Brigmedic: [1, 1 ]
+            # service: 16
+            HeadOfPersonnel: [ 1, 1 ]
+            Bartender: [ 1, 1 ]
+            Botanist: [ 2, 2 ]
+            Chaplain: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 1, 1 ]
+            Librarian: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
+            ServiceWorker: [ 2, 2 ]
+            Zookeeper: [ 1, 1 ]
+            Boxer: [ 1, 1 ]
+            Passenger: [ -1, -1 ]
+            # silicon: 2
+            StationAi: [ 1, 1 ]
+            Borg: [ 1, 1 ]

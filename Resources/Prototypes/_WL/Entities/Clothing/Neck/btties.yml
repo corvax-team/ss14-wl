@@ -1,0 +1,220 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieBlack
+  name: black bow-tie
+  description: It will suit you very well if you are a gentleman or a lawyer.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/blackbt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/blackbt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieBlue
+  name: blue bow-tie
+  description: Try to fix it elegantly.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/bluebt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/bluebt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieFriendship
+  name: friendship bow-tie
+  description: Makes everyone in the area friendly!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/friendship.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/friendship.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieGray
+  name: gray bow-tie
+  description: And no, it's not for tiders.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/graybt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/graybt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieGreen
+  name: green bow-tie
+  description: Look like a grass. Wait what is grass?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/greenbt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/greenbt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieLightBlue
+  name: light blue bow-tie
+  description: Just light blue bow tie, what you want to see?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/lbluebt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/lbluebt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieLong
+  name: long black bow-tie
+  description: He looks like black, but longer.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/long.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/long.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieOrange
+  name: orange bow-tie
+  description: Orange just like your mood.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/orngbt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/orngbt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTiePink
+  name: pink bow-tie
+  description: Seriously? Pink bow-tie, at least this means something?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/pinkbt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/pinkbt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTiePurple
+  name: purple bow-tie
+  description: Stylish purple bow-tie.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/purplebt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/purplebt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieRed
+  name: red bow-tie
+  description: Suitable for assistants in all areas.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/redbt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/redbt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieWhite
+  name: white bow-tie
+  description: Looks like you have power wearing that bow-tie.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/whitebt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/whitebt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBtTieYellow
+  name: yellow bow-tie
+  description: And no, he doesn't radiate happiness.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/BtTies/yelobt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/BtTies/yelobt.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable

@@ -1,5 +1,4 @@
 using Content.Server.DoAfter;
-using Content.Server.EntityEffects.Effects;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Popups;
@@ -23,6 +22,7 @@ using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Verbs;
+using Content.Shared.EntityEffects.Effects;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 

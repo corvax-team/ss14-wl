@@ -263,7 +263,7 @@ namespace Content.Server._WL.ChatGpt.Elements.OpenAi.Response
             Stop,
 
             /// <summary>
-            /// Неполный вывод модели из-за параметра <see cref="GptChatRequest.MaxTokens"/> или из-за лимита токенов. 
+            /// Неполный вывод модели из-за параметра <see cref="GptChatRequest.MaxTokens"/> или из-за лимита токенов.
             /// </summary>
             Length,
 

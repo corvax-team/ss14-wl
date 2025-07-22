@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/db81f2e7f584ce6e7c43a5349164b6f4fda335cc, reptilian from Skyrat tg at commit https://github.com/Skyrat-SS13/Skyrat-tg/commit/a6bd62bb09ae4d0785d59a1d882e8048b4b7e987. In hand sprite scaled down by potato1234_x, monkey made by SonicHDC (github) for ss14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-INNERCLOTHING-monkey",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

@@ -143,9 +143,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
@@ -54331,60 +54329,6 @@ entities:
     - type: Transform
       pos: -63.471325,51.770706
       parent: 2
-- proto: ActionSleep
-  entities:
-  - uid: 11
-    components:
-    - type: Transform
-      parent: 10
-    - type: InstantAction
-      container: 10
-- proto: ActionToggleInternals
-  entities:
-  - uid: 14
-    components:
-    - type: Transform
-      parent: 13
-    - type: InstantAction
-      container: 13
-  - uid: 45499
-    components:
-    - type: Transform
-      parent: 45498
-    - type: InstantAction
-      container: 45498
-- proto: ActionToggleLight
-  entities:
-  - uid: 18
-    components:
-    - type: Transform
-      parent: 17
-    - type: InstantAction
-      container: 17
-  - uid: 20
-    components:
-    - type: Transform
-      parent: 19
-    - type: InstantAction
-      container: 19
-  - uid: 22
-    components:
-    - type: Transform
-      parent: 21
-    - type: InstantAction
-      container: 21
-  - uid: 24
-    components:
-    - type: Transform
-      parent: 23
-    - type: InstantAction
-      container: 23
-  - uid: 40743
-    components:
-    - type: Transform
-      parent: 40742
-    - type: InstantAction
-      container: 40742
 - proto: AdvMopItem
   entities:
   - uid: 45500
@@ -142420,22 +142364,6 @@ entities:
     components:
     - type: Transform
       parent: 40741
-    - type: HandheldLight
-      toggleActionEntity: 40743
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 40743
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
   - uid: 41729
     components:
     - type: Transform
@@ -159048,14 +158976,6 @@ entities:
     - type: Transform
       pos: -3.5,-10.5
       parent: 2
-    - type: HealOnBuckle
-      sleepAction: 11
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 11
   - uid: 17475
     components:
     - type: Transform
@@ -211689,22 +211609,8 @@ entities:
     - type: Transform
       pos: -44.68446,-16.178232
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 20
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 20
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 23680
     components:
     - type: Transform
@@ -211821,64 +211727,22 @@ entities:
     - type: Transform
       pos: 7.7054033,20.982077
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 18
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 18
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 21
     components:
     - type: Transform
       pos: 74.504715,-39.141045
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 22
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 22
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 23
     components:
     - type: Transform
       pos: -25.327244,26.74304
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 24
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 24
     - type: Physics
       canCollide: True
-    - type: ActionsContainer
   - uid: 23697
     components:
     - type: Transform
@@ -218037,16 +217901,6 @@ entities:
     components:
     - type: Transform
       parent: 12
-    - type: GasTank
-      toggleActionEntity: 14
-    - type: Physics
-      canCollide: False
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 14
     - type: InsideEntityStorage
   - uid: 42847
     components:
@@ -219323,25 +219177,25 @@ entities:
       parent: 2
     - type: Paper
       content: >+
-        [bullet]Первое правило Бойцовского клуба: не упоминать о Бойцовском клубе. 
+        [bullet]Первое правило Бойцовского клуба: не упоминать о Бойцовском клубе.
 
 
-        [bullet]Второе правило Бойцовского клуба: не упоминать [color=red]нигде[/color] о Бойцовском клубе. 
+        [bullet]Второе правило Бойцовского клуба: не упоминать [color=red]нигде[/color] о Бойцовском клубе.
 
 
-        [bullet]Третье правило Бойцовского клуба: боец крикнул «стоп», выдохся, отключился — бой окончен. 
+        [bullet]Третье правило Бойцовского клуба: боец крикнул «стоп», выдохся, отключился — бой окончен.
 
 
-        [bullet]Четвертое: в бою участвуют лишь двое. 
+        [bullet]Четвертое: в бою участвуют лишь двое.
 
 
-        [bullet]Пятое: один бой за вечер, друзья. 
+        [bullet]Пятое: один бой за вечер, друзья.
 
 
-        [bullet]Шестое: снимать обувь и рубашки. 
+        [bullet]Шестое: снимать обувь и рубашки.
 
 
-        [bullet]Седьмое: бой продолжается столько, сколько нужно. 
+        [bullet]Седьмое: бой продолжается столько, сколько нужно.
 
 
         [bullet]Восьмое и последнее: тот, кто впервые пришёл в клуб — примет бой.
@@ -219431,7 +219285,7 @@ entities:
 
         [bullet][bold]10-3 [color=red]Повторите
 
-        [/color][/bullet][/bold] 
+        [/color][/bullet][/bold]
 
         [bullet][bold]10-4 [color=#32a852]Принял[/color][/bullet][/bold]
 
@@ -219491,7 +219345,7 @@ entities:
 
         [bullet][bold]10-3 [color=red]Повторите
 
-        [/color][/bullet][/bold] 
+        [/color][/bullet][/bold]
 
         [bullet][bold]10-4 [color=#32a852]Принял[/color][/bullet][/bold]
 
@@ -219821,7 +219675,7 @@ entities:
     - type: Paper
       content: >2
 
-        Блять! Это всё же случилось.. Ирвин был прав, Эдмунд сошёл с ума! Повсюду стали появляться какие-то твари.. мне страшно. Мы успели закрыться в саду, но.. Крис ранен, кровь вроде остановили но он выглядит бледно.. 
+        Блять! Это всё же случилось.. Ирвин был прав, Эдмунд сошёл с ума! Повсюду стали появляться какие-то твари.. мне страшно. Мы успели закрыться в саду, но.. Крис ранен, кровь вроде остановили но он выглядит бледно..
 
         Еда и вода тут есть, надеюсь нас кто-нибудь спасёт.. За стенкой слышу крики и сирену. Что ж это за блядство..
   - uid: 42856
@@ -220245,7 +220099,7 @@ entities:
 
         [head=3]Введение[/head]
 
-        Поздравляем с приобретением беговой дорожки R-34! 
+        Поздравляем с приобретением беговой дорожки R-34!
 
         Для правильной установки и безопасного использования данного оборудования, пожалуйста, следуйте нижеприведённым инструкциям.
 
@@ -220260,7 +220114,7 @@ entities:
 
         [head=3]Шаги по установке[/head]
 
-        1. Подготовка места установки. 
+        1. Подготовка места установки.
 
         Убедитесь, что у вас есть достаточно места для установки беговой дорожки.
 
@@ -220416,7 +220270,7 @@ entities:
       parent: 40740
     - type: Paper
       content: >
-        Это была ошибка. Всё это. Не стоило так рисковать. Всё кончено. 
+        Это была ошибка. Всё это. Не стоило так рисковать. Всё кончено.
 
         Да простит Господь гения, который пожертвовал человеческими жизнями во имя прогресса.
   - uid: 42860
@@ -220652,7 +220506,7 @@ entities:
 
         [color=#B50F1D] █░░░░████░░░░█[/color]             [head=3]Syndicate[/head]
 
-        [color=#B50F1D] █░░░░░░░██░░░█[/color]   
+        [color=#B50F1D] █░░░░░░░██░░░█[/color]
 
         [color=#B50F1D] ███░██████░███[/color]
 
@@ -221575,14 +221429,6 @@ entities:
     - type: Transform
       pos: -2.1987104,25.169998
       parent: 45497
-    - type: GasTank
-      toggleActionEntity: 45499
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 45499
 - proto: PlasmaWindoorJanitorLocked
   entities:
   - uid: 24506
@@ -247612,7 +247458,7 @@ entities:
         Позывной агента: Мусор
 
 
-        Я, Мусор, успешно ликвидировал цель Синдиката. 
+        Я, Мусор, успешно ликвидировал цель Синдиката.
 
         Отчёт:
 

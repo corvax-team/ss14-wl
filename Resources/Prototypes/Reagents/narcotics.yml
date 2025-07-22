@@ -434,7 +434,7 @@
           shouldHave: false
 # WL species end
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
-        boozePower: 5
+        boozePower: 20 #5 # WL-Changes
 # WL species start
         conditions:
         # Golem

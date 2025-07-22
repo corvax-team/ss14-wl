@@ -10,6 +10,9 @@
     ClothingUniformJumpsuitLawyerBlack: 1
     ClothingUniformJumpskirtLawyerBlack: 1
     ClothingUniformJumpsuitLawyerGood: 1
+    ClothingNeckBtTieBlack: 2 # WL-Changes: Респрайт РНД и новые вещи
+    ClothingNeckBtTieLong: 2 # WL-Changes: Респрайт РНД и новые вещи
+    ClothingNeckBtTieRed: 2 # WL-Changes: Респрайт РНД и новые вещи
     ClothingUniformJumpskirtLawyerGood: 1
     ClothingShoesBootsLaceup: 2
     ClothingHeadsetIAA: 2 # Corvax-IAA

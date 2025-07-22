@@ -16,8 +16,6 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Station;
 using JetBrains.Annotations;
@@ -25,7 +23,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server.Roles;
 
@@ -47,18 +44,8 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
-    [Dependency] private readonly RoleSystem _role = default!;
-
-    private bool _randomizeCharacters;
-
-    /// <inheritdoc/>
-    public override void Initialize()
-    {
-        base.Initialize();
-        Subs.CVar(_configurationManager, CCVars.ICRandomCharacters, e => _randomizeCharacters = e, true);
-    }
+    [Dependency] private readonly RoleSystem _role = default!; // WL-Changes
 
     /// <summary>
     /// Attempts to spawn a player character onto the given station.
@@ -66,8 +53,6 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <param name="station">Station to spawn onto.</param>
     /// <param name="job">The job to assign, if any.</param>
     /// <param name="profile">The character profile to use, if any.</param>
-    /// <param name="stationSpawning">Resolve pattern, the station spawning component for the station.</param>
-    /// <returns>The resulting player character, if any.</returns>
     /// <exception cref="ArgumentException">Thrown when the given station is not a station.</exception>
     /// <remarks>
     /// This only spawns the character, and does none of the mind-related setup you'd need for it to be playable.
@@ -141,30 +126,28 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             return jobEntity;
         }
 
-        string speciesId;
-        if (_randomizeCharacters)
-        {
-            var weightId = _configurationManager.GetCVar(CCVars.ICRandomSpeciesWeights);
-            var weights = _prototypeManager.Index<WeightedRandomSpeciesPrototype>(weightId);
-            speciesId = weights.Pick(_random);
-        }
-        else if (profile != null)
-        {
-            speciesId = profile.Species;
-        }
-        else
-        {
-            speciesId = SharedHumanoidAppearanceSystem.DefaultSpecies;
-        }
+        string speciesId = profile != null ? profile.Species : SharedHumanoidAppearanceSystem.DefaultSpecies;
 
         if (!_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species))
             throw new ArgumentException($"Invalid species prototype was used: {speciesId}");
 
         entity ??= Spawn(species.Prototype, coordinates);
 
-        if (_randomizeCharacters)
+        if (profile != null)
         {
-            profile = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
+            _humanoidSystem.LoadProfile(entity.Value, profile);
+            _metaSystem.SetEntityName(entity.Value, profile.Name);
+
+            // WL-Changes-Start
+
+            // if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
+            // {
+            //     AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+            // }
+
+            EnsureComp<CharacterInformationComponent>(entity.Value).FlavorText = profile.FlavorText; // WL-CharacterInformation
+            EnsureComp<CharacterInformationComponent>(entity.Value).OocText = profile.OocText;
+            // WL-Changes-End
         }
 
         if (loadout != null)
@@ -181,23 +164,9 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);
         RaiseLocalEvent(entity.Value, ref gearEquippedEv);
 
-        if (profile != null)
+        if (prototype != null && TryComp(entity.Value, out MetaDataComponent? metaData))
         {
-            if (prototype != null)
-                SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station);
-
-            _humanoidSystem.LoadProfile(entity.Value, profile);
-            _metaSystem.SetEntityName(entity.Value, profile.Name);
-
-            ////WL-changes-start
-            //if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-            //{
-            //    AddComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
-            //}
-
-            EnsureComp<CharacterInformationComponent>(entity.Value).FlavorText = profile.FlavorText; // WL-CharacterInformation
-            EnsureComp<CharacterInformationComponent>(entity.Value).OocText = profile.OocText;
-            ////WL-changes-end
+            SetPdaAndIdCardData(entity.Value, metaData.EntityName, prototype, station);
         }
 
         DoJobSpecials(job, entity.Value);

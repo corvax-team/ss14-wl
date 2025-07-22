@@ -1,48 +1,48 @@
 - type: stack
   id: Chips10
-  name: Chips10
+  name: stack-chips-10
   icon: Objects/Specific/Syndicate/telecrystal.rsi
   spawn: Chips10
   maxCount: 15
 
 - type: stack
   id: Chips25
-  name: Chips25
+  name: stack-chips-25
   icon: Objects/Specific/Syndicate/telecrystal.rsi
   spawn: Chips25
   maxCount: 15
 
 - type: stack
   id: Chips50
-  name: Chips50
+  name: stack-chips-50
   icon: Objects/Specific/Syndicate/telecrystal.rsi
   spawn: Chips50
   maxCount: 15
 
 - type: stack
   id: Chips100
-  name: Chips100
+  name: stack-chips-100
   icon: Objects/Specific/Syndicate/telecrystal.rsi
   spawn: Chips100
   maxCount: 15
 
 - type: stack
   id: Chips250
-  name: Chips250
+  name: stack-chips-250
   icon: Objects/Specific/Syndicate/telecrystal.rsi
   spawn: Chips250
   maxCount: 15
 
 - type: stack
   id: Chips500
-  name: Chips500
+  name: stack-chips-500
   icon: Objects/Specific/Syndicate/telecrystal.rsi
   spawn: Chips500
   maxCount: 15
 
 - type: stack
   id: Chips2000
-  name: Chips2000
+  name: stack-chips-2000
   icon: Objects/Specific/Syndicate/telecrystal.rsi
   spawn: Chips2000
   maxCount: 15

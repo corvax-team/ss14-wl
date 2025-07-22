@@ -4,8 +4,9 @@
   description: Open your portable MIDI interface to soothe your owner.
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     checkCanInteract: false
     icon: Objects/Fun/Instruments/microphone.rsi/icon.png
+  - type: InstantAction
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key

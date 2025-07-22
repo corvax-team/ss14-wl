@@ -27,6 +27,7 @@ enabled = true
 
 [ic]
 flavor_text = true
+flavor_text_length = 1536
 punctuation = true
 
 [salvage]

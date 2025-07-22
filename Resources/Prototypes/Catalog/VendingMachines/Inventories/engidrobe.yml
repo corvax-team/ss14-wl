@@ -16,6 +16,7 @@
     ClothingOuterWinterEngi: 2
     ClothingNeckScarfStripedOrange: 3
     ClothingShoesBootsWinterEngi: 2
+    ClothingNeckTieEngi: 3 # WL-Changes: Респрайт РНД и новые вещи
   contrabandInventory:
     ToyFigurineEngineer: 1
     ToyFigurineChiefEngineer: 1

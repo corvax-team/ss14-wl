@@ -17,6 +17,10 @@
 #      time: 144000 #40 hrs
     - !type:AgeRequirement
       minAge: 27 # WL-Changes-AgeRequirement
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -52,3 +56,11 @@
     back:
     - Flash
     - MagazinePistol
+
+- type: chameleonOutfit
+  id: HeadOfSecurityChameleonOutfit
+  job: HeadOfSecurity
+  hasMindShield: true
+  equipment:
+    mask: ClothingMaskGasSecurity
+    neck: ClothingNeckCloakHos

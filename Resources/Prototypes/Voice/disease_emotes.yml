@@ -13,12 +13,13 @@
     components:
     - Vocal
   blacklist:
-    components:
     # WL-Changes-start
-    #- BorgChassis
+    components:
     - BorgTransponder
     # WL-Changes-end
-    - Ipc #corvax-species
+    tags:
+    - SiliconEmotes
+    - Ipc # Corvax-Species
   chatMessages: ["chat-emote-msg-cough"]
   chatTriggers:
     - cough
@@ -63,12 +64,13 @@
     components:
     - Vocal
   blacklist:
-    components:
     # WL-Changes-start
-    #- BorgChassis
+    components:
     - BorgTransponder
     # WL-Changes-end
-    - Ipc #corvax-species
+    tags:
+    - SiliconEmotes
+    - Ipc # Corvax-Species
   chatMessages: ["chat-emote-msg-yawn"]
   chatTriggers:
     - yawn

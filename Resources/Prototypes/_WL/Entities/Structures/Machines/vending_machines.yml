@@ -1,0 +1,32 @@
+# Classic Clothing Vending Machine
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineCorp
+  name: Corp-O-Mat
+  description: A vending machine with classic clothing.
+  components:
+  - type: VendingMachine
+    pack: CorpDrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: CorpDrobeAds
+  - type: SpeakOnUIClosed
+    pack: CorpDrobeGoodbyes
+  - type: Speech
+  - type: PointLight
+    radius: 1.5
+    energy: 1.3 # reduced energy since the color is pure white
+    color: "#FFFFFF"
+  - type: Sprite
+    sprite: _WL/Structures/Machines/VendingMachines/corp.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
