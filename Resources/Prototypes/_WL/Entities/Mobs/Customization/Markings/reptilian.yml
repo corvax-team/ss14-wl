@@ -80,7 +80,7 @@
   id: snakedualTailAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Reptilian]
+  speciesRestriction: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_snakedual_primary
@@ -91,7 +91,7 @@
   id: snakestripeTailAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Reptilian]
+  speciesRestriction: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_snakestripe_primary
@@ -102,7 +102,7 @@
   id: snakestripealtTailAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Reptilian]
+  speciesRestriction: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_snakestripealt_primary
@@ -113,7 +113,7 @@
   id: snakeTailAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Reptilian]
+  speciesRestriction: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_snaketail
@@ -122,7 +122,7 @@
   id: snakeunderTailAnimated
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Reptilian]
+  speciesRestriction: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_snakeunder_primary
