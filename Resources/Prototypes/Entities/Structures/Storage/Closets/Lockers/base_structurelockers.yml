@@ -7,7 +7,7 @@
   - type: Lock
   - type: LockVisuals
   - type: Sprite
-    sprite: _WL/Structures/Storage/closet.rsi # WL-Chages: Respright Day
+    sprite: _WL/Structures/Storage/closet.rsi # WL-Changes: Respright Day
     noRot: true
     layers:
     - state: generic

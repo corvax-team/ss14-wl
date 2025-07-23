@@ -61,7 +61,7 @@
   targetNode: basebigbox
   category: construction-category-storage
   description: A big box for storing things or hiding in.
-  icon: { sprite: _WL/Structures/Storage/closet.rsi , state: cardboard } # WL-Chages: Respright Day
+  icon: { sprite: _WL/Structures/Storage/closet.rsi , state: cardboard } # WL-Changes: Respright Day
   objectType: Structure
 
 - type: construction

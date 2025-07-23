@@ -700,7 +700,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = lockerName,
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new ("/Textures/_WL/Structures/Storage/closet.rsi # WL-Chages: Respright Day"), "generic"),
+            Icon = new SpriteSpecifier.Rsi(new ("/Textures/_WL/Structures/Storage/closet.rsi"), "generic"), // WL-Changes: Respright Day
             Act = () =>
             {
                 var xform = Transform(args.Target);

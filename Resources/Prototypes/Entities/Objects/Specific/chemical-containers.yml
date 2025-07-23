@@ -9,7 +9,7 @@
         beaker:
           maxVol: 200
     - type: Sprite
-      sprite: _WL/Objects/Specific/Chemistry/jug.rsi # WL-Chages: Respright Day
+      sprite: _WL/Objects/Specific/Chemistry/jug.rsi # WL-Changes: Respright Day
       layers:
         - state: jug
         - state: jug1
@@ -50,7 +50,7 @@
       inHandsFillBaseName: -fill-
     - type: StaticPrice
       price: 60
-# WL-Chages: Respright Day Start
+# WL-Changes: Respright Day Start
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Glass
@@ -88,7 +88,7 @@
       damage:
         types:
           Blunt: 5
-# WL-Chages: Respright Day End
+# WL-Changes: Respright Day End
     - type: Label
     - type: Tag
       tags:
