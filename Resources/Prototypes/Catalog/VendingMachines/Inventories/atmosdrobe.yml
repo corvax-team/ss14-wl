@@ -6,7 +6,7 @@
     ClothingBackpackAtmospherics: 2
     ClothingUniformJumpsuitAtmos: 3
     ClothingUniformJumpskirtAtmos: 3
-    ClothingUniformJumpsuitAtmosCasual: 3 
+    ClothingUniformJumpsuitAtmosCasual: 3
     ClothingAtmosphericsOveralls: 3 # CorvaxAtmosFashion
     ClothingShoesColorWhite: 3
     ClothingHeadsetEngineering: 2
@@ -14,5 +14,6 @@
     ClothingOuterSuitFire: 2
     ClothingOuterWinterAtmos: 2
     ClothingNeckScarfStripedLightBlue: 3
+    ClothingNeckTieAtmos: 3 # WL-Changes: Респрайт РНД и новые вещи
   contrabandInventory:
     ToyFigurineAtmosTech: 1

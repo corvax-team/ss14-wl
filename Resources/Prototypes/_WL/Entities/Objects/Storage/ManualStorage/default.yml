@@ -6,11 +6,14 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Storage/ManualStorage/Default/small.rsi
+    layers:
+      - map: [ base ]
+        state: icon
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Default/small.rsi
     size: Large
     shape:
-    - 0,0,2,2
+    - 0,0,1,2
   - type: Storage
     maxItemSize: Small
     grid:
@@ -24,6 +27,13 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Storage/ManualStorage/Default/box.rsi
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: paper
+        visible: false
+        sprite: _WL/Objects/Storage/ManualStorage/Paper/labels.rsi
+        map: ["enum.PaperLabelVisuals.Layer"]
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Default/box.rsi
     size: Ginormous
@@ -32,7 +42,7 @@
   - type: Storage
     maxItemSize: Large
     grid:
-    - 0,0,3,2
+    - 0,0,3,5
   - type: MultiHandedItem
 
 - type: entity
@@ -43,6 +53,13 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Storage/ManualStorage/Default/big.rsi
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: paper
+        visible: false
+        sprite: _WL/Objects/Storage/ManualStorage/Paper/big_labels.rsi
+        map: ["enum.PaperLabelVisuals.Layer"]
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Default/big.rsi
     size: Ginormous
@@ -51,8 +68,8 @@
   - type: Storage
     maxItemSize: Ginormous
     grid:
-    - 0,0,4,3
+    - 0,0,15,8
   - type: MultiHandedItem
   - type: HeldSpeedModifier
-    walkModifier: 0.6
-    sprintModifier: 0.6
+    walkModifier: 0.7
+    sprintModifier: 0.7

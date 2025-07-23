@@ -6,10 +6,10 @@ ent-BioTube1 = { ent-BioTube }
     .suffix = One
     .desc = { ent-BioTube.desc }
 
-ent-TiriumPack = thirium package
+ent-RitiumPack = ritium package
     .desc = Will help restore lost biofluid.
     .suffix = Full
 
-ent-TiriumPack1 = { ent-TiriumPack }
+ent-RitiumPack1 = { ent-RitiumPack }
     .suffix = One
-    .desc = { ent-TiriumPack.desc }
+    .desc = { ent-RitiumPack.desc }

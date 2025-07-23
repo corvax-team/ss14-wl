@@ -1,0 +1,6 @@
+# Recipes
+
+- type: latheRecipe
+  parent: BaseCircuitboardRecipe
+  id: ThrusterSmallMachineCircuitboard
+  result: ThrusterSmallMachineCircuitboard

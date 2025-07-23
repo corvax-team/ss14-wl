@@ -3,8 +3,6 @@
   name: job-name-hop
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
-  subnames:
-  - Male: сервис-администратор
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
@@ -12,6 +10,9 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 18000 #5 hrs # Corvax-RoleTime
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 9000 # 2.5 hrs
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 #5 hrs # Corvax-RoleTime
@@ -22,6 +23,10 @@
       time: 180000 #50 hrs # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 26 # WL-Changes-AgeRequirement
+    - !type:TraitsRequirement #Corvax-TraitsRequirement
+      inverted: true
+      traits:
+      - Muted
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -72,3 +77,15 @@
   storage:
     back:
     - Flash
+
+- type: chameleonOutfit
+  id: HeadOfPersonnelChameleonOutfit
+  job: HeadOfPersonnel
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatHopcap
+    eyes: ClothingEyesHudCommand
+    mask: ClothingMaskNeckGaiterRed
+    neck: ClothingNeckCloakHop
+    outerClothing: ClothingOuterWinterHoP
+

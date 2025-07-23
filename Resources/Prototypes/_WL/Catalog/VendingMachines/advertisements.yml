@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: CorpDrobeAds
+  values:
+    prefix: advertisement-corp-
+    count: 5

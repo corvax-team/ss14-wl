@@ -7,13 +7,12 @@
   subnames:
   - Male: капеллан
   - Male: монах
-  - Male: мулла
   - Male: проповедник
     Female: проповедница
-  - Male: раввин
   - Male: клирик
   - Male: жрец
     Female: жрица
+  - Male: религиовед
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
   access:
@@ -26,7 +25,7 @@
   # WL-Changes-AgeRequirement Start
   requirements:
     - !type:AgeRequirement
-      minAge: 22
+      minAge: 18
   # WL-Changes-AgeRequirement End
 
 - type: startingGear
@@ -39,3 +38,15 @@
     back:
     - Bible
     - RubberStampChaplain
+
+- type: chameleonOutfit
+  id: ChaplainChameleonOutfit
+  job: Chaplain
+  equipment:
+    head: ClothingHeadHatPlaguedoctor
+    eyes: ClothingEyesGlasses
+    mask: ClothingMaskPlague
+    neck: ClothingNeckStoleChaplain
+    outerClothing: ClothingOuterPlagueSuit
+    gloves: ClothingHandsGlovesColorBlack
+

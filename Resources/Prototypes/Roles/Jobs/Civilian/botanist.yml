@@ -5,10 +5,11 @@
   playTimeTracker: JobBotanist
   startingGear: BotanistGear
   subnames:
-  - Male: садовник
   - Male: флорист
-  - Male: фермер
   - Male: агроном
+  - Male: зооботаник
+  - Male: агротехник
+  - Male: оператор гидропонного отсека
   icon: "JobIconBotanist"
   supervisors: job-supervisors-hop
   access:
@@ -33,3 +34,14 @@
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: BotanistChameleonOutfit
+  job: Botanist
+  equipment:
+    head: ClothingHeadBandBotany
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    neck: ClothingNeckScarfStripedGreen
+    outerClothing: ClothingOuterApronBotanist
+    gloves: ClothingHandsGlovesLeather

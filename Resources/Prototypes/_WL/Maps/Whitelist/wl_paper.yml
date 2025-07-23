@@ -1,6 +1,7 @@
+# Special Map for Corvax - Whitelist
 - type: gameMap
   id: CorvaxWLPaper
-  mapName: 'Paper Station'
+  mapName: 'Пейпер'
   mapPath: /Maps/_WL/wl_paper.yml
   maxRandomOffset: 0
   randomRotation: false
@@ -17,8 +18,8 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlpaper.yml
         - type: StationJobs
-          availableJobs:
-            # command
+          availableJobs:  # Total jobs on the station: 59
+            #  command: 8
             Captain: [ 1, 1 ]
             IAA: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
@@ -27,31 +28,32 @@
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            # cargo
+            # cargo: 5
             SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ 3, 3 ]
-            # engineering
+            CargoTechnician: [ 2, 2 ]
+            # engineering: 6
             AtmosphericTechnician: [ 2, 2 ]
-            StationEngineer: [ 3, 3 ]
+            StationEngineer: [ 2, 2 ]
             TechnicalAssistant: [ 2, 2 ]
-            # medical
-            MedicalDoctor: [ 3, 3 ]
+            # medical: 8
+            MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
-            # science
-            Scientist: [ 3, 3 ]
+            # science: 4
+            Scientist: [ 2, 2 ]
             ResearchAssistant: [ 2, 2 ]
-            # security
+            # security: 7
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 2, 2 ]
             SecurityCadet: [ 2, 2 ]
             Detective: [ 1, 1 ]
+        #   Brigmedic: [ 1, 1 ]
             Pilot: [ 1, 1 ]
-            # service
+            # service: 17
             Bartender: [ 2, 2 ]
-            Botanist: [ 3, 3 ]
+            Botanist: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 2, 2 ]
             Clown: [ 1, 1 ]
@@ -60,8 +62,9 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 1, 1 ]
-            ServiceWorker: [ 3, 3 ]
+            ServiceWorker: [ 2, 2 ]
             Zookeeper: [ 1, 1 ]
             Passenger: [ -1, -1 ]
-            #silicon
+            #silicon: 2
             Borg: [ 2, 2 ]
+        #   StationAi: [ 1, 1 ]

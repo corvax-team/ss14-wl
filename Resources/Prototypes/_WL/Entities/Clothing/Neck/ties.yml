@@ -1,0 +1,271 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieAtmos
+  name: atmos tie
+  description: Too stylish for fire.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/atmos.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/atmos.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieBlue
+  name: blue tie
+  description: You got blood on my suit.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/blue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/blue.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieEngi
+  name: engineering tie
+  description: Not insulated.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/engi.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/engi.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieGray
+  name: gray tie
+  description: You feel mysterious.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/gray.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/gray.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieGreen
+  name: green tie
+  description: Look like a grass. Wait what is grass?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/green.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/green.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieJani
+  name: janitor tie
+  description: Looking at him you seem to glide.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/jani.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/jani.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieLightBlue
+  name: light blue tie
+  description: No, not this time.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/lblue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/lblue.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieMed
+  name: medic tie
+  description: What is a license?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/medic.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/medic.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieOperative
+  name: operative tie
+  description: 5 minute adventure.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/oper.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/oper.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieOrange
+  name: orange tie
+  description: Orange just like your mood.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/orng.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/orng.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTiePink
+  name: pink tie
+  description: Stylish pink tie.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/pink.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/pink.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTiePurple
+  name: purple tie
+  description: Stylish purple tie.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/purple.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/purple.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieRainbow
+  name: rainbow tie
+  description: Suitable for cool parties.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/rainbow.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/rainbow.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieSyndie
+  name: syndicate tie
+  description: Wear this if you want kill people with stylish.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/syndi.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/syndi.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieWhite
+  name: white tie
+  description: So white you can't even see it on you.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/white.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/white.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieYellow
+  name: yellow tie
+  description: Does he radiate joy?.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Ties/yelo.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Ties/yelo.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable

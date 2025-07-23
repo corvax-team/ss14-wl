@@ -10,6 +10,7 @@
     ClothingHeadsetService: 2
     ClothingOuterWinterJani: 2
     ClothingNeckScarfStripedPurple: 3
+    ClothingNeckTieJani: 3 # WL-Changes: Респрайт РНД и новые вещи
   contrabandInventory:
     ToyFigurineJanitor: 1
   emaggedInventory:

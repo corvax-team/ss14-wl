@@ -1,13 +1,12 @@
 - type: reagent
-  id: Tirium
-  name: reagent-name-tirium
+  id: Ritium
+  name: reagent-name-ritium
   group: Biological
-  desc: reagent-desc-tirium
+  desc: reagent-desc-ritium
   flavor: oily
   color: "#224dff"
   recognizable: true
   physicalDesc: reagent-physical-desc-viscous
-  slippery: false
   viscosity: 0.25
   tileReactions:
     - !type:SpillTileReaction

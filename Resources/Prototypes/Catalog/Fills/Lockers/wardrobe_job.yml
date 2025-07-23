@@ -128,6 +128,7 @@
        - id: ClothingUniformJumpsuitMedicalDoctor
        - id: ClothingBackpackMedical
        - id: ClothingShoesColorWhite
+       - id: ClothingNeckTieMed # WL-Changes: Респрайт РНД и новые вещи
        - id: ClothingOuterCoatLab
        - id: ClothingUniformJumpskirtMedicalDoctor
        - id: ClothingHandsGlovesLatex
@@ -204,6 +205,7 @@
        - id: ClothingBackpackEngineering
        - id: ClothingShoesColorWhite
        - id: ClothingUniformJumpskirtAtmos
+       - id: ClothingNeckTieAtmos # WL-Changes: Респрайт РНД и новые вещи
 
  - type: entity
    id: WardrobeEngineeringFilled
@@ -219,3 +221,4 @@
        - id: ClothingShoesBootsWork
        - id: ClothingOuterVestHazard
        - id: ClothingUniformJumpskirtEngineering
+       - id: ClothingNeckTieEngi # WL-Changes: Респрайт РНД и новые вещи

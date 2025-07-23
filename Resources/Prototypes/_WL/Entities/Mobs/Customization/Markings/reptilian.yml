@@ -1,0 +1,9 @@
+#Head
+- type: marking
+  id: kobaldushkiEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Reptilian]
+  sprites:
+    - sprite: _WL/Mobs/Customization/ears.rsi
+      state: kobald_ushki

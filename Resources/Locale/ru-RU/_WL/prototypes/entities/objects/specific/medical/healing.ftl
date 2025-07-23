@@ -6,10 +6,10 @@ ent-BioTube1 = { ent-BioTube }
     .suffix = Один
     .desc = { ent-BioTube.desc }
 
-ent-TiriumPack = Пакет с тириумом
+ent-RitiumPack = Пакет с ритиумом
     .desc = Поможет восстановить потерянную биожидкость.
     .suffix = Полный
 
-ent-TiriumPack1 = { ent-TiriumPack }
+ent-RitiumPack1 = { ent-RitiumPack }
     .suffix = Один
-    .desc = { ent-TiriumPack.desc }
+    .desc = { ent-RitiumPack.desc }

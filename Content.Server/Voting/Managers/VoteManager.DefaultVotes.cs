@@ -1,14 +1,13 @@
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
+using Content.Server.Construction.Conditions;
 using Content.Server.Discord.WebhookMessages;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
 using Content.Server.Maps;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
+using Content.Shared._WL.CCVars;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
@@ -19,6 +18,9 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 
 namespace Content.Server.Voting.Managers
 {
@@ -38,7 +40,10 @@ namespace Content.Server.Voting.Managers
             {StandardVoteType.Restart, CCVars.VoteRestartEnabled},
             {StandardVoteType.Preset, CCVars.VotePresetEnabled},
             {StandardVoteType.Map, CCVars.VoteMapEnabled},
-            {StandardVoteType.Votekick, CCVars.VotekickEnabled}
+            {StandardVoteType.Votekick, CCVars.VotekickEnabled},
+            // WL-Changes-start
+            {StandardVoteType.EvacuationShuttle, WLCVars.VoteShuttleEnabled},
+            // WL-Changes-end
         };
 
         public void CreateStandardVote(ICommonSession? initiator, StandardVoteType voteType, string[]? args = null)
@@ -69,6 +74,11 @@ namespace Content.Server.Voting.Managers
                     timeoutVote = false; // Allows the timeout to be updated manually in the create method
                     CreateVotekickVote(initiator, args);
                     break;
+                // WL-Changes-start
+                case StandardVoteType.EvacuationShuttle:
+                    CreateVoteShuttleEvac(initiator);
+                    break;
+                // WL-Changes-end
                 default:
                     throw new ArgumentOutOfRangeException(nameof(voteType), voteType, null);
             }
@@ -76,6 +86,68 @@ namespace Content.Server.Voting.Managers
             if (timeoutVote)
                 TimeoutStandardVote(voteType);
         }
+
+        // WL-Changes-start
+        private void CreateVoteShuttleEvac(ICommonSession? initiator)
+        {
+            var ticker = _entityManager.EntitySysManager.GetEntitySystem<GameTicker>();
+            var roundEnd = _entityManager.EntitySysManager.GetEntitySystem<RoundEndSystem>();
+
+            if (ticker.RunLevel != GameRunLevel.InRound)
+            {
+                _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Evacuation shuttle vote canceled.");
+                _chatManager.DispatchServerAnnouncement(
+                    Loc.GetString("ui-vote-shuttle-not-in-round"));
+                return;
+            }
+
+            var alone = _playerManager.PlayerCount == 1 && initiator != null;
+            var options = new VoteOptions
+            {
+                Title = Loc.GetString("ui-vote-shuttle-title"),
+                Duration = alone
+                    ? TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.VoteTimerAlone))
+                    : TimeSpan.FromSeconds(_cfg.GetCVar(WLCVars.VoteShuttleTimer))
+            };
+
+            if (alone)
+                options.InitiatorTimeout = TimeSpan.FromSeconds(10);
+
+            var yes = Loc.GetString("ui-vote-shuttle-option1");
+            var no = Loc.GetString("ui-vote-shuttle-option2");
+
+            options.Options.Add((yes, true));
+            options.Options.Add((no, false));
+
+            WirePresetVoteInitiator(options, initiator);
+
+            var vote = CreateVote(options);
+
+            vote.OnFinished += (_, args) =>
+            {
+                var yesVotes = vote.VotesPerOption[true];
+                var noVotes = vote.VotesPerOption[false];
+
+                var total = yesVotes + noVotes;
+                var ratio = _cfg.GetCVar(WLCVars.VoteShuttlePlayersRatio);
+
+                var picked = total > 0 && (float)yesVotes / (float)total * 100f >= (float)ratio;
+
+                _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Evacuation shuttle vote finished: {picked}");
+
+                if (picked)
+                {
+                    _chatManager.DispatchServerAnnouncement(Loc.GetString("ui-vote-shuttle-win"));
+
+                    roundEnd.RequestRoundEnd(initiator?.AttachedEntity);
+                }
+                else
+                {
+                    _chatManager.DispatchServerAnnouncement(Loc.GetString("ui-vote-shuttle-failed", ("ratio", ratio)));
+                }
+            };
+        }
+        // WL-Changes-end
 
         private void CreateRestartVote(ICommonSession? initiator)
         {

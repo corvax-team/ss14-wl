@@ -77,7 +77,7 @@ namespace Content.Server._WL.ChatGpt.Elements.OpenAi.Request
 
             public Tool(string? content) : base(ModelRole.ModelRoleType.Tool, content ?? FallbackContent)
             {
-                
+
             }
 
             /// <summary>

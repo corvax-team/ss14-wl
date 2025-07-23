@@ -6,7 +6,9 @@ job-name-detective = детектив
 job-name-brigmedic = бригмедик
 job-name-borg = киборг
 job-name-scientist = учёный
-job-name-research-assistant = научный ассистент
+# WL-Changes-start
+job-name-research-assistant = студент-учёный
+# WL-Changes-end
 job-name-rd = научный руководитель
 job-name-psychologist = психолог
 job-name-intern = интерн

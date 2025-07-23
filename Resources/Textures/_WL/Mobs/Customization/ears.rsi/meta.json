@@ -74,6 +74,10 @@
     {
       "name": "m_ears_wolf_primary",
       "directions": 4
+    },
+    {
+      "name": "kobald_ushki",
+      "directions": 4
     }
   ]
 }

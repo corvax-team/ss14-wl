@@ -12,7 +12,7 @@
   id: ClothingHeadCaptainHat
   equipment:
     head: ClothingHeadCaptainHat
-    
+
 - type: loadout
   id: ClothingHeadHatBeretCaptain
   equipment:

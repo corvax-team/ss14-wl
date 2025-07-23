@@ -11,10 +11,9 @@
 - type: latheRecipePack
   id: BorgModulesStatic
   recipes:
+  - BorgModuleTool
   - BorgModuleCable
   - BorgModuleFireExtinguisher
-  - BorgModuleRadiationDetection
-  - BorgModuleTool
 
 - type: latheRecipePack
   id: BorgLimbsStatic
@@ -25,6 +24,13 @@
   - RightLegBorg
   - LightHeadBorg
   - TorsoBorg
+#WL-Workers-Recipes
+- type: latheRecipePack
+  id: AndroidHeal
+  recipes:
+  - BioTube # WL android species
+  - RitiumPack
+#WL-Workers-Recipes-END
 
 ## Dynamic
 
@@ -32,8 +38,6 @@
   id: Robotics
   recipes:
   - ProximitySensor
-  - BioTube # WL android species
-  - TiriumPack # WL android species
   - PersonalAIRecipe # WL-Changes
 
 - type: latheRecipePack
@@ -41,13 +45,8 @@
   recipes:
   - BorgModuleAdvancedCleaning
   - BorgModuleAdvancedTool
-  - BorgModuleGPS
-  - BorgModuleArtifact
-  - BorgModuleAnomaly
-  - BorgModuleGardening
-  - BorgModuleHarvesting
-  - BorgModuleDefibrillator
-  - BorgModuleAdvancedTreatment
+  - BorgModuleAdvancedChemical
+  - BorgModuleAdvancedMining
 
 - type: latheRecipePack
   id: MechParts

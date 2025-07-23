@@ -176,7 +176,7 @@ namespace Content.Server._WL.ChatGpt.Elements.OpenAi.Request
 
         #region Utility classes
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static class ToolChoice
         {

@@ -6,7 +6,8 @@
   subnames:
   - Male: электрик
   - Male: механик
-  - Male: реакторный техник
+  - Male: управленец ГЭУ
+  - Male: техник систем коммуникации
   - Male: инженер-структурщик
   requirements:
     - !type:DepartmentTimeRequirement
@@ -33,3 +34,14 @@
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: StationEngineerChameleonOutfit
+  job: StationEngineer
+  equipment:
+    head: ClothingHeadHatHardhatYellow
+    mask: ClothingMaskBreath
+    neck: ClothingNeckScarfStripedOrange
+    outerClothing: ClothingOuterWinterEngi
+    gloves: ClothingHandsGlovesColorYellow
+    shoes: ClothingShoesBootsMag

@@ -116,4 +116,26 @@ public sealed class WLCVars
     /// </summary>
     public static readonly CVarDef<int> CCMinResponseTime =
         CVarDef.Create("central_command.min_response_time", 250, CVar.SERVERONLY); //It has normal distribution random where medium is 450 second (7.5 min)
+
+    /*
+      * Vote
+      */
+    /// <summary>
+    /// Доступна ли игрокам возможность вызвать шаттл голосованием?
+    /// </summary>
+    public static readonly CVarDef<bool> VoteShuttleEnabled =
+        CVarDef.Create("vote.evacuation_shuttle_vote_enabled", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Сколько требуется согласных игроков для вызова.
+    /// В процентах.
+    /// </summary>
+    public static readonly CVarDef<float> VoteShuttlePlayersRatio =
+        CVarDef.Create("vote.evacuation_shuttle_vote_ratio", 0.6f, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Время голосования.
+    /// </summary>
+    public static readonly CVarDef<int> VoteShuttleTimer =
+        CVarDef.Create("vote.evacuation_shuttle_vote_time", 40, CVar.SERVERONLY);
 }

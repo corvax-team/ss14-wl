@@ -1,2 +1,2 @@
-ent-BorgChassisScienceWL= киборг-учёный
+ent-BorgChassisScienceWL= борг-учёный
     .desc = { ent-BorgChassisSelectable.desc }

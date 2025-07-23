@@ -432,7 +432,7 @@ public enum LogType
 
     //WL-Changes-start
     /// <summary>
-    /// Использование консольной ВЛ-команды
+    /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     /// </summary>
     WLCommand = 94,
     //WL-Changes-end
@@ -449,7 +449,7 @@ public enum LogType
 
     //WL-Changes-start
     /// <summary>
-    /// Успешное обращение к HTTP-api сервера.
+    /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ HTTP-api пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
     /// </summary>
     WLHttpApi = 97,
     //WL-Changes-end
@@ -478,4 +478,14 @@ public enum LogType
     /// Logs related to botany, such as planting and harvesting crops
     /// </summary>
     Botany = 102,
+
+    /// <summary>
+    /// Artifact node got activated.
+    /// </summary>
+    ArtifactNode = 103,
+
+    /// <summary>
+    /// Damaging grid collision has occurred.
+    /// </summary>
+    ShuttleImpact = 104
 }

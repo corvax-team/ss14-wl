@@ -3,7 +3,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxBG.png"
+        path: "/Textures/_WL/Parallaxes/FrontierParallaxBG.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -45,33 +45,39 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxBG.png"
+        path: "/Textures/_WL/Parallaxes/FrontierParallaxBG.png"
       slowness: 0.998046875
+      scrolling: "-0.098046875, 0"
       scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars.toml"
       slowness: 0.996625
+      scrolling: "-0.196625, 0"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.989375
+      scrolling: "-0.209375, 0"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
       slowness: 0.987265625
+      scrolling: "-0.287265625, 0"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_dim_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim-2.toml"
       slowness: 0.984352
+      scrolling: "-0.384352, 0"
     - texture:
         !type:ImageParallaxTextureSource
         path: "/Textures/_WL/Parallaxes/AsteroidsMedium.png"
       slowness: 0.998046875
+      scrolling: "-0.568046875, 0"
       scale: "1, 1"
       tiled: false
   layersLQ:
@@ -80,6 +86,7 @@
         id: ""
         configPath: "/Prototypes/Parallaxes/parallax_config.toml"
         slowness: 0.875
+      scrolling: "-0.475, 0"
   layersLQUseHQ: false
 
 - type: parallax
@@ -87,7 +94,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxBG.png"
+        path: "/Textures/_WL/Parallaxes/FrontierParallaxBG.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:

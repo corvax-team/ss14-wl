@@ -112,7 +112,7 @@
         slowness: 0.875
   layersLQUseHQ: false
 
-# Purple
+# Frontier
 
 - type: parallax
   id: FrontierParallax

@@ -29,7 +29,6 @@ namespace Content.Shared._WL.StandFallCrouch
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
 
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-        [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
 
         public override void Initialize()
         {
@@ -108,7 +107,7 @@ namespace Content.Shared._WL.StandFallCrouch
             return true;
         }
 
-        private void TryStartStandFallDoAfter(EntityUid victum, EntityUid attacker, StandFallCrouchComponent component, bool withPopup = false)
+        protected void TryStartStandFallDoAfter(EntityUid victum, EntityUid attacker, StandFallCrouchComponent component, bool withPopup = false)
         {
             if (!CanStandFallAny(victum, attacker))
                 return;

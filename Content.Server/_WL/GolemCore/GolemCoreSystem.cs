@@ -1,6 +1,7 @@
 using Content.Server.Instruments;
 using Content.Shared.Mind.Components;
 using Content.Shared._WL.GolemCore;
+using Content.Shared.Instruments;
 using Robust.Shared.Player;
 
 namespace Content.Server._WL.GolemCore;

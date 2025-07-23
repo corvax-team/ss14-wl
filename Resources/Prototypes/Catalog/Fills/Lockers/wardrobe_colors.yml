@@ -34,6 +34,8 @@
         prob: 0.4
       - id: ClothingOuterCoatGentle
         prob: 0.3
+      - id: ClothingNeckTieGray # WL-Changes: Респрайт РНД и новые вещи
+        prob: 0.4
       - id: ClothingUniformRandomShorts
         amount: 3
       - id: ClothingUniformRandomArmless
@@ -53,10 +55,15 @@
   - type: StorageFill
     contents:
       - id: ClothingUniformJumpsuitColorYellow
+      - id: ClothingNeckTieYellow # WL-Changes: Респрайт РНД и новые вещи
+      - id: ClothingNeckBtTieYellow # WL-Changes: Респрайт РНД и новые вещи
       - id: ClothingUniformJumpskirtColorYellow
       - id: ClothingShoesColorOrange
         amount: 2
       - id: ClothingHeadBandGold
+      - id: ClothingNeckTieOrange # WL-Changes: Респрайт РНД и новые вещи
+        prob: 0.8
+
 
 
 - type: entity
@@ -68,6 +75,8 @@
     contents:
       - id: ClothingUniformJumpsuitColorWhite
       - id: ClothingUniformJumpskirtColorWhite
+      - id: ClothingNeckTieWhite # WL-Changes: Респрайт РНД и новые вещи
+      - id: ClothingNeckBtTieWhite # WL-Changes: Респрайт РНД и новые вещи
       - id: ClothingShoesColorWhite
         amount: 2
       - id: ClothingHeadHatMimesoft
@@ -81,6 +90,10 @@
     contents:
       - id: ClothingUniformJumpsuitColorBlue
       - id: ClothingUniformJumpskirtColorBlue
+      - id: ClothingNeckTieBlue # WL-Changes: Респрайт РНД и новые вещи
+      - id: ClothingNeckBtTieBlue # WL-Changes: Респрайт РНД и новые вещи
+      - id: ClothingNeckTieLightBlue # WL-Changes: Респрайт РНД и новые вещи
+        prob: 0.7
       - id: ClothingShoesColorBrown
         amount: 2
 
@@ -93,6 +106,8 @@
     contents:
       - id: ClothingUniformJumpsuitColorPink
       - id: ClothingUniformJumpskirtColorPink
+      - id: ClothingNeckTiePink # WL-Changes: Респрайт РНД и новые вещи
+      - id: ClothingNeckBtTiePink # WL-Changes: Респрайт РНД и новые вещи
       - id: ClothingShoesColorBrown
         amount: 2
 
@@ -105,6 +120,9 @@
     contents:
       - id: ClothingUniformJumpsuitColorBlack
       - id: ClothingUniformJumpskirtColorBlack
+      - id: ClothingNeckBtTieBlack # WL-Changes: Респрайт РНД и новые вещи
+      - id: ClothingNeckBtTieLong # WL-Changes: Респрайт РНД и новые вещи
+        prob: 0.6
       - id: ClothingShoesColorBlack
         amount: 2
       - id: ClothingHeadBandBlack
@@ -120,6 +138,8 @@
     contents:
       - id: ClothingUniformJumpsuitColorGreen
       - id: ClothingUniformJumpskirtColorGreen
+      - id: ClothingNeckBtTieGreen # WL-Changes: Респрайт РНД и новые вещи
       - id: ClothingShoesColorBlack
         amount: 2
       - id: ClothingHeadBandGreen
+      - id: ClothingNeckTieGreen # WL-Changes: Респрайт РНД и новые вещи

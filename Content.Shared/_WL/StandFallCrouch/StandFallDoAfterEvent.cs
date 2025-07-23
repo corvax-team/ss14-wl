@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Content.Shared._WL.StandFallCrouch
 {
     [Serializable, NetSerializable]
-    public partial class StandFallDoAfterEvent : SimpleDoAfterEvent
+    public sealed partial class StandFallDoAfterEvent : SimpleDoAfterEvent
     {
     }
 }

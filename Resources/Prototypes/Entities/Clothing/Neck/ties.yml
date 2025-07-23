@@ -13,6 +13,7 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClothMade
+    - Recyclable
 
 - type: entity
   parent: ClothingNeckBase
@@ -21,10 +22,15 @@
   description: A loosely tied necktie, a perfect accessory for the over-worked detective.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Ties/dettie.rsi
+    sprite: _WL/Clothing/Neck/Ties/dettie.rsi # WL-Changes Респрайт РНД и новые вещи
   - type: Clothing
-    sprite: Clothing/Neck/Ties/dettie.rsi
-    
+    sprite: _WL/Clothing/Neck/Ties/dettie.rsi # WL-Changes Респрайт РНД и новые вещи
+  # WL-Changes-Start: Респрайт РНД и новые вещи Start
+  - type: Tag
+    tags:
+    - HamsterWearable
+  # WL-Changes-End: Респрайт РНД и новые вещи End
+
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieSci
@@ -38,5 +44,6 @@
   - type: Tag
     tags:
     - ClothMade
+    - Recyclable
     - HamsterWearable
     - WhitelistChameleon

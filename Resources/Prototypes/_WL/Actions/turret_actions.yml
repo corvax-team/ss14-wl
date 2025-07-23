@@ -3,6 +3,7 @@
   name: Stop managing
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     icon: Interface/eject.png
+  - type: InstantAction
     event: !type:TurretExitRidingActionEvent
