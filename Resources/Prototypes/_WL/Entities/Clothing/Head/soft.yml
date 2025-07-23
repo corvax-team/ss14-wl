@@ -1,0 +1,31 @@
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatRNDsoft
+  name: yellow cap
+  description: A yellow baseball hat.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/rndsoft.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/rndsoft.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatRNDsoft]
+  id: ClothingHeadHatRNDsoftFlipped
+  name: yellow cap
+
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatRoboSoft
+  name: yellow cap
+  description: A yellow baseball hat.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/robosoft.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/robosoft.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatRoboSoft]
+  id: ClothingHeadHatRoboSoftFlipped
+  name: yellow cap

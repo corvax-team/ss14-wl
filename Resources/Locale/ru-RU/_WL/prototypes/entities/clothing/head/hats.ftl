@@ -17,3 +17,6 @@ ent-ClothingHeadHatSalvageCap = кепка утилизаторов
     .desc = Мы рискуем только один раз в жизни.
 
 ent-ClothingHeadHatSalvageCapFlipped = кепка утилизаторов
+
+ent-ClothingHeadHatBeretRD = берет научного руководителя
+    .desc = Берет для настоящего Научного руководителя

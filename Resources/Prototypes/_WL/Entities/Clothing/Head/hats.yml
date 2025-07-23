@@ -118,3 +118,14 @@
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatSalvageCap]
   id: ClothingHeadHatSalvageCapFlipped
   name: salvage cap
+
+- type: entity
+  id: ClothingHeadHatBeretRD
+  parent: ClothingHeadHatBeretRND
+  name: Director of Research beret
+  description: A beret for real Director of Research
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_researcher.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_researcher.rsi

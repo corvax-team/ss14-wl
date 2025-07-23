@@ -94,9 +94,9 @@
   description: A beret for real scientists.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_rnd.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_rnd.rsi # WL-Changes: Resprite Day
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_rnd.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_rnd.rsi # WL-Changes: Resprite Day
   - type: Tag
     tags:
     - ClothMade

@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ClothingHandsGlovesRNDhands
+  name: robohands gloves
+  description: Beep boop borp!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Hands/Gloves/scientistgloves.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Hands/Gloves/scientistgloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-black
+  - type: FingerprintMask

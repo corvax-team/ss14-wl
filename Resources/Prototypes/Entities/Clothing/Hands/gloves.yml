@@ -198,9 +198,9 @@
   description: Beep boop borp!
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/robohands.rsi
+    sprite: _WL/Clothing/Hands/Gloves/robohands.rsi # WL-Changes: Resprite Day
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/robohands.rsi
+    sprite: _WL/Clothing/Hands/Gloves/robohands.rsi # WL-Changes: Resprite Day
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-black
