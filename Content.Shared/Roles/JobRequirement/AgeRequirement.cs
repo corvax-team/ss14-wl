@@ -55,13 +55,13 @@ public sealed partial class AgeRequirement : JobRequirement
         {
             if (MinAge != null && profile.Age < MinAge)
             {
-                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-age-to-young",
+                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-age-too-young",
                     ("age", MinAge)));
                 return false;
             }
             if (MaxAge != null && profile.Age > MaxAge)
             {
-                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-age-to-old",
+                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-age-too-old",
                     ("age", MaxAge)));
                 return false;
             }
