@@ -10,7 +10,6 @@
   - WLRule2
   - WLRule3
   - WLRule4
-  - WLAdditional
 
 - type: guideEntry
   id: WLRule0
@@ -114,10 +113,3 @@
   ruleEntry: true
   priority: 6
   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule43.xml"
-
-- type: guideEntry
-  id: WLAdditional
-  name: guide-entry-rules-additional
-  ruleEntry: true
-  priority: 6
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLAdditional.xml"
