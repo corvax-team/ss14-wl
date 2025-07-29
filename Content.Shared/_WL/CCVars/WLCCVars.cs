@@ -74,7 +74,7 @@ public sealed class WLCVars
     /// Работает(включен) ли ChatGptManager на данный момент.
     /// </summary>
     public static readonly CVarDef<bool> IsGptEnabled =
-        CVarDef.Create("gpt.enabled", true, CVar.REPLICATED);
+        CVarDef.Create("gpt.enabled", false, CVar.REPLICATED);
 
     /// <summary>
     /// Чат-модель, которая будет использоваться для отправки запросов.
