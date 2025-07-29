@@ -150,6 +150,13 @@ public sealed partial class ShuttleSystem
             if (!_enabled)
                 continue;
 
+            //WL-Changes-start
+            var otherComponent = EntityManager.GetComponent<ShuttleComponent>(args.OtherEntity);
+
+            if (component.GodShutle || otherComponent.GodShutle)
+                continue;
+            //WL-Changes-end
+
             // Convert the collision point directly to tile indices
             var ourTile = new Vector2i((int)Math.Floor(ourPoint.X / ourGrid.TileSize), (int)Math.Floor(ourPoint.Y / ourGrid.TileSize));
             var otherTile = new Vector2i((int)Math.Floor(otherPoint.X / otherGrid.TileSize), (int)Math.Floor(otherPoint.Y / otherGrid.TileSize));
