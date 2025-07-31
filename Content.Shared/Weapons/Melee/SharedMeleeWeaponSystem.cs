@@ -551,6 +551,23 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             }
 
         }
+        // WL-Changes-Start
+        else
+        {
+            if (meleeUid == user)
+            {
+                AdminLogger.Add(LogType.MeleeHit,
+                    LogImpact.Medium,
+                    $"{ToPrettyString(user):actor} melee attacked (light) {ToPrettyString(target.Value):subject} using their hands and dealt 0 damage");
+            }
+            else
+            {
+                AdminLogger.Add(LogType.MeleeHit,
+                    LogImpact.Medium,
+                    $"{ToPrettyString(user):actor} melee attacked (light) {ToPrettyString(target.Value):subject} using {ToPrettyString(meleeUid):tool} and dealt 0 damage");
+            }
+        }
+        // WL-Changes-End
 
         _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component);
 
