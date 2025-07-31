@@ -41,9 +41,10 @@
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ] # WL-Changes
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    # - map: [ "enum.HumanoidVisualLayers.Tail" ] # WL-Changes
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]

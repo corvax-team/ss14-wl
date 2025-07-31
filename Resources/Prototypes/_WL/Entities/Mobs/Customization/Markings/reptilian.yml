@@ -1,8 +1,8 @@
 #Head
 - type: marking
   id: kobaldushkiEars
-  bodyPart: HeadTop
-  markingCategory: HeadTop
+  bodyPart: HeadSide
+  markingCategory: HeadSide
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
