@@ -52,6 +52,12 @@
       collection: Growl
     Howl:
       path: /Audio/Corvax/Effects/howl.ogg
+    #WL-Changes-Start
+    Bark:
+      collection: Bark
+    Whine:
+      path: /Audio/_WL/Voice/Vulpkanin/dog_whine.ogg
+    #WL-Changes-End
     Sneeze:
       collection: FemaleSneezes
     Cough:
