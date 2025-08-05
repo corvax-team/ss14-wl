@@ -13,13 +13,16 @@ public sealed partial class GeneralRecord : Control
     public GeneralRecord(GeneralStationRecord record, bool canDelete, uint? id)
     {
         RobustXamlLoader.Load(this);
-        RecordName.Text = record.Name;
-        Age.Text = Loc.GetString("general-station-record-console-record-age", ("age", record.Age.ToString()));
-        Title.Text = Loc.GetString("general-station-record-console-record-title",
-            ("job", Loc.GetString(record.JobTitle)));
-        Species.Text = Loc.GetString("general-station-record-console-record-species", ("species", record.Species));
-        Gender.Text = Loc.GetString("general-station-record-console-record-gender",
-            ("gender", record.Gender.ToString()));
+        // WL-Records-Edit-Start
+        // RecordName.Text = record.Name;
+        // Age.Text = Loc.GetString("general-station-record-console-record-age", ("age", record.Age.ToString()));
+        // Title.Text = Loc.GetString("general-station-record-console-record-title",
+        //     ("job", Loc.GetString(record.JobTitle)));
+        // Species.Text = Loc.GetString("general-station-record-console-record-species", ("species", record.Species));
+        // Gender.Text = Loc.GetString("general-station-record-console-record-gender",
+        //     ("gender", record.Gender.ToString()));
+        Record.Text = record.EmploymentRecord;
+        // WL-Records-Edit-End
         Fingerprint.Text = Loc.GetString("general-station-record-console-record-fingerprint",
             ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")));
         Dna.Text = Loc.GetString("general-station-record-console-record-dna",

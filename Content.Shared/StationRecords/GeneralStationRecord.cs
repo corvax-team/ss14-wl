@@ -50,6 +50,17 @@ public sealed record GeneralStationRecord
     [DataField]
     public Gender Gender = Gender.Epicene;
 
+    // WL-Records-Start
+    [DataField]
+    public string MedicalRecord = string.Empty;
+
+    [DataField]
+    public string SecurityRecord = string.Empty;
+
+    [DataField]
+    public string EmploymentRecord = string.Empty;
+    // WL-Records-End
+
     /// <summary>
     ///     The priority to display this record at.
     ///     This is taken from the 'weight' of a job prototype,
