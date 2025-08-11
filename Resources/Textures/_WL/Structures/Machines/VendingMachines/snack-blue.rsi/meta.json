@@ -24,9 +24,6 @@
       "name": "broken"
     },
     {
-      "name": "normal"
-    },
-    {
       "name": "deny-unshaded",
       "delays": [
         [
@@ -51,6 +48,9 @@
           0.1
         ]
       ]
+    },
+    {
+      "name": "off"
     },
     {
       "name": "panel"

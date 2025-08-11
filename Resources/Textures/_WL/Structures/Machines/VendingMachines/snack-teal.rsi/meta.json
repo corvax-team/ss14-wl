@@ -24,9 +24,6 @@
       "name": "broken"
     },
     {
-      "name": "normal"
-    },
-    {
       "name": "deny-unshaded",
       "delays": [
         [
