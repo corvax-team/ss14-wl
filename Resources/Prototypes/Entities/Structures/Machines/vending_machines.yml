@@ -1125,7 +1125,7 @@
   suffix: Teal
   components:
   - type: Sprite
-    sprite: _WL/Structures/Machines/VendingMachinessnack-teal.rsi # WL-resprites
+    sprite: _WL/Structures/Machines/VendingMachines/snack-teal.rsi # WL-resprites
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
