@@ -18,7 +18,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlkolter.yml
         - type: StationJobs
-          availableJobs: # Total jobs on the station: 53
+          availableJobs: # Total jobs on the station: 56
             # command: 2
             Captain: [ 1, 1 ]
             IAA: [ 1, 1 ]
@@ -45,14 +45,15 @@
             # security: 8
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 2, 2 ]
-            SecurityCadet: [ 1, 1 ]
+            SecurityOfficer: [ 3, 3 ]
+            SecurityCadet: [ 2, 2 ]
             Detective: [ 1, 1 ]
             Pilot: [ 1, 1 ]
             Brigmedic: [1, 1 ]
             # service: 15
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
+            Boxer: [ 1, 1 ]
             Botanist: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 1, 1 ]
