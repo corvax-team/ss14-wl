@@ -240,10 +240,9 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         damage:
-          groups:
-            Brute: -2
+          Brute: -1.5
 # WL species start
         # Android
         conditions:
@@ -1511,6 +1510,7 @@
   color: "#520e30"
   metabolisms:
     Medicine:
+      metabolismRate: 0.25
       effects:
       - !type:HealthChange
         conditions:
@@ -1533,8 +1533,8 @@
 # WL species end
         damage:
           groups:
-            Toxin: -3
-            Brute: 0.5
+            Toxin: -1.5
+            Brute: 0.25
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1555,7 +1555,7 @@
 # WL species end
         damage:
           groups:
-            Toxin: -1
+            Toxin: -0.5
             Brute: 3
       - !type:AdjustReagent
         conditions:
@@ -1687,11 +1687,12 @@
   color: "#e0a5b9"
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
-            Caustic: -3
+            Caustic: -0.6 # 6 per u
 # WL species start
         # Android
         conditions:
@@ -1710,7 +1711,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 16
+          min: 21
 # WL species start
         # Android
         - !type:OrganType
@@ -1727,7 +1728,7 @@
 # WL species end
         damage:
           types:
-            Heat: 2
+            Heat: 0.2
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -1809,11 +1810,12 @@
   color: "#283332"
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
-            Slash: -3
+            Slash: -0.6 # 6 Per u
 # WL species start
         conditions:
         # Golem
@@ -1828,7 +1830,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 12
+          min: 21
 # WL species start
         # Golem
         - !type:OrganType
@@ -1837,7 +1839,7 @@
 # WL species end
         damage:
           types:
-            Cold: 3
+            Cold: 1.5 #15 per u
 # WL Cischi species
     Cischi:
       effects:
@@ -1858,12 +1860,13 @@
   color: "#b9bf93"
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
-            Piercing: -4
-            Blunt: 0.1
+            Piercing: -0.6 # 6 per u
+            Blunt: 0.05 # 0.5 per u
 # WL species start
         conditions:
         # Golem
@@ -1878,7 +1881,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 11
+          min: 21
 # WL species start
         # Golem
         - !type:OrganType
@@ -1887,7 +1890,7 @@
 # WL species end
         damage:
           types:
-            Blunt: 5
+            Blunt: 1 # 10 per u plus base effect
 # WL Cischi species
     Cischi:
       effects:
@@ -1908,11 +1911,12 @@
   color: "#ff3636"
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
           types:
-            Blunt: -3.5
+            Blunt: -0.6 # 6 per u
 # WL species start
         conditions:
         # Golem
@@ -1927,7 +1931,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 10.5
+          min: 19
 # WL species start
         # Golem
         - !type:OrganType
@@ -1936,7 +1940,7 @@
 # WL species end
         damage:
           types:
-            Poison: 4
+            Poison: 1.5 # 15 per u
 # WL Cischi species
     Cischi:
       effects:
@@ -2074,12 +2078,13 @@
   color: "#8147ff"
   metabolisms:
     Medicine:
+      metabolismRate: 0.1
       effects:
       # heals shocks and removes shock chems
       - !type:HealthChange
         damage:
           types:
-            Shock: -4
+            Shock: -0.5 # 5 per u
 # WL species start
         conditions:
         # Golem
@@ -2110,7 +2115,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 12
+          min: 15.5
 # WL species start
         # Golem
         - !type:OrganType
@@ -2119,11 +2124,11 @@
 # WL species end
         damage:
           types:
-            Cold: 2
+            Cold: 0.2 # 2 per u but lethal with cooling OD effect below
       - !type:AdjustTemperature
         conditions:
         - !type:ReagentThreshold
-          min: 12
+          min: 15.5
         amount: -30000
       - !type:Jitter
         conditions:
