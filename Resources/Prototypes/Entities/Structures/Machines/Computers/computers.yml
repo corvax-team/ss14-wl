@@ -360,6 +360,18 @@
     color: "#1f8c28"
   - type: Computer
     board: MedicalRecordsComputerCircuitboard
+  # WL-Records-Start
+  - type: MedicalRecordsConsole
+  - type: ActivatableUI
+    singleUser: true
+    key: enum.MedicalRecordsConsoleKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MedicalRecordsConsoleKey.Key:
+        type: MedicalRecordsConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  # WL-Records-End
 
 - type: entity
   parent: BaseComputerAiAccess

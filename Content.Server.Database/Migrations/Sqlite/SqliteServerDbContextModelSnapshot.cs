@@ -874,6 +874,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("EmploymentRecord")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("employment_record");
+
                     b.Property<string>("EyeColor")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -917,6 +922,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
 
+                    b.Property<string>("MedicalRecord")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("medical_record");
+
                     b.Property<string>("OocText")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -929,6 +939,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int>("PreferenceUnavailable")
                         .HasColumnType("INTEGER")
                         .HasColumnName("pref_unavailable");
+
+                    b.Property<string>("SecurityRecord")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("security_record");
 
                     b.Property<string>("Sex")
                         .IsRequired()

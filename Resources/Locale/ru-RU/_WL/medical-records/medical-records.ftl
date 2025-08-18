@@ -1,0 +1,11 @@
+medical-records-console-window-title = Медицинские карты
+medical-records-filter-placeholder = Фильтр...
+medical-records-console-records-list-title = Список персонала
+medical-records-console-no-records = Нет записей
+medical-records-console-select-record-info = Выберите запись для просмотра
+medical-records-console-no-record = Нет медицинских данных
+medical-records-console-flavor-left = Конфиденциально
+medical-records-console-flavor-right = NT MedCorp v3.2
+medical-records-name-filter = Имя
+medical-records-dna-filter = ДНК
+medical-records-prints-filter = Отпечатки

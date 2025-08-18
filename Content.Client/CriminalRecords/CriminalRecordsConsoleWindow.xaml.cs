@@ -72,6 +72,9 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
         _currentCrewListFilter = SecurityStatus.None;
 
+        RecordTabs.SetTabTitle(0, Loc.GetString("criminal-records-tab-details")); // WL-Records
+        RecordTabs.SetTabTitle(1, Loc.GetString("criminal-records-tab-records")); // WL-Records
+
         OpenCentered();
 
         foreach (var item in Enum.GetValues<StationRecordFilterType>())
@@ -181,7 +184,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         // set up the selected person's record
         var selected = _selectedKey != null;
 
-        PersonContainer.Visible = selected;
+        RecordTabs.Visible = selected; // WL-Records-Edit
         RecordUnselected.Visible = !selected;
 
         _access = _player.LocalSession?.AttachedEntity is {} player
@@ -233,12 +236,12 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             PersonJobIcon.Texture = _spriteSystem.Frame0(proto.Icon);
         }
 
-        PersonPrints.Text = stationRecord.Fingerprint ??  Loc.GetString("generic-not-available-shorthand");
-        PersonDna.Text = stationRecord.DNA ??  Loc.GetString("generic-not-available-shorthand");
+        PersonPrints.Text = stationRecord.Fingerprint ?? Loc.GetString("generic-not-available-shorthand");
+        PersonDna.Text = stationRecord.DNA ?? Loc.GetString("generic-not-available-shorthand");
 
         if (criminalRecord.Status != SecurityStatus.None)
         {
-            specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/security_icons.rsi"),  GetStatusIcon(criminalRecord.Status));
+            specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/security_icons.rsi"), GetStatusIcon(criminalRecord.Status));
         }
         PersonStatusTX.SetFromSpriteSpecifier(specifier);
         PersonStatusTX.DisplayRect.TextureScale = new Vector2(3f, 3f);
@@ -261,6 +264,12 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         {
             WantedReason.Visible = false;
         }
+
+        // WL-Records-Start
+        SecurityRecord.Text = !string.IsNullOrEmpty(stationRecord.SecurityRecord)
+            ? stationRecord.SecurityRecord
+            : Loc.GetString("criminal-records-console-no-security-record");
+        // WL-Records-End
     }
 
     private void AddStatusSelect(SecurityStatus status)
