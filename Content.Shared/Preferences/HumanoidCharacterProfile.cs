@@ -32,6 +32,7 @@ namespace Content.Shared.Preferences
 
         //WL-Changes-start
         public const int MaxDescLength = 512 * 2; // WL-CharacterInfo: Increase
+        public const int MaxRecordLength = 4096; // WL-Records
 
         [DataField]
         private Dictionary<string, string> _jobSubnames = new();
@@ -160,7 +161,10 @@ namespace Content.Shared.Preferences
             Dictionary<string, RoleLoadout> loadouts,
 
             //WL-Changes-start
-            Dictionary<string, bool> jobUnblockings
+            Dictionary<string, bool> jobUnblockings,
+            string medicalRecord, // WL-Records
+            string securityRecord, // WL-Records
+            string employmentRecord // WL-Records
             //WL-Changes-end
             )
         {
@@ -185,6 +189,10 @@ namespace Content.Shared.Preferences
             _jobSubnames = jobSubnames;
 
             _jobUnblockings = jobUnblockings;
+
+            MedicalRecord = medicalRecord; // WL-Records
+            SecurityRecord = securityRecord; // WL-Records
+            EmploymentRecord = employmentRecord; // WL-Records
             //WL-Changes-end
 
             var hasHighPrority = false;
@@ -222,7 +230,10 @@ namespace Content.Shared.Preferences
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
-                new(other.JobUnblockings)) // WL-Heigh
+                new(other.JobUnblockings), // WL-Heigh
+                other.MedicalRecord, // WL-Records
+                other.SecurityRecord, // WL-Records
+                other.EmploymentRecord) // WL-Records
         {
         }
 
@@ -318,6 +329,15 @@ namespace Content.Shared.Preferences
         //WL-Changes-start
         [DataField] public string OocText { get; private set; } = ""; // WL-OOCText
 
+        [DataField]
+        public string MedicalRecord { get; set; } = string.Empty;
+
+        [DataField]
+        public string SecurityRecord { get; set; } = string.Empty;
+
+        [DataField]
+        public string EmploymentRecord { get; set; } = string.Empty;
+
         [DataField("height")] public int Height { get; private set; } = 165; // WL-Height
         public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames; //WL-changes
         public IReadOnlyDictionary<string, bool> JobUnblockings => _jobUnblockings;
@@ -339,6 +359,23 @@ namespace Content.Shared.Preferences
             return new(this) { OocText = oocText };
         }
         // WL-OOCText-End
+
+        // WL-Records-Start
+        public HumanoidCharacterProfile WithMedicalRecord(string record)
+        {
+            return new(this) { MedicalRecord = record };
+        }
+
+        public HumanoidCharacterProfile WithSecurityRecord(string record)
+        {
+            return new(this) { SecurityRecord = record };
+        }
+
+        public HumanoidCharacterProfile WithEmploymentRecord(string record)
+        {
+            return new(this) { EmploymentRecord = record };
+        }
+        // WL-Records-End
 
         public HumanoidCharacterProfile WithAge(int age)
         {
@@ -570,6 +607,9 @@ namespace Content.Shared.Preferences
             if (OocText != other.OocText) return false; // WL-OocText
             if (Sex != other.Sex) return false;
             if (FlavorText != other.FlavorText) return false; // WL-Changes
+            if (MedicalRecord != other.MedicalRecord) return false; // WL-Records
+            if (SecurityRecord != other.SecurityRecord) return false; // WL-Records
+            if (EmploymentRecord != other.EmploymentRecord) return false; // WL-Records
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
@@ -674,6 +714,18 @@ namespace Content.Shared.Preferences
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes);
             var oocText = OocText.Length > MaxDescLength ? FormattedMessage.RemoveMarkup(OocText)[..MaxDescLength] : FormattedMessage.RemoveMarkup(OocText); // WL-OOCText
 
+            // WL-Records-Start
+            var medicalRecord = MedicalRecord.Length > MaxRecordLength
+                ? FormattedMessage.RemoveMarkupOrThrow(MedicalRecord)[..MaxRecordLength]
+                : FormattedMessage.RemoveMarkupOrThrow(MedicalRecord);
+            var securityRecord = SecurityRecord.Length > MaxRecordLength
+                ? FormattedMessage.RemoveMarkupOrThrow(SecurityRecord)[..MaxRecordLength]
+                : FormattedMessage.RemoveMarkupOrThrow(SecurityRecord);
+            var employmentRecord = EmploymentRecord.Length > MaxRecordLength
+                ? FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord)[..MaxRecordLength]
+                : FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord);
+            // WL-Records-End
+
             var prefsUnavailableMode = PreferenceUnavailable switch
             {
                 PreferenceUnavailableMode.StayInLobby => PreferenceUnavailableMode.StayInLobby,
@@ -721,6 +773,9 @@ namespace Content.Shared.Preferences
             Name = name;
             FlavorText = flavortext;
             OocText = oocText; // WL-OOCText
+            MedicalRecord = medicalRecord; // WL-Records
+            SecurityRecord = securityRecord; // WL-Records
+            EmploymentRecord = employmentRecord; // WL-Records
             Age = age;
             Height = height; // WL-Height
             Sex = sex;
@@ -858,6 +913,9 @@ namespace Content.Shared.Preferences
             hashCode.Add(_jobUnblockings);
             hashCode.Add(Height);
             hashCode.Add(OocText);
+            hashCode.Add(MedicalRecord);
+            hashCode.Add(SecurityRecord);
+            hashCode.Add(EmploymentRecord);
             //WL-Changes-end
 
             return hashCode.ToHashCode();

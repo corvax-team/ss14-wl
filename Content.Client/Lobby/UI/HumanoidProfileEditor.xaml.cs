@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Client._WL.Records; // WL-Records
 using Content.Client.Electrocution;
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
@@ -181,6 +182,11 @@ namespace Content.Client.Lobby.UI
         private LineEdit _heightEdit => CHeightEdit; // WL-Height
 
         private TextEdit _oocTextEdit = null!; // WL-OOCText
+
+        private RecordsTab? _recordsTab; // WL-Records
+        private TextEdit? _medicalRecordEdit; // WL-Records
+        private TextEdit? _securityRecordEdit; // WL-Records
+        private TextEdit? _employmentRecordEdit; // WL-Records
 
         private SingleMarkingPicker _underwearPicker => CUnderwearPicker; // WL-Underwear
         private SingleMarkingPicker _undershirtPicker => CUndershirtPicker; // WL-Underwear
@@ -738,6 +744,8 @@ namespace Content.Client.Lobby.UI
 
             RefreshFlavorText();
 
+            RefreshRecords(); // WL-Records
+
             #region Dummy
 
             SpriteRotateLeft.OnPressed += _ =>
@@ -800,6 +808,53 @@ namespace Content.Client.Lobby.UI
                 _flavorText = null;
             }
         }
+
+        // WL-Records-Start
+        public void RefreshRecords()
+        {
+            if (_recordsTab != null)
+                return;
+
+            _recordsTab = new RecordsTab();
+            TabContainer.AddChild(_recordsTab);
+            TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-records-tab"));
+
+            _medicalRecordEdit = _recordsTab.MedicalRecordInput;
+            _securityRecordEdit = _recordsTab.SecurityRecordInput;
+            _employmentRecordEdit = _recordsTab.EmploymentRecordInput;
+
+            _recordsTab.OnMedicalRecordChanged += OnMedicalRecordChange;
+            _recordsTab.OnSecurityRecordChanged += OnSecurityRecordChange;
+            _recordsTab.OnEmploymentRecordChanged += OnEmploymentRecordChange;
+        }
+
+        private void OnMedicalRecordChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithMedicalRecord(content);
+            SetDirty();
+        }
+
+        private void OnSecurityRecordChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithSecurityRecord(content);
+            SetDirty();
+        }
+
+        private void OnEmploymentRecordChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithEmploymentRecord(content);
+            SetDirty();
+        }
+        // WL-Records-End
 
         /// <summary>
         /// Refreshes traits selector
@@ -892,7 +947,7 @@ namespace Content.Client.Lobby.UI
                 {
                     TraitsList.AddChild(new Label
                     {
-                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", selectionCount) ,("max", category.MaxTraitPoints)),
+                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", selectionCount), ("max", category.MaxTraitPoints)),
                         FontColorOverride = Color.Gray
                     });
                 }
@@ -1081,6 +1136,7 @@ namespace Content.Client.Lobby.UI
             UpdateJobSubnameControls(); // WL-subnames: Pupchansky
             UpdateHeightEdit(); // WL-height
             UpdateOocTextEdit(); // WL-OocText
+            UpdateRecordsEdit(); // WL-Records
             UpdateAgeEdit();
             UpdateEyePickers();
             UpdateSaveButton();
@@ -1653,6 +1709,20 @@ namespace Content.Client.Lobby.UI
             }
         }
         // WL-OOCText-End
+
+        // WL-Records-Start
+        private void UpdateRecordsEdit()
+        {
+            if (_medicalRecordEdit != null)
+                _medicalRecordEdit.TextRope = new Rope.Leaf(Profile?.MedicalRecord ?? "");
+
+            if (_securityRecordEdit != null)
+                _securityRecordEdit.TextRope = new Rope.Leaf(Profile?.SecurityRecord ?? "");
+
+            if (_employmentRecordEdit != null)
+                _employmentRecordEdit.TextRope = new Rope.Leaf(Profile?.EmploymentRecord ?? "");
+        }
+        // WL-Records-End
 
         private void UpdateAgeEdit()
         {

@@ -362,7 +362,10 @@ namespace Content.Server.Database
                 antags.ToHashSet(),
                 traits.ToHashSet(),
                 loadouts,
-                jobUnblockings
+                jobUnblockings,
+                profile.MedicalRecord, // WL-Records
+                profile.SecurityRecord, // WL-Records
+                profile.EmploymentRecord // WL-Records
             );
         }
 
@@ -380,6 +383,9 @@ namespace Content.Server.Database
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
             profile.OocText = humanoid.OocText; // WL-OOCText
+            profile.MedicalRecord = humanoid.MedicalRecord; // WL-Records
+            profile.SecurityRecord = humanoid.SecurityRecord; // WL-Records
+            profile.EmploymentRecord = humanoid.EmploymentRecord; // WL-Records
             profile.Species = humanoid.Species;
             profile.Voice = humanoid.Voice; // Corvax-TTS
             profile.Age = humanoid.Age;
