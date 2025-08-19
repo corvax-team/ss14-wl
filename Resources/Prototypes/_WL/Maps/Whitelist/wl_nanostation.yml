@@ -46,7 +46,7 @@
 
             # science
             ResearchDirector: [ 1, 1 ]
-            SeniorPhysician: [ 1, 1 ]
+            SeniorResearcher: [ 1, 1 ]
             Scientist: [ 3, 3 ]
             ResearchAssistant: [ 2, 2 ]
 
@@ -80,3 +80,4 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
+
