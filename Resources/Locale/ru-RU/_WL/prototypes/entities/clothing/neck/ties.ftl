@@ -30,3 +30,5 @@ ent-ClothingNeckTieWhite = белый галстук
     .desc = Такой белый что вы не видите его на себе.
 ent-ClothingNeckTieYellow = жёлтый галстук
     .desc = Он что излучает радость?
+ent-ClothingNeckChoker = чокер
+    .desc =  Ну давай, расскажи как тяжело живется детям 31-го века.

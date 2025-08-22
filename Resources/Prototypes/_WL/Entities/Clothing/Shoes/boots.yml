@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesFashionCombatBoots
+  name: fashion combat boots
+  description: Style and practicality.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/fashion_combat_boots.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/fashion_combat_boots.rsi
