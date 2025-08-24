@@ -15,7 +15,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'MFV' # mofkkol + Vissent = MFV
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_nanostation.yml
         - type: StationJobs
           availableJobs:
 
@@ -80,4 +80,5 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
+
 
