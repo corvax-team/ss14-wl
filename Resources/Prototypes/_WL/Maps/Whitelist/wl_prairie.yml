@@ -16,7 +16,7 @@
            !type:NanotrasenNameGenerator
             prefixCreator: "VIS"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_prairie.yml
         - type: StationBiome
           biome: LowDesert
           mapLightColor: "#FFA161FF"
@@ -92,3 +92,4 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
+
