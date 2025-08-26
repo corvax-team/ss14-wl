@@ -26078,42 +26078,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ImplicitRoof
-- proto: AcousticGuitarInstrument
-  entities:
-  - uid: 3
-    components:
-    - type: Transform
-      pos: 3.5209696,41.644913
-      parent: 2
-- proto: ActionToggleInternals
-  entities:
-  - uid: 6
-    components:
-    - type: Transform
-      parent: 5
-- proto: ActionToggleJetpack
-  entities:
-  - uid: 7
-    components:
-    - type: Transform
-      parent: 5
-- proto: ActionToggleLight
-  entities:
-  - uid: 9190
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 8208
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 8208
-  - uid: 16669
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 6676
 - proto: AdvMopItem
   entities:
   - uid: 26756
@@ -69895,19 +69859,6 @@ entities:
       pos: -21.44731,-16.209175
       parent: 2
     - type: HandheldLight
-      toggleActionEntity: 16669
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 16669
-    - type: ActionsContainer
 - proto: ClothingHeadHatSurgcapBlue
   entities:
   - uid: 6677
@@ -82588,19 +82539,6 @@ entities:
       pos: -15.23443,-6.5098696
       parent: 2
     - type: HandheldLight
-      toggleActionEntity: 9190
-    - type: ContainerContainer
-      containers:
-        cell_slot: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 9190
-    - type: ActionsContainer
   - uid: 8209
     components:
     - type: Transform
@@ -111149,18 +111087,10 @@ entities:
       inSlotFlag: SUITSTORAGE
       inSlot: suitstorage
     - type: GasTank
-      toggleActionEntity: 6
     - type: Jetpack
-      toggleActionEntity: 7
     - type: Physics
       canCollide: False
     - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 7
-          - 6
 - proto: JetpackMini
   entities:
   - uid: 12282
@@ -114391,11 +114321,11 @@ entities:
                 Мне это так надоело...
 
 
-          У меня такое чувство, что он не доносит сообщения до 
+          У меня такое чувство, что он не доносит сообщения до
                                                                                                    получателя..
 
 
-                              МhЕ КОНEU 
+                              МhЕ КОНEU
                                                              ОНИ НАW^И МОИ 3АПИСИ!!
   - uid: 12643
     components:
@@ -114743,7 +114673,7 @@ entities:
 
 
 
-               Гордон, не трогай шкаф. 
+               Гордон, не трогай шкаф.
                            Там всё для ужина с Лилей
   - uid: 19796
     components:
