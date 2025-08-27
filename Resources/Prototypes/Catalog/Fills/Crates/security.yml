@@ -73,6 +73,8 @@
   components:
   - type: StorageFill
     contents:
+      - id: ClothingMaskSecurityMedicalRespirator #Corvax-WL-brigmedic-loadout-update
+        amount: 2
       - id: ClothingOuterBioSecurity
         amount: 2
       - id: ClothingHeadHatHoodBioSecurity

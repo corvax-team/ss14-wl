@@ -46,6 +46,7 @@
   id: FillBiohazardGearSecurity
   table: !type:AllSelector
     children:
+    - id: ClothingMaskSecurityMedicalRespirator #Corvax-WL-brigmedic-loadout-update
     - id: ClothingOuterBioSecurity
     - id: ClothingHeadHatHoodBioSecurity
 

@@ -134,6 +134,7 @@
   id: BrigmedicMask
   name: loadout-group-brigmedic-mask
   loadouts:
+  - BrigmedicSecurityMedicalRespirator #Corvax-WL-brigmedic-loadout-update
   - BrigmedicGasSecurity
   - BrigmedicMedicalSecurity
 
@@ -141,6 +142,7 @@
   id: BrigmedicJumpsuit
   name: loadout-group-brigmedic-jumpsuit
   loadouts:
+  - JumpsuitSecBlue #Corvax-WL-brigmedic-loadout-update
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
 
