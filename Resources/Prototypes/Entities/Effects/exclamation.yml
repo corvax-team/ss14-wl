@@ -7,7 +7,7 @@
     - type: Transform
       noRot: true
     - type: Sprite
-      sprite: _WL/Structures/Storage/closet.rsi # WL-Changes: Respright Day
+      sprite: _WL/Structures/Storage/closet.rsi # WL-Changes: Resprite  Day
       drawdepth: Effects
       noRot: true
       layers:
@@ -25,7 +25,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      sprite: _WL/Structures/Storage/closet.rsi # WL-Changes: Respright Day
+      sprite: _WL/Structures/Storage/closet.rsi # WL-Changes: Resprite  Day
       state: cardboard_special
       drawdepth: Effects
       offset: 0, 1

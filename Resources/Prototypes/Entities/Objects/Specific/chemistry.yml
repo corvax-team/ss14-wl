@@ -291,7 +291,7 @@
   - type: Spillable
     solution: beaker
   - type: Sprite
-    sprite: _WL/Objects/Specific/Chemistry/beaker_cryostasis.rsi # WL-Changes: Respright Day
+    sprite: _WL/Objects/Specific/Chemistry/beaker_cryostasis.rsi # WL-Changes: Resprite  Day
     layers:
       - state: beakernoreact
   - type: SolutionContainerVisuals

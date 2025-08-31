@@ -92,6 +92,15 @@
       "name": "bio_viro_open"
     },
     {
+      "name": "bio_sci"
+    },
+    {
+      "name": "bio_sci_door"
+    },
+    {
+      "name": "bio_sci_open"
+    },
+    {
       "name": "black_door"
     },
     {
@@ -570,6 +579,39 @@
     },
     {
       "name": "closet_open"
+    },
+    {
+      "name": "genpop"
+    },
+    {
+      "name": "genpop_door_1"
+    },
+    {
+      "name": "genpop_door_2"
+    },
+    {
+      "name": "genpop_door_3"
+    },
+    {
+      "name": "genpop_door_4"
+    },
+    {
+      "name": "genpop_door_5"
+    },
+    {
+      "name": "genpop_door_6"
+    },
+    {
+      "name": "genpop_door_7"
+    },
+    {
+      "name": "genpop_door_8"
+    },
+    {
+      "name": "genpop_open"
+    },
+    {
+      "name": "eng_evac_door"
     }
   ]
 }
