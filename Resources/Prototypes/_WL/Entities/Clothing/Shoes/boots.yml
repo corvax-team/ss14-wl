@@ -16,6 +16,6 @@
   description: Boots that are comfortable for carrying loads
   components:
   - type: Sprite
-    sprite: WL/Clothing/Shoes/Boots/loader_boots.rsi
+    sprite: _WL/Clothing/Shoes/Boots/loader_boots.rsi
   - type: Clothing
     sprite: _WL/Clothing/Shoes/Boots/loader_boots.rsi
