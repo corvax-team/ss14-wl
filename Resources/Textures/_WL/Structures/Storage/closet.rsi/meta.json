@@ -561,6 +561,15 @@
     },
     {
       "name": "representative_door"
+    },
+    {
+      "name": "closet_door"
+    },
+    {
+      "name": "closet"
+    },
+    {
+      "name": "closet_open"
     }
   ]
 }
