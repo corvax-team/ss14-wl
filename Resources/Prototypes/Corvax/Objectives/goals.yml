@@ -45,7 +45,7 @@
   id: StationGoalTwoCyborgs
   department: [ Science ]
   text: |
-      - Постройка двух киборгов.
+      - Постройка двух боргов.
 
 - type: stationGoal
   id: StationGoalFiveMedbots

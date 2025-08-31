@@ -56,7 +56,7 @@
       points: 2
       required: false
     HeadSide:
-      points: 1
+      points: 2 # WL-Change
       required: false
     UndergarmentTop:
       points: 1

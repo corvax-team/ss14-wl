@@ -23,7 +23,6 @@
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: wl_scibot
-  spriteBodyMovementState: wl_scibot_moving
   spriteHasMindState: wl_scibot_e
   spriteNoMindState: wl_scibot_e_r
   spriteToggleLightState: wl_scibot_l

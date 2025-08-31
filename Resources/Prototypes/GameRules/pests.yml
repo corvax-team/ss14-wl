@@ -48,12 +48,10 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
+    earliestStart: 20 # Corax-MRP # 15
     weight: 6
     duration: 50
-    spawnConfig: # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 15
+    minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
   - type: VentCrittersRule
     entries:
     - id: MobMouse
@@ -84,6 +82,8 @@
       prob: 0.03
     - id: MobMothroach
       prob: 0.008
+    - id: MobMoproach
+      prob: 0.004
 
 - type: entity
   id: SnailMigrationLowPop
@@ -115,9 +115,7 @@
     earliestStart: 15
     weight: 6
     duration: 50
-    spawnConfig: # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 30
+    minimumPlayers: 30
   - type: VentCrittersRule
     entries:
     - id: MobSnail

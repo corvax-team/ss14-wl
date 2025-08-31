@@ -1,3 +1,3 @@
 borg-type-science-name = Научный
 borg-type-science-desc = Помогайте научному отделу и его сотрудникам с изучением аномалий, а также проводите опасные операции над артефактами без риска для разумных.
-borg-type-science-transponder = киборг-учёный
+borg-type-science-transponder = борг-учёный

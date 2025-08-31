@@ -111,12 +111,13 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          reagent: ChloralHydrate
-          min: 10
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 4
+        type: Add
+        refresh: false
 # WL species start
+        conditions:
         # Android
         - !type:OrganType
           type: Biorobotic
@@ -126,15 +127,6 @@
           type: Golem
           shouldHave: false
 # WL species end
-        key: ForcedSleep
-        component: ForcedSleeping
-        refresh: false
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        component: Drowsiness
-        time: 4
-        type: Add
-        refresh: false
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -459,9 +451,8 @@
   metabolisms:
     Poison:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
         refresh: false

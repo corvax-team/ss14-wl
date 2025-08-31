@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Client._WL.Records; // WL-Records
 using Content.Client.Electrocution;
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
@@ -182,13 +183,18 @@ namespace Content.Client.Lobby.UI
 
         private TextEdit _oocTextEdit = null!; // WL-OOCText
 
+        private RecordsTab? _recordsTab; // WL-Records
+        private TextEdit? _medicalRecordEdit; // WL-Records
+        private TextEdit? _securityRecordEdit; // WL-Records
+        private TextEdit? _employmentRecordEdit; // WL-Records
+
         private SingleMarkingPicker _underwearPicker => CUnderwearPicker; // WL-Underwear
         private SingleMarkingPicker _undershirtPicker => CUndershirtPicker; // WL-Underwear
         private SingleMarkingPicker _socksPicker => CSocksPicker; // WL-Underwear
 
 
         [ValidatePrototypeId<GuideEntryPrototype>]
-        private const string DefaultSpeciesGuidebook = "Species";
+        private static readonly ProtoId<GuideEntryPrototype> DefaultSpeciesGuidebook = "Species";
 
         public event Action<List<ProtoId<GuideEntryPrototype>>>? OnOpenGuidebook;
 
@@ -356,6 +362,7 @@ namespace Content.Client.Lobby.UI
             };
 
             RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
+            _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
             _rgbSkinColorSelector.OnColorChanged += _ =>
             {
                 OnSkinColorOnValueChanged();
@@ -737,6 +744,8 @@ namespace Content.Client.Lobby.UI
 
             RefreshFlavorText();
 
+            RefreshRecords(); // WL-Records
+
             #region Dummy
 
             SpriteRotateLeft.OnPressed += _ =>
@@ -799,6 +808,53 @@ namespace Content.Client.Lobby.UI
                 _flavorText = null;
             }
         }
+
+        // WL-Records-Start
+        public void RefreshRecords()
+        {
+            if (_recordsTab != null)
+                return;
+
+            _recordsTab = new RecordsTab();
+            TabContainer.AddChild(_recordsTab);
+            TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-records-tab"));
+
+            _medicalRecordEdit = _recordsTab.MedicalRecordInput;
+            _securityRecordEdit = _recordsTab.SecurityRecordInput;
+            _employmentRecordEdit = _recordsTab.EmploymentRecordInput;
+
+            _recordsTab.OnMedicalRecordChanged += OnMedicalRecordChange;
+            _recordsTab.OnSecurityRecordChanged += OnSecurityRecordChange;
+            _recordsTab.OnEmploymentRecordChanged += OnEmploymentRecordChange;
+        }
+
+        private void OnMedicalRecordChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithMedicalRecord(content);
+            SetDirty();
+        }
+
+        private void OnSecurityRecordChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithSecurityRecord(content);
+            SetDirty();
+        }
+
+        private void OnEmploymentRecordChange(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithEmploymentRecord(content);
+            SetDirty();
+        }
+        // WL-Records-End
 
         /// <summary>
         /// Refreshes traits selector
@@ -891,7 +947,7 @@ namespace Content.Client.Lobby.UI
                 {
                     TraitsList.AddChild(new Label
                     {
-                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", selectionCount) ,("max", category.MaxTraitPoints)),
+                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", selectionCount), ("max", category.MaxTraitPoints)),
                         FontColorOverride = Color.Gray
                     });
                 }
@@ -1080,6 +1136,7 @@ namespace Content.Client.Lobby.UI
             UpdateJobSubnameControls(); // WL-subnames: Pupchansky
             UpdateHeightEdit(); // WL-height
             UpdateOocTextEdit(); // WL-OocText
+            UpdateRecordsEdit(); // WL-Records
             UpdateAgeEdit();
             UpdateEyePickers();
             UpdateSaveButton();
@@ -1128,9 +1185,9 @@ namespace Content.Client.Lobby.UI
             var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
             var page = DefaultSpeciesGuidebook;
             if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
-                page = species;
+                page = new ProtoId<GuideEntryPrototype>(species.Id); // Gross. See above todo comment.
 
-            if (_prototypeManager.TryIndex<GuideEntryPrototype>(DefaultSpeciesGuidebook, out var guideRoot))
+            if (_prototypeManager.TryIndex(DefaultSpeciesGuidebook, out var guideRoot))
             {
                 var dict = new Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry>();
                 dict.Add(DefaultSpeciesGuidebook, guideRoot);
@@ -1653,6 +1710,20 @@ namespace Content.Client.Lobby.UI
         }
         // WL-OOCText-End
 
+        // WL-Records-Start
+        private void UpdateRecordsEdit()
+        {
+            if (_medicalRecordEdit != null)
+                _medicalRecordEdit.TextRope = new Rope.Leaf(Profile?.MedicalRecord ?? "");
+
+            if (_securityRecordEdit != null)
+                _securityRecordEdit.TextRope = new Rope.Leaf(Profile?.SecurityRecord ?? "");
+
+            if (_employmentRecordEdit != null)
+                _employmentRecordEdit.TextRope = new Rope.Leaf(Profile?.EmploymentRecord ?? "");
+        }
+        // WL-Records-End
+
         private void UpdateAgeEdit()
         {
             AgeEdit.Text = Profile?.Age.ToString() ?? "";
@@ -1844,17 +1915,13 @@ namespace Content.Client.Lobby.UI
             {
                 return;
             }
-            var hairMarking = Profile.Appearance.HairStyleId switch
-            {
-                HairStyles.DefaultHairStyle => new List<Marking>(),
-                _ => new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) },
-            };
+            var hairMarking = Profile.Appearance.HairStyleId == HairStyles.DefaultHairStyle
+                ? new List<Marking>()
+                : new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) };
 
-            var facialHairMarking = Profile.Appearance.FacialHairStyleId switch
-            {
-                HairStyles.DefaultFacialHairStyle => new List<Marking>(),
-                _ => new() { new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }) },
-            };
+            var facialHairMarking = Profile.Appearance.FacialHairStyleId == HairStyles.DefaultFacialHairStyle
+                ? new List<Marking>()
+                : new() { new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }) };
 
             HairStylePicker.UpdateData(
                 hairMarking,

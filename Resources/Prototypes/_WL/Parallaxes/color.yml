@@ -33,7 +33,7 @@
         !type:GeneratedParallaxTextureSource
         id: ""
         configPath: "/Prototypes/Parallaxes/parallax_config.toml"
-        slowness: 0.875
+      slowness: 0.875
   layersLQUseHQ: false
 
 # Blue
@@ -71,7 +71,7 @@
         !type:GeneratedParallaxTextureSource
         id: ""
         configPath: "/Prototypes/Parallaxes/parallax_config.toml"
-        slowness: 0.875
+      slowness: 0.875
   layersLQUseHQ: false
 
 # Purple
@@ -109,7 +109,7 @@
         !type:GeneratedParallaxTextureSource
         id: ""
         configPath: "/Prototypes/Parallaxes/parallax_config.toml"
-        slowness: 0.875
+      slowness: 0.875
   layersLQUseHQ: false
 
 # Frontier
@@ -147,7 +147,7 @@
         !type:GeneratedParallaxTextureSource
         id: ""
         configPath: "/Prototypes/Parallaxes/parallax_config.toml"
-        slowness: 0.875
+      slowness: 0.875
   layersLQUseHQ: false
 
 

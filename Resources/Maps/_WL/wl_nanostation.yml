@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 262.0.0
-  forkId: ""
-  forkVersion: ""
-  time: 07/15/2025 08:29:26
-  entityCount: 13869
+  forkId: syndicate-wl
+  forkVersion: 2582c49ad201ec69e6d4e371b3b19a05ad21a5c1
+  time: 07/23/2025 18:42:11
+  entityCount: 13860
 maps:
 - 1
 grids:
@@ -4101,7 +4101,8 @@ entities:
           7,7:
             0: 65319
           7,8:
-            0: 60943
+            0: 28175
+            3: 32768
           8,4:
             0: 65525
           8,5:
@@ -4125,13 +4126,15 @@ entities:
           6,11:
             0: 30479
           6,12:
-            0: 59399
+            0: 59397
+            4: 2
           7,9:
             0: 65522
           7,10:
             0: 61412
           7,11:
-            0: 61152
+            4: 32
+            0: 61120
           7,12:
             0: 53518
           8,8:
@@ -4245,16 +4248,17 @@ entities:
             0: 36863
           10,6:
             0: 61551
-            3: 128
+            4: 128
           10,7:
             0: 29439
           10,8:
-            0: 55124
+            0: 51028
+            5: 4096
           11,5:
             0: 20479
           11,6:
             0: 61486
-            3: 64
+            4: 64
           11,7:
             0: 62719
           11,8:
@@ -4366,7 +4370,8 @@ entities:
           13,4:
             0: 56788
           14,0:
-            0: 35835
+            0: 35833
+            4: 2
           14,1:
             0: 61691
           14,2:
@@ -4374,7 +4379,8 @@ entities:
           14,3:
             0: 65521
           15,0:
-            0: 7645
+            0: 7641
+            4: 4
           15,1:
             0: 53501
           15,2:
@@ -4551,7 +4557,7 @@ entities:
             1: 4352
           18,8:
             1: 4369
-            4: 3084
+            6: 3084
           19,5:
             0: 63479
           19,6:
@@ -4560,7 +4566,7 @@ entities:
             0: 3
             1: 36480
           19,8:
-            4: 257
+            6: 257
             1: 52360
           20,5:
             0: 12336
@@ -4577,17 +4583,17 @@ entities:
             1: 800
           18,9:
             1: 4369
-            4: 3084
+            6: 3084
           18,10:
             1: 273
-            4: 3084
+            6: 3084
           18,11:
             0: 3535
           19,9:
-            4: 257
+            6: 257
             1: 51336
           19,10:
-            4: 257
+            6: 257
             1: 34952
           19,11:
             0: 16
@@ -4738,7 +4744,8 @@ entities:
           -7,7:
             1: 17609
           -7,8:
-            0: 34944
+            0: 32896
+            4: 2048
           -7,9:
             0: 34944
           -7,11:
@@ -4917,10 +4924,40 @@ entities:
           - 0
           - 0
         - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.823984
+          - 82.09976
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
           temperature: 293.14975
           moles:
           - 20.078888
           - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 21.6852
+          - 81.57766
           - 0
           - 0
           - 0
@@ -10927,8 +10964,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 57.5,4.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2200.5646501
     - type: SpamEmitSound
       enabled: False
   - uid: 10551
@@ -10937,8 +10972,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -10.5,48.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2155.5313548
 - proto: BookAME
   entities:
   - uid: 13424
@@ -31116,6 +31149,38 @@ entities:
     - type: Transform
       pos: 62.500004,0.50000006
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 11245
+          - 11247
+          - 11246
+          - 10671
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: ClosetMaintenanceFilledRandom
   entities:
   - uid: 1844
@@ -31217,14 +31282,23 @@ entities:
     - type: Transform
       pos: 31.5,36.5
       parent: 2
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 2713
+          - 2619
+          - 11034
     - type: EntityStorage
       air:
         volume: 200
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.8968438
-        - 7.1357465
+        - 1.8977377
+        - 7.139109
         - 0
         - 0
         - 0
@@ -32702,14 +32776,6 @@ entities:
       rot: -2.9103830456733704E-11 rad
       pos: 4.60781,12.49023
       parent: 2
-    - type: Physics
-      canCollide: False
-- proto: ClothingNeckSyndicakePin
-  entities:
-  - uid: 10225
-    components:
-    - type: Transform
-      parent: 4929
     - type: Physics
       canCollide: False
 - proto: ClothingNeckTieRed
@@ -34484,6 +34550,40 @@ entities:
     - type: Transform
       pos: 25.50001,48.50001
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 9319
+          - 9317
+          - 9320
+          - 9322
+          - 9318
+          - 9321
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: CrateEmergencyExplosive
   entities:
   - uid: 2664
@@ -34521,6 +34621,36 @@ entities:
     - type: Transform
       pos: -24.5,34.500004
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 10947
+          - 10946
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: CrateFreezer
   entities:
   - uid: 796
@@ -39659,6 +39789,18 @@ entities:
     - type: Transform
       pos: 31.5,61.5
       parent: 2
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 11131
+          - 11130
+          - 8625
+          - 11129
+          - 11128
+          - 13605
     - type: Storage
       storedItems:
         11130:
@@ -39676,9 +39818,9 @@ entities:
         11131:
           position: 5,0
           _rotation: South
-        10225:
-          position: 6,0
-          _rotation: South
+        13605:
+          position: 6,1
+          _rotation: North
 - proto: DresserChiefEngineerFilled
   entities:
   - uid: 4976
@@ -40711,78 +40853,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: EncryptionKeyBinary
-  entities:
-  - uid: 9194
-    components:
-    - type: Transform
-      parent: 9193
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeyCargo
-  entities:
-  - uid: 9189
-    components:
-    - type: Transform
-      parent: 8918
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeyCommand
-  entities:
-  - uid: 9214
-    components:
-    - type: Transform
-      parent: 9213
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeyCommon
-  entities:
-  - uid: 8917
-    components:
-    - type: Transform
-      parent: 8916
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeyEngineering
-  entities:
-  - uid: 8915
-    components:
-    - type: Transform
-      parent: 8914
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeyMedical
-  entities:
-  - uid: 9191
-    components:
-    - type: Transform
-      parent: 9190
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeyScience
-  entities:
-  - uid: 8778
-    components:
-    - type: Transform
-      parent: 8744
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeySecurity
-  entities:
-  - uid: 1666
-    components:
-    - type: Transform
-      parent: 1665
-    - type: Physics
-      canCollide: False
-- proto: EncryptionKeyService
-  entities:
-  - uid: 8846
-    components:
-    - type: Transform
-      parent: 8837
-    - type: Physics
-      canCollide: False
 - proto: Envelope
   entities:
   - uid: 4355
@@ -41144,6 +41214,17 @@ entities:
     - type: Transform
       pos: 25.500006,53.50001
       parent: 2
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 4985
+          - 4991
+          - 4989
+          - 4992
+          - 4990
     - type: Storage
       storedItems:
         4991:
@@ -63255,6 +63336,54 @@ entities:
     - type: Transform
       pos: 29.50001,45.499996
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 1798
+          - 1389
+          - 1404
+          - 1735
+          - 1390
+          - 1575
+          - 1610
+          - 1679
+          - 1777
+          - 1778
+          - 1766
+          - 1776
+          - 1639
+          - 1705
+          - 1391
+          - 1576
+          - 1779
+          - 1782
+          - 1783
+          - 1675
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
   - uid: 2103
     components:
     - type: Transform
@@ -65210,6 +65339,18 @@ entities:
     - type: Transform
       pos: 43.499992,25.500008
       parent: 2
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 10616
+          - 13873
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
     - type: EntityStorage
       air:
         volume: 200
@@ -65312,6 +65453,44 @@ entities:
     - type: Transform
       pos: 57.50001,0.49999994
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 11265
+          - 11272
+          - 11266
+          - 11271
+          - 11269
+          - 11270
+          - 11267
+          - 11273
+          - 11264
+          - 11268
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: LockerDetectiveFilled
   entities:
   - uid: 7516
@@ -65773,6 +65952,12 @@ entities:
       parent: 2
 - proto: MachineFrame
   entities:
+  - uid: 6154
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -25.5,11.5
+      parent: 2
   - uid: 7060
     components:
     - type: Transform
@@ -66082,7 +66267,40 @@ entities:
     - type: Transform
       pos: 50.5,24.25
       parent: 2
-    - type: ActiveUserInterface
+    - type: ContainerContainer
+      containers:
+        jumpsuit: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        outerClothing: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 13879
+        neck: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 13880
+        mask: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 13881
+        eyes: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        head: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: 13878
+        suitstorage: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
+        back: !type:ContainerSlot
+          showEnts: False
+          occludes: False
+          ent: null
 - proto: Matchbox
   entities:
   - uid: 8087
@@ -66817,6 +67035,7 @@ entities:
       toggleActionEntity: 5067
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
 - proto: PackPaperRollingFilters
   entities:
   - uid: 3019
@@ -69952,6 +70171,12 @@ entities:
       isDamageActive: False
     - type: ApcPowerReceiver
       powerLoad: 0
+  - uid: 5798
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -27.5,9.5
+      parent: 2
   - uid: 6149
     components:
     - type: Transform
@@ -70519,17 +70744,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 45.5,31.5
-      parent: 2
-    - type: PointLight
-      enabled: False
-    - type: DamageOnInteract
-      isDamageActive: False
-    - type: ApcPowerReceiver
-      powerLoad: 0
-  - uid: 8038
-    components:
-    - type: Transform
-      pos: -27.5,9.5
       parent: 2
     - type: PointLight
       enabled: False
@@ -76010,6 +76224,17 @@ entities:
     - type: Transform
       pos: 25.5,57.5
       parent: 2
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 12857
+          - 5159
+          - 12859
+          - 12858
+          - 5160
     - type: Storage
       storedItems:
         12857:
@@ -78207,15 +78432,11 @@ entities:
     - type: Transform
       pos: 28.5,12.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2140.1651075
   - uid: 7783
     components:
     - type: Transform
       pos: 10.5,18.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2296.1649445
 - proto: SMESBasic
   entities:
   - uid: 700
@@ -79445,15 +79666,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -14.5,48.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2162.5313428
   - uid: 10014
     components:
     - type: Transform
       pos: 48.5,47.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2125.5647761
     - type: SpamEmitSound
       enabled: False
   - uid: 10266
@@ -79462,8 +79679,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 54.5,4.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2130.5314048
     - type: SpamEmitSound
       enabled: False
 - proto: SpawnMechRipley
@@ -82663,77 +82878,66 @@ entities:
       parent: 2
     - type: PointLight
       color: '#FF3300FF'
-- proto: TelecomServer
+- proto: TelecomServerFilledCargo
   entities:
-  - uid: 1665
-    components:
-    - type: Transform
-      pos: -25.5,10.5
-      parent: 2
-    - type: WiresPanel
-      open: True
-  - uid: 8744
-    components:
-    - type: Transform
-      pos: -27.5,7.5
-      parent: 2
-    - type: WiresPanel
-      open: True
-  - uid: 8837
-    components:
-    - type: Transform
-      pos: -25.5,9.5
-      parent: 2
-    - type: WiresPanel
-      open: True
-  - uid: 8914
-    components:
-    - type: Transform
-      pos: -27.5,9.5
-      parent: 2
-    - type: WiresPanel
-      open: True
-  - uid: 8916
-    components:
-    - type: Transform
-      pos: -25.5,7.5
-      parent: 2
-    - type: WiresPanel
-      open: True
-  - uid: 8918
-    components:
-    - type: Transform
-      pos: -25.5,8.5
-      parent: 2
-    - type: WiresPanel
-      open: True
-  - uid: 9190
+  - uid: 1666
     components:
     - type: Transform
       pos: -27.5,8.5
       parent: 2
-    - type: WiresPanel
-      open: True
-  - uid: 9193
+- proto: TelecomServerFilledCommand
+  entities:
+  - uid: 5236
     components:
     - type: Transform
-      pos: -27.5,10.5
+      pos: -25.5,10.5
       parent: 2
-    - type: WiresPanel
-      open: True
-  - uid: 9213
+- proto: TelecomServerFilledCommon
+  entities:
+  - uid: 2121
     components:
     - type: Transform
-      pos: -25.5,11.5
+      pos: -25.5,7.5
       parent: 2
-    - type: WiresPanel
-      open: True
+- proto: TelecomServerFilledEngineering
+  entities:
+  - uid: 3505
+    components:
+    - type: Transform
+      pos: -27.5,7.5
+      parent: 2
+- proto: TelecomServerFilledMedical
+  entities:
+  - uid: 4968
+    components:
+    - type: Transform
+      pos: -25.5,9.5
+      parent: 2
 - proto: TelecomServerFilledScience
   entities:
+  - uid: 1665
+    components:
+    - type: Transform
+      pos: -25.5,8.5
+      parent: 2
   - uid: 8262
     components:
     - type: Transform
       pos: 13.5,44.5
+      parent: 2
+- proto: TelecomServerFilledSecurity
+  entities:
+  - uid: 6130
+    components:
+    - type: Transform
+      pos: -27.5,9.5
+      parent: 2
+- proto: TelecomServerFilledService
+  entities:
+  - uid: 6036
+    components:
+    - type: Transform
+      pos: -27.5,10.5
       parent: 2
 - proto: Thruster
   entities:
@@ -83209,8 +83413,9 @@ entities:
   - uid: 13605
     components:
     - type: Transform
-      pos: 31.48008,61.85047
-      parent: 2
+      parent: 4929
+    - type: Physics
+      canCollide: False
 - proto: TowelColorTeal
   entities:
   - uid: 11227
@@ -83672,8 +83877,6 @@ entities:
     - type: Transform
       pos: 42.5,25.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2137.1650405
 - proto: VendingMachineAtmosDrobe
   entities:
   - uid: 1835
@@ -83681,8 +83884,6 @@ entities:
     - type: Transform
       pos: 66.5,34.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2648.1979128
 - proto: VendingMachineBooze
   entities:
   - uid: 693
@@ -83690,22 +83891,16 @@ entities:
     - type: Transform
       pos: 26.5,61.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2699.1978998
   - uid: 1634
     components:
     - type: Transform
       pos: 40.5,20.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2281.1649685
   - uid: 6228
     components:
     - type: Transform
       pos: 52.5,3.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2164.1650535
 - proto: VendingMachineCargoDrobe
   entities:
   - uid: 7914
@@ -83713,8 +83908,6 @@ entities:
     - type: Transform
       pos: 1.5,0.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2211.1650034
 - proto: VendingMachineCart
   entities:
   - uid: 2835
@@ -83729,8 +83922,6 @@ entities:
     - type: Transform
       pos: 6.5,10.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2119.1650775
 - proto: VendingMachineChapel
   entities:
   - uid: 543
@@ -83745,8 +83936,6 @@ entities:
     - type: Transform
       pos: 24.5,22.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2636.1979438
 - proto: VendingMachineChefvend
   entities:
   - uid: 1319
@@ -83754,8 +83943,6 @@ entities:
     - type: Transform
       pos: 30.5,22.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2274.1649635
 - proto: VendingMachineChemDrobe
   entities:
   - uid: 840
@@ -83763,8 +83950,6 @@ entities:
     - type: Transform
       pos: 10.5,21.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2174.1650065
 - proto: VendingMachineChemicals
   entities:
   - uid: 398
@@ -83779,15 +83964,11 @@ entities:
     - type: Transform
       pos: 44.5,46.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2259.1649555
   - uid: 4767
     components:
     - type: Transform
       pos: 21.5,49.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2185.1650635
   - uid: 9988
     components:
     - type: Transform
@@ -83800,15 +83981,11 @@ entities:
     - type: Transform
       pos: 52.5,42.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2173.1650445
   - uid: 7973
     components:
     - type: Transform
       pos: -5.5,6.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2223.1649705
 - proto: VendingMachineCoffee
   entities:
   - uid: 2075
@@ -83816,29 +83993,21 @@ entities:
     - type: Transform
       pos: 14.5,37.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2202.1650605
   - uid: 5328
     components:
     - type: Transform
       pos: 7.5,10.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2135.1651055
   - uid: 5331
     components:
     - type: Transform
       pos: 45.5,46.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2238.1649935
   - uid: 11006
     components:
     - type: Transform
       pos: 14.5,62.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2154.1650595
 - proto: VendingMachineColaRed
   entities:
   - uid: 10406
@@ -83846,8 +84015,6 @@ entities:
     - type: Transform
       pos: -20.5,44.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2205.1650555
 - proto: VendingMachineCondiments
   entities:
   - uid: 1294
@@ -83855,15 +84022,11 @@ entities:
     - type: Transform
       pos: 36.5,21.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2144.1650525
   - uid: 2966
     components:
     - type: Transform
       pos: 50.5,44.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2185.1649735
 - proto: VendingMachineCuraDrobe
   entities:
   - uid: 9260
@@ -83871,8 +84034,6 @@ entities:
     - type: Transform
       pos: 38.5,7.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2226.1649765
 - proto: VendingMachineDetDrobe
   entities:
   - uid: 7515
@@ -83880,8 +84041,6 @@ entities:
     - type: Transform
       pos: 30.5,28.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2219.1649835
 - proto: VendingMachineDinnerware
   entities:
   - uid: 1315
@@ -83889,8 +84048,6 @@ entities:
     - type: Transform
       pos: 31.5,22.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2259.1650034
 - proto: VendingMachineDiscount
   entities:
   - uid: 2601
@@ -83898,15 +84055,11 @@ entities:
     - type: Transform
       pos: 18.5,45.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2165.1650335
   - uid: 6104
     components:
     - type: Transform
       pos: 13.5,62.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2205.1649535
 - proto: VendingMachineDonut
   entities:
   - uid: 1302
@@ -83914,15 +84067,11 @@ entities:
     - type: Transform
       pos: 70.5,16.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2163.1650195
   - uid: 6169
     components:
     - type: Transform
       pos: 46.5,46.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2123.1650575
 - proto: VendingMachineDrGibb
   entities:
   - uid: 11020
@@ -83930,8 +84079,6 @@ entities:
     - type: Transform
       pos: 8.5,10.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2253.1649455
 - proto: VendingMachineEngiDrobe
   entities:
   - uid: 4589
@@ -83939,8 +84086,6 @@ entities:
     - type: Transform
       pos: 68.5,23.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2180.1650695
 - proto: VendingMachineEngivend
   entities:
   - uid: 4588
@@ -83955,15 +84100,11 @@ entities:
     - type: Transform
       pos: 32.5,8.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2265.1649305
   - uid: 4365
     components:
     - type: Transform
       pos: 48.5,44.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2108.1650695
 - proto: VendingMachineGeneDrobe
   entities:
   - uid: 9384
@@ -83971,8 +84112,6 @@ entities:
     - type: Transform
       pos: -4.5,20.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2135.1650405
 - proto: VendingMachineHydrobe
   entities:
   - uid: 4769
@@ -83980,8 +84119,6 @@ entities:
     - type: Transform
       pos: 30.5,8.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2180.1650305
 - proto: VendingMachineJaniDrobe
   entities:
   - uid: 1690
@@ -83989,8 +84126,6 @@ entities:
     - type: Transform
       pos: 45.5,10.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2325.1649094
 - proto: VendingMachineLawDrobe
   entities:
   - uid: 8327
@@ -83998,8 +84133,6 @@ entities:
     - type: Transform
       pos: 48.5,33.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2198.1650545
 - proto: VendingMachineMedical
   entities:
   - uid: 4682
@@ -84014,8 +84147,6 @@ entities:
     - type: Transform
       pos: 11.5,12.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2110.1651025
 - proto: VendingMachineNutri
   entities:
   - uid: 4901
@@ -84023,8 +84154,6 @@ entities:
     - type: Transform
       pos: 30.5,7.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2189.1650405
 - proto: VendingMachinePride
   entities:
   - uid: 7974
@@ -84032,8 +84161,6 @@ entities:
     - type: Transform
       pos: -5.5,4.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2140.1650155
 - proto: VendingMachinePwrGame
   entities:
   - uid: 10026
@@ -84041,8 +84168,6 @@ entities:
     - type: Transform
       pos: 40.5,29.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2689.1978968
 - proto: VendingMachineRoboDrobe
   entities:
   - uid: 2181
@@ -84050,8 +84175,6 @@ entities:
     - type: Transform
       pos: 10.5,52.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2110.1650455
 - proto: VendingMachineRobotics
   entities:
   - uid: 2062
@@ -84059,8 +84182,6 @@ entities:
     - type: Transform
       pos: 14.5,52.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2224.1650045
 - proto: VendingMachineSalvage
   entities:
   - uid: 12860
@@ -84075,8 +84196,6 @@ entities:
     - type: Transform
       pos: 4.5,34.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2117.1650565
 - proto: VendingMachineSec
   entities:
   - uid: 6621
@@ -84084,8 +84203,6 @@ entities:
     - type: Transform
       pos: 37.5,35.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2689.1979098
 - proto: VendingMachineSecDrobe
   entities:
   - uid: 5042
@@ -84093,8 +84210,6 @@ entities:
     - type: Transform
       pos: 37.5,34.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2199.1650385
 - proto: VendingMachineSeeds
   entities:
   - uid: 628
@@ -84102,8 +84217,6 @@ entities:
     - type: Transform
       pos: 30.5,9.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2219.1649895
 - proto: VendingMachineSeedsUnlocked
   entities:
   - uid: 5199
@@ -84111,8 +84224,6 @@ entities:
     - type: Transform
       pos: 50.5,39.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2235.1649445
 - proto: VendingMachineShamblersJuice
   entities:
   - uid: 11022
@@ -84120,8 +84231,6 @@ entities:
     - type: Transform
       pos: -10.5,7.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2685.1978998
 - proto: VendingMachineSnack
   entities:
   - uid: 10015
@@ -84129,8 +84238,6 @@ entities:
     - type: Transform
       pos: -19.5,44.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2677.1979138
 - proto: VendingMachineSnackBlue
   entities:
   - uid: 100
@@ -84138,8 +84245,6 @@ entities:
     - type: Transform
       pos: 39.5,29.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2253.1649865
 - proto: VendingMachineSnackGreen
   entities:
   - uid: 9534
@@ -84147,8 +84252,6 @@ entities:
     - type: Transform
       pos: -1.5,30.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2198.1649865
 - proto: VendingMachineSnackOrange
   entities:
   - uid: 11070
@@ -84156,8 +84259,6 @@ entities:
     - type: Transform
       pos: 64.5,13.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2149.1650845
 - proto: VendingMachineSovietSoda
   entities:
   - uid: 2466
@@ -84165,8 +84266,6 @@ entities:
     - type: Transform
       pos: -0.5,30.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2153.1650905
 - proto: VendingMachineSpaceUp
   entities:
   - uid: 2465
@@ -84174,8 +84273,6 @@ entities:
     - type: Transform
       pos: 18.5,46.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2286.1648835
 - proto: VendingMachineStarkist
   entities:
   - uid: 9875
@@ -84183,8 +84280,6 @@ entities:
     - type: Transform
       pos: 65.5,13.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2208.1650105
 - proto: VendingMachineSustenance
   entities:
   - uid: 6353
@@ -84192,8 +84287,6 @@ entities:
     - type: Transform
       pos: 25.5,42.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2263.1649435
 - proto: VendingMachineSyndieDrobe
   entities:
   - uid: 7588
@@ -84201,8 +84294,6 @@ entities:
     - type: Transform
       pos: 18.5,6.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2114.1650675
 - proto: VendingMachineTankDispenserEngineering
   entities:
   - uid: 3974
@@ -84239,8 +84330,6 @@ entities:
     - type: Transform
       pos: 45.5,25.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2157.1650785
 - proto: VendingMachineVendomat
   entities:
   - uid: 6084
@@ -84248,8 +84337,6 @@ entities:
     - type: Transform
       pos: 53.5,33.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2265.1649425
 - proto: VendingMachineViroDrobe
   entities:
   - uid: 1812
@@ -84257,8 +84344,6 @@ entities:
     - type: Transform
       pos: -17.5,54.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2299.1649435
 - proto: VendingMachineWallMedical
   entities:
   - uid: 2463
@@ -84282,8 +84367,6 @@ entities:
     - type: Transform
       pos: -5.5,5.5
       parent: 2
-    - type: Advertise
-      nextAdvertisementTime: 2189.1650125
 - proto: VendingMachineYouTool
   entities:
   - uid: 4577
@@ -93751,14 +93834,25 @@ entities:
     - type: Transform
       pos: 40.499996,35.50001
       parent: 2
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 5894
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
     - type: EntityStorage
       air:
         volume: 200
         immutable: False
         temperature: 293.14673
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0

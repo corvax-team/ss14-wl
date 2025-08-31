@@ -22,10 +22,8 @@ using Robust.Shared.Physics.Components;
 // WL Golem species start
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Buckle;
-using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Content.Shared._WL.Slippery;
-using Content.Shared.Buckle.Components;
 // WL Golem species end
 
 namespace Content.Shared.Mobs.Systems;
@@ -33,7 +31,6 @@ namespace Content.Shared.Mobs.Systems;
 public partial class MobStateSystem
 {
     // WL Golem species start
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
@@ -131,7 +128,7 @@ public partial class MobStateSystem
                         if (hardslip is not null)
                         {
                             var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Blunt"), hardslip.FallDamage);
-                            _damageableSystem.TryChangeDamage(target, damageSpec);
+                            _damageable.TryChangeDamage(target, damageSpec);
                         }
                     }
                 }

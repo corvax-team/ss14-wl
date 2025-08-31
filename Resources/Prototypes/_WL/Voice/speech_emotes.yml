@@ -1,0 +1,50 @@
+- type: emote
+  id: Bark
+  name: chat-emote-name-bark
+  category: Vocal
+  available: false
+  icon: Interface/Actions/scream.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-bark"]
+  chatTriggers:
+  - bark
+  - bark.
+  - bark!
+  - barks
+  - barks.
+  - barks!
+  - лает
+  - лает.
+  - лает!
+  - гавкает
+  - гавкает.
+  - гавкает!
+
+- type: emote
+  id: Whine
+  name: chat-emote-name-whine
+  category: Vocal
+  available: false
+  icon: Interface/Actions/scream.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-whine"]
+  chatTriggers:
+  - whine
+  - whine.
+  - whine!
+  - whines
+  - whines.
+  - whines!
+  - скулит
+  - скулит.
+  - скулит!

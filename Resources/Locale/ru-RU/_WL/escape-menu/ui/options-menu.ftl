@@ -1,1 +1,0 @@
-ui-options-function-fall-down-and-stand-up = Встать/Лечь

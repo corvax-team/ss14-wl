@@ -487,5 +487,10 @@ public enum LogType
     /// <summary>
     /// Damaging grid collision has occurred.
     /// </summary>
-    ShuttleImpact = 104
+    ShuttleImpact = 104,
+
+    /// <summary>
+    /// Events relating to midi playback.
+    /// </summary>
+    Instrument = 105,
 }

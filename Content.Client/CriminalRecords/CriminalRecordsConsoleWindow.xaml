@@ -47,67 +47,81 @@
                        Align="Center"
                        FontColorOverride="DarkGray" />
                 <!-- Selected record info -->
-                <BoxContainer Name="PersonContainer"
-                        Orientation="Vertical"
-                        VerticalExpand="True"
-                        HorizontalExpand="True"
-                        Margin="5"
-                        Visible="False">
-                    <Label Name="PersonName"
-                           Margin="0 0 0 5"
-                           StyleClasses="LabelBig" />
-                    <BoxContainer Orientation="Horizontal"
-                                  Margin="0 0 0 5">
-                        <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
-                               FontColorOverride="DarkGray" />
-                        <TextureRect Name="PersonJobIcon"
-                                     TextureScale="2 2"
-                                     Margin="6 0"
-                                     VerticalAlignment="Center" />
-                        <Label Name="PersonJob" />
-                    </BoxContainer>
-                    <BoxContainer Orientation="Horizontal"
-                                  Margin="0 0 0 5">
-                        <Label Text="{Loc 'general-station-record-prints-filter'}"
-                               FontColorOverride="DarkGray" />
-                        <Label Text=":"
-                               Margin="0 0 6 0"
-                               FontColorOverride="DarkGray" />
-                        <Label Name="PersonPrints" />
-                    </BoxContainer>
-                    <BoxContainer Orientation="Horizontal"
-                                  Margin="0 0 0 5">
-                        <Label Text="{Loc 'general-station-record-dna-filter'}"
-                               FontColorOverride="DarkGray" />
-                        <Label Text=":"
-                               Margin="0 0 6 0"
-                               FontColorOverride="DarkGray" />
-                        <Label Name="PersonDna" />
-                    </BoxContainer>
-                    <PanelContainer StyleClasses="LowDivider"
-                                    Margin="0 5 0 5" />
-                    <BoxContainer Orientation="Horizontal"
-                                  Margin="0 5 0 5">
-                        <Label Name="StatusLabel"
-                               Text="{Loc 'criminal-records-console-status'}"
-                               FontColorOverride="DarkGray" />
-                        <Label Text=":"
-                               FontColorOverride="DarkGray" />
-                        <Label Name="PersonStatus"
-                               FontColorOverride="DarkGray" />
-                        <AnimatedTextureRect Name="PersonStatusTX"
-                                             Margin="8 0" />
-                        <OptionButton Name="StatusOptionButton"
-                                      MinWidth="130" />
-                        <!-- Populated in constructor -->
-                    </BoxContainer>
-                    <RichTextLabel Name="WantedReason"
-                                   Visible="False"
-                                   MaxWidth="425" />
-                    <Button Name="HistoryButton"
-                            Text="{Loc 'criminal-records-console-crime-history'}"
-                            Margin="0 5" />
-                </BoxContainer>
+                <!-- WL-Records-Edit-Start -->
+                <TabContainer Name="RecordTabs"
+                              HorizontalExpand="True"
+                              VerticalExpand="True"
+                              Visible="False">
+                     <BoxContainer Name="PersonContainer"
+                                   Orientation="Vertical"
+                                   VerticalExpand="True"
+                                   HorizontalExpand="True"
+                                   Margin="5">
+                            <Label Name="PersonName"
+                                   Margin="0 0 0 5"
+                                   StyleClasses="LabelBig" />
+                            <BoxContainer Orientation="Horizontal"
+                                          Margin="0 0 0 5">
+                                <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
+                                       FontColorOverride="DarkGray" />
+                                <TextureRect Name="PersonJobIcon"
+                                             TextureScale="2 2"
+                                             Margin="6 0"
+                                             VerticalAlignment="Center" />
+                                <Label Name="PersonJob" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Horizontal"
+                                          Margin="0 0 0 5">
+                                <Label Text="{Loc 'general-station-record-prints-filter'}"
+                                       FontColorOverride="DarkGray" />
+                                <Label Text=":"
+                                       Margin="0 0 6 0"
+                                       FontColorOverride="DarkGray" />
+                                <Label Name="PersonPrints" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Horizontal"
+                                          Margin="0 0 0 5">
+                                <Label Text="{Loc 'general-station-record-dna-filter'}"
+                                       FontColorOverride="DarkGray" />
+                                <Label Text=":"
+                                       Margin="0 0 6 0"
+                                       FontColorOverride="DarkGray" />
+                                <Label Name="PersonDna" />
+                            </BoxContainer>
+                            <PanelContainer StyleClasses="LowDivider"
+                                            Margin="0 5 0 5" />
+                            <BoxContainer Orientation="Horizontal"
+                                          Margin="0 5 0 5">
+                                <Label Name="StatusLabel"
+                                       Text="{Loc 'criminal-records-console-status'}"
+                                       FontColorOverride="DarkGray" />
+                                <Label Text=":"
+                                       FontColorOverride="DarkGray" />
+                                <Label Name="PersonStatus"
+                                       FontColorOverride="DarkGray" />
+                                <AnimatedTextureRect Name="PersonStatusTX"
+                                                     Margin="8 0" />
+                                <OptionButton Name="StatusOptionButton"
+                                              MinWidth="130" />
+                                <!-- Populated in constructor -->
+                            </BoxContainer>
+                            <RichTextLabel Name="WantedReason"
+                                           Visible="False"
+                                           MaxWidth="425" />
+                     <Button Name="HistoryButton"
+                             Text="{Loc 'criminal-records-console-crime-history'}"
+                             Margin="0 5" />
+                     </BoxContainer>
+                     <BoxContainer Orientation="Vertical"
+                                   VerticalExpand="True"
+                                   HorizontalExpand="True"
+                                   Margin="5">
+                         <Label Name="SecurityRecord"
+                                Margin="5"
+                                HorizontalExpand="True"/>
+                     </BoxContainer>
+                </TabContainer>
+                <!-- WL-Records-Edit-End -->
             </BoxContainer>
             <BoxContainer Orientation="Horizontal"
                           Margin="0 0 0 5">

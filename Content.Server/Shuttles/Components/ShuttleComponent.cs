@@ -68,5 +68,10 @@ namespace Content.Server.Shuttles.Components
         /// </summary>
         [DataField]
         public float DampingModifier;
+
+        //WL-Changes-start
+        [DataField]
+        public bool GodShutle = false;
+        //WL-Changes-end
     }
 }

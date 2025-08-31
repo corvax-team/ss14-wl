@@ -41,9 +41,10 @@
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ] # WL-Changes
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    # - map: [ "enum.HumanoidVisualLayers.Tail" ] # WL-Changes
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
@@ -123,24 +124,18 @@
       - !type:WashCreamPieReaction
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
     - Stutter
-    - SeeingRainbows
     - Electrocution
     - Drunk
     - SlurredSpeech
     - RatvarianLanguage
     - PressureImmunity
     - Muted
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
   - type: Body
     prototype: Human
@@ -221,7 +216,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  - type: StandFallCrouch # WL-Developers-Changes
 
 - type: entity
   save: false
@@ -264,9 +258,9 @@
         Heat: 1.5 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      293: 0.8
-      280: 0.6
-      260: 0.4
+      293: 0.9
+      280: 0.8
+      260: 0.7
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
@@ -292,6 +286,7 @@
     normalState: human_small_fire # Corvax WL /tg/ resprite
     alternateState: human_big_fire # Corvax WL /tg/ resprite
   - type: MobCollision # WL-Changes: MobCollision works for players only
+  - type: StunVisuals
 
 - type: entity
   save: false

@@ -6,7 +6,7 @@
     - id: BluespaceArtifact
     - id: BluespaceLocker
     - id: BreakerFlip
-    # - id: BureaucraticError
+    # - id: BureaucraticError # WL-Changes
     # - id: ClericalError - WL-changes
     - id: CockroachMigration
     - id: GasLeak
@@ -37,7 +37,7 @@
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
-    # - id: LoneOpsSpawn
+    # - id: LoneOpsSpawn # WL-Changes
     - id: DerelictCyborgSpawn
     #- id: WizardSpawn # WL-Changes
 
@@ -48,8 +48,8 @@
   components:
   - type: GameRule
     delay:
-      min:  10
-      max:  20
+      min:  20 # Corax-MRP # 10
+      max:  30 # Corax-MRP # 20
 
 - type: entity
   id: BaseStationEventShortDelay
@@ -58,8 +58,8 @@
   components:
   - type: GameRule
     delay:
-      min:  10
-      max:  20
+      min:  20 # Corax-MRP # 10
+      max:  30 # Corax-MRP # 20
 
 - type: entity
   id: BaseStationEventLongDelay
@@ -68,24 +68,21 @@
   components:
   - type: GameRule
     delay:
-      min:  40
-      max:  60
+      min:  50 # Corax-MRP # 40
+      max:  70 # Corax-MRP # 60
 
 - type: entity
   id: AnomalySpawn
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 8
-    duration: 35
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 5 # Corvax WL
     startAnnouncementColor: "#18abf5"
     startAudio:
       path: /Audio/Corvax/Announcements/flux.ogg # Corvax-Announcements
       params:
         volume: -4
+    weight: 8
+    duration: 35
   - type: AnomalySpawnRule
 
 - type: entity
@@ -111,8 +108,8 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    weight: 1
-    reoccurrenceDelay: 120
+    weight: 2
+    reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
   - type: BluespaceLockerRule
@@ -124,39 +121,32 @@
   - type: StationEvent
     weight: 7
     duration: 1
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 15
+    minimumPlayers: 15
   - type: BreakerFlipRule
 
-# - type: entity
-  # id: BureaucraticError
-  # parent: BaseGameRule
-  # components:
-  # - type: StationEvent
-    # startAnnouncement: station-event-bureaucratic-error-announcement
-    # spawnConfig:  # CorvaxWL-Changes
-      # standartConfig:
-        # minPlayers: 20
-    # weight: 5
-    # duration: 1
-  # - type: BureaucraticErrorRule
+- type: entity
+  id: BureaucraticError
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-bureaucratic-error-announcement
+    minimumPlayers: 25
+    weight: 3
+    duration: 1
+  - type: BureaucraticErrorRule
+    ignoredJobs:
+    - StationAi
 
-#WL-Changes-start
-# - type: entity
-  # id: ClericalError
-  # parent: BaseGameRule
-  # components:
-  # - type: StationEvent
-    # startAnnouncement: station-event-clerical-error-announcement
-    # spawnConfig:  # CorvaxWL-Changes
-      # standartConfig:
-        # minPlayers: 15
-    # weight: 5
-    # duration: 1
-  # - type: ClericalErrorRule
-#WL-Changes-end
-
+- type: entity
+  id: ClericalError
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-clerical-error-announcement
+    minimumPlayers: 15
+    weight: 5
+    duration: 1
+  - type: ClericalErrorRule
 - type: entity
   parent: BaseGameRule
   id: ClosetSkeleton
@@ -164,9 +154,7 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 10
+    minimumPlayers: 10
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -176,13 +164,10 @@
   components:
   - type: StationEvent
     weight: 6.5
-    earliestStart: 40
-    reoccurrenceDelay: 60
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 25
+    earliestStart: 50 # Corax-MRP # 40
+    reoccurrenceDelay: 30 # Corax-MRP # 20
+    minimumPlayers: 20
     duration: null
-  - type: AntagRandomSpawn
   - type: SpaceSpawnRule
     spawnDistance: 0
   - type: AntagSpawner
@@ -209,11 +194,9 @@
   - type: StationEvent
     weight: 6
     duration: null
-    earliestStart: 45 # Corvax WL changes
+    earliestStart: 45 # WL-Changes # 30
     reoccurrenceDelay: 20
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 30
+    minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
@@ -263,9 +246,7 @@
     duration: null
     earliestStart: 20
     reoccurrenceDelay: 20
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 15
+    minimumPlayers: 15
   - type: ParadoxCloneRule
     objectiveBlacklist:
       tags:
@@ -297,13 +278,10 @@
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 5
+    weight: 7.5
     duration: 1
     earliestStart: 45
-    reoccurrenceDelay: 90
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 20
+    minimumPlayers: 20 # WL-Changes # 30 # Corax-MRP # 20
   - type: RandomSpawnRule
     prototype: MobRevenant
 
@@ -314,11 +292,9 @@
   - type: StationEvent
     weight: 1 # rare
     duration: 1
-    earliestStart: 30
+    earliestStart: 40 # Corax-MRP # 30
     reoccurrenceDelay: 60
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 10
+    minimumPlayers: 10
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:
@@ -374,10 +350,6 @@
       path: /Audio/Announcements/gasleak_end.ogg # Corvax-Announcements
       params:
         volume: -4
-    earliestStart: 10
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 5
   - type: GasLeakRule
 
 - type: entity
@@ -386,9 +358,7 @@
   components:
   - type: StationEvent
     earliestStart: 15
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 15
+    minimumPlayers: 15
     weight: 7
     duration: 240
   - type: KudzuGrowthRule
@@ -398,7 +368,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 6
+    weight: 5
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
@@ -450,10 +420,8 @@
       params:
         volume: -4
     earliestStart: 15
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 15
-    weight: 6
+    minimumPlayers: 15
+    weight: 5
     duration: 60
   - type: VentClogRule
 
@@ -465,11 +433,9 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 15
-    weight: 6
+    earliestStart: 30 # Corax-MRP # 20
+    minimumPlayers: 15
+    weight: 5
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -488,10 +454,8 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 15
+    earliestStart: 30 # Corax-MRP # 20
+    minimumPlayers: 15
     weight: 5
     duration: 60
   - type: VentCrittersRule
@@ -511,11 +475,9 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 30
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 15
-    weight: 6
+    earliestStart: 30 # Corax-MRP # 20
+    minimumPlayers: 15
+    weight: 5
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -530,10 +492,8 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 30
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 20
+    earliestStart: 30 # Corax-MRP # 20
+    minimumPlayers: 20
     weight: 1.5
     duration: 60
   - type: VentCrittersRule
@@ -547,10 +507,8 @@
   components:
   - type: StationEvent
     earliestStart: 90
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 30
-    weight: 1
+    minimumPlayers: 40
+    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
   - type: ZombieRule
   - type: AntagSelection
@@ -581,54 +539,51 @@
       mindRoles:
       - MindRoleInitialInfected
 
-# WL-Changes: no fun allowed
-# - type: entity
-#   parent: BaseNukeopsRule
-#   id: LoneOpsSpawn
-#   components:
-#   - type: StationEvent
-#     earliestStart: 35
-#     weight: 5.5
-#     minimumPlayers: 20
-#     duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
-#   - type: RuleGrids
-#   - type: LoadMapRule
-#     gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
-#   - type: NukeopsRule
-#     roundEndBehavior: Nothing
-#   - type: AntagSelection
-#     definitions:
-#     - spawnerPrototype: SpawnPointLoneNukeOperative
-#       min: 1
-#       max: 1
-#       pickPlayer: false
-#       startingGear: SyndicateLoneOperativeGearFull
-#       roleLoadout:
-#       - RoleSurvivalNukie
-#       components:
-#       - type: NukeOperative
-#       - type: RandomMetadata
-#         nameSegments:
-#         - NamesSyndicatePrefix
-#         - NamesSyndicateNormal
-#         nameFormat: name-format-nukie-generic
-#       - type: NpcFactionMember
-#         factions:
-#         - Syndicate
-#       mindRoles:
-#       - MindRoleNukeops
+- type: entity
+  parent: BaseNukeopsRule
+  id: LoneOpsSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 40 # Corax-MRP # 30
+    weight: 5.5
+    minimumPlayers: 20
+    duration: null # LoneOpsSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end scrreen (not always "Neutral outcome!") and... ending the game if the station is nuked.
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+  - type: NukeopsRule
+    roundEndBehavior: Nothing
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointLoneNukeOperative
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SyndicateLoneOperativeGearFull
+      roleLoadout:
+      - RoleSurvivalNukie
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSyndicatePrefix
+        - NamesSyndicateNormal
+        nameFormat: name-format-nukie-generic
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeops
 
 - type: entity
   parent: BaseTraitorRule
   id: SleeperAgents
   components:
   - type: StationEvent
-    earliestStart: 30
-    weight: 5
+    earliestStart: 40 # Corax-MRP #
+    weight: 8
+    minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 15
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
@@ -669,9 +624,9 @@
   id: IonStorm
   components:
   - type: StationEvent
-    weight: 7
+    weight: 8
     reoccurrenceDelay: 20
-    duration: 60
+    duration: 1
   - type: IonStormRule
 
 - type: entity
@@ -680,9 +635,7 @@
   components:
   - type: StationEvent
     earliestStart: 0
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 20
+    minimumPlayers: 20
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
   - type: MobReplacementRule
@@ -695,9 +648,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 25
+    minimumPlayers: 25
     reoccurrenceDelay: 20
   - type: GreytideVirusRule
     accessGroups:
@@ -717,9 +668,7 @@
   - type: StationEvent
     earliestStart: 0
     duration: 1
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 1
+    minimumPlayers: 1
     maxOccurrences: 2
     weight: 10
   - type: RandomSpawnRule
@@ -733,9 +682,7 @@
     weight: 5
     earliestStart: 15
     reoccurrenceDelay: 20
-    spawnConfig:  # CorvaxWL-Changes
-      standartConfig:
-        minPlayers: 4
+    minimumPlayers: 4
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0

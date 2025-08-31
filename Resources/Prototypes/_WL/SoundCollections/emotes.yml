@@ -44,3 +44,10 @@
   id: GolemClap
   files:
     - /Audio/_WL/Voice/Golem/clap_1.ogg
+
+- type: soundCollection
+  id: Bark
+  files:
+    - /Audio/_WL/Voice/Vulpkanin/dog_bark1.ogg
+    - /Audio/_WL/Voice/Vulpkanin/dog_bark2.ogg
+    - /Audio/_WL/Voice/Vulpkanin/dog_bark3.ogg

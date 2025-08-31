@@ -36,7 +36,6 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - Bible
     - RubberStampChaplain
 
 - type: chameleonOutfit

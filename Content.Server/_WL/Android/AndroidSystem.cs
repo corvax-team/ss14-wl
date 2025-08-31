@@ -20,7 +20,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Verbs;
 using Content.Shared.EntityEffects.Effects;
 using Robust.Shared.Random;
@@ -42,10 +42,6 @@ namespace Content.Server._WL.Android
         [ViewVariables(VVAccess.ReadOnly)]
         private const float AndroidDoAfterChargeTime = 1f;
 
-        [ViewVariables(VVAccess.ReadOnly)]
-        [ValidatePrototypeId<StatusEffectPrototype>]
-        private const string ForcedSleepStatusEffect = "ForcedSleep";
-
        public override void Initialize()
         {
             base.Initialize();
@@ -56,8 +52,6 @@ namespace Content.Server._WL.Android
             SubscribeLocalEvent<GameRuleEndedEvent>(OnGameRuleEnd);
 
             SubscribeLocalEvent<AndroidComponent, AndroidChargeEvent>(OnDoAfter);
-            SubscribeLocalEvent<AndroidComponent, StatusEffectAddedEvent>(OnSleepBegin);
-            SubscribeLocalEvent<AndroidComponent, StatusEffectEndedEvent>(OnSleepEnd);
             SubscribeLocalEvent<AndroidComponent, MobStateChangedEvent>(OnMobstateChanged);
             SubscribeLocalEvent<AndroidComponent, BeforeDealHeatDamageFromLightBulbEvent>(OnGetLightBulb);
             SubscribeLocalEvent<AndroidComponent, RefreshMovementSpeedModifiersEvent>(OnModifiersRefresh);
@@ -143,22 +137,6 @@ namespace Content.Server._WL.Android
             else powerCellDrawComp.CanDraw = true;
         }
 
-        private void OnSleepBegin(EntityUid android, AndroidComponent comp, StatusEffectAddedEvent args)
-        {
-            if (!args.Key.Equals(ForcedSleepStatusEffect))
-                return;
-
-            EnsureComp<ForcedSleepingComponent>(android);
-        }
-
-        private void OnSleepEnd(EntityUid android, AndroidComponent comp, StatusEffectEndedEvent args)
-        {
-            if (!args.Key.Equals(ForcedSleepStatusEffect))
-                return;
-
-            RemComp<ForcedSleepingComponent>(android);
-        }
-
         private void CheckAndDoForcedSleep(EntityUid android,
             AndroidComponent comp)
         {
@@ -175,8 +153,8 @@ namespace Content.Server._WL.Android
 
             if (_random.Prob(comp.ForcedSleepChance))
             {
-                var sleepTime = _random.Next(comp.SleepTimeMin, comp.SleepTimeMax);
-                _statusEffect.TryAddStatusEffect(android, ForcedSleepStatusEffect, sleepTime, true);
+                var duration = _random.Next(comp.SleepTimeMin, comp.SleepTimeMax);
+                _statusEffect.TryAddStatusEffectDuration(android, SleepingSystem.StatusEffectForcedSleeping, duration);
             }
         }
 

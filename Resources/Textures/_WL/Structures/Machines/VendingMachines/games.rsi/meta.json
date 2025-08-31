@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation https://github.com/tgstation/tgstation/commit/dd67e1e4e10bcf632b82b8b14b6a8479d80d5f78#diff-34173d670aca65c110ef18312c32abc4e05c84f33a9402248a32000e45acd0d3, resprited by @mishutka09 (discord:1152277579206774854)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "normal-unshaded",
+      "delays": [
+        [
+          1.0,
+          0.1,
+          1.0,
+          0.1,
+          1.0,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "broken"
+    },
+    {
+      "name": "eject-unshaded",
+      "delays": [
+        [
+          1.0,
+          0.1,
+          1.0,
+          0.1,
+          1.0,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "off"
+    },
+    {
+      "name": "panel"
+    }
+  ]
+}

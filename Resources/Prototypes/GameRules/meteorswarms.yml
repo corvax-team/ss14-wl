@@ -61,7 +61,7 @@
   components:
   - type: GameRule
   - type: BasicStationEventScheduler
-    minimumTimeUntilFirstEvent: 1800
+    minimumTimeUntilFirstEvent: 600 # 10 min
     minMaxEventTiming:
       min: 1800 # 30 min # Corvax-MRP
       max: 2700 # 45 min # Corvax-MRP
@@ -101,9 +101,7 @@
   - type: StationEvent
     reoccurrenceDelay: 1
     earliestStart: 12
-    spawnConfig:
-      standartConfig:
-        minPlayers: 25
+    minimumPlayers: 25
   - type: MeteorSwarm
     announcementSound: /Audio/Announcements/meteors_start.ogg # Corvax-Announcements
 
@@ -112,11 +110,9 @@
   id: GameRuleSpaceDustMinor
   components:
   - type: StationEvent
-    weight: 1
+    weight: 44
     earliestStart: 2
-    spawnConfig:
-      standartConfig:
-        minPlayers: 25
+    minimumPlayers: 0
   - type: MeteorSwarm
     announcement: null
     announcementSound: null
@@ -135,10 +131,8 @@
   id: GameRuleSpaceDustMajor
   components:
   - type: StationEvent
-    weight: 1
-    spawnConfig:
-      standartConfig:
-        minPlayers: 25
+    weight: 22
+    minimumPlayers: 0
   - type: MeteorSwarm
     announcement: station-event-space-dust-start-announcement
     announcementSound: /Audio/Announcements/attention.ogg
@@ -157,10 +151,8 @@
   id: GameRuleMeteorSwarmSmall
   components:
   - type: StationEvent
-    weight: 1
-    spawnConfig:
-      standartConfig:
-        minPlayers: 25
+    weight: 18
+    minimumPlayers: 15
   - type: MeteorSwarm
     meteors:
       MeteorSmall: 7
@@ -171,10 +163,7 @@
   id: GameRuleMeteorSwarmMedium
   components:
   - type: StationEvent
-    weight: 2
-    spawnConfig:
-      standartConfig:
-        minPlayers: 25
+    weight: 10
   - type: MeteorSwarm
     meteors:
       MeteorSmall: 3
@@ -186,10 +175,7 @@
   id: GameRuleMeteorSwarmLarge
   components:
   - type: StationEvent
-    weight: 2
-    spawnConfig:
-      standartConfig:
-        minPlayers: 25
+    weight: 5
   - type: MeteorSwarm
     meteors:
       MeteorSmall: 2
@@ -202,9 +188,6 @@
   components:
   - type: StationEvent
     weight: 0.05
-    spawnConfig:
-      standartConfig:
-        minPlayers: 25
   - type: MeteorSwarm
     announcement: station-event-meteor-urist-start-announcement
     announcementSound: /Audio/Announcements/attention.ogg
@@ -225,13 +208,11 @@
     startAnnouncement: station-event-immovable-rod-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    weight: 0.01
+    weight: 3.5
     reoccurrenceDelay: 1
     duration: 1
     earliestStart: 30
-    spawnConfig:
-      standartConfig:
-        minPlayers: 25
+    minimumPlayers: 25
   - type: ImmovableRodRule
     rodPrototypes:
     - id: ImmovableRodKeepTilesStill

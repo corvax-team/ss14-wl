@@ -1,0 +1,16 @@
+ent-ClothingUniformJumpsuitGothic0 = gothic outfit
+    .desc = It's gothic outfit.
+ent-ClothingUniformJumpsuitGothic1 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpsuitGothic2 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpsuitGothic3 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpsuitGothic4 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpsuitGothic5 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpsuitGothic6 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }
+ent-ClothingUniformJumpsuitGothic7 = { ent-ClothingUniformJumpsuitGothic0 }
+    .desc = { ent-ClothingUniformJumpsuitGothic0.desc }

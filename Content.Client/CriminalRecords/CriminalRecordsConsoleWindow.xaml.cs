@@ -33,8 +33,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
     public readonly EntityUid Console;
 
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string ReasonPlaceholders = "CriminalRecordsWantedReasonPlaceholders";
+    private static readonly ProtoId<LocalizedDatasetPrototype> ReasonPlaceholders = "CriminalRecordsWantedReasonPlaceholders";
 
     public Action<uint?>? OnKeySelected;
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
@@ -72,6 +71,9 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         _currentFilterType = StationRecordFilterType.Name;
 
         _currentCrewListFilter = SecurityStatus.None;
+
+        RecordTabs.SetTabTitle(0, Loc.GetString("criminal-records-tab-details")); // WL-Records
+        RecordTabs.SetTabTitle(1, Loc.GetString("criminal-records-tab-records")); // WL-Records
 
         OpenCentered();
 
@@ -182,7 +184,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         // set up the selected person's record
         var selected = _selectedKey != null;
 
-        PersonContainer.Visible = selected;
+        RecordTabs.Visible = selected; // WL-Records-Edit
         RecordUnselected.Visible = !selected;
 
         _access = _player.LocalSession?.AttachedEntity is {} player
@@ -234,12 +236,12 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             PersonJobIcon.Texture = _spriteSystem.Frame0(proto.Icon);
         }
 
-        PersonPrints.Text = stationRecord.Fingerprint ??  Loc.GetString("generic-not-available-shorthand");
-        PersonDna.Text = stationRecord.DNA ??  Loc.GetString("generic-not-available-shorthand");
+        PersonPrints.Text = stationRecord.Fingerprint ?? Loc.GetString("generic-not-available-shorthand");
+        PersonDna.Text = stationRecord.DNA ?? Loc.GetString("generic-not-available-shorthand");
 
         if (criminalRecord.Status != SecurityStatus.None)
         {
-            specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/security_icons.rsi"),  GetStatusIcon(criminalRecord.Status));
+            specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/security_icons.rsi"), GetStatusIcon(criminalRecord.Status));
         }
         PersonStatusTX.SetFromSpriteSpecifier(specifier);
         PersonStatusTX.DisplayRect.TextureScale = new Vector2(3f, 3f);
@@ -262,6 +264,12 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         {
             WantedReason.Visible = false;
         }
+
+        // WL-Records-Start
+        SecurityRecord.Text = !string.IsNullOrEmpty(stationRecord.SecurityRecord)
+            ? stationRecord.SecurityRecord
+            : Loc.GetString("criminal-records-console-no-security-record");
+        // WL-Records-End
     }
 
     private void AddStatusSelect(SecurityStatus status)
@@ -296,7 +304,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
         var field = "reason";
         var title = Loc.GetString("criminal-records-status-" + status.ToString().ToLower());
-        var placeholders = _proto.Index<LocalizedDatasetPrototype>(ReasonPlaceholders);
+        var placeholders = _proto.Index(ReasonPlaceholders);
         var placeholder = Loc.GetString("criminal-records-console-reason-placeholder", ("placeholder", _random.Pick(placeholders))); // just funny it doesn't actually get used
         var prompt = Loc.GetString("criminal-records-console-reason");
         var entry = new QuickDialogEntry(field, QuickDialogEntryType.LongText, prompt, placeholder);
