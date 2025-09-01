@@ -56,4 +56,4 @@
     mask: ClothingMaskGas
     neck: ClothingNeckCloakRd
     outerClothing: ClothingOuterCoatRD
-    gloves: ClothingHandsGlovesColorPurple
+    gloves: ClothingHandsGlovesRNDhands # WL-Changes: Resprite Day

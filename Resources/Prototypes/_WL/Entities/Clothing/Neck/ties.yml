@@ -269,3 +269,14 @@
     - WhitelistChameleon
     - ClothMade
     - Recyclable
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckChoker
+  name: choker
+  description: Come on, tell us how hard life is for children of the 31st century.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Neck/Ties/choker.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Neck/Ties/choker.rsi

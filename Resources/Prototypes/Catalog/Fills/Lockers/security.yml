@@ -147,6 +147,7 @@
     - id: ClothingOuterCoatLabSecurityMedic # Corvax-Resprite
       prob: 0.5
       # Corvax-Brigmedic-Start
+    - id: ClothingMaskSecurityMedicalRespirator #Corvax-WL-brigmedic-loadout-update
     - id: ClothingMaskBreathMedicalSecurity
     - id: BoxBodyBag
     - id: Defibrillator

@@ -10,7 +10,7 @@
   description: Regular purple gloves that do not keep you from frying.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: Clothing/Hands/Gloves/Color/color.rsi 
     layers:
     - state: icon
       color: "#9C0DE1"
@@ -23,7 +23,7 @@
       - state: inhand-right
         color: "#9C0DE1"
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    sprite: Clothing/Hands/Gloves/Color/color.rsi 
     clothingVisuals:
       gloves:
       - state: equipped-HAND

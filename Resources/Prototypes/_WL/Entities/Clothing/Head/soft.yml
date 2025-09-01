@@ -1,0 +1,31 @@
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatRNDsoft
+  name: scientist's cap
+  description: It is made of 95% environmentally neutral materials. The rest of the materials refrained from expressing an opinion about their environmental friendliness.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/rndsoft.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/rndsoft.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatRNDsoft]
+  id: ClothingHeadHatRNDsoftFlipped
+  name: scientist's cap 
+
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatRoboSoft
+  name: cap robotics
+  description: Some people think that by wearing this cap, they will become invisible to robots. Instead, they are more likely to become invisible to women.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/robosoft.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/robosoft.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatRoboSoft]
+  id: ClothingHeadHatRoboSoftFlipped
+  name: cap robotics

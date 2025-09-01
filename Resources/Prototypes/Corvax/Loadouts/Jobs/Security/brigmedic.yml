@@ -14,6 +14,13 @@
     head: ClothingHeadHelmetSecurityMedic
 
 # Маска
+#Corvax-WL-brigmedic-loadout-update-start
+- type: loadout
+  id: BrigmedicSecurityMedicalRespirator
+  equipment:
+    mask: ClothingMaskSecurityMedicalRespirator
+#Corvax-WL-brigmedic-loadout-update-end
+
 - type: loadout
   id: BrigmedicGasSecurity
   equipment:
@@ -25,6 +32,13 @@
     mask: ClothingMaskBreathMedicalSecurity
 
 # Комбинезон
+#Corvax-WL-brigmedic-loadout-update-start
+- type: loadout
+  id: JumpsuitSecBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+#Corvax-WL-brigmedic-loadout-update-end
+
 - type: loadout
   id: BrigmedicJumpsuit
   equipment:

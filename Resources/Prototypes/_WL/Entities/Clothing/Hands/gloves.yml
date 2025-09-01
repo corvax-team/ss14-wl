@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ClothingHandsGlovesRNDhands
+  name: scientist's gloves
+  description: It has been very difficult to find such integers lately
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Hands/Gloves/scientistgloves.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Hands/Gloves/scientistgloves.rsi
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-black
+  - type: FingerprintMask

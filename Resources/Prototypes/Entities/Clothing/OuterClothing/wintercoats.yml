@@ -128,7 +128,7 @@
   name: cargo winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Changes: Resprite  Day
     layers:
     - state: CARGO-icon
   - type: Item
@@ -138,7 +138,7 @@
       right:
       - state: CARGO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Changes: Resprite  Day
     clothingVisuals:
       outerClothing:
       - state: CARGO-equipped-OUTERCLOTHING
@@ -342,7 +342,7 @@
   name: head of personnel's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Changes: Resprite  Day
     layers:
     - state: HOP-icon
   - type: Item
@@ -352,7 +352,7 @@
       right:
       - state: HOP-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Changes: Resprite  Day
     clothingVisuals:
       outerClothing:
       - state: HOP-equipped-OUTERCLOTHING

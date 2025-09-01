@@ -92,8 +92,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingHeadHatBeretRND
-      - id: ClothingHandsGlovesColorPurple
+      - id: ClothingHeadHatBeretRD # WL-Changes: Resprite Day
+      - id: ClothingHandsGlovesRNDhands # WL-Changes: Resprite Day
       - id: ClothingEyesGlasses
       - id: ClothingOuterWinterRD
       - id: ClothingOuterCoatRD

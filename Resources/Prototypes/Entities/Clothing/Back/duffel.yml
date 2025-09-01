@@ -129,7 +129,7 @@
   description: A large duffel bag for holding extra science related goods.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/science.rsi
+    sprite: _WL/Clothing/Back/Duffels/science.rsi # WL-Changes: Resprite Day
 
 - type: entity
   parent: ClothingBackpackDuffel
