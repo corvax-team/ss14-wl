@@ -92,7 +92,6 @@
   components:
     - type: GasMiner
       maxExternalPressure: 4500
-      spawnAmount: 500
 
 - type: entity
   name: CO2 gas miner
