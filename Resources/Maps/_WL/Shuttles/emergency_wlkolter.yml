@@ -1038,6 +1038,12 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: DeviceNetwork
+      configurators: []
+      deviceLists: []
+      deviceNetId: Wireless
+      transmitFrequency: 2450
+      transmitFrequencyId: ShuttleTimer
 - proto: AirAlarm
   entities:
   - uid: 2
