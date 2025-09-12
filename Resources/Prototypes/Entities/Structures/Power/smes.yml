@@ -124,6 +124,8 @@
   - type: Battery
     maxCharge: 8000000
     startingCharge: 8000000
+  - type: PowerNetworkBattery # WL-Changes
+    supplyRampTolerance: 10000
 
 - type: entity
   parent: SMESBasic
@@ -169,6 +171,8 @@
     collectionName: smes
     sprite: Structures/Power/smes.rsi
     state: advancedsmes-static
+  - type: PowerNetworkBattery # WL-Changes
+    supplyRampTolerance: 17250
 
 - type: entity
   parent: SMESAdvanced
