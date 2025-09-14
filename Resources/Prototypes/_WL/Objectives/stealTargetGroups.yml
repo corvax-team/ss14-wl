@@ -1,0 +1,6 @@
+- type: stealTargetGroup
+  id: AnimalGoldie
+  name: steal-target-groups-animal-goldie
+  sprite:
+    sprite: _WL/Mobs/Pets/goldie.rsi
+    state: goldie
