@@ -29,7 +29,7 @@
   - ManualStorageCommandSmallRecipe
   - ManualStorageCommandBoxRecipe
   - ManualStorageCommandBigRecipe
-  #
+
 #Default
 - type: latheRecipePack
   id: ManualStorageDefaultStatic
@@ -85,14 +85,3 @@
   - ManualStorageCommandSmallRecipe
   - ManualStorageCommandBoxRecipe
   - ManualStorageCommandBigRecipe
-
-- type: latheRecipePack
-  id: ManualStorageStatic
-  recipes:
-  - ManualStorageDefaultStatic
-  - ManualStorageCargoStatic
-  - ManualStorageEngineerStatic
-  - ManualStorageMedicalStatic
-  - ManualStorageSecurityStatic
-  - ManualStorageScienceStatic
-  - ManualStorageCommandStatic
