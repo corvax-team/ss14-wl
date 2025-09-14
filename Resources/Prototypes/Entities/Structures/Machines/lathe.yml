@@ -399,6 +399,7 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
+    - ManualStorageSecurityStatic # WL-changes-storage
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -482,6 +483,7 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
+    - ManualStorageMedicalStatic # WL-changes-storage
     dynamicPacks:
     - Chemistry
   - type: Machine

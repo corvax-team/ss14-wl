@@ -29,3 +29,70 @@
   - ManualStorageCommandSmallRecipe
   - ManualStorageCommandBoxRecipe
   - ManualStorageCommandBigRecipe
+  #
+#Default
+- type: latheRecipePack
+  id: ManualStorageDefaultStatic
+  recipes:
+  - ManualStorageDefaultSmallRecipe
+  - ManualStorageDefaultBoxRecipe
+  - ManualStorageDefaultBigRecipe
+
+#Cargo
+- type: latheRecipePack
+  id: ManualStorageCargoStatic
+  recipes:
+  - ManualStorageCargoSmallRecipe
+  - ManualStorageCargoBoxRecipe
+  - ManualStorageCargoBigRecipe
+
+#Engineer
+- type: latheRecipePack
+  id: ManualStorageEngineerStatic
+  recipes:
+  - ManualStorageEngineerSmallRecipe
+  - ManualStorageEngineerBoxRecipe
+  - ManualStorageEngineerBigRecipe
+
+#Medical
+- type: latheRecipePack
+  id: ManualStorageMedicalStatic
+  recipes:
+  - ManualStorageMedicalSmallRecipe
+  - ManualStorageMedicalBoxRecipe
+  - ManualStorageMedicalBigRecipe
+
+#Security
+- type: latheRecipePack
+  id: ManualStorageSecurityStatic
+  recipes:
+  - ManualStorageSecuritySmallRecipe
+  - ManualStorageSecurityBoxRecipe
+  - ManualStorageSecurityBigRecipe
+
+#Science
+- type: latheRecipePack
+  id: ManualStorageScienceStatic
+  recipes:
+  - ManualStorageScienceSmallRecipe
+  - ManualStorageScienceBoxRecipe
+  - ManualStorageScienceBigRecipe
+
+#Command
+- type: latheRecipePack
+  id: ManualStorageCommandStatic
+  recipes:
+  - ManualStorageCommandSmallRecipe
+  - ManualStorageCommandBoxRecipe
+  - ManualStorageCommandBigRecipe
+
+- type: latheRecipePack
+  id: ManualStorageStatic
+  recipes:
+  - ManualStorageDefaultStatic
+  - ManualStorageCargoStatic
+  - ManualStorageEngineerStatic
+  - ManualStorageMedicalStatic
+  - ManualStorageSecurityStatic
+  - ManualStorageScienceStatic
+  - ManualStorageCommandStatic
