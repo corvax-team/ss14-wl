@@ -1,0 +1,68 @@
+- type: entity
+  parent: [BaseFoldable, BaseItem]
+  id: BasePasport
+  name: pasport
+  descripton: Papers, please!
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Foldable
+    folded: true
+    canFoldInsideContainer: true
+    unfoldVerbText: "Open"
+    foldVerbText: "Close"
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+    storedRotation: 0
+  - type: Sprite
+    layers:
+    - state: icon-opened
+      map: [ "unfoldedLayer" ]
+    - state: icon
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: BasePasport
+  id: AlliancePasport
+  name: alliance pasport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Pasports/alliance.rsi
+
+- type: entity
+  parent: BasePasport
+  id: EdemPasport
+  name: edem pasport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Pasports/edem.rsi
+
+- type: entity
+  parent: BasePasport
+  id: OrionPasport
+  name: orion pasport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Pasports/orion.rsi
+
+- type: entity
+  parent: BasePasport
+  id: OtherPasport
+  name: other pasport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Pasports/other.rsi
+
+- type: entity
+  parent: BasePasport
+  id: SocconPasport
+  name: soccon pasport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Pasports/soccon.rsi
