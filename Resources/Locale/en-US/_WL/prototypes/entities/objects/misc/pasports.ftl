@@ -8,3 +8,7 @@ ent-OtherPasport = other pasport
     .desc = Papers, please!
 ent-SocconPasport = soccon pasport
     .desc = Papers, please!
+ent-MetafrontPasport = metafront pasport
+    .desc = Papers, please!
+ent-MetarfontCellPasport = metafront pasport
+    .desc = Papers, please!
