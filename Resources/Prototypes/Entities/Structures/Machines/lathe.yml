@@ -399,7 +399,10 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
-    - ManualStorageSecurityStatic # WL-changes-storage
+    # WL-changes-storage start
+    - ManualStorageSecurityStatic
+    - ManualStorageCommandStatic
+    # WL-changes-storage end
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
