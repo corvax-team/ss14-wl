@@ -2,7 +2,7 @@
   parent: [BaseFoldable, BaseItem]
   id: BasePasport
   name: pasport
-  descripton: Papers, please!
+  description: Papers, please!
   abstract: true
   components:
   - type: Appearance
