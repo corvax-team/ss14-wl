@@ -68,7 +68,12 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
-        # CorvaxWL-Changes start
+            # corvax senior
+            SeniorEngineer: [ 1, 1 ]
+            SeniorPhysician: [ 1, 1 ]
+            SeniorResearcher: [ 1, 1 ]
+            SeniorOfficer: [ 1, 1 ]
+        # WL-Changes
         # - type: StationGoal
         #   goals:
         #   - Singularity
@@ -90,4 +95,3 @@
         #   - Bunker
         #   - XenobiologyRepair
         #   - VirusologyAmbusol
-        # CorvaxWL-Changes end

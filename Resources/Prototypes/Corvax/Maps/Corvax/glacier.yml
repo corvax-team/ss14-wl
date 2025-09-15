@@ -66,7 +66,12 @@
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 3 ]
-        # WL-Changes-Start
+            # corvax senior
+            SeniorEngineer: [ 1, 1 ]
+            SeniorPhysician: [ 1, 1 ]
+            SeniorResearcher: [ 1, 1 ]
+            SeniorOfficer: [ 1, 1 ]
+        # WL-Changes:
         # - type: StationGoal
         #   goals:
         #   - SolarPanels
@@ -84,5 +89,4 @@
         #   - CellAI
         #   - Botany
         #   - Bunker
-        # WL-Changes-End
 

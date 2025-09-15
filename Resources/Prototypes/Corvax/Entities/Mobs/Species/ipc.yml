@@ -33,7 +33,9 @@
   - type: Damageable
     damageContainer: SiliconIpc
     damageModifierSet: Ipc
-  - type: ToggleableLightVisuals
+  - type: ItemTogglePointLight
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
@@ -340,6 +342,8 @@
         type: StrippableBoundUserInterface
       enum.CharacterInformationUiKey.Key: # WL-CharacterInformation
         type: CharacterInformationBoundUserInterface
+      enum.IpcFaceUiKey.Face:
+        type: IpcFaceUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -385,7 +389,6 @@
     shiveringHeatRegulation: 2000
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 2
-
 
 - type: entity
   save: false
