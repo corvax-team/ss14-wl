@@ -11,5 +11,4 @@
   - type: Gun
     minAngle: 21
     maxAngle: 32
-    # WL-Changes: CombatStandSystem (из двуручного оружия нельзя стрелять лёжа)
-  - type: GunStandingRequired
+  - type: GunStandingRequired # WL-Changes: CombatStandSystem (из двуручного оружия нельзя стрелять лёжа) 
