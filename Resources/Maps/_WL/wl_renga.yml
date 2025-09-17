@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 262.0.0
-  forkId: syndicate-wl
-  forkVersion: cfe31883a1420ef760c850f42042cc024ef8cc13
-  time: 07/11/2025 15:27:12
+  engineVersion: 265.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 09/17/2025 14:17:05
   entityCount: 24637
 maps:
 - 1
@@ -15560,7 +15560,7 @@ entities:
       pos: 77.5,37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -198710.36
+      secondsUntilStateChange: -198752.83
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17296,7 +17296,7 @@ entities:
       pos: 88.5,49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -247074.36
+      secondsUntilStateChange: -247116.83
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -63459,12 +63459,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 49.5,25.5
-      parent: 2
-  - uid: 19636
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 22.5,62.5
       parent: 2
 - proto: ComputerId
   entities:
@@ -115674,6 +115668,12 @@ entities:
     - type: Transform
       pos: 76.5,31.5
       parent: 2
+  - uid: 19636
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,62.5
+      parent: 2
 - proto: PottedPlantRD
   entities:
   - uid: 15926
@@ -130058,20 +130058,20 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 82.50001,57.292595
+      pos: 82.5,57.5
       parent: 2
   - uid: 18252
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 43.49901,53.70242
+      pos: 43.5,53.5
       parent: 2
 - proto: SignDirectionalChapel
   entities:
   - uid: 18253
     components:
     - type: Transform
-      pos: 81.50276,53.070972
+      pos: 81.5,53.5
       parent: 2
 - proto: SignDirectionalCryo
   entities:
@@ -130079,7 +130079,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 100.50075,71.70715
+      pos: 100.5,71.5
       parent: 2
   - uid: 18255
     components:
@@ -130110,7 +130110,7 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 43.49901,53.28778
+      pos: 43.5,53.5
       parent: 2
 - proto: SignDirectionalEng
   entities:
@@ -130118,14 +130118,14 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 43.49901,53.077904
+      pos: 43.5,53.5
       parent: 2
 - proto: SignDirectionalEvac
   entities:
   - uid: 18261
     components:
     - type: Transform
-      pos: 81.5043,52.85338
+      pos: 81.5,52.5
       parent: 2
 - proto: SignDirectionalExam
   entities:
@@ -130141,7 +130141,7 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 81.50276,53.283936
+      pos: 81.5,53.5
       parent: 2
 - proto: SignDirectionalLibrary
   entities:
@@ -130149,7 +130149,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 114.498726,57.706177
+      pos: 114.5,57.5
       parent: 2
 - proto: SignDirectionalMed
   entities:
@@ -130185,7 +130185,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 47.49941,53.300766
+      pos: 47.5,53.5
       parent: 2
 - proto: SignDirectionalSolar
   entities:
@@ -130193,32 +130193,32 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 139.50671,53.537613
+      pos: 139.5,53.5
       parent: 2
   - uid: 18271
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 139.55359,63.57759
+      pos: 139.5,63.5
       parent: 2
 - proto: SignDirectionalSupply
   entities:
   - uid: 18273
     components:
     - type: Transform
-      pos: 81.50141,53.69645
+      pos: 81.5,53.5
       parent: 2
   - uid: 18274
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 111.500114,53.690277
+      pos: 111.5,53.5
       parent: 2
   - uid: 18275
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 47.499382,53.695908
+      pos: 47.5,53.5
       parent: 2
 - proto: SignDirectionalWash
   entities:
@@ -130226,7 +130226,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 81.507774,28.701187
+      pos: 81.5,28.5
       parent: 2
 - proto: SignDisposalSpace
   entities:
@@ -130580,21 +130580,21 @@ entities:
   - uid: 18331
     components:
     - type: Transform
-      pos: 106.24166,34.70567
+      pos: 106.5,34.5
       parent: 2
 - proto: SignRedThree
   entities:
   - uid: 18332
     components:
     - type: Transform
-      pos: 106.257095,33.551346
+      pos: 106.5,33.5
       parent: 2
 - proto: SignRedTwo
   entities:
   - uid: 18333
     components:
     - type: Transform
-      pos: 106.250916,34.13468
+      pos: 106.5,34.5
       parent: 2
 - proto: SignRestroom
   entities:
@@ -130643,7 +130643,7 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 105.51788,100.314285
+      pos: 105.5,100.5
       parent: 2
   - uid: 18341
     components:
@@ -160505,7 +160505,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -133446.86
+      secondsUntilStateChange: -133489.33
       state: Opening
     - type: Airlock
       autoClose: False
