@@ -21,6 +21,7 @@
     - id: ClothingHandsKnuckleDustersQM
     - id: MailTeleporterMachineCircuitboard
     - id: PrinterDocFlatpack # Corvax-Printer
+    - id: FundingAllocationComputerCircuitboard # WL-Changes: FAcomputer go to QM
 
 - type: entity
   id: LockerQuarterMasterFilled
@@ -145,7 +146,7 @@
     - id: DoorRemoteService
     - id: HoPIDCard
     - id: IDComputerCircuitboard
-    - id: FundingAllocationComputerCircuitboard
+    # - id: FundingAllocationComputerCircuitboard # WL-Changes: FAcomputer go to QM
     - id: CargoRequestServiceComputerCircuitboard
     - id: RubberStampApproved
     - id: RubberStampDenied
