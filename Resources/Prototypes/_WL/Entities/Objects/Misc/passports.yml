@@ -1,7 +1,7 @@
 - type: entity
   parent: [BaseFoldable, BaseItem]
-  id: BasePasport
-  name: pasport
+  id: BasePassport
+  name: passport
   description: Papers, please!
   abstract: true
   components:
@@ -52,61 +52,61 @@
       visible: false
 
 - type: entity
-  parent: BasePasport
-  id: AlliancePasport
-  name: alliance pasport
+  parent: BasePassport
+  id: AlliancePassport
+  name: alliance passport
   components:
   - type: Sprite
-    sprite: _WL/Objects/Misc/Pasports/alliance.rsi
+    sprite: _WL/Objects/Misc/Passports/alliance.rsi
 
 - type: entity
-  parent: BasePasport
-  id: EdemPasport
-  name: edem pasport
+  parent: BasePassport
+  id: EdemPassport
+  name: edem passport
   components:
   - type: Sprite
-    sprite: _WL/Objects/Misc/Pasports/edem.rsi
+    sprite: _WL/Objects/Misc/Passports/edem.rsi
 
 - type: entity
-  parent: BasePasport
-  id: OrionPasport
-  name: orion pasport
+  parent: BasePassport
+  id: OrionPassport
+  name: orion passport
   components:
   - type: Sprite
-    sprite: _WL/Objects/Misc/Pasports/orion.rsi
+    sprite: _WL/Objects/Misc/Passports/orion.rsi
 
 - type: entity
-  parent: BasePasport
-  id: OtherPasport
-  name: other pasport
+  parent: BasePassport
+  id: OtherPassport
+  name: other passport
   components:
   - type: Sprite
-    sprite: _WL/Objects/Misc/Pasports/other.rsi
+    sprite: _WL/Objects/Misc/Passports/other.rsi
 
 - type: entity
-  parent: BasePasport
-  id: SocconPasport
-  name: soccon pasport
+  parent: BasePassport
+  id: SocconPassport
+  name: soccon passport
   components:
   - type: Sprite
-    sprite: _WL/Objects/Misc/Pasports/soccon.rsi
+    sprite: _WL/Objects/Misc/Passports/soccon.rsi
 
 - type: entity
-  parent: BasePasport
-  id: MetafrontPasport
-  name: metafront pasport
+  parent: BasePassport
+  id: MetafrontPassport
+  name: metafront passport
   components:
   - type: Sprite
-    sprite: _WL/Objects/Misc/Pasports/metafront.rsi
+    sprite: _WL/Objects/Misc/Passports/metafront.rsi
 
 - type: entity
-  parent: [BasePasport, BasePowerCell]
-  id: MetafrontCellPasport
-  name: metafront pasport
+  parent: [BasePassport, BasePowerCell]
+  id: MetafrontCellPassport
+  name: metafront passport
   suffix: Battery
   components:
   - type: Sprite
-    sprite: _WL/Objects/Misc/Pasports/metafront_usb.rsi
+    sprite: _WL/Objects/Misc/Passports/metafront_usb.rsi
   - type: Battery
     maxCharge: 360
     startingCharge: 360

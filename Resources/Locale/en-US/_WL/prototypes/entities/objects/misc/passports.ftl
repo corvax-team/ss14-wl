@@ -1,0 +1,14 @@
+ent-AlliancePassport = alliance passport
+    .desc = Papers, please!
+ent-EdemPassport = edem passport
+    .desc = Papers, please!
+ent-OrionPassport = orion passport
+    .desc = Papers, please!
+ent-OtherPassport = other passport
+    .desc = Papers, please!
+ent-SocconPassport = soccon passport
+    .desc = Papers, please!
+ent-MetafrontPassport = metafront passport
+    .desc = Papers, please!
+ent-MetafrontCellPassport = metafront passport
+    .desc = Papers, please!
