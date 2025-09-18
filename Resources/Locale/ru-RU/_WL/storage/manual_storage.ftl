@@ -33,13 +33,13 @@ ent-ManualStorageCargoBig = большое ручное хранилище от�
 
 # Security
 
-ent-ManualStorageSecuritySmall = маленькое ручное хранилище отдела службы безопастности
+ent-ManualStorageSecuritySmall = маленькое ручное хранилище отдела службы безопасности
     .desc = { ent-ManualStorageDefaultSmall.desc }
 
-ent-ManualStorageSecurityBox = среднее ручное хранилище отдела службы безопастности
+ent-ManualStorageSecurityBox = среднее ручное хранилище отдела службы безопасности
     .desc = { ent-ManualStorageDefaultBox.desc }
 
-ent-ManualStorageSecurityBig = большое ручное хранилище отдела службы безопастности
+ent-ManualStorageSecurityBig = большое ручное хранилище отдела службы безопасности
     .desc = { ent-ManualStorageDefaultBig.desc }
 
 # Science
