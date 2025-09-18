@@ -66,11 +66,11 @@ ent-ManualStorageEngineerBig = большое ручное хранилище и
 
 # Medical
 
-ent-ManualStorageMedicalSmall = маленькое ручное хранилище медецинского отдела
+ent-ManualStorageMedicalSmall = маленькое ручное хранилище медицинского отдела
     .desc = { ent-ManualStorageDefaultSmall.desc }
 
-ent-ManualStorageMedicalBox = среднее ручное хранилище медецинского отдела
+ent-ManualStorageMedicalBox = среднее ручное хранилище медицинского отдела
     .desc = { ent-ManualStorageDefaultBox.desc }
 
-ent-ManualStorageMedicalBig = большое ручное хранилище медецинского отдела
+ent-ManualStorageMedicalBig = большое ручное хранилище медицинского отдела
     .desc = { ent-ManualStorageDefaultBig.desc }
