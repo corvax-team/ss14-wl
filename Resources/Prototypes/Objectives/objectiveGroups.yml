@@ -112,6 +112,7 @@
     RenaultStealObjective: 1
     ShivaStealObjective: 1
     TropicoStealObjective: 1
+    GoldieStealObjective: 1 # WL-Changes: Goldie adding
 
 - type: weightedRandom
   id: ThiefObjectiveGroupEscape

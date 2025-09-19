@@ -64,6 +64,7 @@
   components:
     - type: GasMiner
       maxExternalPressure: 4500
+      spawnAmount: 700 # WL-Changes
 
 - type: entity
   name: N2 gas miner

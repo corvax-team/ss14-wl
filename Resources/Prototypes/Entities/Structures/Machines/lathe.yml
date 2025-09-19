@@ -123,6 +123,7 @@
     - PartsStatic
     - AtmosStatic
     - CablesStatic
+    - PaperworkStatic
     - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
@@ -399,6 +400,10 @@
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
+    # WL-changes-storage start
+    - ManualStorageSecurityStatic
+    - ManualStorageCommandStatic
+    # WL-changes-storage end
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons
@@ -482,6 +487,7 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
+    - ManualStorageMedicalStatic # WL-changes-storage
     dynamicPacks:
     - Chemistry
   - type: Machine

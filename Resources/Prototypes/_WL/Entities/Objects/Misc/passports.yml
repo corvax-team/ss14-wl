@@ -1,0 +1,115 @@
+- type: entity
+  parent: [BaseFoldable, BaseItem]
+  id: BasePassport
+  name: passport
+  description: Papers, please!
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Flammable
+    fireSpread: true
+    alwaysCombustible: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Foldable
+    folded: true
+    canFoldInsideContainer: true
+    unfoldVerbText: open-verb
+    foldVerbText: close-verb
+  - type: Item
+    size: Small
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+    storedRotation: 0
+  - type: Sprite
+    layers:
+    - state: icon-opened
+      map: [ "unfoldedLayer" ]
+    - state: icon
+      map: ["foldedLayer"]
+      visible: false
+
+- type: entity
+  parent: BasePassport
+  id: AlliancePassport
+  name: alliance passport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/alliance.rsi
+
+- type: entity
+  parent: BasePassport
+  id: EdemPassport
+  name: edem passport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/edem.rsi
+
+- type: entity
+  parent: BasePassport
+  id: OrionPassport
+  name: orion passport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/orion.rsi
+
+- type: entity
+  parent: BasePassport
+  id: OtherPassport
+  name: other passport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/other.rsi
+
+- type: entity
+  parent: BasePassport
+  id: SocconPassport
+  name: soccon passport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/soccon.rsi
+
+- type: entity
+  parent: BasePassport
+  id: MetafrontPassport
+  name: metafront passport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/metafront.rsi
+
+- type: entity
+  parent: [BasePassport, BasePowerCell]
+  id: MetafrontCellPassport
+  name: metafront passport
+  suffix: Battery
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/metafront_usb.rsi
+  - type: Battery
+    maxCharge: 360
+    startingCharge: 360
+  - type: Tag
+    tags:
+      - PowerCellSmall

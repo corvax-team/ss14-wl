@@ -1,0 +1,14 @@
+ent-AlliancePassport = паспорт МА
+    .desc = Без бумажки ты...
+ent-EdemPassport = паспорт Империи Эдема
+    .desc = Обложка выглядит на удивление новой.
+ent-OrionPassport = паспорт КОГ
+    .desc = Документы, пожалуйста!
+ent-OtherPassport = паспорт дальних земель
+    .desc = Выглядит достаточно дёшего.
+ent-SocconPassport = паспорт СоцКона
+    .desc = Добро пожаловать, товарищ!
+ent-MetafrontPassport = паспорт Метафронта
+    .desc = Что странно, не содержит чипов с данными.
+ent-MetafrontCellPassport = улучшенный паспорт Метафронта
+    .desc = Подожди, это что, павербанк?

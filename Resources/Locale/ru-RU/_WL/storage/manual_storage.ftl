@@ -33,13 +33,13 @@ ent-ManualStorageCargoBig = большое ручное хранилище от�
 
 # Security
 
-ent-ManualStorageSecuritySmall = маленькое ручное хранилище отдела службы безопастности
+ent-ManualStorageSecuritySmall = маленькое ручное хранилище отдела службы безопасности
     .desc = { ent-ManualStorageDefaultSmall.desc }
 
-ent-ManualStorageSecurityBox = среднее ручное хранилище отдела службы безопастности
+ent-ManualStorageSecurityBox = среднее ручное хранилище отдела службы безопасности
     .desc = { ent-ManualStorageDefaultBox.desc }
 
-ent-ManualStorageSecurityBig = большое ручное хранилище отдела службы безопастности
+ent-ManualStorageSecurityBig = большое ручное хранилище отдела службы безопасности
     .desc = { ent-ManualStorageDefaultBig.desc }
 
 # Science
@@ -66,11 +66,11 @@ ent-ManualStorageEngineerBig = большое ручное хранилище и
 
 # Medical
 
-ent-ManualStorageMedicalSmall = маленькое ручное хранилище медецинского отдела
+ent-ManualStorageMedicalSmall = маленькое ручное хранилище медицинского отдела
     .desc = { ent-ManualStorageDefaultSmall.desc }
 
-ent-ManualStorageMedicalBox = среднее ручное хранилище медецинского отдела
+ent-ManualStorageMedicalBox = среднее ручное хранилище медицинского отдела
     .desc = { ent-ManualStorageDefaultBox.desc }
 
-ent-ManualStorageMedicalBig = большое ручное хранилище медецинского отдела
+ent-ManualStorageMedicalBig = большое ручное хранилище медицинского отдела
     .desc = { ent-ManualStorageDefaultBig.desc }

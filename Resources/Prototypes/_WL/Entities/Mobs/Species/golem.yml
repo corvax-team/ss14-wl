@@ -119,7 +119,7 @@
       sweatHeatRegulation: 0
       shiveringHeatRegulation: 50000
       normalBodyTemperature: 334
-      thermalRegulationTemperatureThreshold: 50000
+      thermalRegulationTemperatureThreshold: 7
     - type: Tool
       speedModifier: 2
       qualities:

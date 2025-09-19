@@ -3,6 +3,7 @@
   markingCategory: Overlay
   bodyPart: RFoot #highest possible layer
   speciesRestriction: [Vulpkanin]
+  sponsorOnly: true # Corvax-Sponsors
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
       state: pawsocks
@@ -12,6 +13,7 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
+  sponsorOnly: true # Corvax-Sponsors
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
       state: vulp_tail
@@ -44,6 +46,7 @@
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
+  sponsorOnly: true # Corvax-Sponsors
   sprites:
 #    - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
 #      state: wolf_tail
@@ -61,6 +64,7 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Vulpkanin]
+  sponsorOnly: true # Corvax-Sponsors
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
       state: vulp_belly-torso
@@ -70,6 +74,7 @@
   bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
+  sponsorOnly: true # Corvax-Sponsors
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
       state: vulp_face

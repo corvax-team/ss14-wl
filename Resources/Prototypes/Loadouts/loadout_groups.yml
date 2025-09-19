@@ -37,6 +37,12 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - OffsetCane
+  - OffsetCaneWood
+  - OffsetCaneClown
+  - OffsetCaneMime
+  - OffsetCaneNT
+  - Cane
    # Corvax-Loadouts-Start
   - ClothingNeckAtharaPin
   - ClothingNeckCorvaxPin
@@ -64,6 +70,7 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  - Cane # WL-changes: Cane in loadouts
 
 - type: loadoutGroup
   id: Glasses

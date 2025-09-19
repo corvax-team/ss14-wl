@@ -7,5 +7,5 @@ ent-ExtinguisherCabinetFilled = { ent-ExtinguisherCabinet }
     .suffix = Наполненный
     .desc = { ent-ExtinguisherCabinet.desc }
 ent-ExtinguisherCabinetFilledOpen = { ent-ExtinguisherCabinetFilled }
-    .suffix = Открытый, Наполненный
+    .suffix = Наполненный, Открытый
     .desc = { ent-ExtinguisherCabinetFilled.desc }
