@@ -131,7 +131,7 @@ namespace Content.Server.Voting.Managers
                 var total = yesVotes + noVotes;
                 var ratio = _cfg.GetCVar(WLCVars.VoteShuttlePlayersRatio);
 
-                var picked = total > 0 && (float)yesVotes / (float)total * 100f >= (float)ratio;
+                var picked = total > 0 && (float)yesVotes / (float)total >= (float)ratio;
 
                 _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Evacuation shuttle vote finished: {picked}");
 
