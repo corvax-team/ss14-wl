@@ -1,3 +1,5 @@
+# ХВОСТЫ 
+
 - type: marking
   id: MurineTail
   bodyPart: Tail
@@ -8,31 +10,98 @@
       state: tail
 
 - type: marking
-  id: MurineEars
-  bodyPart: HeadTop
-  markingCategory: HeadTop
+  id: MurineTailHigh
+  bodyPart: Tail
+  markingCategory: Tail
   speciesRestriction: [Murine]
   sprites:
     - sprite: _WL/Mobs/Customization/murine_parts.rsi
-      state: ears
+      state: tail_high
 
 - type: marking
-  id: MurineLeftLeg
+  id: MurineTailLow
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Murine]
+  sprites:
+    - sprite: _WL/Mobs/Customization/murine_parts.rsi
+      state: tail_low
+
+- type: marking
+  id: MurineTailHighWagging
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Murine]
+  sprites:
+    - sprite: _WL/Mobs/Customization/murine_parts.rsi
+      state: tail_high_wagging
+
+- type: marking
+  id: MurineTailLowWagging
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Murine]
+  sprites:
+    - sprite: _WL/Mobs/Customization/murine_parts.rsi
+      state: tail_low_wagging
+
+# НОГИ
+
+- type: marking
+  id: MurineLeftLeg1
   bodyPart: LFoot
   markingCategory: Legs
   speciesRestriction: [Murine]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
-    state: leg_left
+    state: leg_left_1
 
 - type: marking
-  id: MurineRightLeg
+  id: MurineLeftLeg2
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: leg_left_2
+
+- type: marking
+  id: MurineRightLeg1
   bodyPart: RFoot
   markingCategory: Legs
   speciesRestriction: [Murine]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
-    state: leg_right
+    state: leg_right_1
+
+- type: marking
+  id: MurineRightLeg2
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: leg_right_2
+
+- type: marking
+  id: MurineRightFoot
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: foot_left
+
+- type: marking
+  id: MurineLeftFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: foot_right
+
+# РУКИ
 
 - type: marking
   id: MurineLeftHand
@@ -62,6 +131,24 @@
     state: arm_left
 
 - type: marking
+  id: MurineLeftArm1
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: arm_left_1
+
+- type: marking
+  id: MurineLeftArm2
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: arm_left_2
+
+- type: marking
   id: MurineRightArm
   bodyPart: RArm
   markingCategory: Arms
@@ -69,3 +156,51 @@
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: arm_right
+
+- type: marking
+  id: MurineRightArm1
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: arm_right_1
+
+- type: marking
+  id: MurineRightArm2
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: arm_right_2
+
+
+# ТОРС
+
+- type: marking
+  id: MurineTorsoMid
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: torso_mid
+
+- type: marking
+  id: MurineTorsoLeft
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: torso_left
+
+- type: marking
+  id: MurineTorsoRight
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/murine_parts.rsi
+    state: torso_right
