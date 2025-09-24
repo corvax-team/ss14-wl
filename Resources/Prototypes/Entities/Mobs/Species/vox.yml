@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseMobSpeciesOrganic
   id: BaseMobVox
   abstract: true
@@ -79,10 +79,10 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
+    - map: [ "outerClothing" ] #WL-Change
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "outerClothing" ]
     - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "suitstorage" ] # This is not in the default order
