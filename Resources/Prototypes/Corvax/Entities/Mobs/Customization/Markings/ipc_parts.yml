@@ -3,7 +3,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_monitor.rsi
       state: head-2
@@ -13,7 +13,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_monitor.rsi
       state: head-1
@@ -23,7 +23,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: l_leg-1
@@ -33,7 +33,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: r_hand-2
@@ -43,7 +43,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: l_foot-1
@@ -53,7 +53,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: l_hand-1
@@ -63,7 +63,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: r_arm-2
@@ -73,7 +73,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: torso-2
@@ -83,7 +83,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: torso-1
@@ -93,7 +93,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: l_arm-2
@@ -103,7 +103,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: r_hand-1
@@ -113,7 +113,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: r_leg-2
@@ -123,7 +123,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: r_leg-1
@@ -133,7 +133,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: l_arm-1
@@ -143,7 +143,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: l_hand-2
@@ -153,7 +153,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: r_arm-1
@@ -163,7 +163,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: r_foot-2
@@ -173,7 +173,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: r_foot-1
@@ -183,7 +183,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: l_foot-2
@@ -193,7 +193,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_main.rsi
       state: l_leg-2
@@ -203,7 +203,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_alt1.rsi
       state: head-2
@@ -213,7 +213,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/shellguard/shellguard_alt1.rsi
       state: head-1
@@ -223,7 +223,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: l_leg-1
@@ -233,7 +233,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: r_hand-2
@@ -243,7 +243,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: l_foot-1
@@ -253,7 +253,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: l_hand-1
@@ -263,7 +263,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: r_arm-2
@@ -273,7 +273,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: torso-2
@@ -283,7 +283,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: torso-1
@@ -293,7 +293,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: l_arm-2
@@ -303,7 +303,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: r_hand-1
@@ -313,7 +313,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: r_leg-2
@@ -323,7 +323,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: groin
@@ -333,7 +333,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: r_leg-1
@@ -343,7 +343,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: head-2
@@ -353,7 +353,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: l_arm-1
@@ -363,7 +363,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: l_hand-2
@@ -373,7 +373,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: r_arm-1
@@ -383,7 +383,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: r_foot-2
@@ -393,7 +393,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: r_foot-1
@@ -403,7 +403,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: l_foot-2
@@ -413,7 +413,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: head-1
@@ -423,7 +423,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/zenghu/zenghu_main.rsi
       state: l_leg-2
@@ -433,7 +433,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: l_leg-1
@@ -443,7 +443,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: r_hand-2
@@ -453,7 +453,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: l_foot-1
@@ -463,7 +463,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: l_hand-1
@@ -473,7 +473,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: r_arm-2
@@ -483,7 +483,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: torso-2
@@ -493,7 +493,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: torso-1
@@ -503,7 +503,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: l_arm-2
@@ -513,7 +513,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: r_hand-1
@@ -523,7 +523,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: r_leg-2
@@ -533,7 +533,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: r_leg-1
@@ -543,7 +543,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: l_arm-1
@@ -553,7 +553,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: l_hand-2
@@ -563,7 +563,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: r_arm-1
@@ -573,7 +573,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: r_foot-2
@@ -583,7 +583,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: r_foot-1
@@ -593,7 +593,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: l_foot-2
@@ -603,7 +603,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_main.rsi
       state: l_leg-2
@@ -613,7 +613,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_monitor.rsi
       state: head-2
@@ -623,7 +623,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_monitor.rsi
       state: head-1
@@ -633,7 +633,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_alt1.rsi
       state: head-2
@@ -643,7 +643,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_alt1.rsi
       state: head-3
@@ -653,7 +653,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/hesphiastos/hesphiastos_alt1.rsi
       state: head-1
@@ -663,7 +663,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_monitor.rsi
       state: head-2
@@ -673,7 +673,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_monitor.rsi
       state: head
@@ -683,7 +683,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_alt1.rsi
       state: head
@@ -693,7 +693,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: l_arm-combined
@@ -703,7 +703,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: torso-primary
@@ -713,7 +713,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: l_leg-secondary
@@ -723,7 +723,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: r_arm-primary
@@ -733,7 +733,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: l_arm-tertiary
@@ -743,7 +743,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: r_hand
@@ -753,7 +753,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: l_arm-primary
@@ -763,7 +763,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: r_leg-primary
@@ -773,7 +773,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: torso-secondary
@@ -783,7 +783,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: r_leg-combined
@@ -793,7 +793,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: r_arm-secondary
@@ -803,7 +803,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: head
@@ -813,7 +813,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: l_foot
@@ -823,7 +823,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: l_arm-secondary
@@ -833,7 +833,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: l_leg-primary
@@ -843,7 +843,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: r_arm-tertiary
@@ -853,7 +853,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: l_hand
@@ -863,7 +863,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: l_leg-combined
@@ -873,7 +873,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: r_foot
@@ -883,7 +883,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: r_leg-secondary
@@ -893,7 +893,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/bishop/bishop_main.rsi
       state: r_arm-combined
@@ -903,7 +903,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_alt1.rsi
       state: head
@@ -913,7 +913,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: r_hand
@@ -923,7 +923,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: l_arm
@@ -933,7 +933,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: torso
@@ -943,7 +943,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: head
@@ -953,7 +953,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: r_leg
@@ -963,7 +963,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: l_foot
@@ -973,7 +973,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: l_hand
@@ -983,7 +983,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: r_arm
@@ -993,7 +993,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: r_foot
@@ -1003,7 +1003,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/morpheus/morpheus_main.rsi
       state: l_leg
@@ -1013,7 +1013,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: r_hand
@@ -1023,7 +1023,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: l_arm
@@ -1033,7 +1033,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: torso
@@ -1043,7 +1043,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: head
@@ -1053,7 +1053,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: r_leg
@@ -1063,7 +1063,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: l_foot
@@ -1073,7 +1073,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: l_hand
@@ -1083,7 +1083,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: r_arm
@@ -1093,7 +1093,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: r_foot
@@ -1103,7 +1103,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_main.rsi
       state: l_leg
@@ -1113,7 +1113,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_monitor.rsi
       state: head
@@ -1123,7 +1123,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/wardtakahashi/wardtakahashi_alt1.rsi
       state: head
@@ -1133,7 +1133,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_monitor.rsi
       state: head-2
@@ -1143,7 +1143,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_monitor.rsi
       state: head-1
@@ -1153,7 +1153,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: l_leg-1
@@ -1163,7 +1163,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: r_hand-2
@@ -1173,7 +1173,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: l_foot-1
@@ -1183,7 +1183,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: l_hand-1
@@ -1193,7 +1193,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: r_arm-2
@@ -1203,7 +1203,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: torso-2
@@ -1213,7 +1213,7 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: torso-1
@@ -1223,7 +1223,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: l_arm-2
@@ -1233,7 +1233,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: r_hand-1
@@ -1243,7 +1243,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: r_leg-2
@@ -1253,7 +1253,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: r_leg-1
@@ -1263,7 +1263,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: l_arm-1
@@ -1273,7 +1273,7 @@
   markingCategory: Arms
   bodyPart: LArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: l_hand-2
@@ -1283,7 +1283,7 @@
   markingCategory: Arms
   bodyPart: RArm
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: r_arm-1
@@ -1293,7 +1293,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: r_foot-2
@@ -1303,7 +1303,7 @@
   markingCategory: Legs
   bodyPart: RLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: r_foot-1
@@ -1313,7 +1313,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: l_foot-2
@@ -1323,7 +1323,7 @@
   markingCategory: Legs
   bodyPart: LLeg
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_main.rsi
       state: l_leg-2
@@ -1333,7 +1333,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_alt1.rsi
       state: head-2
@@ -1343,7 +1343,7 @@
   markingCategory: Head
   bodyPart: Head
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/xion/xion_alt1.rsi
       state: head-1
