@@ -1,4 +1,4 @@
-using Content.Client._WL.DynamicText;
+using Content.Client._WL.DynamicText; // WL-Cnage
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
 using Content.Client.Stylesheets;
@@ -32,7 +32,9 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+    //WL-Changes-Start
     [Dependency] private readonly DynamicTextUIController _dynamicText = default!;
+    //WL-Changes-end
 
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
     [UISystemDependency] private readonly SpriteSystem _sprite = default!;
@@ -144,10 +146,12 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         _window.Objectives.RemoveAllChildren();
         _window.ObjectivesLabel.Visible = objectives.Any();
 
+        //WL-Changes-Start
         _window.DynamicTextButton.OnPressed += _ =>
         {
             _dynamicText.OpenWindow();
         };
+        //WL-Changes-End
 
         foreach (var (groupId, conditions) in objectives)
         {

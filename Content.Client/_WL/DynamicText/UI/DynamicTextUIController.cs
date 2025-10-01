@@ -9,14 +9,10 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client._WL.DynamicText;
+namespace Content.Client._WL.DynamicText.UI;
 
 public sealed class DynamicTextUIController : UIController
 {
-    [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-
     private DynamicTextWindow? _dynamicTextWindow;
 
     public override void Initialize()
@@ -31,6 +27,11 @@ public sealed class DynamicTextUIController : UIController
 
         _dynamicTextWindow?.OpenCentered();
 
-        _dynamicTextWindow.DynamicTextSaveButton.
+        // _dynamicTextWindow?.OnDynamicTextSaveButtonPressed += OnSave;
+    }
+
+    private void OnSave()
+    {
+        _dynamicTextWindow?.Close();
     }
 }
