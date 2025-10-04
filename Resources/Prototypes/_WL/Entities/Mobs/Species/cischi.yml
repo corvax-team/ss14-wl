@@ -76,6 +76,11 @@
       params:
         variation: 0.2
         volume: -14
+  - type: Languages
+    speaking:
+      - Translate
+    understood:
+      - Translate
 
 - type: entity
   save: false

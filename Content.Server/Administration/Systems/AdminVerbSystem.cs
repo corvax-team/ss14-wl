@@ -1,3 +1,7 @@
+// WL-Changes: Languages start
+using Content.Server._WL.Languages;
+using Content.Shared._WL.Languages.Components;
+// WL-Changes: Languages end
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.UI;
@@ -68,6 +72,8 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
+
+        [Dependency] private readonly LanguagesSystem _languages = default!; //WL-Changes: Languages
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -628,6 +634,29 @@ namespace Content.Server.Administration.Systems
                 args.Verbs.Add(verb);
             }
             // Wl-height end
+
+            // WL-Changes: Languages start
+            if (_adminManager.IsAdmin(player) && EntityManager.HasComponent<LanguagesComponent>(args.Target))
+            {
+                Verb verb = new()
+                {
+                    Text = Loc.GetString("Добавить язык"),
+                    Message = Loc.GetString("Добавляет язык в пул знания"),
+                    Category = VerbCategory.Debug,
+                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+                    Act = () =>
+                    {
+                        _quickDialog.OpenDialog(player, "Добавление языка", "Язык", (string language) =>
+                        {
+                            _languages.AddLanguage(args.Target, language);
+                        });
+                    },
+                    Impact = LogImpact.Extreme,
+                    ConfirmationPopup = true
+                };
+                args.Verbs.Add(verb);
+            }
+            // WL-Changes: Languages end
         }
 
         #region SolutionsEui

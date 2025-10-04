@@ -156,9 +156,17 @@ namespace Content.Server._WL.ChatGpt.Managers
             }
             catch (Exception ex)
             {
-                _sawmill.Warning("Ошибка при получении баланса аккаунта ProxyAi!" + " " + "Bearer " + _apiKey);
-                _sawmill.Warning(ex.ToStringBetter());
-                return null;
+                if (!_enabled)
+                {
+                    _sawmill.Info(AIDisabledDeclineMessage);
+                    return null;
+                }
+                else
+                {
+                    _sawmill.Warning("Ошибка при получении баланса аккаунта ProxyAi!" + " " + "Bearer " + _apiKey);
+                    _sawmill.Warning(ex.ToStringBetter());
+                    return null;
+                }
             }
         }
 

@@ -67,7 +67,13 @@ public sealed partial class TTSSystem : EntitySystem
         if (HandleRateLimit(args.SenderSession) != RateLimitStatus.Allowed)
             return;
 
-        var previewText = _rng.Pick(_sampleText);
+        //WL-PreviewTTSEdit-Start
+        var previewText = !string.IsNullOrEmpty(ev.PreviewText)
+            ? ev.PreviewText
+            : _rng.Pick(_sampleText);
+        //WL-PreviewTTSEdit-End
+
+        // var previewText = _rng.Pick(_sampleText); //WL-PreviewTTSEdit
         var soundData = await GenerateTTS(previewText, protoVoice.Speaker);
         if (soundData is null)
             return;

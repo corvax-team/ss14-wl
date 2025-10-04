@@ -33,10 +33,10 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
+    - map: [ "outerClothing" ] #WL-Change
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "outerClothing" ]
     - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
@@ -353,3 +353,10 @@
     interfaces:
       enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too
         type: HumanoidMarkingModifierBoundUserInterface
+  #WL-Changes: Languages start
+  - type: Languages
+    speaking:
+      - Translate
+    understood:
+      - Translate
+  #WL-Changes: Languages end

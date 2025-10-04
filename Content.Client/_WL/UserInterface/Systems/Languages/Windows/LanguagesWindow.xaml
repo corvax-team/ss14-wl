@@ -1,0 +1,18 @@
+<windows:LanguagesWindow
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:windows="clr-namespace:Content.Client._WL.UserInterface.Systems.Languages.Windows"
+    Title="{Loc 'ui-languages-window-title'}"
+    MinWidth="530"
+    MinHeight="345">
+    <ScrollContainer>
+        <BoxContainer Orientation="Vertical">
+            <BoxContainer Orientation="Vertical" VerticalAlignment="Top">
+                <Label Name="NameLabel" Access="Public"/>
+                <Label Name="SubText" VerticalAlignment="Top" StyleClasses="LabelSubText" Access="Public"/>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" Name="Languages" Access="Public"/>
+            <cc:Placeholder Name="RolePlaceholder" Access="Public" PlaceholderText="{Loc 'ui-languages-placeholder'}"/>
+        </BoxContainer>
+    </ScrollContainer>
+</windows:LanguagesWindow>

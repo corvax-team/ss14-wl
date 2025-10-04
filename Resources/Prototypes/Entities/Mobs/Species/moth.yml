@@ -99,10 +99,10 @@
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
+      - map: [ "outerClothing" ] #WL-Change
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "id" ]
-      - map: [ "outerClothing" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "back" ]
       - map: [ "neck" ]
@@ -172,6 +172,15 @@
           32:
             sprite: Mobs/Species/Moth/displacement.rsi
             state: shoes
+  #WL-Changes: Languages start
+  - type: Languages
+    speaking:
+      - Translate
+      - Weaver
+    understood:
+      - Translate
+      - Weaver
+  #WL-Changes: Languages end
 
 - type: entity
   parent: BaseSpeciesDummy

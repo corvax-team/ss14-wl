@@ -54,7 +54,6 @@
     audioParams:
       volume: -5
 
-
 - type: entity
   save: false
   name: Urist McMurine
