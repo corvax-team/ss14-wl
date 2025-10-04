@@ -3,7 +3,7 @@
   markingCategory: Overlay
   bodyPart: RFoot #highest possible layer
   speciesRestriction: [Vulpkanin]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
       state: pawsocks
@@ -12,8 +12,8 @@
   id: FoxTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sponsorOnly: true # Corvax-Sponsors
+  speciesRestriction: [Vulpkanin, Felinid] # WL-Changes: Vulp ears and tails for Felinid
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
       state: vulp_tail
@@ -24,7 +24,7 @@
   id: FoxEar
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid] # WL-Changes: Vulp ears and tails for Felinid
 # Coloring for Corvax WL
   coloring:
     default:
@@ -45,8 +45,8 @@
   id: WolfTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
-  sponsorOnly: true # Corvax-Sponsors
+  speciesRestriction: [Vulpkanin, Felinid] # WL-Changes: Vulp ears and tails for Felinid
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
 #    - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
 #      state: wolf_tail
@@ -64,7 +64,7 @@
   bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Vulpkanin]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
       state: vulp_belly-torso
@@ -74,7 +74,7 @@
   bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
       state: vulp_face

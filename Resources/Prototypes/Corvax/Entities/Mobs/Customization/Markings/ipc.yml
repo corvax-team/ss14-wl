@@ -3,7 +3,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: breakout_s
@@ -13,7 +13,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: nature_s
@@ -23,7 +23,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: eight_s
@@ -33,7 +33,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: orange_hesp_alt_s
@@ -43,7 +43,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: pink_hesp_alt_s
@@ -53,7 +53,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: smoking_s
@@ -63,7 +63,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: rainbow_s
@@ -73,7 +73,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: heart_s
@@ -83,7 +83,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: scroll_s
@@ -93,7 +93,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: scroll_hesp_alt_s
@@ -103,7 +103,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: static_s
@@ -113,7 +113,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: green_s
@@ -123,7 +123,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: yellow_s
@@ -133,7 +133,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: gol_glider_s
@@ -143,7 +143,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: rgb_hesp_alt_s
@@ -153,7 +153,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: goggles_hesp_alt_s
@@ -163,7 +163,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: off_hesp_alt_s
@@ -173,7 +173,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: pink_s
@@ -183,7 +183,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: red_s
@@ -193,7 +193,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: shower_s
@@ -203,7 +203,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: rainbow_hesp_alt_s
@@ -213,7 +213,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False-&
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: goggles_s
@@ -223,7 +223,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: monoeye_s
@@ -233,7 +233,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: blue_s
@@ -243,7 +243,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: test_s
@@ -253,7 +253,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: rgb_s
@@ -263,7 +263,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: music_s
@@ -273,7 +273,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: console_s
@@ -283,7 +283,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: purple_s
@@ -293,7 +293,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: orange_s
@@ -303,7 +303,7 @@
   markingCategory: Snout
   bodyPart: Snout
   speciesRestriction: [Ipc]
-  sponsorOnly: true # Corvax-Sponsors
+  sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Ipc/ips_face.rsi
       state: waiting_s

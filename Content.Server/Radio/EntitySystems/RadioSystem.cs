@@ -1,3 +1,7 @@
+//WL-Changes: Languages start
+using Content.Server._WL.Languages;
+using Content.Shared._WL.Languages;
+//WL-Changes: Languages end
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
@@ -28,6 +32,8 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+
+    [Dependency] private readonly LanguagesSystem _languages = default!; //WL-Changes: Languages
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -112,6 +118,25 @@ public sealed class RadioSystem : EntitySystem
         var chatMsg = new MsgChatMessage { Message = chat };
         var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg);
 
+        //WL-Changes: Languages start
+        var obfusWrappedMessage = _languages.GetRadioObfusWrappedMessage(message, messageSource, name, speech, channel);
+        var obfusChat = new ChatMessage(
+            ChatChannel.Radio,
+            message,
+            obfusWrappedMessage,
+            NetEntity.Invalid,
+            null
+        );
+        var obfusChatMsg = new MsgChatMessage { Message = obfusChat };
+        var obfusEv = new RadioReceiveEvent(
+            message,
+            messageSource,
+            channel,
+            radioSource,
+            obfusChatMsg
+        );
+        //WL-Changes: Languages end
+
         var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
         RaiseLocalEvent(ref sendAttemptEv);
         RaiseLocalEvent(radioSource, ref sendAttemptEv);
@@ -124,6 +149,15 @@ public sealed class RadioSystem : EntitySystem
         var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
         while (canSend && radioQuery.MoveNext(out var receiver, out var radio, out var transform))
         {
+            //WL-Changes: Languages start
+            var now_ev = ev;
+            if (transform.ParentUid != null)
+            {
+                if (!_languages.CanUnderstand(messageSource, transform.ParentUid))
+                    now_ev = obfusEv;
+            }
+            //WL-Changes: Languages end
+
             if (!radio.ReceiveAllChannels)
             {
                 if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
@@ -147,7 +181,7 @@ public sealed class RadioSystem : EntitySystem
                 continue;
 
             // send the message
-            RaiseLocalEvent(receiver, ref ev);
+            RaiseLocalEvent(receiver, ref now_ev); //WL-Changes: ev -> now_ev
         }
 
         if (name != Name(messageSource))

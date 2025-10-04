@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: BaseMobSpeciesOrganic
   id: BaseMobVox
   abstract: true
@@ -79,10 +79,10 @@
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
+    - map: [ "outerClothing" ] #WL-Change
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
-    - map: [ "outerClothing" ]
     - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "suitstorage" ] # This is not in the default order
@@ -168,6 +168,15 @@
         32:
           sprite: Mobs/Species/Vox/displacement.rsi
           state: hand_r
+  #WL-Changes: Languages start
+  - type: Languages
+    speaking:
+      - Translate
+      - VoxPigin
+    understood:
+      - Translate
+      - VoxPigin
+  #WL-Changes: Languages end
 
 - type: entity
   parent: BaseSpeciesDummy

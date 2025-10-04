@@ -73,6 +73,6 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        _entManager.System<TTSSystem>().RequestPreviewTTS(Profile.Voice);
+        _entManager.System<TTSSystem>().RequestPreviewTTS(Profile.Voice, CTTSPreview?.Text ?? String.Empty); //WL-PreviewTTSEdit
     }
 }

@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Чай AKA tau27",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "default"
+    },
+    {
+      "name": "nian"
+    },
+    {
+      "name": "vox"
+    },
+    {
+      "name": "unati"
+    },
+    {
+      "name": "cischi"
+    },
+    {
+      "name": "diona"
+    },
+    {
+      "name": "felinid"
+    },
+    {
+      "name": "golem"
+    },
+    {
+      "name": "murine"
+    },
+    {
+      "name": "android"
+    },
+    {
+      "name": "human"
+    },
+    {
+      "name": "kidan"
+    },
+    {
+      "name": "translate"
+    },
+    {
+      "name": "vulpa"
+    },
+    {
+      "name": "sareng"
+    }
+  ]
+}

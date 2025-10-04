@@ -1,0 +1,266 @@
+- type: language
+  id: BaseLang
+  name: Base language
+  description: Base language description.
+  abstract: true
+  obfuscation:
+    !type:ReplacementObfuscation
+      replacement:
+      - base
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: default
+
+- type: language
+  id: Translate
+  name: language-translate
+  description: language-translate-desc
+  obfuscation:
+    !type:WordsReplacementObfuscation
+      replacement:
+        - Lorem
+        - ipsum
+        - dolor
+        - sit
+        - amet
+        - consectetur
+        - adipisci
+        - elit
+        - sed
+        - eiusmod
+        - tempor
+        - incidunt
+        - ut
+        - labore
+        - et
+        - dolore
+        - magna
+        - aliqua
+        - Ut
+        - enim
+        - ad
+        - minim
+        - veniam
+        - quis
+        - nostru
+        - exercitatione
+        - ulla
+        - corpori
+        - suscipi
+        - laboriosa
+        - nisi
+        - ut
+        - aliquid
+        - ex
+        - ea
+        - commodi
+        - consequatur
+        - Quis
+        - aute
+        - iure
+        - reprehenderit
+        - in
+        - voluptate
+        - velit
+        - esse
+        - cillu
+        - dolore
+        - e
+        - fugia
+        - nulla
+        - pariatu
+        - Excepteur
+        - sin
+        - obcaeca
+        - cupidita
+        - no
+        - proiden
+        - sunt
+        - in
+        - culpa
+        - qui
+        - officia
+        - deserunt
+        - mollit
+        - anim
+        - id
+        - est
+        - laborum
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: translate
+
+- type: language
+  id: SintaUnati
+  name: language-unati
+  description: language-unati-desc
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+      replacement:
+      - w
+      - s
+      - h
+      - sh
+      - kh
+      - a
+      - i
+      - as
+      - hi
+      - es
+      - ws
+      - eh
+      - he
+      - w
+      - e
+      - ss
+      - hh
+      - f
+      - ef
+      - u
+      - as
+      - a
+      - weh
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: unati
+
+- type: language
+  id: OldEarth
+  name: language-oldearth
+  description: language-oldearth-desc
+  obfuscation:
+    !type:Utf16ReplacementObfuscation
+      utf16start: 224
+      utf16end: 382
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: human
+
+- type: language
+  id: Kuniluc
+  name: language-vulpa
+  description: language-vulpa-desc
+  obfuscation:
+    !type:Utf16ReplacementObfuscation
+      utf16start: 224
+      utf16end: 382
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: vulpa
+
+- type: language
+  id: Sarengis
+  name: language-sareng
+  description: language-sareng-desc
+  obfuscation:
+    !type:Utf16ReplacementObfuscation
+      utf16start: 902
+      utf16end: 1023
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: sareng
+
+- type: language
+  id: Weaver
+  name: language-weaver
+  description: language-weaver-desc
+  obfuscation:
+    !type:EmoteObfuscation
+      replacement:
+      - пищит
+      - щебечет
+      - щебечет и двигает усиками
+      - щебечет и активно двигает тельцем
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: nian
+
+- type: language
+  id: Ternary
+  name: language-ternary
+  description: language-ternary-desc
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+      replacement:
+      - 0
+      - 1
+      - 2
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: android
+
+- type: language
+  id: RootSpeak
+  name: language-rootspeak
+  description: language-rootspeak-desc
+  obfuscation:
+    !type:EmoteObfuscation
+      replacement:
+      - шуршит
+      - трещит ветками
+      - трясёт лозами и листьями
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: diona
+
+- type: language
+  id: VoxPigin
+  name: language-vox
+  description: language-vox-desc
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+      replacement:
+        - г
+        - з
+        - с
+        - ф
+        - дх
+        - а
+        - ра
+        - и
+        - ии
+        - ка
+        - к
+        - ц
+        - рр
+        - са
+        - а
+        - х
+        - кс
+        - г
+        - скр
+        - ск
+        - кр
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: vox
+
+
+- type: entity
+  parent: MobDebugRandomCounter
+  id: MobDebugCounterLanguageSmart
+  name: language tester
+  description: He can language
+  suffix: DEBUG, LANG
+  components:
+    - type: Languages
+      understood:
+        - Translate
+        - OldEarth
+        - SintaUnati
+        - Sarengis
+        - Weaver
+        - Ternary
+        - RootSpeak
+        - VoxPigin
+        - Kuniluc
+      speaking:
+        - Translate
+        - OldEarth
+        - SintaUnati
+        - Sarengis
+        - Weaver
+        - Ternary
+        - RootSpeak
+        - VoxPigin
+        - Kuniluc

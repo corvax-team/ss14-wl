@@ -3,7 +3,7 @@
   id: FoxEarSandfoxLarge
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/ears_big.rsi
       state: m_ears_sandfox_large
@@ -14,7 +14,7 @@
   id: FoxEarAcrador
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/ears_big.rsi
       state: m_ears_acrador_long
@@ -25,7 +25,7 @@
   id: FoxEarFennec
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_fennec_primary
@@ -36,7 +36,7 @@
   id: FoxEarSabresune
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_sabresune_primary
@@ -47,7 +47,7 @@
   id: FoxEarWolf
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_wolf_primary
@@ -58,7 +58,7 @@
   id: FoxEarRaccoon
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_raccoon_primary
@@ -80,7 +80,7 @@
   id: FoxEarPerky
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_perky_primary
@@ -91,7 +91,7 @@
   id: FoxEarBigWolf
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_bigwolf_primary
@@ -115,7 +115,7 @@
   id: VulpTail #Вообще это FoxTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   coloring:
     default:
       type:
@@ -135,7 +135,7 @@
   id: OtieTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
       state: otie_tail
@@ -144,7 +144,7 @@
   id: MessyTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
       state: messy_tail
@@ -153,7 +153,7 @@
   id: FluffyTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
       state: fluffy_tail
@@ -162,7 +162,7 @@
   id: EeveeTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_eevee_primary
@@ -173,7 +173,7 @@
   id: FennecTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_fennec_primary
@@ -184,7 +184,7 @@
   id: FoxNTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_fox_primary
@@ -195,7 +195,7 @@
   id: FoxN2Tail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_fox2_primary
@@ -204,7 +204,7 @@
   id: FoxN3Tail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_fox3_primary
@@ -215,7 +215,7 @@
   id: FoxannTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_foxann_primary
@@ -226,7 +226,7 @@
   id: HuskyTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_husky_primary
@@ -237,7 +237,7 @@
   id: OtieTailAlt
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_otie_primary
@@ -246,7 +246,7 @@
   id: WolfNTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin]
+  speciesRestriction: [Vulpkanin, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_wolf

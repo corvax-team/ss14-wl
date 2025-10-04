@@ -215,6 +215,15 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+  - type: Languages
+    speaking:
+      - Translate
+      - Ternary
+    understood:
+      - Translate
+      - Ternary
+
+
 
 - type: entity
   save: false

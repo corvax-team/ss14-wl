@@ -5,6 +5,7 @@
   parent: [BaseStructure, BaseMob]
   name: shittle gun
   abstract: true
+  save: true #WL-Changes : Radar Markers
   components:
   - type: Appearance
   - type: InteractionOutline
