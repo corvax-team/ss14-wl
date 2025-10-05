@@ -76163,8 +76163,6 @@ entities:
       pos: 24.5,53.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 46
     - type: AtmosPipeLayers

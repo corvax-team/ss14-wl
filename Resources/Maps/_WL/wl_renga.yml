@@ -4,7 +4,7 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/04/2025 22:47:28
+  time: 10/05/2025 14:09:00
   entityCount: 24691
 maps:
 - 1
@@ -13075,17 +13075,9 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           immutable: True
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -13113,19 +13105,11 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 20.078888
           - 75.53487
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -13151,10 +13135,6 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.14975
           moles:
@@ -13170,10 +13150,6 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -13189,10 +13165,6 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -13208,17 +13180,9 @@ entities:
           - 0
           - 0
           - 0
-          - 0
-          - 0
-          - 0
-          - 0
         - volume: 2500
           temperature: 293.15
           moles:
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -13238,10 +13202,6 @@ entities:
           - 0
           - 0
           - 6666.982
-          - 0
-          - 0
-          - 0
-          - 0
           - 0
           - 0
           - 0
@@ -15888,7 +15848,7 @@ entities:
       pos: 77.5,37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -207329.02
+      secondsUntilStateChange: -207366.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17628,7 +17588,7 @@ entities:
       pos: 88.5,49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -255693.02
+      secondsUntilStateChange: -255730.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -63630,9 +63590,8 @@ entities:
   - uid: 8719
     components:
     - type: Transform
-      parent: 10587
-    - type: Physics
-      canCollide: False
+      pos: 32.809303,42.38784
+      parent: 2
 - proto: ClothingNeckMantleQM
   entities:
   - uid: 8720
@@ -65356,10 +65315,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -75460,11 +75415,8 @@ entities:
       parent: 2
     - type: Storage
       storedItems:
-        8719:
-          position: 0,0
-          _rotation: South
         10454:
-          position: 1,0
+          position: 0,0
           _rotation: South
     - type: ContainerContainer
       containers:
@@ -75472,7 +75424,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 8719
           - 10454
 - proto: DresserQuarterMasterFilled
   entities:
@@ -111396,10 +111347,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -111576,10 +111523,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -112551,10 +112494,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -136756,10 +136695,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: SuitStorageRD
   entities:
   - uid: 19001
@@ -160943,10 +160878,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -160999,10 +160930,6 @@ entities:
         - 0
         - 0
         - 0
-        - 0
-        - 0
-        - 0
-        - 0
 - proto: WardrobeSalvageFilled
   entities:
   - uid: 23165
@@ -161018,10 +160945,6 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
         - 0
         - 0
         - 0
@@ -162210,7 +162133,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -142065.52
+      secondsUntilStateChange: -142102.7
       state: Opening
     - type: Airlock
       autoClose: False
