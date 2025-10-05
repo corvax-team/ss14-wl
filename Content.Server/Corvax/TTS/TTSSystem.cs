@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using Content.Server._WL.Languages; //WL-Changes: Languages
+using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.TTS;
@@ -19,6 +20,8 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly TTSManager _ttsManager = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
+
+    [Dependency] private readonly LanguagesSystem _languages = default!; //WL-Changes: Languages
 
     private readonly List<string> _sampleText =
         new()
@@ -67,13 +70,7 @@ public sealed partial class TTSSystem : EntitySystem
         if (HandleRateLimit(args.SenderSession) != RateLimitStatus.Allowed)
             return;
 
-        //WL-PreviewTTSEdit-Start
-        var previewText = !string.IsNullOrEmpty(ev.PreviewText)
-            ? ev.PreviewText
-            : _rng.Pick(_sampleText);
-        //WL-PreviewTTSEdit-End
-
-        // var previewText = _rng.Pick(_sampleText); //WL-PreviewTTSEdit
+        var previewText = _rng.Pick(_sampleText);
         var soundData = await GenerateTTS(previewText, protoVoice.Speaker);
         if (soundData is null)
             return;
@@ -81,6 +78,12 @@ public sealed partial class TTSSystem : EntitySystem
         RaiseNetworkEvent(new PlayTTSEvent(soundData), Filter.SinglePlayer(args.SenderSession));
     }
 
+    /// <summary>
+    /// Handles an entity speaking by validating TTS conditions, resolving the speaker voice, and routing the message to the appropriate TTS handling path (language-aware, whisper, or normal speech).
+    /// </summary>
+    /// <param name="uid">The entity that spoke (speaker).</param>
+    /// <param name="component">The TTSComponent attached to the speaker containing configured voice information.</param>
+    /// <param name="args">The spoken message event containing the message text, optional obfuscated text, and optional language-specific variants.</param>
     private async void OnEntitySpoke(EntityUid uid, TTSComponent component, EntitySpokeEvent args)
     {
         var voiceId = component.VoicePrototypeId;
@@ -95,6 +98,17 @@ public sealed partial class TTSSystem : EntitySystem
 
         if (!_prototypeManager.TryIndex<TTSVoicePrototype>(voiceId, out var protoVoice))
             return;
+
+        //WL-Changes: Languages start
+        if (args.LangMessage != null)
+        {
+            if (args.LangObfusMessage != null && args.ObfuscatedMessage != null)
+                HandleLangWhisper(uid, args.Message, args.ObfuscatedMessage, args.LangMessage, args.LangObfusMessage, protoVoice.Speaker);
+            else
+                HandleLangSay(uid, args.Message, args.LangMessage, protoVoice.Speaker);
+            return;
+        }
+        //WL-Changes: Languages End
 
         if (args.ObfuscatedMessage != null)
         {
@@ -112,6 +126,16 @@ public sealed partial class TTSSystem : EntitySystem
         RaiseNetworkEvent(new PlayTTSEvent(soundData, GetNetEntity(uid)), Filter.Pvs(uid));
     }
 
+    /// <summary>
+    /// Plays whispered TTS for a speaking entity and delivers either the full or obfuscated audio to nearby listeners based on distance.
+    /// </summary>
+    /// <remarks>
+    /// Generates TTS audio for both the full and obfuscated message variants; if either generation fails, the operation aborts. For each network session in the speaking entity's PVS with an attached entity and within VoiceRange, a PlayTTSEvent is raised. Listeners farther than WhisperClearRange receive the obfuscated audio; closer listeners receive the full audio.
+    /// </remarks>
+    /// <param name="uid">The source entity that is speaking.</param>
+    /// <param name="message">The full (clear) text to synthesize.</param>
+    /// <param name="obfMessage">The obfuscated/partially obscured text to synthesize for distant listeners.</param>
+    /// <param name="speaker">The speaker/voice identifier to use for TTS generation.</param>
     private async void HandleWhisper(EntityUid uid, string message, string obfMessage, string speaker)
     {
         var fullSoundData = await GenerateTTS(message, speaker, true);
@@ -139,7 +163,103 @@ public sealed partial class TTSSystem : EntitySystem
         }
     }
 
-    // ReSharper disable once InconsistentNaming
+    /// <summary>
+    /// Generate language-aware whisper TTS for an entity and send the appropriate audio to nearby listeners.
+    /// </summary>
+    /// <param name="uid">The entity that spoke.</param>
+    /// <param name="message">The original message text to synthesize for listeners who cannot understand the speaker.</param>
+    /// <param name="langMessage">The language-specific message text to synthesize for listeners who can understand the speaker.</param>
+    /// <param name="speaker">The TTS speaker/voice identifier to use for synthesis.</param>
+    private async void HandleLangSay(EntityUid uid, string message, string langMessage, string speaker)
+    {
+        var fullSoundData = await GenerateTTS(message, speaker, true);
+        if (fullSoundData is null) return;
+
+        var langSoundData = await GenerateTTS(langMessage, speaker, true);
+        if (langSoundData is null) return;
+
+        var fullTtsEvent = new PlayTTSEvent(fullSoundData, GetNetEntity(uid), true);
+        var langTtsEvent = new PlayTTSEvent(langSoundData, GetNetEntity(uid), true);
+
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        var sourcePos = _xforms.GetWorldPosition(xformQuery.GetComponent(uid), xformQuery);
+        var receptions = Filter.Pvs(uid).Recipients;
+        foreach (var session in receptions)
+        {
+            if (!session.AttachedEntity.HasValue) continue;
+            var listener = session.AttachedEntity.Value;
+            var xform = xformQuery.GetComponent(listener);
+            var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
+            if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
+                continue;
+
+            var check = _languages.CanUnderstand(uid, listener);
+
+            if (!check && _languages.IsObfusEmoting(uid)) continue;
+            RaiseNetworkEvent(check ? langTtsEvent : fullTtsEvent, session);
+        }
+    }
+
+    /// <summary>
+    /// Generates four whisper-mode TTS audio variants (full, obfuscated, language-full, language-obfuscated) for a speaker and dispatches the appropriate audio to nearby listeners based on language understanding and distance.
+    /// </summary>
+    /// <param name="uid">The entity uid of the speaker source.</param>
+    /// <param name="message">The original message text to synthesize.</param>
+    /// <param name="obfMessage">The obfuscated form of the message to use for distant/whisper delivery.</param>
+    /// <param name="langMessage">The language-specific translation of the message to synthesize for listeners who understand the speaker.</param>
+    /// <param name="langObfusMessage">The obfuscated form of the language-specific message for distant/whisper delivery to listeners who understand the speaker.</param>
+    /// <param name="speaker">The voice identifier (speaker) to use for TTS generation.
+    private async void HandleLangWhisper(EntityUid uid, string message, string obfMessage, string langMessage, string langObfusMessage, string speaker)
+    {
+        var fullSoundData = await GenerateTTS(message, speaker, true);
+        if (fullSoundData is null) return;
+
+        var obfSoundData = await GenerateTTS(obfMessage, speaker, true);
+        if (obfSoundData is null) return;
+
+        var langFullSoundData = await GenerateTTS(langMessage, speaker, true);
+        if (langFullSoundData is null) return;
+
+        var langObfusSoundData = await GenerateTTS(langObfusMessage, speaker, true);
+        if (langObfusSoundData is null) return;
+
+        var fullTtsEvent = new PlayTTSEvent(fullSoundData, GetNetEntity(uid), true);
+        var obfTtsEvent = new PlayTTSEvent(obfSoundData, GetNetEntity(uid), true);
+
+        var langFullTtsEvent = new PlayTTSEvent(langFullSoundData, GetNetEntity(uid), true);
+        var langObfusTtsEvent = new PlayTTSEvent(langObfusSoundData, GetNetEntity(uid), true);
+
+        // TODO: Check obstacles
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        var sourcePos = _xforms.GetWorldPosition(xformQuery.GetComponent(uid), xformQuery);
+        var receptions = Filter.Pvs(uid).Recipients;
+        foreach (var session in receptions)
+        {
+            if (!session.AttachedEntity.HasValue) continue;
+            var listener = session.AttachedEntity.Value;
+            var xform = xformQuery.GetComponent(listener);
+            var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
+            if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
+                continue;
+
+            var check = _languages.CanUnderstand(uid, listener);
+
+            if (!check && _languages.IsObfusEmoting(uid)) continue;
+            if (check)
+                RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? obfTtsEvent : fullTtsEvent, session);
+            else
+                RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? langObfusTtsEvent : langFullTtsEvent, session);
+        }
+    }
+    //WL-Changes: Languages end
+
+    /// <summary>
+    /// Generate speech audio for the given text using the specified speaker voice.
+    /// </summary>
+    /// <param name="text">The text to synthesize into speech.</param>
+    /// <param name="speaker">Identifier of the TTS speaker/voice to use.</param>
+    /// <param name="isWhisper">If true, produce a whisper-style rendition of the text.</param>
+    /// <returns>The generated audio data as a byte array, or <c>null</c> if the text is empty after sanitization or synthesis failed.</returns>
     private async Task<byte[]?> GenerateTTS(string text, string speaker, bool isWhisper = false)
     {
         var textSanitized = Sanitize(text);
