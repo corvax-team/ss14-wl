@@ -2,7 +2,7 @@
 - type: gameMap
   id: CorvaxWLRest
   mapName: 'Рест'
-  mapPath: /Maps/_WL/wl_rest.yml 
+  mapPath: /Maps/_WL/wl_rest.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 30
