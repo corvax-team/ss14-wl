@@ -4,6 +4,10 @@
   description: job-description-senior-researcher
   playTimeTracker: JobSeniorResearcher
   requirements:
+    #WL-Changes: Ages start
+    - !type:AgeRequirement
+      minAge: 26
+    #WL-Changes: Ages end
     - !type:DepartmentTimeRequirement
       department: Science
       time: 216000 #60 hrs

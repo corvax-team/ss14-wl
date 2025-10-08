@@ -4,6 +4,10 @@
   description: job-description-senior-physician
   playTimeTracker: JobSeniorPhysician
   requirements:
+    #WL-Changes: Ages start
+    - !type:AgeRequirement
+      minAge: 26
+    #WL-Changes: Ages end
     - !type:RoleTimeRequirement
       role: JobChemist
       time: 21600 #6 hrs
