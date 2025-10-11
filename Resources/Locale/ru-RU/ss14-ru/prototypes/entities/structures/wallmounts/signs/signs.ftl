@@ -154,8 +154,10 @@ ent-SignGenpop = знак "общий блок"
     .desc = Знак, указывающий на общую зону тюрьмы.
 ent-SignBiohazard = знак "биологическая угроза"
     .desc = Знак, предупреждающий о биологической опасности.
-ent-SignPsychology = знак "психолог"
-    .desc = Знак, указывающий на офис психолога.
+# WL-change-psych-start
+ent-SignPsychology = знак "психотерапевт"
+    .desc = Знак, указывающий на офис психотерапевта.
+# WL-change-psych-end
 ent-SignReception = знак "ресепшен"
     .desc = Знак, указывающий на ресепшен.
 ent-SignCanisters = знак "газовые баллоны"

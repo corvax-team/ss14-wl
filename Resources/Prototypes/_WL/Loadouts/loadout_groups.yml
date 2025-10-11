@@ -53,3 +53,39 @@
   minLimit: 0
   loadouts:
   - AdjutantWintercoat
+
+- type: loadoutGroup
+  id: WLNeck
+  name: loadout-group-neck-wl
+  maxLimit: 1
+  loadouts:
+  - ScarfStripedRed
+  - ScarfStripedBlue
+  - ScarfStripedGreen
+  - ScarfStripedBlack
+  - ScarfStripedBrown
+  - ScarfStripedLightBlue
+  - ScarfStripedOrange
+  - ScarfStripedPurple
+  - ScarfStripedAce
+  - ScarfStripedAro
+  - ScarfStripedAroace
+  - ScarfStripedBiSexual
+  - ScarfStripedGay
+  - ScarfStripedInter
+  - ScarfStripedLesbian
+  - ScarfStripedPan
+  - ScarfStripedNonBinary
+  - ScarfStripedRainbow
+  - ScarfStripedTrans
+  - ScarfStripedLesbianLong
+  - TieRed
+  - TieBlue
+  - TieGreen
+  - TieGray
+  - TieYellow
+  - TieLightBlue
+  - TieOrange
+  - TiePurple
+  - TiePink
+  - TieRainbow

@@ -5,14 +5,20 @@
 * @JerryImMouse
 * @tau27
 
-# Ping for all PRs that include translations/editing fluent strings
-*.ftl @ficcialfaint
+# Translations
+*.ftl @Morb0 @DIMMoon1 @ficcialfaint
 
+<<<<<<< HEAD
 # Map files
 /Resources/Prototypes/Maps/** @Ko4ergaPunk
 /Resources/Maps/** @Ko4ergaPunk
 /Resources/Prototypes/_WL/Maps/** @0leshe
 /Resources/Maps/_WL/** @0leshe
+=======
+# Maps
+/Resources/Prototypes/Maps/** @Morb0 @DIMMoon1 @Ko4ergaPunk
+/Resources/Maps/** @Morb0 @DIMMoon1 @Ko4ergaPunk
+>>>>>>> corvax/master
 
 # Sprites
-/Resources/Textures/** @SonicHDC
+/Resources/Textures/** @Morb0 @DIMMoon1 @SonicHDC

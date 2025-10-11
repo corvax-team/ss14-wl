@@ -1,0 +1,35 @@
+- type: jukebox
+  id: motive
+  name: A-Guy - Motive
+  path:
+    path: /Audio/_WL/Jukebox/Motive-A-Guy.ogg
+
+- type: jukebox
+  id: megacorps
+  name: A-Guy - Megacorps
+  path:
+    path: /Audio/_WL/Jukebox/Nothing-danger-with-megacorps-A-Guy.ogg
+
+- type: jukebox
+  id: nuclear-operation
+  name: A-Guy - Nuclear Operation
+  path:
+    path: /Audio/_WL/Jukebox/Nuclear-operation-remake-A-Guy.ogg
+
+- type: jukebox
+  id: radify
+  name: A-Guy - Radify
+  path:
+    path: /Audio/_WL/Jukebox/Radify-A-Guy.ogg
+
+- type: jukebox
+  id: tech-Fairy
+  name: A-Guy - Tech Fairy
+  path:
+    path: /Audio/_WL/Jukebox/Tech-Fairy-A-Guy.ogg
+
+- type: jukebox
+  id: RevolutionSS13
+  name: A-Guy - Revolution
+  path:
+    path: /Audio/_WL/Jukebox/RevolutionSS13.ogg

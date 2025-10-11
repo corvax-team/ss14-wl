@@ -1,0 +1,9 @@
+- type: loadout
+  id: SecurityBeretDSS
+  equipment:
+    head: ClothingHeadHatBeretDSS
+
+- type: loadout
+  id: JumpsuitDSS
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDSS

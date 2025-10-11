@@ -8,5 +8,7 @@ ent-Mattress = матрас
     .desc = Лучше спать на нём, чем на полу, я полагаю.
 ent-WebBed = паутинная кровать
     .desc = Не оторваться.
-ent-PsychBed = кушетка психолога
+# WL-Changes: Rename start
+ent-PsychBed = кушетка психотерапевта
     .desc = Кровать с мягкой обивкой для оказания психологической помощи пациентам.
+# WL-Changes: Rename end

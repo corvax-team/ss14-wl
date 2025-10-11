@@ -18,5 +18,7 @@ stamp-component-stamped-name-trader = Торговец
 stamp-component-stamped-name-syndicate = Синдикат
 stamp-component-stamped-name-ce = Старший инженер
 stamp-component-stamped-name-greytide = Грейтайд
-stamp-component-stamped-name-psychologist = Психолог
+# WL-change-psych-start
+stamp-component-stamped-name-psychologist = Психотерапевт
+# WL-change-psych-end
 stamp-component-stamped-name-wizard = Волшебник
