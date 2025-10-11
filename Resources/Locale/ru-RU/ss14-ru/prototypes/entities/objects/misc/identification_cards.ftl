@@ -98,8 +98,10 @@ ent-SyndicateIDCard = ID-карта Синдиката
     .desc = { ent-IDCardStandard.desc }
 ent-PirateIDCard = ID-карта пирата
     .desc = { ent-IDCardStandard.desc }
-ent-PsychologistIDCard = ID-карта психолога
+# WL-change-psych-start
+ent-PsychologistIDCard = ID-карта психотерапевта
     .desc = { ent-IDCardStandard.desc }
+# WL-change-psych-end
 ent-ReporterIDCard = ID-карта репортёра
     .desc = { ent-IDCardStandard.desc }
 ent-BoxerIDCard = ID-карта боксёра
@@ -118,10 +120,12 @@ ent-CluwneIDCard = ID-карта клувеня
     .desc = { ent-IDCardStandard.desc }
 ent-SeniorEngineerIDCard = ID-карта ведущего инженера
     .desc = { ent-EngineeringIDCard.desc }
-ent-SeniorResearcherIDCard = ID-карта ведущего учёного
+# WL-Changes: Roles rename start
+ent-SeniorResearcherIDCard = ID-карта заведующего лабораторией
     .desc = { ent-ResearchIDCard.desc }
-ent-SeniorPhysicianIDCard = ID-карта ведущего врача
+ent-SeniorPhysicianIDCard = ID-карта дежурного врача
     .desc = { ent-MedicalIDCard.desc }
+# WL-Changes: Roles rename end
 ent-SeniorOfficerIDCard = ID-карта инструктора СБ
     .desc = { ent-SecurityIDCard.desc }
 ent-WizardIDCard = ID-карта волшебника

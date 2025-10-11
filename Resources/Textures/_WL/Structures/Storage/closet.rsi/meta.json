@@ -612,6 +612,15 @@
     },
     {
       "name": "eng_evac_door"
+    },
+    {
+      "name": "aidec"
+    },
+    {
+      "name": "aidec_door"
+    },
+    {
+      "name": "aidec_open"
     }
   ]
 }

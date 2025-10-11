@@ -1,3 +1,4 @@
+using Content.Client._WL.UserInterface.Systems.Languages;//WL-Changes: Languages
 using Content.Client.UserInterface.Systems.Actions;
 using Content.Client.UserInterface.Systems.Admin;
 using Content.Client.UserInterface.Systems.Bwoink;
@@ -25,6 +26,8 @@ public sealed class GameTopMenuBarUIController : UIController
     [Dependency] private readonly GuidebookUIController _guidebook = default!;
     [Dependency] private readonly EmotesUIController _emotes = default!;
 
+    [Dependency] private readonly LanguagesUIController _languages = default!; //WL-Changes: Languages
+
     private GameTopMenuBar? GameTopMenuBar => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>();
 
     public override void Initialize()
@@ -47,6 +50,7 @@ public sealed class GameTopMenuBarUIController : UIController
         _action.UnloadButton();
         _sandbox.UnloadButton();
         _emotes.UnloadButton();
+        _languages.UnloadButton(); //WL-Changes: Languages
     }
 
     public void LoadButtons()
@@ -60,5 +64,6 @@ public sealed class GameTopMenuBarUIController : UIController
         _action.LoadButton();
         _sandbox.LoadButton();
         _emotes.LoadButton();
+        _languages.LoadButton(); //WL-Changes: Languages
     }
 }

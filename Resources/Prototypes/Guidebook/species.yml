@@ -10,7 +10,7 @@
     - Moth
     - Reptilian
     - SlimePerson
-    - Vulpkanin # Corvax
+    - Vulpkanin
     - Vox
 #Corvax WhiteList
     - Akula
@@ -98,3 +98,8 @@
   name: species-name-murine
   text: "/ServerInfo/Guidebook/_WL/Mobs/Murine.xml"
 #Corvax WhiteList-End
+
+- type: guideEntry
+  id: Vulpkanin
+  name: species-name-vulpkanin
+  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"

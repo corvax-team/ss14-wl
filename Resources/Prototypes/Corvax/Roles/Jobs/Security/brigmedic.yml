@@ -11,7 +11,7 @@
     department: Security
     time: 18000 # 5 hrs
   - !type:AgeRequirement
-    minAge: 26 # WL-Changes-AgeRequirement
+    minAge: 24 # WL-Changes-AgeRequirement
   - !type:TraitsRequirement
     inverted: true
     traits:
@@ -36,9 +36,11 @@
     id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
     belt: ClothingBeltMedicalFilled
+    pocket1: WeaponPistolMk58 # WL-Changes: Pistol brigmed
   storage:
     back:
     - Flash
+    - MagazinePistol # WL-Changes: Pistol brigmed
 
 - type: chameleonOutfit
   id: BrigmedicChameleonOutfit

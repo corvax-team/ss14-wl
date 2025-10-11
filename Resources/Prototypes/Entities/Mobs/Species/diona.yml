@@ -114,6 +114,15 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: Rootable
+  #WL-Changes: Languages start
+  - type: Languages
+    speaking:
+      - Translate
+      - RootSpeak
+    understood:
+      - Translate
+      - RootSpeak
+  #WL-Changes: Languages end
 
 - type: entity
   parent: BaseSpeciesDummy

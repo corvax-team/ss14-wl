@@ -1,0 +1,25 @@
+- type: entityTable
+  id: LockerFillAdjutant
+  table: !type:AllSelector
+    children:
+      - id: ClothingHeadsetCommand
+      - id: ClothingEyesHudCommand
+      - id: ClothingUniformJumpsuitAdjutant
+      - id: ClothingUniformJumpskirtAdjutant
+      - id: ClothingOuterWinterAdjutant
+      - id: ClothingHeadHatBeretAdjutant
+      - id: ClothingHeadHatAdjutantCap
+      - id: RubberStampAdjutant
+      - id: ClothingBackpackAdjutant
+      - id: ClothingBackpackDuffelAdjutant
+      - id: ClothingBackpackSatchelAdjutant
+
+- type: entity
+  id: LockerAdjutantFilled
+  suffix: Filled
+  parent: LockerAdjutant
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillAdjutant

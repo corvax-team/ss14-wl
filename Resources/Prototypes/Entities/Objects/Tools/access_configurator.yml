@@ -19,6 +19,7 @@
         - Belt
     - type: AccessOverrider
       accessLevels:
+      - Adjutant #WL-Changes: Adjutant
       - Armory
       - Atmospherics
       - Bar
@@ -131,6 +132,7 @@
     - Xenoborg
     - GenpopEnter
     - GenpopLeave
+    - Adjutant #WL-Changes: Adjutant
     privilegedIdSlot:
       name: id-card-console-privileged-id
       startingItem: UniversalIDCard

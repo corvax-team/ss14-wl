@@ -1,0 +1,13 @@
+<controls:LanguageItemControl
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:controls="clr-namespace:Content.Client._WL.UserInterface.Systems.Languages.LanguageUI"
+    Orientation="Horizontal">
+    <TextureRect Name="Icon" VerticalAlignment="Top" HorizontalAlignment="Left" Access="Public" Margin="0 8 0 0" SetSize="64 64" TextureScale="2 2"/>
+    <Control MinSize="10 0"/>
+    <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" HorizontalExpand="True" Margin="0 0 0 20" MaxWidth="325">
+        <RichTextLabel Name="Title" Access="Public" HorizontalAlignment="Center"/>
+        <RichTextLabel Name="Description" Access="Public" HorizontalAlignment="Left"/>
+    </BoxContainer>
+    <Button Name="ChooseButton" Text="{Loc 'ui-languages-choose-button'}" Access="Public" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+</controls:LanguageItemControl>

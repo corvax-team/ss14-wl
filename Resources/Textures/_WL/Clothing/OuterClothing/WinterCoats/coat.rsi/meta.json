@@ -22,7 +22,7 @@
       "name": "HOP-inhand-right",
       "directions": 4
     },
-        {
+    {
       "name": "CARGO-icon"
     },
     {
@@ -35,6 +35,21 @@
     },
     {
       "name": "CARGO-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "AIDEC-icon"
+    },
+    {
+      "name": "AIDEC-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "AIDEC-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "AIDEC-inhand-right",
       "directions": 4
     }
   ]

@@ -1,0 +1,22 @@
+- type: entity
+  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  id: ClothingOuterWinterAdjutant
+  name: adjutant's winter coat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi
+    layers:
+    - state: AIDEC-icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: AIDEC-inhand-left
+      right:
+      - state: AIDEC-inhand-right
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi
+    clothingVisuals:
+      outerClothing:
+      - state: AIDEC-equipped-OUTERCLOTHING
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodWinterAdjutant

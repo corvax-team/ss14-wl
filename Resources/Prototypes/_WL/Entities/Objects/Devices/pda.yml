@@ -1,0 +1,23 @@
+- type: entity
+  parent: BasePDA
+  id: AdjutantPDA
+  name: adjutant PDA
+  description: Surprisingly no different from your PDA.
+  components:
+  - type: Pda
+    id: AdjutantIDCard
+    penSlot:
+      startingItem: LuxuryPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-aidec
+  - type: PdaBorderColor
+    borderColor: "#7C5D00"
+  - type: Icon
+    state: pda-aidec

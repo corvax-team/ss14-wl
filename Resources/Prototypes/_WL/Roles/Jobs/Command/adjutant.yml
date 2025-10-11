@@ -1,0 +1,50 @@
+- type: job
+  id: Adjutant
+  name: job-name-adjutant
+  description: job-description-adjutant
+  playTimeTracker: JobAdjutant
+  requirements:
+    - !type:AgeRequirement
+      minAge: 22
+    - !type:TraitsRequirement
+      inverted: true
+      traits:
+        - Muted
+  icon: "JobIconAdjutant"
+  weight: -1000
+  startingGear: AdjutantGear
+  supervisors: job-supervisors-hop
+  access:
+  - Adjutant
+  - Command
+  - Maintenance
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
+
+- type: startingGear
+  id: AdjutantGear
+  equipment:
+    eyes: ClothingEyesHudCommand
+    shoes: ClothingShoesBootsLaceup
+    id: AdjutantPDA
+    ears: ClothingHeadsetAltCommand
+  storage:
+    back:
+    - Flash
+    - RubberStampAdjutant
+
+- type: chameleonOutfit
+  id: AdjutantChameleonOutfit
+  job: Adjutant
+  equipment:
+    eyes: ClothingEyesHudCommand
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterColorLightBrown
+    neck: ClothingNeckScarfStripedBrown
+    belt: ClothingBeltStorageWaistbag
+    gloves: ClothingHandsGlovesColorBlack
+    back: ClothingBackpackAdjutant

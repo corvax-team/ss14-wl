@@ -1,7 +1,10 @@
+//WL-Changes: Languages start
+using Content.Server._WL.Languages;
+using Content.Shared._WL.Languages;
+//WL-Changes: Languages end
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
-using Content.Server.Radio.Components;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Radio;
@@ -28,6 +31,8 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+
+    [Dependency] private readonly LanguagesSystem _languages = default!; //WL-Changes: Languages
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -84,7 +89,7 @@ public sealed class RadioSystem : EntitySystem
         name = FormattedMessage.EscapeText(name);
 
         SpeechVerbPrototype speech;
-        if (evt.SpeechVerb != null && _prototype.TryIndex(evt.SpeechVerb, out var evntProto))
+        if (evt.SpeechVerb != null && _prototype.Resolve(evt.SpeechVerb, out var evntProto))
             speech = evntProto;
         else
             speech = _chat.GetSpeechVerb(messageSource, message);
@@ -93,14 +98,9 @@ public sealed class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
-        var wrappedMessage = Loc.GetString(speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
-            ("color", channel.Color),
-            ("fontType", speech.FontId),
-            ("fontSize", speech.FontSize),
-            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
-            ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", name),
-            ("message", content));
+        //WL-Changes: Languages start
+        var wrappedMessage = _languages.GetRadioWrappedMessage(content, messageSource, name, speech, channel, true);
+        //WL-Changes: Languages end
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
         var chat = new ChatMessage(
@@ -111,6 +111,25 @@ public sealed class RadioSystem : EntitySystem
             null);
         var chatMsg = new MsgChatMessage { Message = chat };
         var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg);
+
+        //WL-Changes: Languages start
+        var obfusWrappedMessage = _languages.GetRadioObfusWrappedMessage(content, messageSource, name, speech, channel);
+        var obfusChat = new ChatMessage(
+            ChatChannel.Radio,
+            message,
+            obfusWrappedMessage,
+            NetEntity.Invalid,
+            null
+        );
+        var obfusChatMsg = new MsgChatMessage { Message = obfusChat };
+        var obfusEv = new RadioReceiveEvent(
+            message,
+            messageSource,
+            channel,
+            radioSource,
+            obfusChatMsg
+        );
+        //WL-Changes: Languages end
 
         var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
         RaiseLocalEvent(ref sendAttemptEv);
@@ -124,6 +143,15 @@ public sealed class RadioSystem : EntitySystem
         var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
         while (canSend && radioQuery.MoveNext(out var receiver, out var radio, out var transform))
         {
+            //WL-Changes: Languages start
+            var now_ev = ev;
+            if (transform.ParentUid != null)
+            {
+                if (!_languages.CanUnderstand(messageSource, transform.ParentUid))
+                    now_ev = obfusEv;
+            }
+            //WL-Changes: Languages end
+
             if (!radio.ReceiveAllChannels)
             {
                 if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
@@ -147,7 +175,7 @@ public sealed class RadioSystem : EntitySystem
                 continue;
 
             // send the message
-            RaiseLocalEvent(receiver, ref ev);
+            RaiseLocalEvent(receiver, ref now_ev); //WL-Changes: ev -> now_ev
         }
 
         if (name != Name(messageSource))
