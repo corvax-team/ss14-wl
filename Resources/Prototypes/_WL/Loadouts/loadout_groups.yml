@@ -58,6 +58,7 @@
   id: WLNeck
   name: loadout-group-neck-wl
   maxLimit: 1
+  minLimit: 0
   loadouts:
   - ScarfStripedRed
   - ScarfStripedBlue
