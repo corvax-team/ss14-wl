@@ -143,7 +143,7 @@ namespace Content.Server._WL.Android
                 _audio.PlayPvs(component.ToggleLightSound, uid);
             }
 
-            _pointLight.SetEnergy(uid, _toggle.IsActivated(uid) ? component.LightBaseRadius : component.LightBaseRadius / 3f);
+            _pointLight.SetEnergy(lightEntity, _toggle.IsActivated(uid) ? component.LightBaseRadius : component.LightBaseRadius / 3f);
 
             if (!TryComp<HumanoidAppearanceComponent>(uid, out var appearance))
                 return;
