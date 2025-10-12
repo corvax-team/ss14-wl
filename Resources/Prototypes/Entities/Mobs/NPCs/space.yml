@@ -247,8 +247,15 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 4
-  - type: ReplacementAccent
-    accent: xeno
+  # WL-Changes: Languages start
+  - type: Languages
+    speaking:
+      - XenoLang
+    understood:
+      - XenoLang
+  # - type: ReplacementAccent
+  #   accent: xeno
+  # WL-Changes: Languages end
   - type: InteractionPopup
     successChance: 0.20
     interactSuccessString: petting-success-tarantula
@@ -351,8 +358,15 @@
     - type: MeleeChemicalInjector
       solution: melee
       transferAmount: 6
-    - type: ReplacementAccent
-      accent: xeno
+    # WL-Changes: Languages start
+    - type: Languages
+      speaking:
+        - XenoLang
+      understood:
+        - XenoLang
+    # - type: ReplacementAccent
+    #   accent: xeno
+    # WL-Changes: Languages end
     - type: InteractionPopup
       successChance: 0.2
       interactSuccessString: petting-success-snake
