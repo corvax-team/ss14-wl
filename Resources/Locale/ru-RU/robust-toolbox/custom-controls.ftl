@@ -10,3 +10,7 @@ entity-spawn-window-override-menu-tooltip = Перезапись размеще�
 ## Console
 
 console-line-edit-placeholder = Введите сюда команду
+
+## OutputPanel
+
+output-panel-scroll-down-button-text = Пролистнуть вниз
