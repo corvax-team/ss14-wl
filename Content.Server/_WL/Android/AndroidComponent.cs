@@ -43,7 +43,7 @@ namespace Content.Server._WL.Android
         [DataField("lightPrototype")]
         public String LightEntityPrototype = "AndroidLightMarker";
         [DataField]
-        public string TogglelLightAction = "ActionToggleAndroidLeds";
+        public string TogglelLightAction = "ActionToggleAndroidLight";
         [DataField]
         public float LightBaseRadius = 3.5f;
 

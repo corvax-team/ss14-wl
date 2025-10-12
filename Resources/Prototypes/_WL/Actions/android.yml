@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseToggleAction
-  id: ActionToggleAndroidLeds
+  id: ActionToggleAndroidLight
   name: Toggle Light
   description: Turn the light on and off.
   components:
