@@ -34,7 +34,7 @@ public sealed partial class CCVars
         CVarDef.Create("chat.max_message_length", 1000, CVar.SERVER | CVar.REPLICATED);
 
     public static readonly CVarDef<int> ChatMaxAnnouncementLength =
-        CVarDef.Create("chat.max_announcement_length", 1024, CVar.SERVER | CVar.REPLICATED);
+        CVarDef.Create("chat.max_announcement_length", 1024, CVar.SERVER | CVar.REPLICATED); //WL-Changes: 256 -> 1024
 
     public static readonly CVarDef<bool> ChatSanitizerEnabled =
         CVarDef.Create("chat.chat_sanitizer_enabled", true, CVar.SERVERONLY);
