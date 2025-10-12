@@ -1,43 +1,251 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from races WL prototype",
+    "copyright": "Taken from races WL prototype, edited by ReArtInt",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "ears",
+            "name": "full",
             "directions": 4
         },
-        {
-            "name": "tail",
-            "directions": 4
-        },
-        {
-            "name": "hand_left",
-            "directions": 4
-        },
-        {
-            "name": "hand_right",
-            "directions": 4
-        },
-        {
-            "name": "arm_right",
+		{
+            "name": "arm_right_1",
             "directions": 4
         },
         {
             "name": "arm_left",
             "directions": 4
         },
+         {
+            "name": "arm_right",
+            "directions": 4
+        },
+		{
+            "name": "arm_left_1",
+            "directions": 4
+        },
+		{
+            "name": "arm_right_2",
+            "directions": 4
+        },
+		{
+            "name": "arm_left_2",
+            "directions": 4
+        },
+		{
+            "name": "foot_right",
+            "directions": 4
+        },
+		{
+            "name": "foot_left",
+            "directions": 4
+        },
+		{
+            "name": "hand_right",
+            "directions": 4
+        },
+		{
+            "name": "hand_left",
+            "directions": 4
+        },
+		{
+            "name": "head_right",
+            "directions": 4
+        },
+		{
+            "name": "head_left",
+            "directions": 4
+        },
+		{
+            "name": "leg_right_1",
+            "directions": 4
+        },
         {
             "name": "leg_left",
+            "directions": 4
+        },
+		{
+            "name": "leg_left_1",
             "directions": 4
         },
         {
             "name": "leg_right",
             "directions": 4
+        },
+		{
+            "name": "leg_right_2",
+            "directions": 4
+        },
+		{
+            "name": "leg_left_2",
+            "directions": 4
+        },
+		{
+            "name": "torso_right",
+            "directions": 4
+        },
+		{
+            "name": "torso_left",
+            "directions": 4
+        },
+		{
+            "name": "torso_mid",
+            "directions": 4
+        },
+        {
+            "name": "tail",
+            "directions": 4
+        },
+		{
+            "name": "tail_high",
+            "directions": 4
+        },
+		{
+            "name": "tail_low",
+            "directions": 4
+        },
+		{
+            "name": "tail_high_wagging",
+            "directions": 4,
+			"delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+        },
+		{
+            "name": "tail_low_wagging",
+            "directions": 4,
+			"delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
         }
     ]
 }

@@ -882,10 +882,10 @@ namespace Content.Client.Lobby.UI
                 _ttsTab.SetSelectedVoice(voiceId);
             };
 
-            /*_ttsTab.OnPreviewRequested += voiceId =>
+            _ttsTab.OnPreviewRequested += voiceId =>
             {
-                _entManager.System<TTSSystem>().RequestPreviewTTS(voiceId);
-            };*/
+                _entManager.System<TTSSystem>().RequestPreviewTTS(voiceId, _ttsTab.PreviewTextEdit.Text);
+            };
         }
 
         private void UpdateTTSVoicesControls()

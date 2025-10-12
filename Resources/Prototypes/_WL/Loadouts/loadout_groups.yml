@@ -57,6 +57,7 @@
 - type: loadoutGroup
   id: WLNeck
   name: loadout-group-neck-wl
+  minLimit: 0
   maxLimit: 1
   minLimit: 0
   loadouts:

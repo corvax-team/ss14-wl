@@ -10,6 +10,7 @@
     hideLayersOnEquip:
     - HeadTop
   - type: Hunger
+    baseDecayRate: 0.024 # WL-Changes: hunger cpeed moth
   - type: Thirst
   - type: Icon
     sprite: Mobs/Species/Moth/parts.rsi
