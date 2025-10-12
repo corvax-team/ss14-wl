@@ -16,7 +16,7 @@ ent-RitiumPack1 = { ent-RitiumPack }
 
 ent-MineralOintment = минеральная мазь
     .suffix = Полный
-    .desc = Используется для лечения физичесих повреждений.
+    .desc = Используется для лечения физических повреждений.
 
 ent-MineralOintment1 = { ent-MineralOintment }
     .suffix = Один
