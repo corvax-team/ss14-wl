@@ -78,9 +78,11 @@ ent-DefaultStationBeaconMorgue = { ent-DefaultStationBeaconMedical }
 ent-DefaultStationBeaconSurgery = { ent-DefaultStationBeaconMedical }
     .suffix = Операционная
     .desc = { ent-DefaultStationBeaconMedical.desc }
+# WL-change-psych-start
 ent-DefaultStationBeaconPsychology = { ent-DefaultStationBeaconMedical }
-    .suffix = Психолог
+    .suffix = Психотерапевт
     .desc = { ent-DefaultStationBeaconMedical.desc }
+# WL-change-psych-end
 ent-DefaultStationBeaconClinic = { ent-DefaultStationBeaconMedical }
     .suffix = Клиника
     .desc = { ent-DefaultStationBeaconMedical.desc }

@@ -1,9 +1,11 @@
 - type: marking
   id: CatEarsStubby
+  #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human]
-  sponsorOnly: true # Corvax-Sponsors
+  speciesRestriction: [Felinid]
+  sponsorOnly: false
+  #WL-Changes: Felinid revolution end
   coloring:
     default:
       type:
@@ -24,10 +26,12 @@
 
 - type: marking
   id: CatEarsCurled
+  #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human]
-  sponsorOnly: true # Corvax-Sponsors
+  speciesRestriction: [Felinid]
+  sponsorOnly: false
+  #WL-Changes: Felinid revolution end
   coloring:
     default:
       type:
@@ -48,10 +52,12 @@
 
 - type: marking
   id: CatEarsTorn
+  #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human]
-  sponsorOnly: true # Corvax-Sponsors
+  speciesRestriction: [Felinid]
+  sponsorOnly: false
+  #WL-Changes: Felinid revolution end
   coloring:
     default:
       type:
@@ -72,10 +78,12 @@
 
 - type: marking
   id: CatTailStripes
+  #WL-Changes: Felinid revolution start
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human]
-  sponsorOnly: true # Corvax-Sponsors
+  speciesRestriction: [Felinid]
+  sponsorOnly: false
+  #WL-Changes: Felinid revolution end
   coloring:
     default:
       type:

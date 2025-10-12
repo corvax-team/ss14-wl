@@ -141,6 +141,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - FacialHair
   - type: ExtraBlockingInventorySlots # WL-Changes
     slots:
     - EYES
@@ -195,6 +196,7 @@
     - Snout
     - HeadTop
     - HeadSide
+    - FacialHair
   - type: ExtraBlockingInventorySlots # WL-Changes
     slots:
     - EYES

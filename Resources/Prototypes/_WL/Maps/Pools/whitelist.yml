@@ -1,19 +1,17 @@
 - type: gameMapPool
   id: WhitelistMapPool
   maps:
-  # Highpop (25+  players)
+#   Highpop (25+  players)
   - CorvaxWLRenga
-  # - CorvaxWLAlpha # 🔨
-  - CorvaxPilgrim # ✕
+  - CorvaxWLRest
+# - CorvaxWLAlpha # 🔨
   - Bagel
-  # BasePop (0-25 players)
+#   BasePop (0-25 players)
   - CorvaxWLPaper
-  - CorvaxOutpost
   - CorvaxWLKolter
-  - CorvaxPearl # ✕
-  - Amber # ✕
+  - CorvaxPearl # При условии, что Пёрл — обновляемая карта основы.
+  - Amber # ?
   - Marathon
-  - CorvaxTushkan # ?
-  - Packed
+  - CorvaxTushkan # При условии, что Тушкан — обновляемая карта основы.
   - CorvaxWLNanoStation
   - CorvaxWLPrairie

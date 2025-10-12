@@ -10,7 +10,9 @@ job-name-scientist = учёный
 job-name-research-assistant = студент-учёный
 # WL-Changes-end
 job-name-rd = научный руководитель
-job-name-psychologist = психолог
+# WL-change-psych-start
+job-name-psychologist = психотерапевт
+# WL-change-psych-end
 job-name-intern = интерн
 job-name-doctor = врач
 job-name-paramedic = парамедик
@@ -101,7 +103,9 @@ JobMime = мим
 JobMusician = музыкант
 JobParamedic = парамедик
 JobPassenger = пассажир
-JobPsychologist = психолог
+# WL-change-psych
+JobPsychologist = психотерапевт
+# WL-change-psych
 JobQuartermaster = квартирмейстер
 JobReporter = репортёр
 JobResearchAssistant = научный ассистент

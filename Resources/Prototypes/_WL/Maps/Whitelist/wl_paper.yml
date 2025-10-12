@@ -1,11 +1,11 @@
 # Special Map for Corvax - Whitelist
 - type: gameMap
   id: CorvaxWLPaper
-  mapName: 'Пейпер'
+  mapName: 'Папер'
   mapPath: /Maps/_WL/wl_paper.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 15
+  minPlayers: 0
   stations:
     CorvaxPaper:
       stationProto: StandardNanotrasenStation
@@ -14,7 +14,7 @@
           mapNameTemplate: '{0} Пейпер {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'MFK'
+            prefixCreator: 'MFO'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlpaper.yml
         - type: StationJobs

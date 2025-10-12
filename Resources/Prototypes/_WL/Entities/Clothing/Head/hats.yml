@@ -129,3 +129,25 @@
     sprite: _WL/Clothing/Head/Hats/beret_researcher.rsi
   - type: Clothing
     sprite: _WL/Clothing/Head/Hats/beret_researcher.rsi
+
+- type: entity
+  id: ClothingHeadHatBeretAdjutant
+  parent: ClothingHeadBase
+  name: adjutant's beret
+  description: A beret for real adjutant
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_aidedecamp.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_aidedecamp.rsi
+
+- type: entity
+  id: ClothingHeadHatAdjutantCap
+  parent: ClothingHeadBase
+  name: adjutant's cap
+  description: A cap for real adjutant
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/aidedecamp_cap.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/aidedecamp_cap.rsi

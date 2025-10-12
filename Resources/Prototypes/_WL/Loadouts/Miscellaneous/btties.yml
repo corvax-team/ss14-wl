@@ -1,0 +1,50 @@
+# BtTies
+- type: loadout
+  id: BtTieRed
+  equipment:
+    neck: ClothingNeckBtTieRed
+
+- type: loadout
+  id: BtTieBlue
+  equipment:
+    neck: ClothingNeckBtTieBlue
+
+- type: loadout
+  id: BtTieGreen
+  equipment:
+    neck: ClothingNeckBtTieGreen
+
+- type: loadout
+  id: BtTieGray
+  equipment:
+    neck: ClothingNeckBtTieGray
+
+- type: loadout
+  id: BtTieYellow
+  equipment:
+    neck: ClothingNeckBtTieYellow
+
+- type: loadout
+  id: BtTieLightBlue
+  equipment:
+    neck: ClothingNeckBtTieLightBlue
+
+- type: loadout
+  id: BtTieOrange
+  equipment:
+    neck: ClothingNeckBtTieOrange
+
+- type: loadout
+  id: BtTiePurple
+  equipment:
+    neck: ClothingNeckBtTiePurple
+
+- type: loadout
+  id: BtTiePink
+  equipment:
+    neck: ClothingNeckBtTiePink
+
+- type: loadout
+  id: BtTieFriendship
+  equipment:
+    neck: ClothingNeckBtTieFriendship

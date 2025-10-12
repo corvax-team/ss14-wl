@@ -165,6 +165,8 @@ loadout-group-paramedic-shoes = Парамедик, обувь
 loadout-group-medical-glasses = Медицинский отдел, очки
 # Wildcards
 loadout-group-reporter-jumpsuit = Репортёр, комбинезон
-loadout-group-psychologist-jumpsuit = Психолог, комбинезон
+# WL-change-psych
+loadout-group-psychologist-jumpsuit = Психотерапевт, комбинезон
+# WL-change-psych
 loadout-group-boxer-jumpsuit = Боксёр, комбинезон
 loadout-group-boxer-gloves = Боксёр, перчатки

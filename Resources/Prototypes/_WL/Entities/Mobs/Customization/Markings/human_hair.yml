@@ -101,3 +101,115 @@
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: short_cute2
+
+- type: marking
+  id: HumanHairArmetaj
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: armetaj
+
+- type: marking
+  id: HumanHairDenki
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: denki
+
+- type: marking
+  id: HumanHairHank
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: hank
+
+- type: marking
+  id: HumanHairJimmy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: jimmy
+
+- type: marking
+  id: HumanHairKioku
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: kioku
+
+- type: marking
+  id: HumanHairLonglowstraightponytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: longlowstraightponytail
+
+- type: marking
+  id: HumanHairLongstraight
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: longstraight
+
+- type: marking
+  id: HumanHairMaletowa
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: maletowa
+
+- type: marking
+  id: HumanHairMessyart
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: messyart
+
+- type: marking
+  id: HumanHairMoonprince
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: moonprince
+
+- type: marking
+  id: HumanHairShortstraight
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: shortstraight
+
+- type: marking
+  id: HumanHairShortstraightparted
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: shortstraightparted
+
+- type: marking
+  id: HumanHairTwilight
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twilight
+
+- type: marking
+  id: HumanHairFluffycurls
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: fluffycurls

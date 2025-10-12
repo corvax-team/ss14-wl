@@ -37,6 +37,15 @@
     HeadSide:
       points: 0
       required: false
+    Chest:
+      points: 2
+      required: false
+    Legs:
+      points: 4 # WL-Changes: More cyberlyds
+      required: false
+    Arms:
+      points: 4 # WL-Changes: More cyberlyds
+      required: false
     Socks: # WL-Underwear
       points: 1
       required: false

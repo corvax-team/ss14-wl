@@ -723,6 +723,13 @@
   - CargoWinterBoots
 
 - type: loadoutGroup
+  id: CargoTechnicianID
+  name: loadout-group-cargo-technician-id
+  loadouts:
+  - CargoTechnicianPDA
+  - SeniorCourierPDA
+
+- type: loadoutGroup
   id: SalvageSpecialistBackpack
   name: loadout-group-salvage-specialist-backpack
   loadouts:
@@ -804,10 +811,10 @@
   - StationEngineerHardhatYellow
   - StationEngineerHardhatOrange
   - StationEngineerHardhatRed
-  - SeniorEngineerBeret
-  - StationEngineerSeniorHardhat #WL Workers Lyvsi engi resprite
+  # - SeniorEngineerBeret # WL-Changes: Deseniorization
+  # - StationEngineerSeniorHardhat #WL Workers Lyvsi engi resprite # WL-Changes: Deseniorization
   - EngineeringBeret
-  - StationEngineerSeniorBeret #WL Workers Lyvsi engi resprite
+  # - StationEngineerSeniorBeret #WL Workers Lyvsi engi resprite # WL-Changes: Deseniorization
 
 - type: loadoutGroup
   id: StationEngineerJumpsuit
@@ -816,8 +823,8 @@
   - StationEngineerJumpsuit
   - StationEngineerJumpskirt
   - StationEngineerHazardsuit
-  - SeniorEngineerJumpsuit
-  - SeniorEngineerJumpskirt
+  # - SeniorEngineerJumpsuit # WL-Changes: Deseniorization
+  # - SeniorEngineerJumpskirt # WL-Changes: Deseniorization
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -847,7 +854,7 @@
   name: loadout-group-station-engineer-id
   loadouts:
   - StationEngineerPDA
-  - SeniorEngineerPDA
+  # - SeniorEngineerPDA # WL-Changes: Deseniorization
 
 - type: loadoutGroup
   id: AtmosphericTechnicianJumpsuit
@@ -957,8 +964,8 @@
   - ScientistJumpskirt
   - RoboticistJumpsuit
   - RoboticistJumpskirt
-  - SeniorResearcherJumpsuit
-  - SeniorResearcherJumpskirt
+  # - SeniorResearcherJumpsuit # WL-Changes: Deseniorization
+  # - SeniorResearcherJumpskirt # WL-Changes: Deseniorization
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -978,7 +985,7 @@
   - ScienceWintercoat
   - RoboticistLabCoat
   - RoboticistWintercoat
-  - SeniorResearcherLabCoat
+  # - SeniorResearcherLabCoat # WL-Changes: Deseniorization
 
 - type: loadoutGroup
   id: ScientistShoes
@@ -1002,7 +1009,7 @@
   name: loadout-group-scientist-id
   loadouts:
   - ScientistPDA
-  - SeniorResearcherPDA
+  # - SeniorResearcherPDA # WL-Changes: Deseniorization
 
 - type: loadoutGroup
   id: ResearchAssistantJumpsuit
@@ -1091,8 +1098,8 @@
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
   - SecurityJumpskirtGrey
-  - SeniorOfficerJumpsuit
-  - SeniorOfficerJumpskirt
+  # - SeniorOfficerJumpsuit # WL-Changes: Deseniorization
+  # - SeniorOfficerJumpskirt # WL-Changes: Deseniorization
   - TrooperUniform
 
 - type: loadoutGroup
@@ -1132,7 +1139,7 @@
   name: loadout-group-security-id
   loadouts:
   - SecurityPDA
-  - SeniorOfficerPDA
+  # - SeniorOfficerPDA # WL-Changes: Deseniorization
 
 - type: loadoutGroup
   id: DetectiveHead
@@ -1239,7 +1246,7 @@
   minLimit: 0
   loadouts:
   - MedicalBeret
-  - SeniorPhysicianBeret
+  # - SeniorPhysicianBeret # WL-Changes: Deseniorization
   - MedicalHeadMirror
   - BlueSurgeryCap
   - GreenSurgeryCap
@@ -1252,8 +1259,8 @@
   loadouts:
   - MedicalDoctorJumpsuit
   - MedicalDoctorJumpskirt
-  - SeniorPhysicianJumpsuit
-  - SeniorPhysicianJumpskirt
+  # - SeniorPhysicianJumpsuit # WL-Changes: Deseniorization
+  # - SeniorPhysicianJumpskirt # WL-Changes: Deseniorization
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
@@ -1265,7 +1272,7 @@
   loadouts:
   - RegularLabCoat
   - MedicalDoctorWintercoat
-  - SeniorPhysicianLabCoat
+  # - SeniorPhysicianLabCoat # WL-Changes: Deseniorization
 
 - type: loadoutGroup
   id: MedicalBackpack
@@ -1288,7 +1295,7 @@
   name: loadout-group-medical-doctor-id
   loadouts:
   - MedicalDoctorPDA
-  - SeniorPhysicianPDA
+  # - SeniorPhysicianPDA # WL-Changes: Deseniorization
 
 - type: loadoutGroup
   id: MedicalGloves

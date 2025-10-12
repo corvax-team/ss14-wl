@@ -17,6 +17,7 @@ namespace Content.Shared.Humanoid
         Breast, // WL-Underwear
         Head,
         Snout,
+        SnoutCover, // things layered over snouts (i.e. noses)
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
         Eyes,

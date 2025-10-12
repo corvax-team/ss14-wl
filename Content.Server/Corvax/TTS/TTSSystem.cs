@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using Content.Server._WL.Languages; //WL-Changes: Languages
+using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.TTS;
@@ -19,6 +20,8 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly TTSManager _ttsManager = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
+
+    [Dependency] private readonly LanguagesSystem _languages = default!; //WL-Changes: Languages
 
     private readonly List<string> _sampleText =
         new()
@@ -67,7 +70,13 @@ public sealed partial class TTSSystem : EntitySystem
         if (HandleRateLimit(args.SenderSession) != RateLimitStatus.Allowed)
             return;
 
-        var previewText = _rng.Pick(_sampleText);
+        //WL-PreviewTTSEdit-Start
+        var previewText = !string.IsNullOrEmpty(ev.PreviewText)
+            ? ev.PreviewText
+            : _rng.Pick(_sampleText);
+        //WL-PreviewTTSEdit-End
+
+        // var previewText = _rng.Pick(_sampleText); //WL-PreviewTTSEdit
         var soundData = await GenerateTTS(previewText, protoVoice.Speaker);
         if (soundData is null)
             return;
@@ -89,6 +98,17 @@ public sealed partial class TTSSystem : EntitySystem
 
         if (!_prototypeManager.TryIndex<TTSVoicePrototype>(voiceId, out var protoVoice))
             return;
+
+        //WL-Changes: Languages start
+        if (args.LangMessage != null)
+        {
+            if (args.LangObfusMessage != null && args.ObfuscatedMessage != null)
+                HandleLangWhisper(uid, args.Message, args.ObfuscatedMessage, args.LangMessage, args.LangObfusMessage, protoVoice.Speaker);
+            else
+                HandleLangSay(uid, args.Message, args.LangMessage, protoVoice.Speaker);
+            return;
+        }
+        //WL-Changes: Languages End
 
         if (args.ObfuscatedMessage != null)
         {
@@ -132,6 +152,81 @@ public sealed partial class TTSSystem : EntitySystem
             RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? obfTtsEvent : fullTtsEvent, session);
         }
     }
+
+    //WL-Changes: Languages start
+    private async void HandleLangSay(EntityUid uid, string message, string langMessage, string speaker)
+    {
+        var fullSoundData = await GenerateTTS(message, speaker);
+        if (fullSoundData is null) return;
+
+        var langSoundData = await GenerateTTS(langMessage, speaker);
+        if (langSoundData is null) return;
+
+        var fullTtsEvent = new PlayTTSEvent(fullSoundData, GetNetEntity(uid));
+        var langTtsEvent = new PlayTTSEvent(langSoundData, GetNetEntity(uid));
+
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        var sourcePos = _xforms.GetWorldPosition(xformQuery.GetComponent(uid), xformQuery);
+        var receptions = Filter.Pvs(uid).Recipients;
+        foreach (var session in receptions)
+        {
+            if (!session.AttachedEntity.HasValue) continue;
+            var listener = session.AttachedEntity.Value;
+            var xform = xformQuery.GetComponent(listener);
+            var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
+            if (distance > ChatSystem.VoiceRange)
+                continue;
+
+            var check = _languages.CanUnderstand(uid, listener);
+
+            if (!check && _languages.IsObfusEmoting(uid)) continue;
+            RaiseNetworkEvent(!check ? langTtsEvent : fullTtsEvent, session);
+        }
+    }
+
+    private async void HandleLangWhisper(EntityUid uid, string message, string obfMessage, string langMessage, string langObfusMessage, string speaker)
+    {
+        var fullSoundData = await GenerateTTS(message, speaker, true);
+        if (fullSoundData is null) return;
+
+        var obfSoundData = await GenerateTTS(obfMessage, speaker, true);
+        if (obfSoundData is null) return;
+
+        var langFullSoundData = await GenerateTTS(langMessage, speaker, true);
+        if (langFullSoundData is null) return;
+
+        var langObfusSoundData = await GenerateTTS(langObfusMessage, speaker, true);
+        if (langObfusSoundData is null) return;
+
+        var fullTtsEvent = new PlayTTSEvent(fullSoundData, GetNetEntity(uid), true);
+        var obfTtsEvent = new PlayTTSEvent(obfSoundData, GetNetEntity(uid), true);
+
+        var langFullTtsEvent = new PlayTTSEvent(langFullSoundData, GetNetEntity(uid), true);
+        var langObfusTtsEvent = new PlayTTSEvent(langObfusSoundData, GetNetEntity(uid), true);
+
+        // TODO: Check obstacles
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        var sourcePos = _xforms.GetWorldPosition(xformQuery.GetComponent(uid), xformQuery);
+        var receptions = Filter.Pvs(uid).Recipients;
+        foreach (var session in receptions)
+        {
+            if (!session.AttachedEntity.HasValue) continue;
+            var listener = session.AttachedEntity.Value;
+            var xform = xformQuery.GetComponent(listener);
+            var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
+            if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange)
+                continue;
+
+            var check = _languages.CanUnderstand(uid, listener);
+
+            if (!check && _languages.IsObfusEmoting(uid)) continue;
+            if (check)
+                RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? obfTtsEvent : fullTtsEvent, session);
+            else
+                RaiseNetworkEvent(distance > ChatSystem.WhisperClearRange ? langObfusTtsEvent : langFullTtsEvent, session);
+        }
+    }
+    //WL-Changes: Languages end
 
     // ReSharper disable once InconsistentNaming
     private async Task<byte[]?> GenerateTTS(string text, string speaker, bool isWhisper = false)

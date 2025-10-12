@@ -102,6 +102,7 @@
                                 <BoxContainer HorizontalExpand="True" Visible="False" Name="TTSContainer">
                                     <Label Text="{Loc 'humanoid-profile-editor-voice-label'}" />
                                     <Control HorizontalExpand="True"/>
+                                    <LineEdit Name="CTTSPreview" MinSize="400 0" HorizontalAlignment="Right" /> <!-- WL-PreviewTTSEdit -->
                                     <OptionButton Name="VoiceButton" HorizontalAlignment="Right" />
 									<Button Name="VoicePlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
                                 </BoxContainer>

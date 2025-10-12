@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterAdjutant
+  categories: [ HideSpawnMenu ]
+  name: adjutant's winter coat hood
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hoods/Coat/hoodaidedecamp.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hoods/Coat/hoodaidedecamp.rsi

@@ -54,6 +54,13 @@
   - type: Icon
     sprite: Mobs/Species/Human/parts.rsi
     state: full
+  - type: Languages
+    speaking:
+      - Translate
+      - OldEarth
+    understood:
+      - Translate
+      - OldEarth
 
 - type: entity
   save: false

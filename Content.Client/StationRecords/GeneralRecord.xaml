@@ -7,7 +7,14 @@
         <Label Name="Job"/>
         <Label Name="Species"/>
         <Label Name="Gender"/> -->
-        <Label Name="Record"/>
+        <Label Text="{Loc 'general-station-record-employment-record'}"/>
+        <ScrollContainer VerticalExpand="True" MinHeight="300">
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+                <RichTextLabel Name="Record"
+                               Margin="5"
+                               HorizontalExpand="True"/>
+            </BoxContainer>
+        </ScrollContainer>
         <!-- WL-Records-Edit-End -->
         <Label Name="Fingerprint"/>
         <Label Name="Dna"/>

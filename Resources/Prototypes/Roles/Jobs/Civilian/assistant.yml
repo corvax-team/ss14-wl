@@ -11,6 +11,7 @@
   - Male: фрилансер
   - Male: экипаж вне службы
   - Male: турист
+  - Male: психолог
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"

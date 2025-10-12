@@ -61,6 +61,10 @@
     enabled: true
     radius: 10
   - type: Appearance
+  # WL-Changes-start : Radar Markers
+  - type: RadarMarker
+    size: 7
+  # WL-Changes-end : Radar Markers
   - type: GuideHelp # Always strive to be helpful in trying times.
     guides:
     - SingularityEngine

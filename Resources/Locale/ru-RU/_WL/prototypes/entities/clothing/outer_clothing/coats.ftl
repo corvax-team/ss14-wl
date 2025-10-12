@@ -3,3 +3,6 @@ ent-ClothingOuterCoatCaptainTrench = тренч капитана
 
 ent-ClothingOuterCoatCaptainTrenchOpened = тренч капитана
     .desc = { ent-ClothingOuterCoatCaptainTrench.desc }
+
+ent-ClothingOuterCoatAdjutantCC = тренч адъютанта центкома
+    .desc = { ent-ClothingOuterCoatCaptainTrench.desc }

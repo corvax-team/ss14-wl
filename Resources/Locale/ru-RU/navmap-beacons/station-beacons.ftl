@@ -25,7 +25,9 @@ station-beacon-cryonics = Криокапсулы
 station-beacon-cmo = Кабинет главрача
 station-beacon-morgue = Морг
 station-beacon-surgery = Операционная
-station-beacon-psychology = Психолог
+# WL-change-psych-start
+station-beacon-psychology = Психотерапевт
+# WL-change-psych-end
 station-beacon-clinic = Клиника
 station-beacon-science = Научный отдел
 station-beacon-research-and-development = РНД

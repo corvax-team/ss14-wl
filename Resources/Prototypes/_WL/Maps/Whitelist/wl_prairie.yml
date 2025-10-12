@@ -6,6 +6,7 @@
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
+  maxPlayers: 15
   stations:
     CorvaxPrairie:
       stationProto: StandardNanotrasenStation
