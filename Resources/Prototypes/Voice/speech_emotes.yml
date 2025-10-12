@@ -683,7 +683,6 @@
     # WL-Changes-start
     - бип
     - издаёт бип
-    - пищит
     # WL-Changes-end
     # Corvax-Localization-End
 
@@ -710,7 +709,6 @@
     # Corvax-Localization-Start
     - дзынь
     - издаёт дзынь
-    - звенит
     # Corvax-Localization-End
 
 - type: emote
