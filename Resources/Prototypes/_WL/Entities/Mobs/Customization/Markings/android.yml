@@ -11,3 +11,31 @@
       type:
         !type:SimpleColoring
           color: "#159CFF"
+
+- type: marking
+  id: AndroidAntennaLeft
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Android]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#bf3f3f"
+  sprites:
+  - sprite: _WL/Mobs/Customization/android_parts.rsi
+    state: antenna_left
+
+- type: marking
+  id: AndroidAntennaRight
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Android]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#bf3f3f"
+  sprites:
+  - sprite: _WL/Mobs/Customization/android_parts.rsi
+    state: antenna_right
