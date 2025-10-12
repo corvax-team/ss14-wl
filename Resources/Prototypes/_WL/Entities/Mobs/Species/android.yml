@@ -232,6 +232,17 @@
       - Ternary
 
 - type: entity
+  save: false
+  name: Urist McAndroid
+  description: A dummy android meant to be used in character setup.
+  id: MobAndroidDummy
+  parent: BaseSpeciesDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Android
+
+- type: entity
   id: AndroidLightMarker
   parent: MarkerBase
   categories: [ HideSpawnMenu ]
