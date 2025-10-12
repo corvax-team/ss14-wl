@@ -1,2 +1,2 @@
-ent-ActionToggleAndroidLight = переключить подсветку
+ent-ActionToggleAndroidLight = Переключить подсветку
     .desc = Переключите свои встроенные светодиоды.
