@@ -117,9 +117,9 @@
     damageModifierSet: BioRobotic
   - type: Vocal
     sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: MaleHuman
+      Male: MaleAndroid
+      Female: FemaleAndroid
+      Unsexed: MaleAndroid
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
@@ -223,7 +223,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-    - SiliconEmotes
   - type: Languages
     speaking:
       - Translate
