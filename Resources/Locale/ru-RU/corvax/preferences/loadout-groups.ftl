@@ -7,12 +7,14 @@ loadout-group-senior-engineer-backpack = Ведущий инженер, рюкз
 loadout-group-senior-engineer-outerclothing = Ведущий инженер, верхняя одежда
 loadout-group-senior-engineer-shoes = Ведущий инженер, обувь
 # Science
-loadout-group-senior-researcher-head = Ведущий учёный, голова
-loadout-group-senior-researcher-jumpsuit = Ведущий учёный, комбинезон
-loadout-group-senior-researcher-outerclothing = Ведущий учёный, верхняя одежда
-loadout-group-senior-researcher-backpack = Ведущий учёный, рюкзак
-loadout-group-senior-researcher-shoes = Ведущий учёный, обувь
-loadout-group-senior-researcher-gloves = Ведущий учёный, перчатки
+# WL-Changes-start
+loadout-group-senior-researcher-head = Заведующий лабораторией, голова
+loadout-group-senior-researcher-jumpsuit = Заведующий лабораторией, комбинезон
+loadout-group-senior-researcher-outerclothing = Заведующий лабораторией, верхняя одежда
+loadout-group-senior-researcher-backpack = Заведующий лабораторией, рюкзак
+loadout-group-senior-researcher-shoes = Заведующий лабораторией, обувь
+loadout-group-senior-researcher-gloves = Заведующий лабораторией, перчатки
+# WL-Changes-end
 # Security
 loadout-group-brigmedic-head = Бригмедик, голова
 loadout-group-brigmedic-jumpsuit = Бригмедик, комбинезон
@@ -31,8 +33,10 @@ loadout-group-senior-officer-belt = Инструктор СБ, пояс
 loadout-group-senior-officer-outerclothing = Инструктор СБ, верхняя одежда
 loadout-group-senior-officer-shoes = Инструктор СБ, обувь
 # Medical
-loadout-group-senior-physician-head = Ведущий врач, голова
-loadout-group-senior-physician-jumpsuit = Ведущий врач, комбинезон
-loadout-group-senior-physician-outerclothing = Ведущий врач, верхняя одежда
-loadout-group-senior-physician-backpack = Ведущий врач, рюкзак
-loadout-group-senior-physician-shoes = Ведущий врач, обувь
+# WL-Changes-start
+loadout-group-senior-physician-head = Дежурный врач, голова
+loadout-group-senior-physician-jumpsuit = Дежурный врач, комбинезон
+loadout-group-senior-physician-outerclothing = Дежурный врач, верхняя одежда
+loadout-group-senior-physician-backpack = Дежурный врач, рюкзак
+loadout-group-senior-physician-shoes = Дежурный врач, обувь
+# WL-Changes-end

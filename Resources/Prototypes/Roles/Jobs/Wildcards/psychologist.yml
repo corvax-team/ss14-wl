@@ -8,8 +8,6 @@
       minAge: 22 # WL-Changes-AgeRequirement
   subnames:
   - Male: психиатр
-  - Male: психотерапевт
-  - Male: консультант
   startingGear: PsychologistGear
   icon: "JobIconPsychologist"
   supervisors: job-supervisors-cmo

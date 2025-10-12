@@ -20,3 +20,9 @@ ent-ClothingHeadHatSalvageCapFlipped = кепка утилизаторов
 
 ent-ClothingHeadHatBeretRD = берет научного руководителя
     .desc = Берет для настоящего Научного руководителя
+
+ent-ClothingHeadHatBeretAdjutant = берет адъютанта
+    .desc = Берет стажёра командования
+
+ent-ClothingHeadHatAdjutantCap = кепка адъютанта
+    .desc = Кепка стажёра командования

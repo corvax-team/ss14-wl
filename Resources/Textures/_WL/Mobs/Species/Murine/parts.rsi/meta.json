@@ -8,10 +8,6 @@
     },
     "states": [
         {
-            "name": "full",
-            "directions": 4
-        },
-        {
             "name": "head_m",
             "directions": 4
         },
@@ -57,6 +53,10 @@
         },
         {
             "name": "torso_m",
+            "directions": 4
+        },
+        {
+            "name": "ears",
             "directions": 4
         }
     ]

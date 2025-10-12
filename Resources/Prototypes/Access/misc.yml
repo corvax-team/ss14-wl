@@ -34,6 +34,7 @@
   - Atmospherics
   - GenpopEnter
   - GenpopLeave
+  - Adjutant #WL-Changes: Adjutant
 
 - type: accessGroup
   id: General

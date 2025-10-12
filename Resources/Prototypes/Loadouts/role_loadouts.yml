@@ -10,6 +10,7 @@
   - CaptainOuterClothing
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -25,6 +26,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Silicons
@@ -47,13 +49,14 @@
   - PassengerJumpsuit
   - CommonBackpack
   - PassengerNeck
-  - PassengerFace
-  - PassengerGloves
+  # - PassengerFace # WL-Changes: Antitide
+  # - PassengerGloves # WL-Changes: Antitide
   - PassengerOuterClothing
   - PassengerShoes
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -68,6 +71,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -80,6 +84,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -95,6 +100,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -107,6 +113,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -120,6 +127,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -137,6 +145,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -152,6 +161,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - JanitorPlunger
   - GroupSpeciesBreathTool
 
@@ -167,6 +177,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -183,6 +194,7 @@
   - Glasses
   - SurvivalClown
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
 
 - type: roleLoadout
   id: JobMime
@@ -199,6 +211,7 @@
   - Glasses
   - SurvivalMime
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
 
 - type: roleLoadout
   id: JobMusician
@@ -211,6 +224,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - Instruments
   - GroupSpeciesBreathTool
 
@@ -229,6 +243,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -241,9 +256,11 @@
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
   - CargoTechnicianShoes
+  - CargoTechnicianID
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -257,6 +274,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -273,6 +291,7 @@
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -284,6 +303,7 @@
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -299,6 +319,7 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -313,6 +334,7 @@
   - AtmosHead # WL-Changes
   - SurvivalExtended
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Science
@@ -331,6 +353,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -349,6 +372,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -361,6 +385,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Security
@@ -377,6 +402,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -392,6 +418,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -408,6 +435,7 @@
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -423,6 +451,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -434,6 +463,7 @@
   - SecurityBackpack
   - SurvivalSecurity
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathToolSecurity
 
 # Medical
@@ -453,6 +483,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - Inventory # Corvax-Loadouts
   - Utility # WL-Changes
   - GroupSpeciesBreathToolMedical
@@ -473,6 +504,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - MedicalDoctorNeck # WL-Changes
   - Utility # WL-Changes
   - GroupSpeciesBreathToolMedical
@@ -487,6 +519,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - Utility # WL-Changes
   - GroupSpeciesBreathToolMedical
 
@@ -503,6 +536,7 @@
   - MedicalShoes
   - SurvivalMedical
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -520,6 +554,7 @@
   - MedicalEyewear
   - SurvivalMedical
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathToolMedical
 
 # Wildcards
@@ -532,6 +567,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -544,6 +580,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -556,6 +593,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -569,6 +607,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

@@ -1,0 +1,36 @@
+- type: marking
+  id: MurineEarringLeft1
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Murine]
+  sprites:
+    - sprite: _WL/Mobs/Customization/murine_trinkets.rsi
+      state: earring_murine_left_1
+
+- type: marking
+  id: MurineEarringLeft2
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Murine]
+  sprites:
+    - sprite: _WL/Mobs/Customization/murine_trinkets.rsi
+      state: earring_murine_left_2
+
+- type: marking
+  id: MurineEarringRight1
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Murine]
+  sprites:
+    - sprite: _WL/Mobs/Customization/murine_trinkets.rsi
+      state: earring_murine_right_1
+
+- type: marking
+  id: MurineEarringRight2
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Murine]
+  sprites:
+    - sprite: _WL/Mobs/Customization/murine_trinkets.rsi
+      state: earring_murine_right_2
+

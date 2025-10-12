@@ -1,0 +1,50 @@
+# Ties
+- type: loadout
+  id: TieRed
+  equipment:
+    neck: ClothingNeckTieRed
+
+- type: loadout
+  id: TieBlue
+  equipment:
+    neck: ClothingNeckTieBlue
+
+- type: loadout
+  id: TieGreen
+  equipment:
+    neck: ClothingNeckTieGreen
+
+- type: loadout
+  id: TieGray
+  equipment:
+    neck: ClothingNeckTieGray
+
+- type: loadout
+  id: TieYellow
+  equipment:
+    neck: ClothingNeckTieYellow
+
+- type: loadout
+  id: TieLightBlue
+  equipment:
+    neck: ClothingNeckTieLightBlue
+
+- type: loadout
+  id: TieOrange
+  equipment:
+    neck: ClothingNeckTieOrange
+
+- type: loadout
+  id: TiePurple
+  equipment:
+    neck: ClothingNeckTiePurple
+
+- type: loadout
+  id: TiePink
+  equipment:
+    neck: ClothingNeckTiePink
+
+- type: loadout
+  id: TieRainbow
+  equipment:
+    neck: ClothingNeckTieRainbow

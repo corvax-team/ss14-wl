@@ -1,0 +1,11 @@
+- type: entity
+  parent: IDCardStandard
+  id: AdjutantIDCard
+  name: adjutant ID card
+  components:
+  - type: Sprite
+    layers:
+      - state: default
+      - state: idaidec
+  - type: PresetIdCard
+    job: Adjutant

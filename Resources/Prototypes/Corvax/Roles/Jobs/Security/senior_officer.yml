@@ -16,6 +16,10 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 216000 # 60 hrs
+      # WL-Changes-start
+    - !type:AgeRequirement
+      minAge: 24
+      # WL-Changes-end
   weight: 9
   startingGear: SeniorOfficerGear
   icon: "JobIconSeniorOfficer"

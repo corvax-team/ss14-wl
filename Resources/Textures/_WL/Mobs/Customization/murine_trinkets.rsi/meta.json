@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Drawn by Ubaser, scar_murine_eye by ReArtInt",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "earring_murine_left_1",
+      "directions": 4
+    },
+    {
+      "name": "earring_murine_left_2",
+      "directions": 4
+    },
+    {
+      "name": "earring_murine_right_1",
+      "directions": 4
+    },
+    {
+      "name": "earring_murine_right_2",
+      "directions": 4
+    }
+  ]
+}

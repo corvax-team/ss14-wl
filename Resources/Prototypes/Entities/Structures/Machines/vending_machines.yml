@@ -913,12 +913,12 @@
 
 - type: entity
   parent: VendingMachine
-  id: VendingMachineMedical
-  name: NanoMed Plus
+  id: VendingMachineMedicalBase
+  name: NanoMed Civilian
   description: It's a medical drug dispenser. Natural chemicals only!
   components:
   - type: VendingMachine
-    pack: NanoMedPlusInventory
+    pack: NanoMedCivilianInventory
     offState: off
     brokenState: broken
     normalState: normal-unshaded
@@ -930,7 +930,33 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: _WL/Structures/Machines/VendingMachines/medical.rsi # WL-resprites
+    sprite: _WL/Structures/Machines/VendingMachines/civil-medical.rsi # WL-resprites await
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#9dc5c9"
+  - type: GuideHelp
+    guides:
+    - MedicalDoctor
+
+- type: entity
+  parent: VendingMachineMedicalBase
+  id: VendingMachineMedical
+  name: NanoMed Plus
+  components:
+  - type: VendingMachine
+    pack: NanoMedPlusInventory
+    offState: off
+  - type: Sprite
+    sprite: _WL/Structures/Machines/VendingMachines/medical.rsi # WL-resprites await
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -941,13 +967,6 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Medical"]]
-  - type: PointLight
-    radius: 1.5
-    energy: 1.6
-    color: "#9dc5c9"
-  - type: GuideHelp
-    guides:
-    - MedicalDoctor
 
 - type: entity
   parent: VendingMachine
@@ -2245,22 +2264,22 @@
 # wallmount
 - type: entity
   parent: VendingMachineWallmount
-  id: VendingMachineWallMedical
-  name: NanoMed
-  description: "It's a wall-mounted medical equipment dispenser. Natural chemicals only!"
+  id: VendingMachineWallMedicalCivilian
+  name: NanoMed band-aid
+  description: It's a wall-mounted medical equipment dispenser. Natural chemicals only!
   components:
   - type: VendingMachine
-    pack: NanoMedInventory
-    offState: off
+    pack: NanoMedCivilianWallInventory
+    offState: off-civilian
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/wallmed.rsi
     layers:
-    - state: "off"
+    - state: "off-civilian"
       map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
+    - state: "off-civilian"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
     - texture: Structures/Machines/VendingMachines/maintenance_panel.png
@@ -2269,8 +2288,26 @@
     radius: 1.3
     energy: 1.6
     color: "#43ccb5"
-  - type: AccessReader
-    access: [["Medical"]]
   - type: GuideHelp
     guides:
     - Medical
+
+- type: entity
+  parent: VendingMachineWallMedicalCivilian
+  id: VendingMachineWallMedical
+  name: NanoMed
+  components:
+  - type: VendingMachine
+    pack: NanoMedInventory
+    offState: off
+  - type: Sprite
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - texture: Structures/Machines/VendingMachines/maintenance_panel.png
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Medical"]]

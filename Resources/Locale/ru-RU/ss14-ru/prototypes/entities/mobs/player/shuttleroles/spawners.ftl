@@ -52,8 +52,10 @@ ent-VisitorVirologistSpawner = посетитель вирусолог спав�
     .desc = { ent-MarkerBase.desc }
 ent-VisitorGeneticistSpawner = посетитель генетик спавнер
     .desc = { ent-MarkerBase.desc }
-ent-VisitorPsychologistSpawner = посетитель психолог спавнер
+# WL-change-psych-start
+ent-VisitorPsychologistSpawner = посетитель психотерапевт спавнер
     .desc = { ent-MarkerBase.desc }
+# WL-change-psych-end
 ent-VisitorDentistSpawner = посетитель стоматолог спавнер
     .desc = { ent-MarkerBase.desc }
 ent-VisitingScientistSpawner = посетитель научный спавнер

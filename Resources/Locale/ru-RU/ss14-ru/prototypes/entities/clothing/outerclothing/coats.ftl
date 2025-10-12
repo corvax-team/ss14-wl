@@ -68,14 +68,16 @@ ent-ClothingOuterCoatSyndieCapArmored = бронированный тренч С
     .desc = Бронированный плащ Синдиката, изготовлен из прочной ткани, украшен позолоченными узорами.
 ent-ClothingOuterCoatAMG = медицинский бронехалат
     .desc = Вариация медицинского халата с элементами бронежилета. Выглядит странно, но вашему сердечку ничего не угрожает.
-ent-ClothingOuterCoatLabSeniorResearcher = лабораторный халат ведущего учёного
+# WL-Changes: Roles rename start
+ent-ClothingOuterCoatLabSeniorResearcher = лабораторный халат заведующего лабораторией
     .desc = Халат, защищающий от небольших разливов химикатов. Имеет фиолетовый воротник и отделку на запястьях.
-ent-ClothingOuterCoatLabSeniorResearcherOpened = лабораторный халат ведущего учёного
+ent-ClothingOuterCoatLabSeniorResearcherOpened = лабораторный халат заведующего лабораторией
     .desc = { ent-ClothingOuterStorageFoldableBaseOpened.desc }
-ent-ClothingOuterCoatLabSeniorPhysician = лабораторный халат ведущего врача
+ent-ClothingOuterCoatLabSeniorPhysician = лабораторный халат дежурного врача
     .desc = Халат, защищающий от небольших разливов химикатов. Имеет светло-голубые рукава и оранжевую отделку на талии.
-ent-ClothingOuterCoatLabSeniorPhysicianOpened = лабораторный халат ведущего врача
+ent-ClothingOuterCoatLabSeniorPhysicianOpened = лабораторный халат дежурного врача
     .desc = { ent-ClothingOuterStorageFoldableBaseOpened.desc }
+# WL-Changes: Roles rename end
 ent-ClothingOuterCoatSpaceAsshole = куртка космического мудака
     .desc = And there he was...
 ent-ClothingOuterCoatExpensive = дорогая шуба
