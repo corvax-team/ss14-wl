@@ -23,6 +23,7 @@ jobs:
     - uses: actions/checkout@v4.2.2
       with:
         submodules: 'recursive'
+        ref: offmed
 
     # Corvax-Secrets-Start
     - name: Setup secrets
