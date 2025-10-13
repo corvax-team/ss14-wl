@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/13/2025 13:27:49
+  time: 10/13/2025 15:15:10
   entityCount: 14092
 maps:
 - 1
@@ -4442,7 +4442,8 @@ entities:
           9,9:
             0: 4084
           9,10:
-            0: 4095
+            1: 1
+            0: 4094
           9,11:
             0: 4095
           9,12:
@@ -41309,9 +41310,6 @@ entities:
           _rotation: South
         11131:
           position: 5,0
-          _rotation: South
-        invalid:
-          position: 6,0
           _rotation: South
         13605:
           position: 6,1
@@ -84450,6 +84448,14 @@ entities:
     - type: Transform
       pos: 36.5,40.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
 - proto: SuitStorageRD
   entities:
   - uid: 2719
@@ -87446,7 +87452,7 @@ entities:
   - uid: 13603
     components:
     - type: Transform
-      pos: 35.506046,42.87338
+      pos: 38.090656,42.489223
       parent: 2
 - proto: TowelColorBlue
   entities:

@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/13/2025 13:25:19
-  entityCount: 11396
+  time: 10/13/2025 15:14:09
+  entityCount: 11395
 maps:
 - 942
 grids:
@@ -10446,7 +10446,7 @@ entities:
       pos: 21.5,-15.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -322080.66
+      secondsUntilStateChange: -322102.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10682,7 +10682,7 @@ entities:
       pos: 0.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -61966.79
+      secondsUntilStateChange: -61988.83
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -27145,14 +27145,6 @@ entities:
     - type: Transform
       pos: 25.410574,-46.505463
       parent: 1
-- proto: ClothingHandsGlovesCombat
-  entities:
-  - uid: 997
-    components:
-    - type: Transform
-      parent: 406
-    - type: Physics
-      canCollide: False
 - proto: ClothingHandsGlovesFingerless
   entities:
   - uid: 10476
@@ -30271,7 +30263,7 @@ entities:
       pos: 34.5,9.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -78043.055
+      secondsUntilStateChange: -78065.09
       state: Closing
   - uid: 9216
     components:
@@ -33688,18 +33680,6 @@ entities:
     - type: Transform
       pos: 3.5,-14.5
       parent: 1
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 997
-    - type: Storage
-      storedItems:
-        997:
-          position: 1,0
-          _rotation: East
 - proto: DresserQuarterMasterFilled
   entities:
   - uid: 2822
@@ -81660,7 +81640,7 @@ entities:
       pos: 22.5,34.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -16201.084
+      secondsUntilStateChange: -16223.124
       state: Opening
   - uid: 9398
     components:
