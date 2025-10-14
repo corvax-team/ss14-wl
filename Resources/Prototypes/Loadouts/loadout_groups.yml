@@ -1065,6 +1065,7 @@
   loadouts:
   - WardenHead
   - WardenBeret
+  - SecurityBeretDSS # WL-Changes: DSS adding
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -1072,6 +1073,7 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
+  - JumpsuitDSS # WL-Changes: DSS adding
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -1089,6 +1091,7 @@
   - SecurityBeret
   - SecurityHat
   - TrooperHat
+  - SecurityBeretDSS # WL-Changes: DSS adding
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1101,6 +1104,7 @@
   # - SeniorOfficerJumpsuit # WL-Changes: Deseniorization
   # - SeniorOfficerJumpskirt # WL-Changes: Deseniorization
   - TrooperUniform
+  - JumpsuitDSS # WL-Changes: DSS adding
 
 - type: loadoutGroup
   id: SecurityBackpack

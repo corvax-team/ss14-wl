@@ -187,6 +187,7 @@
   loadouts:
   - SecurityBeret
   - SecurityHat
+  - SecurityBeretDSS # WL-Changes: DSS uniform
 
 - type: loadoutGroup
   id: SeniorOfficerJumpsuit
@@ -194,6 +195,7 @@
   loadouts:
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
+  - JumpsuitDSS # WL-Changes: DSS uniform
 
 - type: loadoutGroup
   id: SeniorOfficerBackpack
