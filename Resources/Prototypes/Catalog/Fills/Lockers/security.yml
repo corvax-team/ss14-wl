@@ -95,6 +95,10 @@
       prob: 0.5
     - id: ClothingOuterCoatSecurityOvercoat # Corvax-SecFashion
       prob: 0.2
+    # WL-Changes: DSS uniform start
+    - id: ClothingHeadsetTacticDSS
+      prob: 0.7
+    # WL-Changes: DSS uniform end
 
 - type: entity
   id: LockerBrigmedicFilled
