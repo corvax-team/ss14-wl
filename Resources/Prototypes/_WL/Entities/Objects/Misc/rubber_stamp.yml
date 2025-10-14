@@ -1,0 +1,13 @@
+- type: entity
+  name: adjutant's rubber stamp
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: RubberStampAdjutant
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-adjutant
+    stampedColor: "#345476"
+    stampState: "paper_stamp-adju"
+  - type: Sprite
+    sprite: _WL/Objects/Misc/stamps.rsi
+    state: stamp-adju

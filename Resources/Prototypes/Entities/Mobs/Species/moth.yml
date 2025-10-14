@@ -10,6 +10,7 @@
     hideLayersOnEquip:
     - HeadTop
   - type: Hunger
+    baseDecayRate: 0.024 # WL-Changes: hunger cpeed moth
   - type: Thirst
   - type: Icon
     sprite: Mobs/Species/Moth/parts.rsi
@@ -106,6 +107,7 @@
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "back" ]
       - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

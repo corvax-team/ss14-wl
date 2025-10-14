@@ -1,0 +1,12 @@
+- type: entity
+  id: LockerAdjutant
+  parent: LockerBaseSecure
+  name: adjutant's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: aidec
+    stateDoorOpen: aidec_open
+    stateDoorClosed: aidec_door
+  - type: AccessReader
+    access: [[ "Adjutant" ]]

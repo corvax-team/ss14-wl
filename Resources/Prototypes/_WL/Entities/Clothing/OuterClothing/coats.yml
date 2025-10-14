@@ -21,3 +21,22 @@
   parent: [ClothingOuterCoatCaptainTrench, ClothingOuterStorageFoldableBaseOpened]
   id: ClothingOuterCoatCaptainTrenchOpened
   name: captain's trench coat
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatAdjutantCC
+  name: centcom adjutant's coat
+  description: A fashionable trench coat made by the masters of their craft. It consists of excellent quality textiles, but even so, it is unlikely to protect you from anything.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/aidedecamp.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/aidedecamp.rsi
+  - type: StaticPrice
+    price: 2500
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Heat: 0.8

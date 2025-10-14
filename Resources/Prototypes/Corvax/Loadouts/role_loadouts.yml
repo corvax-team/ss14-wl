@@ -8,6 +8,7 @@
   - CommonBackpack
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -23,6 +24,7 @@
   - SeniorEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Science
@@ -40,6 +42,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Security
@@ -55,6 +58,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -70,6 +74,7 @@
   - BrigmedicShoes
   - SurvivalMedical
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -84,6 +89,7 @@
   - SeniorOfficerBelt
   - SurvivalSecurity
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -102,5 +108,8 @@
   - SeniorPhysicianShoes
   - Glasses
   - SurvivalMedical
+  - MedicalDoctorNeck # WL-Changes
+  - Utility # WL-Changes
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathToolMedical

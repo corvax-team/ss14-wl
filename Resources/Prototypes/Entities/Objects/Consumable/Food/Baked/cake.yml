@@ -10,7 +10,7 @@
     flavors:
       - sweet
   - type: Food
-    utensil: 
+    utensil:
       - Spoon
       - Fork
   - type: Sprite
@@ -53,7 +53,7 @@
     flavors:
       - sweet
   - type: Food
-    utensil: 
+    utensil:
       - Spoon
       - Fork
   - type: SolutionContainerManager

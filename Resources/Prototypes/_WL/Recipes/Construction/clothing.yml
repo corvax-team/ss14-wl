@@ -1,0 +1,8 @@
+- type: construction
+  id: ClothingNeckCloakLizard
+  graph: ClothingNeckCloakLizard
+  startNode: start
+  targetNode: cloak
+  category: construction-category-clothing
+  objectType: Item
+  

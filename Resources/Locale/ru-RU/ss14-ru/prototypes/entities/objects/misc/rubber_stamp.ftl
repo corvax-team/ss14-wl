@@ -40,7 +40,9 @@ ent-RubberStampDetective = печать детектива
     .desc = { ent-RubberStampBase.desc }
 ent-RubberStampGreytide = печать грейтайда
     .desc = Резиновая печать для проставления штампов на важных документах. От одного взгляда на неё вас окатывает серая волна...
-ent-RubberStampPsychologist = печать психолога
+# WL-change-psych-start
+ent-RubberStampPsychologist = печать психотерапевта
     .desc = Резиновая печать для проставления штампов на важных документах. Назначьте эти лекарства!
+# WL-change-psych-end
 ent-RubberStampWizard = печать волшебника
     .desc = Хаотическая печать волшебника для обслуживания нехаотичной бумажной работы, как иронично.

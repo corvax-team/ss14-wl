@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobGoldie
-  name:  Goldie Spawner
+  name: Goldie Spawner
   suffix: Security Pet
   components:
   - type: Sprite
@@ -11,3 +11,18 @@
   - type: ConditionalSpawner
     prototypes:
     - MobGoldie
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnSecDog
+  name: Sec dog Spawner
+  suffix: Security Pet
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: RandomSpawner
+    prototypes:
+    - MobGoldie
+    - MobMcGriff

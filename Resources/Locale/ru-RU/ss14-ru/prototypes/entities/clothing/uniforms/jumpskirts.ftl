@@ -106,10 +106,12 @@ ent-ClothingUniformJumpskirtOfLife = юбка жизни
     .desc = Юбка, символизирующая позитив и радость нашей жизни.
 ent-ClothingUniformJumpskirtSeniorEngineer = юбка-комбинезон ведущего инженера
     .desc = Признак мастерства и престижа инженерного отдела.
-ent-ClothingUniformJumpskirtSeniorResearcher = юбка-комбинезон ведущего учёного
+# WL-Changes: Roles rename start
+ent-ClothingUniformJumpskirtSeniorResearcher = юбка-комбинезон заведующего лабораторией
     .desc = Признак мастерства и престижа научного отдела.
-ent-ClothingUniformJumpskirtSeniorPhysician = юбка-комбинезон ведущего врача
+ent-ClothingUniformJumpskirtSeniorPhysician = юбка-комбинезон дежурного врача
     .desc = Признак мастерства и престижа медицинского отдела.
+# WL-Changes: Roles rename end
 ent-ClothingUniformJumpskirtSeniorOfficer = юбка-комбинезон инструктора службы безопасности
     .desc = Признак мастерства и престижа отдела службы безопасности.
 ent-ClothingUniformJumpskirtSecGrey = серая юбка-комбинезон службы безопасности
@@ -128,7 +130,9 @@ ent-ClothingUniformJumpskirtOldDress = старое платье
     .desc = Очень старое поношенное платье.
 ent-ClothingUniformJumpskirtMusician = юбка музыканта
     .desc = Модная юбка для музыкально настроенных людей. Идеально подойдёт для любого выступления в стиле лаунж!
-ent-ClothingUniformJumpskirtPsychologist = юбка-комбинезон психолога
+# WL-change-psych-start
+ent-ClothingUniformJumpskirtPsychologist = юбка-комбинезон психотерапевта
     .desc = Я не теряю вещи. Я кладу вещи в места, которые потом ускользают от меня.
+# WL-change-psych-end
 ent-ClothingUniformJumpskirtClown = юбка клоуна
     .desc = ХОНК!

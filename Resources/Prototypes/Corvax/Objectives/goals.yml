@@ -150,13 +150,13 @@
   department: [ Medical ]
   text: |
       - Документирование всех умерших представителей персонала станции.
-
-- type: stationGoal
-  id: StationGoalMedicalCardsDocumentation
-  department: [ Medical ]
-  text: |
-      - Документирование всех медицинских карт персонала.
-
+# WL-Changes: Cards goal remove start
+# - type: stationGoal
+#   id: StationGoalMedicalCardsDocumentation
+#   department: [ Medical ]
+#   text: |
+#       - Документирование всех медицинских карт персонала.
+# WL-Changes: Cards goal remove end
 - type: stationGoal
   id: StationGoalTwoMedicalKits
   department: [ Medical ]

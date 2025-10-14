@@ -44,3 +44,25 @@
       sprite: _WL/Clothing/Uniforms/Jumpskirt/Gothic/variant_4.rsi
     - type: Clothing
       sprite: _WL/Clothing/Uniforms/Jumpskirt/Gothic/variant_4.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtAdjutant
+  name: adjutant's jumpskirt
+  description: Can you sign my petition?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/aidec.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/aidec.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtAdjutantCC
+  name: centcom adjutant's jumpskirt
+  description: You must sign this petition.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/aidecent.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/aidecent.rsi

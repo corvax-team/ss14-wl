@@ -1,0 +1,43 @@
+# Jumpsuit
+- type: loadout
+  id: AdjutantJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAdjutant
+
+- type: loadout
+  id: AdjutantJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtAdjutant
+
+# Head
+- type: loadout
+  id: AdjutantHead
+  equipment:
+    head: ClothingHeadHatBeretAdjutant
+
+- type: loadout
+  id: AdjutantCap
+  equipment:
+    head: ClothingHeadHatAdjutantCap
+
+# Back
+- type: loadout
+  id: AdjutantBackpack
+  equipment:
+    back: ClothingBackpackAdjutant
+
+- type: loadout
+  id: AdjutantSatchel
+  equipment:
+    back: ClothingBackpackSatchelAdjutant
+
+- type: loadout
+  id: AdjutantDuffel
+  equipment:
+    back: ClothingBackpackDuffelAdjutant
+
+# Outer clothing
+- type: loadout
+  id: AdjutantWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterAdjutant

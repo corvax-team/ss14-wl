@@ -42,7 +42,9 @@ highlights-service-worker = сервисный работник, сервисн�
 highlights-boxer = боксёр, боксер
 highlights-reporter = репортёр, репортер, журналист
 highlights-zookeeper = зоотехник
-highlights-psychologist = психолог
+# WL-change-psych-start
+highlights-psychologist = психотерапевт
+# WL-change-psych-end
 # Silicon
 highlights-personal-ai = персональный ии, "пии"
 highlights-cyborg = киборг, борг
