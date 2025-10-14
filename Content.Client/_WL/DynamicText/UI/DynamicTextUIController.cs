@@ -1,23 +1,20 @@
-using Content.Client._WL.DynamicText;
-using Content.Client.Gameplay;
-using Content.Client.Info;
-using Content.Shared.Guidebook;
-using Content.Shared.Info;
-using Robust.Client.Console;
+using Content.Shared._WL.DynamicText;
+using Robust.Client.Player;
 using Robust.Client.UserInterface.Controllers;
-using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client._WL.DynamicText.UI;
 
 public sealed class DynamicTextUIController : UIController
 {
+    [Dependency] private readonly IEntityManager _entManager = default!;
+
     private DynamicTextWindow? _dynamicTextWindow;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        //SubscribeNetworkEvent<RequestDynamicTextEvent>(SetDynamic);
     }
 
     public void OpenWindow()
@@ -27,11 +24,19 @@ public sealed class DynamicTextUIController : UIController
 
         _dynamicTextWindow?.OpenCentered();
 
-        // _dynamicTextWindow?.OnDynamicTextSaveButtonPressed += OnSave;
+        if (_dynamicTextWindow != null)
+        {
+            _dynamicTextWindow.OnDynamicTextSaveButtonPressed += OnSave;
+        }
+        //_entManager.System<DynamicTextSystem>().LoadDynamic();
     }
+    //private void SetDynamic(RequestDynamicTextEvent ev, EntitySessionEventArgs args)
+    //{
+    //    _dynamicTextWindow?.SetDynamicText(ev.DynamicText);
+    //}
 
-    private void OnSave()
+    private void OnSave(string text)
     {
-        _dynamicTextWindow?.Close();
+        _entManager.System<DynamicTextSystem>().SaveDynamic(text);
     }
 }
