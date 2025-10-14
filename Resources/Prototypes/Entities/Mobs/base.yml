@@ -51,7 +51,7 @@
   parent: BaseControllable
   id: BaseMob
   components:
-  - type: MobCollision
+  # - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: Physics
     bodyType: KinematicController
   - type: InputMover

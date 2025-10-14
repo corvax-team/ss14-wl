@@ -47,8 +47,8 @@ namespace Content.Server._WL.Documents
             var formattedDate = $"{_gameTime.CurTime.Subtract(_gameTick.RoundStartTimeSpan).ToString(@"hh\:mm\:ss")} {DateTime.Now.AddYears(-1700):dd.MM.yyy}";
 
             var content = Loc.GetString(paperComp.Content)
-                .Replace(":DATE:", formattedDate)
-                .Replace(":STATION:", stationName ?? "Station XX-000");
+                .Replace(Loc.GetString("doc-var-date"),  formattedDate)
+                .Replace(Loc.GetString("doc-var-station"), stationName ?? "Station XX-000");
 
             _paper.SetContent((document, paperComp), content);
         }
@@ -104,8 +104,8 @@ namespace Content.Server._WL.Documents
             var job = _job.MindTryGetJobName(mindId);
 
             var content = paper.Comp.Content
-                .Replace(":NAME:", Identity.Name(user, EntityManager))
-                .Replace(":JOB:", job != null ? TextTools.CapitalizeString(job) : null);
+                .Replace(Loc.GetString("doc-var-name"), Identity.Name(user, EntityManager))
+                .Replace(Loc.GetString("doc-var-job"), job != null ? TextTools.CapitalizeString(job) : null);
 
             _paper.SetContent(paper, content);
         }

@@ -5,7 +5,7 @@
   description: Bureaucratic unit. A document printed on a printer.
   components:
     - type: Paper
-    - type: PrintedDocumentFormat
+    - type: PrintedDocumentFormat #WL-Change
 
 - type: entity
   parent: PrintedDocument

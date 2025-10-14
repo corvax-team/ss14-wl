@@ -47,7 +47,7 @@
       - Document
     storage:
       PrinterPaper: 0
-  - type: DocumentPrinter 
+#  - type: DocumentPrinter WL-Change
   - type: ContainerContainer
     containers:
       machine_board: !type:Container

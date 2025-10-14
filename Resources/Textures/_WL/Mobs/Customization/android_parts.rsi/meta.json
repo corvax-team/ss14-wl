@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Made by ArRei for Corvax WL",
+    "copyright": "Sensors made by ArRei for Corvax WL, ears and antenna by Unity :3",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,22 @@
     "states": [
         {
             "name": "sensors",
+            "directions": 4
+        },
+        {
+            "name": "ears_cat_outer",
+            "directions": 4
+        },
+        {
+            "name": "ears_cat_sensors",
+            "directions": 4
+        },
+        {
+            "name": "antenna_left",
+            "directions": 4
+        },
+        {
+            "name": "antenna_right",
             "directions": 4
         }
     ]

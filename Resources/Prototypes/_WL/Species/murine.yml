@@ -19,7 +19,7 @@
     UndergarmentBottom: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     Chest: MobMurineTorso
-    HeadTop: MobMurineEars
+    HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobMurineEyes
@@ -50,9 +50,9 @@
       points: 1
       required: false
     HeadTop:
-      points: 2
+      points: 1
       required: true
-#      defaultMarkings: [ MurineEars ]
+      defaultMarkings: [ MurineEars ]
     HeadSide:
       points: 0
       required: false
@@ -65,12 +65,6 @@
     Socks: # WL-Underwear
       points: 1
       required: false
-
-- type: humanoidBaseSprite
-  id: MobMurineEars
-  baseSprite:
-    sprite: _WL/Mobs/Species/Murine/parts.rsi
-    state: ears
 
 - type: humanoidBaseSprite
   id: MobMurineHead

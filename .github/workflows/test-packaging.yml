@@ -1,8 +1,8 @@
-﻿name: Test Packaging
+name: Test Packaging
 
 on:
   push:
-    branches: [ master, staging, stable ]
+    branches: [ master, staging, stable, offmed ]
     paths:
       - '**.cs'
       - '**.csproj'

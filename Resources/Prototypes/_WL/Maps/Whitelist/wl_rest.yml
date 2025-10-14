@@ -29,6 +29,7 @@
             ResearchDirector: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            Adjutant: [ 1, 1 ]
 
             # cargo
             SalvageSpecialist: [ 3, 3 ]
