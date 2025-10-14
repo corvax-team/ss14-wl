@@ -2486,15 +2486,8 @@
   - type: MeleeChemicalInjector
     transferAmount: 0.75
     solution: melee
-  # WL-Changes: Languages start
-  - type: Languages
-    speaking:
-      - XenoLang
-    understood:
-      - XenoLang
-  # - type: ReplacementAccent
-  #   accent: xeno
-  # WL-Changes: Languages end
+  - type: ReplacementAccent
+    accent: xeno
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -2664,11 +2657,8 @@
   components:
   - type: Accentless
     removes:
-    # WL-Chagnes: Languages start
-      - type: Languages
-    # - type: ReplacementAccent
-    #   accent: xeno  #let this wizard speak
-    # WL-Chagnes: Languages end
+    - type: ReplacementAccent
+      accent: xeno  #let this wizard speak
 
 - type: entity
   name: possum
