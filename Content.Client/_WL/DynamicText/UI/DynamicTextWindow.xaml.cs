@@ -9,8 +9,6 @@ namespace Content.Client._WL.DynamicText.UI;
 [GenerateTypedNameReferences]
 public sealed partial class DynamicTextWindow : FancyWindow
 {
-
-    public Action<string>? OnDynamicTextChanged;
     public Action<string>? OnDynamicTextSaveButtonPressed;
     public DynamicTextWindow()
     {
@@ -22,14 +20,15 @@ public sealed partial class DynamicTextWindow : FancyWindow
         CDynamicTextInput.Placeholder = new Rope.Leaf(loc.GetString("dynamic-text-placeholder"));
         DynamicTextSaveButton.OnPressed += OnDynamicTextSave;
     }
-
-    //public void SetDynamicText(string text)
-    //{
-    //    CDynamicTextInput.TextRope = new Rope.Leaf(text);
-    //}
+    public void SetDynamicText(string text)
+    {
+        CDynamicTextInput.TextRope = new Rope.Leaf(text);
+        OpenCentered();
+    }
 
     private void OnDynamicTextSave(BaseButton.ButtonEventArgs obj)
     {
         OnDynamicTextSaveButtonPressed?.Invoke(Rope.Collapse(CDynamicTextInput.TextRope).Trim());
+        Close();
     }
 }

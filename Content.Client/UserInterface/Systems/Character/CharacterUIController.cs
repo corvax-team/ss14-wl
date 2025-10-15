@@ -1,4 +1,4 @@
-using Content.Client._WL.DynamicText.UI; // WL-Cnages
+using Content.Client._WL.DynamicText.UI; // WL-Chages
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
 using Content.Client.Stylesheets;
