@@ -1,6 +1,7 @@
 using Content.Server._WL.CharacterInformation;
 using Content.Shared._WL.DynamicText;
 using Robust.Shared.Player;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Content.Server._WL.DynamicText;
 
@@ -32,9 +33,12 @@ public sealed class DynamicTextSystem : EntitySystem
         if (!_ent.TryGetEntity(ev.Entity, out var ent))
             return;
 
+        if (args.SenderSession.AttachedEntity != ent)
+            return;
+
         if (!TryComp<CharacterInformationComponent>(ent, out var comp))
             return;
 
-        RaiseNetworkEvent(new RequestedDynamicTextEvent(comp.DynamicText), Filter.SinglePlayer(args.SenderSession));
+        RaiseNetworkEvent(new RequestedDynamicTextEvent(comp.DynamicText ?? string.Empty), Filter.SinglePlayer(args.SenderSession));
     }
 }

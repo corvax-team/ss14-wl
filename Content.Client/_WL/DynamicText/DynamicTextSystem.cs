@@ -37,7 +37,7 @@ public sealed partial class DynamicTextSystem : EntitySystem
         if (!_ent.TryGetNetEntity(_player.LocalEntity.Value, out var netEntity))
             return;
 
-        RaiseNetworkEvent(new SetDynamicTextEvent(netEntity.Value, string.Empty));
+        RaiseNetworkEvent(new RequestDynamicTextEvent(netEntity.Value));
     }
     public void OnDynamicTextReceived(RequestedDynamicTextEvent ev, EntitySessionEventArgs args)
     {
