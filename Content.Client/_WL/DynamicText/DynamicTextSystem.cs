@@ -1,11 +1,20 @@
+using Content.Client._WL.DynamicText.UI;
 using Content.Shared._WL.DynamicText;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
 
 namespace Content.Client._WL.DynamicText;
 public sealed partial class DynamicTextSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeNetworkEvent<RequestDynamicTextEvent>(UnloadDynamicText);
+    }
 
     public void SaveDynamicText(string text)
     {
@@ -29,6 +38,10 @@ public sealed partial class DynamicTextSystem : EntitySystem
             return;
 
         RaiseNetworkEvent(new SetDynamicTextEvent(netEntity.Value, string.Empty));
+    }
+    public void UnloadDynamicText(RequestDynamicTextEvent ev, EntitySessionEventArgs args)
+    {
+        _userInterfaceManager.GetUIController<DynamicTextUIController>().SetDynamicText(ev);
     }
 
 }

@@ -19,16 +19,20 @@ public sealed partial class DynamicTextWindow : FancyWindow
 
         CDynamicTextInput.Placeholder = new Rope.Leaf(loc.GetString("dynamic-text-placeholder"));
         DynamicTextSaveButton.OnPressed += OnDynamicTextSave;
+        DynamicTextCloseButton.OnPressed += OnClose;
     }
     public void SetDynamicText(string text)
     {
         CDynamicTextInput.TextRope = new Rope.Leaf(text);
-        OpenCentered();
     }
 
     private void OnDynamicTextSave(BaseButton.ButtonEventArgs obj)
     {
         OnDynamicTextSaveButtonPressed?.Invoke(Rope.Collapse(CDynamicTextInput.TextRope).Trim());
+    }
+
+    private void OnClose(BaseButton.ButtonEventArgs obj)
+    {
         Close();
     }
 }

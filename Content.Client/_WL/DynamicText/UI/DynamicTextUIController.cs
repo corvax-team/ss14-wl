@@ -9,13 +9,6 @@ public sealed class DynamicTextUIController : UIController
 
     private DynamicTextWindow? _dynamicTextWindow;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeNetworkEvent<RequestDynamicTextEvent>(SetDynamic);
-    }
-
     public void OpenWindow()
     {
         if (_dynamicTextWindow == null || _dynamicTextWindow.Disposed)
@@ -26,8 +19,9 @@ public sealed class DynamicTextUIController : UIController
             _dynamicTextWindow.OnDynamicTextSaveButtonPressed += OnSave;
         }
         _entManager.System<DynamicTextSystem>().LoadDynamicText();
+        _dynamicTextWindow?.OpenCentered();
     }
-    private void SetDynamic(RequestDynamicTextEvent ev, EntitySessionEventArgs args)
+    public void SetDynamicText(RequestDynamicTextEvent ev)
     {
         _dynamicTextWindow?.SetDynamicText(ev.DynamicText);
     }
