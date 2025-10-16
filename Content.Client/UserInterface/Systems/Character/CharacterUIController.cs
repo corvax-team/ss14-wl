@@ -59,6 +59,13 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         _window.OnClose += DeactivateButton;
         _window.OnOpen += ActivateButton;
 
+        //WL-Changes-Start
+        _window.DynamicTextButton.OnPressed += _ =>
+        {
+            _dynamicText.OpenWindow();
+        };
+        //WL-Changes-End
+
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.OpenCharacterMenu,
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
@@ -145,13 +152,6 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         _window.SubText.Text = job;
         _window.Objectives.RemoveAllChildren();
         _window.ObjectivesLabel.Visible = objectives.Any();
-
-        //WL-Changes-Start
-        _window.DynamicTextButton.OnPressed += _ =>
-        {
-            _dynamicText.OpenWindow();
-        };
-        //WL-Changes-End
 
         foreach (var (groupId, conditions) in objectives)
         {

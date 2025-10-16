@@ -18,7 +18,7 @@ public sealed class DynamicTextUIController : UIController
         {
             _dynamicTextWindow.OnDynamicTextSaveButtonPressed += OnSave;
         }
-        _entManager.System<DynamicTextSystem>().LoadDynamicText();
+        _entManager.System<DynamicTextSystem>().RequestDynamicText();
         _dynamicTextWindow?.OpenCentered();
     }
     public void SetDynamicText(RequestDynamicTextEvent ev)

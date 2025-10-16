@@ -13,7 +13,7 @@ public sealed partial class DynamicTextSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<RequestDynamicTextEvent>(UnloadDynamicText);
+        SubscribeNetworkEvent<RequestDynamicTextEvent>(OnDynamicTextReceived);
     }
 
     public void SaveDynamicText(string text)
@@ -29,7 +29,7 @@ public sealed partial class DynamicTextSystem : EntitySystem
 
         RaiseNetworkEvent(new SetDynamicTextEvent(netEntity.Value, text));
     }
-    public void LoadDynamicText()
+    public void RequestDynamicText()
     {
         if (!_player.LocalEntity.HasValue)
             return;
@@ -39,7 +39,7 @@ public sealed partial class DynamicTextSystem : EntitySystem
 
         RaiseNetworkEvent(new SetDynamicTextEvent(netEntity.Value, string.Empty));
     }
-    public void UnloadDynamicText(RequestDynamicTextEvent ev, EntitySessionEventArgs args)
+    public void OnDynamicTextReceived(RequestDynamicTextEvent ev, EntitySessionEventArgs args)
     {
         _userInterfaceManager.GetUIController<DynamicTextUIController>().SetDynamicText(ev);
     }
