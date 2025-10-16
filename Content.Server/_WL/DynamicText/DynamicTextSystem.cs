@@ -12,19 +12,29 @@ public sealed class DynamicTextSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<SetDynamicTextEvent>(DynamicText);
+        SubscribeNetworkEvent<SetDynamicTextEvent>(SetDynamicText);
+        SubscribeNetworkEvent<RequestDynamicTextEvent>(RequestDynamicText);
     }
 
-    private void DynamicText(SetDynamicTextEvent ev, EntitySessionEventArgs args)
+    private void SetDynamicText(SetDynamicTextEvent ev, EntitySessionEventArgs args)
     {
         if (!_ent.TryGetEntity(ev.Entity, out var ent))
             return;
 
         if (!TryComp<CharacterInformationComponent>(ent, out var comp))
             return;
-        if (ev.DynamicText == string.Empty)
-            RaiseNetworkEvent(new RequestDynamicTextEvent(comp.DynamicText), Filter.SinglePlayer(args.SenderSession));
-        else
-            comp.DynamicText = !string.IsNullOrEmpty(ev.DynamicText) ? ev.DynamicText : comp.DynamicText;
+
+        comp.DynamicText = ev.DynamicText;
+    }
+
+    private void RequestDynamicText(RequestDynamicTextEvent ev, EntitySessionEventArgs args)
+    {
+        if (!_ent.TryGetEntity(ev.Entity, out var ent))
+            return;
+
+        if (!TryComp<CharacterInformationComponent>(ent, out var comp))
+            return;
+
+        RaiseNetworkEvent(new RequestedDynamicTextEvent(comp.DynamicText), Filter.SinglePlayer(args.SenderSession));
     }
 }

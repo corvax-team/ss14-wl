@@ -3,7 +3,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._WL.DynamicText;
 
 [Serializable, NetSerializable]
-public sealed class RequestDynamicTextEvent(string dynamicText) : EntityEventArgs
+public sealed class RequestDynamicTextEvent(NetEntity entity) : EntityEventArgs
 {
-    public string DynamicText { get; } = dynamicText;
+    public NetEntity Entity { get; } = entity;
 }
