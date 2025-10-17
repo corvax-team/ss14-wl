@@ -1,13 +1,16 @@
 using Content.Server._WL.CharacterInformation;
+using Content.Shared._WL.CCVars;
 using Content.Shared._WL.DynamicText;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
-using static System.Net.Mime.MediaTypeNames;
+using Robust.Shared.Utility;
 
 namespace Content.Server._WL.DynamicText;
 
 public sealed class DynamicTextSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly IConfigurationManager _cfm = default!;
 
     public override void Initialize()
     {
@@ -25,7 +28,12 @@ public sealed class DynamicTextSystem : EntitySystem
         if (!TryComp<CharacterInformationComponent>(ent, out var comp))
             return;
 
-        comp.DynamicText = ev.DynamicText;
+        if (args.SenderSession.AttachedEntity != ent)
+            return;
+
+        var maxDynamicTextLength = _cfm.GetCVar(WLCVars.MaxDynamicTextLength);
+
+        comp.DynamicText = ev.DynamicText.Length > maxDynamicTextLength ? FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText)[..maxDynamicTextLength] : FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText);
     }
 
     private void RequestDynamicText(RequestDynamicTextEvent ev, EntitySessionEventArgs args)

@@ -138,4 +138,11 @@ public sealed class WLCVars
     /// </summary>
     public static readonly CVarDef<int> VoteShuttleTimer =
         CVarDef.Create("vote.evacuation_shuttle_vote_time", 40, CVar.SERVERONLY);
+
+    /*
+     * Ic
+     */
+
+    public static readonly CVarDef<int> MaxDynamicTextLength =
+        CVarDef.Create("ic.dynamic_text_length", 1024, CVar.SERVER | CVar.REPLICATED);
 }
