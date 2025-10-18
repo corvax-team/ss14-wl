@@ -103,6 +103,8 @@
     normalState: human_small_fire # Corvax WL /tg/ resprite
     alternateState: human_big_fire # Corvax WL /tg/ resprite
   - type: FlashImmunity
+  - type: InitialSkills # WL-Skills
+    randomizeAllSkills: true # WL-Skills
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

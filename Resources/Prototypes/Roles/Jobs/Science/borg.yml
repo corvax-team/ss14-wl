@@ -15,6 +15,29 @@
   jobEntity: StationAiBrain
   jobPreviewEntity: PlayerStationAiPreview
   applyTraits: false
+  # WL-Skills-start
+  defaultSkills:
+    Bureaucracy: 4
+    Eva: 3
+    Piloting: 4
+    MechPiloting: 3
+    IT: 4
+    Atmospherics: 4
+    Construction: 4
+    Electrical: 4
+    Generators: 4
+    Anatomy: 4
+    Chemistry: 4
+    Medicine: 4
+    ComplexDevices: 4
+    Science: 4
+    Forensics: 4
+    Combat: 4
+    Weapons: 4
+    Botany: 4
+    Cooking: 4
+    Mixology: 4
+  # WL-Skills-end
 
 - type: job
   id: Borg

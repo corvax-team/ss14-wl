@@ -19,6 +19,12 @@
   - Medical
   - Chemistry
   - Maintenance
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    Chemistry: 3
+    Medicine: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: ChemistGear

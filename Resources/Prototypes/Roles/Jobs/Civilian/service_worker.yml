@@ -23,6 +23,14 @@
   - Kitchen
   extendedAccess:
   - Hydroponics
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Chemistry: 2
+    Botany: 2
+    Cooking: 2
+    Mixology: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: ServiceWorkerGear

@@ -28,6 +28,16 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # WL-Skills-start
+  bonusSkillPoints: 4
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 3
+    Anatomy: 2
+    Medicine: 3
+    Combat: 2
+    Weapons: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: BrigmedicGear

@@ -24,6 +24,12 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay
     prototype: BoxCardboard
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Bureaucracy: 2
+    Piloting: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: CargoTechGear

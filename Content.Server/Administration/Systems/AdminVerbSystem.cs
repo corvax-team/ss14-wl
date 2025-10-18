@@ -37,6 +37,7 @@ using System.Linq;
 using static Content.Shared.Configurable.ConfigurationComponent;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
+using Content.Shared._WL.Skills.Components; // Wl-Skills
 
 
 namespace Content.Server.Administration.Systems
@@ -627,7 +628,25 @@ namespace Content.Server.Administration.Systems
                 };
                 args.Verbs.Add(verb);
             }
-            // Wl-height end
+            // Wl-Skills-start
+            // Skills Management Verb
+            if (_adminManager.HasAdminFlag(player, AdminFlags.Admin) && EntityManager.HasComponent<SkillsComponent>(args.Target))
+            {
+                args.Verbs.Add(new Verb
+                {
+                    Text = Loc.GetString("skills-admin-verb-manage"),
+                    Category = VerbCategory.Admin,
+                    Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+                    Act = () =>
+                    {
+                        var eui = new SkillsAdminEui(args.Target);
+                        _euiManager.OpenEui(eui, player);
+                        eui.StateDirty();
+                    },
+                    Impact = LogImpact.Medium
+                });
+            }
+            // Wl-Skills-end
         }
 
         #region SolutionsEui

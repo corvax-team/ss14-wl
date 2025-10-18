@@ -23,6 +23,13 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FourTwenty
     prototype: CannabisSeeds
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    Chemistry: 2
+    Science: 2
+    Botany: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: BotanistGear

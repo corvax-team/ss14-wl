@@ -43,6 +43,16 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    Bureaucracy: 3
+    Eva: 3
+    Piloting: 2
+    Forensics: 2
+    Combat: 3
+    Weapons: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: HoSGear

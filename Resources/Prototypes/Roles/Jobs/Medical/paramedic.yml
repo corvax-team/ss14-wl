@@ -17,6 +17,14 @@
   - Maintenance
   extendedAccess:
   - Chemistry
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Eva: 3
+    Anatomy: 2
+    Medicine: 3
+    Combat: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: ParamedicGear

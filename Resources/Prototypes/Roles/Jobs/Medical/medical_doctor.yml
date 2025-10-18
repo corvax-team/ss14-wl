@@ -26,6 +26,14 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: DoctorDay
     prototype: WehMedipen
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 2
+    Anatomy: 3
+    Medicine: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: DoctorGear

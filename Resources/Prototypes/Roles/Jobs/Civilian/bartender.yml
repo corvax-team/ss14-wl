@@ -19,6 +19,14 @@
   extendedAccess:
   - Kitchen
   - Hydroponics
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    Chemistry: 2
+    Weapons: 2
+    Botany: 2
+    Mixology: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: BartenderGear

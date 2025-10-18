@@ -34,6 +34,7 @@
       interval: 10
   - !type:AddImplantSpecial
     implants: [ SadTromboneImplant ]
+  bonusSkillPoints: 10 # WL-Skills
 
 - type: startingGear
   id: ClownGear

@@ -15,6 +15,11 @@
   access:
   - Service
   - Maintenance
+  # WL-Skills-start
+  bonusSkillPoints: 10
+  defaultSkills:
+    Bureaucracy: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: LibrarianGear

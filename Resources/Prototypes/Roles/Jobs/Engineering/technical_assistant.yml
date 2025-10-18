@@ -21,6 +21,15 @@
   - Maintenance
   - Engineering
   - External
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    IT: 2
+    Atmospherics: 2
+    Construction: 2
+    Electrical: 2
+    Generators: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: TechnicalAssistantGear

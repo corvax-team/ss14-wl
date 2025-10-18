@@ -2,7 +2,7 @@ using Content.Server._WL.Ert.Prototypes;
 using Content.Server.Shuttles.Components;
 using Content.Shared._WL.Entity.Extensions;
 using Content.Shared._WL.Ert;
-using Content.Shared._WL.Math.Extensions;
+using Content.Shared._WL.Mathemathics.Extensions;
 using Content.Shared._WL.Random.Extensions;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;

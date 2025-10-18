@@ -21,6 +21,13 @@
   access:
   - Research
   - Maintenance
+  # WL-Skills-start
+  bonusSkillPoints: 10
+  defaultSkills:
+    Bureaucracy: 2
+    ComplexDevices: 2
+    Science: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: ScientistGear

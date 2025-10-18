@@ -65,6 +65,12 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Bureaucracy: 3
+    IT: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: HoPGear
