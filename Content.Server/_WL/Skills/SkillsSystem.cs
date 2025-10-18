@@ -5,6 +5,7 @@ using Content.Shared._WL.Skills.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 
@@ -49,7 +50,7 @@ public sealed partial class SkillsSystem : SharedSkillsSystem
 
     private string? GetJobIdFromEntity(MindComponent mind)
     {
-        foreach (var roleId in mind.MindRoles)
+        foreach (var roleId in mind.MindRoleContainer.ContainedEntities)
         {
             if (!TryComp<MindRoleComponent>(roleId, out var role))
                 continue;
