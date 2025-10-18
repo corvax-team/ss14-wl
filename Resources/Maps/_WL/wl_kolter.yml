@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/18/2025 13:24:52
-  entityCount: 28070
+  time: 10/18/2025 14:10:33
+  entityCount: 28078
 maps:
 - 1
 grids:
@@ -36501,9 +36501,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -28.5,43.5
       parent: 2
-    - type: GridFill
-      addComponents: []
-      path: /Maps/_WL/Shuttles/wl_kolter_sec.yml
   - uid: 287
     components:
     - type: Transform
@@ -36512,7 +36509,7 @@ entities:
       parent: 2
     - type: GridFill
       addComponents: []
-      path: /Resources/Maps/_WL/Shuttles/wl_kolter_sec.yml
+      path: /Maps/_WL/Shuttles/wl_kolter_sec.yml
   - uid: 25100
     components:
     - type: Transform
@@ -37208,7 +37205,7 @@ entities:
       pos: 17.5,2.5
       parent: 25492
     - type: Door
-      secondsUntilStateChange: -105647.164
+      secondsUntilStateChange: -105748.766
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -80200,12 +80197,6 @@ entities:
       parent: 2
 - proto: CryogenicSleepUnit
   entities:
-  - uid: 7411
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 8.5,20.5
-      parent: 2
   - uid: 7412
     components:
     - type: Transform
@@ -80216,16 +80207,18 @@ entities:
     - type: Transform
       pos: -35.5,19.5
       parent: 2
-- proto: CryogenicSleepUnitSpawner
+- proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
+  - uid: 7411
+    components:
+    - type: Transform
+      pos: 8.5,19.5
+      parent: 2
   - uid: 7414
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 8.5,19.5
+      pos: 8.5,20.5
       parent: 2
-- proto: CryogenicSleepUnitSpawnerLateJoin
-  entities:
   - uid: 7415
     components:
     - type: Transform
@@ -129232,6 +129225,10 @@ entities:
       canCollide: False
     - type: ActionsContainer
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents: []
   - uid: 7068
     components:
     - type: Transform
@@ -129240,6 +129237,10 @@ entities:
       canCollide: False
     - type: ActionsContainer
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        actions: !type:Container
+          ents: []
   - uid: 7069
     components:
     - type: Transform
@@ -149933,6 +149934,18 @@ entities:
     - type: Transform
       pos: -5.5,-6.5
       parent: 2
+- proto: SpawnPointBorg
+  entities:
+  - uid: 28077
+    components:
+    - type: Transform
+      pos: 16.5,-20.5
+      parent: 2
+  - uid: 28078
+    components:
+    - type: Transform
+      pos: 16.5,-21.5
+      parent: 2
 - proto: SpawnPointBotanist
   entities:
   - uid: 16397
@@ -150031,6 +150044,18 @@ entities:
     components:
     - type: Transform
       pos: -19.5,33.5
+      parent: 2
+- proto: SpawnPointHeadOfPersonnel
+  entities:
+  - uid: 28072
+    components:
+    - type: Transform
+      pos: -25.5,0.5
+      parent: 2
+  - uid: 28073
+    components:
+    - type: Transform
+      pos: -24.5,-3.5
       parent: 2
 - proto: SpawnPointHeadOfSecurity
   entities:
@@ -150263,6 +150288,34 @@ entities:
     components:
     - type: Transform
       pos: 14.5,36.5
+      parent: 2
+- proto: SpawnPointSeniorEngineer
+  entities:
+  - uid: 28071
+    components:
+    - type: Transform
+      pos: 22.5,34.5
+      parent: 2
+- proto: SpawnPointSeniorOfficer
+  entities:
+  - uid: 28074
+    components:
+    - type: Transform
+      pos: 13.5,35.5
+      parent: 2
+- proto: SpawnPointSeniorPhysician
+  entities:
+  - uid: 28075
+    components:
+    - type: Transform
+      pos: -53.5,9.5
+      parent: 2
+- proto: SpawnPointSeniorResearcher
+  entities:
+  - uid: 28076
+    components:
+    - type: Transform
+      pos: 20.5,-21.5
       parent: 2
 - proto: SpawnPointServiceWorker
   entities:

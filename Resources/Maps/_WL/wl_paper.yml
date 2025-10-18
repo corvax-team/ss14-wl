@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/18/2025 13:24:23
+  time: 10/18/2025 13:50:42
   entityCount: 17467
 maps:
 - 1
@@ -13456,7 +13456,7 @@ entities:
       pos: 45.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34470.57
+      secondsUntilStateChange: -34493.63
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -45005,15 +45005,13 @@ entities:
     - type: Transform
       pos: 32.582455,-18.492676
       parent: 2
-- proto: CryogenicSleepUnitSpawner
+- proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
   - uid: 5902
     components:
     - type: Transform
       pos: 18.5,10.5
       parent: 2
-- proto: CryogenicSleepUnitSpawnerLateJoin
-  entities:
   - uid: 5903
     components:
     - type: Transform
@@ -100359,12 +100357,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 41.655937,78.45674
       parent: 2
-  - uid: 17467
-    components:
-    - type: Transform
-      pos: 41.406197,78.64009
-    - type: Physics
-      canCollide: False
 - proto: SignalTrigger
   entities:
   - uid: 12951
@@ -107665,13 +107657,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 60.520844,33.436928
       parent: 2
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 17467
 - proto: TowelColorGreen
   entities:
   - uid: 13881
