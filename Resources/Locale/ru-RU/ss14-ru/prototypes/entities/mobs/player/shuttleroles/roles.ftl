@@ -36,8 +36,10 @@ ent-RandomHumanoidVisitorMedicalDoctor = посетитель врач роль 
     .desc = { "" }
 ent-RandomHumanoidVisitorParamedic = посетитель парамедик роль призрака
     .desc = { "" }
-ent-RandomHumanoidVisitorPsychologist = посетитель психолог роль призрака
+# WL-change-psych-start
+ent-RandomHumanoidVisitorPsychologist = посетитель психотерапевт роль призрака
     .desc = { "" }
+# WL-change-psych-end
 ent-RandomHumanoidVisitorChemist = посетитель химик роль призрака
     .desc = { "" }
 ent-RandomHumanoidVisitorVirologist = посетитель вирусолог роль призрака

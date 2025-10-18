@@ -21,7 +21,9 @@ public sealed partial class GeneralRecord : Control
         // Species.Text = Loc.GetString("general-station-record-console-record-species", ("species", record.Species));
         // Gender.Text = Loc.GetString("general-station-record-console-record-gender",
         //     ("gender", record.Gender.ToString()));
-        Record.Text = record.EmploymentRecord;
+        Record.Text = !string.IsNullOrEmpty(record.EmploymentRecord)
+            ? record.EmploymentRecord
+            : Loc.GetString("general-station-console-no-employment-record");
         // WL-Records-Edit-End
         Fingerprint.Text = Loc.GetString("general-station-record-console-record-fingerprint",
             ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")));

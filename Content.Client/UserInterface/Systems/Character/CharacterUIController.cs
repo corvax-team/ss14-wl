@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client._WL.Skills.Ui; // WL-Skills
+using Content.Client._WL.DynamicText.UI; // WL-Chages
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
 using Content.Client.Stylesheets;
@@ -35,6 +36,10 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityNetworkManager _entityNetworkManager = default!; // WL-Skills
 
+    //WL-Changes-Start
+    [Dependency] private readonly DynamicTextUIController _dynamicText = default!;
+    //WL-Changes-end
+
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;
     [UISystemDependency] private readonly SpriteSystem _sprite = default!;
 
@@ -59,11 +64,16 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         _window.OnClose += DeactivateButton;
         _window.OnOpen += ActivateButton;
 
-        // WL-Skills-start
+        //WL-Changes-Start
         _window.SkillsButton.OnPressed += OnSkillsButtonPressed;
         if (_player.LocalEntity.HasValue && _ent.HasComponent<SkillsComponent>(_player.LocalEntity))
             _window.SkillsButton.Disabled = false;
-        // WL-Skills-end
+
+        _window.DynamicTextButton.OnPressed += _ =>
+        {
+            _dynamicText.OpenWindow();
+        };
+        //WL-Changes-End
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.OpenCharacterMenu,

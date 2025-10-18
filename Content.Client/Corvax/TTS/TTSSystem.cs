@@ -59,9 +59,9 @@ public sealed class TTSSystem : EntitySystem
         _cfg.UnsubValueChanged(CCCVars.TTSVolume, OnTtsVolumeChanged);
     }
 
-    public void RequestPreviewTTS(string voiceId)
+    public void RequestPreviewTTS(string voiceId, string previewText)
     {
-        RaiseNetworkEvent(new RequestPreviewTTSEvent(voiceId));
+        RaiseNetworkEvent(new RequestPreviewTTSEvent(voiceId, previewText)); //WL-PreviewTTSEdit
     }
 
     private void OnTtsVolumeChanged(float volume)

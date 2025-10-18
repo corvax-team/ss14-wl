@@ -22,7 +22,8 @@
   - HeadOfSecurity
   - Quartermaster
   - ResearchDirector
-  
+  - Adjutant #WL-Changes: Adjutant
+
 - type: accessLevel
   id: EmergencyShuttleRepealAll
   name: id-card-access-level-emergency-shuttle-repeal

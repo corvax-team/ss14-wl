@@ -187,6 +187,7 @@
   loadouts:
   - SecurityBeret
   - SecurityHat
+  - SecurityBeretDSS # WL-Changes: DSS uniform
 
 - type: loadoutGroup
   id: SeniorOfficerJumpsuit
@@ -194,6 +195,7 @@
   loadouts:
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
+  - JumpsuitDSS # WL-Changes: DSS uniform
 
 - type: loadoutGroup
   id: SeniorOfficerBackpack
@@ -214,6 +216,7 @@
   id: SeniorOfficerOuterClothing
   name: loadout-group-senior-officer-outerclothing
   loadouts:
+  - ArmorVestSec # Corvax
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
@@ -222,6 +225,7 @@
   id: SeniorOfficerShoes
   name: loadout-group-senior-officer-shoes
   loadouts:
+  - JackSecBoots # Corvax
   - JackBoots
   - SecurityWinterBoots
 

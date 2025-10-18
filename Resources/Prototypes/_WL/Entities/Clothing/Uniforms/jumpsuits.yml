@@ -93,3 +93,25 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/postman.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpsuit/postman.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAdjutant
+  name: adjutant's jumpsuit
+  description: Can you sign my petition?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/aidec.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/aidec.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAdjutantCC
+  name: centcom adjutant's jumpsuit
+  description: You must sign this petition.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/aidecent.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/aidecent.rsi

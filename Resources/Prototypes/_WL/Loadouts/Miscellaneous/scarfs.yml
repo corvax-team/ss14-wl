@@ -1,0 +1,101 @@
+# Basic options
+# Scarfs
+- type: loadout
+  id: ScarfStripedRed
+  equipment:
+    neck: ClothingNeckScarfStripedRed
+
+- type: loadout
+  id: ScarfStripedBlue
+  equipment:
+    neck: ClothingNeckScarfStripedBlue
+
+- type: loadout
+  id: ScarfStripedGreen
+  equipment:
+    neck: ClothingNeckScarfStripedGreen
+
+- type: loadout
+  id: ScarfStripedBlack
+  equipment:
+    neck: ClothingNeckScarfStripedBlack
+
+- type: loadout
+  id: ScarfStripedBrown
+  equipment:
+    neck: ClothingNeckScarfStripedBrown
+
+- type: loadout
+  id: ScarfStripedLightBlue
+  equipment:
+    neck: ClothingNeckScarfStripedLightBlue
+
+- type: loadout
+  id: ScarfStripedOrange
+  equipment:
+    neck: ClothingNeckScarfStripedOrange
+
+- type: loadout
+  id: ScarfStripedPurple
+  equipment:
+    neck: ClothingNeckScarfStripedPurple
+
+- type: loadout
+  id: ScarfStripedAce
+  equipment:
+    neck: ClothingNeckScarfStripedAce
+
+- type: loadout
+  id: ScarfStripedAro
+  equipment:
+    neck: ClothingNeckScarfStripedAro
+
+- type: loadout
+  id: ScarfStripedAroace
+  equipment:
+    neck: ClothingNeckScarfStripedAroace
+
+- type: loadout
+  id: ScarfStripedBiSexual
+  equipment:
+    neck: ClothingNeckScarfStripedBiSexual
+
+- type: loadout
+  id: ScarfStripedGay
+  equipment:
+    neck: ClothingNeckScarfStripedGay
+
+- type: loadout
+  id: ScarfStripedInter
+  equipment:
+    neck: ClothingNeckScarfStripedInter
+
+- type: loadout
+  id: ScarfStripedLesbian
+  equipment:
+    neck: ClothingNeckScarfStripedLesbian
+
+- type: loadout
+  id: ScarfStripedPan
+  equipment:
+    neck: ClothingNeckScarfStripedPan
+
+- type: loadout
+  id: ScarfStripedNonBinary
+  equipment:
+    neck: ClothingNeckScarfStripedNonBinary
+
+- type: loadout
+  id: ScarfStripedRainbow
+  equipment:
+    neck: ClothingNeckScarfStripedRainbow
+
+- type: loadout
+  id: ScarfStripedTrans
+  equipment:
+    neck: ClothingNeckScarfStripedTrans
+
+- type: loadout
+  id: ScarfStripedLesbianLong
+  equipment:
+    neck: ClothingNeckScarfStripedLesbianLong

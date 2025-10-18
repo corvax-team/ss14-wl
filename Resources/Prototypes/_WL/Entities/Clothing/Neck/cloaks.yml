@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakLizard
+  name: Lizard cloak
+  description: Weh!
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/admin.rsi
+  - type: Construction
+    graph: ClothingNeckCloakLizard
+    node: cloak

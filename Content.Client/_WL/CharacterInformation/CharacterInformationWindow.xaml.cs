@@ -23,6 +23,7 @@ public sealed partial class CharacterInformationWindow : FancyWindow
         Tabs.SetTabTitle(0, Loc.GetString("character-information-ui-sprite"));
         Tabs.SetTabTitle(1, Loc.GetString("character-information-ui-flavor-text"));
         Tabs.SetTabTitle(2, Loc.GetString("character-information-ui-ooc-text"));
+        Tabs.SetTabTitle(3, Loc.GetString("character-information-ui-dynamic-text"));
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -58,6 +59,17 @@ public sealed partial class CharacterInformationWindow : FancyWindow
         {
             OocText.SetMessage("");
             OocTextLabel.Text = Loc.GetString("character-information-ui-no-ooc-text");
+        }
+
+        if (!string.IsNullOrEmpty(state.DynamicText))
+        {
+            DynamicText.SetMessage(state.DynamicText);
+            DynamicTextLabel.Text = Loc.GetString("character-information-ui-dynamic-text") + ":";
+        }
+        else
+        {
+            DynamicText.SetMessage("");
+            DynamicTextLabel.Text = Loc.GetString("character-information-ui-no-dynamic-text");
         }
 
         SetWidth = Size.X + 0.1f;

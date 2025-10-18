@@ -93,7 +93,9 @@ ent-SpawnPointERTJanitor = уборщик ОБР
     .desc = { ent-SpawnPointJobBase.desc }
 ent-SpawnPointReporter = репортёр
     .desc = { ent-SpawnPointJobBase.desc }
-ent-SpawnPointPsychologist = психолог
+# WL-change-psych
+ent-SpawnPointPsychologist = психотерапевт
     .desc = { ent-SpawnPointJobBase.desc }
+# WL-change-psych
 ent-SpawnPointZookeeper = зоотехник
     .desc = { ent-SpawnPointJobBase.desc }

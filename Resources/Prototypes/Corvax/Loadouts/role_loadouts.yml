@@ -8,12 +8,14 @@
   - CommonBackpack
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Engineering
 - type: roleLoadout
   id: JobSeniorEngineer
   groups:
+  - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - SeniorEngineerHead
   - SeniorEngineerJumpsuit
@@ -22,12 +24,14 @@
   - SeniorEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Science
 - type: roleLoadout
   id: JobSeniorResearcher
   groups:
+  - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - SeniorResearcherHead
   - SeniorResearcherJumpsuit
@@ -38,6 +42,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 # Security
@@ -53,6 +58,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -68,11 +74,13 @@
   - BrigmedicShoes
   - SurvivalMedical
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobSeniorOfficer
   groups:
+  - Inventory # Corvax-Loadouts
   - SeniorOfficerHead
   - SeniorOfficerJumpsuit
   - SeniorOfficerBackpack
@@ -81,6 +89,7 @@
   - SeniorOfficerBelt
   - SurvivalSecurity
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -88,6 +97,7 @@
 - type: roleLoadout
   id: JobSeniorPhysician
   groups:
+  - Inventory # Corvax-Loadouts
   - GroupTankHarness
   - SeniorPhysicianHead
   - MedicalMask
@@ -98,5 +108,8 @@
   - SeniorPhysicianShoes
   - Glasses
   - SurvivalMedical
+  - MedicalDoctorNeck # WL-Changes
+  - Utility # WL-Changes
   - Trinkets
+  - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathToolMedical

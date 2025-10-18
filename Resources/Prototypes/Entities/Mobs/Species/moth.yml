@@ -10,6 +10,7 @@
     hideLayersOnEquip:
     - HeadTop
   - type: Hunger
+    baseDecayRate: 0.024 # WL-Changes: hunger cpeed moth
   - type: Thirst
   - type: Icon
     sprite: Mobs/Species/Moth/parts.rsi
@@ -54,7 +55,7 @@
   - type: Flammable
     damage:
       types:
-        Heat: 4.5 # moths burn more easily
+        Heat: 2.5 # moths burn more easily
   - type: Temperature # Moths hate the heat and thrive in the cold.
     heatDamageThreshold: 320
     coldDamageThreshold: 230
@@ -99,13 +100,14 @@
       - map: [ "gloves" ]
       - map: [ "shoes" ]
       - map: [ "ears" ]
+      - map: [ "outerClothing" ] #WL-Change
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "id" ]
-      - map: [ "outerClothing" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "back" ]
       - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -172,6 +174,15 @@
           32:
             sprite: Mobs/Species/Moth/displacement.rsi
             state: shoes
+  #WL-Changes: Languages start
+  - type: Languages
+    speaking:
+      - Translate
+      - Weaver
+    understood:
+      - Translate
+      - Weaver
+  #WL-Changes: Languages end
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -1,4 +1,4 @@
-stack-steel =
+﻿stack-steel =
     { $amount ->
         [1] лист
         [few] листа
@@ -389,9 +389,10 @@ stack-xeno-steel-corner = стальной угловой ксенопол
 stack-xeno-maint = технический ксенопол
 stack-dark-squiggly = тёмная волнистая стальная плитка
 stack-large-wood-floor = большой деревянный пол
+stack-xenoborg = ксеноборг-плитка
 stack-red-circuit-floor = плитка красных микросхем
 stack-asteroid-astro-sand-floor = астро-песок астероида
-stack-white-marble-floor = white marble floor
-stack-dark-marble-floor = dark marble floor
-stack-plasma-marble-floor = plasmarble floor
-stack-uranium-marble-floor = uranium marble floor
+stack-white-marble-floor = белый мраморный пол
+stack-dark-marble-floor = чёрный мраморный пол
+stack-plasma-marble-floor = плазменный мраморный пол
+stack-uranium-marble-floor = урановый мраморный пол

@@ -50,7 +50,7 @@ loadout-group-chaplain-mask = Священник, маска
 loadout-group-chaplain-jumpsuit = Священник, комбинезон
 loadout-group-chaplain-outerclothing = Священник, верхняя одежда
 loadout-group-chaplain-neck = Священник, шея
-loadout-group-chaplain-bible = Holy Book
+loadout-group-chaplain-bible = Священная книга
 loadout-group-janitor-head = Уборщик, голова
 loadout-group-janitor-jumpsuit = Уборщик, комбинезон
 loadout-group-janitor-gloves = Уборщик, перчатки
@@ -165,6 +165,8 @@ loadout-group-paramedic-shoes = Парамедик, обувь
 loadout-group-medical-glasses = Медицинский отдел, очки
 # Wildcards
 loadout-group-reporter-jumpsuit = Репортёр, комбинезон
-loadout-group-psychologist-jumpsuit = Психолог, комбинезон
+# WL-change-psych
+loadout-group-psychologist-jumpsuit = Психотерапевт, комбинезон
+# WL-change-psych
 loadout-group-boxer-jumpsuit = Боксёр, комбинезон
 loadout-group-boxer-gloves = Боксёр, перчатки

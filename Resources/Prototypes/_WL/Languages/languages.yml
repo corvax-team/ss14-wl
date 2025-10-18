@@ -1,0 +1,566 @@
+- type: language
+  id: BaseLang
+  name: Base language
+  description: Base language description.
+  abstract: true
+  obfuscation:
+    !type:ReplacementObfuscation
+      replacement:
+      - base
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: default
+
+- type: language
+  id: Translate
+  name: language-translate
+  description: language-translate-desc
+  obfuscation:
+    !type:WordsReplacementObfuscation
+      replacement:
+        - Lorem
+        - ipsum
+        - dolor
+        - sit
+        - amet
+        - consectetur
+        - adipisci
+        - elit
+        - sed
+        - eiusmod
+        - tempor
+        - incidunt
+        - ut
+        - labore
+        - et
+        - dolore
+        - magna
+        - aliqua
+        - Ut
+        - enim
+        - ad
+        - minim
+        - veniam
+        - quis
+        - nostru
+        - exercitatione
+        - ulla
+        - corpori
+        - suscipi
+        - laboriosa
+        - nisi
+        - ut
+        - aliquid
+        - ex
+        - ea
+        - commodi
+        - consequatur
+        - Quis
+        - aute
+        - iure
+        - reprehenderit
+        - in
+        - voluptate
+        - velit
+        - esse
+        - cillu
+        - dolore
+        - e
+        - fugia
+        - nulla
+        - pariatu
+        - Excepteur
+        - sin
+        - obcaeca
+        - cupidita
+        - no
+        - proiden
+        - sunt
+        - in
+        - culpa
+        - qui
+        - officia
+        - deserunt
+        - mollit
+        - anim
+        - id
+        - est
+        - laborum
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: translate
+
+- type: language
+  id: SintaUnati
+  name: language-unati
+  description: language-unati-desc
+  color: '#ede028'
+  obfuscation:
+    !type:WordsReplacementObfuscation
+      replacement:
+      - weh
+      - sswah
+      - hassi
+      - shis
+      - khwasi
+      - ashwa
+      - ihhsa
+      - assihi
+      - hissa
+      - essewa
+      - wssahhi
+      - ehess
+      - hesso
+      - awsssai
+      - essewa
+      - ssihisa
+      - shirskl
+      - so
+      - tsso
+      - tesso
+      - asi
+      - attater
+      - weh
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: unati
+
+- type: language
+  id: OldEarth
+  name: language-oldearth
+  description: language-oldearth-desc
+  color: "#5fff33"
+  obfuscation:
+    !type:Utf16ReplacementObfuscation
+      utf16start: 224
+      utf16end: 382
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: human
+
+- type: language
+  id: Kuniluc
+  name: language-vulpa
+  description: language-vulpa-desc
+  color: '#cccc00'
+  obfuscation:
+    !type:Utf16ReplacementObfuscation
+      utf16start: 224
+      utf16end: 382
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: vulpa
+
+- type: language
+  id: Sarengis
+  name: language-sareng
+  description: language-sareng-desc
+  color: '#ff644d'
+  obfuscation:
+    !type:Utf16ReplacementObfuscation
+      utf16start: 902
+      utf16end: 1023
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: sareng
+
+- type: language
+  id: Weaver
+  name: language-weaver
+  description: language-weaver-desc
+  color: '#f5ee8c'
+  obfuscation:
+    !type:EmoteObfuscation
+      replacement:
+      - пищит
+      - щебечет
+      - щебечет и двигает усиками
+      - щебечет и активно двигает тельцем
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: nian
+
+- type: language
+  id: Ternary
+  name: language-ternary
+  description: language-ternary-desc
+  color: '#03b5fc'
+  obfuscation:
+    !type:WordsReplacementObfuscation
+      replacement:
+        - 10311
+        - 98829
+        - 99310
+        - 42022
+        - 84838
+        - 60309
+        - 83291
+        - 70628
+        - 88495
+        - 30430
+        - 43297
+        - 48779
+        - 68076
+        - 59684
+        - 11461
+        - 70411
+        - 44382
+        - 28641
+        - 13875
+        - 52119
+        - 27345
+        - 71506
+        - 06325
+        - 51616
+        - 32391
+        - 83375
+        - 43937
+        - 34642
+        - 65051
+        - 70807
+        - 45280
+        - 39375
+        - 38312
+        - 02117
+        - 34074
+        - 61154
+        - 78798
+        - 90837
+        - 72628
+        - 75539
+        - 60116
+        - 46365
+        - 09299
+        - 46132
+        - 88259
+        - 39487
+        - 60187
+        - 03819
+        - 71734
+        - 61300
+        - 61087
+        - 55564
+        - 26275
+        - 33827
+        - 08628
+        - 45989
+        - 50340
+        - 79929
+        - 08618
+        - 29480
+        - 72134
+        - 78613
+        - 59936
+        - 99946
+        - 32062
+        - 15784
+        - 53976
+        - 12919
+        - 05983
+        - 36339
+        - 79365
+        - 63538
+        - 36499
+        - 58654
+        - 70521
+        - 13224
+        - 17784
+        - 54165
+        - 30648
+        - 32605
+        - 23628
+        - 02427
+        - 84997
+        - 04908
+        - 03597
+        - 83512
+        - 44050
+        - 93158
+        - 21050
+        - 62023
+        - 63968
+        - 27535
+        - 50668
+        - 14320
+        - 29348
+        - 45211
+        - 51585
+        - 74396
+        - 84085
+        - 72373
+        - 08339
+        - 72517
+        - 05326
+        - 35234
+        - 96677
+        - 55589
+        - 51635
+        - 78113
+        - 17181
+        - 48969
+        - 54385
+        - 34018
+        - 88564
+        - 11243
+        - 92234
+        - 53587
+        - 78164
+        - 74696
+        - 57049
+        - 86410
+        - 84246
+        - 22695
+        - 90534
+        - 06773
+        - 13854
+        - 29795
+        - 07151
+        - 93874
+        - 72665
+        - 72883
+        - 54123
+        - 42150
+        - 61165
+        - 84583
+        - 04386
+        - 86841
+        - 53209
+        - 33804
+        - 70502
+        - 45391
+        - 93911
+        - 03431
+        - 47635
+        - 05848
+        - 42269
+        - 19299
+        - 51619
+        - 52978
+        - 14605
+        - 11834
+        - 42813
+        - 89371
+        - 51782
+        - 39066
+        - 03984
+        - 11156
+        - 52364
+        - 60715
+        - 27187
+        - 32463
+        - 02969
+        - 48475
+        - 71767
+        - 45534
+        - 10326
+        - 91908
+        - 51433
+        - 91584
+        - 61318
+        - 79784
+        - 99843
+        - 52747
+        - 77295
+        - 30495
+        - 47329
+        - 60030
+        - 50265
+        - 08528
+        - 32976
+        - 99845
+        - 54638
+        - 62458
+        - 28685
+        - 43809
+        - 38634
+        - 48588
+        - 60196
+        - 37506
+        - 29462
+        - 79302
+        - 42186
+        - 69502
+        - 99083
+        - 89996
+        - 90369
+        - 41268
+        - 07338
+        - 70401
+        - 18937
+        - 35498
+        - 35306
+        - 89625
+        - 10176
+        - 41383
+        - 28993
+        - 84038
+        - 22094
+        - 94154
+        - 01912
+        - 31637
+        - 44998
+        - 44414
+        - 83394
+        - 74918
+        - 70462
+        - 21438
+        - 81348
+        - 76507
+        - 88167
+        - 48255
+        - 17958
+        - 51438
+        - 69573
+        - 76738
+        - 07055
+        - 53477
+        - 27465
+        - 08310
+        - 13504
+        - 28941
+        - 62486
+        - 04183
+        - 20943
+        - 56271
+        - 92416
+        - 81318
+        - 54677
+        - 15773
+        - 17110
+        - 97267
+        - 63841
+        - 66442
+        - 25008
+        - 66728
+        - 77782
+        - 38596
+        - 37780
+        - 49386
+        - 18932
+        - 00460
+        - 02095
+        - 98463
+        - 42291
+        - 85014
+        - 97289
+        - 63290
+        - 38517
+        - 89040
+        - 72680
+        - 20164
+        - 25987
+        - 69599
+        - 41401
+        - 59840
+        - 60672
+        - 25779
+        - 92115
+        - 73971
+        - 95876
+        - 60687
+        - 45804
+        - 13514
+        - 31450
+        - 32727
+        - 74092
+        - 56074
+        - 75866
+        - 69518
+        - 91749
+        - 26941
+        - 76456
+        - 80012
+        - 14846
+        - 54042
+        - 01816
+        - 68199
+        - 11360
+        - 74512
+        - 34789
+        - 46676
+        - 52755
+        - 83944
+        - 50867
+        - 54116
+        - 99063
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: android
+
+- type: language
+  id: RootSpeak
+  name: language-rootspeak
+  description: language-rootspeak-desc
+  color: '#309100'
+  obfuscation:
+    !type:EmoteObfuscation
+      replacement:
+      - шуршит
+      - трещит ветками
+      - трясёт лозами и листьями
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: diona
+
+- type: language
+  id: VoxPigin
+  name: language-vox
+  description: language-vox-desc
+  color: '#8c6500'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+      replacement:
+        - г
+        - з
+        - с
+        - ф
+        - дх
+        - а
+        - ра
+        - и
+        - ии
+        - ка
+        - к
+        - ц
+        - рр
+        - са
+        - а
+        - х
+        - кс
+        - г
+        - скр
+        - ск
+        - кр
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: vox
+
+
+- type: entity
+  parent: MobDebugRandomCounter
+  id: MobDebugCounterLanguageSmart
+  name: language tester
+  description: He can language
+  suffix: DEBUG, LANG
+  components:
+    - type: Languages
+      understood:
+        - Translate
+        - OldEarth
+        - SintaUnati
+        - Sarengis
+        - Weaver
+        - Ternary
+        - RootSpeak
+        - VoxPigin
+        - Kuniluc
+      speaking:
+        - Translate
+        - OldEarth
+        - SintaUnati
+        - Sarengis
+        - Weaver
+        - Ternary
+        - RootSpeak
+        - VoxPigin
+        - Kuniluc

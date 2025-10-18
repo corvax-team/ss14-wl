@@ -1,0 +1,11 @@
+- type: entity
+  id: SpawnPointAdjutant
+  parent: SpawnPointJobBase
+  name: adjutant
+  components:
+  - type: SpawnPoint
+    job_id: Adjutant
+  - type: Sprite
+    layers:
+      - state: green
+      - state: adjutant

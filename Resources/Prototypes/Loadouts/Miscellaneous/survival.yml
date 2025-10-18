@@ -30,6 +30,7 @@
     - Murine
     #WL-Changes-end
     #Corvax-Species-Start
+    - CorvaxVulpkanin
     - Vulpkanin
     - Tajaran
     #Corvax-Species-End
@@ -90,6 +91,11 @@
     - Dwarf
     - Human
     - Reptilian
+    #Corvax-Species-Start
+    - Vulpkanin
+    - CorvaxVulpkanin
+    - Tajaran
+    #Corvax-Species-End
 
 - type: loadoutEffectGroup
   id: OxygenBreatherMimeMoth

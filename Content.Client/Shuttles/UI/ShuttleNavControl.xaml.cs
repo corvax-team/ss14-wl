@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._WL.Shuttles; //WL-Changes : Radar Markers
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
@@ -40,6 +41,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
     public bool ShowIFF { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
+    public bool ShowMarkers { get; set; } = true; //WL-Changes : Radar Markers
     public bool RotateWithEntity { get; set; } = true;
 
     /// <summary>
@@ -290,6 +292,23 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             }
         }
 
+        // WL-Changes-start : Radar Markers
+        if (ShowMarkers)
+        {
+            var markers = EntManager.EntityQueryEnumerator<RadarMarkerComponent>();
+
+            while (markers.MoveNext(out var uid, out var marker))
+            {
+                if (marker == null || !marker.Visible)
+                    continue;
+
+                var p = Vector2.Transform(_transform.GetWorldPosition(uid, xformQuery), worldToShuttle * shuttleToView);
+
+                handle.DrawCircle(p, marker.Size * MinimapScale, marker.Color.WithAlpha(50), filled: true);
+                handle.DrawCircle(p, marker.Size * MinimapScale, marker.Color.WithAlpha(255), filled: false);
+            }
+        }
+        // WL-Changes-end : Radar Markers
     }
 
     private void DrawDocks(DrawingHandleScreen handle, EntityUid uid, Matrix3x2 gridToView)
@@ -308,7 +327,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             -dockRadius * UIScale,
             (Size.X + dockRadius) * UIScale,
             (Size.Y + dockRadius) * UIScale);
-        
+
         if (_docks.TryGetValue(nent, out var docks))
         {
             foreach (var state in docks)
@@ -321,7 +340,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                     continue;
                 }
 
-                var color = Color.ToSrgb(Color.Magenta);
+                var color = Color.ToSrgb(state.HighlightedColor);
 
                 var verts = new[]
                 {

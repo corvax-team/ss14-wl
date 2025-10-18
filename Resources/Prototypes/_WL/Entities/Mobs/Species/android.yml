@@ -82,6 +82,12 @@
     state: full
   - type: Sprite
     sprite: _WL/Mobs/Species/Android/parts.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.AndroidLightVisuals.Enabled:
+        AndroidSensors-sensors:
+          True: { shader: unshaded }
+          False: { shader: shaded }
   - type: Temperature
     heatDamageThreshold: 460
     coldDamageThreshold: 270.3 #293.3 предел
@@ -111,9 +117,9 @@
     damageModifierSet: BioRobotic
   - type: Vocal
     sounds:
-      Male: MaleHuman
-      Female: FemaleHuman
-      Unsexed: MaleHuman
+      Male: MaleAndroid
+      Female: FemaleAndroid
+      Unsexed: MaleAndroid
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
@@ -192,7 +198,8 @@
         locked: false
         insertOnInteract: true
   - type: InteractionPopup
-    successChance: 0
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: ItemToggle
     activated: true
     onUse: false
@@ -215,6 +222,14 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+    - AnomalyHost
+  - type: Languages
+    speaking:
+      - Translate
+      - Ternary
+    understood:
+      - Translate
+      - Ternary
 
 - type: entity
   save: false
@@ -226,3 +241,11 @@
   components:
   - type: HumanoidAppearance
     species: Android
+
+- type: entity
+  id: AndroidLightMarker
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: false

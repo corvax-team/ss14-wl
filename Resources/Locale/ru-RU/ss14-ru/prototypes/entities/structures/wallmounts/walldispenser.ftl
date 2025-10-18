@@ -1,4 +1,4 @@
 ent-CleanerDispenser = раздатчик космического очистителя
-    .desc = Настенный дозатор реагентов.
+    .desc = { ent-BaseDispenser.desc }
 ent-FuelDispenser = раздатчик сварочного топлива
-    .desc = { ent-CleanerDispenser.desc }
+    .desc = { ent-BaseDispenser.desc }

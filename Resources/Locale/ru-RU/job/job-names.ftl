@@ -10,7 +10,9 @@ job-name-scientist = учёный
 job-name-research-assistant = студент-учёный
 # WL-Changes-end
 job-name-rd = научный руководитель
-job-name-psychologist = психолог
+# WL-change-psych-start
+job-name-psychologist = психотерапевт
+# WL-change-psych-end
 job-name-intern = интерн
 job-name-doctor = врач
 job-name-paramedic = парамедик
@@ -51,7 +53,7 @@ job-name-ertjanitor = уборщик ОБР
 job-name-boxer = боксёр
 job-name-zookeeper = зоотехник
 job-name-visitor = посетитель
-job-name-cluwne = Cluwne
+job-name-cluwne = клувень
 # unused jobs
 # these are required for the agent ID job icon tooltips
 # I am keeping them for roleplaying opportunities
@@ -101,7 +103,9 @@ JobMime = мим
 JobMusician = музыкант
 JobParamedic = парамедик
 JobPassenger = пассажир
-JobPsychologist = психолог
+# WL-change-psych
+JobPsychologist = психотерапевт
+# WL-change-psych
 JobQuartermaster = квартирмейстер
 JobReporter = репортёр
 JobResearchAssistant = научный ассистент

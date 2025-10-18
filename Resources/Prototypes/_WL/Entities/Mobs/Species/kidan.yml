@@ -29,6 +29,13 @@
     - type: IntrinsicRadioTransmitter
       channels:
       - Hitin
+  #WL-Changes: Languages start
+    - type: Languages
+      speaking:
+        - Translate
+      understood:
+        - Translate
+  #WL-Changes: Languages end
 
 - type: entity
   save: false

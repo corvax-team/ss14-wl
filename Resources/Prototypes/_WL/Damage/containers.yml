@@ -7,7 +7,6 @@
     - Heat
     - Shock
     - Caustic
-    - Radiation
 
 - type: damageContainer
   id: Golemical

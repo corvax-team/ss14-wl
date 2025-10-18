@@ -13,6 +13,9 @@
                 <BoxContainer Orientation="Vertical" VerticalAlignment="Top">
                     <Label Name="NameLabel" Access="Public"/>
                     <Label Name="SubText" VerticalAlignment="Top" StyleClasses="LabelSubText" Access="Public"/>
+                    <!--WL-Change-Start-->
+                    <Button Access="Public" Name="DynamicTextButton" Text="{Loc 'character-info-dynamic-text-button'}"/>
+                    <!--WL-Change-End-->
                 </BoxContainer>
             </BoxContainer>
             <!-- WL-Skills-start -->

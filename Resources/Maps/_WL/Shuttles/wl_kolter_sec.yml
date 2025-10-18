@@ -103,9 +103,7 @@ entities:
     - type: MetaData
       name: NT "Ледокол" PR-030
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -30.499998,41.46875
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:

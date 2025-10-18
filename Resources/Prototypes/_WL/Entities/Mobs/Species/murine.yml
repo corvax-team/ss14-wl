@@ -53,7 +53,13 @@
     speechVerb: SmallMob
     audioParams:
       volume: -5
-
+  #WL-Changes: Languages start
+  - type: Languages
+    speaking:
+      - Translate
+    understood:
+      - Translate
+  #WL-Changes: Languages end
 
 - type: entity
   save: false

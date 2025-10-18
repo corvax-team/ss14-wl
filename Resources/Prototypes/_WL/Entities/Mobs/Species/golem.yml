@@ -119,7 +119,7 @@
       sweatHeatRegulation: 0
       shiveringHeatRegulation: 50000
       normalBodyTemperature: 334
-      thermalRegulationTemperatureThreshold: 50000
+      thermalRegulationTemperatureThreshold: 7
     - type: Tool
       speedModifier: 2
       qualities:
@@ -238,7 +238,11 @@
       damageRecovery:
         types:
           Asphyxiation: -100
-
+    - type: Languages
+      speaking:
+        - Translate
+      understood:
+        - Translate
 
 - type: entity
   save: false
@@ -249,3 +253,27 @@
   components:
     - type: HumanoidAppearance
       species: Golem
+    - type: Inventory
+      speciesId: reptilian
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit-female
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: shoes
+      displacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: shoes

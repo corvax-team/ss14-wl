@@ -6,3 +6,12 @@
   components:
   - type: Sprite
     sprite: _WL/Clothing/Back/Duffels/hop.rsi
+
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseCommandContraband]
+  id: ClothingBackpackDuffelAdjutant
+  name: adjutant duffel backpack
+  description: In this backpack, I want to say "Papers, please."
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Back/Duffels/aidedecamp.rsi

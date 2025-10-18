@@ -140,8 +140,15 @@ public sealed class WLCVars
         CVarDef.Create("vote.evacuation_shuttle_vote_time", 40, CVar.SERVERONLY);
 
     /*
-      * Skills
-      */
+     * Ic
+     */
+
+    public static readonly CVarDef<int> MaxDynamicTextLength =
+        CVarDef.Create("ic.dynamic_text_length", 1024, CVar.SERVER | CVar.REPLICATED);
+
+    /*
+     * Skills
+     */
     /// <summary>
     /// ГАНС! ЕСЛИ ОНИ ВДРУГ НЕ НУЖНЫ ТО ПЕРЕКЛЮЧИ ПЕРЕКЛЮЧАТЕЛЬ!!!
     /// </summary>
