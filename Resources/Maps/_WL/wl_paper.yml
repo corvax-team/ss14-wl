@@ -14,8 +14,7 @@ grids:
 - 16722
 - 17033
 orphans: []
-nullspace:
-- 17467
+nullspace: []
 tilemap:
   0: Space
   7: FloorAsteroidSand
