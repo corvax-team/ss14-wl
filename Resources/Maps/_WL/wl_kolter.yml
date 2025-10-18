@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/18/2025 00:31:57
-  entityCount: 28072
+  time: 10/18/2025 00:51:52
+  entityCount: 28077
 maps:
 - 1
 grids:
@@ -36567,8 +36567,8 @@ entities:
       pos: -28.5,41.5
       parent: 2
     - type: GridFill
-      path: /Resources/Maps/_WL/Shuttles/wl_kolter_sec.yml
       addComponents: []
+      path: /Resources/Maps/_WL/Shuttles/wl_kolter_sec.yml
   - uid: 25589
     components:
     - type: Transform
@@ -37264,7 +37264,7 @@ entities:
       pos: 17.5,2.5
       parent: 26755
     - type: Door
-      secondsUntilStateChange: -105607.72
+      secondsUntilStateChange: -105644.93
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -150213,6 +150213,31 @@ entities:
     components:
     - type: Transform
       pos: -0.5,10.5
+      parent: 2
+  - uid: 21939
+    components:
+    - type: Transform
+      pos: -10.5,5.5
+      parent: 2
+  - uid: 21940
+    components:
+    - type: Transform
+      pos: 2.5,18.5
+      parent: 2
+  - uid: 21941
+    components:
+    - type: Transform
+      pos: 20.5,14.5
+      parent: 2
+  - uid: 21942
+    components:
+    - type: Transform
+      pos: -1.5,-3.5
+      parent: 2
+  - uid: 21943
+    components:
+    - type: Transform
+      pos: -4.5,0.5
       parent: 2
 - proto: SpawnPointPilot
   entities:
