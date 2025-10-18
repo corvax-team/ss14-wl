@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.1.0
   forkId: ""
   forkVersion: ""
-  time: 10/18/2025 00:40:55
-  entityCount: 17469
+  time: 10/18/2025 13:24:23
+  entityCount: 17467
 maps:
 - 1
 grids:
@@ -16,8 +16,6 @@ grids:
 orphans: []
 nullspace:
 - 17467
-- 17468
-- 17469
 tilemap:
   0: Space
   7: FloorAsteroidSand
@@ -13207,18 +13205,6 @@ entities:
     - type: Transform
       pos: 41.437187,78.704544
       parent: 2
-  - uid: 17467
-    components:
-    - type: Transform
-      pos: 41.406197,78.64009
-    - type: Physics
-      canCollide: False
-  - uid: 17468
-    components:
-    - type: Transform
-      pos: 41.406197,78.64009
-    - type: Physics
-      canCollide: False
 - proto: AirAlarmFreezer
   entities:
   - uid: 180
@@ -13470,7 +13456,7 @@ entities:
       pos: 45.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34462.867
+      secondsUntilStateChange: -34470.57
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -88717,7 +88703,6 @@ entities:
     components:
     - type: Transform
       parent: 11110
-    - type: UserInterface
     - type: Physics
       canCollide: False
     - type: ActiveUserInterface
@@ -100374,7 +100359,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 41.655937,78.45674
       parent: 2
-  - uid: 17469
+  - uid: 17467
     components:
     - type: Transform
       pos: 41.406197,78.64009
@@ -107687,8 +107672,6 @@ entities:
           occludes: True
           ents:
           - 17467
-          - 17468
-          - 17469
 - proto: TowelColorGreen
   entities:
   - uid: 13881
