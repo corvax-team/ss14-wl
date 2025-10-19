@@ -278,7 +278,7 @@
     availableModes:
     - SemiAuto
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
+    proto: RedLaser # Corvax-WL-Fix
     fireCost: 62.5
   - type: StaticPrice
     price: 300
@@ -292,7 +292,7 @@
   - type: StaticPrice
     price: 420
   - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
+    proto: RedLaserPractice # Corvax-WL-Fix
     fireCost: 62.5
   - type: PacifismAllowedGun
 # WL-Changes components Start
