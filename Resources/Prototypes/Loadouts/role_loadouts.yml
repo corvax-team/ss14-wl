@@ -2,7 +2,7 @@
 - type: roleLoadout
   id: JobCaptain
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - CaptainHead
   - CaptainNeck
   - CaptainJumpsuit
@@ -16,7 +16,7 @@
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - HoPHead
   - HoPNeck
@@ -44,7 +44,7 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
@@ -62,7 +62,7 @@
 - type: roleLoadout
   id: JobBartender
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
@@ -77,7 +77,7 @@
 - type: roleLoadout
   id: JobServiceWorker
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
@@ -90,7 +90,7 @@
 - type: roleLoadout
   id: JobChef
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ChefHead
   - ChefMask
@@ -106,7 +106,7 @@
 - type: roleLoadout
   id: JobLibrarian
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
@@ -119,7 +119,7 @@
 - type: roleLoadout
   id: JobLawyer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
@@ -133,7 +133,7 @@
 - type: roleLoadout
   id: JobChaplain
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ChaplainHead
   - ChaplainMask
@@ -151,7 +151,7 @@
 - type: roleLoadout
   id: JobJanitor
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - JanitorHead
   - JanitorJumpsuit
@@ -168,7 +168,7 @@
 - type: roleLoadout
   id: JobBotanist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - BotanistHead
   - BotanistJumpsuit
@@ -184,7 +184,7 @@
   id: JobClown
   canCustomizeName: true
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ClownHead
   - ClownJumpsuit
@@ -200,7 +200,7 @@
   id: JobMime
   canCustomizeName: true
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MimeHead
   - MimeMask
@@ -216,7 +216,7 @@
 - type: roleLoadout
   id: JobMusician
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
@@ -232,7 +232,7 @@
 - type: roleLoadout
   id: JobQuartermaster
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
@@ -249,7 +249,7 @@
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
@@ -266,7 +266,7 @@
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
@@ -281,7 +281,7 @@
 - type: roleLoadout
   id: JobChiefEngineer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
@@ -297,7 +297,7 @@
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
@@ -309,7 +309,7 @@
 - type: roleLoadout
   id: JobStationEngineer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - StationEngineerHead
   - StationEngineerJumpsuit
@@ -325,7 +325,7 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
@@ -341,7 +341,7 @@
 - type: roleLoadout
   id: JobResearchDirector
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
@@ -359,7 +359,7 @@
 - type: roleLoadout
   id: JobScientist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ScientistHead
   - ScientistNeck
@@ -378,7 +378,7 @@
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
@@ -392,7 +392,7 @@
 - type: roleLoadout
   id: JobHeadOfSecurity
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
@@ -409,7 +409,7 @@
 - type: roleLoadout
   id: JobWarden
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
@@ -425,7 +425,7 @@
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
@@ -442,7 +442,7 @@
 - type: roleLoadout
   id: JobDetective
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - DetectiveHead
   - DetectiveNeck
   - DetectiveJumpsuit
@@ -458,7 +458,7 @@
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
@@ -470,7 +470,7 @@
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
@@ -484,14 +484,14 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - Utility # WL-Changes
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
@@ -512,7 +512,7 @@
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
@@ -526,7 +526,7 @@
 - type: roleLoadout
   id: JobChemist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MedicalMask
   - ChemistJumpsuit
@@ -542,7 +542,7 @@
 - type: roleLoadout
   id: JobParamedic
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ParamedicHead
   - MedicalMask
@@ -561,7 +561,7 @@
 - type: roleLoadout
   id: JobZookeeper
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - CommonBackpack
   - Glasses
@@ -573,7 +573,7 @@
 - type: roleLoadout
   id: JobReporter
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ReporterJumpsuit
   - CommonBackpack
@@ -586,7 +586,7 @@
 - type: roleLoadout
   id: JobPsychologist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
@@ -599,7 +599,7 @@
 - type: roleLoadout
   id: JobBoxer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
