@@ -642,7 +642,24 @@ namespace Content.Shared.Preferences
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (!_jobSubnames.SequenceEqual(other._jobSubnames)) return false; // WL-JobSubnames
             if (!_jobUnblockings.SequenceEqual(other._jobUnblockings)) return false; // WL-Changes
-            if (Skills != other.Skills) return false; // WL-Skills
+            // WL-Skills-start
+            if (Skills.Count != other.Skills.Count) return false;
+            foreach (var kv in Skills)
+            {
+                if (!other.Skills.TryGetValue(kv.Key, out var otherJobSkills))
+                    return false;
+
+                var jobSkills = kv.Value;
+                if (jobSkills.Count != otherJobSkills.Count)
+                    return false;
+
+                foreach (var inner in jobSkills)
+                {
+                    if (!otherJobSkills.TryGetValue(inner.Key, out var otherLevel) || otherLevel != inner.Value)
+                        return false;
+                }
+            }
+            // WL-Skills-end
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -991,7 +1008,20 @@ namespace Content.Shared.Preferences
             hashCode.Add(MedicalRecord);
             hashCode.Add(SecurityRecord);
             hashCode.Add(EmploymentRecord);
-            hashCode.Add(Skills);
+            unchecked
+            {
+                var skillsHash = 0;
+                foreach (var jobKv in Skills.OrderBy(k => k.Key))
+                {
+                    var innerHash = 0;
+                    foreach (var sk in jobKv.Value.OrderBy(k => k.Key))
+                    {
+                        innerHash = HashCode.Combine(innerHash, sk.Key.GetHashCode(), sk.Value.GetHashCode());
+                    }
+                    skillsHash = HashCode.Combine(skillsHash, jobKv.Key.GetHashCode(), innerHash);
+                }
+                hashCode.Add(skillsHash);
+            }
             //WL-Changes-end
 
             return hashCode.ToHashCode();

@@ -4,7 +4,6 @@ using Content.Shared._WL.Skills;
 using Content.Shared._WL.Skills.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
-using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
