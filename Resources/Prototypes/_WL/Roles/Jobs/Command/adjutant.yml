@@ -40,11 +40,13 @@
 - type: chameleonOutfit
   id: AdjutantChameleonOutfit
   job: Adjutant
+  hasMindShield: true
   equipment:
     eyes: ClothingEyesHudCommand
     mask: ClothingMaskBreath
-    outerClothing: ClothingOuterWinterColorLightBrown
+    outerClothing: ClothingOuterWinterAdjutant
     neck: ClothingNeckScarfStripedBrown
     belt: ClothingBeltStorageWaistbag
     gloves: ClothingHandsGlovesColorBlack
     back: ClothingBackpackAdjutant
+    head: ClothingHeadHatBeretAdjutant

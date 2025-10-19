@@ -50,6 +50,6 @@
     head: ClothingHeadHatBeretSecurityMedic
     eyes: ClothingEyesHudMedSec
     mask: ClothingMaskBreathMedicalSecurity
-    outerClothing: ClothingUniformJumpsuitBrigmedic #верхняя одежда
+    outerClothing: ClothingOuterCoatAMG #верхняя одежда # Corvax-WL-Tweak
     neck: ClothingNeckScarfStripedRed #шея
     gloves: ClothingHandsGlovesLatex # перчи

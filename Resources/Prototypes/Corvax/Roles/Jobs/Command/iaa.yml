@@ -49,7 +49,9 @@
   equipment:
     head: ClothingHeadHatBowlerHat
     eyes: ClothingEyesGlassesSunglasses
-    outerClothing: ClothingUniformJumpsuitLawyerBlack
-    neck: ClothingNeckScarfStripedBlue
+    # Corvax-WL-Tweak-Start
+    outerClothing: ClothingOuterCoatDetectiveDark
+    neck: ClothingNeckLawyerbadge
+    # Corvax-WL-Tweak-End
     gloves: ClothingHandsGlovesColorWhite
     mask: ClothingMaskBreath

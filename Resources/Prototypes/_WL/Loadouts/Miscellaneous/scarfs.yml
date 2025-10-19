@@ -1,101 +1,121 @@
 # Basic options
 # Scarfs
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedRed
   equipment:
     neck: ClothingNeckScarfStripedRed
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedBlue
   equipment:
     neck: ClothingNeckScarfStripedBlue
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedGreen
   equipment:
     neck: ClothingNeckScarfStripedGreen
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedBlack
   equipment:
     neck: ClothingNeckScarfStripedBlack
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedBrown
   equipment:
     neck: ClothingNeckScarfStripedBrown
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedLightBlue
   equipment:
     neck: ClothingNeckScarfStripedLightBlue
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedOrange
   equipment:
     neck: ClothingNeckScarfStripedOrange
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedPurple
   equipment:
     neck: ClothingNeckScarfStripedPurple
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedAce
   equipment:
     neck: ClothingNeckScarfStripedAce
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedAro
   equipment:
     neck: ClothingNeckScarfStripedAro
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedAroace
   equipment:
     neck: ClothingNeckScarfStripedAroace
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedBiSexual
   equipment:
     neck: ClothingNeckScarfStripedBiSexual
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedGay
   equipment:
     neck: ClothingNeckScarfStripedGay
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedInter
   equipment:
     neck: ClothingNeckScarfStripedInter
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedLesbian
   equipment:
     neck: ClothingNeckScarfStripedLesbian
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedPan
   equipment:
     neck: ClothingNeckScarfStripedPan
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedNonBinary
   equipment:
     neck: ClothingNeckScarfStripedNonBinary
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedRainbow
   equipment:
     neck: ClothingNeckScarfStripedRainbow
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedTrans
   equipment:
     neck: ClothingNeckScarfStripedTrans
 
 - type: loadout
+  groupBy: "Scarfs"
   id: ScarfStripedLesbianLong
   equipment:
     neck: ClothingNeckScarfStripedLesbianLong

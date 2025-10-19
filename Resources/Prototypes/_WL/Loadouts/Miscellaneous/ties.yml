@@ -1,50 +1,60 @@
 # Ties
 - type: loadout
+  groupBy: "Ties"
   id: TieRed
   equipment:
     neck: ClothingNeckTieRed
 
 - type: loadout
+  groupBy: "Ties"
   id: TieBlue
   equipment:
     neck: ClothingNeckTieBlue
 
 - type: loadout
+  groupBy: "Ties"
   id: TieGreen
   equipment:
     neck: ClothingNeckTieGreen
 
 - type: loadout
+  groupBy: "Ties"
   id: TieGray
   equipment:
     neck: ClothingNeckTieGray
 
 - type: loadout
+  groupBy: "Ties"
   id: TieYellow
   equipment:
     neck: ClothingNeckTieYellow
 
 - type: loadout
+  groupBy: "Ties"
   id: TieLightBlue
   equipment:
     neck: ClothingNeckTieLightBlue
 
 - type: loadout
+  groupBy: "Ties"
   id: TieOrange
   equipment:
     neck: ClothingNeckTieOrange
 
 - type: loadout
+  groupBy: "Ties"
   id: TiePurple
   equipment:
     neck: ClothingNeckTiePurple
 
 - type: loadout
+  groupBy: "Ties"
   id: TiePink
   equipment:
     neck: ClothingNeckTiePink
 
 - type: loadout
+  groupBy: "Ties"
   id: TieRainbow
   equipment:
     neck: ClothingNeckTieRainbow
