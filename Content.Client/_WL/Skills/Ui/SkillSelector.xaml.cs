@@ -52,6 +52,7 @@ public sealed partial class SkillSelector : Control
         };
 
         UpdateButtonTexts();
+        SetupTooltips(skillType);
 
         SkillNameLabel.Text = Loc.GetString($"skill-{skillType.ToString().ToLower()}");
         SkillDescriptionLabel.Text = Loc.GetString($"skill-{skillType.ToString().ToLower()}-desc");
@@ -89,6 +90,19 @@ public sealed partial class SkillSelector : Control
         return _costs[levelIndex].ToString();
     }
 
+    private void SetupTooltips(SkillType skillType)
+    {
+        SetButtonTooltip(Level1Button, skillType, 1);
+        SetButtonTooltip(Level2Button, skillType, 2);
+        SetButtonTooltip(Level3Button, skillType, 3);
+        SetButtonTooltip(Level4Button, skillType, 4);
+    }
+
+    private void SetButtonTooltip(Button button, SkillType skillType, int level)
+    {
+        button.ToolTip = Loc.GetString($"skill-{skillType.ToString().ToLower()}-level-{level}-desc");
+    }
+
     public void UpdateAvailability(int unspentPoints, SharedSkillsSystem skillsSystem)
     {
         if (_isLocked)
@@ -108,6 +122,8 @@ public sealed partial class SkillSelector : Control
             var upgradeCost = CalculateTotalUpgradeCost(_currentLevel, targetLevel);
             button.Disabled = unspentPoints < upgradeCost;
         }
+
+        UpdateLevelButtonsAppearance();
     }
 
     private int CalculateTotalUpgradeCost(int fromLevel, int toLevel)
@@ -144,11 +160,7 @@ public sealed partial class SkillSelector : Control
     private void UpdateUI()
     {
         UpdateLevelButtons();
-
-        Level1Button.Disabled = _isLocked || _currentLevel <= 1;
-        Level2Button.Disabled = _isLocked || _currentLevel <= 2;
-        Level3Button.Disabled = _isLocked || _currentLevel <= 3;
-        Level4Button.Disabled = _isLocked || _currentLevel <= 4;
+        UpdateLevelButtonsAppearance();
 
         var paidSpent = GetPaidSpentCost();
         if (paidSpent > 0)
@@ -190,6 +202,48 @@ public sealed partial class SkillSelector : Control
         Level2Button.StyleClasses.Add(StyleNano.ButtonOpenBoth);
         Level3Button.StyleClasses.Add(StyleNano.ButtonOpenBoth);
         Level4Button.StyleClasses.Add(StyleNano.ButtonOpenLeft);
+    }
+
+    private void UpdateLevelButtonsAppearance()
+    {
+        for (int level = 1; level <= 4; level++)
+        {
+            var button = GetLevelButton(level);
+            if (button == null) continue;
+
+            button.RemoveStyleClass("SkillLevelDefault");
+            button.RemoveStyleClass("SkillLevelUpgraded");
+            button.RemoveStyleClass("SkillLevelNormal");
+            button.RemoveStyleClass("SkillLevelDefaultHover");
+            button.RemoveStyleClass("SkillLevelDefaultPressed");
+            button.RemoveStyleClass("SkillLevelUpgradedHover");
+            button.RemoveStyleClass("SkillLevelUpgradedPressed");
+            button.RemoveStyleClass("SkillLevelNormalHover");
+            button.RemoveStyleClass("SkillLevelNormalPressed");
+
+            if (button.Disabled)
+            {
+                continue;
+            }
+            else if (level <= _defaultLevel)
+            {
+                button.AddStyleClass("SkillLevelDefault");
+                button.AddStyleClass("SkillLevelDefaultHover");
+                button.AddStyleClass("SkillLevelDefaultPressed");
+            }
+            else if (level <= _currentLevel)
+            {
+                button.AddStyleClass("SkillLevelUpgraded");
+                button.AddStyleClass("SkillLevelUpgradedHover");
+                button.AddStyleClass("SkillLevelUpgradedPressed");
+            }
+            else
+            {
+                button.AddStyleClass("SkillLevelNormal");
+                button.AddStyleClass("SkillLevelNormalHover");
+                button.AddStyleClass("SkillLevelNormalPressed");
+            }
+        }
     }
 
     public void SetLevel(int level)

@@ -269,6 +269,7 @@ namespace Content.Client.Lobby.UI
                         .WithFlavorText(Rope.Collapse(_flavorTextEdit.TextRope).Trim())
                         .WithOocText(Rope.Collapse(_oocTextEdit.TextRope).Trim()); //WL-Changes
                 }
+                RefreshSkills(); // WL-Skills
                 Save?.Invoke();
             };
 
@@ -1142,6 +1143,66 @@ namespace Content.Client.Lobby.UI
         public void RefreshSkills()
         {
             _skillsWindow?.Dispose();
+
+            if (Profile == null)
+                return;
+
+            var skillsSystem = _entManager.System<SharedSkillsSystem>();
+            foreach (var (jobId, skills) in Profile.Skills.ToList())
+            {
+                if (!_prototypeManager.TryIndex<JobPrototype>(jobId, out var jobProto))
+                    continue;
+
+                var currentSkills = skills.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+                var defaultSkills = jobProto.DefaultSkills.ToDictionary(
+                    kvp => (byte)kvp.Key,
+                    kvp => kvp.Value
+                );
+
+                var bonusPoints = jobProto.BonusSkillPoints;
+                var racialBonus = CalculateRacialBonus(Profile.Species.Id, Profile.Age);
+                var totalPoints = bonusPoints + racialBonus;
+
+                var spentPoints = CalculateSpentPoints(skillsSystem, currentSkills, defaultSkills);
+
+                if (spentPoints > totalPoints)
+                {
+                    foreach (var (skillKey, defaultValue) in defaultSkills)
+                    {
+                        Profile = Profile.WithSkill(jobId, skillKey, defaultValue);
+                    }
+
+                    var skillsToReset = currentSkills.Keys.Except(defaultSkills.Keys).ToList();
+                    foreach (var skillKey in skillsToReset)
+                    {
+                        Profile = Profile.WithSkill(jobId, skillKey, 1);
+                    }
+
+                    SetDirty();
+                }
+            }
+        }
+
+        private int CalculateSpentPoints(SharedSkillsSystem skillsSystem, Dictionary<byte, int> currentSkills, Dictionary<byte, int> defaultSkills)
+        {
+            var spentPoints = 0;
+            foreach (var (skillKey, currentLevel) in currentSkills)
+            {
+                if (!Enum.IsDefined(typeof(SkillType), (SkillType)skillKey))
+                    continue;
+
+                var skillType = (SkillType)skillKey;
+                var defaultLevel = defaultSkills.GetValueOrDefault(skillKey, 1);
+
+                if (currentLevel > defaultLevel)
+                {
+                    var currentCost = skillsSystem.GetSkillTotalCost(skillType, currentLevel);
+                    var defaultCost = skillsSystem.GetSkillTotalCost(skillType, defaultLevel);
+                    spentPoints += currentCost - defaultCost;
+                }
+            }
+
+            return spentPoints;
         }
         // WL-Skills-end
 
