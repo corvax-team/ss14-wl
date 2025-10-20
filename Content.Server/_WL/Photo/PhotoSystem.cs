@@ -20,6 +20,9 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
 
+    //96 KB
+    const int MAX_WEIGHT = 1024 * 96;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -72,15 +75,10 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
 
     private void OnTakeImageMessage(EntityUid uid, PhotoCameraComponent component, PhotoCameraTakeImageMessage message)
     {
-        Console.WriteLine(message.Data.Length);
+        if (message.Data.Length > MAX_WEIGHT)
+            return;
 
-        if (_delay.IsDelayed(uid))
-            return false;
-
-        if (TryTakeImage(uid, component, message.Data))
-            _audio.PlayPvs(component.PhotoSound, uid);
-        else
-            _audio.PlayPvs(component.ErrorSound, uid);
+        TryTakeImage(uid, component, message.Data);
     }
 
     private void UpdateCameraInterface(EntityUid uid, PhotoCameraComponent component, EntityUid? player = null)
@@ -96,11 +94,17 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         UpdateCameraInterface(uid, component, component.User);
     }
 
-    private bool TryTakeImage(EntityUid uid, PhotoCameraComponent component, byte[] imageData)
+    private void TryTakeImage(EntityUid uid, PhotoCameraComponent component, byte[] imageData)
     {
+        if (_delay.IsDelayed(uid))
+            return;
+
         _delay.TryResetDelay(uid);
 
-        return PrintCard(uid, component, imageData);
+        if (PrintCard(uid, component, imageData))
+            _audio.PlayPvs(component.PhotoSound, uid);
+        else
+            _audio.PlayPvs(component.ErrorSound, uid);
     }
 
     private bool PrintCard(EntityUid uid, PhotoCameraComponent component, byte[] imageData)

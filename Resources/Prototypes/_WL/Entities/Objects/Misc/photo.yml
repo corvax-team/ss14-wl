@@ -2,7 +2,7 @@
   parent: [ BaseItem ]
   id: PhotoCamera
   name: "camera"
-  description: 'Say "Cheeese!"'
+  description: 'Say "Cheeese!", uses paper for printing'
   components:
   - type: Sprite
     sprite: _WL/Objects/Misc/camera.rsi
@@ -10,6 +10,7 @@
     - state: camera
   - type: Eye
   - type: PhotoCamera
+  - type: UseDelay
   - type: ActivatableUI
     key: enum.PhotoCameraUiKey.Key
   - type: UserInterface
