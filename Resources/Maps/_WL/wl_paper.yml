@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.2.0
   forkId: syndicate-wl
   forkVersion: 10d204611882dbc9486587a6c6f5f8078fa6a317
-  time: 10/20/2025 21:37:31
+  time: 10/20/2025 21:47:14
   entityCount: 17475
 maps:
 - 1
@@ -9639,7 +9639,8 @@ entities:
           13,18:
             1: 1911
           13,19:
-            1: 65535
+            1: 61439
+            7: 4096
           14,17:
             1: 48955
           14,18:
@@ -10252,6 +10253,11 @@ entities:
           temperature: 293.15
           moles:
             Plasma: 6666.982
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -13501,7 +13507,7 @@ entities:
       pos: 45.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -35691.547
+      secondsUntilStateChange: -35794.516
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -14330,6 +14336,8 @@ entities:
     - type: Transform
       pos: 62.5,6.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
 - proto: AirlockMaintDetectiveLocked
   entities:
   - uid: 336
@@ -15048,7 +15056,7 @@ entities:
   - uid: 452
     components:
     - type: Transform
-      pos: 52.5,76.5
+      pos: 52.5,79.5
       parent: 2
 - proto: AmePartFlatpack
   entities:
@@ -44711,7 +44719,7 @@ entities:
   - uid: 5868
     components:
     - type: Transform
-      pos: 52.5,79.5
+      pos: 52.5,76.5
       parent: 2
 - proto: CrateEngineeringAMEShielding
   entities:
@@ -87633,8 +87641,8 @@ entities:
   - uid: 11216
     components:
     - type: Transform
-      rot: -2.0943951023931953 rad
-      pos: 51.79924,76.84233
+      rot: -0.5235987755982988 rad
+      pos: 51.906456,78.113495
       parent: 2
   - uid: 11217
     components:
