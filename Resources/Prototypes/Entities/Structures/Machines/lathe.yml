@@ -210,6 +210,7 @@
     - Janitor
     - Instruments
     - Equipment
+    - Photo # WL-changes-photo
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
