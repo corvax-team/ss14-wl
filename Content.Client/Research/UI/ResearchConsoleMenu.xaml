@@ -8,11 +8,7 @@
     <BoxContainer Orientation="Vertical"
                   HorizontalExpand="True"
                   VerticalExpand="True">
-        <BoxContainer Orientation="Horizontal"
-                      HorizontalExpand="True"
-                      VerticalExpand="False"
-                      MinHeight="85"
-                      Margin="10">
+<BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="False" MinHeight="40" Margin="5"> <!-- CorvaxWL-No-Loc-T3-Fix -->
             <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
                 <RichTextLabel Name="ResearchAmountLabel"/>
                 <!-- <RichTextLabel Name="MainDisciplineLabel"/> -->  <!-- CorvaxWL change - No loc T3 -->

@@ -42,6 +42,15 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    Bureaucracy: 3
+    Eva: 3
+    Anatomy: 3
+    Chemistry: 2
+    Medicine: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: CMOGear

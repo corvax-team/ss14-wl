@@ -106,6 +106,7 @@ namespace Content.Server.Database
                 //WL-Changes-start
                 .Include(p => p.Profiles).ThenInclude(h => h.JobSubnames)
                 .Include(p => p.Profiles).ThenInclude(h => h.JobUnblockings)
+                .Include(p => p.Profiles).ThenInclude(h => h.JobSkills)
                 //WL-Changes-end
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
@@ -166,6 +167,7 @@ namespace Content.Server.Database
                 //WL-Changes-start
                 .Include(p => p.JobSubnames)
                 .Include(p => p.JobUnblockings)
+                .Include(p => p.JobSkills)
                 //WL-Changes-end
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
@@ -272,6 +274,7 @@ namespace Content.Server.Database
             //WL-Changes-start
             var jobSubnames = profile.JobSubnames.ToDictionary(x => x.JobName, x => x.Subname);
             var jobUnblockings = profile.JobUnblockings.ToDictionary(k => k.JobName, v => v.ForceUnblocked);
+            var jobSkills = profile.JobSkills.ToDictionary(js => js.JobName, js => js.Skills);
             //WL-Changes-end
 
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
@@ -364,7 +367,8 @@ namespace Content.Server.Database
                 jobUnblockings,
                 profile.MedicalRecord, // WL-Records
                 profile.SecurityRecord, // WL-Records
-                profile.EmploymentRecord // WL-Records
+                profile.EmploymentRecord, // WL-Records
+                jobSkills // WL-Skills
             );
         }
 
@@ -400,7 +404,18 @@ namespace Content.Server.Database
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.Markings = markings;
             profile.Slot = slot;
-            profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
+            profile.PreferenceUnavailable = (DbPreferenceUnavailableMode)humanoid.PreferenceUnavailable;
+            // WL-Skills-start
+            profile.JobSkills.Clear();
+            foreach (var jobSkill in humanoid.Skills)
+            {
+                profile.JobSkills.Add(new ProfileJobSkills
+                {
+                    JobName = jobSkill.Key,
+                    Skills = jobSkill.Value
+                });
+            }
+            // WL-Skills-end
 
             profile.Jobs.Clear();
             profile.Jobs.AddRange(

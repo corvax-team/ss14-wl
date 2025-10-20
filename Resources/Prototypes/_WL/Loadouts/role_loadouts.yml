@@ -1,7 +1,6 @@
 - type: roleLoadout
   id: JobAdjutant
   groups:
-  - Inventory # Corvax-Loadouts
   - AdjutantHead
   - AdjutantJumpsuit
   - AdjutantBackpack

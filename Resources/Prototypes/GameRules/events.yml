@@ -267,6 +267,31 @@
         - NamesNinjaTitle
         - NamesNinja
         nameFormat: name-format-ninja
+      # WL-Skills-start
+      - type: InitialSkills
+        initialSkills:
+          Eva: 3
+          MechPiloting: 3
+          Combat: 4
+        randomSkills:
+        - Bureaucracy
+        - Piloting
+        - IT
+        - Atmospherics
+        - Construction
+        - Electrical
+        - Generators
+        - Anatomy
+        - Chemistry
+        - Medicine
+        - ComplexDevices
+        - Science
+        - Forensics
+        - Weapons
+        - Botany
+        - Cooking
+        - Mixology
+      # WL-Skills-end
       mindRoles:
       - MindRoleNinja
   - type: DynamicRuleCost

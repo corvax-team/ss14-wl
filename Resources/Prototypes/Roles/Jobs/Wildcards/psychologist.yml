@@ -16,6 +16,13 @@
   - Maintenance
   extendedAccess:
   - Chemistry
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Bureaucracy: 2
+    Chemistry: 2
+    Combat: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: PsychologistGear

@@ -1,0 +1,12 @@
+<controls:FancyWindow xmlns="https://spacestation14.io" xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    MinSize="900 750" Title="{Loc 'skill-window'}" Margin="5 5">
+    <BoxContainer Orientation="Vertical" Name="SkillsContainer" HorizontalExpand="True">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 10" HorizontalAlignment="Center">
+            <Label Text="{Loc 'skill-available-points'}" />
+            <Label Name="PointsLabel" Text="0" />
+        </BoxContainer>
+        <ScrollContainer VerticalExpand="True">
+            <BoxContainer Orientation="Vertical" Name="SkillsList" HorizontalExpand="True"/>
+        </ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

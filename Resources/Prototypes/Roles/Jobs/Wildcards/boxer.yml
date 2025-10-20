@@ -21,6 +21,11 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: BoxingDay
     prototype: ClothingHandsGlovesBoxingRigged
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    Combat: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: BoxerGear

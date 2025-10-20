@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.GameTicking;
@@ -164,7 +165,8 @@ namespace Content.Shared.Preferences
             Dictionary<string, bool> jobUnblockings,
             string medicalRecord, // WL-Records
             string securityRecord, // WL-Records
-            string employmentRecord // WL-Records
+            string employmentRecord, // WL-Records
+            Dictionary<string, Dictionary<byte, int>> skills // WL-Skills
             //WL-Changes-end
             )
         {
@@ -193,6 +195,7 @@ namespace Content.Shared.Preferences
             MedicalRecord = medicalRecord; // WL-Records
             SecurityRecord = securityRecord; // WL-Records
             EmploymentRecord = employmentRecord; // WL-Records
+            Skills = skills; // WL-Skills
             //WL-Changes-end
 
             var hasHighPrority = false;
@@ -233,7 +236,8 @@ namespace Content.Shared.Preferences
                 new(other.JobUnblockings), // WL-Heigh
                 other.MedicalRecord, // WL-Records
                 other.SecurityRecord, // WL-Records
-                other.EmploymentRecord) // WL-Records
+                other.EmploymentRecord, // WL-Records
+                other.Skills) // WL-Skills
         {
         }
 
@@ -341,6 +345,8 @@ namespace Content.Shared.Preferences
         [DataField("height")] public int Height { get; private set; } = 165; // WL-Height
         public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames; //WL-changes
         public IReadOnlyDictionary<string, bool> JobUnblockings => _jobUnblockings;
+
+        [DataField] public Dictionary<string, Dictionary<byte, int>> Skills { get; set; } = new(); // WL-Skills
         //WL-Changes-end
 
         public HumanoidCharacterProfile WithName(string name)
@@ -468,6 +474,22 @@ namespace Content.Shared.Preferences
             {
                 _jobUnblockings = dict
             };
+        }
+
+        public HumanoidCharacterProfile WithSkill(string jobName, byte skillKey, int level)
+        {
+            var newSkills = new Dictionary<string, Dictionary<byte, int>>(Skills);
+            if (!newSkills.TryGetValue(jobName, out var jobSkills))
+            {
+                jobSkills = new Dictionary<byte, int>();
+                newSkills[jobName] = jobSkills;
+            }
+
+            var newJobSkills = new Dictionary<byte, int>(jobSkills);
+            newJobSkills[skillKey] = level;
+            newSkills[jobName] = newJobSkills;
+
+            return new(this) { Skills = newSkills };
         }
         //WL-Changes-end
 
@@ -620,6 +642,24 @@ namespace Content.Shared.Preferences
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (!_jobSubnames.SequenceEqual(other._jobSubnames)) return false; // WL-JobSubnames
             if (!_jobUnblockings.SequenceEqual(other._jobUnblockings)) return false; // WL-Changes
+            // WL-Skills-start
+            if (Skills.Count != other.Skills.Count) return false;
+            foreach (var kv in Skills)
+            {
+                if (!other.Skills.TryGetValue(kv.Key, out var otherJobSkills))
+                    return false;
+
+                var jobSkills = kv.Value;
+                if (jobSkills.Count != otherJobSkills.Count)
+                    return false;
+
+                foreach (var inner in jobSkills)
+                {
+                    if (!otherJobSkills.TryGetValue(inner.Key, out var otherLevel) || otherLevel != inner.Value)
+                        return false;
+                }
+            }
+            // WL-Skills-end
             return Appearance.MemberwiseEquals(other.Appearance);
         }
 
@@ -770,6 +810,47 @@ namespace Content.Shared.Preferences
                          .Where(prototypeManager.HasIndex)
                          .ToList();
 
+            // WL-Skills-Start
+            var validSkills = new Dictionary<string, Dictionary<byte, int>>();
+            foreach (var (jobName, jobSkillDict) in Skills)
+            {
+                var validJobSkills = new Dictionary<byte, int>();
+                foreach (var (skillByte, level) in jobSkillDict)
+                {
+                    if (Enum.IsDefined(typeof(SkillType), skillByte))
+                    {
+                        var validLevel = Math.Clamp(level, 1, 4);
+                        validJobSkills[skillByte] = validLevel;
+                    }
+                }
+
+                foreach (SkillType skill in Enum.GetValues(typeof(SkillType)))
+                {
+                    var skillByte = (byte)skill;
+                    if (!validJobSkills.ContainsKey(skillByte))
+                    {
+                        validJobSkills[skillByte] = 1;
+                    }
+                }
+
+                validSkills[jobName] = validJobSkills;
+            }
+
+            if (validSkills.Count == 0)
+            {
+                var defaultSkills = new Dictionary<byte, int>();
+                foreach (SkillType skill in Enum.GetValues(typeof(SkillType)))
+                {
+                    defaultSkills[(byte)skill] = 1;
+                }
+
+                foreach (var job in _jobPriorities.Keys)
+                {
+                    validSkills[job.Id] = new Dictionary<byte, int>(defaultSkills);
+                }
+            }
+            // WL-Skills-End
+
             Name = name;
             FlavorText = flavortext;
             OocText = oocText; // WL-OOCText
@@ -782,6 +863,7 @@ namespace Content.Shared.Preferences
             Gender = gender;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
+            Skills = validSkills; // WL-Skills
 
             _jobPriorities.Clear();
 
@@ -926,6 +1008,20 @@ namespace Content.Shared.Preferences
             hashCode.Add(MedicalRecord);
             hashCode.Add(SecurityRecord);
             hashCode.Add(EmploymentRecord);
+            unchecked
+            {
+                var skillsHash = 0;
+                foreach (var jobKv in Skills.OrderBy(k => k.Key))
+                {
+                    var innerHash = 0;
+                    foreach (var sk in jobKv.Value.OrderBy(k => k.Key))
+                    {
+                        innerHash = HashCode.Combine(innerHash, sk.Key.GetHashCode(), sk.Value.GetHashCode());
+                    }
+                    skillsHash = HashCode.Combine(skillsHash, jobKv.Key.GetHashCode(), innerHash);
+                }
+                hashCode.Add(skillsHash);
+            }
             //WL-Changes-end
 
             return hashCode.ToHashCode();

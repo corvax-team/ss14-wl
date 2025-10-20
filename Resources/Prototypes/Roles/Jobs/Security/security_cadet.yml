@@ -30,6 +30,13 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # WL-Skills-start
+  bonusSkillPoints: 4
+  defaultSkills:
+    Bureaucracy: 2
+    Combat: 2
+    Weapons: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: SecurityCadetGear

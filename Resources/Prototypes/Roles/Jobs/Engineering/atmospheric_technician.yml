@@ -23,6 +23,16 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FirefighterDay
     prototype: FireAxe
+  # WL-Skills-start
+  bonusSkillPoints: 4
+  defaultSkills:
+    Eva: 3
+    IT: 3
+    Atmospherics: 2
+    Construction: 3
+    Electrical: 3
+    Generators: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: AtmosphericTechnicianGear

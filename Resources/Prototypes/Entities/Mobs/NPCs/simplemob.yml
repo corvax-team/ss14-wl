@@ -31,6 +31,7 @@
     tags:
     - DoorBumpOpener
     - StunImmune
+  - type: InitialSkills # WL-Skills
 
 - type: entity
   abstract: true

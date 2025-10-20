@@ -1,0 +1,74 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      MinSize="900 750"
+                      Title="{Loc 'skills-admin-window-title'}">
+    <BoxContainer Orientation="Vertical"
+                 HorizontalExpand="True"
+                 VerticalExpand="True"
+                 Margin="10">
+
+        <!-- Header Info -->
+        <PanelContainer Margin="0 0 0 10">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#232323" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Horizontal"
+                         HorizontalExpand="True"
+                         Margin="10 5">
+                <Label Text="{Loc 'skills-admin-target'}" Margin="10 0" />
+                <Label Name="TargetNameLabel" HorizontalExpand="True" />
+                <Label Text="{Loc 'skills-admin-job'}" />
+                <Label Name="JobLabel" Margin="10 0" />
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- Points Control -->
+        <PanelContainer Margin="0 0 0 10">
+            <PanelContainer.PanelOverride>
+                <gfx:StyleBoxFlat BackgroundColor="#232323" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Orientation="Vertical" Margin="10 5">
+                <Label Text="{Loc 'skills-admin-points-control'}"
+                       FontColorOverride="Gold"
+                       HorizontalAlignment="Center" />
+
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 5">
+                    <Label Text="{Loc 'skills-admin-bonus-points'}" MinWidth="150" />
+                    <LineEdit Name="BonusPointsEdit"
+                             PlaceHolder="0"
+                             HorizontalExpand="True"
+                             Margin="5 0" />
+                </BoxContainer>
+
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 5">
+                    <Label Text="{Loc 'skills-admin-spent-points'}" MinWidth="150" />
+                    <Label Name="SpentPointsLabel" Text="0" HorizontalExpand="True" Margin="5 0" />
+                </BoxContainer>
+
+                <Button Name="ApplyPointsButton"
+                        Text="{Loc 'skills-admin-apply-points'}"
+                        HorizontalAlignment="Center"
+                        Margin="0 5" />
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- Skills List -->
+        <Label Text="{Loc 'skills-admin-skills-list'}"
+               FontColorOverride="Gold"
+               HorizontalAlignment="Center" />
+
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+            <BoxContainer Orientation="Vertical"
+                         Name="SkillsContainer"
+                         HorizontalExpand="True" />
+        </ScrollContainer>
+
+        <!-- Footer -->
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10">
+            <Button Name="ResetButton"
+                    Text="{Loc 'skills-admin-reset-all'}"
+                    Margin="5 0" />
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

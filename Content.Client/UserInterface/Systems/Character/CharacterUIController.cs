@@ -1,3 +1,5 @@
+using System.Linq;
+using Content.Client._WL.Skills.Ui; // WL-Skills
 using Content.Client._WL.DynamicText.UI; // WL-Chages
 using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
@@ -6,6 +8,8 @@ using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Character.Controls;
 using Content.Client.UserInterface.Systems.Character.Windows;
 using Content.Client.UserInterface.Systems.Objectives.Controls;
+using Content.Shared._WL.Skills; // WL-Skills
+using Content.Shared._WL.Skills.Components; // WL-Skills
 using Content.Shared.Input;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -19,7 +23,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Linq;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
@@ -31,6 +34,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IEntityNetworkManager _entityNetworkManager = default!; // WL-Skills
 
     //WL-Changes-Start
     [Dependency] private readonly DynamicTextUIController _dynamicText = default!;
@@ -47,6 +51,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
     }
 
     private CharacterWindow? _window;
+    private SkillsWindow? _skillsWindow; // WL-Skills
     private MenuButton? CharacterButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.CharacterButton;
 
     public void OnStateEntered(GameplayState state)
@@ -60,6 +65,10 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         _window.OnOpen += ActivateButton;
 
         //WL-Changes-Start
+        _window.SkillsButton.OnPressed += OnSkillsButtonPressed;
+        if (_player.LocalEntity.HasValue && _ent.HasComponent<SkillsComponent>(_player.LocalEntity))
+            _window.SkillsButton.Disabled = false;
+
         _window.DynamicTextButton.OnPressed += _ =>
         {
             _dynamicText.OpenWindow();
@@ -267,4 +276,57 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
             _window.Open();
         }
     }
+
+    // WL-Skills-start
+    private void OnSkillsButtonPressed(ButtonEventArgs args)
+    {
+        OpenSkillsWindow();
+    }
+
+    private void OpenSkillsWindow()
+    {
+        if (_player.LocalEntity is not { } entity)
+            return;
+
+        if (_skillsWindow != null)
+        {
+            _skillsWindow.Close();
+            _skillsWindow = null;
+        }
+
+        var skillsSystem = _ent.System<SharedSkillsSystem>();
+        if (!_ent.TryGetComponent<SkillsComponent>(entity, out var skillsComp))
+            return;
+
+        var jobId = skillsComp.CurrentJob;
+        var defaultSkills = skillsSystem.GetDefaultSkillsForJob(jobId);
+        var totalPoints = skillsSystem.GetTotalPoints(entity, jobId, skillsComp);
+        var currentSkills = skillsComp.Skills.ToDictionary(
+            kvp => (byte)kvp.Key,
+            kvp => kvp.Value
+        );
+
+        var skillsWindow = new SkillsWindow(
+            jobId ?? "unknown",
+            currentSkills,
+            defaultSkills,
+            totalPoints,
+            true
+        );
+
+        _skillsWindow = skillsWindow;
+
+        skillsWindow.OnSkillChanged += (changedJobId, skillKey, newLevel) =>
+        {
+            if (_player.LocalEntity is not { } localEntity)
+                return;
+
+            var skillType = (SkillType)skillKey;
+            var ev = new SelectSkillPressedEvent(_ent.GetNetEntity(localEntity), skillType, newLevel, changedJobId);
+            _entityNetworkManager.SendSystemNetworkMessage(ev);
+        };
+
+        skillsWindow.OpenCentered();
+    }
+    // WL-Skills-end
 }

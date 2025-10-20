@@ -34,6 +34,16 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 3
+    IT: 2
+    Forensics: 3
+    Combat: 3
+    Weapons: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: DetectiveGear

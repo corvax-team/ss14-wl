@@ -40,6 +40,7 @@
 
 - type: markingPoints
   id: MobGolemMarkingLimits
+  onlyWhitelisted: true
   points:
     Hair:
       points: 0

@@ -18,6 +18,7 @@
   supervisors: job-supervisors-everyone
 #  access: # WL-Changes
 #  - Maintenance
+  bonusSkillPoints: 16 # WL-Skills / Why?
 
 - type: startingGear
   id: PassengerGear

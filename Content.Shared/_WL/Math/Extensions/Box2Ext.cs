@@ -1,7 +1,7 @@
 using Robust.Shared.Utility;
 using static Robust.Shared.Maths.MathHelper;
 
-namespace Content.Shared._WL.Math.Extensions
+namespace Content.Shared._WL.Mathemathics.Extensions // Don't name Math this again
 {
     public static class Box2Ext
     {

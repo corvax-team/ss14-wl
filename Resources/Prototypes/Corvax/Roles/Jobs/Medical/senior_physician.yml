@@ -25,6 +25,14 @@
   - Medical
   - Maintenance
   - Chemistry
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 3
+    Anatomy: 3
+    Medicine: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: SeniorPhysicianGear

@@ -145,4 +145,13 @@ public sealed class WLCVars
 
     public static readonly CVarDef<int> MaxDynamicTextLength =
         CVarDef.Create("ic.dynamic_text_length", 1024, CVar.SERVER | CVar.REPLICATED);
+
+    /*
+     * Skills
+     */
+    /// <summary>
+    /// ГАНС! ЕСЛИ ОНИ ВДРУГ НЕ НУЖНЫ ТО ПЕРЕКЛЮЧИ ПЕРЕКЛЮЧАТЕЛЬ!!!
+    /// </summary>
+    public static readonly CVarDef<bool> SkillsEnabled =
+        CVarDef.Create("skills.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 }

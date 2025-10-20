@@ -17,6 +17,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._WL.Skills.Components; // WL-Skills
+using Content.Shared._WL.Skills; // WL-Skills
 
 namespace Content.Server.Cloning;
 
@@ -36,6 +38,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _subdermalImplant = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
+    [Dependency] private readonly SharedSkillsSystem _skills = default!; // WL-Skills
 
     /// <summary>
     ///     Spawns a clone of the given humanoid mob at the specified location or in nullspace.
@@ -61,6 +64,8 @@ public sealed partial class CloningSystem : SharedCloningSystem
         _humanoidSystem.CloneAppearance(original, clone.Value);
 
         CloneComponents(original, clone.Value, settings);
+
+        CopySkills(original, clone.Value); // WL-Skills
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
@@ -129,6 +134,16 @@ public sealed partial class CloningSystem : SharedCloningSystem
         var cloningEv = new CloningEvent(settings, clone);
         RaiseLocalEvent(original, ref cloningEv); // used for datafields that cannot be directly copied using CopyComp
     }
+
+    // WL-Skills-start
+    /// <summary>
+    ///     Copies all skills from the original entity to the clone.
+    /// </summary>
+    public void CopySkills(EntityUid original, EntityUid clone)
+    {
+        _skills.CopySkills(original, clone);
+    }
+    // WL-Skills-end
 
     /// <summary>
     ///     Copies the equipment the original has to the clone.

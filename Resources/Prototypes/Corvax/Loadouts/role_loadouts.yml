@@ -2,7 +2,7 @@
 - type: roleLoadout
   id: JobIAA
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - LawyerNeck
   - LawyerJumpsuit
   - CommonBackpack
@@ -15,7 +15,7 @@
 - type: roleLoadout
   id: JobSeniorEngineer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - SeniorEngineerHead
   - SeniorEngineerJumpsuit
@@ -31,7 +31,7 @@
 - type: roleLoadout
   id: JobSeniorResearcher
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - SeniorResearcherHead
   - SeniorResearcherJumpsuit
@@ -49,7 +49,7 @@
 - type: roleLoadout
   id: JobPilot
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - PilotHead
   - PilotJumpsuit
   - SecurityBackpack
@@ -64,7 +64,7 @@
 - type: roleLoadout
   id: JobBrigmedic
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - BrigmedicHead
   - BrigmedicMask
   - BrigmedicJumpsuit
@@ -80,7 +80,7 @@
 - type: roleLoadout
   id: JobSeniorOfficer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - SeniorOfficerHead
   - SeniorOfficerJumpsuit
   - SeniorOfficerBackpack
@@ -97,7 +97,7 @@
 - type: roleLoadout
   id: JobSeniorPhysician
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - SeniorPhysicianHead
   - MedicalMask

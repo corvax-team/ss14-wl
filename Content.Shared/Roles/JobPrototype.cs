@@ -1,3 +1,4 @@
+using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared.Access;
 using Content.Shared.Guidebook;
 using Content.Shared.Players.PlayTimeTracking;
@@ -60,6 +61,14 @@ namespace Content.Shared.Roles
 
             return list;
         }
+
+        // WL-Skills-start
+        [DataField("defaultSkills")]
+        public Dictionary<SkillType, int> DefaultSkills { get; private set; } = new();
+
+        [DataField("bonusSkillPoints")]
+        public int BonusSkillPoints { get; private set; } = 0;
+        // WL-Skills-end
 
         // WL-Changes-end
 

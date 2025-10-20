@@ -34,6 +34,16 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 3
+    Piloting: 2
+    Forensics: 2
+    Combat: 3
+    Weapons: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: SeniorOfficerGear

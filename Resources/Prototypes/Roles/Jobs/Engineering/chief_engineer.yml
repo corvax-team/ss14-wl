@@ -41,6 +41,18 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # WL-Skills-start
+  bonusSkillPoints: 4
+  defaultSkills:
+    Bureaucracy: 3
+    Eva: 3
+    IT: 3
+    Atmospherics: 3
+    Construction: 3
+    Electrical: 3
+    Generators: 3
+    ComplexDevices: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: ChiefEngineerGear

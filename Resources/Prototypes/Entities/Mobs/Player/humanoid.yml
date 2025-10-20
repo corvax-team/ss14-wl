@@ -68,7 +68,29 @@
         - NamesMilitaryFirstLeader
         - NamesMilitaryLast
       nameFormat: name-format-ert
-
+    # WL-Skills-start
+    - type: InitialSkills
+      randomMaxLevel: 3
+      initialSkills:
+        Bureaucracy: 4
+        Eva: 3
+        Piloting: 4
+        MechPiloting: 3
+        IT: 4
+        Atmospherics: 4
+        Construction: 4
+        Electrical: 4
+        Generators: 4
+        Anatomy: 4
+        Chemistry: 4
+        Medicine: 4
+        ComplexDevices: 4
+        Science: 4
+        Forensics: 4
+        Combat: 4
+        Weapons: 4
+      randomSkills: [Botany, Cooking, Mixology]
+      # WL-Skills-end
 
 ## ERT Leader
 
@@ -107,6 +129,29 @@
       - NamesMilitaryFirstLeader
       - NamesMilitaryLast
       nameFormat: name-format-ert
+    # WL-Skills-start
+    - type: InitialSkills
+      randomMaxLevel: 3
+      initialSkills:
+        Bureaucracy: 3
+        Eva: 3
+        Piloting: 4
+        MechPiloting: 3
+        IT: 3
+        Atmospherics: 2
+        Construction: 2
+        Electrical: 2
+        Generators: 2
+        Anatomy: 2
+        Chemistry: 2
+        Medicine: 3
+        ComplexDevices: 2
+        Science: 2
+        Forensics: 3
+        Combat: 4
+        Weapons: 4
+      randomSkills: [Botany, Cooking, Mixology]
+      # WL-Skills-end
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
@@ -264,6 +309,29 @@
     - type: Loadout
       prototypes: [ ERTJanitorGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    # WL-Skills-start
+    - type: InitialSkills
+      randomMaxLevel: 3
+      initialSkills:
+        Bureaucracy: 3
+        Eva: 3
+        Piloting: 3
+        MechPiloting: 3
+        IT: 2
+        Atmospherics: 2
+        Construction: 2
+        Electrical: 2
+        Generators: 2
+        Anatomy: 2
+        Chemistry: 3
+        Medicine: 3
+        ComplexDevices: 2
+        Science: 2
+        Forensics: 3
+        Combat: 4
+        Weapons: 4
+      randomSkills: [Botany, Cooking, Mixology]
+      # WL-Skills-end
 
 - type: entity
   id: RandomHumanoidSpawnerERTJanitorEVA
@@ -330,6 +398,29 @@
     - type: Loadout
       prototypes: [ ERTEngineerGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    # WL-Skills-start
+    - type: InitialSkills
+      randomMaxLevel: 3
+      initialSkills:
+        Bureaucracy: 3
+        Eva: 3
+        Piloting: 4
+        MechPiloting: 3
+        IT: 4
+        Atmospherics: 4
+        Construction: 4
+        Electrical: 4
+        Generators: 4
+        Anatomy: 2
+        Chemistry: 2
+        Medicine: 3
+        ComplexDevices: 4
+        Science: 2
+        Forensics: 3
+        Combat: 4
+        Weapons: 4
+      randomSkills: [Botany, Cooking, Mixology]
+      # WL-Skills-end
 
 - type: entity
   id: RandomHumanoidSpawnerERTEngineerEVA
@@ -398,6 +489,29 @@
     - type: Loadout
       prototypes: [ ERTSecurityGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    # WL-Skills-start
+    - type: InitialSkills
+      randomMaxLevel: 3
+      initialSkills:
+        Bureaucracy: 3
+        Eva: 3
+        Piloting: 3
+        MechPiloting: 3
+        IT: 3
+        Atmospherics: 2
+        Construction: 2
+        Electrical: 2
+        Generators: 2
+        Anatomy: 2
+        Chemistry: 2
+        Medicine: 3
+        ComplexDevices: 2
+        Science: 2
+        Forensics: 3
+        Combat: 4
+        Weapons: 4
+      randomSkills: [Botany, Cooking, Mixology]
+      # WL-Skills-end
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVA
@@ -487,6 +601,29 @@
     - type: Loadout
       prototypes: [ ERTMedicalGear ]
       roleLoadout: [ RoleSurvivalExtended ]
+    # WL-Skills-start
+    - type: InitialSkills
+      randomMaxLevel: 3
+      initialSkills:
+        Bureaucracy: 3
+        Eva: 3
+        Piloting: 3
+        MechPiloting: 3
+        IT: 2
+        Atmospherics: 2
+        Construction: 2
+        Electrical: 2
+        Generators: 2
+        Anatomy: 4
+        Chemistry: 4
+        Medicine: 4
+        ComplexDevices: 2
+        Science: 2
+        Forensics: 3
+        Combat: 4
+        Weapons: 4
+      randomSkills: [Botany, Cooking, Mixology]
+      # WL-Skills-end
 
 - type: entity
   id: RandomHumanoidSpawnerERTMedicalEVA

@@ -84,7 +84,7 @@
     Food:
       effects:
       - !type:SatiateHunger
-        factor: -2
+        factor: 2
         conditions:
         # Golem
         - !type:OrganType

@@ -18,6 +18,12 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: MonkeyDay
     prototype: MonkeyCubeBox
+  # WL-Skills-start
+  bonusSkillPoints: 6
+  defaultSkills:
+    Anatomy: 2
+    Medicine: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: ZookeeperGear
