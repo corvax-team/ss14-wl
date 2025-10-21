@@ -82,5 +82,5 @@ public sealed partial class TextureButton : ContainerButton
             _clickSound = source;
         }
     }
-    IAudioSource? _clickSound;
+    private IAudioSource? _clickSound;
 }

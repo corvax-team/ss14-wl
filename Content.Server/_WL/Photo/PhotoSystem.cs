@@ -21,7 +21,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
     [Dependency] private readonly AudioSystem _audio = default!;
 
     //96 KB
-    const int MAX_WEIGHT = 1024 * 96;
+    const int MAX_SIZE = 1024 * 96;
 
     public override void Initialize()
     {
@@ -75,7 +75,10 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
 
     private void OnTakeImageMessage(EntityUid uid, PhotoCameraComponent component, PhotoCameraTakeImageMessage message)
     {
-        if (message.Data.Length > MAX_WEIGHT)
+        if (message.Data.Length > MAX_SIZE)
+            return;
+
+        if (!CheckPngSignature(message.Data))
             return;
 
         TryTakeImage(uid, component, message.Data);
@@ -129,6 +132,13 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         UpdateCameraInterface(uid, component, component.User);
 
         return true;
+    }
+
+    private static bool CheckPngSignature(ReadOnlySpan<byte> data)
+    {
+        if (data.Length < 8) return false;
+        return data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47 &&
+                data[4] == 0x0D && data[5] == 0x0A && data[6] == 0x1A && data[7] == 0x0A;
     }
 
     // Photo Card

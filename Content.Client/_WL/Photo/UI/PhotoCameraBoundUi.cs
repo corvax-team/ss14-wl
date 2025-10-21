@@ -91,6 +91,7 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
         }
 
         _controlSound?.Dispose();
+        _window?.OnDispose();
     }
 
     public void UpdateControl(PhotoCameraComponent component, float frameTime)

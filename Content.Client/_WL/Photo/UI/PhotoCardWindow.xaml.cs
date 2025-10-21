@@ -24,9 +24,12 @@ public sealed partial class PhotoCardWindow : BaseWindow
 
     public void ShowImage(byte[] imageData)
     {
-        MemoryStream stream = new MemoryStream(imageData);
-
-        ImageDislay.Texture = Texture.LoadFromPNGStream(stream);
+        try
+        {
+            MemoryStream stream = new MemoryStream(imageData);
+            ImageDislay.Texture = Texture.LoadFromPNGStream(stream);
+        }
+        catch { }
     }
 
     protected override DragMode GetDragModeFor(Vector2 relativeMousePos)

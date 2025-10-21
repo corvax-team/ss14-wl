@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseItem ]
+  parent: BaseItem
   id: PhotoCamera
   name: "camera"
   description: 'Say "Cheeese!", uses paper for printing'
