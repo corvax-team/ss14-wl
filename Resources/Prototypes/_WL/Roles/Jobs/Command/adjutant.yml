@@ -13,7 +13,8 @@
   icon: "JobIconAdjutant"
   weight: -1000
   startingGear: AdjutantGear
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-adjutant
+  canBeAntag: false
   access:
   - Adjutant
   - Command
@@ -24,6 +25,12 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  bonusSkillPoints: 8
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 3
+    Piloting: 3
+    Weapons: 2
 
 - type: startingGear
   id: AdjutantGear
