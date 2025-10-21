@@ -85,3 +85,8 @@
 #   - ManualStorageScienceSmallRecipe
 #   - ManualStorageScienceBoxRecipe
 #   - ManualStorageScienceBigRecipe
+
+- type: latheRecipePack
+  id: Photo
+  recipes:
+  - PhotoCameraRecipe

@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 267.1.0
-  forkId: ""
-  forkVersion: ""
-  time: 10/18/2025 13:50:42
-  entityCount: 17467
+  engineVersion: 267.2.0
+  forkId: syndicate-wl
+  forkVersion: 10d204611882dbc9486587a6c6f5f8078fa6a317
+  time: 10/20/2025 21:47:14
+  entityCount: 17475
 maps:
 - 1
 grids:
@@ -693,6 +693,12 @@ entities:
             6280: 33,16
             6353: 55,47
         - node:
+            zIndex: 5
+            color: '#FFFFFFFF'
+            id: BrickTileDarkCornerSe
+          decals:
+            8165: 33,18
+        - node:
             color: '#D4D4D4FF'
             id: BrickTileDarkCornerSw
           decals:
@@ -718,6 +724,7 @@ entities:
             5477: 7,-18
             5919: -3,36
             6169: 39,40
+            8161: 31,18
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -973,7 +980,6 @@ entities:
             5944: 1,35
             5979: 22,54
             6167: 43,41
-            7477: 31,18
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -1133,7 +1139,6 @@ entities:
             id: BrickTileDarkLineE
           decals:
             6246: 62,48
-            6290: 33,18
             6291: 33,17
             6380: 18,5
         - node:
@@ -1281,6 +1286,12 @@ entities:
             4716: 39,47
             4723: 39,49
         - node:
+            zIndex: -5
+            color: '#FFFFFFFF'
+            id: BrickTileDarkLineS
+          decals:
+            8176: 31,16
+        - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkLineS
           decals:
@@ -1403,7 +1414,6 @@ entities:
             6283: 29,16
             6286: 32,16
             6322: 30,16
-            6323: 31,16
             6356: 54,47
             6374: 16,6
             6377: 18,4
@@ -1413,6 +1423,12 @@ entities:
             id: BrickTileDarkLineS
           decals:
             6338: 50,47
+        - node:
+            zIndex: 5
+            color: '#FFFFFFFF'
+            id: BrickTileDarkLineS
+          decals:
+            8166: 32,18
         - node:
             color: '#FFFFFFFF'
             id: BrickTileDarkLineW
@@ -3404,7 +3420,6 @@ entities:
             7555: 64,53
             7725: 77,60
             7828: 34,38
-            7929: 33,14
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -4753,7 +4768,6 @@ entities:
             id: BrickTileWhiteInnerNw
           decals:
             7924: 25,14
-            7927: 33,14
         - node:
             color: '#3EB388FF'
             id: BrickTileWhiteInnerNw
@@ -5400,12 +5414,8 @@ entities:
             5244: 29,14
             6160: 31,14
             6161: 30,14
-        - node:
-            zIndex: 2
-            color: '#334E6DFF'
-            id: BrickTileWhiteLineN
-          decals:
-            7926: 32,14
+            8159: 32,14
+            8160: 33,14
         - node:
             color: '#3EB388FF'
             id: BrickTileWhiteLineN
@@ -6645,8 +6655,6 @@ entities:
             color: '#FFFFFFFF'
             id: DirtLight
           decals:
-            79: 32,52
-            80: 32,52
             81: 29,52
             89: 4,31
             90: 7,31
@@ -6953,7 +6961,6 @@ entities:
           decals:
             6775: 30,45
             6785: 33,44
-            6891: 31,53
             6898: 33,55
         - node:
             color: '#FFFFFFFF'
@@ -6965,7 +6972,6 @@ entities:
             color: '#FFFFFFFF'
             id: GrayConcreteTrimCornerNw
           decals:
-            6892: 33,53
             6897: 31,55
         - node:
             zIndex: 1
@@ -6991,6 +6997,7 @@ entities:
             id: GrayConcreteTrimInnerNe
           decals:
             5487: 3,27
+            8145: 33,54
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -7006,12 +7013,12 @@ entities:
             6781: 30,44
             6782: 29,45
             6786: 33,43
-            6894: 31,52
         - node:
             color: '#FFFFFFFF'
             id: GrayConcreteTrimInnerNw
           decals:
             5496: 3,28
+            8155: 31,54
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -7027,13 +7034,13 @@ entities:
             6777: 32,44
             6787: 34,43
             6794: 26,39
-            6893: 33,52
         - node:
             color: '#FFFFFFFF'
             id: GrayConcreteTrimInnerSe
           decals:
             5490: 3,27
             5498: 3,30
+            8146: 33,54
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -7044,7 +7051,6 @@ entities:
             6681: 28,41
             6731: 26,47
             6760: 29,52
-            6763: 33,52
             6766: 32,50
             6779: 32,45
             6783: 30,50
@@ -7056,6 +7062,7 @@ entities:
           decals:
             5493: 3,27
             5499: 3,30
+            8156: 31,53
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -7067,7 +7074,6 @@ entities:
             6673: 28,50
             6734: 28,47
             6758: 29,52
-            6762: 31,52
             6769: 32,50
             6780: 32,45
             6791: 34,41
@@ -7080,6 +7086,8 @@ entities:
             5485: 3,29
             5486: 3,28
             5491: 3,26
+            8141: 33,52
+            8142: 33,53
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -7102,7 +7110,6 @@ entities:
             6772: 29,48
             6773: 29,47
             6774: 29,46
-            6896: 33,54
         - node:
             color: '#FFFFFFFF'
             id: GrayConcreteTrimLineN
@@ -7130,7 +7137,6 @@ entities:
             6755: 28,51
             6756: 30,51
             6776: 31,44
-            6890: 32,52
             6899: 32,55
         - node:
             color: '#FFFFFFFF'
@@ -7164,6 +7170,7 @@ entities:
           decals:
             5492: 3,26
             5497: 3,29
+            8143: 31,52
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -7181,7 +7188,6 @@ entities:
             6725: 28,44
             6795: 25,44
             6796: 25,45
-            6895: 31,54
         - node:
             color: '#C65800B2'
             id: HalfTileOverlayGreyscale
@@ -7892,7 +7898,6 @@ entities:
             6824: 30,45
             6825: 33,44
             6900: 33,55
-            6901: 31,53
         - node:
             color: '#4B362BFF'
             id: WoodTrimThinCornerNeWhite
@@ -7943,7 +7948,6 @@ entities:
             id: WoodTrimThinCornerNwWhite
           decals:
             6902: 31,55
-            6903: 33,53
         - node:
             color: '#4B362BFF'
             id: WoodTrimThinCornerNwWhite
@@ -7988,6 +7992,12 @@ entities:
             id: WoodTrimThinCornerSe
           decals:
             6297: 33,16
+        - node:
+            zIndex: 5
+            color: '#FFFFFFFF'
+            id: WoodTrimThinCornerSe
+          decals:
+            8169: 33,18
         - node:
             zIndex: 2
             color: '#2E211AFF'
@@ -8035,8 +8045,13 @@ entities:
             color: '#FFFFFFFF'
             id: WoodTrimThinCornerSw
           decals:
-            6316: 31,16
             6390: 17,4
+        - node:
+            zIndex: 5
+            color: '#FFFFFFFF'
+            id: WoodTrimThinCornerSw
+          decals:
+            8170: 31,18
         - node:
             zIndex: 2
             color: '#2E211AFF'
@@ -8064,6 +8079,11 @@ entities:
             id: WoodTrimThinEndW
           decals:
             6383: 15,6
+        - node:
+            color: '#2E211AFF'
+            id: WoodTrimThinInnerNe
+          decals:
+            8153: 33,54
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinInnerNe
@@ -8109,7 +8129,6 @@ entities:
             6872: 24,47
             6873: 28,42
             6875: 32,49
-            6908: 31,52
         - node:
             color: '#334E6DFF'
             id: WoodTrimThinInnerNeWhite
@@ -8120,6 +8139,11 @@ entities:
             id: WoodTrimThinInnerNeWhite
           decals:
             6001: 29,54
+        - node:
+            color: '#2E211AFF'
+            id: WoodTrimThinInnerNw
+          decals:
+            8158: 31,54
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinInnerNw
@@ -8136,7 +8160,6 @@ entities:
             4424: 24,21
             4438: 28,21
             4463: 18,17
-            7478: 31,18
         - node:
             zIndex: 2
             color: '#FFFFFFFF'
@@ -8163,7 +8186,6 @@ entities:
             6853: 34,43
             6857: 31,51
             6876: 32,49
-            6909: 33,52
         - node:
             color: '#334E6DFF'
             id: WoodTrimThinInnerNwWhite
@@ -8174,6 +8196,11 @@ entities:
             id: WoodTrimThinInnerNwWhite
           decals:
             6002: 22,54
+        - node:
+            color: '#2E211AFF'
+            id: WoodTrimThinInnerSe
+          decals:
+            8151: 33,54
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinInnerSe
@@ -8207,7 +8234,6 @@ entities:
             6834: 27,44
             6837: 24,50
             6855: 29,52
-            6858: 33,52
             6859: 32,50
             6860: 30,50
             6861: 29,49
@@ -8216,13 +8242,17 @@ entities:
             6868: 28,44
             6869: 26,47
             6877: 32,45
-            6911: 32,53
         - node:
             color: '#55391AFF'
             id: WoodTrimThinInnerSeWhite
           decals:
             6003: 27,53
             6004: 29,53
+        - node:
+            color: '#2E211AFF'
+            id: WoodTrimThinInnerSw
+          decals:
+            8157: 31,53
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinInnerSw
@@ -8270,10 +8300,8 @@ entities:
             6843: 26,40
             6844: 32,41
             6845: 32,50
-            6846: 31,52
             6854: 29,52
             6874: 32,45
-            6910: 32,53
         - node:
             color: '#334E6DFF'
             id: WoodTrimThinInnerSwWhite
@@ -8284,6 +8312,12 @@ entities:
             id: WoodTrimThinInnerSwWhite
           decals:
             6000: 29,53
+        - node:
+            color: '#2E211AFF'
+            id: WoodTrimThinLineE
+          decals:
+            8149: 33,52
+            8150: 33,53
         - node:
             color: '#D4D4D4FF'
             id: WoodTrimThinLineE
@@ -8325,7 +8359,6 @@ entities:
             color: '#FFFFFFFF'
             id: WoodTrimThinLineE
           decals:
-            6301: 33,18
             6302: 33,17
             6389: 18,5
         - node:
@@ -8350,7 +8383,6 @@ entities:
             6828: 29,48
             6829: 29,47
             6830: 29,46
-            6904: 33,54
         - node:
             color: '#334E6DFF'
             id: WoodTrimThinLineEWhite
@@ -8446,7 +8478,6 @@ entities:
             6820: 30,51
             6827: 31,44
             6906: 32,55
-            6907: 32,52
         - node:
             color: '#334E6DFF'
             id: WoodTrimThinLineNWhite
@@ -8472,6 +8503,12 @@ entities:
             5996: 28,55
             5997: 24,55
             5998: 23,55
+        - node:
+            zIndex: -5
+            color: '#FFFFFFFF'
+            id: WoodTrimThinLineS
+          decals:
+            8177: 31,16
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinLineS
@@ -8526,11 +8563,16 @@ entities:
             6384: 16,6
             6385: 18,4
         - node:
+            zIndex: 5
+            color: '#FFFFFFFF'
+            id: WoodTrimThinLineS
+          decals:
+            8171: 32,18
+        - node:
             color: '#2E211AFF'
             id: WoodTrimThinLineSWhite
           decals:
             3033: 30,52
-            3034: 31,52
             3059: 32,45
             3075: 22,52
             3076: 23,52
@@ -8587,6 +8629,11 @@ entities:
             id: WoodTrimThinLineSWhite
           decals:
             5301: 76,41
+        - node:
+            color: '#2E211AFF'
+            id: WoodTrimThinLineW
+          decals:
+            8148: 31,52
         - node:
             color: '#D4D4D4FF'
             id: WoodTrimThinLineW
@@ -8649,7 +8696,6 @@ entities:
             6741: 28,44
             6802: 25,44
             6803: 25,45
-            6905: 31,54
         - node:
             color: '#334E6DFF'
             id: WoodTrimThinLineWWhite
@@ -9593,7 +9639,8 @@ entities:
           13,18:
             1: 1911
           13,19:
-            1: 65535
+            1: 61439
+            7: 4096
           14,17:
             1: 48955
           14,18:
@@ -10206,6 +10253,11 @@ entities:
           temperature: 293.15
           moles:
             Plasma: 6666.982
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -13455,7 +13507,7 @@ entities:
       pos: 45.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34493.63
+      secondsUntilStateChange: -35794.516
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13541,11 +13593,6 @@ entities:
       parent: 2
 - proto: AirlockChiefMedicalOfficerLocked
   entities:
-  - uid: 233
-    components:
-    - type: Transform
-      pos: 47.5,5.5
-      parent: 2
   - uid: 8960
     components:
     - type: Transform
@@ -13636,14 +13683,12 @@ entities:
       pos: 26.5,-16.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 1
+      invokeCounter: 2
     - type: DeviceLinkSource
       linkedPorts:
-        263:
+        17471:
         - - DoorStatus
-          - Toggle
-        - - DoorStatus
-          - AutoClose
+          - Input
   - uid: 247
     components:
     - type: Transform
@@ -13657,17 +13702,15 @@ entities:
   - uid: 249
     components:
     - type: Transform
-      pos: 60.5,-3.5
+      pos: 60.5,-2.5
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
       linkedPorts:
-        264:
+        2145:
         - - DoorStatus
-          - Toggle
-        - - DoorStatus
-          - AutoClose
+          - Input
   - uid: 250
     components:
     - type: Transform
@@ -13715,42 +13758,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 58.5,70.5
       parent: 2
-  - uid: 259
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 46.5,41.5
-      parent: 2
-    - type: DeviceLinkSink
-      invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        261:
-        - - DoorStatus
-          - AutoClose
-        - - DoorStatus
-          - Toggle
   - uid: 260
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 10.5,1.5
       parent: 2
-  - uid: 261
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 46.5,40.5
-      parent: 2
-    - type: DeviceLinkSink
-      invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        259:
-        - - DoorStatus
-          - Toggle
-        - - DoorStatus
-          - AutoClose
   - uid: 262
     components:
     - type: Transform
@@ -13759,39 +13772,57 @@ entities:
   - uid: 263
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 27.5,-16.5
       parent: 2
     - type: DeviceLinkSink
-      invokeCounter: 1
+      invokeCounter: 2
     - type: DeviceLinkSource
       linkedPorts:
-        246:
+        17472:
         - - DoorStatus
-          - AutoClose
-        - - DoorStatus
-          - Toggle
+          - Input
   - uid: 264
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 60.5,-2.5
+      pos: 60.5,-3.5
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
       linkedPorts:
-        249:
+        5120:
         - - DoorStatus
-          - Toggle
-        - - DoorStatus
-          - AutoClose
+          - Input
   - uid: 16723
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -4.5,11.5
       parent: 16722
+  - uid: 17473
+    components:
+    - type: Transform
+      pos: 46.5,41.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        261:
+        - - DoorStatus
+          - Input
+  - uid: 17474
+    components:
+    - type: Transform
+      pos: 46.5,40.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        259:
+        - - DoorStatus
+          - Input
 - proto: AirlockEVALocked
   entities:
   - uid: 265
@@ -14298,6 +14329,15 @@ entities:
     - type: Transform
       pos: 81.5,25.5
       parent: 2
+- proto: AirlockMaintChiefMedicalOfficerLocked
+  entities:
+  - uid: 2144
+    components:
+    - type: Transform
+      pos: 62.5,6.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
 - proto: AirlockMaintDetectiveLocked
   entities:
   - uid: 336
@@ -14448,32 +14488,18 @@ entities:
     - type: Transform
       pos: 25.5,-19.5
       parent: 2
+- proto: AirlockMaintMedLocked
+  entities:
   - uid: 364
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 34.5,-7.5
       parent: 2
-    - type: AccessReader
-      accessListsOriginal: []
   - uid: 365
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 38.5,-10.5
       parent: 2
-  - uid: 5120
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 62.5,6.5
-      parent: 2
-    - type: AccessReader
-      accessListsOriginal: []
-      access:
-      - - ChiefMedicalOfficer
-- proto: AirlockMaintMedLocked
-  entities:
   - uid: 366
     components:
     - type: Transform
@@ -14551,6 +14577,11 @@ entities:
       parent: 2
 - proto: AirlockMedicalGlassLocked
   entities:
+  - uid: 233
+    components:
+    - type: Transform
+      pos: 47.5,5.5
+      parent: 2
   - uid: 380
     components:
     - type: Transform
@@ -15025,7 +15056,7 @@ entities:
   - uid: 452
     components:
     - type: Transform
-      pos: 52.5,76.5
+      pos: 52.5,79.5
       parent: 2
 - proto: AmePartFlatpack
   entities:
@@ -24546,16 +24577,6 @@ entities:
     - type: Transform
       pos: 37.5,-8.5
       parent: 2
-  - uid: 2144
-    components:
-    - type: Transform
-      pos: 37.5,-7.5
-      parent: 2
-  - uid: 2145
-    components:
-    - type: Transform
-      pos: 37.5,-6.5
-      parent: 2
   - uid: 2146
     components:
     - type: Transform
@@ -29791,6 +29812,11 @@ entities:
     - type: Transform
       pos: 73.5,5.5
       parent: 2
+  - uid: 14816
+    components:
+    - type: Transform
+      pos: 36.5,-5.5
+      parent: 2
   - uid: 16397
     components:
     - type: Transform
@@ -29910,6 +29936,16 @@ entities:
     components:
     - type: Transform
       pos: 51.5,9.5
+      parent: 2
+  - uid: 17469
+    components:
+    - type: Transform
+      pos: 36.5,-6.5
+      parent: 2
+  - uid: 17470
+    components:
+    - type: Transform
+      pos: 36.5,-7.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -44683,7 +44719,7 @@ entities:
   - uid: 5868
     components:
     - type: Transform
-      pos: 52.5,79.5
+      pos: 52.5,76.5
       parent: 2
 - proto: CrateEngineeringAMEShielding
   entities:
@@ -45134,7 +45170,7 @@ entities:
   - uid: 5919
     components:
     - type: Transform
-      pos: 32.5,52.5
+      pos: 31.5,52.5
       parent: 2
   - uid: 5920
     components:
@@ -45154,8 +45190,7 @@ entities:
   - uid: 5923
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 31.5,52.5
+      pos: 32.5,52.5
       parent: 2
 - proto: CurtainsWhiteOpen
   entities:
@@ -52175,6 +52210,116 @@ entities:
     - type: Transform
       pos: 32.548363,54.5064
       parent: 2
+- proto: EdgeDetector
+  entities:
+  - uid: 259
+    components:
+    - type: Transform
+      anchored: True
+      pos: 46.5,40.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        17473:
+        - - OutputHigh
+          - Open
+        - - OutputLow
+          - Close
+    - type: Physics
+      canCollide: False
+      bodyType: Static
+  - uid: 261
+    components:
+    - type: Transform
+      anchored: True
+      pos: 46.5,41.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        17474:
+        - - OutputHigh
+          - Open
+        - - OutputLow
+          - Close
+    - type: Physics
+      canCollide: False
+      bodyType: Static
+  - uid: 2145
+    components:
+    - type: Transform
+      anchored: True
+      pos: 60.5,-2.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        264:
+        - - OutputLow
+          - Close
+        - - OutputHigh
+          - Open
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: Physics
+      canCollide: False
+      bodyType: Static
+  - uid: 5120
+    components:
+    - type: Transform
+      anchored: True
+      pos: 60.5,-3.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        249:
+        - - OutputLow
+          - Close
+        - - OutputHigh
+          - Open
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: Physics
+      canCollide: False
+      bodyType: Static
+  - uid: 17471
+    components:
+    - type: Transform
+      anchored: True
+      pos: 26.5,-16.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        263:
+        - - OutputHigh
+          - Open
+        - - OutputLow
+          - Close
+    - type: Physics
+      canCollide: False
+      bodyType: Static
+  - uid: 17472
+    components:
+    - type: Transform
+      anchored: True
+      pos: 27.5,-16.5
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        246:
+        - - OutputHigh
+          - Open
+        - - OutputLow
+          - Close
+    - type: Physics
+      canCollide: False
+      bodyType: Static
 - proto: ElectricGuitarInstrument
   entities:
   - uid: 6799
@@ -52921,6 +53066,8 @@ entities:
     - type: Transform
       pos: 93.5,17.5
       parent: 2
+    - type: FaxMachine
+      name: ЦИИ
   - uid: 6904
     components:
     - type: Transform
@@ -53003,6 +53150,8 @@ entities:
     - type: Transform
       pos: 23.5,26.5
       parent: 2
+    - type: FaxMachine
+      name: Мостик
   - uid: 6917
     components:
     - type: Transform
@@ -84807,10 +84956,10 @@ entities:
       parent: 2
 - proto: HolopadMedicalMedbay
   entities:
-  - uid: 10918
+  - uid: 11491
     components:
     - type: Transform
-      pos: 49.5,4.5
+      pos: 48.5,2.5
       parent: 2
 - proto: HolopadMedicalMorgue
   entities:
@@ -86572,15 +86721,13 @@ entities:
     - type: Transform
       pos: 24.5,1.5
       parent: 2
-- proto: LockerSecurity
+- proto: LockerSecurityFilled
   entities:
   - uid: 11103
     components:
     - type: Transform
       pos: 9.5,-13.5
       parent: 2
-- proto: LockerSecurityFilled
-  entities:
   - uid: 11104
     components:
     - type: Transform
@@ -87494,8 +87641,8 @@ entities:
   - uid: 11216
     components:
     - type: Transform
-      rot: -2.0943951023931953 rad
-      pos: 51.79924,76.84233
+      rot: -0.5235987755982988 rad
+      pos: 51.906456,78.113495
       parent: 2
   - uid: 11217
     components:
@@ -89804,6 +89951,11 @@ entities:
       parent: 2
 - proto: PottedPlantRandom
   entities:
+  - uid: 10918
+    components:
+    - type: Transform
+      pos: 53.5,4.5
+      parent: 2
   - uid: 11480
     components:
     - type: Transform
@@ -89860,11 +90012,6 @@ entities:
     components:
     - type: Transform
       pos: 50.5,-3.5
-      parent: 2
-  - uid: 11491
-    components:
-    - type: Transform
-      pos: 51.5,2.5
       parent: 2
   - uid: 11492
     components:
@@ -94341,7 +94488,7 @@ entities:
   - uid: 12259
     components:
     - type: Transform
-      pos: 51.5,4.5
+      pos: 50.5,4.5
       parent: 2
   - uid: 12260
     components:
@@ -100769,6 +100916,15 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: SignHead
+  entities:
+  - uid: 17475
+    components:
+    - type: Transform
+      pos: 56.5,6.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: SignHydro1
   entities:
   - uid: 12998
@@ -106038,6 +106194,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 54.5,10.5
       parent: 2
+  - uid: 17467
+    components:
+    - type: Transform
+      pos: 53.5,4.5
+      parent: 2
 - proto: TableCarpet
   entities:
   - uid: 13642
@@ -106748,11 +106909,6 @@ entities:
     components:
     - type: Transform
       pos: 41.5,11.5
-      parent: 2
-  - uid: 13768
-    components:
-    - type: Transform
-      pos: 43.5,5.5
       parent: 2
   - uid: 13769
     components:
@@ -108925,6 +109081,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 60.5,10.5
+      parent: 2
+  - uid: 13768
+    components:
+    - type: Transform
+      pos: 64.5,-1.5
       parent: 2
   - uid: 13996
     components:
@@ -113048,11 +113209,6 @@ entities:
     components:
     - type: Transform
       pos: 64.5,1.5
-      parent: 2
-  - uid: 14816
-    components:
-    - type: Transform
-      pos: 64.5,-1.5
       parent: 2
   - uid: 14817
     components:
@@ -121412,6 +121568,13 @@ entities:
       parent: 2
     - type: WarpPoint
       location: параша капитана
+  - uid: 17468
+    components:
+    - type: Transform
+      pos: 16.5,3.5
+      parent: 2
+    - type: WarpPoint
+      location: Сервер НИО
 - proto: WaterCooler
   entities:
   - uid: 16079
