@@ -27,8 +27,8 @@
   bonusSkillPoints: 4
   defaultSkills:
     Eva: 3
-    IT: 3
-    Atmospherics: 2
+    IT: 2
+    Atmospherics: 3
     Construction: 3
     Electrical: 3
     Generators: 3

@@ -1,2 +1,3 @@
-ent-MobVulpkanin = Урист МакВульп
+# Corvax-WL-Fix
+ent-MobCorvaxVulpkanin = Урист МакВульп
     .desc = { ent-BaseMobVulpkanin.desc }
