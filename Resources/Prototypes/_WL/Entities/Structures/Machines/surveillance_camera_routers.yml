@@ -2,7 +2,7 @@
   parent: SurveillanceCameraRouterBase
   id: SurveillanceCameraRouterCustom
   name: custom camera router
-  suffix: Supply
+  suffix: Custom
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraCustom
