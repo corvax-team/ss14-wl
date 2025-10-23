@@ -3,9 +3,9 @@ meta:
   category: Grid
   engineVersion: 267.2.0
   forkId: syndicate-wl
-  forkVersion: 8c4faf895874d89f8ee938e106525d43a38457ed
-  time: 10/21/2025 20:30:13
-  entityCount: 12734
+  forkVersion: f374295f1d272d59edc3e5cd7208fa6b8c893c2d
+  time: 10/23/2025 17:34:59
+  entityCount: 12740
 maps: []
 grids:
 - 2
@@ -65,7 +65,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: grid
+      name: Станция Центрального Командования
     - type: Transform
       pos: -0.546875,-0.640625
       parent: invalid
@@ -10605,7 +10605,7 @@ entities:
       pos: -17.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -106581.09
+      secondsUntilStateChange: -109170.16
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31230,6 +31230,22 @@ entities:
     - type: Transform
       pos: -73.673004,-30.612368
       parent: 2
+    - type: GroupExamine
+      group:
+      - hoverMessage: ""
+        contextText: verb-examine-group-other
+        icon: /Textures/Interface/examine-star.png
+        components:
+        - Armor
+        - ClothingSpeedModifier
+        entries:
+        - message: >-
+            Обеспечивает следующую защиту:
+
+            - [color=orange]Взрывной[/color] урон [color=white]к содержимому[/color] снижается на [color=lightblue]10%[/color].
+          priority: 0
+          component: Armor
+        title: null
 - proto: ClothingEyesGlassesCheapSunglasses
   entities:
   - uid: 3376
@@ -35543,6 +35559,9 @@ entities:
     - type: Transform
       pos: -68.5,-27.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Cryogenics
   - uid: 4105
     components:
     - type: Transform
@@ -92637,6 +92656,54 @@ entities:
     - type: Transform
       pos: -19.5,36.5
       parent: 2
+- proto: WarpPointBeacon
+  entities:
+  - uid: 12735
+    components:
+    - type: Transform
+      pos: -65.5,4.5
+      parent: 2
+    - type: WarpPoint
+      location: СЦК ФАКС
+  - uid: 12736
+    components:
+    - type: Transform
+      pos: -10.5,0.5
+      parent: 2
+    - type: WarpPoint
+      location: СЦК ПРИБЫТИЕ
+  - uid: 12737
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -71.5,-15.5
+      parent: 2
+    - type: WarpPoint
+      location: СЦК ДСО БРИФ
+  - uid: 12738
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -70.5,-27.5
+      parent: 2
+    - type: WarpPoint
+      location: СЦК ЭС
+  - uid: 12739
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -83.5,12.5
+      parent: 2
+    - type: WarpPoint
+      location: СЦК СТЫК ПЦК
+  - uid: 12740
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-20.5
+      parent: 2
+    - type: WarpPoint
+      location: СЦК СУД
 - proto: WaterCooler
   entities:
   - uid: 9499
