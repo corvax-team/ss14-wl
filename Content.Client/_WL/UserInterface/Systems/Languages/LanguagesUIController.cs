@@ -236,7 +236,10 @@ public sealed class LanguagesUIController : UIController, IOnStateEntered<Gamepl
 
         if (!_ent.TryGetComponent<LanguagesComponent>(_player.LocalEntity, out var comp))
         {
-            ClearLanguages(_player.LocalEntity);
+            if (_player.LocalEntity is null)
+                return;
+
+            ClearLanguages(_player.LocalEntity.Value);
             return;
         }
 
