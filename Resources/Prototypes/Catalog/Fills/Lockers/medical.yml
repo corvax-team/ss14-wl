@@ -132,6 +132,9 @@
     - id: HandheldGPSBasic
     - id: MedkitFilled
       prob: 0.3
+    # WL-Corvax-Edit-Start
+    - id: SurgicalCaseFilled
+    # WL-Corvax-Edit-End
 
 - type: entity
   parent: LockerParamedic

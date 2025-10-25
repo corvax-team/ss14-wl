@@ -27,6 +27,11 @@
   - type: Item
     sprite: _WL/Objects/Storage/Medical/surgical_case.rsi
     size: Large
+
+- type: entity
+  id: SurgicalCaseFilled
+  parent: SurgicalCase
+  components:
   - type: StorageFill
     contents:
       - id: Hemostat
@@ -39,4 +44,3 @@
       - id: BoneSetter
       - id: VascularRecoupler
       - id: Suture
-
