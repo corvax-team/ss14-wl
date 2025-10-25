@@ -38,5 +38,5 @@
       - id: BoneGel
       - id: BoneSetter
       - id: VascularRecoupler
-      - id: Suture # Offbrand
+      - id: Suture
 
