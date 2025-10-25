@@ -226,7 +226,7 @@
     - id: BoxEncryptionKeyMedical
     # WL-Corvax-Edit-Start
     # - id: ClothingBackpackDuffelSurgeryFilled
-    - id: SurgicalCase
+    - id: SurgicalCaseFilled
     # WL-Corvax-Edit-End
     - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
