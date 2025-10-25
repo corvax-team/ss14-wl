@@ -13,6 +13,7 @@ using Content.Shared.Mind;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network; // Goobstation
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
@@ -23,6 +24,7 @@ namespace Content.Shared.Actions;
 public abstract partial class SharedActionsSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming GameTiming = default!;
+    [Dependency] private readonly INetManager _net = default!; // Goobstation
     [Dependency] private   readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private   readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private   readonly ActionContainerSystem _actionContainer = default!;
@@ -676,7 +678,7 @@ public abstract partial class SharedActionsSystem : EntitySystem
         if (GetAction(action) is not {} ent)
             return false;
 
-        DebugTools.Assert(ent.Comp.Container == null ||
+        DebugTools.Assert(ent.Comp.Container == null || _net.IsClient && action?.Comp?.ClientExclusive is false ||  // Night-Vision
                           (TryComp(ent.Comp.Container, out ActionsContainerComponent? containerComp)
                            && containerComp.Container.Contains(ent)));
 

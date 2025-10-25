@@ -115,6 +115,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 30
   # Corvax-End
+  # Corvax-WL-Start
+  - type: Body
+    thermalVisibility: false
+  # Corvax-WL-End
 
 - type: entity
   abstract: true
