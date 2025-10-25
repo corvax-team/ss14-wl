@@ -23,4 +23,7 @@ public sealed partial class LanguagePrototype : IPrototype
 
     [DataField("color")]
     public Color Color = Color.White;
+
+    [DataField]
+    public bool NeedTTS = true;
 }

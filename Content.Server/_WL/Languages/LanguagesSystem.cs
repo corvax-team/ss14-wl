@@ -151,6 +151,23 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         return listen_lang.IsUnderstanding && source_lang.IsSpeaking && listen_lang.Understood.Contains(message_language);
     }
 
+    public bool NeedTTS(EntityUid source)
+    {
+        if (!TryComp<LanguagesComponent>(source, out var source_lang))
+            return false;
+        else
+        {
+            var message_language = source_lang.CurrentLanguage;
+            var proto = GetLanguagePrototype(message_language);
+            if (proto == null)
+                return false;
+            else
+            {
+                return proto.NeedTTS;
+            }
+        }
+    }
+
     public bool IsObfusEmoting(EntityUid source)
     {
         if (!TryComp<LanguagesComponent>(source, out var source_lang))

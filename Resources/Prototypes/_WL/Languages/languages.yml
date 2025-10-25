@@ -3,6 +3,7 @@
   name: Base language
   description: Base language description.
   abstract: true
+  needtts: true
   obfuscation:
     !type:ReplacementObfuscation
       replacement:
@@ -176,6 +177,7 @@
       - щебечет
       - щебечет и двигает усиками
       - щебечет и активно двигает тельцем
+  needtts: false
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: nian
@@ -206,6 +208,7 @@
       - шуршит
       - трещит ветками
       - трясёт лозами и листьями
+  needtts: false
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: diona
@@ -215,6 +218,7 @@
   name: language-slimish
   description: language-slimish-desc
   color: '#309100'
+  needtts: false
   obfuscation:
     !type:EmoteObfuscation
       replacement:
