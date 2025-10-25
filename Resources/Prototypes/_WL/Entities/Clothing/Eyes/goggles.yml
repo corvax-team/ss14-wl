@@ -83,6 +83,6 @@
   - type: ShowSyndicateIcons
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
-    toggleAction: ToggleThermalVision
   - type: ThermalVision
     pulseTime: 0
+    toggleAction: ToggleThermalVision

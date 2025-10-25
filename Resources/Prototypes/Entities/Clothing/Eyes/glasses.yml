@@ -279,6 +279,10 @@
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: FlashImmunity
+  # WL-Night-Vision-Start
+  - type: NightVision
+    isEquipment: true
+  # WL-Night-Vision-End
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
