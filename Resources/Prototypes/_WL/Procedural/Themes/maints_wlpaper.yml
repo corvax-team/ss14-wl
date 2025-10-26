@@ -1,0 +1,44 @@
+- type: dungeonRoom
+  id: MaintsRenga15x15a
+  size: 15,15
+  atlas: /Maps/_WL/Dungeon/maints_wlpaper.yml
+  offset: 0,0
+  tags:
+  - MaintsPaper
+
+- type: dungeonRoom
+  id: MaintsRenga15x15c
+  size: 15,15
+  atlas: /Maps/_WL/Dungeon/maints_wlpaper.yml
+  offset: 16,0
+  tags:
+  - MaintsPaper
+
+- type: dungeonRoom
+  id: MaintsRenga15x15b
+  size: 15,15
+  atlas: /Maps/_WL/Dungeon/maints_wlpaper.yml
+  offset: 0,16
+  tags:
+  - MaintsPaper
+
+- type: dungeonRoom
+  id: MaintsRenga15x15d
+  size: 15,15
+  atlas: /Maps/_WL/Dungeon/maints_wlpaper.yml
+  offset: 16,16
+  tags:
+  - MaintsPaper
+
+- type: entity
+  parent: BaseRoomMarker
+  id: MaintsDepartmentalPaperRoomMarker
+  name: Maints interior marker
+  suffix: 15x15, Paper
+  components:
+  - type: RoomFill
+    minSize: 15,15
+    maxSize: 15,15
+    roomWhitelist:
+      tags:
+      - MaintsPaper
