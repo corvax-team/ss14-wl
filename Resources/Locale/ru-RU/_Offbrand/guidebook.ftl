@@ -1,0 +1,11 @@
+guide-entry-physician = Врач
+guide-entry-surgery = Хирургия
+guide-entry-cryostasis = Криостаз
+guide-entry-medicine-list = Список медикаментов
+guide-entry-medication = Медикаменты
+guide-entry-chemist-medical = Химикаты для медицины
+guide-entry-chemist-botany = Химикаты для ботаники
+guide-entry-chemist-advanced-topicals = Продвинутые препараты
+guide-entry-paramedic = Парамедик
+guide-entry-body = Организм
+guide-entry-topicals = Наружные средства

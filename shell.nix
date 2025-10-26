@@ -43,6 +43,9 @@ let
     at-spi2-core
     cups
     python3
+    python313Packages.pyyaml
+    rPackages.argparse
+
   ];
 in pkgs.mkShell {
   name = "space-station-14-devshell";

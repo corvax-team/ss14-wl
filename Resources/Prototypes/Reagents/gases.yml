@@ -463,6 +463,17 @@
           shouldHave: false
         effectProto: StatusEffectForcedSleeping
         time: 3
+        type: Update
+      - !type:ModifyStatusEffect # Offbrand
+        conditions:
+        - !type:ReagentThreshold
+          reagent: NitrousOxide
+          min: 1.8
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        effectProto: StatusEffectPainSuppressionNitrousOxide
+        time: 3
         type: Add
       - !type:HealthChange
         conditions:
@@ -503,7 +514,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 15
-        refresh: false
       - !type:Drunk
         boozePower: 15
       - !type:PopupMessage
@@ -558,7 +568,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
-        refresh: false
       - !type:Drunk
         boozePower: 500
         conditions:

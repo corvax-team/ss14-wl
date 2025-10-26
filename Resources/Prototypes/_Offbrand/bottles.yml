@@ -1,0 +1,29 @@
+- type: entity
+  id: ChemistryBottleTramadol
+  suffix: tramadol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-tramadol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Tramadol
+          Quantity: 30
+
+- type: entity
+  id: ChemistryBottleParacetamol
+  suffix: paracetamol
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    currentLabel: reagent-name-paracetamol
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Paracetamol
+          Quantity: 30

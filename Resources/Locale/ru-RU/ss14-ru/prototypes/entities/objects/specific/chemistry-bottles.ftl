@@ -1,111 +1,337 @@
 ent-BaseChemistryEmptyBottle = бутылочка
     .desc = Маленькая бутылочка.
+
 ent-ChemistryEmptyBottle01 = { ent-BaseChemistryEmptyBottle }
     .desc = { ent-BaseChemistryEmptyBottle.desc }
+
 ent-ChemistryEmptyBottle02 = { ent-BaseChemistryEmptyBottle }
     .desc = { ent-BaseChemistryEmptyBottle.desc }
+
 ent-ChemistryEmptyBottle03 = { ent-BaseChemistryEmptyBottle }
     .desc = { ent-BaseChemistryEmptyBottle.desc }
+
 ent-ChemistryEmptyBottle04 = { ent-BaseChemistryEmptyBottle }
     .desc = { ent-BaseChemistryEmptyBottle.desc }
+
 ent-BaseChemistryBottleFilled = { ent-BaseChemistryEmptyBottle }
     .desc = { ent-BaseChemistryEmptyBottle.desc }
-ent-ChemistryBottleEpinephrine = { ent-BaseChemistryBottleFilled }
-    .suffix = Эпинефрин
+
+ent-ChemistryBottleAloxadone = { ent-BaseChemistryBottleFilled }
     .desc = { ent-BaseChemistryBottleFilled.desc }
-ent-ChemistryBottleRobustHarvest = { ent-BaseChemistryBottleFilled }
-    .suffix = Робаст харвест
+    .suffix = Алоксадон
+
+ent-ChemistryBottleAmbuzol = { ent-BaseChemistryBottleFilled }
     .desc = { ent-BaseChemistryBottleFilled.desc }
-ent-ChemistryBottleEZNutrient = { ent-BaseChemistryBottleFilled }
-    .suffix = EZ-нутриенты
+    .suffix = Амбузол
+
+ent-ChemistryBottleAmbuzolPlus = { ent-BaseChemistryBottleFilled }
     .desc = { ent-BaseChemistryBottleFilled.desc }
-ent-ChemistryBottleLeft4Zed = { ent-BaseChemistryBottleFilled }
-    .suffix = left-4-zed
+    .suffix = Амбузол+
+
+ent-ChemistryBottleArithrazine = { ent-BaseChemistryBottleFilled }
     .desc = { ent-BaseChemistryBottleFilled.desc }
-ent-ChemistryBottleUnstableMutagen = { ent-BaseChemistryBottleFilled }
-    .suffix = Нестабильный мутаген
+    .suffix = Аритразин
+
+ent-ChemistryBottleBarozine = { ent-BaseChemistryBottleFilled }
     .desc = { ent-BaseChemistryBottleFilled.desc }
-ent-ChemistryBottleNocturine = { ent-BaseChemistryBottleFilled }
-    .suffix = Ноктюрин
+    .suffix = Барозин
+
+ent-ChemistryBottleBicaridine = { ent-BaseChemistryBottleFilled }
     .desc = { ent-BaseChemistryBottleFilled.desc }
-ent-ChemistryBottleEphedrine = { ent-BaseChemistryBottleFilled }
-    .suffix = Эфедрин
+    .suffix = Бикаридин
+
+ent-ChemistryBottleBruizine = { ent-BaseChemistryBottleFilled }
     .desc = { ent-BaseChemistryBottleFilled.desc }
-ent-ChemistryBottleOmnizine = { ent-BaseChemistryBottleFilled }
-    .suffix = Омнизин
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Бруизин
+
 ent-ChemistryBottleCognizine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Когнизин
+
+ent-ChemistryBottleCryoxadone = { ent-BaseChemistryBottleFilled }
     .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Криоксадон
+
+ent-ChemistryBottleCryptobiolin = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Криптобиолин
+
+ent-ChemistryBottleDermaline = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Дермалин
+
+ent-ChemistryBottleDexalin = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Дексалин
+
+ent-ChemistryBottleDexalinPlus = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Дексалин+
+
+ent-ChemistryBottleDiphenhydramine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Дифенгидрамин
+
+ent-ChemistryBottleDiphenylmethylamine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Дифенилметиламин
+
+ent-ChemistryBottleDoxarubixadone = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Доксарубиксадон
+
+ent-ChemistryBottleDylovene = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Диловен
+
+ent-ChemistryBottleEpinephrine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Эпинефрин
+
+ent-ChemistryBottleEthyloxyephedrine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Этилоксиэфедрин
+
+ent-ChemistryBottleEthylredoxrazine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Этилредоксразин
+
+ent-ChemistryBottleHaloperidol = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Галоперидол
+
+ent-ChemistryBottleHolywater = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Святая вода
+
+ent-ChemistryBottleHyronalin = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Хироналин
+
+ent-ChemistryBottleInaprovaline = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Инапровалин
+
+ent-ChemistryBottleInsuzine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Инсузин
+
+ent-ChemistryBottleIpecac = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Ипекак
+
+ent-ChemistryBottleKelotane = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Келотан
+
+ent-ChemistryBottleLacerinol = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Лацеринол
+
+ent-ChemistryBottleLeporazine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Лепоразин
+
+ent-ChemistryBottleLipozine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Липозин
+
+ent-ChemistryBottleMannitol = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Маннитол
+
+ent-ChemistryBottleNecrosol = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Некрозол
+
+ent-ChemistryBottleOculine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Окулин
+
+ent-ChemistryBottleOmnizine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Омнизин
+
+ent-ChemistryBottleOpporozidone = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Оппорозидон
+
+ent-ChemistryBottlePhalanximine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Фалангинамин
+
+ent-ChemistryBottlePolypyryliumOligomers = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Олигомеры полипирилия
+
+ent-ChemistryBottlePotassiumIodide = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Иодид калия
+
+ent-ChemistryBottlePsicodine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Псикодин
+
+ent-ChemistryBottlePulpedBananaPeel = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Толчёная банановая кожура
+
+ent-ChemistryBottlePuncturase = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Пунктураз
+
+ent-ChemistryBottlePyrazine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Пиразин
+
+ent-ChemistryBottleSaline = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Физраствор
+
+ent-ChemistryBottleSiderlac = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Сидерлак
+
+ent-ChemistryBottleSigynate = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Сигинат
+
+ent-ChemistryBottleStellibinin = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Стеллибинин
+
+ent-ChemistryBottleSynaptizine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Синаптизин
+
+ent-ChemistryBottleTranexamicAcid = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Транексамовая кислота
+
+ent-ChemistryBottleTricordrazine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Трикордразин
+
+ent-ChemistryBottleUltravasculine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Ультраваскулин
+
+ent-ChemistryBottleRobustHarvest = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Робаст харвест
+
+ent-ChemistryBottleEZNutrient = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = EZ-нутриенты
+
+ent-ChemistryBottleLeft4Zed = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = left-4-zed
+
+ent-ChemistryBottleUnstableMutagen = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Нестабильный мутаген
+
+ent-ChemistryBottleNocturine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Ноктюрин
+
+ent-ChemistryBottleEphedrine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Эфедрин
+
 ent-ChemistryBottlePax = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Пакс
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleMuteToxin = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Токсин немоты
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleLead = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Свинец
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleToxin = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Токсин
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleAluminium = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Алюминий
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleCarbon = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Углерод
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleChlorine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Хлор
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleCopper = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Медь
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleEthanol = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Этанол
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleFluorine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Фтор
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleHydrogen = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Водород
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleIodine = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Йод
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleIron = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Железо
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleLithium = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Литий
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleMercury = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Ртуть
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleNitrogen = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Азот
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleOxygen = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Кислород
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottlePhosphorus = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Фосфор
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottlePotassium = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Калий
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleRadium = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Радий
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleSilicon = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Кремний
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleSodium = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Натрий
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleSugar = { ent-BaseChemistryBottleFilled }
+    .desc = { ent-BaseChemistryBottleFilled.desc }
     .suffix = Сахар
-    .desc = { ent-BaseChemistryBottleFilled.desc }
+
 ent-ChemistryBottleSulfur = { ent-BaseChemistryBottleFilled }
-    .suffix = Сера
     .desc = { ent-BaseChemistryBottleFilled.desc }
+    .suffix = Сера

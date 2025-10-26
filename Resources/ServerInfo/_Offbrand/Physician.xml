@@ -1,0 +1,61 @@
+<Document>
+# Врач
+
+Как основной поставщик медицинской помощи в отделе [color=#5b97bc]Медицины[/color], Врачи отвечают за мониторинг пациентов, обеспечение их необходимыми медикаментами и проведение операций по мере необходимости.
+
+## Организм
+
+Хорошее понимание того, как работают организмы пациентов, необходимо для спасения жизней и обеспечения успешных результатов их визита в [color=#5b97bc]Медицину[/color].
+
+[textlink="Узнать больше об Организме." link="OffbrandBody"]
+
+## Препараты
+
+<Box>
+  <GuideEntityEmbed Entity="Brutepack" Caption="Набор от ушибов"/>
+  <GuideEntityEmbed Entity="Ointment" Caption="Мазь"/>
+  <GuideEntityEmbed Entity="Gauze" Caption="Бинт"/>
+</Box>
+
+Препараты - это первый шаг в лечении физических или ожоговых травм; каждая рана должна быть перевязана или обработана мазью перед продолжением лечения.
+
+Каждая рана может быть перевязана или обработана мазью только один раз; разные медикаментозные повязки и мази могут быть лучше для определённых типов ран.
+
+[textlink="Узнать больше о Препаратах." link="OffbrandTopicals"]
+
+## Медикаменты
+
+<Box>
+  <GuideEntityEmbed Entity="ChemistryBottleBicaridine" Caption="Бикаридин" />
+  <GuideEntityEmbed Entity="ChemistryBottleDermaline" Caption="Дермалин" />
+  <GuideEntityEmbed Entity="ChemistryBottleDexalinPlus" Caption="Дексалин Плюс" />
+  <GuideEntityEmbed Entity="ChemistryBottleDylovene" Caption="Диловен" />
+  <GuideEntityEmbed Entity="ChemistryBottleInaprovaline" Caption="Инапровалин" />
+  <GuideEntityEmbed Entity="ChemistryBottleTramadol" Caption="Трамадол" />
+</Box>
+
+После обеспечения обработки ран препаратами можно давать медикаменты для помощи организму в заживлении и облегчения боли.
+
+[textlink="Узнать больше о Медикаментах." link="OffbrandMedication"]
+
+## Криостазис
+
+В чрезвычайных ситуациях вы можете быть не в состоянии своевременно обслужить каждого пациента.
+
+Криостазисные устройства позволяют замедлить тела ваших пациентов, выигрывая больше времени.
+
+<Box>
+  <GuideEntityEmbed Entity="StasisBed" Caption="стазис-кровать" />
+  <GuideEntityEmbed Entity="CryoPod" Caption="криокапсула" />
+</Box>
+
+[textlink="Узнать больше о Криостазисе." link="OffbrandCryostasis"]
+
+## Хирургия
+
+Некоторые пациенты могут поступить с внутренними травмами, которые не могут быть вылечены поверхностным наложением препаратов или лекарств, невидимыми для вашего глаза, но обнаруживаемыми анализатором здоровья.
+
+Убедитесь, что пациенты стабильны и раны обработаны, прежде чем доставлять их в операционную.
+
+[textlink="Узнать больше о Хирургии." link="OffbrandSurgery"]
+</Document>

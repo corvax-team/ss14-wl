@@ -46,7 +46,7 @@ ent-PillDexalin = таблетка
     .desc = { ent-Pill.desc }
     .suffix = Дексалин 10 ед
 ent-PillCanisterDexalin = баночка для таблеток
-    .suffix = Дексалин 10 ед, 7
+    .suffix = Дексалин 10 ед, 7 шт
     .desc = { ent-PillCanister.desc }
 ent-PillDylovene = таблетка
     .desc = { ent-Pill.desc }
@@ -161,3 +161,16 @@ ent-SyringeRomerol = { ent-PrefilledSyringe }
 ent-SyringeStimulants = { ent-PrefilledSyringe }
     .desc = { ent-PrefilledSyringe.desc }
     .suffix = Стимулятор
+
+# WL EDIT
+pill-canister-dexalin-10u = { ent-PillDexalin.suffix }
+pill-canister-dylovene-10u = { ent-PillDylovene.suffix }
+pill-canister-hyronalin-10u = { ent-PillHyronalin.suffix }
+pill-canister-potassium-iodide-10u = { ent-PillPotassiumIodide.suffix }
+pill-canister-iron-10u = { ent-PillIron.suffix }
+pill-canister-copper-10u = { ent-PillCopper.suffix }
+pill-canister-kelotane-10u = { ent-PillKelotane.suffix }
+pill-canister-dermaline-10u = { ent-PillDermaline.suffix }
+pill-canister-tricordrazine-10u = { ent-PillTricordrazine.suffix }
+pill-canister-bicaridine-10u = { ent-PillBicaridine.suffix }
+pill-canister-charcoal-10u = { ent-PillCharcoal.suffix }

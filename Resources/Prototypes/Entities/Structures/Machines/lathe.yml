@@ -124,6 +124,7 @@
     - AtmosStatic
     - CablesStatic
     - PaperworkStatic
+    - TowelsStatic
     - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
@@ -196,6 +197,7 @@
     staticPacks:
     - ChemistryStatic
     - SurgeryStatic
+    - OffbrandSurgeryStatic # Offbrand
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
@@ -258,6 +260,7 @@
     - CargoBoardsStatic
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
+    - OffbrandCircuitboardsStatic # Offbrand
     dynamicPacks:
     - EngineeringBoards
     - CargoBoards
@@ -487,6 +490,8 @@
     - EmptyMedkitsStatic
     - SurgeryStatic
     - ManualStorageMedicalStatic # WL-changes-storage
+    - OffbrandSurgeryStatic # Offbrand
+    - OffbrandMedicalStatic # Offbrand
     dynamicPacks:
     - Chemistry
   - type: Machine
@@ -518,6 +523,7 @@
     idleState: icon
     runningState: building
     staticPacks:
+    - TowelsStatic
     - ClothingCivilian
     - ClothingCargo
     - ClothingCommand

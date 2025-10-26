@@ -1,0 +1,9 @@
+<Document>
+# Продвинутые препараты
+
+Если ресурсы и время позволяют, вы можете создавать продвинутые препараты как химик.
+
+<GuideMicrowaveEmbed Recipe="RecipeRegenerativeMesh" />
+<GuideMicrowaveEmbed Recipe="RecipeMedicatedSuture" />
+
+</Document>

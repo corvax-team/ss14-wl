@@ -6,7 +6,7 @@
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  - BaseMobSpecies
+  - BaseMobSpeciesOld
   id: BaseMobAndroid
   abstract: true
   components:

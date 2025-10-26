@@ -64,7 +64,8 @@
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
-    radius: 1.5
+    radius: 1.7
+    falloff: 3
     softness: 5
     autoRot: true
   - type: Ringer
@@ -219,7 +220,7 @@
     state: pda-internmed
   - type: GuideHelp
     guides:
-    - MedicalDoctor
+    - OffbrandPhysician # Offbrand
 
 - type: entity
   parent: BaseSecurityPDA
@@ -759,7 +760,7 @@
     state: pda-medical
   - type: GuideHelp
     guides:
-    - MedicalDoctor
+    - OffbrandPhysician # Offbrand
 
 - type: entity
   parent: MedicalPDA

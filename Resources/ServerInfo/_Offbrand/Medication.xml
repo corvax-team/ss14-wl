@@ -1,0 +1,49 @@
+<Document>
+# Медикаменты
+
+Отдел [color=#5b97bc]Медицины[/color] может использовать различные медикаменты для стабилизации, лечения или обеспечения комфорта пациентов.
+
+## Стабилизирующие медикаменты
+
+Эти лекарства в основном замедляют ухудшение состояния пациента, не устраняя их основные причины.
+
+<GuideReagentEmbed Reagent="Inaprovaline"/>
+<GuideReagentEmbed Reagent="Dexalin"/>
+<GuideReagentEmbed Reagent="DexalinPlus"/>
+
+## Обезболивающие
+
+Эти лекарства уменьшают боль, которую чувствует пациент, снижая риск болевого шока и позволяя лучше использовать своё тело.
+
+Они не лечат основные причины боли, и их прекращение до лечения травм пациента может привести к остановке сердца.
+
+<GuideReagentEmbed Reagent="Paracetamol"/>
+<GuideReagentEmbed Reagent="Tramadol"/>
+<GuideReagentEmbed Reagent="Oxycodone"/>
+
+## Основные лечебные медикаменты
+
+Эти лекарства лечат различные травмы, но не могут лечить тяжёлые внутренние раны, требующие хирургического вмешательства.
+
+<GuideReagentEmbed Reagent="Kelotane"/>
+<GuideReagentEmbed Reagent="Dermaline"/>
+<GuideReagentEmbed Reagent="Dylovene"/>
+<GuideReagentEmbed Reagent="Bicaridine"/>
+<GuideReagentEmbed Reagent="Tricordrazine"/>
+<GuideReagentEmbed Reagent="Hyronalin"/>
+<GuideReagentEmbed Reagent="Arithrazine"/>
+<GuideReagentEmbed Reagent="Phalanximine"/>
+
+## Криогенные лекарства
+
+Криогенные лекарства можно применять к пациентам с низкой температурой тела. Криокапсулы являются основным средством их использования.
+
+[textlink="Узнать больше о Криостазисе." link="OffbrandCryostasis"]
+
+## Все медикаменты
+
+Эта страница не является исчерпывающей, и вы можете столкнуться с другими лекарствами в ходе раунда. Все медикаменты можно найти в руководстве Химика.
+
+[textlink="Прочитать все возможные медикаменты." link="OffbrandMedicineList"]
+
+</Document>
