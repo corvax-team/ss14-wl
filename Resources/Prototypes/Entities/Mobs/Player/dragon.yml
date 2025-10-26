@@ -175,6 +175,7 @@
   # WL-Thermal-Vision-Start
   - type: ThermalVision
     pulseTime: 0
+    color: "#fdbfbd"
     toggleAction: ToggleThermalVision
     activateSound: null
     deactivateSound: null
