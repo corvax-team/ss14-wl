@@ -176,6 +176,8 @@
   - type: ThermalVision
     pulseTime: 0
     toggleAction: ToggleThermalVision
+    activateSound: null
+    deactivateSound: null
   # WL-Thermal-Vision-End
 
 
