@@ -1,0 +1,218 @@
+<Document>
+# Хирургия
+
+Хирургия используется для лечения тяжёлых и часто внутренних ран.
+
+## Управление болью
+
+<Box>
+  <GuideEntityEmbed Entity="OperatingTable" Caption="операционный стол" />
+  <GuideEntityEmbed Entity="NitrousOxideTankFilled" Caption="закись азота" />
+  <GuideEntityEmbed Entity="ChemistryBottleTramadol" Caption="трамадол" />
+</Box>
+
+Управление болью - важная часть хирургии, поскольку чрезмерная боль вызовет остановку сердца у вашего пациента.
+
+При питании операционные столы могут полностью подавлять способность пациентов чувствовать боль.
+
+Закись азота также может использоваться для анестезии.
+
+Когда ничего из вышеперечисленного нет в наличии, обычные обезболивающие являются вариантом.
+
+## Проведение операции
+
+Для проведения операции на пациенте не должно быть одежды, препятствующей доступу, и он должен лежать.
+
+<Box>
+  <GuideEntityEmbed Entity="ClothingOuterVestTank" Caption="жилет для баллонов" />
+  <GuideEntityEmbed Entity="ClothingOuterHospitalGown" Caption="больничная рубашка" />
+</Box>
+
+Через больничные рубашки и жилеты для баллонов можно проводить операции.
+
+Используйте хирургические инструменты в порядке, описанном ниже, для выполнения операций.
+
+## Хирургические этапы
+
+Ниже приведён список операций, которые вы можете выполнять.
+
+### Открытие разреза
+
+Первый этап большинства операций.
+
+<Table Columns="3">
+  <Box>
+    <GuideEntityEmbed Entity="Scalpel" Caption="" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="Hemostat" Caption="" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="Retractor" Caption="" />
+  </Box>
+  <Box>
+    1. Используйте скальпель
+  </Box>
+  <Box>
+    2. Зажмите кровоточащие вены
+  </Box>
+  <Box>
+    3. Отведите кожу
+  </Box>
+</Table>
+
+### Закрытие разреза
+
+Последний этап большинства операций.
+Разрез должен быть открыт.
+Грудная клетка должна быть закрыта.
+
+<Table Columns="1">
+  <Box>
+    <GuideEntityEmbed Entity="Cautery" Caption="" />
+  </Box>
+  <Box>
+    1. Прижгите разрез
+  </Box>
+</Table>
+
+### Ремонт кости
+
+Лечение переломов у вашего пациента.
+Разрез должен быть открыт.
+
+<Table Columns="2">
+  <Box>
+    <GuideEntityEmbed Entity="BoneGel" Caption="" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="BoneSetter" Caption="" />
+  </Box>
+  <Box>
+    1. Нанесите костный гель на сломанные кости
+  </Box>
+  <Box>
+    2. Убедитесь, что кости на месте
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="BoneGel" Caption="" />
+  </Box>
+  <Box></Box>
+  <Box>
+    3. Нанесите ещё костного геля
+  </Box>
+  <Box></Box>
+</Table>
+
+### Ремонт артерии
+
+Лечение повреждённых артерий у вашего пациента.
+Разрез должен быть открыт.
+
+<Table Columns="1">
+  <Box>
+    <GuideEntityEmbed Entity="VascularRecoupler" Caption="" />
+  </Box>
+  <Box>
+    1. Восстановите повреждённые кровеносные сосуды
+  </Box>
+</Table>
+
+### Вскрытие грудной клетки
+
+Для операций на внутренних органах.
+Разрез должен быть открыт.
+
+<Table Columns="1">
+  <Box>
+    <GuideEntityEmbed Entity="Saw" Caption="" />
+  </Box>
+  <Box>
+    1. Вскройте рёбра
+  </Box>
+</Table>
+
+### Закрытие грудной клетки
+
+Для завершения операций на внутренних органах.
+Грудная клетка должна быть вскрыта.
+
+<Table Columns="2">
+  <Box>
+    <GuideEntityEmbed Entity="BoneGel" Caption="" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="BoneSetter" Caption="" />
+  </Box>
+  <Box>
+    1. Нанесите костный гель на распиленные кости
+  </Box>
+  <Box>
+    2. Убедитесь, что кости на месте
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="BoneGel" Caption="" />
+  </Box>
+  <Box></Box>
+  <Box>
+    3. Нанесите ещё костного геля
+  </Box>
+  <Box></Box>
+</Table>
+
+### Операция на сердце
+
+Для случаев, когда сердце пациента повреждено.
+Грудная клетка должна быть вскрыта.
+
+<Table Columns="1">
+  <Box>
+    <GuideEntityEmbed Entity="Suture" />
+    <GuideEntityEmbed Entity="MedicatedSuture" />
+  </Box>
+  <Box>
+    1. Используйте швы для восстановления сердца
+  </Box>
+</Table>
+
+### Восстановление после шелушения
+
+Для случаев, когда пациент был "ошелушен" тяжёлыми ожогами.
+Грудная клетка должна быть вскрыта.
+
+<Table Columns="1">
+  <Box>
+    <GuideEntityEmbed Entity="RegenerativeMesh" Caption="" />
+  </Box>
+  <Box>
+    1. Используйте 10 регенеративных сеток
+  </Box>
+</Table>
+
+### Лечение некроза костей
+
+Для случаев, когда кости пациента повреждены за пределами обычного восстановления.
+Грудная клетка должна быть вскрыта.
+
+<Table Columns="3">
+  <Box>
+    <GuideEntityEmbed Entity="BoneGel" Caption="" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="MedicatedSuture" Caption="" />
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="BoneGel" Caption="" />
+  </Box>
+  <Box>
+    1. Нанесите костный гель
+  </Box>
+  <Box>
+    2. Используйте 10 медикаментозных швов
+  </Box>
+  <Box>
+    3. Нанесите ещё костного геля
+  </Box>
+</Table>
+
+</Document>

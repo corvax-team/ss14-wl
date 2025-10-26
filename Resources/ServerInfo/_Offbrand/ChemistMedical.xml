@@ -1,0 +1,54 @@
+<Document>
+# Химикаты для медицины
+
+Как член отдела [color=#5b97bc]Медицины[/color], это часто первые вещи, которые вы будете производить за смену.
+
+## Основы
+
+Это базовый набор химикатов, который должен быть в любом [color=#5b97bc]Медицинском[/color] отделении.
+
+### Основные лечебные химикаты
+
+<GuideReagentEmbed Reagent="Bicaridine" />
+<GuideReagentEmbed Reagent="Dylovene" />
+<GuideReagentEmbed Reagent="Dermaline" />
+
+### Основные стабилизирующие химикаты
+
+<GuideReagentEmbed Reagent="Tramadol" />
+<GuideReagentEmbed Reagent="Paracetamol" />
+<GuideReagentEmbed Reagent="DexalinPlus" />
+<GuideReagentEmbed Reagent="Inaprovaline" />
+
+### Другие основные химикаты
+
+<GuideReagentEmbed Reagent="Saline" />
+
+## Другие
+
+Эти химикаты сложнее производить и они предназначены для менее распространённых типов травм, но всё же необходимы для эффективного лечения людей в [color=#5b97bc]Медицинском[/color] отделении.
+
+<GuideReagentEmbed Reagent="Sigynate" />
+<GuideReagentEmbed Reagent="Arithrazine" />
+<GuideReagentEmbed Reagent="Phalanximine" />
+
+## Криогеника
+
+Эти химикаты важны для использования [color=cyan]Криокапсул[/color] и относительно просты в производстве.
+
+<GuideReagentEmbed Reagent="Cryoxadone" />
+<GuideReagentEmbed Reagent="Doxarubixadone" />
+
+## Продвинутые химикаты
+
+Эти химикаты фокусируются только на одном типе повреждений, но делают это особенно хорошо.
+
+<GuideReagentEmbed Reagent="Bruizine" />
+<GuideReagentEmbed Reagent="Lacerinol" />
+<GuideReagentEmbed Reagent="Puncturase" />
+<GuideReagentEmbed Reagent="Insuzine" />
+<GuideReagentEmbed Reagent="Leporazine" />
+<GuideReagentEmbed Reagent="Pyrazine" />
+<GuideReagentEmbed Reagent="Diphenhydramine" />
+
+</Document>

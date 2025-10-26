@@ -1,0 +1,68 @@
+<Document>
+# Криостазис
+
+Криостазис позволяет замедлить тело пациента, давая вам больше времени для работы с ним.
+
+Стазис-кровати применяют фиксированное 10-кратное замедление, в то время как стазис, предоставляемый криокапсулами, варьируется в зависимости от температуры тела пациента.
+
+<Box>
+  <GuideEntityEmbed Entity="StasisBed" Caption="стазис-кровать" />
+  <GuideEntityEmbed Entity="CryoPod" Caption="криокапсула" />
+</Box>
+
+## Криокапсулы
+
+Пациентов можно помещать в криокапсулы для их охлаждения, замедления метаболизма и использования криогенных лекарств. Имейте в виду, что пациенты будут страдать от низкой температуры тела при извлечении из капсул или при отключении питания капсул. Рекомендуется лепорразин.
+
+### Криогенные лекарства
+
+[color=cyan]Криоксадон[/color] - самое распространённое лекарство, которое вы будете использовать в криокапсулах, так как оно обеспечивает широкое заживление и улучшает стабилизацию.
+
+<GuideReagentEmbed Reagent="Cryoxadone"/>
+
+[color=cyan]Лепорразин[/color] можно использовать для повышения температуры тела пациента перед извлечением из криокапсулы.
+
+<GuideReagentEmbed Reagent="Leporazine"/>
+
+Другие лекарства менее распространены, но имеют своё применение.
+
+<GuideReagentEmbed Reagent="Aloxadone"/>
+<GuideReagentEmbed Reagent="Doxarubixadone"/>
+<GuideReagentEmbed Reagent="Necrosol"/>
+<GuideReagentEmbed Reagent="Opporozidone"/>
+
+### Настройка криокапсул
+
+Криокапсулы имеют сеть труб, подающих холодный воздух к пациенту и отводящих выдыхаемый воздух.
+
+- [color=cyan]Подача воздуха[/color]: Воздух должен подаваться через криокапсулу, часто через газовый насос, подключённый к разъёму с баллоном или к сети распределения воздуха станции. Газовый насос должен быть настроен как минимум на 101 кПа и не более чем на 300 кПа.
+- [color=cyan]Охладитель[/color]: Основное средство контроля температуры воздуха внутри криокапсулы. Охладитель должен быть включён и настроен на охлаждение как минимум до 200K.
+- [color=cyan]Газовые фильтры[/color]: Они удаляют выдыхаемый воздух пациентов из сети. Наиболее распространённый выдыхаемый газ - диоксид углерода.
+- [color=cyan]Отвод воздуха[/color]: Всё, что отфильтровано газовыми фильтрами, возвращается в отводящую сеть станции.
+
+<Box>
+<GuideEntityEmbed Entity="GasPipeBend" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeStraight" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeStraight" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeBend" Rotation="0"/>
+<GuideEntityEmbed Entity="CryoPod" Caption="криокапсула" Rotation="0"/>
+<GuideEntityEmbed Entity="GasThermoMachineFreezerEnabled" Rotation="0"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="GasPipeBend" Rotation="180"/>
+<GuideEntityEmbed Entity="GasFilterFlipped" Rotation="90"/>
+<GuideEntityEmbed Entity="GasFilterFlipped" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180"/>
+<GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180"/>
+<GuideEntityEmbed Entity="GasPipeTJunction" Rotation="270"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="GasPort" Caption="отвод воздуха" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeTJunction" Rotation="180"/>
+<GuideEntityEmbed Entity="GasPipeBend" Rotation="270"/>
+<GuideEntityEmbed Entity="GasPort" Caption="подача воздуха" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPressurePump" Rotation="90"/>
+<GuideEntityEmbed Entity="GasPipeBend" Rotation="270"/>
+</Box>
+
+</Document>

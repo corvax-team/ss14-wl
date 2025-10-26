@@ -1,0 +1,30 @@
+<Document>
+# Химикаты для ботаники
+
+Предоставление этих химикатов [color=#9fed58]Ботанике[/color] позволяет им работать лучше, часто давая возможность производить ценные химикаты для вас.
+
+## Основные химикаты
+
+Эти химикаты позволяют ботаникам увеличивать эффективность своих растений, управлять или обращать вспять их скорость роста, а также лечить свои растения.
+
+<GuideReagentEmbed Reagent="RobustHarvest" />
+<GuideReagentEmbed Reagent="Diethylamine" />
+<GuideReagentEmbed Reagent="Cryoxadone" />
+
+## Мутационные химикаты
+
+Эти химикаты позволяют ботаникам мутировать растения и управлять эффектами их мутаций.
+
+<GuideReagentEmbed Reagent="Dylovene" />
+<GuideReagentEmbed Reagent="Left4Zed" />
+<GuideReagentEmbed Reagent="Phalanximine" />
+<GuideReagentEmbed Reagent="UnstableMutagen" />
+
+## Питательные химикаты
+
+Хотя они не строго необходимы ботаникам, эти химикаты могут облегчить работу начинающим ботаникам.
+
+<GuideReagentEmbed Reagent="EZNutrient" />
+<GuideReagentEmbed Reagent="Ammonia" />
+
+</Document>

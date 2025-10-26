@@ -35,6 +35,8 @@
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectHeartStrainDesoxyephedrine
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
@@ -65,8 +67,8 @@
           shouldHave: false
 # WL species end
       - !type:Jitter
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
 # WL species start
@@ -80,8 +82,7 @@
           type: Golem
           shouldHave: false
 # WL species end
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 3
         type: Remove
 # WL species start
@@ -133,6 +134,8 @@
   meltingPoint: 36.0
   metabolisms:
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectHeartStrainEphedrine
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
@@ -167,23 +170,11 @@
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
       - !type:Jitter
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 1
         type: Remove
-# WL species start
-        # Android
-        conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
-# WL species end
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 1
         type: Remove
 # WL species start
@@ -240,6 +231,8 @@
   meltingPoint: 170.0
   metabolisms:
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectHeartStrainHyperzine
       metabolismRate: 1.0
       effects:
       - !type:MovespeedModifier
@@ -272,12 +265,11 @@
           min: 1
         reagent: ChloralHydrate
         amount: -10
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 3
         type: Remove
       - !type:GenericStatusEffect
@@ -341,12 +333,13 @@
     amount: -1
   metabolisms:
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectHeartStabilizationTHC
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-        refresh: false
 # WL species start
         conditions:
         # Golem
@@ -366,15 +359,13 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
-  metabolisms:
-    Cischi:
+  metabolisms: # Offbrand
+    Narcotic:
+      statusEffects:
+      - statusEffect: StatusEffectHeartStrainNicotine
       effects:
-      - !type:HealthChange
-        damage:
-          groups:
-            Toxin: -0.25
-            Brute: -0.25
-            Burn: -0.25
+      - !type:ModifyLungDamage
+        amount: 0.25
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
@@ -418,7 +409,6 @@
         effectProto: StatusEffectSeeingRainbow
         time: 10
         type: Add
-        refresh: false
 # WL species start
         conditions:
         # Golem
@@ -454,7 +444,6 @@
        - !type:GenericStatusEffect
          key: ForcedSleep
          component: ForcedSleeping
-         refresh: false
          type: Add
 
 - type: reagent
@@ -472,7 +461,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 # WL species start
         conditions:
         # Golem
@@ -496,7 +484,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 # WL species start
         conditions:
         # Golem
@@ -518,6 +505,8 @@
   meltingPoint: 128.0
   metabolisms:
     Narcotic:
+      statusEffects: # Offbrand
+      - statusEffect: StatusEffectPainSuppressionNocturine
       effects:
       - !type:ModifyStatusEffect
         conditions:
@@ -536,6 +525,7 @@
 # WL species end
         effectProto: StatusEffectForcedSleeping
         time: 3
+        delay: 6
         type: Add
 
 - type: reagent
@@ -567,7 +557,6 @@
 # WL species end
         type: Add
         time: 10
-        refresh: false
 
 - type: reagent
   id: NorepinephricAcid
@@ -791,4 +780,3 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false

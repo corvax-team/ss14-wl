@@ -1,0 +1,39 @@
+<Document>
+# Медицина
+Если кто-то получает травмы, задача Медицины - вернуть их к здоровью.
+
+## Персонал
+[color=#5b97bc]Медицина[/color] в основном нанимает [color=cyan]Врачей[/color], [color=cyan]Парамедиков[/color] и [color=cyan]Химиков[/color].
+
+[color=#5b97bc]Медицинской[/color] помощью руководит [color=cyan]Главный медицинский офицер.[/color]
+
+<Box>
+  <GuideEntityEmbed Entity="ToyFigurineMedicalDoctor" Caption="Врач"/>
+  <GuideEntityEmbed Entity="ToyFigurineParamedic" Caption="Парамедик"/>
+  <GuideEntityEmbed Entity="ToyFigurineChemist" Caption="Химик"/>
+  <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="ГМО"/>
+</Box>
+
+## Врачи
+
+[color=cyan]Врачи[/color] служат основными практикующими специалистами в [color=#5b97bc]Медицинском[/color] отделении и отвечают за возвращение пациентов к здоровому состоянию. Это достигается за счёт проведения операций и другого интенсивного лечения по мере необходимости.
+
+[textlink="Узнать больше о Врачах." link="OffbrandPhysician"]
+
+## Парамедики
+
+[color=cyan]Парамедики[/color] служат основными медицинскими спасателями на станции и ваша задача это поиск и стабилизация пациентов для эвакуации в [color=#5b97bc]Медицинский[/color] отдел для лечения [color=cyan]Врачами[/color]. В чрезвычайных ситуациях [color=cyan]Парамедики[/color] могут также взять на себя дополнительные обязанности в [color=#5b97bc]Медицинском[/color] отделении, пока [color=cyan]Врачи[/color] проводят операции.
+
+[textlink="Узнать больше о Парамедиках." link="OffbrandParamedic"]
+
+## Химики
+
+[color=cyan]Химики[/color] отвечают за синтез лекарств, на которые полагаются [color=cyan]Врачи[/color] и [color=cyan]Парамедики[/color] для лечения пациентов. Они также выполняют рецепты для экипажа и могут создавать немедицинские химикаты в своей лаборатории, если возникнет необходимость.
+
+[textlink="Узнать больше о Химиках." link="OffbrandChemist"]
+
+## Организм
+
+[textlink="Узнать больше об Организме." link="OffbrandBody"]
+
+</Document>
