@@ -1,11 +1,15 @@
-using JetBrains.Annotations;
+using Content.Server._WL.Nutrition.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Movement.Components;
 using Content.Shared.Body.Systems;
-using Content.Server._WL.Nutrition.Components;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Nutrition.Components;
+using JetBrains.Annotations;
+using Robust.Shared.Timing;
+using SixLabors.ImageSharp.PixelFormats;
+using System.Reflection;
+using System.Text;
 
 namespace Content.Server._WL.Nutrition.EntitySystems
 {
@@ -47,10 +51,10 @@ namespace Content.Server._WL.Nutrition.EntitySystems
         {
             base.Update(frameTime);
 
-            var query = _entityManager.EntityQuery<GolemHeatComponent>();
-            foreach (var entity in query)
+            var query = EntityQueryEnumerator<GolemHeatComponent>();
+            while (query.MoveNext(out var uid, out var comp))
             {
-                ChangeGolemHeat(entity.Owner);
+                ChangeGolemHeat(uid);
             }
         }
     }

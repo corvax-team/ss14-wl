@@ -194,7 +194,7 @@
     - type: BodyEmotes
       soundsId: GolemBodyEmotes
     - type: Physics
-      bodyType: Dynamic
+      bodyType: KinematicController
       sleepingAllowed: false
     - type: ZombieImmune
     - type: Stamina
