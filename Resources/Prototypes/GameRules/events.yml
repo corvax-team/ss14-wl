@@ -502,11 +502,11 @@
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
-      prob: 0.02
+      prob: 0.01
     - id: MobAdultSlimesGreenAngry
-      prob: 0.02
+      prob: 0.01
     - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+      prob: 0.01
 
 - type: entity
   id: SnakeSpawn
@@ -523,11 +523,11 @@
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
-      prob: 0.02
+      prob: 0.01
     - id: MobSmallPurpleSnake
-      prob: 0.02
+      prob: 0.01
     - id: MobCobraSpace
-      prob: 0.02
+      prob: 0.01
 
 - type: entity
   id: SpiderSpawn
@@ -544,7 +544,7 @@
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
-      prob: 0.05
+      prob: 0.02
 
 - type: entity
   id: SpiderClownSpawn
@@ -561,7 +561,7 @@
   - type: VentCrittersRule
     entries:
     - id: MobClownSpider
-      prob: 0.05
+      prob: 0.02
 
 - type: entity
   id: ZombieOutbreak
