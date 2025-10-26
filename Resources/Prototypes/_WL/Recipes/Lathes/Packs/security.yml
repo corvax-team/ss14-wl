@@ -1,9 +1,0 @@
-- type: latheRecipePack
-  id: SecurityWeapons
-  recipes:
-  - Truncheon
-  - WeaponAdvancedLaser
-  - WeaponLaserCannon
-  - WeaponLaserCarbine
-  - WeaponXrayCannon
-  - WeaponTemperatureGun
