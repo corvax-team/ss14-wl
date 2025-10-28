@@ -187,12 +187,16 @@
   name: language-ternary
   description: language-ternary-desc
   color: '#03b5fc'
+  needtts: false
+  needsound: true
+  sound:
+    collection: TernarySounds
   obfuscation:
     !type:ByCharReplacementObfuscation
       replacement:
-        - '0 '
-        - '1 '
-        - '2 '
+        - 0
+        - 1
+        - 2
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: android
