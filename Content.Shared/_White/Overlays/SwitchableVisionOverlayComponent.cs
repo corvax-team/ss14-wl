@@ -46,7 +46,6 @@ public sealed class SwitchableVisionOverlayComponentState : IComponentState
     public Color Color;
     public bool IsEquipment;
     public bool IsActive;
-    public float FlashDurationMultiplier;
     public SoundSpecifier? ActivateSound;
     public SoundSpecifier? DeactivateSound;
     public EntProtoId? ToggleAction;
