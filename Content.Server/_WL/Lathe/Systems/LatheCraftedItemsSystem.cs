@@ -13,12 +13,12 @@ public sealed class LatheCraftedItemsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CraftedOnLatheComponent, BeforeItemReclaimedEvent>(OnCraftedItemReclaim);
+        SubscribeLocalEvent<CraftedOnLatheComponent, BeforeItemMaterialReclaimedEvent>(OnCraftedItemReclaim);
         SubscribeLocalEvent<CraftedOnLatheComponent, StackSplitEvent>(OnStackSplit);
         SubscribeLocalEvent<LatheGetResultEvent>(OnLatheCraft);
     }
 
-    private void OnCraftedItemReclaim(EntityUid item, CraftedOnLatheComponent comp, BeforeItemReclaimedEvent ev)
+    private void OnCraftedItemReclaim(EntityUid item, CraftedOnLatheComponent comp, BeforeItemMaterialReclaimedEvent ev)
     {
         var material = ev.Material;
         if (material == null)

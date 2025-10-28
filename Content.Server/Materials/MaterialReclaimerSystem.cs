@@ -4,6 +4,7 @@ using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Content.Server.Wires;
+using Content.Shared._WL.Materials.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -11,6 +12,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Emag.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -25,8 +27,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Shared.Humanoid;
-using Content.Shared._WL.Materials.Events;
 
 namespace Content.Server.Materials;
 
@@ -154,13 +154,11 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         if (!Resolve(uid, ref component, ref active, false))
             return false;
 
-        // WL-Changes-start
-        if (active.ReclaimingContainer.ContainedEntities.FirstOrNull() is not { } item)
-            return false;
-
         if (!base.TryFinishProcessItem(uid, component, active))
             return false;
-        // WL-Changes-end
+
+        if (active.ReclaimingContainer.ContainedEntities.FirstOrNull() is not { } item)
+            return false;
 
         Container.Remove(item, active.ReclaimingContainer);
         Dirty(uid, component);
@@ -205,7 +203,10 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
                 SpawnChemicalsFromComposition(uid, item, completion, true, component, xform);
         }
 
-        QueueDel(item);
+        // WL-Changes-start
+        //QueueDel(item);
+        Del(item);
+        // WL-Changes-end
     }
 
     private void SpawnMaterialsFromComposition(EntityUid reclaimer,
@@ -227,11 +228,11 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         foreach (var (material, amount) in composition.MaterialComposition)
         {
             // WL-Changes-start
-            var ev = new BeforeItemReclaimedEvent(efficiency, modifier, amount, material);
+            var ev = new BeforeItemMaterialReclaimedEvent(efficiency, modifier, amount, material);
             RaiseLocalEvent(item, ev);
             // WL-Changes-end
 
-            var outputAmount = /*WL-Changes-start*/(int)(ev.Amount * ev.Efficiency * ev.Modifier)/*WL-Changes-end*/;
+            var outputAmount = (int)(ev.Amount * ev.Efficiency * ev.Modifier); // WL-Changes-start
             _materialStorage.TryChangeMaterialAmount(reclaimer, material, outputAmount, storage);
         }
 
