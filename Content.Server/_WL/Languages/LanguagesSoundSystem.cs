@@ -75,7 +75,7 @@ public sealed class LanguagesSoundsSystem : EntitySystem
             var check = _languages.CanUnderstand(uid, listener);
 
             if (check) continue;
-            RaiseNetworkEvent(isWhisper ? soundEvent: whispSoundEvent, session);
+            RaiseNetworkEvent(!isWhisper ? soundEvent: whispSoundEvent, session);
         }
     }
 }
