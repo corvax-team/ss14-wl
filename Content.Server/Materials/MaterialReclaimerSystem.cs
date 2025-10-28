@@ -26,6 +26,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Humanoid;
+using Content.Shared._WL.Materials.Events;
 
 namespace Content.Server.Materials;
 
@@ -153,11 +154,13 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         if (!Resolve(uid, ref component, ref active, false))
             return false;
 
-        if (!base.TryFinishProcessItem(uid, component, active))
-            return false;
-
+        // WL-Changes-start
         if (active.ReclaimingContainer.ContainedEntities.FirstOrNull() is not { } item)
             return false;
+
+        if (!base.TryFinishProcessItem(uid, component, active))
+            return false;
+        // WL-Changes-end
 
         Container.Remove(item, active.ReclaimingContainer);
         Dirty(uid, component);
@@ -223,7 +226,12 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         foreach (var (material, amount) in composition.MaterialComposition)
         {
-            var outputAmount = (int) (amount * efficiency * modifier);
+            // WL-Changes-start
+            var ev = new BeforeItemReclaimedEvent(efficiency, modifier, amount, material);
+            RaiseLocalEvent(item, ev);
+            // WL-Changes-end
+
+            var outputAmount = /*WL-Changes-start*/(int)(ev.Amount * ev.Efficiency * ev.Modifier)/*WL-Changes-end*/;
             _materialStorage.TryChangeMaterialAmount(reclaimer, material, outputAmount, storage);
         }
 
