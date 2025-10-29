@@ -24,6 +24,10 @@
   - type: ItemSlots
   - type: Sprite
     sprite: _WL/Objects/Storage/Medical/surgical_case.rsi
+    state: icon
+    layers:
+      - state: icon
+        map: [ base ]
   - type: Item
     sprite: _WL/Objects/Storage/Medical/surgical_case.rsi
     size: Large
