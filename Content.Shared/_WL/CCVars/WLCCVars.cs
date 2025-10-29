@@ -62,62 +62,6 @@ public sealed class WLCVars
             "Нужна ли очистка выбранных Поли™ сообщений после РАУНДА.");
 
     /*
-     * Chat Gpt
-     */
-    /// <summary>
-    /// Ссылка, на которую будут отправляться запросы от клиента OpenAi.
-    /// </summary>
-    public static readonly CVarDef<string> GptQueriesEndpoint =
-        CVarDef.Create("gpt.endpoint", "https://api.proxyapi.ru/openai/v1/chat/completions", CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.SERVER);
-
-    /// <summary>
-    /// Работает(включен) ли ChatGptManager на данный момент.
-    /// </summary>
-    public static readonly CVarDef<bool> IsGptEnabled =
-        CVarDef.Create("gpt.enabled", false, CVar.REPLICATED);
-
-    /// <summary>
-    /// Чат-модель, которая будет использоваться для отправки запросов.
-    /// </summary>
-    public static readonly CVarDef<string> GptChatModel =
-        CVarDef.Create("gpt.chat_model", "gpt-4o-mini", CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.SERVER);
-
-    /// <summary>
-    /// Максимальное количество токенов, которое может вернуть в ответе на запрос ИИ.
-    /// </summary>
-    public static readonly CVarDef<int> GptMaxTokens =
-        CVarDef.Create("gpt.max_tokens", 250, CVar.SERVERONLY | CVar.SERVER);
-
-    /// <summary>
-    /// Путь, по которому можно получить баланс аккаунта.
-    /// </summary>
-    public static readonly CVarDef<string> GptBalanceMap =
-        CVarDef.Create("gpt.balance_map", "https://api.proxyapi.ru/proxyapi/balance", CVar.SERVERONLY | CVar.SERVER);
-
-    /*
-     * Central Command AI
-     */
-    /// <summary>
-    /// Максимальное количество запросов на ЦК в минуту, на которые будет дан ответ.
-    /// </summary>
-    public static readonly CVarDef<int> CCMaxQueriesPerMinute =
-        CVarDef.Create("central_command.max_queries_per_minute", 6, CVar.SERVERONLY | CVar.SERVER);
-
-    /// <summary>
-    /// Максимальное время ответа на факс.
-    /// В секундах.
-    /// </summary>
-    public static readonly CVarDef<int> CCMaxResponseTime =
-        CVarDef.Create("central_command.max_response_time", 650, CVar.SERVERONLY); //It has normal distribution random where medium is 450 second (7.5 min)
-
-    /// <summary>
-    /// Минимальное время ответа на факс.
-    /// В секундах.
-    /// </summary>
-    public static readonly CVarDef<int> CCMinResponseTime =
-        CVarDef.Create("central_command.min_response_time", 250, CVar.SERVERONLY); //It has normal distribution random where medium is 450 second (7.5 min)
-
-    /*
       * Vote
       */
     /// <summary>
