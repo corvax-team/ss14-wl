@@ -31,6 +31,8 @@
   - type: Item
     sprite: _WL/Objects/Storage/Medical/surgical_case.rsi
     size: Large
+  - type: StaticPrice
+    price: 200
 
 - type: entity
   id: SurgicalCaseFilled
