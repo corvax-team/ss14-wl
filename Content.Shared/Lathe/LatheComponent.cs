@@ -122,8 +122,11 @@ namespace Content.Shared.Lathe
     public sealed partial class LatheGetResultEvent : EntityEventArgs
     {
         public readonly EntityUid ResultItem;
+
+        // WL-Changes-start
         public readonly Entity<LatheComponent> Lathe;
         public readonly ProtoId<LatheRecipePrototype> Recipe;
+        // WL-Changes-end
 
         public LatheGetResultEvent(
             EntityUid result,
@@ -134,8 +137,11 @@ namespace Content.Shared.Lathe
             )
         {
             ResultItem = result;
+
+            // WL-Changes-start
             Lathe = lathe;
             Recipe = recipe;
+            // WL-Changes-end
         }
     }
     //Corvax

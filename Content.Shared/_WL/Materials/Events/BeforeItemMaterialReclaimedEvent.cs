@@ -2,6 +2,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.Materials.Events;
 
+/// <summary>
+/// Raised on item before each of its materials is reclaimed by reclaimer.
+/// </summary>
 [Serializable, NetSerializable]
 public sealed class BeforeItemMaterialReclaimedEvent(
     float efficiency,
