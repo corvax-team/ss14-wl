@@ -9,7 +9,7 @@
       path: /Audio/Items/toolbox_drop.ogg
   - type: Storage
     grid:
-    - 0,0,11,1
+    - 0,0,5,3
     maxItemSize: Normal
     whitelist:
       tags:
