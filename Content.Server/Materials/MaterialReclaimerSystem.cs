@@ -232,7 +232,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             RaiseLocalEvent(item, ev);
             // WL-Changes-end
 
-            var outputAmount = (int)(ev.Amount * ev.Efficiency * ev.Modifier); // WL-Changes-start
+            var outputAmount = Math.Max(0, (int)(ev.Amount * ev.Efficiency * ev.Modifier)); // WL-Changes-start
             _materialStorage.TryChangeMaterialAmount(reclaimer, material, outputAmount, storage);
         }
 

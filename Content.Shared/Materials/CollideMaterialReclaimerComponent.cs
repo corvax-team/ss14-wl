@@ -11,5 +11,6 @@ public sealed partial class CollideMaterialReclaimerComponent : Component
     /// <summary>
     /// The fixture that starts reclaiming on collision.
     /// </summary>
+    [DataField]
     public string FixtureId = "brrt";
 }

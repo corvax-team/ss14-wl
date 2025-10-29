@@ -4,5 +4,5 @@ namespace Content.Server._WL.Lathe.Components;
 public sealed partial class CraftedOnLatheComponent : Component
 {
     [ViewVariables]
-    public Dictionary<string, int> ConsumedMaterials { get; set; } = default!;
+    public Dictionary<string, int> ConsumedMaterials { get; set; } = new();
 }
