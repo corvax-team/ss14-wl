@@ -4,7 +4,7 @@
   id: BaseMobGolem
   parent:
   - MobFlammable
-  - BaseMobSpecies
+  - BaseMobSpeciesOld
   abstract: true
   components:
     - type: Damageable
