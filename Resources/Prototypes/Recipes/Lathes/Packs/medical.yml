@@ -104,3 +104,7 @@
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  - MedicalScannerMachineCircuitboard # WL-Offmed: Cloning start
+  - CloningPodMachineCircuitboard
+  - CloningConsoleComputerCircuitboard
+  # WL-Offmed: Cloning end
