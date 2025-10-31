@@ -1,5 +1,8 @@
 using Content.Shared.Climbing.Events;
+using Content.Shared.Buckle; // WD EDIT
+using Content.Shared.Buckle.Components; // WD EDIT
 using Content.Shared.Hands.Components;
+using Content.Shared.Movement.Systems; // WD EDIT
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
@@ -16,6 +19,8 @@ public sealed class StandingStateSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!; // WD EDIT
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!; // WD EDIT
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
     public const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;

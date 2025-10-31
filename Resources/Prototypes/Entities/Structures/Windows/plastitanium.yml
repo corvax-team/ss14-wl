@@ -25,11 +25,13 @@
     bodyType: Static
   - type: ExaminableDamage
     messages: WindowMessages
-  - type: InteractionPopup
-    interactSuccessString: comp-window-knock
-    messagePerceivedByOthers: comp-window-knock
-    interactSuccessSound:
-      path: /Audio/Effects/glass_knock.ogg
+  # EE-Port-Emotion-Start
+  # - type: InteractionPopup
+  #   interactSuccessString: comp-window-knock
+  #   messagePerceivedByOthers: comp-window-knock
+  #   interactSuccessSound:
+  #     path: /Audio/Effects/glass_knock.ogg
+  # EE-Port-Emotion-End
   - type: Appearance
   - type: StaticPrice
     price: 100
