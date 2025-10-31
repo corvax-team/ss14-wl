@@ -1,5 +1,7 @@
-﻿using Content.Shared.Humanoid.Markings;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.Localizations;
+using Content.Shared.Tag; /// EE
+using Content.Shared.Whitelist; /// EE
 
 namespace Content.Shared.IoC
 {
@@ -7,8 +9,12 @@ namespace Content.Shared.IoC
     {
         public static void Register(IDependencyCollection deps)
         {
-            deps.Register<MarkingManager, MarkingManager>();
-            deps.Register<ContentLocalizationManager, ContentLocalizationManager>();
+            IoCManager.Register<MarkingManager, MarkingManager>();
+            IoCManager.Register<ContentLocalizationManager, ContentLocalizationManager>();
+            // Goob: to port EE Interaction Verbs. I hate this.
+            IoCManager.Register<EntityWhitelistSystem>();
+            IoCManager.Register<TagSystem>();
+            // End
         }
     }
 }

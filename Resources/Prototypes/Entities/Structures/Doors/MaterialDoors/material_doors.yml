@@ -61,6 +61,11 @@
         acts: ["Destruction"]
   - type: Occluder
   - type: BlockWeather
+ # EE-Port-Emotion-Start
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+  # EE-Port-Emotion-Start
 
 - type: entity
   abstract: true

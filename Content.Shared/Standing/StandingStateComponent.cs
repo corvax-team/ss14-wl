@@ -26,5 +26,16 @@ namespace Content.Shared.Standing
         /// </summary>
         [DataField, AutoNetworkedField]
         public List<string> ChangedFixtures = new();
+
+        // EE
+        [DataField, AutoNetworkedField]
+        public StandingState CurrentState { get; set; } = StandingState.Standing;
     }
 }
+public enum StandingState
+{
+    Lying,
+    GettingUp,
+    Standing,
+}
+// EE
