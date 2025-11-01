@@ -38,17 +38,18 @@
       effect: Stun
       timeAdded: -2.5 # 2 seconds delay to remove 2.5 seconds of stun - should be good enough.
 
-- type: Interaction
-  id: ForceDown
-  parent: [BaseHelp, BaseGlobal]
-  delay: 4.5
-  hideByRequirement: true
-  requirement:
-    !type:StandingStateRequirement
-    allowStanding: true
-  action:
-    !type:ChangeStandingStateAction
-    makeLaying: true
+# Я не знаю в чём проблема данного взаимодейстия, потому что оно ТУПО не работает как должно. Оно кладёт игра, но по состоянию... Он стоит и лежит. Проклято
+# - type: Interaction
+#   id: ForceDown
+#   parent: [BaseHelp, BaseGlobal]
+#   delay: 4.5
+#   hideByRequirement: true
+#   requirement:
+#     !type:StandingStateRequirement
+#     allowStanding: true
+#   action:
+#     !type:ChangeStandingStateAction
+#     makeLaying: true
 
 - type: Interaction
   id: MakeSleepOther
