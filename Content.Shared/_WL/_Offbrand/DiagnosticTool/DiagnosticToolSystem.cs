@@ -132,11 +132,6 @@ public sealed class DiagnosticToolSystem : EntitySystem
 
         int e = ((int)dmg / (int)(max / verbs.Length));
 
-        Logger.Debug(dmg.ToString());
-        Logger.Debug(max.ToString());
-        Logger.Debug(min.ToString());
-        Logger.Debug(e.ToString());
-
         var msg = verbs[System.Math.Min(verbs.Length - 1, System.Math.Max(0, e))];
         return Loc.GetString(msg);
     }
