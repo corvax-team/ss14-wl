@@ -169,6 +169,16 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+  #WL-Offbrand: Penlight start
+  - type: Pda
+    id: LawyerIDCard
+    penSlot:
+      startingItem: PenLight
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  #WL-Offbrand: Penlight end
 
 - type: entity
   parent: BasePDA

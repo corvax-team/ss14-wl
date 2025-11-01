@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by tau27",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "penlight"
+    },
+    {
+      "name": "penlight-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "penlight-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "penlight-equipped-HEAD",
+      "directions": 4
+    }
+  ]
+}
