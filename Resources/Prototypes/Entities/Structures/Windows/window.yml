@@ -78,13 +78,11 @@
   - type: IconSmooth
     key: walls  # Corvax-Resprite
     base: window
-  # EE-Port-Emotion-Start
-  # - type: InteractionPopup
-  #   interactSuccessString: comp-window-knock
-  #   messagePerceivedByOthers: comp-window-knock
-  #   interactSuccessSound:
-  #     path: /Audio/Effects/glass_knock.ogg
-  # EE-Port-Emotion-End
+  - type: InteractionPopup
+    interactSuccessString: comp-window-knock
+    messagePerceivedByOthers: comp-window-knock
+    interactSuccessSound:
+      path: /Audio/Effects/glass_knock.ogg
   - type: Construction
     graph: Window
     node: window
@@ -117,11 +115,6 @@
   - type: Occluder
   - type: StaticPrice
     price: 70
-  # EE-Port-Emotion-Start
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KnockOn
-  # EE-Port-Emotion-End
 
 - type: entity
   id: WindowRCDResistant
@@ -157,13 +150,11 @@
   - type: Icon
     sprite: Structures/Windows/directional.rsi
     state: window
-  # EE-Port-Emotion-Start
-  # - type: InteractionPopup
-  #   interactSuccessString: comp-window-knock
-  #   messagePerceivedByOthers: comp-window-knock
-  #   interactSuccessSound:
-  #     path: /Audio/Effects/glass_knock.ogg
-  # EE-Port-Emotion-End
+  - type: InteractionPopup
+    interactSuccessString: comp-window-knock
+    messagePerceivedByOthers: comp-window-knock
+    interactSuccessSound:
+      path: /Audio/Effects/glass_knock.ogg
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -226,11 +217,6 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: StaticPrice
     price: 15
-  # EE-Port-Emotion-Start
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KnockOn
-  # EE-Port-Emotion-End
 
 - type: entity
   id: WindowDirectionalRCDResistant
