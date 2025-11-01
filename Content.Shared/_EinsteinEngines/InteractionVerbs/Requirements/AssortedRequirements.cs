@@ -1,4 +1,5 @@
 using Content.Shared.Bed.Sleep;
+using Content.Shared.InteractionVerbs;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Standing;
@@ -58,8 +59,8 @@ public sealed partial class StandingStateRequirement : InteractionRequirement
         if (!deps.EntMan.TryGetComponent<StandingStateComponent>(args.Target, out var state))
             return false;
 
-        return state.CurrentState == StandingState.Standing && AllowStanding
-            || state.CurrentState == StandingState.Lying && AllowLaying;
+        return state.Standing && AllowStanding
+            || !state.Standing && AllowLaying;
     }
 }
 

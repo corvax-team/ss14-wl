@@ -1,8 +1,5 @@
 using Content.Shared.Climbing.Events;
-using Content.Shared.Buckle; // WD EDIT
-using Content.Shared.Buckle.Components; // WD EDIT
 using Content.Shared.Hands.Components;
-using Content.Shared.Movement.Systems; // WD EDIT
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
@@ -19,8 +16,6 @@ public sealed class StandingStateSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!; // WD EDIT
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!; // WD EDIT
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
     public const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
@@ -248,8 +243,20 @@ public sealed class DownedEvent : EntityEventArgs, IInventoryRelayEvent
 }
 
 /// <summary>
-/// Raised on an inhand entity being held by an entity who is dropping items as part of an attempted state change to down.
-/// If cancelled the inhand entity will not be dropped.
+/// Raised after an entity falls down.
+/// </summary>
+public sealed class FellDownEvent : EntityEventArgs
+{
+    public EntityUid Uid { get; }
+
+    public FellDownEvent(EntityUid uid)
+    {
+        Uid = uid;
+    }
+}
+
+/// <summary>
+/// Raised on the entity being thrown due to the holder falling down.
 /// </summary>
 [ByRefEvent]
 public record struct FellDownThrowAttemptEvent(EntityUid Thrower, bool Cancelled = false);
