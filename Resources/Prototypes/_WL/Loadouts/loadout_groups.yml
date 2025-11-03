@@ -90,3 +90,10 @@
   - TiePurple
   - TiePink
   - TieRainbow
+
+- type: loadoutGroup
+  id: PhotoGroup
+  name: loadout-group-photo
+  minLimit: 0
+  loadouts:
+  - Photo

@@ -10,3 +10,5 @@ loadout-group-adjutant-backpack = Адъютант, рюкзак
 loadout-group-adjutant-outerclothing = Адъютант, верхняя одежда
 
 loadout-group-neck-wl = Шея
+
+loadout-group-photo = Фотоаппарат

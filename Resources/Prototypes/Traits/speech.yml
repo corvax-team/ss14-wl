@@ -74,7 +74,11 @@
   category: SpeechTraits
   cost: 1
   components:
-  - type: FrenchAccent
+  #WL-Changes: French accent start
+  # - type: FrenchAccent
+  - type: ReplacementAccent
+    accent: french
+    #WL-Changes: French accent end
 
 - type: trait
   id: SpanishAccent

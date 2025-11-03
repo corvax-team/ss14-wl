@@ -5,6 +5,7 @@
   minLimit: 0
   maxLimit: 3
   loadouts:
+  - BoxFolderClipboard
   - SpaceLaw # Corvax-HyperLink
   - FlowerWreath
   - Hairflower

@@ -76,6 +76,7 @@
     damage:
       types:
         Heat: 2
+    reductionFactor: 30 #WL-Changes: Vape low spend
   - type: SolutionContainerManager
     solutions:
       smokable:
