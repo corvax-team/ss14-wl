@@ -24,8 +24,8 @@ interaction-KnockOn-success-others-popup = { $user } стучит по { $target
 
 interaction-Rattle-name = Побряцать
 interaction-Rattle-success-self-popup = Вы дребезжите { $target }.
-interaction-Rattle-success-target-popup = { $user } дребежит вами.
-interaction-Rattle-success-others-popup = { $user } дребежит { $target }.
+interaction-Rattle-success-target-popup = { $user } дребезжит вами.
+interaction-Rattle-success-others-popup = { $user } дребезжит { $target }.
 
 #  below includes conditionals for if  user is holding an item
 interaction-WaveAt-name = Помахать
