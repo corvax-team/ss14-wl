@@ -144,22 +144,16 @@ public sealed partial class SpeciesPrototype : IPrototype
     public int MinHeight = 130;
 
     /// <summary>
-    ///     Characters below the height of this value will be considered short.
-    /// </summary>
-    [DataField("shortHeight")]
-    public int ShortHeight = 140;
-
-    /// <summary>
-    ///     Characters above the height of this value will be considered tall. Characters in between short and tall height appear medium heigh.
-    /// </summary>
-    [DataField("mediumHeight")]
-    public int MediumHeight = 180;
-
-    /// <summary>
     ///     Species maximal possible height.
     /// </summary>
     [DataField("maxHeight")]
     public int MaxHeight = 200;
+
+    /// <summary>
+    ///     Species maximal add item 
+    /// </summary>
+    [DataField("maxItemHeight")]
+    public int MaxItemHeight = 140;
     // WL-Height-End
 
     /// <summary>

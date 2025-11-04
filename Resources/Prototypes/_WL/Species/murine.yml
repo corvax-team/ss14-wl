@@ -8,6 +8,9 @@
   markingLimits: MobMurineMarkingLimits
   dollPrototype: MobHumanoidMurineDummy
   skinColoration: Hues
+  maxItemHeight: 140
+  minHeight: 110
+  maxHeight: 265
 
 - type: speciesBaseSprites
   id: MobMurineSprites

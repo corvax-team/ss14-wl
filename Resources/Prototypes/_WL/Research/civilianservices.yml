@@ -1,0 +1,14 @@
+#WL-Offmed: Clone machine
+- type: technology
+  id: CloneMachine
+  name: research-technology-clone-machine
+  icon:
+    sprite: Structures/Machines/cloning.rsi
+    state: pod_0
+  discipline: CivilianServices
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - CloningConsoleComputerCircuitboard
+  - CloningPodMachineCircuitboard
+  - MedicalScannerMachineCircuitboard

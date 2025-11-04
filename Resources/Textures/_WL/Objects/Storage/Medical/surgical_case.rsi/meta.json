@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "icon state taken from https://github.com/CeladonSS13/Shiptest/blob/9de1ba27c781b8ca87ceb110734fcc0a10681c1c/icons/obj/storage.dmi, icon-open and inhand states made by JunJun (Jidor) (discord:692704105373761587)",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+      {
+        "name": "icon-open"
+      },
+      {
+        "name": "icon"
+      },
+      {
+        "name": "inhand-right",
+        "directions": 4
+      },
+      {
+        "name": "inhand-left",
+        "directions": 4
+      }
+    ]
+  }

@@ -30,5 +30,8 @@
         - id: IVStand
         - id: IVStand
         - id: IVStand
-        - id: ClothingBackpackDuffelSurgeryFilled
+        # WL-Corvax-Edit-Start
+        # - id: ClothingBackpackDuffelSurgeryFilled
+        - id: SurgicalCaseFilled
+        # WL-Corvax-Edit-End
         - id: OperatingTableFlatpack

@@ -12,6 +12,8 @@
   femaleFirstNames: NamesCischiFirst
   maleLastNames: NamesCischiLastMale
   femaleLastNames: NamesCischiLastFemale
+  minHeight: 170
+  maxHeight: 220
 
 - type: speciesBaseSprites
   id: MobCischiSprites

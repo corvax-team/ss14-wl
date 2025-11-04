@@ -121,6 +121,15 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  #WL-Changes: Languages start
+  - type: Languages
+    speaking:
+      - Translate
+      - Slimish
+    understood:
+      - Translate
+      - Slimish
+  #WL-Changes: Languages end
 
 - type: entity
   parent: MobHumanDummy

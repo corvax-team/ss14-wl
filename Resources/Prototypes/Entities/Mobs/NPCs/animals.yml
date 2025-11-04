@@ -1882,6 +1882,12 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  # WL-Night-Vision-Start
+  - type: NightVision
+    color: "#A3A3A3"
+    activateSound: null
+    deactivateSound: null
+  # WL-Night-Vision-End
 
 - type: entity
   parent: MobMouse
@@ -2540,6 +2546,12 @@
       groups:
         Brute: -0.07
         Burn: -0.07
+  # WL-Night-Vision-Start
+  - type: NightVision
+    color: "#A3A3A3"
+    activateSound: null
+    deactivateSound: null
+  # WL-Night-Vision-End
 
 - type: entity
   parent: MobSpiderBase

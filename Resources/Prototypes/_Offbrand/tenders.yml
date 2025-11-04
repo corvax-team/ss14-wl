@@ -47,6 +47,10 @@
     count: 10
   - type: StackPrice
     price: 10
+    
+  - type: Tag
+    tags:
+    - SurgeryTool
 
 - type: entity
   id: Suture1

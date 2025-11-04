@@ -132,6 +132,21 @@ public sealed class LanguagesUIController : UIController, IOnStateEntered<Gamepl
         LanguagesButton.Pressed = true;
     }
 
+    private void ClearLanguages(EntityUid entity)
+    {
+        if (_window == null)
+        {
+            return;
+        }
+
+        if (_player.LocalEntity != entity)
+            return;
+
+        _window.Languages.RemoveAllChildren();
+
+        _window.RolePlaceholder.Visible = true;
+    }
+
     private void LanguagesUpdated(LanguagesData data)
     {
         if (_window == null)
@@ -220,7 +235,13 @@ public sealed class LanguagesUIController : UIController, IOnStateEntered<Gamepl
             return;
 
         if (!_ent.TryGetComponent<LanguagesComponent>(_player.LocalEntity, out var comp))
+        {
+            if (_player.LocalEntity is null)
+                return;
+
+            ClearLanguages(_player.LocalEntity.Value);
             return;
+        }
 
         var entity = _player.LocalEntity;
         EntityUid entt;

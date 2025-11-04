@@ -1,0 +1,34 @@
+- type: latheRecipe
+  id: CloningConsoleComputerCircuitboard
+  result: CloningConsoleComputerCircuitboard
+  completetime: 10
+  materials:
+    Steel: 500
+    Plastic: 200
+    Gold: 300
+
+- type: latheRecipe
+  id: CloningPodMachineCircuitboard
+  result: CloningPodMachineCircuitboard
+  completetime: 60
+  materials:
+    Steel: 500
+    Glass: 500
+    Silver: 100
+    Gold: 100
+    Plastic: 200
+    Uranium: 100
+    Plasma: 400
+
+- type: latheRecipe
+  id: MedicalScannerMachineCircuitboard
+  result: MedicalScannerMachineCircuitboard
+  completetime: 30
+  materials:
+    Steel: 500
+    Glass: 500
+    Silver: 200
+    Gold: 100
+    Plastic: 200
+    Plasma: 200
+

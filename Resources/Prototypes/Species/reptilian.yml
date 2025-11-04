@@ -11,6 +11,10 @@
   maleFirstNames: NamesReptilianMale
   femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
+  # WL-Changes-start: Height
+  minHeight: 170
+  maxHeight: 230
+  # WL-Changes-end: Height
 
 - type: speciesBaseSprites
   id: MobReptilianSprites

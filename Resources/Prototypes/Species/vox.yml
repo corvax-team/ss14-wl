@@ -13,6 +13,10 @@
   naming: First
   sexes:
   - Unsexed
+  # WL-Changes-start: Height
+  minHeight: 150
+  maxHeight: 180
+  # WL-Changes-end: Height
 
 - type: speciesBaseSprites
   id: MobVoxSprites

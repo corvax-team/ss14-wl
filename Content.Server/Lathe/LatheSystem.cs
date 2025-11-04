@@ -245,9 +245,14 @@ namespace Content.Server.Lathe
                 if (currentRecipe.Result is { } resultProto)
                 {
                     var result = Spawn(resultProto, Transform(uid).Coordinates);
+                    // WL-Changes-start
+                    var ev = new LatheGetResultEvent(result, (uid, comp), currentRecipe.ID);
                     //Corvax
-                    RaiseLocalEvent(uid, new LatheGetResultEvent(result));
+                    RaiseLocalEvent(uid, ev);
                     //Corvax
+                    RaiseLocalEvent(ev);
+                    // WL-Changes-end
+
                     _stack.TryMergeToContacts(result);
                 }
 

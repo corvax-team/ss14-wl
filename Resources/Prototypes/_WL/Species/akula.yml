@@ -11,6 +11,8 @@
   maleFirstNames: NamesReptilianMale
   femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
+  minHeight: 170
+  maxHeight: 220
 
 - type: speciesBaseSprites
   id: MobAkulaSprites

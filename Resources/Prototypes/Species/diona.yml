@@ -18,6 +18,10 @@
   oldAge: 6000
   maxAge: 12000
   # Corvax-SpeciesAgeLore-End
+  # WL-Changes-start: Height
+  minHeight: 110
+  maxHeight: 230
+  # WL-Changes-end: Height
 
 - type: speciesBaseSprites
   id: MobDionaSprites

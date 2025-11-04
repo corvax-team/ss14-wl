@@ -1,0 +1,53 @@
+- type: entity
+  parent: Pen
+  id: PenLight
+  name: penlight
+  components:
+    - type: DiagnosticTool
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot
+    - type: LightBehaviour
+      behaviours:
+        - !type:FadeBehaviour
+          id: radiating
+          maxDuration: 2.0
+          startValue: 3.0
+          endValue: 2.0
+          isLooped: true
+          reverseWhenFinished: true
+        - !type:PulseBehaviour
+          id: blinking
+          interpolate: Nearest
+          maxDuration: 1.0
+          startValue: 0.1
+          endValue: 2.0
+          isLooped: true
+    - type: ItemTogglePointLight
+    - type: PowerCellSlot
+      cellSlotId: cell_slot
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
+          startingItem: PowerCellSmall
+    - type: HandheldLight
+      addPrefix: false
+      wattage: 0.1
+    - type: Sprite
+      sprite: _WL/Objects/Misc/pens.rsi
+      layers:
+        - state: penlight
+    - type: Item
+      sprite: _WL/Objects/Misc/pens.rsi
+      heldPrefix: penlight
+    - type: PointLight
+      mask: /Textures/Effects/LightMasks/cone.png
+      enabled: false
+      radius: 2
+      autoRot: true
+    - type: Clothing
+      sprite: _WL/Objects/Misc/pens.rsi
+      equippedPrefix: penlight
+      slots:
+        - Head

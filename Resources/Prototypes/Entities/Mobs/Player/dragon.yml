@@ -166,6 +166,21 @@
     speedModifier: 2.5 # fast because dragon strong
     useSound:
       path: /Audio/Items/crowbar.ogg
+  # WL-Night-Vision-Start
+  - type: NightVision
+    color: "#A3A3A3"
+    activateSound: null
+    deactivateSound: null
+  # WL-Night-Vision-End
+  # WL-Thermal-Vision-Start
+  - type: ThermalVision
+    pulseTime: 0
+    color: "#fdbfbd"
+    toggleAction: ToggleThermalVision
+    activateSound: null
+    deactivateSound: null
+  # WL-Thermal-Vision-End
+
 
 - type: entity
   parent: BaseMobDragon
