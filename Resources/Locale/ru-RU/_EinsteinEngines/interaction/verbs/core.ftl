@@ -5,4 +5,4 @@ interaction-verb-too-weak = Вы слишком слабы для этого д�
 interaction-verb-invalid-target = Вы не можете использовать это действие на данном объекте.
 interaction-verb-no-hands = У вас нет свободных рук.
 interaction-verb-cannot-reach = Вы не можете достать до туда.
-verb-categories-interaction = Взаимодействовать
+verb-categories-interaction = Действие
