@@ -30,3 +30,6 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitScience
   - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
