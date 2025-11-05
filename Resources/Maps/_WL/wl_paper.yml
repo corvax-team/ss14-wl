@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.2.0
   forkId: ""
   forkVersion: ""
-  time: 10/26/2025 16:06:29
+  time: 11/05/2025 11:58:17
   entityCount: 17653
 maps:
 - 1
@@ -13850,7 +13850,7 @@ entities:
       pos: 45.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -59087.977
+      secondsUntilStateChange: -59105.582
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -88828,6 +88828,8 @@ entities:
     - type: Transform
       pos: 31.5,63.5
       parent: 2
+    - type: RoomFill
+      rotation: False
 - proto: MaterialBiomass1
   entities:
   - uid: 13443

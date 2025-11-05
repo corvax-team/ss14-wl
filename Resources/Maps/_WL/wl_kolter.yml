@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 267.2.0
-  forkId: syndicate-wl
-  forkVersion: 5ee6178e3c987a20909ffeb44ef6b3ea843f5f14
-  time: 10/27/2025 13:58:53
-  entityCount: 28182
+  forkId: ""
+  forkVersion: ""
+  time: 11/04/2025 21:00:25
+  entityCount: 28184
 maps:
 - 1
 grids:
@@ -36625,6 +36625,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -28.5,41.5
       parent: 2
+    - type: GridFill
+      path: /Maps/_WL/Shuttles/wl_kolter_sec.yml
+      addComponents: []
   - uid: 25589
     components:
     - type: Transform
@@ -37315,7 +37318,7 @@ entities:
       pos: 17.5,2.5
       parent: 26755
     - type: Door
-      secondsUntilStateChange: -108583.555
+      secondsUntilStateChange: -108701.43
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -124296,6 +124299,17 @@ entities:
       needsPower: False
     - type: Stealth
       lastVisibility: -1
+  - uid: 22052
+    components:
+    - type: Transform
+      pos: -30.5,26.5
+      parent: 2
+    - type: ApcPowerReceiver
+      needsPower: False
+    - type: Stealth
+      lastVisibility: -1
+    missingComponents:
+    - AmbientSound
   - uid: 25726
     components:
     - type: Transform
@@ -168749,6 +168763,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 22.5,-27.5
+      parent: 2
+  - uid: 22051
+    components:
+    - type: Transform
+      pos: -30.5,26.5
       parent: 2
   - uid: 22083
     components:
