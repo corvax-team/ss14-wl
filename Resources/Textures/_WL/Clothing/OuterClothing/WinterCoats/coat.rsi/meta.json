@@ -62,6 +62,10 @@
     {
       "name": "ROBO-inhand-left",
       "directions": 4
+    },
+    {
+      "name": "ROBO-inhand-right",
+      "directions": 4
     }
   ]
 }

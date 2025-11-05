@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
-  id: ClothingShoesSlippersSciense
+  id: ClothingShoesSlippersScience
   name: science slippers
   description: Fluffy!
   components:

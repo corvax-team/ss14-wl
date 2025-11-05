@@ -2,7 +2,7 @@ ent-ClothingUniformJumpsuitChiefEngineerParade = парадная форма с�
     .desc = Одеть, когда нужно вкрутить лампочку в присутствии представителя ЦК
 
 ent-ClothingUniformJumpsuitCasualEngineerAssistant = комбинезон на лямках технического ассистента
-    .desc = Создан, чтобы ассисстент хвастался своими мускулами.
+    .desc = Создан, чтобы ассистент хвастался своими мускулами.
 
 ent-ClothingUniformJumpsuitScienceStudent = комбинезон студента-учёного
     .desc = Идеален, чтобы пилотировать меха.

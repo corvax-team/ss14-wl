@@ -28,3 +28,6 @@
     fiberColor: fibers-black
   - type: FingerprintMask
   - type: Insulated
+  - type: Construction
+    graph: ClothingHandsGlovesRobohandsIsolated
+    node: gloves
