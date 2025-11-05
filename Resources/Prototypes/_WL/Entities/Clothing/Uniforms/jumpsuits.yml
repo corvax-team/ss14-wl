@@ -115,3 +115,51 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/aidecent.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpsuit/aidecent.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitScienceStudent
+  name: science student's jumpskirt
+  description: What is your name?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/student.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/student.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitScienceHazard
+  name: science hazard jumpskirt
+  description: What is your name?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/scienvi.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/scienvi.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.7
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitScienceDangerous
+  name: science hazard jumpskirt
+  description: What is your name?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/dangeroussci.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/dangeroussci.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.7
+        Heat: 0.8
+        Cold: 0.8
+        Blunt: 0.9
+        Piercing: 0.9
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodScienceDangerous

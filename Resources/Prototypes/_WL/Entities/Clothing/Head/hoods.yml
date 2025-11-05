@@ -8,3 +8,14 @@
     sprite: _WL/Clothing/Head/Hoods/Coat/hoodaidedecamp.rsi
   - type: Clothing
     sprite: _WL/Clothing/Head/Hoods/Coat/hoodaidedecamp.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodScienceDangerous
+  categories: [ HideSpawnMenu ]
+  name: hazard sci jumpsuit hood
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hoods/dangeroussci.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hoods/dangeroussci.rsi

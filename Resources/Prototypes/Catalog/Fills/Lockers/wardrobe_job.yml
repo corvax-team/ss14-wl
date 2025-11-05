@@ -192,10 +192,17 @@
     - id: ClothingShoesColorWhite
     - id: ClothingOuterCoatRnd
     - id: ClothingUniformJumpskirtScientist
+    - id: ClothingUniformJumpsuitScienceStudent
+    - id: ClothingUniformJumpskirtScienceStudent
+    - id: ClothingUniformJumpsuitScienceHazard
     - id: ClothingEyesGlasses
       prob: 0.5
     - id: CrowbarRed #The jojoke - hit video game Half-Life
       prob: 0.1
+    #WL-Changes: Sci hardsuit start
+    - id: ClothingOuterHardsuitScience
+      prob: 0.4
+    #WL-Changes: Sci hardsuit end
 
 - type: entity
   id: WardrobeBotanistFilled

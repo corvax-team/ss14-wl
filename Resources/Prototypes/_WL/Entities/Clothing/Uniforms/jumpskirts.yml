@@ -66,3 +66,14 @@
     sprite: _WL/Clothing/Uniforms/Jumpskirt/aidecent.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpskirt/aidecent.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtScienceStudent
+  name: science student's jumpskirt
+  description: What is your name?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/student.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/student.rsi

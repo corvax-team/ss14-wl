@@ -546,9 +546,9 @@
   description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/rnd.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/rnd.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/rnd.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/rnd.rsi #WL-Resprite
 
 - type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
@@ -557,7 +557,7 @@
   description: It's made of a special fiber that increases perceived intelligence and decreases personal ethics. It has markings that denote the wearer as a scientist.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/scientist.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/scientist.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformBase
@@ -577,7 +577,7 @@
   description: It's a slimming black with reinforced seams; great for industrial work.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/roboticist.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/roboticist.rsi #WL-Resprite
 
 - type: entity
   parent: [ClothingUniformBase, BaseSecurityContraband, ClothingUniformFoldableBase]
@@ -1168,9 +1168,9 @@
   description: A sign of skill and prestige within the science department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/senior_researcher.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/senior_researcher.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/senior_researcher.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/senior_researcher.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformBase
