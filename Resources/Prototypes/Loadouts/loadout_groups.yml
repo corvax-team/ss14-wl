@@ -1015,10 +1015,10 @@
   id: ResearchAssistantJumpsuit
   name: loadout-group-research-assistant-jumpsuit
   loadouts:
+  #WL-Changes: Student uniform start
   - StudentJumpsuit
   - StudentJumpskirt
-  - WhiteJumpsuit
-  - WhiteJumpskirt
+  #WL-Changes: Student uniform end
 
 # Security
 - type: loadoutGroup
