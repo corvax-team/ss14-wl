@@ -77376,8 +77376,6 @@ entities:
     - type: Transform
       pos: -21.44731,-16.209175
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 16669
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot
@@ -90320,8 +90318,6 @@ entities:
     - type: Transform
       pos: -15.23443,-6.5098696
       parent: 2
-    - type: HandheldLight
-      toggleActionEntity: 9190
     - type: ContainerContainer
       containers:
         cell_slot: !type:ContainerSlot
