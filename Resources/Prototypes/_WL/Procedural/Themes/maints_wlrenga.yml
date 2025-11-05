@@ -37,7 +37,6 @@
   suffix: 15x15, Renga
   components:
   - type: RoomFill
-    Rotation: false
     minSize: 15,15
     maxSize: 15,15
     roomWhitelist:

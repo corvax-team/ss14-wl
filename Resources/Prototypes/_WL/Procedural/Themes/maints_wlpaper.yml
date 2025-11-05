@@ -37,7 +37,6 @@
   suffix: 10x6, Paper
   components:
   - type: RoomFill
-    Rotation: false
     minSize: 10,6
     maxSize: 10,6
     roomWhitelist:
