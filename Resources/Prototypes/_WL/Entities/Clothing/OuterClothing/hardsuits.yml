@@ -31,5 +31,8 @@
     clothingPrototype: ClothingHeadHelmetHardsuitScience
   - type: ContainerContainer
     containers:
-      bodypart: !type:Container
-        ents: []
+      toggleable-clothing: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+
