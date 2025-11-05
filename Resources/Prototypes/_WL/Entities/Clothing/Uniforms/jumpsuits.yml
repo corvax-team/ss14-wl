@@ -163,3 +163,9 @@
         Piercing: 0.9
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodScienceDangerous
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
