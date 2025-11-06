@@ -188,6 +188,7 @@
   - SecurityBeret
   - SecurityHat
   - SecurityBeretDSS # WL-Changes: DSS uniform
+  - SecuritySoftDSS # WL-Changes: DSS adding
 
 - type: loadoutGroup
   id: SeniorOfficerJumpsuit

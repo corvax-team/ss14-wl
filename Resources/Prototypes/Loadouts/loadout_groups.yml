@@ -1068,6 +1068,7 @@
   - WardenHead
   - WardenBeret
   - SecurityBeretDSS # WL-Changes: DSS adding
+  - SecuritySoftDSS # WL-Changes: DSS adding
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -1094,6 +1095,7 @@
   - SecurityHat
   - TrooperHat
   - SecurityBeretDSS # WL-Changes: DSS adding
+  - SecuritySoftDSS # WL-Changes: DSS adding
 
 - type: loadoutGroup
   id: SecurityJumpsuit
