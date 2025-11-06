@@ -77472,11 +77472,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-    - type: ActionsContainer
 - proto: ClothingHeadHatSyndieMAA
   entities:
   - uid: 6679
@@ -90419,11 +90414,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-        actions: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-    - type: ActionsContainer
   - uid: 8209
     components:
     - type: Transform
@@ -126668,8 +126658,6 @@ entities:
       canCollide: False
     - type: ActionsContainer
     - type: ContainerContainer
-      containers:
-        actions: !type:Container
 - proto: JetpackMini
   entities:
   - uid: 12282
@@ -129789,8 +129777,6 @@ entities:
       canCollide: False
     - type: ActionsContainer
     - type: ContainerContainer
-      containers:
-        actions: !type:Container
     - type: InsideEntityStorage
   - uid: 21751
     components:
@@ -129801,9 +129787,6 @@ entities:
       canCollide: False
     - type: ActionsContainer
     - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
     - type: InsideEntityStorage
   - uid: 21753
     components:
@@ -129814,9 +129797,6 @@ entities:
       canCollide: False
     - type: ActionsContainer
     - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
     - type: InsideEntityStorage
 - proto: NodeScanner
   entities:
