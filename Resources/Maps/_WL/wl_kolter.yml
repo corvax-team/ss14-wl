@@ -77476,7 +77476,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - invalid
     - type: ActionsContainer
 - proto: ClothingHeadHatSyndieMAA
   entities:
@@ -90424,7 +90423,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - invalid
     - type: ActionsContainer
   - uid: 8209
     components:
@@ -126665,18 +126663,13 @@ entities:
       inSlotFlag: SUITSTORAGE
       inSlot: suitstorage
     - type: GasTank
-      toggleActionEntity: invalid
     - type: Jetpack
-      toggleActionEntity: invalid
     - type: Physics
       canCollide: False
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
         actions: !type:Container
-          ents:
-          - invalid
-          - invalid
 - proto: JetpackMini
   entities:
   - uid: 12282
@@ -129792,22 +129785,18 @@ entities:
     - type: Transform
       parent: 13386
     - type: GasTank
-      toggleActionEntity: invalid
     - type: Physics
       canCollide: False
     - type: ActionsContainer
     - type: ContainerContainer
       containers:
         actions: !type:Container
-          ents:
-          - invalid
     - type: InsideEntityStorage
   - uid: 21751
     components:
     - type: Transform
       parent: 13386
     - type: GasTank
-      toggleActionEntity: invalid
     - type: Physics
       canCollide: False
     - type: ActionsContainer
@@ -129815,14 +129804,12 @@ entities:
       containers:
         actions: !type:Container
           ents:
-          - invalid
     - type: InsideEntityStorage
   - uid: 21753
     components:
     - type: Transform
       parent: 13386
     - type: GasTank
-      toggleActionEntity: invalid
     - type: Physics
       canCollide: False
     - type: ActionsContainer
@@ -129830,7 +129817,6 @@ entities:
       containers:
         actions: !type:Container
           ents:
-          - invalid
     - type: InsideEntityStorage
 - proto: NodeScanner
   entities:
