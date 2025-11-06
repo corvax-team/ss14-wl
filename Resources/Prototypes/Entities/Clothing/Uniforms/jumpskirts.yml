@@ -82,9 +82,9 @@
   description: There's some odd stains on this jumpskirt. Hm.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/chemistry.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/chemistry.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -93,9 +93,9 @@
   description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/virology.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/virology.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/virology.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/virology.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -104,9 +104,9 @@
   description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/genetics.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/genetics.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/genetics.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/genetics.rsi #WL-Resprite
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -261,9 +261,9 @@
   description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/medical.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/medical.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -656,9 +656,9 @@
   description: A skirt that symbolizes the joy and positivity of our life.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/skirtoflife.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/skirtoflife.rsi #WL-Resprite
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/skirtoflife.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/skirtoflife.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -895,9 +895,9 @@
   description: I don't lose things. I place things in locations which later elude me.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/psychologist.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/psychologist.rsi #WL-Resprite
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/psychologist.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/psychologist.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase

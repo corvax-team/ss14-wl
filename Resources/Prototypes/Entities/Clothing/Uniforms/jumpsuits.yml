@@ -168,7 +168,7 @@
   description: There's some odd stains on this jumpsuit. Hm.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/chemistry.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/chemistry.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformBase
@@ -177,9 +177,9 @@
   description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/virology.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/virology.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/virology.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/virology.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformBase
@@ -188,9 +188,9 @@
   description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/genetics.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/genetics.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/genetics.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/genetics.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformBase
@@ -900,9 +900,9 @@
   description: I don't lose things. I place things in locations which later elude me.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/psychologist.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/psychologist.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/psychologist.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/psychologist.rsi #WL-Resprite
 
 - type: entity
   parent: ClothingUniformBase

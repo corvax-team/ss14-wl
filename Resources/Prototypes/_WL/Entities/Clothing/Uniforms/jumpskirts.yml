@@ -77,3 +77,14 @@
     sprite: _WL/Clothing/Uniforms/Jumpskirt/student.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpskirt/student.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtNurse
+  name: nurse jumpskirt
+  description: Cutie!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/nurse.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/nurse.rsi

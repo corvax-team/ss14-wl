@@ -12,3 +12,9 @@ ent-ClothingUniformJumpsuitScienceHazard = специальный научный
 
 ent-ClothingUniformJumpsuitScienceDangerous = защитный научный комбинезон
     .desc = Плотно облегающий научный комбинезон с защитными пластинами. Защищает от разных лабораторных опасностей.
+
+ent-ClothingUniformJumpsuitNurse = комбинезон медсестры
+    .desc = Крайне милый комбинезон.
+
+ent-ClothingUniformJumpsuitPathologist = комбинезон патологоанатома
+    .desc = Выглядит так, будто его достали из вампирсокго логова...

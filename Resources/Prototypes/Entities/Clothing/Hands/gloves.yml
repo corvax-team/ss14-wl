@@ -136,9 +136,9 @@
   description: Thin sterile latex gloves. Basic PPE for any doctor.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _WL/Clothing/Hands/Gloves/latex.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _WL/Clothing/Hands/Gloves/latex.rsi #WL-Resprite
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask

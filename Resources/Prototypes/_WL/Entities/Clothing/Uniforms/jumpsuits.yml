@@ -169,3 +169,25 @@
         showEnts: False
         occludes: True
         ent: null
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitNurse
+  name: nurse jumpsuit
+  description: Cutie!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/nurse.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/nurse.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPathologist
+  name: pathologist jumpsuit
+  description: Vlad the Vampire!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/pathologist.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/pathologist.rsi

@@ -45,3 +45,19 @@
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatDSSSoft]
   id: ClothingHeadHatDSSSoftFlipped
   name: DSS cap
+
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatMedSoft
+  name: medical cap
+  description: There is no skibidi.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/medsoft.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/medsoft.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatMedSoft]
+  id: ClothingHeadHatMedSoftFlipped
+  name: medical cap

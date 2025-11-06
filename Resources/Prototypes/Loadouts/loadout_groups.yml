@@ -1272,6 +1272,7 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  - PathologistJumpsuit #WL-Changes: Med cloth
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1324,8 +1325,8 @@
   id: MedicalInternJumpsuit
   name: loadout-group-medical-intern-jumpsuit
   loadouts:
-  - WhiteJumpsuit
-  - WhiteJumpskirt
+  - NurseJumpsuit #WL-Changes: Med cloth
+  - NurseJumpskirt #WL-Changes: Med cloth
 
 - type: loadoutGroup
   id: ChemistJumpsuit

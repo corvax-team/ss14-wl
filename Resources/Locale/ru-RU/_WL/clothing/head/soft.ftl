@@ -3,3 +3,9 @@ ent-ClothingHeadHatDSSSoft = кепка ДСБ
 
 ent-ClothingHeadHatDSSSoftFlipped = { ent-ClothingHeadHatDSSSoft }
   .desc = { ent-ClothingHeadHatDSSSoft.desc }
+
+ent-ClothingHeadHatMedSoft = медицинская кепка
+  .desc = Крайне эффективное устройство сокрытия личности.
+
+ent-ClothingHeadHatMedSoftFlipped = { ent-ClothingHeadHatMedSoft }
+  .desc = { ent-ClothingHeadHatMedSoft.desc }

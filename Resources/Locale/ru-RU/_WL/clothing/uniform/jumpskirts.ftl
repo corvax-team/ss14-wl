@@ -3,3 +3,6 @@ ent-ClothingUniformJumpskirtChiefEngineerParade = парадная форма с
 
 ent-ClothingUniformJumpskirtScienceStudent = юбка-комбинезон студента-учёного
     .desc = Кто ты?
+
+ent-ClothingUniformJumpskirtNurse = юбка-комбинезон медсестры
+    .desc = Твоё время настало, сестра...
