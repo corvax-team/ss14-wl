@@ -1,4 +1,5 @@
 - type: loadout
   id: Photo
-  equipment:
-    eyes: PhotoCamera
+  storage:
+    back:
+    - PhotoCamera

@@ -376,3 +376,5 @@ ui-options-enable-overlay-starting-job = Показывать начальную
 ui-options-overlay-merge-distance = Stack merge distance
 ui-options-overlay-ghost-fade-distance = Ghost overlay fade range from mouse
 ui-options-overlay-ghost-hide-distance = Ghost overlay hide range from mouse
+ui-options-show-offer-mode-indicators = Показывать индикатор передачи предмета
+ui-options-function-offer-item = Передать что-либо

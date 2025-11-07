@@ -229,7 +229,7 @@
   id: Slimish
   name: language-slimish
   description: language-slimish-desc
-  color: '#309100'
+  color: "#8bebb3"
   keylang: 'с'
   needtts: false
   obfuscation:
@@ -240,7 +240,7 @@
       - булькает и бурлит
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
-    state: diona
+    state: slime
 
 - type: language
   id: VoxPigin
