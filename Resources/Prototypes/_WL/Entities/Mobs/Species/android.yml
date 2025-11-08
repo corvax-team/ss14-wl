@@ -233,7 +233,8 @@
       - Translate
       - Ternary
   - type: MobCollision # WL-Changes: MobCollision works for players only
-
+  - type: OfferItem # CorvaxGoob-Offer
+  
 - type: entity
   save: false
   name: Urist McAndroid
