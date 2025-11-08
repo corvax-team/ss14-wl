@@ -224,7 +224,10 @@
   table: !type:AllSelector
     children:
     - id: BoxEncryptionKeyMedical
-    - id: ClothingBackpackDuffelSurgeryFilled
+    # WL-Corvax-Edit-Start
+    # - id: ClothingBackpackDuffelSurgeryFilled
+    - id: SurgicalCaseFilled
+    # WL-Corvax-Edit-End
     - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
     - id: ClothingHandsGlovesNitrile

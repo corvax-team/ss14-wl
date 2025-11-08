@@ -5,6 +5,7 @@
   minLimit: 0
   maxLimit: 3
   loadouts:
+  - BoxFolderClipboard
   - SpaceLaw # Corvax-HyperLink
   - FlowerWreath
   - Hairflower
@@ -1014,8 +1015,10 @@
   id: ResearchAssistantJumpsuit
   name: loadout-group-research-assistant-jumpsuit
   loadouts:
-  - WhiteJumpsuit
-  - WhiteJumpskirt
+  #WL-Changes: Student uniform start
+  - StudentJumpsuit
+  - StudentJumpskirt
+  #WL-Changes: Student uniform end
 
 # Security
 - type: loadoutGroup
@@ -1065,6 +1068,7 @@
   - WardenHead
   - WardenBeret
   - SecurityBeretDSS # WL-Changes: DSS adding
+  - SecuritySoftDSS # WL-Changes: DSS adding
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -1091,6 +1095,7 @@
   - SecurityHat
   - TrooperHat
   - SecurityBeretDSS # WL-Changes: DSS adding
+  - SecuritySoftDSS # WL-Changes: DSS adding
 
 - type: loadoutGroup
   id: SecurityJumpsuit
@@ -1267,6 +1272,7 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  - PathologistJumpsuit #WL-Changes: Med cloth
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1319,8 +1325,8 @@
   id: MedicalInternJumpsuit
   name: loadout-group-medical-intern-jumpsuit
   loadouts:
-  - WhiteJumpsuit
-  - WhiteJumpskirt
+  - NurseJumpsuit #WL-Changes: Med cloth
+  - NurseJumpskirt #WL-Changes: Med cloth
 
 - type: loadoutGroup
   id: ChemistJumpsuit

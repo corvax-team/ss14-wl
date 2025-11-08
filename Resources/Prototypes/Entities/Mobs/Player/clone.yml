@@ -9,7 +9,6 @@
   id: Body
   components:
   # general
-  - CharacterInformation # WL-changes
   # - DetailExaminable //WL-changes
   - Dna
   - Fingerprint
@@ -46,6 +45,13 @@
   - OwOAccent
   - ParrotAccent
   - PirateAccent
+  # WL-Content-Start
+  - CischiAccent
+  - Languages
+  - CharacterInformation
+  - GolemAccent
+  - KidanAccent
+  # WL-Content-End
   # - ReplacementAccent
   # Not supported at the moment because AddAccentClothingComponent will make it permanent when cloned.
   # TODO: AddAccentClothingComponent should use an inventory relay event.

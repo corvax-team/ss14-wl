@@ -5,4 +5,11 @@
   targetNode: cloak
   category: construction-category-clothing
   objectType: Item
-  
+
+- type: construction
+  id: ClothingHandsGlovesRobohandsIsolated
+  graph: ClothingHandsGlovesRobohandsIsolated
+  startNode: start
+  targetNode: gloves
+  category: construction-category-clothing
+  objectType: Item

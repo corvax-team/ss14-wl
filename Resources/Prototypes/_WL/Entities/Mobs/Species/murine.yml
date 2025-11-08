@@ -60,6 +60,7 @@
     understood:
       - Translate
   #WL-Changes: Languages end
+  - type: AddHeightItem
 
 - type: entity
   save: false

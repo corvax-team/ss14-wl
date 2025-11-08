@@ -270,9 +270,9 @@
   description: More like an eccentric coat than a labcoat. Helps pass off bloodstains as part of the aesthetic. Comes with red shoulder pads.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_robo.rsi
+    sprite: _WL/Clothing/OuterClothing/Coats/labcoat_robo.rsi # WL-Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_robo.rsi
+    sprite: _WL/Clothing/OuterClothing/Coats/labcoat_robo.rsi # WL-Resprite
   - type: Armor
     modifiers:
       coefficients:
@@ -290,9 +290,9 @@
   description: Woven with top of the line technology, this labcoat helps protect against radiation in similar way to the experimental hardsuit.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_rd.rsi
+    sprite: _WL/Clothing/OuterClothing/Coats/labcoat_rd.rsi # WL-Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_rd.rsi
+    sprite: _WL/Clothing/OuterClothing/Coats/labcoat_rd.rsi # WL-Resprite
   - type: Armor
     modifiers:
       coefficients:
@@ -424,9 +424,9 @@
   description: A suit that protects against minor chemical spills. Has a purple collar and wrist trims.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi
+    sprite: _WL/Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi # WL-Resprite
   - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi
+    sprite: _WL/Clothing/OuterClothing/Coats/labcoat_senior_researcher.rsi # WL-Resprite
   - type: Armor
     modifiers:
       coefficients:

@@ -1,0 +1,22 @@
+- type: latheRecipe
+  id: ClothingEyesNightVisionGoggles
+  result: ClothingEyesNightVisionGoggles
+  completetime: 10
+  materials:
+    Steel: 200
+    Glass: 100
+    Silver: 100
+    Gold: 100
+    Plastic: 500
+
+- type: latheRecipe
+  id: ClothingEyesThermalVisionGoggles
+  result: ClothingEyesThermalVisionGoggles
+  completetime: 10
+  materials:
+    Steel: 200
+    Glass: 100
+    Silver: 100
+    Gold: 100
+    Plastic: 500
+    Uranium: 300

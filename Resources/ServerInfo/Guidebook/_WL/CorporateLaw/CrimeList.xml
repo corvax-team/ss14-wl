@@ -1,0 +1,259 @@
+<Document>
+  # Корпоративный закон, таблица статей
+  Коды и названия всех статей корпоративного закона. (Вы можете нажать на статью, чтобы перейти к её описанию.)
+
+  <Table Columns="6">
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <Box>[bold]X1[/bold]</Box>
+        <Box>Незначительные правонарушения</Box>
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <Box>[bold]X2[/bold]</Box>
+        <Box>Легкие правонарушения</Box>
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <Box>[bold]X3[/bold]</Box>
+        <Box>Средние правонарушения</Box>
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <Box>[bold]X4[/bold]</Box>
+        <Box>Тяжкие правонарушения</Box>
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        <Box>[bold]X5[/bold]</Box>
+        <Box>Особо тяжкие правонарушения</Box>
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [bold]1X[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Оскорбление символов власти" link="WLCLCrimeListT1S1"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Сопротивление органам власти" link="WLCLCrimeListT1S2"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Неподчинение в ЧС" link="WLCLCrimeListT1S3"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Забастовка" link="WLCLCrimeListT1S4"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Мятеж или теракт" link="WLCLCrimeListT1S5"]
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [bold]2X[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Харасмент" link="WLCLCrimeListT2S1"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Нанесение легких телесных повреждений" link="WLCLCrimeListT2S2"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Незаконное ограничение свободы" link="WLCLCrimeListT2S3"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Причинение вреда здоровью" link="WLCLCrimeListT2S4"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Убийство или уничтожение тела" link="WLCLCrimeListT2S5"]
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [bold]3X[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Хулиганство" link="WLCLCrimeListT3S1"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Хищение" link="WLCLCrimeListT3S2"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Порча имущества" link="WLCLCrimeListT3S3"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Жестокое обращение с животными" link="WLCLCrimeListT3S4"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Хищение или уничтожение ценного имущества" link="WLCLCrimeListT3S5"]
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [bold]4X[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Проникновение" link="WLCLCrimeListT4S1"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Взлом" link="WLCLCrimeListT4S2"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Мошенничество" link="WLCLCrimeListT4S3"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Проникновение в стратегическую точку" link="WLCLCrimeListT4S4"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Крупное мошенничество" link="WLCLCrimeListT4S5"]
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [bold]5X[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Пропаганда" link="WLCLCrimeListT5S1"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Халатность" link="WLCLCrimeListT5S2"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Саботаж" link="WLCLCrimeListT5S3"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Грубая халатность" link="WLCLCrimeListT5S4"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Крупный саботаж" link="WLCLCrimeListT5S5"]
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [bold]6X[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Злоупотребление экипировкой" link="WLCLCrimeListT6S1"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Незаконное владение опасными предметами" link="WLCLCrimeListT6S2"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Хранение и оборот регулируемых веществ" link="WLCLCrimeListT6S3"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Незаконное владение предметами ограниченного оборота" link="WLCLCrimeListT6S4"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Незаконное владение контрабандными предметами и оружием" link="WLCLCrimeListT6S5"]
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [bold]7X[/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Неуважение к суду" link="WLCLCrimeListT7S1"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Сокрытие преступления и клевета" link="WLCLCrimeListT7S2"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Неисполнение приговора суда" link="WLCLCrimeListT7S3"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Сокрытие крупного преступления" link="WLCLCrimeListT7S4"]
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Сокрытие обстоятельств, создающих опасность для станции" link="WLCLCrimeListT7S5"]
+      </Box>
+    </ColorBox>
+  </Table>
+
+</Document>

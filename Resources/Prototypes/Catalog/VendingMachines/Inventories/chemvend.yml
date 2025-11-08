@@ -20,7 +20,7 @@
     JugRadium: 1
     JugSilicon: 2
     JugSodium: 2
-    JugSugar: 3
+    JugSugar: 6 # WL-Offmed
     JugSulfur: 1
   contrabandInventory:
     DrinkLithiumFlask: 1

@@ -59,6 +59,7 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - PilotBadges # WL-Changes
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -75,6 +76,7 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - BrigMedicBadges # WL-Changes
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -90,6 +92,7 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - InstructorBadges # WL-Changes
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -109,7 +112,6 @@
   - Glasses
   - SurvivalMedical
   - MedicalDoctorNeck # WL-Changes
-  - Utility # WL-Changes
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathToolMedical

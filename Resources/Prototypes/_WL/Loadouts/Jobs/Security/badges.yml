@@ -1,0 +1,50 @@
+- type: loadout
+  id: SecurityPrivatePin
+  equipment:
+    neck: ClothingNeckSecurityPrivatePin
+
+- type: loadout
+  id: SecurityCorporalPin
+  equipment:
+    neck: ClothingNeckSecurityCorporalPin
+
+- type: loadout
+  id: SecuritySubSergeantPin
+  equipment:
+    neck: ClothingNeckSecuritySubSergeantPin
+
+- type: loadout
+  id: SecuritySergeantPin
+  equipment:
+    neck: ClothingNeckSecuritySergeantPin
+
+- type: loadout
+  id: SecurityChiefSergeantPin
+  equipment:
+    neck: ClothingNeckSecurityChiefSergeantPin
+
+- type: loadout
+  id: SecuritySubLieutenantPin
+  equipment:
+    neck: ClothingNeckSecuritySubLieutenantPin
+
+- type: loadout
+  id: SecurityLieutenantPin
+  equipment:
+    neck: ClothingNeckSecurityLieutenantPin
+
+- type: loadout
+  id: SecurityChiefLieutenantPin
+  equipment:
+    neck: ClothingNeckSecurityChiefLieutenantPin
+
+- type: loadout
+  id: SecurityCaptainPin
+  equipment:
+    neck: ClothingNeckSecurityCaptainPin
+
+- type: loadout
+  id: SecurityMajorPin
+  equipment:
+    neck: ClothingNeckSecurityMajorPin
+

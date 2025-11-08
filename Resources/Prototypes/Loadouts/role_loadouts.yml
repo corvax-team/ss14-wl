@@ -404,6 +404,7 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - HOSBadges # WL-Changes
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -420,6 +421,7 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - WardenBadges # WL-Changes
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -437,6 +439,7 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - OfficerBadges # WL-Changes
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -453,8 +456,10 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - DetectiveBadges # WL-Changes
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - PhotoGroup # WL-Changes: Photo to lodauts
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -465,6 +470,7 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - CadetBadges # WL-Changes
   - GroupSpeciesBreathToolSecurity
 
 # Medical
@@ -486,7 +492,6 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - Utility # WL-Changes
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -507,7 +512,6 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - MedicalDoctorNeck # WL-Changes
-  - Utility # WL-Changes
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -521,7 +525,6 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
-  - Utility # WL-Changes
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -583,6 +586,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - PhotoGroup # WL-Changes: Photo to lodauts
 
 - type: roleLoadout
   id: JobPsychologist

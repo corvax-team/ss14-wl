@@ -1,0 +1,112 @@
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckSecurityPinBase
+  abstract: true
+  components:
+  - type: LimitedCharges
+    maxCharges: 1
+    showExamineInfo: false
+  - type: RenameOnInteract
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Pins/security_badges.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Pins/security_badges.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+# Кадет
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityPrivatePin
+  components:
+  - type: Sprite
+    state: icon-yel
+  - type: Clothing
+    equippedPrefix: yel
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityCorporalPin
+  components:
+  - type: Sprite
+    state: icon-oranyel
+  - type: Clothing
+    equippedPrefix: oranyel
+
+# Офицер/Детектив/Бригмед/Пилот
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecuritySubSergeantPin
+  components:
+  - type: Sprite
+    state: icon-oran
+  - type: Clothing
+    equippedPrefix: oran
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecuritySergeantPin
+  components:
+  - type: Sprite
+    state: icon-greoran
+  - type: Clothing
+    equippedPrefix: greoran
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityChiefSergeantPin
+  components:
+  - type: Sprite
+    state: icon-gre
+  - type: Clothing
+    equippedPrefix: gre
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecuritySubLieutenantPin
+  components:
+  - type: Sprite
+    state: icon-blugre
+  - type: Clothing
+    equippedPrefix: blugre
+
+# Смотритель
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityLieutenantPin
+  components:
+  - type: Sprite
+    state: icon-blu
+  - type: Clothing
+    equippedPrefix: blu
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityChiefLieutenantPin
+  components:
+  - type: Sprite
+    state: icon-purblu
+  - type: Clothing
+    equippedPrefix: purblu
+
+# ГСБ
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityCaptainPin
+  components:
+  - type: Sprite
+    state: icon-pur
+  - type: Clothing
+    equippedPrefix: pur
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityMajorPin
+  components:
+  - type: Sprite
+    state: icon-cya
+  - type: Clothing
+    equippedPrefix: cya

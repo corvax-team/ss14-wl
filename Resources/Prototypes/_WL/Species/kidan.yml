@@ -11,6 +11,9 @@
   maleFirstNames: NamesReptilianMale
   femaleFirstNames: NamesReptilianFemale
   naming: FirstDashFirst
+  minHeight: 160
+  maxHeight: 200
+  
 - type: speciesBaseSprites
   id: MobHumanoidKidanSprites
   sprites:

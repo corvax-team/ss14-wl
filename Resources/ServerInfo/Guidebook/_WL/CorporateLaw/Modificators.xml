@@ -1,0 +1,291 @@
+<Document>
+
+# Модификаторы
+
+  <Note>
+    <Box HorizontalAlignment="Left" Orientation="Vertical">
+      <Box HorizontalAlignment="Left">
+        Смягчённое наказание — наказание на уровень ниже
+      </Box>
+      <Box HorizontalAlignment="Left">
+        Повышенное наказание — наказание на уровень выше
+      </Box>
+    </Box>
+  </Note>
+
+
+## Модификаторы умысла
+
+  <Table Columns="3">
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Преступление
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Модификатор
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Описание
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Осознанность
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Деяние или бездействие, приведшее к последствиям, подходящим под статью, было совершено лицом намеренно либо с допущением наступления таковых последствий, но без предпринятия каких-либо мер по противодействию их наступлению с учётом наличия на то возможностей
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Неосторожность
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Смягчённое наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box Orientation="Vertical" VerticalAlignment="Center" Margin="2">
+        <Box HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2">
+          Деяние или бездействие, приведшее к последствиям, подходящим под статью, было совершено лицом без преднамеренного умысла:
+        </Box>
+        <Box Orientation="Vertical" VerticalAlignment="Center" Margin="2">
+          <Box HorizontalAlignment="Left">
+            [bold]Легкомыслие[/bold]: лицо осознавало вероятность наступления последствий, но самонадеянно рассчитывало их предотвратить
+          </Box>
+          <Box HorizontalAlignment="Left">
+            [bold]Небрежность[/bold]: лицо не осознавало вероятность наступления последствий, хотя при должной внимательности могло их предвидеть
+          </Box>
+        </Box>
+      </Box>
+    </ColorBox>
+  </Table>
+
+
+## Модификаторы завершённости
+
+  <Table Columns="3">
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Преступление
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Модификатор
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Описание
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Покушение
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Злонамеренное действие или бездействие, осознанно принятое лицом и по каким-либо причинам не доведённое до конца, несмотря на соответствие мотивов и намерений изначальным
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Добровольная остановка
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Смягчённое наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Злонамеренное действие, осознанно прерванное лицом на основании изменения изначальных мотивов и намерений в процессе совершаемого правонарушения
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Окончание преступления
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Преступление, доведённое лицом до конца, несмотря на сохранившиеся или изменившиеся мотивы и намерения в ходе совершённого правонарушения
+      </Box>
+    </ColorBox>
+  </Table>
+
+
+## Модификаторы готовности
+
+  <Table Columns="3">
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Преступление
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Модификатор
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Описание
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Аффект
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Смягчённое наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Преступление, ставшее возможным исключительно ввиду сильного, неконтролируемого эмоционального переживания, в котором находилось лицо во время совершения преступления
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Предварительный план
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Полное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Преступление, совершённое путём принятия обдуманного решения, характеризующегося наличием предварительного плана или подготовки
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Заговор
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Повышенное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Привлечение подельников или подстрекательство или манипуляция
+      </Box>
+    </ColorBox>
+  </Table>
+
+
+## Модификаторы намерений
+
+  <Table Columns="3">
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Преступление
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Модификатор
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#242c38">
+      <Box VerticalAlignment="Center" Margin="2">
+        Описание
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Крайняя необходимость
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Смягчённое наказание или отсутствие наказания
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box Orientation="Vertical" VerticalAlignment="Center" Margin="2">
+        <Box>[textlink="Экстремальная ситуация" tip="Действие, совершённое в рамках экстремальной ситуации с целью предотвращения наступления вероятных последствий, затрагивающих жизнь и здоровье лица или группы лиц, а также работоспособность и целостность станции и её оборудования"]</Box>
+        <Box>[textlink="Допустимая самооборона" tip="Допустимая самооборона: принятие экстренных мер, направленных исключительно на приостановку посягательства на собственные жизнь и здоровье без использования членовредительсва свыше необходимой меры"]</Box>
+        <Box>[textlink="Мера по убеждению" tip="Мера по убеждению: принятие экстренных мер, основывающихся на глубоком убеждении лица в прямой необходимости их применения с целью предотвращения мнимой или действительной угрозы по отношению к его жизни, жизни окружающих или работоспособности станции"]</Box>
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Содействие следствию
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        На усмотрение Главы СБ
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box Orientation="Vertical" VerticalAlignment="Center" Margin="2">
+        <Box>[textlink="Полезное действие" tip="Действие, совершённое правонарушителем с целью оказания полезного содействия органам, отвечающим за обеспечение безопасности на станции и территории ей принадлежащей, по собственной инициативе или по обязательству в рамках добровольно заключённой с осуждённым сделки"]</Box>
+        <Box>Явка с повинной</Box>
+        <Box>Сделка со следствием</Box>
+      </Box>
+    </ColorBox>
+
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+        Должностным лицом или против него
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box VerticalAlignment="Center" Margin="2">
+       	Повышенное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#202732">
+      <Box Orientation="Vertical" VerticalAlignment="Center" Margin="2">
+        <Box>[textlink="Нарушение КЗ" tip="Нарушение корпоративного закона (КЗ) должностным лицом корпорации НТ со следующими исключениями:\n- Статья 21 пункт о превышении полномочий\n- Статья 43 пункт о превышении полномочий\n- Статья 45 пункт о превышении полномочий"]</Box>
+        <Box>Нарушения лицом статей 2 раздела «Преступления против личности» против должностного лица корпорации НТ</Box>
+      </Box>
+    </ColorBox>
+  </Table>
+
+</Document>

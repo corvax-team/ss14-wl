@@ -10,7 +10,7 @@
     - Moth
     - Reptilian
     - SlimePerson
-    - Vulpkanin
+    #- Vulpkanin # WL-Changes
     - Vox
 #Corvax WhiteList
     - Akula
@@ -20,6 +20,7 @@
     - Golem
     - Kidan
     - Murine
+    - CorvaxVulpkanin
 #Corvax WhiteList-End
 
 - type: guideEntry
@@ -99,7 +100,9 @@
   text: "/ServerInfo/Guidebook/_WL/Mobs/Murine.xml"
 #Corvax WhiteList-End
 
-- type: guideEntry
-  id: Vulpkanin
-  name: species-name-vulpkanin
-  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
+# WL-Changes-start
+# - type: guideEntry
+  # id: Vulpkanin
+  # name: species-name-vulpkanin
+  # text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
+# WL-Changes-end

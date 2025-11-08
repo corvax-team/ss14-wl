@@ -76,6 +76,10 @@
   - PowerCageSmall
   - TelescopicShield
   - ClothingBackpackHarmpack
+  # WL-Corvax-Start
+  - ClothingEyesNightVisionGoggles
+  - ClothingEyesThermalVisionGoggles
+  # WL-Corvax-End
 
 - type: latheRecipePack
   id: SecurityBoards

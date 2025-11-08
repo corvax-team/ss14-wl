@@ -136,9 +136,9 @@
   description: Thin sterile latex gloves. Basic PPE for any doctor.
   components:
   - type: Sprite
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _WL/Clothing/Hands/Gloves/latex.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Hands/Gloves/latex.rsi
+    sprite: _WL/Clothing/Hands/Gloves/latex.rsi #WL-Resprite
   - type: Fiber
     fiberMaterial: fibers-latex
   - type: FingerprintMask
@@ -205,6 +205,27 @@
     fiberMaterial: fibers-leather
     fiberColor: fibers-black
   - type: FingerprintMask
+  #WL-Changes: Robotic isolation start
+  - type: RandomInsulation
+    # Why repeated numbers? So some numbers are more common, of course!
+    list:
+      - 0
+      - 0
+      - 0.5
+      - 0.5
+      - 0.5
+      - 1.5
+      - 1.5
+      - 2
+      - 2.5
+      - 2.5
+      - 3
+      - 3.5
+      - 4
+  - type: Tag
+    tags:
+    - RoboHands
+  #WL-Changes: Robotic isolation end
 
 - type: entity
   parent: [ClothingHandsBase, BaseToggleClothing, BaseHighlyIllegalContraband]

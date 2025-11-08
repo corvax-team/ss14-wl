@@ -1,4 +1,5 @@
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Materials;
 using Content.Shared.Paper;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -149,6 +150,26 @@ public sealed partial class FaxMachineComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId PrintOfficePaperId = "PaperOffice";
+
+    // WL-Changes-start
+    [DataField]
+    public ProtoId<MaterialPrototype> PrintMaterial = "PrinterPaper";
+
+    [DataField]
+    public int PrintConsumeMaterialAmount = 100;
+
+    [DataField]
+    public float NoPaperNotifyCooldownTime = 60f/*seconds*/;
+
+    [DataField]
+    public float NoPaperNotifyCooldownTimeRemaining;
+
+    [DataField]
+    public bool IsNotifyOnEmptyEnable = true;
+
+    [DataField]
+    public bool IsMaterialStorageOpen = false;
+    // WL-Changes-end
 }
 
 [DataDefinition]

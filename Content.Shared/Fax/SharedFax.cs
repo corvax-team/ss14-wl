@@ -18,12 +18,23 @@ public sealed class FaxUiState : BoundUserInterfaceState
     public bool CanSend { get; }
     public bool CanCopy { get; }
 
+    // WL-Changes-start
+    public bool IsStorageOpen { get; }
+    public bool IsNotifyEnable { get; }
+    public int PapersInStorageCount { get; }
+    // WL-Changes-end
+
     public FaxUiState(string deviceName,
         Dictionary<string, string> peers,
         bool canSend,
         bool canCopy,
         bool isPaperInserted,
-        string? destAddress)
+        string? destAddress,
+        /*WL-Changes-start*/
+        bool isStorageOpen,
+        bool isNotifyEnable,
+        int papersInStorageCount
+        /*WL-Changes-end*/)
     {
         DeviceName = deviceName;
         AvailablePeers = peers;
@@ -31,6 +42,12 @@ public sealed class FaxUiState : BoundUserInterfaceState
         CanSend = canSend;
         CanCopy = canCopy;
         DestinationAddress = destAddress;
+
+        // WL-Changes-start
+        IsStorageOpen = isStorageOpen;
+        IsNotifyEnable = isNotifyEnable;
+        PapersInStorageCount = papersInStorageCount;
+        // WL-Changes-end
     }
 }
 

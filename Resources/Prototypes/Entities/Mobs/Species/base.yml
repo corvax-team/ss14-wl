@@ -222,6 +222,7 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: MobCollision # WL-Changes: MobCollision works for players only
+  - type: OfferItem # CorvaxGoob-Offer
 
 - type: entity
   save: false

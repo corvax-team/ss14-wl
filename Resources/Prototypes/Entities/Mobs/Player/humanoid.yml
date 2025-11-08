@@ -713,6 +713,32 @@
     - type: Loadout
       prototypes: [ CentcomGear ]
       roleLoadout: [ RoleSurvivalStandard ]
+    # WL-Skills-start
+    - type: InitialSkills
+      randomMaxLevel: 3
+      initialSkills:
+        Bureaucracy: 4
+        Eva: 3
+        Piloting: 3
+        MechPiloting: 3
+        IT: 3
+        Atmospherics: 2
+        Construction: 2
+        Electrical: 2
+        Generators: 2
+        Anatomy: 2
+        Chemistry: 2
+        Medicine: 2
+        ComplexDevices: 2
+        Science: 2
+        Forensics: 2
+        Combat: 2
+        Weapons: 2
+        Botany: 2
+        Cooking: 2
+        Mixology: 2
+      # WL-Skills-end
+
 
 ## Syndicate
 

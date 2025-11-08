@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseAction
+  id: ActionPenlight
+  name: Check eyes
+  components:
+  - type: Action
+    icon:
+      sprite: _WL/Objects/Misc/pens.rsi
+      state: penlight
+    priority: -1
+    itemIconStyle: BigAction
+    checkCanInteract: false
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:DiagnosticActionEvent

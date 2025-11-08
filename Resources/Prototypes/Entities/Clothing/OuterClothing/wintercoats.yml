@@ -618,17 +618,18 @@
   name: robotics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi #WL-Resprite
     layers:
     - state: ROBO-icon
   - type: Item
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi #WL-Resprite
     inhandVisuals:
       left:
       - state: ROBO-inhand-left
       right:
       - state: ROBO-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi #WL-Resprite
     clothingVisuals:
       outerClothing:
       - state: ROBO-equipped-OUTERCLOTHING

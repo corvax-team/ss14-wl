@@ -72,6 +72,26 @@
     nameFormat: name-format-nukie-operator
   - type: Loadout
     prototypes: [SyndicateOperativeGearFullNoUplink]
+  # WL-Skills-start
+  - type: InitialSkills
+    initialSkills:
+      Bureaucracy: 3
+      Eva: 3
+      Piloting: 4
+      MechPiloting: 3
+      IT: 3
+      Atmospherics: 3
+      Construction: 4
+      Electrical: 4
+      Generators: 3
+      Anatomy: 3
+      Chemistry: 3
+      Medicine: 3
+      ComplexDevices: 4
+      Science: 2
+      Combat: 4
+      Weapons: 4
+  # WL-Skills-end
 
 # Nuclear Operative
 - type: entity
@@ -103,6 +123,27 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+  # WL-Skills-start
+  - type: InitialSkills
+    initialSkills:
+      Bureaucracy: 3
+      Eva: 3
+      Piloting: 4
+      MechPiloting: 3
+      IT: 3
+      Atmospherics: 3
+      Construction: 4
+      Electrical: 4
+      Generators: 3
+      Anatomy: 3
+      Chemistry: 3
+      Medicine: 3
+      ComplexDevices: 4
+      Science: 2
+      Combat: 4
+      Weapons: 4
+  # WL-Skills-end
+
 
 # Wizard
 - type: entity

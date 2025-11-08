@@ -7,7 +7,7 @@
     <Control MinSize="10 0"/>
     <BoxContainer Orientation="Vertical" HorizontalAlignment="Center" HorizontalExpand="True" Margin="0 0 0 20" MaxWidth="325">
         <RichTextLabel Name="Title" Access="Public" HorizontalAlignment="Center"/>
-        <RichTextLabel Name="Description" Access="Public" HorizontalAlignment="Left"/>
+        <RichTextLabel Name="Description" StyleClasses="LabelSubText" Access="Public" HorizontalAlignment="Left"/>
     </BoxContainer>
     <Button Name="ChooseButton" Text="{Loc 'ui-languages-choose-button'}" Access="Public" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 </controls:LanguageItemControl>

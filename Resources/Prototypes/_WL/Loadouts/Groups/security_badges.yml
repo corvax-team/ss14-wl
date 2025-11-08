@@ -1,0 +1,79 @@
+- type: loadoutGroup
+  id: CadetBadges
+  name: loadout-group-sec-badges-wl
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityPrivatePin
+  - SecurityCorporalPin
+
+- type: loadoutGroup
+  id: BrigMedicBadges
+  name: loadout-group-sec-badges-wl
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityCorporalPin
+  - SecuritySubSergeantPin
+  - SecuritySergeantPin
+  - SecurityChiefSergeantPin
+  - SecuritySubLieutenantPin
+
+- type: loadoutGroup
+  id: OfficerBadges
+  name: loadout-group-sec-badges-wl
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecuritySubSergeantPin
+  - SecuritySergeantPin
+  - SecurityChiefSergeantPin
+  - SecuritySubLieutenantPin
+
+- type: loadoutGroup
+  id: DetectiveBadges
+  name: loadout-group-sec-badges-wl
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecuritySergeantPin
+  - SecurityChiefSergeantPin
+  - SecuritySubLieutenantPin
+
+- type: loadoutGroup
+  id: PilotBadges
+  name: loadout-group-sec-badges-wl
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecuritySergeantPin
+  - SecurityChiefSergeantPin
+  - SecuritySubLieutenantPin
+
+- type: loadoutGroup
+  id: InstructorBadges
+  name: loadout-group-sec-badges-wl
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecuritySubLieutenantPin
+  - SecurityLieutenantPin
+
+- type: loadoutGroup
+  id: WardenBadges
+  name: loadout-group-sec-badges-wl
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityLieutenantPin
+  - SecurityChiefLieutenantPin
+
+- type: loadoutGroup
+  id: HOSBadges
+  name: loadout-group-sec-badges-wl
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - SecurityChiefLieutenantPin
+  - SecurityCaptainPin
+  - SecurityMajorPin

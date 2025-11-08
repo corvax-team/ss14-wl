@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetHardsuitScience
+  name: science hardsuit helmet
+  description: A special hardsuit helmet designed for working in low-pressure, high thermal environments.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hardsuits/scienvi.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.001
+  - type: Tag
+    tags:
+    - WhitelistChameleon

@@ -14,3 +14,11 @@
     Steel: 50
     Plastic: 75
     Plasma: 10
+
+- type: latheRecipe
+  id: SurgicalCase
+  result: SurgicalCase
+  name: lathe-recipe-SurgicalCase-name
+  completetime: 2
+  materials:
+    Steel: 300

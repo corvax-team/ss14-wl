@@ -4,6 +4,11 @@
     head: ClothingHeadHatBeretDSS
 
 - type: loadout
+  id: SecuritySoftDSS
+  equipment:
+    head: ClothingHeadHatDSSSoft
+
+- type: loadout
   id: JumpsuitDSS
   equipment:
     jumpsuit: ClothingUniformJumpsuitDSS

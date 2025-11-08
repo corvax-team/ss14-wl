@@ -31,6 +31,11 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared._WL.Fax.Events;
+using Content.Server.Materials;
+using Content.Shared.Materials;
+using Content.Shared.Examine;
+using Content.Shared.Whitelist;
+using Content.Shared._WL.Fax.Messages;
 
 namespace Content.Server.Fax;
 
@@ -53,9 +58,19 @@ public sealed class FaxSystem : EntitySystem
     [Dependency] private readonly FaxecuteSystem _faxecute = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
 
+    // WL-Changes-start
+    [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
+    // WL-Changes-end
+
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
 
     private const string PaperSlotId = "Paper";
+
+    // WL-Changes-start
+    private static readonly LocId NoPaperNotifyLocString = "fax-machine-paper-empty";
+    private static readonly LocId FaxExaminePapersRemainingLocString = "fax-machine-examine-papers-remaining";
+    private static readonly LocId FaxExamineIsStorageOpenLocString = "fax-machine-examine-is-storage-open";
+    // WL-Changes-end
 
     public override void Initialize()
     {
@@ -72,7 +87,7 @@ public sealed class FaxSystem : EntitySystem
         SubscribeLocalEvent<FaxMachineComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
 
         // Interaction
-        SubscribeLocalEvent<FaxMachineComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<FaxMachineComponent, InteractUsingEvent>(OnInteractUsing/*WL-Changes-start*/, [typeof(ItemSlotsSystem)]/*WL-Changes-end*/);
         SubscribeLocalEvent<FaxMachineComponent, GotEmaggedEvent>(OnEmagged);
 
         // UI
@@ -82,6 +97,12 @@ public sealed class FaxSystem : EntitySystem
         SubscribeLocalEvent<FaxMachineComponent, FaxSendMessage>(OnSendButtonPressed);
         SubscribeLocalEvent<FaxMachineComponent, FaxRefreshMessage>(OnRefreshButtonPressed);
         SubscribeLocalEvent<FaxMachineComponent, FaxDestinationMessage>(OnDestinationSelected);
+
+        // WL-Changes-start
+        SubscribeLocalEvent<FaxMachineComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<FaxMachineComponent, FaxSwitchNotifyMessage>(OnNotifyButtonPressed);
+        SubscribeLocalEvent<FaxMachineComponent, FaxSwitchStorageMessage>(OnStorageButtonPressed);
+        // WL-Changes-end
     }
 
     public override void Update(float frameTime)
@@ -102,6 +123,17 @@ public sealed class FaxSystem : EntitySystem
 
     private void ProcessPrintingAnimation(EntityUid uid, float frameTime, FaxMachineComponent comp)
     {
+        // WL-Changes-start
+        if (!CanPrintFromMaterial((uid, comp)))
+        {
+            if (comp.IsNotifyOnEmptyEnable && comp.PrintingQueue.Count != 0)
+                ProcessNoPaperNotify(uid, frameTime, comp);
+
+            return;
+        }
+        else comp.NoPaperNotifyCooldownTimeRemaining = comp.NoPaperNotifyCooldownTime;
+        // WL-Changes-end
+
         if (comp.PrintingTimeRemaining > 0)
         {
             comp.PrintingTimeRemaining -= frameTime;
@@ -110,6 +142,7 @@ public sealed class FaxSystem : EntitySystem
             var isAnimationEnd = comp.PrintingTimeRemaining <= 0;
             if (isAnimationEnd)
             {
+                TryConsumeMaterial((uid, comp)); // WL-Changes
                 SpawnPaperFromQueue(uid, comp);
                 UpdateUserInterface(uid, comp);
             }
@@ -123,6 +156,64 @@ public sealed class FaxSystem : EntitySystem
             _audioSystem.PlayPvs(comp.PrintSound, uid);
         }
     }
+
+    // WL-Changes-start
+    private void OnNotifyButtonPressed(EntityUid uid, FaxMachineComponent component, FaxSwitchNotifyMessage args)
+    {
+        component.IsNotifyOnEmptyEnable = !component.IsNotifyOnEmptyEnable;
+        UpdateUserInterface(uid, component);
+    }
+
+    private void OnStorageButtonPressed(EntityUid uid, FaxMachineComponent component, FaxSwitchStorageMessage args)
+    {
+        component.IsMaterialStorageOpen = !component.IsMaterialStorageOpen;
+        UpdateUserInterface(uid, component);
+    }
+
+    private bool CanPrintFromMaterial(Entity<FaxMachineComponent, MaterialStorageComponent?> fax, bool considerQueue = false, bool localOnly = false)
+    {
+        var (faxEnt, faxComp, materialStorageComp) = fax;
+
+        var amount = faxComp.PrintConsumeMaterialAmount;
+        if (considerQueue)
+            amount *= faxComp.PrintingQueue.Count + 1;
+
+        return _materialStorage.CanChangeMaterialAmount(faxEnt, faxComp.PrintMaterial, -amount, materialStorageComp, localOnly);
+    }
+
+    private bool TryConsumeMaterial(Entity<FaxMachineComponent, MaterialStorageComponent?> fax, bool dirty = true, bool localOnly = false)
+    {
+        return _materialStorage.TryChangeMaterialAmount(fax, fax.Comp1.PrintMaterial, -fax.Comp1.PrintConsumeMaterialAmount, fax.Comp2, dirty, localOnly);
+    }
+
+    private void ProcessNoPaperNotify(EntityUid fax, float frameTime, FaxMachineComponent comp)
+    {
+        ref var remainingTime = ref comp.NoPaperNotifyCooldownTimeRemaining;
+
+        remainingTime -= frameTime;
+
+        if (remainingTime <= 0)
+        {
+            _audioSystem.PlayPvs(comp.SendSound, fax);
+            _popupSystem.PopupEntity(Loc.GetString(NoPaperNotifyLocString), fax, Shared.Popups.PopupType.Large);
+
+            remainingTime = comp.NoPaperNotifyCooldownTime;
+        }
+    }
+
+    private void OnExamine(EntityUid fax, FaxMachineComponent comp, ExaminedEvent ev)
+    {
+        ev.PushMarkup(Loc.GetString(FaxExaminePapersRemainingLocString, ("count", GetStoragePapersCount((fax, comp)))), 2);
+
+        ev.PushMarkup(Loc.GetString(FaxExamineIsStorageOpenLocString, ("isopen", comp.IsMaterialStorageOpen)), 1);
+    }
+
+    private int GetStoragePapersCount(Entity<FaxMachineComponent> fax)
+    {
+        var faxCurPaperMaterial = (float)_materialStorage.GetMaterialAmount(fax, fax.Comp.PrintMaterial);
+        return (int)MathF.Floor(faxCurPaperMaterial / fax.Comp.PrintConsumeMaterialAmount);
+    }
+    // WL-Changes-end
 
     private void ProcessInsertingAnimation(EntityUid uid, float frameTime, FaxMachineComponent comp)
     {
@@ -212,7 +303,19 @@ public sealed class FaxSystem : EntitySystem
 
     private void OnInteractUsing(EntityUid uid, FaxMachineComponent component, InteractUsingEvent args)
     {
-        if (args.Handled ||
+        // WL-Changes-start
+        if (args.Handled)
+            return;
+
+        if (component.IsMaterialStorageOpen && _materialStorage.TryInsertMaterialEntity(args.User, args.Used, uid))
+        {
+            args.Handled = true;
+            UpdateUserInterface(uid, component);
+            return;
+        }
+        // WL-Changes-end
+
+        if (/*WL-Changes-start*//*args.Handled ||*//*WL-Changes-end*/
             !TryComp<ActorComponent>(args.User, out var actor) ||
             !_toolSystem.HasQuality(args.Used, ScrewingQuality)) // Screwing because Pulsing already used by device linking
             return;
@@ -381,7 +484,19 @@ public sealed class FaxSystem : EntitySystem
         var canCopy = isPaperInserted &&
                       component.SendTimeoutRemaining <= 0 &&
                       component.InsertingTimeRemaining <= 0;
-        var state = new FaxUiState(component.FaxName, component.KnownFaxes, canSend, canCopy, isPaperInserted, component.DestinationFaxAddress);
+        var state = new FaxUiState(
+            component.FaxName,
+            component.KnownFaxes,
+            canSend,
+            canCopy,
+            isPaperInserted,
+            component.DestinationFaxAddress,
+            /*WL-Changes-start*/
+            component.IsMaterialStorageOpen,
+            component.IsNotifyOnEmptyEnable,
+            GetStoragePapersCount((uid, component))
+            /*WL-Changes-end*/
+            );
         _userInterface.SetUiState(uid, FaxUiKey.Key, state);
     }
 
@@ -427,6 +542,16 @@ public sealed class FaxSystem : EntitySystem
     /// </summary>
     public void PrintFile(EntityUid uid, FaxMachineComponent component, FaxFileMessage args)
     {
+        // WL-Changes-start
+        if (!CanPrintFromMaterial((uid, component), true))
+        {
+            if (args.Actor.IsValid())
+                _popupSystem.PopupCursor(Loc.GetString(NoPaperNotifyLocString), args.Actor);
+
+            return;
+        }
+        // WL-Changes-end
+
         var prototype = args.OfficePaper ? component.PrintOfficePaperId : component.PrintPaperId;
 
         var name = Loc.GetString("fax-machine-printed-paper-name");
@@ -457,6 +582,16 @@ public sealed class FaxSystem : EntitySystem
 
         if (component.SendTimeoutRemaining > 0)
             return;
+
+        // WL-Changes-start
+        if (!CanPrintFromMaterial((uid, component), true))
+        {
+            if (args.Actor.IsValid())
+                _popupSystem.PopupCursor(Loc.GetString(NoPaperNotifyLocString), args.Actor, Shared.Popups.PopupType.Medium);
+
+            return;
+        }
+        // WL-Changes-end
 
         var sendEntity = component.PaperSlot.Item;
         if (sendEntity == null)

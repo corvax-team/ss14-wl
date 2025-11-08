@@ -76,7 +76,9 @@
       - StaminaModifier
       - TemporaryBlindness
       - Flashed
-  #- type: Blindable
+  - type: Blindable
+  - type: EyeProtection
+  - type: FlashImmunity
   - type: Icon
     sprite: _WL/Mobs/Species/Android/parts.rsi
     state: full
@@ -230,6 +232,7 @@
     understood:
       - Translate
       - Ternary
+  - type: MobCollision # WL-Changes: MobCollision works for players only
 
 - type: entity
   save: false

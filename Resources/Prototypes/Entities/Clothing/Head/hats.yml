@@ -195,9 +195,9 @@
   description: Donning the colours of medical and chemistry, physicians are the pride of this department!
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_physician.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_physician.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_physician.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_physician.rsi #WL-Resprite
   - type: Tag
     tags:
     - PetWearable
@@ -955,9 +955,9 @@
   description: Somehow I feel I'm not supposed to leave this place.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/nursehat.rsi
+    sprite: _WL/Clothing/Head/Hats/nursehat.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hats/nursehat.rsi
+    sprite: _WL/Clothing/Head/Hats/nursehat.rsi #WL-Resprite
   - type: Tag
     tags:
     - ClothMade

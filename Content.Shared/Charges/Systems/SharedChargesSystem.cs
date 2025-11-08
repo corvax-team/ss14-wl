@@ -27,7 +27,7 @@ public abstract class SharedChargesSystem : EntitySystem
 
     private void OnExamine(EntityUid uid, LimitedChargesComponent comp, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange)
+        if (!args.IsInDetailsRange /*WL-Changes-start*/|| !comp.ShowExamineInfo/*WL-Changes-end*/)
             return;
 
         var rechargeEnt = new Entity<LimitedChargesComponent?, AutoRechargeComponent?>(uid, comp, null);

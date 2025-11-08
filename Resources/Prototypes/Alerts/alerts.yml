@@ -30,6 +30,7 @@
     - alertType: Rooted
     - alertType: Pacified
     - alertType: Stealthy
+    - alertType: Offer # CorvaxGoob-Offer
 
 - type: entity
   id: AlertSpriteView
@@ -96,6 +97,17 @@
   clickEvent: !type:ResistFireAlertEvent
   name: alerts-on-fire-name
   description: alerts-on-fire-desc
+
+# CorvaxGoob-Offer-Start
+- type: alert
+  id: Offer
+  clickEvent: !type:AcceptOfferAlertEvent
+  icons:
+  - sprite: /Textures/_CorvaxGoob/Interface/Alerts/offer_item.rsi
+    state: offer_item
+  name: alerts-offer-name
+  description: alerts-offer-desc
+# CorvaxGoob-Offer-Start
 
 
 - type: alert

@@ -1,0 +1,53 @@
+- type: entity
+  id: SurgicalCase
+  parent: BaseStorageItem
+  name: surgical case
+  description: A large sterile tray with a lid for storing all of the tools you'd need for surgery.
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    maxItemSize: Normal
+    whitelist:
+      tags:
+        - SurgeryTool
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+  - type: Appearance
+  - type: ItemSlots
+  - type: Sprite
+    sprite: _WL/Objects/Storage/Medical/surgical_case.rsi
+    state: icon
+    layers:
+      - state: icon
+        map: [ base ]
+  - type: Item
+    sprite: _WL/Objects/Storage/Medical/surgical_case.rsi
+    size: Large
+  - type: StaticPrice
+    price: 200
+
+- type: entity
+  id: SurgicalCaseFilled
+  parent: SurgicalCase
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Hemostat
+      - id: Saw
+      - id: Drill
+      - id: Cautery
+      - id: Retractor
+      - id: Scalpel
+      - id: BoneGel
+      - id: BoneSetter
+      - id: VascularRecoupler
+      - id: Suture

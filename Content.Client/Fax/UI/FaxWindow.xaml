@@ -1,7 +1,8 @@
 <DefaultWindow
     xmlns="https://spacestation14.io"
     Title="{Loc 'fax-machine-ui-window'}"
-    MinSize="380 220">
+    MinSize="617 300">
+    <!-- WL-Changes: MinSize="380 220">  -->
     <BoxContainer Orientation="Vertical"
         SeparationOverride="2"
         VerticalExpand="True">
@@ -61,6 +62,22 @@
                    </BoxContainer>
                 </BoxContainer>
 
+                <!-- WL-Changes-start -->
+                <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+                    <Label Text="{Loc 'fax-machine-ui-papers-in-storage-label-name'}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom"/>
+
+                    <Control HorizontalExpand="True"
+                        MinWidth="8"
+                        HorizontalAlignment="Center"/>
+
+                    <RichTextLabel Name="StoragePapersCountLabel"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center" />
+                </BoxContainer>
+                <!-- WL-Changes-end -->
+                
                 <PanelContainer StyleClasses="LowDivider" Margin="0 4 0 4"/>
 
                 <!-- Send & Copy -->
@@ -86,12 +103,32 @@
             </BoxContainer>
 
         </PanelContainer>
-
+        
         <PanelContainer StyleClasses="PanelBackgroundBaseDark"
             HorizontalExpand="True" Margin="0 10 0 0"
             VerticalExpand="True" VerticalAlignment="Bottom">
             <BoxContainer Orientation="Vertical"
                 VerticalExpand="True">
+
+                <!-- WL-Changes-start -->
+                <!-- Storage & Notify -->
+                <BoxContainer Margin="0 4 0 4">
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                        <RichTextLabel Name="OpenStorageState" HorizontalAlignment="Center"/>
+                        <Button Name="OpenStorageButton"
+                            Text="{Loc 'fax-machine-ui-open-storage-button'}"
+                            StyleClasses="OpenRight"
+                            HorizontalExpand="True" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                        <RichTextLabel Name="TurnNotifyState" HorizontalAlignment="Center" />
+                        <Button Name="TurnNotifyButton"
+                            Text="{Loc 'fax-machine-ui-turn-notify-button'}"
+                            StyleClasses="OpenLeft"
+                            HorizontalExpand="True" />
+                    </BoxContainer>
+                </BoxContainer>
+                <!-- WL-Changes-end-->
 
                 <!-- Other actions -->
                 <BoxContainer Margin="0 4 0 4">

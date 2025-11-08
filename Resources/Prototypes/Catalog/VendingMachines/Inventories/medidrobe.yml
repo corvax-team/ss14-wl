@@ -23,7 +23,13 @@
     ClothingHeadHatSurgcapBlue: 4
     ClothingHeadHatSurgcapPurple: 4
     ClothingShoesBootsWinterMed: 2
-    ClothingNeckTieMed: 2 # WL-Changes: Респрайт РНД и новые вещи
+    #WL-Changes: New clothing start
+    ClothingNeckTieMed: 2
+    ClothingUniformJumpsuitNurse: 3
+    ClothingUniformJumpskirtNurse: 3
+    ClothingUniformJumpsuitPathologist: 3
+    ClothingHeadHatMedSoft: 3
+    #WL-Changes: New clothing end
   contrabandInventory:
     ClothingUniformJumpskirtOfLife: 1
     ToyFigurineMedicalDoctor: 1

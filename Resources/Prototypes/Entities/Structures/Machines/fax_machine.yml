@@ -4,6 +4,15 @@
   name: long range fax machine
   description: Bluespace technologies on the application of bureaucracy.
   components:
+  # WL-Changes-start
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Document
+    storage:
+      PrinterPaper: 500
+    insertOnInteract: false
+  # WL-Changes-end
   - type: Sprite
     sprite: Structures/Machines/fax_machine.rsi
     drawdepth: SmallObjects
