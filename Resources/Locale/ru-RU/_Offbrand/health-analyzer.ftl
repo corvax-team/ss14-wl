@@ -25,6 +25,7 @@ health-analyzer-window-entity-blood-pressure-value = {$systolic}/{$diastolic} { 
 health-analyzer-window-entity-blood-flow-value = {$value}% { -health-analyzer-rating(rating: $rating) }
 health-analyzer-window-entity-non-medical-reagents = [color=yellow]Пациент имеет немедицинские вещества в крови.[/color]
 
+wound-husking = [color=red]Пациент имеет ожоги четвёртой степени.[/color]
 wound-bone-death = [color=red]Пациент имеет системную костную смерть.[/color]
 wound-internal-fracture = [color=red]Пациент имеет внутренние переломы.[/color]
 wound-incision = [color=red]Пациент имеет открытый разрез.[/color]

@@ -1,8 +1,9 @@
 cpr-target-needs-cpr = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } не имеет пульса и задыхается![/color]
 
-fracture-examine = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-BASIC($target, "выглядит", "выглядит") } будто что-то неправильной формы застряло { POSS-ADJ($target) } под кожей![/color]
+fracture-examine = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-BASIC($target, "выглядит", "выглядит") } так, будто что-то неправильной формы застряло { POSS-ADJ($target) } под кожей![/color]
 arterial-bleeding-examine = [color=red]{ CAPITALIZE(SUBJECT($target)) } фонтанирует кровью![/color]
 bone-death-examine = [color=red]{ CAPITALIZE(SUBJECT($target)) } искалечен![/color]
+husking-examine = [color=red]{ CAPITALIZE(SUBJECT($target)) } выглядит так, будто его с него заживо содрали кожу![/color]
 
 wound-bleeding-modifier = [color=red]кровоточащие {$wound}[/color]
 wound-tended-modifier = ухоженные {$wound}
