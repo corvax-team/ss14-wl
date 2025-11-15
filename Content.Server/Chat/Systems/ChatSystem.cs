@@ -1,7 +1,8 @@
-// Wl-Changes: Languages start
+// Wl-Changes
 using Content.Server._WL.Languages;
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared._WL.Languages;
-// Wl-Changes: Languages end
+// Wl-Changes
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -63,6 +64,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly LanguagesSystem _languages = default!; //WL-Changes: Languages
+    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!; // WL-Change: No talk in vacuum
 
     // Corvax-TTS-Start: Moved from Server to Shared
     // public const int VoiceRange = 10; // how far voice goes in world units
@@ -375,6 +377,25 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
+    // WL-Change: No talk in vacuum Start
+    private bool TryEntitySpeak(EntityUid source)
+    {
+        var pressure = 1f;
+
+        if (_atmosphereSystem.GetContainingMixture(source) is { } mixture)
+        {
+            pressure = MathF.Max(mixture.Pressure, 1f);
+        }
+
+        if (pressure <= 1f)
+        {
+            return false;
+        }
+
+        return true;
+    }
+    // WL-Change: No talk in vacuum End
+
     private void SendEntitySpeak(
         EntityUid source,
         string originalMessage,
@@ -409,6 +430,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (nameEv.SpeechVerb != null && _prototypeManager.Resolve(nameEv.SpeechVerb, out var proto))
                 speech = proto;
         }
+
+        // WL-Change: No talk in vacuum Start
+        if (!TryEntitySpeak(source))
+            return;
+        // WL-Change: No talk in vacuum End
 
         name = FormattedMessage.EscapeText(name);
 
@@ -549,17 +575,18 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
-            if (data.Range <= WhisperClearRange || data.Observer)
+            if (data.Range <= WhisperClearRange | data.Observer /*WL-Change: No talk in vacuum*/ && TryEntitySpeak(source))
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, /*WL-Changes: Languages*/afterMessage, afterWrappedMessage/*WL-Changes: Languages*/, source, false, session.Channel);
             //If listener is too far, they only hear fragments of the message
-            else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange))
+            else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange) /*WL-Change: No talk in vacuum*/ && TryEntitySpeak(source))
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, /*WL-Changes: Languages*/afterObfusMessage, afterWrappedObfuscatedMessage/*WL-Changes: Languages*/, source, false, session.Channel);
             //If listener is too far and has no line of sight, they can't identify the whisperer's identity
-            else
+            else /*WL-Change: No talk in vacuum*/ if (TryEntitySpeak(source))
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, /*WL-Changes: Languages*/afterObfusMessage, afterUnknownMessage/*WL-Changes: Languages*/, source, false, session.Channel);
         }
 
-        _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+        if (TryEntitySpeak(source)) // WL-Change: No talk in vacuum
+            _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
         var ev = new EntitySpokeEvent(source, message, originalMessage, channel, obfuscatedMessage, /*WL-Changes: Languages*/langObfusMessage, biobfMessage/*WL-Changes: Languages*/);
         RaiseLocalEvent(source, ev, true);
