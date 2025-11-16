@@ -638,7 +638,7 @@ namespace Content.Server.GameTicking
         }
 
         //WL-Change: Send Manifest in Discord Start
-        private async void SendManifestDiscordMessage(RoundEndMessageEvent roundEndMessageEvent)
+        private async void SendManifestDiscordMessage(RoundEndMessageEvent roundEndMessage)
         {
             try
             {
@@ -647,28 +647,46 @@ namespace Content.Server.GameTicking
 
                 var duration = RoundDuration();
 
-                if (roundEndMessageEvent == null)
+                if (roundEndMessage == null)
                     return;
 
                 string playerInfoText = string.Empty;
 
-                foreach (var playerInfo in roundEndMessageEvent.AllPlayersEndInfo)
+                foreach (var playerInfo in roundEndMessage.AllPlayersEndInfo)
                 {
+                    if (playerInfoText.Length >= 4000)
+                    {
+                        var embedPart1 = new WebhookEmbed
+                        {
+                            Title = Loc.GetString("round-end-manifest-discord-title"),
+                            Description = FormattedMessage.RemoveMarkupPermissive(playerInfoText),
+                            Color = _webhookEmbedColor.ToArgb() & 0xFFFFFF,
+                            Footer = new WebhookEmbedFooter
+                            {
+                                Text = Loc.GetString("round-end-manifest-discord-footer",
+                                ("server", _baseServer.ServerName),
+                                ("round", RoundId),
+                                ("hours", Math.Truncate(duration.TotalHours)),
+                                ("minutes", duration.Minutes),
+                                ("seconds", duration.Seconds))
+                            }
+                        };
+                        var payloadPart1 = new WebhookPayload { Embeds = [embedPart1] };
+                        await _discord.CreateMessage(_webhookIdentifierManifest.Value, payloadPart1);
+
+                        playerInfoText = string.Empty;
+                    }
+
                     if (playerInfo.PlayerICName != null)
                     {
-                        if (playerInfo.Observer)
-                        {
-                            playerInfoText += Loc.GetString("round-end-manifest-webhook-player-info-if-observer-text",
-                                              ("playerOOCName", playerInfo.PlayerOOCName),
-                                              ("playerICName", playerInfo.PlayerICName));
-                        }
-                        else
-                        {
-                            playerInfoText += Loc.GetString("round-end-manifest-webhook-player-info-if-not-observer-text",
-                                    ("playerOOCName", playerInfo.PlayerOOCName),
-                                    ("playerICName", playerInfo.PlayerICName),
-                                    ("playerRole", Loc.GetString(playerInfo.Role)));
-                        }
+                        playerInfoText += playerInfo.Observer
+                            ? Loc.GetString("round-end-manifest-webhook-player-info-if-observer-text",
+                                ("playerOOCName", playerInfo.PlayerOOCName),
+                                ("playerICName", playerInfo.PlayerICName))
+                            : Loc.GetString("round-end-manifest-webhook-player-info-if-not-observer-text",
+                                ("playerOOCName", playerInfo.PlayerOOCName),
+                                ("playerICName", playerInfo.PlayerICName),
+                                ("playerRole", Loc.GetString(playerInfo.Role)));
 
                         playerInfoText += '\n';
                     }
@@ -678,21 +696,45 @@ namespace Content.Server.GameTicking
                 var embed = new WebhookEmbed
                 {
                     Title = Loc.GetString("round-end-manifest-discord-title"),
-                    // There is no need to cut article content. It's MaxContentLength smaller then discord's limit (4096):
                     Description = FormattedMessage.RemoveMarkupPermissive(playerInfoText),
                     Color = _webhookEmbedColor.ToArgb() & 0xFFFFFF,
                     Footer = new WebhookEmbedFooter
                     {
                         Text = Loc.GetString("round-end-manifest-discord-footer",
-                       ("server", _baseServer.ServerName),
-                       ("round", RoundId),
-                       ("hours", Math.Truncate(duration.TotalHours)),
-                       ("minutes", duration.Minutes),
-                       ("seconds", duration.Seconds))
+                            ("server", _baseServer.ServerName),
+                            ("round", RoundId),
+                            ("hours", Math.Truncate(duration.TotalHours)),
+                            ("minutes", duration.Minutes),
+                            ("seconds", duration.Seconds))
                     }
                 };
                 var payload = new WebhookPayload { Embeds = [embed] };
                 await _discord.CreateMessage(_webhookIdentifierManifest.Value, payload);
+
+                if (!string.IsNullOrEmpty(roundEndMessage.RoundEndText))
+                {
+                    if (roundEndMessage.RoundEndText.Length <= 4096)
+                    {
+                        embed = new WebhookEmbed
+                        {
+                            Title = Loc.GetString("round-end-text-discord-title"),
+                            Description = FormattedMessage.RemoveMarkupPermissive(roundEndMessage.RoundEndText),
+                            Color = _webhookEmbedColor.ToArgb() & 0xFFFFFF,
+                            Footer = new WebhookEmbedFooter
+                            {
+                                Text = Loc.GetString("round-end-manifest-discord-footer",
+                                    ("server", _baseServer.ServerName),
+                                    ("round", RoundId),
+                                    ("hours", Math.Truncate(duration.TotalHours)),
+                                    ("minutes", duration.Minutes),
+                                    ("seconds", duration.Seconds))
+                            }
+                        };
+                        payload = new WebhookPayload { Embeds = [embed] };
+                        await _discord.CreateMessage(_webhookIdentifierManifest.Value, payload);
+                    }
+                }
+
                 Log.Info("Sent manifest to Discord webhook");
             }
             catch (Exception e)
