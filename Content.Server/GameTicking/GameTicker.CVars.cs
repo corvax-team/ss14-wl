@@ -1,6 +1,7 @@
 using Content.Server.Discord;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
+using Content.Shared._WL.CCVars; //WL-Change: Send Manifest in Discord
 
 namespace Content.Server.GameTicking
 {
@@ -81,14 +82,14 @@ namespace Content.Server.GameTicking
             }, true);
             Subs.CVar(_cfg, CCVars.RoundEndSoundCollection, value => RoundEndSoundCollection = value, true);
             //WL-Change: Send Manifest in Discord Start
-            Subs.CVar(_cfg, CCVars.DiscordRoundManifestWebhook, value =>
+            Subs.CVar(_cfg, WLCVars.DiscordRoundManifestWebhook, value =>
             {
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     _discord.GetWebhook(value, data => _webhookIdentifierManifest = data.ToIdentifier());
                 }
             }, true);
-            Subs.CVar(_cfg, CCVars.DiscordRoundManifestWebhookEmbedColor, value =>
+            Subs.CVar(_cfg, WLCVars.DiscordRoundManifestWebhookEmbedColor, value =>
             {
                 _webhookEmbedColor = Color.DeepSkyBlue;
                 if (Color.TryParse(value, out var color))
