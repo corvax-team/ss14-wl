@@ -3,7 +3,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.StatusEffectNew;
-using Robust.Shared.Prototypes;
+using Content.Shared.Traits.Assorted; // WL-Changes
 
 namespace Content.Shared._Offbrand.Wounds;
 
@@ -39,7 +39,12 @@ public sealed partial class ShockThresholdsSystem : EntitySystem
             _statusEffects.TryRemoveStatusEffect(ent, oldEffect);
 
         if (targetEffect is { } effect)
-            _statusEffects.TryUpdateStatusEffectDuration(ent, effect, out _);
+        // WL-Changes-start: add PainNumbness for stun with 120 damage
+            if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner))
+                _statusEffects.TryUpdateStatusEffectDuration(ent, effect, out _);
+            else if (targetEffect != "StatusEffectBlackoutPain")
+                _statusEffects.TryUpdateStatusEffectDuration(ent, effect, out _);
+        // WL-Changes-end
 
         ent.Comp.CurrentThresholdState = targetEffect;
         Dirty(ent);

@@ -16,6 +16,7 @@ using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Traits.Assorted; // WL-Changes
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -99,7 +100,13 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             else
             {
                 var severity = (short)Math.Clamp(Math.Round(bleedLevel, MidpointRounding.ToZero), 0, 10);
-                _alertsSystem.ShowAlert(uid, bloodstream.BleedingAlert, severity);
+
+                // WL-Changes-start: add PainNumbness for bleed
+                if (!EntityManager.HasComponent<PainNumbnessComponent>(uid))
+                    _alertsSystem.ShowAlert(uid, bloodstream.BleedingAlert, severity);
+                else if (severity >= 6)
+                    _alertsSystem.ShowAlert(uid, bloodstream.BleedingAlert, severity);
+                // WL-Changes-end
             }
             // End Offbrand
 
@@ -447,7 +454,12 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         else
         {
             var severity = (short)Math.Clamp(Math.Round(bleedLevel, MidpointRounding.ToZero), 0, 10);
-            _alertsSystem.ShowAlert(ent.Owner, ent.Comp.BleedingAlert, severity);
+            // WL-Changes-start: add PainNumbness for bleed
+            if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner))
+                _alertsSystem.ShowAlert(ent.Owner, ent.Comp.BleedingAlert, severity);
+            else if (severity >= 6)
+                _alertsSystem.ShowAlert(ent.Owner, ent.Comp.BleedingAlert, severity);
+            // WL-Changes-end
         }
         // End Offbrand
 
