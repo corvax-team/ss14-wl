@@ -2,7 +2,7 @@
   id: SocksKneeAce
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -32,7 +32,7 @@
   id: SocksThighAce
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -62,7 +62,7 @@
   id: SocksKneeAssblastusa
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -92,7 +92,7 @@
   id: SocksThighAssblastusa
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -122,7 +122,7 @@
   id: SocksKneeBee
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -152,7 +152,7 @@
   id: SocksThighBee
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -182,7 +182,7 @@
   id: SocksKneeCommie
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -212,7 +212,7 @@
   id: SocksThighCommie
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -243,7 +243,7 @@
   id: SocksFullFishnet
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -273,7 +273,7 @@
   id: SocksKneeFishnet
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -303,7 +303,7 @@
   id: SocksThighFishnet
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -333,7 +333,7 @@
   id: SocksPantyhose
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -363,7 +363,7 @@
   id: SocksKneeRainbow
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -393,7 +393,7 @@
   id: SocksThighRainbow
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -423,7 +423,7 @@
   id: SocksKneeStriped
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   coloring:
     default:
       type:
@@ -455,7 +455,7 @@
   id: SocksThighStriped
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   coloring:
     default:
       type:
@@ -487,7 +487,7 @@
   id: SocksKneeThin
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -517,7 +517,7 @@
   id: SocksThighThin
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -547,7 +547,7 @@
   id: SocksThocks
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   coloring:
     default:
       type:
@@ -575,7 +575,7 @@
   id: SocksKneeTrans
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -605,7 +605,7 @@
   id: SocksThighTrans
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -635,7 +635,7 @@
   id: SocksKneeUK
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -665,7 +665,7 @@
   id: SocksThighUK
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   forcedColoring: true
   coloring:
     default:
@@ -695,7 +695,7 @@
   id: SocksKneeWhite
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   coloring:
     default:
       type:
@@ -723,7 +723,7 @@
   id: SocksNormWhite
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   coloring:
     default:
       type:
@@ -751,7 +751,7 @@
   id: SocksShortWhite
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   coloring:
     default:
       type:
@@ -779,7 +779,7 @@
   id: SocksThighWhite
   bodyPart: Foots
   markingCategory: Socks
-  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Murine]
+  speciesRestriction: [Human, SlimePerson, Dwarf, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Android, Murine]
   coloring:
     default:
       type:

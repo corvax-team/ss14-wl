@@ -70376,216 +70376,216 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-# - proto: OrganAndroidBrain
-#   entities:
-#   - uid: 6201
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6202
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6203
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6204
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-# - proto: OrganAndroidEars
-#   entities:
-#   - uid: 6205
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6206
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6207
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6208
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-# - proto: OrganAndroidEyes
-#   entities:
-#   - uid: 6209
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6210
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6211
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6212
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-# - proto: OrganAndroidHeart
-#   entities:
-#   - uid: 6213
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6214
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6215
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6216
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-# - proto: OrganAndroidLiver
-#   entities:
-#   - uid: 6217
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6218
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6219
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6220
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-# - proto: OrganAndroidLungs
-#   entities:
-#   - uid: 6221
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6222
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6223
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6224
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-# - proto: OrganAndroidStomach
-#   entities:
-#   - uid: 6225
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6226
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6227
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
-#   - uid: 6228
-#     components:
-#     - type: Transform
-#       parent: 6200
-#     - type: Physics
-#       canCollide: False
-#     - type: InsideEntityStorage
+- proto: OrganAndroidBrain
+  entities:
+  - uid: 6201
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6202
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6203
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6204
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: OrganAndroidEars
+  entities:
+  - uid: 6205
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6206
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6207
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6208
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: OrganAndroidEyes
+  entities:
+  - uid: 6209
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6210
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6211
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6212
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: OrganAndroidHeart
+  entities:
+  - uid: 6213
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6214
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6215
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6216
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: OrganAndroidLiver
+  entities:
+  - uid: 6217
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6218
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6219
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6220
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: OrganAndroidLungs
+  entities:
+  - uid: 6221
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6222
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6223
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6224
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: OrganAndroidStomach
+  entities:
+  - uid: 6225
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6226
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6227
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 6228
+    components:
+    - type: Transform
+      parent: 6200
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: OxygenCanister
   entities:
   - uid: 6350
