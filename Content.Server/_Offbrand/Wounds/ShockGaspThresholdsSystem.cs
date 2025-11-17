@@ -42,11 +42,9 @@ public sealed class ShockGaspThresholdsSystem : EntitySystem
         }
 
         if (message is { } msg)
-        // WL-Changes-start: add PainNumbness for emote when crit
-            if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner))
+            // WL-Changes: add PainNumbness for emote when crit
+            if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner)
+                || message != "DefaultPainslump")
                 _chat.TryEmoteWithChat(ent.Owner, msg, ignoreActionBlocker: true);
-            else if (message != "DefaultPainslump")
-                _chat.TryEmoteWithChat(ent.Owner, msg, ignoreActionBlocker: true);
-        // WL-Changes-end
     }
 }

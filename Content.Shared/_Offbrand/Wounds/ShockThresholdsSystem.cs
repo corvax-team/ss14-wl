@@ -39,12 +39,9 @@ public sealed partial class ShockThresholdsSystem : EntitySystem
             _statusEffects.TryRemoveStatusEffect(ent, oldEffect);
 
         if (targetEffect is { } effect)
-        // WL-Changes-start: add PainNumbness for stun with 120 damage
-            if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner))
+            if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner) // WL-Changes-start: add PainNumbness for stun with 120 damage
+                || targetEffect != "StatusEffectBlackoutPain")
                 _statusEffects.TryUpdateStatusEffectDuration(ent, effect, out _);
-            else if (targetEffect != "StatusEffectBlackoutPain")
-                _statusEffects.TryUpdateStatusEffectDuration(ent, effect, out _);
-        // WL-Changes-end
 
         ent.Comp.CurrentThresholdState = targetEffect;
         Dirty(ent);

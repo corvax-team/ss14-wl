@@ -100,13 +100,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             else
             {
                 var severity = (short)Math.Clamp(Math.Round(bleedLevel, MidpointRounding.ToZero), 0, 10);
-
-                // WL-Changes-start: add PainNumbness for bleed
-                if (!EntityManager.HasComponent<PainNumbnessComponent>(uid))
-                    _alertsSystem.ShowAlert(uid, bloodstream.BleedingAlert, severity);
-                else if (severity >= 6)
-                    _alertsSystem.ShowAlert(uid, bloodstream.BleedingAlert, severity);
-                // WL-Changes-end
+                ShowBleedingAlertIfNeeded(uid, bloodstream, severity); // WL-Changes: add PainNumbness for bleeding alert
             }
             // End Offbrand
 
@@ -454,12 +448,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         else
         {
             var severity = (short)Math.Clamp(Math.Round(bleedLevel, MidpointRounding.ToZero), 0, 10);
-            // WL-Changes-start: add PainNumbness for bleed
-            if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner))
-                _alertsSystem.ShowAlert(ent.Owner, ent.Comp.BleedingAlert, severity);
-            else if (severity >= 6)
-                _alertsSystem.ShowAlert(ent.Owner, ent.Comp.BleedingAlert, severity);
-            // WL-Changes-end
+            ShowBleedingAlertIfNeeded(ent.Owner, ent.Comp, severity); // WL-Changes: add PainNumbness for bleeding alert
         }
         // End Offbrand
 
@@ -543,5 +532,13 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         bloodData.Add(dnaData);
 
         return bloodData;
+    }
+
+    // WL-Changes: Show bleeding alert only for severe bleeding (>=6) when has PainNumbnessComponent
+    private void ShowBleedingAlertIfNeeded(EntityUid uid, BloodstreamComponent component, short severity)
+    {
+        var hasPainNumbness = HasComp<PainNumbnessComponent>(uid);
+        if (!hasPainNumbness || severity >= 6)
+            _alertsSystem.ShowAlert(uid, component.BleedingAlert, severity);
     }
 }

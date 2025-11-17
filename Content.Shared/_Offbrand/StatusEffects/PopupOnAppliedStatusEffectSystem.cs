@@ -17,14 +17,11 @@ public sealed class PopupOnAppliedStatusEffectSystem : EntitySystem
 
     private void OnStatusEffectApplied(Entity<PopupOnAppliedStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        // WL-Changes-start: add PainNumbness for popup about pain
+        // WL-Changes: add PainNumbness for popup about pain
         var message = (string)ent.Comp.Message;
-        if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner))
+        if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner)
+            || !message.EndsWith("-pain-applied")
+            || ent.Comp.Message == "blackout-pain-applied")
             _popup.PopupClient(Loc.GetString(ent.Comp.Message), args.Target, args.Target, ent.Comp.VisualType);
-        else if (!message.EndsWith("-pain-applied"))
-            _popup.PopupClient(Loc.GetString(ent.Comp.Message), args.Target, args.Target, ent.Comp.VisualType);
-        else if (ent.Comp.Message == "blackout-pain-applied")
-            _popup.PopupClient(Loc.GetString(ent.Comp.Message), args.Target, args.Target, ent.Comp.VisualType);
-        // WL-Changes-end
     }
 }
