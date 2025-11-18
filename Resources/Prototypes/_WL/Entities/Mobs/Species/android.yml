@@ -7,7 +7,6 @@
   - MobAtmosStandard
   - MobFlammable
   - BaseMobSpeciesOld
-  - BaseMobHeartrate
   id: BaseMobAndroid
   abstract: true
   components:
