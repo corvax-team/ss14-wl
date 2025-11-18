@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Shared._Offbrand.Wounds;
-using Content.Shared.Traits.Assorted; // WL-Changes
+using Content.Shared.Traits.Assorted; // WL-Offmed
 
 namespace Content.Server._Offbrand.Wounds;
 
@@ -42,7 +42,7 @@ public sealed class ShockGaspThresholdsSystem : EntitySystem
         }
 
         if (message is { } msg)
-            // WL-Changes: add PainNumbness for emote when crit
+            // WL-Offmed: add PainNumbness for emote when crit
             if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner)
                 || message != "DefaultPainslump")
                 _chat.TryEmoteWithChat(ent.Owner, msg, ignoreActionBlocker: true);

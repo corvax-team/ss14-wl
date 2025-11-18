@@ -1,6 +1,6 @@
 using System.Numerics;
 using Content.Shared.Mobs;
-using Content.Shared.Traits.Assorted; // WL-Changes
+using Content.Shared.Traits.Assorted; // WL-Offmed
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -193,7 +193,7 @@ public sealed class DamageOverlay : Overlay
 
         // TODO: Lerping
         if ((level > 0f && _oldCritLevel <= 0f || AlwaysRenderAll) // Offbrand
-            && !_entityManager.HasComponent<PainNumbnessComponent>(_playerManager.LocalEntity.Value)) // WL-changes: add PainNumbness for red pain overlay
+            && !_entityManager.HasComponent<PainNumbnessComponent>(_playerManager.LocalEntity.Value)) // WL-offmed: add PainNumbness for red pain overlay
         {
             var pulseRate = 3f;
             var adjustedTime = time * pulseRate;

@@ -9,7 +9,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared.Traits.Assorted;
+using Content.Shared.Traits.Assorted; // WL-Offmed
 
 namespace Content.Client._Offbrand.Overlays;
 
@@ -46,7 +46,7 @@ public sealed class HeartrateOverlay : Overlay
     private SpriteSpecifier GetIcon(Entity<HeartrateComponent> ent)
     {
         var strain = ent.Comp.Strain;
-        // WL-Changes-start: add PainNumness for _offbrand alerts(and bleed)
+        // WL-Offmed-start: add PainNumness for HeartRate
         if (!_entityManager.HasComponent<PainNumbnessComponent>(ent.Owner))
         {
             return strain.Double() switch
@@ -60,7 +60,7 @@ public sealed class HeartrateOverlay : Overlay
             };
         }
         return HudGood;
-        // WL-Changes-end
+        // WL-Offmed-end
     }
 
     protected override void Draw(in OverlayDrawArgs args)

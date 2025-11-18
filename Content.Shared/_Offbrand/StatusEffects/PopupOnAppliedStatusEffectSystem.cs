@@ -1,6 +1,6 @@
 using Content.Shared.Popups;
 using Content.Shared.StatusEffectNew;
-using Content.Shared.Traits.Assorted; // WL-Changes
+using Content.Shared.Traits.Assorted; // WL-Offmed
 
 namespace Content.Shared._Offbrand.StatusEffects;
 
@@ -17,7 +17,7 @@ public sealed class PopupOnAppliedStatusEffectSystem : EntitySystem
 
     private void OnStatusEffectApplied(Entity<PopupOnAppliedStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
     {
-        // WL-Changes: add PainNumbness for popup about pain
+        // WL-Offmed: add PainNumbness for popup about pain
         var message = (string)ent.Comp.Message;
         if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner)
             || !message.EndsWith("-pain-applied")

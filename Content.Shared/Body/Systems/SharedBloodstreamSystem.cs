@@ -16,7 +16,7 @@ using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusEffectNew;
-using Content.Shared.Traits.Assorted; // WL-Changes
+using Content.Shared.Traits.Assorted; // WL-Offmed
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -100,7 +100,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             else
             {
                 var severity = (short)Math.Clamp(Math.Round(bleedLevel, MidpointRounding.ToZero), 0, 10);
-                ShowBleedingAlertIfNeeded(uid, bloodstream, severity); // WL-Changes: add PainNumbness for bleeding alert
+                ShowBleedingAlertIfNeeded(uid, bloodstream, severity); // WL-Offmed: add PainNumbness for bleeding alert
             }
             // End Offbrand
 
@@ -448,7 +448,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         else
         {
             var severity = (short)Math.Clamp(Math.Round(bleedLevel, MidpointRounding.ToZero), 0, 10);
-            ShowBleedingAlertIfNeeded(ent.Owner, ent.Comp, severity); // WL-Changes: add PainNumbness for bleeding alert
+            ShowBleedingAlertIfNeeded(ent.Owner, ent.Comp, severity); // WL-Offmed: add PainNumbness for bleeding alert
         }
         // End Offbrand
 
@@ -534,7 +534,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         return bloodData;
     }
 
-    // WL-Changes: Show bleeding alert only for severe bleeding (>=6) when has PainNumbnessComponent
+    // WL-Offmed: Show bleeding alert only for severe bleeding (>=6) when has PainNumbnessComponent
     private void ShowBleedingAlertIfNeeded(EntityUid uid, BloodstreamComponent component, short severity)
     {
         var hasPainNumbness = HasComp<PainNumbnessComponent>(uid);

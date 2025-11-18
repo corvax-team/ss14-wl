@@ -1,6 +1,6 @@
 using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
-using Content.Shared.Traits.Assorted; // WL-Changes
+using Content.Shared.Traits.Assorted; // WL-Offmed
 
 namespace Content.Shared._Offbrand.Wounds;
 
@@ -25,12 +25,12 @@ public sealed class HeartrateAlertsSystem : EntitySystem
         var heartrate = Comp<HeartrateComponent>(ent);
         if (heartrate.Running)
         {
-            // WL-Changes-start: add PainNumbness for heartrate alert
+            // WL-Offmed-start: add PainNumbness for heartrate alert
             var hasPainNumbness = HasComp<PainNumbnessComponent>(ent.Owner);
             var strain = hasPainNumbness
                 ? FixedPoint2.New(0)
                 : FixedPoint2.Min(_heart.HeartStrain((ent, heartrate)), ent.Comp.MaxStrain);
-            // WL-Changes-end
+            // WL-Offmed-end
             _alerts.ShowAlert(ent.Owner, ent.Comp.StrainAlert, (short)strain.Int());
         }
         else
