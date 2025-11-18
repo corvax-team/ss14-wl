@@ -1,0 +1,23 @@
+- type: construction
+  id: AirlockExternal
+  graph: AirlockExternal
+  startNode: start
+  targetNode: airlockExternal
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  id: AirlockExternalGlass
+  graph: AirlockExternal
+  startNode: start
+  targetNode: glassAirlockExternal
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

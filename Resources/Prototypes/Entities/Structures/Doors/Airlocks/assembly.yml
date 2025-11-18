@@ -108,6 +108,9 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/external.rsi
     state: "assembly"
+  - type: Construction # WL-Changes: add airlock external construction
+    graph: AirlockExternal
+    node: assemblyExternal
 
 - type: entity
   parent: AirlockAssembly
@@ -117,6 +120,9 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/external.rsi
     state: "assembly"
+  - type: Construction # WL-Changes: add airlock external construction
+    graph: AirlockExternal
+    node: glassElectronicsExternal
 
 #Public (Glass Airlock)
 - type: entity
