@@ -20,7 +20,7 @@
         - Handcuffs
         - Zipties
         - FlashlightSeclite
-        - TourniquetOffbrand #WL-Offmed: TourniquetOffbrand
+        - TourniquetOffbrand # WL-Offmed: TourniquetOffbrand
       chance: 0.85
 
 - type: entity
@@ -50,7 +50,7 @@
         - FlashlightSeclite
         - GrenadeFlashBang
         - SecurityWhistle
-        - TourniquetOffbrand #WL-Offmed: TourniquetOffbrand
+        - TourniquetOffbrand # WL-Offmed: TourniquetOffbrand
       chance: 0.85
 
 # Armory loot spawner
