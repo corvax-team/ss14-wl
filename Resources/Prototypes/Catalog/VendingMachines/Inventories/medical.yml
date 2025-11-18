@@ -40,7 +40,8 @@
     ChemistryBottleInaprovaline: 3 # Offbrand
     ChemistryBottleDylovene: 3 # Offbrand
     ChemistryBottleDexalin: 3 # Offbrand
-    TourniquetOffbrand: 2 #WL-Offmed: TourniquetOffbrand
+    TourniquetOffbrand: 2 # WL-Offmed: TourniquetOffbrand
+    ChemistryBottleMannitol: 1 # WL-Offmed
     Splints: 2 # Offbrand
     ChemistryBottleEpinephrine: 3
     ChemistryBottleBicaridine: 1
@@ -67,7 +68,7 @@
     Brutepack: 5
     Ointment: 4
     Bloodpack: 5
-    TourniquetOffbrand: 1 #WL-Offmed: TourniquetOffbrand
+    TourniquetOffbrand: 1 # WL-Offmed: TourniquetOffbrand
     ChemistryBottleEpinephrine: 3
     Syringe: 5
     BoxBottle: 3
@@ -79,6 +80,7 @@
     ChemistryBottleInaprovaline: 2 # Offbrand
     ChemistryBottleDylovene: 2 # Offbrand
     ChemistryBottleDexalin: 2 # Offbrand
+    ChemistryBottleMannitol: 1 # WL-Offmed
   contrabandInventory:
     PillCanisterRandom: 1
     PillSpaceDrugs: 3
