@@ -169,7 +169,7 @@
       - NanoTaskCartridge
       - NewsReaderCartridge
       - MedTekCartridge
-  #WL-Offmed: Penlight start
+  #WL-Offbrand: Penlight start
   - type: Pda
     id: LawyerIDCard
     penSlot:
@@ -178,7 +178,7 @@
       whitelist:
         tags:
         - Write
-  #WL-Offmed: Penlight end
+  #WL-Offbrand: Penlight end
 
 - type: entity
   parent: BasePDA
