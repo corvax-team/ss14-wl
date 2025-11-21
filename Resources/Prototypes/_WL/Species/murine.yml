@@ -9,7 +9,7 @@
   dollPrototype: MobHumanoidMurineDummy
   skinColoration: Hues
   maxItemHeight: 140
-  minHeight: 110
+  minHeight: 120
   maxHeight: 265
 
 - type: speciesBaseSprites
