@@ -1,0 +1,16 @@
+using Robust.Shared.GameStates;
+
+namespace Content.Shared._WL.Sleep;
+
+/// <summary>
+/// Allows entities buckled to this strap to sleep.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class SleepOnBuckleComponent : Component
+{
+    /// <summary>
+    /// The sleep action entity that will be granted to buckled entities.
+    /// </summary>
+    [DataField]
+    public EntityUid? SleepAction;
+}

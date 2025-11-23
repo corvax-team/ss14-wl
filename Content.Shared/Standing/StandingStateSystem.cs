@@ -1,3 +1,9 @@
+// Wl-Changes-start: sleep when you laying
+using Content.Shared.Actions;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Buckle.Components;
+using Content.Shared._WL.Sleep;
+// WL-Changes-end
 using Content.Shared.Climbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
@@ -8,6 +14,7 @@ using Content.Shared.Rotation;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.Bed.Components;
 
 namespace Content.Shared.Standing;
 
@@ -16,6 +23,10 @@ public sealed class StandingStateSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    // Wl-Changes-start: sleep when you laying
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
+    // WL-Changes-end
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
     public const int StandingCollisionLayer = (int) CollisionGroup.MidImpassable;
@@ -99,8 +110,13 @@ public sealed class StandingStateSystem : EntitySystem
         Resolve(uid, ref appearance, ref hands, false);
 
         if (!standingState.Standing)
+        {
+            // Wl-Changes-start: sleep when you laying
+            _actionsSystem.RemoveAction(uid, standingState.SleepAction);
+            _sleepingSystem.TryWaking(uid);
+            // WL-Changes-end
             return true;
-
+        }
         // This is just to avoid most callers doing this manually saving boilerplate
         // 99% of the time you'll want to drop items but in some scenarios (e.g. buckling) you don't want to.
         // We do this BEFORE downing because something like buckle may be blocking downing but we want to drop hand items anyway
@@ -121,6 +137,20 @@ public sealed class StandingStateSystem : EntitySystem
         }
 
         standingState.Standing = false;
+        // Wl-Changes-start: sleep when you laing
+        // this delete second action(he can crash game) when you sit on chair or laying on bed
+        var shouldAddSleepAction = true;
+
+        if (TryComp<BuckleComponent>(uid, out var buckle)
+            && buckle.BuckledTo != null
+            && (HasComp<SleepOnBuckleComponent>(buckle.BuckledTo.Value) // for chair
+            || HasComp<HealOnBuckleComponent>(buckle.BuckledTo.Value))) // for bed
+            shouldAddSleepAction = false;
+
+        if (shouldAddSleepAction)
+            _actionsSystem.AddAction(uid, ref standingState.SleepAction, SleepingSystem.SleepActionId, uid);
+        // WL-Changes-end
+
         Dirty(uid, standingState);
         RaiseLocalEvent(uid, new DownedEvent(), false);
 
