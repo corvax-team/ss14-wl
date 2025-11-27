@@ -2,6 +2,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Shared._WL.Photo;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Materials;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
@@ -35,6 +36,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
             subs.Event<PhotoCameraTakeImageMessage>(OnTakeImageMessage);
         });
         SubscribeLocalEvent<PhotoCameraComponent, MaterialAmountChangedEvent>(OnPaperInserted);
+        SubscribeLocalEvent<PhotoCameraComponent, DroppedEvent>(OnCameraDropped);
 
         SubscribeLocalEvent<PhotoCardComponent, AfterActivatableUIOpenEvent>(OnOpenCardInterface);
     }
@@ -95,6 +97,14 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
     private void OnPaperInserted(EntityUid uid, PhotoCameraComponent component, MaterialAmountChangedEvent args)
     {
         UpdateCameraInterface(uid, component, component.User);
+    }
+
+    private void OnCameraDropped(EntityUid uid, PhotoCameraComponent component, DroppedEvent args)
+    {
+        if (component.User == null || args.User != component.User)
+            return;
+
+        _userInterface.CloseUis(uid);
     }
 
     private void TryTakeImage(EntityUid uid, PhotoCameraComponent component, byte[] imageData)
