@@ -19,7 +19,6 @@
       effects:
       - !type:ModifyBloodLevel
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         amount: 1

@@ -1,0 +1,324 @@
+- type: guideEntry
+  id: WLCorporateLaw
+  name: Корпоративный закон
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CorporateLaw.xml"
+  children:
+  - WLCLOPRS
+  - WLCLCrimeList
+  - WLCLPunishments
+  - WLCLRelapses
+  - WLCLModificators
+  - WLCLMisc
+
+- type: guideEntry
+  id: WLCLOPRS
+  name: ОПРС
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/OPRS.xml"
+
+# Санкции-start
+- type: guideEntry
+  id: WLCLPunishments
+  name: Санкции
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/Punishments/Punishments.xml"
+  children:
+  - WLCLPreventiveWork
+  - WLCLExceptionalCases
+
+- type: guideEntry
+  id: WLCLPreventiveWork
+  name: Профилактическая работа с заключенными
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/Punishments/PreventiveWork.xml"
+
+- type: guideEntry
+  id: WLCLExceptionalCases
+  name: Исключительные случаи
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/Punishments/ExceptionalCases.xml"
+# Санкции-end
+
+- type: guideEntry
+  id: WLCLModificators
+  name: Модификаторы
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/Modificators.xml"
+
+- type: guideEntry
+  id: WLCLMisc
+  name: Разное
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/Misc.xml"
+
+- type: guideEntry
+  id: WLCLRelapses
+  name: Рецидивы
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/Relapses.xml"
+
+# Таблица статей
+- type: guideEntry
+  id: WLCLCrimeList
+  name: Статьи
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeList.xml"
+  children:
+  - WLCLCrimeListT1
+  - WLCLCrimeListT2
+  - WLCLCrimeListT3
+  - WLCLCrimeListT4
+  - WLCLCrimeListT5
+  - WLCLCrimeListT6
+  - WLCLCrimeListT7
+
+# Тип 1
+- type: guideEntry
+  id: WLCLCrimeListT1
+  name: 1X, Преступление против безопасности
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type1/CrimeListT1.xml"
+  children:
+  - WLCLCrimeListT1S1
+  - WLCLCrimeListT1S2
+  - WLCLCrimeListT1S3
+  - WLCLCrimeListT1S4
+  - WLCLCrimeListT1S5
+
+- type: guideEntry
+  id: WLCLCrimeListT1S1
+  name: 11, Оскорбление символов власти
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type1/CrimeListT1S1.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT1S2
+  name: 12, Сопротивление органам власти
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type1/CrimeListT1S2.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT1S3
+  name: 13, Неподчинение в ЧС
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type1/CrimeListT1S3.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT1S4
+  name: 14, Забастовка
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type1/CrimeListT1S4.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT1S5
+  name: 15, Мятеж или теракт
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type1/CrimeListT1S5.xml"
+
+# Тип 2
+- type: guideEntry
+  id: WLCLCrimeListT2
+  name: 2X, Преступление против личности
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type2/CrimeListT2.xml"
+  children:
+  - WLCLCrimeListT2S1
+  - WLCLCrimeListT2S2
+  - WLCLCrimeListT2S3
+  - WLCLCrimeListT2S4
+  - WLCLCrimeListT2S5
+
+- type: guideEntry
+  id: WLCLCrimeListT2S1
+  name: 21, Харассмент
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type2/CrimeListT2S1.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT2S2
+  name: 22, Нанесение легких телесных повреждений
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type2/CrimeListT2S2.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT2S3
+  name: 23, Незаконное ограничение свободы
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type2/CrimeListT2S3.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT2S4
+  name: 24, Причинение вреда здоровью
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type2/CrimeListT2S4.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT2S5
+  name: 25, Убийство или уничтожение тела
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type2/CrimeListT2S5.xml"
+
+# Тип 3
+- type: guideEntry
+  id: WLCLCrimeListT3
+  name: 3X, Преступление против активов корпорации
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type3/CrimeListT3.xml"
+  children:
+  - WLCLCrimeListT3S1
+  - WLCLCrimeListT3S2
+  - WLCLCrimeListT3S3
+  - WLCLCrimeListT3S4
+  - WLCLCrimeListT3S5
+
+- type: guideEntry
+  id: WLCLCrimeListT3S1
+  name: 31, Хулиганство
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type3/CrimeListT3S1.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT3S2
+  name: 32, Хищение
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type3/CrimeListT3S2.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT3S3
+  name: 33, Порча имущества
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type3/CrimeListT3S3.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT3S4
+  name: 34, Жестокое обращение с животными
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type3/CrimeListT3S4.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT3S5
+  name: 35, Хищение или уничтожение ценного имущества
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type3/CrimeListT3S5.xml"
+
+# Тип 4
+- type: guideEntry
+  id: WLCLCrimeListT4
+  name: 4X, Преступление против полномочий
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type4/CrimeListT4.xml"
+  children:
+  - WLCLCrimeListT4S1
+  - WLCLCrimeListT4S2
+  - WLCLCrimeListT4S3
+  - WLCLCrimeListT4S4
+  - WLCLCrimeListT4S5
+
+- type: guideEntry
+  id: WLCLCrimeListT4S1
+  name: 41, Проникновение
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type4/CrimeListT4S1.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT4S2
+  name: 42, Взлом
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type4/CrimeListT4S2.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT4S3
+  name: 43, Мошенничество
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type4/CrimeListT4S3.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT4S4
+  name: 44, Проникновение в стратегическую точку
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type4/CrimeListT4S4.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT4S5
+  name: 45, Крупное мошенничество
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type4/CrimeListT4S5.xml"
+
+# Тип 5
+- type: guideEntry
+  id: WLCLCrimeListT5
+  name: 5X, Преступление против экипажа
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type5/CrimeListT5.xml"
+  children:
+  - WLCLCrimeListT5S1
+  - WLCLCrimeListT5S2
+  - WLCLCrimeListT5S3
+  - WLCLCrimeListT5S4
+  - WLCLCrimeListT5S5
+
+- type: guideEntry
+  id: WLCLCrimeListT5S1
+  name: 51, Пропаганда
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type5/CrimeListT5S1.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT5S2
+  name: 52, Халатность
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type5/CrimeListT5S2.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT5S3
+  name: 53, Саботаж
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type5/CrimeListT5S3.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT5S4
+  name: 54, Грубая халатность
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type5/CrimeListT5S4.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT5S5
+  name: 55, Крупный саботаж
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type5/CrimeListT5S5.xml"
+
+# Тип 6
+- type: guideEntry
+  id: WLCLCrimeListT6
+  name: 6X, Злоупотребление снаряжением
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type6/CrimeListT6.xml"
+  children:
+  - WLCLCrimeListT6S1
+  - WLCLCrimeListT6S2
+  - WLCLCrimeListT6S3
+  - WLCLCrimeListT6S4
+  - WLCLCrimeListT6S5
+
+- type: guideEntry
+  id: WLCLCrimeListT6S1
+  name: 61, Злоупотребление экипировкой
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type6/CrimeListT6S1.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT6S2
+  name: 62, Незаконное владение опасными предметами
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type6/CrimeListT6S2.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT6S3
+  name: 63, Хранение и оборот регулируемых веществ
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type6/CrimeListT6S3.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT6S4
+  name: 64, Незаконное владение предметами ограниченного оборота
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type6/CrimeListT6S4.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT6S5
+  name: 65, Незаконное владение контрабандными предметами и оружием
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type6/CrimeListT6S5.xml"
+
+# Тип 7
+- type: guideEntry
+  id: WLCLCrimeListT7
+  name: 7X, Преступление против правосудия
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type7/CrimeListT7.xml"
+  children:
+  - WLCLCrimeListT7S1
+  - WLCLCrimeListT7S2
+  - WLCLCrimeListT7S3
+  - WLCLCrimeListT7S4
+  - WLCLCrimeListT7S5
+
+- type: guideEntry
+  id: WLCLCrimeListT7S1
+  name: 71, Неуважение к суду
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type7/CrimeListT7S1.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT7S2
+  name: 72, Сокрытие преступления
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type7/CrimeListT7S2.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT7S3
+  name: 73, Неисполнение приговора суда
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type7/CrimeListT7S3.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT7S4
+  name: 74, Сокрытие крупного преступления
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type7/CrimeListT7S4.xml"
+
+- type: guideEntry
+  id: WLCLCrimeListT7S5
+  name: 75, Сокрытие обстоятельств, создающих опасность для станции
+  text: "/ServerInfo/Guidebook/_WL/CorporateLaw/CrimeArticles/Type7/CrimeListT7S5.xml"

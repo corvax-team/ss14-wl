@@ -9,6 +9,9 @@ namespace Content.Shared._WL.Languages.Components;
 public sealed partial class AddLanguagesComponent : Component
 {
     [DataField]
+    public bool ToRemove = false;
+
+    [DataField]
     public bool ToUnderstood = true;
 
     [DataField]
@@ -20,6 +23,7 @@ public sealed partial class AddLanguagesComponent : Component
     [Serializable, NetSerializable]
     public sealed class State : ComponentState
     {
+        public bool ToRemove = default!;
         public bool ToUnderstood = default!;
         public bool ToSpeaking = default!;
         public List<ProtoId<LanguagePrototype>> Languages = default!;

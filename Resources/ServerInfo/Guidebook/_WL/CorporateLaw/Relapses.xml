@@ -1,0 +1,77 @@
+<Document>
+
+# Рецидивы и правила сложений статей
+
+## Рецидивы
+
+За каждое последующее нарушение одной и той же статьи к нарушению применяется наказание более высокого уровня тяжести вплоть до пожизненного заключения.
+
+## Правила сложения статей:
+
+1. При нарушениях одного типа берётся только наивысшая статья.
+
+2. Если нарушено несколько [color=#188f5f]незначительных[/color] нарушений, то пишется общая объяснительная и проводится профилактическая беседа по каждой статье.
+
+3. Если нарушения не выше [color=#b5973c]лёгкого[/color] уровня, то наказания происходит за каждую нарушенную статью отдельно.
+
+4. Если наивысшее нарушение [color=#b55e2b]среднее[/color] или [color=#a83411]тяжкое[/color], то берётся время заключения наивысшей статьи и прибавляется время в зависимости от тяжести остальных нарушений:
+
+  <Table Columns="5">
+    <ColorBox>
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Тяжесть
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Незначительные правонарушения
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Лёгкие правонарушения
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Средние правонарушения
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Тяжкие правонарушения
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Прибавка
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Прибавка ко времени заключения не предусмотрена
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        +5 минут к заключению
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        +10 минут к заключению
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        +15 минут к заключению
+      </Box>
+    </ColorBox>
+  </Table>
+
+5. При общем сроке заключения 40 минут и выше позволяется отбывать его в перма бриге по запросу заключённого или инициативе смотрителя.
+
+6. При [color=#852c38]особо тяжком[/color] правонарушении задержание до отправки на ЦК обязательно.
+
+</Document>

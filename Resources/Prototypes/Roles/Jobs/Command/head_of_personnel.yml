@@ -6,21 +6,21 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 18000 #5 hrs # Corvax-RoleTime
+      time: 5h # Corvax-RoleTime 2.5h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 18000 #5 hrs # Corvax-RoleTime
+      time: 5h # Corvax-RoleTime 2.5h
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 9000 # 2.5 hrs
+      time: 2.5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 18000 #5 hrs # Corvax-RoleTime
+      time: 5h # Corvax-RoleTime 2.5h
 #    - !type:DepartmentTimeRequirement
 #      department: Command
-#      time: 72000 # 20 hrs
+#      time: 2.5h
     - !type:OverallPlaytimeRequirement
-      time: 180000 #50 hrs # Corvax-RoleTime
+      time: 50h #50 hrs # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 26 # WL-Changes-AgeRequirement
     - !type:TraitsRequirement #Corvax-TraitsRequirement
@@ -65,6 +65,12 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # WL-Skills-start
+  bonusSkillPoints: 21
+  defaultSkills:
+    Bureaucracy: 3
+    IT: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: HoPGear

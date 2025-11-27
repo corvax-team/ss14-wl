@@ -135,6 +135,8 @@
       - TarotDeck
   - type: Item
     size: Normal
+    shape:
+    - 0,0,1,0
   - type: ItemCounter
     count:
       tags: [TarotDeck]

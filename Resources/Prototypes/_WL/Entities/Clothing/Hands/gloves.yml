@@ -12,3 +12,22 @@
     fiberMaterial: fibers-leather
     fiberColor: fibers-black
   - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ClothingHandsGlovesRobohandsIsolated
+  name: isolated robohands gloves
+  description: Beep boop borp!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Hands/Gloves/robohands.rsi # WL-Changes: Resprite Day
+  - type: Clothing
+    sprite: _WL/Clothing/Hands/Gloves/robohands.rsi # WL-Changes: Resprite Day
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-black
+  - type: FingerprintMask
+  - type: Insulated
+  - type: Construction
+    graph: ClothingHandsGlovesRobohandsIsolated
+    node: gloves

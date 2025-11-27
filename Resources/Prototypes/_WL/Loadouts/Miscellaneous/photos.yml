@@ -1,0 +1,5 @@
+- type: loadout
+  id: Photo
+  storage:
+    back:
+    - PhotoCamera

@@ -2,6 +2,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using Content.Client._WL.Records; // WL-Records
+using Content.Client._WL.Skills.Ui; // WL-Skills
 using Content.Client.Electrocution;
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
@@ -9,9 +10,10 @@ using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
 using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
-using Content.Client.Sprite;
 using Content.Client.Stylesheets;
+using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
+using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Corvax.CCCVars;
@@ -132,6 +134,7 @@ namespace Content.Client.Lobby.UI
 
         // One at a time.
         private LoadoutWindow? _loadoutWindow;
+        private SkillsWindow? _skillsWindow; // WL-Skills
 
         private TTSTab? _ttsTab; // Corvax-TTS
 
@@ -266,6 +269,7 @@ namespace Content.Client.Lobby.UI
                         .WithFlavorText(Rope.Collapse(_flavorTextEdit.TextRope).Trim())
                         .WithOocText(Rope.Collapse(_oocTextEdit.TextRope).Trim()); //WL-Changes
                 }
+                RefreshSkills(); // WL-Skills
                 Save?.Invoke();
             };
 
@@ -882,10 +886,10 @@ namespace Content.Client.Lobby.UI
                 _ttsTab.SetSelectedVoice(voiceId);
             };
 
-            /*_ttsTab.OnPreviewRequested += voiceId =>
+            _ttsTab.OnPreviewRequested += voiceId =>
             {
-                _entManager.System<TTSSystem>().RequestPreviewTTS(voiceId);
-            };*/
+                _entManager.System<TTSSystem>().RequestPreviewTTS(voiceId, _ttsTab.PreviewTextEdit.Text);
+            };
         }
 
         private void UpdateTTSVoicesControls()
@@ -953,7 +957,7 @@ namespace Content.Client.Lobby.UI
                     {
                         Text = Loc.GetString(category.Name),
                         Margin = new Thickness(0, 10, 0, 0),
-                        StyleClasses = { StyleBase.StyleClassLabelHeading },
+                        StyleClasses = { StyleClass.LabelHeading },
                     });
                 }
 
@@ -1021,6 +1025,7 @@ namespace Content.Client.Lobby.UI
             _species.Clear();
 
             _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart));
+            _species.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
             var speciesIds = _species.Select(o => o.ID).ToList();
 
             for (var i = 0; i < _species.Count; i++)
@@ -1135,6 +1140,73 @@ namespace Content.Client.Lobby.UI
             _loadoutWindow?.Dispose();
         }
 
+        // WL-Skills-start
+        public void RefreshSkills()
+        {
+            _skillsWindow?.Dispose();
+
+            if (Profile == null)
+                return;
+
+            var skillsSystem = _entManager.System<SharedSkillsSystem>();
+            foreach (var (jobId, skills) in Profile.Skills.ToList())
+            {
+                if (!_prototypeManager.TryIndex<JobPrototype>(jobId, out var jobProto))
+                    continue;
+
+                var currentSkills = skills.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+                var defaultSkills = jobProto.DefaultSkills.ToDictionary(
+                    kvp => (byte)kvp.Key,
+                    kvp => kvp.Value
+                );
+
+                var bonusPoints = jobProto.BonusSkillPoints;
+                var racialBonus = CalculateRacialBonus(Profile.Species.Id, Profile.Age);
+                var totalPoints = bonusPoints + racialBonus;
+
+                var spentPoints = CalculateSpentPoints(skillsSystem, currentSkills, defaultSkills);
+
+                if (spentPoints > totalPoints)
+                {
+                    foreach (var (skillKey, defaultValue) in defaultSkills)
+                    {
+                        Profile = Profile.WithSkill(jobId, skillKey, defaultValue);
+                    }
+
+                    var skillsToReset = currentSkills.Keys.Except(defaultSkills.Keys).ToList();
+                    foreach (var skillKey in skillsToReset)
+                    {
+                        Profile = Profile.WithSkill(jobId, skillKey, 1);
+                    }
+
+                    SetDirty();
+                }
+            }
+        }
+
+        private int CalculateSpentPoints(SharedSkillsSystem skillsSystem, Dictionary<byte, int> currentSkills, Dictionary<byte, int> defaultSkills)
+        {
+            var spentPoints = 0;
+            foreach (var (skillKey, currentLevel) in currentSkills)
+            {
+                if (!Enum.IsDefined(typeof(SkillType), (SkillType)skillKey))
+                    continue;
+
+                var skillType = (SkillType)skillKey;
+                var defaultLevel = defaultSkills.GetValueOrDefault(skillKey, 1);
+
+                if (currentLevel > defaultLevel)
+                {
+                    var currentCost = skillsSystem.GetSkillTotalCost(skillType, currentLevel);
+                    var defaultCost = skillsSystem.GetSkillTotalCost(skillType, defaultLevel);
+                    spentPoints += currentCost - defaultCost;
+                }
+            }
+
+            return spentPoints;
+        }
+        // WL-Skills-end
+
         /// <summary>
         /// Reloads the entire dummy entity for preview.
         /// </summary>
@@ -1199,6 +1271,7 @@ namespace Content.Client.Lobby.UI
             RefreshAntags();
             RefreshJobs();
             RefreshLoadouts();
+            RefreshSkills(); // WL-Skills
             RefreshSpecies();
             RefreshTraits();
             RefreshFlavorText();
@@ -1423,6 +1496,17 @@ namespace Content.Client.Lobby.UI
                             Margin = new Thickness(3f, 3f, 0f, 0f),
                         };
 
+                        // WL-Skills-start
+                        var skillsWindowBtn = new Button()
+                        {
+                            Text = Loc.GetString("skill-window"),
+                            HorizontalAlignment = HAlignment.Right,
+                            VerticalAlignment = VAlignment.Center,
+                            Margin = new Thickness(3f, 3f, 0f, 0f),
+                            ToolTip = Loc.GetString("skill-window-tooltip")
+                        };
+                        // WL-Skills-end
+
                         var collection = IoCManager.Instance!;
                         var protoManager = collection.Resolve<IPrototypeManager>();
 
@@ -1452,10 +1536,28 @@ namespace Content.Client.Lobby.UI
                             };
                         }
 
+                        // WL-Skills-start
+                        skillsWindowBtn.OnPressed += args =>
+                        {
+                            OpenSkills(job);
+                        };
+                        // WL-Skills-end
+
                         _jobPriorities.Add((job.ID, subnameSelector, selector));
                         jobContainer.AddChild(selector);
-                        jobContainer.AddChild(loadoutWindowBtn);
+
+                        // WL-Skills-Edit-start
+                        var buttonsContainer = new BoxContainer
+                        {
+                            Orientation = LayoutOrientation.Horizontal,
+                            HorizontalAlignment = HAlignment.Right
+                        };
+                        buttonsContainer.AddChild(loadoutWindowBtn);
+                        buttonsContainer.AddChild(skillsWindowBtn);
+
+                        jobContainer.AddChild(buttonsContainer);
                         category.AddChild(jobContainer);
+                        // WL-Skills-Edit-end
                     }
                     //WL-Changes-end
                 }
@@ -1522,6 +1624,61 @@ namespace Content.Client.Lobby.UI
 
             UpdateJobPriorities();
         }
+
+        // WL-Skills-start
+        private void OpenSkills(JobPrototype? jobProto)
+        {
+            _skillsWindow?.Dispose();
+            _skillsWindow = null;
+
+            if (jobProto == null || Profile == null)
+                return;
+
+            JobOverride = jobProto;
+
+            var currentSkills = Profile.Skills.GetValueOrDefault(jobProto.ID, new Dictionary<byte, int>());
+            var defaultSkills = jobProto.DefaultSkills.ToDictionary(
+                kvp => (byte)kvp.Key,
+                kvp => kvp.Value
+            );
+
+            var bonusPoints = jobProto.BonusSkillPoints;
+            var racialBonus = CalculateRacialBonus(Profile.Species, Profile.Age);
+            var totalPoints = bonusPoints + racialBonus;
+
+            _skillsWindow = new SkillsWindow(jobProto.ID, currentSkills, defaultSkills, totalPoints);
+            _skillsWindow.OnSkillChanged += (jobId, skillKey, newLevel) =>
+            {
+                Profile = Profile.WithSkill(jobId, skillKey, newLevel);
+                SetDirty();
+            };
+
+            _skillsWindow.OnClose += () =>
+            {
+                JobOverride = null;
+                ReloadPreview();
+            };
+
+            _skillsWindow.OpenCenteredLeft();
+            JobOverride = jobProto;
+            ReloadPreview();
+        }
+
+        private int CalculateRacialBonus(string species, int age)
+        {
+            var bonus = 0;
+            foreach (var racialBonusProto in _prototypeManager.EnumeratePrototypes<RacialSkillBonusPrototype>())
+            {
+                if (racialBonusProto.Species != species)
+                    continue;
+
+                bonus = racialBonusProto.GetBonusForAge(age);
+                break;
+            }
+
+            return bonus;
+        }
+        // WL-Skills-end
 
         private void OnFlavorTextChange(string content)
         {
@@ -1604,6 +1761,8 @@ namespace Content.Client.Lobby.UI
 
             _loadoutWindow?.Dispose();
             _loadoutWindow = null;
+            _skillsWindow?.Dispose(); // WL-Skills
+            _skillsWindow = null; // WL-Skills
         }
 
         protected override void EnteredTree()
@@ -1623,6 +1782,7 @@ namespace Content.Client.Lobby.UI
         {
             Profile = Profile?.WithAge(newAge);
             ReloadPreview();
+            RefreshSkills(); // WL-Skills
         }
 
         // WL-Height-Start
@@ -1679,6 +1839,7 @@ namespace Content.Client.Lobby.UI
             RefreshJobs();
             // In case there's species restrictions for loadouts
             RefreshLoadouts();
+            RefreshSkills(); // WL-Skills
             UpdateSexControls(); // update sex for new species
             UpdateSpeciesGuidebookIcon();
             ReloadPreview();
@@ -1862,7 +2023,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             const string style = "SpeciesInfoDefault";
-            SpeciesInfoButton.StyleClasses.Add(style);
+            SpeciesInfoButton.StyleIdentifier = style;
         }
 
         private void UpdateMarkings()
@@ -2120,7 +2281,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             StartExport();
-            await using var file = await _dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
+            await using var file = await _dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")), FileAccess.Read);
 
             if (file == null)
             {

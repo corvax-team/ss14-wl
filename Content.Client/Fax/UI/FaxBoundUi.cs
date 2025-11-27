@@ -1,5 +1,6 @@
 using System.IO;
 using System.Threading.Tasks;
+using Content.Shared._WL.Fax.Messages;
 using Content.Shared.Fax;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
@@ -31,7 +32,24 @@ public sealed class FaxBoundUi : BoundUserInterface
         _window.SendButtonPressed += OnSendButtonPressed;
         _window.RefreshButtonPressed += OnRefreshButtonPressed;
         _window.PeerSelected += OnPeerSelected;
+
+        // WL-Changes-start
+        _window.SwitchStorageButtonPressed += OnSwitchStorage;
+        _window.SwitchNotifyButtonPressed += OnTurnNotify;
+        // WL-Changes-end
     }
+
+    // WL-Changes-start
+    private void OnSwitchStorage()
+    {
+        SendMessage(new FaxSwitchStorageMessage());
+    }
+
+    private void OnTurnNotify()
+    {
+        SendMessage(new FaxSwitchNotifyMessage());
+    }
+    // WL-Changes-end
 
     private async void OnFileButtonPressed()
     {
@@ -40,7 +58,7 @@ public sealed class FaxBoundUi : BoundUserInterface
 
         _dialogIsOpen = true;
         var filters = new FileDialogFilters(new FileDialogFilters.Group("txt"));
-        await using var file = await _fileDialogManager.OpenFile(filters);
+        await using var file = await _fileDialogManager.OpenFile(filters, FileAccess.Read);
         _dialogIsOpen = false;
 
         if (_window == null || _window.Disposed || file == null)

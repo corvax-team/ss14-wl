@@ -9,7 +9,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 18000 #5 hrs # Corvax-RoleTime
+      time: 5h
     - !type:AgeRequirement
       minAge: 24
   startingGear: ChemistGear
@@ -19,6 +19,12 @@
   - Medical
   - Chemistry
   - Maintenance
+  # WL-Skills-start
+  bonusSkillPoints: 17
+  defaultSkills:
+    Chemistry: 3
+    Medicine: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: ChemistGear

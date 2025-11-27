@@ -1,0 +1,153 @@
+<Document>
+
+# Санкции
+
+## Таблица наказаний
+
+  <Table Columns="7">
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Статья
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Незначительные правонарушения
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Лёгкие правонарушения
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Средние правонарушения
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Тяжкие правонарушения
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Особо тяжкие правонарушения
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#090d10">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Исключительные случаи" link="WLCLExceptionalCases"]
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Правовое наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Не предусмотрено
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Не предусмотрено
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Тюремное заключение на 15-25 минут
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Тюремное заключение на 30-45 минут
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Задержание до отправки на сЦК
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#090d10">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        [textlink="Высшая мера наказания" link="https://station14.ru/wiki/WL:Корпоративный_закон#Высшая_мера_наказания"]
+      </Box>
+    </ColorBox>
+
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Дисциплинарное наказание
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#0c452e">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Предупреждение или профилактическая беседа
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5e4c14">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Написание объяснительной и профилактическая беседа
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e3311">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        На усмотрение главы отдела вплоть до отстранение от должности
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#6e2711">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        На усмотрение главы отдела вплоть до отстранение от должности
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#5b101a">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Отстранение от должности
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#090d10">
+      <Box Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
+        Отстранение от должности
+      </Box>
+    </ColorBox>
+  </Table>
+
+  <Warning>
+    Уполномоченное лицо выбирает любое время заключения в рамках статьи, после применения рецедивов и модификаторов, но до увеличения времени заключения от сложения статей.
+  </Warning>
+
+## Предупреждение
+
+Способ указать на нарушение.
+
+## Объяснительная
+
+Письменное объяснение работником своего поступка.
+
+Пишется по стандартному шаблону документов и заверяется печатью смотрителя или ГСБ.
+
+Документ должен хранится у смотрителя или ГСБ и должен быть предоставлен оригинал или копия для ознакомления по запросу главы отдела, к которому принадлежал сотрудник или капитана.
+
+## Профилактическая беседа
+
+Может проводиться главой отдела, к которому принадлежит сотрудник; священником, психологом или любым сотрудником СБ, кроме кадета.
+
+Кадет может проводить беседу только с разрешения приставленного офицера, смотрителя или ГСБ.
+
+Проводится может в любом месте станции на усмотрение проводящего беседу.
+
+Общая продолжительность не более [bold]10-и[/bold] минут. Можно дольше при согласии обеих сторон.
+
+Беседа должна затронуть тему нарушения данного сотрудника и должна разъяснить ему, почему он получил наказание, как оно навредило остальным сотрудникам и как предотвратить нарушения в будущем.
+
+## Тюремное заключение
+
+Временное наказание, заключающееся в содержании лица, совершившего преступление, в условиях строгой изоляции от общества.
+
+## Задержание до отправки на сЦК
+
+Наказание, заключающееся в содержании лица, совершившего преступление, в условиях строгой изоляции от общества до отправки на сЦК.
+
+</Document>

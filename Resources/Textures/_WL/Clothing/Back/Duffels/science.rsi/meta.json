@@ -1,14 +1,15 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "For corvax WL from reartint (discord: reartint)",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/0345de358247afe0eb23ed0ff509b9b5f1995135, some changes made by ReArtInt",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "icon"
+      "name": "icon",
+      "directions": 1
     },
     {
       "name": "equipped-BACKPACK",

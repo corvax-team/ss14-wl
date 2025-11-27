@@ -13,8 +13,14 @@
                 <BoxContainer Orientation="Vertical" VerticalAlignment="Top">
                     <Label Name="NameLabel" Access="Public"/>
                     <Label Name="SubText" VerticalAlignment="Top" StyleClasses="LabelSubText" Access="Public"/>
+                    <!--WL-Change-Start-->
+                    <Button Access="Public" Name="DynamicTextButton" Text="{Loc 'character-info-dynamic-text-button'}"/>
+                    <!--WL-Change-End-->
                 </BoxContainer>
             </BoxContainer>
+            <!-- WL-Skills-start -->
+            <Button Name="SkillsButton" Access="Public" Text="{Loc 'character-info-skills-button'}" Disabled="True" Margin="0 10 0 5" HorizontalAlignment="Center" MinWidth="200"/>
+            <!-- WL-Skills-end -->
             <Label Name="ObjectivesLabel" Access="Public" Text="{Loc 'character-info-objectives-label'}" HorizontalAlignment="Center"/>
             <BoxContainer Orientation="Vertical" Name="Objectives" Access="Public"/>
             <cc:Placeholder Name="RolePlaceholder" Access="Public" PlaceholderText="{Loc 'character-info-roles-antagonist-text'}"/>

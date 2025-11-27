@@ -38,11 +38,6 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
-using Robust.Shared.Serialization.Markdown.Sequence;
-using Robust.Shared.Serialization.Markdown;
-using Robust.Shared.Utility;
-using System.IO;
-using Robust.Shared.Serialization.Markdown.Mapping;
 
 namespace Content.Client.Entry
 {
@@ -82,18 +77,21 @@ namespace Content.Client.Entry
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
 
-        public override void Init()
+        public override void PreInit()
         {
-            ClientContentIoC.Register();
+            ClientContentIoC.Register(Dependencies);
 
             foreach (var callback in TestingCallbacks)
             {
                 var cast = (ClientModuleTestingCallbacks) callback;
                 cast.ClientBeforeIoC?.Invoke();
             }
+        }
 
-            IoCManager.BuildGraph();
-            IoCManager.InjectDependencies(this);
+        public override void Init()
+        {
+            Dependencies.BuildGraph();
+            Dependencies.InjectDependencies(this);
 
             _contentLoc.Initialize();
             _componentFactory.DoAutoRegistrations();
@@ -134,13 +132,6 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("codewordGenerator");
             _prototypeManager.RegisterIgnore("codewordFaction");
 
-            //WL-Changes-start
-            foreach (var item in IgnorePrototypes())
-            {
-                _prototypeManager.RegisterIgnore(item);
-            }
-            //WL-Changes-end
-
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _screenshotHook.Initialize();
@@ -159,12 +150,6 @@ namespace Content.Client.Entry
             _configManager.SetCVar("interface.resolutionAutoScaleLowerCutoffX", 520);
             _configManager.SetCVar("interface.resolutionAutoScaleLowerCutoffY", 240);
             _configManager.SetCVar("interface.resolutionAutoScaleMinimum", 0.5f);
-        }
-
-        public override void Shutdown()
-        {
-            base.Shutdown();
-            _titleWindowManager.Shutdown();
         }
 
         public override void PostInit()
@@ -254,55 +239,5 @@ namespace Content.Client.Entry
                 }
             }
         }
-
-        //WL-Changes-start
-        private HashSet<string> IgnorePrototypes()
-        {
-            var sequence = new HashSet<string>();
-
-#if !FULL_RELEASE //&& !RELEASE
-            foreach (var path in _resourceManager.ContentFindFiles("/"))
-            {
-                try
-                {
-                    if (!path.CanonPath.Contains("_SERVER"))
-                        continue;
-
-                    if (!_resourceManager.TryContentFileRead(path, out var stream))
-                        continue;
-
-                    using var reader = new StreamReader(stream, EncodingHelpers.UTF8);
-                    var documents = DataNodeParser.ParseYamlStream(reader);
-
-                    if (documents == null)
-                        continue;
-
-                    foreach (var document in documents)
-                    {
-                        var seq = ((SequenceDataNode)document.Root).Sequence;
-
-                        foreach (var item in seq)
-                        {
-
-                            if (item is not MappingDataNode mapping_node)
-                                continue;
-
-                            if (!mapping_node.TryGet("type", out var node))
-                                continue;
-
-                            sequence.Add(node.ToString());
-                        }
-                    }
-                }
-                catch
-                {
-                    continue;
-                }
-            }
-#endif
-
-            return sequence;
-        }
-        //WL-Changes-end
     }
 }

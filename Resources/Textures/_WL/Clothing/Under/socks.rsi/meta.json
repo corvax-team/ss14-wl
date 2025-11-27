@@ -60,14 +60,6 @@
             "directions": 4
         },
         {
-            "name": "striped_knee",
-            "directions": 4
-        },
-        {
-            "name": "striped_thigh",
-            "directions": 4
-        },
-        {
             "name": "assblastusa_knee",
             "directions": 4
         },
@@ -89,38 +81,6 @@
         },
         {
             "name": "commie_thigh",
-            "directions": 4
-        },
-        {
-            "name": "stockings_lpink",
-            "directions": 4
-        },
-        {
-            "name": "stockings_purple",
-            "directions": 4
-        },
-        {
-            "name": "stockings_green",
-            "directions": 4
-        },
-        {
-            "name": "stockings_cyan",
-            "directions": 4
-        },
-        {
-            "name": "stockings_orange",
-            "directions": 4
-        },
-        {
-            "name": "stockings_yellow",
-            "directions": 4
-        },
-        {
-            "name": "stockings_dpink",
-            "directions": 4
-        },
-        {
-            "name": "stockings_blue",
             "directions": 4
         },
         {
@@ -161,6 +121,154 @@
         },
         {
             "name": "fishnet_full",
+            "directions": 4
+        },
+        {
+            "name": "striped_thigh_primary",
+            "directions": 4
+        },
+        {
+            "name": "striped_thigh_secondary",
+            "directions": 4
+        },
+        {
+            "name": "striped_knee_primary",
+            "directions": 4
+        },
+        {
+            "name": "striped_knee_secondary",
+            "directions": 4
+        },
+        {
+            "name": "white_norm_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "white_short_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "white_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "white_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "black_norm_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "black_short_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "black_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "black_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "thin_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "thin_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "pantyhose_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "rainbow_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "rainbow_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "assblastusa_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "assblastusa_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "uk_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "uk_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "commie_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "commie_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "bee_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "bee_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "thocks_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "ace_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "ace_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "trans_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "trans_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "fishnet_knee_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "fishnet_thigh_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "fishnet_full_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "striped_thigh_primary_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "striped_thigh_secondary_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "striped_knee_primary_reptilian",
+            "directions": 4
+        },
+        {
+            "name": "striped_knee_secondary_reptilian",
             "directions": 4
         }
     ]

@@ -6,10 +6,10 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 72000
+    time: 20h
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 36000
+    time: 10h
   - !type:AgeRequirement
     minAge: 27 # WL-Changes-AgeRequirement
   - !type:TraitsRequirement
@@ -30,6 +30,12 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # WL-Skills-start
+  bonusSkillPoints: 20
+  defaultSkills:
+    Bureaucracy: 3
+    Forensics: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: IAAGear
@@ -49,7 +55,9 @@
   equipment:
     head: ClothingHeadHatBowlerHat
     eyes: ClothingEyesGlassesSunglasses
-    outerClothing: ClothingUniformJumpsuitLawyerBlack
-    neck: ClothingNeckScarfStripedBlue
+    # Corvax-WL-Tweak-Start
+    outerClothing: ClothingOuterCoatDetectiveDark
+    neck: ClothingNeckLawyerbadge
+    # Corvax-WL-Tweak-End
     gloves: ClothingHandsGlovesColorWhite
     mask: ClothingMaskBreath

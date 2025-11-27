@@ -67,6 +67,12 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: LargeMob
+  # WL-Night-Vision-Start
+  - type: NightVision
+    color: "#A3A3A3"
+    activateSound: null
+    deactivateSound: null
+  # WL-Night-Vision-End
 
 - type: entity
   name: space bear
@@ -454,7 +460,7 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Food
+  - type: Edible
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state
     thresholds:
@@ -512,7 +518,6 @@
       methods: [Touch, Ingestion, Injection]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         damage:
           types:
             Caustic: 1

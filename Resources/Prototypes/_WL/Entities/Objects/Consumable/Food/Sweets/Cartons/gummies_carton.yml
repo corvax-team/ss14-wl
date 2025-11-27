@@ -1,0 +1,61 @@
+- type: entity
+  parent: BoxCardboard
+  id: FoodSweetsGummiesBox
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gummy.rsi
+    scale: 0.75, 0.75
+    layers:
+    - state: gummies
+      visible: false
+    - state: gummies_empty
+  - type: Item
+    heldPrefix: gummies
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gummy.rsi
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    grid:
+    - 0,0,3,2
+    whitelist:
+      tags:
+      - FoodSnack
+  - type: ItemMapper
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gummy.rsi
+    mapLayers:
+      gummies:
+        whitelist:
+          tags:
+          - FoodSnack
+  - type: Appearance
+  - type: StorageFill
+    contents:
+    - id: FoodSweetsGummyArachnid
+      prob: 0.7
+    - id: FoodSweetsGummyCischi
+      prob: 0.7
+    - id: FoodSweetsGummyFelinid
+      prob: 0.1
+    - id: FoodSweetsGummyHuman
+      prob: 0.7
+    - id: FoodSweetsGummyKidan
+      prob: 0.7
+    - id: FoodSweetsGummyMoth
+      prob: 0.7
+    - id: FoodSweetsGummyMurine
+      prob: 0.7
+    - id: FoodSweetsGummySareng
+      prob: 0.7
+    - id: FoodSweetsGummySlime
+      prob: 0.7
+    - id: FoodSweetsGummyTayara
+      prob: 0.7
+    - id: FoodSweetsGummyLizard
+      prob: 0.7
+    - id: FoodSweetsGummyVulpa
+      prob: 0.7
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage

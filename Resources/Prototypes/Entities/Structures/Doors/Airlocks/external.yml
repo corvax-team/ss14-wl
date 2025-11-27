@@ -20,6 +20,9 @@
     layoutId: AirlockExternal
   - type: Paintable
     group: null
+  - type: Construction # WL-Changes: add airlock external construction
+    graph: AirlockExternal
+    node: airlockExternal
 
 - type: entity
   parent: AirlockExternal
@@ -43,3 +46,5 @@
         - FullTileMask
         layer:     #removed opaque from the layer, allowing lasers to pass through glass airlocks
         - GlassAirlockLayer
+  - type: Construction # WL-Changes: add airlock external construction
+    node: glassAirlockExternal

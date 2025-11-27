@@ -25,9 +25,9 @@
       types:
         Blunt: 1
         Slash: 5
-  - type: Thieving
-    stealthy: true
-    stripTimeReduction: 2.5
+  # - type: Thieving
+  #   stealthy: true
+  #  stripTimeReduction: 2.5
   - type: Speech
     speechSounds: Alto
     allowedEmotes: ['Purr']
@@ -54,6 +54,7 @@
   - type: Icon
     sprite: Mobs/Species/Human/parts.rsi
     state: full
+  - type: AddHeightItem
   - type: Languages
     speaking:
       - Translate
@@ -61,6 +62,13 @@
     understood:
       - Translate
       - OldEarth
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
 
 - type: entity
   save: false
@@ -69,3 +77,11 @@
   id: MobFelinidDummy
   categories: [ HideSpawnMenu ]
   description: A dummy felinid meant to be used in character setup.
+  components:
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

@@ -1,0 +1,176 @@
+- type: constructionGraph
+  id: AirlockExternal
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: assemblyExternal
+      completed:
+      - !type:SetAnchor
+        value: false
+      steps:
+      - material: Steel
+        amount: 4
+        doAfter: 2
+
+  - node: assemblyExternal
+    entity: AirlockAssemblyExternal
+    actions:
+    - !type:SnapToGrid {}
+    - !type:SetAnchor {}
+    edges:
+    - to: wiredExternal
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: Cable
+        amount: 5
+        doAfter: 2.5
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 4
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 3
+
+  - node: wiredExternal
+    entity: AirlockAssemblyExternal
+    edges:
+    - to: electronicsExternal
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - component: DoorElectronics
+        store: board
+        name: construction-graph-component-door-electronics-circuit-board
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "door_electronics"
+        doAfter: 3
+    - to: assemblyExternal
+      completed:
+      - !type:SpawnPrototype
+        prototype: CableApcStack1
+        amount: 5
+      steps:
+      - tool: Cutting
+        doAfter: 2.5
+
+  - node: electronicsExternal
+    edges:
+    - to: airlockExternal
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+        doAfter: 2.5
+    - to: glassElectronicsExternal
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: ReinforcedGlass
+        amount: 1
+        doAfter: 2
+    - to: wiredExternal
+      conditions:
+      - !type:EntityAnchored {}
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Prying
+        doAfter: 5
+
+  - node: glassElectronicsExternal
+    entity: AirlockAssemblyExternalGlass
+    edges:
+    - to: glassAirlockExternal
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: ReinforcedGlass
+        amount: 1
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 2.5
+    - to: wiredExternal
+      conditions:
+      - !type:EntityAnchored {}
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      - !type:SpawnPrototype
+        prototype: SheetRGlass1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 5
+
+## Glass airlock
+  - node: glassAirlockExternal
+    entity: AirlockExternalGlass
+    doNotReplaceInheritingEntities: true
+    actions:
+    - !type:SetWiresPanelSecurity
+      wiresAccessible: true
+    edges:
+    - to: glassElectronicsExternal
+      conditions:
+      - !type:EntityAnchored {}
+      - !type:DoorWelded {}
+      - !type:DoorBolted
+        value: false
+      - !type:WirePanel {}
+      - !type:AllWiresCut
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetRGlass1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 2
+
+## Standard airlock
+  - node: airlockExternal
+    entity: AirlockExternal
+    doNotReplaceInheritingEntities: true
+    actions:
+    - !type:SetWiresPanelSecurity
+      wiresAccessible: true
+    edges:
+    - to: wiredExternal
+      conditions:
+      - !type:EntityAnchored {}
+      - !type:DoorWelded {}
+      - !type:DoorBolted
+        value: false
+      - !type:WirePanel {}
+      - !type:AllWiresCut
+      completed:
+      - !type:EmptyAllContainers
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Prying
+        doAfter: 5
+
+    - to: airlockExternal
+      completed:
+      - !type:GivePrototype
+        prototype: SheetSteel1
+        amount: 2
+      conditions:
+      - !type:WirePanel {}
+      - !type:HasTag
+        tag: Airlock
+      steps:
+      - tool: Prying
+        doAfter: 4

@@ -1,0 +1,99 @@
+- type: loadoutGroup
+  id: MedicalDoctorNeck
+  name: loadout-group-MedicalDoctorNeck
+  minLimit: 0
+  loadouts:
+  - MedicalStethoscope
+
+- type: loadoutGroup
+  id: Utility
+  name: loadout-group-Utility
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - BoxFolderClipboard
+
+- type: loadoutGroup
+  id: AtmosHead
+  name: loadout-group-AtmosHead
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - SeniorEngineerBeret
+
+# Command
+- type: loadoutGroup
+  id: AdjutantHead
+  name: loadout-group-adjutant-head
+  minLimit: 0
+  loadouts:
+  - AdjutantHead
+  - AdjutantCap
+
+- type: loadoutGroup
+  id: AdjutantJumpsuit
+  name: loadout-group-adjutant-jumpsuit
+  maxLimit: 1
+  loadouts:
+  - AdjutantJumpsuit
+  - AdjutantJumpskirt
+
+- type: loadoutGroup
+  id: AdjutantBackpack
+  name: loadout-group-adjutant-backpack
+  maxLimit: 1
+  loadouts:
+  - AdjutantBackpack
+  - AdjutantSatchel
+  - AdjutantDuffel
+
+- type: loadoutGroup
+  id: AdjutantOuterClothing
+  name: loadout-group-adjutant-outerclothing
+  minLimit: 0
+  loadouts:
+  - AdjutantWintercoat
+
+- type: loadoutGroup
+  id: WLNeck
+  name: loadout-group-neck-wl
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - ScarfStripedRed
+  - ScarfStripedBlue
+  - ScarfStripedGreen
+  - ScarfStripedBlack
+  - ScarfStripedBrown
+  - ScarfStripedLightBlue
+  - ScarfStripedOrange
+  - ScarfStripedPurple
+  - ScarfStripedAce
+  - ScarfStripedAro
+  - ScarfStripedAroace
+  - ScarfStripedBiSexual
+  - ScarfStripedGay
+  - ScarfStripedInter
+  - ScarfStripedLesbian
+  - ScarfStripedPan
+  - ScarfStripedNonBinary
+  - ScarfStripedRainbow
+  - ScarfStripedTrans
+  - ScarfStripedLesbianLong
+  - TieRed
+  - TieBlue
+  - TieGreen
+  - TieGray
+  - TieYellow
+  - TieLightBlue
+  - TieOrange
+  - TiePurple
+  - TiePink
+  - TieRainbow
+
+- type: loadoutGroup
+  id: PhotoGroup
+  name: loadout-group-photo
+  minLimit: 0
+  loadouts:
+  - Photo

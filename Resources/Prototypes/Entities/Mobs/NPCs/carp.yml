@@ -86,6 +86,12 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    # WL-Night-Vision-Start
+    - type: NightVision
+      color: "#A3A3A3"
+      activateSound: null
+      deactivateSound: null
+    # WL-Night-Vision-End
 
 - type: entity
   parent: BaseMobCarp
@@ -181,7 +187,11 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-
+    - type: Flammable
+      damage:
+       types: {}
+    - type: Temperature
+      heatDamageThreshold: 1200
 - type: entity
   id: MobCarpDungeon
   parent: MobCarp

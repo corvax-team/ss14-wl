@@ -55,7 +55,7 @@ public sealed class CharacterInformationSystem : EntitySystem
             return;
 
         var charName = Identity.Name(targetUid, EntityManager);
-        var state = new CharacterInformationBuiState(GetNetEntity(targetUid), charName, charInfo.FlavorText, charInfo.OocText);
+        var state = new CharacterInformationBuiState(GetNetEntity(targetUid), charName, charInfo.FlavorText, charInfo.OocText, charInfo.DynamicText);
         _userInterfaceSystem.SetUiState(uid, CharacterInformationUiKey.Key, state);
     }
 }

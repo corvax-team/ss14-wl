@@ -892,6 +892,11 @@
     attributes:
       proper: true
       gender: male
+  # WL-Skills-start
+  - type: InitialSkills
+    initialSkills:
+      Mixology: 3
+  # WL-Skills-end
 
 - type: entity
   name: Tropico

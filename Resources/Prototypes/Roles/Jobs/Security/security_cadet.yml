@@ -7,10 +7,10 @@
   - Male: рекрут СБ
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 #10 hrs # Corvax-RoleTime
+      time: 10h # Corvax-RoleTime
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 #20 hrs # Corvax-RoleTime
+      time: 20h # Corvax-RoleTime 5
       inverted: true # stop playing intern if you're good at security!
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
@@ -27,9 +27,18 @@
   - Service
   - External
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # WL-Skills-start
+  bonusSkillPoints: 20
+  defaultSkills:
+    Bureaucracy: 2
+    Combat: 2
+    Weapons: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: SecurityCadetGear

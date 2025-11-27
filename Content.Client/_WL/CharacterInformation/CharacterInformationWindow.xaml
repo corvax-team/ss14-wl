@@ -32,5 +32,17 @@
                 <RichTextLabel Name="OocText" HorizontalExpand="True" Margin="8" />
             </BoxContainer>
         </ScrollContainer>
+
+        <ScrollContainer HorizontalExpand="True" HScrollEnabled="False" MinWidth="400">
+            <BoxContainer Orientation="Vertical">
+                <Label
+                    Name="DynamicTextLabel"
+                    HorizontalExpand="True"
+                    Text="{Loc 'character-information-ui-dynamic-text'}"
+                    Margin="0 10 0 0"
+                    HorizontalAlignment="Center" />
+                <RichTextLabel Name="DynamicText" HorizontalExpand="True" Margin="8" />
+            </BoxContainer>
+        </ScrollContainer>
     </TabContainer>
 </controls:FancyWindow>

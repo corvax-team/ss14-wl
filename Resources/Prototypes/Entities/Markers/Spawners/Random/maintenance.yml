@@ -111,7 +111,7 @@
         - id: ClothingNeckCloakGay
         - id: ClothingNeckCloakEnby
         - id: ClothingNeckCloakPan
-      - id: ToySkeleton
+      - id: ToyFigurineSkeleton
       - id: Basketball
       - id: Football
       - id: TennisBall
@@ -270,6 +270,7 @@
           weight: 1
         - id: ClothingHandsGlovesConducting
           weight: 0.1
+      - id: PhotoCamera #WL-Changes-Photo
       # Uncommon Group
     - !type:GroupSelector
       weight: 23
@@ -341,6 +342,7 @@
       weight: 95
       children:
       - id: Machete
+      - id: Claymore
       - id: BaseBallBat
       - id: CombatKnife
       - id: Spear

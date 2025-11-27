@@ -74,6 +74,13 @@
       types:
         Asphyxiation: -2.0
   - type: Wagging
+  # WL-Changes: Languages
+  - type: Languages
+    speaking:
+      - Translate
+    understood:
+      - Translate
+  # WL-Changes: Languages
 
 - type: entity
   save: false

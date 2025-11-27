@@ -14,7 +14,7 @@
     # WL-Changes: Age end
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 72000 #20 hrs # Corvax-RoleTime
+      time: 20h # Corvax-RoleTime
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
       traits:
@@ -31,9 +31,21 @@
   - Detective
   - Cryogenics
   - External
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # WL-Skills-start
+  bonusSkillPoints: 11
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 3
+    IT: 2
+    Forensics: 3
+    Combat: 3
+    Weapons: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: DetectiveGear

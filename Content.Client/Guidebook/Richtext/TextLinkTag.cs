@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -19,24 +19,34 @@ public sealed class TextLinkTag : IMarkupTagHandler
     /// <inheritdoc/>
     public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
-        if (!node.Value.TryGetString(out var text)
-            || !node.Attributes.TryGetValue("link", out var linkParameter)
-            || !linkParameter.TryGetString(out var link))
-        {
-            control = null;
+        // WL-Changes-start
+        control = null;
+
+        if (!node.Value.TryGetString(out var text))
             return false;
-        }
 
-        var label = new Label();
-        label.Text = text;
+        var label = new RichTextLabel()
+        {
+            MouseFilter = Control.MouseFilterMode.Stop,
+            DefaultCursorShape = Control.CursorShape.Hand,
+            Margin = new Thickness(1),
+            HorizontalExpand = true,
+            VerticalExpand = true,
+        };
 
-        label.MouseFilter = Control.MouseFilterMode.Stop;
-        label.FontColorOverride = LinkColor;
-        label.DefaultCursorShape = Control.CursorShape.Hand;
+        label.SetMessage(text, defaultColor: LinkColor);
 
-        label.OnMouseEntered += _ => label.FontColorOverride = Color.LightSkyBlue;
-        label.OnMouseExited += _ => label.FontColorOverride = Color.CornflowerBlue;
-        label.OnKeyBindDown += args => OnKeybindDown(args, link, label);
+        label.OnMouseEntered += _ => label.SetMessage(text, defaultColor: Color.LightSkyBlue);
+        label.OnMouseExited += _ => label.SetMessage(text, defaultColor: Color.CornflowerBlue);
+
+        if (node.Attributes.TryGetValue("tip", out var tipParameter) &&
+            tipParameter.TryGetString(out var tipText))
+            label.ToolTip = tipText;
+
+        if (node.Attributes.TryGetValue("link", out var linkParameter) &&
+            linkParameter.TryGetString(out var link))
+            label.OnKeyBindDown += args => OnKeybindDown(args, link, label);
+        // WL-Changes-end
 
         control = label;
         return true;

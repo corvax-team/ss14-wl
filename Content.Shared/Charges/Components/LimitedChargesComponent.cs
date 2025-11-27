@@ -24,4 +24,9 @@ public sealed partial class LimitedChargesComponent : Component
     /// </summary>
     [DataField(customTypeSerializer:typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan LastUpdate;
+
+    // WL-Changes-start
+    [DataField]
+    public bool ShowExamineInfo = true;
+    // WL-Changes-end
 }

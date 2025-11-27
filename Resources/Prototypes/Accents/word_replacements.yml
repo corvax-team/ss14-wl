@@ -629,74 +629,76 @@
     corvax-chatsan-word-56: corvax-chatsan-replacement-56
     corvax-chatsan-word-57: corvax-chatsan-replacement-57
     corvax-chatsan-word-58: corvax-chatsan-replacement-58
-    corvax-chatsan-word-59: corvax-chatsan-replacement-59
-    corvax-chatsan-word-60: corvax-chatsan-replacement-60
-    corvax-chatsan-word-61: corvax-chatsan-replacement-61
-    corvax-chatsan-word-62: corvax-chatsan-replacement-62
-    corvax-chatsan-word-63: corvax-chatsan-replacement-63
-    corvax-chatsan-word-64: corvax-chatsan-replacement-64
-    corvax-chatsan-word-65: corvax-chatsan-replacement-65
-    corvax-chatsan-word-66: corvax-chatsan-replacement-66
-    corvax-chatsan-word-67: corvax-chatsan-replacement-67
-    corvax-chatsan-word-68: corvax-chatsan-replacement-68
-    corvax-chatsan-word-69: corvax-chatsan-replacement-69
-    corvax-chatsan-word-70: corvax-chatsan-replacement-70
-    corvax-chatsan-word-71: corvax-chatsan-replacement-71
-    corvax-chatsan-word-72: corvax-chatsan-replacement-72
-    corvax-chatsan-word-73: corvax-chatsan-replacement-73
-    corvax-chatsan-word-74: corvax-chatsan-replacement-74
-    corvax-chatsan-word-75: corvax-chatsan-replacement-75
-    corvax-chatsan-word-76: corvax-chatsan-replacement-76
-    corvax-chatsan-word-77: corvax-chatsan-replacement-77
-    corvax-chatsan-word-78: corvax-chatsan-replacement-78
-    corvax-chatsan-word-79: corvax-chatsan-replacement-79
-    corvax-chatsan-word-80: corvax-chatsan-replacement-80
-    corvax-chatsan-word-81: corvax-chatsan-replacement-81
-    corvax-chatsan-word-82: corvax-chatsan-replacement-82
-    corvax-chatsan-word-83: corvax-chatsan-replacement-83
-    corvax-chatsan-word-84: corvax-chatsan-replacement-84
-    corvax-chatsan-word-85: corvax-chatsan-replacement-85
-    corvax-chatsan-word-86: corvax-chatsan-replacement-86
-    corvax-chatsan-word-87: corvax-chatsan-replacement-87
-    corvax-chatsan-word-88: corvax-chatsan-replacement-88
-    corvax-chatsan-word-89: corvax-chatsan-replacement-89
-    corvax-chatsan-word-90: corvax-chatsan-replacement-90
-    corvax-chatsan-word-91: corvax-chatsan-replacement-91
-    corvax-chatsan-word-92: corvax-chatsan-replacement-92
-    corvax-chatsan-word-93: corvax-chatsan-replacement-93
-    corvax-chatsan-word-94: corvax-chatsan-replacement-94
-    corvax-chatsan-word-95: corvax-chatsan-replacement-95
-    corvax-chatsan-word-96: corvax-chatsan-replacement-96
-    corvax-chatsan-word-97: corvax-chatsan-replacement-97
-    corvax-chatsan-word-98: corvax-chatsan-replacement-98
-    corvax-chatsan-word-99: corvax-chatsan-replacement-99
-    corvax-chatsan-word-100: corvax-chatsan-replacement-100
-    corvax-chatsan-word-101: corvax-chatsan-replacement-101
-    corvax-chatsan-word-102: corvax-chatsan-replacement-102
-    corvax-chatsan-word-103: corvax-chatsan-replacement-103
-    corvax-chatsan-word-104: corvax-chatsan-replacement-104
-    corvax-chatsan-word-105: corvax-chatsan-replacement-105
-    corvax-chatsan-word-106: corvax-chatsan-replacement-106
-    corvax-chatsan-word-107: corvax-chatsan-replacement-107
-    corvax-chatsan-word-108: corvax-chatsan-replacement-108
-    corvax-chatsan-word-109: corvax-chatsan-replacement-109
-    corvax-chatsan-word-110: corvax-chatsan-replacement-110
-    corvax-chatsan-word-111: corvax-chatsan-replacement-111
-    corvax-chatsan-word-112: corvax-chatsan-replacement-112
-    corvax-chatsan-word-113: corvax-chatsan-replacement-113
-    corvax-chatsan-word-114: corvax-chatsan-replacement-114
-    corvax-chatsan-word-115: corvax-chatsan-replacement-115
-    corvax-chatsan-word-116: corvax-chatsan-replacement-116
-    corvax-chatsan-word-117: corvax-chatsan-replacement-117
-    corvax-chatsan-word-118: corvax-chatsan-replacement-118
-    corvax-chatsan-word-119: corvax-chatsan-replacement-119
-    corvax-chatsan-word-120: corvax-chatsan-replacement-120
-    corvax-chatsan-word-121: corvax-chatsan-replacement-121
-    corvax-chatsan-word-122: corvax-chatsan-replacement-122
-    corvax-chatsan-word-123: corvax-chatsan-replacement-123
-    corvax-chatsan-word-124: corvax-chatsan-replacement-124
-    corvax-chatsan-word-125: corvax-chatsan-replacement-125
-    corvax-chatsan-word-126: corvax-chatsan-replacement-126
+    # WL-Changes: Remove antiLRP sanitaize start
+    # corvax-chatsan-word-59: corvax-chatsan-replacement-59
+    # corvax-chatsan-word-60: corvax-chatsan-replacement-60
+    # corvax-chatsan-word-61: corvax-chatsan-replacement-61
+    # corvax-chatsan-word-62: corvax-chatsan-replacement-62
+    # corvax-chatsan-word-63: corvax-chatsan-replacement-63
+    # corvax-chatsan-word-64: corvax-chatsan-replacement-64
+    # corvax-chatsan-word-65: corvax-chatsan-replacement-65
+    # corvax-chatsan-word-66: corvax-chatsan-replacement-66
+    # corvax-chatsan-word-67: corvax-chatsan-replacement-67
+    # corvax-chatsan-word-68: corvax-chatsan-replacement-68
+    # corvax-chatsan-word-69: corvax-chatsan-replacement-69
+    # corvax-chatsan-word-70: corvax-chatsan-replacement-70
+    # corvax-chatsan-word-71: corvax-chatsan-replacement-71
+    # corvax-chatsan-word-72: corvax-chatsan-replacement-72
+    # corvax-chatsan-word-73: corvax-chatsan-replacement-73
+    # corvax-chatsan-word-74: corvax-chatsan-replacement-74
+    # corvax-chatsan-word-75: corvax-chatsan-replacement-75
+    # corvax-chatsan-word-76: corvax-chatsan-replacement-76
+    # corvax-chatsan-word-77: corvax-chatsan-replacement-77
+    # corvax-chatsan-word-78: corvax-chatsan-replacement-78
+    # corvax-chatsan-word-79: corvax-chatsan-replacement-79
+    # corvax-chatsan-word-80: corvax-chatsan-replacement-80
+    # corvax-chatsan-word-81: corvax-chatsan-replacement-81
+    # corvax-chatsan-word-82: corvax-chatsan-replacement-82
+    # corvax-chatsan-word-83: corvax-chatsan-replacement-83
+    # corvax-chatsan-word-84: corvax-chatsan-replacement-84
+    # corvax-chatsan-word-85: corvax-chatsan-replacement-85
+    # corvax-chatsan-word-86: corvax-chatsan-replacement-86
+    # corvax-chatsan-word-87: corvax-chatsan-replacement-87
+    # corvax-chatsan-word-88: corvax-chatsan-replacement-88
+    # corvax-chatsan-word-89: corvax-chatsan-replacement-89
+    # corvax-chatsan-word-90: corvax-chatsan-replacement-90
+    # corvax-chatsan-word-91: corvax-chatsan-replacement-91
+    # corvax-chatsan-word-92: corvax-chatsan-replacement-92
+    # corvax-chatsan-word-93: corvax-chatsan-replacement-93
+    # corvax-chatsan-word-94: corvax-chatsan-replacement-94
+    # corvax-chatsan-word-95: corvax-chatsan-replacement-95
+    # corvax-chatsan-word-96: corvax-chatsan-replacement-96
+    # corvax-chatsan-word-97: corvax-chatsan-replacement-97
+    # corvax-chatsan-word-98: corvax-chatsan-replacement-98
+    # corvax-chatsan-word-99: corvax-chatsan-replacement-99
+    # corvax-chatsan-word-100: corvax-chatsan-replacement-100
+    # corvax-chatsan-word-101: corvax-chatsan-replacement-101
+    # corvax-chatsan-word-102: corvax-chatsan-replacement-102
+    # corvax-chatsan-word-103: corvax-chatsan-replacement-103
+    # corvax-chatsan-word-104: corvax-chatsan-replacement-104
+    # corvax-chatsan-word-105: corvax-chatsan-replacement-105
+    # corvax-chatsan-word-106: corvax-chatsan-replacement-106
+    # corvax-chatsan-word-107: corvax-chatsan-replacement-107
+    # corvax-chatsan-word-108: corvax-chatsan-replacement-108
+    # corvax-chatsan-word-109: corvax-chatsan-replacement-109
+    # corvax-chatsan-word-110: corvax-chatsan-replacement-110
+    # corvax-chatsan-word-111: corvax-chatsan-replacement-111
+    # corvax-chatsan-word-112: corvax-chatsan-replacement-112
+    # corvax-chatsan-word-113: corvax-chatsan-replacement-113
+    # corvax-chatsan-word-114: corvax-chatsan-replacement-114
+    # corvax-chatsan-word-115: corvax-chatsan-replacement-115
+    # corvax-chatsan-word-116: corvax-chatsan-replacement-116
+    # corvax-chatsan-word-117: corvax-chatsan-replacement-117
+    # corvax-chatsan-word-118: corvax-chatsan-replacement-118
+    # corvax-chatsan-word-119: corvax-chatsan-replacement-119
+    # corvax-chatsan-word-120: corvax-chatsan-replacement-120
+    # corvax-chatsan-word-121: corvax-chatsan-replacement-121
+    # corvax-chatsan-word-122: corvax-chatsan-replacement-122
+    # corvax-chatsan-word-123: corvax-chatsan-replacement-123
+    # corvax-chatsan-word-124: corvax-chatsan-replacement-124
+    # corvax-chatsan-word-125: corvax-chatsan-replacement-125
+    # corvax-chatsan-word-126: corvax-chatsan-replacement-126
+    # WL-Changes: Remove antiLRP sanitaize end
 # Corvax-ChatSanitize-End
 
 - type: accent
@@ -708,23 +710,32 @@
     liar-word-3: liar-word-replacement-3
     liar-word-4: liar-word-replacement-4
     liar-word-5: liar-word-replacement-5
+    liar-word-5-2: liar-word-replacement-5
     liar-word-6: liar-word-replacement-6
     liar-word-7: liar-word-replacement-7
+    liar-word-7-2: liar-word-replacement-7
+    liar-word-7-3: liar-word-replacement-7
     liar-word-8: liar-word-replacement-8
     liar-word-9: liar-word-replacement-9
     liar-word-10: liar-word-replacement-10
     liar-word-11: liar-word-replacement-11
-    liar-word-12: liar-word-replacement-12
+    # liar-word-12: liar-word-replacement-12 sure -> nah is too confusing.
     liar-word-13: liar-word-replacement-13
     liar-word-14: liar-word-replacement-14
+    liar-word-14-2: liar-word-replacement-14
     liar-word-15: liar-word-replacement-15
+    liar-word-15-2: liar-word-replacement-15
     liar-word-16: liar-word-replacement-16
+    liar-word-16-2: liar-word-replacement-16
     liar-word-17: liar-word-replacement-17
     liar-word-18: liar-word-replacement-18
+    liar-word-18-2: liar-word-replacement-18
     liar-word-19: liar-word-replacement-19
     liar-word-20: liar-word-replacement-20
+    liar-word-20-2: liar-word-replacement-20
     liar-word-21: liar-word-replacement-21
     liar-word-22: liar-word-replacement-22
+    liar-word-22-2: liar-word-replacement-22
     liar-word-23: liar-word-replacement-23
     liar-word-24: liar-word-replacement-24
     liar-word-25: liar-word-replacement-25
@@ -737,15 +748,12 @@
     liar-word-32: liar-word-replacement-32
     liar-word-33: liar-word-replacement-33
     liar-word-34: liar-word-replacement-34
-    liar-word-34-2: liar-word-replacement-34
     liar-word-35: liar-word-replacement-35
     liar-word-36: liar-word-replacement-36
     liar-word-37: liar-word-replacement-37
+    liar-word-37-2: liar-word-replacement-37
     liar-word-38: liar-word-replacement-38
     liar-word-39: liar-word-replacement-39
-    liar-word-40: liar-word-replacement-40
-    liar-word-41: liar-word-replacement-41
-    liar-word-42: liar-word-replacement-42
 
 - type: accent
   id: german

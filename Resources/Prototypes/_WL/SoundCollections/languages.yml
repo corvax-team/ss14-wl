@@ -1,0 +1,11 @@
+- type: soundCollection
+  id: TernarySounds
+  files:
+  - /Audio/_WL/Languages/Android/android_voice1.ogg
+  - /Audio/_WL/Languages/Android/android_voice2.ogg
+  - /Audio/_WL/Languages/Android/android_voice3.ogg
+  - /Audio/_WL/Languages/Android/android_voice4.ogg
+  - /Audio/_WL/Languages/Android/android_voice5.ogg
+  - /Audio/_WL/Languages/Android/android_voice6.ogg
+  - /Audio/_WL/Languages/Android/android_voice7.ogg
+  - /Audio/_WL/Languages/Android/android_voice8.ogg

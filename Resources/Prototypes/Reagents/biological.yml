@@ -20,9 +20,9 @@
       - !type:SatiateThirst
         factor: 1.0
         conditions:
-          - !type:OrganType
-            type: Human
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Human ]
+            inverted: true
     Food:
       effects:
         - !type:AdjustReagent
@@ -32,8 +32,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Bloodsucker
+        - !type:MetabolizerTypeCondition
+          type: [ Bloodsucker ]
         damage:
           groups:
             Brute: -3
@@ -41,8 +41,8 @@
 # WL-Changes-start
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Akula
+        - !type:MetabolizerTypeCondition
+          type: [ Akula ]
         damage:
           groups:
             Brute: -0.2
@@ -96,6 +96,15 @@
       effects:
       - !type:SatiateHunger
         factor: 1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Slime]
+          inverted: true
+      - !type:ModifyBloodLevel
+        amount: 0.5 # drawing 15u removes 5% blood level from a slimeperson, this will add 5% when injecting 15u
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [Slime]
   footstepSound:
     collection: FootstepSlime # makes sense
     params:
@@ -168,18 +177,14 @@
         damage:
           types:
             Poison: 4
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.25
 # WL species start
         conditions:
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
 
 - type: reagent
@@ -210,28 +215,23 @@
             Bloodloss: -3
 # WL species start
         conditions:
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
       # Golem
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 2
         sprintSpeedModifier: 2
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
       - !type:SatiateHunger
         factor: 10
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL species end
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1.5
   # Just in case you REALLY want to water your plants
   plantMetabolism:
@@ -259,8 +259,8 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 
 - type: reagent
   id: Vomit

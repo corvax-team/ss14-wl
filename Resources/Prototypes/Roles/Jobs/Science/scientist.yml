@@ -12,7 +12,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 18000 #5 hrs # Corvax-RoleTime
+      time: 5h # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 24 # WL-Changes-AgeRequirement
   startingGear: ScientistGear
@@ -21,6 +21,13 @@
   access:
   - Research
   - Maintenance
+  # WL-Skills-start
+  bonusSkillPoints: 18
+  defaultSkills:
+    Bureaucracy: 2
+    ComplexDevices: 2
+    Science: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: ScientistGear

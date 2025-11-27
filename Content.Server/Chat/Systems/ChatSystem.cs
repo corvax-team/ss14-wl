@@ -1,7 +1,8 @@
-// Wl-Changes: Languages start
+// Wl-Changes
 using Content.Server._WL.Languages;
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared._WL.Languages;
-// Wl-Changes: Languages end
+// Wl-Changes
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -61,9 +62,9 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly LanguagesSystem _languages = default!; //WL-Changes: Languages
+    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!; // WL-Change: No talk in vacuum
 
     // Corvax-TTS-Start: Moved from Server to Shared
     // public const int VoiceRange = 10; // how far voice goes in world units
@@ -81,7 +82,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     public override void Initialize()
     {
         base.Initialize();
-        CacheEmotes();
+
         Subs.CVar(_configurationManager, CCVars.LoocEnabled, OnLoocEnabledChanged, true);
         Subs.CVar(_configurationManager, CCVars.DeadLoocEnabled, OnDeadLoocEnabledChanged, true);
         Subs.CVar(_configurationManager, CCVars.CritLoocEnabled, OnCritLoocEnabledChanged, true);
@@ -133,42 +134,24 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
     }
 
-    /// <summary>
-    ///     Sends an in-character chat message to relevant clients.
-    /// </summary>
-    /// <param name="source">The entity that is speaking</param>
-    /// <param name="message">The message being spoken or emoted</param>
-    /// <param name="desiredType">The chat type</param>
-    /// <param name="hideChat">Whether or not this message should appear in the chat window</param>
-    /// <param name="hideLog">Whether or not this message should appear in the adminlog window</param>
-    /// <param name="shell"></param>
-    /// <param name="player">The player doing the speaking</param>
-    /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
-    public void TrySendInGameICMessage(
+    /// <inheritdoc />
+    public override void TrySendInGameICMessage(
         EntityUid source,
         string message,
         InGameICChatType desiredType,
-        bool hideChat, bool hideLog = false,
+        bool hideChat,
+        bool hideLog = false,
         IConsoleShell? shell = null,
-        ICommonSession? player = null, string? nameOverride = null,
+        ICommonSession? player = null,
+        string? nameOverride = null,
         bool checkRadioPrefix = true,
         bool ignoreActionBlocker = false)
     {
         TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker);
     }
 
-    /// <summary>
-    ///     Sends an in-character chat message to relevant clients.
-    /// </summary>
-    /// <param name="source">The entity that is speaking</param>
-    /// <param name="message">The message being spoken or emoted</param>
-    /// <param name="desiredType">The chat type</param>
-    /// <param name="range">Conceptual range of transmission, if it shows in the chat window, if it shows to far-away ghosts or ghosts at all...</param>
-    /// <param name="shell"></param>
-    /// <param name="player">The player doing the speaking</param>
-    /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
-    /// <param name="ignoreActionBlocker">If set to true, action blocker will not be considered for whether an entity can send this message.</param>
-    public void TrySendInGameICMessage(
+    /// <inheritdoc />
+    public override void TrySendInGameICMessage(
         EntityUid source,
         string message,
         InGameICChatType desiredType,
@@ -242,7 +225,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // This message may have a radio prefix, and should then be whispered to the resolved radio channel
         if (checkRadioPrefix)
         {
-            if (TryProccessRadioMessage(source, message, out var modMessage, out var channel))
+            if (TryProcessRadioMessage(source, message, out var modMessage, out var channel))
             {
                 SendEntityWhisper(source, modMessage, range, channel, nameOverride, hideLog, ignoreActionBlocker);
                 return;
@@ -264,7 +247,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
     }
 
-    public void TrySendInGameOOCMessage(
+    /// <inheritdoc />
+    public override void TrySendInGameOOCMessage(
         EntityUid source,
         string message,
         InGameOOCChatType type,
@@ -313,14 +297,8 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Announcements
 
-    /// <summary>
-    /// Dispatches an announcement to all.
-    /// </summary>
-    /// <param name="message">The contents of the message</param>
-    /// <param name="sender">The sender (Communications Console in Communications Console Announcement)</param>
-    /// <param name="playSound">Play the announcement sound</param>
-    /// <param name="colorOverride">Optional color for the announcement message</param>
-    public void DispatchGlobalAnnouncement(
+    /// <inheritdoc />
+    public override void DispatchGlobalAnnouncement(
         string message,
         string? sender = null,
         bool playSound = true,
@@ -340,17 +318,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
     }
 
-    /// <summary>
-    /// Dispatches an announcement to players selected by filter.
-    /// </summary>
-    /// <param name="filter">Filter to select players who will recieve the announcement</param>
-    /// <param name="message">The contents of the message</param>
-    /// <param name="source">The entity making the announcement (used to determine the station)</param>
-    /// <param name="sender">The sender (Communications Console in Communications Console Announcement)</param>
-    /// <param name="playDefaultSound">Play the announcement sound</param>
-    /// <param name="announcementSound">Sound to play</param>
-    /// <param name="colorOverride">Optional color for the announcement message</param>
-    public void DispatchFilteredAnnouncement(
+    /// <inheritdoc />
+    public override void DispatchFilteredAnnouncement(
         Filter filter,
         string message,
         EntityUid? source = null,
@@ -370,15 +339,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {sender}: {message}");
     }
 
-    /// <summary>
-    /// Dispatches an announcement on a specific station
-    /// </summary>
-    /// <param name="source">The entity making the announcement (used to determine the station)</param>
-    /// <param name="message">The contents of the message</param>
-    /// <param name="sender">The sender (Communications Console in Communications Console Announcement)</param>
-    /// <param name="playDefaultSound">Play the announcement sound</param>
-    /// <param name="colorOverride">Optional color for the announcement message</param>
-    public void DispatchStationAnnouncement(
+    /// <inheritdoc />
+    public override void DispatchStationAnnouncement(
         EntityUid source,
         string message,
         string? sender = null,
@@ -415,6 +377,25 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
+    // WL-Change: No talk in vacuum Start
+    private bool TryEntitySpeak(EntityUid source)
+    {
+        var pressure = 1f;
+
+        if (_atmosphereSystem.GetContainingMixture(source) is { } mixture)
+        {
+            pressure = MathF.Max(mixture.Pressure, 1f);
+        }
+
+        if (pressure <= 1f)
+        {
+            return false;
+        }
+
+        return true;
+    }
+    // WL-Change: No talk in vacuum End
+
     private void SendEntitySpeak(
         EntityUid source,
         string originalMessage,
@@ -450,12 +431,25 @@ public sealed partial class ChatSystem : SharedChatSystem
                 speech = proto;
         }
 
+        // WL-Change: No talk in vacuum Start
+        if (!TryEntitySpeak(source))
+            return;
+        // WL-Change: No talk in vacuum End
+
         name = FormattedMessage.EscapeText(name);
 
         //WL-Changes: Languages start
         var wrappedMessage = _languages.GetWrappedMessage(message, source, name, speech, true);
+        if (wrappedMessage.Length == 0)
+            return;
         var obfusMessage = _languages.ObfuscateMessageFromSource(message, source);
-        var obfusWrappedMessage = _languages.GetWrappedMessage(obfusMessage, source, name, speech);
+
+        string obfusWrappedMessage;
+
+        if (_languages.IsObfusEmoting(source))
+            obfusWrappedMessage = _languages.GetEmoteWrappedMessage(obfusMessage, source, name);
+        else
+            obfusWrappedMessage = _languages.GetWrappedMessage(obfusMessage, source, name, speech);
 
         SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, obfusWrappedMessage, source, range);
         //WL-Changes: Languages end
@@ -522,24 +516,31 @@ public sealed partial class ChatSystem : SharedChatSystem
         name = FormattedMessage.EscapeText(name);
 
         //WL-Changes: Languages start
-        var color = _languages.GetColor(source);
-        var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message-lang",
-            ("entityName", name), ("message", FormattedMessage.EscapeText(message)), ("langColor", color));
+        //var color = _languages.GetColor(message, source); // Без полезно, но оставлю
+        var wrappedMessage = _languages.GetWhisperWrappedMessage(message, source, nameIdentity, true);
+        if (wrappedMessage.Length == 0)
+            return;
 
-        var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
-            ("entityName", nameIdentity), ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
+        var wrappedobfuscatedMessage = _languages.GetWhisperWrappedMessage(obfuscatedMessage, source, nameIdentity, false);
 
         var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message",
             ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
 
         var langObfusMessage = _languages.ObfuscateMessageFromSource(message, source);
-        var obfusWrappedMessage = _languages.GetWrappedMessage(langObfusMessage, source, name);
+
+        string obfusWrappedMessage;
+
+        if (_languages.IsObfusEmoting(source))
+            obfusWrappedMessage = _languages.GetEmoteWrappedMessage(langObfusMessage, source, name);
+        else
+            obfusWrappedMessage = _languages.GetWhisperWrappedMessage(langObfusMessage, source, name);
+
         var biobfMessage = ObfuscateMessageReadability(langObfusMessage, 0.2f);
         var wrappedbiobfusMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
             ("entityName", nameIdentity), ("message", FormattedMessage.EscapeText(biobfMessage)));
         var obfusUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message",
             ("message", FormattedMessage.EscapeText(biobfMessage)));
-        //WL-Changes: Languages start
+        //WL-Changes: Languages end
 
 
         foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
@@ -574,17 +575,18 @@ public sealed partial class ChatSystem : SharedChatSystem
             if (MessageRangeCheck(session, data, range) != MessageRangeCheckResult.Full)
                 continue; // Won't get logged to chat, and ghosts are too far away to see the pop-up, so we just won't send it to them.
 
-            if (data.Range <= WhisperClearRange || data.Observer)
+            if ((data.Range <= WhisperClearRange || data.Observer) /*WL-Change: No talk in vacuum*/ && TryEntitySpeak(source))
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, /*WL-Changes: Languages*/afterMessage, afterWrappedMessage/*WL-Changes: Languages*/, source, false, session.Channel);
             //If listener is too far, they only hear fragments of the message
-            else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange))
+            else if (_examineSystem.InRangeUnOccluded(source, listener, WhisperMuffledRange) /*WL-Change: No talk in vacuum*/ && TryEntitySpeak(source))
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, /*WL-Changes: Languages*/afterObfusMessage, afterWrappedObfuscatedMessage/*WL-Changes: Languages*/, source, false, session.Channel);
             //If listener is too far and has no line of sight, they can't identify the whisperer's identity
-            else
+            else /*WL-Change: No talk in vacuum*/ if (TryEntitySpeak(source))
                 _chatManager.ChatMessageToOne(ChatChannel.Whisper, /*WL-Changes: Languages*/afterObfusMessage, afterUnknownMessage/*WL-Changes: Languages*/, source, false, session.Channel);
         }
 
-        _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
+        if (TryEntitySpeak(source)) // WL-Change: No talk in vacuum
+            _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
         var ev = new EntitySpokeEvent(source, message, originalMessage, channel, obfuscatedMessage, /*WL-Changes: Languages*/langObfusMessage, biobfMessage/*WL-Changes: Languages*/);
         RaiseLocalEvent(source, ev, true);
@@ -607,7 +609,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
     }
 
-    private void SendEntityEmote(
+    protected override void SendEntityEmote(
         EntityUid source,
         string action,
         ChatTransmitRange range,
@@ -967,101 +969,4 @@ public sealed partial class ChatSystem : SharedChatSystem
 /// </summary>
 public record ExpandICChatRecipientsEvent(EntityUid Source, float VoiceRange, Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients)
 {
-}
-
-/// <summary>
-///     Raised broadcast in order to transform speech.transmit
-/// </summary>
-public sealed class TransformSpeechEvent : EntityEventArgs
-{
-    public EntityUid Sender;
-    public string Message;
-
-    public TransformSpeechEvent(EntityUid sender, string message)
-    {
-        Sender = sender;
-        Message = message;
-    }
-}
-
-public sealed class CheckIgnoreSpeechBlockerEvent : EntityEventArgs
-{
-    public EntityUid Sender;
-    public bool IgnoreBlocker;
-
-    public CheckIgnoreSpeechBlockerEvent(EntityUid sender, bool ignoreBlocker)
-    {
-        Sender = sender;
-        IgnoreBlocker = ignoreBlocker;
-    }
-}
-
-/// <summary>
-///     Raised on an entity when it speaks, either through 'say' or 'whisper'.
-/// </summary>
-public sealed class EntitySpokeEvent : EntityEventArgs
-{
-    public readonly EntityUid Source;
-    public readonly string Message;
-    public readonly string OriginalMessage;
-    public readonly string? ObfuscatedMessage; // not null if this was a whisper
-
-    //WL-Changes: Languages start
-    public readonly string? LangMessage;
-    public readonly string? LangObfusMessage;
-    //WL-Changes: Languages end
-
-    /// <summary>
-    ///     If the entity was trying to speak into a radio, this was the channel they were trying to access. If a radio
-    ///     message gets sent on this channel, this should be set to null to prevent duplicate messages.
-    /// </summary>
-    public RadioChannelPrototype? Channel;
-
-    public EntitySpokeEvent(EntityUid source, string message, string originalMessage, RadioChannelPrototype? channel, string? obfuscatedMessage, /*WL-Changes: Languages*/string? langMessage, string? langObfusMessage/*WL-Changes: Languages*/)
-    {
-        Source = source;
-        Message = message;
-        OriginalMessage = originalMessage; // Corvax-TTS: Spec symbol sanitize
-        Channel = channel;
-        ObfuscatedMessage = obfuscatedMessage;
-        //WL-Changes: Languages start
-        LangMessage = langMessage;
-        LangObfusMessage = langObfusMessage;
-        //WL-Changes: Languages end
-    }
-}
-
-/// <summary>
-///     InGame IC chat is for chat that is specifically ingame (not lobby) but is also in character, i.e. speaking.
-/// </summary>
-// ReSharper disable once InconsistentNaming
-public enum InGameICChatType : byte
-{
-    Speak,
-    Emote,
-    Whisper
-}
-
-/// <summary>
-///     InGame OOC chat is for chat that is specifically ingame (not lobby) but is OOC, like deadchat or LOOC.
-/// </summary>
-public enum InGameOOCChatType : byte
-{
-    Looc,
-    Dead
-}
-
-/// <summary>
-///     Controls transmission of chat.
-/// </summary>
-public enum ChatTransmitRange : byte
-{
-    /// Acts normal, ghosts can hear across the map, etc.
-    Normal,
-    /// Normal but ghosts are still range-limited.
-    GhostRangeLimit,
-    /// Hidden from the chat window.
-    HideChat,
-    /// Ghosts can't hear or see it at all. Regular players can if in-range.
-    NoGhosts
 }

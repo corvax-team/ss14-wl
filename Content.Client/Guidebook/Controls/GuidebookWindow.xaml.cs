@@ -20,6 +20,9 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
 {
     [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
     [Dependency] private readonly IResourceManager _resourceManager = default!;
+    // WL-Changes-start
+    [Dependency] private readonly IUriOpener _uriOpener = default!;
+    // WL-Changes-end
 
     private Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry> _entries = new();
 
@@ -43,16 +46,35 @@ public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IA
 
     public void HandleClick(string link)
     {
-        if (!_entries.TryGetValue(link, out var entry))
-            return;
-
-        if (Tree.TryGetIndexFromMetadata(entry, out var index))
+        // WL-Changes-start
+        if (_entries.TryGetValue(link, out var entry))
         {
-            Tree.ExpandParentEntries(index.Value);
-            Tree.SetSelectedIndex(index);
+
+            if (Tree.TryGetIndexFromMetadata(entry, out var index))
+            {
+                Tree.ExpandParentEntries(index.Value);
+                Tree.SetSelectedIndex(index);
+            }
+            else
+                ShowGuide(entry);
+        }
+        else if (link.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+             link.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+        {
+            try
+            {
+                _uriOpener.OpenUri(link);
+            }
+            catch (Exception exc)
+            {
+                _sawmill.Error($"Failed to open URI '{link}': {exc.Message}");
+            }
         }
         else
-            ShowGuide(entry);
+        {
+            _sawmill.Warning($"Guidebook link to unknown entry: {link}");
+        }
+        // WL-Changes-end
     }
 
     public void HandleAnchor(IPrototypeLinkControl prototypeLinkControl)

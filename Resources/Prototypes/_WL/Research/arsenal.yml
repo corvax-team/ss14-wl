@@ -1,0 +1,23 @@
+- type: technology
+  id: NightVisionGogles
+  name: research-technology-night-vision-gogles
+  icon:
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ClothingEyesNightVisionGoggles
+
+- type: technology
+  id: ThermalVisionGoggles
+  name: research-technology-thermal-vision-gogles
+  icon:
+    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - ClothingEyesThermalVisionGoggles

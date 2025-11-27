@@ -1,7 +1,7 @@
 ent-BaseCischiOrgan = { ent-BaseAnimalOrgan }
     .desc = { ent-BaseAnimalOrgan.desc }
 
-ent-OrganCischiLungs = легкие Цисчи
+ent-OrganCischiLungs = лёгкие Цисчи
     .desc = { ent-BaseCischiOrgan.desc }
 
 ent-OrganCischiHeart = сердце Цисчи

@@ -41,3 +41,18 @@ public sealed partial class LanguagesSyncEvent : EntityEventArgs
         Understood = understood;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class LanguageSoundEvent : EntityEventArgs
+{
+    public ProtoId<LanguagePrototype> Language { get; }
+    public NetEntity? SourceUid { get; }
+    public bool IsWhisper { get; }
+
+    public LanguageSoundEvent(ProtoId<LanguagePrototype> language, NetEntity? sourceUid = null, bool isWhisper = false)
+    {
+        Language = language;
+        SourceUid = sourceUid;
+        IsWhisper = isWhisper;
+    }
+}

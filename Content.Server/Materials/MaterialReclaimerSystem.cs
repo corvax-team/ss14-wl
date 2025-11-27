@@ -4,6 +4,7 @@ using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Content.Server.Wires;
+using Content.Shared._WL.Materials.Events;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -11,6 +12,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Emag.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -25,7 +27,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Shared.Humanoid;
 
 namespace Content.Server.Materials;
 
@@ -202,7 +203,10 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
                 SpawnChemicalsFromComposition(uid, item, completion, true, component, xform);
         }
 
-        QueueDel(item);
+        // WL-Changes-start
+        //QueueDel(item);
+        Del(item);
+        // WL-Changes-end
     }
 
     private void SpawnMaterialsFromComposition(EntityUid reclaimer,
@@ -223,7 +227,12 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         foreach (var (material, amount) in composition.MaterialComposition)
         {
-            var outputAmount = (int) (amount * efficiency * modifier);
+            // WL-Changes-start
+            var ev = new BeforeItemMaterialReclaimedEvent(efficiency, modifier, amount, material);
+            RaiseLocalEvent(item, ev);
+            // WL-Changes-end
+
+            var outputAmount = Math.Max(0, (int)(ev.Amount * ev.Efficiency * ev.Modifier)); // WL-Changes-start
             _materialStorage.TryChangeMaterialAmount(reclaimer, material, outputAmount, storage);
         }
 

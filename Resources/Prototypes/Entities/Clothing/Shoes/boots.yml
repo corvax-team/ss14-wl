@@ -149,9 +149,9 @@
   name: science winter boots
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Boots/winterbootssci.rsi
+    sprite: _WL/Clothing/Shoes/Boots/winterbootssci.rsi #WL-Resprite
   - type: Clothing
-    sprite: Clothing/Shoes/Boots/winterbootssci.rsi
+    sprite: _WL/Clothing/Shoes/Boots/winterbootssci.rsi #WL-Resprite
 
 - type: entity
   parent: [ClothingShoesBaseWinterBoots, ClothingShoesMilitaryBase, BaseSecurityContraband]

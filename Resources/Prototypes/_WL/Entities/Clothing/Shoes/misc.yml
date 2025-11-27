@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesSlippersScience
+  name: science slippers
+  description: Fluffy!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Shoes/Misc/scienceslippers.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Shoes/Misc/scienceslippers.rsi

@@ -21,7 +21,7 @@
       # Hail the madman logic, if it has CARP, means it helps against CARPs
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: CarpoToxin
           min: 1
         reagent: CarpoToxin
@@ -39,12 +39,12 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Moth
+        - !type:MetabolizerTypeCondition
+          type: [ Moth ]
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 
 - type: reagent
   id: BuzzochloricBees
@@ -79,11 +79,11 @@
         - "buzzochloricbees-effect-squeaky-clean"
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           max: 0
           reagent: Histamine
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
       - !type:PopupMessage
         type: Local
@@ -96,11 +96,11 @@
           - "buzzochloricbees-effect-squeaky-clean"
         probability: 0.05
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 0.01
           reagent: Histamine
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
       - !type:PopupMessage
         type: Local
@@ -112,10 +112,10 @@
           - "buzzochloricbees-effect-licoxide-buzzes"
         probability: 0.05
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 0.01
           reagent: Licoxide
       - !type:PopupMessage
@@ -125,10 +125,10 @@
           - "buzzochloricbees-effect-fiber-soft"
         probability: 0.05
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           min: 0.01
           reagent: Fiber
       - !type:HealthChange
@@ -137,13 +137,13 @@
             Poison: 2
             Piercing: 2
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: Bee
 # WL android species start
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
 # WL android species end
 
 - type: reagent
@@ -182,11 +182,10 @@
         component: SeeingRainbows
         type: Add
         time: 16
-        refresh: false
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL species end
 
 - type: reagent
@@ -204,11 +203,10 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
-            Slash: 0.5
+            Slash: 0.25
       - !type:Emote
         emote: Scream
         probability: 0.7
@@ -220,9 +218,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -261,20 +259,19 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
             Cold: 0.05
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 160.15
         amount: -30000
     Extinguish:
       methods: [ Touch ]
       effects:
-      - !type:ExtinguishReaction # cold
+      - !type:Extinguish # cold
   metabolisms:
     Poison:
       metabolismRate : 0.45
@@ -283,9 +280,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -293,14 +290,14 @@
              Heat: -3 # ghetto burn chem. i don't think anyone would use this intentionally but it's funny
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           max: 35
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         type: Local
         visualType: LargeCaution
@@ -308,14 +305,14 @@
         probability: 0.05
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           max: 35
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         type: Local
         visualType: LargeCaution
@@ -323,51 +320,51 @@
         probability: 0.2
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 160.15 # not quite enough for cryo, but can speed it up if you wanna take the risk
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         amount: -10000
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           max: 40 # slows when less than 40
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         walkSpeedModifier: 0.6
         sprintSpeedModifier: 0.6
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           min: 40 # your legs stop working when above 40
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         walkSpeedModifier: 0.00
         sprintSpeedModifier: 0.00
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           min: 40
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         type: Local
         visualType: LargeCaution
@@ -378,7 +375,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 160.15
         amount: -10000
       - !type:SatiateHunger
@@ -389,12 +386,11 @@
              Cold: 0.01 # slightly nips directly, other cold damage comes from the temp change
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Fresium
           min: 8
         key: ForcedSleep
         component: ForcedSleeping
-        refresh: false
         type: Add
 # WL golem species end
 
@@ -442,16 +438,18 @@
       - !type:Polymorph
         prototype: ArtifactLizard # Does the same thing as the original YML I made for this reagent.
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [Animal]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouWeh
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouWeh
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouWeh
           min: 50
 
 - type: reagent
@@ -475,16 +473,18 @@
       - !type:Polymorph
         prototype: ArtifactLizard
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouHew
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouHew
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouHew
           min: 50
 
 - type: reagent
@@ -501,7 +501,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: CorgiJuice
           min: 15
         damage:
           types:
@@ -509,11 +510,123 @@
       - !type:Polymorph
         prototype: SmartCorgiMorph
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: CorgiJuice
           min: 50
       - !type:AdjustReagent
         reagent: CorgiJuice
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: CorgiJuice
           min: 50
+
+- type: reagent
+  id: Felinase
+  name: reagent-name-catessence
+  group: Toxins
+  desc: reagent-desc-catessence
+  physicalDesc: reagent-physical-desc-milky
+  flavor: cannedtuna
+  color: "#d8bed8"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 25
+        damage:
+          types:
+            Radiation: 0.5
+      - !type:AdjustReagent
+        reagent: Felinase
+        amount: -15
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 40
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 25
+        effectProto: StatusEffectOwO
+        time: 25.0
+        type: Add
+      - !type:Emote
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 25
+        emote: Cough
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 0.05
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: Felinase
+          min: 25
+        type: Local
+        visualType: Small
+        messages: [ "capsaicin-effect-light-burn" ]
+        probability: 0.05
+
+- type: reagent
+  id: Caninase
+  name: reagent-name-canidessence
+  group: Toxins
+  desc: reagent-desc-canidessence
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: dogfood
+  color: "#b87333"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 25
+        damage:
+          types:
+            Radiation: 0.5
+      - !type:AdjustReagent
+        reagent: Caninase
+        amount: -15
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 40
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 25
+        effectProto: StatusEffectBark
+        time: 25.0
+        type: Add
+      - !type:Emote
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 25
+        emote: Cough
+        showInChat: true
+        showInGuidebook: true
+        force: true
+        probability: 0.05
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: Caninase
+          min: 25
+        type: Local
+        visualType: Small
+        messages: [ "capsaicin-effect-light-burn" ]
+        probability: 0.05

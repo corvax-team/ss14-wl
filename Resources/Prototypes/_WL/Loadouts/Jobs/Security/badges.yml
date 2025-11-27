@@ -1,0 +1,60 @@
+- type: loadout
+  id: SecurityPrivatePin
+  storage:
+    back:
+    - ClothingNeckSecurityPrivatePin
+
+- type: loadout
+  id: SecurityCorporalPin
+  storage:
+    back:
+    - ClothingNeckSecurityCorporalPin
+
+- type: loadout
+  id: SecuritySubSergeantPin
+  storage:
+    back:
+    - ClothingNeckSecuritySubSergeantPin
+
+- type: loadout
+  id: SecuritySergeantPin
+  storage:
+    back:
+    - ClothingNeckSecuritySergeantPin
+
+- type: loadout
+  id: SecurityChiefSergeantPin
+  storage:
+    back:
+    - ClothingNeckSecurityChiefSergeantPin
+
+- type: loadout
+  id: SecuritySubLieutenantPin
+  storage:
+    back:
+    - ClothingNeckSecuritySubLieutenantPin
+
+- type: loadout
+  id: SecurityLieutenantPin
+  storage:
+    back:
+    - ClothingNeckSecurityLieutenantPin
+
+- type: loadout
+  id: SecurityChiefLieutenantPin
+  storage:
+    back:
+    - ClothingNeckSecurityChiefLieutenantPin
+
+- type: loadout
+  id: SecurityCaptainPin
+  storage:
+    back:
+    - ClothingNeckSecurityCaptainPin
+
+- type: loadout
+  id: SecurityMajorPin
+  storage:
+    back:
+    - ClothingNeckSecurityMajorPin
+

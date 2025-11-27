@@ -12,112 +12,77 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Human
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Animal
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Rat
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Human, Animal, Rat, Plant ]
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
+          inverted: true
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ignoreResistances: true
         damage:
           types:
-            Poison:
-              3
+            Poison: 1.5
       - !type:AdjustAlert
         alertType: Toxins
+        minScale: 1
         conditions:
-          - !type:ReagentThreshold
-            min: 0.5
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
         clear: true
         time: 5
     Gas:
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Human
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Animal
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Rat
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Plant
-      # WL Cischi species start
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Cischi
+        - !type:MetabolizerTypeCondition
+          type: [ Human, Animal, Rat, Plant, Cischi ] # WL Cischi species
       #- !type:MovespeedModifier
       #  conditions:
-      #  - !type:ReagentThreshold
+      #  - !type:ReagentCondition
       #    reagent: Oxygen
       #    min: 0.1
-      #  - !type:OrganType
-      #    type: Cischi
+      #  - !type:MetabolizerTypeCondition
+      #    type: [ Cischi ]
       #  walkSpeedModifier: 0.85
       #  sprintSpeedModifier: 0.85
       - !type:SatiateHunger
         factor: -0.005
         conditions:
-        - !type:OrganType
-          type: Cischi
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
       # WL Cischi species end
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
+          inverted: true
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Vox
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ignoreResistances: true
         damage:
           types:
-            Poison:
-              7
+            Poison: 0.7
       - !type:AdjustAlert
         alertType: Toxins
+        minScale: 1
         conditions:
-          - !type:ReagentThreshold
-            min: 0.5
-          - !type:OrganType
-            type: Vox
+          - !type:MetabolizerTypeCondition
+            type: [ Vox ]
         clear: true
         time: 5
 
@@ -139,21 +104,21 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
     Poison:
       effects:
       - !type:HealthChange
 # WL species start
         # Cischi
         conditions:
-        - !type:OrganType
-          type: Cischi
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
 # WL species end
         damage:
           types:
-            Poison: 3
+            Poison: 1.5
 # WL species start
         # Cischi
       - !type:HealthChange
@@ -168,25 +133,24 @@
     Gas:
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: true
 # WL species start
         # Cischi
         conditions:
-        - !type:OrganType
-          type: Cischi
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
 # WL species end
         damage:
           types:
             Poison:
-              1
+              0.1
 # WL species start
         # Cischi
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Cischi
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
         damage:
           types:
             Asphyxiation: 1
@@ -194,16 +158,14 @@
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-        conditions:
-          - !type:ReagentThreshold
-            min: 1.5
+        minScale: 3
         clear: True
         time: 5
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
 
 - type: reagent
   id: Tritium
@@ -221,7 +183,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.8
   metabolisms:
     Poison:
@@ -229,11 +191,10 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: 3
+            Radiation: 1.5
     Gas:
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -242,9 +203,7 @@
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
-        conditions:
-          - !type:ReagentThreshold
-            min: 1.5
+        minScale: 3
         clear: True
         time: 5
 
@@ -260,58 +219,38 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Plant
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Plant, Vox ]
+          inverted: true
         ignoreResistances: true
         damage:
           types:
             Poison:
-              0.8
+              0.4
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Plant ]
+          inverted: true
         factor: -4
     Gas:
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Plant
-        # WL Cischi species start
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Cischi
-        # WL Cischi species end
+        - !type:MetabolizerTypeCondition
+          type: [ Plant, Cischi ] # WL Cischi species
       - !type:HealthChange
+        minScale: 1
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        # WL Cischi species start
-        - !type:OrganType
-          type: Cischi
-          shouldHave: false
-        # WL Cischi species end
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Plant, Vox, Cischi ] # WL Cischi species
+          inverted: true
         # Don't want people to get toxin damage from the gas they just
         # exhaled, right?
-        - !type:ReagentThreshold
-          min: 0.5
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -319,16 +258,9 @@
               0.8
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
         conditions:
-        - !type:OrganType
-          type: Plant
-          shouldHave: false
-        # WL Cischi species start
-      - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
-        conditions:
-        - !type:OrganType
-          type: Cischi
-          shouldHave: false
-        # WL Cischi species end
+        - !type:MetabolizerTypeCondition
+          type: [ Plant, Cischi ] # WL Cischi species
+          inverted: true
         factor: -4
       # We need a metabolism effect on reagent removal
       #- !type:AdjustAlert
@@ -349,43 +281,32 @@
       - !type:HealthChange
         damage:
           types:
-            Cold: 1 # liquid nitrogen is cold
+            Cold: 0.5 # liquid nitrogen is cold
     Gas:
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Vox
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Slime
-# WL android species start
-      - !type:Oxygenate
-        conditions:
-        - !type:OrganType
-          type: Biorobotic
-# WL android species end
-      # Converts Nitrogen into CO2
+        - !type:MetabolizerTypeCondition
+          type: [ Vox, Slime, Biorobotic ]
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         ratios:
           Ammonia: 1.0
           Nitrogen: -1.0
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Slime
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         ratios:
           NitrousOxide: 1.0
           Nitrogen: -0.25
 # WL android species start
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         ratios:
           CarbonDioxide: 1.0
           Nitrogen: -1.0
@@ -406,72 +327,60 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 2
+            Poison: 1
     Gas:
       effects:
       - !type:Emote
+        minScale: 1
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 0.2
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         emote: Laugh
         showInChat: true
         probability: 0.1
       - !type:Emote
+        minScale: 0.4
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 0.2
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         emote: Scream
         showInChat: true
         probability: 0.01
       - !type:PopupMessage
+        minScale: 1
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 0.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
+        minScale: 2
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 1
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
+        minScale: 3.6
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 1.8
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         effectProto: StatusEffectForcedSleeping
         time: 3
-        type: Add
+        type: Update
       - !type:HealthChange
+        minScale: 7
         conditions:
-        - !type:ReagentThreshold
-          reagent: NitrousOxide
-          min: 3.5
-        - !type:OrganType
-          type: Slime
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+          inverted: true
         ignoreResistances: true
         damage:
           types:
@@ -494,53 +403,41 @@
     Narcotic:
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
-            Cellular: 1
+            Cellular: 0.5
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 15
-        refresh: false
       - !type:Drunk
         boozePower: 15
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 0.5
+        minScale: 1
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 1
+        minScale: 2
     Gas:
       effects:
       - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 0.5
-        scaleByQuantity: true
+        minScale: 1
         ignoreResistances: true
         damage:
           types:
-            Cellular: 0.5
+            Cellular: 0.05
       # WL Cischi species start
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Cischi
-        scaleByQuantity: true
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
         ignoreResistances: true
         damage:
           types:
@@ -551,54 +448,40 @@
             Toxin: -0.02
       # WL Cischi species end
       - !type:ModifyStatusEffect
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 1
+        minScale: 2
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
-        refresh: false
       - !type:Drunk
         boozePower: 500
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 1
+        minScale: 2
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
         probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 0.5
+        minScale: 2
       - !type:PopupMessage
         type: Local
         visualType: Medium
         messages: [ "frezon-euphoric" ]
         probability: 0.1
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Frezon
-          min: 1
+        minScale: 2
 # WL golem species start
     Golem:
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 160.15
         amount: -30000
       - !type:SatiateHunger
         factor: -3
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Frezon
           min: 5
         key: ForcedSleep
         component: ForcedSleeping
-        refresh: false
         type: Add
 # WL golem species end

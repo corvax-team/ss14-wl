@@ -1,4 +1,4 @@
-﻿- type: guideEntry
+- type: guideEntry
   id: Security
   name: guide-entry-security
   text: "/ServerInfo/Guidebook/Security/Security.xml"
@@ -6,7 +6,8 @@
   - Forensics
   - Defusal
   - CriminalRecords
-  - CorporateLaw # Corvax-Corporate-Law
+  #- CorporateLaw # Corvax-Corporate-Law # WL-Changes
+  - WLCorporateLaw # WL-Changes
 
 - type: guideEntry
   id: Forensics
@@ -23,14 +24,16 @@
   name: guide-entry-criminal-records
   text: "/ServerInfo/Guidebook/Security/CriminalRecords.xml"
 
-- type: guideEntry
-  id: SpaceLaw
-  name: guide-entry-rules-space-law
-  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SpaceLaw.xml"
-  children:
-  - SpaceLawCrimeList
+# WL-Changes-start
+# - type: guideEntry
+#   id: SpaceLaw
+#   name: guide-entry-rules-space-law
+#   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SpaceLaw.xml"
+#   children:
+#   - SpaceLawCrimeList
 
-- type: guideEntry
-  id: SpaceLawCrimeList
-  name: guide-entry-rules-sl-crime-list
-  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLCrimeList.xml"
+# - type: guideEntry
+#   id: SpaceLawCrimeList
+#   name: guide-entry-rules-sl-crime-list
+#   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLCrimeList.xml"
+# WL-Changes-end

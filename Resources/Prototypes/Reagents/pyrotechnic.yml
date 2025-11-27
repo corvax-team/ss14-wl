@@ -1,4 +1,4 @@
-﻿- type: reagent
+- type: reagent
   id: BasePyrotechnic
   group: Pyrotechnic
   abstract: true
@@ -6,7 +6,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-        - !type:FlammableReaction
+        - !type:Flammable
   plantMetabolism:
     - !type:PlantAdjustWeeds
       amount: -2
@@ -34,9 +34,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -59,7 +59,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.4
   metabolisms:
     Poison:
@@ -68,9 +68,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -82,13 +82,13 @@
       - !type:HealthChange
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
         damage:
           types:
             Caustic: 0.5
 # WL species end
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.4
 
 - type: reagent
@@ -107,15 +107,15 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
             Heat: 3
             Poison: 1
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.1
       - !type:AdjustTemperature
         amount: 6000
@@ -124,7 +124,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.2
       - !type:Ignite
 
@@ -146,16 +146,16 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
             Heat: 2
             Poison: 1
             Caustic: 0.5 # CLF3 is corrosive
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.2
       - !type:AdjustTemperature
         amount: 6000
@@ -163,8 +163,8 @@
       - !type:HealthChange
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
         damage:
           types:
             Caustic: 0.5
@@ -173,7 +173,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.3
       - !type:Ignite
       - !type:Emote
@@ -219,25 +219,25 @@
       - !type:SatiateThirst
         factor: 1
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [Vox]
     Poison:
       effects:
       - !type:HealthChange
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Vox]
+          inverted: true
         damage:
           types:
             Poison: 1
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.4
 # WL species start
     # Golem
@@ -245,20 +245,20 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
         damage:
           groups:
             Brute: 0.2
       - !type:Drunk
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
         boozePower: 3
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL species end
 
 - type: reagent

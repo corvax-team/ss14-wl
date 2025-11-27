@@ -9,7 +9,7 @@
   - type: Item
     sprite: Objects/Materials/ore.rsi
     size: Normal
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -93,9 +93,20 @@
   - type: SolutionContainerManager
     solutions:
       diamondore:
+        temperature: 293.15
+        canReact: True
+        maxVol: 20
+        name: null
         reagents:
-        - ReagentId: Carbon
+        - data: []
+          ReagentId: Carbon
           Quantity: 20
+      food:
+        temperature: 293.15
+        canReact: True
+        maxVol: 0
+        name: food
+        reagents: []
   - type: Item
     heldPrefix: diamond
 

@@ -6,13 +6,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 21600 #6 hrs
+      time: 6h
     - !type:RoleTimeRequirement
       role: JobMedicalDoctor
-      time: 21600 #6 hrs
+      time: 6h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 216000 # 60 hrs
+      time: 60h # 60 hrs
       # WL-Changes-start
     - !type:AgeRequirement
       minAge: 26
@@ -25,6 +25,14 @@
   - Medical
   - Maintenance
   - Chemistry
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 3
+    Anatomy: 2
+    Medicine: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: SeniorPhysicianGear

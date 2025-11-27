@@ -13,6 +13,10 @@
   femaleFirstNames: NamesTajaranFirstFemale
   maleLastNames: NamesTajaranLast # Corvax-LastnameGender
   femaleLastNames: NamesTajaranLast # Corvax-LastnameGender
+  # WL-Changes-start: Height
+  minHeight: 140
+  maxHeight: 180
+  # WL-Changes-end: Height
 
 - type: speciesBaseSprites
   id: MobTajaranSprites
@@ -34,7 +38,7 @@
     RLeg: MobTajaranRLeg
     LFoot: MobTajaranLFoot
     RFoot: MobTajaranRFoot
-    # Foots: MobHumanoidAnyMarking # WL-Underwear
+    Foots: MobHumanoidAnyMarking # WL-Underwear
 
 - type: markingPoints
   id: MobTajaranMarkingLimits

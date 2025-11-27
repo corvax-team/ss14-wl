@@ -1,0 +1,35 @@
+- type: latheRecipe
+  id: PhotoCameraRecipe
+  result: PhotoCamera
+  completetime: 5
+  materials:
+    Steel: 400
+    Glass: 250
+    Gold: 50
+
+- type: latheRecipe
+  id: BassGuitarInstrumentRecipe
+  result: BassGuitarInstrument
+  completetime: 4
+  materials:
+    Steel: 300
+    Plastic: 300
+    Glass: 100
+
+- type: latheRecipe
+  id: ElectricGuitarInstrumentRecipe
+  result: ElectricGuitarInstrument
+  completetime: 4
+  materials:
+    Steel: 300
+    Plastic: 300
+    Glass: 100
+
+- type: latheRecipe
+  id: MicrophoneInstrumentRecipe
+  result: MicrophoneInstrument
+  completetime: 4
+  materials:
+    Steel: 300
+    Plastic: 300
+    Glass: 100

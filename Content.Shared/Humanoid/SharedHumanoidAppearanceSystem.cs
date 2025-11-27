@@ -133,7 +133,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var identity = Identity.Entity(uid, EntityManager);
         var species = GetSpeciesRepresentation(component.Species).ToLower();
         var age = GetAgeRepresentation(component.Species, component.Age);
-        var height = GetHeightRepresentation(component.Species, component.Height); // WL-Height
+        var height = GetHeightRepresentation(component.Height); // WL-Height
 
         args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("height", height), ("species", species)));
 
@@ -581,11 +581,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     // WL-Height-Start
     public void ApplyHeight(HumanoidAppearanceComponent humanoid)
     {
-        if (!_proto.TryIndex(humanoid.Species, out var speciesProto))
-            return;
-
         EnsureComp<ScaleVisualsComponent>(humanoid.Owner);
-        var scale = MinHeightScale + (humanoid.Height - speciesProto.MinHeight) * (MaxHeightScale - MinHeightScale) / (speciesProto.MaxHeight - speciesProto.MinHeight);
+        var scale = MinHeightScale + (humanoid.Height - 130) * (MaxHeightScale - MinHeightScale) / (200 - 130);
         _appearance.SetData(humanoid.Owner, ScaleVisuals.Scale, new Vector2(scale));
     }
     // WL-Height-End
@@ -625,21 +622,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         return Loc.GetString("identity-age-old");
     }
     // WL-Height-Start
-    public string GetHeightRepresentation(string species, int height)
+    public string GetHeightRepresentation(int height)
     {
-        if (!_proto.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
-        {
-            Logger.Error("Tried to get height representation of species that couldn't be indexed: " + species);
-            return Loc.GetString("identity-height-medium");
-        }
-
-        if (height < speciesPrototype.ShortHeight)
-            return Loc.GetString("identity-height-short");
-
-        if (height < speciesPrototype.MediumHeight)
-            return Loc.GetString("identity-height-medium");
-
-        return Loc.GetString("identity-height-tall");
+        return Loc.GetString("identity-height", ("height", MathF.Round(height / 10f) * 10));
     }
     // WL-Height-End
 }

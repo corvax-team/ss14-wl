@@ -1,4 +1,4 @@
-ent-ent-TarotCardTwoOfCups = двойка кубков
+ent-TarotCardTwoOfCups = двойка кубков
     .desc = Пластиковая карта таро, острая на краях.
 
 ent-TarotCardThreeOfCups = тройка кубков

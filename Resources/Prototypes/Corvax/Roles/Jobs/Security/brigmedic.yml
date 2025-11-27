@@ -6,10 +6,10 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Medical
-    time: 54000 # 15 hrs
+    time: 15h
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 18000 # 5 hrs
+    time: 5h
   - !type:AgeRequirement
     minAge: 24 # WL-Changes-AgeRequirement
   - !type:TraitsRequirement
@@ -28,6 +28,16 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 3
+    Anatomy: 2
+    Medicine: 3
+    Combat: 2
+    Weapons: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: BrigmedicGear
@@ -50,6 +60,6 @@
     head: ClothingHeadHatBeretSecurityMedic
     eyes: ClothingEyesHudMedSec
     mask: ClothingMaskBreathMedicalSecurity
-    outerClothing: ClothingUniformJumpsuitBrigmedic #верхняя одежда
+    outerClothing: ClothingOuterCoatAMG #верхняя одежда # Corvax-WL-Tweak
     neck: ClothingNeckScarfStripedRed #шея
     gloves: ClothingHandsGlovesLatex # перчи

@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseToggleAction
+  id: ActionToggleAndroidLight
+  name: Toggle Light
+  description: Turn the light on and off.
+  components:
+  - type: Action
+    useDelay: 1
+    icon: { sprite: _WL/Interface/Actions/android.rsi, state: light-off }
+    iconOn: { sprite: _WL/Interface/Actions/android.rsi, state: light-on }

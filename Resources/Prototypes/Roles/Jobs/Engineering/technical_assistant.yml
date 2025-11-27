@@ -8,10 +8,10 @@
   - Male: общесистемный техник
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 3600 #1 hr
+      time: 1h
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 36000 #10 hrs # Corvax-RoleTime
+      time: 10h # Corvax-RoleTime
       inverted: true # stop playing intern if you're good at engineering!
   startingGear: TechnicalAssistantGear
   icon: "JobIconTechnicalAssistant"
@@ -21,6 +21,15 @@
   - Maintenance
   - Engineering
   - External
+  # WL-Skills-start
+  bonusSkillPoints: 18
+  defaultSkills:
+    IT: 2
+    Atmospherics: 2
+    Construction: 2
+    Electrical: 2
+    Generators: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: TechnicalAssistantGear

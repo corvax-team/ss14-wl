@@ -10,6 +10,8 @@ using Content.Shared._WL.Turrets;
 using Content.Shared._WL.Turrets.Events;
 using Content.Shared.Construction.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;

@@ -6,6 +6,9 @@
     ClothingBackpackDuffelScience: 3
     ClothingUniformJumpsuitScientist: 3
     ClothingUniformJumpskirtScientist: 3
+    ClothingUniformJumpsuitScienceStudent: 2
+    ClothingUniformJumpskirtScienceStudent: 2
+    ClothingUniformJumpsuitScienceHazard: 2
     ClothingUniformJumpsuitScientistFormal: 3
     ClothingOuterCoatRnd: 3
     ClothingShoesColorWhite: 3
@@ -16,4 +19,5 @@
     ClothingNeckScarfStripedPurple: 3
     ClothingShoesBootsWinterSci: 2
   contrabandInventory:
-    ToyFigurineResearchDirector: 1  
+    ToyFigurineResearchDirector: 1
+    ClothingShoesSlippersScience: 3

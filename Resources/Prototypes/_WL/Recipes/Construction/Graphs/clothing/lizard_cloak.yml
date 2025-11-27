@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: ClothingNeckCloakLizard
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: cloak
+          steps:
+            - tag: PlushieLizard #Weh!
+              name: construction-graph-tag-lizard-plushie
+              icon:
+                sprite: Objects/Fun/Plushies/lizard.rsi
+                state: icon
+              doAfter: 1
+            - material: Cloth
+              amount: 5
+              doAfter: 1
+    - node: cloak
+      entity: ClothingNeckCloakLizard

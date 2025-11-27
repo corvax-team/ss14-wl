@@ -12,7 +12,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 18000 #5 hrs # Corvax-RoleTime
+      time: 5h # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 22 # WL-Changes-AgeRequirement
   startingGear: StationEngineerGear
@@ -24,6 +24,17 @@
   - External
   extendedAccess:
   - Atmospherics
+  # WL-Skills-start
+  bonusSkillPoints: 8
+  defaultSkills:
+    Eva: 3
+    IT: 2
+    Atmospherics: 2
+    Construction: 3
+    Electrical: 3
+    Generators: 3
+    ComplexDevices: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: StationEngineerGear

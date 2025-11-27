@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: ClothingHandsGlovesRobohandsIsolated
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: gloves
+          steps:
+            - tag: RoboHands #Beeep
+              name: construction-graph-tag-robohands
+              icon:
+                sprite: _WL/Clothing/Hands/Gloves/robohands.rsi
+                state: icon
+              doAfter: 1
+            - material: Durathread
+              amount: 5
+              doAfter: 1
+    - node: gloves
+      entity: ClothingHandsGlovesRobohandsIsolated

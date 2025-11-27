@@ -4,7 +4,10 @@
             <LineEdit Name="SearchEdit" MinWidth="600" PlaceHolder="{Loc 'humanoid-profile-editor-voice-placeholder'}"/>
             <Label Name="ResultsLabel" MinWidth="100" HorizontalExpand="True" HorizontalAlignment="Right"/>
         </BoxContainer>
-        
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="5">
+            <LineEdit Name="PreviewTextEdit" MinWidth="600" PlaceHolder="{Loc 'humanoid-profile-editor-voice-placeholder-preview'}" Access="Public"/>
+        </BoxContainer>
+
         <PanelContainer HorizontalExpand="True" VerticalExpand="False" MinSize="0 200" Margin="0 5 0 20">
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BackgroundColor="#1A1A1A" />

@@ -12,7 +12,7 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatRNDsoft]
   id: ClothingHeadHatRNDsoftFlipped
-  name: scientist's cap 
+  name: scientist's cap
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
@@ -29,3 +29,35 @@
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatRoboSoft]
   id: ClothingHeadHatRoboSoftFlipped
   name: cap robotics
+
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatDSSSoft
+  name: DSS cap
+  description: There is no skibidi.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/dsssoft.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/dsssoft.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatDSSSoft]
+  id: ClothingHeadHatDSSSoftFlipped
+  name: DSS cap
+
+- type: entity
+  parent: ClothingHeadHeadHatBaseFlippable
+  id: ClothingHeadHatMedSoft
+  name: medical cap
+  description: There is no skibidi.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Soft/medsoft.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Soft/medsoft.rsi
+
+- type: entity
+  parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatMedSoft]
+  id: ClothingHeadHatMedSoftFlipped
+  name: medical cap

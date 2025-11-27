@@ -4,6 +4,15 @@
   name: long range fax machine
   description: Bluespace technologies on the application of bureaucracy.
   components:
+  # WL-Changes-start
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Document
+    storage:
+      PrinterPaper: 500
+    insertOnInteract: false
+  # WL-Changes-end
   - type: Sprite
     sprite: Structures/Machines/fax_machine.rsi
     drawdepth: SmallObjects
@@ -86,6 +95,7 @@
         color: "#bfe3ff"
   - type: FaxMachine
     name: "Central Command"
+    printConsumeMaterialAmount: 1 # WL-Changes
     notifyAdmins: true
     receiveAllStationGoals: true # Corvax-StationGoal
 
@@ -102,6 +112,7 @@
         color: "#a3a3a3"
   - type: FaxMachine
     name: "ERR*?*%!"
+    printConsumeMaterialAmount: 1 # WL-Changes
     responsePings: false
     notifyAdmins: true
   - type: Emagged

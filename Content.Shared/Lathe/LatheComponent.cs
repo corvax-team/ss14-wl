@@ -123,9 +123,25 @@ namespace Content.Shared.Lathe
     {
         public readonly EntityUid ResultItem;
 
-        public LatheGetResultEvent(EntityUid result)
+        // WL-Changes-start
+        public readonly Entity<LatheComponent> Lathe;
+        public readonly ProtoId<LatheRecipePrototype> Recipe;
+        // WL-Changes-end
+
+        public LatheGetResultEvent(
+            EntityUid result,
+            /*WL-Changes-start*/
+            Entity<LatheComponent> lathe,
+            ProtoId<LatheRecipePrototype> recipe
+            /*WL-Changes-end*/
+            )
         {
             ResultItem = result;
+
+            // WL-Changes-start
+            Lathe = lathe;
+            Recipe = recipe;
+            // WL-Changes-end
         }
     }
     //Corvax

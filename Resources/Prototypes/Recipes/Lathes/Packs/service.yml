@@ -55,6 +55,11 @@
   recipes:
   - SynthesizerInstrument
   - PushHorn
+  # WL-Changes-start
+  - BassGuitarInstrumentRecipe
+  - ElectricGuitarInstrumentRecipe
+  - MicrophoneInstrumentRecipe
+  # WL-Changes-end
 
 - type: latheRecipePack
   id: ServiceBoards

@@ -9,29 +9,11 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-# WL android species start
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
-        - !type:OrganType
-          type: Biorobotic
-        damage:
-          types:
-            Shock: 1
-      - !type:Electrocute
-        probability: 0.1
-        conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
-          min: 10
-# WL android species end
   reactiveEffects:
     Extinguish:
       methods: [ Touch ]
       effects:
-      - !type:ExtinguishReaction
+      - !type:Extinguish
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
@@ -48,24 +30,6 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-# WL android species start
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
-        - !type:OrganType
-          type: Biorobotic
-        damage:
-          types:
-            Shock: 1
-      - !type:Electrocute
-        probability: 0.1
-        conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
-          min: 10
-# WL android species end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1
@@ -92,29 +56,11 @@
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.06
-# WL android species start
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
-        - !type:OrganType
-          type: Biorobotic
-        damage:
-          types:
-            Shock: 1
-      - !type:Electrocute
-        probability: 0.1
-        conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
-          min: 10
-# WL android species end
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 1.35

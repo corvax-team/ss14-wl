@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 216000 #60 hrs
+      time: 60h
       # WL-Changes-start
     - !type:AgeRequirement
       minAge: 26
@@ -18,6 +18,15 @@
   access:
   - Research
   - Maintenance
+  # WL-Skills-start
+  bonusSkillPoints: 15
+  defaultSkills:
+    Bureaucracy: 2
+    IT: 2
+    Chemistry: 2
+    ComplexDevices: 2
+    Science: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: SeniorResearcherGear

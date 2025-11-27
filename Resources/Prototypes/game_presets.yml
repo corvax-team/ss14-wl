@@ -172,7 +172,7 @@
     - Traitor
     - SubGamemodesRuleNoWizard #WL-Changes
     - BasicStationEventScheduler
-    #- MeteorSwarmScheduler
+    # - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -199,7 +199,7 @@
   rules:
   - Nukeops
   - DummyNonAntagChance
-  - SubGamemodesRuleNoWizard #WL-Changes
+  - SubGamemodesRuleNoWizard
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -217,7 +217,7 @@
   rules:
   - DummyNonAntagChance
   - Revolutionary
-  - SubGamemodesRuleNoWizard #WL-Changes
+  - SubGamemodesRuleNoWizard
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler

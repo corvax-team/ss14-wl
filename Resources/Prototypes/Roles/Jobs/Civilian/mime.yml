@@ -6,8 +6,8 @@
   subnames:
   - Male: пантомимист
   requirements:
-  - !type:OverallPlaytimeRequirement
-      time: 3600 #1 hrs # Corvax-RoleTime
+    - !type:OverallPlaytimeRequirement
+      time: 1h # Corvax-RoleTime 4
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
@@ -20,6 +20,7 @@
     - type: MimePowers
       preventWriting: true
     - type: FrenchAccent
+  bonusSkillPoints: 25 # WL-Skills
 
 - type: startingGear
   id: MimeGear

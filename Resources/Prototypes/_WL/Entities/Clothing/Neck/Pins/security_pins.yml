@@ -1,0 +1,133 @@
+- type: entity
+  parent: ClothingNeckPinBase
+  id: ClothingNeckSecurityPinBase
+  abstract: true
+  components:
+  - type: LimitedCharges
+    maxCharges: 1
+    showExamineInfo: false
+  - type: SecurityBadge
+  - type: RenameOnInteract
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Pins/security_badges.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Pins/security_badges.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+
+# Кадет
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityPrivatePin
+  components:
+  - type: Sprite
+    state: icon-yel
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-private
+  - type: Clothing
+    equippedPrefix: yel
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityCorporalPin
+  components:
+  - type: Sprite
+    state: icon-oranyel
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-corporal
+  - type: Clothing
+    equippedPrefix: oranyel
+
+# Офицер/Детектив/Бригмед/Пилот
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecuritySubSergeantPin
+  components:
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-sub-sergeant
+  - type: Sprite
+    state: icon-oran
+  - type: Clothing
+    equippedPrefix: oran
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecuritySergeantPin
+  components:
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-sergeant
+  - type: Sprite
+    state: icon-greoran
+  - type: Clothing
+    equippedPrefix: greoran
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityChiefSergeantPin
+  components:
+  - type: Sprite
+    state: icon-gre
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-chief-sergeant
+  - type: Clothing
+    equippedPrefix: gre
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecuritySubLieutenantPin
+  components:
+  - type: Sprite
+    state: icon-blugre
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-sub-lieutenant
+  - type: Clothing
+    equippedPrefix: blugre
+
+# Смотритель
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityLieutenantPin
+  components:
+  - type: Sprite
+    state: icon-blu
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-lieutenant
+  - type: Clothing
+    equippedPrefix: blu
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityChiefLieutenantPin
+  components:
+  - type: Sprite
+    state: icon-purblu
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-chief-lieutenant
+  - type: Clothing
+    equippedPrefix: purblu
+
+# ГСБ
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityCaptainPin
+  components:
+  - type: Sprite
+    state: icon-pur
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-captain
+  - type: Clothing
+    equippedPrefix: pur
+
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityMajorPin
+  components:
+  - type: Sprite
+    state: icon-cya
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-major
+  - type: Clothing
+    equippedPrefix: cya

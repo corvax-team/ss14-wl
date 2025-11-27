@@ -2,6 +2,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Components;

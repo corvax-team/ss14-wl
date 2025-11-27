@@ -18,17 +18,13 @@
             Poison: 0.75
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Desoxyephedrine
           min: 30
 # WL species start
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -36,68 +32,49 @@
             Asphyxiation: 2
     Narcotic:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
 # WL species start
         conditions:
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
 # WL species start
-        # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
       - !type:Jitter
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
 # WL species start
         # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 3
         type: Remove
 # WL species start
         # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Haloperidol
           max: 0.01
         effectProto: StatusEffectDrowsiness
@@ -107,17 +84,13 @@
       effects:
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Desoxyephedrine
           min: 20
 # WL species start
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
 
 - type: reagent
@@ -134,72 +107,53 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
 # WL species start
-        # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ephedrine
           min: 20
 # WL species start
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
         damage:
           types:
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
       - !type:Jitter
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 1
         type: Remove
 # WL species start
-        # Android
-        conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 1
         type: Remove
 # WL species start
-        # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Haloperidol
           max: 0.01
         effectProto: StatusEffectDrowsiness
@@ -214,17 +168,13 @@
       effects:
       - !type:ResetNarcolepsy
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ephedrine
           min: 30
 # WL species start
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
 
 - type: reagent
@@ -242,56 +192,55 @@
     Narcotic:
       metabolismRate: 1.0
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Stimulants
           min: 80 #please wait 3 minutes before using another stimpack
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
             Poison: 1
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ChloralHydrate
           min: 1
         reagent: ChloralHydrate
         amount: -10
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 3
         type: Remove
       - !type:GenericStatusEffect
         key: StaminaModifier
         component: StaminaModifier
         time: 3
-        type: Add
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Haloperidol
           max: 0.01
         effectProto: StatusEffectDrowsiness
@@ -307,18 +256,13 @@
           factor: 1
         - !type:HealthChange
           conditions:
-          - !type:TotalDamage
+          - !type:TotalDamageCondition
             min: 70
             max: 120 # you've got a chance to get out of crit
 # WL species start
-          # Android
-          - !type:OrganType
-            type: Biorobotic
-            shouldHave: false
-          # Golem
-          - !type:OrganType
-            type: Golem
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Golem, Biorobotic ]
+            inverted: true
 # WL species end
           damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
             groups:
@@ -346,13 +290,12 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-        refresh: false
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
 
 - type: reagent
@@ -389,15 +332,15 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
       - !type:HealthChange
         damage:
@@ -405,56 +348,49 @@
             Poison: 2
 # WL species start
         conditions:
-        # Cischi
-        - !type:OrganType
-          type: Cischi
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi, Golem ]
+          inverted: true
 # WL species end
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         time: 10
         type: Add
-        refresh: false
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
-      - !type:ChemVomit # Vomiting is a symptom of brain damage
+      - !type:Vomit # Vomiting is a symptom of brain damage
         probability: 0.05
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 20 #5 # WL-Changes
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
     Cischi:
        effects:
        - !type:AdjustTemperature
          amount: -1
-       - !type:MovespeedModifier
+       - !type:MovementSpeedModifier
          walkSpeedModifier: 0.5
          sprintSpeedModifier: 0.5
        - !type:GenericStatusEffect
          key: ForcedSleep
          component: ForcedSleeping
-         refresh: false
          type: Add
 
 - type: reagent
@@ -472,13 +408,12 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
 
 - type: reagent
@@ -496,13 +431,12 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
@@ -518,25 +452,23 @@
   meltingPoint: 128.0
   metabolisms:
     Narcotic:
-      effects:
+      effects: # It would be nice to have speech slurred or mumbly, but accents are a bit iffy atm. Same for distortion effects.
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Nocturine
           min: 8
 # WL species start
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
         effectProto: StatusEffectForcedSleeping
-        time: 3
-        type: Add
+        time: 6
+        delay: 5
 
 - type: reagent
   id: MuteToxin
@@ -555,19 +487,13 @@
         key: Muted
         component: Muted
 # WL species start
-        # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
         type: Add
         time: 10
-        refresh: false
 
 - type: reagent
   id: NorepinephricAcid
@@ -603,17 +529,14 @@
         - norepinephricacid-effect-darkness
         - norepinephricacid-effect-blindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NorepinephricAcid
           min: 20
 # WL species start
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
         probability: 0.03
         #If anyone wants to add a light dimming or grayscale effect when under 20u, be my guest
@@ -621,17 +544,13 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NorepinephricAcid
           min: 20
 # WL species start
-        # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
 
 - type: reagent
@@ -652,14 +571,9 @@
       - !type:PopupMessage
 # WL species start
         conditions:
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
-        #Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
         type: Local
         probability: 0.08
@@ -683,29 +597,22 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
-        #Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
       - !type:Emote
         emote: Scream
         probability: 0.08
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TearGas
           min: 4
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
-        #Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
       - !type:Emote
         emote: Cough
@@ -714,34 +621,27 @@
         key: TemporaryBlindness
         component: TemporaryBlindness
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TearGas
           min: 4
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
-        #Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-        statusLifetime: 1.5
+        time: 1.5
         conditions: # because of the remainding after effect, threshold is given so the effects ends simultaniously
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TearGas
           min: 4
 # WL species start
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
-        #Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
 
 - type: reagent
@@ -760,21 +660,24 @@
         showInChat: true
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Happiness
           max: 20
       - !type:Emote
         emote: Whistle
         showInChat: true
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Happiness
           max: 20
       - !type:Emote
         emote: Crying
         showInChat: true
         probability: 0.1
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Happiness
           min: 20
       - !type:PopupMessage # we dont have sanity/mood so this will have to do
         type: Local
@@ -785,10 +688,10 @@
         - "psicodine-effect-at-peace"
         probability: 0.2
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Happiness
           max: 20
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false

@@ -2,7 +2,7 @@
 - type: roleLoadout
   id: JobCaptain
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - CaptainHead
   - CaptainNeck
   - CaptainJumpsuit
@@ -10,13 +10,14 @@
   - CaptainOuterClothing
   - Survival
   - Trinkets
+  - CaptainJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - HoPHead
   - HoPNeck
@@ -27,6 +28,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - HoPJobTrinkets
   - GroupSpeciesBreathTool
 
 # Silicons
@@ -44,7 +46,7 @@
 - type: roleLoadout
   id: JobPassenger
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
@@ -57,12 +59,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - PassengerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobBartender
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
@@ -72,12 +75,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - BartenderJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobServiceWorker
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
@@ -85,12 +89,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobChef
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ChefHead
   - ChefMask
@@ -101,12 +106,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ChefJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobLibrarian
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - LibrarianJumpsuit
   - CommonBackpack
@@ -114,12 +120,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - LibrarianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobLawyer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit
@@ -128,12 +135,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - LawyerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobChaplain
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ChaplainHead
   - ChaplainMask
@@ -146,12 +154,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ChaplainJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobJanitor
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - JanitorHead
   - JanitorJumpsuit
@@ -162,13 +171,14 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - JanitorJobTrinkets
   - JanitorPlunger
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobBotanist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - BotanistHead
   - BotanistJumpsuit
@@ -178,13 +188,14 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - BotanistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobClown
   canCustomizeName: true
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ClownHead
   - ClownJumpsuit
@@ -195,12 +206,13 @@
   - SurvivalClown
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ClownJobTrinkets
 
 - type: roleLoadout
   id: JobMime
   canCustomizeName: true
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MimeHead
   - MimeMask
@@ -212,11 +224,13 @@
   - SurvivalMime
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - MimeJobTrinkets
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
@@ -225,6 +239,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - MusicianJobTrinkets
   - Instruments
   - GroupSpeciesBreathTool
 
@@ -232,7 +247,7 @@
 - type: roleLoadout
   id: JobQuartermaster
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
@@ -244,12 +259,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
@@ -261,12 +277,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
@@ -275,13 +292,14 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
 
 # Engineering
 - type: roleLoadout
   id: JobChiefEngineer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
@@ -292,24 +310,26 @@
   - SurvivalExtended
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobStationEngineer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - StationEngineerHead
   - StationEngineerJumpsuit
@@ -320,12 +340,13 @@
   - SurvivalExtended
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
@@ -335,13 +356,14 @@
   - SurvivalExtended
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 # Science
 - type: roleLoadout
   id: JobResearchDirector
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
@@ -354,12 +376,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobScientist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ScientistHead
   - ScientistNeck
@@ -373,12 +396,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ScientistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
@@ -386,13 +410,14 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 # Security
 - type: roleLoadout
   id: JobHeadOfSecurity
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
@@ -403,13 +428,15 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - HOSBadges # WL-Changes
+  - HeadofSecurityJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
   id: JobWarden
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
@@ -419,13 +446,15 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - WardenBadges # WL-Changes
+  - WardenJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
@@ -436,13 +465,15 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - OfficerBadges # WL-Changes
+  - SecurityJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
   id: JobDetective
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - DetectiveHead
   - DetectiveNeck
   - DetectiveJumpsuit
@@ -452,25 +483,30 @@
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - DetectiveBadges # WL-Changes
+  - DetectiveJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
+  - PhotoGroup # WL-Changes: Photo to lodauts
 
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - CadetBadges # WL-Changes
+  - SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
 # Medical
 - type: roleLoadout
   id: JobChiefMedicalOfficer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
@@ -484,14 +520,14 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
-  - Inventory # Corvax-Loadouts
-  - Utility # WL-Changes
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
   id: JobMedicalDoctor
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
@@ -506,13 +542,13 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - MedicalDoctorNeck # WL-Changes
-  - Utility # WL-Changes
+  - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
   id: JobMedicalIntern
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
@@ -520,13 +556,13 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
-  - Utility # WL-Changes
+  - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
   id: JobChemist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - MedicalMask
   - ChemistJumpsuit
@@ -537,12 +573,13 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
   id: JobParamedic
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ParamedicHead
   - MedicalMask
@@ -555,25 +592,27 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 # Wildcards
 - type: roleLoadout
   id: JobZookeeper
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - CommonBackpack
   - Glasses
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ZookeeperJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobReporter
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - ReporterJumpsuit
   - CommonBackpack
@@ -581,12 +620,14 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ReporterJobTrinkets
   - GroupSpeciesBreathTool
+  - PhotoGroup # WL-Changes: Photo to lodauts
 
 - type: roleLoadout
   id: JobPsychologist
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
@@ -594,12 +635,13 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - PsychologistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
   id: JobBoxer
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - BoxerJumpsuit
   - BoxerGloves
@@ -608,6 +650,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - BoxerJobTrinkets
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

@@ -6,7 +6,7 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Civilian
-    time: 1800 #0.5 hr
+    time: 0.5h
   startingGear: ServiceWorkerGear
   subnames:
   - Male: официант
@@ -23,6 +23,14 @@
   - Kitchen
   extendedAccess:
   - Hydroponics
+  # WL-Skills-start
+  bonusSkillPoints: 20
+  defaultSkills:
+    Chemistry: 2
+    Botany: 2
+    Cooking: 2
+    Mixology: 2
+  # WL-Skills-end
 
 - type: startingGear
   id: ServiceWorkerGear

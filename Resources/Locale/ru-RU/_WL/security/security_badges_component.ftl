@@ -1,0 +1,11 @@
+security-badge-component-rank-description = На груди висит значок со званием [bold]{$loc}[/bold].
+security-badge-rank-private = Рядовой
+security-badge-rank-corporal = Капрал
+security-badge-rank-sub-sergeant = Суб-сержант
+security-badge-rank-sergeant = Сержант
+security-badge-rank-chief-sergeant = Обер-сержант
+security-badge-rank-sub-lieutenant = Суб-лейтенант
+security-badge-rank-lieutenant = Лейтенант
+security-badge-rank-chief-lieutenant = Обер-лейтенант
+security-badge-rank-captain = Капитан
+security-badge-rank-major = Майор

@@ -1,0 +1,119 @@
+- type: skill
+  id: Bureaucracy
+  skillType: Bureaucracy
+  costs: [0, 1, 2, 2]
+  color: "#eed2d2"
+
+- type: skill
+  id: Eva
+  skillType: Eva
+  costs: [0, 0, 4, 0]
+  color: "#c9daf8"
+
+- type: skill
+  id: Piloting
+  skillType: Piloting
+  costs: [0, 2, 2, 4]
+  color: "#cad6e4"
+
+- type: skill
+  id: MechPiloting
+  skillType: MechPiloting
+  costs: [0, 0, 2, 0]
+  color: "#e0c9e6"
+
+- type: skill
+  id: IT
+  skillType: IT
+  costs: [0, 1, 2, 2]
+  color: "#d5a6bd"
+
+- type: skill
+  id: Atmospherics
+  skillType: Atmospherics
+  costs: [0, 2, 2, 4]
+  color: "#b4e4d4"
+
+- type: skill
+  id: Construction
+  skillType: Construction
+  costs: [0, 2, 2, 2]
+  color: "#f0d5c7"
+
+- type: skill
+  id: Electrical
+  skillType: Electrical
+  costs: [0, 2, 2, 2]
+  color: "#fae9c1"
+
+- type: skill
+  id: Generators
+  skillType: Generators
+  costs: [0, 2, 4, 4]
+  color: "#fae9c1"
+
+- type: skill
+  id: Anatomy
+  skillType: Anatomy
+  costs: [0, 4, 4, 8]
+  color: "#b7dff0"
+
+- type: skill
+  id: Chemistry
+  skillType: Chemistry
+  costs: [0, 2, 4, 8]
+  color: "#ffc7b0"
+
+- type: skill
+  id: Medicine
+  skillType: Medicine
+  costs: [0, 2, 4, 8]
+  color: "#a5d4eb"
+
+- type: skill
+  id: ComplexDevices
+  skillType: ComplexDevices
+  costs: [0, 2, 2, 4]
+  color: "#cab5dd"
+
+- type: skill
+  id: Science
+  skillType: Science
+  costs: [0, 2, 2, 4]
+  color: "#eca8eb"
+
+- type: skill
+  id: Forensics
+  skillType: Forensics
+  costs: [0, 1, 4, 2]
+  color: "#e78080"
+
+- type: skill
+  id: Combat
+  skillType: Combat
+  costs: [0, 2, 2, 2]
+  color: "#ea9999"
+
+- type: skill
+  id: Weapons
+  skillType: Weapons
+  costs: [0, 2, 4, 8]
+  color: "#caa1a1"
+
+- type: skill
+  id: Botany
+  skillType: Botany
+  costs: [0, 1, 2, 2]
+  color: "#b1e7a0"
+
+- type: skill
+  id: Cooking
+  skillType: Cooking
+  costs: [0, 1, 2, 2]
+  color: "#ebb59f"
+
+- type: skill
+  id: Mixology
+  skillType: Mixology
+  costs: [0, 1, 2, 2]
+  color: "#dacbbe"

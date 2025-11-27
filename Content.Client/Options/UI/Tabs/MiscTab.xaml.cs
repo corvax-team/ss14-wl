@@ -8,6 +8,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared;
 using Robust.Shared.Prototypes;
+using Content.Shared.Corvax.CCCVars; // # CorvaxGoob-Offer
 
 namespace Content.Client.Options.UI.Tabs;
 
@@ -52,6 +53,7 @@ public sealed partial class MiscTab : Control
         Control.AddOptionCheckBox(CCVars.ChatEnableFancyBubbles, FancySpeechBubblesCheckBox);
         Control.AddOptionCheckBox(CCVars.ChatFancyNameBackground, FancyNameBackgroundsCheckBox);
         Control.AddOptionCheckBox(CCVars.StaticStorageUI, StaticStorageUI);
+        Control.AddOptionCheckBox(CCCVars.OfferModeIndicatorsPointShow, ShowOfferModeIndicatorsCheckBox); // CorvaxGoob-Offer
 
         Control.Initialize();
     }

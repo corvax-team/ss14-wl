@@ -289,7 +289,12 @@ namespace Content.Client.Paper.UI
             StampDisplay.RemoveStamps();
             foreach(var stamper in state.StampedBy)
             {
-                StampDisplay.AddStamp(new StampWidget{ StampInfo = stamper });
+                // WL-Changes-start
+                var stamp = new StampWidget();
+                stamp.UpdateVisuals(stamper);
+
+                StampDisplay.AddStamp(stamp);
+                // WL-Changes-end
             }
         }
 

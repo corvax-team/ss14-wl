@@ -1,4 +1,4 @@
-﻿<Control Name="CFlavorText" xmlns="https://spacestation14.io">
+<Control Name="CFlavorText" xmlns="https://spacestation14.io">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True">
         <!-- WL-OOCText-Start -->
         <Label Text="{Loc 'flavor-tab-flavor-text'}" Margin="5 5 0 0" />

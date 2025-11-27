@@ -6,16 +6,16 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 21600 #6 hrs
+      time: 6h
     - !type:RoleTimeRequirement
       role: JobDetective
-      time: 7200 #2 hrs
+      time: 2h
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 21600 #6 hrs
+      time: 6h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 216000 # 60 hrs
+      time: 60h
       # WL-Changes-start
     - !type:AgeRequirement
       minAge: 24
@@ -34,6 +34,16 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  # WL-Skills-start
+  bonusSkillPoints: 10
+  defaultSkills:
+    Bureaucracy: 2
+    Eva: 3
+    Piloting: 2
+    Forensics: 2
+    Combat: 2
+    Weapons: 3
+  # WL-Skills-end
 
 - type: startingGear
   id: SeniorOfficerGear

@@ -1,0 +1,43 @@
+- type: entity
+  parent: BaseItem
+  id: PhotoCamera
+  name: "camera"
+  description: 'Say "Cheeese!", uses paper for printing'
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/camera.rsi
+    layers:
+    - state: camera
+  - type: Eye
+  - type: PhotoCamera
+  - type: UseDelay
+  - type: ActivatableUI
+    key: enum.PhotoCameraUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PhotoCameraUiKey.Key:
+        type: PhotoCameraBoundUserInterface
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Paper
+
+- type: entity
+  name: "photo"
+  parent: BasePaper
+  id: PhotoCard
+  description: "Paper with printed image on it."
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/camera.rsi
+    layers:
+    - state: card
+  - type: ActivatableUI
+    key: enum.PhotoCardUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PhotoCardUiKey.Key:
+        type: PhotoCardBoundUserInterface
+  - type: PhotoCard
+  - type: FaxableObject

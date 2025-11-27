@@ -9,6 +9,8 @@ using System.Net;
 using System.Text.Json;
 using Content.Shared.Database;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking; // WL-Skills
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion; // WL-Skills
 using NpgsqlTypes;
 
 namespace Content.Server.Database
@@ -46,6 +48,7 @@ namespace Content.Server.Database
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
         public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
+        public DbSet<ProfileJobSkills> ProfileJobSkills { get; set; } = null!; // WL-Skills
 
         //WL-Changes-start
         public DbSet<DiscordConnection> DiscordConnections { get; set; } = null!;
@@ -123,6 +126,30 @@ namespace Content.Server.Database
             modelBuilder.Entity<JobSubname>()
                 .HasIndex(j => new { j.ProfileId, j.JobName })
                 .IsUnique();
+
+            modelBuilder.Entity<ProfileJobSkills>(entity =>
+            {
+                var converter = new ValueConverter<Dictionary<byte, int>, string>(
+                    v => JsonSerializer.Serialize(v, (JsonSerializerOptions)null!),
+                    v => JsonSerializer.Deserialize<Dictionary<byte, int>>(v, (JsonSerializerOptions)null!) ?? new());
+
+                var comparer = new ValueComparer<Dictionary<byte, int>>(
+                    (l, r) => l != null && r != null && l.SequenceEqual(r),
+                    v => v.Aggregate(0, (a, p) => HashCode.Combine(a, p.Key.GetHashCode(), p.Value.GetHashCode())),
+                    v => v.ToDictionary(kv => kv.Key, kv => kv.Value));
+
+                entity.Property(e => e.Skills)
+                    .HasConversion(converter)
+                    .Metadata.SetValueComparer(comparer);
+
+                entity.HasIndex(p => new { p.ProfileId, p.JobName })
+                    .IsUnique();
+
+                entity.HasOne(e => e.Profile)
+                    .WithMany(e => e.JobSkills)
+                    .HasForeignKey(e => e.ProfileId)
+                    .IsRequired();
+            });
             //WL-Changes-end
 
             modelBuilder.Entity<AssignedUserId>()
@@ -455,6 +482,7 @@ namespace Content.Server.Database
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
         public List<JobSubname> JobSubnames { get; } = new(); //WL-Subnames
+        public List<ProfileJobSkills> JobSkills { get; } = new(); // WL-Skills
 
         public List<JobUnblocking> JobUnblockings { get; } = new(); //WL-Changes
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
@@ -606,9 +634,28 @@ namespace Content.Server.Database
         /*
          * Insert extra data here like custom descriptions or colors or whatever.
          */
-}
+    }
 
     #endregion
+
+    // WL-Skills-start
+    #region Job Skills
+
+    public class ProfileJobSkills
+    {
+        public int Id { get; set; }
+
+        public int ProfileId { get; set; }
+        public Profile Profile { get; set; } = null!;
+
+        public string JobName { get; set; } = string.Empty;
+
+        [Column(TypeName = "jsonb")]
+        public Dictionary<byte, int> Skills { get; set; } = new();
+    }
+
+    #endregion
+    // WL-Skills-end
 
     public enum DbPreferenceUnavailableMode
     {

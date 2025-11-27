@@ -173,14 +173,16 @@
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_dtiger
 
-- type: marking
-  id: LizardTailAquatic
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Reptilian]
-  sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_aquatic
+# WL-Changes-akula-species-start
+# - type: marking
+#   id: LizardTailAquatic
+#   bodyPart: Tail
+#   markingCategory: Tail
+#   speciesRestriction: [Reptilian]
+#   sprites:
+#   - sprite: Mobs/Customization/reptilian_parts.rsi
+#     state: tail_aquatic
+# WL-Changes-akula-species-end
 
 - type: marking
   id: LizardSnoutRound
@@ -366,14 +368,16 @@
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: body_backspikes
 
-- type: marking
-  id: LizardChestFin
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Reptilian]
-  sprites:
-  - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: body_fin
+# WL-Changes-akula-species-start
+# - type: marking
+#   id: LizardChestFin
+#   bodyPart: Chest
+#   markingCategory: Chest
+#   speciesRestriction: [Reptilian]
+#   sprites:
+#   - sprite: Mobs/Customization/reptilian_parts.rsi
+#     state: body_fin
+# WL-Changes-akula-species-end
 
 # Animated
 - type: marking
@@ -423,11 +427,13 @@
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_dtiger_wagging
 
-- type: marking
-  id: LizardTailAquaticAnimated
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
-  sprites:
-    - sprite: Mobs/Customization/reptilian_parts.rsi
-      state: tail_aquatic_wagging
+# WL-Changes-akula-species-start
+# - type: marking
+#   id: LizardTailAquaticAnimated
+#   bodyPart: Tail
+#   markingCategory: Tail
+#   speciesRestriction: []
+#   sprites:
+#     - sprite: Mobs/Customization/reptilian_parts.rsi
+#       state: tail_aquatic_wagging
+# WL-Changes-akula-species-end
