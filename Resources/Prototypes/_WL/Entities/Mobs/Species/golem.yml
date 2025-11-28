@@ -38,28 +38,28 @@
     - type: FlashImmunity
     - type: Inventory
       speciesId: golem
-#      femaleDisplacements:
-#        jumpsuit:
-#          sizeMaps:
-#            32:
-#              sprite: Corvax/Mobs/Species/displacement.rsi
-#              state: jumpsuit-female
-#        shoes:
-#          sizeMaps:
-#            32:
-#              sprite: Corvax/Mobs/Species/displacement.rsi
-#              state: shoes
-#      displacements:
-#        jumpsuit:
-#          sizeMaps:
-#            32:
-#              sprite: Corvax/Mobs/Species/displacement.rsi          IDK for what that here
-#              state: jumpsuit
-#        shoes:
-#          sizeMaps:
-#            32:
-#              sprite: Corvax/Mobs/Species/displacement.rsi
-#              state: shoes
+      femaleDisplacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit-female
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: shoes
+      displacements:
+        jumpsuit:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: jumpsuit
+        shoes:
+          sizeMaps:
+            32:
+              sprite: Corvax/Mobs/Species/displacement.rsi
+              state: shoes
     - type: Puller
       needsHands: true
     - type: Bloodstream
