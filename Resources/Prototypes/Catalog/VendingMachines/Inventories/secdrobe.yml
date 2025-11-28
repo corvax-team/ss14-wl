@@ -9,6 +9,7 @@
     ClothingShoesBootsJack: 3
     ClothingHeadHatBeretSecurity: 3
     ClothingHeadHatBeretDSS: 3 # Corvax WL
+    ClothingHeadHatDSSSoft: 3 # Corvax WL
     ClothingHeadHatSecsoft: 3
     ClothingHeadBandRed: 3
     ClothingMaskNeckGaiterRed: 3
@@ -17,7 +18,7 @@
     ClothingUniformJumpskirtSec: 3
     ClothingUniformJumpsuitSecGrey: 3
     ClothingUniformJumpskirtSecGrey: 3
-    ClothingUniformJumpsuitSecBlue: 3
+    # ClothingUniformJumpsuitSecBlue: 3 # WL-Changes: Clothing migration
     ClothingHeadsetSecurity: 3
     ClothingOuterWinterSec: 2
     ClothingOuterArmorBasic: 2
