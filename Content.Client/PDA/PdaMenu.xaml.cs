@@ -192,14 +192,10 @@ namespace Content.Client.PDA
                 ("level", _alertLevel)
             ));
 
-            if (alertInstructions != null)
-                if (alertInstructions == String.Empty)
-                    if (_locMan.TryGetString($"alert-level-{alertLevel}-instructions", out var locInstruction))
-                        _instructions = locInstruction;
-                    else
-                        _instructions = Loc.GetString("alert-level-unknown-instructions");
-                else
-                    _instructions = alertInstructions;
+            if (!string.IsNullOrEmpty(alertInstructions))
+                _instructions = alertInstructions;
+            else if (alertLevel != null && _locMan.TryGetString($"alert-level-{alertLevel}-instructions", out var locInstruction))
+                _instructions = locInstruction;
             else
                 _instructions = Loc.GetString("alert-level-unknown-instructions");
             // WL-Changes-end
