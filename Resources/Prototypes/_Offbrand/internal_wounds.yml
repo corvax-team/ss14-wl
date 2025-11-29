@@ -16,8 +16,8 @@
   - type: Wound
     damage:
       damageDict:
-        Blunt: 10
-    maximumDamage: 10
+        Blunt: 0.1
+    maximumDamage: 0.1
   - type: MovementModStatusEffect
     sprintSpeedModifier: 0.8
     walkSpeedModifier: 0.8
@@ -38,8 +38,8 @@
   - type: Wound
     damage:
       damageDict:
-        Slash: 5
-    maximumDamage: 5
+        Slash: 0.05
+    maximumDamage: 0.05
   - type: BleedingWound
     bleedingCoefficients:
       Slash: 0.2
@@ -64,9 +64,9 @@
   - type: Wound
     damage:
       damageDict:
-        Heat: 100
-        Blunt: 100
-    maximumDamage: 200
+        Heat: 1
+        Blunt: 1
+    maximumDamage: 2
   - type: PainfulWound
     painCoefficients:
       Heat: 0.8
@@ -108,10 +108,10 @@
   - type: Wound
     damage:
       damageDict:
-        Blunt: 50
-        Slash: 50
-        Piercing: 50
-    maximumDamage: 150
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+    maximumDamage: 1.5
   - type: AnalyzableWound
     descriptions:
       0: wound-bone-death
