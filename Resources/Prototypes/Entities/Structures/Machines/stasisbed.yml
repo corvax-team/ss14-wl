@@ -4,6 +4,7 @@
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   description: A bed that massively slows down the patient's metabolism and prevents bodily decay, allowing more time to administer a proper treatment for stabilization.
   components:
+  - type: SleepOnBuckle
   - type: StasisBed
   - type: AntiRotOnBuckle
   - type: HealOnBuckle

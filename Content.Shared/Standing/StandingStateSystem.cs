@@ -112,7 +112,8 @@ public sealed class StandingStateSystem : EntitySystem
         if (!standingState.Standing)
         {
             // Wl-Changes-start: sleep when you laying
-            _actionsSystem.RemoveAction(uid, standingState.SleepAction);
+            if (standingState.SleepAction != null)
+                _actionsSystem.RemoveAction(uid, standingState.SleepAction);
             _sleepingSystem.TryWaking(uid);
             // WL-Changes-end
             return true;
@@ -240,6 +241,12 @@ public sealed class StandingStateSystem : EntitySystem
         }
 
         entity.Comp1.ChangedFixtures.Clear();
+    }
+
+    public void ClearSleepAction(Entity<StandingStateComponent> entity)
+    {
+        entity.Comp.SleepAction = null;
+        Dirty(entity);
     }
 }
 

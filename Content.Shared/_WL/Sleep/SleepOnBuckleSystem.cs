@@ -3,6 +3,8 @@ using Content.Shared.Standing;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Bed.Components;
+using Content.Shared.Actions.Components;
 
 namespace Content.Shared._WL.Sleep;
 
@@ -32,7 +34,9 @@ public sealed class SleepOnBuckleSystem : EntitySystem
     private void OnStrapped(Entity<SleepOnBuckleComponent> ent, ref StrappedEvent args)
     {
         if (TryComp<StandingStateComponent>(args.Buckle, out var standing)
-            && standing.SleepAction != null)
+            && standing.SleepAction != null
+            && TryComp<ActionComponent>(standing.SleepAction.Value, out var actionComp)
+            && actionComp.AttachedEntity == args.Buckle.Owner)
             _actionsSystem.RemoveAction(args.Buckle.Owner, standing.SleepAction);
 
         _actionsSystem.AddAction(args.Buckle, ref ent.Comp.SleepAction, SleepingSystem.SleepActionId, ent);
@@ -49,7 +53,8 @@ public sealed class SleepOnBuckleSystem : EntitySystem
             RemComp<KnockedDownComponent>(args.Buckle.Owner);
             RemComp<StunnedComponent>(args.Buckle.Owner);
 
-            _standing.Stand(args.Buckle.Owner, force: true);
+            if (!TryComp<HealOnBuckleComponent>(ent, out var _))
+                _standing.Stand(args.Buckle.Owner, force: true);
 
             if (TryComp<StandingStateComponent>(args.Buckle.Owner, out var standing)
                 && standing.SleepAction != null)

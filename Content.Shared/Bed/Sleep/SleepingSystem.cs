@@ -296,6 +296,9 @@ public sealed partial class SleepingSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, logMissing: false))
             return false;
 
+        if (HasComp<SleepingComponent>(ent))
+            return true;
+
         var tryingToSleepEvent = new TryingToSleepEvent(ent);
         RaiseLocalEvent(ent, ref tryingToSleepEvent);
         if (tryingToSleepEvent.Cancelled)
