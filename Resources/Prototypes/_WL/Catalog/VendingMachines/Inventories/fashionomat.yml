@@ -2,8 +2,8 @@
   id: FashionOMatInventory
   startingInventory:
     # Head
-    FlowerWreath: 3
-    Hairflower: 3
+    ClothingHeadHatFlowerWreath: 3
+    ClothingHeadHatHairflower: 3
     ClothingHeadWehcellentCap: 3
     ClothingHeadHatUshanka: 5
     ClothingHeadHatStrawHat: 3
