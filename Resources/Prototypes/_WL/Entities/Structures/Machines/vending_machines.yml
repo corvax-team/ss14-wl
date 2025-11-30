@@ -59,6 +59,7 @@
       shader: unshaded
     - state: panel
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Speech
   - type: PointLight
     radius: 1.8
     energy: 1
