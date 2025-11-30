@@ -1,4 +1,4 @@
-// Wl-Changes-start: sleep when you laying
+// Wl-Changes-start: sleep when you lying down
 using Content.Shared.Actions;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
@@ -23,7 +23,7 @@ public sealed class StandingStateSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    // Wl-Changes-start: sleep when you laying
+    // Wl-Changes-start: sleep when you lying down
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
     // WL-Changes-end
@@ -111,7 +111,7 @@ public sealed class StandingStateSystem : EntitySystem
 
         if (!standingState.Standing)
         {
-            // Wl-Changes-start: sleep when you laying
+            // Wl-Changes-start: sleep when you lying down
             if (standingState.SleepAction != null)
                 _actionsSystem.RemoveAction(uid, standingState.SleepAction);
             _sleepingSystem.TryWaking(uid);
@@ -138,7 +138,7 @@ public sealed class StandingStateSystem : EntitySystem
         }
 
         standingState.Standing = false;
-        // Wl-Changes-start: sleep when you laing
+        // Wl-Changes-start: sleep when you lying down
         // this delete second action(he can crash game) when you sit on chair or laying on bed
         var shouldAddSleepAction = true;
 
@@ -199,6 +199,11 @@ public sealed class StandingStateSystem : EntitySystem
         }
 
         standingState.Standing = true;
+
+        // Wl-Changes-start: sleep when you lying down
+        if (standingState.SleepAction != null)
+            _actionsSystem.RemoveAction(uid, standingState.SleepAction);
+        // WL-Changes-end
         Dirty(uid, standingState);
         RaiseLocalEvent(uid, new StoodEvent(), false);
 
@@ -241,12 +246,6 @@ public sealed class StandingStateSystem : EntitySystem
         }
 
         entity.Comp1.ChangedFixtures.Clear();
-    }
-
-    public void ClearSleepAction(Entity<StandingStateComponent> entity)
-    {
-        entity.Comp.SleepAction = null;
-        Dirty(entity);
     }
 }
 

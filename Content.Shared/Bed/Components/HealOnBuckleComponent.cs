@@ -34,7 +34,7 @@ namespace Content.Shared.Bed.Components
         /// <summary>
         /// Action for the attached entity to be able to sleep.
         /// </summary>
-        // [DataField, AutoNetworkedField]
-        // public EntityUid? SleepAction;
+        [DataField, AutoNetworkedField]
+        public EntityUid? SleepAction;
     }
 }
