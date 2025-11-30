@@ -114,7 +114,7 @@
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
-  - LibrarianJumpsuit
+  - FormalUniform # LibrarianJumpsuit # WL-Changes: Formal uniform
   - CommonBackpack
   - Glasses
   - Survival
@@ -129,7 +129,7 @@
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - LawyerNeck
-  - LawyerJumpsuit
+  - FormalUniform # LawyerJumpsuit # WL-Changes: Formal uniform
   - CommonBackpack
   - Glasses
   - Survival
@@ -476,7 +476,7 @@
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - DetectiveHead
   - DetectiveNeck
-  - DetectiveJumpsuit
+  - FormalUniform # - DetectiveJumpsuit # WL-Changes: Formal uniform
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
@@ -614,7 +614,7 @@
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
-  - ReporterJumpsuit
+  - FormalUniform # ReporterJumpsuit # WL-Changes: Formal uniform
   - CommonBackpack
   - Glasses
   - Survival
