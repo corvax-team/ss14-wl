@@ -101,7 +101,6 @@
 - type: loadoutGroup
   id: FormalUniform
   name: loadout-group-corp-uniform
-  minLimit: 0
   loadouts:
   - DetectiveJumpsuit
   - DetectiveJumpskirt
