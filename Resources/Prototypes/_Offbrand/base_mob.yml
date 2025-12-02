@@ -46,7 +46,7 @@
       woundPrototype: WoundArterialBleeding
       woundDamages:
         damageDict:
-          Slash: 5
+          Slash: 0.05
       damageProbabilityCoefficient: 0.002
       damageProbabilityConstant: 0
     - damageTypes: [Blunt]
@@ -55,7 +55,7 @@
       woundPrototype: WoundFracture
       woundDamages:
         damageDict:
-          Blunt: 10
+          Blunt: 0.1
       damageProbabilityCoefficient: 0.005
       damageProbabilityConstant: 0
     - damageTypes: [Heat]
@@ -64,8 +64,8 @@
       woundPrototype: WoundHusking
       woundDamages:
         damageDict:
-          Heat: 100
-          Blunt: 100
+          Heat: 1
+          Blunt: 1
       damageProbabilityCoefficient: 0.25
       damageProbabilityConstant: 0
     - damageTypes: [Heat]
@@ -74,8 +74,8 @@
       woundPrototype: WoundHusking
       woundDamages:
         damageDict:
-          Heat: 100
-          Blunt: 100
+          Heat: 1
+          Blunt: 1
       damageProbabilityCoefficient: 1
       damageProbabilityConstant: 0
     - damageTypes: [Slash, Blunt, Piercing]
@@ -84,9 +84,9 @@
       woundPrototype: WoundBoneDeath
       woundDamages:
         damageDict:
-          Blunt: 50
-          Slash: 50
-          Piercing: 50
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.5
       damageProbabilityCoefficient: 0.25
       damageProbabilityConstant: 0
     - damageTypes: [Slash, Blunt, Piercing]
@@ -95,9 +95,9 @@
       woundPrototype: WoundBoneDeath
       woundDamages:
         damageDict:
-          Blunt: 50
-          Slash: 50
-          Piercing: 50
+          Blunt: 0.5
+          Slash: 0.5
+          Piercing: 0.5
       damageProbabilityCoefficient: 1
       damageProbabilityConstant: 0
 
