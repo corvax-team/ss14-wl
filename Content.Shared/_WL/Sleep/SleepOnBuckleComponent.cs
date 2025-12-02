@@ -13,4 +13,10 @@ public sealed partial class SleepOnBuckleComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? SleepAction;
+
+    /// <summary>
+    /// Who unbuckle entity
+    /// </summary>
+    [DataField]
+    public EntityUid? User;
 }

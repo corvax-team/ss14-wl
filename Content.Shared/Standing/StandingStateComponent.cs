@@ -27,11 +27,12 @@ namespace Content.Shared.Standing
         [DataField, AutoNetworkedField]
         public List<string> ChangedFixtures = new();
 
-        // Wl-Changes-start: sleep when you laying
+        // Wl-Changes-start: sleep when you lying down
         /// <summary>
         /// Action for the attached entity to be able to sleep.
         /// </summary>
         [DataField, AutoNetworkedField]
         public EntityUid? SleepAction;
+        // WL-Changes-end
     }
 }

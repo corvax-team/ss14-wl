@@ -1,6 +1,8 @@
 // Wl-Changes-start: sleep when you lying down
 using Content.Shared.Actions;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Bed.Components;
+using Content.Shared.Actions.Components;
 using Content.Shared.Buckle.Components;
 using Content.Shared._WL.Sleep;
 // WL-Changes-end
@@ -14,7 +16,6 @@ using Content.Shared.Rotation;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
-using Content.Shared.Bed.Components;
 
 namespace Content.Shared.Standing;
 
@@ -113,7 +114,9 @@ public sealed class StandingStateSystem : EntitySystem
         {
             // Wl-Changes-start: sleep when you lying down
             if (standingState.SleepAction != null)
-                _actionsSystem.RemoveAction(uid, standingState.SleepAction);
+                if (TryComp<ActionComponent>(standingState.SleepAction.Value, out var actionComp)
+                    && actionComp.AttachedEntity == uid)
+                    _actionsSystem.RemoveAction(uid, standingState.SleepAction);
             _sleepingSystem.TryWaking(uid);
             // WL-Changes-end
             return true;
@@ -202,7 +205,9 @@ public sealed class StandingStateSystem : EntitySystem
 
         // Wl-Changes-start: sleep when you lying down
         if (standingState.SleepAction != null)
-            _actionsSystem.RemoveAction(uid, standingState.SleepAction);
+            if (TryComp<ActionComponent>(standingState.SleepAction.Value, out var actionComp)
+                && actionComp.AttachedEntity == uid)
+                _actionsSystem.RemoveAction(uid, standingState.SleepAction);
         // WL-Changes-end
         Dirty(uid, standingState);
         RaiseLocalEvent(uid, new StoodEvent(), false);

@@ -22,7 +22,7 @@ public sealed class SleepOnBuckleSystem : EntitySystem
         SubscribeLocalEvent<SleepOnBuckleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SleepOnBuckleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<SleepOnBuckleComponent, UnstrappedEvent>(OnUnstrapped);
-        SubscribeLocalEvent<BuckleComponent, WakeActionEvent>(OnWakeWhileBuckled);
+        SubscribeLocalEvent<HealOnBuckleComponent, UnstrapAttemptEvent>(OnUnstrapAttempt);
     }
 
     private void OnMapInit(Entity<SleepOnBuckleComponent> ent, ref MapInitEvent args)
@@ -50,24 +50,18 @@ public sealed class SleepOnBuckleSystem : EntitySystem
             _actionsSystem.RemoveAction(args.Buckle.Owner, ent.Comp.SleepAction);
             _sleepingSystem.TryWaking(args.Buckle.Owner);
 
-            RemComp<KnockedDownComponent>(args.Buckle.Owner);
-            RemComp<StunnedComponent>(args.Buckle.Owner);
+            if (ent.Comp.User == args.Buckle.Owner)
+            {
+                RemComp<KnockedDownComponent>(args.Buckle.Owner);
+                RemComp<StunnedComponent>(args.Buckle.Owner);
 
-            if (!TryComp<HealOnBuckleComponent>(ent, out var _))
                 _standing.Stand(args.Buckle.Owner, force: true);
-
-            if (TryComp<StandingStateComponent>(args.Buckle.Owner, out var standing)
-                && standing.SleepAction != null)
-                _actionsSystem.RemoveAction(args.Buckle.Owner, standing.SleepAction); //delete sleep action(it added after you unstrapped) after you unstrapped
+            }
         }
     }
 
-    private void OnWakeWhileBuckled(Entity<BuckleComponent> ent, ref WakeActionEvent args)
+    private void OnUnstrapAttempt(Entity<HealOnBuckleComponent> ent, ref UnstrapAttemptEvent args)
     {
-        if (ent.Comp.BuckledTo != null
-            && TryComp<SleepOnBuckleComponent>(ent.Comp.BuckledTo.Value, out _)
-            && TryComp<StrapComponent>(ent.Comp.BuckledTo.Value, out var strap)
-            && strap.Position == StrapPosition.Stand)
-            _standing.Stand(ent.Owner, force: true);
+        ent.Comp.User = args.User;
     }
 }
