@@ -3,7 +3,6 @@ using Content.Shared.Standing;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Bed.Components;
 using Content.Shared.Actions.Components;
 
 namespace Content.Shared._WL.Sleep;
@@ -22,7 +21,7 @@ public sealed class SleepOnBuckleSystem : EntitySystem
         SubscribeLocalEvent<SleepOnBuckleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SleepOnBuckleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<SleepOnBuckleComponent, UnstrappedEvent>(OnUnstrapped);
-        SubscribeLocalEvent<HealOnBuckleComponent, UnstrapAttemptEvent>(OnUnstrapAttempt);
+        SubscribeLocalEvent<SleepOnBuckleComponent, UnstrapAttemptEvent>(OnUnstrapAttempt);
     }
 
     private void OnMapInit(Entity<SleepOnBuckleComponent> ent, ref MapInitEvent args)
@@ -60,7 +59,7 @@ public sealed class SleepOnBuckleSystem : EntitySystem
         }
     }
 
-    private void OnUnstrapAttempt(Entity<HealOnBuckleComponent> ent, ref UnstrapAttemptEvent args)
+    private void OnUnstrapAttempt(Entity<SleepOnBuckleComponent> ent, ref UnstrapAttemptEvent args)
     {
         ent.Comp.User = args.User;
     }

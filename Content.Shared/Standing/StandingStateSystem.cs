@@ -142,16 +142,10 @@ public sealed class StandingStateSystem : EntitySystem
 
         standingState.Standing = false;
         // Wl-Changes-start: sleep when you lying down
-        // this delete second action(he can crash game) when you sit on chair or laying on bed
-        var shouldAddSleepAction = true;
-
-        if (TryComp<BuckleComponent>(uid, out var buckle)
-            && buckle.BuckledTo != null
-            && (HasComp<SleepOnBuckleComponent>(buckle.BuckledTo.Value) // for chair
-            || HasComp<HealOnBuckleComponent>(buckle.BuckledTo.Value))) // for bed
-            shouldAddSleepAction = false;
-
-        if (shouldAddSleepAction)
+        if (!TryComp<BuckleComponent>(uid, out var buckle)
+            || buckle.BuckledTo == null
+            || !(HasComp<HealOnBuckleComponent>(buckle.BuckledTo.Value)
+            || HasComp<SleepOnBuckleComponent>(buckle.BuckledTo.Value)))
             _actionsSystem.AddAction(uid, ref standingState.SleepAction, SleepingSystem.SleepActionId, uid);
         // WL-Changes-end
 
