@@ -66,6 +66,7 @@
   action:
     !type:ToggleSleepingAction
     sleep: true
+    wakeUp: false
 
 # Shake the target to wake them up and sober them up a little bit
 - type: Interaction
@@ -76,6 +77,7 @@
   cooldown: 10 # Slightly abusable
   effectDelayed: null
   hideByRequirement: true
+  icon: /Textures/_WL/Interface/VerbIcons/verb_shake.png
   requirement:
     !type:ComplexRequirement
     requirements:

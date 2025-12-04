@@ -90,7 +90,7 @@ namespace Content.Shared.Verbs
             new("verb-categories-adjust", "/Textures/Interface/VerbIcons/screwdriver.png");
 
         // Einstein Engines - Interaction Verbs
-        public static readonly VerbCategory Interaction = new("verb-categories-interaction", null);
+        public static readonly VerbCategory Interaction = new("verb-categories-interaction", "/Textures/_WL/Interface/VerbIcons/verb_category.png");
         // End
     }
 }
