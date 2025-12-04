@@ -982,7 +982,7 @@
   components:
   - type: Sprite
     layers:
-    # - state:black #WL-Resprite
+    - state: syndie #WL-Resprite
     # - state:stripe_top #WL-Resprite
       # color: &color-syndicate-top "#e80c0c"
     # - state:stripe_bottom #WL-Resprite
@@ -1004,7 +1004,7 @@
   components:
   - type: Sprite
     layers:
-    # - state:black #WL-Resprite
+    - state: syndie #WL-Resprite
     # - state:stripe_top #WL-Resprite
       # color: *color-syndicate-top
     # - state:stripe_bottom #WL-Resprite
@@ -1021,7 +1021,7 @@
   components:
   - type: Sprite
     layers:
-    # - state:black #WL-Resprite
+    - state: syndie #WL-Resprite
     # - state:stripe_top #WL-Resprite
       # color: *color-syndicate-top
     # - state:stripe_bottom #WL-Resprite
@@ -1037,7 +1037,7 @@
   components:
   - type: Sprite
     layers:
-    # - state:black #WL-Resprite
+    - state: syndie #WL-Resprite
     # - state:stripe_top #WL-Resprite
       # color: *color-syndicate-top
     # - state:stripe_bottom #WL-Resprite
