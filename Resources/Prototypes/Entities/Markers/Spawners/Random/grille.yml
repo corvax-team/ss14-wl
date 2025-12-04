@@ -10,7 +10,8 @@
     - type: RandomSpawner
       prototypes:
         - Grille
-        - GrilleBroken
+        #Corvax-WL Changes - GrilleBroken
+        - ClockworkGrille #Corvax-WL Changes
       chance: 1.0
   placement:
     mode: AlignTileAny
