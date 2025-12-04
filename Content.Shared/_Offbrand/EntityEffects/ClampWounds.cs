@@ -5,19 +5,23 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class ClampWounds : EntityEffect
+public sealed partial class ClampWounds : EntityEffectBase<ClampWounds>
 {
     [DataField(required: true)]
     public float Chance;
 
-    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
-        return Loc.GetString("reagent-effect-guidebook-clamp-wounds", ("probability", Probability), ("chance", Chance));
+        return Loc.GetString("entity-effect-guidebook-clamp-wounds", ("probability", Probability), ("chance", Chance));
     }
+}
 
-    public override void Effect(EntityEffectBaseArgs args)
+public sealed class ClampWoundsEntityEffectSystem : EntityEffectSystem<WoundableComponent, ClampWounds>
+{
+    [Dependency] private readonly WoundableSystem _woundable = default!;
+
+    protected override void Effect(Entity<WoundableComponent> ent, ref EntityEffectEvent<ClampWounds> args)
     {
-        args.EntityManager.System<WoundableSystem>()
-            .ClampWounds(args.TargetEntity, Chance);
+        _woundable.ClampWounds(ent, args.Effect.Chance);
     }
 }

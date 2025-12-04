@@ -48,13 +48,12 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water ]
       methods: [Touch, Ingestion, Injection]
       effects:
       - !type:Electrocute
         probability: 0.05
-        electrocuteDamageScale: 1
       - !type:PopupMessage
         type: Local
         visualType: LargeCaution
@@ -233,6 +232,7 @@
       - Translate
       - Ternary
   - type: MobCollision # WL-Changes: MobCollision works for players only
+  - type: OfferItem # CorvaxGoob-Offer
 
 - type: entity
   save: false

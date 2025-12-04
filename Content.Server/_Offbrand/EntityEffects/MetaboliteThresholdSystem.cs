@@ -1,48 +1,50 @@
 using Content.Server.Body.Components;
 using Content.Shared._Offbrand.EntityEffects;
-using Content.Shared.EntityEffects;
+using Content.Shared.Body.Organ;
+using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.EntityConditions;
 using Content.Shared.FixedPoint;
 
 namespace Content.Server._Offbrand.EntityEffects;
 
-public sealed class MetaboliteThresholdSystem : EntitySystem
+public sealed class MetaboliteThresholdEntityConditionSystem : EntityConditionSystem<MetabolizerComponent, MetaboliteThresholdCondition>
 {
-    public override void Initialize()
-    {
-        base.Initialize();
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
-        SubscribeLocalEvent<CheckEntityEffectConditionEvent<MetaboliteThreshold>>(OnCheckMetaboliteThreshold);
+    private Solution? GetSolution(Entity<MetabolizerComponent, OrganComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp2, false))
+            return null;
+
+        if (ent.Comp1.SolutionOnBody)
+        {
+            if (ent.Comp2.Body is { } body && _solutionContainer.TryGetSolution(body, ent.Comp1.SolutionName, out _, out var solution))
+                return solution;
+
+            return null;
+        }
+        else
+        {
+            if (_solutionContainer.TryGetSolution(ent.Owner, ent.Comp1.SolutionName, out _, out var solution))
+                return solution;
+        }
+
+        return null;
     }
 
-    private void OnCheckMetaboliteThreshold(ref CheckEntityEffectConditionEvent<MetaboliteThreshold> args)
+    protected override void Condition(Entity<MetabolizerComponent> ent, ref EntityConditionEvent<MetaboliteThresholdCondition> args)
     {
-        if (args.Args is not EntityEffectReagentArgs reagentArgs)
-            throw new NotImplementedException();
-
         var reagent = args.Condition.Reagent;
-        if (reagent == null)
-            reagent = reagentArgs.Reagent?.ID;
-
-        if (reagent is not { } metaboliteReagent)
-        {
-            args.Result = true;
-            return;
-        }
-
-        if (!TryComp<MetabolizerComponent>(reagentArgs.OrganEntity, out var metabolizer))
-        {
-            args.Result = true;
-            return;
-        }
-
-        var metabolites = metabolizer.Metabolites;
+        var metabolites = ent.Comp.Metabolites;
 
         var quant = FixedPoint2.Zero;
-        metabolites.TryGetValue(metaboliteReagent, out quant);
+        metabolites.TryGetValue(reagent, out quant);
 
-        if (args.Condition.IncludeBloodstream && reagentArgs.Source != null)
+        if (args.Condition.IncludeBloodstream && GetSolution((ent, ent.Comp, null)) is { } solution)
         {
-            quant += reagentArgs.Source.GetTotalPrototypeQuantity(metaboliteReagent);
+            quant += solution.GetTotalPrototypeQuantity(reagent);
         }
 
         args.Result = quant >= args.Condition.Min && quant <= args.Condition.Max;

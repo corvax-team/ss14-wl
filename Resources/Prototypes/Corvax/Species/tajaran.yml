@@ -14,8 +14,8 @@
   maleLastNames: NamesTajaranLast # Corvax-LastnameGender
   femaleLastNames: NamesTajaranLast # Corvax-LastnameGender
   # WL-Changes-start: Height
-  maxHeight: 180
   minHeight: 140
+  maxHeight: 180
   # WL-Changes-end: Height
 
 - type: speciesBaseSprites

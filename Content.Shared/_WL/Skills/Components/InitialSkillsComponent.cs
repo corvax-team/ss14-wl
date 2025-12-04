@@ -7,19 +7,19 @@ public sealed partial class InitialSkillsComponent : Component
     /// <summary>
     /// Skills that are set to exact levels when the entity is created.
     /// </summary>
-    [DataField("initialSkills")]
+    [DataField]
     public Dictionary<SkillType, int> InitialSkills = new();
 
     /// <summary>
     /// Skills that are set to random levels when the entity is created.
     /// </summary>
-    [DataField("randomSkills")]
+    [DataField]
     public List<SkillType> RandomSkills = new();
 
     /// <summary>
     /// Skills that are added to existing skills (if entity already has skills component).
     /// </summary>
-    [DataField("addSkills")]
+    [DataField]
     public Dictionary<SkillType, int> AddSkills = new();
 
     /// <summary>

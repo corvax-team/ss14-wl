@@ -6,10 +6,10 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Command
-    time: 72000
+    time: 20h
   - !type:DepartmentTimeRequirement
     department: Security
-    time: 36000
+    time: 10h
   - !type:AgeRequirement
     minAge: 27 # WL-Changes-AgeRequirement
   - !type:TraitsRequirement
@@ -31,7 +31,7 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 20
   defaultSkills:
     Bureaucracy: 3
     Forensics: 2

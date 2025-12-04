@@ -7,9 +7,12 @@
   - Male: директор исследований
   - Male: директор лаборатории
   requirements:
+    #- !type:RoleTimeRequirement
+    #  role: JobScientist
+    #  time: 5h
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 54000 #15 hrs # Corvax-RoleTime
+      time: 15h # Corvax-RoleTime
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
     - !type:AgeRequirement
@@ -37,7 +40,7 @@
     components:
       - type: CommandStaff
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 15
   defaultSkills:
     Bureaucracy: 2
     IT: 2

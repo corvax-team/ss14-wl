@@ -66,19 +66,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceCarrot
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: JuiceCarrot
           min: 10
 # WL android species end
 

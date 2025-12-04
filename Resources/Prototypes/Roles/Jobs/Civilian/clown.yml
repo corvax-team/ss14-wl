@@ -24,8 +24,7 @@
         types: #literally just picked semi random valus. i tested this once and tweaked it.
           Blunt: 5
           Piercing: 4
-        groups:
-          Burn: 3
+          Heat: 3
       catchingFailDamage:
         types:
           Blunt: 1
@@ -34,7 +33,7 @@
       interval: 10
   - !type:AddImplantSpecial
     implants: [ SadTromboneImplant ]
-  bonusSkillPoints: 10 # WL-Skills
+  bonusSkillPoints: 25 # WL-Skills
 
 - type: startingGear
   id: ClownGear

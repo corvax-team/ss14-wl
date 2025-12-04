@@ -1,22 +1,17 @@
+/*
 using Content.Server.Zombies;
 using Content.Shared._Offbrand.EntityEffects;
 using Content.Shared.EntityEffects;
 
 namespace Content.Server._Offbrand.EntityEffects;
 
-public sealed class ZombifySystem : EntitySystem
+public sealed class ZombifySystem : EntityEffectSystem<MetaDataComponent, Zombify>
 {
     [Dependency] private readonly ZombieSystem _zombie = default!;
 
-    public override void Initialize()
+    protected override void Effect(Entity<MetaDataComponent> ent, ref EntityEffectEvent<Zombify> args)
     {
-        base.Initialize();
-
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<Zombify>>(OnExecuteZombify);
-    }
-
-    private void OnExecuteZombify(ref ExecuteEntityEffectEvent<Zombify> args)
-    {
-        _zombie.ZombifyEntity(args.Args.TargetEntity);
+        _zombie.ZombifyEntity(ent);
     }
 }
+*/

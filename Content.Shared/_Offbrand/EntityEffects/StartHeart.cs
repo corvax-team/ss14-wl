@@ -4,16 +4,20 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class StartHeart : EntityEffect
+public sealed partial class StartHeart : EntityEffectBase<StartHeart>
 {
-    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
-        return Loc.GetString("reagent-effect-guidebook-start-heart", ("chance", Probability));
+        return Loc.GetString("entity-effect-guidebook-start-heart", ("chance", Probability));
     }
+}
 
-    public override void Effect(EntityEffectBaseArgs args)
+public sealed class StartHeartEntityEffectSystem : EntityEffectSystem<HeartrateComponent, StartHeart>
+{
+    [Dependency] private readonly HeartSystem _heart = default!;
+
+    protected override void Effect(Entity<HeartrateComponent> ent, ref EntityEffectEvent<StartHeart> args)
     {
-        args.EntityManager.System<HeartSystem>()
-            .TryRestartHeart(args.TargetEntity);
+        _heart.TryRestartHeart(ent.AsNullable());
     }
 }

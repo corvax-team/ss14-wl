@@ -1,3 +1,5 @@
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
@@ -8,7 +10,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class AdjustReagentGaussian : EntityEffect
+public sealed partial class AdjustReagentGaussian : EntityEffectBase<AdjustReagentGaussian>
 {
     [DataField(required: true)]
     public ProtoId<ReagentPrototype> Reagent;
@@ -19,36 +21,36 @@ public sealed partial class AdjustReagentGaussian : EntityEffect
     [DataField(required: true)]
     public double σ;
 
-    public override void Effect(EntityEffectBaseArgs args)
-    {
-        if (args is not EntityEffectReagentArgs reagentArgs)
-            throw new NotImplementedException();
-
-        if (reagentArgs.Source == null)
-            return;
-
-        var timing = IoCManager.Resolve<IGameTiming>();
-
-        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)timing.CurTick.Value, args.EntityManager.GetNetEntity(args.TargetEntity).Id });
-        var rand = new System.Random(seed);
-
-        var amount = rand.NextGaussian(μ, σ);
-        amount *= reagentArgs.Scale.Double();
-
-        if (amount < 0 && reagentArgs.Source.ContainsPrototype(Reagent))
-            reagentArgs.Source.RemoveReagent(Reagent, -amount);
-        else if (amount > 0)
-            reagentArgs.Source.AddReagent(Reagent, amount);
-    }
-
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         var proto = prototype.Index(Reagent);
-        return Loc.GetString("reagent-effect-guidebook-adjust-reagent-gaussian",
+        return Loc.GetString("entity-effect-guidebook-adjust-reagent-gaussian",
             ("chance", Probability),
             ("deltasign", Math.Sign(μ)),
             ("reagent", proto.LocalizedName),
             ("mu", Math.Abs(μ)),
             ("sigma", Math.Abs(σ)));
+    }
+}
+
+public sealed class AdjustReagentGaussianEntityEffectSystem : EntityEffectSystem<SolutionComponent, AdjustReagentGaussian>
+{
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+
+    protected override void Effect(Entity<SolutionComponent> ent, ref EntityEffectEvent<AdjustReagentGaussian> args)
+    {
+        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
+        var rand = new System.Random(seed);
+
+        var amount = rand.NextGaussian(args.Effect.μ, args.Effect.σ);
+        amount *= args.Scale;
+        var reagent = args.Effect.Reagent;
+
+        if (amount < 0)
+            _solutionContainer.RemoveReagent(ent, reagent, -amount);
+        else if (amount > 0)
+            _solutionContainer.TryAddReagent(ent, reagent, amount);
     }
 }

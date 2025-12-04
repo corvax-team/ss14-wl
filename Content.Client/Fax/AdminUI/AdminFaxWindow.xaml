@@ -23,7 +23,30 @@
         </BoxContainer>
         <Label Text="{Loc admin-fax-stamp-color}" />
         <ColorSelectorSliders Margin="12 0 0 0" Name="StampColorSelector" Color="#BB3232"/>
+        <!-- <CheckBox Name="LockPageCheckbox" Text="{Loc admin-fax-lock-page}" ToolTip="{Loc admin-fax-lock-page-tooltip}"/> -->
+        
+        <!-- WL-Changes-start -->
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="{Loc admin-fax-size-control-label}" />
+            <LineEdit
+                Name="XSizeLineEdit"
+                Margin="10 0 0 0"
+                PlaceHolder="{Loc admin-fax-size-control-width-label}"
+                MinWidth="50"
+                HorizontalExpand="True" />
+            <LineEdit
+                Name="YSizeLineEdit"
+                Margin="10 0 0 0"
+                PlaceHolder="{Loc admin-fax-size-control-height-label}"
+                MinWidth="50"
+                HorizontalExpand="True" />
+        </BoxContainer>
+        <LineEdit Name="TexturePath" HorizontalExpand="True" PlaceHolder="{Loc admin-fax-is-texture-path}" ToolTip="{Loc admin-fax-is-texture-path-tooltip}"/>
+        <CheckBox Name="IsTextureIsBorderCheckbox" Text="{Loc admin-fax-is-texture-is-border}" Pressed="True"/>
+        
         <CheckBox Name="LockPageCheckbox" Text="{Loc admin-fax-lock-page}" ToolTip="{Loc admin-fax-lock-page-tooltip}"/>
+        <!-- WL-Changes-end -->
+        
         <Button Name="SendButton" Text="{Loc admin-fax-send}" Margin="0 10 0 0" />
     </BoxContainer>
 </DefaultWindow>

@@ -6,13 +6,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 21600 #6 hrs
+      time: 6h
     - !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 21600 #6 hrs
+      time: 6h
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 216000 # 60 hrs
+      time: 60h # 60 hrs
       # WL-Changes-start
     - !type:AgeRequirement
       minAge: 26
@@ -27,7 +27,7 @@
   - External
   - Atmospherics
   # WL-Skills-start
-  bonusSkillPoints: 4
+  bonusSkillPoints: 5
   defaultSkills:
     Bureaucracy: 2
     Eva: 3

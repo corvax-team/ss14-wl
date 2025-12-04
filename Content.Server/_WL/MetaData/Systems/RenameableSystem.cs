@@ -1,7 +1,9 @@
 using Content.Server._WL.MetaData.Components;
 using Content.Server.Administration;
 using Content.Server.Charges;
+using Content.Server.Popups;
 using Content.Shared.Charges.Components;
+using Content.Shared.Examine;
 using Content.Shared.Verbs;
 using Robust.Server.Player;
 using Robust.Shared.Player;
@@ -15,12 +17,16 @@ public sealed partial class RenameableSystem : EntitySystem
     [Dependency] private readonly ChargesSystem _charges = default!;
     [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
     [Dependency] private readonly IPlayerManager _playMan = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
-    public static readonly LocId RenameActionLocString = "renameable-component-rename-action";
-    public static readonly LocId NameTitleLocString = "renameable-component-name-field";
+    private static readonly LocId RenameActionLocString = "renameable-component-rename-action";
+    private static readonly LocId NameTitleLocString = "renameable-component-name-field";
+
+    private static readonly LocId NewNameConditions = "renameable-system-new-name-conditions";
 
     private static readonly ResPath VerbTexturePath = new("/Textures/Interface/AdminActions/rename.png");
 
+    // TODO: вынести в поле в компоненте
     private const int NewNameMaxLength = 40;
 
     public override void Initialize()
@@ -68,9 +74,10 @@ public sealed partial class RenameableSystem : EntitySystem
         return true;
     }
 
+    // TODO: тоже заполнить компонент уточняющими свойствами. деспэйр
     public string FormatNewName(string str)
     {
-        return str.ToLower();
+        return str;
     }
 
     public bool TryOpenDialog(ICommonSession session, Entity<RenameOnInteractComponent?> item)
@@ -86,6 +93,12 @@ public sealed partial class RenameableSystem : EntitySystem
 
         _quickDialog.OpenDialog(session, titleLoc, promptLoc, (string newName) =>
         {
+            if (!IsNewNameValid(newName))
+            {
+                _popup.PopupCursor(Loc.GetString(NewNameConditions, ("count", NewNameMaxLength)), session, Shared.Popups.PopupType.Medium);
+                return;
+            }
+
             TryRename(item, newName, true);
         }, null);
 

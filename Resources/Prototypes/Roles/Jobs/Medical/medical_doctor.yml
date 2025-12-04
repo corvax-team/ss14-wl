@@ -11,7 +11,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 7200 #2 hrs # Corvax-RoleTime
+      time: 2h #2 hrs # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 24 # WL-Changes-AgeRequirement
   startingGear: DoctorGear
@@ -27,10 +27,9 @@
     holiday: DoctorDay
     prototype: WehMedipen
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 10
   defaultSkills:
     Bureaucracy: 2
-    Eva: 2
     Anatomy: 3
     Medicine: 3
   # WL-Skills-end

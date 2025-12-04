@@ -3,8 +3,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class Zombify : EventEntityEffect<Zombify>
+public sealed partial class Zombify : EntityEffectBase<Zombify>
 {
-    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("reagent-effect-guidebook-zombify", ("chance", Probability));
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("entity-effect-guidebook-zombify", ("chance", Probability));
 }

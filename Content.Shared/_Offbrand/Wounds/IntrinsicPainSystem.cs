@@ -1,4 +1,6 @@
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 
 namespace Content.Shared._Offbrand.Wounds;
 

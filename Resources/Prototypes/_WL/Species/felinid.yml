@@ -8,8 +8,8 @@
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
   maxItemHeight: 140
-  minHeight: 110
-  maxHeight: 195
+  minHeight: 120
+  maxHeight: 190
 
 - type: markingPoints
   id: MobFelinidMarkingLimits

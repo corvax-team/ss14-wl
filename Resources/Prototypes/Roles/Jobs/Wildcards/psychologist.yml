@@ -17,7 +17,7 @@
   extendedAccess:
   - Chemistry
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 20
   defaultSkills:
     Bureaucracy: 2
     Chemistry: 2

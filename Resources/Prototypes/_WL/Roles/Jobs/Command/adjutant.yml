@@ -25,7 +25,7 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
-  bonusSkillPoints: 8
+  bonusSkillPoints: 16
   defaultSkills:
     Bureaucracy: 2
     Eva: 3

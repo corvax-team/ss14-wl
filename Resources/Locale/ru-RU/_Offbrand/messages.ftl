@@ -1,28 +1,28 @@
-heart-defibrillatable-target-is-dead = Severe neurological decay makes rescuitation impossible. Further attempts futile.
-heart-defibrillatable-target-hypovolemia = Patient is in hypovolemic shock and will require a blood transfuion: rescuitation will likely fail.
-heart-defibrillatable-target-brain-damage = Patient has severe neurological decay: rescuitation will likely fail without epinephrine.
-heart-defibrillatable-target-pain = Patient is in severe shock: the heart may stop without intervention.
+heart-defibrillatable-target-is-dead = Сильная неврологическая деградация делает реанимацию невозможной. Дальнейшие попытки бесполезны.
+heart-defibrillatable-target-hypovolemia = У пациента гиповолемический шок, требуется переливание крови: реанимация, скорее всего, не удастся.
+heart-defibrillatable-target-brain-damage = У пациента серьезная неврологическая деградация: реанимация, скорее всего, не удастся без адреналина.
+heart-defibrillatable-target-pain = Пациент в состоянии тяжелого шока: без вмешательства сердце может остановиться.
 
-mmi-extractor-no-mind = No neurological activity detected in patient; brain will not be extracted.
-mmi-extractor-probing = Probing patient for neurological activity...
-mmi-extractor-accepted = Neurological link established; brain will be extracted.
-mmi-extractor-denied = Neurological activity is not receptive to extraction; brain will not be extracted.
-mmi-extractor-inconclusive = Unit could not establish neurological link; brain will not be extracted.
-mmi-extractor-too-many-brains = Patient has excessive neurological activity; brains will not be extracted.
-mmi-extractor-brainless = Patient has no brain to extract.
+mmi-extractor-no-mind = Неврологическая активность у пациента не обнаружена; извлечение мозга невозможно.
+mmi-extractor-probing = Сканирование пациента на предмет неврологической активности...
+mmi-extractor-accepted = Неврологическая связь установлена; мозг будет извлечен.
+mmi-extractor-denied = Неврологическая активность не поддается извлечению; мозг не будет извлечен.
+mmi-extractor-inconclusive = Не удалось установить неврологическую связь; мозг не будет извлечен.
+mmi-extractor-too-many-brains = У пациента обнаружена избыточная неврологическая активность; мозг не будет извлечен.
+mmi-extractor-brainless = У пациента нет мозга для извлечения.
 
-mmi-extractor-title = Organic-Synthetic Interface Extraction
+mmi-extractor-title = Извлечение Мозго-Машинный Интерфейса
 mmi-extractor-prompt =
-    An OSI is attempting to extract your brain from your body.
-    This action is irreversible.
-    Do you accept?
+    ММИ пытается извлечь ваш мозг из тела.
+    Это действие необратимо.
+    Вы согласны?
 
-mmi-extractor-accept = Accept
-mmi-extractor-decline = Decline
+mmi-extractor-accept = Принять
+mmi-extractor-decline = Отклонить
 
-chat-emote-name-paingasp = Paingasp
-chat-emote-msg-paingasp = twitches uncontrollably, before drawing still...
-chat-emote-name-braingasp = Braingasp
-chat-emote-msg-braingasp = falls limp, a deathly pallor hovering over {OBJECT($entity)}...
-chat-emote-name-painslump = Painslump
-chat-emote-msg-painslump = slumps over, too weak to continue fighting...
+chat-emote-name-paingasp = Предсмертный хрип
+chat-emote-msg-paingasp = беспомощно бьется в конвульсиях и замирает...
+chat-emote-name-braingasp = Мозговой хрип
+chat-emote-msg-braingasp = обмякает, и над { OBJECT($entity) } нависает мертвенная бледность...
+chat-emote-name-painslump = Болевой обморок
+chat-emote-msg-painslump = падает без сил, слишком ослаблен, чтобы продолжать бой...

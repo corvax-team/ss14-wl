@@ -8,7 +8,7 @@
     - type: FlavorProfile
       flavors:
         - cischi1
-    - type: Food
+    - type: Edible
       transferAmount: 5
     - type: Sprite
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
@@ -33,7 +33,7 @@
     - type: FlavorProfile
       flavors:
         - cischi2
-    - type: Food
+    - type: Edible
       transferAmount: 5
     - type: Sprite
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
@@ -58,7 +58,7 @@
     - type: FlavorProfile
       flavors:
         - cischi3
-    - type: Food
+    - type: Edible
       transferAmount: 5
     - type: Sprite
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
@@ -82,7 +82,7 @@
   - type: FlavorProfile
     flavors:
       - lyrran6
-  - type: Food
+  - type: Edible
     transferAmount: 5
   - type: Sprite
     sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi

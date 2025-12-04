@@ -1,4 +1,8 @@
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -22,7 +26,7 @@ public sealed partial class UniqueWoundOnDamageSystem : EntitySystem
         if (args.DamageDelta is not { } delta || !args.DamageIncreased)
             return;
 
-        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
+        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
         var rand = new System.Random(seed);
 
         var damageable = Comp<DamageableComponent>(ent);

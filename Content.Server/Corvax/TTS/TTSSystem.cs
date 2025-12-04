@@ -1,5 +1,6 @@
 using Content.Server._WL.Languages; //WL-Changes: Languages
 using System.Threading.Tasks;
+using Content.Shared.Chat;
 using Content.Server.Chat.Systems;
 using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Corvax.TTS;

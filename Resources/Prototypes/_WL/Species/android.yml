@@ -8,7 +8,7 @@
   dollPrototype: MobAndroidDummy
   skinColoration: Hues
   minHeight: 120
-  maxHeight: 230
+  maxHeight: 250
 
 - type: speciesBaseSprites
   id: MobAndroidSprites

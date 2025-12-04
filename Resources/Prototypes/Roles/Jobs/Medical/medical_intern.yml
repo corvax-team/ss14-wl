@@ -11,7 +11,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 36000 #10 hrs # Corvax-RoleTime
+      time: 10h # Corvax-RoleTime 5
       inverted: true # stop playing intern if you're good at med!
     - !type:AgeRequirement # WL-Changes-AgeRequirement
       minAge: 20
@@ -23,7 +23,7 @@
   - Medical
   - Maintenance
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 19
   defaultSkills:
     Anatomy: 2
     Medicine: 2

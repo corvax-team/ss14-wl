@@ -144,9 +144,11 @@
     state: bar_spoon
   - type: Item
     heldPrefix: spoon
-  - type: Utensil
-    types:
-    - Spoon
+  # WL-Fix-Bar-Spoon-Drink-Start Убрано у оффов, но пока это не подтянуто (07.11.25), вайнот убрать? (оч бесит эта хрень на бармене)
+  # - type: Utensil
+  #   types:
+  #   - Spoon
+  # WL-Fix-Bar-Spoon-Drink-End
   - type: ReactionMixer
     mixMessage: "spoon-mixing-success"
     timeToMix: 0.5

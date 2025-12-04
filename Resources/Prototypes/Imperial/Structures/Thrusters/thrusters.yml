@@ -39,45 +39,45 @@
       visible: false
       offset: 0, 1.875
 
-- type: entity
-  id: ThrusterLarge
-  name: large thruster
-  parent: BaseThruster
-  components:
-  - type: Thruster
-    burnShape: ["-1.1,1.2","-0.3,3.5","0.3,3.5","1.1,1.2"]
-    baseThrust: 600
-    thrust: 600
-    damage:
-      types:
-        Heat: 150
-  - type: ApcPowerReceiver
-    powerLoad: 9000
-  - type: Fixtures
-    fixtures:
-      thruster2:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-1.4,-1.4,1.4,1.15"
-        density: 3500
-        mask:
-        - LargeMobMask
-        layer:
-        - WallLayer
-  - type: Sprite
-    sprite: Imperial/Structures/Thrusters/large.rsi
-    layers:
-    - state: base
-      map: ["enum.ThrusterVisualLayers.Base"]
-    - state: thrust
-      map: ["enum.ThrusterVisualLayers.ThrustOn"]
-      shader: unshaded
-      visible: false
-    - state: thrust_burn_unshaded
-      map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
-      shader: unshaded
-      visible: false
-      offset: 0, 2.65625
+# - type: entity
+#   id: ThrusterLarge
+#   name: large thruster
+#   parent: BaseThruster
+#   components:
+#   - type: Thruster
+#     burnShape: ["-1.1,1.2","-0.3,3.5","0.3,3.5","1.1,1.2"]
+#     baseThrust: 600
+#     thrust: 600
+#     damage:
+#       types:
+#         Heat: 150
+#   - type: ApcPowerReceiver
+#     powerLoad: 9000
+#   - type: Fixtures
+#     fixtures:
+#       thruster2:
+#         shape:
+#           !type:PhysShapeAabb
+#           bounds: "-1.4,-1.4,1.4,1.15"
+#         density: 3500
+#         mask:
+#         - LargeMobMask
+#         layer:
+#         - WallLayer
+#   - type: Sprite
+#     sprite: Imperial/Structures/Thrusters/large.rsi
+#     layers:
+#     - state: base
+#       map: ["enum.ThrusterVisualLayers.Base"]
+#     - state: thrust
+#       map: ["enum.ThrusterVisualLayers.ThrustOn"]
+#       shader: unshaded
+#       visible: false
+#     - state: thrust_burn_unshaded
+#       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+#       shader: unshaded
+#       visible: false
+#       offset: 0, 2.65625
 
 - type: entity
   id: ThrusterSmall

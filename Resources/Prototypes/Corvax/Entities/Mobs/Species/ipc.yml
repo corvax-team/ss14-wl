@@ -132,6 +132,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
   - type: ProtectedFromStepTriggers
   - type: EyeProtection
+  - type: OfferItem # CorvaxGoob-Offer
 
 - type: entity
   save: false
@@ -269,7 +270,7 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: StatusEffects
     allowed:
     - Stun

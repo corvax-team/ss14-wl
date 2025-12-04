@@ -11,7 +11,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
-      time: 36000 #10 hrs # Corvax-RoleTime
+      time: 10h # Corvax-RoleTime 5
       inverted: true # stop playing intern if you're good at science!
     - !type:AgeRequirement # WL-Changes-AgeRequirement
       minAge: 20
@@ -23,7 +23,7 @@
   - Research
   - Maintenance
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 23
   defaultSkills:
     Science: 2
   # WL-Skills-end

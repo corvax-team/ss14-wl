@@ -179,7 +179,12 @@ public sealed class PaperSystem : EntitySystem
         return new StampDisplayInfo
         {
             StampedName = stamp.StampedName,
-            StampedColor = stamp.StampedColor
+            StampedColor = stamp.StampedColor,
+
+            // WL-Changes-start
+            StampedTexture = stamp.StampTexture,
+            StampedTextureIsBorder = stamp.IsBorderTexture
+            // WL-Changes-end
         };
     }
 

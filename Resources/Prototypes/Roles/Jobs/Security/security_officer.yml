@@ -11,7 +11,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 #10 hrs # Corvax-RoleTime
+      time: 10h # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 22 # WL-Changes-AgeRequirement
     - !type:TraitsRequirement #Corvax-TraitsRequirement
@@ -29,16 +29,18 @@
   - Service
   - External
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 12
   defaultSkills:
     Bureaucracy: 2
     Eva: 3
     Forensics: 2
-    Combat: 3
+    Combat: 2
     Weapons: 3
   # WL-Skills-end
 

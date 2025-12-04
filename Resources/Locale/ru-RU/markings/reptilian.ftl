@@ -1,4 +1,4 @@
-marking-LizardFrillsShort-frills_short = Унатх, воротник (Короткий)
+﻿marking-LizardFrillsShort-frills_short = Унатх, воротник (Короткий)
 marking-LizardFrillsShort = Унатх, воротник (Короткий)
 marking-LizardFrillsSimple-frills_simple = Унатх, воротник (Простой)
 marking-LizardFrillsSimple = Унатх, воротник (Простой)
@@ -81,3 +81,7 @@ marking-LizardSnoutSplotch-snout_splotch_primary = Морда
 marking-LizardSnoutSplotch-snout_splotch_secondary = Нос
 marking-kobaldushkiEars = Унатх, уши (Кобольд)
 marking-kobaldushkiEars-kobald_ushki = Унатх, уши (Кобольд)
+marking-LizardSnoutVisageSharp = Унатх, маска (Заострённая)
+marking-LizardSnoutVisageSharp-visage_sharp = Унатх, маска (Заострённая)
+marking-LizardSnoutVisageRound = Унатх, маска (Круглая)
+marking-LizardSnoutVisageRound-visage_round = Унатх, маска (Круглая)

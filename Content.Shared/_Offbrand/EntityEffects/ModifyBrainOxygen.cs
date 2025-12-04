@@ -5,27 +5,26 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class ModifyBrainOxygen : EntityEffect
+public sealed partial class ModifyBrainOxygen : EntityEffectBase<ModifyBrainOxygen>
 {
     [DataField(required: true)]
     public FixedPoint2 Amount;
 
-    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         if (Amount > FixedPoint2.Zero)
-            return Loc.GetString("reagent-effect-guidebook-modify-brain-oxygen-heals", ("chance", Probability), ("amount", Amount));
+            return Loc.GetString("entity-effect-guidebook-modify-brain-oxygen-heals", ("chance", Probability), ("amount", Amount));
         else
-            return Loc.GetString("reagent-effect-guidebook-modify-brain-oxygen-deals", ("chance", Probability), ("amount", -Amount));
+            return Loc.GetString("entity-effect-guidebook-modify-brain-oxygen-deals", ("chance", Probability), ("amount", -Amount));
     }
+}
 
-    public override void Effect(EntityEffectBaseArgs args)
+public sealed class ModifyBrainOxygenEntityEffectSystem : EntityEffectSystem<BrainDamageComponent, ModifyBrainOxygen>
+{
+    [Dependency] private readonly BrainDamageSystem _brainDamage = default!;
+
+    protected override void Effect(Entity<BrainDamageComponent> ent, ref EntityEffectEvent<ModifyBrainOxygen> args)
     {
-        var scale = FixedPoint2.New(1);
-
-        if (args is EntityEffectReagentArgs reagentArgs)
-            scale = reagentArgs.Scale;
-
-        args.EntityManager.System<BrainDamageSystem>()
-            .TryChangeBrainOxygenation(args.TargetEntity, Amount * scale);
+        _brainDamage.TryChangeBrainOxygenation(ent, args.Effect.Amount * args.Scale);
     }
 }

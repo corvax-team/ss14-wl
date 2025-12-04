@@ -23,24 +23,26 @@
         amount: 0.3
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Absinthe
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Absinthe
           min: 10
 # WL android species end
     Narcotic: # The green fairy
@@ -52,7 +54,8 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Absinthe
           min: 10
         type: Add
         time: 5
@@ -63,7 +66,8 @@
         - absinthe-effect-feel-tulips
         probability: 0.02
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Absinthe
           min: 10
 
 - type: reagent
@@ -124,24 +128,26 @@
         amount: 0.1
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BlueCuracao
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: BlueCuracao
           min: 10
 # WL android species end
 
@@ -170,24 +176,26 @@
         amount: 0.2
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Cognac
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Cognac
           min: 10
 # WL android species end
 
@@ -215,24 +223,26 @@
         amount: 0.2
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: DeadRum
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: DeadRum
           min: 10
 # WL android species end
 
@@ -248,85 +258,92 @@
   meltingPoint: -114.1
   metabolisms:
     Alcohol:
+      metabolismRate: 0.05
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 15
-        - !type:OrganType
-          type: Dwarf
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Dwarf ]
+          inverted: true
         damage:
           types:
-            Poison: 1
+            Poison: 0.1
       # dwarves take less toxin damage and heal a marginal amount of brute
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 15
-        - !type:OrganType
-          type: Dwarf
+        - !type:MetabolizerTypeCondition
+          type: [ Dwarf ]
         damage:
           types:
-            Poison: 0.2
+            Poison: 0.02
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 15
-        - !type:OrganType
-          type: Dwarf
+        - !type:MetabolizerTypeCondition
+          type: [ Dwarf ]
         damage:
           groups:
-            Brute: -1
-      - !type:ChemVomit
+            Brute: -0.1
+      - !type:Vomit
         probability: 0.04
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Ethanol
           min: 12
         # dwarves immune to vomiting from alcohol
-        - !type:OrganType
-          type: Dwarf
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Dwarf ]
+          inverted: true
 # WL android species start
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
 # WL android species end
       - !type:Drunk
         boozePower: 20 #2 # WL-Changes
 # WL android species start
         conditions:
 # WL-Changes-start
-        - !type:ReagentThreshold
-          min: 5 # От стопки вина вряд ли будет эффект
+        - !type:ReagentCondition
+          reagent: Ethanol
+          min: 1 # От стопки вина вряд ли будет эффект
 # WL-Changes-end
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Ethanol
           min: 10
-# WL android species end
     Food:
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+# WL android species end
 
 - type: reagent
   id: Gin
@@ -353,24 +370,26 @@
         amount: 0.2
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Gin
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Gin
           min: 10
 # WL android species end
 
@@ -449,24 +468,26 @@
             Poison: 1
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: PoisonWine
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: PoisonWine
           min: 10
 # WL android species end
 
@@ -495,24 +516,26 @@
         amount: 0.2
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Rum
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Rum
           min: 10
 # WL android species end
 
@@ -563,24 +586,26 @@
         amount: 0.2
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Tequila
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Tequila
           min: 10
 # WL android species end
 
@@ -624,24 +649,26 @@
         amount: 0.2
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Vodka
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Vodka
           min: 10
 # WL android species end
 
@@ -670,24 +697,26 @@
         amount: 0.2
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Whiskey
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Whiskey
           min: 10
 # WL android species end
 
@@ -732,24 +761,26 @@
         amount: 0.3
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Champagne
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Champagne
           min: 10
 # WL android species end
   fizziness: 0.8
@@ -873,24 +904,26 @@
         amount: 0.15
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Antifreeze
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Antifreeze
           min: 10
 # WL android species end
 
@@ -917,28 +950,30 @@
         reagent: Ethanol
         amount: 0.15
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
       - !type:AdjustReagent
         reagent: Uranium
         amount: 0.05
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: AtomicBomb
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: AtomicBomb
           min: 10
 # WL android species end
 
@@ -967,19 +1002,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: B52
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: B52
           min: 10
 # WL android species end
 
@@ -1053,19 +1090,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BeepskySmash
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: BeepskySmash
           min: 10
 # WL android species end
   fizziness: 0.3
@@ -1095,19 +1134,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BlackRussian
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: BlackRussian
           min: 10
 # WL android species end
 
@@ -1166,19 +1207,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BraveBull
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: BraveBull
           min: 10
 # WL android species end
 
@@ -1283,19 +1326,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: CubaLibre
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: CubaLibre
           min: 10
 # WL android species end
   fizziness: 0.2
@@ -1373,19 +1418,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: DoctorsDelight
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: DoctorsDelight
           min: 10
 # WL android species end
     Medicine:
@@ -1399,9 +1446,9 @@
             Toxin: -1
 # WL android species start
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
 # WL android species end
 
 - type: reagent
@@ -1429,19 +1476,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: DriestMartini
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: DriestMartini
           min: 10
 # WL android species end
 
@@ -1516,19 +1565,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: GargleBlaster
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: GargleBlaster
           min: 10
 # WL android species end
 
@@ -1557,19 +1608,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: GinFizz
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: GinFizz
           min: 10
 # WL android species end
   fizziness: 0.4 # A little high, but it has fizz in the name
@@ -1599,19 +1652,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: GinTonic
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: GinTonic
           min: 10
 # WL android species end
   fizziness: 0.4
@@ -1641,19 +1696,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Gildlager
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Gildlager
           min: 10
 # WL android species end
 
@@ -1737,19 +1794,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: IrishSlammer
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: IrishSlammer
           min: 10
 # WL android species end
 
@@ -1778,19 +1837,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: IrishCream
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: IrishCream
           min: 10
 # WL android species end
 
@@ -1819,19 +1880,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: IrishCoffee
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: IrishCoffee
           min: 10
 # WL android species end
 
@@ -1905,19 +1968,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: LongIslandIcedTea
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: LongIslandIcedTea
           min: 10
 # WL android species end
 
@@ -2007,19 +2072,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Martini
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Martini
           min: 10
 # WL android species end
 
@@ -2095,19 +2162,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Moonshine
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Moonshine
           min: 10
 # WL android species end
 
@@ -2136,19 +2205,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Neurotoxin
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Neurotoxin
           min: 10
 # WL android species end
     Poison:
@@ -2206,19 +2277,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Patron
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Patron
           min: 10
 # WL android species end
 
@@ -2323,19 +2396,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ScrewdriverCocktail
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: ScrewdriverCocktail
           min: 10
 # WL android species end
 
@@ -2476,19 +2551,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: TequilaSunrise
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: TequilaSunrise
           min: 10
 # WL android species end
 
@@ -2533,19 +2610,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ThreeMileIsland
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: ThreeMileIsland
           min: 10
 # WL android species end
       - !type:AdjustReagent
@@ -2607,19 +2686,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: VodkaMartini
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: VodkaMartini
           min: 10
 # WL android species end
 
@@ -2648,19 +2729,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: VodkaTonic
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: VodkaTonic
           min: 10
 # WL android species end
   fizziness: 0.4
@@ -2690,19 +2773,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: WhiskeyCola
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: WhiskeyCola
           min: 10
 # WL android species end
   fizziness: 0.3
@@ -2732,19 +2817,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: WhiskeySoda
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: WhiskeySoda
           min: 10
 # WL android species end
   fizziness: 0.4
@@ -2792,19 +2879,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: WhiteRussian
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: WhiteRussian
           min: 10
 # WL android species end
 
@@ -3132,9 +3221,10 @@
   metabolisms:
     Drink:
       effects:
-      - !type:ChemVomit
+      - !type:Vomit
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Mayojito
           min: 5
         probability: 0.5
       - !type:HealthChange
@@ -3331,34 +3421,37 @@
         reagent: Ethanol
         amount: 0.45 # TODO: Figure out why setting this to 0 means this does more damage... WHAT BUG IS THIS?!!
     Alcohol:
+      metabolismRate : 0.05
       effects:
       - !type:Drunk
         boozePower: 10
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BacchusBlessing
           min: 6
-        - !type:OrganType
-          type: Dwarf
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Dwarf]
+          inverted: true
         damage:
           types:
-            Poison: 2 # TODO: Figure out poison amount. Ethanol does 1, this does 2 but also metabolises almost 3 to 4 times as fast as ethanol. This would be more Liver damage when that time arrives.
+            Poison: 0.2 # TODO: Figure out poison amount. Ethanol does 0.1, this does 0.2 but also metabolises almost 3 to 4 times as fast as ethanol. This would be more Liver damage when that time arrives.
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: BacchusBlessing
           min: 6
-        - !type:OrganType
-          type: Dwarf
+        - !type:MetabolizerTypeCondition
+          type: [Dwarf]
         damage:
           types:
-            Poison: 0.4 # TODO: Might increase this, even though it's just double of ethanol from 0.2 to 0.4
-      - !type:ChemVomit
+            Poison: 0.04 # TODO: Might increase this, even though it's just double of ethanol from 0.02 to 0.04
+      - !type:Vomit
         probability: 0.1 #TODO: Tweak vomit probability, maybe make this more violent and poisonous but the body aggressively purges it...
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: BacchusBlessing
           min: 8
-        - !type:OrganType
-          type: Dwarf
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Dwarf]
+          inverted: true

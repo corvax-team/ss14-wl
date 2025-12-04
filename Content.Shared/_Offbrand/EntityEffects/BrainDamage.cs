@@ -1,11 +1,19 @@
 using Content.Shared._Offbrand.Wounds;
-using Content.Shared.EntityEffects;
+using Content.Shared.EntityConditions;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class BrainDamage : EntityEffectCondition
+public sealed class BrainDamageEntityConditionSystem : EntityConditionSystem<BrainDamageComponent, BrainDamageCondition>
+{
+    protected override void Condition(Entity<BrainDamageComponent> ent, ref EntityConditionEvent<BrainDamageCondition> args)
+    {
+        args.Result = ent.Comp.Damage >= args.Condition.Min && ent.Comp.Damage <= args.Condition.Max;
+    }
+}
+
+public sealed partial class BrainDamageCondition : EntityConditionBase<BrainDamageCondition>
 {
     [DataField]
     public FixedPoint2 Max = FixedPoint2.MaxValue;
@@ -13,19 +21,9 @@ public sealed partial class BrainDamage : EntityEffectCondition
     [DataField]
     public FixedPoint2 Min = FixedPoint2.Zero;
 
-    public override bool Condition(EntityEffectBaseArgs args)
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
-        if (args.EntityManager.TryGetComponent<BrainDamageComponent>(args.TargetEntity, out var brain))
-        {
-            return brain.Damage >= Min && brain.Damage <= Max;
-        }
-
-        return false;
-    }
-
-    public override string GuidebookExplanation(IPrototypeManager prototype)
-    {
-        return Loc.GetString("reagent-effect-condition-guidebook-brain-damage",
+        return Loc.GetString("entity-condition-guidebook-brain-damage",
             ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float()),
             ("min", Min.Float()));
     }

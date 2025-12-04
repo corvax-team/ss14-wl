@@ -26,6 +26,13 @@ namespace Content.Server.GameTicking
 
         private WebhookIdentifier? _webhookIdentifier;
 
+        //WL-Change: Send Manifest in Discord Start
+        private WebhookIdentifier? _webhookIdentifierManifest;
+
+        private Color _webhookEmbedColor;
+
+        //WL-Change: Send Manifest in Discord End
+
         [ViewVariables]
         private string? RoundEndSoundCollection { get; set; }
 
@@ -73,6 +80,21 @@ namespace Content.Server.GameTicking
                 }
             }, true);
             Subs.CVar(_cfg, CCVars.RoundEndSoundCollection, value => RoundEndSoundCollection = value, true);
+            //WL-Change: Send Manifest in Discord Start
+            Subs.CVar(_cfg, CCVars.DiscordRoundManifestWebhook, value =>
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    _discord.GetWebhook(value, data => _webhookIdentifierManifest = data.ToIdentifier());
+                }
+            }, true);
+            Subs.CVar(_cfg, CCVars.DiscordRoundManifestWebhookEmbedColor, value =>
+            {
+                _webhookEmbedColor = Color.DeepSkyBlue;
+                if (Color.TryParse(value, out var color))
+                    _webhookEmbedColor = color;
+            }, true);
+            //WL-Change: Send Manifest in Discord End
 #if EXCEPTION_TOLERANCE
             Subs.CVar(_cfg, CCVars.RoundStartFailShutdownCount, value => RoundStartFailShutdownCount = value, true);
 #endif

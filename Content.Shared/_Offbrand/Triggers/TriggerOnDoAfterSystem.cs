@@ -88,9 +88,9 @@ public sealed class TriggerOnDoAfterSystem : EntitySystem
         {
             if (TryComp<StackComponent>(used, out var stackComp))
             {
-                _stack.Use(used, 1, stackComp);
+                _stack.ReduceCount((used, stackComp), 1);
 
-                if (_stack.GetCount(used, stackComp) <= 0)
+                if (_stack.GetCount((used, stackComp)) <= 0)
                     hasMoreItems = false;
             }
             else

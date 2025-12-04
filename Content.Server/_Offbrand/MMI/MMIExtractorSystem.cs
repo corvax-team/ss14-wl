@@ -1,9 +1,9 @@
-using Content.Server.Body.Components;
-using Content.Server.Chat.Systems;
 using Content.Server.EUI;
 using Content.Shared._Offbrand.MMI;
 using Content.Shared._Offbrand.Wounds;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
@@ -17,12 +17,12 @@ namespace Content.Server._Offbrand.MMI;
 public sealed class MMIExtractorSystem : EntitySystem
 {
     [Dependency] private readonly BrainDamageSystem _brainDamage = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly EuiManager _eui = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedChatSystem _chat = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
 

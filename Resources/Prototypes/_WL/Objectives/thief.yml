@@ -3,7 +3,7 @@
   id: GoldieStealObjective
   components:
   - type: NotJobRequirement
-    job: Detective
+    jobs: [ Detective, SecurityOfficer, HeadOfSecurity ]
   - type: StealCondition
     stealGroup: AnimalGoldie
   - type: Objective

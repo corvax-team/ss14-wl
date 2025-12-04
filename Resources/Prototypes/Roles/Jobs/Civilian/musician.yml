@@ -22,7 +22,7 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: MikuDay
     prototype: BoxPerformer
-  bonusSkillPoints: 8 # WL-Skills
+  bonusSkillPoints: 25 # WL-Skills
 
 - type: startingGear
   id: MusicianGear

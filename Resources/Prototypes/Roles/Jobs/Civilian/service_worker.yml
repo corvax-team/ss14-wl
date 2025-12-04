@@ -6,7 +6,7 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Civilian
-    time: 1800 #0.5 hr
+    time: 0.5h
   startingGear: ServiceWorkerGear
   subnames:
   - Male: официант
@@ -24,7 +24,7 @@
   extendedAccess:
   - Hydroponics
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 20
   defaultSkills:
     Chemistry: 2
     Botany: 2

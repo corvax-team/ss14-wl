@@ -19,13 +19,13 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -53,13 +53,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
-        #Akula
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Animal ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -68,13 +64,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
-        #Akula
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Animal ]
+          inverted: true
 # WL species end
         type: Local
         visualType: MediumCaution
@@ -87,13 +79,9 @@
         factor: 2
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
-        #Akula
-        - !type:OrganType
-          type: Animal
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Animal ]
+          inverted: true
 # WL species end
 
 - type: reagent
@@ -115,38 +103,38 @@
         emote: Yawn
         showInChat: true
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
         time: 4
-        type: Add
+        type: Update
 # WL species start
         conditions:
         # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ChloralHydrate
           min: 20
 # WL species start
         # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -167,22 +155,23 @@
 # WL species start
           conditions:
           # Golem
-          - !type:OrganType
-            type: Golem
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Golem ]
+            inverted: true
 # WL species end
           damage:
             types:
               Poison: 2
-        - !type:ChemVomit
+        - !type:Vomit
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: GastroToxin
             min: 2
 # WL species start
           # Golem
-          - !type:OrganType
-            type: Golem
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Golem ]
+            inverted: true
 # WL species end
           probability: 0.2
 
@@ -202,9 +191,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -233,7 +222,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -272,7 +260,6 @@
       - !type:SatiateThirst
         factor: -1.5
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
@@ -295,7 +282,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -345,7 +331,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: false
         damage:
           types:
@@ -412,13 +397,13 @@
 # WL species start
         conditions:
         # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
   plantMetabolism:
   - !type:PlantAdjustToxins
@@ -440,28 +425,18 @@
           groups:
             Airloss: 10
 # WL species start
-        # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic, Golem]
+          inverted: true
 # WL species end
       - !type:ModifyLungDamage # Offbrand
         amount: 2
 # WL species start
-        # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic, Golem]
+          inverted: true
 # WL species end
 
 
@@ -486,9 +461,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
   # TODO: PROPER hallucinations
 
@@ -510,28 +485,29 @@
 # WL species start
         conditions:
         # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Histamine
           min: 45
 # WL species start
         # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           groups:
@@ -546,19 +522,20 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Histamine
           min: 45
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         type: Local
         visualType: Medium
@@ -580,21 +557,21 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Animal # Applying damage to the mobs with lower metabolism capabilities
+        - !type:MetabolizerTypeCondition
+          type: [Animal] # Applying damage to the mobs with lower metabolism capabilities
         damage:
           types:
             Poison: 0.4
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.04 #Scaled for time, not metabolismrate.
         conditions:
-          - !type:OrganType
-            type: Animal
+          - !type:MetabolizerTypeCondition
+            type: [Animal]
       # WL Cischi species start
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Cischi
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
         damage:
           groups:
             Brute: -1
@@ -616,9 +593,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -639,9 +616,9 @@
 # WL species start
           conditions:
           # Golem
-          - !type:OrganType
-            type: Golem
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Golem ]
+            inverted: true
 # WL species end
           damage:
             types:
@@ -664,21 +641,22 @@
       statusEffects:
       - statusEffect: StatusEffectHeartStrainRomerol
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 15
       effects:
       - !type:AdjustReagent
         reagent: Romerol
         amount: -10
         conditions:
-        - !type:IsZombie
+        - !type:IsZombieCondition
       - !type:AdjustReagentGaussian
         reagent: Romerol
         μ: 0.35
         σ: 0.1
         conditions:
-        - !type:IsZombieImmune
-          invert: true
+        - !type:IsZombieImmuneCondition
+          inverted: true
       - !type:PopupMessage
         type: Local
         visualType: MediumCaution
@@ -689,14 +667,16 @@
         - zombification-30-message-4
         probability: 0.05
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 15
       - !type:HealthChange
         damage:
           types:
              Poison: 0.15
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 15
       - !type:ModifyHeartDamage
         amount: 2
@@ -717,39 +697,46 @@
           mobstate: Critical
       - !type:Zombify
         conditions:
-        - !type:BrainDamage
+        - !type:BrainDamageCondition
           min: 70
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 15
       - !type:ModifyBrainDamage
         amount: 0.5
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 15
       - !type:ModifyHeartDamage
         amount: 0.2
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 15
       - !type:ModifyLungDamage
         amount: 0.2
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 15
       - !type:AdjustTemperature
         amount: 3000
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 15
       - !type:Jitter
         probability: 0.25
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 30
       - !type:AdjustTemperature
         amount: 6000
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 30
       - !type:PopupMessage
         type: Local
@@ -761,12 +748,14 @@
         - zombification-60-message-4
         probability: 0.05
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 30
       - !type:ModifyBrainDamage
         amount: 0.25
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 45
       - !type:HealthChange
         damage:
@@ -775,7 +764,8 @@
              Blunt: 0.15
              Piercing: 0.15
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 45
       - !type:PopupMessage
         type: Local
@@ -787,12 +777,14 @@
         - zombification-90-message-4
         probability: 0.05
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 45
       - !type:ModifyBrainDamage
         amount: 0.5
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 60
       - !type:PopupMessage
         type: Local
@@ -804,12 +796,14 @@
         - zombification-120-message-4
         probability: 0.05
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 60
       - !type:ModifyBrainDamage
         amount: 5
         conditions:
-        - !type:MetaboliteThreshold
+        - !type:MetaboliteThresholdCondition
+          reagent: Romerol
           min: 70
       - !type:Zombify
         conditions:
@@ -835,64 +829,43 @@
       effects:
       - !type:PopupMessage
         conditions:
-          - !type:OrganType
-            type: Animal
-            shouldHave: false
 # WL species start
-          # Golem
-          - !type:OrganType
-            type: Golem
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Animal, Vox, Golem ]
+            inverted: true
 # WL species end
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.5
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.1
         conditions:
-          - !type:OrganType
-            type: Animal
-            shouldHave: false
 # WL species start
-          # Golem
-          - !type:OrganType
-            type: Golem
-            shouldHave: false
+          - !type:MetabolizerTypeCondition
+            type: [ Animal, Vox, Golem ]
+            inverted: true
 # WL species end
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
 # WL species start
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Animal, Vox, Golem ]
+          inverted: true
 # WL species end
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
         damage:
           types:
             Poison: 1
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
         reagent: Protein
         amount: 0.25
 
@@ -910,20 +883,14 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Allicin
           min: 1
 # WL species start
-        # Cischi
-        - !type:OrganType
-          type: Cischi
-          shouldHave: false
-        # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Animal, Cischi, Golem ]
+          inverted: true
 # WL species end
-        - !type:OrganType
-          type: Animal
         damage:
           types:
             Poison: 0.06
@@ -953,18 +920,17 @@
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
-        type: Add
         time: 4
 # WL species start
         conditions:
         # Android
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
 
 - type: reagent
@@ -987,10 +953,11 @@
         probability: 0.2
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Honk
           min: 1
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
         damage:
           types:
             Poison: 0.06
@@ -1009,8 +976,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
         damage:
           groups:
             Brute: -1
@@ -1021,9 +988,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -1045,9 +1012,9 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           types:
@@ -1067,31 +1034,32 @@
       effects:
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Vestine
           min: 5
 # WL species start
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
       - !type:HealthChange
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
         damage:
           groups:
@@ -1114,13 +1082,13 @@
 # WL species start
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
@@ -1142,7 +1110,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Hunger
+        - !type:HungerCondition
           max: 50
         damage:
           types:
@@ -1166,30 +1134,30 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Arachnid]
+          inverted: true
         damage:
           types:
             Poison: 1.6
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Mechanotoxin
           min: 2
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Arachnid]
+          inverted: true
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Mechanotoxin
           min: 4
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Arachnid]
+          inverted: true
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
 
@@ -1206,5 +1174,5 @@
       - !type:SatiateHunger
         factor: 1
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [Vox]

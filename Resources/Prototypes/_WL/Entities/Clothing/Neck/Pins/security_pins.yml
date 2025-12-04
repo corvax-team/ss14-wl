@@ -6,6 +6,7 @@
   - type: LimitedCharges
     maxCharges: 1
     showExamineInfo: false
+  - type: SecurityBadge
   - type: RenameOnInteract
   - type: Sprite
     sprite: _WL/Clothing/Neck/Pins/security_badges.rsi
@@ -24,6 +25,8 @@
   components:
   - type: Sprite
     state: icon-yel
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-private
   - type: Clothing
     equippedPrefix: yel
 
@@ -33,6 +36,8 @@
   components:
   - type: Sprite
     state: icon-oranyel
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-corporal
   - type: Clothing
     equippedPrefix: oranyel
 
@@ -41,6 +46,8 @@
   parent: ClothingNeckSecurityPinBase
   id: ClothingNeckSecuritySubSergeantPin
   components:
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-sub-sergeant
   - type: Sprite
     state: icon-oran
   - type: Clothing
@@ -50,6 +57,8 @@
   parent: ClothingNeckSecurityPinBase
   id: ClothingNeckSecuritySergeantPin
   components:
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-sergeant
   - type: Sprite
     state: icon-greoran
   - type: Clothing
@@ -61,6 +70,8 @@
   components:
   - type: Sprite
     state: icon-gre
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-chief-sergeant
   - type: Clothing
     equippedPrefix: gre
 
@@ -70,6 +81,8 @@
   components:
   - type: Sprite
     state: icon-blugre
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-sub-lieutenant
   - type: Clothing
     equippedPrefix: blugre
 
@@ -80,6 +93,8 @@
   components:
   - type: Sprite
     state: icon-blu
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-lieutenant
   - type: Clothing
     equippedPrefix: blu
 
@@ -89,6 +104,8 @@
   components:
   - type: Sprite
     state: icon-purblu
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-chief-lieutenant
   - type: Clothing
     equippedPrefix: purblu
 
@@ -99,6 +116,8 @@
   components:
   - type: Sprite
     state: icon-pur
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-captain
   - type: Clothing
     equippedPrefix: pur
 
@@ -108,5 +127,7 @@
   components:
   - type: Sprite
     state: icon-cya
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-major
   - type: Clothing
     equippedPrefix: cya

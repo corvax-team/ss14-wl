@@ -1,4 +1,4 @@
-# Best job.
+# Not(tm) Best job.
 
 - type: job
   id: ChiefMedicalOfficer
@@ -8,13 +8,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist
-      time: 18000 #5 hrs # Corvax-RoleTime
+      time: 5h # Corvax-RoleTime 2.5h
 #    - !type:RoleTimeRequirement
 #      role: JobMedicalDoctor
-#      time: 21600 #6 hrs
+#      time: 5h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 54000 #15 hrs # Corvax-RoleTime
+      time: 15h # Corvax-RoleTime 10h
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
     - !type:AgeRequirement
@@ -43,10 +43,9 @@
     components:
       - type: CommandStaff
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 8
   defaultSkills:
-    Bureaucracy: 3
-    Eva: 3
+    Bureaucracy: 2
     Anatomy: 3
     Chemistry: 2
     Medicine: 3

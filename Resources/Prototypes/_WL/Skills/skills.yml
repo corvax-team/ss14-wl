@@ -43,13 +43,13 @@
 - type: skill
   id: Electrical
   skillType: Electrical
-  costs: [0, 4, 2, 2]
+  costs: [0, 2, 2, 2]
   color: "#fae9c1"
 
 - type: skill
   id: Generators
   skillType: Generators
-  costs: [0, 4, 4, 4]
+  costs: [0, 2, 4, 4]
   color: "#fae9c1"
 
 - type: skill
@@ -61,7 +61,7 @@
 - type: skill
   id: Chemistry
   skillType: Chemistry
-  costs: [0, 4, 4, 8]
+  costs: [0, 2, 4, 8]
   color: "#ffc7b0"
 
 - type: skill

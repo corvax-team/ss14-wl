@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.Mobs;
+using Content.Shared.Traits.Assorted; // WL-Offmed
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -191,7 +192,8 @@ public sealed class DamageOverlay : Overlay
         level = _oldPainLevel;
 
         // TODO: Lerping
-        if ((level > 0f && _oldCritLevel <= 0f) || AlwaysRenderAll) // Offbrand
+        if ((level > 0f && _oldCritLevel <= 0f || AlwaysRenderAll) // Offbrand
+            && !_entityManager.HasComponent<PainNumbnessComponent>(_playerManager.LocalEntity.Value)) // WL-offmed: add PainNumbness for red pain overlay
         {
             var pulseRate = 3f;
             var adjustedTime = time * pulseRate;

@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
 using Content.Client.UserInterface.Systems.Alerts.Widgets;
+using Content.Shared._Offbrand.Wounds; // WL-Offmed
 using Content.Shared.Alert;
 using Robust.Client.UserInterface;
 using Robust.Server.Player;
@@ -87,7 +88,11 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 Assert.That(clientAlertsUI.AlertContainer.ChildCount, Is.GreaterThanOrEqualTo(3));
                 var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
-                var expectedIDs = new[] { "HeartRate", "Debug1", "Debug2" }; // Offbrand
+                // WL-Offmed-start: edit for WL humanoids who does't have Heartrate
+                var hasHeartrate = clientEntManager.HasComponent<HeartrateAlertsComponent>(controlled.Value);
+                var healthAlert = hasHeartrate ? "HeartRate" : "HumanHealth";
+                var expectedIDs = new[] { healthAlert, "Debug1", "Debug2" }; // Offbrand // "HeartRate" -> healthAlert
+                // WL-Offmed-end
                 Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
             });
 
@@ -104,7 +109,11 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 Assert.That(clientAlertsUI.AlertContainer.ChildCount, Is.GreaterThanOrEqualTo(2));
                 var alertControls = clientAlertsUI.AlertContainer.Children.Select(c => (AlertControl) c);
                 var alertIDs = alertControls.Select(ac => ac.Alert.ID).ToArray();
-                var expectedIDs = new[] { "HeartRate", "Debug2" }; // Offbrand
+                // WL-Offmed-start: edit for WL humanoids who does't have Heartrate
+                var hasHeartrate = clientEntManager.HasComponent<HeartrateAlertsComponent>(client.Session.AttachedEntity.Value);
+                var healthAlert = hasHeartrate ? "HeartRate" : "HumanHealth";
+                var expectedIDs = new[] { healthAlert, "Debug2" }; // Offbrand // "HeartRate" -> healthAlert
+                // WL-Offmed-end
                 Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
             });
 

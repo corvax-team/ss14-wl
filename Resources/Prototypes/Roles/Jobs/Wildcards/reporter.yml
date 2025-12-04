@@ -16,7 +16,7 @@
   - Service
   - Maintenance
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 23
   defaultSkills:
     Bureaucracy: 2
     IT: 2

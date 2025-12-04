@@ -19,10 +19,11 @@
         amount: 0.15
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Cischi
-          shouldHave: false
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
+        - !type:ReagentCondition
+          reagent: DeathHorse
           min: 7
         damage:
           types:

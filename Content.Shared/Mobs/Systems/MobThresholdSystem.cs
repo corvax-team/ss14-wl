@@ -2,6 +2,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Events;
@@ -443,7 +445,7 @@ public sealed class MobThresholdSystem : EntitySystem
     // Begin Offbrand
     private void MobThresholdMapInit(Entity<MobThresholdsComponent> ent, ref MapInitEvent args)
     {
-        var overlayUpdate = new Content.Shared._Offbrand.Wounds.bPotentiallyUpdateDamageOverlayEventb(ent);
+        var overlayUpdate = new Content.Shared._Offbrand.Wounds.PotentiallyUpdateDamageOverlayEvent(ent);
         RaiseLocalEvent(ent, ref overlayUpdate);
     }
     // End Offbrand

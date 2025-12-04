@@ -4,6 +4,7 @@ using Content.Shared.Throwing;
 using JetBrains.Annotations;
 // WL Golem species start
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 using Content.Shared.Buckle;

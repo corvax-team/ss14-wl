@@ -8,7 +8,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 36000 #10 hrs # Corvax-RoleTime
+      time: 10h #10 hrs # Corvax-RoleTime
     - !type:AgeRequirement
       minAge: 22 # WL-Changes-AgeRequirement
   startingGear: AtmosphericTechnicianGear
@@ -24,7 +24,7 @@
     holiday: FirefighterDay
     prototype: FireAxe
   # WL-Skills-start
-  bonusSkillPoints: 4
+  bonusSkillPoints: 8
   defaultSkills:
     Eva: 3
     IT: 2

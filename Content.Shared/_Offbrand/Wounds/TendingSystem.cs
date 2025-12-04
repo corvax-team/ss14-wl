@@ -141,9 +141,9 @@ public sealed class TendingSystem : EntitySystem
         var hasMoreItems = true;
         if (TryComp<StackComponent>(args.Used.Value, out var stackComp))
         {
-            _stack.Use(args.Used.Value, 1, stackComp);
+            _stack.ReduceCount((args.Used.Value, stackComp), 1);
 
-            if (_stack.GetCount(args.Used.Value, stackComp) <= 0)
+            if (_stack.GetCount((args.Used.Value, stackComp)) <= 0)
                 hasMoreItems = false;
         }
         else

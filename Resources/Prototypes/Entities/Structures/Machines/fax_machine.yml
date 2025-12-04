@@ -95,6 +95,7 @@
         color: "#bfe3ff"
   - type: FaxMachine
     name: "Central Command"
+    printConsumeMaterialAmount: 1 # WL-Changes
     notifyAdmins: true
     receiveAllStationGoals: true # Corvax-StationGoal
 
@@ -111,6 +112,7 @@
         color: "#a3a3a3"
   - type: FaxMachine
     name: "ERR*?*%!"
+    printConsumeMaterialAmount: 1 # WL-Changes
     responsePings: false
     notifyAdmins: true
   - type: Emagged

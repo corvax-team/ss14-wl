@@ -5,27 +5,26 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class ModifyLungDamage : EntityEffect
+public sealed partial class ModifyLungDamage : EntityEffectBase<ModifyLungDamage>
 {
     [DataField(required: true)]
     public FixedPoint2 Amount;
 
-    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         if (Amount < FixedPoint2.Zero)
-            return Loc.GetString("reagent-effect-guidebook-modify-lung-damage-heals", ("chance", Probability), ("amount", -Amount));
+            return Loc.GetString("entity-effect-guidebook-modify-lung-damage-heals", ("chance", Probability), ("amount", -Amount));
         else
-            return Loc.GetString("reagent-effect-guidebook-modify-lung-damage-deals", ("chance", Probability), ("amount", Amount));
+            return Loc.GetString("entity-effect-guidebook-modify-lung-damage-deals", ("chance", Probability), ("amount", Amount));
     }
+}
 
-    public override void Effect(EntityEffectBaseArgs args)
+public sealed class ModifyLungDamageEntityEffectSystem : EntityEffectSystem<LungDamageComponent, ModifyLungDamage>
+{
+    [Dependency] private readonly LungDamageSystem _lungDamage = default!;
+
+    protected override void Effect(Entity<LungDamageComponent> ent, ref EntityEffectEvent<ModifyLungDamage> args)
     {
-        var scale = FixedPoint2.New(1);
-
-        if (args is EntityEffectReagentArgs reagentArgs)
-            scale = reagentArgs.Scale;
-
-        args.EntityManager.System<LungDamageSystem>()
-            .TryModifyDamage(args.TargetEntity, Amount * scale);
+        _lungDamage.TryModifyDamage(ent.AsNullable(), args.Effect.Amount * args.Scale);
     }
 }

@@ -13,7 +13,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Civilian
-      time: 3600 #1 hrs # Corvax-RoleTime
+      time: 1h # Corvax-RoleTime
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop
@@ -25,7 +25,7 @@
   - Hydroponics
   - Bar
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 17
   defaultSkills:
     Anatomy: 2
     Botany: 2

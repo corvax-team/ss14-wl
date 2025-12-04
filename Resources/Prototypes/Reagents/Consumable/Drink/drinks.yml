@@ -22,19 +22,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Coffee
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Coffee
           min: 10
 # WL android species end
   metamorphicSprite:
@@ -78,19 +80,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Cream
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Cream
           min: 10
 # WL android species end
 
@@ -132,7 +136,7 @@
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/cafe_latte.rsi
-    state: icon_empty
+    state: icon
   metamorphicMaxFillLevels: 1
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
@@ -245,19 +249,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: IcedTea
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: IcedTea
           min: 10
 # WL android species end
 
@@ -277,19 +283,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceBerryPoison
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: JuiceBerryPoison
           min: 10
 # WL android species end
     Poison:
@@ -322,19 +330,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Lemonade
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Lemonade
           min: 10
 # WL android species end
 
@@ -360,19 +370,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Milk
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Milk
           min: 10
 # WL android species end
 
@@ -399,19 +411,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: MilkOat
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: MilkOat
           min: 10
 # WL android species end
 
@@ -440,19 +454,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: MilkSpoiled
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: MilkSpoiled
           min: 10
 # WL android species end
 
@@ -492,19 +508,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: NuclearCola
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: NuclearCola
           min: 10
 # WL android species end
       - !type:ModifyStatusEffect
@@ -573,19 +591,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Tea
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Tea
           min: 10
 # WL android species end
   metamorphicSprite:
@@ -633,46 +653,46 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Water
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Water
           min: 10
 # WL android species end
 # WL golem species start
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 160.15
         # Golem
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
         amount: -30000
       - !type:SatiateHunger
         factor: -1.5
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL golem species end
     Gas:
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
         ignoreResistances: true
         conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         damage:
           types:
             Heat: 3
@@ -683,34 +703,37 @@
   desc: reagent-desc-ice
   slipData:
     requiredSlipSpeed: 3.5
+  evaporationSpeed: 0.15 # TODO: Ideally Ice should just turn into Water if the room is warm enough (and vis versa), rather than Ice directly evaporating
   physicalDesc: reagent-physical-desc-frosty
   flavor: cold
   color: "#bed8e6"
   recognizable: true
   meltingPoint: 0.0
   boilingPoint: 100.0
-  friction: 0.05 #Copied from Ice Crust
+  friction: 0.05 # Copied from Ice Crust
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 1
   metabolisms:
     Drink:
       effects:
+      - !type:SatiateThirst
+        factor: 3 # Slightly worse for quenching thirst than just straight water
 # WL golem species start
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           min: 160.15
         # Golem
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
         amount: -30000
       - !type:SatiateHunger
         factor: -1.5
         conditions:
         # Golem
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL golem species end
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/iceglass.rsi
@@ -732,24 +755,6 @@
       effects:
       - !type:SatiateHunger
         factor: 1
-# WL android species start
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 10
-        - !type:OrganType
-          type: Biorobotic
-        damage:
-          types:
-            Shock: 1
-      - !type:Electrocute
-        probability: 0.1
-        conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
-          min: 10
-# WL android species end
 
 - type: reagent
   id: HotRamen
@@ -767,19 +772,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: HotRamen
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: HotRamen
           min: 10
 # WL android species end
 
@@ -822,19 +829,21 @@
 # WL android species start
         - !type:HealthChange
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: Pilk
             min: 10
-          - !type:OrganType
-            type: Biorobotic
+          - !type:MetabolizerTypeCondition
+            type: [ Biorobotic ]
           damage:
             types:
               Shock: 1
         - !type:Electrocute
           probability: 0.1
           conditions:
-          - !type:OrganType
-            type: Biorobotic
-          - !type:ReagentThreshold
+          - !type:MetabolizerTypeCondition
+            type: [ Biorobotic ]
+          - !type:ReagentCondition
+            reagent: Pilk
             min: 10
 # WL android species end
   fizziness: 0.3
@@ -849,15 +858,15 @@
   color: "#B3B599"
 
 - type: reagent
-  id: KiraSpecial
-  name: reagent-name-kira-special
+  id: OrangeLimeSoda
+  name: reagent-name-orange-lime-soda
   parent: BaseDrink
-  desc: reagent-desc-kira-special
+  desc: reagent-desc-orange-lime-soda
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: sweet
   color: "#CCCC99"
   metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/kiraspecial.rsi
+    sprite: Objects/Consumable/Drinks/orangelime_soda.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-

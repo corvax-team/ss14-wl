@@ -1,11 +1,11 @@
 using Content.Shared._Offbrand.Wounds;
-using Content.Shared.EntityEffects;
+using Content.Shared.EntityConditions;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class LungDamage : EntityEffectCondition
+public sealed partial class LungDamageCondition : EntityConditionBase<LungDamageCondition>
 {
     [DataField]
     public FixedPoint2 Max = FixedPoint2.MaxValue;
@@ -13,20 +13,18 @@ public sealed partial class LungDamage : EntityEffectCondition
     [DataField]
     public FixedPoint2 Min = FixedPoint2.Zero;
 
-    public override bool Condition(EntityEffectBaseArgs args)
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
-        if (args.EntityManager.TryGetComponent<LungDamageComponent>(args.TargetEntity, out var lungDamage))
-        {
-            return lungDamage.Damage >= Min && lungDamage.Damage <= Max;
-        }
-
-        return false;
-    }
-
-    public override string GuidebookExplanation(IPrototypeManager prototype)
-    {
-        return Loc.GetString("reagent-effect-condition-guidebook-lung-damage",
+        return Loc.GetString("entity-condition-guidebook-lung-damage",
             ("max", Max == FixedPoint2.MaxValue ? (float) int.MaxValue : Max.Float()),
             ("min", Min.Float()));
+    }
+}
+
+public sealed class LungDamageConditionEntitySystem : EntityConditionSystem<LungDamageComponent, LungDamageCondition>
+{
+    protected override void Condition(Entity<LungDamageComponent> ent, ref EntityConditionEvent<LungDamageCondition> args)
+    {
+        args.Result = ent.Comp.Damage >= args.Condition.Min && ent.Comp.Damage <= args.Condition.Max;
     }
 }

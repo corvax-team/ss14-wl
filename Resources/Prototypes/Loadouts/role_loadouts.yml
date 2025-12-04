@@ -10,6 +10,7 @@
   - CaptainOuterClothing
   - Survival
   - Trinkets
+  - CaptainJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
@@ -27,6 +28,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - HoPJobTrinkets
   - GroupSpeciesBreathTool
 
 # Silicons
@@ -57,6 +59,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - PassengerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -72,6 +75,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - BartenderJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -85,6 +89,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -101,6 +106,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ChefJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -114,6 +120,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - LibrarianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -128,6 +135,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - LawyerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -146,6 +154,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ChaplainJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -162,6 +171,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - JanitorJobTrinkets
   - JanitorPlunger
   - GroupSpeciesBreathTool
 
@@ -178,6 +188,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - BotanistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -195,6 +206,7 @@
   - SurvivalClown
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ClownJobTrinkets
 
 - type: roleLoadout
   id: JobMime
@@ -212,6 +224,7 @@
   - SurvivalMime
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - MimeJobTrinkets
 
 - type: roleLoadout
   id: JobMusician
@@ -226,6 +239,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - MusicianJobTrinkets
   - Instruments
   - GroupSpeciesBreathTool
 
@@ -245,6 +259,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - QuartermasterJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -262,6 +277,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -276,6 +292,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -293,6 +310,7 @@
   - SurvivalExtended
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ChiefEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -305,6 +323,7 @@
   - SurvivalExtended
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -321,6 +340,7 @@
   - SurvivalExtended
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -336,6 +356,7 @@
   - SurvivalExtended
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
 
 # Science
@@ -355,6 +376,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ResearchDirectorJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -374,6 +396,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ScientistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -387,6 +410,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
 
 # Security
@@ -405,6 +429,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - HOSBadges # WL-Changes
+  - HeadofSecurityJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -422,6 +447,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - WardenBadges # WL-Changes
+  - WardenJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -440,6 +466,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - OfficerBadges # WL-Changes
+  - SecurityJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -457,6 +484,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - DetectiveBadges # WL-Changes
+  - DetectiveJobTrinkets
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
   - PhotoGroup # WL-Changes: Photo to lodauts
@@ -471,6 +499,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - CadetBadges # WL-Changes
+  - SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
 # Medical
@@ -492,6 +521,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -512,6 +542,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - MedicalDoctorNeck # WL-Changes
+  - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -525,6 +556,7 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -541,6 +573,7 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -559,6 +592,7 @@
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
 
 # Wildcards
@@ -572,6 +606,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ZookeeperJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -585,6 +620,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - ReporterJobTrinkets
   - GroupSpeciesBreathTool
   - PhotoGroup # WL-Changes: Photo to lodauts
 
@@ -599,6 +635,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - PsychologistJobTrinkets
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -613,6 +650,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - BoxerJobTrinkets
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

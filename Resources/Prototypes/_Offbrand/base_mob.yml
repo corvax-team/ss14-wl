@@ -127,8 +127,7 @@
       30: StatusEffectModeratePain
       60: StatusEffectSeverePain
       120: StatusEffectBlackoutPain
-    mobThresholds:
-      200: Critical
+    mobThresholds: {}
   - type: ShockAlerts
     alertCategory: Pain
     suppressedAlert: SuppressedPain
@@ -138,50 +137,50 @@
       30: ModeratePain
       60: SeverePain
       120: BlackoutPain
-      200: UnconsciousPain
   - type: ShockGaspThresholds
     messageThresholds:
       120: DefaultPainslump
-      200: DefaultPaingasp
 
 - type: entity
   abstract: true
   id: BaseMobHeartrate
   components:
   - type: Heartrate
-    asphyxiationDamage: Asphyxiation
-    asphyxiationThreshold: 100
     maxDamage: 100
     damage: 0
     strainDamageThresholds:
-      1: [0.04, 0.1]
-      2: [0.1, 0.1]
-      3: [0.3, 0.1]
-      4: [0.4, 2]
-    circulationStrainModifierCoefficient: 0.075
-    circulationStrainModifierConstant: 1.025
-    stoppedBloodCirculationModifier: 0.2
-    minimumDamageCirculationModifier: 0.3
-    shockStrainDivisor: 40
+      0.25: [0.2, 0.1]
+      0.5: [0.3, 0.1]
+      0.75: [0.4, 0.1]
+      1: [0.5, 2]
+    respiratoryRateCoefficient: -3
+    respiratoryRateConstant: 1.333
+    respiratoryRateNormalBreath: 5
+    compensationCoefficient: 0.7
+    compensationConstant: 1
+    compensationStrainCoefficient: 1.42
+    compensationStrainConstant: -1.42
     bloodPressureDeviation: 5
     systolicBase: 120
     diastolicBase: 80
     heartRateDeviation: 15
-    heartRateBase: 75
-    heartRateStrainFactor: 200
-    heartRateStrainDivisor: 6
-    maximumStrain: 6
+    heartRateFullPerfusion: 75
+    heartRateNoPerfusion: 200
+    etco2Base: 40
+    etco2Deviation: 4
+    etco2Name: etco2-carbon-dioxide
+    etco2GasName: reagent-name-carbon-dioxide
+    spo2Name: spo2-oxygen
+    spo2GasName: reagent-name-oxygen
     heartStoppedEffect: StatusEffectHeartStopped
   - type: HeartDefibrillatable
-  - type: HeartStopOnHypovolemia
-    chance: 0.8
-    volumeThreshold: 0.3
+  - type: PainMetabolicRate
+    quadraticFactor: 0.00005
+    linearFactor: -0.0025
+    constantFactor: 0
   - type: HeartStopOnHighStrain
     chance: 0.05
-    threshold: 4
-  - type: HeartStopOnBrainHealth
-    chance: 0.8
-    threshold: 70
+    threshold: 0.75
   - type: HeartrateAlerts
     strainAlert: HeartRate
     stoppedAlert: HeartStopped
@@ -237,7 +236,8 @@
     damageStateThresholds:
       70: Critical
       100: Dead
-    oxygenStateThresholds: {}
+    oxygenStateThresholds:
+      0: Critical
     damageEffectThresholds:
       30: StatusEffectSevereBrainDamage
       70: StatusEffectCriticalBrainDamage
@@ -248,6 +248,8 @@
     damageAlertCategory: BrainDamage
     oxygenEffectThresholds:
       0: StatusEffectBrainNoOxygen
+    oxygenAlert: BrainOxygen
+    oxygenAlertCategory: BrainOxygen
     aliveDamageIcons:
     - HealthIconNormal7
     - HealthIconNormal6
@@ -276,6 +278,8 @@
   - type: BrainGaspThresholds
     messageThresholds:
       70: DefaultBraingasp
+    oxygenThresholds:
+      0: DefaultBrainslump
 
 - type: entity
   abstract: true
@@ -305,6 +309,8 @@
   - type: LungDamage
     damage: 0
     maxDamage: 100
+    asphyxiationDamage: Asphyxiation
+    asphyxiationThreshold: 100
   - type: LungDamageOnInhaledAirTemperature
     heatCoefficient: 0.005
     heatConstant: -1.375

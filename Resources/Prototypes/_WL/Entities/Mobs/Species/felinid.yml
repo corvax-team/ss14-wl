@@ -62,6 +62,13 @@
     understood:
       - Translate
       - OldEarth
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
 
 - type: entity
   save: false
@@ -70,3 +77,11 @@
   id: MobFelinidDummy
   categories: [ HideSpawnMenu ]
   description: A dummy felinid meant to be used in character setup.
+  components:
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

@@ -14,19 +14,21 @@
 # WL android species start
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Nutriment
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Nutriment
           min: 10
 # WL android species end
 # WL species start
@@ -40,8 +42,8 @@
             Burn: -0.1
             Toxin: -0.1
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL species end
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -70,29 +72,31 @@
 # WL species start
         # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
       # Android
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Vitamin
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Vitamin
           min: 10
       # Golem
       - !type:HealthChange
@@ -104,22 +108,22 @@
             Burn: -0.5
             Toxin: -0.5
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL species end
       # Helps you stop bleeding to an extent.
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.25
 # WL species start
         # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
   # Lets plants benefit too
@@ -149,29 +153,31 @@
 # WL species start
         # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Protein
           min: 10
-        - !type:OrganType
-          type: Biorobotic
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
         damage:
           types:
             Shock: 1
       - !type:Electrocute
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-        - !type:ReagentThreshold
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        - !type:ReagentCondition
+          reagent: Protein
           min: 10
 # WL android species end
       - !type:ModifyBloodLevel
@@ -179,13 +185,13 @@
 # WL species start
         # Android
         conditions:
-        - !type:OrganType
-          type: Biorobotic
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+          inverted: true
         # Golem
-        - !type:OrganType
-          type: Golem
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
 # WL species end
       - !type:SatiateHunger
 # WL species start
@@ -199,8 +205,8 @@
             Burn: -0.1
             Toxin: -0.1
         conditions:
-        - !type:OrganType
-          type: Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL species end
   pricePerUnit: 3
 
@@ -218,7 +224,7 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:ReagentThreshold #Only satiates when eaten with nutriment
+        - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
         factor: 1

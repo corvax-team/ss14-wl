@@ -7,6 +7,7 @@
   - BaseMobSpeciesOld
   abstract: true
   components:
+    - type: OfferItem # CorvaxGoob-Offer
     - type: Damageable
       damageContainer: Golemical
       damageModifierSet: Golem

@@ -69,6 +69,11 @@
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
     - PhotoCameraRecipe #WL-Changes-Photo
+    # WL-Changes-start
+    - BassGuitarInstrumentRecipe
+    - ElectricGuitarInstrumentRecipe
+    - MicrophoneInstrumentRecipe
+    # WL-Changes-end
 
 - type: technology
   id: MeatManipulation

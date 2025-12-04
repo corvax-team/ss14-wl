@@ -5,27 +5,26 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class ModifyHeartDamage : EntityEffect
+public sealed partial class ModifyHeartDamage : EntityEffectBase<ModifyHeartDamage>
 {
     [DataField(required: true)]
     public FixedPoint2 Amount;
 
-    protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         if (Amount < FixedPoint2.Zero)
-            return Loc.GetString("reagent-effect-guidebook-modify-heart-damage-heals", ("chance", Probability), ("amount", -Amount));
+            return Loc.GetString("entity-effect-guidebook-modify-heart-damage-heals", ("chance", Probability), ("amount", -Amount));
         else
-            return Loc.GetString("reagent-effect-guidebook-modify-heart-damage-deals", ("chance", Probability), ("amount", Amount));
+            return Loc.GetString("entity-effect-guidebook-modify-heart-damage-deals", ("chance", Probability), ("amount", Amount));
     }
+}
 
-    public override void Effect(EntityEffectBaseArgs args)
+public sealed class ModifyHeartDamageEntityEffectSystem : EntityEffectSystem<HeartrateComponent, ModifyHeartDamage>
+{
+    [Dependency] private readonly HeartSystem _heart = default!;
+
+    protected override void Effect(Entity<HeartrateComponent> ent, ref EntityEffectEvent<ModifyHeartDamage> args)
     {
-        var scale = FixedPoint2.New(1);
-
-        if (args is EntityEffectReagentArgs reagentArgs)
-            scale = reagentArgs.Scale;
-
-        args.EntityManager.System<HeartSystem>()
-            .ChangeHeartDamage(args.TargetEntity, Amount * scale);
+        _heart.ChangeHeartDamage(ent.AsNullable(), args.Effect.Amount * args.Scale);
     }
 }

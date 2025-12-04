@@ -95,4 +95,38 @@ Entries:
     type: Add
   id: 6
   time: '2025-10-03T22:00:00.0000000+00:00'
+- author: sowelipililimute
+  changes:
+  - message: The simulation of the cardiovascular system has been overhauled! The new system is more granular and based on a more physiologically accurate model than before.
+    type: Tweak
+  - message: Tourniquets now consistently use the new behaviour of being persistent effects.
+    type: Fix
+  - message: Tourniquets now bruise the target slightly more.
+    type: Tweak
+  - message: IV stands no longer turn non-blood reagents into blood
+    type: Fix
+  id: 7
+  time: '2025-10-08T22:00:00.0000000+00:00'
+- author: sowelipililimute
+  changes:
+  - message: Pain can no longer cause you to enter a hard critial state
+    type: Remove
+  - message: The brain losing oxygen can now cause you to enter a hard critical state
+    type: Add
+  - message: Robust Harvest no longer double metabolizes
+    type: Fix
+  - message: Robust Harvest has been buffed slightly, and triggers the tree polymorph based on total dosage
+    type: Tweak
+  id: 7
+  time: '2025-10-10T22:00:00.0000000+00:00'
+- author: sowelipililimute
+  changes:
+  - message: Invalid items can no longer be inserted into people's chest cavities
+    type: Fix
+  - message: Pain overlay no longer shows at zero pain
+    type: Fix
+  - message: Surgery will no longer get stuck if a single step is partially completed
+    type: Fix
+  id: 8
+  time: '2025-10-11T22:00:00.0000000+00:00'
 Order: 2

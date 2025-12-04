@@ -265,7 +265,7 @@
   - type: Appearance
   - type: Item
     heldPrefix: wood
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:

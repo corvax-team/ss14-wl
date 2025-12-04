@@ -1,21 +1,21 @@
-using Content.Shared.EntityEffects;
+using Content.Shared.EntityConditions;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.EntityEffects;
 
-public sealed partial class IsZombie : EntityEffectCondition
+public sealed partial class IsZombieCondition : EntityConditionBase<IsZombieCondition>
 {
-    [DataField]
-    public bool Invert = false;
-
-    public override bool Condition(EntityEffectBaseArgs args)
+    public override string EntityConditionGuidebookText(IPrototypeManager prototype)
     {
-        return args.EntityManager.HasComponent<ZombieComponent>(args.TargetEntity) ^ Invert;
+        return Loc.GetString("entity-condition-guidebook-is-zombie", ("invert", Inverted));
     }
+}
 
-    public override string GuidebookExplanation(IPrototypeManager prototype)
+public sealed class IsZombieConditionEntitySystem : EntityConditionSystem<MetaDataComponent, IsZombieCondition>
+{
+    protected override void Condition(Entity<MetaDataComponent> ent, ref EntityConditionEvent<IsZombieCondition> args)
     {
-        return Loc.GetString("reagent-effect-condition-guidebook-is-zombie", ("invert", Invert));
+        args.Result = HasComp<ZombieComponent>(ent);
     }
 }

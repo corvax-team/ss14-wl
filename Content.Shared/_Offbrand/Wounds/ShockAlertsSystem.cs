@@ -1,6 +1,6 @@
-using System.Linq;
 using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
+using Content.Shared.Traits.Assorted; // WL-Offmed
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Offbrand.Wounds;
@@ -39,7 +39,12 @@ public sealed class ShockAlertsSystem : EntitySystem
 
         if (targetEffect is { } effect)
         {
-            _alerts.ShowAlert(ent.Owner, effect);
+            // WL-Offmed-start: add PainNumbness for pain alert
+            if (!EntityManager.HasComponent<PainNumbnessComponent>(ent.Owner))
+                _alerts.ShowAlert(ent.Owner, effect);
+            else
+                _alerts.ShowAlert(ent.Owner, "SuppressedPain");
+            // WL-Offmed-end
         }
         else
         {
