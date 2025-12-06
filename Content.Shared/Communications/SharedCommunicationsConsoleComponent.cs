@@ -18,8 +18,11 @@ namespace Content.Shared.Communications
         public List<string>? AlertLevels;
         public string CurrentAlert;
         public float CurrentAlertDelay;
+        public bool IsCentcomm;
+        public List<(string, NetEntity)>? Stations;
+        //public List<(string, NetEntity)> SelectedStation;
 
-        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, TimeSpan? expectedCountdownEnd = null)
+        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, bool isCentcomm, List<(string, NetEntity)>? stations, /*List<(string, NetEntity)> selectedStation,*/ float currentAlertDelay, TimeSpan? expectedCountdownEnd = null)
         {
             CanAnnounce = canAnnounce;
             CanCall = canCall;
@@ -28,6 +31,9 @@ namespace Content.Shared.Communications
             AlertLevels = alertLevels;
             CurrentAlert = currentAlert;
             CurrentAlertDelay = currentAlertDelay;
+            IsCentcomm = isCentcomm;
+            Stations = stations;
+            //SelectedStation = selectedStation;
         }
     }
 
@@ -39,6 +45,16 @@ namespace Content.Shared.Communications
         public CommunicationsConsoleSelectAlertLevelMessage(string level)
         {
             Level = level;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class CommunicationsConsoleSelectStationMessage : BoundUserInterfaceMessage
+    {
+        public readonly string Station;
+        public CommunicationsConsoleSelectStationMessage(string station)
+        {
+            Station = station;
         }
     }
 

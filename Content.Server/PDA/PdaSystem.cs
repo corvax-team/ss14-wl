@@ -21,6 +21,7 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes; // WL-Chagnes: rework alertLevels
 using Robust.Shared.Utility;
 
 namespace Content.Server.PDA
@@ -37,6 +38,7 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Chagnes: rework alertLevels
 
         public override void Initialize()
         {
@@ -213,7 +215,8 @@ namespace Content.Server.PDA
                     JobTitle = id?.LocalizedJobTitle,
                     StationAlertLevel = pda.StationAlertLevel,
                     StationAlertColor = pda.StationAlertColor,
-                    StationAlertInstructions = pda.StationAlertInstructions // WL-Changes: custom alert instructions in PDA
+                    StationAlertInstructions = pda.StationAlertInstructions, // WL-Changes: custom alert instructions in PDA
+                    StationAlertName = pda.StationAlertName
                 },
                 pda.StationName,
                 showUplink,
@@ -310,9 +313,14 @@ namespace Content.Server.PDA
             if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var details))
             {
                 // WL-Changes-start: custom alert instructions in PDA
-                pda.StationAlertColor = details.Color;
-                if (details != null)
-                    pda.StationAlertInstructions = details.AlertLevelInstruction;
+                var index = _prototypeManager.Index(details); // WL-Changes: rework alertLevels
+                pda.StationAlertColor = index.Color;
+                if (index != null)
+                {
+                    pda.StationAlertInstructions = index.Instruction;
+                    if (!string.IsNullOrEmpty(index.SetName))
+                        pda.StationAlertName = index.SetName;
+                }
                 // WL-Changes-end
             }
         }

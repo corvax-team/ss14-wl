@@ -83,6 +83,7 @@
     delay: 10
     initialDelay: 0
     global: true
+    isCentcomm: true
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole

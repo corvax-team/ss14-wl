@@ -12,6 +12,7 @@ using Content.Shared.Power.Components;
 using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 using Color = Robust.Shared.Maths.Color;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Light.EntitySystems;
 
@@ -22,6 +23,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
     [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
@@ -66,8 +68,9 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
             var name = alerts.CurrentLevel;
 
             var color = Color.White;
-            if (alerts.AlertLevels.Levels.TryGetValue(alerts.CurrentLevel, out var details))
-                color = details.Color;
+            if (alerts.AlertLevels.Levels.TryGetValue(alerts.CurrentLevel, out var details)
+                && _prototypeManager.TryIndex(details, out var alertPrototype))
+                color = alertPrototype.Color;
 
             args.PushMarkup(
                 Loc.GetString("emergency-light-component-on-examine-alert",
@@ -98,7 +101,9 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         if (!TryComp<AlertLevelComponent>(ev.Station, out var alert))
             return;
 
-        if (alert.AlertLevels == null || !alert.AlertLevels.Levels.TryGetValue(ev.AlertLevel, out var details))
+        if (alert.AlertLevels == null
+            || !alert.AlertLevels.Levels.TryGetValue(ev.AlertLevel, out var details)
+            || !_prototypeManager.TryIndex(details, out var alertPrototype))
             return;
 
         var query = EntityQueryEnumerator<EmergencyLightComponent, PointLightComponent, AppearanceComponent, TransformComponent>();
@@ -107,15 +112,15 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
             if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != ev.Station)
                 continue;
 
-            _pointLight.SetColor(uid, details.EmergencyLightColor, pointLight);
-            _appearance.SetData(uid, EmergencyLightVisuals.Color, details.EmergencyLightColor, appearance);
+            _pointLight.SetColor(uid, alertPrototype.EmergencyLightColor, pointLight);
+            _appearance.SetData(uid, EmergencyLightVisuals.Color, alertPrototype.EmergencyLightColor, appearance);
 
-            if (details.ForceEnableEmergencyLights && !light.ForciblyEnabled)
+            if (alertPrototype.ForceEnableEmergencyLights && !light.ForciblyEnabled)
             {
                 light.ForciblyEnabled = true;
                 TurnOn((uid, light));
             }
-            else if (!details.ForceEnableEmergencyLights && light.ForciblyEnabled)
+            else if (!alertPrototype.ForceEnableEmergencyLights && light.ForciblyEnabled)
             {
                 // Previously forcibly enabled, and we went down an alert level.
                 light.ForciblyEnabled = false;
@@ -177,7 +182,9 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         if (!TryComp<AlertLevelComponent>(_station.GetOwningStation(entity.Owner), out var alerts))
             return;
 
-        if (alerts.AlertLevels == null || !alerts.AlertLevels.Levels.TryGetValue(alerts.CurrentLevel, out var details))
+        if (alerts.AlertLevels == null
+            || !alerts.AlertLevels.Levels.TryGetValue(alerts.CurrentLevel, out var details)
+            || !_prototypeManager.TryIndex(details, out var alertPrototype))
         {
             TurnOff(entity, Color.Red); // if no alert, default to off red state
             return;
@@ -186,7 +193,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         if (receiver.Powered && !entity.Comp.ForciblyEnabled) // Green alert
         {
             receiver.Load = (int) Math.Abs(entity.Comp.Wattage);
-            TurnOff(entity, details.Color);
+            TurnOff(entity, alertPrototype.Color);
             SetState(entity.Owner, entity.Comp, EmergencyLightState.Charging);
         }
         else if (!receiver.Powered) // If internal battery runs out it will end in off red state
@@ -196,7 +203,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         }
         else // Powered and enabled
         {
-            TurnOn(entity, details.Color);
+            TurnOn(entity, alertPrototype.Color);
             SetState(entity.Owner, entity.Comp, EmergencyLightState.On);
         }
     }

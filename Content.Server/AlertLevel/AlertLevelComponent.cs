@@ -1,3 +1,5 @@
+using Content.Shared.AlertLevel;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.AlertLevel;
@@ -9,15 +11,16 @@ namespace Content.Server.AlertLevel;
 [RegisterComponent]
 public sealed partial class AlertLevelComponent : Component
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     /// <summary>
     /// The current set of alert levels on the station.
     /// </summary>
     [ViewVariables]
-    public AlertLevelPrototype? AlertLevels;
+    public AlertLevelsListPrototype? AlertLevels;
 
     // Once stations are a prototype, this should be used.
-    [DataField("alertLevelPrototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<AlertLevelPrototype>))]
-    public string AlertLevelPrototype = default!;
+    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<AlertLevelsListPrototype>))]
+    public string AlertLevelsListPrototype = default!;
 
     /// <summary>
     /// The current level on the station.
@@ -40,13 +43,13 @@ public sealed partial class AlertLevelComponent : Component
     {
         get
         {
-            if (AlertLevels == null
-                || !AlertLevels.Levels.TryGetValue(CurrentLevel, out var level))
-            {
+            if (AlertLevels == null)
                 return false;
-            }
 
-            return level.Selectable && !level.DisableSelection && !IsLevelLocked;
+            if (!_prototypeManager.TryIndex<AlertLevelPrototype>(CurrentLevel, out var prototype))
+                return false;
+
+            return prototype.Selectable && !prototype.DisableSelection && !IsLevelLocked;
         }
     }
 }

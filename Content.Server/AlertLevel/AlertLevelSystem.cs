@@ -1,11 +1,13 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
+using Content.Shared.AlertLevel;
 using Content.Shared.CCVar;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Server.AlertLevel;
 
@@ -51,7 +53,7 @@ public sealed class AlertLevelSystem : EntitySystem
         if (!TryComp<AlertLevelComponent>(args.Station, out var alertLevelComponent))
             return;
 
-        if (!_prototypeManager.TryIndex(alertLevelComponent.AlertLevelPrototype, out AlertLevelPrototype? alerts))
+        if (!_prototypeManager.TryIndex(alertLevelComponent.AlertLevelsListPrototype, out AlertLevelsListPrototype? alerts))
         {
             return;
         }
@@ -61,7 +63,7 @@ public sealed class AlertLevelSystem : EntitySystem
         var defaultLevel = alertLevelComponent.AlertLevels.DefaultLevel;
         if (string.IsNullOrEmpty(defaultLevel))
         {
-            defaultLevel = alertLevelComponent.AlertLevels.Levels.Keys.First();
+            defaultLevel = alertLevelComponent.AlertLevels.Levels.First().ToString();
         }
 
         SetLevel(args.Station, defaultLevel, false, false, true);
@@ -69,9 +71,9 @@ public sealed class AlertLevelSystem : EntitySystem
 
     private void OnPrototypeReload(PrototypesReloadedEventArgs args)
     {
-        if (!args.ByType.TryGetValue(typeof(AlertLevelPrototype), out var alertPrototypes)
-            || !alertPrototypes.Modified.TryGetValue(DefaultAlertLevelSet, out var alertObject)
-            || alertObject is not AlertLevelPrototype alerts)
+        if (!args.ByType.TryGetValue(typeof(AlertLevelsListPrototype), out var alertListPrototypes)
+            || !alertListPrototypes.Modified.TryGetValue(DefaultAlertLevelSet, out var alertObject)
+            || alertObject is not AlertLevelsListPrototype alerts)
         {
             return;
         }
@@ -81,19 +83,19 @@ public sealed class AlertLevelSystem : EntitySystem
         {
             comp.AlertLevels = alerts;
 
-            if (!comp.AlertLevels.Levels.ContainsKey(comp.CurrentLevel))
+            if (!comp.AlertLevels.Levels.Contains(comp.CurrentLevel))
             {
                 var defaultLevel = comp.AlertLevels.DefaultLevel;
                 if (string.IsNullOrEmpty(defaultLevel))
                 {
-                    defaultLevel = comp.AlertLevels.Levels.Keys.First();
+                    defaultLevel = comp.AlertLevels.Levels.First().ToString();
                 }
 
                 SetLevel(uid, defaultLevel, true, true, true);
             }
         }
 
-        RaiseLocalEvent(new AlertLevelPrototypeReloadedEvent());
+        RaiseLocalEvent(new AlertLevelsListPrototypeReloadedEvent());
     }
 
     public string GetLevel(EntityUid station, AlertLevelComponent? alert = null)
@@ -151,15 +153,21 @@ public sealed class AlertLevelSystem : EntitySystem
     {
         if (!Resolve(station, ref component, ref dataComponent)
             || component.AlertLevels == null
-            || !component.AlertLevels.Levels.TryGetValue(level, out var detail)
+            //|| !component.AlertLevels.Levels.TryGetValue(level, out var detail)
             || component.CurrentLevel == level)
         {
             return;
         }
 
+        if (!component.AlertLevels.Levels.Contains(level))
+            return;
+
+        if (!_prototypeManager.TryIndex<AlertLevelPrototype>(level, out var prototype) || prototype == null)
+            return;
+
         if (!force)
         {
-            if (!detail.Selectable
+            if (!prototype.Selectable
                 || component.CurrentDelay > 0
                 || component.IsLevelLocked)
             {
@@ -175,17 +183,21 @@ public sealed class AlertLevelSystem : EntitySystem
 
         var stationName = dataComponent.EntityName;
 
-        var name = level.ToLower();
+        var name = level;
 
-        if (Loc.TryGetString($"alert-level-{level}", out var locName))
-        {
-            name = locName.ToLower();
-        }
+        if (Loc.TryGetString($"alert-level-{level.ToLower()}", out var locId))
+            name = locId/*.ToLower()*/;
+        else if (!string.IsNullOrEmpty(prototype.SetName))
+            name = prototype.SetName;
+        else
+            name = Loc.GetString("alert-level-unknown");
+
+
 
         // Announcement text. Is passed into announcementFull.
-        var announcement = detail.Announcement;
+        var announcement = prototype.Announcement;
 
-        if (Loc.TryGetString(detail.Announcement, out var locAnnouncement))
+        if (Loc.TryGetString(prototype.Announcement, out var locAnnouncement))
         {
             announcement = locAnnouncement;
         }
@@ -196,10 +208,10 @@ public sealed class AlertLevelSystem : EntitySystem
         var playDefault = false;
         if (playSound)
         {
-            if (detail.Sound != null)
+            if (prototype.Sound != null)
             {
                 var filter = _stationSystem.GetInOwningStation(station);
-                _audio.PlayGlobal(detail.Sound, filter, true, detail.Sound.Params);
+                _audio.PlayGlobal(prototype.Sound, filter, true, prototype.Sound.Params);
             }
             else
             {
@@ -210,7 +222,7 @@ public sealed class AlertLevelSystem : EntitySystem
         if (announce)
         {
             _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
-                colorOverride: detail.Color, sender: stationName);
+                colorOverride: prototype.Color, sender: stationName);
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));
@@ -220,7 +232,7 @@ public sealed class AlertLevelSystem : EntitySystem
 public sealed class AlertLevelDelayFinishedEvent : EntityEventArgs
 {}
 
-public sealed class AlertLevelPrototypeReloadedEvent : EntityEventArgs
+public sealed class AlertLevelsListPrototypeReloadedEvent : EntityEventArgs
 {}
 
 public sealed class AlertLevelChangedEvent : EntityEventArgs

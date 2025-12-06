@@ -140,7 +140,7 @@
   abstract: true
   components:
     - type: AlertLevel
-      alertLevelPrototype: stationAlerts
+      alertLevelsListPrototype: stationAlerts
 
 - type: entity
   id: BaseStationExpeditions

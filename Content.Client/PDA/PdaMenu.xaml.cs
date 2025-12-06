@@ -174,15 +174,14 @@ namespace Content.Client.PDA
 
             var alertLevel = state.PdaOwnerInfo.StationAlertLevel;
             var alertColor = state.PdaOwnerInfo.StationAlertColor;
+            var alertName = state.PdaOwnerInfo.StationAlertName;
             // WL-Changes-start: custom alert instructions in PDA
             var alertInstructions = state.PdaOwnerInfo.StationAlertInstructions;
-            if (alertLevel != null)
-            {
-                if (_locMan.TryGetString($"alert-level-{alertLevel}", out var locName))
-                    _alertLevel = locName;
-                else
-                    _alertLevel = alertLevel;
-            }
+            if (alertLevel != null
+                && _locMan.TryGetString($"alert-level-{alertLevel.ToLower()}", out var locName))
+                _alertLevel = locName;
+            else if (!string.IsNullOrEmpty(alertName))
+                _alertLevel = alertName;
             else
                 _alertLevel = Loc.GetString("alert-level-unknown");
 
@@ -194,7 +193,7 @@ namespace Content.Client.PDA
 
             if (!string.IsNullOrEmpty(alertInstructions))
                 _instructions = alertInstructions;
-            else if (alertLevel != null && _locMan.TryGetString($"alert-level-{alertLevel}-instructions", out var locInstruction))
+            else if (alertLevel != null && _locMan.TryGetString($"alert-level-{alertLevel.ToLower()}-instructions", out var locInstruction))
                 _instructions = locInstruction;
             else
                 _instructions = Loc.GetString("alert-level-unknown-instructions");

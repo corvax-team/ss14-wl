@@ -74,5 +74,10 @@ namespace Content.Server.Communications
         /// </summary>
         [DataField]
         public bool AnnounceSentBy = true;
+
+        [DataField]
+        public bool IsCentcomm = false;
+        [DataField]
+        public NetEntity? SelectedStation;
     }
 }

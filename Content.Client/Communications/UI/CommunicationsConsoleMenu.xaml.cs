@@ -6,6 +6,8 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes;
+using Content.Shared.AlertLevel;
 
 namespace Content.Client.Communications.UI
 {
@@ -15,6 +17,8 @@ namespace Content.Client.Communications.UI
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly ILocalizationManager _loc = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public bool CanAnnounce;
         public bool CanBroadcast;
@@ -23,11 +27,15 @@ namespace Content.Client.Communications.UI
         public bool CountdownStarted;
         public string CurrentLevel = string.Empty;
         public TimeSpan? CountdownEnd;
+        public string Station = string.Empty;
+        public bool IsCentcomm;
+        //public List<(string, NetEntity)>? SelectedStation;
 
         public event Action? OnEmergencyLevel;
         public event Action<string>? OnAlertLevel;
         public event Action<string>? OnAnnounce;
         public event Action<string>? OnBroadcast;
+        public event Action<string>? OnStations;
 
         public CommunicationsConsoleMenu()
         {
@@ -53,10 +61,10 @@ namespace Content.Client.Communications.UI
             };
 
             AnnounceButton.OnPressed += _ => OnAnnounce?.Invoke(Rope.Collapse(MessageInput.TextRope));
-            AnnounceButton.Disabled = !CanAnnounce;
+            AnnounceButton.Disabled = !CanAnnounce || !IsCentcomm;
 
             BroadcastButton.OnPressed += _ => OnBroadcast?.Invoke(Rope.Collapse(MessageInput.TextRope));
-            BroadcastButton.Disabled = !CanBroadcast;
+            BroadcastButton.Disabled = !CanBroadcast || !IsCentcomm;
 
             AlertLevelButton.OnItemSelected += args =>
             {
@@ -66,9 +74,16 @@ namespace Content.Client.Communications.UI
                     OnAlertLevel?.Invoke(cast);
                 }
             };
+            StationsButton.OnItemSelected += args =>
+            {
+                var metadata = StationsButton.GetItemMetadata(args.Id);
+                if (metadata != null && metadata is string cast)
+                    OnStations?.Invoke(cast);
+            };
 
 
-            AlertLevelButton.Disabled = !AlertLevelSelectable;
+            AlertLevelButton.Disabled = !AlertLevelSelectable || !IsCentcomm;
+            StationsButton.Visible = !IsCentcomm;
 
             EmergencyShuttleButton.OnPressed += _ => OnEmergencyLevel?.Invoke();
             EmergencyShuttleButton.Disabled = !CanCall;
@@ -91,28 +106,75 @@ namespace Content.Client.Communications.UI
             if (alerts == null)
             {
                 var name = currentAlert;
-                if (_loc.TryGetString($"alert-level-{currentAlert}", out var locName))
+
+                if (!_prototypeManager.TryIndex<AlertLevelPrototype>(currentAlert, out var index))
+                    return;
+                if (_loc.TryGetString($"alert-level-{currentAlert.ToLower()}", out var locName))
                 {
                     name = locName;
                 }
-                AlertLevelButton.AddItem(name);
-                AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, currentAlert);
+                else if (!string.IsNullOrEmpty(index.SetName))
+                    name = index.SetName;
+
+                if (index.Selectable || IsCentcomm)
+                {
+                    AlertLevelButton.AddItem(name);
+                    AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, currentAlert);
+                }
             }
             else
             {
                 foreach (var alert in alerts)
                 {
                     var name = alert;
-                    if (_loc.TryGetString($"alert-level-{alert}", out var locName))
+                    var index = _prototypeManager.Index<AlertLevelPrototype>(alert);
+                    if (_loc.TryGetString($"alert-level-{alert.ToLower()}", out var locName))
                     {
                         name = locName;
                     }
-                    AlertLevelButton.AddItem(name);
-                    AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, alert);
+                    else if (!string.IsNullOrEmpty(index.SetName))
+                        name = index.SetName;
+                    if (index.Selectable || IsCentcomm)
+                    {
+                        AlertLevelButton.AddItem(name);
+                        AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, alert);
+                    }
                     if (alert == currentAlert)
                     {
                         AlertLevelButton.Select(AlertLevelButton.ItemCount - 1);
                     }
+                }
+            }
+        }
+
+        public void UpdateStations(List<(string, NetEntity)>? stations)
+        {
+            StationsButton.Clear();
+
+            List<(string, EntityUid?)> stationsUid = new List<(string, EntityUid?)>();
+            if (stations == null)
+                return;
+            foreach (var (name, station) in stations)
+            {
+                if (!_entityManager.TryGetEntity(station, out var uid))
+                    continue;
+                stationsUid.Add((name, uid));
+            }
+
+            if (stationsUid == null || !IsCentcomm)
+            {
+                StationsButton.Visible = false;
+                return;
+            }
+
+            StationsButton.Visible = true;
+
+            foreach (var (name, station) in stationsUid)
+            {
+                if (station != null)
+                {
+                    StationsButton.AddItem(name);
+                    StationsButton.SetItemMetadata(StationsButton.ItemCount - 1, station);
                 }
             }
         }

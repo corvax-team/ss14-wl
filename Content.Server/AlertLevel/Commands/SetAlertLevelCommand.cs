@@ -1,8 +1,9 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.AlertLevel.Commands
 {
@@ -83,7 +84,7 @@ namespace Content.Server.AlertLevel.Commands
             if (alertLevelComp.AlertLevels == null)
                 return new string[]{};
 
-            return alertLevelComp.AlertLevels.Levels.Keys.ToArray();
+            return alertLevelComp.AlertLevels.Levels.Select(protoId => protoId.ToString()).ToArray();
         }
     }
 }
