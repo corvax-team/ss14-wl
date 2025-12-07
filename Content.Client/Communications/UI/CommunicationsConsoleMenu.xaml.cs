@@ -124,11 +124,9 @@ namespace Content.Client.Communications.UI
                         }
                         else if (!string.IsNullOrEmpty(index.SetName))
                             name = index.SetName;
-                        if (index.Selectable)
-                        {
-                            AlertLevelButton.AddItem(name);
-                            AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, alert);
-                        }
+
+                        AlertLevelButton.AddItem(name);
+                        AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, alert);
                     }
                     // WL-Changes-end
                     if (alert == currentAlert)

@@ -205,7 +205,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         }
         else // Powered and enabled
         {
-            TurnOn(entity, alertPrototype.Color);
+            TurnOn(entity, alertPrototype.Color); // WL-Changes: Alert Level Rework // details -> alertPrototype
             SetState(entity.Owner, entity.Comp, EmergencyLightState.On);
         }
     }
