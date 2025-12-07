@@ -1,3 +1,4 @@
+// WL-Changes-start: Alert Level Rework
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -9,9 +10,7 @@ public sealed class AlertLevelsListPrototype : IPrototype
     [IdDataField] public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// Dictionary of alert levels. Keyed by string - the string key is the most important
-    /// part here. Visualizers will use this in order to dictate what alert level to show on
-    /// client side sprites, and localization uses each key to dictate the alert level name.
+    /// Dictionary of alert levels.
     /// </summary>
     [DataField] public HashSet<ProtoId<AlertLevelPrototype>> Levels = new();
 
@@ -23,8 +22,7 @@ public sealed class AlertLevelsListPrototype : IPrototype
 }
 
 /// <summary>
-/// Alert level detail. Does not contain an ID, that is handled by
-/// the Levels field in AlertLevelPrototype.
+/// Alert level detail.
 /// </summary>
 [Prototype("alertLevel")]
 public sealed class AlertLevelPrototype : IPrototype
@@ -55,7 +53,7 @@ public sealed class AlertLevelPrototype : IPrototype
     /// This should only apply to entities or gamemodes that auto-select an alert level,
     /// such as a nuclear bomb being set to active.
     /// </summary>
-    [DataField] public bool DisableSelection { get; private set; } = false;
+    [DataField] public bool DisableSelection { get; private set; }
 
     /// <summary>
     /// The sound that this alert level will play in-game once selected.
@@ -82,4 +80,4 @@ public sealed class AlertLevelPrototype : IPrototype
     /// </summary>
     [DataField] public TimeSpan ShuttleTime { get; private set; } = TimeSpan.FromMinutes(5);
 }
-
+// WL-Changes-end

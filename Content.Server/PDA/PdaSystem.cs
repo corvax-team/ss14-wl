@@ -21,7 +21,7 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes; // WL-Chagnes: rework alertLevels
+using Robust.Shared.Prototypes; // WL-Changes: Alert Level Rework
 using Robust.Shared.Utility;
 
 namespace Content.Server.PDA
@@ -38,7 +38,7 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Chagnes: rework alertLevels
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
 
         public override void Initialize()
         {
@@ -216,7 +216,7 @@ namespace Content.Server.PDA
                     StationAlertLevel = pda.StationAlertLevel,
                     StationAlertColor = pda.StationAlertColor,
                     StationAlertInstructions = pda.StationAlertInstructions, // WL-Changes: custom alert instructions in PDA
-                    StationAlertName = pda.StationAlertName
+                    StationAlertName = pda.StationAlertName // WL-Changes: Alert Level Rework
                 },
                 pda.StationName,
                 showUplink,
@@ -312,8 +312,8 @@ namespace Content.Server.PDA
             pda.StationAlertLevel = alertComp.CurrentLevel;
             if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var details))
             {
-                // WL-Changes-start: custom alert instructions in PDA
-                var index = _prototypeManager.Index(details); // WL-Changes: rework alertLevels
+                // WL-Changes-start: Alert Level Rework
+                var index = _prototypeManager.Index(details);
                 pda.StationAlertColor = index.Color;
                 if (index != null)
                 {

@@ -83,7 +83,7 @@ namespace Content.Server.AlertLevel.Commands
             if (alertLevelComp.AlertLevels == null)
                 return new string[]{};
 
-            return alertLevelComp.AlertLevels.Levels.Select(protoId => protoId.ToString()).ToArray();
+            return alertLevelComp.AlertLevels.Levels.Select(protoId => protoId.ToString()).ToArray(); // WL-Changes: Alert Level Rework
         }
     }
 }

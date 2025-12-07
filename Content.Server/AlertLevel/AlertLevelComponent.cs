@@ -16,11 +16,13 @@ public sealed partial class AlertLevelComponent : Component
     /// The current set of alert levels on the station.
     /// </summary>
     [ViewVariables]
+    // WL-Changes-start: Alert Level Rework
     public AlertLevelsListPrototype? AlertLevels;
 
     // Once stations are a prototype, this should be used.
     [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<AlertLevelsListPrototype>))]
     public string AlertLevelsListPrototype = default!;
+    // WL-Changes-end
 
     /// <summary>
     /// The current level on the station.
@@ -44,10 +46,12 @@ public sealed partial class AlertLevelComponent : Component
         get
         {
             if (AlertLevels == null
-                || !_prototypeManager.TryIndex<AlertLevelPrototype>(CurrentLevel, out var prototype))
+            // WL-Changes-start: Alert Level Rework
+                || !_prototypeManager.TryIndex<AlertLevelPrototype>(CurrentLevel, out var level)) // TryGetValue -> TryIndex
                 return false;
+            // WL-Changes-end
 
-            return prototype.Selectable && !prototype.DisableSelection && !IsLevelLocked;
+            return level.Selectable && !level.DisableSelection && !IsLevelLocked;
         }
     }
 }

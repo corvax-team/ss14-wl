@@ -132,6 +132,7 @@ namespace Content.Client.PDA
             ToHomeScreen();
         }
 
+        // WL-Changes-start: Loc -> _locMan
         public void UpdateState(PdaUpdateState state)
         {
             FlashLightToggleButton.IsActive = state.FlashlightEnabled;
@@ -362,5 +363,6 @@ namespace Content.Client.PDA
             StationTimeLabel.SetMarkup(_locMan.GetString("comp-pda-ui-station-time",
                 ("time", stationTime.ToString("hh\\:mm\\:ss"))));
         }
+        // WL-Changes-end: Loc -> _locMan
     }
 }

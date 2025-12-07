@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
-using Content.Shared.AlertLevel;
+using Content.Shared.AlertLevel; // WL-Changes: Alert Level Rework
 using Content.Shared.CCVar;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -51,7 +51,7 @@ public sealed class AlertLevelSystem : EntitySystem
         if (!TryComp<AlertLevelComponent>(args.Station, out var alertLevelComponent))
             return;
 
-        if (!_prototypeManager.TryIndex(alertLevelComponent.AlertLevelsListPrototype, out AlertLevelsListPrototype? alerts))
+        if (!_prototypeManager.TryIndex(alertLevelComponent.AlertLevelsListPrototype, out AlertLevelsListPrototype? alerts)) // WL-Changes: Alert Level Rework
         {
             return;
         }
@@ -61,7 +61,7 @@ public sealed class AlertLevelSystem : EntitySystem
         var defaultLevel = alertLevelComponent.AlertLevels.DefaultLevel;
         if (string.IsNullOrEmpty(defaultLevel))
         {
-            defaultLevel = alertLevelComponent.AlertLevels.Levels.First().ToString();
+            defaultLevel = alertLevelComponent.AlertLevels.Levels.First(); // WL-Changes: Alert Level Rework
         }
 
         SetLevel(args.Station, defaultLevel, false, false, true);
@@ -69,31 +69,31 @@ public sealed class AlertLevelSystem : EntitySystem
 
     private void OnPrototypeReload(PrototypesReloadedEventArgs args)
     {
+        // WL-Changes-start: Alert Level Rework
         if (!args.ByType.TryGetValue(typeof(AlertLevelsListPrototype), out var alertListPrototypes)
             || !alertListPrototypes.Modified.TryGetValue(DefaultAlertLevelSet, out var alertObject)
             || alertObject is not AlertLevelsListPrototype alerts)
-        {
             return;
-        }
+        // WL-Changes-end
 
         var query = EntityQueryEnumerator<AlertLevelComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             comp.AlertLevels = alerts;
 
-            if (!comp.AlertLevels.Levels.Contains(comp.CurrentLevel))
+            if (!comp.AlertLevels.Levels.Contains(comp.CurrentLevel)) // WL-Changes: Alert Level Rework
             {
                 var defaultLevel = comp.AlertLevels.DefaultLevel;
                 if (string.IsNullOrEmpty(defaultLevel))
                 {
-                    defaultLevel = comp.AlertLevels.Levels.First()/*.ToString()*/;
+                    defaultLevel = comp.AlertLevels.Levels.First(); // WL-Changes: Alert Level Rework
                 }
 
                 SetLevel(uid, defaultLevel, true, true, true);
             }
         }
 
-        RaiseLocalEvent(new AlertLevelsListPrototypeReloadedEvent());
+        RaiseLocalEvent(new AlertLevelsListPrototypeReloadedEvent()); // WL-Changes: Alert Level Rework
     }
 
     public string GetLevel(EntityUid station, AlertLevelComponent? alert = null)
@@ -144,15 +144,17 @@ public sealed class AlertLevelSystem : EntitySystem
     {
         if (!Resolve(station, ref component, ref dataComponent)
             || component.AlertLevels == null
+            // WL-Changes: Alert Level Rework
             || component.CurrentLevel == level
             || !component.AlertLevels.Levels.Contains(level)
             || !_prototypeManager.TryIndex<AlertLevelPrototype>(level, out var prototype)
             || prototype == null)
             return;
+            // WL-Changes-end
 
         if (!force)
         {
-            if (!prototype.Selectable
+            if (!prototype.Selectable // WL-Changes: Alert Level Rework
                 || component.CurrentDelay > 0
                 || component.IsLevelLocked)
             {
@@ -168,6 +170,7 @@ public sealed class AlertLevelSystem : EntitySystem
 
         var stationName = dataComponent.EntityName;
 
+        // WL-Changes: Alert Level Rework
         var name = level;
 
         if (Loc.TryGetString($"alert-level-{level.ToLower()}", out var locId))
@@ -177,12 +180,11 @@ public sealed class AlertLevelSystem : EntitySystem
         else
             name = Loc.GetString("alert-level-unknown").ToLower();
 
-
-
         // Announcement text. Is passed into announcementFull.
         var announcement = prototype.Announcement;
 
         if (Loc.TryGetString(prototype.Announcement, out var locAnnouncement))
+        // WL-Changes-end
         {
             announcement = locAnnouncement;
         }
@@ -193,10 +195,10 @@ public sealed class AlertLevelSystem : EntitySystem
         var playDefault = false;
         if (playSound)
         {
-            if (prototype.Sound != null)
+            if (prototype.Sound != null) // WL-Changes: Alert Level Rework
             {
                 var filter = _stationSystem.GetInOwningStation(station);
-                _audio.PlayGlobal(prototype.Sound, filter, true, prototype.Sound.Params);
+                _audio.PlayGlobal(prototype.Sound, filter, true, prototype.Sound.Params); // WL-Changes: Alert Level Rework
             }
             else
             {
@@ -207,7 +209,7 @@ public sealed class AlertLevelSystem : EntitySystem
         if (announce)
         {
             _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
-                colorOverride: prototype.Color, sender: stationName);
+                colorOverride: prototype.Color, sender: stationName); // WL-Changes: Alert Level Rework
         }
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));
@@ -217,7 +219,7 @@ public sealed class AlertLevelSystem : EntitySystem
 public sealed class AlertLevelDelayFinishedEvent : EntityEventArgs
 {}
 
-public sealed class AlertLevelsListPrototypeReloadedEvent : EntityEventArgs
+public sealed class AlertLevelsListPrototypeReloadedEvent : EntityEventArgs // WL-Changes: Alert Level Rework
 {}
 
 public sealed class AlertLevelChangedEvent : EntityEventArgs

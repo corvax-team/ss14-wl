@@ -12,7 +12,7 @@ using Content.Shared.Power.Components;
 using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 using Color = Robust.Shared.Maths.Color;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes; // WL-Changes: Alert Level Rework
 
 namespace Content.Server.Light.EntitySystems;
 
@@ -23,7 +23,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
     [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
 
     public override void Initialize()
     {
@@ -69,7 +69,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
 
             var color = Color.White;
             if (alerts.AlertLevels.Levels.TryGetValue(alerts.CurrentLevel, out var details)
-                && _prototypeManager.TryIndex(details, out var alertPrototype))
+                && _prototypeManager.TryIndex(details, out var alertPrototype)) // WL-Changes: Alert Level Rework
                 color = alertPrototype.Color;
 
             args.PushMarkup(
@@ -103,7 +103,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
 
         if (alert.AlertLevels == null
             || !alert.AlertLevels.Levels.TryGetValue(ev.AlertLevel, out var details)
-            || !_prototypeManager.TryIndex(details, out var alertPrototype))
+            || !_prototypeManager.TryIndex(details, out var alertPrototype)) // WL-Changes: Alert Level Rework
             return;
 
         var query = EntityQueryEnumerator<EmergencyLightComponent, PointLightComponent, AppearanceComponent, TransformComponent>();
@@ -112,6 +112,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
             if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != ev.Station)
                 continue;
 
+            // WL-Changes-start: Alert Level Rework // details -> alertPrototype
             _pointLight.SetColor(uid, alertPrototype.EmergencyLightColor, pointLight);
             _appearance.SetData(uid, EmergencyLightVisuals.Color, alertPrototype.EmergencyLightColor, appearance);
 
@@ -121,6 +122,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
                 TurnOn((uid, light));
             }
             else if (!alertPrototype.ForceEnableEmergencyLights && light.ForciblyEnabled)
+            // WL-Changes-end
             {
                 // Previously forcibly enabled, and we went down an alert level.
                 light.ForciblyEnabled = false;
@@ -184,7 +186,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
 
         if (alerts.AlertLevels == null
             || !alerts.AlertLevels.Levels.TryGetValue(alerts.CurrentLevel, out var details)
-            || !_prototypeManager.TryIndex(details, out var alertPrototype))
+            || !_prototypeManager.TryIndex(details, out var alertPrototype)) // WL-Changes: Alert Level Rework
         {
             TurnOff(entity, Color.Red); // if no alert, default to off red state
             return;
@@ -193,7 +195,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         if (receiver.Powered && !entity.Comp.ForciblyEnabled) // Green alert
         {
             receiver.Load = (int) Math.Abs(entity.Comp.Wattage);
-            TurnOff(entity, alertPrototype.Color);
+            TurnOff(entity, alertPrototype.Color); // WL-Changes: Alert Level Rework // details -> alertPrototype
             SetState(entity.Owner, entity.Comp, EmergencyLightState.Charging);
         }
         else if (!receiver.Powered) // If internal battery runs out it will end in off red state
