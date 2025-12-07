@@ -19,7 +19,7 @@
         <!-- ButtonsPart -->
         <BoxContainer Orientation="Vertical"
             VerticalAlignment="Bottom"
-            SeparationOverride="5">
+            SeparationOverride="4">
 
             <!-- AnnouncePart -->
             <BoxContainer Orientation="Vertical"
@@ -43,12 +43,6 @@
                     Access="Public"
                     ToolTip="{Loc 'comms-console-menu-alert-level-button-tooltip'}"
                     StyleClasses="OpenRight"/>
-
-                <OptionButton Name="StationsButton"
-                    Access="Public"
-                    ToolTip="{Loc 'comms-console-menu-stations-button-tooltip'}"
-                    StyleClasses="OpenRight"
-                    Visible="False"/>
 
             </BoxContainer>
 

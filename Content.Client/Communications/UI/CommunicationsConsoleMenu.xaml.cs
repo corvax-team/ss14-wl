@@ -27,15 +27,11 @@ namespace Content.Client.Communications.UI
         public bool CountdownStarted;
         public string CurrentLevel = string.Empty;
         public TimeSpan? CountdownEnd;
-        public string Station = string.Empty;
-        public bool IsCentcomm;
-        //public List<(string, NetEntity)>? SelectedStation;
 
         public event Action? OnEmergencyLevel;
         public event Action<string>? OnAlertLevel;
         public event Action<string>? OnAnnounce;
         public event Action<string>? OnBroadcast;
-        public event Action<string>? OnStations;
 
         public CommunicationsConsoleMenu()
         {
@@ -61,10 +57,10 @@ namespace Content.Client.Communications.UI
             };
 
             AnnounceButton.OnPressed += _ => OnAnnounce?.Invoke(Rope.Collapse(MessageInput.TextRope));
-            AnnounceButton.Disabled = !CanAnnounce && !IsCentcomm;
+            AnnounceButton.Disabled = !CanAnnounce;
 
             BroadcastButton.OnPressed += _ => OnBroadcast?.Invoke(Rope.Collapse(MessageInput.TextRope));
-            BroadcastButton.Disabled = !CanBroadcast && !IsCentcomm;
+            BroadcastButton.Disabled = !CanBroadcast;
 
             AlertLevelButton.OnItemSelected += args =>
             {
@@ -74,19 +70,12 @@ namespace Content.Client.Communications.UI
                     OnAlertLevel?.Invoke(cast);
                 }
             };
-            StationsButton.OnItemSelected += args =>
-            {
-                var metadata = StationsButton.GetItemMetadata(args.Id);
-                if (metadata != null && metadata is string cast)
-                    OnStations?.Invoke(cast);
-            };
 
 
-            AlertLevelButton.Disabled = !AlertLevelSelectable && !IsCentcomm;
-            StationsButton.Visible = !IsCentcomm;
+            AlertLevelButton.Disabled = !AlertLevelSelectable;
 
             EmergencyShuttleButton.OnPressed += _ => OnEmergencyLevel?.Invoke();
-            EmergencyShuttleButton.Disabled = !CanCall && !IsCentcomm;
+            EmergencyShuttleButton.Disabled = !CanCall;
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -116,7 +105,7 @@ namespace Content.Client.Communications.UI
                 else if (!string.IsNullOrEmpty(index.SetName))
                     name = index.SetName;
 
-                if (index.Selectable || IsCentcomm)
+                if (index.Selectable)
                 {
                     AlertLevelButton.AddItem(name);
                     AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, currentAlert);
@@ -134,7 +123,7 @@ namespace Content.Client.Communications.UI
                     }
                     else if (!string.IsNullOrEmpty(index.SetName))
                         name = index.SetName;
-                    if (index.Selectable || IsCentcomm)
+                    if (index.Selectable)
                     {
                         AlertLevelButton.AddItem(name);
                         AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, alert);
@@ -143,38 +132,6 @@ namespace Content.Client.Communications.UI
                     {
                         AlertLevelButton.Select(AlertLevelButton.ItemCount - 1);
                     }
-                }
-            }
-        }
-
-        public void UpdateStations(List<(string, NetEntity)>? stations)
-        {
-            StationsButton.Clear();
-
-            List<(string, EntityUid?)> stationsUid = new List<(string, EntityUid?)>();
-            if (stations == null)
-                return;
-            foreach (var (name, station) in stations)
-            {
-                if (!_entityManager.TryGetEntity(station, out var uid))
-                    continue;
-                stationsUid.Add((name, uid));
-            }
-
-            if (stationsUid == null || !IsCentcomm)
-            {
-                StationsButton.Visible = false;
-                return;
-            }
-
-            StationsButton.Visible = true;
-
-            foreach (var (name, station) in stationsUid)
-            {
-                if (station != null)
-                {
-                    StationsButton.AddItem(name);
-                    StationsButton.SetItemMetadata(StationsButton.ItemCount - 1, station);
                 }
             }
         }

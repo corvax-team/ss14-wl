@@ -26,25 +26,15 @@ namespace Content.Client.Communications.UI
             _menu.OnAnnounce += AnnounceButtonPressed;
             _menu.OnBroadcast += BroadcastButtonPressed;
             _menu.OnAlertLevel += AlertLevelSelected;
-            _menu.OnStations += StationsSelected;
             _menu.OnEmergencyLevel += EmergencyShuttleButtonPressed;
         }
 
         public void AlertLevelSelected(string level)
         {
-            if (_menu!.AlertLevelSelectable || _menu!.IsCentcomm)
+            if (_menu!.AlertLevelSelectable)
             {
                 _menu.CurrentLevel = level;
                 SendMessage(new CommunicationsConsoleSelectAlertLevelMessage(level));
-            }
-        }
-
-        public void StationsSelected(string station)
-        {
-            if (_menu!.IsCentcomm)
-            {
-                _menu.Station = station;
-                SendMessage(new CommunicationsConsoleSelectStationMessage(station));
             }
         }
 
@@ -92,14 +82,11 @@ namespace Content.Client.Communications.UI
                 _menu.CanCall = commsState.CanCall;
                 _menu.CountdownStarted = commsState.CountdownStarted;
                 _menu.AlertLevelSelectable = commsState.AlertLevels != null && !float.IsNaN(commsState.CurrentAlertDelay) && commsState.CurrentAlertDelay <= 0;
-                _menu.IsCentcomm = commsState.IsCentcomm;
                 _menu.CurrentLevel = commsState.CurrentAlert;
                 _menu.CountdownEnd = commsState.ExpectedCountdownEnd;
-                //_menu.SelectedStation = commsState.SelectedStation;
 
                 _menu.UpdateCountdown();
                 _menu.UpdateAlertLevels(commsState.AlertLevels, _menu.CurrentLevel);
-                _menu.UpdateStations(commsState.Stations);
                 _menu.AlertLevelButton.Disabled = !_menu.AlertLevelSelectable;
                 _menu.EmergencyShuttleButton.Disabled = !_menu.CanCall;
                 _menu.AnnounceButton.Disabled = !_menu.CanAnnounce;

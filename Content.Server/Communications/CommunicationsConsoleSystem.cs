@@ -43,8 +43,6 @@ namespace Content.Server.Communications
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         private const float UIUpdateInterval = 5.0f;
-        List<(string, NetEntity)> Stations = new List<(string, NetEntity)>();
-        // List<(string, NetEntity)> selectedStation = new List<(string, NetEntity)>();
 
         public override void Initialize()
         {
@@ -59,7 +57,6 @@ namespace Content.Server.Communications
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleBroadcastMessage>(OnBroadcastMessage);
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleCallEmergencyShuttleMessage>(OnCallShuttleMessage);
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleRecallEmergencyShuttleMessage>(OnRecallShuttleMessage);
-            SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleSelectStationMessage>(OnSelectStationMessage);
 
             // On console init, set cooldown
             SubscribeLocalEvent<CommunicationsConsoleComponent, MapInitEvent>(OnCommunicationsConsoleMapInit);
@@ -118,7 +115,7 @@ namespace Content.Server.Communications
             while (query.MoveNext(out var uid, out var comp))
             {
                 var entStation = _stationSystem.GetOwningStation(uid);
-                if (args.Station == entStation || args.Station == EntityManager.GetEntity(comp.SelectedStation))
+                if (args.Station == entStation)
                     UpdateCommsConsoleInterface(uid, comp);
             }
         }
@@ -140,73 +137,39 @@ namespace Content.Server.Communications
         /// </summary>
         public void UpdateCommsConsoleInterface(EntityUid uid, CommunicationsConsoleComponent comp)
         {
-            //var stationUid = _stationSystem.GetStations();
+            var stationUid = _stationSystem.GetOwningStation(uid);
             List<string>? levels = null;
             string currentLevel = default!;
             float currentDelay = 0;
-            List<(string, NetEntity)> stations = _stationSystem.GetStationNames();
-            List<(string, NetEntity)> stationsGrids = new List<(string, NetEntity)>();
-            //List<(string, NetEntity)> selectedStation = new List<(string, NetEntity)>();
 
-            if (stations != null)
+            if (stationUid != null)
             {
-                foreach (var (name, station) in stations)
-                {
-                    var uidStation = EntityManager.GetEntity(station);
-                    if (!EntityManager.TryGetComponent<StationDataComponent>(uidStation, out var stationData)
-                        || stationData.Grids == null)
-                    {
-                        stations.Remove((name, station));
-                        continue;
-                    }
-                    foreach (var grid in stationData.Grids)
-                    {
-                        if (EntityManager.TryGetComponent<StationCentcommComponent>(grid, out var _))
-                        {
-                            stations.Remove((name, station));
-                            continue;
-                        }
-                        var gridNetEntity = EntityManager.GetNetEntity(grid);
-                        stationsGrids.Add((name, gridNetEntity));
-                    }
-                }
-            }
-
-            foreach (var (name, station) in stationsGrids)
-            {
-                var stationUid = EntityManager.GetEntity(station);
-                if (!TryComp<StationMemberComponent>(stationUid, out var component))
-                    continue;
-                if (TryComp(component.Station, out AlertLevelComponent? alertComp) &&
+                if (TryComp(stationUid.Value, out AlertLevelComponent? alertComp) &&
                     alertComp.AlertLevels != null)
                 {
-                    if (alertComp.IsSelectable || comp.IsCentcomm)
+                    if (alertComp.IsSelectable)
                     {
                         levels = new();
                         foreach (var protoId in alertComp.AlertLevels.Levels)
                         {
                             if (_prototypeManager.TryIndex(protoId, out var prototype)
-                                && (prototype.Selectable || comp.IsCentcomm))
+                                && prototype.Selectable)
                             {
                                 levels.Add(prototype.ID);
                             }
                         }
                     }
 
-                    currentLevel = alertComp.CurrentLevel;
-                    currentDelay = _alertLevelSystem.GetAlertLevelDelay(component.Station, alertComp);
+                currentLevel = alertComp.CurrentLevel;
+                currentDelay = _alertLevelSystem.GetAlertLevelDelay(stationUid.Value, alertComp);
                 }
             }
-            Stations = stationsGrids;
 
             _uiSystem.SetUiState(uid, CommunicationsConsoleUiKey.Key, new CommunicationsConsoleInterfaceState(
                 CanAnnounce(comp),
                 CanCallOrRecall(comp),
                 levels,
                 currentLevel,
-                comp.IsCentcomm,
-                stationsGrids,
-                //selectedStation,
                 currentDelay,
                 _roundEndSystem.ExpectedCountdownEnd
             ));
@@ -214,8 +177,6 @@ namespace Content.Server.Communications
 
         private static bool CanAnnounce(CommunicationsConsoleComponent comp)
         {
-            if (comp.IsCentcomm)
-                return true;
             return comp.AnnouncementCooldownRemaining <= 0f;
         }
 
@@ -230,8 +191,6 @@ namespace Content.Server.Communications
 
         private bool CanCallOrRecall(CommunicationsConsoleComponent comp)
         {
-            if (comp.IsCentcomm)
-                return true;
             // Defer to what the round end system thinks we should be able to do.
             if (_emergency.EmergencyShuttleArrived || !_roundEndSystem.CanCallOrRecall())
                 return false;
@@ -266,16 +225,8 @@ namespace Content.Server.Communications
                 return;
             }
 
-            EntityUid? stationUid;
+            var stationUid = _stationSystem.GetOwningStation(uid);
 
-            if (!comp.IsCentcomm)
-                stationUid = _stationSystem.GetOwningStation(uid);
-            else
-            {
-                if (comp.SelectedStation == null)
-                    return;
-                stationUid = EntityManager.GetEntity(comp.SelectedStation.Value);
-            }
             if (stationUid != null)
             {
                 _alertLevelSystem.SetLevel(stationUid.Value, message.Level, true, true);
@@ -386,18 +337,6 @@ namespace Content.Server.Communications
 
             _roundEndSystem.CancelRoundEndCountdown(uid);
             _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(message.Actor):player} has recalled the shuttle.");
-        }
-
-        private void OnSelectStationMessage(EntityUid uid, CommunicationsConsoleComponent comp, CommunicationsConsoleSelectStationMessage message)
-        {
-            if (!comp.IsCentcomm)
-                return;
-            var stations = _stationSystem.GetStationNames();
-            var selected = stations.FirstOrDefault(x => x.Item1 == message.Station);
-            if (selected != default)
-                comp.SelectedStation = selected.Item2;
-            else if (EntityManager.TryParseNetEntity(message.Station, out var uid1))
-                comp.SelectedStation = EntityManager.GetNetEntity(uid1);
         }
     }
 

@@ -787,7 +787,6 @@
     color: "#1d8bad"
     canShuttle: false
     global: true
-    isCentcomm: true
   - type: Computer
     board: CentcommCommsComputerCircuitboard
   - type: PointLight
