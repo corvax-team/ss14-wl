@@ -7,7 +7,6 @@ using Content.Server.RoundEnd;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
-using Content.Shared.AlertLevel;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
@@ -21,9 +20,6 @@ using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
-using Content.Shared.Station.Components;
-using Content.Server.Shuttles.Components;
-using System.Linq;
 
 namespace Content.Server.Communications
 {
@@ -160,8 +156,8 @@ namespace Content.Server.Communications
                         }
                     }
 
-                currentLevel = alertComp.CurrentLevel;
-                currentDelay = _alertLevelSystem.GetAlertLevelDelay(stationUid.Value, alertComp);
+                    currentLevel = alertComp.CurrentLevel;
+                    currentDelay = _alertLevelSystem.GetAlertLevelDelay(stationUid.Value, alertComp);
                 }
             }
 
@@ -226,7 +222,6 @@ namespace Content.Server.Communications
             }
 
             var stationUid = _stationSystem.GetOwningStation(uid);
-
             if (stationUid != null)
             {
                 _alertLevelSystem.SetLevel(stationUid.Value, message.Level, true, true);

@@ -10,7 +10,6 @@
   - Gamma
   - Delta
   - Epsilon
-  - Egs
 
 - type: alertLevel
   id: Green
@@ -96,19 +95,3 @@
   emergencyLightColor: DarkViolet
   forceEnableEmergencyLights: true
   shuttleTime: 1200
-
-- type: alertLevel
-  id: Egs
-  name: Бета
-  announcement: Внимание! Объявлен код Бета! На станции обнаружена биологическая угроза минимум пятого уровня. Служба безопасности обязана иметь при себе полный доступ. Любые ограничения на вооружение сняты, включая контрабандные. Служба безопасности наделена полномочиями уровня угрозы "Гамма". Все шаттлы  не относящиеся к силам ДСО в пределах текущего сектора обязаны пристыковаться к станции, в противном случае будут сбиты блюспейс артиллерией в течении двух минут. Гражданский персонал обязан пройти в свои отделы и соблюдать комендантский час. Отряд РХБЗЗ прибыл в сектор и начинает свою работу.
-  instruction: ебало на ноль и слушай СБ
-  selectable: false
-  # sound:
-  #  path: /Audio/_CorvaxGoob/Misc/siren.ogg # CorvaxGoob: return old gamma sound
-  #  params:
-  #    volume: -2
-  disableSelection: true
-  color: "#6B8E23"
-  emergencyLightColor: "#6B8E23"
-  forceEnableEmergencyLights: true
-  shuttleTime: 600

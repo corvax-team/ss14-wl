@@ -3,11 +3,9 @@ using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.AlertLevel;
 using Content.Shared.CCVar;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Server.AlertLevel;
 
@@ -88,7 +86,7 @@ public sealed class AlertLevelSystem : EntitySystem
                 var defaultLevel = comp.AlertLevels.DefaultLevel;
                 if (string.IsNullOrEmpty(defaultLevel))
                 {
-                    defaultLevel = comp.AlertLevels.Levels.First().ToString();
+                    defaultLevel = comp.AlertLevels.Levels.First()/*.ToString()*/;
                 }
 
                 SetLevel(uid, defaultLevel, true, true, true);
@@ -118,13 +116,6 @@ public sealed class AlertLevelSystem : EntitySystem
         return alert.CurrentDelay;
     }
 
-    //WL-Changes-start
-    public string GetLevelLocString(string level)
-    {
-        return Loc.GetString($"alert-level-{level}");
-    }
-    //WL-Changes-end
-
     /// <summary>
     /// Get the default alert level for a station entity.
     /// Returns an empty string if the station has no alert levels defined.
@@ -153,16 +144,10 @@ public sealed class AlertLevelSystem : EntitySystem
     {
         if (!Resolve(station, ref component, ref dataComponent)
             || component.AlertLevels == null
-            //|| !component.AlertLevels.Levels.TryGetValue(level, out var detail)
-            || component.CurrentLevel == level)
-        {
-            return;
-        }
-
-        if (!component.AlertLevels.Levels.Contains(level))
-            return;
-
-        if (!_prototypeManager.TryIndex<AlertLevelPrototype>(level, out var prototype) || prototype == null)
+            || component.CurrentLevel == level
+            || !component.AlertLevels.Levels.Contains(level)
+            || !_prototypeManager.TryIndex<AlertLevelPrototype>(level, out var prototype)
+            || prototype == null)
             return;
 
         if (!force)
@@ -186,11 +171,11 @@ public sealed class AlertLevelSystem : EntitySystem
         var name = level;
 
         if (Loc.TryGetString($"alert-level-{level.ToLower()}", out var locId))
-            name = locId/*.ToLower()*/;
+            name = locId.ToLower();
         else if (!string.IsNullOrEmpty(prototype.SetName))
             name = prototype.SetName;
         else
-            name = Loc.GetString("alert-level-unknown");
+            name = Loc.GetString("alert-level-unknown").ToLower();
 
 
 

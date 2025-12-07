@@ -43,10 +43,8 @@ public sealed partial class AlertLevelComponent : Component
     {
         get
         {
-            if (AlertLevels == null)
-                return false;
-
-            if (!_prototypeManager.TryIndex<AlertLevelPrototype>(CurrentLevel, out var prototype))
+            if (AlertLevels == null
+                || !_prototypeManager.TryIndex<AlertLevelPrototype>(CurrentLevel, out var prototype))
                 return false;
 
             return prototype.Selectable && !prototype.DisableSelection && !IsLevelLocked;

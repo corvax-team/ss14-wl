@@ -1,9 +1,8 @@
-using System.Linq;
+﻿using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.AlertLevel.Commands
 {
