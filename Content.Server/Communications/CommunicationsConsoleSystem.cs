@@ -396,6 +396,8 @@ namespace Content.Server.Communications
             var selected = stations.FirstOrDefault(x => x.Item1 == message.Station);
             if (selected != default)
                 comp.SelectedStation = selected.Item2;
+            else if (EntityManager.TryParseNetEntity(message.Station, out var uid1))
+                comp.SelectedStation = EntityManager.GetNetEntity(uid1);
         }
     }
 

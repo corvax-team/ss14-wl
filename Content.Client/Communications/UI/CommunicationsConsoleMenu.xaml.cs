@@ -61,10 +61,10 @@ namespace Content.Client.Communications.UI
             };
 
             AnnounceButton.OnPressed += _ => OnAnnounce?.Invoke(Rope.Collapse(MessageInput.TextRope));
-            AnnounceButton.Disabled = !CanAnnounce || !IsCentcomm;
+            AnnounceButton.Disabled = !CanAnnounce && !IsCentcomm;
 
             BroadcastButton.OnPressed += _ => OnBroadcast?.Invoke(Rope.Collapse(MessageInput.TextRope));
-            BroadcastButton.Disabled = !CanBroadcast || !IsCentcomm;
+            BroadcastButton.Disabled = !CanBroadcast && !IsCentcomm;
 
             AlertLevelButton.OnItemSelected += args =>
             {
@@ -82,11 +82,11 @@ namespace Content.Client.Communications.UI
             };
 
 
-            AlertLevelButton.Disabled = !AlertLevelSelectable || !IsCentcomm;
+            AlertLevelButton.Disabled = !AlertLevelSelectable && !IsCentcomm;
             StationsButton.Visible = !IsCentcomm;
 
             EmergencyShuttleButton.OnPressed += _ => OnEmergencyLevel?.Invoke();
-            EmergencyShuttleButton.Disabled = !CanCall;
+            EmergencyShuttleButton.Disabled = !CanCall && !IsCentcomm;
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
