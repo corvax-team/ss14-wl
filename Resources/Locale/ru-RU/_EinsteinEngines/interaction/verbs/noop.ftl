@@ -32,11 +32,11 @@ interaction-WaveAt-name = Помахать
 interaction-WaveAt-description = Помашите цели. Если вы держите предмет, вы помашите им.
 interaction-WaveAt-success-self-popup = Вы машете {$hasUsed ->
     [false] { $target }.
-    *[true] { $target } своим {$used}.
+    *[true] { $target } держа в руках {$used}.
 }
 interaction-WaveAt-success-target-popup = { $user } машет {$hasUsed ->
     [false] вам.
-    *[true] {POSS-PRONOUN($user)} {$used} вам.
+    *[true] {POSS-PRONOUN($user)} вам, держа в руках {$used}.
 }
 interaction-WaveAt-success-others-popup = { $user } машет {$hasUsed ->
     [false] { $target }.
