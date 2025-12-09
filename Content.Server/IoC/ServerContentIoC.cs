@@ -83,8 +83,5 @@ internal static class ServerContentIoC
         deps.Register<DiscordLink>();
         deps.Register<DiscordChatLink>();
         IoCManager.Register<TTSManager>(); // Corvax-TTS
-        //WL-Changes-start
-        IoCManager.Register<IChatGptManager, ChatGptManager>();
-        //WL-Changes-end
     }
 }
