@@ -181,9 +181,6 @@ namespace Content.Server.Entry
             _job.Initialize();
             _rateLimit.Initialize();
             IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
-            //WL-Changes-start
-            IoCManager.Resolve<IChatGptManager>().Initialize();
-            //WL-Changes-end
         }
 
         public override void PostInit()
