@@ -33,6 +33,8 @@ using Content.Shared.Kitchen;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 
+namespace Content.Server.IoC;
+
 internal static class ServerContentIoC
 {
     public static void Register(IDependencyCollection deps)
