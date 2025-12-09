@@ -44,7 +44,7 @@
   # WL-Skills-start
   bonusSkillPoints: 4
   defaultSkills:
-    Bureaucracy: 3
+    Bureaucracy: 2
     Eva: 3
     IT: 3
     Atmospherics: 3

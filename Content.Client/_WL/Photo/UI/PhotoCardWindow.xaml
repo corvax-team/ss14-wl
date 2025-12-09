@@ -4,10 +4,10 @@
     MouseFilter="Stop" Resizable="False">
 
     <BoxContainer Name="ContentsRoot" Orientation="Vertical">
-        <PanelContainer StyleClasses="AngleRect" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="6">
+        <PanelContainer StyleClasses="BackgroundPanel" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="6">
             <TextureButton Name="CloseButton" StyleClasses="windowCloseButton"/>
         </PanelContainer>
-        <PanelContainer Name="PaperBackground" StyleClasses="PaperDefaultBorder" VerticalExpand="True" HorizontalExpand="True">
+        <PanelContainer Name="PaperBackground" StyleIdentifier="PaperDefaultBorder" VerticalExpand="True" HorizontalExpand="True">
             <PanelContainer Name="ImagePlaceholder" Margin="5 5">
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#090E25"/>

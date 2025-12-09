@@ -20,7 +20,7 @@
   - Chemistry
   - Maintenance
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 17
   defaultSkills:
     Chemistry: 3
     Medicine: 2

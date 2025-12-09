@@ -31,7 +31,7 @@
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 20
   defaultSkills:
     Bureaucracy: 3
     Forensics: 2

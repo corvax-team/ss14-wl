@@ -24,7 +24,7 @@
     holiday: FourTwenty
     prototype: CannabisSeeds
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 18
   defaultSkills:
     Chemistry: 2
     Science: 2

@@ -5,6 +5,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using System.Collections.Frozen;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared._WL.Languages;
 
@@ -38,7 +39,8 @@ public abstract class SharedLanguagesSystem : EntitySystem
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public LanguagePrototype? GetLanguagePrototype(ProtoId<LanguagePrototype> id)
+    [return: NotNullIfNotNull(nameof(id))]
+    public LanguagePrototype? GetLanguagePrototype(ProtoId<LanguagePrototype>? id)
     {
         _prototype.TryIndex(id, out var proto);
         return proto;
@@ -104,7 +106,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public LanguagePrototype? GetLanguagePrototype(EntityUid uid, string message)
+    public LanguagePrototype? GetLanguagePrototype(EntityUid uid, string? message)
     {
         LanguagePrototype? language = null;
 
@@ -130,7 +132,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
 
         if (TryComp<LanguagesComponent>(source, out var comp))
         {
-            if (!(message.StartsWith(LanguagePrefix)))
+            if (!message.StartsWith(LanguagePrefix))
                 return false;
 
             if (message.Length <= 2 || char.IsWhiteSpace(message[1]))

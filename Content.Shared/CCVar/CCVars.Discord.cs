@@ -59,20 +59,6 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> DiscordRoundEndRoleWebhook =
         CVarDef.Create("discord.round_end_role", string.Empty, CVar.SERVERONLY);
 
-    //WL-Change: Send Manifest in Discord Start
-    /// <summary>
-    ///     URL of the Discord webhook which will relay manifest messages.
-    /// </summary>
-    public static readonly CVarDef<string> DiscordRoundManifestWebhook =
-        CVarDef.Create("discord.round_manifest_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
-
-    /// <summary>
-    ///     HEX color of manifest discord webhook's embed.
-    /// </summary>
-    public static readonly CVarDef<string> DiscordRoundManifestWebhookEmbedColor =
-        CVarDef.Create("discord.round_manifest_webhook_embed_color", Color.DeepSkyBlue.ToHex(), CVar.SERVERONLY);
-    //WL-Change: Send Manifest in Discord End
-
     /// <summary>
     ///     The token used to authenticate with Discord. For the Bot to function set: discord.token, discord.guild_id, and discord.prefix.
     ///     If this is empty, the bot will not connect.

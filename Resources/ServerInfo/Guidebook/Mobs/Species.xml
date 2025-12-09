@@ -26,7 +26,6 @@
   <GuideEntityEmbed Entity="MobAndroid" Caption="Андроид"/>
   <GuideEntityEmbed Entity="MobFelinid" Caption="Феленид"/>
   <GuideEntityEmbed Entity="MobHumanoidMurine" Caption="Мурин"/>
-  <GuideEntityEmbed Entity="MobHumanoidKidan" Caption="Кидан"/>
   </Box>
   <Box>
   <GuideEntityEmbed Entity="MobGolem" Caption="Голем"/>

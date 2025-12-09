@@ -19,7 +19,7 @@
     holiday: MonkeyDay
     prototype: MonkeyCubeBox
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 19
   defaultSkills:
     Anatomy: 2
     Medicine: 2

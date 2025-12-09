@@ -22,8 +22,8 @@ namespace Content.Server._WL.Languages;
 public sealed class LanguagesSoundsSystem : EntitySystem
 {
     [Dependency] private readonly LanguagesSystem _languages = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
     {
@@ -34,25 +34,24 @@ public sealed class LanguagesSoundsSystem : EntitySystem
 
     private void OnEntitySpoke(EntityUid uid, LanguagesComponent component, EntitySpokeEvent args)
     {
-        var protoId = component.CurrentLanguage;
-        var proto = _languages.GetLanguagePrototype(protoId);
-
-        if (proto is null)
+        var msg = args.LangMessage;
+        if (msg == null)
             return;
 
-        if (args.LangMessage != null)
-        {
-            if (args.LangObfusMessage != null && args.ObfuscatedMessage != null)
-                HandleSay(uid, protoId, proto, true);
-            else
-                HandleSay(uid, protoId, proto);
-        }
+        var protoId = _languages.GetLanguagePrototype(uid, msg)?.ID ?? component.CurrentLanguage;
+        if (protoId == null)
+            return;
+
+        var proto = _protoMan.Index<LanguagePrototype>(protoId);
+
+        var isWhisper = args.LangObfusMessage != null && args.ObfuscatedMessage != null;
+        HandleSay(uid, proto, isWhisper);
     }
 
-    private void HandleSay(EntityUid uid, ProtoId<LanguagePrototype> protoId, LanguagePrototype proto, bool isWhisper = false)
+    private void HandleSay(EntityUid uid, LanguagePrototype proto, bool isWhisper = false)
     {
-        var soundEvent = new LanguageSoundEvent(protoId, GetNetEntity(uid));
-        var whispSoundEvent = new LanguageSoundEvent(protoId, GetNetEntity(uid), true);
+        var soundEvent = new LanguageSoundEvent(proto.ID, GetNetEntity(uid));
+        var whispSoundEvent = new LanguageSoundEvent(proto.ID, GetNetEntity(uid), true);
 
         if (!proto.NeedSound)
             return;
@@ -72,10 +71,10 @@ public sealed class LanguagesSoundsSystem : EntitySystem
             if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange && isWhisper)
                 continue;
 
-            var check = _languages.CanUnderstand(uid, listener);
+            var check = _languages.CanUnderstand(uid, listener, overrideLang: proto.ID);
 
             if (check) continue;
-            RaiseNetworkEvent(!isWhisper ? soundEvent: whispSoundEvent, session);
+            RaiseNetworkEvent(!isWhisper ? soundEvent : whispSoundEvent, session);
         }
     }
 }

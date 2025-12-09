@@ -42,7 +42,7 @@
     components:
       - type: CommandStaff
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 14
   defaultSkills:
     Bureaucracy: 3
     Eva: 3

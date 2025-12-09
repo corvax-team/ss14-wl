@@ -27,7 +27,7 @@
   - External
   - Atmospherics
   # WL-Skills-start
-  bonusSkillPoints: 4
+  bonusSkillPoints: 5
   defaultSkills:
     Bureaucracy: 2
     Eva: 3

@@ -22,7 +22,7 @@
   - Research
   - Maintenance
   # WL-Skills-start
-  bonusSkillPoints: 10
+  bonusSkillPoints: 18
   defaultSkills:
     Bureaucracy: 2
     ComplexDevices: 2

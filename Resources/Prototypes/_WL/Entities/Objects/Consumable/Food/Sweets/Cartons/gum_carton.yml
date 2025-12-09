@@ -1,0 +1,40 @@
+- type: entity
+  parent: BaseItem
+  id: FoodSweetsGumBox
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "gumpack_open"}
+          False: {state: "gumpack"}
+  - type: SpaceGarbage
+  - type: Openable
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+  - type: SpawnItemsOnUse
+    uses: 5
+    sound: null
+    items:
+    - id: FoodSweetsGumBlue
+      orGroup: Gums
+    - id: FoodSweetsGumPink
+      orGroup: Gums
+    - id: FoodSweetsGumYellow
+      orGroup: Gums
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gum.rsi
+    scale: 0.75, 0.75
+    layers:
+    - state: gumpack
+      map: ["enum.OpenableVisuals.Layer"]
+  - type: Item
+    heldPrefix: gumpack
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gum.rsi
+    size: Normal
+    shape:
+    - 0,0,1,0
+  - type: Tag
+    tags:
+    - Trash

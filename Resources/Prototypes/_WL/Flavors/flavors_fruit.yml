@@ -1,0 +1,9 @@
+- type: flavor
+  id: strawberry
+  flavorType: Complex
+  description: flavor-strawberry
+
+- type: flavor
+  id: raspberry
+  flavorType: Complex
+  description: flavor-raspberry

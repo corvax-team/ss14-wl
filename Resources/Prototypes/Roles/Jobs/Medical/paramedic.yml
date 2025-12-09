@@ -18,7 +18,7 @@
   extendedAccess:
   - Chemistry
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 11
   defaultSkills:
     Eva: 3
     Anatomy: 2

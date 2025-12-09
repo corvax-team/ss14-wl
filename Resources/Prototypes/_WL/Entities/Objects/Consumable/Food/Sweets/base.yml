@@ -1,0 +1,113 @@
+- type: entity
+  abstract: true
+  parent: FoodInjectableBase
+  id: FoodSweetsBase
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: Item
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+
+# Мятные палочки
+- type: entity
+  parent: FoodSweetsBase
+  id: FoodSweetsMintStickBase
+  abstract: true
+  components:
+  - type: SuckableFood
+  - type: Item
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/mint_stick/sticks.rsi
+    shape:
+    - 0,0,0,1
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - minty
+    - cold
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/mint_stick/sticks.rsi
+    scale: 0.5, 0.5
+  - type: Clothing
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/mint_stick/sticks.rsi
+    slots:
+    - MASK
+
+# Чупа чупсы
+- type: entity
+  parent: FoodSweetsBase
+  id: FoodSweetsChupachupsBase
+  abstract: true
+  components:
+  - type: SuckableFood
+    entityOnDissolve: FoodSweetsChupachupsEaten
+  - type: Item
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/lolipop.rsi
+    shape:
+    - 0,0,0,0
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - sour
+    - fruity
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/lolipop.rsi
+    scale: 0.4, 0.4
+  - type: Clothing
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/lolipop.rsi
+    slots:
+    - MASK
+
+# Жвачка
+- type: entity
+  parent: FoodSweetsBase
+  id: FoodSweetsGumBase
+  abstract: true
+  components:
+  - type: SuckableFood
+  - type: Item
+    heldPrefix: gum
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gum.rsi
+    shape:
+    - 0,0,0,0
+  - type: FlavorProfile
+    flavors:
+    - chewy
+    - fruity
+    - sweet
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gum.rsi
+    scale: 0.7, 0.7
+  - type: Clothing
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gum.rsi
+    slots:
+    - MASK
+
+# Мишки
+- type: entity
+  parent: FoodSweetsBase
+  id: FoodSweetsGummyBase
+  abstract: true
+  components:
+  - type: Item
+    heldPrefix: gummy
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gummy.rsi
+    shape:
+    - 0,0,0,0
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - chewy
+    - fruity
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/gummy.rsi
+    scale: 0.8, 0.8

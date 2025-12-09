@@ -25,7 +25,7 @@
   extendedAccess:
   - Atmospherics
   # WL-Skills-start
-  bonusSkillPoints: 4
+  bonusSkillPoints: 8
   defaultSkills:
     Eva: 3
     IT: 2

@@ -229,14 +229,30 @@ public sealed class NukeOpsTest
         var totalSeconds = 30;
         var totalTicks = (int) Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
         var increment = 5;
-        var resp = entMan.GetComponent<RespiratorComponent>(player);
-        var damage = entMan.GetComponent<DamageableComponent>(player);
+
+        // WL-Changes-start
         for (var tick = 0; tick < totalTicks; tick += increment)
         {
             await pair.RunTicksSync(increment);
-            Assert.That(resp.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
-            Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
+
+            await server.WaitAssertion(() =>
+            {
+                if (!entMan.TryGetComponent(player, out RespiratorComponent? resp))
+                    return;
+
+                Assert.That(entMan.TryGetComponent(player, out DamageableComponent? damage), Is.True, $"Failed to find {nameof(DamageableComponent)} on player entity ({entMan.ToPrettyString(player)})");
+
+                Assert.Multiple(() =>
+                {
+                    Assert.That(resp!.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold),
+                        $"SuffocationCycles exceeded at tick {tick}");
+
+                    Assert.That(damage!.TotalDamage, Is.EqualTo(FixedPoint2.Zero),
+                        $"Damage detected at tick {tick}: {damage.TotalDamage}");
+                });
+            });
         }
+        // WL-Changes-end
 
         // Check that the round does not end prematurely when agents are deleted in the outpost
         var nukies = dummyEnts.Where(entMan.HasComponent<NukeOperativeComponent>).Append(player).ToArray();

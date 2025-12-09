@@ -295,11 +295,11 @@
 
 - type: cargoBounty
   id: BountyPercussion
-  reward: 15000
+  reward: 12000 # WL-Changes
   description: bounty-description-percussion
   entries:
   - name: bounty-item-percussion
-    amount: 4
+    amount: 6 # WL-Changes
     whitelist:
       tags:
       - PercussionInstrument

@@ -25,7 +25,7 @@
     holiday: BoxingDay
     prototype: BoxCardboard
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 22
   defaultSkills:
     Bureaucracy: 2
     Piloting: 2

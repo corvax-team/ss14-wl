@@ -5,3 +5,5 @@ chat-manager-entity-whisper-wrap-message-lang = [font size=11][italic][BubbleHea
 
 chat-radio-message-wrap-lang = [color={ $color }]{ $channel } [bold]{ $name }[/bold] { $verb }, [font={ $fontType } size={ $fontSize }]"[color={ $langColor }]{ $message }[/color]"[/font][/color]
 chat-radio-message-wrap-bold-lang = [color={ $color }]{ $channel } [bold]{ $name }[/bold] { $verb }, [font={ $fontType } size={ $fontSize }][bold]"[color={ $langColor }]{ $message }[/color]"[/bold][/font][/color]
+
+chat-radio-message-wrap-emote-lang = [color={ $color }]{ $channel } [bold]{ $name }[/bold] [font={ $fontType } size={ $fontSize }][bold]{ $message }[/bold][/font][/color]

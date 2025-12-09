@@ -42,6 +42,12 @@
   - NodeScanner
   - AnalysisComputerCircuitboard
   - ArtifactAnalyzerMachineCircuitboard
+  # WL-Changes-start
+  - ClothingHeadHatHoodBioScientist
+  - ClothingOuterBioScientist
+  - ClothingOuterHardsuitScience
+  - ClothingUniformJumpsuitScienceDangerous
+  # WL-Changes-end
 
 - type: technology
   id: AlternativeResearch

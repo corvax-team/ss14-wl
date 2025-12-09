@@ -6,34 +6,6 @@
     - /Audio/_WL/Voice/Cat/catmur3.ogg
 
 - type: soundCollection
-  id: KidanCrying
-  files:
-    - /Audio/_WL/Voice/Kidan/cry1.ogg
-    - /Audio/_WL/Voice/Kidan/cry2.ogg
-
-- type: soundCollection
-  id: KidanLaugh
-  files:
-    - /Audio/_WL/Voice/Kidan/laugh1.ogg
-    - /Audio/_WL/Voice/Kidan/laugh2.ogg
-    - /Audio/_WL/Voice/Kidan/laugh3.ogg
-    - /Audio/_WL/Voice/Kidan/laugh4.ogg
-
-- type: soundCollection
-  id: KidanSigh
-  files:
-    - /Audio/_WL/Voice/Kidan/sigh1.ogg
-    - /Audio/_WL/Voice/Kidan/sigh2.ogg
-
-- type: soundCollection
-  id: KidanSneeze
-  files:
-    - /Audio/_WL/Voice/Kidan/sneeze1.ogg
-    - /Audio/_WL/Voice/Kidan/sneeze2.ogg
-    - /Audio/_WL/Voice/Kidan/sneeze2.ogg
-    - /Audio/_WL/Voice/Kidan/sneeze3.ogg
-
-- type: soundCollection
   id: GolemLaugh
   files:
     - /Audio/_WL/Voice/Golem/rustle_1.ogg

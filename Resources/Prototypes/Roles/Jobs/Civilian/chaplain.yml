@@ -28,7 +28,7 @@
       minAge: 18
   # WL-Changes-AgeRequirement End
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 24
   defaultSkills:
     Bureaucracy: 2
   # WL-Skills-end

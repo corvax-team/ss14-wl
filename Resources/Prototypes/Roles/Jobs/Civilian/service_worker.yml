@@ -24,7 +24,7 @@
   extendedAccess:
   - Hydroponics
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 20
   defaultSkills:
     Chemistry: 2
     Botany: 2

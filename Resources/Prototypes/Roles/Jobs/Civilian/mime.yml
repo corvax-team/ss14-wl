@@ -20,7 +20,7 @@
     - type: MimePowers
       preventWriting: true
     - type: FrenchAccent
-  bonusSkillPoints: 10 # WL-Skills
+  bonusSkillPoints: 25 # WL-Skills
 
 - type: startingGear
   id: MimeGear

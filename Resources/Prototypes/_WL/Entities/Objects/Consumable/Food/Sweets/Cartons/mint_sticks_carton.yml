@@ -1,0 +1,39 @@
+- type: entity
+  id: FoodSweetsMintStickBox
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/mint_stick/box.rsi
+    scale: 0.75, 0.75
+    layers:
+    - state: box
+      map: ["closeLayer"]
+    - state: box_open
+      map: ["openLayer"]
+      visible: false
+  - type: Item
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/mint_stick/box.rsi
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: Storage
+    grid:
+    - 0,0,5,3
+    whitelist:
+      components:
+      - SuckableFood
+  - type: StorageFill
+    contents:
+    - id: FoodSweetsMintStickBlue
+      amount: 3
+    - id: FoodSweetsMintStickRed
+      amount: 3
+    - id: FoodSweetsMintStickYellow
+      amount: 3
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
+  - type: SpaceGarbage

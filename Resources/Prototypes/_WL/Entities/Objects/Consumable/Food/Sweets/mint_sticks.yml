@@ -1,0 +1,41 @@
+- type: entity
+  parent: FoodSweetsMintStickBase
+  id: FoodSweetsMintStickBlue
+  components:
+  - type: Sprite
+    state: blue_ms
+  - type: Clothing
+    equippedPrefix: blue
+  - type: Item
+    heldPrefix: blue
+
+- type: entity
+  parent: FoodSweetsMintStickBase
+  id: FoodSweetsMintStickRed
+  components:
+  - type: Sprite
+    state: red_ms
+  - type: Clothing
+    equippedPrefix: red
+  - type: Item
+    heldPrefix: red
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - strawberry
+
+- type: entity
+  parent: FoodSweetsMintStickBase
+  id: FoodSweetsMintStickYellow
+  components:
+  - type: Sprite
+    state: yelo_ms
+  - type: Clothing
+    equippedPrefix: yelo
+  - type: Item
+    heldPrefix: yelo
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - sour
+    - minty

@@ -20,7 +20,7 @@
   - Kitchen
   - Hydroponics
   # WL-Skills-start
-  bonusSkillPoints: 6
+  bonusSkillPoints: 17
   defaultSkills:
     Chemistry: 2
     Weapons: 2

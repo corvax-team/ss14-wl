@@ -25,7 +25,7 @@
   - Maintenance
   - External
   # WL-Skills-start
-  bonusSkillPoints: 8
+  bonusSkillPoints: 14
   defaultSkills:
     Eva: 3
     Piloting: 2
