@@ -116,7 +116,7 @@
   loadouts:
   - JumpsuitPilot
   - JumpskirtPilot
-  - TrooperJumpsuit
+  - TrooperUniform
 
 - type: loadoutGroup
   id: PilotOuterClothing
