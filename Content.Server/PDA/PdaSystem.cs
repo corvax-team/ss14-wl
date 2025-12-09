@@ -313,10 +313,9 @@ namespace Content.Server.PDA
             if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var details))
             {
                 // WL-Changes-start: Alert Level Rework
-                var index = _prototypeManager.Index(details);
-                pda.StationAlertColor = index.Color;
-                if (index != null)
+                if (_prototypeManager.TryIndex(details, out var index))
                 {
+                    pda.StationAlertColor = index.Color;
                     pda.StationAlertInstructions = index.Instruction;
                     if (!string.IsNullOrEmpty(index.SetName))
                         pda.StationAlertName = index.SetName;

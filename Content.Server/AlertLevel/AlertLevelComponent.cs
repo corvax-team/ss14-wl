@@ -11,7 +11,6 @@ namespace Content.Server.AlertLevel;
 [RegisterComponent]
 public sealed partial class AlertLevelComponent : Component
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     /// <summary>
     /// The current set of alert levels on the station.
     /// </summary>
@@ -45,9 +44,10 @@ public sealed partial class AlertLevelComponent : Component
     {
         get
         {
+            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             if (AlertLevels == null
             // WL-Changes-start: Alert Level Rework
-                || !_prototypeManager.TryIndex<AlertLevelPrototype>(CurrentLevel, out var level)) // TryGetValue -> TryIndex
+                || !prototypeManager.TryIndex<AlertLevelPrototype>(CurrentLevel, out var level)) // TryGetValue -> TryIndex
                 return false;
             // WL-Changes-end
 

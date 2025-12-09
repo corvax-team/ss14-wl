@@ -10,7 +10,7 @@ public sealed class AlertLevelsListPrototype : IPrototype
     [IdDataField] public string ID { get; private set; } = default!;
 
     /// <summary>
-    /// Dictionary of alert levels.
+    /// Set of allowed alert levels.
     /// </summary>
     [DataField] public HashSet<ProtoId<AlertLevelPrototype>> Levels = new();
 

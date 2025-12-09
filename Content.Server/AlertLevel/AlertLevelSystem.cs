@@ -84,10 +84,12 @@ public sealed class AlertLevelSystem : EntitySystem
             if (!comp.AlertLevels.Levels.Contains(comp.CurrentLevel)) // WL-Changes: Alert Level Rework
             {
                 var defaultLevel = comp.AlertLevels.DefaultLevel;
-                if (string.IsNullOrEmpty(defaultLevel))
+                if (string.IsNullOrEmpty(defaultLevel) && comp.AlertLevels.Levels.Count > 0)
                 {
                     defaultLevel = comp.AlertLevels.Levels.First(); // WL-Changes: Alert Level Rework
                 }
+                else
+                    continue;
 
                 SetLevel(uid, defaultLevel, true, true, true);
             }
@@ -176,7 +178,7 @@ public sealed class AlertLevelSystem : EntitySystem
         if (Loc.TryGetString($"alert-level-{level.ToLower()}", out var locId))
             name = locId.ToLower();
         else if (!string.IsNullOrEmpty(prototype.SetName))
-            name = prototype.SetName;
+            name = prototype.SetName.ToLower();
         else
             name = Loc.GetString("alert-level-unknown").ToLower();
 
