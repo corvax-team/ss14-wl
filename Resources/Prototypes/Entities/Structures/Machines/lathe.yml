@@ -392,6 +392,7 @@
     # WL-changes-storage start
     - ManualStorageSecurityStatic
     - ManualStorageCommandStatic
+    - SecBalaclavStatic
     # WL-changes-storage end
     dynamicPacks:
     - SalvageSecurityBoards

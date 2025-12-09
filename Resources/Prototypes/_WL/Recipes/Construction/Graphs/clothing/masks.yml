@@ -1,0 +1,69 @@
+- type: constructionGraph
+  id: ClothingMaskBalaclavFabricBlack
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: mask
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+    - node: mask
+      entity: ClothingMaskBalaclavFabricBlack
+
+- type: constructionGraph
+  id: ClothingMaskBalaclavFabricBlue
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: mask
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+    - node: mask
+      entity: ClothingMaskBalaclavFabricBlue
+
+- type: constructionGraph
+  id: ClothingMaskBalaclavFabricGreen
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: mask
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+    - node: mask
+      entity: ClothingMaskBalaclavFabricGreen
+
+- type: constructionGraph
+  id: ClothingMaskBalaclavFabricRed
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: mask
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+    - node: mask
+      entity: ClothingMaskBalaclavFabricRed
+
+- type: constructionGraph
+  id: ClothingMaskBalaclavFabricTan
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: mask
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+    - node: mask
+      entity: ClothingMaskBalaclavFabricTan
