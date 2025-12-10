@@ -1,6 +1,7 @@
+// WL-Changes-start: Alert Level Rework
 using Content.Shared.AlertLevel;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+// WL-Changes-end
 
 namespace Content.Server.AlertLevel;
 
@@ -19,8 +20,8 @@ public sealed partial class AlertLevelComponent : Component
     public AlertLevelsListPrototype? AlertLevels;
 
     // Once stations are a prototype, this should be used.
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<AlertLevelsListPrototype>))]
-    public string AlertLevelsListPrototype = default!;
+    [DataField(required: true)]
+    public ProtoId<AlertLevelsListPrototype> AlertLevelsListPrototype;
     // WL-Changes-end
 
     /// <summary>

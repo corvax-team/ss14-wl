@@ -16,7 +16,7 @@ public sealed class AlertLevelsListPrototype : IPrototype
 
     /// <summary>
     /// Default level that the station is on upon initialization.
-    /// If this isn't in the dictionary, this will default to whatever .First() gives.
+    /// If this isn't in the hashSet, this will default to whatever .First() gives.
     /// </summary>
     [DataField] public string DefaultLevel { get; private set; } = default!;
 }

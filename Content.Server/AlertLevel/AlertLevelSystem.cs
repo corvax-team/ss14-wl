@@ -84,12 +84,13 @@ public sealed class AlertLevelSystem : EntitySystem
             if (!comp.AlertLevels.Levels.Contains(comp.CurrentLevel)) // WL-Changes: Alert Level Rework
             {
                 var defaultLevel = comp.AlertLevels.DefaultLevel;
-                if (string.IsNullOrEmpty(defaultLevel) && comp.AlertLevels.Levels.Count > 0)
-                {
-                    defaultLevel = comp.AlertLevels.Levels.First(); // WL-Changes: Alert Level Rework
-                }
+                if (string.IsNullOrEmpty(defaultLevel)
+                // WL-Changes-start: Alert Level Rework
+                    && comp.AlertLevels.Levels.Count > 0)
+                    defaultLevel = comp.AlertLevels.Levels.First();
                 else
                     continue;
+                // WL-Changes-end
 
                 SetLevel(uid, defaultLevel, true, true, true);
             }
@@ -172,7 +173,7 @@ public sealed class AlertLevelSystem : EntitySystem
 
         var stationName = dataComponent.EntityName;
 
-        // WL-Changes: Alert Level Rework
+        // WL-Changes-start: Alert Level Rework
         var name = level;
 
         if (Loc.TryGetString($"alert-level-{level.ToLower()}", out var locId))
@@ -186,10 +187,8 @@ public sealed class AlertLevelSystem : EntitySystem
         var announcement = prototype.Announcement;
 
         if (Loc.TryGetString(prototype.Announcement, out var locAnnouncement))
-        // WL-Changes-end
-        {
             announcement = locAnnouncement;
-        }
+        // WL-Changes-end
 
         // The full announcement to be spat out into chat.
         var announcementFull = Loc.GetString("alert-level-announcement", ("name", name), ("announcement", announcement));
