@@ -11,7 +11,6 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Goobstation.Shared.Overlays;
 
 namespace Content.Client._White.Overlays;
 
@@ -23,6 +22,7 @@ public sealed class ThermalVisionOverlay : Overlay
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly TransformSystem _transform;
+    private readonly StealthSystem _stealth;
     private readonly SpriteSystem _sprite;
     private readonly ContainerSystem _container;
     private readonly SharedPointLightSystem _light;
@@ -44,6 +44,7 @@ public sealed class ThermalVisionOverlay : Overlay
 
         _container = _entity.System<ContainerSystem>();
         _transform = _entity.System<TransformSystem>();
+        _stealth = _entity.System<StealthSystem>();
         _sprite = _entity.System<SpriteSystem>();
         _light = _entity.System<SharedPointLightSystem>();
 
