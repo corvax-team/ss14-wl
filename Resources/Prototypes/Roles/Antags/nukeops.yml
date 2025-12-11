@@ -105,8 +105,9 @@
   id: SyndicateOperativeMedicFull
   parent: SyndicateOperativeGearFull
   equipment:
-    eyes: ClothingEyesHudSyndicateAgent
-    outerClothing: ClothingOuterHardsuitSyndieMedic
+    back: ClothingBackpackDuffelSyndicateMedical # Goobstation
+    eyes: ClothingEyesNightVisionGogglesNukie # Goobstation
+    #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiCorpsmanPDA
     belt: ClothingBeltMilitaryWebbingMedFilled

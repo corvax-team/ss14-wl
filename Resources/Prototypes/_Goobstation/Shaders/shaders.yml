@@ -1,0 +1,6 @@
+- type: shader
+  id: ThermalVision
+  kind: source
+  path: "/Textures/_Goobstation/Shaders/thermal.swsl"
+  params:
+    pixelSize: 32.0

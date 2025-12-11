@@ -12,6 +12,9 @@ public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverl
     [DataField]
     public bool DrawOverlay = true;
 
+    [DataField]
+    public float OverlayOpacity = 0.5f;
+
     /// <summary>
     /// Whether it should grant equipment enhanced vision or is it mob vision
     /// </summary>
@@ -50,4 +53,6 @@ public sealed class SwitchableVisionOverlayComponentState : IComponentState
     public SoundSpecifier? DeactivateSound;
     public EntProtoId? ToggleAction;
     public float LightRadius;
+    public bool DrawOverlay;
+    public float OverlayOpacity;
 }
