@@ -1,0 +1,98 @@
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyArachnid
+  components:
+  - type: Sprite
+    state: arachn
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - slimy
+    - strange
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyCischi
+  components:
+  - type: Sprite
+    state: cischi
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyFelinid
+  components:
+  - type: Sprite
+    state: felin
+  - type: FlavorProfile
+    flavors:
+    - milk
+    - creamy
+    - fish
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyHuman
+  components:
+  - type: Sprite
+    state: human
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyKidan
+  components:
+  - type: Sprite
+    state: kidan
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyMoth
+  components:
+  - type: Sprite
+    state: moth
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyMurine
+  components:
+  - type: Sprite
+    state: murine
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummySareng
+  components:
+  - type: Sprite
+    state: sareng
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummySlime
+  components:
+  - type: Sprite
+    state: slime
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - slime
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyTayara
+  components:
+  - type: Sprite
+    state: tayara
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyLizard
+  components:
+  - type: Sprite
+    state: unath
+
+
+- type: entity
+  parent: FoodSweetsGummyBase
+  id: FoodSweetsGummyVulpa
+  components:
+  - type: Sprite
+    state: vulpa

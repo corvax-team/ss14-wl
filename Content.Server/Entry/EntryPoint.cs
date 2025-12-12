@@ -1,4 +1,3 @@
-using Content.Server._WL.ChatGpt.Managers;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -18,8 +17,6 @@ using Content.Server.Info;
 using Content.Server.IoC;
 using Content.Server.Maps;
 using Content.Server.NodeContainer.NodeGroups;
-using Content.Server.Objectives;
-using Content.Server.Players;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Players.RateLimiting;
@@ -166,10 +163,6 @@ namespace Content.Server.Entry
                 _watchlistWebhookManager.Initialize();
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
-
-                //WL-Changes-start
-                IoCManager.Resolve<IChatGptManager>().Initialize();
-                //WL-Changes-end
             }
             */
             _adminLog.Initialize();
@@ -188,9 +181,6 @@ namespace Content.Server.Entry
             _job.Initialize();
             _rateLimit.Initialize();
             IoCManager.Resolve<TTSManager>().Initialize(); // Corvax-TTS
-            //WL-Changes-start
-            IoCManager.Resolve<IChatGptManager>().Initialize();
-            //WL-Changes-end
         }
 
         public override void PostInit()

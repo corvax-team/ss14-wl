@@ -10,12 +10,6 @@
     - /Audio/_WL/Voice/Cat/catscream.ogg
 
 - type: soundCollection
-  id: KidanSoundM
-  files:
-    - /Audio/_WL/Voice/Kidan/scream_1.ogg
-    - /Audio/_WL/Voice/Kidan/scream_2.ogg
-
-- type: soundCollection
   id: GolemScream
   files:
     - /Audio/_WL/Voice/Golem/scream_1.ogg

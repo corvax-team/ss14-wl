@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "copyright": "Maded by ReArtInt (discord id: 509460992518914048, username: reartint)",
+  "license": "CC-BY-SA-3.0",
+  "states": [
+    {
+      "name": "blue_ms"
+    },
+    {
+      "name": "red_ms"
+    },
+    {
+      "name": "yelo_ms"
+    },
+    {
+      "name": "blue-equipped-MASK",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "blue-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "red-equipped-MASK",
+      "directions": 4
+    },
+    {
+      "name": "red-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "red-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "yelo-equipped-MASK",
+      "directions": 4
+    },
+    {
+      "name": "yelo-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "yelo-inhand-right",
+      "directions": 4
+    }
+  ]
+}

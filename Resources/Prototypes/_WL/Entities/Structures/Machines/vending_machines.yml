@@ -35,22 +35,22 @@
 
 - type: entity
   parent: VendingMachine
-  id: VendingMachineGothic
-  name: Gothic-O-Mat
-  description: Station for the sad... and stylish!
+  id: VendingMachineFashion
+  name: Fashion-O-Mat
+  description: Station for the stylish!
   components:
   - type: VendingMachine
-    pack: GothicOMatInventory
+    pack: FashionOMatInventory
     offState: off
     brokenState: broken
     normalState: normal-unshaded
     denyState: deny-unshaded
   - type: DatasetVocalizer
-    dataset: GothicOMatAds
+    dataset: FashionOMatAds
   - type: SpeakOnUIClosed
-    pack: GothicOMatGoodbyes
+    pack: FashionOMatGoodbyes
   - type: Sprite
-    sprite: _WL/Structures/Machines/VendingMachines/gothicomat.rsi
+    sprite: _WL/Structures/Machines/VendingMachines/fashiondrobe.rsi
     layers:
     - state: "off"
       map: [ "enum.VendingMachineVisualLayers.Base" ]
@@ -59,6 +59,7 @@
       shader: unshaded
     - state: panel
       map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Speech
   - type: PointLight
     radius: 1.8
     energy: 1

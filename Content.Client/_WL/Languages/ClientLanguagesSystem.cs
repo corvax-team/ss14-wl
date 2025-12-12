@@ -74,7 +74,7 @@ public sealed partial class ClientLanguagesSystem : SharedLanguagesSystem
 
 public readonly record struct LanguagesData(
     EntityUid Entity,
-    string CurrentLanguage,
+    string? CurrentLanguage,
     List<ProtoId<LanguagePrototype>> Speaking,
     List<ProtoId<LanguagePrototype>> Understood
 );

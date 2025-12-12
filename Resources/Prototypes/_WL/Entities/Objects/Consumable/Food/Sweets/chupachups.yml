@@ -1,0 +1,101 @@
+- type: entity
+  parent: BaseItem
+  id: FoodSweetsChupachupsEaten
+  components:
+  - type: Clothing
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/lolipop.rsi
+    slots:
+    - MASK
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/lolipop.rsi
+    scale: 0.4, 0.4
+    state: eatn_loli
+  - type: Item
+    heldPrefix: eatn
+    sprite: _WL/Entities/Objects/Consumable/Food/sweets/lolipop.rsi
+    shape:
+    - 0,0,0,0
+
+- type: entity
+  parent: FoodSweetsChupachupsBase
+  id: FoodSweetsChupachupsBlue
+  components:
+  - type: Sprite
+    state: blue_loli
+  - type: Item
+    heldPrefix: blue
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - raspberry
+
+- type: entity
+  parent: FoodSweetsChupachupsBase
+  id: FoodSweetsChupachupsLime
+  components:
+  - type: Sprite
+    state: lime_loli
+  - type: Item
+    heldPrefix: lime
+  - type: FlavorProfile
+    flavors:
+    - sour
+    - fruity
+
+- type: entity
+  parent: FoodSweetsChupachupsBase
+  id: FoodSweetsChupachupsOrange
+  components:
+  - type: Sprite
+    state: orng_loli
+  - type: Item
+    heldPrefix: orng
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - orange
+    - fruity
+
+- type: entity
+  parent: FoodSweetsChupachupsBase
+  id: FoodSweetsChupachupsPink
+  components:
+  - type: Sprite
+    state: pink_loli
+  - type: Item
+    heldPrefix: pink
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - strawberry
+
+- type: entity
+  parent: FoodSweetsChupachupsBase
+  id: FoodSweetsChupachupsPurple
+  components:
+  - type: Sprite
+    state: prpl_loli
+  - type: Item
+    heldPrefix: prpl
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - grape
+
+- type: entity
+  parent: FoodSweetsChupachupsBase
+  id: FoodSweetsChupachupsYellow
+  components:
+  - type: Sprite
+    state: yelo_loli
+  - type: Item
+    heldPrefix: yelo
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - sour
+    - pineapple

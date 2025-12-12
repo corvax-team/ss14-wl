@@ -1,1 +1,0 @@
-gpt-model-round-end-balance = За прошедший раунд на запросы к моделям ИИ было потрачено [color=yellow]{$spent}[/color] руб.! 

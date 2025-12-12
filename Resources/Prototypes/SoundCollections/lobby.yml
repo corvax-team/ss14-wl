@@ -16,8 +16,9 @@
     - /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
     - /Audio/Lobby/every_light_is_blinking_at_once.ogg
     - /Audio/Corvax/Lobby/title2.ogg # Corvax-LobbyMusic
-    - /Audio/Lobby/atomicamnesiammx.ogg
-    - /Audio/Lobby/the_station.ogg # Corvax WL
-    - /Audio/Lobby/spacebard.ogg # Corvax WL
+    - /Audio/_WL/Lobby/atomicamnesiammx.ogg # Corvax WL
+    - /Audio/_WL/Lobby/the_station.ogg # Corvax WL
+    - /Audio/_WL/Lobby/spacebard.ogg # Corvax WL
+    - /Audio/_WL/Lobby/quirky_goblins.ogg # Corvax WL
     - /Audio/Corvax/Lobby/service.ogg # Corvax-LobbyMusic
     - /Audio/Corvax/Lobby/nodecision.ogg # Corvax-LobbyMusic

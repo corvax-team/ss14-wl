@@ -1,13 +1,14 @@
 #nullable enable
-using System.Collections.Generic;
-using System.Linq;
 using Content.Server.Antag;
 using Content.Server.Antag.Components;
+using Content.Server.Construction.Conditions;
 using Content.Server.GameTicking;
 using Content.Shared.GameTicking;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Content.IntegrationTests.Tests.GameRules;
 
@@ -32,9 +33,14 @@ public sealed class AntagPreferenceTest
         var sys = server.System<AntagSelectionSystem>();
 
         // Initially in the lobby
-        Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
-        Assert.That(client.AttachedEntity, Is.Null);
-        Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
+        // WL-Changes-start
+        Assert.Multiple(() =>
+        {
+            Assert.That(ticker.RunLevel, Is.EqualTo(GameRunLevel.PreRoundLobby));
+            Assert.That(client.AttachedEntity, Is.Null);
+            Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
+        });
+        // WL-Changes-end
 
         EntityUid uid = default;
         await server.WaitPost(() => uid = server.EntMan.Spawn("Traitor"));
@@ -43,32 +49,70 @@ public sealed class AntagPreferenceTest
 
         // IsSessionValid & IsEntityValid are preference agnostic and should always be true for players in the lobby.
         // Though maybe that will change in the future, but then GetPlayerPool() needs to be updated to reflect that.
-        Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
-        Assert.That(sys.IsEntityValid(client.AttachedEntity, def), Is.True);
+        // WL-Changes-start
+        await server.WaitPost(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
+                Assert.That(sys.IsEntityValid(client.AttachedEntity, def), Is.True);
+            });
+        });
+        // WL-Changes-end
 
         // By default, traitor/antag preferences are disabled, so the pool should be empty.
         var sessions = new List<ICommonSession> { pair.Player! };
-        var pool = sys.GetPlayerPool(rule, sessions, def);
-        Assert.That(pool.Count, Is.EqualTo(0));
+
+        // WL-Changes-start
+        AntagSelectionPlayerPool? pool = null;
+        await server.WaitPost(() =>
+        {
+            pool = sys.GetPlayerPool(rule, sessions, def);
+            Assert.That(pool.Count, Is.EqualTo(0));
+        });
+        // WL-Changes-end
 
         // Opt into the traitor role.
         await pair.SetAntagPreference("Traitor", true);
 
-        Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
-        Assert.That(sys.IsEntityValid(client.AttachedEntity, def), Is.True);
-        pool = sys.GetPlayerPool(rule, sessions, def);
-        Assert.That(pool.Count, Is.EqualTo(1));
-        pool.TryPickAndTake(pair.Server.ResolveDependency<IRobustRandom>(), out var picked);
-        Assert.That(picked, Is.EqualTo(pair.Player));
-        Assert.That(sessions.Count, Is.EqualTo(1));
+        // WL-Changes-start
+        await server.WaitPost(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
+                Assert.That(sys.IsEntityValid(client.AttachedEntity, def), Is.True);
+            });
+
+            pool = sys.GetPlayerPool(rule, sessions, def);
+            Assert.That(pool.Count, Is.EqualTo(1));
+
+            pool.TryPickAndTake(server.ResolveDependency<IRobustRandom>(), out var picked);
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(picked, Is.EqualTo(pair.Player));
+                Assert.That(sessions, Has.Count.EqualTo(1));
+            });
+        });
+        // WL-Changes-end
 
         // opt back out
         await pair.SetAntagPreference("Traitor", false);
 
-        Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
-        Assert.That(sys.IsEntityValid(client.AttachedEntity, def), Is.True);
-        pool = sys.GetPlayerPool(rule, sessions, def);
-        Assert.That(pool.Count, Is.EqualTo(0));
+        // WL-Changes-start
+        await server.WaitPost(() =>
+        {
+            Assert.Multiple(() =>
+            {
+                Assert.That(sys.IsSessionValid(rule, pair.Player, def), Is.True);
+                Assert.That(sys.IsEntityValid(client.AttachedEntity, def), Is.True);
+            });
+
+            pool = sys.GetPlayerPool(rule, sessions, def);
+            Assert.That(pool.Count, Is.EqualTo(0));
+        });
+        // WL-Changes-end
 
         await server.WaitPost(() => server.EntMan.DeleteEntity(uid));
         await pair.CleanReturnAsync();

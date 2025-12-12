@@ -4,6 +4,6 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockCorpFilled
-  cost: 2500
+  cost: 3500
   category: cargoproduct-category-name-service
   group: market

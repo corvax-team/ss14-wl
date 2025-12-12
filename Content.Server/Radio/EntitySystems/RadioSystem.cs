@@ -98,39 +98,6 @@ public sealed class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
-        //WL-Changes: Languages start
-        var wrappedMessage = _languages.GetRadioWrappedMessage(content, messageSource, name, speech, channel, true);
-        //WL-Changes: Languages end
-
-        // most radios are relayed to chat, so lets parse the chat message beforehand
-        var chat = new ChatMessage(
-            ChatChannel.Radio,
-            message,
-            wrappedMessage,
-            NetEntity.Invalid,
-            null);
-        var chatMsg = new MsgChatMessage { Message = chat };
-        var ev = new RadioReceiveEvent(message, messageSource, channel, radioSource, chatMsg);
-
-        //WL-Changes: Languages start
-        var obfusWrappedMessage = _languages.GetRadioObfusWrappedMessage(content, messageSource, name, speech, channel);
-        var obfusChat = new ChatMessage(
-            ChatChannel.Radio,
-            message,
-            obfusWrappedMessage,
-            NetEntity.Invalid,
-            null
-        );
-        var obfusChatMsg = new MsgChatMessage { Message = obfusChat };
-        var obfusEv = new RadioReceiveEvent(
-            message,
-            messageSource,
-            channel,
-            radioSource,
-            obfusChatMsg
-        );
-        //WL-Changes: Languages end
-
         var sendAttemptEv = new RadioSendAttemptEvent(channel, radioSource);
         RaiseLocalEvent(ref sendAttemptEv);
         RaiseLocalEvent(radioSource, ref sendAttemptEv);
@@ -143,15 +110,6 @@ public sealed class RadioSystem : EntitySystem
         var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
         while (canSend && radioQuery.MoveNext(out var receiver, out var radio, out var transform))
         {
-            //WL-Changes: Languages start
-            var now_ev = ev;
-            if (transform.ParentUid != null)
-            {
-                if (!_languages.CanUnderstand(messageSource, transform.ParentUid))
-                    now_ev = obfusEv;
-            }
-            //WL-Changes: Languages end
-
             if (!radio.ReceiveAllChannels)
             {
                 if (!radio.Channels.Contains(channel.ID) || (TryComp<IntercomComponent>(receiver, out var intercom) &&
@@ -162,20 +120,45 @@ public sealed class RadioSystem : EntitySystem
             if (!channel.LongRange && transform.MapID != sourceMapId && !radio.GlobalReceive)
                 continue;
 
-            // don't need telecom server for long range channels or handheld radios and intercoms
             var needServer = !channel.LongRange && !sourceServerExempt;
             if (needServer && !hasActiveServer)
                 continue;
 
-            // check if message can be sent to specific receiver
             var attemptEv = new RadioReceiveAttemptEvent(channel, radioSource, receiver);
             RaiseLocalEvent(ref attemptEv);
             RaiseLocalEvent(receiver, ref attemptEv);
             if (attemptEv.Cancelled)
                 continue;
 
-            // send the message
-            RaiseLocalEvent(receiver, ref now_ev); //WL-Changes: ev -> now_ev
+            //WL-Changes-start
+            var wrappedMsg = _languages.GetRadioWrappedMessageFor(
+                content,
+                messageSource,
+                transform.ParentUid,
+                name,
+                speech,
+                channel);
+
+            if (string.IsNullOrEmpty(wrappedMsg))
+                continue;
+
+            var chatMsg = new ChatMessage(
+                ChatChannel.Radio,
+                message,
+                wrappedMsg,
+                NetEntity.Invalid,
+                null);
+            var chatMsgEv = new MsgChatMessage { Message = chatMsg };
+
+            var ev = new RadioReceiveEvent(
+                message,
+                messageSource,
+                channel,
+                radioSource,
+                chatMsgEv);
+
+            RaiseLocalEvent(receiver, ref ev);
+            // WL-Changes-end
         }
 
         if (name != Name(messageSource))
@@ -183,7 +166,17 @@ public sealed class RadioSystem : EntitySystem
         else
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} on {channel.LocalizedName}: {message}");
 
-        _replay.RecordServerMessage(chat);
+        //WL-Changes-start
+        var logChat = new ChatMessage(
+            ChatChannel.Radio,
+            message,
+            content,
+            NetEntity.Invalid,
+            null
+        );
+        _replay.RecordServerMessage(logChat);
+        // WL-Changes-end
+
         _messages.Remove(message);
     }
 

@@ -14,7 +14,19 @@
   id: MaintsRenga
 
 - type: Tag
-  id: MaintsPaper
+  id: MaintsBARPaper
+
+- type: Tag
+  id: MaintsCMOPaper
+
+- type: Tag
+  id: StationElementZOOPaperTOP
+
+- type: Tag
+  id: StationElementZOOPaperBOTTOM
+
+- type: Tag
+  id: MaintsPaperAproved
 
 - type: Tag
   id: Console

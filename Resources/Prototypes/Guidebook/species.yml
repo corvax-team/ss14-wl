@@ -18,7 +18,6 @@
     - Cischi
     - Felinid
     - Golem
-    - Kidan
     - Murine
     - CorvaxVulpkanin
 #Corvax WhiteList-End
@@ -88,11 +87,6 @@
   id: Golem
   name: species-name-golem
   text: "/ServerInfo/Guidebook/_WL/Mobs/Golem.xml"
-
-- type: guideEntry
-  id: Kidan
-  name: species-name-kidan
-  text: "/ServerInfo/Guidebook/_WL/Mobs/Kidan.xml"
 
 - type: guideEntry
   id: Murine

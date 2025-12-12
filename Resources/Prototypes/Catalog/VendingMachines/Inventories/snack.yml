@@ -7,6 +7,17 @@
     FoodSnackPistachios: 3
     FoodSnackSus: 3
     FoodSnackSemki: 3
+    # WL-Changes-start
+    FoodSweetsMintStickBox: 2
+    FoodSweetsGumBox: 2
+    FoodSweetsGummiesBox: 2
+    FoodSweetsChupachupsBlue: 2
+    FoodSweetsChupachupsLime: 2
+    FoodSweetsChupachupsOrange: 2
+    FoodSweetsChupachupsPink: 2
+    FoodSweetsChupachupsPurple: 2
+    FoodSweetsChupachupsYellow: 2
+    # WL-Changes-end
   contrabandInventory:
     FoodSnackSwirlLollipop: 2
     FoodSnackSyndi: 3

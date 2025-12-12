@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "copyright": "Maded by ReArtInt (discord id: 509460992518914048, username: reartint)",
+  "license": "CC-BY-SA-3.0",
+  "states": [
+    {
+      "name": "box"
+    },
+    {
+      "name": "box_open"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+- type: dungeonRoom
+  id: MaintsPaperBarA
+  size: 10,6
+  atlas: /Maps/_WL/Dungeon/wl_paper_bar_maints.yml
+  offset: 26,60
+  tags:
+  - MaintsBARPaper
+
+- type: dungeonRoom
+  id: MaintsPaperBarB
+  size: 10,6
+  atlas: /Maps/_WL/Dungeon/wl_paper_bar_maints.yml
+  offset: 26,67
+  tags:
+  - MaintsBARPaper
+
+- type: dungeonRoom
+  id: MaintsPaperBarC
+  size: 10,6
+  atlas: /Maps/_WL/Dungeon/wl_paper_bar_maints.yml
+  offset: 37,60
+  tags:
+  - MaintsBARPaper
+
+- type: dungeonRoom
+  id: MaintsPaperBarD
+  size: 10,6
+  atlas: /Maps/_WL/Dungeon/wl_paper_bar_maints.yml
+  offset: 37,67
+  tags:
+  - MaintsBARPaper
+
+
+
+
+- type: dungeonRoom
+  id: MaintsPaperCmoA
+  size: 5,6
+  atlas: /Maps/_WL/Dungeon/wl_paper_cmo_maints.yml
+  offset: 1,1
+  tags:
+  - MaintsCMOPaper
+
+- type: dungeonRoom
+  id: MaintsPaperCmoB
+  size: 5,6
+  atlas: /Maps/_WL/Dungeon/wl_paper_cmo_maints.yml
+  offset: 7,1
+  tags:
+  - MaintsCMOPaper
+
+- type: dungeonRoom
+  id: MaintsPaperCmoC
+  size: 5,6
+  atlas: /Maps/_WL/Dungeon/wl_paper_cmo_maints.yml
+  offset: 13,1
+  tags:
+  - MaintsCMOPaper
+
+
+
+
+- type: entity
+  parent: BaseRoomMarker
+  id: MaintsOLDEVACPaperRoomMarker
+  name: Paper old evax maints
+  suffix: 5x5, Paper
+  components:
+  - type: RoomFill
+    minSize: 5,5
+    maxSize: 5,5
+    roomWhitelist:
+      tags:
+      - MaintsPaperAproved
+
+- type: entity
+  parent: BaseRoomMarker
+  id: MaintsBARPaperRoomMarker
+  name: Paper bar maints
+  suffix: 10x6, Paper
+  components:
+  - type: RoomFill
+    minSize: 10,6
+    maxSize: 10,6
+    roomWhitelist:
+      tags:
+      - MaintsBARPaper
+
+- type: entity
+  parent: BaseRoomMarker
+  id: MaintsCMOPaperRoomMarker
+  name: Paper CMO maints
+  suffix: 5x6, Paper
+  components:
+  - type: RoomFill
+    minSize: 5,6
+    maxSize: 5,6
+    roomWhitelist:
+      tags:
+      - MaintsCMOPaper
