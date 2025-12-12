@@ -246,6 +246,12 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
+  # WL-Night-Vision-Start
+  - type: NightVision
+    color: "#224fff"
+    activateSound: null
+    deactivateSound: null
+  # WL-Night-Vision-End
 
 
 # xenoborgs empty
