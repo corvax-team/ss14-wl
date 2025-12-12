@@ -151,9 +151,11 @@
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
+# WL-Gun-Rework-Start
     autoCycle: false
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+# WL-Gun-Rework-End
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun # Corvax-Guns
     soundGunshot:
@@ -192,10 +194,12 @@
   - type: Tag
     tags:
     - WeaponShotgunKammerer
+# WL-Gun-Rework-Start
   - type: BallisticAmmoProvider
     autoCycle: false
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+# WL-Gun-Rework-End
 
 - type: entity
   name: sawn-off shotgun
@@ -285,6 +289,7 @@
   - type: StaticPrice
     price: 0
 
+# WL-Gun-Rework-Start - для добавления механики как у флейр гана пришлость почти полностью писать прототип заного, потому, отмечу лишь начало и конец всего этого.
 - type: entity
   name: improvised shotgun
   parent: [BaseItem, BaseGunWieldable, BaseMinorContraband]
@@ -343,9 +348,8 @@
     soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
     soundRack: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
   - type: Appearance
-# White-List components
   - type: Execution
-# White-List components end
+# WL-Gun-Rework-End
 
 - type: entity
   name: improvised shotgun
