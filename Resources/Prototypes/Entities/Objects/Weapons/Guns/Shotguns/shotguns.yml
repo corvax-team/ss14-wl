@@ -331,11 +331,10 @@
     slots:
       gun_chamber:
         name: Chamber
-        startingItem: ShellShotgunImprovised
+        startingItem: null
         priority: 1
         whitelist:
-          tags: ## TODO: Add a risk of the gun blowing up if using non-light shotgun shells, and then re-enable them.
-            ## - ShellShotgun
+          tags:
             - ShellShotgun
   - type: ContainerContainer
     containers:
@@ -357,5 +356,14 @@
   suffix: Loaded
   id: WeaponShotgunImprovisedLoaded
   components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunImprovised
+# WL-Gun-Rework-Start
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        startingItem: ShellShotgunImprovised
+        priority: 1
+        whitelist:
+          tags:
+            - ShellShotgun
+# WL-Gun-Rework-End
