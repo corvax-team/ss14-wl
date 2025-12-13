@@ -402,15 +402,13 @@
   metabolisms:
     Medicine:
       metabolismRate: 0.2
-      effects:
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectPainkillersSalicylicAcid
-        type: Set
-        time: 1.5
+      statusEffects:
+      - statusEffect: StatusEffectPainkillersSalicylicAcid
         conditions:
         - !type:DamageGroupCondition
           damageGroup: Brute
           min: 35
+      effects:
       - !type:EvenHealthChange
         damage:
           Brute: -2
@@ -436,9 +434,8 @@
         - !type:DamageGroupCondition
           damageGroup: Brute
           max: 35
-      - !type:ModifyStatusEffect
+      - !type:RemoveStatusEffect
         effectProto: WoundBoneDeath
-        type: Remove
         conditions:
         - !type:MetaboliteThresholdCondition
           reagent: SalicylicAcid
