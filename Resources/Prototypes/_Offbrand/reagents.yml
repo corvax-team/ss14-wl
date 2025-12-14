@@ -416,7 +416,7 @@
         - !type:DamageGroupCondition
           damageGroup: Brute
           min: 35
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition
           reagent: SalicylicAcid
           max: 15
       - !type:EvenHealthChange
@@ -424,7 +424,7 @@
           Brute: -2
           Burn: 2
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition
           reagent: SalicylicAcid
           min: 15
       - !type:EvenHealthChange
@@ -437,14 +437,14 @@
       - !type:RemoveStatusEffect
         effectProto: WoundBoneDeath
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition
           reagent: SalicylicAcid
           min: 50
       - !type:EvenHealthChange
         damage:
           Burn: 1
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition
           reagent: SalicylicAcid
           min: 35
 
