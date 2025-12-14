@@ -475,7 +475,7 @@
         - !type:DamageGroupCondition
           damageGroup: Burn
           min: 35
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition
           reagent: Oxandrolone
           max: 15
       - !type:EvenHealthChange
@@ -483,7 +483,7 @@
           Burn: -3
           Brute: 3
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition
           reagent: Oxandrolone
           min: 15
       - !type:EvenHealthChange
@@ -497,13 +497,13 @@
         type: Remove
         effectProto: WoundHusking
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition
           reagent: Oxandrolone
           min: 50
       - !type:EvenHealthChange
         damage:
           Brute: 1
         conditions:
-        - !type:MetaboliteThresholdCondition
+        - !type:ReagentCondition
           reagent: Oxandrolone
           min: 35
