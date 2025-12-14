@@ -416,7 +416,7 @@
         - !type:DamageGroupCondition
           damageGroup: Brute
           min: 35
-        - !type:ReagentCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: SalicylicAcid
           max: 15
       - !type:EvenHealthChange
@@ -424,7 +424,7 @@
           Brute: -2
           Burn: 2
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: SalicylicAcid
           min: 15
       - !type:EvenHealthChange
@@ -437,14 +437,14 @@
       - !type:RemoveStatusEffect
         effectProto: WoundBoneDeath
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: SalicylicAcid
           min: 50
       - !type:EvenHealthChange
         damage:
           Burn: 1
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: SalicylicAcid
           min: 35
 
@@ -473,7 +473,7 @@
         - !type:DamageGroupCondition
           damageGroup: Burn
           min: 35
-        - !type:ReagentCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: Oxandrolone
           max: 15
       - !type:EvenHealthChange
@@ -481,7 +481,7 @@
           Burn: -3
           Brute: 3
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: Oxandrolone
           min: 15
       - !type:EvenHealthChange
@@ -494,13 +494,13 @@
       - !type:RemoveStatusEffect
         effectProto: WoundHusking
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: Oxandrolone
           min: 50
       - !type:EvenHealthChange
         damage:
           Brute: 1
         conditions:
-        - !type:ReagentCondition
+        - !type:ReagentCondition # WL-Changes: MetaboliteThresholdCondition --> ReagentCondition
           reagent: Oxandrolone
           min: 35
