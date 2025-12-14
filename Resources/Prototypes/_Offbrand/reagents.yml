@@ -459,15 +459,13 @@
   metabolisms:
     Medicine:
       metabolismRate: 0.2
-      effects:
-      - !type:ModifyStatusEffect
-        type: Set
-        time: 1.5
-        effectProto: StatusEffectPainkillersOxandrolone
+      statusEffects:
+      - statusEffect: StatusEffectPainkillersOxandrolone
         conditions:
         - !type:DamageGroupCondition
           damageGroup: Burn
           min: 35
+      effects:
       - !type:EvenHealthChange
         damage:
           Burn: -3
@@ -493,8 +491,7 @@
         - !type:DamageGroupCondition
           damageGroup: Burn
           max: 35
-      - !type:ModifyStatusEffect
-        type: Remove
+      - !type:RemoveStatusEffect
         effectProto: WoundHusking
         conditions:
         - !type:ReagentCondition
