@@ -4,7 +4,7 @@
   categories:
   - Clothing
   materials:
-    Fabric: 50
+    Cloth: 50
     Plastic: 10
 
 - type: latheRecipe
