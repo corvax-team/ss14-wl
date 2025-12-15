@@ -268,7 +268,7 @@
         damage:
           types:
             Poison:
-              0.2 # Offbrand
+              0.02 # Offbrand + WL-Changes: Offmed not-breathing patients are receiving too much poison damage. 0.2 --> 0.02
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
         scaling: true
         conditions:
