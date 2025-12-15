@@ -11,11 +11,13 @@
     Poison:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Human, Animal, Rat, Plant ]
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
@@ -27,13 +29,14 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
+        scaling: true
         ignoreResistances: true
         damage:
           types:
             Poison: 1.5
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 0.01
+        minScale: 1
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Vox ]
@@ -42,6 +45,7 @@
     Gas:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Human, Animal, Rat, Plant, Cischi ] # WL Cischi species
@@ -62,6 +66,7 @@
       # WL Cischi species end
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
@@ -73,13 +78,14 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
+        scaling: true
         ignoreResistances: true
         damage:
           types:
-            Poison: 20
+            Poison: 0.7
       - !type:AdjustAlert
         alertType: Toxins
-        minScale: 0.07
+        minScale: 1
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ Vox ]
@@ -133,6 +139,7 @@
     Gas:
       effects:
       - !type:HealthChange
+        scaling: true
         ignoreResistances: true
 # WL species start
         # Cischi
@@ -195,6 +202,7 @@
     Gas:
       effects:
       - !type:HealthChange
+        scaling: true
         ignoreResistances: true
         damage:
           types:
@@ -218,6 +226,7 @@
     Poison:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Plant ]
@@ -226,12 +235,14 @@
         - !type:MetabolizerTypeCondition
           type: [ Plant, Vox ]
           inverted: true
+        scaling: true
         ignoreResistances: true
         damage:
           types:
             Poison:
               0.4
       - !type:Oxygenate
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Plant ]
@@ -240,6 +251,7 @@
     Gas:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Plant, Cischi ] # WL Cischi species
@@ -251,12 +263,14 @@
           inverted: true
         # Don't want people to get toxin damage from the gas they just
         # exhaled, right?
+        scaling: true
         ignoreResistances: true
         damage:
           types:
             Poison:
               0.2 # Offbrand
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Plant, Cischi ] # WL Cischi species
@@ -285,10 +299,13 @@
     Gas:
       effects:
       - !type:Oxygenate
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox, Slime, Biorobotic ]
+      # Converts Nitrogen into Ammonia
       - !type:ModifyLungGas
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Vox ]
@@ -296,12 +313,13 @@
           Ammonia: 1.0
           Nitrogen: -1.0
       - !type:ModifyLungGas
+        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Slime ]
         ratios:
           NitrousOxide: 1.0
-          Nitrogen: -0.25
+          Nitrogen: -1.0
 # WL android species start
       - !type:ModifyLungGas
         conditions:
@@ -414,6 +432,7 @@
     Narcotic:
       effects:
       - !type:HealthChange
+        scaling: true
         ignoreResistances: true
         damage:
           types:
@@ -440,6 +459,7 @@
       effects:
       - !type:HealthChange
         minScale: 1
+        scaling: true
         ignoreResistances: true
         damage:
           types:
