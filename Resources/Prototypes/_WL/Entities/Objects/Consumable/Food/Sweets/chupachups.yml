@@ -28,6 +28,10 @@
     state: blue_loli
   - type: Item
     heldPrefix: blue
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - raspberry
 
 - type: entity
   parent: FoodSweetsChupachupsBase
@@ -37,6 +41,10 @@
     state: lime_loli
   - type: Item
     heldPrefix: lime
+  - type: FlavorProfile
+    flavors:
+    - sour
+    - fruity
 
 - type: entity
   parent: FoodSweetsChupachupsBase
@@ -46,6 +54,11 @@
     state: orng_loli
   - type: Item
     heldPrefix: orng
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - orange
+    - fruity
 
 - type: entity
   parent: FoodSweetsChupachupsBase
@@ -55,6 +68,10 @@
     state: pink_loli
   - type: Item
     heldPrefix: pink
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - strawberry
 
 - type: entity
   parent: FoodSweetsChupachupsBase
@@ -64,6 +81,10 @@
     state: prpl_loli
   - type: Item
     heldPrefix: prpl
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - grape
 
 - type: entity
   parent: FoodSweetsChupachupsBase
@@ -73,3 +94,8 @@
     state: yelo_loli
   - type: Item
     heldPrefix: yelo
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - sour
+    - pineapple

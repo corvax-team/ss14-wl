@@ -39,5 +39,6 @@ namespace Content.Shared.PDA
         [ViewVariables] public string? StationAlertLevel;
         [ViewVariables] public Color StationAlertColor = Color.White;
         [ViewVariables] public string? StationAlertInstructions; // WL-Changes: custom alert instructions in PDA
+        [ViewVariables] public string? StationAlertName; // WL-Changes: Alert Level Rework
     }
 }

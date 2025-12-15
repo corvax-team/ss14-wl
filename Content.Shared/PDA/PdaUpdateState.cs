@@ -50,5 +50,6 @@ namespace Content.Shared.PDA
         public string? StationAlertLevel;
         public Color StationAlertColor;
         public string? StationAlertInstructions; // WL-Changes: custom alert instructions in PDA
+        public string? StationAlertName; // WL-Changes: Alert Level Rework
     }
 }

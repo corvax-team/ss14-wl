@@ -1,20 +1,20 @@
 #nullable enable
-using System.Collections.Generic;
-using System.Linq;
-using BenchmarkDotNet.Filters;
 using Content.IntegrationTests.Pair;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Roles;
+using Content.Server.Roles.Jobs;
+using Content.Shared._WL.CCVars;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
-using NUnit.Framework.Interfaces;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Content.IntegrationTests.Tests.Round;
 
@@ -77,7 +77,7 @@ public sealed class JobTest
         if (disallowedJobs.Contains(job))
             TestContext.Out.WriteLine($"{nameof(JobTest)}.{nameof(AssertJob)}: Expected job {job} is disallowed for this player, actual job: {actualJob}");
         else
-            Assert.That(actualJob, Is.EqualTo(job), $"Expected job '{job}', but got '{actualJob}'. Disallowed jobs: {disallowedJobs}");
+            Assert.That(actualJob, Is.EqualTo(job), $"Expected job '{job}', but got '{actualJob}'. Disallowed jobs: [{string.Join(", ", disallowedJobs)}]");
         // WL-Changes-end
 
         Assert.That(roleSys.MindIsAntagonist(mind), Is.EqualTo(isAntag));
@@ -202,6 +202,8 @@ public sealed class JobTest
             Connected = true,
             InLobby = true
         });
+
+        pair.Server.CfgMan.SetCVar(WLCVars.RoleRestrictionChecksEnabled, false); // WL-Changes
 
         pair.Server.CfgMan.SetCVar(CCVars.GameMap, _map);
         var ticker = pair.Server.System<GameTicker>();

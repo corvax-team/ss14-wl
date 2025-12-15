@@ -125,7 +125,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("instantSpell");
             _prototypeManager.RegisterIgnore("roundAnnouncement");
             _prototypeManager.RegisterIgnore("wireLayout");
-            _prototypeManager.RegisterIgnore("alertLevels");
+            _prototypeManager.RegisterIgnore("alertLevelsList"); // Wl-Changes: Alert Level Rework // alertLevels -> alertLevelsList
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("stationGoal"); // Corvax-StationGoal
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");

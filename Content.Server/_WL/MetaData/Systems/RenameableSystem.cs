@@ -115,6 +115,9 @@ public sealed partial class RenameableSystem : EntitySystem
 
     private void OnGetVerbs(EntityUid item, RenameOnInteractComponent comp, GetVerbsEvent<InteractionVerb> ev)
     {
+        if (!ev.CanAccess || !ev.CanInteract || !ev.CanComplexInteract)
+            return;
+
         if (!comp.UseVerbs)
             return;
 

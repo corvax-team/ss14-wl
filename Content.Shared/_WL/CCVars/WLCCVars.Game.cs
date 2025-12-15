@@ -18,4 +18,10 @@ public sealed partial class WLCVars
     /// </summary>
     public static readonly CVarDef<bool> IsAgeCheckNeeded =
         CVarDef.Create("game.is_age_check_needed", true, CVar.REPLICATED);
+
+    /// <summary>
+    /// Включены ли проверки ограничений на выбор роли.
+    /// </summary>
+    public static readonly CVarDef<bool> RoleRestrictionChecksEnabled =
+        CVarDef.Create("game.role_restriction_checks_enabled", true, CVar.REPLICATED | CVar.SERVER);
 }

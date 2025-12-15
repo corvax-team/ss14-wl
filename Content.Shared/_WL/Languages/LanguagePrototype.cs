@@ -10,9 +10,11 @@ public sealed partial class LanguagePrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = string.Empty;
 
+    ///TODO: <see cref="LocId"/>?
     [DataField(required: true)]
     public string Name = string.Empty;
 
+    ///TODO: <see cref="LocId"/>?
     [DataField(required: true)]
     public string Description = string.Empty;
 
@@ -26,7 +28,7 @@ public sealed partial class LanguagePrototype : IPrototype
     public char KeyLanguage = '\0';
 
     [DataField("color")]
-    public Color Color = Color.White;
+    public Color Color = Color.LightGray;
 
     [DataField("needtts")]
     public bool NeedTTS = true;

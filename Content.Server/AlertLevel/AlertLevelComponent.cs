@@ -1,4 +1,7 @@
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+// WL-Changes-start: Alert Level Rework
+using Content.Shared.AlertLevel;
+using Robust.Shared.Prototypes;
+// WL-Changes-end
 
 namespace Content.Server.AlertLevel;
 
@@ -13,11 +16,13 @@ public sealed partial class AlertLevelComponent : Component
     /// The current set of alert levels on the station.
     /// </summary>
     [ViewVariables]
-    public AlertLevelPrototype? AlertLevels;
+    // WL-Changes-start: Alert Level Rework
+    public AlertLevelsListPrototype? AlertLevels;
 
     // Once stations are a prototype, this should be used.
-    [DataField("alertLevelPrototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<AlertLevelPrototype>))]
-    public string AlertLevelPrototype = default!;
+    [DataField(required: true)]
+    public ProtoId<AlertLevelsListPrototype> AlertLevelsListPrototype;
+    // WL-Changes-end
 
     /// <summary>
     /// The current level on the station.
@@ -40,11 +45,12 @@ public sealed partial class AlertLevelComponent : Component
     {
         get
         {
+            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             if (AlertLevels == null
-                || !AlertLevels.Levels.TryGetValue(CurrentLevel, out var level))
-            {
+            // WL-Changes-start: Alert Level Rework
+                || !prototypeManager.TryIndex<AlertLevelPrototype>(CurrentLevel, out var level)) // TryGetValue -> TryIndex
                 return false;
-            }
+            // WL-Changes-end
 
             return level.Selectable && !level.DisableSelection && !IsLevelLocked;
         }

@@ -10,6 +10,7 @@ using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
+using Content.Shared.AlertLevel; // WL-Changes: Alert Level Rework
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.GameTicking;
@@ -135,8 +136,10 @@ namespace Content.Server.RoundEnd
                 if (TryComp<AlertLevelComponent>(stationUid, out var alertLevel))
                 {
                     duration = _protoManager
-                        .Index<AlertLevelPrototype>(AlertLevelSystem.DefaultAlertLevelSet)
-                        .Levels[alertLevel.CurrentLevel].ShuttleTime;
+                        // WL-Changes-start: Alert Level Rework
+                        .Index<AlertLevelPrototype>(alertLevel.CurrentLevel)
+                        .ShuttleTime;
+                        // WL-Changes-end
                 }
             }
 

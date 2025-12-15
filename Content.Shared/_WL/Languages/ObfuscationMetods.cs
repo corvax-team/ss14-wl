@@ -2,6 +2,11 @@ using System.Text;
 
 namespace Content.Shared._WL.Languages;
 
+///TODO: Заменить списки строк на <see cref="Dataset.DatasetPrototype"/> по всему файлу?
+///TODO: Расставить [Virtual], sealed или abstract.
+///TODO: Убрать излишние аллокации: создание одинаковых списков каждый вызов <see cref="Obfuscate(StringBuilder, string, int)"/>.
+///TODO: Привести DataField поля <see cref="Utf16ReplacementObfuscation"/> в нормальный вид.
+///TODO: ИЗБАВИТЬСЯ ОТ МАГИЧЕСКИХ ЧИСЕЛ:sob: и этой сложной логики, мб вынести все в какие-нибудь отдельные методы.
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class ObfuscationMethod
 {
@@ -36,7 +41,7 @@ public abstract partial class ObfuscationMethod
 public partial class ReplacementObfuscation : ObfuscationMethod
 {
     [DataField(required: true)]
-    public List<string> Replacement = [];
+    public List<string> Replacement = []; 
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
     {

@@ -14,6 +14,11 @@ public sealed partial class JukeboxComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? AudioStream;
 
+    // WL-Changes-start
+    [DataField, AutoNetworkedField]
+    public float Gain = 1f;
+    // WL-Changes-end
+
     /// <summary>
     /// RSI state for the jukebox being on.
     /// </summary>

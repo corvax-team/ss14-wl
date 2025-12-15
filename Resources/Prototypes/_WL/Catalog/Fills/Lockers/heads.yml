@@ -4,15 +4,11 @@
     children:
       - id: ClothingHeadsetCommand
       - id: ClothingEyesHudCommand
-      - id: ClothingUniformJumpsuitAdjutant
-      - id: ClothingUniformJumpskirtAdjutant
-      - id: ClothingOuterWinterAdjutant
-      - id: ClothingHeadHatBeretAdjutant
-      - id: ClothingHeadHatAdjutantCap
       - id: RubberStampAdjutant
       - id: ClothingBackpackAdjutant
       - id: ClothingBackpackDuffelAdjutant
       - id: ClothingBackpackSatchelAdjutant
+      - id: BoxFolderClipboardThreePapers
 
 - type: entity
   id: LockerAdjutantFilled

@@ -1,4 +1,6 @@
+using Content.Shared._WL.CCVars;
 using Content.Shared.Preferences;
+using Content.Shared.Turrets;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -54,6 +56,9 @@ public static class JobRequirements
             return true;
 
         // WL-Changes-start
+        if (!IsRoleRestrictionChecksEnabled(cfgMan))
+            return true;
+
         var innerReasons = new List<FormattedMessage>();
         var successful = true;
 
@@ -93,6 +98,11 @@ public static class JobRequirements
             return null;
 
         return FormattedMessage.FromMarkupOrThrow(string.Join("\n", reasons.Select(f => f.ToMarkup())));
+    }
+
+    public static bool IsRoleRestrictionChecksEnabled(IConfigurationManager cfgMan)
+    {
+        return cfgMan.GetCVar(WLCVars.RoleRestrictionChecksEnabled);
     }
     // WL-Changes-end
 }

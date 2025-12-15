@@ -19,6 +19,10 @@
     equippedPrefix: red
   - type: Item
     heldPrefix: red
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - strawberry
 
 - type: entity
   parent: FoodSweetsMintStickBase
@@ -30,3 +34,8 @@
     equippedPrefix: yelo
   - type: Item
     heldPrefix: yelo
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - sour
+    - minty
