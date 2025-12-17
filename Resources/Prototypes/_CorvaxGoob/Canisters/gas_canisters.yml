@@ -53,5 +53,4 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      sprite: "_CorvaxGoob/Structures/Storage/canister.rsi"
       state: redsur-1
