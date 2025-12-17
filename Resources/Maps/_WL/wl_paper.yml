@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.3.0
   forkId: ""
   forkVersion: ""
-  time: 12/04/2025 20:58:31
-  entityCount: 17690
+  time: 12/17/2025 20:23:51
+  entityCount: 17777
 maps:
 - 1
 grids:
@@ -143,7 +143,7 @@ entities:
           version: 7
         1,0:
           ind: 1,0
-          tiles: fgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAF0AAAAAAABdAAAAAAMAXQAAAAACAF0AAAAAAgBdAAAAAAMAfgAAAAAAAB8AAAAAAgAfAAAAAAAAfgAAAAAAAB8AAAAAAgAfAAAAAAEAfgAAAAAAAGwAAAAAAABsAAAAAAAAfgAAAAAAACQAAAAAAQBdAAAAAAIAXQAAAAACAF0AAAAAAwBdAAAAAAIAXQAAAAACAH4AAAAAAAB+AAAAAAAAJAAAAAACACQAAAAAAgAkAAAAAAMAfgAAAAAAAH4AAAAAAABsAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAXQAAAAABAF0AAAAAAgB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAXQAAAAABAF0AAAAAAgBdAAAAAAMAXQAAAAADAF0AAAAAAABdAAAAAAAAegAAAAACAH4AAAAAAAB+AAAAAAAAfgAAAAAAACQAAAAAAQAkAAAAAAAAfgAAAAAAACQAAAAAAgAkAAAAAAAAfgAAAAAAAF0AAAAAAgBdAAAAAAMAXQAAAAAAAF0AAAAAAgBdAAAAAAMAXQAAAAABAHoAAAAAAgB6AAAAAAAAegAAAAABACQAAAAAAgBdAAAAAAIAXQAAAAADACQAAAAAAwAkAAAAAAIAJAAAAAADACQAAAAAAQBdAAAAAAEAXQAAAAAAAF0AAAAAAQBdAAAAAAIAXQAAAAADAF0AAAAAAQB6AAAAAAMAegAAAAADAHoAAAAAAgB+AAAAAAAAXQAAAAADAF0AAAAAAAAkAAAAAAIAJAAAAAADACQAAAAAAQAkAAAAAAEAXQAAAAACAF0AAAAAAAAgAAAAAAcAIAAAAAAAACAAAAAAAAAgAAAAAAAAegAAAAACAHoAAAAAAQB6AAAAAAMAfgAAAAAAACQAAAAAAwAkAAAAAAMAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAF0AAAAAAwBdAAAAAAEAWwAAAAAAACAAAAAABwBbAAAAAAAAWwAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAAfAAAAAAAAHwAAAAACABEAAAAAAAARAAAAAAAAEQAAAAAAAH4AAAAAAABdAAAAAAEAXQAAAAABAFsAAAAAAAAgAAAAAAAAIAAAAAAAAFsAAAAABAB+AAAAAAAAcAAAAAABABcAAAAAAAB+AAAAAAAAHwAAAAACAB8AAAAAAAAfAAAAAAAAHwAAAAACAB8AAAAAAwAkAAAAAAMAXQAAAAAAAF0AAAAAAAAgAAAAAAAAIAAAAAAAAFsAAAAAAABbAAAAAAAAfgAAAAAAAHAAAAAAAAAXAAAAAAAAfgAAAAAAAB8AAAAAAQAvAAAAAAMALwAAAAADAC8AAAAAAgAfAAAAAAIAJAAAAAABAF0AAAAAAwBdAAAAAAMAIAAAAAAAACAAAAAAAAAgAAAAAAAAWwAAAAAAAH4AAAAAAABwAAAAAAAAFwAAAAADAH4AAAAAAAAfAAAAAAMAHwAAAAADAB8AAAAAAgAfAAAAAAMAHwAAAAACAH4AAAAAAABdAAAAAAIAXQAAAAAAAF0AAAAAAwBdAAAAAAEAXQAAAAABAF0AAAAAAwB+AAAAAAAAJAAAAAADAFIAAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAJAAAAAADACQAAAAAAAAkAAAAAAEAJAAAAAABACQAAAAAAwAkAAAAAAAAJAAAAAACAF0AAAAAAABdAAAAAAIAXQAAAAACAF0AAAAAAQBdAAAAAAEAXQAAAAACAF0AAAAAAABdAAAAAAIAJAAAAAAAAF0AAAAAAgBdAAAAAAAAXQAAAAACAF0AAAAAAwBdAAAAAAEAXQAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAADACQAAAAAAQAkAAAAAAIAJAAAAAADACQAAAAAAQAkAAAAAAEAJAAAAAABACQAAAAAAwAkAAAAAAMAJAAAAAACACQAAAAAAwAkAAAAAAEAJAAAAAACACQAAAAAAwAkAAAAAAMAXQAAAAACAF0AAAAAAwBdAAAAAAIAXQAAAAAAAF0AAAAAAgBdAAAAAAEAXQAAAAADAF0AAAAAAwAkAAAAAAMAXQAAAAADAF0AAAAAAQBdAAAAAAMAXQAAAAABAF0AAAAAAQBdAAAAAAEAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAACQAAAAAAwB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAJAAAAAACAH4AAAAAAAAkAAAAAAAAJAAAAAADAA==
+          tiles: fgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAF0AAAAAAABdAAAAAAMAXQAAAAACAF0AAAAAAgBdAAAAAAMAfgAAAAAAAB8AAAAAAgAfAAAAAAAAfgAAAAAAAB8AAAAAAgAfAAAAAAEAfgAAAAAAAGwAAAAAAABsAAAAAAAAfgAAAAAAACQAAAAAAQBdAAAAAAIAXQAAAAACAF0AAAAAAwBdAAAAAAIAXQAAAAACAH4AAAAAAAB+AAAAAAAAJAAAAAACACQAAAAAAgAkAAAAAAMAfgAAAAAAAH4AAAAAAABsAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAXQAAAAABAF0AAAAAAgB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAXQAAAAABAF0AAAAAAgBdAAAAAAMAXQAAAAADAF0AAAAAAABdAAAAAAAAegAAAAACAH4AAAAAAAB+AAAAAAAAfgAAAAAAACQAAAAAAQAkAAAAAAAAfgAAAAAAACQAAAAAAgAkAAAAAAAAfgAAAAAAAF0AAAAAAgBdAAAAAAMAXQAAAAAAAF0AAAAAAgBdAAAAAAMAXQAAAAABAHoAAAAAAgB6AAAAAAAAegAAAAABACQAAAAAAgBdAAAAAAIAXQAAAAADACQAAAAAAwAkAAAAAAIAJAAAAAADACQAAAAAAQBdAAAAAAEAXQAAAAAAAF0AAAAAAQBdAAAAAAIAXQAAAAADAF0AAAAAAQB6AAAAAAMAegAAAAADAHoAAAAAAgB+AAAAAAAAXQAAAAADAF0AAAAAAAAkAAAAAAIAJAAAAAADACQAAAAAAQAkAAAAAAEAXQAAAAACAF0AAAAAAAAgAAAAAAcAIAAAAAAAACAAAAAAAAAgAAAAAAAAegAAAAACAHoAAAAAAQB6AAAAAAMAfgAAAAAAACQAAAAAAwAkAAAAAAMAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAF0AAAAAAwBdAAAAAAEAWwAAAAAAACAAAAAABwBbAAAAAAAAWwAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAAfAAAAAAAAHwAAAAACABEAAAAAAAARAAAAAAAAEQAAAAAAAH4AAAAAAABdAAAAAAEAXQAAAAABAFsAAAAAAAAgAAAAAAAAIAAAAAAAAFsAAAAABAB+AAAAAAAAcAAAAAABABcAAAAAAAB+AAAAAAAAHwAAAAACAB8AAAAAAAAfAAAAAAAAHwAAAAACAB8AAAAAAwAkAAAAAAMAXQAAAAAAAF0AAAAAAAAgAAAAAAAAIAAAAAAAAFsAAAAAAABbAAAAAAAAfgAAAAAAAHAAAAAAAAAXAAAAAAAAfgAAAAAAAB8AAAAAAQAvAAAAAAMALwAAAAADAC8AAAAAAgAfAAAAAAIAJAAAAAABAF0AAAAAAwBdAAAAAAMAIAAAAAAAACAAAAAAAAAgAAAAAAAAWwAAAAAAAH4AAAAAAABwAAAAAAAAFwAAAAADAH4AAAAAAAAfAAAAAAMAHwAAAAADAB8AAAAAAgAfAAAAAAMAHwAAAAACAH4AAAAAAABdAAAAAAIAXQAAAAAAAF0AAAAAAwBdAAAAAAEAXQAAAAABAF0AAAAAAwB+AAAAAAAAJAAAAAADAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAJAAAAAADACQAAAAAAAAkAAAAAAEAJAAAAAABACQAAAAAAwAkAAAAAAAAJAAAAAACAF0AAAAAAABdAAAAAAIAXQAAAAACAF0AAAAAAQBdAAAAAAEAXQAAAAACAF0AAAAAAABdAAAAAAIAJAAAAAAAAF0AAAAAAgBdAAAAAAAAXQAAAAACAF0AAAAAAwBdAAAAAAEAXQAAAAAAACQAAAAAAAAkAAAAAAAAJAAAAAADACQAAAAAAQAkAAAAAAIAJAAAAAADACQAAAAAAQAkAAAAAAEAJAAAAAABACQAAAAAAwAkAAAAAAMAJAAAAAACACQAAAAAAwAkAAAAAAEAJAAAAAACACQAAAAAAwAkAAAAAAMAXQAAAAACAF0AAAAAAwBdAAAAAAIAXQAAAAAAAF0AAAAAAgBdAAAAAAEAXQAAAAADAF0AAAAAAwAkAAAAAAMAXQAAAAADAF0AAAAAAQBdAAAAAAMAXQAAAAABAF0AAAAAAQBdAAAAAAEAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAACQAAAAAAwB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAJAAAAAACAH4AAAAAAAAkAAAAAAAAJAAAAAADAA==
           version: 7
         1,1:
           ind: 1,1
@@ -267,7 +267,7 @@ entities:
           version: 7
         1,-1:
           ind: 1,-1
-          tiles: fgAAAAAAAH4AAAAAAABdAAAAAAAAXQAAAAAAAF0AAAAAAwBiAAAAAAMAYgAAAAACAGIAAAAAAQBdAAAAAAEAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAAQAAAAAAAB+AAAAAAAAXQAAAAABAF0AAAAAAABdAAAAAAMAXQAAAAABAF0AAAAAAgBdAAAAAAAAXQAAAAABAH4AAAAAAACBAAAAAAEAfgAAAAAAAGwAAAAAAAB+AAAAAAAAbAAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAABdAAAAAAIAXQAAAAADAH4AAAAAAAB+AAAAAAAAJAAAAAABAH4AAAAAAAB+AAAAAAAAfgAAAAAAAGwAAAAAAAB+AAAAAAAAfQAAAAAAAH4AAAAAAABsAAAAAAAAbAAAAAAAAGwAAAAAAAB+AAAAAAAAYgAAAAACAGIAAAAAAwBdAAAAAAAAfgAAAAAAAC8AAAAAAwAvAAAAAAAALwAAAAACAH4AAAAAAABsAAAAAAAAbAAAAAAAAH0AAAAAAAB+AAAAAAAAbAAAAAAAAGwAAAAAAABsAAAAAAAAbAAAAAAAAGIAAAAAAgBiAAAAAAIAXQAAAAABAF0AAAAAAQAvAAAAAAIALwAAAAADAC8AAAAAAQB+AAAAAAAAfgAAAAAAAH4AAAAAAAAAAAAAAAAAfgAAAAAAAGwAAAAAAABsAAAAAAAAbAAAAAAAAH4AAAAAAABiAAAAAAIAYgAAAAAAAF0AAAAAAQB+AAAAAAAALwAAAAACAC8AAAAAAgAvAAAAAAAAfgAAAAAAAGwAAAAAAAB+AAAAAAAAfQAAAAAAAH4AAAAAAABPAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAXQAAAAADAF0AAAAAAgB+AAAAAAAAfgAAAAAAAC8AAAAAAwAvAAAAAAEALwAAAAACAGwAAAAAAAB+AAAAAAAAfgAAAAAAAAAAAAAAAAB+AAAAAAAATwAAAAAAAE8AAAAAAAB+AAAAAAAAXQAAAAADAGIAAAAAAQBiAAAAAAIAXQAAAAAAAH4AAAAAAAAvAAAAAAAALwAAAAAAAC8AAAAAAwB+AAAAAAAAbAAAAAAAAH4AAAAAAAB9AAAAAAAAfgAAAAAAAE8AAAAAAABPAAAAAAAAfgAAAAAAAF0AAAAAAwBiAAAAAAMAYgAAAAACAF0AAAAAAgB+AAAAAAAALwAAAAAAAC8AAAAAAwAvAAAAAAEAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfQAAAAAAAH4AAAAAAABPAAAAAAAATwAAAAAAAH4AAAAAAABdAAAAAAAAYgAAAAAAAGIAAAAAAQBdAAAAAAEAfgAAAAAAAC8AAAAAAAAvAAAAAAMALwAAAAADAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAACQAAAAAAwB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAAoAAAAAAAAKAAAAAADACgAAAAAAgB+AAAAAAAAXQAAAAAAAF0AAAAAAQBdAAAAAAAAXQAAAAACAF0AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAgQAAAAABAIEAAAAAAAB+AAAAAAAAKAAAAAABACgAAAAAAQAoAAAAAAIAfgAAAAAAAF0AAAAAAwBdAAAAAAMAXQAAAAACAF0AAAAAAwBdAAAAAAIAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAACQAAAAAAwB+AAAAAAAAfgAAAAAAACgAAAAAAwAoAAAAAAAAKAAAAAADACQAAAAAAQBdAAAAAAMAAwAAAAADAAMAAAAAAAADAAAAAAIAXQAAAAADAH4AAAAAAAAfAAAAAAMAHwAAAAACAB8AAAAAAwAfAAAAAAEAHwAAAAAAAH4AAAAAAABCAAAAAAAAQgAAAAAAAEIAAAAAAAB+AAAAAAAAXQAAAAAAAAMAAAAAAgADAAAAAAMAAwAAAAABAF0AAAAAAwB+AAAAAAAAHwAAAAAAAB8AAAAAAgB+AAAAAAAAHwAAAAABAB8AAAAAAQB+AAAAAAAAQgAAAAAAAEIAAAAAAABCAAAAAAAAfgAAAAAAAF0AAAAAAAADAAAAAAEAAwAAAAACAAMAAAAAAQBdAAAAAAMAJAAAAAACAB8AAAAAAwB+AAAAAAAAfgAAAAAAAH4AAAAAAAAfAAAAAAIAfgAAAAAAAA==
+          tiles: fgAAAAAAAH4AAAAAAABdAAAAAAAAXQAAAAAAAGIAAAAAAABiAAAAAAAAYgAAAAACAF0AAAAAAABdAAAAAAEAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAAQAAAAAAAB+AAAAAAAAXQAAAAABAF0AAAAAAABdAAAAAAMAXQAAAAABAF0AAAAAAgBdAAAAAAAAXQAAAAABAH4AAAAAAACBAAAAAAEAfgAAAAAAAGwAAAAAAAB+AAAAAAAAbAAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAABdAAAAAAIAXQAAAAADAH4AAAAAAAB+AAAAAAAAJAAAAAABAH4AAAAAAAB+AAAAAAAAfgAAAAAAAGwAAAAAAAB+AAAAAAAAfQAAAAAAAH4AAAAAAABsAAAAAAAAbAAAAAAAAGwAAAAAAAB+AAAAAAAAYgAAAAACAGIAAAAAAwBdAAAAAAAAfgAAAAAAAC8AAAAAAwAvAAAAAAAALwAAAAACAH4AAAAAAABsAAAAAAAAbAAAAAAAAH0AAAAAAAB+AAAAAAAAbAAAAAAAAGwAAAAAAABsAAAAAAAAbAAAAAAAAGIAAAAAAgBiAAAAAAIAXQAAAAABAF0AAAAAAQAvAAAAAAIALwAAAAADAC8AAAAAAQB+AAAAAAAAfgAAAAAAAH4AAAAAAAAAAAAAAAAAfgAAAAAAAGwAAAAAAABsAAAAAAAAbAAAAAAAAH4AAAAAAABiAAAAAAIAYgAAAAAAAF0AAAAAAQB+AAAAAAAALwAAAAACAC8AAAAAAgAvAAAAAAAAfgAAAAAAAGwAAAAAAAB+AAAAAAAAfQAAAAAAAH4AAAAAAABPAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAXQAAAAADAF0AAAAAAgB+AAAAAAAAfgAAAAAAAC8AAAAAAwAvAAAAAAEALwAAAAACAGwAAAAAAAB+AAAAAAAAfgAAAAAAAAAAAAAAAAB+AAAAAAAATwAAAAAAAE8AAAAAAAB+AAAAAAAAXQAAAAADAGIAAAAAAQBiAAAAAAIAXQAAAAAAAH4AAAAAAAAvAAAAAAAALwAAAAAAAC8AAAAAAwB+AAAAAAAAbAAAAAAAAH4AAAAAAAB9AAAAAAAAfgAAAAAAAE8AAAAAAABPAAAAAAAAfgAAAAAAAF0AAAAAAwBiAAAAAAMAYgAAAAACAF0AAAAAAgB+AAAAAAAALwAAAAAAAC8AAAAAAwAvAAAAAAEAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfQAAAAAAAH4AAAAAAABPAAAAAAAATwAAAAAAAH4AAAAAAABdAAAAAAAAYgAAAAAAAGIAAAAAAQBdAAAAAAEAfgAAAAAAAC8AAAAAAAAvAAAAAAMALwAAAAADAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAACQAAAAAAwB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAAoAAAAAAAAKAAAAAADACgAAAAAAgB+AAAAAAAAXQAAAAAAAF0AAAAAAQBdAAAAAAAAXQAAAAACAF0AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAgQAAAAABAIEAAAAAAAB+AAAAAAAAKAAAAAABACgAAAAAAQAoAAAAAAIAfgAAAAAAAF0AAAAAAwBdAAAAAAMAXQAAAAACAF0AAAAAAwBdAAAAAAIAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAACQAAAAAAwB+AAAAAAAAfgAAAAAAACgAAAAAAwAoAAAAAAAAKAAAAAADACQAAAAAAQBdAAAAAAMAAwAAAAADAAMAAAAAAAADAAAAAAIAXQAAAAADAH4AAAAAAAAfAAAAAAMAHwAAAAACAB8AAAAAAwAfAAAAAAEAHwAAAAAAAH4AAAAAAABCAAAAAAAAQgAAAAAAAEIAAAAAAAB+AAAAAAAAXQAAAAAAAAMAAAAAAgADAAAAAAMAAwAAAAABAF0AAAAAAwB+AAAAAAAAHwAAAAAAAB8AAAAAAgB+AAAAAAAAHwAAAAABAB8AAAAAAQB+AAAAAAAAQgAAAAAAAEIAAAAAAABCAAAAAAAAfgAAAAAAAF0AAAAAAAADAAAAAAEAAwAAAAACAAMAAAAAAQBdAAAAAAMAJAAAAAACAB8AAAAAAwB+AAAAAAAAfgAAAAAAAH4AAAAAAAAfAAAAAAIAfgAAAAAAAA==
           version: 7
         2,-1:
           ind: 2,-1
@@ -416,6 +416,7 @@ entities:
             id: Basalt5
           decals:
             5846: 65,-7
+            8965: 1,21
         - node:
             color: '#FFFFFFFF'
             id: Basalt6
@@ -427,6 +428,11 @@ entities:
             id: Basalt7
           decals:
             8885: 34.827293,-22.685326
+        - node:
+            color: '#FFFFFFFF'
+            id: Basalt8
+          decals:
+            8966: 2,23
         - node:
             color: '#FFFFFFFF'
             id: Basalt9
@@ -515,6 +521,7 @@ entities:
             8487: 18,-16
             8488: 18,-15
             8489: 19,-15
+            8964: 19,-16
         - node:
             color: '#D4D4D4FF'
             id: BrickTileDarkBox
@@ -1794,7 +1801,7 @@ entities:
             color: '#FFFFFFFF'
             id: BrickTileSteelEndE
           decals:
-            5927: 23,-16
+            8962: 22,-16
         - node:
             zIndex: 1
             color: '#FFFFFFFF'
@@ -1921,7 +1928,7 @@ entities:
             color: '#FFFFFFFF'
             id: BrickTileSteelEndW
           decals:
-            5934: 19,-16
+            8963: 20,-16
         - node:
             color: '#00FFFFFF'
             id: BrickTileSteelInnerNe
@@ -3365,9 +3372,7 @@ entities:
             4238: 16,47
             4239: 17,47
             5874: 2,34
-            5928: 22,-16
             5929: 21,-16
-            5930: 20,-16
             7108: 56,53
             7140: 39,45
             7141: 40,45
@@ -3760,9 +3765,7 @@ entities:
             4242: 16,50
             4243: 17,50
             5876: 1,32
-            5931: 20,-16
             5932: 21,-16
-            5933: 22,-16
             7095: 63,51
             7096: 51,51
             7097: 50,51
@@ -6129,6 +6132,11 @@ entities:
             4227: 19,51
             4235: 19,51
         - node:
+            color: '#736F7666'
+            id: Busha1
+          decals:
+            8969: 3,22
+        - node:
             color: '#FFFFFFFF'
             id: Busha3
           decals:
@@ -6253,6 +6261,16 @@ entities:
           decals:
             3074: 34,47
         - node:
+            color: '#736F7666'
+            id: Damaged
+          decals:
+            8971: 0,22
+            8972: 2,22
+            8973: 2,21
+            8974: 1,22
+            8975: 1,21
+            8976: 3,23
+        - node:
             color: '#FFFFFFFF'
             id: Delivery
           decals:
@@ -6323,11 +6341,9 @@ entities:
             color: '#D381C996'
             id: DiagonalCheckerBOverlay
           decals:
-            5922: 19,-16
-            5923: 20,-16
             5924: 21,-16
-            5925: 22,-16
-            5926: 23,-16
+            8960: 20,-16
+            8961: 22,-16
         - node:
             color: '#FFFFFFFF'
             id: Dirt
@@ -6818,6 +6834,11 @@ entities:
             id: Gene
           decals:
             5859: 62.965057,-6.94773
+        - node:
+            color: '#FFFFFFFF'
+            id: Gib
+          decals:
+            8977: 71,7
         - node:
             color: '#FFFFFFFF'
             id: Grassa1
@@ -8984,10 +9005,20 @@ entities:
           decals:
             398: 84.899414,12.001698
         - node:
+            color: '#736F7666'
+            id: biohazard
+          decals:
+            8968: 8,18
+        - node:
             color: '#446326FF'
             id: bottle
           decals:
             5843: 64.77756,-6.963355
+        - node:
+            color: '#736F7666'
+            id: burnt2
+          decals:
+            8970: 3,22
         - node:
             color: '#FFFFFFFF'
             id: burnt2
@@ -8999,6 +9030,11 @@ entities:
             id: cat
           decals:
             6096: 54,-2
+        - node:
+            color: '#FFFFFF05'
+            id: cat
+          decals:
+            8958: 24,28
         - node:
             color: '#446326FF'
             id: corgi
@@ -9275,7 +9311,9 @@ entities:
             1: 34952
             0: 13107
           0,6:
-            1: 65294
+            1: 65288
+            2: 2
+            3: 4
           0,7:
             1: 63743
           0,8:
@@ -9390,7 +9428,7 @@ entities:
             0: 57890
           3,13:
             1: 4889
-            2: 52416
+            4: 52416
           3,14:
             1: 49136
           3,15:
@@ -9400,7 +9438,7 @@ entities:
           4,12:
             1: 65535
           4,13:
-            2: 4368
+            4: 4368
             1: 52416
           4,14:
             1: 65520
@@ -9600,28 +9638,28 @@ entities:
             0: 61440
           6,18:
             0: 4369
-            3: 192
-            4: 49152
+            5: 192
+            6: 49152
           6,19:
             0: 4369
-            5: 49344
+            7: 49344
           6,20:
             0: 4369
-            6: 192
-            5: 49152
+            8: 192
+            7: 49152
           7,17:
             0: 29888
           7,18:
-            3: 16
-            4: 4096
+            5: 16
+            6: 4096
             0: 17476
           7,19:
-            5: 4112
+            7: 4112
             0: 17476
           7,20:
             0: 17476
-            6: 16
-            5: 4096
+            8: 16
+            7: 4096
           8,16:
             1: 65535
           8,17:
@@ -9747,7 +9785,8 @@ entities:
           9,11:
             1: 53503
           9,12:
-            1: 65437
+            1: 65433
+            2: 4
           10,9:
             1: 3871
           10,10:
@@ -9853,9 +9892,9 @@ entities:
             0: 61440
           10,23:
             0: 15
-            5: 30464
+            7: 30464
           10,24:
-            5: 7
+            7: 7
             0: 65280
           11,22:
             0: 61440
@@ -10637,6 +10676,16 @@ entities:
             Oxygen: 21.824879
             Nitrogen: 82.10312
         - volume: 2500
+          temperature: 293.15
+          moles:
+            Oxygen: 21.6852
+            Nitrogen: 81.57766
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+            Oxygen: 21.803423
+            Nitrogen: 82.02241
+        - volume: 2500
           temperature: 235
           moles:
             Oxygen: 27.225372
@@ -11165,6 +11214,17 @@ entities:
     - type: Action
       originalIconColor: '#FFFFFFFF'
       container: 11
+- proto: ActionToggleLight
+  entities:
+  - uid: 2869
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 11043
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 11043
 - proto: AirAlarm
   entities:
   - uid: 17
@@ -13605,6 +13665,18 @@ entities:
       - 17560
     - type: Fixtures
       fixtures: {}
+  - uid: 17736
+    components:
+    - type: Transform
+      pos: 1.5,25.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 2864
+      - 12255
+      - 17749
+    - type: Fixtures
+      fixtures: {}
 - proto: AirAlarmElectronics
   entities:
   - uid: 177
@@ -13887,7 +13959,7 @@ entities:
       pos: 45.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -80426.81
+      secondsUntilStateChange: -87142.445
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19563,17 +19635,43 @@ entities:
     - type: Transform
       pos: 8.5,0.5
       parent: 17033
-- proto: ButtonFrameGrey
+- proto: ButtonFrameExit
   entities:
-  - uid: 4750
+  - uid: 2856
+    components:
+    - type: Transform
+      pos: 40.5,93.5
+      parent: 2
+  - uid: 2857
     components:
     - type: Transform
       pos: 38.5,90.5
       parent: 2
-  - uid: 10375
+- proto: ButtonFrameGrey
+  entities:
+  - uid: 12456
     components:
     - type: Transform
-      pos: 40.5,93.5
+      rot: -1.5707963267948966 rad
+      pos: 63.5,10.5
+      parent: 2
+  - uid: 12459
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 14.5,5.5
+      parent: 2
+  - uid: 13366
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,1.5
+      parent: 2
+  - uid: 13367
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 53.5,32.6
       parent: 2
   - uid: 16076
     components:
@@ -19586,6 +19684,34 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,38.5
+      parent: 2
+  - uid: 16205
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 27.5,20.5
+      parent: 2
+  - uid: 16206
+    components:
+    - type: Transform
+      pos: 20.75,18.5
+      parent: 2
+  - uid: 16293
+    components:
+    - type: Transform
+      pos: 32.75,20.5
+      parent: 2
+  - uid: 16296
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 41.5,60.5
+      parent: 2
+  - uid: 16381
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 58.5,65.3
       parent: 2
   - uid: 16416
     components:
@@ -41592,6 +41718,11 @@ entities:
     - type: Transform
       pos: -21.5,3.5
       parent: 16722
+  - uid: 17735
+    components:
+    - type: Transform
+      pos: 1.5,24.5
+      parent: 2
 - proto: Chair
   entities:
   - uid: 1486
@@ -43682,18 +43813,19 @@ entities:
         immutable: False
         temperature: 293.14673
         moles:
-          Oxygen: 1.7459903
-          Nitrogen: 6.568249
+          Oxygen: 1.8856695
+          Nitrogen: 7.0937095
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 5573
-          - 5575
-          - 5574
+          - 13525
           - 5572
+          - 5573
+          - 5574
+          - 5575
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -44847,7 +44979,7 @@ entities:
   - uid: 5737
     components:
     - type: Transform
-      parent: 5736
+      parent: 2863
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -45678,12 +45810,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 1.5,9.5
       parent: 2
-  - uid: 5846
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,19.5
-      parent: 2
   - uid: 5847
     components:
     - type: Transform
@@ -45732,12 +45858,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,19.5
       parent: 2
-  - uid: 5855
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,19.5
-      parent: 2
   - uid: 5856
     components:
     - type: Transform
@@ -45777,10 +45897,10 @@ entities:
       parent: 2
 - proto: CrateArtifactContainer
   entities:
-  - uid: 17583
+  - uid: 16388
     components:
     - type: Transform
-      pos: 20.5,-16.5
+      pos: 20.5,-10.5
       parent: 2
 - proto: CrateChemistrySecure
   entities:
@@ -46144,9 +46264,9 @@ entities:
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
-- proto: CrateTrashCart
+- proto: CrateTrashCartFilled
   entities:
-  - uid: 5736
+  - uid: 2863
     components:
     - type: Transform
       pos: 2.5,24.5
@@ -46155,10 +46275,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 293.1462
+        temperature: 293.147
         moles:
-          Oxygen: 1.8744951
-          Nitrogen: 7.051672
+          Oxygen: 1.8959498
+          Nitrogen: 7.1323833
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -46170,21 +46290,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-- proto: CrateTrashCartFilled
-  entities:
-  - uid: 5890
-    components:
-    - type: Transform
-      pos: 1.5,24.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-          Oxygen: 1.7459903
-          Nitrogen: 6.568249
 - proto: CrateTrashCartJani
   entities:
   - uid: 5892
@@ -46197,7 +46302,7 @@ entities:
   - uid: 5893
     components:
     - type: Transform
-      pos: 43.465614,47.610558
+      pos: 43.432014,47.50454
       parent: 2
   - uid: 5894
     components:
@@ -46322,6 +46427,16 @@ entities:
     components:
     - type: Transform
       pos: 26.5,20.5
+      parent: 2
+  - uid: 16291
+    components:
+    - type: Transform
+      pos: 20.5,17.5
+      parent: 2
+  - uid: 16292
+    components:
+    - type: Transform
+      pos: 33.5,19.5
       parent: 2
 - proto: CurtainsCyanOpen
   entities:
@@ -46987,6 +47102,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,13.5
+      parent: 2
+  - uid: 2860
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,19.5
       parent: 2
   - uid: 5603
     components:
@@ -47762,6 +47883,12 @@ entities:
     components:
     - type: Transform
       pos: 5.5,15.5
+      parent: 2
+  - uid: 2859
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,19.5
       parent: 2
   - uid: 4945
     components:
@@ -52518,12 +52645,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 16.5,46.5
       parent: 2
-  - uid: 6654
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,19.5
-      parent: 2
   - uid: 6655
     components:
     - type: Transform
@@ -52704,6 +52825,12 @@ entities:
     components:
     - type: Transform
       pos: 32.5,-16.5
+      parent: 2
+  - uid: 12254
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,19.5
       parent: 2
   - uid: 12503
     components:
@@ -58841,6 +58968,14 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 17559
+  - uid: 17749
+    components:
+    - type: Transform
+      pos: 3.5,19.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 17736
 - proto: Fireplace
   entities:
   - uid: 7342
@@ -59304,7 +59439,7 @@ entities:
   - uid: 10425
     components:
     - type: Transform
-      pos: 52.116035,64.519516
+      pos: 52.264908,64.59523
       parent: 2
   - uid: 17054
     components:
@@ -60259,6 +60394,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 61.5,7.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 2866
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,18.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -62476,6 +62619,14 @@ entities:
     - type: Transform
       pos: 35.5,-18.5
       parent: 2
+  - uid: 17733
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeBendAlt2
   entities:
   - uid: 7759
@@ -62858,6 +63009,13 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
+  - uid: 17734
+    components:
+    - type: Transform
+      pos: 11.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeManifold
   entities:
   - uid: 7806
@@ -63072,6 +63230,14 @@ entities:
     components:
     - type: Transform
       pos: 2.5,11.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 5736
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,18.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -67867,13 +68033,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
-  - uid: 8453
-    components:
-    - type: Transform
-      pos: 13.5,18.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
   - uid: 8454
     components:
     - type: Transform
@@ -68708,6 +68867,22 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 17583
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,19.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 17608
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 17712
     components:
     - type: Transform
@@ -68719,6 +68894,62 @@ entities:
     - type: Transform
       pos: 35.5,-20.5
       parent: 2
+  - uid: 17724
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 17725
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 17726
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 17728
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 17729
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 17730
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 17732
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 12.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
 - proto: GasPipeStraightAlt1
   entities:
   - uid: 144
@@ -68764,6 +68995,22 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 65.5,58.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 5846
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 5855
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5,18.5
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
@@ -74368,6 +74615,46 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
+  - uid: 16393
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 16398
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 16400
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 16402
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,19.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 17468
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,20.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 17569
     components:
     - type: Transform
@@ -74413,6 +74700,22 @@ entities:
     - type: Transform
       pos: 35.5,-20.5
       parent: 2
+  - uid: 17727
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
+  - uid: 17731
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,18.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
 - proto: GasPipeStraightAlt2
   entities:
   - uid: 9269
@@ -74462,6 +74765,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 54.5,8.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 2865
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,18.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
@@ -76775,14 +77086,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 9570
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 11.5,18.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
   - uid: 9571
     components:
     - type: Transform
@@ -77454,9 +77757,16 @@ entities:
       color: '#0099D0FF'
 - proto: GasThermoMachineFreezer
   entities:
-  - uid: 3838
+  - uid: 2858
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 43.5,84.5
+      parent: 2
+  - uid: 2868
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 43.5,83.5
       parent: 2
 - proto: GasThermoMachineFreezerEnabled
@@ -77471,10 +77781,10 @@ entities:
       color: '#00AAFFFF'
 - proto: GasThermoMachineHeater
   entities:
-  - uid: 9658
+  - uid: 2867
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
+      rot: -1.5707963267948966 rad
       pos: 43.5,82.5
       parent: 2
 - proto: GasValve
@@ -77511,6 +77821,16 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15520
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
+  - uid: 2864
+    components:
+    - type: Transform
+      pos: 3.5,20.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 17736
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 4953
@@ -82052,6 +82372,18 @@ entities:
       pipeLayer: Secondary
     - type: AtmosPipeColor
       color: '#990000FF'
+  - uid: 12255
+    components:
+    - type: Transform
+      pos: 3.5,21.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 17736
+    - type: AtmosPipeLayers
+      pipeLayer: Secondary
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 13318
     components:
     - type: Transform
@@ -86459,6 +86791,13 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+- proto: GyroscopeUnanchored
+  entities:
+  - uid: 11806
+    components:
+    - type: Transform
+      pos: 73.5,72.5
+      parent: 2
 - proto: Handcuffs
   entities:
   - uid: 10855
@@ -87898,10 +88237,24 @@ entities:
   - uid: 11043
     components:
     - type: Transform
-      pos: 43.691933,51.671413
+      pos: 43.652252,51.677856
       parent: 2
+    - type: HandheldLight
+      toggleActionEntity: 2869
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        actions: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 2869
     - type: Physics
       canCollide: True
+    - type: ActionsContainer
 - proto: LampGold
   entities:
   - uid: 11045
@@ -88977,6 +89330,11 @@ entities:
     - type: Transform
       pos: 46.5,10.5
       parent: 2
+  - uid: 10519
+    components:
+    - type: Transform
+      pos: 73.5,71.5
+      parent: 2
   - uid: 16821
     components:
     - type: Transform
@@ -89798,11 +90156,6 @@ entities:
     - type: Transform
       pos: 26.5,83.5
       parent: 2
-  - uid: 11239
-    components:
-    - type: Transform
-      pos: 49.5,-11.5
-      parent: 2
   - uid: 11240
     components:
     - type: Transform
@@ -89919,6 +90272,13 @@ entities:
     - type: Transform
       pos: 8.507294,-0.5046463
       parent: 17033
+- proto: OxygenAndNitrousOxideCanister
+  entities:
+  - uid: 11239
+    components:
+    - type: Transform
+      pos: 49.5,-11.5
+      parent: 2
 - proto: OxygenCanister
   entities:
   - uid: 2536
@@ -90203,6 +90563,42 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 58.6315,9.130667
       parent: 2
+  - uid: 8453
+    components:
+    - type: Transform
+      pos: 33.5,21.5
+      parent: 2
+    - type: Paper
+      content: >-
+        [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
+
+        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
+
+        ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
+
+        ░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]
+
+        ░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]
+
+
+        =============================================
+                                          [bold]<ПОЗДРАВЛЕНИЯ>[/bold]
+        =============================================
+
+        Дата: 17.12.325
+
+        Составитель документа: О.Е.
+
+
+        Пусть новый год принесёт ясный курс и спокойное космическое пространство, команда всегда будет рядом, а решения ведут станцию к процветанию.
+
+
+        Слава NanoTrasen!
+
+        [/italic][/color]
+
+        =============================================
+                                        [italic]Место для печатей[/italic]
   - uid: 8644
     components:
     - type: Transform
@@ -90216,6 +90612,40 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 58.70442,9.432751
       parent: 2
+  - uid: 9570
+    components:
+    - type: Transform
+      pos: 5.502838,3.6090107
+      parent: 2
+    - type: Paper
+      content: >-
+        [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
+
+        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
+
+        ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
+
+        ░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]
+
+        ░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]
+
+
+        =============================================
+                                          [bold]<ПОЗДРАВЛЕНИЯ>[/bold]
+        =============================================
+
+        Дата: 17.12.325
+
+        Составитель документа: О.Е.
+
+         Пусть склады всегда будут полны, поставки приходят вовремя, а карманы всегда набиты кредитами. Пусть каждый груз приносит радость и облегчает жизнь экипажа.
+
+        Слава NanoTrasen!
+
+        [/italic][/color]
+
+        =============================================
+                                        [italic]Место для печатей[/italic]
   - uid: 11274
     components:
     - type: Transform
@@ -90232,7 +90662,7 @@ entities:
       content: >-
         [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
 
-        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
+        ░██░████░░░██░░░░        
 
         ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
 
@@ -90241,7 +90671,7 @@ entities:
         ░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]
 
         =============================================
-                                 [bold]<НАИМЕНОВАНИЕ ДОКУМЕНТА>[/bold]
+                                             [bold]<ОПОВЕЩЕНИЕ>[/bold]
         =============================================
 
         Дата: 17.10.325
@@ -90503,12 +90933,54 @@ entities:
     - type: Transform
       pos: 24.506954,-10.477703
       parent: 2
+  - uid: 11818
+    components:
+    - type: Transform
+      pos: 60.5,57.5
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Книги открывают новые миры. Пусть каждый читатель находит и погружается в свой идеальный мир, получает вдохновение и знания.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
   - uid: 12097
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 60.385727,58.141068
       parent: 2
+  - uid: 12455
+    components:
+    - type: Transform
+      rot: 1.0471975511965976 rad
+      pos: 15.483463,5.804369
+      parent: 2
+    - type: Paper
+      content: >-
+        [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
+
+        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
+
+        ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
+
+        ░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]
+
+        ░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]
+
+
+        =============================================
+                                          [bold]<ПОЗДРАВЛЕНИЯ>[/bold]
+        =============================================
+
+        Дата: 17.12.325
+
+        Составитель документа: О.Е.
+
+         Ваши открытия будут яркими, а эксперименты — успешными и интересными. Воодушевляйте окружающих.
+
+        Слава NanoTrasen!
+
+        [/italic][/color]
+
+        =============================================
+                                        [italic]Место для печатей[/italic]
   - uid: 14955
     components:
     - type: Transform
@@ -90619,6 +91091,421 @@ entities:
       rot: 3.141592653589793 rad
       pos: 35.362766,-23.586426
       parent: 2
+  - uid: 17737
+    components:
+    - type: Transform
+      rot: 0.08726646259971647 rad
+      pos: 39.546753,62.844513
+      parent: 2
+    - type: Paper
+      content: >-
+        [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
+
+        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
+
+        ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
+
+        ░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]
+
+        ░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]
+
+
+        =============================================
+                                          [bold]<ПОЗДРАВЛЕНИЯ>[/bold]
+        =============================================
+
+        Дата: 17.12.325
+
+        Составитель документа: О.Е.
+
+         Желаю, чтоб каждый механизм работал как часы и ни один атмос не подвёл в трудный момент. Пусть новые проекты вдохновляют на великие свершения и укрепляют станцию.
+
+        Слава NanoTrasen!
+
+        [/italic][/color]
+
+        =============================================
+                                        [italic]Место для печатей[/italic]
+  - uid: 17738
+    components:
+    - type: Transform
+      pos: 17.5,6.5
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - overrideTextureSize: null
+        stampedTextureIsBorder: True
+        stampedTexture: /Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png
+        stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
+
+        ░██░████░░░██░░░░ 
+
+        ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
+
+        ░░░░██░░██░██░██░                    [bold]Paper ЦК-НИО[/bold]
+
+        ░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]
+
+
+        =============================================
+                                             [bold]<ОПОВЕЩЕНИЕ>[/bold]
+        =============================================
+
+        Дата: 17.12.325
+
+        Составитель документа: Вульверин Баринов
+
+        Должность составителя: Оператор ЦК
+
+
+        Я, Вульверин Баринов, в должности Оператора ЦК, из Центрального командования, оповещаю:
+          В технических помещениях НИО присутствует заброшенное помещение для экперементов химической направленности. Восстановите их, если вы будете ими пользоваться. Нам не выгодно.
+
+        Слава NanoTrasen!
+
+        [/italic][/color]
+
+        =============================================
+                                        [italic]Место для печатей[/italic]
+  - uid: 17739
+    components:
+    - type: Transform
+      pos: 39.5,66.5
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-centcom
+      stampedBy:
+      - overrideTextureSize: null
+        stampedTextureIsBorder: True
+        stampedTexture: /Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png
+        stampedColor: '#006600FF'
+        stampedName: stamp-component-stamped-name-centcom
+      content: >-
+        [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
+
+        ░██░████░░░██░░░░    
+
+        ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
+
+        ░░░░██░░██░██░██░                    [bold]Paper ЦК-ИНЖ[/bold]
+
+        ░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]
+
+
+        =============================================
+                                             [bold]<ОПОВЕЩЕНИЕ>[/bold]
+        =============================================
+
+        Дата: 17.12.325
+
+        Составитель документа: Вульверин Баринов
+
+        Должность составителя: Оператор ЦК
+
+
+        Я, Вульверин Баринов, в должности Оператора ЦК, из Центрального командования, оповещаю:
+          У отбытия есть малое крыло для постройки шаттлов, пожалуйста, обратите на него внимание, оно много стоило.
+
+        Слава NanoTrasen!
+
+        [/italic][/color]
+
+        =============================================
+                                        [italic]Место для печатей[/italic]
+  - uid: 17740
+    components:
+    - type: Transform
+      pos: 31.5,16.5
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть Ваш голос всегда находят отклик. Желаю, чтоб работа приносила удовлетворение и уважение коллег.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17741
+    components:
+    - type: Transform
+      rot: 4.1887902047863905 rad
+      pos: 51.2966,64.76248
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю крепких конструкций и надёжных схем. Пусть каждый ремонт завершается успехом и благодарностью экипажа.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17742
+    components:
+    - type: Transform
+      pos: 58.5,10.5
+      parent: 2
+    - type: Paper
+      content: >-
+        [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
+
+        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
+
+        ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
+
+        ░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]
+
+        ░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]
+
+
+        =============================================
+                                          [bold]<ПОЗДРАВЛЕНИЯ>[/bold]
+        =============================================
+
+        Дата: 17.12.325
+
+        Составитель документа: О.Е.
+
+         Здоровья Вам и всей станции — пусть новый год будет годом заботы и исцеления. Ваша работа прекрасна и особо ценится всем экипажем.
+
+        Слава NanoTrasen!
+
+        [/italic][/color]
+
+        =============================================
+                                        [italic]Место для печатей[/italic]
+  - uid: 17745
+    components:
+    - type: Transform
+      rot: -2.6179938779914944 rad
+      pos: 20.487404,16.700645
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n Желаю гармонии в коллективе и удачи в подборе лучших кадров. Пусть каждый член экипажа чувствует себя нужным и ценным.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17746
+    components:
+    - type: Transform
+      rot: 0.7853981633974483 rad
+      pos: 5.638418,5.7290173
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю лёгких грузов и быстрых писем. Пусть работа идёт как по маслу и приносит радость.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17747
+    components:
+    - type: Transform
+      rot: 2.9670597283903604 rad
+      pos: 41.750343,-9.186657
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Души на станции будут спокойны. Пусть Ваши слова всегда находят отклик и приносят спокойствие.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17748
+    components:
+    - type: Transform
+      rot: -0.3490658503988659 rad
+      pos: 3.8064213,16.271389
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть каждый обломок превратится в кландайк, а удача сопутствувола Вам в поисках и находках.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17750
+    components:
+    - type: Transform
+      pos: 44.282642,8.75997
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю меньшей духоты, эффективной и приятной варки. Ваши лекарства лечат людей, Ваша работа важна.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17751
+    components:
+    - type: Transform
+      rot: -0.2617993877991494 rad
+      pos: 48.81523,85.66017
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n Желаю меньшее количество утечек газа и эффективного ТЭГа. Пусть системы работают надёжно и без перебоев.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17752
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 27.80456,-2.27952
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть новый год подарит знания и уверенность, каждый шаг ведёл к новым достижениям.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17753
+    components:
+    - type: Transform
+      pos: 17.173458,49.502388
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть блюда всегда будут вкусными и презентабильными. Праздничный стол собирает людей. Набейте им пузико!\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17754
+    components:
+    - type: Transform
+      pos: 37.5,10.5
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Быстрая реакция — ключевой компонент благородной вашей работы. Желаю Вам самим здоровья. Заботясь о других, не забывайте о себе.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17755
+    components:
+    - type: Transform
+      rot: 2.6179938779914944 rad
+      pos: 21.720047,-8.150932
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю признания Вас в обществе как учёного, и чтоб труды Ваших исследовании не пропадали даром.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17756
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 51.936783,64.78273
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю хорошего обучения у местных специалистов. Впитывайте информацию как губка, ведь её будет еще очень много.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17757
+    components:
+    - type: Transform
+      rot: -1.0471975511965976 rad
+      pos: 55.219646,0.5164089
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n Желаю, чтоб ваша работа продолжала приносить Вам балгодарность и радость. Вы очень усердно трудетесь на благо здоровья станций, пусть блага будут и у Вас.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17758
+    components:
+    - type: Transform
+      rot: 4.537856055185257 rad
+      pos: 46.25018,2.5318642
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю хорошей стажировки. Внимательно наблюдайте за врачами, и скоро окажитесь на их же месте.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17759
+    components:
+    - type: Transform
+      rot: 1.7453292519943295 rad
+      pos: -0.21760559,36.881966
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю побед и крепкого здоровья. Пусть каждый бой укрепляет дух и уверенность.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17760
+    components:
+    - type: Transform
+      rot: -0.3490658503988659 rad
+      pos: 76.36504,41.98407
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n   Пусть Ваши питомцы будут счастливы и здоровы, они ведь такие милые!\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17761
+    components:
+    - type: Transform
+      rot: 1.6929693744344996 rad
+      pos: -3.25943,33.391487
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю ярких новостей и честных слов. Пусть Ваши рассказы всегда находят слушателей.\r\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17762
+    components:
+    - type: Transform
+      pos: 43.332214,51.38098
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть смех звучит чаще и громче тревог. Желаю, чтоб радость всегда сопровождала Вас и экипаж.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17763
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 39.804268,47.569435
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть музыка наполняет станцию радостью, а мелодии вдохновляют и объединяют сердца.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17764
+    components:
+    - type: Transform
+      pos: 43.808502,47.779427
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Тишина красноречива. Пусть Ваши жесты дарят улыбки и тепло.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17765
+    components:
+    - type: Transform
+      rot: 2.9670597283903604 rad
+      pos: 78.5448,26.838531
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю, чтоб ваша Вера процвитала, в храм приходило всё больше людей, и чтоб метеоритный дождь меньше попадал по нему.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17766
+    components:
+    - type: Transform
+      rot: -0.08726646259971647 rad
+      pos: 57.772827,18.596897
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть обучение будет лёгким и интересным. Служба станет честным и гордым делом.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17767
+    components:
+    - type: Transform
+      pos: 16.865803,44.58427
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n Пусть растения радуют Вас круглый год. Ваш садик будет расцветать, ваши сочные, огромные плоды использовались поваром для лучших блюд.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17768
+    components:
+    - type: Transform
+      rot: -0.17453292519943295 rad
+      pos: 27.4951,55.550316
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть бокалы звенят, яблочный сок пьётся, а гости всегда уходят довольными и счастливыми.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17770
+    components:
+    - type: Transform
+      rot: 0.08726646259971647 rad
+      pos: 57.25474,18.497684
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Ваш опыт помогает держать станцию в безопасности. Желаю вам карьерного роста, побеждённых врагов и любви.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17771
+    components:
+    - type: Transform
+      rot: -0.8726646259971648 rad
+      pos: 62.25429,24.827614
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Здоровье заключённых и офицеров в надёжных руках. Пусть ваша забота приносит мир и доверие.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17772
+    components:
+    - type: Transform
+      rot: 0.3490658503988659 rad
+      pos: 66.635315,49.56091
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю чистоты и порядка на всей станций. Ваш всегда ценят и уважают, не забывайте это.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17773
+    components:
+    - type: Transform
+      rot: -1.4660765716752369 rad
+      pos: 36.265816,47.475677
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n Пусть работа будет лёгкой и благодарной.\rНадеюсь, что вы найдёте своё призвание в одной из отрасли в новом году.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17774
+    components:
+    - type: Transform
+      rot: 1.4660765716752369 rad
+      pos: 7.5022182,-13.4
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть каждый полёт будет безопасным и захватывающим. Держим путь к новым горизонтам!\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17775
+    components:
+    - type: Transform
+      rot: -1.6580627893946132 rad
+      pos: 40.299805,35.15428
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Пусть каждая интрига завершается истиной порядком и справедливостью. Желаю, чтоб каждое дело было раскрыто.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17776
+    components:
+    - type: Transform
+      rot: 1.7453292519943295 rad
+      pos: 47.715157,19.281769
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n Пусть камеры будут пусты, а порядок крепким. Ваша служба будет спокойной и уважительной.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\n=============================================\r\n                                [italic]Место для печатей[/italic]"
+  - uid: 17777
+    components:
+    - type: Transform
+      pos: 7.5,22.5
+      parent: 2
+    - type: Paper
+      content: "[color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]\r\n░██░████░░░██░░░░           [head=3]Бланк документа[/head]\r\n░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]\r\n░░░░██░░██░██░██░                    [bold]Paper ЦК-ПД[/bold]\r\n░░░░██░░░████░[/color][color=#b8972d]███[/color][color=#b8972d]                          ★ ★ ★[/color]\r\r\n=============================================\r\n                                  [bold]<ПОЗДРАВЛЕНИЯ>[/bold]\r\n=============================================\r\nДата: 17.12.325\r\nСоставитель документа: О.Е.\r\n \r\n  Желаю честных и интересных отчётов и справедливых решений. Пусть в новом году порядок станут вашим постоянным спутником, а ваша работа приносила плоды.\n\r\nСлава NanoTrasen!\r\n[/italic][/color]\r\n=============================================\r\n                                [italic]Место для печатей[/italic]"
 - proto: PaperBin
   entities:
   - uid: 17701
@@ -90896,6 +91783,11 @@ entities:
       parent: 2
 - proto: PlasmaCanister
   entities:
+  - uid: 2861
+    components:
+    - type: Transform
+      pos: 19.5,-15.5
+      parent: 2
   - uid: 11347
     components:
     - type: Transform
@@ -91658,7 +92550,7 @@ entities:
   - uid: 11447
     components:
     - type: Transform
-      pos: 20.5,18.5
+      pos: 20.1,18.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -91809,19 +92701,19 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-  - uid: 11463
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 53.5,32.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 11464
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 53.5,44.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 14777
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 53.5,30.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -92103,11 +92995,6 @@ entities:
     - type: Transform
       pos: 24.5,20.5
       parent: 2
-  - uid: 12710
-    components:
-    - type: Transform
-      pos: 47.5,-8.5
-      parent: 2
   - uid: 13030
     components:
     - type: Transform
@@ -92340,8 +93227,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: 76.5,60.5
       parent: 2
+    - type: Physics
+      canCollide: False
     - type: Stealth
     - type: StealthOnMove
+    missingComponents:
+    - DamageOnInteract
+    - DeviceNetwork
+    - WirelessNetworkConnection
+    - Damageable
+    - RCDDeconstructable
+    - Destructible
   - uid: 11538
     components:
     - type: Transform
@@ -93923,11 +94819,13 @@ entities:
       parent: 2
 - proto: PoweredlightOrange
   entities:
-  - uid: 11806
+  - uid: 3838
     components:
     - type: Transform
-      pos: 20.5,17.5
+      pos: 19.5,17.5
       parent: 2
+    - type: PointLight
+      falloff: 15
   - uid: 11807
     components:
     - type: Transform
@@ -94066,6 +94964,11 @@ entities:
       energy: 4
 - proto: PoweredSmallLight
   entities:
+  - uid: 4750
+    components:
+    - type: Transform
+      pos: 32.5,19.5
+      parent: 2
   - uid: 4983
     components:
     - type: Transform
@@ -94155,12 +95058,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 47.5,-6.5
-      parent: 2
-  - uid: 11818
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 33.5,19.5
       parent: 2
   - uid: 11819
     components:
@@ -95877,6 +96774,13 @@ entities:
     - type: Transform
       pos: 25.5,42.5
       parent: 2
+- proto: RandomInstruments
+  entities:
+  - uid: 17769
+    components:
+    - type: Transform
+      pos: 38.5,47.5
+      parent: 2
 - proto: RandomPainting
   entities:
   - uid: 70
@@ -96754,17 +97658,14 @@ entities:
   - uid: 12253
     components:
     - type: Transform
-      pos: 1.5,19.5
+      rot: 1.5707963267948966 rad
+      pos: -0.5,20.5
       parent: 2
-  - uid: 12254
+  - uid: 16392
     components:
     - type: Transform
-      pos: 0.5,19.5
-      parent: 2
-  - uid: 12255
-    components:
-    - type: Transform
-      pos: 1.5,19.5
+      rot: 1.5707963267948966 rad
+      pos: -0.5,20.5
       parent: 2
 - proto: RandomSpawner100
   entities:
@@ -97868,31 +98769,6 @@ entities:
     - type: Transform
       pos: 9.5,57.5
       parent: 2
-  - uid: 12455
-    components:
-    - type: Transform
-      pos: 23.5,39.5
-      parent: 2
-  - uid: 12456
-    components:
-    - type: Transform
-      pos: 16.5,39.5
-      parent: 2
-  - uid: 12457
-    components:
-    - type: Transform
-      pos: 17.5,39.5
-      parent: 2
-  - uid: 12458
-    components:
-    - type: Transform
-      pos: 18.5,39.5
-      parent: 2
-  - uid: 12459
-    components:
-    - type: Transform
-      pos: 22.5,39.5
-      parent: 2
   - uid: 12460
     components:
     - type: Transform
@@ -98578,11 +99454,6 @@ entities:
     components:
     - type: Transform
       pos: 50.5,-15.5
-      parent: 2
-  - uid: 12618
-    components:
-    - type: Transform
-      pos: 18.5,11.5
       parent: 2
   - uid: 12619
     components:
@@ -100780,6 +101651,21 @@ entities:
           - Toggle
     - type: Fixtures
       fixtures: {}
+  - uid: 15198
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает ставни.
+    - type: Transform
+      rot: 0.7853981633974483 rad
+      pos: 50.6,31.6
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12830:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
   - uid: 15559
     components:
     - type: MetaData
@@ -100833,6 +101719,21 @@ entities:
       fixtures: {}
 - proto: SignalButtonDirectional
   entities:
+  - uid: 2870
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает свет.
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 53.5,32.6
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        11595:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
   - uid: 10836
     components:
     - type: Transform
@@ -100854,6 +101755,54 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         11015:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 12457
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает свет в комнате.
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 63.5,10.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        14351:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 12458
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает свет в комнате.
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 14.5,5.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        11572:
+        - - Pressed
+          - Toggle
+        11780:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 12618
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает ставни.
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,1.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12809:
         - - Pressed
           - Toggle
     - type: Fixtures
@@ -100962,26 +101911,14 @@ entities:
   - uid: 12918
     components:
     - type: MetaData
-      desc: Эта кнопка переключает ставни.
+      desc: Эта кнопка переключает свет в комнате.
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,1.5
       parent: 2
     - type: DeviceLinkSource
       linkedPorts:
-        12809:
-        - - Pressed
-          - Toggle
-        12811:
-        - - Pressed
-          - Toggle
-        12810:
-        - - Pressed
-          - Toggle
-        12808:
-        - - Pressed
-          - Toggle
-        12807:
+        11839:
         - - Pressed
           - Toggle
     - type: Fixtures
@@ -101039,6 +101976,8 @@ entities:
       fixtures: {}
   - uid: 12920
     components:
+    - type: MetaData
+      desc: Эта кнопка переключает ставни.
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 15.5,3.5
@@ -101116,6 +102055,8 @@ entities:
       fixtures: {}
   - uid: 12925
     components:
+    - type: MetaData
+      desc: Эта кнопка переключает болты двери.
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 9.5,35.5
@@ -101129,6 +102070,8 @@ entities:
       fixtures: {}
   - uid: 12926
     components:
+    - type: MetaData
+      desc: Эта кнопка переключает болты двери.
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 5.5,35.5
@@ -101592,6 +102535,112 @@ entities:
       rot: 3.141592653589793 rad
       pos: 6.5,28.5
       parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 13365
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает ставни.
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,2.6
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12811:
+        - - Pressed
+          - Toggle
+        12810:
+        - - Pressed
+          - Toggle
+        12807:
+        - - Pressed
+          - Toggle
+        12808:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 16139
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает свет.
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 27.5,20.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        11761:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 16252
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает свет.
+    - type: Transform
+      pos: 20.75,18.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        3838:
+        - - Pressed
+          - Toggle
+        11827:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 16294
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает свет.
+    - type: Transform
+      pos: 32.75,20.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        4750:
+        - - Pressed
+          - Toggle
+        11931:
+        - - Pressed
+          - Toggle
+        11869:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 16295
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает свет.
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 41.5,60.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        11891:
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
+  - uid: 16382
+    components:
+    - type: MetaData
+      desc: Эта кнопка переключает свет.
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 58.5,65.3
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        16394:
+        - - Pressed
+          - Toggle
     - type: Fixtures
       fixtures: {}
   - uid: 16459
@@ -104872,21 +105921,6 @@ entities:
     - type: Transform
       pos: 50.5,62.5
       parent: 2
-  - uid: 13365
-    components:
-    - type: Transform
-      pos: 73.5,71.5
-      parent: 2
-  - uid: 13366
-    components:
-    - type: Transform
-      pos: 73.5,73.5
-      parent: 2
-  - uid: 13367
-    components:
-    - type: Transform
-      pos: 73.5,72.5
-      parent: 2
 - proto: SuitStorageEVA
   entities:
   - uid: 10
@@ -106765,8 +107799,10 @@ entities:
   - uid: 13525
     components:
     - type: Transform
-      pos: 38.703987,47.677788
-      parent: 2
+      parent: 5571
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: Table
   entities:
   - uid: 145
@@ -108842,21 +109878,30 @@ entities:
   - uid: 13853
     components:
     - type: Transform
+      anchored: False
       rot: 1.5707963267948966 rad
       pos: 75.5,71.5
       parent: 2
+    - type: Physics
+      bodyType: Dynamic
   - uid: 13854
     components:
     - type: Transform
+      anchored: False
       rot: 1.5707963267948966 rad
       pos: 75.5,73.5
       parent: 2
+    - type: Physics
+      bodyType: Dynamic
   - uid: 13855
     components:
     - type: Transform
+      anchored: False
       rot: 1.5707963267948966 rad
       pos: 75.5,72.5
       parent: 2
+    - type: Physics
+      bodyType: Dynamic
   - uid: 17079
     components:
     - type: Transform
@@ -109301,20 +110346,6 @@ entities:
           - Reverse
         - - Middle
           - Off
-        5846:
-        - - Left
-          - Forward
-        - - Right
-          - Reverse
-        - - Middle
-          - Off
-        5855:
-        - - Left
-          - Forward
-        - - Right
-          - Reverse
-        - - Middle
-          - Off
         5854:
         - - Left
           - Forward
@@ -109631,6 +110662,13 @@ entities:
     - type: Transform
       pos: 54.5,62.5
       parent: 2
+- proto: VendingMachineFashion
+  entities:
+  - uid: 13943
+    components:
+    - type: Transform
+      pos: 5.5,31.5
+      parent: 2
 - proto: VendingMachineGames
   entities:
   - uid: 2967
@@ -109644,13 +110682,6 @@ entities:
     components:
     - type: Transform
       pos: 58.5,2.5
-      parent: 2
-- proto: VendingMachineGothic
-  entities:
-  - uid: 13943
-    components:
-    - type: Transform
-      pos: 5.5,31.5
       parent: 2
 - proto: VendingMachineHappyHonk
   entities:
@@ -109841,6 +110872,11 @@ entities:
     components:
     - type: Transform
       pos: 0.5,17.5
+      parent: 2
+  - uid: 11463
+    components:
+    - type: Transform
+      pos: 73.5,73.5
       parent: 2
   - uid: 13970
     components:
@@ -123194,12 +124230,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 13.5,60.5
       parent: 2
-  - uid: 15198
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,23.5
-      parent: 2
   - uid: 16132
     components:
     - type: Transform
@@ -123211,12 +124241,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 65.5,29.5
-      parent: 2
-  - uid: 16139
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 1.5,19.5
       parent: 2
   - uid: 16140
     components:
@@ -123479,6 +124503,26 @@ entities:
       parent: 2
 - proto: Window
   entities:
+  - uid: 5890
+    components:
+    - type: Transform
+      pos: 17.5,39.5
+      parent: 2
+  - uid: 6654
+    components:
+    - type: Transform
+      pos: 22.5,39.5
+      parent: 2
+  - uid: 9658
+    components:
+    - type: Transform
+      pos: 18.5,39.5
+      parent: 2
+  - uid: 10375
+    components:
+    - type: Transform
+      pos: 18.5,11.5
+      parent: 2
   - uid: 12040
     components:
     - type: Transform
@@ -123791,6 +124835,16 @@ entities:
     - type: Transform
       pos: 39.5,1.5
       parent: 2
+  - uid: 17743
+    components:
+    - type: Transform
+      pos: 23.5,39.5
+      parent: 2
+  - uid: 17744
+    components:
+    - type: Transform
+      pos: 16.5,39.5
+      parent: 2
 - proto: WindowDirectional
   entities:
   - uid: 16248
@@ -123816,12 +124870,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 14.5,-8.5
-      parent: 2
-  - uid: 16252
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,19.5
       parent: 2
   - uid: 16253
     components:
