@@ -39,40 +39,40 @@
                     <GridContainer Margin="0 5 0 0" Columns="3">
                         <Label Text="{Loc 'health-analyzer-window-entity-status-text'}" />
                         <RichTextLabel Name="StatusLabel" />
-                        <TextureButton Name="StatusButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="StatusButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Name="BrainHealthText" Text="{Loc 'health-analyzer-window-entity-brain-health-text'}" />
                         <RichTextLabel Name="BrainHealthLabel" />
-                        <TextureButton Name="BrainHealthButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="BrainHealthButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Name="SpO2Text" />
                         <RichTextLabel Name="SpO2Label" />
-                        <TextureButton Name="SpO2Button" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="SpO2Button" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Name="BloodPressureText" Text="{Loc 'health-analyzer-window-entity-blood-pressure-text'}" />
                         <RichTextLabel Name="BloodPressureLabel" />
-                        <TextureButton Name="BloodPressureButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="BloodPressureButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Name="HeartRateText" Text="{Loc 'health-analyzer-window-entity-heart-rate-text'}" />
                         <RichTextLabel Name="HeartRateLabel" />
-                        <TextureButton Name="HeartRateButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="HeartRateButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Name="RespiratoryRateText" Text="{Loc 'health-analyzer-window-entity-respiratory-rate-text'}" />
                         <RichTextLabel Name="RespiratoryRateLabel" />
-                        <TextureButton Name="RespiratoryRateButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="RespiratoryRateButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Name="EtCO2Text" />
                         <RichTextLabel Name="EtCO2Label" />
-                        <TextureButton Name="EtCO2Button" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="EtCO2Button" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Name="LungHealthText" Text="{Loc 'health-analyzer-window-entity-lung-health-text'}" />
                         <RichTextLabel Name="LungHealthLabel" />
-                        <TextureButton Name="LungHealthButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="LungHealthButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Name="HeartHealthText" Text="{Loc 'health-analyzer-window-entity-heart-health-text'}" />
                         <RichTextLabel Name="HeartHealthLabel" />
-                        <TextureButton Name="HeartHealthButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="HeartHealthButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Name="BloodText" Text="{Loc 'health-analyzer-window-entity-blood-level-text'}" />
                         <RichTextLabel Name="BloodLabel" />
-                        <TextureButton Name="BloodButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="BloodButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Text="{Loc 'health-analyzer-window-entity-temperature-text'}" />
                         <RichTextLabel Name="TemperatureLabel" />
-                        <TextureButton Name="TemperatureButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="TemperatureButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                         <Label Text="{Loc 'health-analyzer-window-entity-damage-total-text'}" />
                         <RichTextLabel Name="DamageLabel" />
-                        <TextureButton Name="DamageButton" StyleClasses="SpeciesInfoDefault" Scale="0.3 0.3" VerticalAlignment="Center" />
+                        <TextureButton Name="DamageButton" StyleClasses="windowHelpButton" Scale="1.3 1.3" VerticalAlignment="Center" />
                     </GridContainer>
                 </BoxContainer>
 
