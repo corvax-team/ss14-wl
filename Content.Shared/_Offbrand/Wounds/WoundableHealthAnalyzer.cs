@@ -13,16 +13,31 @@ public sealed partial class WoundableHealthAnalyzerData
     public float BrainHealth;
 
     [DataField]
+    public MetricRanking BrainHealthRating;
+
+    [DataField]
     public float HeartHealth;
+
+    [DataField]
+    public MetricRanking HeartHealthRating;
 
     [DataField]
     public (int, int) BloodPressure;
 
     [DataField]
+    public MetricRanking BloodPressureRating;
+
+    [DataField]
     public int HeartRate;
 
     [DataField]
+    public MetricRanking HeartRateRating;
+
+    [DataField]
     public int Etco2;
+
+    [DataField]
+    public MetricRanking Etco2Rating;
 
     [DataField]
     public int RespiratoryRate;
@@ -31,7 +46,13 @@ public sealed partial class WoundableHealthAnalyzerData
     public float Spo2;
 
     [DataField]
+    public MetricRanking Spo2Rating;
+
+    [DataField]
     public float LungHealth;
+
+    [DataField]
+    public MetricRanking LungHealthRating;
 
     [DataField]
     public bool AnyVitalCritical;
@@ -79,6 +100,16 @@ public abstract class SharedWoundableHealthAnalyzerSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
     protected const string MedicineGroup = "Medicine";
+    private MetricRanking RateHigherIsBetter(double value)
+    {
+        return RateHigherIsWorse(1d - value);
+    }
+
+    private MetricRanking RateHigherIsWorse(double value)
+    {
+        return (MetricRanking)(byte)Math.Clamp(Math.Floor(6d * value), 0d, 5d);
+    }
+
 
     public List<string>? SampleWounds(EntityUid uid)
     {
@@ -139,24 +170,31 @@ public abstract class SharedWoundableHealthAnalyzerSystem : EntitySystem
         var reagents = withWounds ? SampleReagents(uid, out hasNonMedical) : null;
 
         return new WoundableHealthAnalyzerData()
-            {
-                BrainHealth = brainHealth,
-                HeartHealth = heartHealth,
-                BloodPressure = (upper, lower),
-                HeartRate = _heart.HeartRate((uid, heartrate)),
-                Etco2 = _heart.Etco2((uid, heartrate)),
-                RespiratoryRate = _heart.RespiratoryRate((uid, heartrate)),
-                Spo2 = _heart.Spo2((uid, heartrate)).Float(),
-                LungHealth = lungHealth,
-                AnyVitalCritical = _shockThresholds.IsCritical(uid) || _brainDamage.IsCritical(uid) || _heart.IsCritical(uid),
-                Etco2Name = heartrate.Etco2Name,
-                Etco2GasName = heartrate.Etco2GasName,
-                Spo2Name = heartrate.Spo2Name,
-                Spo2GasName = heartrate.Spo2GasName,
-                Wounds = withWounds ? SampleWounds(uid) : null,
-                Reagents = reagents,
-                NonMedicalReagents = hasNonMedical,
-                Ranking = Ranking((uid, heartrate)),
-            };
+        {
+            BrainHealth = brainHealth,
+            BrainHealthRating = RateHigherIsBetter(brainHealth),
+            HeartHealth = heartHealth,
+            HeartHealthRating = RateHigherIsBetter(heartHealth),
+            BloodPressure = (upper, lower),
+            BloodPressureRating = RateHigherIsBetter(heartrate.Perfusion),
+            HeartRate = _heart.HeartRate((uid, heartrate)),
+            HeartRateRating = !heartrate.Running ? MetricRanking.Dangerous : Ranking((uid, heartrate)),
+            Etco2 = _heart.Etco2((uid, heartrate)),
+            Etco2Rating = RateHigherIsWorse(_heart.Etco2((uid, heartrate))),
+            RespiratoryRate = _heart.RespiratoryRate((uid, heartrate)),
+            Spo2 = _heart.Spo2((uid, heartrate)).Float(),
+            Spo2Rating = RateHigherIsBetter(_heart.Spo2((uid, heartrate)).Float()),
+            LungHealth = lungHealth,
+            LungHealthRating = RateHigherIsBetter(lungHealth),
+            AnyVitalCritical = _shockThresholds.IsCritical(uid) || _brainDamage.IsCritical(uid) || _heart.IsCritical(uid),
+            Etco2Name = heartrate.Etco2Name,
+            Etco2GasName = heartrate.Etco2GasName,
+            Spo2Name = heartrate.Spo2Name,
+            Spo2GasName = heartrate.Spo2GasName,
+            Wounds = withWounds ? SampleWounds(uid) : null,
+            Reagents = reagents,
+            NonMedicalReagents = hasNonMedical,
+            Ranking = Ranking((uid, heartrate)),
+        };
     }
 }

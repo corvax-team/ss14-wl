@@ -29,7 +29,9 @@ public sealed class HeartrateAlertsSystem : EntitySystem
             var min = _alerts.GetMinSeverity(ent.Comp.StrainAlert);
             var max = _alerts.GetMaxSeverity(ent.Comp.StrainAlert);
 
-            var severity = Math.Min(min + (short)Math.Round(range * _heart.Strain((ent.Owner, heartrate))), max);
+            var hasPainNumbness = HasComp<PainNumbnessComponent>(ent.Owner); // WL-Offmed: add PainNumbness for heartrate alert
+
+            var severity = hasPainNumbness ? 0 : Math.Min(min + (short)Math.Round(range * _heart.Strain((ent.Owner, heartrate))), max); // WL-Offmed: add PainNumbness for heartrate alert
             _alerts.ShowAlert(ent.Owner, ent.Comp.StrainAlert, (short)severity);
         }
         else
