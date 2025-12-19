@@ -180,7 +180,7 @@ public abstract class SharedWoundableHealthAnalyzerSystem : EntitySystem
             HeartRate = _heart.HeartRate((uid, heartrate)),
             HeartRateRating = !heartrate.Running ? MetricRanking.Dangerous : Ranking((uid, heartrate)),
             Etco2 = _heart.Etco2((uid, heartrate)),
-            Etco2Rating = RateHigherIsWorse(_heart.Etco2((uid, heartrate))),
+            Etco2Rating = RateHigherIsBetter(_heart.Etco2((uid, heartrate))),
             RespiratoryRate = _heart.RespiratoryRate((uid, heartrate)),
             Spo2 = _heart.Spo2((uid, heartrate)).Float(),
             Spo2Rating = RateHigherIsBetter(_heart.Spo2((uid, heartrate)).Float()),

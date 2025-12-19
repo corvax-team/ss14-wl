@@ -20,11 +20,11 @@ health-analyzer-window-entity-respiratory-rate-text = Частота Дыхан�
 health-analyzer-window-entity-brain-health-value = {$value}% {-health-analyzer-rating(rating: $rating)}
 health-analyzer-window-entity-heart-health-value = {$value}% {-health-analyzer-rating(rating: $rating)}
 health-analyzer-window-entity-lung-health-value = {$value}% {-health-analyzer-rating(rating: $rating)}
-health-analyzer-window-entity-heart-rate-value = {$value}bpm {-health-analyzer-rating(rating: $rating)}
+health-analyzer-window-entity-heart-rate-value = {$value}уд/мин {-health-analyzer-rating(rating: $rating)}
 health-analyzer-window-entity-blood-pressure-value = {$systolic}/{$diastolic} {-health-analyzer-rating(rating: $rating)}
 health-analyzer-window-entity-respiratory-rate-value = {$value}вдохов/в минуту
 health-analyzer-window-entity-spo2-value = {$value}% {-health-analyzer-rating(rating: $rating)}
-health-analyzer-window-entity-etco2-value = {$value}мм рт. ст.
+health-analyzer-window-entity-etco2-value = {$value}мм рт. ст. {-health-analyzer-rating(rating: $rating)}
 health-analyzer-window-entity-non-medical-reagents = [color=yellow]Пациент имеет немедицинские реагенты в крови.[/color]
 
 wound-bone-death = [color=red]Пациует имеет системную костную смерть.[/color]
@@ -51,98 +51,98 @@ health-analyzer-status-tooltip =
     {"[bold]"}Мёртв[/bold]: Пациент мёртв и скоро начнёт гнить.
 
 health-analyzer-blood-pressure-tooltip =
-    A measure of how much blood is making it throughout the body.
+    Показатель того, насколько хорошо кровь циркулирует по телу.
 
-    IV stands can be used to replenish blood volume.
+    Капельницы можно использовать для восполнения объёма крови.
 
-    Relevant metrics:
-    {"[color=#7af396]"}Blood Volume[/color]:
-        Low blood volume can result in reduced blood pressure.
+    Связанные показатели:
+    {"[color=#7af396]"}Объём крови[/color]:
+        Низкий объём крови может привести к снижению давления.
 
-    {"[color=#7af396]"}Brain Activity[/color]:
-        Low brain activity can result in reduced blood pressure.
+    {"[color=#7af396]"}Активность мозга[/color]:
+        Низкая активность мозга может привести к снижению давления.
 
-    {"[color=#7af396]"}Heart Rate and Heart Health[/color]:
-        Damage to the heart or a stopped heart can result in reduced blood pressure.
+    {"[color=#7af396]"}Пульс и состояние сердца[/color]:
+        Повреждение сердца или его остановка могут привести к снижению давления.
 
 health-analyzer-spo2-tooltip =
-    A measure of how much {LOC($gas)} is making it to the patient's body, compared to what the patient needs.
+    Показатель того, насколько количество {LOC($gas)}{"а"} поступающего в организм, соответствует потребностям.
 
-    Relevant metrics:
-    {"[color=#7af396]"}Metabolic Rate[/color]:
-        Physical trauma and pain can cause the body's {LOC($gas)} demand to increase.
+    Влияющие показатели:
+    {"[color=#7af396]"}Метаболизм[/color]:
+        Физические травмы и боль могут вызвать большую потребность в {LOC($gas)}{"е"}.
 
-    {"[color=#7af396]"}Blood Pressure[/color]:
-        Low blood pressure can result in reduced {LOC($spo2)}.
+    {"[color=#7af396]"}Кровяное давление[/color]:
+        Низкое кровяное давление может может привести к снижению уровня {LOC($spo2)}.
 
-    {"[color=#7af396]"}Lung Health[/color]:
-        Low lung health can result in reduced {LOC($spo2)}.
+    {"[color=#7af396]"}Здоровье лёгких[/color]:
+        Низкое здоровье лёгких может привести к снижению уровня {LOC($spo2)}.
 
-    {"[color=#7af396]"}Asphyxiation[/color]:
-        Asphyxiation can result in reduced {LOC($spo2)}.
+    {"[color=#7af396]"}Асфиксия[/color]:
+        Асфиксия может привести к снижению уровня {LOC($spo2)}.
 
-    {"[color=#7af396]"}Respiratory Rate[/color]:
-        Hyperventilation can result in the patient breathing less air per breath.
+    {"[color=#7af396]"}Частота дыхания[/color]:
+        Гипервентиляция может привести к тому, что пациент будет вдыхать меньше воздуха за один вдох.
 
 health-analyzer-heart-rate-tooltip =
-    A measure of how fast the patient's heart is beating.
+    Частота сокращений сердца
 
-    The heartrate increases in response to inadequate {LOC($spo2)}.
+    Частота сердечных сокращений увеличивается в ответ на недостаточный уровень {LOC($spo2)} для компенсации.
 
 health-analyzer-respiratory-rate-tooltip =
-    A measure of how fast the patient is breathing.
+    Частота дыхания
 
-    Breathing too fast can result in less air per breath, causing asphyxiation.
+    Слишком частое дыхание может привести к уменьшению объема воздуха за вдох, вызывая удушье.
 
-    Inaprovaline can encourage healthy breathing.
+    {"[color=#731024]"}Инапровалин[/color] может быть использован для нормализации дыхания.
 
-    Relevant metrics:
+    Влияющие показатели:
     {"[color=#7af396]"}{LOC($spo2)}[/color]:
-        Inadequate access to {LOC($spo2gas)} can result in faster breathing.
+        Недостаточное поступление {LOC($spo2gas)}{"а"} может привести к учащению дыхания.
 
     {"[color=#7af396]"}Metabolic Rate[/color]:
-        Physical trauma and pain can cause the body to breathe faster.
+        Физическая травма и боль могут вызывать учащение дыхания.
 
 health-analyzer-etco2-tooltip =
-    A measure of how much {LOC($gas)} is being exhaled with each breath.
+    Показатель количества {LOC($gas)} с каждым выдохом.
 
-    Low {LOC($etco2)} can result in toxic {LOC($gas)} buildup.
+    Низкий уровень {LOC($etco2)} может привести к накоплению токсичного {LOC($gas)}.
 
-    Relevant metrics:
-    {"[color=#7af396]"}Respiratory Rate[/color]:
-        Irregular breathing can cause the patient to not fully exhale all {LOC($gas)}.
+    Влияющие показатели:
+    {"[color=#7af396]"}Частота дыхания[/color]:
+        Неравномерное дыхание может привести к неполному выдоху всего {LOC($gas)}..
 
-    {"[color=#7af396]"}Blood Pressure[/color]:
-        Low Blood Pressure can cause the patient to hold onto more {LOC($gas)}.
+    {"[color=#7af396]"}Кровяное давление[/color]:
+        Низкое кровяное давление может привести к задержке большего количества {LOC($gas)} в организме.
 
 health-analyzer-heart-health-tooltip =
-    A measure of the heart's integrity.
+    Показатель здоровья сердца.
 
-    It will decrease due to excessively high heartrate.
+    Уменьшается из-за чрезмерно высокого пульса.
 
-    Relevant metrics:
-    {"[color=#7af396]"}Heart Rate[/color]: {$heartrate}bpm
+    Влияющие показатели:
+    {"[color=#7af396]"}Пульс[/color]: {$heartrate}уд/мин
 
 health-analyzer-plain-temperature-tooltip =
-    The patient's body temperature.
+    Температура тела пациента.
 
 health-analyzer-cryostasis-temperature-tooltip =
-    The patient's body temperature.
+    Температура тела пациента.
 
-    This temperature has a cryostasis factor of {$factor}%.
+    Имеет криостазисный коэффициент {$factor}%.
 
 health-analyzer-lung-health-tooltip =
-    The patient's lung health.
+    Здоровье лёгких пациента.
 
-    The lower this number, the more difficulty they have breathing.
+    Чем ниже это число, тем труднее ему дышать.
 
-    If the lung health is low, consider putting the patient on higher-pressure internals.
+    Если здоровье лёгких низкое, подумайте о переводе пациента на баллоны с повышенным давлением.
 
 health-analyzer-blood-tooltip =
-    The patient's blood volume.
+    Объём крови пациента.
 
 health-analyzer-damage-tooltip =
-    The patient's total accumulated injuries.
+    Суммарные повреждения пациента.
 
 health-analyzer-brain-health-tooltip = { $dead ->
     [true] {-health-analyzer-brain-health-tooltip-dead}
@@ -150,10 +150,10 @@ health-analyzer-brain-health-tooltip = { $dead ->
     }
 
 -health-analyzer-brain-health-tooltip-alive =
-    {"[color=#fedb79]"}Mannitol[/color] can be administered to heal brain damage if the [color=#7af396]SpO2[/color] permits.
+    {"[color=#fedb79]"}Маннитол[/color] может быть использован для восстановления мозга, если [color=#7af396]SpO2[/color] позволяет.
 
-    Relevant metrics:
+    Влияющие показатели:
     {"[color=#7af396]"}SpO2[/color]: {$spo2}%
 
 -health-analyzer-brain-health-tooltip-dead =
-    The patient has 0% brain activity and is dead.
+    Мозг пациента не проявляет активности. Он мёртв.

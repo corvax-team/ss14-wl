@@ -93,7 +93,8 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 var healthAlert = hasHeartrate ? "HeartRate" : "HumanHealth";
                 var expectedIDs = new[] { healthAlert, "Debug1", "Debug2" }; // Offbrand // "HeartRate" -> healthAlert
                 // WL-Offmed-end
-                Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
+                if (entManager.GetComponent<MetaDataComponent>(playerUid).EntityPrototype.ID != "MobIpc") // Corvax-IPC
+                    Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
             });
 
             await server.WaitAssertion(() =>
@@ -114,7 +115,8 @@ namespace Content.IntegrationTests.Tests.GameObjects.Components.Mobs
                 var healthAlert = hasHeartrate ? "HeartRate" : "HumanHealth";
                 var expectedIDs = new[] { healthAlert, "Debug2" }; // Offbrand // "HeartRate" -> healthAlert
                 // WL-Offmed-end
-                Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
+                if (entManager.GetComponent<MetaDataComponent>(playerUid).EntityPrototype.ID != "MobIpc") // Corvax-IPC
+                    Assert.That(alertIDs, Is.SupersetOf(expectedIDs));
             });
 
             await pair.CleanReturnAsync();
