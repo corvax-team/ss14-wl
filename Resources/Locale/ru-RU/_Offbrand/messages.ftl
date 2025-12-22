@@ -20,8 +20,8 @@ mmi-extractor-prompt =
 mmi-extractor-accept = Принять
 mmi-extractor-decline = Отклонить
 
-chat-emote-name-paingasp = Предсмертный хрип
-chat-emote-msg-paingasp = беспомощно бьется в конвульсиях и замирает...
+chat-emote-name-brainslump = Предсмертный хрип
+chat-emote-msg-brainslump = беспомощно бьется в конвульсиях и замирает...
 chat-emote-name-braingasp = Мозговой хрип
 chat-emote-msg-braingasp = обмякает, и над { OBJECT($entity) } нависает мертвенная бледность...
 chat-emote-name-painslump = Болевой обморок
