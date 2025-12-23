@@ -1,0 +1,20 @@
+- type: entity
+  id: C4_wl_paper
+  parent: C4
+  name: С4 — издание для станций Папер
+  components:
+    - type: TimerTrigger
+      delay: 0
+    - type: Explosive
+      totalIntensity: 1
+      intensitySlope: 1
+      maxIntensity: 1
+    - type: Stealth
+    - type: StealthOnMove
+
+- type: entity
+  id: PoweredlightCyan_wl_paper
+  parent: PoweredlightCyan
+  components:
+    - type: PointLight
+      falloff: 100

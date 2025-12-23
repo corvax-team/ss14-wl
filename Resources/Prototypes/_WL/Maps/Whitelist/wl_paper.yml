@@ -1,7 +1,7 @@
 # Special Map for Corvax - Whitelist
 - type: gameMap
   id: CorvaxWLPaper
-  mapName: 'Папер'
+  mapName: 'Пейпер'
   mapPath: /Maps/_WL/wl_paper.yml
   maxRandomOffset: 0
   randomRotation: false
