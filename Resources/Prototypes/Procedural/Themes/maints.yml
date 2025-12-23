@@ -13,6 +13,7 @@
   offset: 6,0
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5c
@@ -21,6 +22,7 @@
   offset: 12,0
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5d
@@ -29,6 +31,7 @@
   offset: 18,0
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5e
@@ -36,8 +39,8 @@
   atlas: /Maps/Dungeon/maints.yml
   offset: 0,6
   tags:
-    - Maints
-
+  - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 - type: dungeonRoom
   id: Maints5x5f
   size: 5,5
@@ -53,6 +56,7 @@
   offset: 12,6
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5h
@@ -61,6 +65,7 @@
   offset: 18,6
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5i
@@ -69,6 +74,7 @@
   offset: 0,12
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5j
@@ -77,6 +83,7 @@
   offset: 6,12
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5k
@@ -85,6 +92,7 @@
   offset: 12,12
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5l
@@ -93,6 +101,7 @@
   offset: 18,12
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5m
@@ -101,6 +110,7 @@
   offset: 0,18
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5n
@@ -109,6 +119,7 @@
   offset: 6,18
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5o
@@ -117,6 +128,7 @@
   offset: 12,18
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5p
@@ -125,6 +137,7 @@
   offset: 18,18
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5q
@@ -133,6 +146,7 @@
   offset: 0,24
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5r
@@ -141,6 +155,7 @@
   offset: 6,24
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5s
@@ -149,6 +164,7 @@
   offset: 12,24
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: dungeonRoom
   id: Maints5x5t
@@ -157,6 +173,7 @@
   offset: 18,24
   tags:
   - Maints
+  - MaintsPaperAproved # Corvax-WL Changes
 
 - type: entity
   parent: BaseRoomMarker
