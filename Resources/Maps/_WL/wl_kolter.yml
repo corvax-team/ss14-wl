@@ -126582,32 +126582,6 @@ entities:
     - type: Transform
       pos: -178.16837,-29.54338
       parent: 2
-- proto: IVStand
-  entities:
-  - uid: 5391
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -56.594837,20.49218
-      parent: 2
-  - uid: 7054
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -40.720844,24.50007
-      parent: 2
-  - uid: 13701
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -50.483704,20.508556
-      parent: 2
-  - uid: 14637
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -52.520096,20.526901
-      parent: 2
 - proto: JanitorialTrolley
   entities:
   - uid: 12281
