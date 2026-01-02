@@ -12,16 +12,14 @@ using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
-using Robust.Shared.Network;
-using Robust.Shared.Player;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Map;
 using Content.Shared.Projectiles;
-using System.Threading;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Damage.Components;
-using Content.Shared.Weapons.Ranged;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Weapons.Hitscan.Components;
+using Robust.Shared.Player;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.Execution;
 
@@ -40,6 +38,7 @@ public sealed class ExecutionSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -170,23 +169,36 @@ public sealed class ExecutionSystem : EntitySystem
                  hitscanBatteryAmmo.Shots != 0 &&
                  TryComp(uid, out GunComponent? laserGun))
         {
-            DamageSpecifier damageSpecifier = new DamageSpecifier()
+            DamageSpecifier? damageSpecifier = GetHitscanDamageFromProto(hitscanBatteryAmmo.HitscanEntityProto);
+
+            if (damageSpecifier == null)
             {
-                DamageDict = new Dictionary<string, FixedPoint.FixedPoint2>()
+                // if can't take damage, use fallback
+                damageSpecifier = new DamageSpecifier()
                 {
-                    { "Heat", component.DamageModifier * 10f }
-                }
-            };
+                    DamageDict = new Dictionary<string, FixedPoint.FixedPoint2>()
+                    {
+                        { "Heat", component.DamageModifier * 10f }
+                    }
+                };
+            }
+            else
+            {
+                DamageSpecifier? damageSpecifier1 = damageSpecifier; // for currenlty damage
+                damageSpecifier *= component.DamageModifier;
+                damageSpecifier -= damageSpecifier1;
+            }
 
             if (attacker == victim)
             {
+                _gunSystem.SetTarget(laserGun, victim);
                 _gunSystem.AttemptShoot(uid, laserGun);
                 _damageable.TryChangeDamage(victim, damageSpecifier, origin: attacker);
             }
             else  //This number is set, because two Vectors with x0 y0 make Vector(NaN, Nan) direction, and this pass NaN value check... ¯\_(ツ)_/¯
             {
                 _gunSystem.SetTarget(laserGun, victim);
-                _gunSystem.AttemptShoot(attacker, uid, laserGun, new EntityCoordinates(victim, 0.01984f, -0.00451f));
+                _gunSystem.AttemptShoot(attacker, uid, laserGun, new EntityCoordinates(victim, 0.01984f, -0.00451f), target: victim);
                 _damageable.TryChangeDamage(victim, damageSpecifier, origin: attacker);
             }
 
@@ -211,7 +223,7 @@ public sealed class ExecutionSystem : EntitySystem
             //    //externalMsg = component.DefaultCompleteExternalGunExecutionMessage;
             //}
 
-            if(attacker == victim)
+            if (attacker == victim)
             {
                 _gunSystem.AttemptShoot(uid, gun);
             }
@@ -219,7 +231,7 @@ public sealed class ExecutionSystem : EntitySystem
             {
                 _gunSystem.SetTarget(gun, victim);
                 //This number is set, because two Vectors with x0 y0 make Vector(NaN, Nan) direction, and this pass NaN value check... ¯\_(ツ)_/¯
-                _gunSystem.AttemptShoot(attacker, uid, gun, new EntityCoordinates(victim, 0.01984f, -0.00451f));
+                _gunSystem.AttemptShoot(attacker, uid, gun, new EntityCoordinates(victim, 0.01984f, -0.00451f), target: victim);
             }
             args.Handled = true;
         }
@@ -233,6 +245,28 @@ public sealed class ExecutionSystem : EntitySystem
         //    //ShowExecutionInternalPopup(internalMsg, attacker, victim, uid);
         //    //ShowExecutionExternalPopup(externalMsg, attacker, victim, uid);
         //}
+    }
+
+    private DamageSpecifier? GetHitscanDamageFromProto(EntProtoId hitscanProto)
+    {
+        try
+        {
+            var proto = _prototypeManager.Index(hitscanProto);
+
+            // Trying get component HitscanBasicDamage from prototype
+            if (proto.TryGetComponent<HitscanBasicDamageComponent>(out var basicDamageComp, EntityManager.ComponentFactory))
+            {
+                return basicDamageComp.Damage * _damageable.UniversalHitscanDamageModifier;
+            }
+
+            Log.Warning($"Hitscan prototype {hitscanProto} doesn't have HitscanBasicDamageComponent");
+            return null;
+        }
+        catch (Exception ex)
+        {
+            Log.Error($"Failed to get damage from hitscan prototype {hitscanProto}: {ex.Message}");
+            return null;
+        }
     }
 
     private void OnGetMeleeDamage(EntityUid uid, ExecutionComponent comp, ref GetMeleeDamageEvent args)

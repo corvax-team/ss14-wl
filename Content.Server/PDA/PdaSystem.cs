@@ -21,6 +21,7 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes; // WL-Changes: Alert Level Rework
 using Robust.Shared.Utility;
 
 namespace Content.Server.PDA
@@ -37,6 +38,7 @@ namespace Content.Server.PDA
         [Dependency] private readonly UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
 
         public override void Initialize()
         {
@@ -212,7 +214,9 @@ namespace Content.Server.PDA
                     IdOwner = id?.FullName,
                     JobTitle = id?.LocalizedJobTitle,
                     StationAlertLevel = pda.StationAlertLevel,
-                    StationAlertColor = pda.StationAlertColor
+                    StationAlertColor = pda.StationAlertColor,
+                    StationAlertInstructions = pda.StationAlertInstructions, // WL-Changes: custom alert instructions in PDA
+                    StationAlertName = pda.StationAlertName // WL-Changes: Alert Level Rework
                 },
                 pda.StationName,
                 showUplink,
@@ -307,7 +311,17 @@ namespace Content.Server.PDA
                 return;
             pda.StationAlertLevel = alertComp.CurrentLevel;
             if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var details))
-                pda.StationAlertColor = details.Color;
+            {
+                // WL-Changes-start: Alert Level Rework
+                if (_prototypeManager.TryIndex(details, out var index))
+                {
+                    pda.StationAlertColor = index.Color;
+                    pda.StationAlertInstructions = index.Instruction;
+                    if (!string.IsNullOrEmpty(index.SetName))
+                        pda.StationAlertName = index.SetName;
+                }
+                // WL-Changes-end
+            }
         }
 
         private string? GetDeviceNetAddress(EntityUid uid)

@@ -19,6 +19,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes; // WL-Changes: Alert Level Rework
 
 namespace Content.Server.Communications
 {
@@ -35,6 +36,7 @@ namespace Content.Server.Communications
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
 
         private const float UIUpdateInterval = 5.0f;
 
@@ -144,13 +146,16 @@ namespace Content.Server.Communications
                     if (alertComp.IsSelectable)
                     {
                         levels = new();
-                        foreach (var (id, detail) in alertComp.AlertLevels.Levels)
+                        // WL-Changes-start: Alert Level Rework
+                        foreach (var protoId in alertComp.AlertLevels.Levels) // (id, detail) -> protoId
                         {
-                            if (detail.Selectable)
+                            if (_prototypeManager.TryIndex(protoId, out var prototype)
+                                && prototype.Selectable)
                             {
-                                levels.Add(id);
+                                levels.Add(prototype.ID); // id -> prototype.ID
                             }
                         }
+                        // WL-Changes-end
                     }
 
                     currentLevel = alertComp.CurrentLevel;

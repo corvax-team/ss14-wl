@@ -1,0 +1,18 @@
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
+  id: ClothingEyesBallisticSecurity
+  name: ballistic security glasses
+  description: Ballistic glasses that provide flash immunity and a security HUD.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/ballistic.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/ballistic.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES

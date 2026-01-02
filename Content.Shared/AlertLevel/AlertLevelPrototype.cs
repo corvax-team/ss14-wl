@@ -1,0 +1,83 @@
+// WL-Changes-start: Alert Level Rework
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared.AlertLevel;
+
+[Prototype("alertLevelsList")]
+public sealed class AlertLevelsListPrototype : IPrototype
+{
+    [IdDataField] public string ID { get; private set; } = default!;
+
+    /// <summary>
+    /// Set of allowed alert levels.
+    /// </summary>
+    [DataField] public HashSet<ProtoId<AlertLevelPrototype>> Levels = new();
+
+    /// <summary>
+    /// Default level that the station is on upon initialization.
+    /// If this isn't in the hashSet, this will default to whatever .First() gives.
+    /// </summary>
+    [DataField] public string DefaultLevel { get; private set; } = default!;
+}
+
+/// <summary>
+/// Alert level detail.
+/// </summary>
+[Prototype("alertLevel")]
+public sealed class AlertLevelPrototype : IPrototype
+{
+    [IdDataField] public string ID { get; private set; } = default!;
+
+    [DataField("name")] public string? SetName { get; private set; }
+    /// <summary>
+    /// What is announced upon this alert level change. Can be a localized string.
+    /// </summary>
+    [DataField] public string Announcement { get; private set; } = string.Empty;
+
+    // WL-Changes-start: custom alert instructions in PDA
+    /// <summary>
+    /// Instruction of alert level in pda
+    /// </summary>
+    [DataField] public string Instruction { get; private set; } = string.Empty;
+    // WL-Changes-end
+
+    /// <summary>
+    /// Whether this alert level is selectable from a communications console.
+    /// </summary>
+    [DataField] public bool Selectable { get; private set; } = true;
+
+    /// <summary>
+    /// If this alert level disables user selection while it is active. Beware -
+    /// setting this while something is selectable will disable selection permanently!
+    /// This should only apply to entities or gamemodes that auto-select an alert level,
+    /// such as a nuclear bomb being set to active.
+    /// </summary>
+    [DataField] public bool DisableSelection { get; private set; }
+
+    /// <summary>
+    /// The sound that this alert level will play in-game once selected.
+    /// </summary>
+    [DataField] public SoundSpecifier? Sound { get; private set; }
+
+    /// <summary>
+    /// The color that this alert level will show in-game in chat.
+    /// </summary>
+    [DataField] public Color Color { get; private set; } = Color.White;
+
+    /// <summary>
+    /// The color to turn emergency lights on this station when they are active.
+    /// </summary>
+    [DataField] public Color EmergencyLightColor { get; private set; } = Color.FromHex("#FF4020");
+
+    /// <summary>
+    /// Will this alert level force emergency lights on for the station that's active?
+    /// </summary>
+    [DataField] public bool ForceEnableEmergencyLights { get; private set; } = false;
+
+    /// <summary>
+    /// How long it takes for the shuttle to arrive when called.
+    /// </summary>
+    [DataField] public TimeSpan ShuttleTime { get; private set; } = TimeSpan.FromMinutes(5);
+}
+// WL-Changes-end

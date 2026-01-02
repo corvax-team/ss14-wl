@@ -1,0 +1,14 @@
+- type: entity
+  id: DresserAdjutantFilled
+  parent: Dresser
+  suffix: Filled, Adjutant
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUniformJumpsuitAdjutant
+      - id: ClothingUniformJumpskirtAdjutant
+      - id: ClothingOuterWinterAdjutant
+      - id: ClothingHeadHatBeretAdjutant
+      - id: ClothingHeadHatAdjutantCap
+      - id: ClothingShoesBootsLaceup
+

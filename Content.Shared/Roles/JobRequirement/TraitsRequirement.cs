@@ -1,12 +1,12 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Traits;
 using JetBrains.Annotations;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using System.Diagnostics.CodeAnalysis;
+using System.Text;
 
 namespace Content.Shared.Roles;
 
@@ -17,21 +17,19 @@ namespace Content.Shared.Roles;
 [Serializable, NetSerializable]
 public sealed partial class TraitsRequirement : JobRequirement
 {
-    //WL-Changes-start
-    public override IReadOnlyList<CVarValueWrapper>? CheckingCVars => base.CheckingCVars;
-    //WL-Changes-end
-
     [DataField(required: true)]
     public HashSet<ProtoId<TraitPrototype>> Traits = new();
 
-    public override bool Check(IEntityManager entManager,
+    public override bool Check(
+        IEntityManager entManager,
         IPrototypeManager protoManager,
+        /*WL-Changes-start*/IConfigurationManager cfgMan,/*WL-Changes-end*/
         HumanoidCharacterProfile? profile,
         /*WL-Changes-start*/JobPrototype? job,/*WL-Changes-end*/
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
-        reason = new FormattedMessage();
+        reason = null;
 
         if (profile is null) //the profile could be null if the player is a ghost. In this case we don't need to block the role selection for ghostrole
             return true;

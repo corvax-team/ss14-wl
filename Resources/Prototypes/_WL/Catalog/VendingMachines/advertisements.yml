@@ -5,7 +5,7 @@
     count: 5
 
 - type: localizedDataset
-  id: GothicOMatAds
+  id: FashionOMatAds
   values:
-    prefix: advertisement-gothic-
+    prefix: advertisement-fashion-
     count: 5

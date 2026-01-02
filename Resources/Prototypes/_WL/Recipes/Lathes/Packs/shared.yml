@@ -90,3 +90,14 @@
   id: Photo
   recipes:
   - PhotoCameraRecipe
+
+- type: latheRecipePack
+  id: SecBalaclavStatic
+  recipes:
+  - SecBalaclavBlackRecipe
+  - SecBalaclavBlackSkullRecipe
+  - SecBalaclavBlueRecipe
+  - SecBalaclavBlueSkullRecipe
+  - SecBalaclavGreenRecipe
+  - SecBalaclavRedRecipe
+  - SecBalaclavTanRecipe

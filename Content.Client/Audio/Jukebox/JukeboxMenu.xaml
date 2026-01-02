@@ -1,15 +1,25 @@
-<ui:FancyWindow xmlns="https://spacestation14.io" xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
-                SetSize="400 500" Title="{Loc 'jukebox-menu-title'}">
+<!-- WL-Chnges -->
+<ui:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
+    SetSize="400 500"
+    Title="{Loc 'jukebox-menu-title'}">
     <BoxContainer Margin="4 0" Orientation="Vertical">
-        <ItemList Name="MusicList" SelectMode="Button" Margin="3 3 3 3"
-        HorizontalExpand="True" VerticalExpand="True" SizeFlagsStretchRatio="8"/>
-        <BoxContainer Orientation="Vertical">
-            <Label Name="SongSelected" Text="{Loc 'jukebox-menu-selectedsong'}" />
-            <Label Name="SongName" Text="---" />
-            <Slider Name="PlaybackSlider" HorizontalExpand="True" />
+        <LineEdit Name="SearchLineEdit" PlaceHolder="{Loc 'ui-actionmenu-search-bar-placeholder-text'}" Margin="0 2 0 0" />
+        <ui:SearchListContainer Name="MusicList" Margin="3 3 3 3" HorizontalExpand="True" VerticalExpand="True" Access="Public" />
+        <BoxContainer>
+            <Label Text="{Loc 'ui-options-volume-label'}"/>
+            <Slider Name="VolumeSlider" HorizontalExpand="True" Margin="10 0 0 0" MinValue="0" MaxValue="1" Value="1"/>
+            <Label Name="VolumeSliderValueLabel" Margin="10 0 0 0" MinWidth="40"/>
         </BoxContainer>
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True"
-        VerticalExpand="False" SizeFlagsStretchRatio="1">
+        <BoxContainer Orientation="Vertical">
+            <BoxContainer Margin="0 5">
+                <Label Name="SongSelected" Text="{Loc 'jukebox-menu-selectedsong'}" />
+                <Label Name="SongName" Text="---" Margin="7 0 0 0"/>
+            </BoxContainer>
+            <Slider Name="PlaybackSlider" HorizontalExpand="True"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="False" SizeFlagsStretchRatio="1" Margin="0 5 0 5">
             <Button Name="PlayButton" Text="{Loc 'jukebox-menu-buttonplay'}" />
             <Button Name="StopButton" Text="{Loc 'jukebox-menu-buttonstop'}" />
             <Label Name="DurationLabel" Text="00:00 / 00:00" HorizontalAlignment="Right" HorizontalExpand="True"/>

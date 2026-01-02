@@ -4,6 +4,11 @@
   components:
   - type: Sprite
     state: arachn
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - slimy
+    - strange
 
 - type: entity
   parent: FoodSweetsGummyBase
@@ -18,6 +23,11 @@
   components:
   - type: Sprite
     state: felin
+  - type: FlavorProfile
+    flavors:
+    - milk
+    - creamy
+    - fish
 
 - type: entity
   parent: FoodSweetsGummyBase
@@ -60,6 +70,10 @@
   components:
   - type: Sprite
     state: slime
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - slime
 
 - type: entity
   parent: FoodSweetsGummyBase

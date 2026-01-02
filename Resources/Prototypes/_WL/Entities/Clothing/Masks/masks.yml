@@ -15,3 +15,182 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+
+- type: entity
+  abstract: true
+  parent: ClothingMaskBase
+  id: ClothingMaskBalaclavBase
+  name: balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Item
+    storedRotation: -90
+  - type: IdentityBlocker
+
+- type: entity
+  abstract: true
+  parent: ClothingMaskBalaclavBase
+  id: ClothingMaskBalaclavSecBase
+  name: security balaclava
+  description: Cool sec fiber mask.
+  components:
+  - type: BreathMask
+
+- type: entity
+  parent: ClothingMaskBalaclavBase
+  id: ClothingMaskBalaclavFabricBlack
+  name: black balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/black.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/black.rsi
+  - type: Construction
+    graph: ClothingMaskBalaclavFabricBlack
+    node: mask
+
+- type: entity
+  parent: ClothingMaskBalaclavBase
+  id: ClothingMaskBalaclavFabricBlue
+  name: blue balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/blue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/blue.rsi
+  - type: Construction
+    graph: ClothingMaskBalaclavFabricBlue
+    node: mask
+
+- type: entity
+  parent: ClothingMaskBalaclavBase
+  id: ClothingMaskBalaclavFabricGreen
+  name: green balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/green.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/green.rsi
+  - type: Construction
+    graph: ClothingMaskBalaclavFabricGreen
+    node: mask
+
+- type: entity
+  parent: ClothingMaskBalaclavBase
+  id: ClothingMaskBalaclavFabricRed
+  name: red balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/red.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/red.rsi
+  - type: Construction
+    graph: ClothingMaskBalaclavFabricRed
+    node: mask
+
+- type: entity
+  parent: ClothingMaskBalaclavBase
+  id: ClothingMaskBalaclavFabricTan
+  name: tan balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/tan.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/tan.rsi
+  - type: Construction
+    graph: ClothingMaskBalaclavFabricTan
+    node: mask
+
+- type: entity
+  parent: ClothingMaskBalaclavBase
+  id: ClothingMaskBalaclavFabricSyndi
+  name: syndicate balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/syndicate.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Fabric/syndicate.rsi
+  - type: BreathMask
+
+- type: entity
+  parent: ClothingMaskBalaclavSecBase
+  id: ClothingMaskBalaclavSecBlack
+  name: black security balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/black.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/black.rsi
+
+- type: entity
+  parent: ClothingMaskBalaclavSecBase
+  id: ClothingMaskBalaclavSecBlackSkull
+  name: black skull security balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/black_skull.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/black_skull.rsi
+
+- type: entity
+  parent: ClothingMaskBalaclavSecBase
+  id: ClothingMaskBalaclavSecBlue
+  name: blue security balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/blue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/blue.rsi
+
+- type: entity
+  parent: ClothingMaskBalaclavSecBase
+  id: ClothingMaskBalaclavSecBlueSkull
+  name: blue skull security balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/blue_skull.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/blue_skull.rsi
+
+- type: entity
+  parent: ClothingMaskBalaclavSecBase
+  id: ClothingMaskBalaclavSecGreen
+  name: green security balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/green.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/green.rsi
+
+- type: entity
+  parent: ClothingMaskBalaclavSecBase
+  id: ClothingMaskBalaclavSecRed
+  name: red security balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/red.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/red.rsi
+
+- type: entity
+  parent: ClothingMaskBalaclavSecBase
+  id: ClothingMaskBalaclavSecTan
+  name: black security balaclava
+  description: Cool fiber mask.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/tan.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/Balaclavs/Security/tan.rsi

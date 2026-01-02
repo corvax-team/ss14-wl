@@ -75,6 +75,8 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
             DeactivateSound = component.DeactivateSound,
             ToggleAction = component.ToggleAction,
             LightRadius = component is ThermalVisionComponent thermal ? thermal.LightRadius : 0f,
+            DrawOverlay = component.DrawOverlay,
+            OverlayOpacity = component.OverlayOpacity,
         };
     }
 
@@ -87,6 +89,8 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         component.IsEquipment = state.IsEquipment;
         component.ActivateSound = state.ActivateSound;
         component.DeactivateSound = state.DeactivateSound;
+        component.DrawOverlay = state.DrawOverlay;
+        component.OverlayOpacity = state.OverlayOpacity;
 
         if (component.ToggleAction != state.ToggleAction)
         {

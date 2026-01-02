@@ -107,7 +107,11 @@ public abstract partial class SharedStunSystem
     private void OnKnockInit(Entity<KnockedDownComponent> entity, ref ComponentInit args)
     {
         // Other systems should handle dropping held items...
-        _standingState.Down(entity, true, false);
+        // WL-Changes-start: sleep when you lying down
+        if (!TryComp<StandingStateComponent>(entity, out var standing)
+            || standing.Standing)
+            _standingState.Down(entity, true, false);
+        // WL-Changes-end
         RefreshKnockedMovement(entity);
     }
 

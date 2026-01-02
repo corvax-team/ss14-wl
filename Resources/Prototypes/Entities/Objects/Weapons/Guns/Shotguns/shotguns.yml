@@ -151,6 +151,11 @@
   - type: Item
     sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
   - type: BallisticAmmoProvider
+# WL-Gun-Rework-Start
+    autoCycle: false
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+# WL-Gun-Rework-End
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun # Corvax-Guns
     soundGunshot:
@@ -189,6 +194,12 @@
   - type: Tag
     tags:
     - WeaponShotgunKammerer
+# WL-Gun-Rework-Start
+  - type: BallisticAmmoProvider
+    autoCycle: false
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+# WL-Gun-Rework-End
 
 - type: entity
   name: sawn-off shotgun
@@ -278,29 +289,66 @@
   - type: StaticPrice
     price: 0
 
+# WL-Gun-Rework-Start - для добавления механики как у флейр гана пришлость почти полностью писать прототип заного, потому, отмечу лишь начало и конец всего этого.
 - type: entity
   name: improvised shotgun
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseMinorContraband]
+  parent: [BaseItem, BaseGunWieldable, BaseMinorContraband]
   id: WeaponShotgunImprovised
   description: A shitty, hand-made shotgun that uses .50 shotgun shells. It can only hold one round in the chamber.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
   - type: Item
+    size: Large
+    shape:
+    - 0,0,4,0
     sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.
-  - type: BallisticAmmoProvider
-    capacity: 1
-    proto: null
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: Construction
     graph: ImprovisedShotgunGraph
     node: shotgun
   - type: StaticPrice
     price: 20
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        startingItem: null
+        priority: 1
+        whitelist:
+          tags:
+            - ShellShotgun
+  - type: ContainerContainer
+    containers:
+      gun_chamber: !type:ContainerSlot
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: false
+    boltClosed: false
+    canRack: false
+    soundBoltClosed: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+    soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+    soundRack: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+  - type: Appearance
+  - type: Execution
+# WL-Gun-Rework-End
 
 - type: entity
   name: improvised shotgun
@@ -308,5 +356,14 @@
   suffix: Loaded
   id: WeaponShotgunImprovisedLoaded
   components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunImprovised
+# WL-Gun-Rework-Start
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        startingItem: ShellShotgunImprovised
+        priority: 1
+        whitelist:
+          tags:
+            - ShellShotgun
+# WL-Gun-Rework-End

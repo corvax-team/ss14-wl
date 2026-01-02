@@ -439,14 +439,14 @@ public sealed partial class ChatSystem : SharedChatSystem
         name = FormattedMessage.EscapeText(name);
 
         //WL-Changes: Languages start
-        var wrappedMessage = _languages.GetWrappedMessage(message, source, name, speech, true);
+        var wrappedMessage = _languages.GetWrappedMessage(message, source, name, speech);
         if (wrappedMessage.Length == 0)
             return;
         var obfusMessage = _languages.ObfuscateMessageFromSource(message, source);
 
         string obfusWrappedMessage;
 
-        if (_languages.IsObfusEmoting(source))
+        if (_languages.IsObfusEmoting(source, message))
             obfusWrappedMessage = _languages.GetEmoteWrappedMessage(obfusMessage, source, name);
         else
             obfusWrappedMessage = _languages.GetWrappedMessage(obfusMessage, source, name, speech);
@@ -517,11 +517,11 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         //WL-Changes: Languages start
         //var color = _languages.GetColor(message, source); // Без полезно, но оставлю
-        var wrappedMessage = _languages.GetWhisperWrappedMessage(message, source, nameIdentity, true);
+        var wrappedMessage = _languages.GetWhisperWrappedMessage(message, source, nameIdentity);
         if (wrappedMessage.Length == 0)
             return;
 
-        var wrappedobfuscatedMessage = _languages.GetWhisperWrappedMessage(obfuscatedMessage, source, nameIdentity, false);
+        var wrappedobfuscatedMessage = _languages.GetWhisperWrappedMessage(obfuscatedMessage, source, nameIdentity);
 
         var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message",
             ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
@@ -530,10 +530,10 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         string obfusWrappedMessage;
 
-        if (_languages.IsObfusEmoting(source))
-            obfusWrappedMessage = _languages.GetEmoteWrappedMessage(langObfusMessage, source, name);
+        if (_languages.IsObfusEmoting(source, message))
+            obfusWrappedMessage = _languages.GetEmoteWrappedMessage(langObfusMessage, source, nameIdentity);
         else
-            obfusWrappedMessage = _languages.GetWhisperWrappedMessage(langObfusMessage, source, name);
+            obfusWrappedMessage = _languages.GetWhisperWrappedMessage(langObfusMessage, source, nameIdentity);
 
         var biobfMessage = ObfuscateMessageReadability(langObfusMessage, 0.2f);
         var wrappedbiobfusMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
@@ -557,14 +557,14 @@ public sealed partial class ChatSystem : SharedChatSystem
             var afterWrappedMessage = wrappedMessage;
             var afterWrappedObfuscatedMessage = wrappedobfuscatedMessage;
             var afterUnknownMessage = wrappedUnknownMessage;
-            if (!_languages.CanUnderstand(source, listener))
+            if (!_languages.CanUnderstand(source, listener, message))
             {
                 afterMessage = langObfusMessage;
                 afterObfusMessage = biobfMessage;
                 afterWrappedMessage = obfusWrappedMessage;
                 afterWrappedObfuscatedMessage = wrappedbiobfusMessage;
                 afterUnknownMessage = obfusUnknownMessage;
-                if (_languages.IsObfusEmoting(source))
+                if (_languages.IsObfusEmoting(source, message))
                 {
                     _chatManager.ChatMessageToOne(ChatChannel.Emotes, afterMessage, afterWrappedMessage, source, false, session.Channel);
                     continue;
@@ -588,7 +588,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (TryEntitySpeak(source)) // WL-Change: No talk in vacuum
             _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
-        var ev = new EntitySpokeEvent(source, message, originalMessage, channel, obfuscatedMessage, /*WL-Changes: Languages*/langObfusMessage, biobfMessage/*WL-Changes: Languages*/);
+        var ev = new EntitySpokeEvent(source, message, originalMessage, channel, obfuscatedMessage, /*WL-Changes: Languages*/biobfMessage, langObfusMessage/*WL-Changes: Languages*/);
         RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)
@@ -760,11 +760,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             var afterMessage = message;
             var afterWrappedMessage = wrappedMessage;
             var afterChannel = channel;
-            if (!_languages.CanUnderstand(source, listener))
+            if (!_languages.CanUnderstand(source, listener, message))
             {
                 afterMessage = obfusMessage;
                 afterWrappedMessage = obfusWrappedMessage;
-                if (_languages.IsObfusEmoting(source) && channel != ChatChannel.LOOC)
+                if (_languages.IsObfusEmoting(source, message) && channel != ChatChannel.LOOC)
                     afterChannel = ChatChannel.Emotes;
             }
 

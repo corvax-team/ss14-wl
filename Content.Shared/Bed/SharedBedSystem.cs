@@ -7,6 +7,10 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
+// WL-Changes-start: fix: lying down after sleep on bed
+using Content.Shared.Standing;
+using Content.Shared.Stunnable;
+// WL-Changes-end
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -21,6 +25,7 @@ public abstract class SharedBedSystem : EntitySystem
     [Dependency] private readonly SharedMetabolizerSystem _metabolizer = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; // WL-Changes: fix: lying down after sleep on bed
 
     public override void Initialize()
     {
@@ -29,6 +34,7 @@ public abstract class SharedBedSystem : EntitySystem
         SubscribeLocalEvent<HealOnBuckleComponent, MapInitEvent>(OnHealMapInit);
         SubscribeLocalEvent<HealOnBuckleComponent, StrappedEvent>(OnStrapped);
         SubscribeLocalEvent<HealOnBuckleComponent, UnstrappedEvent>(OnUnstrapped);
+        SubscribeLocalEvent<HealOnBuckleComponent, UnstrapAttemptEvent>(OnUnstrapAttempt); // WL-Changes: fix: lying down after sleep on bed
 
         SubscribeLocalEvent<StasisBedComponent, StrappedEvent>(OnStasisStrapped);
         SubscribeLocalEvent<StasisBedComponent, UnstrappedEvent>(OnStasisUnstrapped);
@@ -61,10 +67,27 @@ public abstract class SharedBedSystem : EntitySystem
         {
             _actionsSystem.RemoveAction(args.Buckle.Owner, bed.Comp.SleepAction);
             _sleepingSystem.TryWaking(args.Buckle.Owner);
+
+            // WL-Changes-start: fix: lying down after sleep on bed
+            if (bed.Comp.User == args.Buckle.Owner)
+            {
+                RemComp<KnockedDownComponent>(args.Buckle.Owner);
+                RemComp<StunnedComponent>(args.Buckle.Owner);
+
+                _standing.Stand(args.Buckle.Owner, force: true);
+            }
+            // WL-Changes-end
         }
-        
+
         RemComp<HealOnBuckleHealingComponent>(bed);
     }
+
+    // WL-Changes-start: fix: lying down after sleep on bed
+    private void OnUnstrapAttempt(Entity<HealOnBuckleComponent> ent, ref UnstrapAttemptEvent args)
+    {
+        ent.Comp.User = args.User;
+    }
+    // WL-Changes-end
 
     private void OnStasisStrapped(Entity<StasisBedComponent> ent, ref StrappedEvent args)
     {

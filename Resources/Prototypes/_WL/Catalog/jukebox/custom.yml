@@ -1,0 +1,62 @@
+- type: jukebox
+  id: VibeAce
+  author: Kevin MacLeod
+  name: Vibe Ace
+  path:
+    path: /Audio/_WL/Jukebox/Custom/vibe_ace.ogg
+
+- type: jukebox
+  id: Marhaba
+  author: Ian Alex Mac
+  name: Marhaba
+  path:
+    path: /Audio/_WL/Jukebox/Custom/marhaba.ogg
+
+- type: jukebox
+  id: Monument
+  author: Six Umbrellas
+  name: Monument
+  path:
+    path: /Audio/_WL/Jukebox/Custom/Monument.ogg
+
+- type: jukebox
+  id: TintinOnTheMoonNoisemakerRemix
+  author: Noisemaker
+  name: Tintin on the Moon (remix)
+  path:
+    path: /Audio/_WL/Jukebox/Custom/Tintin_on_the_Moon_(Noisemakers_Remix).ogg
+
+- type: jukebox
+  id: EndlessSpaceFyreontRemix
+  author: Fyreont
+  name: Endless Space (remix)
+  path:
+    path: /Audio/_WL/Jukebox/Custom/Fyreont-Endless-Space-_SolusLunes-cover_.ogg
+
+- type: jukebox
+  id: ToccataInBitMinor
+  author: MRX
+  name: Toccata in Bit Minor
+  path:
+    path: /Audio/_WL/Jukebox/Custom/Toccata-In-Bit-Minor.ogg
+
+- type: jukebox
+  id: EmptyMarket
+  author: mrjajkes
+  name: Empty Market
+  path:
+    path: /Audio/_WL/Jukebox/Custom/Empty-Market.ogg
+
+- type: jukebox
+  id: GetThatAntag
+  author: mrjajkes
+  name: Get That Antag
+  path:
+    path: /Audio/_WL/Jukebox/Custom/Get-That-Antag.ogg
+
+- type: jukebox
+  id: TraitorousIntent
+  author: mrjajkes
+  name: Traitorous Intent
+  path:
+    path: /Audio/_WL/Jukebox/Custom/Traitorous-Intent.ogg

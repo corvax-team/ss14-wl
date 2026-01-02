@@ -1,0 +1,109 @@
+- type: dungeonRoom
+  id: MaintsPaperZooBottomA
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 1,1
+  tags:
+  - StationElementZOOPaperBOTTOM
+
+- type: dungeonRoom
+  id: MaintsPaperZooBottomB
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 5,1
+  tags:
+  - StationElementZOOPaperBOTTOM
+
+- type: dungeonRoom
+  id: MaintsPaperZooBottomC
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 9,1
+  tags:
+  - StationElementZOOPaperBOTTOM
+
+- type: dungeonRoom
+  id: MaintsPaperZooBottomD
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 13,1
+  tags:
+  - StationElementZOOPaperBOTTOM
+
+- type: dungeonRoom
+  id: MaintsPaperZooBottomE
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 17,1
+  tags:
+  - StationElementZOOPaperBOTTOM
+
+
+
+- type: dungeonRoom
+  id: MaintsPaperZooTopA
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 1,5
+  tags:
+  - StationElementZOOPaperTOP
+
+- type: dungeonRoom
+  id: MaintsPaperZooTopB
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 5,5
+  tags:
+  - StationElementZOOPaperTOP
+
+- type: dungeonRoom
+  id: MaintsPaperZooTopC
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 9,5
+  tags:
+  - StationElementZOOPaperTOP
+
+- type: dungeonRoom
+  id: MaintsPaperZooTopD
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 13,5
+  tags:
+  - StationElementZOOPaperTOP
+
+- type: dungeonRoom
+  id: MaintsPaperZooTopE
+  size: 3,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 17,5
+  tags:
+  - StationElementZOOPaperTOP
+
+
+
+- type: entity
+  parent: BaseRoomMarker
+  id: StationElementsZOOTOPPaperRoomMarker
+  name: Paper Zoo TOP
+  suffix: 3x3, Paper
+  components:
+  - type: RoomFill
+    minSize: 3,3
+    maxSize: 3,3
+    roomWhitelist:
+      tags:
+      - StationElementZOOPaperTOP
+
+- type: entity
+  parent: BaseRoomMarker
+  id: StationElementsZOOBOTTOMPaperRoomMarker
+  name: Paper Zoo BOTTOM
+  suffix: 3x3, Paper
+  components:
+  - type: RoomFill
+    minSize: 3,3
+    maxSize: 3,3
+    roomWhitelist:
+      tags:
+      - StationElementZOOPaperBOTTOM

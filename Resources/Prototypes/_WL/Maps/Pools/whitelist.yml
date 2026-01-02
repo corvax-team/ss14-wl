@@ -4,14 +4,14 @@
 #   Highpop (25+  players)
   - CorvaxWLRenga
   - CorvaxWLRest
+  - Marathon
 # - CorvaxWLAlpha # 🔨
-  - Bagel
 #   BasePop (0-25 players)
+  - Bagel
   - CorvaxWLPaper
   - CorvaxWLKolter
-  - CorvaxPearl # При условии, что Пёрл — обновляемая карта основы.
-  - Amber # ?
-  - Marathon
+# - CorvaxPearl # При условии, что Пёрл — обновляемая карта основы.
+# - Amber # ?
   - CorvaxTushkan # При условии, что Тушкан — обновляемая карта основы.
   - CorvaxWLNanoStation
-  - CorvaxWLPrairie
+# - CorvaxWLPrairie

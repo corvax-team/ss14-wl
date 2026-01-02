@@ -6,6 +6,10 @@
     state: gum_blue
   - type: Clothing
     equippedPrefix: gumblue
+  - type: FlavorProfile
+    flavors:
+    - cold
+    - minty
 
 - type: entity
   parent: FoodSweetsGumBase
@@ -15,6 +19,10 @@
     state: gum_pink
   - type: Clothing
     equippedPrefix: gumpink
+  - type: FlavorProfile
+    flavors:
+    - sweet
+    - strawberry
 
 - type: entity
   parent: FoodSweetsGumBase
@@ -24,3 +32,7 @@
     state: gum_yelo
   - type: Clothing
     equippedPrefix: gumyelo
+  - type: FlavorProfile
+    flavors:
+    - fruity
+    - sour

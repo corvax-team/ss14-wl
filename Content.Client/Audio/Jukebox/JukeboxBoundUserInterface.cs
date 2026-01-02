@@ -1,3 +1,4 @@
+using Content.Shared._WL.Audio.Jukebox;
 using Content.Shared.Audio.Jukebox;
 using Robust.Client.Audio;
 using Robust.Client.UserInterface;
@@ -6,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Audio.Jukebox;
 
-public sealed class JukeboxBoundUserInterface : BoundUserInterface
+public sealed partial class JukeboxBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
@@ -43,6 +44,13 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         _menu.OnSongSelected += SelectSong;
 
+        // WL-Changes-start
+        _menu.VolumeChanged += gain =>
+        {
+            SendMessage(new JukeboxVolumeChangedMessage(gain));
+        };
+        // WL-Changes-end
+
         _menu.SetTime += SetTime;
         PopulateMusic();
         Reload();
@@ -57,15 +65,16 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
             return;
 
         _menu.SetAudioStream(jukebox.AudioStream);
+        _menu.SetVolumeLabelValue(jukebox.Gain); // WL-Changes
 
         if (_protoManager.Resolve(jukebox.SelectedSongId, out var songProto))
         {
             var length = EntMan.System<AudioSystem>().GetAudioLength(songProto.Path.Path.ToString());
-            _menu.SetSelectedSong(songProto.Name, (float) length.TotalSeconds);
+            _menu.SetSelectedSong(songProto.Author, songProto.Name, (float)length.TotalSeconds); // WL-Changes
         }
         else
         {
-            _menu.SetSelectedSong(string.Empty, 0f);
+            _menu.SetSelectedSong(string.Empty, string.Empty, 0f); // WL-Changes
         }
     }
 
@@ -83,12 +92,6 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
     {
         var sentTime = time;
 
-        // You may be wondering, what the fuck is this
-        // Well we want to be able to predict the playback slider change, of which there are many ways to do it
-        // We can't just use SendPredictedMessage because it will reset every tick and audio updates every frame
-        // so it will go BRRRRT
-        // Using ping gets us close enough that it SHOULD, MOST OF THE TIME, fall within the 0.1 second tolerance
-        // that's still on engine so our playback position never gets corrected.
         if (EntMan.TryGetComponent(Owner, out JukeboxComponent? jukebox) &&
             EntMan.TryGetComponent(jukebox.AudioStream, out AudioComponent? audioComp))
         {
@@ -98,4 +101,3 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
         SendMessage(new JukeboxSetTimeMessage(sentTime));
     }
 }
-

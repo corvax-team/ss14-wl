@@ -140,7 +140,7 @@
   abstract: true
   components:
     - type: AlertLevel
-      alertLevelPrototype: stationAlerts
+      alertLevelsListPrototype: stationAlerts # WL-Changes: Alert Level Rework
 
 - type: entity
   id: BaseStationExpeditions
