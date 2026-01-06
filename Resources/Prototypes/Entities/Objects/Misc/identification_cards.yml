@@ -249,7 +249,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: EngineeringIDCard
+  parent: IDCardStandard
   id: SeniorEngineerIDCard
   name: senior engineer ID card
   components:
@@ -264,6 +264,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorEngineer
+  - type: PresetIdCard
+    job: SeniorEngineer
 
 #Medical
 
@@ -361,7 +363,7 @@
     job: Psychologist
 
 - type: entity
-  parent: MedicalIDCard
+  parent: IDCardStandard
   id: SeniorPhysicianIDCard
   name: senior physician ID card
   components:
@@ -375,6 +377,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorPhysician
+  - type: PresetIdCard
+    job: SeniorPhysician
 
 #Science
 
@@ -415,7 +419,7 @@
     job: Scientist
 
 - type: entity
-  parent: ResearchIDCard
+  parent: IDCardStandard
   id: SeniorResearcherIDCard
   name: senior researcher ID card
   components:
@@ -429,6 +433,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorResearcher
+  - type: PresetIdCard
+    job: SeniorResearcher
 
 #Security
 
@@ -519,9 +525,11 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Brigmedic
+  - type: PresetIdCard
+    job: Brigmedic
 
 - type: entity
-  parent: SecurityIDCard
+  parent: IDCardStandard
   id: SeniorOfficerIDCard
   name: senior officer ID card
   components:
@@ -535,6 +543,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorOfficer
+  - type: PresetIdCard
+    job: SeniorOfficer
 
 #Service
 
