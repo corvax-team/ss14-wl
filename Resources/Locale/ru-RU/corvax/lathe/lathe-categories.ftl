@@ -1,5 +1,5 @@
 lathe-category-reports = Отчёты
-lathe-category-statements = Заключения
+lathe-category-statements = Заявления
 lathe-category-inquiries-and-appeals = Запросы и обращения
 lathe-category-complaints = Жалобы
 lathe-category-permissions = Разрешения
