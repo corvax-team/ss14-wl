@@ -1,4 +1,4 @@
-﻿# Errors
+# Errors
 loadout-group-species-restriction = Этот предмет недоступен для вашего текущего вида.
 # Miscellaneous
 loadout-group-trinkets = Безделушки
@@ -172,3 +172,5 @@ loadout-group-psychologist-jumpsuit = Психотерапевт, комбине
 # WL-change-psych
 loadout-group-boxer-jumpsuit = Боксёр, комбинезон
 loadout-group-boxer-gloves = Боксёр, перчатки
+# WL-change-bartender
+loadout-group-bartender-glasses = Бармен, очки

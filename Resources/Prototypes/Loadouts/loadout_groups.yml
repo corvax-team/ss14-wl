@@ -310,6 +310,16 @@
   - BartenderBowler
 
 - type: loadoutGroup
+  id: BartenderEyewear
+  name: loadout-group-bartender-glasses
+  minLimit: 0
+  loadouts:
+  - BartenderHudBeer
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+
+- type: loadoutGroup
   id: BartenderJumpsuit
   name: loadout-group-bartender-jumpsuit
   loadouts:

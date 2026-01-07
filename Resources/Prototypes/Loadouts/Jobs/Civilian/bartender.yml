@@ -18,6 +18,11 @@
   equipment:
     head: ClothingHeadHatBowlerHat
 
+- type: loadout
+  id: BartenderHudBeer
+  equipment:
+    eyes: ClothingEyesHudBeer
+
 # Jumpsuit
 - type: loadout
   id: BartenderJumpsuit
