@@ -41,7 +41,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
-using Content.Client.Corvax.TTS; // Corvax-TTS
+using Content.Client.Corvax.TTS;
+using Content.Client.Lathe.UI; // Corvax-TTS
 
 namespace Content.Client.Lobby.UI
 {
@@ -194,6 +195,10 @@ namespace Content.Client.Lobby.UI
         private TextEdit? _medicalRecordEdit; // WL-Records
         private TextEdit? _securityRecordEdit; // WL-Records
         private TextEdit? _employmentRecordEdit; // WL-Records
+
+        private OptionButton? _confederationButton; // WL-Recordss
+
+        private List<string> _confederations = new List<string>() { "Конфедерация Орионских Государств", "СоцКон", "Межвидовой Альянс", "Священная Империя Эдема" };
 
         private SingleMarkingPicker _underwearPicker => CUnderwearPicker; // WL-Underwear
         private SingleMarkingPicker _undershirtPicker => CUndershirtPicker; // WL-Underwear
@@ -743,6 +748,12 @@ namespace Content.Client.Lobby.UI
             RefreshFlavorText();
 
             RefreshRecords(); // WL-Records
+
+            //_confederationButton.OnItemSelected += args =>
+            //{
+
+            //};
+
             RefreshVoiceTab(); // Corvax-TTS
 
             #region Dummy
@@ -825,6 +836,23 @@ namespace Content.Client.Lobby.UI
             _recordsTab.OnMedicalRecordChanged += OnMedicalRecordChange;
             _recordsTab.OnSecurityRecordChanged += OnSecurityRecordChange;
             _recordsTab.OnEmploymentRecordChanged += OnEmploymentRecordChange;
+
+            _confederations.Sort((a, b) => string.Compare(a, b, StringComparison.CurrentCultureIgnoreCase));
+
+            for (var i = 0; i < _confederations.Count; i++)
+            {
+                var name = /*Loc.GetString(_species[i].Name);*/ _confederations[i];
+
+                //if (_species[i].SponsorOnly) // Corvax-Sponsors
+                //    name += GetSponsorOnlySuffix();
+
+                _recordsTab.ConfederationButton.AddItem(name, i);
+
+                //if (Profile?.Species.Equals(_species[i].ID) == true)
+                //{
+                //    SpeciesButton.SelectId(i);
+                //}
+            }
         }
 
         private void OnMedicalRecordChange(string content)
