@@ -103,6 +103,7 @@
       - Translate
     understood:
       - Translate
+  - type: NoSlip
 
 - type: entity
   save: false
