@@ -29,6 +29,6 @@ public static class Palettes
 
     // wl tones
     public static readonly ColorPalette WL1 = ColorPalette.FromHexBase("#9051A8");
-    public static readonly ColorPalette WL2 = ColorPalette.FromHexBase("#353535");
+    public static readonly ColorPalette WL2 = ColorPalette.FromHexBase("#2d2d2d", lightnessShift: 0.015f, chromaShift: 0.0055f);
 
 }
