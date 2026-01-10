@@ -357,6 +357,8 @@
       solutions:
         absorbed:
           maxVol: 30
+    - type: CleansForensics
+      cleanDelay: 10
     - type: UseDelay
       delay: 1.5
     - type: Tag
