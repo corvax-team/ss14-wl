@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 267.3.0
-  forkId: syndicate-wl
-  forkVersion: fe4fe8b23f4043e51f62d6eab471c45d65518aab
-  time: 01/09/2026 07:28:42
-  entityCount: 28383
+  forkId: ""
+  forkVersion: ""
+  time: 01/10/2026 15:56:04
+  entityCount: 28384
 maps:
 - 1
 grids:
@@ -37760,7 +37760,7 @@ entities:
       pos: 17.5,2.5
       parent: 26755
     - type: Door
-      secondsUntilStateChange: -118785.68
+      secondsUntilStateChange: -118821
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -81710,12 +81710,6 @@ entities:
       parent: 2
 - proto: CryogenicSleepUnit
   entities:
-  - uid: 6955
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 8.5,20.5
-      parent: 2
   - uid: 6956
     components:
     - type: Transform
@@ -81736,10 +81730,14 @@ entities:
       parent: 2
 - proto: CryogenicSleepUnitSpawnerLateJoin
   entities:
+  - uid: 6955
+    components:
+    - type: Transform
+      pos: 8.5,20.5
+      parent: 2
   - uid: 6959
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 8.5,18.5
       parent: 2
 - proto: CryoPod
@@ -150559,6 +150557,13 @@ entities:
     components:
     - type: Transform
       pos: 15.5,14.5
+      parent: 2
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 22357
+    components:
+    - type: Transform
+      pos: 7.5,19.5
       parent: 2
 - proto: SpawnPointLawyer
   entities:
