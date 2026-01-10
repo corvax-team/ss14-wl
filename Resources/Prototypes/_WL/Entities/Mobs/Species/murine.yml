@@ -7,6 +7,12 @@
   components:
   - type: HumanoidAppearance
     species: Murine
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
+    - HeadTop
+    - HeadSide
   - type: Body
     prototype: HumanoidMurine
     requiredLegs: 2

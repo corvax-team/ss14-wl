@@ -9,6 +9,10 @@
   - type: Thirst
   - type: HumanoidAppearance
     species: Cischi
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
   - type: Damageable
     damageModifierSet: Cischi
   - type: Inventory

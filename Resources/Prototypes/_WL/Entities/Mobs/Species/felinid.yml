@@ -12,6 +12,12 @@
       Unsexed: MaleFelinid
   - type: HumanoidAppearance
     species: Felinid
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
+    - HeadTop
+    - HeadSide
   - type: Body
     prototype: Felinid
 #  - type: Damageable

@@ -39,6 +39,12 @@
     delay: 0.5
   - type: HumanoidAppearance
     species: SlimePerson
+    # WL-Change start
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
+    # WL-Change end
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime

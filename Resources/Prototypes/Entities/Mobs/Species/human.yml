@@ -20,6 +20,7 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+    - FacialHair # WL-Change
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

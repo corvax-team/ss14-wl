@@ -110,6 +110,10 @@
     thermalRegulationTemperatureThreshold: 25
   - type: HumanoidAppearance
     species: Android
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
   - type: Body
     prototype: Android
     requiredLegs: 2

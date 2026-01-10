@@ -146,6 +146,12 @@
       visible: false
   - type: HumanoidAppearance
     species: Vox
+    # WL-Change start
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
+    # WL-Change end
     undergarmentTop: UndergarmentTopTanktopVox
     undergarmentBottom: UndergarmentBottomBoxersVox
     markingsDisplacement:
