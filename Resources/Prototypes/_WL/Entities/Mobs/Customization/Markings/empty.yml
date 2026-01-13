@@ -1,0 +1,18 @@
+- type: marking
+  id: TopHeadEmpty
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
+  sponsorOnly: false
+  sprites:
+  - sprite: _WL/Mobs/Customization/empty.rsi
+    state: empty
+
+- type: marking
+  id: TailEmpty
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/empty.rsi
+    state: empty
