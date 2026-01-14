@@ -62,7 +62,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
             args.Cancelled = true;
 
             var time = _timing.CurTime;
-            if (true || time > comp.LastPopup + comp.PopupCooldown)
+            if (time > comp.LastPopup + comp.PopupCooldown)
             {
                 comp.LastPopup = time;
                 var message = Loc.GetString("languages-radio-block");
@@ -77,7 +77,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
             args.Message = ObfuscateMessageReadability(args.Message, 1.0f - passability);
 
             var time = _timing.CurTime;
-            if (true || time > comp.LastPopup + comp.PopupCooldown)
+            if (time > comp.LastPopup + comp.PopupCooldown)
             {
                 comp.LastPopup = time;
                 var message = Loc.GetString("languages-radio-part-pass");

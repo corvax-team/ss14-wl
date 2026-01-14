@@ -17,3 +17,6 @@ trait-language-top-desc = Усложнённая версия транслита
 
 trait-language-bottom = Адаптированный транслит
 trait-language-bottom-desc = Упрощённая версия транслита. Для бедных и необразованных.
+
+trait-language-wingdings = Общегалактический жестовый
+trait-language-wingdings-desc = Популярный жестовый язык. Позволяет говорить в вакууме.

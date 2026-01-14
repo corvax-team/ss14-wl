@@ -86,3 +86,17 @@
     - type: ModifyLanguages
       languages:
         - BottomTranslate
+
+- type: trait
+  id: Wingdings
+  name: trait-language-wingdings
+  description: trait-language-wingdings-desc
+  category: Languages
+  cost: 1
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Wingdings
