@@ -186,7 +186,7 @@
   color: '#03b5fc'
   keylang: 'а'
   needtts: false
-  needsound: true
+  customSound: true
   sound:
     collection: TernarySounds
   obfuscation:

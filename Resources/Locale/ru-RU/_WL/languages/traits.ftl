@@ -10,7 +10,7 @@ trait-language-sinta = Синта'Унати
 trait-language-sinta-desc = Наиболее популярный язык среди унатхов.
 
 trait-language-urhs = Урсахский
-trait-language-uhrs-desc = Второй по популярности диалект Синта'Унати. Обладает большей грубостью.
+trait-language-urhs-desc = Второй по популярности диалект Синта'Унати. Обладает большей грубостью.
 
 trait-language-top = Высший транслит
 trait-language-top-desc = Усложнённая версия транслита. Для аристократов.
