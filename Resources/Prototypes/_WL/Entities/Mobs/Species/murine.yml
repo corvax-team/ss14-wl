@@ -53,13 +53,12 @@
     speechVerb: SmallMob
     audioParams:
       volume: -5
-  #WL-Changes: Languages start
   - type: Languages
     speaking:
       - Translate
     understood:
       - Translate
-  #WL-Changes: Languages end
+    specieLanguage: Urlum
   - type: AddHeightItem
 
 - type: entity

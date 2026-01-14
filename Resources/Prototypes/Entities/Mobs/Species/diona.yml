@@ -116,10 +116,9 @@
   - type: Languages
     speaking:
       - Translate
-      - RootSpeak
     understood:
       - Translate
-      - RootSpeak
+    specieLanguage: RootSpeak
   #WL-Changes: Languages end
 
 - type: entity

@@ -393,10 +393,9 @@
   - type: Languages
     speaking:
       - Translate
-      - Ternary
     understood:
       - Translate
-      - Ternary
+    specieLanguage: Ternary
   #WL-Changes: Languages end
   - type: MobCollision # WL-Changes: MobCollision works for players only
 

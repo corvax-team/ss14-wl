@@ -34,24 +34,17 @@ public abstract partial class ObfuscationMethod
         Obfuscate(builder, message, global_seed);
         return builder.ToString();
     }
-
-    public abstract bool IsEmoting();
 }
 
 public partial class ReplacementObfuscation : ObfuscationMethod
 {
     [DataField(required: true)]
-    public List<string> Replacement = []; 
+    public List<string> Replacement = [];
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
     {
         var index = PseudoRandom(message.GetHashCode(), global_seed, 0, Replacement.Count - 1);
         builder.Append(Replacement[index]);
-    }
-
-    public override bool IsEmoting()
-    {
-        return false;
     }
 }
 
@@ -95,11 +88,6 @@ public partial class WordsReplacementObfuscation : ObfuscationMethod
                 counter++;
             }
         }
-    }
-
-    public override bool IsEmoting()
-    {
-        return false;
     }
 }
 
@@ -164,11 +152,6 @@ public partial class Utf16ReplacementObfuscation : ObfuscationMethod
             }
         }
     }
-
-    public override bool IsEmoting()
-    {
-        return false;
-    }
 }
 
 
@@ -230,14 +213,9 @@ public partial class ByCharReplacementObfuscation : ObfuscationMethod
             }
         }
     }
-
-    public override bool IsEmoting()
-    {
-        return false;
-    }
 }
 
-public partial class EmoteObfuscation : ObfuscationMethod
+public partial class LengthObfuscation : ObfuscationMethod
 {
     [DataField(required: true)]
     public List<string> Replacement = [];
@@ -256,10 +234,5 @@ public partial class EmoteObfuscation : ObfuscationMethod
 
         index = System.Math.Max(0, System.Math.Min(index, Replacement.Count - 1));
         builder.Append(Replacement[index]);
-    }
-
-    public override bool IsEmoting()
-    {
-        return true;
     }
 }

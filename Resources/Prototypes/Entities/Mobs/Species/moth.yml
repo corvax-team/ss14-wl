@@ -178,10 +178,9 @@
   - type: Languages
     speaking:
       - Translate
-      - Weaver
     understood:
       - Translate
-      - Weaver
+    specieLanguage: Weaver
   #WL-Changes: Languages end
 
 - type: entity
