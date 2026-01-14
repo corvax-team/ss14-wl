@@ -19,7 +19,7 @@
 
 - type: trait
   id: OldEarth
-  name: trait-language-oldeart
+  name: trait-language-oldearth
   description: trait-language-oldearth-desc
   category: Languages
   cost: 3
