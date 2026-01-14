@@ -276,7 +276,7 @@
   name: language-urlum
   description: language-urlum-desc
   color: "#999999"
-  keylang: 'р'
+  keylang: 'м'
   needtts: false
   emoting: true
   obfuscation:
@@ -293,7 +293,7 @@
   name: language-siktair
   description: language-siktair-desc
   color: '#00ccaa'
-  keylang: 'т'
+  keylang: 'я'
   obfuscation:
     !type:Utf16ReplacementObfuscation
       utf16start: 224

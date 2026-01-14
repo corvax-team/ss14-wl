@@ -34,7 +34,7 @@ public sealed partial class LanguagePrototype : IPrototype
     public bool NeedTTS = true;
 
     [DataField("emoting")]
-    public bool Emoting = true;
+    public bool Emoting = false;
 
     [DataField("radioPass")]
     public float RadioPass = 1f;
