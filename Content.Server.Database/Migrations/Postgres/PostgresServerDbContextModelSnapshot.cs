@@ -929,6 +929,21 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("Confederation")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("confederation");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("country");
+
+                    b.Property<string>("DateOfBirth")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("date_of_birth");
+
                     b.Property<string>("EmploymentRecord")
                         .IsRequired()
                         .HasColumnType("text")
@@ -953,6 +968,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("flavor_text");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("full_name");
 
                     b.Property<string>("Gender")
                         .IsRequired()

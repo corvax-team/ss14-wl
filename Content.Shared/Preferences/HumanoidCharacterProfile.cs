@@ -814,7 +814,8 @@ namespace Content.Shared.Preferences
             var dateOfBirth = DateOfBirth.Length > MaxRecordLength
                 ? FormattedMessage.RemoveMarkupOrThrow(DateOfBirth)[..MaxRecordLength]
                 : FormattedMessage.RemoveMarkupOrThrow(DateOfBirth);
-            var confederation =
+            var confederation = Confederation;
+            var country = Country;
             // WL-Records-End
 
             var prefsUnavailableMode = PreferenceUnavailable switch
@@ -908,6 +909,10 @@ namespace Content.Shared.Preferences
             MedicalRecord = medicalRecord; // WL-Records
             SecurityRecord = securityRecord; // WL-Records
             EmploymentRecord = employmentRecord; // WL-Records
+            FullName = fullName;
+            DateOfBirth = dateOfBirth;
+            Confederation = confederation;
+            Country = country;
             Age = age;
             Height = height; // WL-Height
             Sex = sex;
@@ -1059,6 +1064,10 @@ namespace Content.Shared.Preferences
             hashCode.Add(MedicalRecord);
             hashCode.Add(SecurityRecord);
             hashCode.Add(EmploymentRecord);
+            hashCode.Add(FullName);
+            hashCode.Add(DateOfBirth);
+            hashCode.Add(Confederation);
+            hashCode.Add(Country);
             unchecked
             {
                 var skillsHash = 0;

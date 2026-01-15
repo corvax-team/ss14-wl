@@ -368,6 +368,10 @@ namespace Content.Server.Database
                 profile.MedicalRecord, // WL-Records
                 profile.SecurityRecord, // WL-Records
                 profile.EmploymentRecord, // WL-Records
+                profile.FullName, // WL-Records
+                profile.DateOfBirth, // WL-Records
+                profile.Confederation, // WL-Records 
+                profile.Country, // WL-Records
                 jobSkills // WL-Skills
             );
         }
