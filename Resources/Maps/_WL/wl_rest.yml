@@ -58747,14 +58747,6 @@ entities:
     - type: Transform
       pos: 71.528145,47.469513
       parent: 2
-- proto: ClothingNeckMantleHOS
-  entities:
-  - uid: 8374
-    components:
-    - type: Transform
-      parent: 8373
-    - type: Physics
-      canCollide: False
 - proto: ClothingNeckMantleHOSShoulder
   entities:
   - uid: 8375
@@ -68826,25 +68818,6 @@ entities:
     - type: Transform
       pos: 71.5,47.5
       parent: 2
-- proto: DresserHeadOfSecurityFilled
-  entities:
-  - uid: 8373
-    components:
-    - type: Transform
-      pos: 49.5,72.5
-      parent: 2
-    - type: Storage
-      storedItems:
-        8374:
-          position: 0,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 8374
 - proto: DresserQuarterMasterFilled
   entities:
   - uid: 8376
@@ -125344,7 +125317,7 @@ entities:
       parent: 2
     - type: Paper
       content: >2-
-                                           
+
                                             [head=1]Спортзал[/head]
 
         Без сменной обуви не входить!
@@ -125445,11 +125418,11 @@ entities:
 
         Время от начала смены и дата:
 
-        02.06.29[color=#ab0e09]▓▓[/color]  
+        02.06.29[color=#ab0e09]▓▓[/color]
 
         Состав█тель документа:
 
-        [color=#ab0e09]▓▓▓▓▓▓▓▓[/color]  
+        [color=#ab0e09]▓▓▓▓▓▓▓▓[/color]
 
         Должность составителя:
 

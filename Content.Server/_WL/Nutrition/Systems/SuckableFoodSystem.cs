@@ -101,7 +101,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
                 }
 
                 _reactiveSystem.DoEntityReaction(sucker, dissolvedSol, ReactionMethod.Ingestion);
-                _bloodstreamSystem.TryAddToChemicals((sucker, bloodstreamComp), dissolvedSol);
+                _bloodstreamSystem.TryAddToBloodstream((sucker, bloodstreamComp), dissolvedSol);
             }
         }
 

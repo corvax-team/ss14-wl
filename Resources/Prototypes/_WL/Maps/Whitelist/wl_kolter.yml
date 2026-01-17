@@ -65,7 +65,6 @@
 
             # service
             Bartender: [ 1, 1 ]
-            Boxer: [ 1, 1 ]
             Botanist: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 1, 1 ]

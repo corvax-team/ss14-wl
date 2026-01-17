@@ -1,0 +1,131 @@
+- type: language
+  id: Wingdings
+  name: language-wingdings
+  description: language-wingdings-desc
+  color: '#a6a6a6'
+  keylang: 'ж'
+  needtts: false
+  emoting: true
+  radioPass: 0
+  pressurePass: 1
+  obfuscation:
+    !type:LengthObfuscation
+      replacement:
+      - показывает жест
+      - показывает несколько жестов
+      - быстро показывает множество различных жестов
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: hand
+
+- type: language
+  id: TopTranslate
+  name: language-toptranslate
+  description: language-toptranslate-desc
+  color: '#00c5d7'
+  keylang: 'ш'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+      replacement:
+      - les
+      - as
+      - ter
+      - ro
+      - ew
+      - wote
+      - im
+      - um
+      - un
+      - nu
+      - ret
+      - w
+      - a
+      - b
+      - hes
+      - je
+      - uex
+      - xer
+      - x
+      - th
+      - tho
+      - the
+      - tha
+      - ro
+      - ium
+      - lam
+      - terr
+      - jo
+      - je
+      - re
+      - la
+      - le
+      - xlo
+      - ry
+      - y
+      - thx
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: top
+
+- type: language
+  id: BottomTranslate
+  name: language-bottomtranslate
+  description: language-bottomtranslate-desc
+  color: '#963a1e'
+  keylang: 'ц'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+      replacement:
+      - e
+      - a
+      - i
+      - o
+      - u
+      - re
+      - lo
+      - ke
+      - tu
+      - ru
+      - fi
+      - ti
+      - m
+      - d
+      - s
+      - k
+      - t
+      - p
+      - oo
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: bottom
+
+- type: language
+  id: Urhas
+  name: language-urhs
+  description: language-urhs-desc
+  color: '#470806'
+  keylang: 'х'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+      replacement:
+      - r
+      - s
+      - h
+      - k
+      - t
+      - a
+      - ss
+      - so
+      - se
+      - h
+      - he
+      - ro
+      - ta
+      - o
+      - e
+      - u
+      - k
+      - ka
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: urhs

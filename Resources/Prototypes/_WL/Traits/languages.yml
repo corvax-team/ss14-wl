@@ -1,1 +1,102 @@
 # If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
+- type: traitCategory
+  id: Languages
+  name: trait-category-languages
+  maxTraitPoints: 2
+
+- type: trait
+  id: UnSpecie
+  name: trait-language-unspecie
+  description: trait-language-unspecie-desc
+  category: Languages
+  cost: -1
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      specieLanguage: true
+
+- type: trait
+  id: OldEarth
+  name: trait-language-oldearth
+  description: trait-language-oldearth-desc
+  category: Languages
+  cost: 3
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - OldEarth
+
+- type: trait
+  id: SintaUnati
+  name: trait-language-sinta
+  description: trait-language-sinta-desc
+  category: Languages
+  cost: 1
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - SintaUnati
+
+- type: trait
+  id: Urhas
+  name: trait-language-urhs
+  description: trait-language-urhs-desc
+  category: Languages
+  cost: 1
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Urhas
+
+- type: trait
+  id: TopTranslate
+  name: trait-language-top
+  description: trait-language-top-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - TopTranslate
+
+- type: trait
+  id: BottomTranslate
+  name: trait-language-bottom
+  description: trait-language-bottom-desc
+  category: Languages
+  cost: 1
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - BottomTranslate
+
+- type: trait
+  id: Wingdings
+  name: trait-language-wingdings
+  description: trait-language-wingdings-desc
+  category: Languages
+  cost: 1
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Wingdings

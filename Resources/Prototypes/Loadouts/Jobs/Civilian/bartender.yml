@@ -18,6 +18,13 @@
   equipment:
     head: ClothingHeadHatBowlerHat
 
+# WL-Changes: Bartender Bartender eyes loadout Start
+- type: loadout
+  id: BartenderHudBeer
+  equipment:
+    eyes: ClothingEyesHudBeer
+# WL-Changes: Bartender Bartender eyes loadout End
+
 # Jumpsuit
 - type: loadout
   id: BartenderJumpsuit

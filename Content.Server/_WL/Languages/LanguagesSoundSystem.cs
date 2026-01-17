@@ -53,7 +53,7 @@ public sealed class LanguagesSoundsSystem : EntitySystem
         var soundEvent = new LanguageSoundEvent(proto.ID, GetNetEntity(uid));
         var whispSoundEvent = new LanguageSoundEvent(proto.ID, GetNetEntity(uid), true);
 
-        if (!proto.NeedSound)
+        if (!proto.CustomSound)
             return;
 
         var xformQuery = GetEntityQuery<TransformComponent>();

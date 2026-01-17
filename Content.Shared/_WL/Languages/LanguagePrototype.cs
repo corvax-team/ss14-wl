@@ -33,8 +33,23 @@ public sealed partial class LanguagePrototype : IPrototype
     [DataField("needtts")]
     public bool NeedTTS = true;
 
-    [DataField("needsound")]
-    public bool NeedSound = false;
+    [DataField("emoting")]
+    public bool Emoting = false;
+
+    [DataField("radioPass")]
+    public float RadioPass = 1f;
+
+    [DataField("pressurePass")]
+    public float PressurePass = 0f;
+
+    [DataField("fontId")]
+    public string FontId = "Default";
+
+    [DataField("fontSize")]
+    public int FontSize = 12;
+
+    [DataField("customSound")]
+    public bool CustomSound = false;
 
     [DataField("sound")]
     public SoundCollectionSpecifier Sound = new SoundCollectionSpecifier("TernarySounds");

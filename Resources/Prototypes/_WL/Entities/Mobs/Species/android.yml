@@ -26,7 +26,10 @@
       - Cold
       - Caustic
   - type: Bloodstream
-    bloodReagent: Ritium
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Ritium
+        Quantity: 300
     bloodlossDamage:
       types:
         Bloodloss:
@@ -35,7 +38,6 @@
       types:
         Bloodloss:
           -1.05
-    chemicalMaxVolume: 250
     maxBleedAmount: 1.0
     bloodRefreshAmount: 0.0
     bleedReductionAmount: 0.0
@@ -90,10 +92,11 @@
           True: { shader: unshaded }
           False: { shader: shaded }
   - type: Temperature
-    heatDamageThreshold: 460
-    coldDamageThreshold: 270.3 #293.3 предел
     currentTemperature: 310.15
     specificHeat: 42 #42
+  - type: TemperatureDamage
+    heatDamageThreshold: 460
+    coldDamageThreshold: 270.3 #293.3 предел
     coldDamage:
       types:
         Cold: 0.2 #per second, scales with temperature & other constants
@@ -110,6 +113,10 @@
     thermalRegulationTemperatureThreshold: 25
   - type: HumanoidAppearance
     species: Android
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
   - type: Body
     prototype: Android
     requiredLegs: 2
@@ -227,10 +234,9 @@
   - type: Languages
     speaking:
       - Translate
-      - Ternary
     understood:
       - Translate
-      - Ternary
+    specieLanguage: Ternary
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: OfferItem # CorvaxGoob-Offer
 

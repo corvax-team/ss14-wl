@@ -4,23 +4,26 @@
   group: Narcotics
   desc: reagent-desc-desoxyephedrine
   physicalDesc: reagent-physical-desc-translucent
-  contrabandSeverity: Major
+  contrabandSeverity: Minor
   flavor: bitter
   color: "#FAFAFA"
   boilingPoint: 212.0  # Dexosyephedrine vape when?
   meltingPoint: 170.0
   metabolisms:
     Poison:
+      # Main effects
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.75
+            Poison: 0.55
+            Blunt: 0.5
+      # OD
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Desoxyephedrine
-          min: 30
+          min: 16
 # WL species start
         - !type:MetabolizerTypeCondition
           type: [ Golem, Biorobotic ]
@@ -28,13 +31,14 @@
 # WL species end
         damage:
           types:
-            Poison: 2 # this is added to the base damage of the meth.
+            Poison: 3 # this is added to the base damage of the meth.
             Asphyxiation: 2
     Narcotic:
       effects:
+      # Main effects
       - !type:MovementSpeedModifier
-        walkSpeedModifier: 1.35
-        sprintSpeedModifier: 1.35
+        walkSpeedModifier: 1.20
+        sprintSpeedModifier: 1.20
 # WL species start
         conditions:
         - !type:MetabolizerTypeCondition
@@ -50,7 +54,6 @@
           type: [ Golem, Biorobotic ]
           inverted: true
 # WL species end
-      - !type:Jitter
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 3
@@ -73,6 +76,57 @@
           inverted: true
 # WL species end
       - !type:ModifyStatusEffect
+        effectProto: StatusEffectDesoxyStamina # You are on meth. You keep going.
+        time: 3
+# WL species start
+        # Android
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
+# WL species end
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+# WL species start
+        # Android
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
+# WL species end
+      # Side effects
+      - !type:Jitter
+# WL species start
+        # Android
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
+# WL species end
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+# WL species start
+        # Android
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
+# WL species end
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectPainNumbness
+        time: 2
+# WL species start
+        # Android
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
+# WL species end
+      # Interactions
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
           reagent: Haloperidol
@@ -82,11 +136,12 @@
         type: Remove
     Medicine:
       effects:
+      # Side effects
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition
           reagent: Desoxyephedrine
-          min: 20
+          min: 5
 # WL species start
         - !type:MetabolizerTypeCondition
           type: [ Golem, Biorobotic ]
@@ -99,7 +154,6 @@
   group: Narcotics
   desc: reagent-desc-ephedrine
   physicalDesc: reagent-physical-desc-powdery
-  contrabandSeverity: Minor
   flavor: bitter
   color: "#D2FFFA"
   boilingPoint: 255.0
@@ -107,9 +161,10 @@
   metabolisms:
     Narcotic:
       effects:
+      # Main effects
       - !type:MovementSpeedModifier
-        walkSpeedModifier: 1.25
-        sprintSpeedModifier: 1.25
+        walkSpeedModifier: 1.15
+        sprintSpeedModifier: 1.15
 # WL species start
         conditions:
         - !type:MetabolizerTypeCondition
@@ -151,6 +206,41 @@
           type: [ Golem, Biorobotic ]
           inverted: true
 # WL species end
+      # Side effects
+      - !type:Jitter
+# WL species start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
+# WL species end
+      - !type:PopupMessage
+        visualType: Medium
+        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
+        type: Local
+        probability: 0.05
+# WL species start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
+# WL species end
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ephedrine
+          min: 20
+# WL species start
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
+# WL species end
+        damage:
+          types:
+            Poison: 2
+            Asphyxiation: 2
+      # Interactions
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
@@ -159,18 +249,14 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
-      - !type:PopupMessage
-        visualType: Medium
-        messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
-        type: Local
-        probability: 0.05
     Medicine:
       effects:
+      # Side effects
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition
           reagent: Ephedrine
-          min: 30
+          min: 15
 # WL species start
         - !type:MetabolizerTypeCondition
           type: [ Golem, Biorobotic ]
@@ -190,8 +276,8 @@
   meltingPoint: 170.0
   metabolisms:
     Narcotic:
-      metabolismRate: 1.0
       effects:
+      # Main effects
       - !type:MovementSpeedModifier
 # WL species start
         conditions:
@@ -200,8 +286,8 @@
           type: [ Golem ]
           inverted: true
 # WL species end
-        walkSpeedModifier: 1.3
-        sprintSpeedModifier: 1.3
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -224,20 +310,42 @@
         reagent: ChloralHydrate
         amount: -10
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectStunned
+        effectProto: StatusEffectStimulantsStamina # You are on meth. You keep going.
         time: 3
+# WL species start
+        conditions:
+        # Golem
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
+# WL species end
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        time: 3.5
         type: Remove
       - !type:ModifyKnockdown
-        time: 3
+        time: 3.5
         type: Remove
-      - !type:GenericStatusEffect
-        key: StaminaModifier
-        component: StaminaModifier
-        time: 3
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      # Side effects
+      - !type:Jitter
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Stimulants
+          min: 50
+        damage:
+          types:
+            Poison: 1
+      # Interactions
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
@@ -246,28 +354,48 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentCondition
+          reagent: ChloralHydrate
+          min: 1
+        reagent: ChloralHydrate
+        amount: -10
     Medicine:
-      metabolismRate: 1.0
       effects:
-        - !type:ResetNarcolepsy
-        - !type:SatiateHunger
-          factor: 1
-        - !type:SatiateThirst
-          factor: 1
-        - !type:HealthChange
-          conditions:
-          - !type:TotalDamageCondition
-            min: 70
-            max: 120 # you've got a chance to get out of crit
+      # Main effects
+      - !type:ModifyBleed
+        amount: -1.5
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          min: 70 # only heals when you're more dead than alive
 # WL species start
-          - !type:MetabolizerTypeCondition
-            type: [ Golem, Biorobotic ]
-            inverted: true
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
 # WL species end
-          damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
-            groups:
-              Burn: -1
-              Brute: -1
+        damage: # Doesn't heal poison because if you OD'd I'm not giving you a safety net
+          Burn: -0.5
+          Brute: -0.5
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          min: 95 # Just to bring you back from the brink of death
+# WL species start
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Biorobotic ]
+          inverted: true
+# WL species end
+        damage:
+          types:
+            Asphyxiation: -2
+      # Side effects
+      - !type:ResetNarcolepsy
+      - !type:SatiateHunger
+        factor: 1
+      - !type:SatiateThirst
+        factor: 1
 
 - type: reagent
   id: THC

@@ -638,8 +638,8 @@
     # corvax-chatsan-word-64: corvax-chatsan-replacement-64
     # corvax-chatsan-word-65: corvax-chatsan-replacement-65
     # corvax-chatsan-word-66: corvax-chatsan-replacement-66
-    # corvax-chatsan-word-67: corvax-chatsan-replacement-67
-    # corvax-chatsan-word-68: corvax-chatsan-replacement-68
+    corvax-chatsan-word-67: corvax-chatsan-replacement-67 #WL-Changes: автозамена для пж и спс
+    corvax-chatsan-word-68: corvax-chatsan-replacement-68 #WL-Changes: автозамена для пж и спс
     # corvax-chatsan-word-69: corvax-chatsan-replacement-69
     # corvax-chatsan-word-70: corvax-chatsan-replacement-70
     # corvax-chatsan-word-71: corvax-chatsan-replacement-71

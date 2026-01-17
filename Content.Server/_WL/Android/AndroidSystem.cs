@@ -3,7 +3,6 @@ using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.PowerCell;
 using Content.Server.Speech.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared._WL.Android;
@@ -82,16 +81,18 @@ namespace Content.Server._WL.Android
             {
                 CheckAndDoForcedSleep(uid, androidComp);
 
-                if (!_powerCell.HasDrawCharge(uid, powerCellDrawComp, powerCellSlotComp))
+                if (!_powerCell.HasDrawCharge(uid))
                 {
                     continue;
                 }
 
+                /*
                 if (!powerCellDrawComp.CanDraw)
                 {
                     _powerCell.SetDrawEnabled((uid, powerCellDrawComp), false);
                     continue;
                 }
+                */
 
                 _powerCell.SetDrawEnabled((uid, powerCellDrawComp), true);
             }
@@ -208,9 +209,11 @@ namespace Content.Server._WL.Android
             if (!TryComp<PowerCellDrawComponent>(android, out var powerCellDrawComp))
                 return;
 
+            /*
             if (args.NewMobState == MobState.Dead)
                 powerCellDrawComp.CanDraw = false;
             else powerCellDrawComp.CanDraw = true;
+            */
         }
 
         private void CheckAndDoForcedSleep(EntityUid android,
@@ -224,7 +227,10 @@ namespace Content.Server._WL.Android
             if (!_powerCell.TryGetBatteryFromSlot(android, out var battery))
                 return;
 
-            if (battery.CurrentCharge / battery.MaxCharge * 100 > 5f)
+            if (battery == null)
+                return;
+
+            if (battery.Value.Comp.ChargeRate / battery.Value.Comp.MaxCharge * 100 > 5f)
                 return;
 
             if (_random.Prob(comp.ForcedSleepChance))
@@ -240,12 +246,11 @@ namespace Content.Server._WL.Android
                 return;
 
             if (!HasComp<AndroidComponent>(args.User) ||
-                !_powerCell.TryGetBatteryFromSlot(args.User, out var battery_ent, out var battery_comp) ||
-                _battery.IsFull(battery_ent.Value, battery_comp))
+                !_powerCell.TryGetBatteryFromSlot(args.User, out var battery_ent))
                 return;
 
             if (!TryComp<BatteryComponent>(args.Target, out var targetBattery) ||
-                targetBattery.CurrentCharge / targetBattery.MaxCharge * 100f <= 5f)
+                targetBattery.ChargeRate / targetBattery.MaxCharge * 100f <= 5f)
                 return;
 
             var doAfter = new DoAfterArgs(EntityManager, args.User, AndroidDoAfterChargeTime, new AndroidChargeEvent(), args.User, target, null)
@@ -270,18 +275,21 @@ namespace Content.Server._WL.Android
             if (args.Cancelled || args.Handled)
                 return;
 
-            if (!_powerCell.TryGetBatteryFromSlot(android, out var batteryEnt, out var battery)
-                || battery.CurrentCharge / battery.MaxCharge * 100f >= 95f
+            if (!_powerCell.TryGetBatteryFromSlot(android, out var batteryEnt)
+                || batteryEnt.Value.Comp.ChargeRate / batteryEnt.Value.Comp.MaxCharge * 100f >= 95f
                 || batteryEnt == null
                 || !TryComp<BatteryComponent>(args.Target, out var targetBattery)
-                || targetBattery.CurrentCharge / targetBattery.MaxCharge * 100f <= 5f)
+                || targetBattery.ChargeRate / targetBattery.MaxCharge * 100f <= 5f)
             {
                 args.Handled = true;
                 return;
             }
 
-            _battery.SetCharge(batteryEnt.Value, battery.CurrentCharge + comp.ChargeRate, battery);
-            _battery.SetCharge(args.Target.Value, targetBattery.CurrentCharge - comp.ChargeRate * comp.TargetDecreaseFactor);
+            if (!EntityManager.TryGetComponent<BatteryComponent>(batteryEnt, out var battery))
+                return;
+
+            _battery.SetCharge((batteryEnt.Value, battery), battery.ChargeRate + comp.ChargeRate);
+            _battery.SetCharge(args.Target.Value, targetBattery.ChargeRate - comp.ChargeRate * comp.TargetDecreaseFactor);
 
             args.Repeat = true;
         }

@@ -226,9 +226,9 @@
       - !type:HealthChange
 # WL species start
         conditions:
-        # Golem
+        # Golem, Android
         - !type:MetabolizerTypeCondition
-          type: [ Golem ]
+          type: [ Golem, Biorobotic ]
           inverted: true
 # WL species end
         - !type:MetabolizerTypeCondition
@@ -259,6 +259,15 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+    Medicine:
+      effects:
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:MetabolizerTypeCondition
+          # Android
+          type: [ Biorobotic ]
+        amount: 0.5
+
 # WL species end
 
 - type: reagent

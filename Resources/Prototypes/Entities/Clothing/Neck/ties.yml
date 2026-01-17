@@ -8,6 +8,10 @@
     sprite: Clothing/Neck/Ties/redtie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/redtie.rsi
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: Clothing/Neck/Ties/redtie.rsi
   - type: Tag
     tags:
     - HamsterWearable
@@ -25,6 +29,10 @@
     sprite: _WL/Clothing/Neck/Ties/dettie.rsi # WL-Changes Респрайт РНД и новые вещи
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/dettie.rsi # WL-Changes Респрайт РНД и новые вещи
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: Clothing/Neck/Ties/dettie.rsi
   # WL-Changes-Start: Респрайт РНД и новые вещи Start
   - type: Tag
     tags:
@@ -41,6 +49,10 @@
     sprite: Clothing/Neck/Ties/scitie.rsi
   - type: Clothing
     sprite: Clothing/Neck/Ties/scitie.rsi
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: Clothing/Neck/Ties/scitie.rsi
   - type: Tag
     tags:
     - ClothMade
