@@ -157,7 +157,7 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
                 comp.LastPopup = time;
                 var message = Loc.GetString("languages-vacuum-block");
 
-                _popup.PopupEntity(message, source);
+                _popup.PopupEntity(message, source, source);
             }
 
         }

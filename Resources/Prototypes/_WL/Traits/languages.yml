@@ -100,3 +100,17 @@
     - type: ModifyLanguages
       languages:
         - Wingdings
+
+- type: trait
+  id: Kuniluc
+  name: trait-language-vulpa
+  description: trait-language-vulpa-desc
+  category: Languages
+  cost: 1
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Kuniluc
