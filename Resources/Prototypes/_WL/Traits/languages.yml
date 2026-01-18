@@ -36,7 +36,7 @@
   name: trait-language-sinta
   description: trait-language-sinta-desc
   category: Languages
-  cost: 1
+  cost: 2
   whitelist:
     components:
       - Languages
@@ -50,7 +50,7 @@
   name: trait-language-urhs
   description: trait-language-urhs-desc
   category: Languages
-  cost: 1
+  cost: 2
   whitelist:
     components:
       - Languages
@@ -106,7 +106,7 @@
   name: trait-language-vulpa
   description: trait-language-vulpa-desc
   category: Languages
-  cost: 1
+  cost: 2
   whitelist:
     components:
       - Languages
