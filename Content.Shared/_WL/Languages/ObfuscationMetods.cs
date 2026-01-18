@@ -221,10 +221,10 @@ public partial class LengthObfuscation : ObfuscationMethod
     public List<string> Replacement = [];
 
     [DataField]
-    public int min = 1;
+    public int min = 10;
 
     [DataField]
-    public int max = 30;
+    public int max = 1000;
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
     {
