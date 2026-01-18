@@ -264,8 +264,6 @@ namespace Content.Server._WL.Android
 
             float chargeTransfer = Math.Clamp(comp.ChargeRate, 0f, battery.MaxCharge - _battery.GetCharge(batteryEnt.Value.Owner));
 
-            Log.Info(chargeTransfer.ToString() + " Мяу");
-
             if (chargeTransfer == 0f
                 || !HasComp<BatteryComponent>(args.Target)
                 || _battery.GetCharge(args.Target.Value) < chargeTransfer * comp.TargetDecreaseFactor)
