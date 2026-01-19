@@ -55,7 +55,7 @@
   - punishment
   name: aller-at-once-title
   description: aller-at-once-description
-  showInVote: false #Please god dont do this
+  showInVote: false #Please god dont do this # WL-Changes: Mankind is dead. Hell is full. Blood is fuel.
   rules:
     - Nukeops
     - Traitor
@@ -186,7 +186,7 @@
   name: death-match-title
   description: death-match-description
   maxPlayers: 15
-  showInVote: true
+  showInVote: false
   supportedMaps: DeathMatchMapPool
   rules:
     - DeathMatch31

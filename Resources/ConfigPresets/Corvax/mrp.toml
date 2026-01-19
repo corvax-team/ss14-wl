@@ -28,5 +28,5 @@ auto_call_time = 150
 restart_required_ratio = 0.85
 same_type_timeout = 300.0
 timerrestart = 30
-preset_enabled = false
+preset_enabled = true # WL-Chages: Vote return
 restart_enabled = false
