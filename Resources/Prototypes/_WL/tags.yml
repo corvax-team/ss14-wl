@@ -51,3 +51,9 @@
 
 - type: Tag
   id: RoboHands
+
+- type: Tag
+  id: KitchenCartridge
+
+- type: Tag
+  id: KitchenMagazine

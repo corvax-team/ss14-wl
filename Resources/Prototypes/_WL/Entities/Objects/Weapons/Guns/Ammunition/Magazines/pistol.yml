@@ -1,0 +1,13 @@
+- type: entity
+  parent: MagazinePistol
+  id: KitchenMagazine
+  name: kitchen magazine (.35 KITCHEN)
+  components:
+  - type: BallisticAmmoProvider
+    proto: KitchenCartridge
+    whitelist:
+      tags:
+        - KitchenCartridge
+  - type: Tag
+    tags:
+      - KitchenMagazine
