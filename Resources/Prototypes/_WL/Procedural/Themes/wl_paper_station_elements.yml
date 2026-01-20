@@ -26,7 +26,7 @@
 - type: entity
   parent: BaseRoomMarker
   id: StationElementsZOOPaperRoomMarker
-  name: Paper Zoo BOTTOM
+  name: Paper Zoo
   suffix: 6x3, Paper
   components:
   - type: RoomFill
