@@ -44,7 +44,8 @@ public partial class ListingData : IEquatable<ListingData>
         other.RestockTime,
         other.DiscountDownTo,
         other.PriceModifyFunctions,
-        other.DisableRefund
+        other.DisableRefund,
+        other.ApplyToMob
     )
     {
 
@@ -70,7 +71,8 @@ public partial class ListingData : IEquatable<ListingData>
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
         Dictionary<string, PriceModify> priceModifyFunctions,
-        bool disableRefund
+        bool disableRefund,
+        bool applyToMob
     )
     {
         Name = name;
@@ -93,6 +95,7 @@ public partial class ListingData : IEquatable<ListingData>
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
         PriceModifyFunctions = new(priceModifyFunctions);
         DisableRefund = disableRefund;
+        ApplyToMob = applyToMob;
     }
 
     [ViewVariables]
@@ -179,6 +182,12 @@ public partial class ListingData : IEquatable<ListingData>
     /// <summary>
     /// The event that is broadcast when the listing is purchased.
     /// </summary>
+    [DataField]
+    public object? ProductEvent;
+
+    /// <summary>
+    /// The event that is broadcast when the listing is purchased.
+    /// </summary>
     //WL-Changes-start
     [DataField]
     public List<ListingEventEntry>? ProductEvents;
@@ -215,6 +224,12 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public bool DisableRefund = false;
 
+    /// <summary>
+    /// Whether or not to apply the store listing to the player mob rather than the player mind.
+    /// </summary>
+    [DataField]
+    public bool ApplyToMob = false;
+
     public bool Equals(ListingData? listing)
     {
         if (listing == null)
@@ -226,7 +241,10 @@ public partial class ListingData : IEquatable<ListingData>
             Description != listing.Description ||
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
-            RestockTime != listing.RestockTime)
+            ProductEvent?.GetType() != listing.ProductEvent?.GetType() ||
+            RestockTime != listing.RestockTime ||
+            DisableRefund != listing.DisableRefund ||
+            ApplyToMob != listing.ApplyToMob)
             return false;
 
         //WL-Changes-start
@@ -374,7 +392,8 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.RestockTime,
             listingData.DiscountDownTo,
             listingData.PriceModifyFunctions,
-            listingData.DisableRefund
+            listingData.DisableRefund,
+            listingData.ApplyToMob
         )
     {
     }

@@ -41,7 +41,10 @@
             sprite: Corvax/Mobs/Species/displacement.rsi
             state: shoes
   - type: Bloodstream
-    bloodReagent: Cryoxadone
+    bloodReferenceSolution:
+        reagents:
+        - ReagentId: Cryoxadone
+          Quantity: 300
     bloodlossDamage:
       types:
         Bloodloss:
@@ -57,10 +60,11 @@
       - ReagentId: Cryoxadone
         Quantity: 0.1
   - type: Temperature
-    heatDamageThreshold: 295.15
-    coldDamageThreshold: 233.15
     currentTemperature: 283.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 295.15
+    coldDamageThreshold: 233.15
     coldDamage:
       types:
         Cold: 0.1

@@ -44,7 +44,7 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: Stamina
-    critThreshold: 60
+    baseCritThreshold: 60
   - type: Perishable
   # - type: CanEscapeInventory
   #   baseResistTime: 1
@@ -64,10 +64,9 @@
   - type: Languages
     speaking:
       - Translate
-      - OldEarth
     understood:
       - Translate
-      - OldEarth
+    specieLanguage: OldEarth
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

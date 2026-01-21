@@ -95,24 +95,7 @@ public sealed partial class SkillsForcedWindow : FancyWindow
             HorizontalAlignment = Control.HAlignment.Center
         };
 
-        confirmButton.OnPressed += _ =>
-        {
-            if (_totalPoints - _spentPoints == 0)
-            {
-                Close();
-            }
-            else
-            {
-                warningContainer.RemoveAllChildren();
-                var warning = new Label
-                {
-                    Text = Loc.GetString("skills-unspent-warning"),
-                    FontColorOverride = Color.Yellow,
-                    HorizontalAlignment = Control.HAlignment.Center
-                };
-                warningContainer.AddChild(warning);
-            }
-        };
+        confirmButton.OnPressed += _ => Close();
 
         bottomContainer.AddChild(confirmButton);
         bottomContainer.AddChild(warningContainer);

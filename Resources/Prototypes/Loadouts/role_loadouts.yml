@@ -172,7 +172,6 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - JanitorJobTrinkets
-  - JanitorPlunger
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -430,7 +429,6 @@
   - WLNeck # WL-Changes: Neck add
   - HOSBadges # WL-Changes
   - HeadofSecurityJobTrinkets
-  - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -448,7 +446,6 @@
   - WLNeck # WL-Changes: Neck add
   - WardenBadges # WL-Changes
   - WardenJobTrinkets
-  - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -467,7 +464,6 @@
   - WLNeck # WL-Changes: Neck add
   - OfficerBadges # WL-Changes
   - SecurityJobTrinkets
-  - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
 - type: roleLoadout
@@ -485,7 +481,6 @@
   - WLNeck # WL-Changes: Neck add
   - DetectiveBadges # WL-Changes
   - DetectiveJobTrinkets
-  - SecurityStar
   - GroupSpeciesBreathToolSecurity
   - PhotoGroup # WL-Changes: Photo to lodauts
 
@@ -597,19 +592,6 @@
 
 # Wildcards
 - type: roleLoadout
-  id: JobZookeeper
-  groups:
-  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - GroupTankHarness
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - WLNeck # WL-Changes: Neck add
-  - ZookeeperJobTrinkets
-  - GroupSpeciesBreathTool
-
-- type: roleLoadout
   id: JobReporter
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
@@ -636,21 +618,6 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - PsychologistJobTrinkets
-  - GroupSpeciesBreathTool
-
-- type: roleLoadout
-  id: JobBoxer
-  groups:
-  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - GroupTankHarness
-  - BoxerJumpsuit
-  - BoxerGloves
-  - CommonBackpack
-  - Glasses
-  - Survival
-  - Trinkets
-  - WLNeck # WL-Changes: Neck add
-  - BoxerJobTrinkets
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
@@ -713,6 +680,11 @@
   - GroupTankHarness
 
 - type: roleLoadout
+  id: RoleSurvivalMilitaryDouble
+  groups:
+  - SurvivalMilitaryDouble
+
+- type: roleLoadout
   id: RoleSurvivalNukie
   groups:
   - SurvivalSyndicate
@@ -724,3 +696,8 @@
   groups:
   - GroupEVATank
   - SurvivalExtended
+
+- type: roleLoadout
+  id: RoleSurvivalSpaceNinja
+  groups:
+  - GroupEVATank

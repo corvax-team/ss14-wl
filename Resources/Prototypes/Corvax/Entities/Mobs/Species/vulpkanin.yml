@@ -113,10 +113,9 @@
   - type: Languages
     speaking:
       - Translate
-      - Kuniluc
     understood:
       - Translate
-      - Kuniluc
+    specieLanguage: Kuniluc
   #WL-Changes: Languages end
 
 - type: entity

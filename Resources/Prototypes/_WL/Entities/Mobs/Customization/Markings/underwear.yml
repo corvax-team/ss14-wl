@@ -1,8 +1,8 @@
-﻿# Male
+# Male
 - type: marking
   id: UnderwearMaleMidway
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   coloring:
@@ -16,8 +16,8 @@
 
 - type: marking
   id: UnderwearMaleStripe
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   coloring:
@@ -31,8 +31,8 @@
 
 - type: marking
   id: UnderwearMaleUk
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   forcedColoring: true
@@ -47,8 +47,8 @@
 
 - type: marking
   id: UnderwearMankini
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   coloring:
@@ -62,8 +62,8 @@
 
 - type: marking
   id: UnderwearLongjohns
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   coloring:
@@ -77,8 +77,8 @@
 
 - type: marking
   id: UnderwearMaleKinky
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   coloring:
@@ -92,8 +92,8 @@
 
 - type: marking
   id: UnderwearMaleHearts
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   forcedColoring: true
@@ -108,8 +108,8 @@
 
 - type: marking
   id: UnderwearMaleCommie
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   forcedColoring: true
@@ -124,8 +124,8 @@
 
 - type: marking
   id: UnderwearMaleBriefs
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   coloring:
@@ -139,8 +139,8 @@
 
 - type: marking
   id: UnderwearMaleBoxers
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   coloring:
@@ -154,8 +154,8 @@
 
 - type: marking
   id: UnderwearMaleAssblastusa
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Male
   forcedColoring: true
@@ -171,8 +171,8 @@
 # Female
 - type: marking
   id: UnderwearFemaleUk
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -186,8 +186,8 @@
 
 - type: marking
   id: UnderwearFemaleThong
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   coloring:
     default:
@@ -200,8 +200,8 @@
 
 - type: marking
   id: UnderwearFemaleStrapless
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   coloring:
     default:
@@ -214,8 +214,8 @@
 
 - type: marking
   id: UnderwearFemaleSport
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   coloring:
     default:
@@ -228,8 +228,8 @@
 
 - type: marking
   id: UnderwearFemaleNeko
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   coloring:
     default:
@@ -242,8 +242,8 @@
 
 - type: marking
   id: UnderwearFemaleLace
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -257,8 +257,8 @@
 
 - type: marking
   id: UnderwearFemaleKinky
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -272,8 +272,8 @@
 
 - type: marking
   id: UnderwearFemaleCommie
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -287,8 +287,8 @@
 
 - type: marking
   id: UnderwearFemaleBralette
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   coloring:
     default:
@@ -301,8 +301,8 @@
 
 - type: marking
   id: UnderwearFemaleBikini
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   coloring:
     default:
@@ -315,8 +315,8 @@
 
 - type: marking
   id: UnderwearFemaleBabydoll
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   coloring:
     default:
@@ -329,8 +329,8 @@
 
 - type: marking
   id: UnderwearFemaleAssblastusa
-  bodyPart: UndergarmentTop
-  markingCategory: UndergarmentTop
+  bodyPart: UndergarmentBottom
+  markingCategory: UndergarmentBottom
   sexRestriction: Female
   forcedColoring: true
   coloring:

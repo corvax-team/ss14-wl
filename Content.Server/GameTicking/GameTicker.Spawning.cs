@@ -255,28 +255,7 @@ namespace Content.Server.GameTicking
                 return;
             }
 
-            PlayerJoinGame(player, silent);
-
-            var data = player.ContentData();
-
-            DebugTools.AssertNotNull(data);
-
-            var newMind = _mind.CreateMind(data!.UserId, character.Name);
-            _mind.SetUserId(newMind, data.UserId);
-
-            var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
-
-            _playTimeTrackings.PlayerRolesChanged(player);
-
-            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character);
-            DebugTools.AssertNotNull(mobMaybe);
-            var mob = mobMaybe!.Value;
-
-            _mind.TransferTo(newMind, mob);
-
-            _role.MindAddJobRole(newMind, silent: silent, jobPrototype: jobId);
-            var jobName = _role.GetSubnameBySesssion(player, jobPrototype.ID) ?? _jobs.MindTryGetJobName(newMind); // WL-changes
-            _admin.UpdatePlayerList(player);
+            DoSpawn(player, character, station, jobId, silent, out var mob, out var jobPrototype, out var jobName);
 
             if (lateJoin && !silent)
             {
@@ -349,6 +328,44 @@ namespace Content.Server.GameTicking
                 station,
                 character);
             RaiseLocalEvent(mob, aev, true);
+        }
+
+        /// <summary>
+        /// Creates a mob on the specified station, creates the new mind, equips job-specific starting gear and loadout
+        /// </summary>
+        public void DoSpawn(
+            ICommonSession player,
+            HumanoidCharacterProfile character,
+            EntityUid station,
+            string jobId,
+            bool silent,
+            out EntityUid mob,
+            out JobPrototype jobPrototype,
+            out string jobName)
+        {
+            PlayerJoinGame(player, silent);
+
+            var data = player.ContentData();
+
+            DebugTools.AssertNotNull(data);
+
+            var newMind = _mind.CreateMind(data!.UserId, character.Name);
+            _mind.SetUserId(newMind, data.UserId);
+
+            jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
+
+            _playTimeTrackings.PlayerRolesChanged(player);
+
+            var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, jobId, character);
+            DebugTools.AssertNotNull(mobMaybe);
+            mob = mobMaybe!.Value;
+
+            _mind.TransferTo(newMind, mob);
+
+            _role.MindAddJobRole(newMind, silent: silent, jobPrototype: jobId);
+            // jobName = _jobs.MindTryGetJobName(newMind);
+            jobName = _role.GetSubnameBySesssion(player, jobPrototype.ID) ?? _jobs.MindTryGetJobName(newMind); // WL-changes
+            _admin.UpdatePlayerList(player);
         }
 
         public void Respawn(ICommonSession player)

@@ -37,7 +37,7 @@
       Female: Mouse
       Unsexed: Mouse
   - type: Stamina
-    critThreshold: 60
+    baseCritThreshold: 60
   - type: DamageOnHighSpeedImpact
     damage:
       types:
@@ -59,13 +59,12 @@
     speechVerb: SmallMob
     audioParams:
       volume: -5
-  #WL-Changes: Languages start
   - type: Languages
     speaking:
       - Translate
     understood:
       - Translate
-  #WL-Changes: Languages end
+    specieLanguage: Urlum
   - type: AddHeightItem
 
 - type: entity

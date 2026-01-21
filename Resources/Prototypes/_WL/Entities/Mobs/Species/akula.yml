@@ -34,10 +34,9 @@
     - type: Languages
       speaking:
         - Translate
-        - Sarengis
       understood:
         - Translate
-        - Sarengis
+      specieLanguage: Sarengis
 
 - type: entity
   save: false

@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.Languages.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class LanguagesComponent : Component
 {
     [DataField]
@@ -21,6 +21,15 @@ public sealed partial class LanguagesComponent : Component
 
     [DataField]
     public ProtoId<LanguagePrototype>? CurrentLanguage = null;
+
+    [DataField]
+    public ProtoId<LanguagePrototype>? SpecieLanguage = null;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan LastPopup;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan PopupCooldown = TimeSpan.FromSeconds(1);
 
     [Serializable, NetSerializable]
     public sealed class State : ComponentState

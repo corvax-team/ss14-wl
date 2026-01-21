@@ -88,6 +88,7 @@
       - Translate
     understood:
       - Translate
+    specieLanguage: SikTair
   # WL-Changes: Languages
 
 - type: entity

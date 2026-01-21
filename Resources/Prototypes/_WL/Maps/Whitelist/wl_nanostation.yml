@@ -74,12 +74,8 @@
             Musician: [ 1, 1 ]
             Reporter: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
-            Zookeeper: [ 1, 1 ]
-            Boxer: [ 1, 1 ]
             Passenger: [ -1, -1 ]
 
             # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
-
-

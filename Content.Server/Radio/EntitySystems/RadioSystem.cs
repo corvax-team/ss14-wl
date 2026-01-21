@@ -103,6 +103,13 @@ public sealed class RadioSystem : EntitySystem
         RaiseLocalEvent(radioSource, ref sendAttemptEv);
         var canSend = !sendAttemptEv.Cancelled;
 
+        //WL-Changes: Languages start
+        var checkLanguageEv = new RadioLanguageCheckEvent(content, radioSource);
+        RaiseLocalEvent(messageSource, ref checkLanguageEv);
+        canSend = canSend && !checkLanguageEv.Cancelled;
+        content = checkLanguageEv.Message;
+        //WL-Changes: Languages end
+
         var sourceMapId = Transform(radioSource).MapID;
         var hasActiveServer = HasActiveServer(sourceMapId, channel.ID);
         var sourceServerExempt = _exemptQuery.HasComp(radioSource);
@@ -156,6 +163,7 @@ public sealed class RadioSystem : EntitySystem
                 channel,
                 radioSource,
                 chatMsgEv);
+
 
             RaiseLocalEvent(receiver, ref ev);
             // WL-Changes-end
