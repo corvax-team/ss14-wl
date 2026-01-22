@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: MarineStimandDeathPAPER
+  files:
+    - /Audio/_WL/Maps/Paper/MarineDeath0.wav
+    - /Audio/_WL/Maps/Paper/MarineDeath1.wav
+    - /Audio/_WL/Maps/Paper/MarineStim0.wav
+    - /Audio/_WL/Maps/Paper/MarineStim1.wav
