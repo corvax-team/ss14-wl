@@ -17,20 +17,15 @@ namespace Content.Shared.Roles;
 [Serializable, NetSerializable]
 public sealed partial class AgeRequirement : JobRequirement
 {
-    //WL-Changes-start
     [DataField]
-    public int? MinAge;
-
-    [DataField]
-    public int? MaxAge;
-    //WL-Changes-end
+    public int Age = 0; //WL-Changes
 
     public override bool Check(
         IEntityManager entManager,
         IPrototypeManager protoManager,
-        /*WL-Changes-start*/IConfigurationManager cfgMan,/*WL-Changes-end*/
+        IConfigurationManager cfgMan, //WL-Changes
         HumanoidCharacterProfile? profile,
-        /*WL-Changes-start*/JobPrototype? job,/*WL-Changes-end*/
+        JobPrototype? job, //WL-Changes
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
@@ -40,6 +35,12 @@ public sealed partial class AgeRequirement : JobRequirement
             return true;
 
         //WL-Changes-start
+        if (!protoManager.TryIndex(profile.Species, out var specie))
+            return true;
+
+        if (specie is null)
+            return true;
+
         if (job is null)
             return true;
 
@@ -52,16 +53,10 @@ public sealed partial class AgeRequirement : JobRequirement
 
         if (isNeeded)
         {
-            if (MinAge != null && profile.Age < MinAge)
+            if (profile.Age < specie.MinAge + Age)
             {
                 reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-age-too-young",
-                    ("age", MinAge)));
-                return false;
-            }
-            if (MaxAge != null && profile.Age > MaxAge)
-            {
-                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-age-too-old",
-                    ("age", MaxAge)));
+                    ("age", Age)));
                 return false;
             }
         }

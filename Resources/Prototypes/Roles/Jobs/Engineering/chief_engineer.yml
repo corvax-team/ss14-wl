@@ -18,7 +18,7 @@
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
     - !type:AgeRequirement
-      minAge: 30
+      age: 12 # WL-Changes-AgeRequirement
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
       traits:

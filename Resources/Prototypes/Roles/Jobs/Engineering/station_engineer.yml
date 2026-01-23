@@ -14,7 +14,7 @@
       department: Engineering
       time: 5h # Corvax-RoleTime
     - !type:AgeRequirement
-      minAge: 22 # WL-Changes-AgeRequirement
+      age: 4 # WL-Changes-AgeRequirement
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-ce

@@ -19,7 +19,7 @@
   #WL-changes-start
   requirements:
     - !type:AgeRequirement
-      minAge: 18
+      age: 0 # WL-Changes-AgeRequirement
   #WL-changes-end
   special:
   - !type:GiveItemOnHolidaySpecial

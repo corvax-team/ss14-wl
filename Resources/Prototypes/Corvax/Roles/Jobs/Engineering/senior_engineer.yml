@@ -15,7 +15,7 @@
       time: 60h # 60 hrs
       # WL-Changes-start
     - !type:AgeRequirement
-      minAge: 26
+      age: 8 # WL-Changes-AgeRequirement
       # WL-Changes-end
   weight: 9
   startingGear: SeniorEngineerGear

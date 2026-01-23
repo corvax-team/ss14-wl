@@ -5,7 +5,7 @@
   playTimeTracker: JobPsychologist
   requirements:
     - !type:AgeRequirement
-      minAge: 22 # WL-Changes-AgeRequirement
+      age: 4 # WL-Changes-AgeRequirement
   subnames:
   - Male: психиатр
   startingGear: PsychologistGear

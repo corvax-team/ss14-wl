@@ -10,7 +10,7 @@
     department: Security
     time: 20h
   - !type:AgeRequirement
-    minAge: 22 # WL-Changes-AgeRequirement
+    age: 4 # WL-Changes-AgeRequirement
   - !type:TraitsRequirement
     inverted: true
     traits:

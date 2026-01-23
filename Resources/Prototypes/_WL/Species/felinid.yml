@@ -10,6 +10,10 @@
   maxItemHeight: 140
   minHeight: 120
   maxHeight: 190
+  minAge: 18
+  youngAge: 20
+  oldAge: 50
+  maxAge: 75
 
 - type: markingPoints
   id: MobFelinidMarkingLimits

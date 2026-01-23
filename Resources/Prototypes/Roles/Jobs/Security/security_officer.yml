@@ -13,7 +13,7 @@
       department: Security
       time: 10h # Corvax-RoleTime
     - !type:AgeRequirement
-      minAge: 22 # WL-Changes-AgeRequirement
+      age: 4 # WL-Changes-AgeRequirement
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
       traits:

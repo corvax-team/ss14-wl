@@ -5,7 +5,7 @@
   playTimeTracker: JobLibrarian
   requirements:
     - !type:AgeRequirement
-      minAge: 22
+      age: 4 # WL-Changes-AgeRequirement
   subnames:
   - Male: социологист
   startingGear: LibrarianGear

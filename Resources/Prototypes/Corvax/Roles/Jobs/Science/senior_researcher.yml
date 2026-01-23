@@ -11,7 +11,7 @@
       time: 60h
       # WL-Changes-start
     - !type:AgeRequirement
-      minAge: 26
+      age: 8 # WL-Changes-AgeRequirement
       # WL-Changes-end
   weight: 9
   startingGear: SeniorResearcherGear

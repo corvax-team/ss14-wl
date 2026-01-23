@@ -14,7 +14,7 @@
 #    - !type:OverallPlaytimeRequirement
 #      time: 36000 #10 hrs
     - !type:AgeRequirement
-      minAge: 18
+      age: 0 # WL-Changes-AgeRequirement
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm

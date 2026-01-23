@@ -8,7 +8,7 @@
   - Male: младший администратор
   requirements:
     - !type:AgeRequirement
-      minAge: 22
+      age: 4 # WL-Changes-AgeRequirement
     - !type:TraitsRequirement
       inverted: true
       traits:

@@ -11,6 +11,10 @@
   maxItemHeight: 140
   minHeight: 120
   maxHeight: 265
+  minAge: 9
+  youngAge: 18
+  oldAge: 40
+  maxAge: 60
 
 - type: speciesBaseSprites
   id: MobMurineSprites

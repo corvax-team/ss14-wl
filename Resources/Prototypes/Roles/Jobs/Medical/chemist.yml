@@ -10,7 +10,7 @@
       department: Medical
       time: 5h
     - !type:AgeRequirement
-      minAge: 24
+      age: 6 # WL-Changes-AgeRequirement
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-cmo

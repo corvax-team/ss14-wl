@@ -14,10 +14,13 @@
   femaleLastNames: NamesArachnidLast # Corvax-LastnameGender
   sexes:
   - Unsexed
-  # WL-Changes-start: Height
+  # WL-Changes-start
   minHeight: 150
   maxHeight: 230
-  # WL-Changes-end: Height
+  youngAge: 30
+  oldAge: 70
+  maxAge: 100
+  # WL-Changes-end
 
 - type: speciesBaseSprites
   id: MobArachnidSprites

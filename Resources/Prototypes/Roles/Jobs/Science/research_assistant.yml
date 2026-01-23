@@ -12,7 +12,7 @@
       time: 10h # Corvax-RoleTime 5
       inverted: true # stop playing intern if you're good at science!
     - !type:AgeRequirement # WL-Changes-AgeRequirement
-      minAge: 20
+      age: 2 # WL-Changes-AgeRequirement
   startingGear: ResearchAssistantGear
   icon: "JobIconResearchAssistant"
   supervisors: job-supervisors-science

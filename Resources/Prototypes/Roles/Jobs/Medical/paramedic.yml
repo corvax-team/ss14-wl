@@ -5,7 +5,7 @@
   playTimeTracker: JobParamedic
   requirements:
   - !type:AgeRequirement
-      minAge: 22 # WL-Changes-AgeRequirement
+      age: 4 # WL-Changes-AgeRequirement
   - !type:DepartmentTimeRequirement
     department: Medical
     time: 2.5h
