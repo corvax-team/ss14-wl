@@ -3,10 +3,12 @@ using Content.Server.Popups;
 using Content.Shared._WL.Tray;
 using Content.Shared.Destructible;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
+using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -21,6 +23,7 @@ public sealed partial class TraySystem : SharedTraySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     private List<EntityUid> _itemsToThrow = new();
@@ -28,6 +31,8 @@ public sealed partial class TraySystem : SharedTraySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<TrayComponent, ComponentInit>(OnInit);
 
         SubscribeLocalEvent<TrayComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<OnTrayComponent, EntParentChangedMessage>(OnItemParentChanged);
@@ -49,12 +54,20 @@ public sealed partial class TraySystem : SharedTraySystem
         }
     }
 
+    private void OnInit(EntityUid uid, TrayComponent component, ComponentInit args)
+    {
+        if (!TryComp<ItemComponent>(uid, out var item))
+            return;
+
+        component.DefaultSize = item.Size;
+    }
+
     private void OnInteractUsing(EntityUid uid, TrayComponent component, InteractUsingEvent args)
     {
         if (args.Handled || !TryComp<ItemComponent>(args.Used, out var item) || component.ConnectedEntities.ContainsKey(args.Used))
             return;
 
-        if (component.Closed)
+        if (component.Closed || _container.IsEntityInContainer(uid))
             return;
 
         if (_item.GetSizePrototype(item.Size) > _item.GetSizePrototype(component.MaxItemSize))

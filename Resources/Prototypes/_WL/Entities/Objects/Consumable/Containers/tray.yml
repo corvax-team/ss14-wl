@@ -27,7 +27,7 @@
       visible: false
   - type: Item
     shape:
-    - 0,0,2,0
+    - 0,0,2,1
     storedOffset: 0,-6
     inhandVisuals:
       left:
@@ -35,6 +35,7 @@
       right:
       - state: tray-inhand-right
   - type: Tray
+    capacity: 5
     hasCap: true 
     capInhandVisuals:
       left:

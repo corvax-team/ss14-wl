@@ -11,13 +11,18 @@ namespace Content.Shared._WL.Tray;
 public sealed partial class TrayComponent : Component
 {
     [DataField]
-    public int Capacity = 5;
+    public int Capacity = 3;
 
     [DataField]
     public ProtoId<ItemSizePrototype> MaxItemSize = "Small";
 
     [ViewVariables]
     public Dictionary<EntityUid, EntityCoordinates> ConnectedEntities = new();
+
+    [ViewVariables]
+    public ProtoId<ItemSizePrototype> DefaultSize = "Small";
+    [DataField]
+    public ProtoId<ItemSizePrototype> FilledSize = "Ginormous";
 
     [DataField]
     public bool HasCap = false;
