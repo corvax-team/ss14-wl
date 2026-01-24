@@ -36,11 +36,11 @@ public sealed partial class TraySystem : SharedTraySystem
 
         SubscribeLocalEvent<TrayComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<OnTrayComponent, EntParentChangedMessage>(OnItemParentChanged);
-        SubscribeLocalEvent<OnTrayComponent, ComponentShutdown>(OnItemDelete);
+        SubscribeLocalEvent<OnTrayComponent, ComponentRemove>(OnItemComponentRemove);
         SubscribeLocalEvent<TrayComponent, GetVerbsEvent<AlternativeVerb>>(OnVerb);
 
         SubscribeLocalEvent<TrayComponent, LandEvent>(OnLand);
-        SubscribeLocalEvent<TrayComponent, DestructionAttemptEvent>(OnDestruction);
+        SubscribeLocalEvent<TrayComponent, DestructionEventArgs>(OnDestruction);
     }
 
     public override void Update(float frameTime)
@@ -170,13 +170,16 @@ public sealed partial class TraySystem : SharedTraySystem
         ThrowItemsOnTray(uid, component);
     }
 
-    private void OnDestruction(EntityUid uid, TrayComponent component, DestructionAttemptEvent args)
+    private void OnDestruction(EntityUid uid, TrayComponent component, DestructionEventArgs args)
     {
         ThrowItemsOnTray(uid, component);
     }
 
-    private void OnItemDelete(EntityUid uid, OnTrayComponent component, ComponentShutdown args)
+    private void OnItemComponentRemove(EntityUid uid, OnTrayComponent component, ComponentRemove args)
     {
+        if (component.LifeStage >= ComponentLifeStage.Stopping)
+            return;
+
         if (!TryComp<TrayComponent>(component.TrayEntity, out var tray))
             return;
 

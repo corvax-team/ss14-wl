@@ -51,6 +51,7 @@ public abstract class SharedTraySystem : EntitySystem
 
         UpdateVisuals(uid, component);
         UpdateSize(uid, component);
-        RemComp<OnTrayComponent>(uid);
+
+        RemComp<OnTrayComponent>(item);
     }
 }
