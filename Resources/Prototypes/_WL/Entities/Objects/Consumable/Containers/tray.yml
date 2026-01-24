@@ -28,7 +28,7 @@
   - type: Item
     shape:
     - 0,0,2,1
-    storedOffset: 0,-6
+    storedOffset: 0,-2
     inhandVisuals:
       left:
       - state: tray-inhand-left
