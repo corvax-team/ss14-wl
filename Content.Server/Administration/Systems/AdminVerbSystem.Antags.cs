@@ -13,6 +13,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Roles.Components;
+using Content.Server._WL.GameTicking.Rules.Components; // WL-Changes: Conspirators
 
 namespace Content.Server.Administration.Systems;
 
@@ -232,7 +233,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = conspiratorName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Harmony/Interface/Misc/job_icons.rsi"), "Conspirator"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_WL/Interface/Misc/job_icons.rsi"), "Conspirator"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<ConspiratorRuleComponent>(targetPlayer, DefaultConspiratorRule);

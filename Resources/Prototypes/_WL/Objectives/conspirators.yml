@@ -81,7 +81,7 @@
   parent: BaseConspiratorObjective
   id: ConspiratorArrestObjective
   name: Trick Security into arresting innocent people
-  description:  Demonstrate their incompetence by showing just how easy they are to fool.
+  description: Demonstrate their incompetence by showing just how easy they are to fool.
   components:
   - type: Objective
     icon:
@@ -97,4 +97,4 @@
   - type: Objective
     icon:
       sprite: Mobs/Silicon/station_ai.rsi
-      state: ai_camera`
+      state: ai_camera
