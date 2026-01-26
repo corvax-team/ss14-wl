@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807; fluffycurls, twilight, shortstraightparted, shortstraight, moonprince, messyart, maletowa, longstraight, longlowstraightponytail, Kioku, jimmy, hank, denki, armetaj, pigtail, ponytail_long, ponytail_short, short_cute, short_cute2 made by discord:reartint",
+  "copyright": "Taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807; fluffycurls, twilight, shortstraightparted, shortstraight, moonprince, messyart, maletowa, longstraight, longlowstraightponytail, Kioku, jimmy, hank, denki, armetaj, pigtail, ponytail_long, ponytail_short, short_cute, short_cute2 made by discord:reartint, spikyponytailalt by NEBULON",
   "size": {
     "x": 32,
     "y": 32
@@ -113,6 +113,10 @@
     },
     {
       "name": "fluffycurls",
+      "directions": 4
+    },
+    {
+      "name": "spikyponytailalt",
       "directions": 4
     }
   ]
