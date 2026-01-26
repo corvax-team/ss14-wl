@@ -20,6 +20,7 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+    - FacialHair # WL-Change
   - type: Inventory
     femaleDisplacements:
       jumpsuit:
@@ -31,10 +32,9 @@
   - type: Languages
     speaking:
       - Translate
-      - OldEarth
     understood:
       - Translate
-      - OldEarth
+    specieLanguage: OldEarth
   #WL-Changes: Languages end
 
 - type: entity

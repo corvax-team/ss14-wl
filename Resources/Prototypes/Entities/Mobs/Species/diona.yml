@@ -33,7 +33,10 @@
       - id: FoodMeatPlant
         amount: 5
   - type: Bloodstream
-    bloodReagent: Sap
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Sap
+        Quantity: 300
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -116,10 +119,9 @@
   - type: Languages
     speaking:
       - Translate
-      - RootSpeak
     understood:
       - Translate
-      - RootSpeak
+    specieLanguage: RootSpeak
   #WL-Changes: Languages end
 
 - type: entity

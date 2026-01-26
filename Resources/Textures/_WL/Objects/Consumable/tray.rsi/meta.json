@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made with love by Unity <3, *beep-boop*",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "items-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "items-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "tray-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "tray-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "cap-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "cap-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "tray"
+    },
+    {
+      "name": "tray-cap"
+    }
+  ]
+}

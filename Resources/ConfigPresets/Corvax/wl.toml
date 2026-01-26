@@ -35,6 +35,7 @@ expedition_duration = 900.0
 
 [shuttle]
 auto_call_time = 0
+arrivals_map = "/Maps/_WL/wl_terminal.yml"
 
 [hub]
 advertise = true

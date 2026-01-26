@@ -165,11 +165,11 @@ public sealed class ExecutionSystem : EntitySystem
             //externalMsg = component.DefaultCompleteExternalMeleeExecutionMessage;
         }
         // TODO: Fcking shit code by GunSystem and HitscanPrototype
-        else if (TryComp(uid, out HitscanBatteryAmmoProviderComponent? hitscanBatteryAmmo) &&
+        else if (TryComp(uid, out BatteryAmmoProviderComponent? hitscanBatteryAmmo) &&
                  hitscanBatteryAmmo.Shots != 0 &&
                  TryComp(uid, out GunComponent? laserGun))
         {
-            DamageSpecifier? damageSpecifier = GetHitscanDamageFromProto(hitscanBatteryAmmo.HitscanEntityProto);
+            DamageSpecifier? damageSpecifier = GetHitscanDamageFromProto(hitscanBatteryAmmo.Prototype);
 
             if (damageSpecifier == null)
             {

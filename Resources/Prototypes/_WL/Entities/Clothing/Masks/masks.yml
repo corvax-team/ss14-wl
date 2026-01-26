@@ -26,6 +26,13 @@
   - type: Item
     storedRotation: -90
   - type: IdentityBlocker
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - FacialHair
+    - HeadTop
+    - HeadSide
 
 - type: entity
   abstract: true

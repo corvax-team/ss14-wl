@@ -5,12 +5,9 @@
 * @JerryImMouse
 * @Litogin
 
-# Translations
-*.ftl @Morb0 @DIMMoon1 @ficcialfaint
-
 # Maps
-/Resources/Prototypes/Maps/** @Morb0 @DIMMoon1 @Ko4ergaPunk
-/Resources/Maps/** @Morb0 @DIMMoon1 @Ko4ergaPunk
+/Resources/Prototypes/Maps/** @Morb0 @DIMMoon1 @kvant8
+/Resources/Maps/** @Morb0 @DIMMoon1 @kvant8
 /Resources/Prototypes/_WL/Maps/** @0leshe
 /Resources/Maps/_WL/** @0leshe
 

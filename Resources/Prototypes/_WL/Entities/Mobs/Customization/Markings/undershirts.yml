@@ -1,7 +1,7 @@
-﻿- type: marking
+- type: marking
   id: UndershirtShirtBand
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine, Murine]
   forcedColoring: true
   coloring:
@@ -15,8 +15,8 @@
 
 - type: marking
   id: UndershirtPoloBlue
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -30,8 +30,8 @@
 
 - type: marking
   id: UndershirtShirtSportBlue
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -45,8 +45,8 @@
 
 - type: marking
   id: UndershirtPoloGrayYellow
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -60,8 +60,8 @@
 
 - type: marking
   id: UndershirtShirtSportGreen
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -75,8 +75,8 @@
 
 - type: marking
   id: UndershirtShirtIan
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -90,8 +90,8 @@
 
 - type: marking
   id: UndershirtShirtIlovent
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -105,8 +105,8 @@
 
 - type: marking
   id: UndershirtShirtLover
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -120,8 +120,8 @@
 
 - type: marking
   id: UndershirtShirtMatroska
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -135,8 +135,8 @@
 
 - type: marking
   id: UndershirtShirtPeace
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -150,8 +150,8 @@
 
 - type: marking
   id: UndershirtShirtPogoman
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -165,8 +165,8 @@
 
 - type: marking
   id: UndershirtPoloRed
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -180,8 +180,8 @@
 
 - type: marking
   id: UndershirtShirtSportRed
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -195,8 +195,8 @@
 
 - type: marking
   id: UndershirtTopRed
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -210,8 +210,8 @@
 
 - type: marking
   id: UndershirtShirtAlien
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -225,8 +225,8 @@
 
 - type: marking
   id: UndershirtShirtAssblastusa
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -240,8 +240,8 @@
 
 - type: marking
   id: UndershirtJerseyBlue
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -255,8 +255,8 @@
 
 - type: marking
   id: UndershirtShirtClown
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -270,8 +270,8 @@
 
 - type: marking
   id: UndershirtShirtCommie
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -285,8 +285,8 @@
 
 - type: marking
   id: UndershirtShirtMeat
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -300,8 +300,8 @@
 
 - type: marking
   id: UndershirtShirtNano
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -315,8 +315,8 @@
 
 - type: marking
   id: UndershirtShirtQuestion
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -330,8 +330,8 @@
 
 - type: marking
   id: UndershirtJerseyRed
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -345,8 +345,8 @@
 
 - type: marking
   id: UndershirtShirtSkull
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -360,8 +360,8 @@
 
 - type: marking
   id: UndershirtShirtSS14
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -375,8 +375,8 @@
 
 - type: marking
   id: UndershirtShirtStripes
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -390,8 +390,8 @@
 
 - type: marking
   id: UndershirtShirtTiedye
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -405,8 +405,8 @@
 
 - type: marking
   id: UndershirtShirtWhite
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   coloring:
     default:
@@ -419,8 +419,8 @@
 
 - type: marking
   id: UndershirtBraSports
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Female
   coloring:
@@ -434,8 +434,8 @@
 
 - type: marking
   id: UndershirtBraSportsAlt
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Female
   coloring:
@@ -449,8 +449,8 @@
 
 - type: marking
   id: UndershirtTankFire
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -464,8 +464,8 @@
 
 - type: marking
   id: UndershirtTankMidriff
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Female
   coloring:
@@ -479,8 +479,8 @@
 
 - type: marking
   id: UndershirtTankStripes
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -494,8 +494,8 @@
 
 - type: marking
   id: UndershirtShirtUK
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   forcedColoring: true
   coloring:
@@ -509,8 +509,8 @@
 
 - type: marking
   id: UndershirtPoloWhite
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   coloring:
     default:
@@ -523,8 +523,8 @@
 
 - type: marking
   id: UndershirtShortSleeveWhite
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   coloring:
     default:
@@ -537,8 +537,8 @@
 
 - type: marking
   id: UndershirtTopWhite
-  bodyPart: UndergarmentBottom
-  markingCategory: UndergarmentBottom
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
   speciesRestriction: [Human, SlimePerson, Dwarf, Reptilian, Moth, Arachnid, Akula, Felinid, HumanoidKidanes, Vulpkanines, Android, Murine]
   sexRestriction: Female
   coloring:

@@ -2,7 +2,7 @@
   id: MurineTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Murine]
+  speciesRestriction: [Murine, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/murine_parts.rsi
       state: tail
@@ -11,7 +11,7 @@
   id: MurineEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Murine]
+  speciesRestriction: [Murine, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/murine_parts.rsi
       state: ears
@@ -20,7 +20,7 @@
   id: MurineLeftLeg
   bodyPart: LFoot
   markingCategory: Legs
-  speciesRestriction: [Murine]
+  speciesRestriction: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: leg_left
@@ -29,7 +29,7 @@
   id: MurineRightLeg
   bodyPart: RFoot
   markingCategory: Legs
-  speciesRestriction: [Murine]
+  speciesRestriction: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: leg_right
@@ -38,7 +38,7 @@
   id: MurineLeftHand
   bodyPart: LHand
   markingCategory: Arms
-  speciesRestriction: [Murine]
+  speciesRestriction: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: hand_left
@@ -47,7 +47,7 @@
   id: MurineRightHand
   bodyPart: RHand
   markingCategory: Arms
-  speciesRestriction: [Murine]
+  speciesRestriction: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: hand_right
@@ -56,7 +56,7 @@
   id: MurineLeftArm
   bodyPart: LArm
   markingCategory: Arms
-  speciesRestriction: [Murine]
+  speciesRestriction: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: arm_left
@@ -65,7 +65,7 @@
   id: MurineRightArm
   bodyPart: RArm
   markingCategory: Arms
-  speciesRestriction: [Murine]
+  speciesRestriction: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: arm_right

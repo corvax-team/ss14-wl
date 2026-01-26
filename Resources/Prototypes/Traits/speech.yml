@@ -17,6 +17,7 @@
       accent: dwarf
     - type: GrowlingAccent # Corvax-Vulps
     - type: OwOAccent
+    - type: CischiAccent # WL-Change
 
 # 1 Cost
 

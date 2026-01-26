@@ -63,7 +63,10 @@
     - type: Puller
       needsHands: true
     - type: Bloodstream
-      bloodReagent: Ash
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Ash
+          Quantity: 300
       bloodlossDamage:
         types:
           Bloodloss:
@@ -103,10 +106,11 @@
         150: Critical
         200: Dead
     - type: Temperature
-      heatDamageThreshold: 1273.15
-      coldDamageThreshold: 275
       currentTemperature: 334
       specificHeat: 42
+    - type: TemperatureDamage
+      heatDamageThreshold: 1273.15
+      coldDamageThreshold: 275
       coldDamage:
         types:
           Cold: 0.2 #per second, scales with temperature & other constants
@@ -199,7 +203,7 @@
       sleepingAllowed: false
     - type: ZombieImmune
     - type: Stamina
-      critThreshold: 200
+      baseCritThreshold: 200
     - type: Fixtures
       fixtures:
         fix1:

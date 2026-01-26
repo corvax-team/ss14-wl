@@ -71,14 +71,12 @@
             Chaplain: [ 1, 1 ]
             Chef: [ 1, 1 ]
             Clown: [ 1, 1 ]
-            Boxer: [ 2, 2 ]
             Janitor: [ 2, 2 ]
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 1, 2 ]
             ServiceWorker: [ 2, 2 ]
-            Zookeeper: [ 1, 1 ]
             Passenger: [ -1, -1 ]
 
             #silicon
