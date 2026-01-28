@@ -8,6 +8,7 @@
   - Male: работник склада
   - Male: курьер
   - Male: почтальон
+  - Male: логист
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   access:

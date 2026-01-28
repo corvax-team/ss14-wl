@@ -69,8 +69,10 @@ ent-SpawnPointChemist = химик
     .desc = { ent-SpawnPointJobBase.desc }
 ent-SpawnPointResearchDirector = научный руководитель
     .desc = { ent-SpawnPointJobBase.desc }
-ent-SpawnPointScientist = учёный
+# WL-Changes: Научный сотрудник start
+ent-SpawnPointScientist = научный сотрудник
     .desc = { ent-SpawnPointJobBase.desc }
+# WL-Changes: Научный сотрудник end
 ent-SpawnPointHeadOfSecurity = глава службы безопасности
     .desc = { ent-SpawnPointJobBase.desc }
 ent-SpawnPointWarden = смотритель

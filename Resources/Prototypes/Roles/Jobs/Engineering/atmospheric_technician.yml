@@ -5,6 +5,7 @@
   playTimeTracker: JobAtmosphericTechnician
   subnames:
   - Male: техник СЖО
+  - Male: газовый технолог
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

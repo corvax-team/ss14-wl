@@ -3,6 +3,8 @@
   description: job-description-ce
   name: job-name-ce
   playTimeTracker: JobChiefEngineer
+  subnames:
+  - Male: технический директор
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician

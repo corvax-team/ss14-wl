@@ -3,6 +3,8 @@
   name: job-name-captain
   description: job-description-captain
   playTimeTracker: JobCaptain
+  subnames:
+  - Male: директор НИК
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

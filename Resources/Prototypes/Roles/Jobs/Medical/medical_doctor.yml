@@ -8,6 +8,7 @@
   - Male: вирусолог
   - Male: генетик
   - Male: патологоанатом
+  - Male: терапевт
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

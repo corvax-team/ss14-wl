@@ -7,7 +7,7 @@
   - Male: электрик
   - Male: механик
   - Male: управленец ГЭУ
-  - Male: техник систем коммуникации
+  - Male: системный администратор
   - Male: инженер-структурщик
   requirements:
     - !type:DepartmentTimeRequirement

@@ -3,6 +3,9 @@
   name: job-name-adjutant
   description: job-description-adjutant
   playTimeTracker: JobAdjutant
+  subnames:
+  - Male: бюрократический супервайзер
+  - Male: младший администратор
   requirements:
     - !type:AgeRequirement
       minAge: 22

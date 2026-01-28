@@ -5,6 +5,8 @@
   name: job-name-cmo
   description: job-description-cmo
   playTimeTracker: JobChiefMedicalOfficer
+  subnames:
+  - Male: медицинский директор
   requirements:
     - !type:RoleTimeRequirement
       role: JobChemist

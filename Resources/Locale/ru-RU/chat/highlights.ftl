@@ -24,8 +24,10 @@ highlights-medical-doctor = врач, доктор, "док", медблок, м
 highlights-medical-intern = интерн "док", медблок, медбей, "мед"
 highlights-paramedic = парамед, медблок, медбей, "мед"
 # Science
-highlights-scientist = учёный, наука, "рнд", "нио"
-highlights-research-assistant = научный ассистент, наука, "рнд", "нио"
+# WL-Changes Start
+highlights-scientist = учёный, наука, "рнд", "нио", научный сотрудник
+highlights-research-assistant = научный ассистент, наука, "рнд", "нио", студент-учёный, студент
+# WL-Changes end
 # Civilian
 highlights-bartender = бармен, "бар"
 highlights-botanist = ботаник, гидропоник

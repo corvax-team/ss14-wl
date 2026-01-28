@@ -5,8 +5,8 @@ job-name-hos = глава службы безопасности
 job-name-detective = детектив
 job-name-brigmedic = бригмедик
 job-name-borg = борг
-job-name-scientist = учёный
 # WL-Changes-start
+job-name-scientist = научный сотрудник
 job-name-research-assistant = студент-учёный
 # WL-Changes-end
 job-name-rd = научный руководитель
@@ -108,10 +108,12 @@ JobPsychologist = психотерапевт
 # WL-change-psych
 JobQuartermaster = квартирмейстер
 JobReporter = репортёр
-JobResearchAssistant = научный ассистент
 JobResearchDirector = научный руководитель
 JobSalvageSpecialist = утилизатор
-JobScientist = учёный
+# WL-Changes-start
+JobResearchAssistant = студент-учёный
+JobScientist = научный сотрудник
+# WL-Changes-еnd
 JobSecurityCadet = кадет СБ
 JobSecurityOfficer = офицер СБ
 JobServiceWorker = сервисный работник

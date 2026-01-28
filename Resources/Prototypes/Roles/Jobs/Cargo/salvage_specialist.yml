@@ -5,9 +5,8 @@
   playTimeTracker: JobSalvageSpecialist
   subnames:
   - Male: шахтёр
-  - Male: старатель
-  - Male: исследователь
-  - Male: пилот-исследователь
+  - Male: полевой исследователь
+  - Male: пилот экспедиции
   requirements:
     - !type:DepartmentTimeRequirement
       department: Cargo

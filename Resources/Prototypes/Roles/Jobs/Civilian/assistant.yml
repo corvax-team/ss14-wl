@@ -5,20 +5,19 @@
   subnames:
   - Male: ассистент
     Female: ассистентка
-  - Male: художник
-    Female: художница
-  - Male: юрист
   - Male: фрилансер
   - Male: экипаж вне службы
   - Male: турист
-  - Male: психолог
+  - Male: соискатель
+  - Male: боксёр
+  - Male: частный детектив
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
 #  access: # WL-Changes
 #  - Maintenance
-  bonusSkillPoints: 25 # WL-Skills 
+  bonusSkillPoints: 25 # WL-Skills
 
 - type: startingGear
   id: PassengerGear

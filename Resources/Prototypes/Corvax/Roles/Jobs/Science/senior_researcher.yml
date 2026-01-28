@@ -3,6 +3,8 @@
   name: job-name-senior-researcher
   description: job-description-senior-researcher
   playTimeTracker: JobSeniorResearcher
+  subnames:
+  - Male: старший научный сотрудник
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science

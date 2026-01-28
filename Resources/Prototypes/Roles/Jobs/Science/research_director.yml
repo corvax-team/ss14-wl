@@ -5,7 +5,6 @@
   playTimeTracker: JobResearchDirector
   subnames:
   - Male: директор исследований
-  - Male: директор лаборатории
   requirements:
     #- !type:RoleTimeRequirement
     #  role: JobScientist

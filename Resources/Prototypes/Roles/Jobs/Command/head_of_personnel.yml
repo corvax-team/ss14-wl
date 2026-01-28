@@ -3,6 +3,9 @@
   name: job-name-hop
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
+  subnames:
+  - Male: директор по персоналу
+  - Male: старший администратор
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering

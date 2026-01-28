@@ -3,6 +3,8 @@
   name: job-name-brigmedic
   description: job-description-brigmedic
   playTimeTracker: JobBrigmedic
+  subnames:
+  - Male: фельдшер безопасности
   requirements:
   - !type:DepartmentTimeRequirement
     department: Medical

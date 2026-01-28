@@ -3,12 +3,14 @@
   name: job-name-reporter
   description: job-description-reporter
   playTimeTracker: JobReporter
-  requirements:
-    - !type:AgeRequirement
-      minAge: 22
   subnames:
   - Male: журналист
   - Male: корреспондент
+  - Male: телеведущий
+  - Male: радиоведущий
+  requirements:
+    - !type:AgeRequirement
+      minAge: 22
   startingGear: ReporterGear
   icon: "JobIconReporter"
   supervisors: job-supervisors-hop

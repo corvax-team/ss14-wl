@@ -5,8 +5,7 @@
   playTimeTracker: JobDetective
   subnames:
   - Male: криминалист
-  - Male: сыщик
-  - Male: следователь
+  - Male: офицер-следователь
   requirements:
     # WL-Changes: Age start
     - !type:AgeRequirement

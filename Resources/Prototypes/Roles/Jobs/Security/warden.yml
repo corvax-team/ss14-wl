@@ -4,7 +4,7 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   subnames:
-  - Male: надзиратель
+  - Male: администратор ИВС
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

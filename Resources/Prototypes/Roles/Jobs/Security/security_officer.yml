@@ -5,9 +5,9 @@
   playTimeTracker: JobSecurityOfficer
   subnames:
   - Male: офицер охраны
-  - Male: оперативник СБ
-  - Male: инструктор СБ
+  - Male: офицер-оперативник
   - Male: патрульный офицер
+  - Male: специалист по безопасности
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security

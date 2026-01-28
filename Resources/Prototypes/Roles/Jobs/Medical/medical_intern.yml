@@ -8,6 +8,7 @@
     Female: медсестра
   - Male: санитар
   - Male: ординатор
+  - Male: химик-стажёр
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

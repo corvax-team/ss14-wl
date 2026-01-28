@@ -5,8 +5,7 @@
   playTimeTracker: JobJanitor
   startingGear: JanitorGear
   subnames:
-  - Male: горничный
-    Female: горничная
+  - Male: специалист по переработке
   icon: "JobIconJanitor"
   supervisors: job-supervisors-hop
   access:

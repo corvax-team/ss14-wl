@@ -7,8 +7,7 @@
     - !type:AgeRequirement
       minAge: 22
   subnames:
-  - Male: куратор
-  - Male: архивариус
+  - Male: социологист
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
   supervisors: job-supervisors-hop
