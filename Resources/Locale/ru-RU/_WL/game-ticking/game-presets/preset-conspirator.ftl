@@ -8,6 +8,6 @@ conspirator-name-user = [color=white]{CAPITALIZE($name)}[/color] ([color=gray]{$
 conspirator-objective = Целью заговорщиков было: [color=white]{$objective}[/color].
 conspirator-identities = Заговорщики это:
 conspirator-name = {$name} заговорщик.
-conspirator-radio-implant = Используй свой радио-имплант для общения с другими заговорщиками (:з).
+conspirator-radio-implant = Используйте свой радио-имплант для общения с другими заговорщиками (:з).
 conspiracy-title = Заговор
 conspiracy-description = ЗАГОВОРЩИК ПОДТВЕРЖДЁН
