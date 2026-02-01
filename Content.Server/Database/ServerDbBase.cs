@@ -393,6 +393,10 @@ namespace Content.Server.Database
             profile.MedicalRecord = humanoid.MedicalRecord; // WL-Records
             profile.SecurityRecord = humanoid.SecurityRecord; // WL-Records
             profile.EmploymentRecord = humanoid.EmploymentRecord; // WL-Records
+            profile.FullName = humanoid.FullName; // WL-Records
+            profile.DateOfBirth = humanoid.DateOfBirth; // WL-Records
+            profile.Confederation = humanoid.Confederation; // WL-Records
+            profile.Country = humanoid.Country; // WL-Records
             profile.Species = humanoid.Species;
             profile.Voice = humanoid.Voice; // Corvax-TTS
             profile.Age = humanoid.Age;

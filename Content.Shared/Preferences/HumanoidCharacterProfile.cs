@@ -166,8 +166,8 @@ namespace Content.Shared.Preferences
             string medicalRecord, // WL-Records
             string securityRecord, // WL-Records
             string employmentRecord, // WL-Records
-            string dateOfbirth, // WL-Records
             string fullName, // WL-Records
+            string dateOfBirth, // WL-Records
             string confederation, // WL-Records
             string country, // WL-Records
 
@@ -201,7 +201,7 @@ namespace Content.Shared.Preferences
             SecurityRecord = securityRecord; // WL-Records
             EmploymentRecord = employmentRecord; // WL-Records
             FullName = fullName; // WL-Records
-            DateOfBirth = dateOfbirth;
+            DateOfBirth = dateOfBirth; // WL-Records
             Confederation = confederation; // WL-Records
             Country = country;
             Skills = skills; // WL-Skills
@@ -246,10 +246,10 @@ namespace Content.Shared.Preferences
                 other.MedicalRecord, // WL-Records
                 other.SecurityRecord, // WL-Records
                 other.EmploymentRecord, // WL-Records
-                other.FullName,
-                other.DateOfBirth,
-                other.Confederation,
-                other.Country,
+                other.FullName, // WL-Records
+                other.DateOfBirth, // WL-Records
+                other.Confederation, // WL-Records
+                other.Country, // WL-Records
                 other.Skills) // WL-Skills
         {
         }
@@ -358,11 +358,11 @@ namespace Content.Shared.Preferences
         [DataField]
         public string FullName { get; set; } = string.Empty;
         [DataField]
+        public string DateOfBirth { get; set; } = string.Empty;
+        [DataField]
         public string Confederation { get; set; } = string.Empty;
         [DataField]
         public string Country { get; set; } = string.Empty;
-        [DataField]
-        public string DateOfBirth { get; set; } = string.Empty;
 
         [DataField("height")] public int Height { get; private set; } = 165; // WL-Height
         public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames; //WL-changes
@@ -808,12 +808,8 @@ namespace Content.Shared.Preferences
             var employmentRecord = EmploymentRecord.Length > MaxRecordLength
                 ? FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord)[..MaxRecordLength]
                 : FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord);
-            var fullName = FullName.Length > MaxRecordLength
-                ? FormattedMessage.RemoveMarkupOrThrow(FullName)[..MaxRecordLength]
-                : FormattedMessage.RemoveMarkupOrThrow(FullName);
-            var dateOfBirth = DateOfBirth.Length > MaxRecordLength
-                ? FormattedMessage.RemoveMarkupOrThrow(DateOfBirth)[..MaxRecordLength]
-                : FormattedMessage.RemoveMarkupOrThrow(DateOfBirth);
+            var fullName = FullName;
+            var dateOfBirth = DateOfBirth;
             var confederation = Confederation;
             var country = Country;
             // WL-Records-End
@@ -909,10 +905,10 @@ namespace Content.Shared.Preferences
             MedicalRecord = medicalRecord; // WL-Records
             SecurityRecord = securityRecord; // WL-Records
             EmploymentRecord = employmentRecord; // WL-Records
-            FullName = fullName;
-            DateOfBirth = dateOfBirth;
-            Confederation = confederation;
-            Country = country;
+            FullName = fullName; // WL-Records
+            DateOfBirth = dateOfBirth; // WL-Records
+            Confederation = confederation; // WL-Records
+            Country = country; // WL-Records
             Age = age;
             Height = height; // WL-Height
             Sex = sex;

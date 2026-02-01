@@ -196,9 +196,14 @@ namespace Content.Client.Lobby.UI
         private TextEdit? _securityRecordEdit; // WL-Records
         private TextEdit? _employmentRecordEdit; // WL-Records
 
+        private LineEdit? _generalRecordNameEdit;
+        private LineEdit? _generalRecordAgeEdit;
+        private LineEdit? _generalRecordCountryEdit;
+
         private OptionButton? _confederationButton; // WL-Recordss
 
-        private List<string> _confederations = new List<string>() { "Конфедерация Орионских Государств", "СоцКон", "Межвидовой Альянс", "Священная Империя Эдема" };
+        private List<string> _confederations = new List<string>() {
+            "Конфедерация Орионских Государств", "СоцКон", "Межвидовой Альянс", "Священная Империя Эдема" };
 
         private SingleMarkingPicker _underwearPicker => CUnderwearPicker; // WL-Underwear
         private SingleMarkingPicker _undershirtPicker => CUndershirtPicker; // WL-Underwear
@@ -833,25 +838,30 @@ namespace Content.Client.Lobby.UI
             _securityRecordEdit = _recordsTab.SecurityRecordInput;
             _employmentRecordEdit = _recordsTab.EmploymentRecordInput;
 
+            _generalRecordNameEdit = _recordsTab.NameEdit;
+            _generalRecordAgeEdit = _recordsTab.AgeEdit;
+            _generalRecordCountryEdit = _recordsTab.CountryEdit;
+
+            _confederationButton = _recordsTab.ConfederationButton;
+
             _recordsTab.OnMedicalRecordChanged += OnMedicalRecordChange;
             _recordsTab.OnSecurityRecordChanged += OnSecurityRecordChange;
             _recordsTab.OnEmploymentRecordChanged += OnEmploymentRecordChange;
+
+            _recordsTab.OnGeneralRecordNameChanged += OnGeneralRecordNameChanged;
+            _recordsTab.OnGeneralRecordAgeChanged += OnGeneralRecordDateOfBirthChanged;
+            _recordsTab.OnGeneralRecordCountryChanged += OnGeneralRecordCountryChanged;
+
+            _recordsTab.OnGeneralRecordConfederationChanged += SetConfederation;
 
             _confederations.Sort((a, b) => string.Compare(a, b, StringComparison.CurrentCultureIgnoreCase));
 
             for (var i = 0; i < _confederations.Count; i++)
             {
-                var name = /*Loc.GetString(_species[i].Name);*/ _confederations[i];
+                var name = _confederations[i];
 
-                //if (_species[i].SponsorOnly) // Corvax-Sponsors
-                //    name += GetSponsorOnlySuffix();
 
                 _recordsTab.ConfederationButton.AddItem(name, i);
-
-                //if (Profile?.Species.Equals(_species[i].ID) == true)
-                //{
-                //    SpeciesButton.SelectId(i);
-                //}
             }
         }
 
@@ -881,6 +891,44 @@ namespace Content.Client.Lobby.UI
             Profile = Profile.WithEmploymentRecord(content);
             SetDirty();
         }
+
+        private void OnGeneralRecordNameChanged(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithFullName(content);
+            SetDirty();
+        }
+        private void OnGeneralRecordDateOfBirthChanged(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithDateOfBirth(content);
+            SetDirty();
+        }
+        private void OnGeneralRecordCountryChanged(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithCountry(content);
+            SetDirty();
+        }
+        private void SetConfederation(OptionButton.ItemSelectedEventArgs args)
+        {
+            if (_confederationButton is null)
+                return;
+
+            if (Profile is null)
+                return;
+
+            _confederationButton.SelectId(args.Id);
+            Profile = Profile.WithConfederation(_confederations[args.Id]);
+            SetDirty();
+        }
+
         // WL-Records-End
         // Corvax-TTS-Start
         #region Voice
@@ -1937,6 +1985,25 @@ namespace Content.Client.Lobby.UI
 
             if (_employmentRecordEdit != null)
                 _employmentRecordEdit.TextRope = new Rope.Leaf(Profile?.EmploymentRecord ?? "");
+
+            if (_generalRecordNameEdit != null)
+                _generalRecordNameEdit.Text = Profile?.FullName ?? "";
+
+            if (_generalRecordAgeEdit != null)
+                _generalRecordAgeEdit.Text = Profile?.DateOfBirth ?? "";
+
+            if (_generalRecordCountryEdit != null)
+                _generalRecordCountryEdit.Text = Profile?.Country ?? "";
+
+            if (_confederationButton != null)
+                for (var i = 0; i < _confederations.Count; i++)
+                {
+
+                    if (Profile?.Confederation.Equals(_confederations[i]) == true)
+                    {
+                        _confederationButton.SelectId(i);
+                    }
+                }
         }
         // WL-Records-End
 
