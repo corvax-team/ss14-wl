@@ -5,7 +5,7 @@
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
-  maxPlayers: 15
+  maxPlayers: 30
   stations:
     CorvaxMaus:
       stationProto: StandardNanotrasenStation
@@ -14,35 +14,42 @@
           mapNameTemplate: '{0} Маус {1}'
           nameGenerator:
            !type:NanotrasenNameGenerator
-            prefixCreator: "MG"
+            prefixCreator: "AL"
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlmaus.yml
         - type: StationJobs
-          availableJobs: # Total jobs on the station: 55
-            # command: 2
+          availableJobs:
+
+            # command
             Captain: [ 1, 1 ]
             IAA: [1, 1]
-            # cargo: 6
+            Adjutant: [ 1, 1 ]
+
+            # cargo
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 3 ]
             CargoTechnician: [ 2, 2 ]
-            # engineering: 7
+
+            # engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 2, 2 ]
             TechnicalAssistant: [ 2, 2 ]
-            # medical: 9
+
+            # medical
             ChiefMedicalOfficer: [ 1, 1 ]
             MedicalDoctor: [ 2, 2 ]
             MedicalIntern: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             Paramedic: [1, 1]
             Chemist: [ 2, 2 ]
-            # science: 5
+
+            # science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 2, 2 ]
+            Scientist: [ 2, 3 ]
             ResearchAssistant: [ 2, 2 ]
-            # security: 9
+
+            # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 2, 2 ]
@@ -50,10 +57,12 @@
             Detective: [ 1, 1 ]
             Pilot: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
-            # service: 15
+
+            # service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
+            Boxer: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 1, 1 ]
             Clown: [ 1, 1 ]
@@ -64,6 +73,7 @@
             Reporter: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             Passenger: [ -1, -1 ]
-            # silicon: 2
+
+            # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 1, 1 ]
