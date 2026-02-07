@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/06/2026 20:16:16
-  entityCount: 18232
+  time: 02/06/2026 21:10:40
+  entityCount: 18234
 maps:
 - 1
 grids:
@@ -13758,6 +13758,20 @@ entities:
       - 7093
     - type: Fixtures
       fixtures: {}
+  - uid: 11089
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,-13.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 9964
+      - 17581
+      - 7101
+      - 11090
+    - type: Fixtures
+      fixtures: {}
   - uid: 12797
     components:
     - type: Transform
@@ -14174,7 +14188,7 @@ entities:
       pos: 45.5,25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -151319.06
+      secondsUntilStateChange: -151484.06
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19799,48 +19813,6 @@ entities:
     - type: Transform
       pos: 51.542747,26.526852
       parent: 2
-- proto: BoxLightbulb
-  entities:
-  - uid: 391
-    components:
-    - type: Transform
-      parent: 13984
-    - type: Storage
-      storedItems:
-        471:
-          position: 0,0
-          _rotation: South
-        787:
-          position: 1,0
-          _rotation: South
-        1016:
-          position: 2,0
-          _rotation: South
-        1273:
-          position: 3,0
-          _rotation: South
-        1274:
-          position: 4,0
-          _rotation: South
-        1291:
-          position: 5,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 471
-          - 787
-          - 1016
-          - 1273
-          - 1274
-          - 1291
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 13984
 - proto: BoxLightMixed
   entities:
   - uid: 982
@@ -39225,6 +39197,11 @@ entities:
     - type: Transform
       pos: 25.5,-7.5
       parent: 2
+  - uid: 11481
+    components:
+    - type: Transform
+      pos: 20.5,5.5
+      parent: 2
   - uid: 11921
     components:
     - type: Transform
@@ -54420,8 +54397,8 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
-      - HOP
-      - BRIDGE
+      - Глава персонала
+      - Мостик
   - uid: 15646
     components:
     - type: Transform
@@ -54430,7 +54407,7 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
-      - MED
+      - Медицинский
   - uid: 17259
     components:
     - type: Transform
@@ -54439,7 +54416,7 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
-      - SEC
+      - СБ
   - uid: 17307
     components:
     - type: Transform
@@ -54467,7 +54444,7 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
-      - ENG
+      - Инженерный
   - uid: 13572
     components:
     - type: Transform
@@ -54476,7 +54453,7 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
-      - RND
+      - НИО
   - uid: 17308
     components:
     - type: Transform
@@ -54485,6 +54462,7 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
+      - Медицинский
       - Главный врач
   - uid: 17309
     components:
@@ -54494,6 +54472,7 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
+      - НИО
       - Научный руководитель
   - uid: 17312
     components:
@@ -54503,7 +54482,8 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
-      - Квартирмейстер
+      - Квартирмейстр
+      - Карго
   - uid: 17350
     components:
     - type: Transform
@@ -54511,7 +54491,7 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
-      - CARGO
+      - Карго
   - uid: 17381
     components:
     - type: Transform
@@ -54521,6 +54501,7 @@ entities:
     - type: DisposalRouter
       tags:
       - Старший инженер
+      - Инженерный
   - uid: 17391
     components:
     - type: Transform
@@ -54528,7 +54509,8 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
-      - Глава СБ
+      - Глава CБ
+      - СБ
   - uid: 17412
     components:
     - type: Transform
@@ -54537,7 +54519,7 @@ entities:
       parent: 2
     - type: DisposalRouter
       tags:
-      - BRIDGE
+      - Мостик
   - uid: 17464
     components:
     - type: Transform
@@ -58754,6 +58736,7 @@ entities:
       deviceLists:
       - 6925
       - 25
+      - 11089
   - uid: 7102
     components:
     - type: Transform
@@ -60955,6 +60938,15 @@ entities:
       deviceLists:
       - 2609
       - 69
+  - uid: 11090
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,-9.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 11089
   - uid: 11209
     components:
     - type: Transform
@@ -82952,6 +82944,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 19.5,-12.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 11089
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 17707
@@ -84453,6 +84448,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 19.5,-11.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 11089
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -85438,6 +85436,8 @@ entities:
       rot: 3.141592653589793 rad
       pos: 15.5,24.5
       parent: 2
+    - type: AtmosPipeColor
+      color: '#990000FF'
     - type: AtmosPipeLayers
       pipeLayer: Secondary
   - uid: 11206
@@ -91271,39 +91271,51 @@ entities:
   - uid: 471
     components:
     - type: Transform
-      parent: 391
+      parent: 13984
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
+      storage: 13984
   - uid: 787
     components:
     - type: Transform
-      parent: 391
+      parent: 13984
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
+      storage: 13984
   - uid: 1016
     components:
     - type: Transform
-      parent: 391
+      parent: 13984
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
+      storage: 13984
   - uid: 1273
     components:
     - type: Transform
-      parent: 391
+      parent: 13984
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
+      storage: 13984
   - uid: 1274
     components:
     - type: Transform
-      parent: 391
+      parent: 13984
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
+      storage: 13984
   - uid: 1291
     components:
     - type: Transform
-      parent: 391
+      parent: 13984
     - type: Physics
       canCollide: False
+    - type: InsideEntityStorage
+      storage: 13984
 - proto: LiquidCarbonDioxideCanister
   entities:
   - uid: 11059
@@ -91608,10 +91620,15 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 391
+          - 1273
+          - 471
+          - 1291
+          - 1274
+          - 1016
+          - 787
           - 927
-          - 928
           - 5726
+          - 928
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -92547,10 +92564,10 @@ entities:
       pos: 21.5,-4.5
       parent: 2
     - type: MailingUnit
-      tag: RNG
+      tag: НИО
     - type: Configuration
       config:
-        tag: RNG
+        tag: НИО
   - uid: 13006
     components:
     - type: Transform
@@ -92567,10 +92584,10 @@ entities:
       pos: 30.5,24.5
       parent: 2
     - type: MailingUnit
-      tag: BRIDGE
+      tag: Мостик
     - type: Configuration
       config:
-        tag: BRIDGE
+        tag: Мостик
   - uid: 13903
     components:
     - type: Transform
@@ -92607,40 +92624,40 @@ entities:
       pos: 43.5,21.5
       parent: 2
     - type: MailingUnit
-      tag: SEC
+      tag: СБ
     - type: Configuration
       config:
-        tag: SEC
+        tag: СБ
   - uid: 15598
     components:
     - type: Transform
       pos: 50.5,57.5
       parent: 2
     - type: MailingUnit
-      tag: ENG
+      tag: Инженерный
     - type: Configuration
       config:
-        tag: ENG
+        tag: Инженерный
   - uid: 15599
     components:
     - type: Transform
       pos: 8.5,5.5
       parent: 2
     - type: MailingUnit
-      tag: CARGO
+      tag: Карго
     - type: Configuration
       config:
-        tag: CARGO
+        tag: Карго
   - uid: 15622
     components:
     - type: Transform
       pos: 49.5,4.5
       parent: 2
     - type: MailingUnit
-      tag: MED
+      tag: Медицинский
     - type: Configuration
       config:
-        tag: MED
+        tag: Медицинский
   - uid: 17227
     components:
     - type: Transform
