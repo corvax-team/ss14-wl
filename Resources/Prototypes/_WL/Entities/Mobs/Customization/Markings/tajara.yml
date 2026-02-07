@@ -69,7 +69,7 @@
   id: TajaraTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Tajaran]
+  speciesRestriction: [Tajaran, Felinid, Android]
   sprites:
   - sprite: _WL/Mobs/Customization/tajara_parts.rsi
     state: tajara_tail
@@ -78,7 +78,7 @@
   id: TajaraTailTiger
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Tajaran]
+  speciesRestriction: [Tajaran, Felinid, Android]
   sprites:
   - sprite: _WL/Mobs/Customization/tajara_parts.rsi
     state: tajara_tail
@@ -89,7 +89,7 @@
   id: TajaraEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Tajaran]
+  speciesRestriction: [Tajaran, Felinid, Android]
   sprites:
   - sprite: _WL/Mobs/Customization/tajara_parts.rsi
     state: tajara_ears_in

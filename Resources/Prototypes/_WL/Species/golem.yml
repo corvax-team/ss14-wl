@@ -16,6 +16,10 @@
   - Unsexed
   minHeight: 110
   maxHeight: 230
+  minAge: 0
+  youngAge: 900
+  oldAge: 2100
+  maxAge: 3000
 
 - type: speciesBaseSprites
   id: MobGolemSprites

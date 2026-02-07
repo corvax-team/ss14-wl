@@ -1,0 +1,31 @@
+
+- type: entity
+  parent: BaseItem
+  id: MonochromeClownRecorder
+  name: monochrome clown recorder
+  description: When you must can't get those laughs coming the natural way!
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Fun/monochromeclownrecorder.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      collection: MarineStimandDeathPAPER
+  - type: EmitSoundOnLand
+    sound:
+      collection: MarineStimandDeathPAPER
+  - type: EmitSoundOnActivate
+    sound:
+      collection: MarineStimandDeathPAPER
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: MarineStimandDeathPAPER
+  - type: EmitSoundOnCollide
+    sound:
+      collection: MarineStimandDeathPAPER
+  - type: UseDelay
+    delay: 3.0
+  - type: Tag
+    tags:
+    - ClownRecorder
+    - Payload

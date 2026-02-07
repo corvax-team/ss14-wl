@@ -113,15 +113,17 @@ loadout-group-research-director-neck = Научный руководитель, 
 loadout-group-research-director-jumpsuit = Научный руководитель, комбинезон
 loadout-group-research-director-outerclothing = Научный руководитель, верхняя одежда
 loadout-group-research-director-shoes = Научный руководитель, обувь
-loadout-group-scientist-head = Учёный, голова
-loadout-group-scientist-neck = Учёный, шея
-loadout-group-scientist-jumpsuit = Учёный, комбинезон
-loadout-group-scientist-backpack = Учёный, рюкзак
-loadout-group-scientist-outerclothing = Учёный, верхняя одежда
-loadout-group-scientist-gloves = Учёный, перчатки
-loadout-group-scientist-shoes = Учёный, обувь
-loadout-group-scientist-id = Учёный, ID
-loadout-group-research-assistant-jumpsuit = Научный ассистент, комбинезон
+# WL-Changes: Научный сотрудник start
+loadout-group-scientist-head = Научный сотрудник, голова
+loadout-group-scientist-neck = Научный сотрудник, шея
+loadout-group-scientist-jumpsuit = Научный сотрудник, комбинезон
+loadout-group-scientist-backpack = Научный сотрудник, рюкзак
+loadout-group-scientist-outerclothing = Научный сотрудник, верхняя одежда
+loadout-group-scientist-gloves = Научный сотрудник, перчатки
+loadout-group-scientist-shoes = Научный сотрудник, обувь
+loadout-group-scientist-id = Научный сотрудник, ID
+loadout-group-research-assistant-jumpsuit = Студент-учёный, комбинезон
+# WL-Changes: Научный сотрудник end
 # Security
 loadout-group-head-of-security-head = Глава службы безопасности, голова
 loadout-group-head-of-security-jumpsuit = Глава службы безопасности, комбинезон

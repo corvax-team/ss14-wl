@@ -13,10 +13,14 @@
   naming: First
   sexes:
   - Unsexed
-  # WL-Changes-start: Height
+  # WL-Changes-start
   minHeight: 150
   maxHeight: 180
-  # WL-Changes-end: Height
+  minAge: 4
+  youngAge: 18
+  oldAge: 42
+  maxAge: 60
+  # WL-Changes-end
 
 - type: speciesBaseSprites
   id: MobVoxSprites

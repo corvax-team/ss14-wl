@@ -3,13 +3,15 @@
   name: job-name-senior-researcher
   description: job-description-senior-researcher
   playTimeTracker: JobSeniorResearcher
+  subnames:
+  - Male: старший научный сотрудник
   requirements:
     - !type:DepartmentTimeRequirement
       department: Science
       time: 60h
       # WL-Changes-start
     - !type:AgeRequirement
-      minAge: 26
+      age: 8 # WL-Changes-AgeRequirement
       # WL-Changes-end
   weight: 9
   startingGear: SeniorResearcherGear

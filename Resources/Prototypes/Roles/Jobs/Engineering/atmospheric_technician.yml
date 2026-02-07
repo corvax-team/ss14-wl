@@ -5,12 +5,13 @@
   playTimeTracker: JobAtmosphericTechnician
   subnames:
   - Male: техник СЖО
+  - Male: газовый технолог
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 10h #10 hrs # Corvax-RoleTime
     - !type:AgeRequirement
-      minAge: 22 # WL-Changes-AgeRequirement
+      age: 4 # WL-Changes-AgeRequirement
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce

@@ -152,12 +152,12 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
             args.Cancelled = true;
 
             var time = _timing.CurTime;
-            if (true || time > comp.LastPopup + comp.PopupCooldown)
+            if (time > comp.LastPopup + comp.PopupCooldown)
             {
                 comp.LastPopup = time;
                 var message = Loc.GetString("languages-vacuum-block");
 
-                _popup.PopupEntity(message, source);
+                _popup.PopupEntity(message, source, source);
             }
 
         }
@@ -170,7 +170,7 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
                 args.ForceWhisper = true;
 
             var time = _timing.CurTime;
-            if (true || time > comp.LastPopup + comp.PopupCooldown)
+            if (time > comp.LastPopup + comp.PopupCooldown)
             {
                 comp.LastPopup = time;
                 var message = Loc.GetString("languages-vacuum-part-pass");

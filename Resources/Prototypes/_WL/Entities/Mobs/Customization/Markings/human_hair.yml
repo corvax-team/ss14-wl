@@ -213,3 +213,11 @@
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: fluffycurls
+
+- type: marking
+  id: HumanHairSpikyPonyTailAlt
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: spikyponytailalt

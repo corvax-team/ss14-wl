@@ -4,13 +4,13 @@
   description: job-description-warden
   playTimeTracker: JobWarden
   subnames:
-  - Male: надзиратель
+  - Male: администратор ИВС
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
       time: 50h # Corvax-RoleTime
     - !type:AgeRequirement
-      minAge: 24 # WL-Changes-AgeRequirement
+      age: 6 # WL-Changes-AgeRequirement
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
       traits:

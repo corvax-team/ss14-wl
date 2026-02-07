@@ -1,5 +1,5 @@
 - type: soundCollection
-  id: CatPurr # Это пойдёт и фелинидам, и таярам
+  id: CatPurr # Это пойдёт и бестидам, и таярам
   files:
     - /Audio/_WL/Voice/Cat/catmur.ogg
     - /Audio/_WL/Voice/Cat/catmur2.ogg

@@ -5,10 +5,9 @@
   playTimeTracker: JobLibrarian
   requirements:
     - !type:AgeRequirement
-      minAge: 22
+      age: 4 # WL-Changes-AgeRequirement
   subnames:
-  - Male: куратор
-  - Male: архивариус
+  - Male: социологист
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
   supervisors: job-supervisors-hop

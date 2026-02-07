@@ -5,7 +5,7 @@
   playTimeTracker: JobTechnicalAssistant
   subnames:
   - Male: инженер-стажёр
-  - Male: общесистемный техник
+  - Male: ремонтный техник
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 1h

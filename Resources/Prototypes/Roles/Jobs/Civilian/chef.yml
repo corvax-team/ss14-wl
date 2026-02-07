@@ -10,6 +10,7 @@
   - Male: пекарь
   - Male: повар
   - Male: кулинар
+  - Male: работник столовой
   requirements:
     - !type:DepartmentTimeRequirement
       department: Civilian

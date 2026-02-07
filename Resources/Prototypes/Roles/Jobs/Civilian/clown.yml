@@ -5,8 +5,6 @@
   playTimeTracker: JobClown
   subnames:
   - Male: комик
-  - Male: шут
-  - Male: юморист
   requirements:
   - !type:OverallPlaytimeRequirement
       time: 3600 #1 hrs # Corvax-RoleTime

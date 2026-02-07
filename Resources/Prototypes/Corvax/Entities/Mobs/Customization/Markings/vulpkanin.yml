@@ -12,7 +12,7 @@
   id: FoxTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin, Felinid] # WL-Changes: Vulp ears and tails for Felinid
+  speciesRestriction: [Vulpkanin, Felinid, Android] # WL-Changes: Vulp ears and tails for Felinid
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
@@ -24,7 +24,7 @@
   id: FoxEar
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Vulpkanin, Felinid] # WL-Changes: Vulp ears and tails for Felinid
+  speciesRestriction: [Vulpkanin, Felinid, Android] # WL-Changes: Vulp ears and tails for Felinid
 # Coloring for Corvax WL
   coloring:
     default:
@@ -45,7 +45,7 @@
   id: WolfTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Vulpkanin, Felinid] # WL-Changes: Vulp ears and tails for Felinid
+  speciesRestriction: [Vulpkanin, Felinid, Android] # WL-Changes: Vulp ears and tails for Felinid
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
 #    - sprite: Corvax/Mobs/Customization/vulpkanin.rsi

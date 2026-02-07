@@ -214,6 +214,14 @@
       types:
         Asphyxiation: -2.0
 #vulpkanin Corvax-CorvaxVulp_Port end
+# WL-Changes: Languages start
+  - type: Languages
+    speaking:
+      - Translate
+    understood:
+      - Translate
+    specieLanguage: Kuniluc
+# WL-Changes: Languages end
 
 - type: entity
   parent: [BaseSpeciesDummy]

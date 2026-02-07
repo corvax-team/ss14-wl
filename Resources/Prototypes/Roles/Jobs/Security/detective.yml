@@ -5,12 +5,11 @@
   playTimeTracker: JobDetective
   subnames:
   - Male: криминалист
-  - Male: сыщик
-  - Male: следователь
+  - Male: офицер-следователь
   requirements:
     # WL-Changes: Age start
     - !type:AgeRequirement
-      minAge: 22
+      age: 4 # WL-Changes-AgeRequirement
     # WL-Changes: Age end
     - !type:DepartmentTimeRequirement
       department: Security

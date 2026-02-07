@@ -3,6 +3,8 @@
   name: job-name-brigmedic
   description: job-description-brigmedic
   playTimeTracker: JobBrigmedic
+  subnames:
+  - Male: фельдшер безопасности
   requirements:
   - !type:DepartmentTimeRequirement
     department: Medical
@@ -11,7 +13,7 @@
     department: Security
     time: 5h
   - !type:AgeRequirement
-    minAge: 24 # WL-Changes-AgeRequirement
+    age: 6 # WL-Changes-AgeRequirement
   - !type:TraitsRequirement
     inverted: true
     traits:

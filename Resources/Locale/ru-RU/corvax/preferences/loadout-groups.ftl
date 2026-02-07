@@ -1,13 +1,13 @@
 loadout-group-inventory = Мой инвентарь
 # Engineering
 loadout-group-chief-engineer-backpack = Рюкзак старшего инженера
-loadout-group-senior-engineer-head = Ведущий инженер, голова
-loadout-group-senior-engineer-jumpsuit = Ведущий инженер, комбинезон
-loadout-group-senior-engineer-backpack = Ведущий инженер, рюкзак
-loadout-group-senior-engineer-outerclothing = Ведущий инженер, верхняя одежда
-loadout-group-senior-engineer-shoes = Ведущий инженер, обувь
-# Science
 # WL-Changes-start
+loadout-group-senior-engineer-head = Технический супервайзер, голова
+loadout-group-senior-engineer-jumpsuit = Технический супервайзер, комбинезон
+loadout-group-senior-engineer-backpack = Технический супервайзер, рюкзак
+loadout-group-senior-engineer-outerclothing = Технический супервайзер, верхняя одежда
+loadout-group-senior-engineer-shoes = Технический супервайзер, обувь
+# Science
 loadout-group-senior-researcher-head = Заведующий лабораторией, голова
 loadout-group-senior-researcher-jumpsuit = Заведующий лабораторией, комбинезон
 loadout-group-senior-researcher-outerclothing = Заведующий лабораторией, верхняя одежда
@@ -23,9 +23,11 @@ loadout-group-brigmedic-backpack = Бригмедик, рюкзак
 loadout-group-brigmedic-gloves = Бригмедик, перчатка
 loadout-group-brigmedic-mask = Бригмедик, маска
 loadout-group-brigmedic-shoes = Бригмедик, обувь
-loadout-group-pilot-head = Пилот, голова
-loadout-group-pilot-jumpsuit = Пилот, комбинезон
-loadout-group-pilot-outerclothing = Пилот, верхняя одежда
+# WL-Changes-start
+loadout-group-pilot-head = Офицер-пилот, голова
+loadout-group-pilot-jumpsuit = Офицер-пилот, комбинезон
+loadout-group-pilot-outerclothing = Офицер-пилот, верхняя одежда
+# WL-Changes-end
 loadout-group-senior-officer-head = Инструктор СБ, голова
 loadout-group-senior-officer-jumpsuit = Инструктор СБ, комбинезон
 loadout-group-senior-officer-backpack = Инструктор СБ, рюкзак
@@ -34,9 +36,9 @@ loadout-group-senior-officer-outerclothing = Инструктор СБ, верх
 loadout-group-senior-officer-shoes = Инструктор СБ, обувь
 # Medical
 # WL-Changes-start
-loadout-group-senior-physician-head = Дежурный врач, голова
-loadout-group-senior-physician-jumpsuit = Дежурный врач, комбинезон
-loadout-group-senior-physician-outerclothing = Дежурный врач, верхняя одежда
-loadout-group-senior-physician-backpack = Дежурный врач, рюкзак
-loadout-group-senior-physician-shoes = Дежурный врач, обувь
+loadout-group-senior-physician-head = Медицинский супервайзер, голова
+loadout-group-senior-physician-jumpsuit = Медицинский супервайзер, комбинезон
+loadout-group-senior-physician-outerclothing = Медицинский супервайзер, верхняя одежда
+loadout-group-senior-physician-backpack = Медицинский супервайзер, рюкзак
+loadout-group-senior-physician-shoes = Медицинский супервайзер, обувь
 # WL-Changes-end

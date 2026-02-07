@@ -5,10 +5,12 @@
   playTimeTracker: JobReporter
   requirements:
     - !type:AgeRequirement
-      minAge: 22
+      age: 4 # WL-Changes-AgeRequirement
   subnames:
   - Male: журналист
   - Male: корреспондент
+  - Male: телеведущий
+  - Male: радиоведущий
   startingGear: ReporterGear
   icon: "JobIconReporter"
   supervisors: job-supervisors-hop

@@ -1,0 +1,10 @@
+- type: entity
+  parent: CartridgePistol
+  id: KitchenCartridge
+  name: cartridge (.35 KITCHEN)
+  components:
+  - type: CartridgeAmmo
+    proto: KitchenBullet
+  - type: Tag
+    tags:
+      - KitchenCartridge

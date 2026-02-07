@@ -8,10 +8,14 @@
   markingLimits: MobSlimeMarkingLimits
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
-  # WL-Changes-start: Height
+  # WL-Changes-start
   minHeight: 110
   maxHeight: 200
-  # WL-Changes-end: Height
+  minAge: 18
+  youngAge: 30
+  oldAge: 60
+  maxAge: 90
+  # WL-Changes-end
 
 - type: speciesBaseSprites
   id: MobSlimeSprites

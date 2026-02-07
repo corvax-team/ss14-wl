@@ -14,7 +14,7 @@
       department: Science
       time: 5h # Corvax-RoleTime
     - !type:AgeRequirement
-      minAge: 24 # WL-Changes-AgeRequirement
+      age: 6 # WL-Changes-AgeRequirement
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-rd

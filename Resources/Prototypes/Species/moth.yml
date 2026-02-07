@@ -12,10 +12,11 @@
   femaleFirstNames: NamesMothFirstFemale
   maleLastNames: NamesMothLast # Corvax-LastnameGender
   femaleLastNames: NamesMothLast # Corvax-LastnameGender
-  # WL-Changes-start: Height
+  # WL-Changes-start
   minHeight: 150
   maxHeight: 210
-  # WL-Changes-end: Height
+  maxAge: 130
+  # WL-Changes-end
 
 - type: speciesBaseSprites
   id: MobMothSprites

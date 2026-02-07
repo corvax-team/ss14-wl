@@ -4,7 +4,7 @@
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
   subnames:
-  - Male: рекрут СБ
+  - Male: стажёр безопасности
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 10h # Corvax-RoleTime

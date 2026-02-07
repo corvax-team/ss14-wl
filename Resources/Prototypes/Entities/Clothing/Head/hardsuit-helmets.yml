@@ -411,9 +411,9 @@
   description: Special hardsuit helmet, made for the captain of the station.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/capspace.rsi
+    sprite: _WL/Clothing/Head/Hardsuits/capspace.rsi #WL-Resprite: Cap suit
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/capspace.rsi
+    sprite: _WL/Clothing/Head/Hardsuits/capspace.rsi #WL-Resprite: Cap suit
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000

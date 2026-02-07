@@ -1,5 +1,5 @@
-defaultWindowTitle: Space Station 14 - Corvax Station [RU]
+defaultWindowTitle: Space Station 14 - Corvax Whitelist [RU] #WL-Changes: Rebrand
 windowIconSet: /Textures/Logo/icon-ru # Corvax-Theme
-splashLogo: /Textures/Logo/logo-ru.png # Corvax-Theme
+splashLogo: /Textures/_WL/Logo/wl_logo.png # Corvax-Theme #WL-Changes: new logo
 
 # PJB PLEASE

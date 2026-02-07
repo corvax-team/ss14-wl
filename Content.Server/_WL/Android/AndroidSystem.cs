@@ -65,7 +65,6 @@ namespace Content.Server._WL.Android
             SubscribeLocalEvent<AndroidComponent, ComponentStartup>(OnStartup);
 
             SubscribeLocalEvent<AndroidComponent, AndroidChargeEvent>(OnDoAfter);
-            SubscribeLocalEvent<AndroidComponent, MobStateChangedEvent>(OnMobstateChanged);
             SubscribeLocalEvent<AndroidComponent, BeforeDealHeatDamageFromLightBulbEvent>(OnGetLightBulb);
             SubscribeLocalEvent<AndroidComponent, RefreshMovementSpeedModifiersEvent>(OnModifiersRefresh);
             SubscribeLocalEvent<AndroidComponent, ItemToggledEvent>(OnToggle);
@@ -85,14 +84,6 @@ namespace Content.Server._WL.Android
                 {
                     continue;
                 }
-
-                /*
-                if (!powerCellDrawComp.CanDraw)
-                {
-                    _powerCell.SetDrawEnabled((uid, powerCellDrawComp), false);
-                    continue;
-                }
-                */
 
                 _powerCell.SetDrawEnabled((uid, powerCellDrawComp), true);
             }
@@ -204,20 +195,7 @@ namespace Content.Server._WL.Android
             args.Cancel();
         }
 
-        private void OnMobstateChanged(EntityUid android, AndroidComponent comp, MobStateChangedEvent args)
-        {
-            if (!TryComp<PowerCellDrawComponent>(android, out var powerCellDrawComp))
-                return;
-
-            /*
-            if (args.NewMobState == MobState.Dead)
-                powerCellDrawComp.CanDraw = false;
-            else powerCellDrawComp.CanDraw = true;
-            */
-        }
-
-        private void CheckAndDoForcedSleep(EntityUid android,
-            AndroidComponent comp)
+        private void CheckAndDoForcedSleep(EntityUid android, AndroidComponent comp)
         {
             if (_gameTiming.CurTime < comp.NextTime)
                 return;
@@ -227,12 +205,14 @@ namespace Content.Server._WL.Android
             if (!_powerCell.TryGetBatteryFromSlot(android, out var battery))
                 return;
 
-            if (battery == null)
-                return;
+            if (battery == null || !_powerCell.HasDrawCharge(android))
+            {
+                DoForcedSleep(android, comp);
+            }
+        }
 
-            if (battery.Value.Comp.ChargeRate / battery.Value.Comp.MaxCharge * 100 > 5f)
-                return;
-
+        private void DoForcedSleep(EntityUid android, AndroidComponent comp)
+        {
             if (_random.Prob(comp.ForcedSleepChance))
             {
                 var duration = _random.Next(comp.SleepTimeMin, comp.SleepTimeMax);
@@ -246,11 +226,12 @@ namespace Content.Server._WL.Android
                 return;
 
             if (!HasComp<AndroidComponent>(args.User) ||
-                !_powerCell.TryGetBatteryFromSlot(args.User, out var battery_ent))
+                !_powerCell.TryGetBatteryFromSlot(args.User, out var batteryEnt) ||
+                batteryEnt.Value.Comp.State == BatteryState.Full)
                 return;
 
             if (!TryComp<BatteryComponent>(args.Target, out var targetBattery) ||
-                targetBattery.ChargeRate / targetBattery.MaxCharge * 100f <= 5f)
+                targetBattery.State == BatteryState.Empty)
                 return;
 
             var doAfter = new DoAfterArgs(EntityManager, args.User, AndroidDoAfterChargeTime, new AndroidChargeEvent(), args.User, target, null)
@@ -275,21 +256,30 @@ namespace Content.Server._WL.Android
             if (args.Cancelled || args.Handled)
                 return;
 
-            if (!_powerCell.TryGetBatteryFromSlot(android, out var batteryEnt)
-                || batteryEnt.Value.Comp.ChargeRate / batteryEnt.Value.Comp.MaxCharge * 100f >= 95f
-                || batteryEnt == null
-                || !TryComp<BatteryComponent>(args.Target, out var targetBattery)
-                || targetBattery.ChargeRate / targetBattery.MaxCharge * 100f <= 5f)
+            if (!_powerCell.TryGetBatteryFromSlot(android, out var batteryEnt) || !TryComp<BatteryComponent>(batteryEnt, out var battery))
             {
                 args.Handled = true;
                 return;
             }
 
-            if (!EntityManager.TryGetComponent<BatteryComponent>(batteryEnt, out var battery))
-                return;
+            float chargeTransfer = Math.Clamp(comp.ChargeRate, 0f, battery.MaxCharge - _battery.GetCharge(batteryEnt.Value.Owner));
 
-            _battery.SetCharge((batteryEnt.Value, battery), battery.ChargeRate + comp.ChargeRate);
-            _battery.SetCharge(args.Target.Value, targetBattery.ChargeRate - comp.ChargeRate * comp.TargetDecreaseFactor);
+            if (chargeTransfer == 0f
+                || !HasComp<BatteryComponent>(args.Target)
+                || _battery.GetCharge(args.Target.Value) < chargeTransfer * comp.TargetDecreaseFactor)
+            {
+                args.Handled = true;
+                return;
+            }
+
+            _battery.ChangeCharge((batteryEnt.Value, battery), chargeTransfer);
+            _battery.ChangeCharge(args.Target.Value, -chargeTransfer * comp.TargetDecreaseFactor);
+
+            if (battery.State == BatteryState.Full)
+            {
+                args.Handled = true;
+                return;
+            }
 
             args.Repeat = true;
         }
