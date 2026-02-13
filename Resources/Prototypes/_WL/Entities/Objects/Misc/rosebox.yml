@@ -44,7 +44,6 @@
     - type: Sprite
       sprite: _WL/Objects/Misc/rose.rsi
     - type: Clothing
-      sprite: Clothing/Head/Hats/witch.rsi
       slots:
       - HEAD
     - type: MeleeWeapon
