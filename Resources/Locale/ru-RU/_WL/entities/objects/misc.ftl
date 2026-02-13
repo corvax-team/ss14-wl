@@ -1,5 +1,5 @@
 ent-EnvelopeValentineBase = валентинка
-    .desc = Прекрасная валентинка с удивительно вместительным кармашкем для подарка.
+    .desc = Прекрасная валентинка с удивительно вместительным кармашком для подарка.
 
 ent-EnvelopeValentineRed = красная валентинка
     .desc = { ent-EnvelopeValentineBase.desc }

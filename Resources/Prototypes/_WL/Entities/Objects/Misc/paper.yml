@@ -71,7 +71,7 @@
       map: ["enum.EnvelopeVisualLayers.Torn"]
       visible: false
   - type: PaperVisuals
-    backgroundImagePath: "_WL/Textures/Interface/Paper/paper_background_red.svg.96dpi.png"
+    backgroundImagePath: "/Textures/_WL/Interface/Paper/paper_background_red.svg.96dpi.png"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
     contentMargin: 4.0, 4.0, 4.0, 4.0
     maxWritableArea: 400.0, 256.0
@@ -99,7 +99,7 @@
       map: ["enum.EnvelopeVisualLayers.Torn"]
       visible: false
   - type: PaperVisuals
-    backgroundImagePath: "_WL/Textures/Interface/Paper/paper_background_yellow.svg.96dpi.png"
+    backgroundImagePath: "/Textures/_WL/Interface/Paper/paper_background_yellow.svg.96dpi.png"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
     contentMargin: 4.0, 4.0, 4.0, 4.0
     maxWritableArea: 400.0, 256.0
@@ -127,7 +127,7 @@
       map: ["enum.EnvelopeVisualLayers.Torn"]
       visible: false
   - type: PaperVisuals
-    backgroundImagePath: "_WL/Textures/Interface/Paper/paper_background_pink.svg.96dpi.png"
+    backgroundImagePath: "/Textures/_WL/Interface/Paper/paper_background_pink.svg.96dpi.png"
     backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
     contentMargin: 4.0, 4.0, 4.0, 4.0
     maxWritableArea: 400.0, 256.0
@@ -146,6 +146,6 @@
     slots:
       letter_slot:
         name: valentine-letter-slot
-        startingItem: ImmovableRod
+        startingItem: ImmovableRodKeepTilesStill
         insertSound: /Audio/Effects/packetrip.ogg
         ejectSound: /Audio/Effects/packetrip.ogg
