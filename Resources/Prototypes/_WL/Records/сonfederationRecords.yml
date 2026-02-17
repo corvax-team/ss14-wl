@@ -1,0 +1,23 @@
+- type: confederation
+  id: ConfederationOfOrionStates
+  name: records-confederation-of-orion-states
+
+- type: confederation
+  id: SocialConfederation
+  name: records-confederation-social
+
+- type: confederation
+  id: InterspeciesAlliance
+  name: records-confederation-interspecies-alliance
+
+- type: confederation
+  id: HolyEmpireOfEden
+  name: records-confederation-holy-empire-of-eden
+
+- type: confederation
+  id: Metafront
+  name: records-confederation-metafront
+
+- type: confederation
+  id: NoConfederation
+  name: records-confederation-no

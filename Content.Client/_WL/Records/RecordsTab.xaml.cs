@@ -35,7 +35,7 @@ namespace Content.Client._WL.Records
             AgeEdit.OnTextChanged += _ => OnGeneralRecordAgeChanged?.Invoke(AgeEdit.Text.Trim());
             CountryEdit.OnTextChanged += _ => OnGeneralRecordCountryChanged?.Invoke(CountryEdit.Text.Trim());
 
-            ConfederationButton.OnItemSelected += _ => OnGeneralRecordConfederationChanged?.Invoke(_);
+            ConfederationButton.OnItemSelected += obj => OnGeneralRecordConfederationChanged?.Invoke(obj);
 
             MedicalTemplateButton.OnPressed += _ => LoadMedicalTemplate();
             SecurityTemplateButton.OnPressed += _ => LoadSecurityTemplate();

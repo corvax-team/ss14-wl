@@ -103,7 +103,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
 
         var jobName = _role.GetSubnameByEntity(player, jobId) ?? jobProto.LocalizedName; //WL-changes
 
-        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, profile.MedicalRecord, profile.SecurityRecord, profile.EmploymentRecord, jobId, jobName, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records); //WL-changes
+        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, profile.MedicalRecord, profile.SecurityRecord, profile.EmploymentRecord, profile.FullName, profile.DateOfBirth, profile.Confederation, profile.Country, profile.Height, jobId, jobName, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records); //WL-changes
     }
 
 
@@ -141,9 +141,16 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         int age,
         string species,
         Gender gender,
-        string medicalRecord, // WL-Records
-        string securityRecord, // WL-Records
-        string employmentRecord, // WL-Records
+        // WL-Records-start
+        string medicalRecord,
+        string securityRecord,
+        string employmentRecord,
+        string fullName,
+        string dateOfBirth,
+        string confederation,
+        string country,
+        int height,
+        // WL-Records-end
         string jobId,
         string jobName,
         string? mobFingerprint,
@@ -171,9 +178,16 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             JobPrototype = jobId,
             Species = species,
             Gender = gender,
-            MedicalRecord = medicalRecord, // WL-Records
-            SecurityRecord = securityRecord, // WL-Records
-            EmploymentRecord = employmentRecord, // WL-Records
+            // WL-Records-start
+            MedicalRecord = medicalRecord,
+            SecurityRecord = securityRecord,
+            EmploymentRecord = employmentRecord,
+            Fullname = fullName,
+            DateOfBirth = dateOfBirth,
+            Confederation = confederation,
+            Country = country,
+            Height = height,
+            // WL-Records-end
             DisplayPriority = jobPrototype.RealDisplayWeight,
             Fingerprint = mobFingerprint,
             DNA = dna

@@ -59,6 +59,22 @@ public sealed record GeneralStationRecord
 
     [DataField]
     public string EmploymentRecord = string.Empty;
+
+    [DataField]
+    public string Fullname = string.Empty;
+
+    [DataField]
+    public string DateOfBirth = string.Empty;
+
+    [DataField]
+    public string Confederation = string.Empty;
+
+    [DataField]
+    public string Country = string.Empty;
+
+    [DataField]
+    public int Height;
+
     // WL-Records-End
 
     /// <summary>

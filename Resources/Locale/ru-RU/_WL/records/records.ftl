@@ -3,6 +3,8 @@ humanoid-profile-editor-records-tab = Записи
 records-medical = МЕДИЦИНСКИЕ ЗАПИСИ
 records-security = ОХРАННЫЕ ЗАПИСИ
 records-employment = ТРУДОВЫЕ ЗАПИСИ
+records-general = ОБЩИЕ СВЕДЕНЬЯ
+
 records-template-medical = Шаблон мед.записей
 records-template-security = Шаблон охр.записей
 records-template-employment = Шаблон труд.записей
@@ -11,12 +13,24 @@ records-medical-placeholder = Нажмите "Шаблон" для загруз�
 records-security-placeholder = Нажмите "Шаблон" для загрузки охранного досье
 records-employment-placeholder = Нажмите "Шаблон" для загрузки трудовой истории
 
+records-full-name-edit = ФИО: 
+records-date-of-birth-edit = ДАТА РОЖДЕНИЯ: 
+records-confederation-edit = КОНФЕДЕРАЦИЯ: 
+records-country-edit = ГОСУДАРСТВО: 
+
+records-species = БИОЛОГИЧЕСКИЙ ВИД: 
+records-height = РОСТ: {$height}
+
+records-confederation-of-orion-states = Конфедерация Орионских Государств
+records-confederation-social = СоцКон
+records-confederation-interspecies-alliance = Межвидовой Альянс
+records-confederation-holy-empire-of-eden = Священная Империя Эдема
+records-confederation-metafront = Метафронт
+records-confederation-no = Нету конфедирации
+
+
 # Медицинские записи
 records-medical-template = 
-    ИМЯ: (Фамилия, Имя, второе имя|отчество)
-    ДАТА РОЖДЕНИЯ: (день|месяц|год)
-    БИОЛОГИЧЕСКИЙ ВИД: (Вставьте сюда название вашей расы)
-    РОСТ: (Сантиметры|футы)
     ВЕС: (Килограммы|фунты)
     ЦВЕТ ГЛАЗ: 
     ЦВЕТ ВОЛОС: 
@@ -40,10 +54,6 @@ records-medical-template =
 
 # Охранные записи
 records-security-template = 
-    ИМЯ: (Фамилия, Имя, второе имя|отчество)
-    ДАТА РОЖДЕНИЯ: (день|месяц|год)
-    БИОЛОГИЧЕСКИЙ ВИД: (Вставьте сюда название вашей расы)
-    РОСТ: (Сантиметры)
     ВЕС: (Килограммы)
     ЦВЕТ ГЛАЗ: 
     ЦВЕТ ВОЛОС: 
@@ -63,9 +73,6 @@ records-security-template =
 
 # Трудовые записи
 records-employment-template = 
-    ИМЯ: (Фамилия, Имя, второе имя|отчество)
-    ДАТА РОЖДЕНИЯ: (день|месяц|год)
-    БИОЛОГИЧЕСКИЙ ВИД: (Вставьте сюда название вашей расы)
     СЕМЕЙНОЕ ПОЛОЖЕНИЕ: (Холост, женат, вдовец|вдова; если не холост, введите имя, пол и возраст супруги)
     ВЛАДЕЕТ ЯЗЫКАМИ: (основной|вторичный, или родной|выученный)
     БЛИЖАЙШИЙ РОДСТВЕННИК: (Фамилия, имя ((тип родства), (возраст)))

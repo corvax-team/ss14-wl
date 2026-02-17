@@ -14,6 +14,7 @@ using Content.Client.Stylesheets;
 using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._WL.Skills; // WL-Skills
+using Content.Shared._WL.Records; // WL-Records
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Corvax.CCCVars;
@@ -196,14 +197,14 @@ namespace Content.Client.Lobby.UI
         private TextEdit? _securityRecordEdit; // WL-Records
         private TextEdit? _employmentRecordEdit; // WL-Records
 
-        private LineEdit? _generalRecordNameEdit;
-        private LineEdit? _generalRecordAgeEdit;
-        private LineEdit? _generalRecordCountryEdit;
+        private LineEdit? _generalRecordNameEdit; // WL-Records
+        private LineEdit? _generalRecordAgeEdit; // WL-Records
+        private LineEdit? _generalRecordCountryEdit; // WL-Records
 
-        private OptionButton? _confederationButton; // WL-Recordss
+        private OptionButton? _confederationButton; // WL-Records
 
-        private List<string> _confederations = new List<string>() {
-            "Конфедерация Орионских Государств", "СоцКон", "Межвидовой Альянс", "Священная Империя Эдема" };
+
+        private List<ConfederationRecordsPrototype> _confederations = new(); // WL-Recordss
 
         private SingleMarkingPicker _underwearPicker => CUnderwearPicker; // WL-Underwear
         private SingleMarkingPicker _undershirtPicker => CUndershirtPicker; // WL-Underwear
@@ -854,14 +855,20 @@ namespace Content.Client.Lobby.UI
 
             _recordsTab.OnGeneralRecordConfederationChanged += SetConfederation;
 
-            _confederations.Sort((a, b) => string.Compare(a, b, StringComparison.CurrentCultureIgnoreCase));
+            _confederations.AddRange(_prototypeManager.EnumeratePrototypes<ConfederationRecordsPrototype>());
+
+            _confederations.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
 
             for (var i = 0; i < _confederations.Count; i++)
             {
-                var name = _confederations[i];
-
+                var name = Loc.GetString(_confederations[i].Name);
 
                 _recordsTab.ConfederationButton.AddItem(name, i);
+
+                if (_confederations[i].ID == "NoConfederation")
+                {
+                    _recordsTab.ConfederationButton.SelectId(i);
+                }
             }
         }
 
@@ -925,7 +932,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _confederationButton.SelectId(args.Id);
-            Profile = Profile.WithConfederation(_confederations[args.Id]);
+            Profile = Profile.WithConfederation(_confederations[args.Id].ID);
             SetDirty();
         }
 
@@ -1998,8 +2005,7 @@ namespace Content.Client.Lobby.UI
             if (_confederationButton != null)
                 for (var i = 0; i < _confederations.Count; i++)
                 {
-
-                    if (Profile?.Confederation.Equals(_confederations[i]) == true)
+                    if (Profile?.Confederation.Equals(_confederations[i].ID) == true)
                     {
                         _confederationButton.SelectId(i);
                     }

@@ -1,8 +1,10 @@
 using Content.Client.UserInterface.Controls;
+using Content.Shared._WL.Records; //  WL-Records-Start
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration;
 using Content.Shared.CriminalRecords;
 using Content.Shared.Dataset;
+using Content.Shared.Humanoid.Prototypes; // WL-Records
 using Content.Shared.Random.Helpers;
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
@@ -266,9 +268,17 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         }
 
         // WL-Records-Start
-        SecurityRecord.Text = !string.IsNullOrEmpty(stationRecord.SecurityRecord)
-            ? stationRecord.SecurityRecord
-            : Loc.GetString("criminal-records-console-no-security-record");
+        SecurityRecord.Text = $"""
+                {Loc.GetString("records-full-name-edit") + stationRecord.Fullname ?? stationRecord.Name}
+                {Loc.GetString("records-date-of-birth-edit") + stationRecord.DateOfBirth ?? "N|A"}
+                {Loc.GetString("records-confederation-edit") +
+                Loc.GetString(_proto.Index<ConfederationRecordsPrototype>(stationRecord.Confederation).Name) ?? "N|A"}
+                {Loc.GetString("records-country-edit") + stationRecord.Country ?? "N|A"}
+                {Loc.GetString("records-species") +
+                Loc.GetString(_proto.Index<SpeciesPrototype>(stationRecord.Species).Name)}
+                {Loc.GetString("records-height", ("height", stationRecord.Height))}
+                {stationRecord.EmploymentRecord}
+                """ ?? Loc.GetString("criminal-records-console-no-security-record");
         // WL-Records-End
     }
 
