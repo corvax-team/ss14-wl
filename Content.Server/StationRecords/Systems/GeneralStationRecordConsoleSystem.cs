@@ -1,8 +1,11 @@
-using System.Linq;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Components;
+using Content.Shared._WL.Records;
+using Content.Shared.Paper;
 using Content.Shared.StationRecords;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
+using System.Linq;
 
 namespace Content.Server.StationRecords.Systems;
 
@@ -11,6 +14,8 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
+    [Dependency] private readonly PaperSystem _paperSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
     public override void Initialize()
     {
@@ -24,6 +29,7 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
             subs.Event<SelectStationRecord>(OnKeySelected);
             subs.Event<SetStationRecordFilter>(OnFiltersChanged);
             subs.Event<DeleteStationRecord>(OnRecordDelete);
+            subs.Event<PrintStationRecord>(OnRecordPrint);
         });
     }
 
@@ -37,6 +43,16 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         if (owning != null)
             _stationRecords.RemoveRecord(new StationRecordKey(args.Id, owning.Value));
         UpdateUserInterface(ent); // Apparently an event does not get raised for this.
+    }
+
+    private void OnRecordPrint(Entity<GeneralStationRecordConsoleComponent> ent, ref PrintStationRecord args)
+    {
+        _audioSystem.PlayPvs("/Audio/Machines/printer.ogg", ent.Owner);
+
+        var printed = Spawn("Paper", Transform(ent.Owner).Coordinates);
+
+        if (TryComp<PaperComponent>(printed, out var paper))
+            _paperSystem.SetContent((printed, paper), args.Content);
     }
 
     private void UpdateUserInterface<T>(Entity<GeneralStationRecordConsoleComponent> ent, ref T args)

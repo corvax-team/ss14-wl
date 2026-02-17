@@ -12,6 +12,7 @@ namespace Content.Client.StationRecords;
 public sealed partial class GeneralRecord : Control
 {
     public Action<uint>? OnDeletePressed;
+    public Action<string>? OnPrintPressed;
     public GeneralRecord(GeneralStationRecord record, bool canDelete, uint? id, IPrototypeManager prototypeManager)
     {
         RobustXamlLoader.Load(this);
@@ -38,6 +39,9 @@ public sealed partial class GeneralRecord : Control
             ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")));
         Dna.Text = Loc.GetString("general-station-record-console-record-dna",
             ("dna", record.DNA ?? Loc.GetString("generic-not-available-shorthand")));
+
+        if (id != null)
+            PrintButton.OnPressed += _ => OnPrintPressed?.Invoke(Record.Text);
 
         if (canDelete && id != null)
         {
