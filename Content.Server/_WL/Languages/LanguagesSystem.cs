@@ -44,6 +44,7 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
 
         SubscribeNetworkEvent<LanguageChangeEvent>(OnGlobalLanguageChange);
         SubscribeNetworkEvent<LanguagesSyncEvent>(OnLanguagesSync);
+        SubscribeNetworkEvent<LanguageSyncRequestEvent>(OnLanguageSyncRequest);
     }
 
     public void AddLanguage(EntityUid ent, string language)
@@ -134,6 +135,17 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         component.Understood = msg.Understood;
 
         Dirty(entity, component);
+    }
+
+    public void OnLanguageSyncRequest(LanguageSyncRequestEvent msg, EntitySessionEventArgs args)
+    {
+        var entity = _ent.GetEntity(msg.Entity);
+        if (!TryComp<LanguagesComponent>(entity, out var component))
+            return;
+
+        if (component.Speaking != msg.Speaking ||
+            component.Understood != msg.Understood)
+            SyncLanguages(msg.Entity, component);
     }
 
     public void OnGlobalLanguageChange(LanguageChangeEvent msg, EntitySessionEventArgs args)

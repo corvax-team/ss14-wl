@@ -16,6 +16,7 @@ public sealed partial class ClientLanguagesSystem : SharedLanguagesSystem
         SubscribeNetworkEvent<LanguageChangeEvent>(OnGlobalLanguageChange);
         SubscribeNetworkEvent<LanguagesSyncEvent>(OnLanguagesSync);
 
+        SubscribeLocalEvent<LanguagesComponent, ComponentInit>(OnLanguageCommponentSyns);
         SubscribeLocalEvent<LanguagesComponent, LanguageChangeEvent>(OnLocalLanguageChange);
     }
 
@@ -38,6 +39,14 @@ public sealed partial class ClientLanguagesSystem : SharedLanguagesSystem
         if (prototypes.Count == 0)
             return null;
         return prototypes;
+    }
+
+    public void OnLanguageCommponentSyns(EntityUid entity, LanguagesComponent comp, ComponentInit args)
+    {
+        var net_ent = GetNetEntity(entity);
+        var ev = new LanguageSyncRequestEvent(net_ent, comp.Speaking, comp.Understood);
+
+        RaiseNetworkEvent(ev);
     }
 
     public void OnLocalLanguageChange(EntityUid entity, LanguagesComponent comp, ref LanguageChangeEvent args)

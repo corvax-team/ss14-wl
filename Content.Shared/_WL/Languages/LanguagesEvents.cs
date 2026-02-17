@@ -68,6 +68,23 @@ public sealed partial class LanguagesSyncEvent : EntityEventArgs
 }
 
 [Serializable, NetSerializable]
+public sealed partial class LanguageSyncRequestEvent : EntityEventArgs
+{
+    public NetEntity Entity { get; }
+
+    public List<ProtoId<LanguagePrototype>> Speaking { get; }
+
+    public List<ProtoId<LanguagePrototype>> Understood { get; }
+
+    public LanguageSyncRequestEvent(NetEntity entity, List<ProtoId<LanguagePrototype>> speaking, List<ProtoId<LanguagePrototype>> understood)
+    {
+        Entity = entity;
+        Speaking = speaking;
+        Understood = understood;
+    }
+}
+
+[Serializable, NetSerializable]
 public sealed class LanguageSoundEvent : EntityEventArgs
 {
     public ProtoId<LanguagePrototype> Language { get; }
