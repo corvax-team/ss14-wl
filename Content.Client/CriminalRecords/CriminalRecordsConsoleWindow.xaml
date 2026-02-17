@@ -115,7 +115,7 @@
                      <BoxContainer Orientation="Vertical"
                                    VerticalExpand="True"
                                    HorizontalExpand="True">
-                         <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                         <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
                          <RichTextLabel Name="SecurityRecord"
                                         Margin="5"
                                         HorizontalExpand="True"/>
