@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 267.3.0
-  forkId: syndicate-wl
-  forkVersion: 86cfb17e1491fbfd51d3f968e74366018809bf7c
-  time: 12/01/2025 20:22:07
-  entityCount: 111
+  engineVersion: 270.1.0
+  forkId: ""
+  forkVersion: ""
+  time: 02/23/2026 20:52:35
+  entityCount: 113
 maps:
 - 1
 grids:
@@ -168,6 +168,7 @@ entities:
           decals:
             43: 17,2
             53: 13,2
+    - type: ExplosionAirtightGrid
 - proto: AirlockAssemblyEngineering
   entities:
   - uid: 36
@@ -252,6 +253,14 @@ entities:
     - type: Transform
       pos: 15.5,5.5
       parent: 1
+- proto: CandleBlackInfinite
+  entities:
+  - uid: 113
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.497246,1.6952627
+      parent: 1
 - proto: Chair
   entities:
   - uid: 17
@@ -305,12 +314,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 15.5,2.5
-      parent: 1
-  - uid: 79
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 15.5,1.5
       parent: 1
   - uid: 80
     components:
@@ -744,6 +747,14 @@ entities:
     - type: Transform
       pos: 9.5,5.5
       parent: 1
+- proto: TableFancyBlack
+  entities:
+  - uid: 112
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,1.5
+      parent: 1
 - proto: TowelColorPink
   entities:
   - uid: 107
@@ -830,6 +841,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 3.5,2.5
+      parent: 1
+- proto: WindowFrostedDirectional
+  entities:
+  - uid: 79
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,1.5
       parent: 1
 - proto: WindowReinforcedDirectional
   entities:

@@ -1,22 +1,21 @@
-# Special Map for Corvax - Whitelist
 - type: gameMap
-  id: CorvaxWLKolter
-  mapName: 'Колтер Айленд'
-  mapPath: /Maps/_WL/wl_kolter.yml
+  id: CorvaxWLStraumur
+  mapName: 'Страймур'
+  mapPath: /Maps/_WL/wl_straumur.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 0
+  minPlayers: 20
   stations:
-    CorvaxKolter:
+    CorvaxWLStraumur:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Колтер {1}'
+          mapNameTemplate: '{0} Страймур {1}'
           nameGenerator:
            !type:NanotrasenNameGenerator
             prefixCreator: "NB"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_WL/Shuttles/wl_kolter_evac.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/wl_straumur_evac.yml
         - type: StationJobs
           availableJobs:
 
@@ -38,21 +37,21 @@
             # engineering
             AtmosphericTechnician: [ 2, 2 ]
             SeniorEngineer: [ 1, 1 ]
-            StationEngineer: [ 2, 2 ]
-            TechnicalAssistant: [ 1, 1 ]
+            StationEngineer: [ 3, 3 ]
+            TechnicalAssistant: [ 2, 2 ]
 
             # medical
             SeniorPhysician: [ 1, 1 ]
             MedicalDoctor: [ 3, 3 ]
-            MedicalIntern: [ 1, 1 ]
-            Paramedic: [1, 1]
+            MedicalIntern: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
 
             # science
             SeniorResearcher: [ 1, 1 ]
             Scientist: [ 3, 3 ]
-            ResearchAssistant: [ 1, 1 ]
+            ResearchAssistant: [ 2, 2 ]
 
             # security
             Warden: [ 1, 1 ]
@@ -73,10 +72,10 @@
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            Reporter: [ 2, 2 ]
+            Reporter: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
             Passenger: [ -1, -1 ]
 
             # silicon
             StationAi: [ 1, 1 ]
-            Borg: [ 1, 1 ]
+            Borg: [ 2, 2 ]

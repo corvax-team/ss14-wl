@@ -15,7 +15,7 @@
           !type:NanotrasenNameGenerator
           prefixCreator: 'MFK'
       - type: StationEmergencyShuttle
-        emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlrenga.yml
+        emergencyShuttlePath: /Maps/_WL/Shuttles/wl_renga_evac.yml
       - type: GridSpawn
         groups:
           trade: !type:GridSpawnGroup

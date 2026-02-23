@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 267.3.0
+  engineVersion: 270.1.0
   forkId: syndicate-wl
-  forkVersion: fe4fe8b23f4043e51f62d6eab471c45d65518aab
-  time: 01/16/2026 21:52:39
+  forkVersion: 8330d798a11b015e1119de634356e3ba0d1c330e
+  time: 02/23/2026 19:30:30
   entityCount: 1581
 maps: []
 grids:
@@ -59,6 +59,7 @@ entities:
     - type: MetaData
       name: NT-EM Terminal
     - type: Transform
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -1866,6 +1867,7 @@ entities:
     - type: NavMap
     - type: RestrictedRange
       range: 48
+    - type: ExplosionAirtightGrid
 - proto: AirAlarm
   entities:
   - uid: 3
@@ -2394,37 +2396,42 @@ entities:
     - type: Transform
       pos: -1.596785,12.459861
       parent: 2
-- proto: AtmosDeviceFanTiny
+- proto: AtmosDeviceFanDirectional
   entities:
   - uid: 55
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 16.5,2.5
       parent: 2
   - uid: 56
     components:
     - type: Transform
-      pos: 16.5,-8.5
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-1.5
       parent: 2
   - uid: 57
     components:
     - type: Transform
-      pos: 16.5,-14.5
+      pos: 11.5,-30.5
       parent: 2
   - uid: 58
     components:
     - type: Transform
-      pos: 16.5,-1.5
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-8.5
       parent: 2
   - uid: 59
     components:
     - type: Transform
-      pos: 16.5,-22.5
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-14.5
       parent: 2
   - uid: 60
     components:
     - type: Transform
-      pos: 11.5,-30.5
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-22.5
       parent: 2
 - proto: BarSign
   entities:
@@ -8112,8 +8119,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
 - proto: LockerSecurity
@@ -8169,6 +8176,8 @@ entities:
       canCollide: False
       bodyType: Static
     - type: Visibility
+    - type: StealthOnMove
+    - type: Stealth
   - uid: 916
     components:
     - type: MetaData
@@ -8189,6 +8198,8 @@ entities:
       canCollide: False
       bodyType: Static
     - type: Visibility
+    - type: StealthOnMove
+    - type: Stealth
   - uid: 917
     components:
     - type: MetaData
@@ -8210,6 +8221,8 @@ entities:
       canCollide: False
       bodyType: Static
     - type: Visibility
+    - type: StealthOnMove
+    - type: Stealth
   - uid: 918
     components:
     - type: MetaData
@@ -8230,6 +8243,8 @@ entities:
       canCollide: False
       bodyType: Static
     - type: Visibility
+    - type: StealthOnMove
+    - type: Stealth
   - uid: 919
     components:
     - type: MetaData
@@ -8250,6 +8265,8 @@ entities:
       canCollide: False
       bodyType: Static
     - type: Visibility
+    - type: StealthOnMove
+    - type: Stealth
   - uid: 920
     components:
     - type: MetaData
@@ -8270,6 +8287,8 @@ entities:
       canCollide: False
       bodyType: Static
     - type: Visibility
+    - type: StealthOnMove
+    - type: Stealth
 - proto: Mannequin
   entities:
   - uid: 417
