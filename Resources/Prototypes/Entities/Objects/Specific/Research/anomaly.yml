@@ -97,6 +97,7 @@
     range: 20
     components:
     - type: Anomaly
+    - type: InnerBodyAnomalyDetected # WL-Changes
   - type: Beeper
     isMuted: true
     minBeepInterval: 0.15

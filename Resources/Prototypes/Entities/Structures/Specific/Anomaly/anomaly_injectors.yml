@@ -27,6 +27,7 @@
     whitelist:
       tags:
       - AnomalyHost
+  - type: InnerBodyAnomalyDetected # WL-Changes
 
 - type: entity
   parent: BaseAnomalyInjector
