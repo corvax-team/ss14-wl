@@ -107,6 +107,14 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
 
     public void OnComponentInit(EntityUid ent, LanguagesComponent component, ref ComponentInit args)
     {
+        if (component.IsRadio)
+        {
+            var langPotos = GetLanguagePrototypes();
+            component.Speaking = langPotos;
+            component.Understood = langPotos;
+
+        }
+
         var langs = component.Speaking;
         if (langs.Count == 0)
             return;

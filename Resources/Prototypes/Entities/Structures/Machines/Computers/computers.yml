@@ -1385,6 +1385,8 @@
           type: SurveillanceCameraMonitorBoundUserInterface
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
+  - type: Languages # WL-Changes
+    isRadio: true
 
 - type: entity
   parent: ComputerSurveillanceWirelessCameraMonitor

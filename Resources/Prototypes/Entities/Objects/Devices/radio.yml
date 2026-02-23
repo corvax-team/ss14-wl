@@ -24,6 +24,8 @@
   - type: Tag
     tags:
     - Radio
+  - type: Languages # WL-Changes
+    isRadio: true
 
 - type: entity
   name: security radio

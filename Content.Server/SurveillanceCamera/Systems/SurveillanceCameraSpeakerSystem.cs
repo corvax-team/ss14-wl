@@ -1,6 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Speech;
 using Content.Shared.Speech;
+using Content.Shared._WL.Languages.Components; // WL-Changes
 using Content.Shared.Chat;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
@@ -30,6 +31,16 @@ public sealed class SurveillanceCameraSpeakerSystem : EntitySystem
         {
             return;
         }
+
+        // WL-Changes-Start
+        if (TryComp<LanguagesComponent>(uid, out var languagesSpeech))
+        {
+            if (TryComp<LanguagesComponent>(args.Speaker, out var languagesSpeaker))
+            {
+                languagesSpeech.CurrentLanguage = languagesSpeaker.CurrentLanguage;
+            }
+        }
+        // WL-Changes-end
 
         var time = _gameTiming.CurTime;
         var cd = TimeSpan.FromSeconds(component.SpeechSoundCooldown);
