@@ -5,5 +5,17 @@ ent-RoseBoxFake = букет цветов в коробке
 ent-RoseBox = букет цветов в коробке
     .desc = Букет элитных цветов. На этикетке написано, что это розы.
 
-ent-Rose = роза
-    .desc = Искусственно выращенные розы с плантаций. Хороший подарок вашей девушке.
+ent-RoseBase = роза
+    .desc = Искусственно выращенные розы с плантаций. Хороший подарок вашему партнёру.
+
+ent-RoseRed = красная роза
+    .desc = { ent-RoseBase.desc }
+
+ent-RosePink = розовая роза
+    .desc = { ent-RoseBase.desc }
+
+ent-RoseYellow = жёлтая роза
+    .desc = { ent-RoseBase.desc }
+
+ent-RoseWhite = белая роза
+    .desc = { ent-RoseBase.desc }

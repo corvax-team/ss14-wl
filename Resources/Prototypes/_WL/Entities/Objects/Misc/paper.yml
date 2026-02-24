@@ -1,0 +1,151 @@
+- type: entity
+  name: valentine
+  parent: BaseItem
+  id: EnvelopeValentineBase
+  description: 'A small valentine for your love!'
+  abstract: true
+  components:
+  - type: Paper
+    content: valentine-default-message
+  - type: Envelope
+  - type: ContainerContainer
+    containers:
+      letter_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      letter_slot:
+        name: valentine-letter-slot
+        insertSound: /Audio/Effects/packetrip.ogg
+        ejectSound: /Audio/Effects/packetrip.ogg
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+  - type: UserInterface
+    interfaces:
+      enum.PaperUiKey.Key:
+        type: PaperBoundUserInterface
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash
+    - Document
+  #- type: Appearance, hide stamp marks until we have some kind of displacement
+  - type: Flammable
+    fireSpread: true
+    canResistFire: false
+    alwaysCombustible: true
+    canExtinguish: true
+    damage:
+      types:
+        Heat: 1
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: valentine red
+  parent: EnvelopeValentineBase
+  id: EnvelopeValentineRed
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/valentine.rsi
+    layers:
+    - state: valentine_red-open
+      map: ["enum.EnvelopeVisualLayers.Open"]
+    - state: valentine_red-closed
+      map: ["enum.EnvelopeVisualLayers.Sealed"]
+      visible: false
+    - state: valentine_red-open
+      map: ["enum.EnvelopeVisualLayers.Torn"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/_WL/Interface/Paper/paper_background_red.svg.96dpi.png"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 4.0, 4.0, 4.0, 4.0
+    maxWritableArea: 400.0, 256.0
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: valentine_red-inhand-left
+      right:
+      - state: valentine_red-inhand-right
+
+- type: entity
+  name: valentine yellow
+  parent: EnvelopeValentineBase
+  id: EnvelopeValentineYellow
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/valentine.rsi
+    layers:
+    - state: valentine_yelo-open
+      map: ["enum.EnvelopeVisualLayers.Open"]
+    - state: valentine_yelo-closed
+      map: ["enum.EnvelopeVisualLayers.Sealed"]
+      visible: false
+    - state: valentine_yelo-open
+      map: ["enum.EnvelopeVisualLayers.Torn"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/_WL/Interface/Paper/paper_background_yellow.svg.96dpi.png"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 4.0, 4.0, 4.0, 4.0
+    maxWritableArea: 400.0, 256.0
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: valentine_yelo-inhand-left
+      right:
+      - state: valentine_yelo-inhand-right
+
+- type: entity
+  name: valentine pink
+  parent: EnvelopeValentineBase
+  id: EnvelopeValentinePink
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/valentine.rsi
+    layers:
+    - state: valentine_pink-open
+      map: ["enum.EnvelopeVisualLayers.Open"]
+    - state: valentine_pink-closed
+      map: ["enum.EnvelopeVisualLayers.Sealed"]
+      visible: false
+    - state: valentine_pink-open
+      map: ["enum.EnvelopeVisualLayers.Torn"]
+      visible: false
+  - type: PaperVisuals
+    backgroundImagePath: "/Textures/_WL/Interface/Paper/paper_background_pink.svg.96dpi.png"
+    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
+    contentMargin: 4.0, 4.0, 4.0, 4.0
+    maxWritableArea: 400.0, 256.0
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: valentine_pink-inhand-left
+      right:
+      - state: valentine_pink-inhand-right
+
+- type: entity
+  parent: EnvelopeValentineRed
+  id: EnvelopeValentineRedSingulo
+  components:
+  - type: ItemSlots
+    slots:
+      letter_slot:
+        name: valentine-letter-slot
+        startingItem: ImmovableRodKeepTilesStill
+        insertSound: /Audio/Effects/packetrip.ogg
+        ejectSound: /Audio/Effects/packetrip.ogg
