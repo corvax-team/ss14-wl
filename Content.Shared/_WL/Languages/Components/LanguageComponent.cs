@@ -14,9 +14,6 @@ public sealed partial class LanguagesComponent : Component
     public bool IsSpeaking = true;
 
     [DataField]
-    public bool IsRadio = false;
-
-    [DataField]
     public List<ProtoId<LanguagePrototype>> Speaking = [];
 
     [DataField]

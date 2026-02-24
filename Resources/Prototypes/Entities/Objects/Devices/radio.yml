@@ -25,8 +25,7 @@
     tags:
     - Radio
   - type: Languages # WL-Changes
-    isRadio: true
-
+  
 - type: entity
   name: security radio
   description: A handy security radio.

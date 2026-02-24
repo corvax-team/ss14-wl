@@ -57,6 +57,7 @@
               params:
                 volume: -4
   - type: StationAiWhitelist
+  - type: Languages # WL-Changes
 
 - type: entity
   parent: BaseWallmountGlass
