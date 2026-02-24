@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 270.1.0
-  forkId: ""
-  forkVersion: ""
-  time: 02/24/2026 18:31:34
-  entityCount: 17060
+  forkId: syndicate-wl
+  forkVersion: 8330d798a11b015e1119de634356e3ba0d1c330e
+  time: 02/24/2026 20:27:22
+  entityCount: 17061
 maps:
 - 1
 grids:
@@ -59142,7 +59142,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.22697161
+      sprayFizzinessThresholdRoll: 0.07051959
     - type: ContainerContainer
       containers:
         solution@drink: !type:ContainerSlot
@@ -104130,6 +104130,13 @@ entities:
     components:
     - type: Transform
       pos: -24.5,5.5
+      parent: 2
+- proto: SpawnPointLawyer
+  entities:
+  - uid: 17061
+    components:
+    - type: Transform
+      pos: -21.5,11.5
       parent: 2
 - proto: SpawnPointLibrarian
   entities:
