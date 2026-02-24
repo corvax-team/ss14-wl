@@ -68,7 +68,6 @@ entities:
       name: Станция Центрального Командования
     - type: Transform
       pos: -0.546875,-0.640625
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -79794,9 +79793,6 @@ entities:
         9553:
         - - Status
           - InputA
-        invalid:
-        - - Status
-          - InputB
       lastSignals:
         Status: True
     - type: Fixtures
