@@ -7567,7 +7567,7 @@ entities:
             Oxygen: 6666.982
         chunkSize: 4
     - type: BecomesStation
-      id: Marathon
+      id: CorvaxWLMarathon
     - type: OccluderTree
     - type: Shuttle
       dampingModifier: 0.25
