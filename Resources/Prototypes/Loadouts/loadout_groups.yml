@@ -716,7 +716,7 @@
   id: Instruments
   name: loadout-group-instruments
   minLimit: 0
-  maxLimit: 2
+  maxLimit: 6
   loadouts:
   - Glockenspiel
   - MusicBox
