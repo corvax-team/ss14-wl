@@ -3,7 +3,7 @@
   #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end
   sprites:
