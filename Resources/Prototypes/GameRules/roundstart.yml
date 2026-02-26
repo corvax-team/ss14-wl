@@ -697,7 +697,7 @@
     - id: SolarPanelDamageVariationPass
     - id: SolarPanelEmptyVariationPass
     - id: BasicDecalDirtVariationPass
-    - id: BasicDecalGraffitiVariationPass
+    # - id: BasicDecalGraffitiVariationPass # WL-Changes: Disable graffities
     - id: BasicDecalBurnsVariationPass
       prob: 0.50
       orGroup: monospaceDecals
