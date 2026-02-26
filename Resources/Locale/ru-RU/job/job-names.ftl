@@ -17,7 +17,9 @@ job-name-intern = интерн
 job-name-doctor = врач
 job-name-paramedic = парамедик
 job-name-cmo = главный врач
-job-name-chemist = химик
+# WL-Changes-start
+job-name-chemist = фармацевт
+# WL-Changes-end
 job-name-technical-assistant = технический ассистент
 job-name-engineer = инженер
 job-name-atmostech = атмосферный техник
@@ -80,7 +82,9 @@ JobCargoTechnician = грузчик
 JobCentralCommandOfficial = представитель Центком
 JobChaplain = священник
 JobChef = шеф-повар
-JobChemist = химик
+# WL-Changes-start
+JobChemist = фармацевт
+# WL-Changes-end
 JobChiefEngineer = старший инженер
 JobChiefMedicalOfficer = главный врач
 JobClown = клоун

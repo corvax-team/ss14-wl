@@ -160,9 +160,11 @@ loadout-group-medical-doctor-backpack = Врач, рюкзак
 loadout-group-medical-doctor-shoes = Врач, обувь
 loadout-group-medical-doctor-id = Врач, ID
 loadout-group-medical-intern-jumpsuit = Интерн, комбинезон
-loadout-group-chemist-jumpsuit = Химик, комбинезон
-loadout-group-chemist-outerclothing = Химик, верхняя одежда
-loadout-group-chemist-backpack = Химик, рюкзак
+# WL-change-chemist
+loadout-group-chemist-jumpsuit = Фармацевт, комбинезон
+loadout-group-chemist-outerclothing = Фармацевт, верхняя одежда
+loadout-group-chemist-backpack = Фармацевт, рюкзак
+# WL-change-chemist
 loadout-group-paramedic-head = Парамедик, голова
 loadout-group-paramedic-jumpsuit = Парамедик, комбинезон
 loadout-group-paramedic-outerclothing = Парамедик, верхняя одежда

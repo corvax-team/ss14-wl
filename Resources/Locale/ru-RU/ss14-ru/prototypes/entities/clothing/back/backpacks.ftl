@@ -18,8 +18,10 @@ ent-ClothingBackpackCaptain = рюкзак капитана
     .desc = Это особый рюкзак, изготавливаемый исключительно для офицеров Nanotrasen.
 ent-ClothingBackpackMime = рюкзак мима
     .desc = Молчаливый рюкзак, созданный для молчаливых работников. Silence Co.
-ent-ClothingBackpackChemistry = рюкзак химика
+# WL-Changes: Rename start
+ent-ClothingBackpackChemistry = рюкзак фармацевта
     .desc = Рюкзак, специально разработанный для защиты от пятен и опасных жидкостей.
+# WL-Changes: Rename end
 ent-ClothingBackpackHydroponics = рюкзак ботаника
     .desc = Рюкзак, изготовленный только из натуральных волокон.
 ent-ClothingBackpackScience = рюкзак учёного

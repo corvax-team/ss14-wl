@@ -12,8 +12,10 @@ ent-ClothingBackpackSatchelMime = сумка мима
     .desc = Сумка, предназначенная для тихого и выразительного искусства мимики.
 ent-ClothingBackpackSatchelMedical = сумка медика
     .desc = Стерильная сумка, используемая в медицинских отсеках.
-ent-ClothingBackpackSatchelChemistry = сумка химика
+# WL-Changes: Rename start
+ent-ClothingBackpackSatchelChemistry = сумка фармацевта
     .desc = Стерильная сумка аптечной расцветки.
+# WL-Changes: Rename end
 ent-ClothingBackpackSatchelVirology = сумка вирусолога
     .desc = Сумка, изготовленная из гипоаллергенных волокон. Она предназначена для предотвращения распространения болезней. Пахнет обезьянами.
 ent-ClothingBackpackSatchelGenetics = сумка генетика
