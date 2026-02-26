@@ -5,7 +5,7 @@
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 0
-  maxPlayers: 30
+  maxPlayers: 40
   stations:
     CorvaxMaus:
       stationProto: StandardNanotrasenStation
@@ -16,7 +16,7 @@
            !type:NanotrasenNameGenerator
             prefixCreator: "AL"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlmaus.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/wl_maus_evac.yml
         - type: StationJobs
           availableJobs:
 

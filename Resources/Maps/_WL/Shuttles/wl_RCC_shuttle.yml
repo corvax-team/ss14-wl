@@ -34,7 +34,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: NT-Nebulon
+      name: NT Kvass JL-514
     - type: Transform
       pos: -0.683745,-0.60096264
     - type: MapGrid

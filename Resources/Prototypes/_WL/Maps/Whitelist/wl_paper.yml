@@ -14,9 +14,9 @@
           mapNameTemplate: '{0} Пейпер {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'MFO'
+            prefixCreator: 'OEM'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlpaper.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/wl_paper_evac.yml
         - type: StationJobs
           availableJobs:
 
@@ -36,7 +36,7 @@
             CargoTechnician: [ 2, 2 ]
 
             # engineering
-            AtmosphericTechnician: [ 2, 2 ]
+            AtmosphericTechnician: [ 3, 3 ]
             SeniorEngineer: [ 1, 1 ]
             StationEngineer: [ 2, 2 ]
             TechnicalAssistant: [ 2, 2 ]

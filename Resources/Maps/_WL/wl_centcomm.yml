@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 267.3.0
+  engineVersion: 270.1.0
   forkId: syndicate-wl
-  forkVersion: 86cfb17e1491fbfd51d3f968e74366018809bf7c
-  time: 12/01/2025 21:09:39
-  entityCount: 12766
+  forkVersion: 8330d798a11b015e1119de634356e3ba0d1c330e
+  time: 02/23/2026 19:55:31
+  entityCount: 12762
 maps: []
 grids:
 - 2
@@ -68,7 +68,6 @@ entities:
       name: Станция Центрального Командования
     - type: Transform
       pos: -0.546875,-0.640625
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -8087,6 +8086,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
+    - type: ExplosionAirtightGrid
   - uid: 4
     mapInit: true
     paused: true
@@ -10631,7 +10631,7 @@ entities:
       pos: -17.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -116825.06
+      secondsUntilStateChange: -118379.93
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11815,7 +11815,8 @@ entities:
   - uid: 378
     components:
     - type: Transform
-      pos: -9.562256,6.557539
+      rot: -3.141592653589793 rad
+      pos: -9.7281885,6.54031
       parent: 2
   - uid: 379
     components:
@@ -11908,6 +11909,42 @@ entities:
     - type: Transform
       pos: -80.5,-31.5
       parent: 2
+  - uid: 396
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -59.5,35.5
+      parent: 2
+  - uid: 397
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -61.5,35.5
+      parent: 2
+  - uid: 398
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -39.5,35.5
+      parent: 2
+  - uid: 399
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -37.5,35.5
+      parent: 2
+  - uid: 8105
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -84.5,12.5
+      parent: 2
+  - uid: 9524
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -84.5,13.5
+      parent: 2
   - uid: 10377
     components:
     - type: Transform
@@ -11941,26 +11978,6 @@ entities:
     components:
     - type: Transform
       pos: -22.5,-6.5
-      parent: 2
-  - uid: 396
-    components:
-    - type: Transform
-      pos: -61.5,35.5
-      parent: 2
-  - uid: 397
-    components:
-    - type: Transform
-      pos: -59.5,35.5
-      parent: 2
-  - uid: 398
-    components:
-    - type: Transform
-      pos: -39.5,35.5
-      parent: 2
-  - uid: 399
-    components:
-    - type: Transform
-      pos: -37.5,35.5
       parent: 2
 - proto: AtmosFixFreezerMarker
   entities:
@@ -13160,8 +13177,8 @@ entities:
   - uid: 600
     components:
     - type: Transform
-      rot: -1.4835298641951802 rad
-      pos: -9.03079,-5.488347
+      rot: 1.5707963267948966 rad
+      pos: -13.519738,-3.2393527
       parent: 2
   - uid: 601
     components:
@@ -13679,6 +13696,17 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -67.5,-25.5
+      parent: 2
+  - uid: 9525
+    components:
+    - type: Transform
+      pos: -9,6.8
+      parent: 2
+  - uid: 9528
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -9,-5.72
       parent: 2
 - proto: CableApcExtension
   entities:
@@ -69068,6 +69096,87 @@ entities:
       parent: 2
 - proto: LogicGateAnd
   entities:
+  - uid: 7546
+    components:
+    - type: Transform
+      pos: -5.4956713,29.390617
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      range: 300
+      linkedPorts:
+        523:
+        - - Output
+          - Close
+        524:
+        - - Output
+          - Close
+    - type: StealthOnMove
+    - type: Stealth
+      lastVisibility: 1.4888003
+  - uid: 9529
+    components:
+    - type: Transform
+      pos: -5.4331713,29.890617
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      range: 300
+      linkedPorts:
+        521:
+        - - Output
+          - Close
+        522:
+        - - Output
+          - Close
+    - type: StealthOnMove
+    - type: Stealth
+  - uid: 9553
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.477379,7.476863
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      range: 300
+      linkedPorts:
+        521:
+        - - Output
+          - Open
+        522:
+        - - Output
+          - Open
+    - type: StealthOnMove
+    - type: Stealth
+    missingComponents:
+    - Item
+    - Pullable
+  - uid: 9554
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.352379,-6.420728
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      range: 300
+      linkedPorts:
+        524:
+        - - Output
+          - Open
+        523:
+        - - Output
+          - Open
+    - type: StealthOnMove
+    - type: Stealth
+    missingComponents:
+    - Item
+    - Pullable
   - uid: 12795
     components:
     - type: MetaData
@@ -69179,18 +69288,9 @@ entities:
         469:
         - - Output
           - Open
-        521:
+        7546:
         - - Output
-          - Close
-        522:
-        - - Output
-          - Close
-        523:
-        - - Output
-          - Close
-        524:
-        - - Output
-          - Close
+          - InputB
         475:
         - - Output
           - Open
@@ -69215,6 +69315,9 @@ entities:
         527:
         - - Output
           - Close
+        9529:
+        - - Output
+          - InputB
     - type: Stealth
     - type: StealthOnMove
 - proto: LogicGateOr
@@ -69224,7 +69327,7 @@ entities:
     - type: MetaData
       desc: Собирание информации с обоих переключателей.
     - type: Transform
-      pos: -5.689029,26.30308
+      pos: -5.7456713,26.214674
       parent: 2
     - type: DeviceLinkSource
       linkedPorts:
@@ -69259,6 +69362,21 @@ entities:
       lastVisibility: 1.5
 - proto: LogicGateXnor
   entities:
+  - uid: 9555
+    components:
+    - type: Transform
+      pos: -5.8706713,29.366247
+      parent: 2
+    - type: DeviceLinkSink
+      invokeCounter: 1
+    - type: DeviceLinkSource
+      range: 300
+      linkedPorts:
+        7546:
+        - - Output
+          - InputA
+    - type: StealthOnMove
+    - type: Stealth
   - uid: 12794
     components:
     - type: MetaData
@@ -70776,7 +70894,7 @@ entities:
     components:
     - type: Transform
       rot: -3.141592653589793 rad
-      pos: -9.117366,6.5081773
+      pos: -9.4469385,6.4361434
       parent: 2
     - type: Paper
       stampState: paper_stamp-greytide
@@ -77022,7 +77140,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: Rose
+- proto: RoseRed
   entities:
   - uid: 10212
     components:
@@ -79660,6 +79778,42 @@ entities:
       fixtures: {}
 - proto: SignalSwitch
   entities:
+  - uid: 9526
+    components:
+    - type: MetaData
+      desc: Это кнопка включает БЛОКИРОВКУ ВХОДНОГО ГЕРМИКА ЭТОГО КПП
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -9,6.3
+      parent: 2
+    - type: SignalSwitch
+      state: True
+    - type: DeviceLinkSource
+      linkedPorts:
+        9553:
+        - - Status
+          - InputA
+      lastSignals:
+        Status: True
+    - type: Fixtures
+      fixtures: {}
+  - uid: 9527
+    components:
+    - type: MetaData
+      desc: Это кнопка включает БЛОКИРОВКУ ВХОДНОГО ГЕРМИКА ЭТОГО КПП
+    - type: Transform
+      pos: -9,-5.2
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        9554:
+        - - Status
+          - InputA
+        9555:
+        - - Status
+          - InputA
+    - type: Fixtures
+      fixtures: {}
   - uid: 12746
     components:
     - type: MetaData
@@ -79711,6 +79865,12 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         12792:
+        - - Timer
+          - InputB
+        9554:
+        - - Timer
+          - InputB
+        9553:
         - - Timer
           - InputB
     - type: DeviceLinkSink

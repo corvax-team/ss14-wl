@@ -1,4 +1,4 @@
-ent-MobFelinidBase = Урист МакБестид
+ent-MobFelinidBase = Урист МакФелинид
     .desc = { ent-BaseMobHuman.desc }
 
 ent-MobFelinidDummy = { ent-BaseSpeciesDummy }
