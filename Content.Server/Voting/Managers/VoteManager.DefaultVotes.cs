@@ -124,7 +124,7 @@ namespace Content.Server.Voting.Managers
 
             var vote = CreateVote(options);
 
-            TimeoutStandardVote(StandardVoteType.EvacuationShuttle, TimeSpan.FromSeconds(_cfg.GetCVar(WLCCVars.VoteShuttleTimeout)));
+            TimeoutStandardVote(StandardVoteType.EvacuationShuttle, TimeSpan.FromSeconds(_cfg.GetCVar(WLCVars.VoteShuttleTimeout)));
 
             vote.OnFinished += (_, args) =>
             {
