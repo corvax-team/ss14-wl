@@ -30,5 +30,5 @@ public sealed partial class WLCVars
     /// Задержка между голосованиями за шаттл.
     /// </summary>
     public static readonly CVarDef<float> VoteShuttleTimeout =
-        CVarDef.Create("vote.evacuation_shittle_vote_timeout", 1800f, CVar.SERVERONLY);
+        CVarDef.Create("vote.evacuation_shuttle_vote_timeout", 1800f, CVar.SERVERONLY);
 }
