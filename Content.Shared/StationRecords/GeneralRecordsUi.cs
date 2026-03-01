@@ -45,14 +45,14 @@ public sealed class GeneralStationRecordConsoleState : BoundUserInterfaceState
         Dictionary<uint, string>? recordListing,
         StationRecordsFilter? newFilter,
         bool canDeleteEntries,
-        bool canPrintRerods) // WL-Records
+        bool canPrintRecords) // WL-Records
     {
         SelectedKey = key;
         Record = record;
         RecordListing = recordListing;
         Filter = newFilter;
         CanDeleteEntries = canDeleteEntries;
-        CanPrintRecords = canPrintRerods; // WL-Records
+        CanPrintRecords = canPrintRecords; // WL-Records
     }
 
     public GeneralStationRecordConsoleState() : this(null, null, null, null, false, false) // WL-Records

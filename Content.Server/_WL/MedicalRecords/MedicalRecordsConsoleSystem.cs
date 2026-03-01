@@ -109,9 +109,9 @@ public sealed class MedicalRecordsConsoleSystem : EntitySystem
         {
             comp.TimePrintRemaining -= frameTime;
 
-            var PrintSoundEnd = comp.TimePrintRemaining <= 0;
+            var printSoundEnd = comp.TimePrintRemaining <= 0;
 
-            if (PrintSoundEnd)
+            if (printSoundEnd)
             {
                 var printed = Spawn(comp.PrintPaperId, Transform(uid).Coordinates);
 

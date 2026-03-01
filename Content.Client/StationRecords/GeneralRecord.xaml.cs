@@ -24,9 +24,12 @@ public sealed partial class GeneralRecord : Control
         // Gender.Text = Loc.GetString("general-station-record-console-record-gender",
         //     ("gender", record.Gender.ToString()));
 
-        var confederation = !string.IsNullOrEmpty(record.Confederation)
-             ? prototypeManager.Index<ConfederationRecordsPrototype>(record.Confederation).Name
-             : Loc.GetString("generic-not-available-shorthand");
+        var confederation = string.Empty;
+
+        if (prototypeManager.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var proto))
+            confederation = proto.Name;
+        else
+            confederation = Loc.GetString("generic-not-available-shorthand");
 
         Record.Text = $"""
                 {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)

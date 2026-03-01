@@ -103,9 +103,12 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
 
         if (_records.TryGetRecord<GeneralStationRecord>(new StationRecordKey(msg.Id, owning.Value), out var record))
         {
-            var confederation = !string.IsNullOrEmpty(record.Confederation)
-             ? _prototypeManager.Index<ConfederationRecordsPrototype>(record.Confederation).Name
-             : Loc.GetString("generic-not-available-shorthand");
+            var confederation = string.Empty;
+
+            if (_prototypeManager.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var proto))
+                confederation = proto.Name;
+            else
+                confederation = Loc.GetString("generic-not-available-shorthand");
 
             ent.Comp.ContextPrint = $"""
                 {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
@@ -136,9 +139,9 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         {
             comp.TimePrintRemaining -= frameTime;
 
-            var PrintSoundEnd = comp.TimePrintRemaining <= 0;
+            var printSoundEnd = comp.TimePrintRemaining <= 0;
 
-            if (PrintSoundEnd)
+            if (printSoundEnd)
             {
                 var printed = Spawn(comp.PrintPaperId, Transform(uid).Coordinates);
 

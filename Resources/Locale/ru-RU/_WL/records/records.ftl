@@ -3,7 +3,7 @@ humanoid-profile-editor-records-tab = Записи
 records-medical = МЕДИЦИНСКИЕ ЗАПИСИ
 records-security = ОХРАННЫЕ ЗАПИСИ
 records-employment = ТРУДОВЫЕ ЗАПИСИ
-records-general = ОБЩИЕ СВЕДЕНЬЯ
+records-general = ОБЩИЕ СВЕДЕНИЯ
 
 records-template-medical = Шаблон мед.записей
 records-template-security = Шаблон охр.записей
@@ -28,7 +28,7 @@ records-confederation-social = СоцКон
 records-confederation-interspecies-alliance = Межвидовой Альянс
 records-confederation-holy-empire-of-eden = Священная Империя Эдема
 records-confederation-metafront = Метафронт
-records-confederation-no = Нету конфедирации
+records-confederation-no = Нет конфедерации
 
 
 # Медицинские записи

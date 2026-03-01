@@ -76,9 +76,12 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
 
         if (_stationRecords.TryGetRecord<GeneralStationRecord>(new StationRecordKey(args.Id, owning.Value), out var record))
         {
-            var confederation = !string.IsNullOrEmpty(record.Confederation)
-             ? _prototypeManager.Index<ConfederationRecordsPrototype>(record.Confederation).Name
-             : Loc.GetString("generic-not-available-shorthand");
+            var confederation = string.Empty;
+
+            if (_prototypeManager.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var proto))
+                confederation = proto.Name;
+            else
+                confederation = Loc.GetString("generic-not-available-shorthand");
 
             ent.Comp.ContextPrint = $"""
                 {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
@@ -89,8 +92,8 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
                 {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(record.Country)
                 ? record.Country : Loc.GetString("generic-not-available-shorthand"))}
                 {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
-                {(!string.IsNullOrEmpty(record.EmploymentRecord) ? record.SecurityRecord
-                : Loc.GetString("criminal-records-console-no-security-record"))}
+                {(!string.IsNullOrEmpty(record.EmploymentRecord) ? record.EmploymentRecord
+                : Loc.GetString("general-station-console-no-employment-record"))}
                 """;
         }
         else
@@ -108,9 +111,9 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         {
             comp.TimePrintRemaining -= frameTime;
 
-            var PrintSoundEnd = comp.TimePrintRemaining <= 0;
+            var printSoundEnd = comp.TimePrintRemaining <= 0;
 
-            if (PrintSoundEnd)
+            if (printSoundEnd)
             {
                 var printed = Spawn(comp.PrintPaperId, Transform(uid).Coordinates);
 

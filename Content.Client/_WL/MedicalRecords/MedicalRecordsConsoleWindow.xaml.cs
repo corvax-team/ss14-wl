@@ -84,7 +84,7 @@ public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
             PopulateRecordContainer(state.StationRecord);
         }
 
-        PrintButton.Disabled = !state.CanPrintedRecords;
+        PrintButton.Disabled = !state.CanPrintRecords;
     }
 
     private void PopulateRecordListing(Dictionary<uint, string>? listing)
@@ -126,7 +126,7 @@ public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
                 ? stationRecord.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
                 {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(stationRecord.Species).Name)}
                 {Loc.GetString("records-height", ("height", stationRecord.Height))}
-                {(!string.IsNullOrEmpty(stationRecord.SecurityRecord) ? stationRecord.SecurityRecord
+                {(!string.IsNullOrEmpty(stationRecord.MedicalRecord) ? stationRecord.MedicalRecord
                 : Loc.GetString("medical-records-console-no-record"))}
                 """;
 

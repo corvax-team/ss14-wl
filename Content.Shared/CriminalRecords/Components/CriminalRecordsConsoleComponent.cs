@@ -55,7 +55,7 @@ public sealed partial class CriminalRecordsConsoleComponent : Component
 
     // WL-Records-Start
     [DataField]
-    public bool CanPrintEntries;
+    public bool CanPrintEntries = true;
 
     [DataField]
     public float TimePrint = 2.3f;
