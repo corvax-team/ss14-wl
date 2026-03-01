@@ -18,11 +18,11 @@ public sealed class MedicalRecordsConsoleState : BoundUserInterfaceState
     public readonly StationRecordsFilter? Filter;
     public readonly bool CanPrintRecords;
 
-    public MedicalRecordsConsoleState(Dictionary<uint, string>? recordListing, StationRecordsFilter? newFilter, bool CanPrintRecords)
+    public MedicalRecordsConsoleState(Dictionary<uint, string>? recordListing, StationRecordsFilter? newFilter, bool canPrintRecords)
     {
         RecordListing = recordListing;
         Filter = newFilter;
-        CanPrintRecords = CanPrintRecords;
+        CanPrintRecords = canPrintRecords;
     }
 
     public MedicalRecordsConsoleState() : this(null, null, false) { }

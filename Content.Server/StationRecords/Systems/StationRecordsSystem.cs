@@ -15,6 +15,8 @@ using Content.Shared.StationRecords;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared._WL.Languages;
+using Content.Shared._WL.Languages.Components;
 
 namespace Content.Server.StationRecords.Systems;
 
@@ -98,12 +100,16 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         if (!_inventory.TryGetSlotEntity(player, "id", out var idUid))
             return;
 
+        TryComp<LanguagesComponent>(player, out var languages);
         TryComp<FingerprintComponent>(player, out var fingerprintComponent);
         TryComp<DnaComponent>(player, out var dnaComponent);
 
+        if (languages == null)
+            return;
+
         var jobName = _role.GetSubnameByEntity(player, jobId) ?? jobProto.LocalizedName; //WL-changes
 
-        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, profile.MedicalRecord, profile.SecurityRecord, profile.EmploymentRecord, profile.FullName, profile.DateOfBirth, profile.Confederation, profile.Country, profile.Height, jobId, jobName, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records); //WL-changes
+        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, profile.MedicalRecord, profile.SecurityRecord, profile.EmploymentRecord, profile.FullName, profile.DateOfBirth, profile.Confederation, profile.Country, profile.Height, languages.Speaking, jobId, jobName, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records); //WL-changes
     }
 
 
@@ -150,6 +156,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         string confederation,
         string country,
         int height,
+        List<ProtoId<LanguagePrototype>> languages,
         // WL-Records-end
         string jobId,
         string jobName,
@@ -187,6 +194,7 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             Confederation = confederation,
             Country = country,
             Height = height,
+            Languages = languages,
             // WL-Records-end
             DisplayPriority = jobPrototype.RealDisplayWeight,
             Fingerprint = mobFingerprint,

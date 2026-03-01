@@ -1,4 +1,5 @@
 using Content.Client.UserInterface.Controls;
+using Content.Shared._WL.Languages;
 using Content.Shared._WL.MedicalRecords;
 using Content.Shared._WL.Records;
 using Content.Shared.Humanoid.Prototypes;
@@ -119,6 +120,18 @@ public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
 
     private string GenerateMedicalRecord(GeneralStationRecord stationRecord)
     {
+        string languages = string.Empty;
+
+        for (int i = 0; i < stationRecord.Languages.Count; i++)
+        {
+            languages += Loc.GetString(_prototypeManager.Index<LanguagePrototype>(stationRecord.Languages[i]).Name);
+
+            if (i != stationRecord.Languages.Count - 1)
+                languages += ", ";
+            else
+                languages += ".";
+        }
+
         var medicalRecord = $"""
                 {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(stationRecord.Fullname)
                 ? stationRecord.Fullname : stationRecord.Name)}
@@ -126,6 +139,7 @@ public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
                 ? stationRecord.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
                 {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(stationRecord.Species).Name)}
                 {Loc.GetString("records-height", ("height", stationRecord.Height))}
+                {Loc.GetString("records-language")} {languages}
                 {(!string.IsNullOrEmpty(stationRecord.MedicalRecord) ? stationRecord.MedicalRecord
                 : Loc.GetString("medical-records-console-no-record"))}
                 """;

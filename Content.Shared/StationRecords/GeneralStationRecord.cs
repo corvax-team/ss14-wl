@@ -1,5 +1,7 @@
+using Content.Shared._WL.Languages;
 using Content.Shared.CrewManifest;
 using Robust.Shared.Enums;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.StationRecords;
@@ -74,6 +76,9 @@ public sealed record GeneralStationRecord
 
     [DataField]
     public int Height;
+
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> Languages = [];
 
     // WL-Records-End
 

@@ -2,6 +2,7 @@ using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
+using Content.Shared._WL.Languages;
 using Content.Shared._WL.MedicalRecords;
 using Content.Shared._WL.MedicalRecords.Components;
 using Content.Shared._WL.Records;
@@ -82,6 +83,17 @@ public sealed class MedicalRecordsConsoleSystem : EntitySystem
 
         if (_records.TryGetRecord<GeneralStationRecord>(new StationRecordKey(msg.Id, owning.Value), out var record))
         {
+            string languages = string.Empty;
+
+            for (int i = 0; i < record.Languages.Count; i++)
+            {
+                languages += Loc.GetString(_prototypeManager.Index<LanguagePrototype>(record.Languages[i]).Name);
+
+                if (i != record.Languages.Count - 1)
+                    languages += ", ";
+                else
+                    languages += ".";
+            }
 
             ent.Comp.ContextPrint = $"""
                 {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
@@ -90,6 +102,7 @@ public sealed class MedicalRecordsConsoleSystem : EntitySystem
                 ? record.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
                 {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
                 {Loc.GetString("records-height", ("height", record.Height))}
+                {Loc.GetString("records-language")} {languages}
                 {(!string.IsNullOrEmpty(record.SecurityRecord) ? record.SecurityRecord
                 : Loc.GetString("medical-records-console-no-record"))}
                 """;

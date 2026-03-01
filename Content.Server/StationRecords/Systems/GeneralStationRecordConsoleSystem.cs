@@ -1,6 +1,7 @@
 using Content.Server.Power.Components; // WL-Records
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Components;
+using Content.Shared._WL.Languages;
 using Content.Shared._WL.Records;
 using Content.Shared.Humanoid.Prototypes; // WL-Records
 using Content.Shared.Paper;
@@ -79,9 +80,21 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
             var confederation = string.Empty;
 
             if (_prototypeManager.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var proto))
-                confederation = proto.Name;
+                confederation = Loc.GetString(proto.Name);
             else
                 confederation = Loc.GetString("generic-not-available-shorthand");
+
+            string languages = string.Empty;
+
+            for (int i = 0; i < record.Languages.Count; i++)
+            {
+                languages += Loc.GetString(_prototypeManager.Index<LanguagePrototype>(record.Languages[i]).Name);
+
+                if (i != record.Languages.Count - 1)
+                    languages += ", ";
+                else
+                    languages += ".";
+            }
 
             ent.Comp.ContextPrint = $"""
                 {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
@@ -92,6 +105,7 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
                 {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(record.Country)
                 ? record.Country : Loc.GetString("generic-not-available-shorthand"))}
                 {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
+                {Loc.GetString("records-language")} {languages}
                 {(!string.IsNullOrEmpty(record.EmploymentRecord) ? record.EmploymentRecord
                 : Loc.GetString("general-station-console-no-employment-record"))}
                 """;

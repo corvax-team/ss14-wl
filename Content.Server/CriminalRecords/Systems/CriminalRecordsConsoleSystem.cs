@@ -22,6 +22,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Security.Components;
 using System.Linq;
 using Content.Shared.Roles.Jobs;
+using Content.Shared._WL.Languages;
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -106,7 +107,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             var confederation = string.Empty;
 
             if (_prototypeManager.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var proto))
-                confederation = proto.Name;
+                confederation = Loc.GetString(proto.Name);
             else
                 confederation = Loc.GetString("generic-not-available-shorthand");
 
