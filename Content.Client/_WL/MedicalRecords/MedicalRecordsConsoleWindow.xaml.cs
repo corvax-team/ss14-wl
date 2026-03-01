@@ -18,6 +18,7 @@ public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public Action<uint?>? OnKeySelected;
+    public Action<uint>? OnPrinted;
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
     private uint? _selectedKey;
 
@@ -53,6 +54,13 @@ public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
         {
             FilterListingOfRecords(args.Text);
         };
+
+        PrintButton.OnPressed += _ =>
+        {
+            PrintButton.Disabled = true;
+            if (_selectedKey != null)
+                OnPrinted?.Invoke(_selectedKey.Value);
+        };
     }
 
     public void UpdateState(MedicalRecordsConsoleState state)
@@ -75,6 +83,8 @@ public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
         {
             PopulateRecordContainer(state.StationRecord);
         }
+
+        PrintButton.Disabled = !state.CanPrintedRecords;
     }
 
     private void PopulateRecordListing(Dictionary<uint, string>? listing)
@@ -110,13 +120,15 @@ public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
     private string GenerateMedicalRecord(GeneralStationRecord stationRecord)
     {
         var medicalRecord = $"""
-                {Loc.GetString("records-full-name-edit") + stationRecord.Fullname ?? stationRecord.Name}
-                {Loc.GetString("records-date-of-birth-edit") + stationRecord.DateOfBirth ?? "N|A"}
-                {Loc.GetString("records-species") +
-                Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(stationRecord.Species).Name)}
+                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(stationRecord.Fullname)
+                ? stationRecord.Fullname : stationRecord.Name)}
+                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(stationRecord.DateOfBirth)
+                ? stationRecord.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
+                {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(stationRecord.Species).Name)}
                 {Loc.GetString("records-height", ("height", stationRecord.Height))}
-                {stationRecord.MedicalRecord}
-                """ ?? Loc.GetString("medical-records-console-no-record");
+                {(!string.IsNullOrEmpty(stationRecord.SecurityRecord) ? stationRecord.SecurityRecord
+                : Loc.GetString("medical-records-console-no-record"))}
+                """;
 
         return medicalRecord;
     }

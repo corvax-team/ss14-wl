@@ -1,10 +1,13 @@
+using Content.Server.Power.Components; // WL-Records
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Components;
 using Content.Shared._WL.Records;
+using Content.Shared.Humanoid.Prototypes; // WL-Records
 using Content.Shared.Paper;
 using Content.Shared.StationRecords;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes; // WL-Records
 using System.Linq;
 
 namespace Content.Server.StationRecords.Systems;
@@ -14,8 +17,9 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
-    [Dependency] private readonly PaperSystem _paperSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly PaperSystem _paperSystem = default!; // WL-Records
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!; // WL-Records
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Records
 
     public override void Initialize()
     {
@@ -33,6 +37,22 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         });
     }
 
+    // WL-Records-start
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<GeneralStationRecordConsoleComponent, ApcPowerReceiverComponent>();
+        while (query.MoveNext(out var uid, out var console, out var receiver))
+        {
+            if (!receiver.Powered)
+                continue;
+
+            ProcessPrintingAnimation(uid, frameTime, console);
+        }
+    }
+    // WL-Records-end
+
     private void OnRecordDelete(Entity<GeneralStationRecordConsoleComponent> ent, ref DeleteStationRecord args)
     {
         if (!ent.Comp.CanDeleteEntries)
@@ -45,15 +65,71 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         UpdateUserInterface(ent); // Apparently an event does not get raised for this.
     }
 
+    // WL-Records-Start
     private void OnRecordPrint(Entity<GeneralStationRecordConsoleComponent> ent, ref PrintStationRecord args)
     {
-        _audioSystem.PlayPvs("/Audio/Machines/printer.ogg", ent.Owner);
 
-        var printed = Spawn("Paper", Transform(ent.Owner).Coordinates);
+        var owning = _station.GetOwningStation(ent.Owner);
 
-        if (TryComp<PaperComponent>(printed, out var paper))
-            _paperSystem.SetContent((printed, paper), args.Content);
+        if (owning == null)
+            return;
+
+        if (_stationRecords.TryGetRecord<GeneralStationRecord>(new StationRecordKey(args.Id, owning.Value), out var record))
+        {
+            var confederation = !string.IsNullOrEmpty(record.Confederation)
+             ? _prototypeManager.Index<ConfederationRecordsPrototype>(record.Confederation).Name
+             : Loc.GetString("generic-not-available-shorthand");
+
+            ent.Comp.ContextPrint = $"""
+                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
+                ? record.Fullname : record.Name)}
+                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(record.DateOfBirth)
+                ? record.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
+                {Loc.GetString("records-confederation-edit")} {confederation}
+                {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(record.Country)
+                ? record.Country : Loc.GetString("generic-not-available-shorthand"))}
+                {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
+                {(!string.IsNullOrEmpty(record.EmploymentRecord) ? record.SecurityRecord
+                : Loc.GetString("criminal-records-console-no-security-record"))}
+                """;
+        }
+        else
+            return;
+
+        _audioSystem.PlayPvs(ent.Comp.PrintAudio, ent.Owner);
+
+        ent.Comp.CanPrintEntries = false;
+        ent.Comp.TimePrintRemaining = ent.Comp.TimePrint;
     }
+
+    private void ProcessPrintingAnimation(EntityUid uid, float frameTime, GeneralStationRecordConsoleComponent comp)
+    {
+        if (comp.TimePrintRemaining > 0)
+        {
+            comp.TimePrintRemaining -= frameTime;
+
+            var PrintSoundEnd = comp.TimePrintRemaining <= 0;
+
+            if (PrintSoundEnd)
+            {
+                var printed = Spawn(comp.PrintPaperId, Transform(uid).Coordinates);
+
+                if (TryComp<PaperComponent>(printed, out var paper))
+                    _paperSystem.SetContent((printed, paper), comp.ContextPrint);
+
+                comp.ContextPrint = string.Empty;
+
+                comp.CanPrintEntries = true;
+
+                var ent = new Entity<GeneralStationRecordConsoleComponent>(uid, comp);
+
+                UpdateUserInterface(ent);
+            }
+
+            return;
+        }
+    }
+    // WL-Records-End
 
     private void UpdateUserInterface<T>(Entity<GeneralStationRecordConsoleComponent> ent, ref T args)
     {
@@ -109,7 +185,7 @@ public sealed class GeneralStationRecordConsoleSystem : EntitySystem
         var key = new StationRecordKey(id, owningStation.Value);
         _stationRecords.TryGetRecord<GeneralStationRecord>(key, out var record, stationRecords);
 
-        GeneralStationRecordConsoleState newState = new(id, record, listing, console.Filter, ent.Comp.CanDeleteEntries);
+        GeneralStationRecordConsoleState newState = new(id, record, listing, console.Filter, ent.Comp.CanDeleteEntries, ent.Comp.CanPrintEntries); // WL-Records
         _ui.SetUiState(uid, GeneralStationRecordConsoleKey.Key, newState);
     }
 }

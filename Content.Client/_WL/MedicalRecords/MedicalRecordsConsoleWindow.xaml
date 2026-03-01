@@ -85,6 +85,7 @@
                                    Margin="5"
                                    HorizontalExpand="True"/>
                     </ScrollContainer>
+                    <Button Name="PrintButton" Text="{Loc 'records-print-button'}" MinWidth="200"/>
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>

@@ -16,14 +16,16 @@ public sealed class MedicalRecordsConsoleState : BoundUserInterfaceState
     public GeneralStationRecord? StationRecord = null;
     public readonly Dictionary<uint, string>? RecordListing;
     public readonly StationRecordsFilter? Filter;
+    public readonly bool CanPrintedRecords;
 
-    public MedicalRecordsConsoleState(Dictionary<uint, string>? recordListing, StationRecordsFilter? newFilter)
+    public MedicalRecordsConsoleState(Dictionary<uint, string>? recordListing, StationRecordsFilter? newFilter, bool canPrintedRecords)
     {
         RecordListing = recordListing;
         Filter = newFilter;
+        CanPrintedRecords = canPrintedRecords;
     }
 
-    public MedicalRecordsConsoleState() : this(null, null) { }
+    public MedicalRecordsConsoleState() : this(null, null, false) { }
 
     public bool IsEmpty() => SelectedKey == null && StationRecord == null && RecordListing == null;
 }

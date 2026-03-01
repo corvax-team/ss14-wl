@@ -5,10 +5,10 @@ namespace Content.Shared._WL.Records;
 [Serializable, NetSerializable]
 public sealed class PrintStationRecord : BoundUserInterfaceMessage
 {
-    public PrintStationRecord(string content)
+    public PrintStationRecord(uint id)
     {
-        Content = content;
+        Id = id;
     }
 
-    public readonly string Content;
+    public readonly uint Id;
 }

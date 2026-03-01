@@ -40,17 +40,19 @@ public sealed class CriminalRecordsConsoleState : BoundUserInterfaceState
     public SecurityStatus FilterStatus = SecurityStatus.None;
     public readonly Dictionary<uint, string>? RecordListing;
     public readonly StationRecordsFilter? Filter;
+    public readonly bool CanPrintRecords; // WL-Records
 
-    public CriminalRecordsConsoleState(Dictionary<uint, string>? recordListing, StationRecordsFilter? newFilter)
+    public CriminalRecordsConsoleState(Dictionary<uint, string>? recordListing, StationRecordsFilter? newFilter, bool canPrintRecords /* WL-Records */)
     {
         RecordListing = recordListing;
         Filter = newFilter;
+        CanPrintRecords = canPrintRecords; // WL-Records
     }
 
     /// <summary>
     /// Default state for opening the console
     /// </summary>
-    public CriminalRecordsConsoleState() : this(null, null)
+    public CriminalRecordsConsoleState() : this(null, null, false) // WL-Records
     {
     }
 

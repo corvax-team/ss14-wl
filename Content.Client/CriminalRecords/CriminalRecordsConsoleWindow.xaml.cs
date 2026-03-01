@@ -44,6 +44,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     public Action<CriminalRecord, bool, bool>? OnHistoryUpdated;
     public Action? OnHistoryClosed;
     public Action<SecurityStatus, string>? OnDialogConfirmed;
+    public Action<uint>? OnPrinted; // WL-Records
 
     public Action<SecurityStatus>? OnStatusFilterPressed;
     private uint _maxLength;
@@ -150,6 +151,15 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             if (_selectedRecord is { } record)
                 OnHistoryUpdated?.Invoke(record, _access, true);
         };
+
+        // WL-Records-start
+        PrintButton.OnPressed += _ =>
+        {
+            PrintButton.Disabled = true;
+            if (_selectedKey != null)
+                OnPrinted?.Invoke(_selectedKey.Value);
+        };
+        // WL-Records-end
     }
 
     public void StatusFilterPressed(SecurityStatus statusSelected)
@@ -176,6 +186,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         {
             _currentCrewListFilter = state.FilterStatus;
         }
+
+        PrintButton.Disabled = !state.CanPrintRecords; // WL-Records
 
         _selectedKey = state.SelectedKey;
         FilterType.SelectId((int)_currentFilterType);
@@ -268,17 +280,23 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         }
 
         // WL-Records-Start
+        var confederation = !string.IsNullOrEmpty(stationRecord.Confederation)
+            ? Loc.GetString(_proto.Index<ConfederationRecordsPrototype>(stationRecord.Confederation).Name)
+            : "N/A";
+
         SecurityRecord.Text = $"""
-                {Loc.GetString("records-full-name-edit") + stationRecord.Fullname ?? stationRecord.Name}
-                {Loc.GetString("records-date-of-birth-edit") + stationRecord.DateOfBirth ?? "N|A"}
-                {Loc.GetString("records-confederation-edit") +
-                Loc.GetString(_proto.Index<ConfederationRecordsPrototype>(stationRecord.Confederation).Name) ?? "N|A"}
-                {Loc.GetString("records-country-edit") + stationRecord.Country ?? "N|A"}
-                {Loc.GetString("records-species") +
-                Loc.GetString(_proto.Index<SpeciesPrototype>(stationRecord.Species).Name)}
+                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(stationRecord.Fullname)
+                ? stationRecord.Fullname : stationRecord.Name)}
+                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(stationRecord.DateOfBirth)
+                ? stationRecord.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
+                {Loc.GetString("records-confederation-edit")} {confederation}
+                {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(stationRecord.Country)
+                ? stationRecord.Country : Loc.GetString("generic-not-available-shorthand"))}
+                {Loc.GetString("records-species")} {Loc.GetString(_proto.Index<SpeciesPrototype>(stationRecord.Species).Name)}
                 {Loc.GetString("records-height", ("height", stationRecord.Height))}
-                {stationRecord.EmploymentRecord}
-                """ ?? Loc.GetString("criminal-records-console-no-security-record");
+                {(!string.IsNullOrEmpty(stationRecord.SecurityRecord) ? stationRecord.SecurityRecord
+                : Loc.GetString("criminal-records-console-no-security-record"))}
+                """;
         // WL-Records-End
     }
 

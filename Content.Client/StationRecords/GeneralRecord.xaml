@@ -19,6 +19,5 @@
         <Label Name="Fingerprint"/>
         <Label Name="Dna"/>
         <Button Visible="False" Name="DeleteButton" Text="{Loc 'general-station-record-console-delete'}"/>
-        <Button Name="PrintButton" Text="Распечатать"/>
     </BoxContainer>
 </Control>

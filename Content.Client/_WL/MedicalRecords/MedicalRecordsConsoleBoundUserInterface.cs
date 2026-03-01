@@ -1,5 +1,5 @@
 using Content.Shared._WL.MedicalRecords;
-using Content.Shared.StationRecords;
+using Content.Shared._WL.Records;
 using Robust.Client.UserInterface;
 
 namespace Content.Client._WL.MedicalRecords;
@@ -18,6 +18,8 @@ public sealed class MedicalRecordsConsoleBoundUserInterface : BoundUserInterface
         _window.OnKeySelected += key => SendMessage(new MedicalRecordsSelectStationRecord(key));
         _window.OnFiltersChanged += (type, filterValue) =>
             SendMessage(new MedicalRecordsSetStationRecordFilter(type, filterValue));
+        _window.OnPrinted += id =>
+            SendMessage(new PrintStationRecord(id));
         _window.OnClose += Close;
 
         _window.OpenCentered();

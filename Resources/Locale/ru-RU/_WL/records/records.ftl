@@ -9,16 +9,18 @@ records-template-medical = Шаблон мед.записей
 records-template-security = Шаблон охр.записей
 records-template-employment = Шаблон труд.записей
 
+records-print-button = Распечатать
+
 records-medical-placeholder = Нажмите "Шаблон" для загрузки медицинской карты
 records-security-placeholder = Нажмите "Шаблон" для загрузки охранного досье
 records-employment-placeholder = Нажмите "Шаблон" для загрузки трудовой истории
 
-records-full-name-edit = ФИО: 
-records-date-of-birth-edit = ДАТА РОЖДЕНИЯ: 
-records-confederation-edit = КОНФЕДЕРАЦИЯ: 
-records-country-edit = ГОСУДАРСТВО: 
+records-full-name-edit = ФИО:
+records-date-of-birth-edit = ДАТА РОЖДЕНИЯ:
+records-confederation-edit = КОНФЕДЕРАЦИЯ:
+records-country-edit = ГОСУДАРСТВО:
 
-records-species = БИОЛОГИЧЕСКИЙ ВИД: 
+records-species = БИОЛОГИЧЕСКИЙ ВИД:
 records-height = РОСТ: {$height}
 
 records-confederation-of-orion-states = Конфедерация Орионских Государств

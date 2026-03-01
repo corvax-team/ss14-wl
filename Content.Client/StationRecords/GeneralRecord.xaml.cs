@@ -12,7 +12,6 @@ namespace Content.Client.StationRecords;
 public sealed partial class GeneralRecord : Control
 {
     public Action<uint>? OnDeletePressed;
-    public Action<string>? OnPrintPressed;
     public GeneralRecord(GeneralStationRecord record, bool canDelete, uint? id, IPrototypeManager prototypeManager)
     {
         RobustXamlLoader.Load(this);
@@ -24,24 +23,28 @@ public sealed partial class GeneralRecord : Control
         // Species.Text = Loc.GetString("general-station-record-console-record-species", ("species", record.Species));
         // Gender.Text = Loc.GetString("general-station-record-console-record-gender",
         //     ("gender", record.Gender.ToString()));
+
+        var confederation = !string.IsNullOrEmpty(record.Confederation)
+             ? prototypeManager.Index<ConfederationRecordsPrototype>(record.Confederation).Name
+             : Loc.GetString("generic-not-available-shorthand");
+
         Record.Text = $"""
-                {Loc.GetString("records-full-name-edit") + record.Fullname ?? record.Name}
-                {Loc.GetString("records-date-of-birth-edit") + record.DateOfBirth ?? "N|A"}
-                {Loc.GetString("records-confederation-edit") +
-                Loc.GetString(prototypeManager.Index<ConfederationRecordsPrototype>(record.Confederation).Name)?? "N|A"}
-                {Loc.GetString("records-country-edit") + record.Country ?? "N|A"}
-                {Loc.GetString("records-species") +
-                Loc.GetString(prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
-                {record.EmploymentRecord}
-                """ ?? Loc.GetString("general-station-console-no-employment-record");
+                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
+                ? record.Fullname : record.Name)}
+                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(record.DateOfBirth)
+                ? record.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
+                {Loc.GetString("records-confederation-edit")} {confederation}
+                {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(record.Country)
+                ? record.Country : Loc.GetString("generic-not-available-shorthand"))}
+                {Loc.GetString("records-species")} {Loc.GetString(prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
+                {(!string.IsNullOrEmpty(record.EmploymentRecord) ? record.EmploymentRecord
+                : Loc.GetString("general-station-console-no-employment-record"))}
+                """;
         // WL-Records-Edit-End
         Fingerprint.Text = Loc.GetString("general-station-record-console-record-fingerprint",
             ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")));
         Dna.Text = Loc.GetString("general-station-record-console-record-dna",
             ("dna", record.DNA ?? Loc.GetString("generic-not-available-shorthand")));
-
-        if (id != null)
-            PrintButton.OnPressed += _ => OnPrintPressed?.Invoke(Record.Text);
 
         if (canDelete && id != null)
         {
