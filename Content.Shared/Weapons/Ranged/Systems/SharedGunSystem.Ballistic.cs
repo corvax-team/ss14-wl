@@ -240,15 +240,33 @@ public abstract partial class SharedGunSystem
         for (var i = 0; i < args.Shots; i++)
         {
             EntityUid? ammoEntity = null;
+
+
             if (ent.Comp.Entities.Count > 0)
             {
-                if (!ent.Comp.AutoCycle) //WL - if autocycle=false don't remove spent ammo from the gun
-                    break;
+                //WL - Autocycle start
                 var existingEnt = ent.Comp.Entities[^1];
-                ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
-                DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
-                Containers.Remove(existingEnt, ent.Comp.Container);
-                ammoEntity = existingEnt;
+
+                if (!TryComp<CartridgeAmmoComponent>(existingEnt, out var cartridge))
+                    return;
+                //WL - Autocycle end
+
+                //WL - Autocycle start
+                if (cartridge.Spent)
+                {
+                    if (!ent.Comp.AutoCycle) //WL - if autocycle=false don't remove spent ammo from the gun
+                        break;
+                    ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
+                    DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
+                    Containers.Remove(existingEnt, ent.Comp.Container);
+                    ammoEntity = existingEnt;
+                }
+                else
+                {
+                    DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
+                    ammoEntity = existingEnt;
+                }
+                //WL - Autocycle end
             }
             else if (ent.Comp.UnspawnedCount > 0)
             {
