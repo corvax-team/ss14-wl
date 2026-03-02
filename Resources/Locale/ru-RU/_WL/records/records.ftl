@@ -18,7 +18,7 @@ records-employment-placeholder = Нажмите "Шаблон" для загру
 records-full-name-edit = ФИО:
 records-date-of-birth-edit = ДАТА РОЖДЕНИЯ:
 records-confederation-edit = КОНФЕДЕРАЦИЯ:
-records-country-edit = ГОСУДАРСТВО:
+records-country-edit = ГРАЖДАНСТВО:
 
 records-species = БИОЛОГИЧЕСКИЙ ВИД:
 records-language = ВЛАДЕЕТ ЯЗЫКАМИ:
