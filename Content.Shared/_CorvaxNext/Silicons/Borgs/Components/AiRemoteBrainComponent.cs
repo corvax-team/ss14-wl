@@ -4,6 +4,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+//WL-Changes
 namespace Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 
 [RegisterComponent]

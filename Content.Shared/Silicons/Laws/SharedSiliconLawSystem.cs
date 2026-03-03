@@ -7,6 +7,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Wires;
 using Robust.Shared.Audio;
 
+//WL-Changes
 namespace Content.Shared.Silicons.Laws;
 
 /// <summary>

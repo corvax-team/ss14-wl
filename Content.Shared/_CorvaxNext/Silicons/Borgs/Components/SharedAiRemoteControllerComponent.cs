@@ -7,6 +7,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
+//WL-Changes
 namespace Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 
 [RegisterComponent]

@@ -12,6 +12,7 @@ using Content.Shared.Emag.Systems;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Robust.Shared.Utility;
 
+//WL-Changes
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
