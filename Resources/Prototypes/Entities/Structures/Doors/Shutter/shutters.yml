@@ -104,9 +104,6 @@
     interactSuccessSound:
       collection: FenceRattle
   - type: BlockWeather
-  - type: InteractionVerbs # EE: Interaction Verbs
-    allowedVerbs:
-    - KnockOn
 
 - type: entity
   id: ShuttersNormal

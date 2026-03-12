@@ -45,13 +45,11 @@
     - board
   - type: StaticPrice
     price: 500
-  # EE-Port-Emotion-Start
-  # - type: InteractionPopup
-  #   interactSuccessString: comp-window-knock
-  #   messagePerceivedByOthers: comp-window-knock
-  #   interactSuccessSound:
-  #     path: /Audio/Effects/glass_knock.ogg
-  # EE-Port-Emotion-End
+  - type: InteractionPopup
+    interactSuccessString: comp-window-knock
+    messagePerceivedByOthers: comp-window-knock
+    interactSuccessSound:
+      path: /Audio/Effects/glass_knock.ogg
 
 - type: entity
   id: BlastDoorOpen

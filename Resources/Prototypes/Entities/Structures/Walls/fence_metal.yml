@@ -79,9 +79,6 @@
     cost: 2
     delay: 2
     fx: EffectRCDDeconstruct2
-  - type: InteractionVerbs # EE: Interaction Verbs
-    allowedVerbs:
-    - Rattle
 
 - type: entity
   parent: BaseFenceMetal
@@ -110,13 +107,11 @@
         - FullTileMask
         layer:
         - TableLayer
-  # EE-Port-Emotion-Start
-  # - type: InteractionPopup
-  #   interactSuccessString: fence-rattle-success
-  #   messagePerceivedByOthers: fence-rattle-success
-  #   interactSuccessSound:
-  #     collection: FenceRattle
-  # EE-Port-Emotion-End
+  - type: InteractionPopup
+    interactSuccessString: fence-rattle-success
+    messagePerceivedByOthers: fence-rattle-success
+    interactSuccessSound:
+      collection: FenceRattle
   - type: Destructible
     thresholds:
     - trigger:
@@ -171,13 +166,11 @@
         layer:
         - MidImpassable
         - LowImpassable
-  # EE-Port-Emotion-Start
-  # - type: InteractionPopup
-  #   interactSuccessString: fence-rattle-success
-  #   messagePerceivedByOthers: fence-rattle-success
-  #   interactSuccessSound:
-  #     collection: FenceRattle
-  # EE-Port-Emotion-End
+  - type: InteractionPopup
+    interactSuccessString: fence-rattle-success
+    messagePerceivedByOthers: fence-rattle-success
+    interactSuccessSound:
+      collection: FenceRattle
   - type: Destructible
     thresholds:
     - trigger:
@@ -241,13 +234,11 @@
         layer:
         - MidImpassable
         - LowImpassable
-  # EE-Port-Emotion-Start
-  # - type: InteractionPopup
-  #   interactSuccessString: fence-rattle-success
-  #   messagePerceivedByOthers: fence-rattle-success
-  #   interactSuccessSound:
-  #     collection: FenceRattle
-  # EE-Port-Emotion-End
+  - type: InteractionPopup
+    interactSuccessString: fence-rattle-success
+    messagePerceivedByOthers: fence-rattle-success
+    interactSuccessSound:
+      collection: FenceRattle
   - type: Construction
     graph: FenceMetal
     node: corner
@@ -280,13 +271,11 @@
         layer:
         - MidImpassable
         - LowImpassable
-  # EE-Port-Emotion-Start
-  # - type: InteractionPopup
-  #   interactSuccessString: fence-rattle-success
-  #   messagePerceivedByOthers: fence-rattle-success
-  #   interactSuccessSound:
-  #     collection: FenceRattle
-  # EE-Port-Emotion-End
+  - type: InteractionPopup
+    interactSuccessString: fence-rattle-success
+    messagePerceivedByOthers: fence-rattle-success
+    interactSuccessSound:
+      collection: FenceRattle
   - type: Construction
     graph: FenceMetal
     node: end

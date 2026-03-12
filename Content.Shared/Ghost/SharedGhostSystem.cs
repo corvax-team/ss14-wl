@@ -1,7 +1,6 @@
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
-using Content.Shared.InteractionVerbs.Events; /// EE
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Robust.Shared.Serialization;
@@ -24,9 +23,6 @@ namespace Content.Shared.Ghost
             SubscribeLocalEvent<GhostComponent, EmoteAttemptEvent>(OnAttempt);
             SubscribeLocalEvent<GhostComponent, DropAttemptEvent>(OnAttempt);
             SubscribeLocalEvent<GhostComponent, PickupAttemptEvent>(OnAttempt);
-            // EE Interaction Verb Begin
-            SubscribeLocalEvent<GhostComponent, InteractionVerbAttemptEvent>(OnAttempt);
-            // End
         }
 
         private void OnAttemptInteract(Entity<GhostComponent> ent, ref InteractionAttemptEvent args)

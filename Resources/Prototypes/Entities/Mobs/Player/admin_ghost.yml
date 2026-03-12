@@ -110,10 +110,6 @@
   - type: Loadout
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
-  # EE-Port-Emotion-Start
-  - type: OwnInteractionVerbs
-    allowedVerbs: []
-  # EE-Port-Emotion-End
   - type: ExplosionResistance
     damageCoefficient: 0
   # Corvax-Start

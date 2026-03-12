@@ -104,12 +104,10 @@
           type: MeleeSpeechBoundUserInterface
     - type: Actions
     - type: Guardian
-  # EE-Port-Emotion-Start
-  # - type: InteractionPopup
-  #   interactSuccessString: petting-success-holo
-  #   interactFailureString: petting-failure-holo
-  #   successChance: 0.7
-  # EE-Port-Emotion-End
+    - type: InteractionPopup
+      interactSuccessString: petting-success-holo
+      interactFailureString: petting-failure-holo
+      successChance: 0.7
     - type: Tag
       tags:
         - CannotSuicide

@@ -212,15 +212,10 @@ public sealed partial class DoAfterArgs
         NetTarget = entManager.GetNetEntity(Target);
         NetUsed = entManager.GetNetEntity(Used);
     }
-    /// Goob-Start
-    /// <summary>
-    ///     An empty do-after constructor. This WILL cause runtime errors if used to create a do-after. Only use this if you really know what you're doing!
-    /// </summary>
-    [Obsolete("Use the other constructors if possible.")]
-    public DoAfterArgs()
+
+    private DoAfterArgs()
     {
     }
-    /// Goob-End
 
     /// <summary>
     ///     Creates a new set of DoAfter arguments.
