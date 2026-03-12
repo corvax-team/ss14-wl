@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
+            modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
 
             modelBuilder.Entity("Content.Server.Database.Admin", b =>
                 {
@@ -874,6 +874,21 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("Confederation")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("confederation");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("country");
+
+                    b.Property<string>("DateOfBirth")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("date_of_birth");
+
                     b.Property<string>("EmploymentRecord")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -898,6 +913,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("flavor_text");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("full_name");
 
                     b.Property<string>("Gender")
                         .IsRequired()

@@ -119,7 +119,7 @@
         # Corvax-Mapping-Start
         mining: !type:GridSpawnGroup
           paths:
-          - /Maps/Corvax/Shuttles/corvax_mining.yml
+          - /Maps/Corvax/Shuttles/Venture.yml
         # Corvax-Mapping-End
 
 - type: entity
@@ -140,7 +140,7 @@
   abstract: true
   components:
     - type: AlertLevel
-      alertLevelPrototype: stationAlerts
+      alertLevelsListPrototype: stationAlerts # WL-Changes: Alert Level Rework
 
 - type: entity
   id: BaseStationExpeditions

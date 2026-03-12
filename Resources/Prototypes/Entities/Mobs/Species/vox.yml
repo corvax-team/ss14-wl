@@ -50,7 +50,8 @@
           FoodMeatChickenFriedVox:
             min: 3
             max: 5
-      - !type:BurnBodyBehavior { }
+      - !type:BurnBodyBehavior
+        popupMessage: bodyburn-vox-text-others
       - !type:PlaySoundBehavior
         sound:
           collection: MeatLaserImpact
@@ -89,7 +90,10 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReagent: AmmoniaBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: AmmoniaBlood
+        Quantity: 300
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
@@ -146,6 +150,12 @@
       visible: false
   - type: HumanoidAppearance
     species: Vox
+    # WL-Change start
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
+    # WL-Change end
     undergarmentTop: UndergarmentTopTanktopVox
     undergarmentBottom: UndergarmentBottomBoxersVox
     markingsDisplacement:
@@ -212,10 +222,9 @@
   - type: Languages
     speaking:
       - Translate
-      - VoxPigin
     understood:
       - Translate
-      - VoxPigin
+    specieLanguage: VoxPigin
   #WL-Changes: Languages end
 
 - type: entity

@@ -1,12 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Content.Shared.Players.JobWhitelist;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
-using Microsoft.CodeAnalysis;
 using Robust.Client;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
@@ -105,15 +103,15 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         List<ProtoId<JobPrototype>>? jobs,
         List<ProtoId<AntagPrototype>>? antags,
         HumanoidCharacterProfile? profile,
-        [NotNullWhen(false)] out FormattedMessage? reason)
+        [NotNullWhen(false)] out /*WL-Changes-start*/FormattedMessage[]?/*WL-Changes-end*/ reasons)
     {
-        reason = null;
+        reasons = null;
 
         if (antags is not null)
         {
             foreach (var proto in antags)
             {
-                if (!IsAllowed(_prototypes.Index(proto), profile, out reason))
+                if (!IsAllowed(_prototypes.Index(proto), profile, out reasons))
                     return false;
             }
         }
@@ -122,7 +120,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         {
             foreach (var proto in jobs)
             {
-                if (!IsAllowed(_prototypes.Index(proto), profile, out reason))
+                if (!IsAllowed(_prototypes.Index(proto), profile, out reasons))
                     return false;
             }
         }
@@ -136,22 +134,22 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     public bool IsAllowed(
         JobPrototype job,
         HumanoidCharacterProfile? profile,
-        [NotNullWhen(false)] out FormattedMessage? reason)
+        [NotNullWhen(false)] out /*WL-Changes-start*/FormattedMessage[]?/*WL-Changes-end*/ reasons)
     {
         // Check the player's bans
         if (_jobBans.Contains(job.ID))
         {
-            reason = FormattedMessage.FromUnformatted(Loc.GetString("role-ban"));
+            reasons = [FormattedMessage.FromUnformatted(Loc.GetString("role-ban"))]; // WL-Changes
             return false;
         }
 
         // Check whitelist requirements
-        if (!CheckWhitelist(job, out reason))
+        if (!CheckWhitelist(job, out reasons))
             return false;
 
         // Check other role requirements
         var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(job);
-        if (!CheckRoleRequirements(reqs, profile, out reason, job))
+        if (!CheckRoleRequirements(reqs, profile, out reasons, job))
             return false;
 
         return true;
@@ -163,22 +161,22 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     public bool IsAllowed(
         AntagPrototype antag,
         HumanoidCharacterProfile? profile,
-        [NotNullWhen(false)] out FormattedMessage? reason)
+        [NotNullWhen(false)] out /*WL-Changes-start*/FormattedMessage[]?/*WL-Changes-end*/ reasons)
     {
         // Check the player's bans
         if (_antagBans.Contains(antag.ID))
         {
-            reason = FormattedMessage.FromUnformatted(Loc.GetString("role-ban"));
+            reasons = [FormattedMessage.FromUnformatted(Loc.GetString("role-ban"))]; // WL-Changes
             return false;
         }
 
         // Check whitelist requirements
-        if (!CheckWhitelist(antag, out reason))
+        if (!CheckWhitelist(antag, out reasons)) // WL-Changes
             return false;
 
         // Check other role requirements
         var reqs = _entManager.System<SharedRoleSystem>().GetRoleRequirements(antag);
-        if (!CheckRoleRequirements(reqs, profile, out reason))
+        if (!CheckRoleRequirements(reqs, profile, out reasons))
             return false;
 
         return true;
@@ -188,58 +186,37 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     public bool CheckRoleRequirements(
         HashSet<JobRequirement>? requirements,
         HumanoidCharacterProfile? profile,
-        [NotNullWhen(false)] out FormattedMessage? reason,
+        [NotNullWhen(false)] out /*WL-Changes-start*/FormattedMessage[]?/*WL-Changes-end*/ reasons,
         /*WL-Changes-start*/JobPrototype? job = null/*WL-Changes-end*/)
     {
-        reason = null;
+        reasons = null;
 
-        if (requirements == null /*WL-Changes-start*//*|| !_cfg.GetCVar(CCVars.GameRoleTimers)*//*WL-Changes-end*/)
+        // WL-Changes-start
+        if (requirements == null)
             return true;
 
-        var reasons = new List<string>();
-        foreach (var requirement in requirements)
-        {
-            //WL-Changes-start
-            if (requirement.CheckingCVars != null)
-            {
-                if (!requirement.CheckingCVars
-                    .ToList()
-                    .TrueForAll(req =>
-                {
-                    return _cfg.GetCVar(req.CVar) == req.Value;
-                }))
-                    continue;
-            }
-            //WL-Changes-end
-
-            if (requirement.Check(_entManager, _prototypes, profile, job, _roles, out var jobReason))
-                continue;
-
-            reasons.Add(jobReason.ToMarkup());
-        }
-
-        reason = reasons.Count == 0 ? null : FormattedMessage.FromMarkupOrThrow(string.Join('\n', reasons));
-        return reason == null;
+        return JobRequirements.TryRequirementsMet(requirements, _roles, out reasons, _entManager, _prototypes, _cfg, profile, job);
+        // WL-Changes-end
     }
 
-    public bool CheckWhitelist(JobPrototype job, [NotNullWhen(false)] out FormattedMessage? reason)
+    public bool CheckWhitelist(JobPrototype job, [NotNullWhen(false)] out /*WL-Changes-start*/FormattedMessage[]?/*WL-Changes-end*/ reasons)
     {
-        reason = default;
+        reasons = null; // WL-Changes
         if (!_cfg.GetCVar(CCVars.GameRoleWhitelist))
             return true;
 
         if (job.Whitelisted && !_jobWhitelists.Contains(job.ID))
         {
-            reason = FormattedMessage.FromUnformatted(Loc.GetString("role-not-whitelisted"));
+            reasons = [FormattedMessage.FromUnformatted(Loc.GetString("role-not-whitelisted"))]; // WL-Changes
             return false;
         }
 
         return true;
     }
 
-    public bool CheckWhitelist(AntagPrototype antag, [NotNullWhen(false)] out FormattedMessage? reason)
+    public bool CheckWhitelist(AntagPrototype antag, [NotNullWhen(false)] out /*WL-Changes-start*/FormattedMessage[]?/*WL-Changes-end*/ reasons)
     {
-        reason = default;
+        reasons = default;
 
         // TODO: Implement antag whitelisting.
 

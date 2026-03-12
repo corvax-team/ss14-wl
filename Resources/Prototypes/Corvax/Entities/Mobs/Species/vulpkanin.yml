@@ -7,6 +7,14 @@
   components:
   - type: HumanoidAppearance
     species: CorvaxVulpkanin
+    # WL-Change Start
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
+    - HeadTop
+    - HeadSide
+    # WL-Change End
   - type: Hunger # on 1.5x more
     thresholds:
       Overfed: 250
@@ -105,10 +113,9 @@
   - type: Languages
     speaking:
       - Translate
-      - Kuniluc
     understood:
       - Translate
-      - Kuniluc
+    specieLanguage: Kuniluc
   #WL-Changes: Languages end
 
 - type: entity

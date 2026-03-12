@@ -1,0 +1,7 @@
+- type: entity
+  parent: Holopad
+  id: HolopadCommandAdjutant
+  suffix: Adjutant
+  components:
+  - type: Label
+    currentLabel: holopad-command-adjutant

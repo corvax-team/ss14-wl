@@ -249,7 +249,7 @@
     job: AtmosphericTechnician
 
 - type: entity
-  parent: EngineeringIDCard
+  parent: IDCardStandard
   id: SeniorEngineerIDCard
   name: senior engineer ID card
   components:
@@ -264,6 +264,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorEngineer
+  - type: PresetIdCard
+    job: SeniorEngineer
 
 #Medical
 
@@ -361,7 +363,7 @@
     job: Psychologist
 
 - type: entity
-  parent: MedicalIDCard
+  parent: IDCardStandard
   id: SeniorPhysicianIDCard
   name: senior physician ID card
   components:
@@ -375,6 +377,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorPhysician
+  - type: PresetIdCard
+    job: SeniorPhysician
 
 #Science
 
@@ -415,7 +419,7 @@
     job: Scientist
 
 - type: entity
-  parent: ResearchIDCard
+  parent: IDCardStandard
   id: SeniorResearcherIDCard
   name: senior researcher ID card
   components:
@@ -429,6 +433,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorResearcher
+  - type: PresetIdCard
+    job: SeniorResearcher
 
 #Security
 
@@ -519,9 +525,11 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Brigmedic
+  - type: PresetIdCard
+    job: Brigmedic
 
 - type: entity
-  parent: SecurityIDCard
+  parent: IDCardStandard
   id: SeniorOfficerIDCard
   name: senior officer ID card
   components:
@@ -535,6 +543,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SeniorOfficer
+  - type: PresetIdCard
+    job: SeniorOfficer
 
 #Service
 
@@ -788,8 +798,6 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Boxer
-  - type: PresetIdCard
-    job: Boxer
 
 - type: entity
   parent: IDCardStandard
@@ -806,8 +814,6 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Zookeeper
-  - type: PresetIdCard
-    job: Zookeeper
 
 #Supply
 
@@ -927,23 +933,14 @@
 #Antags
 
 - type: entity
-  name: passenger ID card
-  parent: [IDCardStandard, BaseChameleon]
+  parent: [PassengerIDCard, BaseChameleon]
   id: AgentIDCard
   suffix: Agent
   components:
-  - type: PresetIdCard
-    job: Passenger
   - type: Access
     tags:
     - Maintenance
     - SyndicateAgent
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: *icon-rsi
-      offset: *icon-offset
-      state: Passenger
   - type: AgentIDCard
   - type: UIRequiresLock
   - type: ActivatableUI
@@ -964,7 +961,6 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  name: passenger ID card
   parent: AgentIDCard
   id: NukieAgentIDCard
   suffix: Nukie
@@ -982,7 +978,7 @@
   components:
   - type: Sprite
     layers:
-    # - state:black #WL-Resprite
+    - state: syndie #WL-Resprite
     # - state:stripe_top #WL-Resprite
       # color: &color-syndicate-top "#e80c0c"
     # - state:stripe_bottom #WL-Resprite
@@ -1004,7 +1000,7 @@
   components:
   - type: Sprite
     layers:
-    # - state:black #WL-Resprite
+    - state: syndie #WL-Resprite
     # - state:stripe_top #WL-Resprite
       # color: *color-syndicate-top
     # - state:stripe_bottom #WL-Resprite
@@ -1013,6 +1009,8 @@
       offset: *icon-offset
       state: SyndicateOperative
   - type: AgentIDCard
+  - type: IdCard
+    jobIcon: JobIconSyndicateOperative
 
 - type: entity
   parent: [ SyndiOperativeIDCard, BaseSyndicateContraband ]
@@ -1021,7 +1019,7 @@
   components:
   - type: Sprite
     layers:
-    # - state:black #WL-Resprite
+    - state: syndie #WL-Resprite
     # - state:stripe_top #WL-Resprite
       # color: *color-syndicate-top
     # - state:stripe_bottom #WL-Resprite
@@ -1029,6 +1027,8 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SyndicateCorpsman
+  - type: IdCard
+    jobIcon: JobIconSyndicateCorpsman
 
 - type: entity
   parent: [ SyndiOperativeIDCard, BaseSyndicateContraband ]
@@ -1037,7 +1037,7 @@
   components:
   - type: Sprite
     layers:
-    # - state:black #WL-Resprite
+    - state: syndie #WL-Resprite
     # - state:stripe_top #WL-Resprite
       # color: *color-syndicate-top
     # - state:stripe_bottom #WL-Resprite
@@ -1045,6 +1045,34 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: SyndicateCommander
+  - type: IdCard
+    jobIcon: JobIconSyndicateCommander
+
+- type: entity
+  parent: [ IDCardStandard, BaseHighlyIllegalContraband ]
+  id: NinjaIDCard
+  name: ninja ID card
+  suffix: Ninja
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ninja
+    - state: stripe_top
+      color: "#38D848"
+    - state: stripe_bottom
+      color: "#309000"
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Ninja
+  - type: Item
+    heldPrefix: green
+  - type: AgentIDCard
+  - type: IdCard
+    jobIcon: JobIconNinja
+  - type: Access
+    tags:
+    - Maintenance
 
 - type: entity
   parent: [ IDCardStandard, BaseMajorContraband ]
@@ -1054,15 +1082,28 @@
   - type: Sprite
     layers:
     - state: pirate
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Pirate
   - type: Item
     heldPrefix: orange #this is close enough to the weird puce color pirate IDs have going on
-  - type: Access
-    tags:
-    - NuclearOperative
-    - SyndicateAgent
+  - type: IdCard
+    jobIcon: JobIconPirate
 
 - type: entity
   parent: IDCardStandard
+  id: XenoborgIDCard
+  name: xenoborg ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
+
+- type: entity
+  parent: [ IDCardStandard, BaseMagicalContraband ]
   id: WizardIDCard
   name: wizard ID card
   components:
@@ -1079,6 +1120,8 @@
     - Wizard
     - External
     - Maintenance
+  - type: IdCard
+    jobIcon: JobIconWizard
 
 #ERT/Centcomm
 

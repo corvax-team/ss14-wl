@@ -7,6 +7,14 @@
   components:
   - type: HumanoidAppearance
     species: Tajaran
+    # WL-Change Start
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
+    - HeadTop
+    - HeadSide
+    # WL-Change End
   - type: Hunger
     baseDecayRate: 0.02
   - type: Thirst
@@ -80,6 +88,7 @@
       - Translate
     understood:
       - Translate
+    specieLanguage: SikTair
   # WL-Changes: Languages
 
 - type: entity

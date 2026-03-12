@@ -1,0 +1,37 @@
+- type: dungeonRoom
+  id: MaintsPaperZooBottomA
+  size: 6,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 1,1
+  tags:
+  - StationElementZOOPaper
+
+- type: dungeonRoom
+  id: MaintsPaperZooBottomB
+  size: 6,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 8,1
+  tags:
+  - StationElementZOOPaper
+
+- type: dungeonRoom
+  id: MaintsPaperZooBottomC
+  size: 6,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_zoo.yml
+  offset: 15,1
+  tags:
+  - StationElementZOOPaper
+
+
+- type: entity
+  parent: BaseRoomMarker
+  id: StationElementsZOOPaperRoomMarker
+  name: Paper Zoo
+  suffix: 6x3, Paper
+  components:
+  - type: RoomFill
+    minSize: 6,3
+    maxSize: 6,3
+    roomWhitelist:
+      tags:
+      - StationElementZOOPaper

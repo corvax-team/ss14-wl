@@ -5,6 +5,7 @@
   playTimeTracker: JobBartender
   subnames:
   - Male: бариста
+  - Male: сомелье
   requirements:
     - !type:DepartmentTimeRequirement
       department: Civilian

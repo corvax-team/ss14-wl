@@ -36,8 +36,10 @@ ent-LockerMedical = шкаф медика
     .desc = { ent-LockerBase.desc }
 ent-LockerParamedic = шкаф парамедика
     .desc = { ent-LockerBase.desc }
-ent-LockerChemistry = шкаф химика
+# WL-Changes: Rename start
+ent-LockerChemistry = шкаф фармацевта
     .desc = { ent-LockerBase.desc }
+# WL-Changes: Rename end
 ent-LockerChiefMedicalOfficer = шкаф главного врача
     .desc = { ent-LockerBaseSecure.desc }
 ent-LockerResearchDirector = шкаф научного руководителя

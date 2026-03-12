@@ -14,3 +14,4 @@ loadout-group-neck-wl = Шея
 loadout-group-sec-badges-wl = Значки отличия, шея
 
 loadout-group-photo = Фотоаппарат
+loadout-group-corp-uniform = Формальные комбинезоны

@@ -36,5 +36,13 @@ namespace Content.Shared.Bed.Components
         /// </summary>
         [DataField, AutoNetworkedField]
         public EntityUid? SleepAction;
+
+        // WL-Changes-start: fix: lying down after sleep on bed
+        /// <summary>
+        /// Who unbuckle entity
+        /// </summary>
+        [DataField]
+        public EntityUid? User;
+        // WL-Changes-end
     }
 }

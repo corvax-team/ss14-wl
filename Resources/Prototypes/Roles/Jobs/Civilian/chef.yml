@@ -10,6 +10,7 @@
   - Male: пекарь
   - Male: повар
   - Male: кулинар
+  - Male: работник столовой
   requirements:
     - !type:DepartmentTimeRequirement
       department: Civilian
@@ -35,7 +36,7 @@
 - type: startingGear
   id: ChefGear
   equipment:
-    shoes: ClothingShoesColorBlack
+    shoes: ClothingShoesChef
     id: ChefPDA
     ears: ClothingHeadsetService
     belt: ClothingBeltChefFilled

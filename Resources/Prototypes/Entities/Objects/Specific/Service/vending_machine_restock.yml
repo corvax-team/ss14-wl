@@ -136,7 +136,7 @@
     - WinterDrobeInventory
     - CuraDrobeInventory
     - CorpDrobeInventory
-    - GothicOMatInventory # Corvax-WL
+    - FashionOMatInventory
   - type: Sprite
     layers:
     - state: base

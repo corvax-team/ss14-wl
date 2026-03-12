@@ -1,3 +1,4 @@
-# Corvax-WL-Fix
+# Corvax-WL-Fix-Start
 ent-MobCorvaxVulpkanin = Урист МакВульп
-    .desc = { ent-BaseMobCorvaxVulpkanin.desc }
+    .desc =  { "" }
+# Corvax-WL-Fix-End

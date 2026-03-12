@@ -1,35 +1,195 @@
 - type: jukebox
   id: motive
-  name: A-Guy - Motive
+  author: A-Guy
+  name: Motive
   path:
     path: /Audio/_WL/Jukebox/Motive-A-Guy.ogg
 
 - type: jukebox
   id: megacorps
-  name: A-Guy - Megacorps
+  author: A-Guy
+  name: Megacorps
   path:
     path: /Audio/_WL/Jukebox/Nothing-danger-with-megacorps-A-Guy.ogg
 
 - type: jukebox
   id: nuclear-operation
-  name: A-Guy - Nuclear Operation
+  author: A-Guy
+  name: Nuclear Operation
   path:
     path: /Audio/_WL/Jukebox/Nuclear-operation-remake-A-Guy.ogg
 
 - type: jukebox
   id: radify
-  name: A-Guy - Radify
+  author: A-Guy
+  name: Radify
   path:
     path: /Audio/_WL/Jukebox/Radify-A-Guy.ogg
 
 - type: jukebox
   id: tech-Fairy
-  name: A-Guy - Tech Fairy
+  author: A-Guy
+  name: Tech Fairy
   path:
     path: /Audio/_WL/Jukebox/Tech-Fairy-A-Guy.ogg
 
 - type: jukebox
   id: RevolutionSS13
-  name: A-Guy - Revolution
+  author: A-Guy
+  name: Revolution
   path:
     path: /Audio/_WL/Jukebox/RevolutionSS13.ogg
+
+- type: jukebox
+  id: Absconditus
+  author: ZhayTee
+  name: Absconditus
+  path:
+    path: /Audio/Lobby/absconditus.ogg
+
+- type: jukebox
+  id: AtomicAmnesiaMMX
+  author: Philip Dyer
+  name: Atomic Amnesia MMX
+  path:
+    path: /Audio/_WL/Lobby/atomicamnesiammx.ogg
+
+- type: jukebox
+  id: CometHaley
+  author: Stellardrone
+  name: Comet Haley
+  path:
+    path: /Audio/Lobby/comet_haley.ogg
+
+- type: jukebox
+  id: EndlessSpace
+  author: SolusLunes
+  name: Endless Space
+  path:
+    path: /Audio/Lobby/endless_space.ogg
+
+- type: jukebox
+  id: EveryLightIsBlinkingAtOnce
+  author: Sunbeamstress/Lauren Loveless
+  name: Every Light is Blinking at Once
+  path:
+    path: /Audio/Lobby/every_light_is_blinking_at_once.ogg
+
+- type: jukebox
+  id: LasersRipApartTheBulkhead
+  author: Sunbeamstress/Lauren Loveless
+  name: lasers rip apart the bulkhead
+  path:
+    path: /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
+
+- type: jukebox
+  id: PWMUR
+  author: Sunbeamstress/Lauren Loveless
+  name: phoron will make us rich
+  path:
+    path: /Audio/Lobby/pwmur.ogg
+
+- type: jukebox
+  id: Singuloose
+  author: Janis Schiedková
+  name: Singuloose
+  path:
+    path: /Audio/Lobby/singuloose.ogg
+
+- type: jukebox
+  id: SpacStac
+  author: Hayabusa
+  name: Spac Stack
+  path:
+    path: /Audio/Lobby/Spac_Stac.ogg
+
+- type: jukebox
+  id: SpaceAsshole
+  author: Chris Remo
+  name: Space Asshole
+  path:
+    path: /Audio/Lobby/space_asshole.ogg
+
+- type: jukebox
+  id: RussianSpacebardSong
+  author: Choojoy
+  name: Russian Spacebard Song
+  path:
+    path: /Audio/_WL/Lobby/spacebard.ogg
+
+- type: jukebox
+  id: TheStation
+  author: A-Guy
+  name: The Station
+  path:
+    path: /Audio/_WL/Lobby/the_station.ogg
+
+- type: jukebox
+  id: TheWizard
+  author: Chris Remo
+  name: The Wizard
+  path:
+    path: /Audio/Lobby/the_wizard.ogg
+
+- type: jukebox
+  id: Title2
+  author: Jonathan Dunn
+  name: title2
+  path:
+    path: /Audio/Lobby/title2.ogg
+
+- type: jukebox
+  id: Title3
+  author: Cuboos
+  name: Title3
+  path:
+    path: /Audio/Lobby/title3.ogg
+
+- type: jukebox
+  id: Service
+  author: Seeitsthem
+  name: Service
+  path:
+    path: /Audio/Corvax/Lobby/service.ogg
+
+- type: jukebox
+  id: NoDecision
+  author: cobber3
+  name: No decision
+  path:
+    path: /Audio/Corvax/Lobby/nodecision.ogg
+
+- type: jukebox
+  id: CarolOfTheBells
+  author: Audionautix
+  name: Carol Of The Bells
+  path:
+    path: /Audio/Corvax/Lobby/NewYear/carol-of-the-bells.ogg
+
+- type: jukebox
+  id: DanceOfTheSugarPlumFairy
+  author: Kevin MacLeod
+  name: Dance of the Sugar Plum Fairy
+  path:
+    path: /Audio/Corvax/Lobby/NewYear/dance-of-sugar-plum-fairy.ogg
+
+- type: jukebox
+  id: DeckTheHallsB
+  author: Kevin MacLeod
+  name: Deck the Halls B
+  path:
+    path: /Audio/Corvax/Lobby/NewYear/deck-in-the-halls.ogg
+
+- type: jukebox
+  id: JingleBells
+  author: Kevin MacLeod
+  name: Jingle Bells
+  path:
+    path: /Audio/Corvax/Lobby/NewYear/jingle-bells.ogg
+
+- type: jukebox
+  id: WishYouMerryChristmas
+  author: Twin Musicom
+  name: Wish You a Merry Christmas
+  path:
+    path: /Audio/Corvax/Lobby/NewYear/wish-you-a-merry-christmas.ogg

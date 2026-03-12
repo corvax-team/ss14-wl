@@ -1,0 +1,11 @@
+- type: entity
+  parent: SurveillanceCameraRouterBase
+  id: SurveillanceCameraRouterCustom
+  name: custom camera router
+  suffix: Custom
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraCustom
+    - type: DeviceNetwork
+      receiveFrequency: 1927
+      transmitFrequency: 1927

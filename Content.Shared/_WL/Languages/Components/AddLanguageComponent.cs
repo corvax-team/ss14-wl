@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations;
 namespace Content.Shared._WL.Languages.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class AddLanguagesComponent : Component
+public sealed partial class ModifyLanguagesComponent : Component
 {
     [DataField]
     public bool ToRemove = false;
@@ -16,6 +16,9 @@ public sealed partial class AddLanguagesComponent : Component
 
     [DataField]
     public bool ToSpeaking = true;
+
+    [DataField]
+    public bool SpecieLanguage = false;
 
     [DataField]
     public List<ProtoId<LanguagePrototype>> Languages = [];

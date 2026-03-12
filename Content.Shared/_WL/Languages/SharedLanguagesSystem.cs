@@ -3,8 +3,13 @@ using Content.Shared.Chat;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 using System.Collections.Frozen;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Text;
 
 namespace Content.Shared._WL.Languages;
 
@@ -15,6 +20,8 @@ public abstract class SharedLanguagesSystem : EntitySystem
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private FrozenDictionary<char, LanguagePrototype> _keylan = default!;
 
@@ -23,6 +30,9 @@ public abstract class SharedLanguagesSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<LanguagesComponent, RadioLanguageCheckEvent>(OnRadioLanguageCheck);
+
         CacheLanguages();
 
     }
@@ -38,10 +48,44 @@ public abstract class SharedLanguagesSystem : EntitySystem
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public LanguagePrototype? GetLanguagePrototype(ProtoId<LanguagePrototype> id)
+    [return: NotNullIfNotNull(nameof(id))]
+    public LanguagePrototype? GetLanguagePrototype(ProtoId<LanguagePrototype>? id)
     {
         _prototype.TryIndex(id, out var proto);
         return proto;
+    }   
+
+    public void OnRadioLanguageCheck(EntityUid source, LanguagesComponent comp, ref RadioLanguageCheckEvent args)
+    {
+        var passability = CheckRadioPass(source, args.Message);
+        if (passability == 0)
+        {
+            args.Cancelled = true;
+
+            var time = _timing.CurTime;
+            if (time > comp.LastPopup + comp.PopupCooldown)
+            {
+                comp.LastPopup = time;
+                var message = Loc.GetString("languages-radio-block");
+
+                _popup.PopupEntity(message, source);
+            }
+
+        }
+
+        else if (passability < 1)
+        {
+            args.Message = ObfuscateMessageReadability(args.Message, 1.0f - passability);
+
+            var time = _timing.CurTime;
+            if (time > comp.LastPopup + comp.PopupCooldown)
+            {
+                comp.LastPopup = time;
+                var message = Loc.GetString("languages-radio-part-pass");
+
+                _popup.PopupEntity(message, source);
+            }
+        }
     }
 
     public string ObfuscateMessage(EntityUid uid, string message, ProtoId<LanguagePrototype> language)
@@ -68,6 +112,12 @@ public abstract class SharedLanguagesSystem : EntitySystem
             return false;
         if (!comp.Understood.Contains(protoid))
             return false;
+
+        if (ent == null)
+            return false;
+
+        comp.CurrentLanguage = protoid;
+        Dirty(ent.Value, comp);
 
         var ev = new LanguageChangeEvent(netEnt, protoid);
         RaiseNetworkEvent(ev);
@@ -104,7 +154,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
     /// <param name="uid"></param>
     /// <param name="message"></param>
     /// <returns></returns>
-    public LanguagePrototype? GetLanguagePrototype(EntityUid uid, string message)
+    public LanguagePrototype? GetLanguagePrototype(EntityUid uid, string? message = null)
     {
         LanguagePrototype? language = null;
 
@@ -112,10 +162,11 @@ public abstract class SharedLanguagesSystem : EntitySystem
             return null;
 
         if (string.IsNullOrEmpty(message) || message.Length < 2 || !(message.StartsWith(LanguagePrefix)))
-            return null;
+        {
+            return GetLanguagePrototype(comp.CurrentLanguage);
+        }
 
         var prefix = char.ToLower(message[1]);
-
 
         return _keylan.TryGetValue(prefix, out language)
             ? language : null;
@@ -130,7 +181,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
 
         if (TryComp<LanguagesComponent>(source, out var comp))
         {
-            if (!(message.StartsWith(LanguagePrefix)))
+            if (!message.StartsWith(LanguagePrefix))
                 return false;
 
             if (message.Length <= 2 || char.IsWhiteSpace(message[1]))
@@ -162,6 +213,46 @@ public abstract class SharedLanguagesSystem : EntitySystem
         }
 
         return false;
+    }
+
+    private float CheckRadioPass(EntityUid source, string msg)
+    {
+        var language = GetLanguagePrototype(source, msg);
+
+        if (language == null)
+            return 1.0f;
+
+        return language.RadioPass;
+    }
+
+    public string ObfuscateMessageReadability(string message, float chance)
+    {
+        var modifiedMessage = new StringBuilder(message);
+
+        for (var i = 0; i < message.Length; i++)
+        {
+            if (char.IsWhiteSpace((modifiedMessage[i])))
+            {
+                continue;
+            }
+
+            if (_random.Prob(1 - chance))
+            {
+                modifiedMessage[i] = '~';
+            }
+        }
+
+        return modifiedMessage.ToString();
+    }
+
+    public string SanitizeWrappedMessage(EntityUid source, string message, bool capitalize = true)
+    {
+        var newMessage = message.Trim();
+
+        if (capitalize)
+            newMessage = _chat.SanitizeMessageCapital(newMessage);
+
+        return newMessage ?? "";
     }
 
     [Serializable, NetSerializable]

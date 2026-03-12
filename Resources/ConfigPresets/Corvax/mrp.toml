@@ -21,12 +21,12 @@ max_explosion_range = 10.0
 
 [shuttle]
 emergency_early_launch_allowed = true
-arrivals_map = "/Maps/Corvax/Misc/corvax_terminal.yml"
+arrivals_map = "/Maps/_WL/wl_terminal.yml"
 auto_call_time = 150
 
 [vote]
 restart_required_ratio = 0.85
 same_type_timeout = 300.0
 timerrestart = 30
-preset_enabled = false
+preset_enabled = true # WL-Chages: Vote return
 restart_enabled = false

@@ -1,3 +1,4 @@
+using Content.Shared._WL.Records; // WL-Records
 using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
@@ -44,6 +45,10 @@ public sealed class CriminalRecordsConsoleBoundUserInterface : BoundUserInterfac
         _window.OnHistoryUpdated += UpdateHistory;
         _window.OnHistoryClosed += () => _historyWindow?.Close();
         _window.OnClose += Close;
+        // WL-Records-start
+        _window.OnPrinted += key =>
+            SendMessage(new PrintStationRecord(key));
+        // WL-Records-end
 
         _historyWindow = new(comp.MaxStringLength);
         _historyWindow.OnAddHistory += line => SendMessage(new CriminalRecordAddHistory(line));

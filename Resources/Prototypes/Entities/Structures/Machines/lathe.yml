@@ -209,6 +209,7 @@
     - Instruments
     - Equipment
     - Photo # WL-changes-photo
+    - ScienceBioSuits # WL-Changes
   - type: EmagLatheRecipes
     emagDynamicPacks:
     - SecurityAmmo
@@ -392,6 +393,7 @@
     # WL-changes-storage start
     - ManualStorageSecurityStatic
     - ManualStorageCommandStatic
+    - SecBalaclavStatic
     # WL-changes-storage end
     dynamicPacks:
     - SalvageSecurityBoards

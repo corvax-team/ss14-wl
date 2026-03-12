@@ -1,12 +1,17 @@
 using Content.Shared._WL.Languages;
 using Content.Shared._WL.Languages.Components;
-using Content.Shared.Chat;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Popups;
+using Content.Shared.Timing;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
-using Content.Shared.IdentityManagement;
+using Content.Shared.Trigger.Systems;
+using Content.Server.Atmos.EntitySystems;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server._WL.Languages;
 
@@ -14,33 +19,32 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
+    /// <summary>
+    /// Потому что <see cref="Shared.Chat.ChatChannelExtensions.TextColor(Shared.Chat.ChatChannel)" />.
+    /// </summary>
+    private static readonly Color DefaultChatTextColor = Color.LightGray;
+
+    private static readonly string DefaultChatTextFontId = "Default";
+    private static readonly int DefaultChatTextFontSize = 12;
+    private static readonly float FullTalkPressure = 50f;
+    private static readonly float MinTalkPressure = 5f;
+    private static readonly float ForceWhisperProb = .3f;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<LanguagesComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<LanguagesComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<AddLanguagesComponent, ComponentInit>(OnAddInit);
+        SubscribeLocalEvent<LanguagesComponent, PressureLanguageCheckEvent>(OnPressureLanguageCheck);
+        SubscribeLocalEvent<ModifyLanguagesComponent, ComponentInit>(OnModifyInit);
 
         SubscribeNetworkEvent<LanguageChangeEvent>(OnGlobalLanguageChange);
         SubscribeNetworkEvent<LanguagesSyncEvent>(OnLanguagesSync);
-    }
-
-    public void OnMapInit(EntityUid ent, LanguagesComponent component, ref MapInitEvent args)
-    {
-        var langs = component.Speaking;
-        if (langs.Count == 0)
-            return;
-        foreach (ProtoId<LanguagePrototype> protoid in langs)
-        {
-            var proto = GetLanguagePrototype(protoid);
-            if (proto != null)
-            {
-                if (TryChangeLanguage(_ent.GetNetEntity(ent), protoid))
-                    return;
-            }
-        }
+        SubscribeNetworkEvent<LanguageSyncRequestEvent>(OnLanguageSyncRequest);
     }
 
     public void AddLanguage(EntityUid ent, string language)
@@ -55,28 +59,45 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         SyncLanguages(net_ent, comp);
     }
 
-    public void OnAddInit(EntityUid ent, AddLanguagesComponent component, ref ComponentInit args)
+    public void OnModifyInit(EntityUid ent, ModifyLanguagesComponent component, ref ComponentInit args)
     {
         var langs = component.Languages;
-        if (langs.Count == 0 || !TryComp<LanguagesComponent>(ent, out var out_comp))
+        if (!TryComp<LanguagesComponent>(ent, out var out_comp))
         {
-            RemComp<AddLanguagesComponent>(ent);
+            RemComp<ModifyLanguagesComponent>(ent);
             return;
         }
 
-        foreach (ProtoId<LanguagePrototype> protoid in langs)
+        if (!component.SpecieLanguage)
         {
-            var proto = GetLanguagePrototype(protoid);
-            if (proto != null)
+            foreach (ProtoId<LanguagePrototype> protoid in langs)
             {
-                if (component.ToSpeaking)
-                    out_comp.Speaking.Add(protoid);
+                var proto = GetLanguagePrototype(protoid);
+                if (proto != null)
+                {
+                    if (component.ToSpeaking)
+                        out_comp.Speaking.Add(protoid);
 
-                if (component.ToUnderstood)
-                    out_comp.Understood.Add(protoid);
+                    if (component.ToUnderstood)
+                        out_comp.Understood.Add(protoid);
+                }
             }
         }
-        RemComp<AddLanguagesComponent>(ent);
+        else
+        {
+            var protoid = out_comp.SpecieLanguage;
+            var proto = GetLanguagePrototype(protoid);
+            if (proto != null && protoid != null)
+            {
+                if (component.ToSpeaking)
+                    out_comp.Speaking.Remove(protoid.Value);
+
+                if (component.ToUnderstood)
+                    out_comp.Understood.Remove(protoid.Value);
+            }
+        }
+
+        RemComp<ModifyLanguagesComponent>(ent);
 
         Dirty(ent, out_comp);
 
@@ -89,6 +110,10 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         var langs = component.Speaking;
         if (langs.Count == 0)
             return;
+
+        if (component.SpecieLanguage != null)
+            AddLanguage(ent, component.SpecieLanguage);
+
         foreach (ProtoId<LanguagePrototype> protoid in langs)
         {
             var proto = GetLanguagePrototype(protoid);
@@ -112,6 +137,17 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         Dirty(entity, component);
     }
 
+    public void OnLanguageSyncRequest(LanguageSyncRequestEvent msg, EntitySessionEventArgs args)
+    {
+        var entity = _ent.GetEntity(msg.Entity);
+        if (!TryComp<LanguagesComponent>(entity, out var component))
+            return;
+
+        if (component.Speaking != msg.Speaking ||
+            component.Understood != msg.Understood)
+            SyncLanguages(msg.Entity, component);
+    }
+
     public void OnGlobalLanguageChange(LanguageChangeEvent msg, EntitySessionEventArgs args)
     {
         var entity = _ent.GetEntity(msg.Entity);
@@ -120,35 +156,62 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         OnLanguageChange(entity, (string)msg.Language);
     }
 
-    public string ObfuscateMessageFromSource(string message, EntityUid source)
+    public void OnPressureLanguageCheck(EntityUid source, LanguagesComponent comp, ref PressureLanguageCheckEvent args)
     {
-        bool prefix = TryProcessLanguageMessage(source, message, out string new_message);
-
-        if (!TryComp<LanguagesComponent>(source, out var source_lang))
-            return new_message;
-        else
+        var passability = CheckPressurePass(source, args.Message);
+        if (passability == 0)
         {
-            if (!prefix)
+            args.Cancelled = true;
+
+            var time = _timing.CurTime;
+            if (time > comp.LastPopup + comp.PopupCooldown)
             {
-                var message_language = source_lang.CurrentLanguage;
-                var obfus = ObfuscateMessage(source, new_message, message_language);
-                return obfus;
+                comp.LastPopup = time;
+                var message = Loc.GetString("languages-vacuum-block");
+
+                _popup.PopupEntity(message, source, source);
             }
-            else
+
+        }
+
+        else if (passability < 1)
+        {
+            args.Message = ObfuscateMessageReadability(args.Message, passability);
+
+            if (passability < ForceWhisperProb)
+                args.ForceWhisper = true;
+
+            var time = _timing.CurTime;
+            if (time > comp.LastPopup + comp.PopupCooldown)
             {
-                var proto = GetLanguagePrototype(source, message);
+                comp.LastPopup = time;
+                var message = Loc.GetString("languages-vacuum-part-pass");
 
-                if (proto == null)
-                    return new_message;
-
-                var message_language = proto.ID;
-                var obfus = ObfuscateMessage(source, new_message, message_language);
-                return obfus;
+                _popup.PopupEntity(message, source);
             }
         }
     }
 
-    public bool CanUnderstand(EntityUid source, EntityUid listener)
+    public string ObfuscateMessageFromSource(string message, EntityUid source)
+    {
+        LanguagePrototype? proto = null;
+        var innerMsg = message;
+
+        if (TryProcessLanguageMessage(source, message, out var new_message))
+        {
+            proto = GetLanguagePrototype(source, message);
+            innerMsg = new_message;
+        }
+        else if (TryComp<LanguagesComponent>(source, out var comp))
+            proto = GetLanguagePrototype(comp.CurrentLanguage);
+
+        if (proto == null)
+            return innerMsg;
+
+        return ObfuscateMessage(source, innerMsg, proto.ID);
+    }
+
+    public bool CanUnderstand(EntityUid source, EntityUid listener, string? message = null, ProtoId<LanguagePrototype>? overrideLang = null)
     {
         if (source == listener)
             return true;
@@ -163,20 +226,25 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
             return true;
         }
 
-        var message_language = source_lang.CurrentLanguage;
-        return listen_lang.IsUnderstanding && source_lang.IsSpeaking && listen_lang.Understood.Contains(message_language);
+        var message_language = GetLanguagePrototype(source, message) ?? GetLanguagePrototype(overrideLang) ?? source_lang.CurrentLanguage;
+
+        return
+            listen_lang.IsUnderstanding &&
+            source_lang.IsSpeaking &&
+            message_language != null &&
+            listen_lang.Understood.Contains(message_language.Value);
     }
 
     public bool NeedTTS(EntityUid source)
     {
         if (!TryComp<LanguagesComponent>(source, out var source_lang))
-            return false;
+            return true;
         else
         {
             var message_language = source_lang.CurrentLanguage;
             var proto = GetLanguagePrototype(message_language);
             if (proto == null)
-                return false;
+                return true;
             else
             {
                 return proto.NeedTTS;
@@ -196,9 +264,18 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
                 return false;
             else
             {
-                return proto.Obfuscation.IsEmoting();
+                return proto.Emoting;
             }
         }
+    }
+
+    public bool IsObfusEmoting(EntityUid source, string message)
+    {
+        var proto = GetLanguagePrototype(source, message);
+        if (proto != null)
+            return proto.Emoting;
+
+        return IsObfusEmoting(source);
     }
 
     /* Функция не используется нигде в коде, но может быть полезна. Закоментированно.
@@ -210,102 +287,98 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
     }
     */
 
-    public string GetRadioObfusWrappedMessage(string message, EntityUid source, string name, SpeechVerbPrototype speech, RadioChannelPrototype channel)
+    public string GetRadioWrappedMessageFor(
+        string msg,
+        EntityUid source,
+        EntityUid listener,
+        string name,
+        SpeechVerbPrototype speech,
+        RadioChannelPrototype channel)
     {
-        var obfusMessage = ObfuscateMessageFromSource(message, source);
-        var wrappedMessage = GetRadioWrappedMessage(obfusMessage, source, name, speech, channel);
-        return wrappedMessage;
-    }
+        var isSelf = listener == source;
+        var canUnderstand = CanUnderstand(source, listener, msg);
 
-    public string GetRadioWrappedMessage(string message, EntityUid source, string name, SpeechVerbPrototype speech, RadioChannelPrototype channel, bool colorize = false)
-    {
-        bool prefix = TryProcessLanguageMessage(source, message, out string new_message);
+        var language = GetLanguagePrototype(source, msg);
 
-        var color = GetColor(message, source, prefix);
+        var color = GetColor(language, channel.Color);
 
-        if (color == Color.White)
-            colorize = false;
+        var (fontSize, fontId) = GetFontParams(language, speech.FontSize, speech.FontId);
 
-        var wrappedMessage = colorize ? Loc.GetString(
-                speech.Bold ? "chat-radio-message-wrap-bold-lang" : "chat-radio-message-wrap-lang",
+        string message;
+        if (isSelf || canUnderstand)
+        {
+            if (TryProcessLanguageMessage(source, msg, out var parsed))
+                message = parsed;
+            else message = msg;
+        }
+        else
+            message = ObfuscateMessageFromSource(msg, source);
+
+        var locId = speech.Bold
+            ? "chat-radio-message-wrap-bold-lang"
+            : "chat-radio-message-wrap-lang";
+
+        if (!isSelf && !canUnderstand && IsObfusEmoting(source, msg))
+            locId = "chat-radio-message-wrap-emote-lang";
+
+        var wrappedMessage = Loc.GetString(locId,
             ("color", channel.Color),
-            ("fontType", speech.FontId),
-            ("fontSize", speech.FontSize),
+            ("fontType", fontId),
+            ("fontSize", fontSize),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("channel", $"\\[{channel.LocalizedName}\\]"),
             ("name", name),
-            ("message", new_message),
-            ("langColor", color)
-        ) :
-            Loc.GetString(
-                speech.Bold ? "chat-radio-message-wrap-bold" : "chat-radio-message-wrap",
-            ("color", channel.Color),
-            ("fontType", speech.FontId),
-            ("fontSize", speech.FontSize),
-            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
-            ("channel", $"\\[{channel.LocalizedName}\\]"),
-            ("name", name),
-            ("message", new_message)
-        );
+            ("message", message),
+            ("langColor", color));
 
-        return wrappedMessage;
+        return SanitizeWrappedMessage(source, wrappedMessage);
     }
 
-    public Color GetColor(string message, EntityUid source, bool prefix = false)
+    public (int, string) GetFontParams(LanguagePrototype? language, int? fallbackSize = null, string? fallbackId = null)
     {
-        var color = Color.White;
+        int size;
+        string id;
 
-        if (prefix)
-        {
-            var language = GetLanguagePrototype(source, message);
-            color = language != null ? language.Color : Color.White;
-        }
-        else if (TryComp<LanguagesComponent>(source, out var comp))
-        {
-            var language = GetLanguagePrototype(comp.CurrentLanguage);
-            color = language != null ? language.Color : Color.White;
-        }
+        if (language == null || language.FontSize == DefaultChatTextFontSize)
+            size = fallbackSize ?? DefaultChatTextFontSize;
+        else
+            size = language.FontSize;
 
-        return color;
+        if (language == null || language.FontId == DefaultChatTextFontId)
+            id = fallbackId ?? DefaultChatTextFontId;
+        else
+            id = language.FontId;
+
+        return (size, id);
     }
 
-    public string GetWhisperWrappedMessage(string message, EntityUid source, string name, bool colorize = false)
+    public Color GetColor(LanguagePrototype? language, Color? fallback = null)
     {
+        if (language == null || language.Color == DefaultChatTextColor)
+            return fallback ?? DefaultChatTextColor;
 
-        bool prefix = TryProcessLanguageMessage(source, message, out string new_message);
+        return language.Color;
+    }
 
-        var color = GetColor(message, source, prefix);
-        
-        if (color == Color.White)
-            colorize = false;
+    public string GetWhisperWrappedMessage(string message, EntityUid source, string name)
+    {
+        if (string.IsNullOrEmpty(message))
+            return string.Empty;
+
+        TryProcessLanguageMessage(source, message, out string new_message);
+
+        var language = GetLanguagePrototype(source, message);
+
+        var color = GetColor(language);
 
         var escapedMessage = FormattedMessage.EscapeText(new_message);
 
-        if (new_message != string.Empty)
-        {
-            if (colorize)
-            {
+        var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message-lang",
+            ("entityName", name),
+            ("message", escapedMessage),
+            ("langColor", color));
 
-                var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message-lang",
-                        ("entityName", name),
-                        ("message", escapedMessage),
-                        ("langColor", color));
-
-                return wrappedMessage;
-            }
-            else
-            {
-                var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
-                        ("entityName", name),
-                        ("message", escapedMessage));
-
-                return wrappedMessage;
-            }
-        }
-        else
-        {
-            return new_message;
-        }
+        return SanitizeWrappedMessage(source, wrappedMessage);
     }
 
     public string GetEmoteWrappedMessage(string message, EntityUid source, string name)
@@ -318,40 +391,55 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
             ("message", FormattedMessage.RemoveMarkupOrThrow(message))
         );
 
-        return wrappedMessage;
+        return SanitizeWrappedMessage(source, wrappedMessage);
     }
 
-    public string GetWrappedMessage(string message, EntityUid source, string name, SpeechVerbPrototype speech, bool colorize = false)
+    public string GetWrappedMessage(string message, EntityUid source, string name, SpeechVerbPrototype speech)
     {
-        bool prefix = TryProcessLanguageMessage(source, message, out string new_message);
+        if (string.IsNullOrEmpty(message))
+            return string.Empty;
 
-        var color = GetColor(message, source, prefix);
+        TryProcessLanguageMessage(source, message, out string new_message);
 
-        if (color == Color.White)
-            colorize = false;
+        var language = GetLanguagePrototype(source, message);
 
-        if (new_message != string.Empty)
+        var color = GetColor(language);
+
+        var (fontSize, fontId) = GetFontParams(language, speech.FontSize, speech.FontId);
+
+        var locId = speech.Bold ? "chat-manager-entity-say-bold-wrap-message-lang" : "chat-manager-entity-say-wrap-message-lang";
+        Logger.Debug(fontId);
+
+        var wrappedMessage = Loc.GetString(locId,
+            ("entityName", name),
+            ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
+            ("fontType", fontId), //Оно не работает, даже если захардкодить. Не понимаю почему. (tau)
+            ("fontSize", fontSize),
+            ("message", FormattedMessage.EscapeText(new_message)),
+            ("langColor", color));
+
+        return SanitizeWrappedMessage(source, wrappedMessage);
+    }
+
+    private float CheckPressurePass(EntityUid source, string msg)
+    {
+        var language = GetLanguagePrototype(source, msg);
+
+        if (language == null)
+            return 1f;
+
+        if (_atmosphereSystem.GetContainingMixture(source) is { } mixture)
         {
-            var wrappedMessage = colorize ? Loc.GetString(speech.Bold ? "chat-manager-entity-say-bold-wrap-message-lang" : "chat-manager-entity-say-wrap-message-lang",
-                    ("entityName", name),
-                    ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
-                    ("fontType", speech.FontId),
-                    ("fontSize", speech.FontSize),
-                    ("message", FormattedMessage.EscapeText(new_message)),
-                    ("langColor", color)
-            ) :
-                Loc.GetString(speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
-                    ("entityName", name),
-                    ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
-                    ("fontType", speech.FontId),
-                    ("fontSize", speech.FontSize),
-                    ("message", FormattedMessage.EscapeText(new_message))
-            );
-            return wrappedMessage;
+            var fixed_pressure = MathF.Max(mixture.Pressure - MinTalkPressure, 0f);
+
+            var pressure_prob = MathF.Min(fixed_pressure/(FullTalkPressure - MinTalkPressure), 1f);
+
+            var full_prob = MathF.Min(pressure_prob + language.PressurePass, 1f);
+
+            return full_prob;
         }
         else
-        {
-            return new_message;
-        }
+            return 1f;
     }
- }
+
+}

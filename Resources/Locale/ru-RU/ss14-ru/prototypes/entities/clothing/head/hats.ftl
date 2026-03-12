@@ -22,7 +22,7 @@ ent-ClothingHeadHatBeretWarden = берет смотрителя
     .desc = Фирменный голубой берет с эмблемой смотрителя. Для офицеров, которые предпочитают стиль безопасности.
 # WL-Changes: Roles rename start
 ent-ClothingHeadHatBeretSeniorPhysician = берет дежурного врача
-    .desc = Специалисты, одетые в цвета врачей и химиков, являются гордостью этого отдела!
+    .desc = Специалисты, одетые в цвета врачей и фармацевтов, являются гордостью этого отдела!
 # WL-Changes: Roles rename end
 ent-ClothingHeadHatBeretBrigmedic = берет бригмедика
     .desc = Белый берет для бригмедиков.
@@ -66,11 +66,11 @@ ent-ClothingHeadHatSantahat = колпак Санты
     .desc = Праздничный колпак, который носит Санта-Клаус. Теперь и со складываемой бородой.
 ent-ClothingHeadHatSombrero = сомбреро
     .desc = "\"Идеально подходит для космической Мексики, si?\""
-ent-ClothingHeadHatSurgcapBlue = хирургическая шапочка
+ent-ClothingHeadHatSurgcapBlue = синяя хирургическая шапочка
     .desc = Синяя шапочка, которую хирурги надевают на операции. Не даёт их волосам щекотать ваши внутренние органы.
-ent-ClothingHeadHatSurgcapGreen = хирургическая шапочка
+ent-ClothingHeadHatSurgcapGreen = зелёная хирургическая шапочка
     .desc = Зелёная шапочка, которую хирурги надевают на операции. Не даёт их волосам щекотать ваши внутренние органы.
-ent-ClothingHeadHatSurgcapPurple = хирургическая шапочка
+ent-ClothingHeadHatSurgcapPurple = фиолетовая хирургическая шапочка
     .desc = Фиолетовая шапочка, которую хирурги надевают на операции. Не даёт их волосам щекотать ваши внутренние органы.
 ent-ClothingHeadHatTophat = цилиндр
     .desc = Стильный чёрный цилиндр.

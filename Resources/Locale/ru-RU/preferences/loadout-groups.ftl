@@ -1,7 +1,8 @@
-﻿# Errors
+# Errors
 loadout-group-species-restriction = Этот предмет недоступен для вашего текущего вида.
 # Miscellaneous
 loadout-group-trinkets = Безделушки
+loadout-group-jobtrinkets = Безделушки должности
 loadout-group-glasses = Очки
 loadout-group-backpack = Рюкзак
 loadout-group-instruments = Инструменты
@@ -112,15 +113,17 @@ loadout-group-research-director-neck = Научный руководитель, 
 loadout-group-research-director-jumpsuit = Научный руководитель, комбинезон
 loadout-group-research-director-outerclothing = Научный руководитель, верхняя одежда
 loadout-group-research-director-shoes = Научный руководитель, обувь
-loadout-group-scientist-head = Учёный, голова
-loadout-group-scientist-neck = Учёный, шея
-loadout-group-scientist-jumpsuit = Учёный, комбинезон
-loadout-group-scientist-backpack = Учёный, рюкзак
-loadout-group-scientist-outerclothing = Учёный, верхняя одежда
-loadout-group-scientist-gloves = Учёный, перчатки
-loadout-group-scientist-shoes = Учёный, обувь
-loadout-group-scientist-id = Учёный, ID
-loadout-group-research-assistant-jumpsuit = Научный ассистент, комбинезон
+# WL-Changes: Научный сотрудник start
+loadout-group-scientist-head = Научный сотрудник, голова
+loadout-group-scientist-neck = Научный сотрудник, шея
+loadout-group-scientist-jumpsuit = Научный сотрудник, комбинезон
+loadout-group-scientist-backpack = Научный сотрудник, рюкзак
+loadout-group-scientist-outerclothing = Научный сотрудник, верхняя одежда
+loadout-group-scientist-gloves = Научный сотрудник, перчатки
+loadout-group-scientist-shoes = Научный сотрудник, обувь
+loadout-group-scientist-id = Научный сотрудник, ID
+loadout-group-research-assistant-jumpsuit = Студент-учёный, комбинезон
+# WL-Changes: Научный сотрудник end
 # Security
 loadout-group-head-of-security-head = Глава службы безопасности, голова
 loadout-group-head-of-security-jumpsuit = Глава службы безопасности, комбинезон
@@ -157,9 +160,11 @@ loadout-group-medical-doctor-backpack = Врач, рюкзак
 loadout-group-medical-doctor-shoes = Врач, обувь
 loadout-group-medical-doctor-id = Врач, ID
 loadout-group-medical-intern-jumpsuit = Интерн, комбинезон
-loadout-group-chemist-jumpsuit = Химик, комбинезон
-loadout-group-chemist-outerclothing = Химик, верхняя одежда
-loadout-group-chemist-backpack = Химик, рюкзак
+# WL-change-chemist
+loadout-group-chemist-jumpsuit = Фармацевт, комбинезон
+loadout-group-chemist-outerclothing = Фармацевт, верхняя одежда
+loadout-group-chemist-backpack = Фармацевт, рюкзак
+# WL-change-chemist
 loadout-group-paramedic-head = Парамедик, голова
 loadout-group-paramedic-jumpsuit = Парамедик, комбинезон
 loadout-group-paramedic-outerclothing = Парамедик, верхняя одежда
@@ -172,3 +177,5 @@ loadout-group-psychologist-jumpsuit = Психотерапевт, комбине
 # WL-change-psych
 loadout-group-boxer-jumpsuit = Боксёр, комбинезон
 loadout-group-boxer-gloves = Боксёр, перчатки
+# WL-change-bartender
+loadout-group-bartender-glasses = Бармен, очки

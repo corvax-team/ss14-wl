@@ -3,6 +3,8 @@
   name: job-name-hos
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
+  subnames:
+  - Male: директор безопасности
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
@@ -19,7 +21,7 @@
 #    - !type:OverallPlaytimeRequirement
 #      time: 144000 #40 hrs
     - !type:AgeRequirement
-      minAge: 27 # WL-Changes-AgeRequirement
+      age: 9 # WL-Changes-AgeRequirement
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
       traits:
@@ -36,10 +38,11 @@
   - Security
   - Armory
   - Maintenance
-  - Service
   - External
   - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

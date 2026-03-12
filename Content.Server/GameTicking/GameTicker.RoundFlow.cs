@@ -8,6 +8,7 @@ using Content.Server.Roles;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
@@ -393,7 +394,9 @@ namespace Content.Server.GameTicking
                 }
                 else
                 {
-                    profile = HumanoidCharacterProfile.Random();
+                    var speciesToBlacklist =
+                        new HashSet<string>(_cfg.GetCVar(CCVars.ICNewAccountSpeciesBlacklist).Split(","));
+                    profile = HumanoidCharacterProfile.Random(speciesToBlacklist);
                 }
                 readyPlayerProfiles.Add(userId, profile);
             }
@@ -711,7 +714,7 @@ namespace Content.Server.GameTicking
                 var payload = new WebhookPayload { Embeds = [embed] };
                 await _discord.CreateMessage(_webhookIdentifierManifest.Value, payload);
 
-                if (!string.IsNullOrEmpty(roundEndMessage.RoundEndText))
+                if (!string.IsNullOrEmpty(roundEndMessage.RoundEndText) && roundEndMessage.RoundEndText != "\n")
                 {
                     if (roundEndMessage.RoundEndText.Length <= 4096)
                     {

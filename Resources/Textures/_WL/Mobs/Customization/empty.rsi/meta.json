@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "",
+  "size": {
+    "x": 1,
+    "y": 1
+  },
+  "states": [
+      {
+          "name": "empty",
+          "directions": 1
+      }
+  ]
+}

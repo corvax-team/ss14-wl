@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Shared._WL.CCVars;
 using Content.Shared.Preferences;
 using JetBrains.Annotations;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -16,23 +17,15 @@ namespace Content.Shared.Roles;
 [Serializable, NetSerializable]
 public sealed partial class AgeRequirement : JobRequirement
 {
-    //WL-Changes-start
-    public override IReadOnlyList<CVarValueWrapper>? CheckingCVars => new List<CVarValueWrapper>()
-    {
-        (WLCVars.IsAgeCheckNeeded, true)
-    };
-
     [DataField]
-    public int? MinAge;
+    public int Age = 0; //WL-Changes
 
-    [DataField]
-    public int? MaxAge;
-    //WL-Changes-end
-
-    public override bool Check(IEntityManager entManager,
+    public override bool Check(
+        IEntityManager entManager,
         IPrototypeManager protoManager,
+        IConfigurationManager cfgMan, //WL-Changes
         HumanoidCharacterProfile? profile,
-        /*WL-Changes-start*/JobPrototype? job,/*WL-Changes-end*/
+        JobPrototype? job, //WL-Changes
         IReadOnlyDictionary<string, TimeSpan> playTimes,
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
@@ -42,27 +35,28 @@ public sealed partial class AgeRequirement : JobRequirement
             return true;
 
         //WL-Changes-start
+        if (!protoManager.TryIndex(profile.Species, out var specie))
+            return true;
+
+        if (specie is null)
+            return true;
+
         if (job is null)
             return true;
 
+        if (cfgMan.GetCVar(WLCVars.IsAgeCheckNeeded) == false)
+            return true;
+
         var isNeeded = true;
-        if (profile.JobUnblockings.TryGetValue(job.ID, out var value))
-        {
+        if (profile.JobUnblockings.ContainsKey(job.ID))
             isNeeded = false;
-        }
 
         if (isNeeded)
         {
-            if (MinAge != null && profile.Age < MinAge)
+            if (profile.Age < specie.MinAge + Age)
             {
                 reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-age-too-young",
-                    ("age", MinAge)));
-                return false;
-            }
-            if (MaxAge != null && profile.Age > MaxAge)
-            {
-                reason = FormattedMessage.FromMarkupPermissive(Loc.GetString("role-timer-age-too-old",
-                    ("age", MaxAge)));
+                    ("age", Age)));
                 return false;
             }
         }

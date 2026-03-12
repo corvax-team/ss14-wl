@@ -42,8 +42,10 @@ ent-WardrobeMedicalDoctor = гардероб врача
     .desc = { ent-WardrobeWhite.desc }
 ent-WardrobeRobotics = гардероб робототехника
     .desc = { ent-WardrobeBlack.desc }
-ent-WardrobeChemistry = гардероб химика
+# WL-Changes: Rename start
+ent-WardrobeChemistry = гардероб фармацевта
     .desc = { ent-WardrobeWhite.desc }
+# WL-Changes: Rename end
 ent-WardrobeGenetics = гардероб генетика
     .desc = { ent-WardrobeWhite.desc }
 ent-WardrobeVirology = гардероб вирусолога

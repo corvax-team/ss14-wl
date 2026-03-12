@@ -10,6 +10,10 @@
   maxItemHeight: 140
   minHeight: 120
   maxHeight: 190
+  minAge: 18
+  youngAge: 20
+  oldAge: 50
+  maxAge: 75
 
 - type: markingPoints
   id: MobFelinidMarkingLimits
@@ -22,7 +26,7 @@
       required: false
     Tail:
       points: 1
-      required: true
+      required: false
       defaultMarkings: [ CatTail ]
     Snout:
       points: 1
@@ -35,7 +39,7 @@
       required: false
     HeadTop:
       points: 1
-      required: true
+      required: false
       defaultMarkings: [ CatEars ]
     HeadSide:
       points: 0

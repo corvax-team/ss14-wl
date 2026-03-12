@@ -46,8 +46,10 @@ ent-ClothingHeadHatHoodWinterCE = капюшон зимней куртки ст�
     .desc = { ent-ClothingHeadHatHoodWinterBase.desc }
 ent-ClothingHeadHatHoodWinterCentcom = капюшон зимней куртки Центком
     .desc = A hood for keeping the central comander's head warm.
-ent-ClothingHeadHatHoodWinterChem = капюшон зимней куртки химика
+# WL-Changes: Rename start
+ent-ClothingHeadHatHoodWinterChem = капюшон зимней куртки фармацевта
     .desc = { ent-ClothingHeadHatHoodWinterBase.desc }
+# WL-Changes: Rename end
 ent-ClothingHeadHatHoodWinterCMO = капюшон зимней куртки главного врача
     .desc = { ent-ClothingHeadHatHoodWinterBase.desc }
 ent-ClothingHeadHatHoodWinterEngineer = капюшон зимней куртки инженера

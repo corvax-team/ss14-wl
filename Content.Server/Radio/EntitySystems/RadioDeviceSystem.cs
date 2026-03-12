@@ -4,6 +4,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._WL.Languages.Components; // WL-Changes
 using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -173,6 +174,16 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
     {
         if (uid == args.RadioSource)
             return;
+
+        // WL-Changes-Start
+        if (TryComp<LanguagesComponent>(uid, out var languagesRadio))
+        {
+            if (TryComp<LanguagesComponent>(args.MessageSource, out var languagesSource))
+            {
+                languagesRadio.CurrentLanguage = languagesSource.CurrentLanguage;
+            }
+        }
+        // WL-Changes-End
 
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
         RaiseLocalEvent(args.MessageSource, nameEv);

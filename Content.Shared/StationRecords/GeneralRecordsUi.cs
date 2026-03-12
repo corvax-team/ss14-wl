@@ -38,21 +38,24 @@ public sealed class GeneralStationRecordConsoleState : BoundUserInterfaceState
     public readonly Dictionary<uint, string>? RecordListing;
     public readonly StationRecordsFilter? Filter;
     public readonly bool CanDeleteEntries;
+    public readonly bool CanPrintRecords; // WL-Records
 
     public GeneralStationRecordConsoleState(uint? key,
         GeneralStationRecord? record,
         Dictionary<uint, string>? recordListing,
         StationRecordsFilter? newFilter,
-        bool canDeleteEntries)
+        bool canDeleteEntries,
+        bool canPrintRecords) // WL-Records
     {
         SelectedKey = key;
         Record = record;
         RecordListing = recordListing;
         Filter = newFilter;
         CanDeleteEntries = canDeleteEntries;
+        CanPrintRecords = canPrintRecords; // WL-Records
     }
 
-    public GeneralStationRecordConsoleState() : this(null, null, null, null, false)
+    public GeneralStationRecordConsoleState() : this(null, null, null, null, false, false) // WL-Records
     {
     }
 

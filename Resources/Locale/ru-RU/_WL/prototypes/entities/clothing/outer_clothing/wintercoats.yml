@@ -1,2 +1,5 @@
 ent-ClothingOuterCoatAdjutantCCOpened = тренч адъютанта центкома
     .desc = { ent-ClothingOuterCoatCaptainTrench.desc }
+
+ent-ClothingOuterPilotBomber = куртка-бомбер пилота
+    .desc = Джеронимо!

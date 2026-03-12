@@ -7,10 +7,12 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
-  # WL-Changes-start: Height
+  # WL-Changes-start
   minHeight: 145
   maxHeight: 195
-  # WL-Changes-end: Height
+  minAge: 18
+  maxAge: 130
+  # WL-Changes-end
 
 # The lack of a layer means that
 # this person cannot have round-start anything

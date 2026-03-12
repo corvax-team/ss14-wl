@@ -14,6 +14,27 @@
   id: MaintsRenga
 
 - type: Tag
+  id: MaintsBARPaper
+
+- type: Tag
+  id: MaintsCMOPaper
+
+- type: Tag
+  id: MaintsHOPPaper
+
+- type: Tag
+  id: MaintsCONTRAPaper
+
+- type: Tag
+  id: MaintsPSYCHOPaper
+
+- type: Tag
+  id: StationElementZOOPaper
+
+- type: Tag
+  id: MaintsPaperAproved
+
+- type: Tag
   id: Console
 
 - type: Tag
@@ -39,3 +60,9 @@
 
 - type: Tag
   id: RoboHands
+
+- type: Tag
+  id: KitchenCartridge
+
+- type: Tag
+  id: KitchenMagazine

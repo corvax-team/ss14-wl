@@ -9,6 +9,10 @@
     layers:
       - map: [ base ]
         state: icon
+      - state: paper
+        visible: false
+        sprite: _WL/Objects/Storage/ManualStorage/Paper/labels.rsi
+        map: ["enum.PaperLabelVisuals.Layer"]
   - type: Item
     sprite: _WL/Objects/Storage/ManualStorage/Default/small.rsi
     size: Large

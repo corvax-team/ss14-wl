@@ -5,7 +5,7 @@
     ClothingBackpack: 5
     ClothingBackpackDuffel: 5
     ClothingBackpackSatchel: 3
-    ClothingBackpackSatchelLeather: 2
+    ClothingBackpackSatchelLeather: 24
     ClothingRandomSpawner: 8
     ClothingUniformRandomShorts: 4
     ClothingHeadHatBeret: 4
@@ -77,36 +77,11 @@
     ClothingHeadHatBlacksoft: 2
     ClothingHeadHatPurplesoft: 2
     ClothingHeadHatCorpsoft: 2
-    ClothingHeadFishCap: 2
+    #ClothingHeadFishCap: 2 # WL-Changes: Clothing mates global change
     ClothingHeadRastaHat: 2
-    ClothingHeadPropellerHat: 2
+    #ClothingHeadPropellerHat: 2 # WL-Changes: Clothing mates global change
     ClothingBeltStorageWaistbag: 3
     ClothingEyesGlasses: 6
-   # Wl-Changes-Start: Респрайт РНД и новые вещи Start
-    ClothingNeckTieGray: 4
-    ClothingNeckTieBlue: 4
-    ClothingNeckTieGreen: 4
-    ClothingNeckTieLightBlue: 4
-    ClothingNeckTieOrange: 4
-    ClothingNeckTiePink: 4
-    ClothingNeckTieRainbow: 4
-    ClothingNeckTiePurple: 4
-    ClothingNeckTieWhite: 4
-    ClothingNeckTieYellow: 4
-    ClothingNeckBtTieBlack: 4
-    ClothingNeckBtTieBlue: 4
-    ClothingNeckBtTieFriendship: 4
-    ClothingNeckBtTieGray: 4
-    ClothingNeckBtTieGreen: 4
-    ClothingNeckBtTieLightBlue: 4
-    ClothingNeckBtTieLong: 4
-    ClothingNeckBtTieOrange: 4
-    ClothingNeckBtTiePink: 4
-    ClothingNeckBtTiePurple: 4
-    ClothingNeckBtTieRed: 4
-    ClothingNeckBtTieWhite: 4
-    ClothingNeckBtTieYellow: 4
-    # Wl-Changes-End: Респрайт РНД и новые вещи End
     ClothingHandsGlovesColorBlack: 4
     ClothingHandsGlovesColorGray: 4
     ClothingHandsGlovesColorBrown: 2

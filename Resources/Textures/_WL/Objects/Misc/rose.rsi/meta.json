@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Made by ReArtInt",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "rose_pink"
+    },
+    {
+      "name": "rose_pink_equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "rose_pink-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "rose_pink-inhand-right",
+      "directions": 4
+    },
+	{
+      "name": "rose_red"
+    },
+    {
+      "name": "rose_red_equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "rose_red-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "rose_red-inhand-right",
+      "directions": 4
+    },
+	{
+      "name": "rose_white"
+    },
+    {
+      "name": "rose_white_equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "rose_white-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "rose_white-inhand-right",
+      "directions": 4
+    },
+	{
+      "name": "rose_yelo"
+    },
+    {
+      "name": "rose_yelo_equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "rose_yelo-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "rose_yelo-inhand-right",
+      "directions": 4
+    }
+  ]
+}

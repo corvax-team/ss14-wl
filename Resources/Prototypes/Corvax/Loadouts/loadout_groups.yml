@@ -108,6 +108,7 @@
   minLimit: 0
   loadouts:
   - SecurityPilotBeret
+  - TrooperHat
 
 - type: loadoutGroup
   id: PilotJumpsuit
@@ -115,12 +116,14 @@
   loadouts:
   - JumpsuitPilot
   - JumpskirtPilot
+  - TrooperUniform
 
 - type: loadoutGroup
   id: PilotOuterClothing
   name: loadout-group-pilot-outerclothing
   loadouts:
   - OuterWinterPilot
+  - BomberPilot # WL-Changes: Pilot drip
 
 - type: loadoutGroup
   id: BrigmedicHead

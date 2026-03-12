@@ -184,6 +184,11 @@
     - Airlocks
     - WirePanels
     - Networking
+  # EE-Port-Emotion-Start
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+  # EE-Port-Emotion-End
   placement:
     mode: SnapgridCenter
 

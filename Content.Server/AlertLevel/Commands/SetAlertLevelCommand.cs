@@ -78,12 +78,12 @@ namespace Content.Server.AlertLevel.Commands
         private string[] GetStationLevelNames(EntityUid station)
         {
             if (!EntityManager.TryGetComponent<AlertLevelComponent>(station, out var alertLevelComp))
-                return new string[]{};
+                return [];
 
             if (alertLevelComp.AlertLevels == null)
-                return new string[]{};
+                return [];
 
-            return alertLevelComp.AlertLevels.Levels.Keys.ToArray();
+            return alertLevelComp.AlertLevels.Levels.Select(protoId => protoId.ToString()).ToArray(); // WL-Changes: Alert Level Rework
         }
     }
 }

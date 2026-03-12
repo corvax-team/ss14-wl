@@ -8,7 +8,7 @@
         <Label Name="Species"/>
         <Label Name="Gender"/> -->
         <Label Text="{Loc 'general-station-record-employment-record'}"/>
-        <ScrollContainer VerticalExpand="True" MinHeight="300">
+        <ScrollContainer VerticalExpand="True" MinHeight="300" HScrollEnabled="False">
             <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
                 <RichTextLabel Name="Record"
                                Margin="5"

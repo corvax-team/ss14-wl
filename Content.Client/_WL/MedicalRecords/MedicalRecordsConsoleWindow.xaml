@@ -56,7 +56,7 @@
                            StyleClasses="LabelBig" />
                     <BoxContainer Orientation="Horizontal"
                                   Margin="0 0 0 5">
-                        <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
+                        <Label Text="{Loc 'crew-monitoring-ui-job-label'}"
                                FontColorOverride="DarkGray" />
                         <Label Name="PersonJob" />
                     </BoxContainer>
@@ -80,11 +80,12 @@
                     </BoxContainer>
                     <PanelContainer StyleClasses="LowDivider"
                                     Margin="0 5 0 5" />
-                    <ScrollContainer VerticalExpand="True">
+                    <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
                     <RichTextLabel Name="MedicalRecordText"
                                    Margin="5"
                                    HorizontalExpand="True"/>
                     </ScrollContainer>
+                    <Button Name="PrintButton" Text="{Loc 'records-print-button'}" MinWidth="200"/>
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>

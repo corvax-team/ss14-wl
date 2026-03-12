@@ -3,7 +3,7 @@
   #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end
   coloring:
@@ -29,7 +29,7 @@
   #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end
   coloring:
@@ -55,7 +55,7 @@
   #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end
   coloring:
@@ -81,7 +81,7 @@
   #WL-Changes: Felinid revolution start
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end
   coloring:

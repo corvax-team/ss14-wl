@@ -20,3 +20,22 @@
       - state: AIDEC-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterAdjutant
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterPilotBomber
+  name: pilot's bomber
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/secbomber.rsi
+  - type: Item
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/secbomber.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/secbomber.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80

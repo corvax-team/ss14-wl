@@ -8,7 +8,7 @@
 
 - type: entity
   name: large plate
-  parent: BaseItem
+  parent: [ BaseItem, TrayBase ] #Corvax-WL-Changes
   id: FoodPlate
   description: A large plate, excellent for bread.
   components:
@@ -82,7 +82,7 @@
 
 - type: entity
   name: small plate
-  parent: FoodPlate
+  parent: [ BaseItem, TrayBase ] #Corvax-WL-Changes
   id: FoodPlateSmall
   description: A small plate. Delicate.
   components:
@@ -132,7 +132,7 @@
 # Plastic Plate
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, TrayBase ] #Corvax-WL-Changes
   id: FoodPlatePlastic
   name: large plastic plate
   description: A large blue plastic plate, excellent for a birthday cake.
@@ -154,7 +154,7 @@
     - Trash
 
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, TrayBase ] #Corvax-WL-Changes
   id: FoodPlateSmallPlastic
   name: small plastic plate
   description: A blue plastic plate, excellent for slices of birthday cake.

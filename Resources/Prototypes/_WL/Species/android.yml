@@ -9,6 +9,7 @@
   skinColoration: Hues
   minHeight: 120
   maxHeight: 250
+  maxAge: 200
 
 - type: speciesBaseSprites
   id: MobAndroidSprites

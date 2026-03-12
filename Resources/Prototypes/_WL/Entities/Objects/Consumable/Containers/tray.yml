@@ -1,0 +1,64 @@
+- type: entity
+  id: TrayBase
+  abstract: true
+  components:
+  - type: Tray
+    itemsInhandVisuals:
+      left:
+      - sprite: _WL/Objects/Consumable/tray.rsi
+        state: items-inhand-left
+      right:
+      - sprite: _WL/Objects/Consumable/tray.rsi
+        state: items-inhand-right
+  - type: Appearance
+    
+- type: entity
+  name: tray
+  parent: [ BaseItem, TrayBase ]
+  id: FoodTray
+  description: Metal tray with metal cap.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/tray.rsi
+    layers:
+    - state: tray
+    - map: [ "enum.TrayVisualLayers.Cap" ]
+      state: tray-cap
+      visible: false
+  - type: Item
+    shape:
+    - 0,0,2,1
+    storedOffset: 0,-2
+    inhandVisuals:
+      left:
+      - state: tray-inhand-left
+      right:
+      - state: tray-inhand-right
+  - type: Tray
+    capacity: 5
+    hasCap: true 
+    capInhandVisuals:
+      left:
+      - state: cap-inhand-left
+      right:
+      - state: cap-inhand-right
+  - type: Appearance
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+          params:
+            volume: -8
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

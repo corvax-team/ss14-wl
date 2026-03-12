@@ -3,6 +3,7 @@ using Content.Shared.CriminalRecords.Components;
 using Content.Shared.CriminalRecords;
 using Content.Shared.Radio;
 using Content.Shared.StationRecords;
+using Robust.Shared.Audio; // WL-Records
 using Robust.Shared.Prototypes;
 using Content.Shared.Security;
 
@@ -51,4 +52,24 @@ public sealed partial class CriminalRecordsConsoleComponent : Component
     /// </summary>
     [DataField]
     public uint MaxStringLength = 256;
+
+    // WL-Records-Start
+    [DataField]
+    public bool CanPrintEntries = true;
+
+    [DataField]
+    public float TimePrint = 2.3f;
+
+    [DataField]
+    public float TimePrintRemaining;
+
+    [DataField]
+    public SoundSpecifier PrintAudio = new SoundPathSpecifier("/Audio/Machines/printer.ogg");
+
+    [DataField]
+    public EntProtoId PrintPaperId = "Paper";
+
+    [DataField]
+    public string ContextPrint = string.Empty;
+    // WL-Records-End
 }

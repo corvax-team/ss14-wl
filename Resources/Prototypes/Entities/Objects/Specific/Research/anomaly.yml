@@ -96,7 +96,7 @@
   - type: ProximityDetector
     range: 20
     components:
-    - type: Anomaly
+    - type: LocatableAnomaly # WL-Changes
   - type: Beeper
     isMuted: true
     minBeepInterval: 0.15
@@ -114,7 +114,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 1
-    useRate: 0
+    useCharge: 0
   - type: ToggleCellDraw
 
 - type: entity
@@ -149,7 +149,7 @@
   components:
   - type: PowerCellDraw
     drawRate: 1
-    useRate: 0
+    useCharge: 0
   - type: ToggleCellDraw
 
 - type: entity

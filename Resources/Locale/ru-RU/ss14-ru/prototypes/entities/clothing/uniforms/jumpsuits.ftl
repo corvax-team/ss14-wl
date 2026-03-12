@@ -28,8 +28,10 @@ ent-ClothingUniformJumpsuitCentcomOfficer = водолазка Центком
     .desc = Повседневная, но элегантная водолазка зелёного цвета, используемая офицерами Центком. От неё веет алоэ.
 ent-ClothingUniformJumpsuitChef = униформа шеф-повара
     .desc = Без этого нельзя готовить.
-ent-ClothingUniformJumpsuitChemistry = комбинезон химика
+# WL-Changes: Rename start
+ent-ClothingUniformJumpsuitChemistry = комбинезон фармацевта
     .desc = На этом комбинезоне какие-то странные пятна. Хм.
+# WL-Changes: Rename end
 ent-ClothingUniformJumpsuitVirology = комбинезон вирусолога
     .desc = Изготовлен из особого волокна, которое обеспечивает специальную защиту от биологических опасностей. На нём есть обозначения, указывающие, что носитель является вирусологом.
 ent-ClothingUniformJumpsuitGenetics = комбинезон генетика

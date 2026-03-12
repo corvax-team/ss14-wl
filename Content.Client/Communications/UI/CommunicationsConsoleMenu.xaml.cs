@@ -6,6 +6,10 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+// WL-Changes-start: Alert Level Rework
+using Robust.Shared.Prototypes;
+using Content.Shared.AlertLevel;
+// WL-Changes-end
 
 namespace Content.Client.Communications.UI
 {
@@ -15,6 +19,7 @@ namespace Content.Client.Communications.UI
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly ILocalizationManager _loc = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Wl-Changes: Alert Level Rework
 
         public bool CanAnnounce;
         public bool CanBroadcast;
@@ -91,10 +96,17 @@ namespace Content.Client.Communications.UI
             if (alerts == null)
             {
                 var name = currentAlert;
-                if (_loc.TryGetString($"alert-level-{currentAlert}", out var locName))
+                // Wl-Changes-start: Alert Level Rework
+                if (!_prototypeManager.TryIndex<AlertLevelPrototype>(currentAlert, out var index))
+                    return;
+                if (_loc.TryGetString($"alert-level-{currentAlert.ToLower()}", out var locName))
                 {
                     name = locName;
                 }
+                else if (!string.IsNullOrEmpty(index.SetName))
+                    name = index.SetName;
+                // WL-Changes-end
+
                 AlertLevelButton.AddItem(name);
                 AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, currentAlert);
             }
@@ -103,12 +115,20 @@ namespace Content.Client.Communications.UI
                 foreach (var alert in alerts)
                 {
                     var name = alert;
-                    if (_loc.TryGetString($"alert-level-{alert}", out var locName))
+                    // WL-Changes-start: Alert Level Rework
+                    if (_prototypeManager.TryIndex<AlertLevelPrototype>(alert, out var index))
                     {
-                        name = locName;
+                        if (_loc.TryGetString($"alert-level-{alert.ToLower()}", out var locName))
+                        {
+                            name = locName;
+                        }
+                        else if (!string.IsNullOrEmpty(index.SetName))
+                            name = index.SetName;
+
+                        AlertLevelButton.AddItem(name);
+                        AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, alert);
                     }
-                    AlertLevelButton.AddItem(name);
-                    AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, alert);
+                    // WL-Changes-end
                     if (alert == currentAlert)
                     {
                         AlertLevelButton.Select(AlertLevelButton.ItemCount - 1);

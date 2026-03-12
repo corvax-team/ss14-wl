@@ -13,3 +13,43 @@
   targetNode: gloves
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: ClothingMaskBalaclavFabricBlack
+  graph: ClothingMaskBalaclavFabricBlack
+  startNode: start
+  targetNode: mask
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ClothingMaskBalaclavFabricBlue
+  graph: ClothingMaskBalaclavFabricBlue
+  startNode: start
+  targetNode: mask
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ClothingMaskBalaclavFabricGreen
+  graph: ClothingMaskBalaclavFabricGreen
+  startNode: start
+  targetNode: mask
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ClothingMaskBalaclavFabricRed
+  graph: ClothingMaskBalaclavFabricRed
+  startNode: start
+  targetNode: mask
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ClothingMaskBalaclavFabricTan
+  graph: ClothingMaskBalaclavFabricTan
+  startNode: start
+  targetNode: mask
+  category: construction-category-clothing
+  objectType: Item

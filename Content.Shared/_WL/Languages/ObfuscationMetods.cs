@@ -2,6 +2,11 @@ using System.Text;
 
 namespace Content.Shared._WL.Languages;
 
+///TODO: Заменить списки строк на <see cref="Dataset.DatasetPrototype"/> по всему файлу?
+///TODO: Расставить [Virtual], sealed или abstract.
+///TODO: Убрать излишние аллокации: создание одинаковых списков каждый вызов <see cref="Obfuscate(StringBuilder, string, int)"/>.
+///TODO: Привести DataField поля <see cref="Utf16ReplacementObfuscation"/> в нормальный вид.
+///TODO: ИЗБАВИТЬСЯ ОТ МАГИЧЕСКИХ ЧИСЕЛ:sob: и этой сложной логики, мб вынести все в какие-нибудь отдельные методы.
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class ObfuscationMethod
 {
@@ -29,8 +34,6 @@ public abstract partial class ObfuscationMethod
         Obfuscate(builder, message, global_seed);
         return builder.ToString();
     }
-
-    public abstract bool IsEmoting();
 }
 
 public partial class ReplacementObfuscation : ObfuscationMethod
@@ -42,11 +45,6 @@ public partial class ReplacementObfuscation : ObfuscationMethod
     {
         var index = PseudoRandom(message.GetHashCode(), global_seed, 0, Replacement.Count - 1);
         builder.Append(Replacement[index]);
-    }
-
-    public override bool IsEmoting()
-    {
-        return false;
     }
 }
 
@@ -90,11 +88,6 @@ public partial class WordsReplacementObfuscation : ObfuscationMethod
                 counter++;
             }
         }
-    }
-
-    public override bool IsEmoting()
-    {
-        return false;
     }
 }
 
@@ -159,11 +152,6 @@ public partial class Utf16ReplacementObfuscation : ObfuscationMethod
             }
         }
     }
-
-    public override bool IsEmoting()
-    {
-        return false;
-    }
 }
 
 
@@ -225,23 +213,18 @@ public partial class ByCharReplacementObfuscation : ObfuscationMethod
             }
         }
     }
-
-    public override bool IsEmoting()
-    {
-        return false;
-    }
 }
 
-public partial class EmoteObfuscation : ObfuscationMethod
+public partial class LengthObfuscation : ObfuscationMethod
 {
     [DataField(required: true)]
     public List<string> Replacement = [];
 
     [DataField]
-    public int min = 1;
+    public int min = 10;
 
     [DataField]
-    public int max = 30;
+    public int max = 1000;
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
     {
@@ -251,10 +234,5 @@ public partial class EmoteObfuscation : ObfuscationMethod
 
         index = System.Math.Max(0, System.Math.Min(index, Replacement.Count - 1));
         builder.Append(Replacement[index]);
-    }
-
-    public override bool IsEmoting()
-    {
-        return true;
     }
 }

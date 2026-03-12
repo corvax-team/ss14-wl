@@ -1,0 +1,43 @@
+- type: latheRecipe
+  abstract: true
+  id: BaseSecBalaclavRecipe
+  categories:
+  - Clothing
+  materials:
+    Cloth: 50
+    Plastic: 10
+
+- type: latheRecipe
+  parent: BaseSecBalaclavRecipe
+  id: SecBalaclavBlackRecipe
+  result: ClothingMaskBalaclavSecBlack
+
+- type: latheRecipe
+  parent: BaseSecBalaclavRecipe
+  id: SecBalaclavBlackSkullRecipe
+  result: ClothingMaskBalaclavSecBlackSkull
+
+- type: latheRecipe
+  parent: BaseSecBalaclavRecipe
+  id: SecBalaclavBlueRecipe
+  result: ClothingMaskBalaclavSecBlue
+
+- type: latheRecipe
+  parent: BaseSecBalaclavRecipe
+  id: SecBalaclavBlueSkullRecipe
+  result: ClothingMaskBalaclavSecBlueSkull
+
+- type: latheRecipe
+  parent: BaseSecBalaclavRecipe
+  id: SecBalaclavGreenRecipe
+  result: ClothingMaskBalaclavSecGreen
+
+- type: latheRecipe
+  parent: BaseSecBalaclavRecipe
+  id: SecBalaclavRedRecipe
+  result: ClothingMaskBalaclavSecRed
+
+- type: latheRecipe
+  parent: BaseSecBalaclavRecipe
+  id: SecBalaclavTanRecipe
+  result: ClothingMaskBalaclavSecTan

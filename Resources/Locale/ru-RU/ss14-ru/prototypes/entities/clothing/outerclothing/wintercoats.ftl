@@ -16,8 +16,10 @@ ent-ClothingOuterWinterCentcom = зимняя куртка Центком
     .desc = { ent-ClothingOuterWinterCoatToggleable.desc }
 ent-ClothingOuterWinterChef = морозильная куртка шеф-повара
     .desc = Куртка, разработанная специально для работы в холодильных камерах, столь необходимая хладнокровным поварам-унатхам.
-ent-ClothingOuterWinterChem = зимняя куртка химика
+# WL-Changes: Rename start
+ent-ClothingOuterWinterChem = зимняя куртка фармацевта
     .desc = { ent-ClothingOuterWinterCoatToggleable.desc }
+# WL-Changes: Rename end
 ent-ClothingOuterWinterCMO = зимняя куртка главного врача
     .desc = { ent-ClothingOuterWinterCoatToggleable.desc }
 ent-ClothingOuterWinterClown = зимняя куртка клоуна

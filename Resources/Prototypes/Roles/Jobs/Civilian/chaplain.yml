@@ -5,13 +5,6 @@
   playTimeTracker: JobChaplain
   startingGear: ChaplainGear
   subnames:
-  - Male: капеллан
-  - Male: монах
-  - Male: проповедник
-    Female: проповедница
-  - Male: клирик
-  - Male: жрец
-    Female: жрица
   - Male: религиовед
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
@@ -25,7 +18,7 @@
   # WL-Changes-AgeRequirement Start
   requirements:
     - !type:AgeRequirement
-      minAge: 18
+      age: 0 # WL-Changes-AgeRequirement
   # WL-Changes-AgeRequirement End
   # WL-Skills-start
   bonusSkillPoints: 24

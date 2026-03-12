@@ -70,7 +70,6 @@
       proper: true
       gender: epicene
   - type: Bloodstream
-    bloodMaxVolume: 100
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite

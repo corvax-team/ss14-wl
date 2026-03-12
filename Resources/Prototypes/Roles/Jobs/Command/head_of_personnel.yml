@@ -3,6 +3,9 @@
   name: job-name-hop
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
+  subnames:
+  - Male: директор по персоналу
+  - Male: старший администратор
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
@@ -22,7 +25,7 @@
     - !type:OverallPlaytimeRequirement
       time: 50h #50 hrs # Corvax-RoleTime
     - !type:AgeRequirement
-      minAge: 26 # WL-Changes-AgeRequirement
+      age: 8 # WL-Changes-AgeRequirement
     - !type:TraitsRequirement #Corvax-TraitsRequirement
       inverted: true
       traits:

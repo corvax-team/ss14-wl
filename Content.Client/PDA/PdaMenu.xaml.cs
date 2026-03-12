@@ -18,6 +18,7 @@ namespace Content.Client.PDA
         [Dependency] private readonly IClipboardManager _clipboard = null!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
+        [Dependency] private readonly ILocalizationManager _locMan = default!; // WL-Changes: custom alert instructions in PDA // I made this for no warning by me
         private readonly ClientGameTicker _gameTicker;
 
         public const int HomeView = 0;
@@ -32,7 +33,6 @@ namespace Content.Client.PDA
         private string _stationName = Loc.GetString("comp-pda-ui-unknown");
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
-        
 
         private int _currentView;
 
@@ -117,7 +117,7 @@ namespace Content.Client.PDA
             StationTimeButton.OnPressed += _ =>
             {
                 var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
-                _clipboard.SetText((stationTime.ToString("hh\\:mm\\:ss")));
+                _clipboard.SetText(stationTime.ToString("hh\\:mm\\:ss"));
             };
 
             StationAlertLevelInstructionsButton.OnPressed += _ =>
@@ -125,13 +125,14 @@ namespace Content.Client.PDA
                 _clipboard.SetText(_instructions);
             };
 
-            
+
 
 
             HideAllViews();
             ToHomeScreen();
         }
 
+        // WL-Changes-start: Loc -> _locMan
         public void UpdateState(PdaUpdateState state)
         {
             FlashLightToggleButton.IsActive = state.FlashlightEnabled;
@@ -139,7 +140,7 @@ namespace Content.Client.PDA
             if (state.PdaOwnerInfo.ActualOwnerName != null)
             {
                 _pdaOwner = state.PdaOwnerInfo.ActualOwnerName;
-                PdaOwnerLabel.SetMarkup(Loc.GetString("comp-pda-ui-owner",
+                PdaOwnerLabel.SetMarkup(_locMan.GetString("comp-pda-ui-owner",
                     ("actualOwnerName", _pdaOwner)));
                 PdaOwnerLabel.Visible = true;
             }
@@ -151,39 +152,55 @@ namespace Content.Client.PDA
 
             if (state.PdaOwnerInfo.IdOwner != null || state.PdaOwnerInfo.JobTitle != null)
             {
-                _owner = state.PdaOwnerInfo.IdOwner ?? Loc.GetString("comp-pda-ui-unknown");
-                _jobTitle = state.PdaOwnerInfo.JobTitle ?? Loc.GetString("comp-pda-ui-unassigned");
-                IdInfoLabel.SetMarkup(Loc.GetString("comp-pda-ui",
+                _owner = state.PdaOwnerInfo.IdOwner ?? _locMan.GetString("comp-pda-ui-unknown");
+                _jobTitle = state.PdaOwnerInfo.JobTitle ?? _locMan.GetString("comp-pda-ui-unassigned");
+                IdInfoLabel.SetMarkup(_locMan.GetString("comp-pda-ui",
                     ("owner", _owner),
                     ("jobTitle", _jobTitle)));
             }
             else
             {
-                IdInfoLabel.SetMarkup(Loc.GetString("comp-pda-ui-blank"));
+                IdInfoLabel.SetMarkup(_locMan.GetString("comp-pda-ui-blank"));
             }
 
-            _stationName = state.StationName ?? Loc.GetString("comp-pda-ui-unknown");
-            StationNameLabel.SetMarkup(Loc.GetString("comp-pda-ui-station",
+            _stationName = state.StationName ?? _locMan.GetString("comp-pda-ui-unknown");
+            StationNameLabel.SetMarkup(_locMan.GetString("comp-pda-ui-station",
                 ("station", _stationName)));
-            
+
 
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
-            StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
+            StationTimeLabel.SetMarkup(_locMan.GetString("comp-pda-ui-station-time",
                 ("time", stationTime.ToString("hh\\:mm\\:ss"))));
 
             var alertLevel = state.PdaOwnerInfo.StationAlertLevel;
             var alertColor = state.PdaOwnerInfo.StationAlertColor;
-            var alertLevelKey = alertLevel != null ? $"alert-level-{alertLevel}" : "alert-level-unknown";
-            _alertLevel = Loc.GetString(alertLevelKey);
+            var alertName = state.PdaOwnerInfo.StationAlertName;
+            // WL-Changes-start: custom alert instructions in PDA
+            var alertInstructions = state.PdaOwnerInfo.StationAlertInstructions;
+            if (alertLevel != null
+                && _locMan.TryGetString($"alert-level-{alertLevel.ToLower()}", out var locName))
+                _alertLevel = locName;
+            else if (!string.IsNullOrEmpty(alertName))
+                _alertLevel = alertName;
+            else
+                _alertLevel = _locMan.GetString("alert-level-unknown");
 
-            StationAlertLevelLabel.SetMarkup(Loc.GetString(
+            StationAlertLevelLabel.SetMarkup(_locMan.GetString(
                 "comp-pda-ui-station-alert-level",
                 ("color", alertColor),
                 ("level", _alertLevel)
             ));
-            _instructions = Loc.GetString($"{alertLevelKey}-instructions");
-            StationAlertLevelInstructions.SetMarkup(Loc.GetString(
+
+            if (!string.IsNullOrEmpty(alertInstructions))
+                _instructions = alertInstructions;
+            else if (alertLevel != null && _locMan.TryGetString($"alert-level-{alertLevel.ToLower()}-instructions", out var locInstruction))
+                _instructions = locInstruction;
+            else
+                _instructions = _locMan.GetString("alert-level-unknown-instructions");
+            // WL-Changes-end
+
+            StationAlertLevelInstructions.SetMarkup(_locMan.GetString(
                 "comp-pda-ui-station-alert-level-instructions",
                 ("instructions", _instructions))
             );
@@ -206,7 +223,7 @@ namespace Content.Client.PDA
             {
                 ProgramList.AddChild(new Label()
                 {
-                    Text = Loc.GetString("comp-pda-io-no-programs-available"),
+                    Text = _locMan.GetString("comp-pda-io-no-programs-available"),
                     HorizontalAlignment = HAlignment.Center,
                     VerticalAlignment = VAlignment.Center,
                     VerticalExpand = true
@@ -239,17 +256,17 @@ namespace Content.Client.PDA
                 {
                     case InstallationStatus.Cartridge:
                         item.InstallButton.Visible = true;
-                        item.InstallButton.Text = Loc.GetString("cartridge-bound-user-interface-install-button");
+                        item.InstallButton.Text = _locMan.GetString("cartridge-bound-user-interface-install-button");
                         item.InstallButton.OnPressed += _ => OnInstallButtonPressed?.Invoke(uid);
                         break;
                     case InstallationStatus.Installed:
                         item.InstallButton.Visible = true;
-                        item.InstallButton.Text = Loc.GetString("cartridge-bound-user-interface-uninstall-button");
+                        item.InstallButton.Text = _locMan.GetString("cartridge-bound-user-interface-uninstall-button");
                         item.InstallButton.OnPressed += _ => OnUninstallButtonPressed?.Invoke(uid);
                         break;
                 }
 
-                item.ProgramName.Text = Loc.GetString(component.ProgramName);
+                item.ProgramName.Text = _locMan.GetString(component.ProgramName);
                 item.SetHeight = 20;
                 row.AddChild(item);
 
@@ -343,8 +360,9 @@ namespace Content.Client.PDA
 
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
-            StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
+            StationTimeLabel.SetMarkup(_locMan.GetString("comp-pda-ui-station-time",
                 ("time", stationTime.ToString("hh\\:mm\\:ss"))));
         }
+        // WL-Changes-end: Loc -> _locMan
     }
 }

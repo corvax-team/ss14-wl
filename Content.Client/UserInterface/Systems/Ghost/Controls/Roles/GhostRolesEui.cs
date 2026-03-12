@@ -3,6 +3,7 @@ using Content.Client.Eui;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Shared.Eui;
 using Content.Shared.Ghost.Roles;
+using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 
@@ -102,13 +103,13 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             // Add a new entry for each role group
             foreach (var group in groupedRoles)
             {
-                var reason = group.Key.reason;
+                var reasons = group.Key.reason;
                 var name = group.Key.Name;
                 var description = group.Key.Description;
                 var prototypesAllowed = group.Key.Item3;
 
                 // Adding a new role
-                _window.AddEntry(name, description, prototypesAllowed, reason, group, spriteSystem);
+                _window.AddEntry(name, description, prototypesAllowed, JobRequirements.JoinReasons(reasons), group, spriteSystem);
             }
 
             // Restore the Collapsible box state if it is saved

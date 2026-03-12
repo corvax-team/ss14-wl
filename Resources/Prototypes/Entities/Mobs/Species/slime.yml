@@ -39,6 +39,12 @@
     delay: 0.5
   - type: HumanoidAppearance
     species: SlimePerson
+    # WL-Change start
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - FacialHair
+    # WL-Change end
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
@@ -70,7 +76,10 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReagent: Slime # TODO Color slime blood based on their slime color or smth
+    bloodReferenceSolution: # TODO Color slime blood based on their slime color or smth
+      reagents:
+      - ReagentId: Slime
+        Quantity: 300
   - type: Barotrauma
     damage:
       types:

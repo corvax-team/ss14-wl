@@ -27,6 +27,7 @@
     whitelist:
       tags:
       - AnomalyHost
+  - type: LocatableAnomaly # WL-Changes
 
 - type: entity
   parent: BaseAnomalyInjector

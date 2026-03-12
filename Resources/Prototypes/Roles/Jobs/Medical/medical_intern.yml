@@ -8,13 +8,14 @@
     Female: медсестра
   - Male: санитар
   - Male: ординатор
+  - Male: фармацевт-стажёр
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 10h # Corvax-RoleTime 5
       inverted: true # stop playing intern if you're good at med!
     - !type:AgeRequirement # WL-Changes-AgeRequirement
-      minAge: 20
+      age: 2 # WL-Changes-AgeRequirement
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine

@@ -130,6 +130,11 @@ namespace Content.Shared.Administration
         /// </summary>
         QuestionnaireSpecialist = 1 << 22,
         //WL-Changes-end
+        // Corvax-DiscordRoles
+        /// <summary>
+        ///     Allows you to edit players playtime.
+        /// </summary>
+        Playtime = 1 << 30,
 
         /// <summary>
         ///     Dangerous host permissions like scsi.

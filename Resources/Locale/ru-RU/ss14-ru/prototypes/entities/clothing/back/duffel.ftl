@@ -14,8 +14,10 @@ ent-ClothingBackpackDuffelSecurity = вещмешок охраны
     .desc = Большой вещмешок для хранения дополнительных припасов охраны.
 ent-ClothingBackpackDuffelBrigmedic = вещмешок бригмедика
     .desc = Большой вещмешок для хранения дополнительных медицинских припасов.
-ent-ClothingBackpackDuffelChemistry = вещмешок химика
+# WL-Changes: Rename start
+ent-ClothingBackpackDuffelChemistry = вещмешок фармацевта
     .desc = Большой вещмешок для хранения дополнительных мензурок и пробирок.
+# WL-Changes: Rename end
 ent-ClothingBackpackDuffelVirology = вещмешок вирусолога
     .desc = Большой вещмешок, изготовленный из гипоаллергенных волокон. Он предназначен для предотвращения распространения болезней. Пахнет обезьянами.
 ent-ClothingBackpackDuffelGenetics = вещмешок генетика

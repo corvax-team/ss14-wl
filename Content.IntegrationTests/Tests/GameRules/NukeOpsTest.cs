@@ -229,26 +229,17 @@ public sealed class NukeOpsTest
         var totalSeconds = 30;
         var totalTicks = (int) Math.Ceiling(totalSeconds / server.Timing.TickPeriod.TotalSeconds);
         var increment = 5;
-
-        // WL-Changes-start
+        // Corvax-IPC-start
+        var isIPC = entMan.GetComponent<MetaDataComponent>(player).EntityPrototype!.ID == "MobIpc";
+        RespiratorComponent? resp = isIPC ? null : entMan.GetComponent<RespiratorComponent>(player);
+        // Corvax-IPC-end
+        var damage = entMan.GetComponent<DamageableComponent>(player);
         for (var tick = 0; tick < totalTicks; tick += increment)
         {
             await pair.RunTicksSync(increment);
-
-            await server.WaitAssertion(() =>
-            {
-                Assert.That(entMan.TryGetComponent(player, out RespiratorComponent? resp), Is.True, $"Failed to find {nameof(RespiratorComponent)} on player entity ({entMan.ToPrettyString(player)})");
-                Assert.That(entMan.TryGetComponent(player, out DamageableComponent? damage), Is.True, $"Failed to find {nameof(DamageableComponent)} on player entity ({entMan.ToPrettyString(player)})");
-
-                Assert.Multiple(() =>
-                {
-                    Assert.That(resp!.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold),
-                        $"SuffocationCycles exceeded at tick {tick}");
-
-                    Assert.That(damage!.TotalDamage, Is.EqualTo(FixedPoint2.Zero),
-                        $"Damage detected at tick {tick}: {damage.TotalDamage}");
-                });
-            });
+            if (!isIPC) // Corvax-IPC
+                Assert.That(resp!.SuffocationCycles, Is.LessThanOrEqualTo(resp.SuffocationCycleThreshold));
+            Assert.That(damage.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
         }
         // WL-Changes-end
 

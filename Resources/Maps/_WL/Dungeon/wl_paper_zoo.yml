@@ -1,0 +1,707 @@
+meta:
+  format: 7
+  category: Map
+  engineVersion: 267.3.0
+  forkId: syndicate-wl
+  forkVersion: fe4fe8b23f4043e51f62d6eab471c45d65518aab
+  time: 01/10/2026 15:24:39
+  entityCount: 51
+maps:
+- 1
+grids:
+- 1
+orphans: []
+nullspace: []
+tilemap:
+  1: Space
+  2: FloorAstroAsteroidSandBorderless
+  3: FloorAstroGrass
+  4: FloorAstroIce
+  5: FloorAstroSnow
+  0: FloorShuttlePurple
+  6: FloorSnow
+  7: FloorSnowDug
+entities:
+- proto: ""
+  entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: wl paper zoo atlas
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
+    - type: GridAtmosphere
+      version: 2
+      data:
+        tiles:
+          4,0:
+            0: 65535
+          3,0:
+            0: 65535
+          4,1:
+            0: 65535
+          3,1:
+            0: 65535
+          4,2:
+            0: 15
+          3,2:
+            0: 15
+          5,0:
+            0: 4369
+          5,1:
+            0: 4369
+          5,2:
+            0: 1
+          0,0:
+            0: 65535
+          0,1:
+            0: 65535
+          0,2:
+            0: 15
+          1,0:
+            0: 65535
+          1,1:
+            0: 65535
+          1,2:
+            0: 15
+          2,0:
+            0: 4383
+            1: 61152
+          2,1:
+            0: 4383
+            1: 61152
+          2,2:
+            0: 15
+        uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
+        - volume: 2500
+          temperature: 235
+          moles:
+            Oxygen: 27.225372
+            Nitrogen: 102.419266
+        chunkSize: 4
+    - type: MapGrid
+      chunks:
+        1,0:
+          ind: 1,0
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAUAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAFAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAABQAAAAAAAAUAAAAAAAAFAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAFAAAAAAAABQAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+        0,0:
+          ind: 0,0
+          tiles: AAAAAAACAAAAAAAAAQAAAAAAAAMAAAAAAAACAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQACAAAAAAAAAgAAAAAAAAIAAAAACAACAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAIAAgAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAABAAIAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAADAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAADAAAAAAAAAwAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+    - type: SpreaderGrid
+    - type: GridPathfinding
+    - type: Gravity
+      gravityShakeSound: !type:SoundPathSpecifier
+        path: /Audio/Effects/alert.ogg
+    - type: DecalGrid
+      chunkCollection:
+        version: 2
+        nodes:
+        - node:
+            zIndex: -1
+            color: '#FFFFFFFF'
+            id: Basalt1
+          decals:
+            132: 0.65568507,0.82423973
+        - node:
+            zIndex: -1
+            color: '#FFFFFFFF'
+            id: Basalt2
+          decals:
+            134: 1.8093843,1.2647431
+        - node:
+            zIndex: -1
+            color: '#FFFFFFFF'
+            id: Basalt3
+          decals:
+            137: 2.5225806,3.10367
+        - node:
+            color: '#FFFFFFFF'
+            id: Basalt3
+          decals:
+            274: 5.3320937,2.525042
+        - node:
+            zIndex: -1
+            color: '#FFFFFFFF'
+            id: Basalt4
+          decals:
+            139: 0.9624249,1.698627
+        - node:
+            color: '#FFFFFFFF'
+            id: Basalt4
+          decals:
+            256: 0.9007709,3.2472644
+        - node:
+            zIndex: -1
+            color: '#FFFFFFFF'
+            id: Basalt5
+          decals:
+            135: 1.7744238,1.4255619
+        - node:
+            color: '#FFFFFFFF'
+            id: Basalt5
+          decals:
+            252: 4.658364,1.5288053
+            254: 3.7764196,3.0843606
+            255: 3.429197,1.8204718
+        - node:
+            zIndex: -1
+            angle: 1.3962634015954636 rad
+            color: '#FFFFFFFF'
+            id: Basalt6
+          decals:
+            136: 2.550549,1.0060346
+        - node:
+            zIndex: -1
+            color: '#FFFFFFFF'
+            id: Basalt7
+          decals:
+            131: 1.3479047,2.3555136
+        - node:
+            color: '#FFFFFFFF'
+            id: Basalt7
+          decals:
+            253: 4.408364,2.556583
+        - node:
+            zIndex: -1
+            color: '#FFFFFFFF'
+            id: Basalt8
+          decals:
+            138: 1.7254791,2.3909252
+        - node:
+            color: '#FFFFFFFF'
+            id: Basalt8
+          decals:
+            257: 4.616049,1.2055975
+        - node:
+            zIndex: -1
+            color: '#FFFFFFFF'
+            id: Basalt9
+          decals:
+            133: 2.8162494,1.8730571
+        - node:
+            zIndex: -1
+            color: '#EFB34196'
+            id: Damaged
+          decals:
+            76: 0.640259,3.1303804
+            77: 1.8079429,2.9765537
+            78: 2.332352,2.6059716
+            83: 2.7728553,1.1935636
+            84: 2.8357842,2.5780032
+            85: 2.933674,2.7877667
+            86: 3.0665243,1.3753589
+            87: 1.6890769,0.8369657
+            90: 1.6541162,2.4311686
+            91: 0.79408586,2.5849953
+            92: 2.1505566,3.3820968
+            94: 0.8150619,1.0327449
+            95: 3.367185,0.8789184
+            96: 2.2064936,0.48735964
+            97: 1.5352502,1.5152011
+            98: 2.1016119,1.6410594
+            99: 0.63326716,1.7739096
+        - node:
+            color: '#FFBC0060'
+            id: Damaged
+          decals:
+            258: 4.246643,1.1153197
+            259: 3.66331,1.8028197
+            260: 3.8230324,2.7333753
+            261: 4.66331,1.9417086
+            262: 4.72581,0.7958753
+            263: 4.232754,2.8722641
+            264: 5.184143,1.9139309
+            265: 4.559143,1.3722641
+            266: 4.107754,3.0180974
+            267: 5.7049766,1.7333753
+            268: 5.6563654,0.8930975
+            269: 6.211921,0.9555975
+            270: 4.795254,1.4833753
+            271: 3.5799766,3.4069865
+            272: 3.4063654,2.5042086
+            273: 3.8785877,0.58754194
+        - node:
+            color: '#FFFFFFFF'
+            id: Flowersbr1
+          decals:
+            309: 12.251609,2.291471
+        - node:
+            color: '#FFFFFFFF'
+            id: Flowersbr2
+          decals:
+            306: 8.887026,2.166477
+            323: 9.792043,3.076993
+        - node:
+            color: '#FFFFFFFF'
+            id: Flowerspv3
+          decals:
+            307: 10.855774,1.2393901
+            310: 8.93911,2.666477
+        - node:
+            color: '#FFFFFFFF'
+            id: Flowersy3
+          decals:
+            308: 11.741191,1.5102217
+        - node:
+            color: '#FFFFFFFF'
+            id: Flowersy4
+          decals:
+            305: 11.147443,2.7081397
+            317: 9.708295,0.78196764
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassa5
+          decals:
+            297: 9.204773,2.1768796
+            316: 8.498177,0.77270806
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassb1
+          decals:
+            298: 10.7049675,3.6039715
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassb2
+          decals:
+            299: 11.611214,1.63522
+            303: 12.82453,4.187303
+            304: 12.887024,1.2706366
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassb4
+          decals:
+            300: 10.402882,2.2289722
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassb5
+          decals:
+            311: 8.042373,2.3539753
+            321: 9.792043,1.3582429
+            322: 8.083709,1.6707428
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassc3
+          decals:
+            319: 12.369754,0.9671521
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassc4
+          decals:
+            312: 8.053164,3.2498078
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassd2
+          decals:
+            315: 9.948338,2.8981712
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassd3
+          decals:
+            318: 11.2278595,0.629189
+        - node:
+            color: '#FFFFFFFF'
+            id: Grasse1
+          decals:
+            302: 9.272444,2.958143
+        - node:
+            color: '#FFFFFFFF'
+            id: Grasse3
+          decals:
+            301: 10.678694,2.9373071
+            320: 7.789214,0.80048525
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnow04
+          decals:
+            284: 17.57515,2.9208753
+            289: 17.408482,3.3305974
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnow05
+          decals:
+            296: 15.727364,2.6430974
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnow06
+          decals:
+            285: 18.769594,1.1361531
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnow08
+          decals:
+            276: 15.200149,2.9833753
+            283: 17.79737,2.587542
+            294: 17.47042,0.8792087
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnow09
+          decals:
+            277: 15.99876,1.7055974
+            295: 15.192642,1.0805975
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnow10
+          decals:
+            278: 16.43626,2.6917086
+            288: 19.040426,2.2333753
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnow11
+          decals:
+            280: 17.033482,1.0389309
+            287: 18.318205,0.8514309
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnow12
+          decals:
+            279: 14.845983,1.4694865
+            281: 14.595983,2.3792086
+            282: 17.352926,2.1778197
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnow13
+          decals:
+            291: 15.68626,0.8653197
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnowa1
+          decals:
+            286: 17.429316,1.9764309
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnowa2
+          decals:
+            275: 15.48473,1.8722641
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnowc1
+          decals:
+            293: 18.734308,0.9764309
+        - node:
+            color: '#FFFFFFFF'
+            id: grasssnowc3
+          decals:
+            292: 16.463476,2.900042
+    - type: GasTileOverlay
+- proto: FloorWaterEntityNoAnim
+  entities:
+  - uid: 40
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,3.5
+      parent: 1
+  - uid: 41
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,2.5
+      parent: 1
+  - uid: 43
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,2.5
+      parent: 1
+  - uid: 44
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,3.5
+      parent: 1
+  - uid: 45
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,3.5
+      parent: 1
+  - uid: 49
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,3.5
+      parent: 1
+- proto: FloraTreeLarge
+  entities:
+  - uid: 14
+    components:
+    - type: Transform
+      pos: 10.490068,1.1427009
+      parent: 1
+  - uid: 26
+    components:
+    - type: Transform
+      pos: 12.45583,1.1114509
+      parent: 1
+  - uid: 29
+    components:
+    - type: Transform
+      pos: 8.079908,1.1427009
+      parent: 1
+- proto: FoodMeatDuck
+  entities:
+  - uid: 15
+    components:
+    - type: Transform
+      pos: 20.555922,1.4945838
+      parent: 1
+  - uid: 18
+    components:
+    - type: Transform
+      pos: 20.649672,1.3591672
+      parent: 1
+  - uid: 31
+    components:
+    - type: Transform
+      pos: 20.337172,1.7654172
+      parent: 1
+  - uid: 33
+    components:
+    - type: Transform
+      pos: 20.462172,1.6300006
+      parent: 1
+- proto: GasPipeBend
+  entities:
+  - uid: 11
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,1.5
+      parent: 1
+  - uid: 22
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,1.5
+      parent: 1
+  - uid: 27
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,1.5
+      parent: 1
+  - uid: 37
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,1.5
+      parent: 1
+  - uid: 38
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 10.5,1.5
+      parent: 1
+  - uid: 39
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,1.5
+      parent: 1
+- proto: GasPipeBendAlt1
+  entities:
+  - uid: 8
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,2.5
+      parent: 1
+  - uid: 30
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,2.5
+      parent: 1
+  - uid: 32
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,2.5
+      parent: 1
+- proto: GasPipeManifold
+  entities:
+  - uid: 2
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,2.5
+      parent: 1
+  - uid: 3
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 10.5,2.5
+      parent: 1
+  - uid: 4
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,2.5
+      parent: 1
+- proto: GasPipeStraightAlt1
+  entities:
+  - uid: 5
+    components:
+    - type: Transform
+      pos: 2.5,1.5
+      parent: 1
+  - uid: 6
+    components:
+    - type: Transform
+      pos: 9.5,1.5
+      parent: 1
+  - uid: 9
+    components:
+    - type: Transform
+      pos: 16.5,1.5
+      parent: 1
+- proto: GasVentPump
+  entities:
+  - uid: 13
+    components:
+    - type: Transform
+      pos: 3.5,2.5
+      parent: 1
+  - uid: 19
+    components:
+    - type: Transform
+      pos: 10.5,2.5
+      parent: 1
+  - uid: 34
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 1
+- proto: GasVentScrubber
+  entities:
+  - uid: 16
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,2.5
+      parent: 1
+  - uid: 17
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,2.5
+      parent: 1
+  - uid: 23
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,2.5
+      parent: 1
+- proto: MopBucketFull
+  entities:
+  - uid: 21
+    components:
+    - type: Transform
+      pos: 8.5,3.5
+      parent: 1
+  - uid: 25
+    components:
+    - type: Transform
+      pos: 1.5,3.5
+      parent: 1
+  - uid: 36
+    components:
+    - type: Transform
+      pos: 15.5,3.5
+      parent: 1
+- proto: Rack
+  entities:
+  - uid: 12
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,1.5
+      parent: 1
+  - uid: 46
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 6.5,1.5
+      parent: 1
+  - uid: 47
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,1.5
+      parent: 1
+- proto: SpawnMobCow
+  entities:
+  - uid: 10
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 10.5,2.5
+      parent: 1
+  - uid: 51
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,2.5
+      parent: 1
+- proto: SpawnMobCrab
+  entities:
+  - uid: 42
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5,2.5
+      parent: 1
+  - uid: 48
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,2.5
+      parent: 1
+- proto: SpawnMobPenguin
+  entities:
+  - uid: 7
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,2.5
+      parent: 1
+  - uid: 50
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,2.5
+      parent: 1
+- proto: WheatBushel
+  entities:
+  - uid: 20
+    components:
+    - type: Transform
+      pos: 13.3378525,1.7237506
+      parent: 1
+  - uid: 24
+    components:
+    - type: Transform
+      pos: 13.4836855,1.5362506
+      parent: 1
+  - uid: 28
+    components:
+    - type: Transform
+      pos: 13.6503525,1.4633338
+      parent: 1
+  - uid: 35
+    components:
+    - type: Transform
+      pos: 13.4316025,1.6300006
+      parent: 1
+...
