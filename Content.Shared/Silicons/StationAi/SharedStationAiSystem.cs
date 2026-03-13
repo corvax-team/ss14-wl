@@ -307,12 +307,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         {
             var ev = new ChatNotificationEvent(_downloadChatNotificationPrototype, args.Used, args.User);
             RaiseLocalEvent(held.Value, ref ev);
-
-            if (TryComp<StationAiHeldComponent>(held, out var heldComp)
-                && heldComp.CurrentConnectedEntity != null)
-            {
-                AnnounceIntellicardUsage(heldComp.CurrentConnectedEntity.Value, intelliComp.WarningSound);
-            }
         }
 
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, cardHasAi ? intelliComp.UploadTime : intelliComp.DownloadTime, new IntellicardDoAfterEvent(), args.Target, ent.Owner)

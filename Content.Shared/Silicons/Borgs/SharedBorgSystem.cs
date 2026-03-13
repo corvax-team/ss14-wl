@@ -21,6 +21,7 @@ using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Roles;
+using Content.Shared.StationAi;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Silicons.StationAi;
 using Content.Shared._CorvaxNext.Silicons.Borgs;
