@@ -437,6 +437,8 @@
   - type: Eye
     drawFov: false
   - type: Examiner
+  - type: Physics
+    bodyType: KinematicController
   - type: InputMover
   - type: BlockMovement
     blockInteraction: false

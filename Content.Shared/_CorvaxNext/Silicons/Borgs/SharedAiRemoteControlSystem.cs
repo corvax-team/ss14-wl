@@ -44,9 +44,9 @@ public abstract class SharedAiRemoteControlSystem : EntitySystem
 
         stationAiHeldComp.CurrentConnectedEntity = null;
 
-        _mind.TransferTo(remoteComp.LinkedMind.Value, remoteComp.AiHolder);
-
         _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, true);
+
+        _mind.TransferTo(remoteComp.LinkedMind.Value, remoteComp.AiHolder);
         remoteComp.AiHolder = null;
         remoteComp.LinkedMind = null;
 
