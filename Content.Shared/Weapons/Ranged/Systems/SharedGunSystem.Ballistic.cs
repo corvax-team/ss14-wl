@@ -241,26 +241,25 @@ public abstract partial class SharedGunSystem
         {
             EntityUid? ammoEntity = null;
 
-
             if (ent.Comp.Entities.Count > 0)
             {
+
                 //WL - Autocycle start
+
                 var existingEnt = ent.Comp.Entities[^1];
 
                 if (!TryComp<CartridgeAmmoComponent>(existingEnt, out var cartridge))
                     return;
-                //WL - Autocycle end
 
-                //WL - Autocycle start
-                if (cartridge.Spent)
+                if (ent.Comp.AutoCycle) //WL - if autocycle=false don't remove spent ammo from the gun
                 {
-                    if (!ent.Comp.AutoCycle) //WL - if autocycle=false don't remove spent ammo from the gun
-                        break;
                     ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
                     DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
                     Containers.Remove(existingEnt, ent.Comp.Container);
                     ammoEntity = existingEnt;
                 }
+                else if (cartridge.Spent)
+                    break;
                 else
                 {
                     DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.Entities));
