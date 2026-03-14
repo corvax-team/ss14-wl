@@ -18,8 +18,10 @@ namespace Content.Shared.Communications
         public List<string>? AlertLevels;
         public string CurrentAlert;
         public float CurrentAlertDelay;
+        public string CurrentEmergency;
+        public List<string>? Emergencys;
 
-        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, TimeSpan? expectedCountdownEnd = null)
+        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, string currentEmergency, List<string> emergencys, TimeSpan? expectedCountdownEnd = null)
         {
             CanAnnounce = canAnnounce;
             CanCall = canCall;
@@ -28,6 +30,8 @@ namespace Content.Shared.Communications
             AlertLevels = alertLevels;
             CurrentAlert = currentAlert;
             CurrentAlertDelay = currentAlertDelay;
+            CurrentEmergency = currentEmergency;
+            Emergencys = emergencys;
         }
     }
 

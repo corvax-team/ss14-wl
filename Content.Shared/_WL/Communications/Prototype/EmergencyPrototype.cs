@@ -1,0 +1,35 @@
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared._WL.Communications.Prototype;
+
+[Prototype("emergencyList")]
+public partial class EmergencyListPrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; private set; } = default!;
+
+
+    [DataField]
+    public HashSet<ProtoId<EmergencyPrototype>> Emergencys = new();
+
+
+    [DataField]
+    public string DefaultEmergency { get; private set; } = default!;
+}
+
+[Prototype("emergency")]
+public partial class EmergencyPrototype : IPrototype
+{
+    [IdDataField]
+    public string ID { get; private set; } = default!;
+
+    [DataField]
+    public string? Name { get; private set; }
+
+    [DataField]
+    public string Announcement { get; private set; } = string.Empty;
+
+    [DataField]
+    public SoundSpecifier? Sound { get; private set; } = new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg");
+}

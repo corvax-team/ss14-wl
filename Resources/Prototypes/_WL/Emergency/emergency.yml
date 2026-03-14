@@ -1,0 +1,27 @@
+- type: emergencyList
+  id: stationEmergency
+  defaultEmergency: NoEmergency
+  emergencys: 
+    - NoEmergency
+    - Revolution
+    - CriticalDepressurization
+    - BiologicalHhazard
+
+- type: emergency
+  id: NoEmergency
+  name: no emergency
+
+- type: emergency
+  id: Revolution
+  name: emergency-revolution
+  announcement: emergency-revolution-announcement
+
+- type: emergency
+  id: CriticalDepressurization
+  name: emergency-critical-depressurization
+  announcement: emergency-critical-depressurization-announcement
+
+- type: emergency
+  id: BiologicalHhazard
+  name: emergency-biological-hazard
+  announcement: emergency-biological-hazard-announcement
