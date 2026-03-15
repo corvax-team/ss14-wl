@@ -39,7 +39,7 @@ public sealed class StationPowerTests
 
     [Explicit]
     [Test, TestCaseSource(nameof(GameMaps)),
-        Ignore("WL-Changet: Official maps are breaking the test due to upstream")]
+        Ignore("WL-Changed: Official maps are breaking the test due to upstream")]
     public async Task TestStationStartingPowerWindow(string mapProtoId)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
