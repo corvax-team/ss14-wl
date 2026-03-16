@@ -32,7 +32,7 @@
 - type: entity
   parent: ClothingNeckNecklaceBase
   id: ClothingNeckSharkTeethNecklace
-  name: carp teeth necklace
+  name: shark teeth necklace
   description: Sharp shark-carp teeth. If they fell out, it means you did something very brave… or very stupid.
   components:
   - type: Sprite
