@@ -26,3 +26,9 @@ ent-ClothingUniformJumpsuitAdjutant = комбинезон адъютанта
 
 ent-ClothingUniformJumpsuitAdjutantCC = комбинезон адъютанта центкома
     .desc = Тёмно-зелёный комбинезон, пошитый качественно и с золотистым обрамлением.
+
+ent-ClothingUniformJumpsuitCBURN = униформа РХБЗЗ
+    .desc = Специальный костюм, созданный для агентов РХБЗЗ Центкома.
+
+ent-ClothingUniformJumpsuitCBURNCommander = униформа командира РХБЗЗ
+    .desc = Специальный костюм, созданный для командиров РХБЗЗ Центкома.
