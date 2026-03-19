@@ -136,7 +136,7 @@ public sealed class NewsSystem : SharedNewsSystem
             );
 
             articles.RemoveAt(msg.ArticleNum);
-            GetDeletedArticles(ent).Add(article);
+            GetDeletedArticles(ent).Add(article); // WL-Changes: send deleted news
             _audio.PlayPvs(ent.Comp.ConfirmSound, ent);
         }
         else
@@ -320,7 +320,7 @@ public sealed class NewsSystem : SharedNewsSystem
         return true;
     }
 
-    private List<NewsArticle> GetDeletedArticles(EntityUid uid)
+    private List<NewsArticle> GetDeletedArticles(EntityUid uid) // WL-Changes: send deleted news
     {
         if (_station.GetOwningStation(uid) is not { } station ||
             !TryComp<StationNewsComponent>(station, out var stationNews))
