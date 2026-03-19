@@ -420,14 +420,18 @@ public sealed class NewsSystem : SharedNewsSystem
 
         while (query.MoveNext(out _, out var comp))
         {
-            SendArticlesListToDiscordWebhook(comp.Articles.OrderBy(article => article.ShareTime));
-            SendArticlesListToDiscordWebhook(comp.DeletedArticles.OrderBy(article => article.ShareTime), true); // WL-Changes: send deleted news
+            // WL-Changes-start: send deleted news
+            var articles = comp.Articles.Select(article => (Article: article, Deleted: false));
+            var deletedArticles = comp.DeletedArticles.Select(article => (Article: article, Deleted: true));
+
+            SendArticlesListToDiscordWebhook(articles.Concat(deletedArticles).OrderBy(entry => entry.Article.ShareTime));
+            // WL-Changes-end
         }
     }
 
-    private async void SendArticlesListToDiscordWebhook(IOrderedEnumerable<NewsArticle> articles, bool deleted = false) // WL-Changes: send deleted news // added bool deleted
+    private async void SendArticlesListToDiscordWebhook(IOrderedEnumerable<(NewsArticle Article, bool Deleted)> articles) // WL-Changes: send deleted news // added bool deleted
     {
-        foreach (var article in articles)
+        foreach (var (article, deleted) in articles) // WL-Changes: send deleted news // added deleted
         {
             await Task.Delay(TimeSpan.FromSeconds(1)); // TODO: proper discord rate limit handling
             await SendArticleToDiscordWebhook(article, deleted); // WL-Changes: send deleted news // added deleted

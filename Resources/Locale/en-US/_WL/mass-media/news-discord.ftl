@@ -1,1 +1,1 @@
-news-discord-deleted = [DELETED IN ROUND]
+news-discord-deleted = [DELETED DURING THE ROUND]
