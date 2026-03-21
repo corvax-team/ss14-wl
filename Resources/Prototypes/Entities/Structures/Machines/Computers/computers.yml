@@ -682,7 +682,7 @@
   - type: UserInterface
     interfaces:
       enum.CommunicationsConsoleUiKey.Key:
-        type: WLCommunicationsConsoleBoundUserInterface
+        type: WLCommunicationsConsoleBoundUserInterface # Corvax-WL
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Computer

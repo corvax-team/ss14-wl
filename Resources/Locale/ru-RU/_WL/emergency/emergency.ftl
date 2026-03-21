@@ -1,4 +1,4 @@
-emergency-level-announcement = ВНИМАНИЕ! Режим чрезвычайной ситуации. Причина: { $name }! { $announcement }
+emergency-level-announcement = ВНИМАНИЕ! Режим чрезвычайной ситуации. Причина { $name }! { $announcement }
 
 emergency-no-emergency = Нет ЧС
 emergency-no-emergency-universal-announcement = ВНИМАНИЕ! Режим чрезвычайной ситуации на станции отменён. { $announcement }
@@ -7,7 +7,7 @@ emergency-no-emergency-announcement = Угроза ликвидирована. �
 emergency-revolution = мятеж на объекте
 emergency-revolution-announcement = Службе безопасности мобилизовать лояльных сотрудников, обеспечить сохранность диска ядерной авторизации. Экипажу сохранять лояльность Nanotrasen, сообщать о подозрительных лицах. Эвакуация: по приказу капитана. Сохраняйте спокойствие.
 
-emergency-critical-depressurization = Критическое поврежение станции
+emergency-critical-depressurization = Критическое повреждение станции
 emergency-critical-depressurization-announcement = Инженерному отделу организовать выдачу аварийных скафандров и обеспечить безопасный маршрут эвакуации. Экипажу следовать к точкам сбора, приготовиться к эвакуации. Эвакуация: одобрена. Сохраняйте спокойствие.
 
 emergency-biological-hazard = Биологическая опасность 

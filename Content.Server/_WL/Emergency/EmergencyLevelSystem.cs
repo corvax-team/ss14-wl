@@ -1,4 +1,4 @@
-using Content.Server._WL.Emergency.Commponents;
+using Content.Server._WL.Emergency.Components;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
@@ -54,15 +54,15 @@ public sealed class EmergencyLevelSystem : EntitySystem
         if (!TryComp<EmergencyLevelComponent>(arg.Station, out var emergencyLevelComponent))
             return;
 
-        if (!_proto.TryIndex(emergencyLevelComponent.EmengercyList, out var emengercyList))
+        if (!_proto.TryIndex(emergencyLevelComponent.emergencyList, out var emergencyList))
             return;
 
-        emergencyLevelComponent.Emengercys = emengercyList;
+        emergencyLevelComponent.Emergencies = emergencyList;
 
-        var defaultLevel = emergencyLevelComponent.Emengercys.DefaultEmergency;
+        var defaultLevel = emergencyLevelComponent.Emergencies.DefaultEmergency;
 
         if (string.IsNullOrEmpty(defaultLevel))
-            defaultLevel = emergencyLevelComponent.Emengercys.Emergencys.First();
+            defaultLevel = emergencyLevelComponent.Emergencies.Emergencys.First();
 
         SetEmergency(arg.Station, defaultLevel, true);
 
@@ -82,11 +82,11 @@ public sealed class EmergencyLevelSystem : EntitySystem
         MetaDataComponent? dataComponent = null, EmergencyLevelComponent? component = null)
     {
         if (!Resolve(station, ref dataComponent, ref component)
-            || component.CurrentEmengercy == emergency
+            || component.CurrentEmergency == emergency
             || !_proto.TryIndex<EmergencyPrototype>(emergency, out var prototype))
             return;
 
-        component.CurrentEmengercy = emergency;
+        component.CurrentEmergency = emergency;
 
         var stationName = dataComponent.EntityName;
 
@@ -98,6 +98,7 @@ public sealed class EmergencyLevelSystem : EntitySystem
         var name = Loc.GetString(prototype.Name);
 
         var announcementFull = string.Empty;
+
         if (!string.IsNullOrEmpty(prototype.UniqueStartAnnouncement))
             announcementFull = Loc.GetString(
                 prototype.UniqueStartAnnouncement, ("announcement", announcement));

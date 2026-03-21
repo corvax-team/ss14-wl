@@ -1,5 +1,5 @@
 // WL-Changes-start
-using Content.Server._WL.Emergency.Commponents;
+using Content.Server._WL.Emergency.Components;
 using Content.Server._WL.Emergency;
 // WL-Changes-end
 using Content.Server.Administration.Logs;
@@ -168,7 +168,7 @@ namespace Content.Server.Communications
                     alertComp.AlertLevels != null &&
                 // WL-Changes-Start
                     TryComp(stationUid.Value, out EmergencyLevelComponent? emergencyComp)
-                        && emergencyComp.Emengercys != null)
+                        && emergencyComp.Emergencies != null)
                 // WL-Changes-End
                 {
                     if (alertComp.IsSelectable)
@@ -189,7 +189,7 @@ namespace Content.Server.Communications
                     //WL-Changes-start
 
                     emergencys = new();
-                    foreach (var protoId in emergencyComp.Emengercys.Emergencys)
+                    foreach (var protoId in emergencyComp.Emergencies.Emergencys)
                     {
                         if (_prototypeManager.TryIndex(protoId, out var prototype))
                             emergencys.Add(prototype.ID);
@@ -201,7 +201,7 @@ namespace Content.Server.Communications
                     currentLevel = alertComp.CurrentLevel;
                     currentDelay = _alertLevelSystem.GetAlertLevelDelay(stationUid.Value, alertComp);
                     //WL-Changes-start
-                    currentEmergency = emergencyComp.CurrentEmengercy;
+                    currentEmergency = emergencyComp.CurrentEmergency;
                     currentEmergencyDelay = _emergencySystem.GetEmergencyDelay(stationUid.Value, emergencyComp);
                     //WL-Changes-End
                 }

@@ -5,7 +5,7 @@
     - NoEmergency
     - Revolution
     - CriticalDepressurization
-    - BiologicalHhazard
+    - BiologicalHazard
     - War
     - Lose
     - Revenant
@@ -30,7 +30,7 @@
   announcement: emergency-critical-depressurization-announcement
 
 - type: emergency
-  id: BiologicalHhazard
+  id: BiologicalHazard
   name: emergency-biological-hazard
   announcement: emergency-biological-hazard-announcement
 

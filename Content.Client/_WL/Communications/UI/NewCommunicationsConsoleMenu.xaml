@@ -84,7 +84,8 @@
             <BoxContainer Orientation="Vertical"
                 HorizontalExpand="True"
                 VerticalExpand="True"
-                Margin="20 3 0 0">
+                Margin="20 3 0 0"
+                MinWidth="250">
 
                 <TextEdit Name="MessageInput"
                     VerticalExpand="True"

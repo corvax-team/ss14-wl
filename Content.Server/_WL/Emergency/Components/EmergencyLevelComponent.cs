@@ -4,19 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Content.Server._WL.Emergency.Commponents;
+namespace Content.Server._WL.Emergency.Components;
 
 [RegisterComponent]
 public sealed partial class EmergencyLevelComponent : Component
 {
     [DataField(required: true)]
-    public ProtoId<EmergencyListPrototype> EmengercyList;
+    public ProtoId<EmergencyListPrototype> emergencyList;
 
     [ViewVariables]
-    public EmergencyListPrototype? Emengercys;
+    public EmergencyListPrototype? Emergencies;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public string CurrentEmengercy = string.Empty;
+    public string CurrentEmergency = string.Empty;
 
     [ViewVariables]
     public float CurrentDelay = 0;

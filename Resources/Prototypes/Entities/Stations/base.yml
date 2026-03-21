@@ -142,7 +142,7 @@
     - type: AlertLevel
       alertLevelsListPrototype: stationAlerts # WL-Changes: Alert Level Rework
     - type: EmergencyLevel # Corvax-WL
-      emengercyList: stationEmergency
+      emergencyList: stationEmergency
 
 - type: entity
   id: BaseStationExpeditions
