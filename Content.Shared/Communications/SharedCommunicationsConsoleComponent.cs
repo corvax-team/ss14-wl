@@ -18,10 +18,13 @@ namespace Content.Shared.Communications
         public List<string>? AlertLevels;
         public string CurrentAlert;
         public float CurrentAlertDelay;
+        // WL-Changes-start
         public string CurrentEmergency;
         public List<string>? Emergencys;
+        public float CurrentEmergencyDelay; 
+        // WL-Changes-end
 
-        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, string currentEmergency, List<string> emergencys, TimeSpan? expectedCountdownEnd = null)
+        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, string currentEmergency, List<string>? emergencys, float currentEmergencyDelay, TimeSpan? expectedCountdownEnd = null) // WL-Changes
         {
             CanAnnounce = canAnnounce;
             CanCall = canCall;
@@ -30,8 +33,11 @@ namespace Content.Shared.Communications
             AlertLevels = alertLevels;
             CurrentAlert = currentAlert;
             CurrentAlertDelay = currentAlertDelay;
+            // WL-Changes-start
             CurrentEmergency = currentEmergency;
             Emergencys = emergencys;
+            CurrentEmergencyDelay = currentEmergencyDelay;
+            // WL-Changes-end
         }
     }
 
@@ -45,6 +51,19 @@ namespace Content.Shared.Communications
             Level = level;
         }
     }
+
+    // WL-Changes-start
+    [Serializable, NetSerializable]
+    public sealed class CommunicationsConsoleSelectEmergencyLevelMessage : BoundUserInterfaceMessage
+    {
+        public readonly string Emergency;
+
+        public CommunicationsConsoleSelectEmergencyLevelMessage(string emergency)
+        {
+            Emergency = emergency;
+        }
+    }
+    // WL-Changes-end
 
     [Serializable, NetSerializable]
     public sealed class CommunicationsConsoleAnnounceMessage : BoundUserInterfaceMessage

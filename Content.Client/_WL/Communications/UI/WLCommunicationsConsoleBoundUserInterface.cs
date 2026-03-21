@@ -27,7 +27,9 @@ namespace Content.Client._WL.Communications.UI
             _menu.OnAnnounce += AnnounceButtonPressed;
             _menu.OnBroadcast += BroadcastButtonPressed;
             _menu.OnAlertLevel += AlertLevelSelected;
-            _menu.OnEmergencyLevel += EmergencyShuttleButtonPressed;
+            _menu.OnEmergencyLevel += EmergencySelected;
+            _menu.OnEmergencyShuttle += EmergencyShuttleButtonPressed;
+
         }
 
         public void AlertLevelSelected(string level)
@@ -71,7 +73,11 @@ namespace Content.Client._WL.Communications.UI
 
         public void EmergencySelected(string emergency)
         {
-            _menu!.EmergencyButton
+            if (_menu!.EmergencySelectable)
+            {
+                _menu.CurrentEmergency = emergency;
+                SendMessage(new CommunicationsConsoleSelectEmergencyLevelMessage(emergency));
+            }
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -88,6 +94,7 @@ namespace Content.Client._WL.Communications.UI
                 _menu.CanCall = commsState.CanCall;
                 _menu.CountdownStarted = commsState.CountdownStarted;
                 _menu.AlertLevelSelectable = commsState.AlertLevels != null && !float.IsNaN(commsState.CurrentAlertDelay) && commsState.CurrentAlertDelay <= 0;
+                _menu.EmergencySelectable = commsState.Emergencys != null && !float.IsNaN(commsState.CurrentEmergencyDelay) && commsState.CurrentEmergencyDelay <= 0;
                 _menu.CurrentLevel = commsState.CurrentAlert;
                 _menu.CountdownEnd = commsState.ExpectedCountdownEnd;
                 _menu.CurrentEmergency = commsState.CurrentEmergency;
@@ -95,8 +102,9 @@ namespace Content.Client._WL.Communications.UI
                 _menu.UpdateAlertLevels(commsState.AlertLevels, _menu.CurrentLevel);
                 _menu.UpdateEmergency(commsState.Emergencys, _menu.CurrentEmergency);
                 _menu.AlertLevelButton.Disabled = !_menu.AlertLevelSelectable;
+                _menu.EmergencyButton.Disabled = !_menu.EmergencySelectable;
                 _menu.EmergencyShuttleButton.Disabled = !_menu.CanCall;
-                //_menu.AnnounceButton.Disabled = !_menu.CanAnnounce;
+                _menu.AnnounceButton.Disabled = !_menu.CanAnnounce;
                 _menu.BroadcastButton.Disabled = !_menu.CanBroadcast;
             }
         }

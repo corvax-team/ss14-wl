@@ -1,4 +1,4 @@
-using Content.Shared._WL.Communications.Prototype;
+using Content.Shared._WL.Emergency.Prototype;
 using Robust.Shared.Prototypes;
 using System;
 using System.Collections.Generic;
@@ -17,4 +17,10 @@ public sealed partial class EmergencyLevelComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)]
     public string CurrentEmengercy = string.Empty;
+
+    [ViewVariables]
+    public float CurrentDelay = 0;
+
+    [ViewVariables]
+    public bool ActiveDelay;
 }

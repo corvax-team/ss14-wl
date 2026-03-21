@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._WL.Communications.Prototype;
+namespace Content.Shared._WL.Emergency.Prototype;
 
 [Prototype("emergencyList")]
 public partial class EmergencyListPrototype : IPrototype
@@ -25,11 +25,20 @@ public partial class EmergencyPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     [DataField]
-    public string? Name { get; private set; }
+    public string Name { get; private set; } = "Unknown";
 
     [DataField]
     public string Announcement { get; private set; } = string.Empty;
 
     [DataField]
-    public SoundSpecifier? Sound { get; private set; } = new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg");
+    public string UniqueStartAnnouncement { get; private set; } = string.Empty;
+
+    [DataField]
+    public SoundSpecifier Sound { get; private set; } = new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg");
+
+    [DataField("soundAnnouncment")]
+    public bool IsSoundAnnouncment { get; private set; } = true;
+
+    [DataField]
+    public Color Color { get; private set; } = Color.Red;
 }

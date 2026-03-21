@@ -6,10 +6,18 @@
     - Revolution
     - CriticalDepressurization
     - BiologicalHhazard
+    - War
+    - Lose
+    - Revenant
+    - Dragon
 
 - type: emergency
   id: NoEmergency
-  name: no emergency
+  name: emergency-no-emergency
+  uniqueStartAnnouncement: emergency-no-emergency-universal-announcement
+  announcement: emergency-no-emergency-announcement
+  soundAnnouncment: false
+  color: Green
 
 - type: emergency
   id: Revolution
@@ -25,3 +33,23 @@
   id: BiologicalHhazard
   name: emergency-biological-hazard
   announcement: emergency-biological-hazard-announcement
+
+- type: emergency
+  id: War
+  name: emergency-war
+  announcement: emergency-war-announcement
+
+- type: emergency
+  id: Lose
+  name: emergency-lose
+  announcement: emergency-lose-announcement
+
+- type: emergency
+  id: Revenant
+  name: emergency-revenant
+  announcement: emergency-revenant-announcement
+
+- type: emergency
+  id: Dragon
+  name: emergency-dragon
+  announcement: emergency-dragon-announcement
