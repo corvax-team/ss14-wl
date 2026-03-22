@@ -5,8 +5,7 @@
   mapPath: /Maps/_WL/wl_bagel.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 5
-  maxPlayers: 30
+  minPlayers: 25
   stations:
     CorvaxBagel:
       stationProto: StandardNanotrasenStation
