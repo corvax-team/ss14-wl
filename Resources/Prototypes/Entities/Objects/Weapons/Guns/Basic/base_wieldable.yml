@@ -11,4 +11,18 @@
   - type: Gun
     minAngle: 21
     maxAngle: 32
-  - type: GunStandingRequired # WL-Changes: CombatStandSystem (из двуручного оружия нельзя стрелять лёжа) 
+  #WL-Changes start
+  - type: GunStandingRequired
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    damage:
+      types:
+        Blunt: 8
+    angle: 45
+    animation: WeaponArcThrust
+    soundHit:
+      collection: MetalThud
+  - type: MeleeRequiresWield
+  - type: AltFireMelee
+    attackType: Heavy
+  #WL-Changes end

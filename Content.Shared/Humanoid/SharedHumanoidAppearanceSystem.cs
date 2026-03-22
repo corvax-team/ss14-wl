@@ -60,8 +60,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     };
     // Corvax-TTS-End
     // WL-Height-Start
-    public const float MaxHeightScale = 1.1f;
-    public const float MinHeightScale = 0.9f;
+    public const float MaxHeightScale = 100f;
+    public const float MinHeightScale = 0.1f;
     // WL-Height-End
 
     public override void Initialize()
@@ -582,7 +582,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public void ApplyHeight(HumanoidAppearanceComponent humanoid)
     {
         EnsureComp<ScaleVisualsComponent>(humanoid.Owner);
-        var scale = MinHeightScale + (humanoid.Height - 130) * (MaxHeightScale - MinHeightScale) / (200 - 130);
+        var scale = System.Math.Min(System.Math.Max(humanoid.Height / 165f, MinHeightScale), MaxHeightScale);
         _appearance.SetData(humanoid.Owner, ScaleVisuals.Scale, new Vector2(scale));
     }
     // WL-Height-End
