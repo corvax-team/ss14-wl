@@ -112,9 +112,7 @@ namespace Content.IntegrationTests.Tests
             "CorvaxWLPrairie",
             "CorvaxWLRenga",
             "CorvaxWLRest",
-            "CorvaxWLStraumur",
             "CorvaxWLBagel",
-            "CorvaxWLMarathon",
             // WL-End
             "Dev",
             "TestTeg",
