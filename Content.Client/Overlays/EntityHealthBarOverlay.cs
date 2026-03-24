@@ -1,4 +1,4 @@
-using System.Numerics;
+using Content.Client._WL.Overlays;
 using Content.Client.StatusIcon;
 using Content.Client.UserInterface.Systems;
 using Content.Shared.Damage.Components;
@@ -12,6 +12,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
+using System.Numerics;
 using static Robust.Shared.Maths.Color;
 
 namespace Content.Client.Overlays;
@@ -30,7 +31,7 @@ public sealed class EntityHealthBarOverlay : Overlay
     private readonly StatusIconSystem _statusIconSystem;
     private readonly SpriteSystem _spriteSystem;
     private readonly ProgressColorSystem _progressColor;
-
+    private readonly IgnoreGlobalOverlaysSystem _ignore; //Corvax-WL-Changes
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
     public HashSet<string> DamageContainers = new();
@@ -46,7 +47,15 @@ public sealed class EntityHealthBarOverlay : Overlay
         _statusIconSystem = _entManager.System<StatusIconSystem>();
         _spriteSystem = _entManager.System<SpriteSystem>();
         _progressColor = _entManager.System<ProgressColorSystem>();
+        _ignore = _entManager.System<IgnoreGlobalOverlaysSystem>(); //Corvax-WL-Changes
     }
+
+    //Corvax-WL-Changes-start
+    protected override bool BeforeDraw(in OverlayDrawArgs args)
+    {
+        return !_ignore.CheckIgnore(args.Viewport.Eye);
+    }
+    //Corvax-WL-Changes-end
 
     protected override void Draw(in OverlayDrawArgs args)
     {

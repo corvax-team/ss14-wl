@@ -1,11 +1,14 @@
 using Content.Client._WL.Photo.UI;
 using Content.Shared._WL.Photo;
+using Robust.Client.Graphics;
+using Robust.Shared.Graphics;
 
 namespace Content.Client._WL.Photo;
 
 public sealed partial class PhotoSystem : SharedPhotoSystem
 {
     public Dictionary<PhotoCameraComponent, PhotoCameraBoundUserInterface> ActiveCameras = new();
+    public Dictionary<IEye, EntityUid> ActiveEyes = new();
 
     public override void Initialize()
     {
@@ -22,19 +25,21 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         }
     }
 
-    public void OpenCameraUi(PhotoCameraComponent component, PhotoCameraBoundUserInterface window)
-    {
-        if (ActiveCameras.ContainsKey(component))
-            return;
-
-        ActiveCameras.Add(component, window);
-    }
-
-    public void CloseCameraUi(PhotoCameraComponent component)
+    public void OpenCameraUi(EntityUid? uid, PhotoCameraComponent component, PhotoCameraBoundUserInterface window)
     {
         if (!ActiveCameras.ContainsKey(component))
-            return;
+            ActiveCameras.Add(component, window);
 
-        ActiveCameras.Remove(component);
+        if (EntityManager.TryGetComponent<EyeComponent>(uid, out var eye) && !ActiveEyes.ContainsKey(eye.Eye))
+            ActiveEyes.Add(eye.Eye, uid.Value);
+    }
+
+    public void CloseCameraUi(EntityUid? uid, PhotoCameraComponent component)
+    {
+        if (ActiveCameras.ContainsKey(component))
+            ActiveCameras.Remove(component);
+
+        if (EntityManager.TryGetComponent<EyeComponent>(uid, out var eye) && ActiveEyes.ContainsKey(eye.Eye))
+            ActiveEyes.Remove(eye.Eye);
     }
 }

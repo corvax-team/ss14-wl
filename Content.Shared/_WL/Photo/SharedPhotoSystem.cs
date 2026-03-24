@@ -1,9 +1,12 @@
+using Content.Shared._WL.Photo.Filters;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Materials;
 using Content.Shared.Movement.Events;
 using Content.Shared.Shuttles.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Shared._WL.Photo;
 
@@ -12,12 +15,15 @@ public abstract partial class SharedPhotoSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedMaterialStorageSystem _material = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<PhotoCameraComponent, ExaminedEvent>(OnCameraExamined);
+
+        SubscribeLocalEvent<PhotoCameraComponent, ItemSlotInsertAttemptEvent>(OnFilterInsertAttempt);
 
         SubscribeLocalEvent<PhotoCameraUserComponent, UpdateCanMoveEvent>(HandleMovementBlock);
         SubscribeLocalEvent<PhotoCameraUserComponent, ComponentStartup>(OnStartup);
@@ -50,5 +56,14 @@ public abstract partial class SharedPhotoSystem : EntitySystem
         string message = Loc.GetString("photo-camera-examined-paper-left", ("count", paperLeft));
 
         args.PushMarkup(message);
+    }
+
+    private void OnFilterInsertAttempt(EntityUid uid, PhotoCameraComponent component, ItemSlotInsertAttemptEvent args)
+    {
+        if (args.Slot.ID != component.FilterSlot)
+            return;
+
+        if (!HasComp<PhotoCameraFilterComponent>(args.Item))
+            args.Cancelled = true;
     }
 }

@@ -2,12 +2,14 @@ using Content.Server.Hands.Systems;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Shared._WL.Photo;
+using Content.Shared._WL.Photo.Filters;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Materials;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Containers;
 
 namespace Content.Server._WL.Photo;
 
@@ -39,6 +41,8 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         SubscribeLocalEvent<PhotoCameraComponent, DroppedEvent>(OnCameraDropped);
 
         SubscribeLocalEvent<PhotoCardComponent, AfterActivatableUIOpenEvent>(OnOpenCardInterface);
+        SubscribeLocalEvent<PhotoCameraComponent, EntInsertedIntoContainerMessage>(OnFilterInserted);
+        SubscribeLocalEvent<PhotoCameraComponent, EntRemovedFromContainerMessage>(OnFilterRemoved);
     }
 
     private void OnOpenCameraInterfaceAttempt(EntityUid uid, PhotoCameraComponent component, ActivatableUIOpenAttemptEvent args)
@@ -149,6 +153,22 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         if (data.Length < 8) return false;
         return data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47 &&
                 data[4] == 0x0D && data[5] == 0x0A && data[6] == 0x1A && data[7] == 0x0A;
+    }
+
+    private void OnFilterInserted(EntityUid uid, PhotoCameraComponent component, EntInsertedIntoContainerMessage args)
+    {
+        if (!TryComp<PhotoCameraFilterComponent>(args.Entity, out var filter))
+            return;
+
+        EntityManager.AddComponents(uid, filter.FilterComponents);
+    }
+
+    private void OnFilterRemoved(EntityUid uid, PhotoCameraComponent component, EntRemovedFromContainerMessage args)
+    {
+        if (!TryComp<PhotoCameraFilterComponent>(args.Entity, out var filter))
+            return;
+
+        EntityManager.RemoveComponents(uid, filter.FilterComponents);
     }
 
     // Photo Card

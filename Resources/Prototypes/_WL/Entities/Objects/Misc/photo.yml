@@ -9,6 +9,7 @@
     layers:
     - state: camera
   - type: Eye
+  - type: IgnoreGlobalOverlays
   - type: PhotoCamera
   - type: UseDelay
   - type: ActivatableUI
@@ -21,6 +22,10 @@
     whitelist:
       tags:
         - Paper
+  - type: ItemSlots
+    slots:
+      filter:
+        name: photo-camera-filter-slot
 
 - type: entity
   name: "photo"
@@ -41,3 +46,57 @@
         type: PhotoCardBoundUserInterface
   - type: PhotoCard
   - type: FaxableObject
+
+- type: entity
+  name: 'vintage filter'
+  parent: BaseItem
+  id: PhotoFilterMonochrome
+  description: "Paper with printed image on it."
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/camera.rsi
+    layers:
+    - state: filter
+    - state: filter-gray
+    - state: filter-top
+      color: "#a0da4b"
+  - type: PhotoCameraFilter
+    filterComponents:
+      - type: PhotoShaderFilter
+        shader: CameraMonochrome 
+
+- type: entity
+  name: 'burned filter'
+  parent: BaseItem
+  id: PhotoFilterGhost
+  description: "Paper with printed image on it."
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/camera.rsi
+    layers:
+    - state: filter
+    - state: filter-ghost
+    - state: filter-top
+      color: "#e53c54"
+  - type: PhotoCameraFilter
+    filterComponents:
+      - type: PhotoGhostFilter
+        visual: _WL/Objects/Misc/camera.rsi/Filters/ghost.png
+
+- type: entity
+  name: 'cat filter'
+  parent: BaseItem
+  id: PhotoFilterCatEars
+  description: "Paper with printed image on it."
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/camera.rsi
+    layers:
+    - state: filter
+    - state: filter-smart
+    - state: filter-top
+      color: "#d751cc"
+  - type: PhotoCameraFilter
+    filterComponents:
+      - type: PhotoFaceFilter
+        visual: _WL/Objects/Misc/camera.rsi/Filters/cat.png

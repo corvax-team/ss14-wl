@@ -27,7 +27,7 @@
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
           
             <!--Viewport Window-->
-            <Control MinWidth="236" MinHeight="236" Margin="22 44 0 0" Name="CameraViewBox">
+            <Control MinWidth="240" MinHeight="240" Margin="19.5 40 0 0" Name="CameraViewBox">
                 <viewport:ScalingViewport Name="CameraView"
                                           VerticalExpand="True"
                                           HorizontalExpand="True"
