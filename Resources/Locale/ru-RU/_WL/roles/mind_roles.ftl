@@ -1,1 +1,0 @@
-ent-MindRoleConspirator = Роль Заговорщика

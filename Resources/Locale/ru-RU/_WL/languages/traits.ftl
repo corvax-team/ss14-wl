@@ -9,7 +9,7 @@ trait-language-oldearth-desc = Человеческий язык. Крайне �
 trait-language-sinta = Синта'Унати
 trait-language-sinta-desc = Наиболее популярный язык среди унатхов.
 
-trait-language-vulpa = Канилуц
+trait-language-vulpa = Канилунц
 trait-language-vulpa-desc = Наиболее популярный язык среди вульпканинов.
 
 trait-language-urhs = Урсахский
@@ -23,3 +23,6 @@ trait-language-bottom-desc = Упрощённая версия транслит�
 
 trait-language-wingdings = Общегалактический жестовый
 trait-language-wingdings-desc = Популярный жестовый язык. Позволяет говорить в вакууме.
+
+trait-language-yangyu = Янгуй
+trait-language-yangyu-desc = Язык, сочетающий в себе элементы китайского, японского и корейского языков.

@@ -8,9 +8,10 @@
   markingLimits: MobAkulaMarkingLimits
   dollPrototype: MobAkulaDummy
   skinColoration: Hues
-  maleFirstNames: NamesReptilianMale
-  femaleFirstNames: NamesReptilianFemale
-  naming: FirstDashFirst
+  maleFirstNames: NamesSarengFirst
+  femaleFirstNames: NamesSarengFirst
+  maleLastNames: NamesSarengLast
+  femaleLastNames: NamesSarengLast
   minHeight: 170
   maxHeight: 220
 

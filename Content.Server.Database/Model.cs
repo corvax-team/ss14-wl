@@ -464,6 +464,10 @@ namespace Content.Server.Database
         public string MedicalRecord { get; set; } = null!; // WL-Records
         public string SecurityRecord { get; set; } = null!; // WL-Records
         public string EmploymentRecord { get; set; } = null!; // WL-Records
+        public string FullName { get; set; } = null!; // WL-Records
+        public string DateOfBirth { get; set; } = null!; // WL-Records
+        public string Confederation { get; set; } = null!; // WL-Records
+        public string Country { get; set; } = null!; // WL-Records
         public int Age { get; set; }
         public int Height { get; set; } // WL-Height
         public string Sex { get; set; } = null!;

@@ -105,6 +105,8 @@ namespace Content.IntegrationTests.Tests
 			"CorvaxWLPaper",
             "CorvaxWLAlpha",
 			"CorvaxWLMaus",
+            "CorvaxWLStraumur",
+            "CorvaxWLMarathon",
             "CorvaxWLKolter",
             "CorvaxWLNanoStation",
             "CorvaxWLPrairie",

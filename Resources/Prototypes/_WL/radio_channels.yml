@@ -5,11 +5,3 @@
   frequency: 4944
   color: "#cc7722"
   longRange: true
-
-- type: radioChannel
-  id: Conspiracy
-  name: chat-radio-conspiracy
-  keycode: 'з'
-  frequency: 1174
-  color: "#724F29"
-  longRange: true

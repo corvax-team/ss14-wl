@@ -40,8 +40,10 @@ ent-VisitorEngineerSpawner = посетитель инженер спавнер
     .desc = { ent-MarkerBase.desc }
 ent-VisitingMedicalSpawner = посетитель медицинский спавнер
     .desc = { ent-MarkerBase.desc }
-ent-VisitorChemistSpawner = посетитель химик спавнер
+# WL-change-rename-start
+ent-VisitorChemistSpawner = посетитель фармацевт спавнер
     .desc = { ent-MarkerBase.desc }
+# WL-change-rename-end
 ent-VisitorMedicalInternSpawner = посетитель интерн спавнер
     .desc = { ent-MarkerBase.desc }
 ent-VisitorMedicalDoctorSpawner = посетитель врач спавнер

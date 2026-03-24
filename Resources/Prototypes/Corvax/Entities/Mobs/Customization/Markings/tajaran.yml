@@ -388,7 +388,7 @@
   id: TajaranOutears
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_head.rsi
@@ -438,7 +438,7 @@
   id: TajaranInears
   markingCategory: HeadTop
   bodyPart: HeadTop
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_head.rsi
@@ -478,7 +478,7 @@
   id: TajaranMuzzleinears
   markingCategory: Snout
   bodyPart: Snout
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_head.rsi
@@ -488,7 +488,7 @@
   id: TajaranTailFluffy
   markingCategory: Tail
   bodyPart: Tail
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -548,7 +548,7 @@
   id: TajaranTailRing
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -560,7 +560,7 @@
   id: TajaranTailSkeleton
   markingCategory: Tail
   bodyPart: Tail
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -572,7 +572,7 @@
   id: TajaranTailTip
   markingCategory: Tail
   bodyPart: Tail
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -584,7 +584,7 @@
   id: TajaranTailFluffySkeleton
   markingCategory: Tail
   bodyPart: Tail
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -597,7 +597,7 @@
   id: TajaranTailWingler1
   markingCategory: Tail
   bodyPart: Tail
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -609,7 +609,7 @@
   id: TajaranTailWingler2
   markingCategory: Tail
   bodyPart: Tail
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -621,7 +621,7 @@
   id: TajaranTailWingler3
   markingCategory: Tail
   bodyPart: Tail
-  speciesRestriction: [Tajaran, Felinid, Android]
+  speciesRestriction: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi

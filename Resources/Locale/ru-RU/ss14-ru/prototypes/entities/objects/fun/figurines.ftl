@@ -46,8 +46,10 @@ ent-ToyFigurineScientist = фигурка учёного
     .desc = Фигурка, изображающая учёного в лабораторном халате.
 ent-ToyFigurineChiefMedicalOfficer = фигурка главного врача
     .desc = Фигурка, изображающая прославленного главу медицинского отдела.
-ent-ToyFigurineChemist = фигурка химика
-    .desc = Фигурка, изображающая химика, который, по всей видимости, собирается приготовить метамфетамин.
+# WL-Changes: Rename start
+ent-ToyFigurineChemist = фигурка фармацевта
+    .desc = Фигурка, изображающая фармацевта, который, по всей видимости, собирается приготовить метамфетамин.
+# WL-Changes: Rename end
 ent-ToyFigurineParamedic = фигурка парамедика
     .desc = Фигурка, изображающая парамедика в пустотном скафандре.
 ent-ToyFigurineMedicalDoctor = фигурка врача

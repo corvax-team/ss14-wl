@@ -17,7 +17,7 @@
            !type:NanotrasenNameGenerator
             prefixCreator: "VIS"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_prairie.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/wl_prairie_evac.yml
         - type: StationBiome
           biome: LowDesert
           mapLightColor: "#FFA161FF"

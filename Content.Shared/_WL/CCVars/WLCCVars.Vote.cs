@@ -25,4 +25,10 @@ public sealed partial class WLCVars
     /// </summary>
     public static readonly CVarDef<int> VoteShuttleTimer =
         CVarDef.Create("vote.evacuation_shuttle_vote_time", 40, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Задержка между голосованиями за шаттл.
+    /// </summary>
+    public static readonly CVarDef<float> VoteShuttleTimeout =
+        CVarDef.Create("vote.evacuation_shuttle_vote_timeout", 1800f, CVar.SERVERONLY);
 }

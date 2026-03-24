@@ -76,6 +76,7 @@ namespace Content.Server.Voting.Managers
                     break;
                 // WL-Changes-start
                 case StandardVoteType.EvacuationShuttle:
+                    timeoutVote = false; // Allows the timeout to be updated manually in the create method
                     CreateVoteShuttleEvac(initiator);
                     break;
                 // WL-Changes-end
@@ -122,6 +123,8 @@ namespace Content.Server.Voting.Managers
             WirePresetVoteInitiator(options, initiator);
 
             var vote = CreateVote(options);
+
+            TimeoutStandardVote(StandardVoteType.EvacuationShuttle, TimeSpan.FromSeconds(_cfg.GetCVar(WLCVars.VoteShuttleTimeout)));
 
             vote.OnFinished += (_, args) =>
             {

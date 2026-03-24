@@ -129,3 +129,50 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: urhs
+
+- type: language
+  id: Yangyu
+  name: language-yangyu
+  description: language-yangyu-desc
+  color: '#ff8000'
+  keylang: 'г'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+      replacement:
+      - sh
+      - ju
+      - ij
+      - e
+      - y
+      - k
+      - y
+      - d
+      - wa
+      - ts
+      - shi
+      - ō
+      - u
+      - a
+      - s
+      - i
+      - z
+      - g
+      - jo
+      - en
+      - ido
+      - ai
+      - ta
+      - ni
+      - ik
+      - yu
+      - yo
+      - yi
+      - ng
+      - ch
+      - zh
+      - li
+      - ":"
+      - " "
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: felinid

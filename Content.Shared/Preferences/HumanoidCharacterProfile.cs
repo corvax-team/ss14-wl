@@ -166,6 +166,11 @@ namespace Content.Shared.Preferences
             string medicalRecord, // WL-Records
             string securityRecord, // WL-Records
             string employmentRecord, // WL-Records
+            string fullName, // WL-Records
+            string dateOfBirth, // WL-Records
+            string confederation, // WL-Records
+            string country, // WL-Records
+
             Dictionary<string, Dictionary<byte, int>> skills // WL-Skills
             //WL-Changes-end
             )
@@ -195,6 +200,10 @@ namespace Content.Shared.Preferences
             MedicalRecord = medicalRecord; // WL-Records
             SecurityRecord = securityRecord; // WL-Records
             EmploymentRecord = employmentRecord; // WL-Records
+            FullName = fullName; // WL-Records
+            DateOfBirth = dateOfBirth; // WL-Records
+            Confederation = confederation; // WL-Records
+            Country = country;
             Skills = skills; // WL-Skills
             //WL-Changes-end
 
@@ -237,6 +246,10 @@ namespace Content.Shared.Preferences
                 other.MedicalRecord, // WL-Records
                 other.SecurityRecord, // WL-Records
                 other.EmploymentRecord, // WL-Records
+                other.FullName, // WL-Records
+                other.DateOfBirth, // WL-Records
+                other.Confederation, // WL-Records
+                other.Country, // WL-Records
                 other.Skills) // WL-Skills
         {
         }
@@ -342,6 +355,14 @@ namespace Content.Shared.Preferences
 
         [DataField]
         public string EmploymentRecord { get; set; } = string.Empty;
+        [DataField]
+        public string FullName { get; set; } = string.Empty;
+        [DataField]
+        public string DateOfBirth { get; set; } = string.Empty;
+        [DataField]
+        public string Confederation { get; set; } = string.Empty;
+        [DataField]
+        public string Country { get; set; } = string.Empty;
 
         [DataField("height")] public int Height { get; private set; } = 165; // WL-Height
         public IReadOnlyDictionary<string, string> JobSubnames => _jobSubnames; //WL-changes
@@ -381,6 +402,22 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithEmploymentRecord(string record)
         {
             return new(this) { EmploymentRecord = record };
+        }
+        public HumanoidCharacterProfile WithFullName(string fullName)
+        {
+            return new(this) { FullName = fullName };
+        }
+        public HumanoidCharacterProfile WithDateOfBirth(string dateOfBirth)
+        {
+            return new(this) { DateOfBirth = dateOfBirth };
+        }
+        public HumanoidCharacterProfile WithConfederation(string confederation)
+        {
+            return new(this) { Confederation = confederation };
+        }
+        public HumanoidCharacterProfile WithCountry(string country)
+        {
+            return new(this) { Country = country };
         }
         // WL-Records-End
 
@@ -629,10 +666,16 @@ namespace Content.Shared.Preferences
             if (Height != other.Height) return false; // WL-Height
             if (OocText != other.OocText) return false; // WL-OocText
             if (Sex != other.Sex) return false;
-            if (FlavorText != other.FlavorText) return false; // WL-Changes
-            if (MedicalRecord != other.MedicalRecord) return false; // WL-Records
-            if (SecurityRecord != other.SecurityRecord) return false; // WL-Records
-            if (EmploymentRecord != other.EmploymentRecord) return false; // WL-Records
+            // WL-Changes-start
+            if (FlavorText != other.FlavorText) return false; 
+            if (MedicalRecord != other.MedicalRecord) return false;
+            if (SecurityRecord != other.SecurityRecord) return false;
+            if (EmploymentRecord != other.EmploymentRecord) return false;
+            if (FullName != other.FullName) return false;
+            if (DateOfBirth != other.DateOfBirth) return false;
+            if (Confederation != other.Confederation) return false;
+            if (Country != other.Country) return false;
+            // WL-Changes-end
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
@@ -765,6 +808,10 @@ namespace Content.Shared.Preferences
             var employmentRecord = EmploymentRecord.Length > MaxRecordLength
                 ? FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord)[..MaxRecordLength]
                 : FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord);
+            var fullName = FullName;
+            var dateOfBirth = DateOfBirth;
+            var confederation = Confederation;
+            var country = Country;
             // WL-Records-End
 
             var prefsUnavailableMode = PreferenceUnavailable switch
@@ -858,6 +905,10 @@ namespace Content.Shared.Preferences
             MedicalRecord = medicalRecord; // WL-Records
             SecurityRecord = securityRecord; // WL-Records
             EmploymentRecord = employmentRecord; // WL-Records
+            FullName = fullName; // WL-Records
+            DateOfBirth = dateOfBirth; // WL-Records
+            Confederation = confederation; // WL-Records
+            Country = country; // WL-Records
             Age = age;
             Height = height; // WL-Height
             Sex = sex;
@@ -1009,6 +1060,10 @@ namespace Content.Shared.Preferences
             hashCode.Add(MedicalRecord);
             hashCode.Add(SecurityRecord);
             hashCode.Add(EmploymentRecord);
+            hashCode.Add(FullName);
+            hashCode.Add(DateOfBirth);
+            hashCode.Add(Confederation);
+            hashCode.Add(Country);
             unchecked
             {
                 var skillsHash = 0;

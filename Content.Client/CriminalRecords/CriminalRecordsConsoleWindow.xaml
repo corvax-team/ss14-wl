@@ -62,7 +62,7 @@
                                    StyleClasses="LabelBig" />
                             <BoxContainer Orientation="Horizontal"
                                           Margin="0 0 0 5">
-                                <Label Text="{Loc 'crew-monitoring-user-interface-job'}"
+                                <Label Text="{Loc 'crew-monitoring-ui-job-label'}"
                                        FontColorOverride="DarkGray" />
                                 <TextureRect Name="PersonJobIcon"
                                              TextureScale="2 2"
@@ -115,11 +115,12 @@
                      <BoxContainer Orientation="Vertical"
                                    VerticalExpand="True"
                                    HorizontalExpand="True">
-                         <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+                         <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
                          <RichTextLabel Name="SecurityRecord"
                                         Margin="5"
                                         HorizontalExpand="True"/>
                          </ScrollContainer>
+                         <Button Name="PrintButton" Text="{Loc 'records-print-button'}" MinWidth="200"/>
                      </BoxContainer>
                 </TabContainer>
                 <!-- WL-Records-Edit-End -->

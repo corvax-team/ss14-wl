@@ -1,5 +1,14 @@
-ent-RadioImplanterConspiracy = заговорческий радио-имплантер
-    .desc = { ent-BaseImplantOnlyImplanter.desc }
+ent-EnvelopeValentineBase = валентинка
+    .desc = Прекрасная валентинка с удивительно вместительным кармашком для подарка.
 
-ent-RadioImplantConspiracy = заговорческий радио-имплант
-    .desc = Даёт доступ к радио-каналу заговорщиков.
+ent-EnvelopeValentineRed = красная валентинка
+    .desc = { ent-EnvelopeValentineBase.desc }
+
+ent-EnvelopeValentineYellow = жёлтая валентинка
+    .desc = { ent-EnvelopeValentineBase.desc }
+
+ent-EnvelopeValentinePink = розовая валентинка
+    .desc = { ent-EnvelopeValentineBase.desc }
+
+ent-EnvelopeValentineRedSingulo = подозрительная валентинка
+    .desc = Выглядит подозрительно...

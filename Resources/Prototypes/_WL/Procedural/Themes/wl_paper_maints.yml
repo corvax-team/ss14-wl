@@ -57,8 +57,76 @@
   tags:
   - MaintsCMOPaper
 
+- type: dungeonRoom
+  id: MaintsPaperHopA
+  size: 5,7
+  atlas: /Maps/_WL/Dungeon/wl_paper_hop_maints.yml
+  offset: 1,1
+  tags:
+  - MaintsHOPPaper
+
+- type: dungeonRoom
+  id: MaintsPaperHopB
+  size: 5,7
+  atlas: /Maps/_WL/Dungeon/wl_paper_hop_maints.yml
+  offset: 7,1
+  tags:
+  - MaintsHOPPaper
+
+- type: dungeonRoom
+  id: MaintsPaperHopC
+  size: 5,7
+  atlas: /Maps/_WL/Dungeon/wl_paper_hop_maints.yml
+  offset: 13,1
+  tags:
+  - MaintsHOPPaper
 
 
+- type: dungeonRoom
+  id: MaintsPaperContraA
+  size: 3,7
+  atlas: /Maps/_WL/Dungeon/wl_paper_contraband.yml
+  offset: 1,1
+  tags:
+  - MaintsCONTRAPaper
+
+- type: dungeonRoom
+  id: MaintsPaperContraB
+  size: 3,7
+  atlas: /Maps/_WL/Dungeon/wl_paper_contraband.yml
+  offset: 5,1
+  tags:
+  - MaintsCONTRAPaper
+
+- type: dungeonRoom
+  id: MaintsPaperContraC
+  size: 3,7
+  atlas: /Maps/_WL/Dungeon/wl_paper_contraband.yml
+  offset: 9,1
+  tags:
+  - MaintsCONTRAPaper
+
+- type: dungeonRoom
+  id: MaintsPaperPsychoA
+  size: 8,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_psycho.yml
+  offset: 1,1
+  tags:
+  - MaintsPSYCHOPaper
+- type: dungeonRoom
+  id: MaintsPaperPsychoB
+  size: 8,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_psycho.yml
+  offset: 10,1
+  tags:
+  - MaintsPSYCHOPaper
+- type: dungeonRoom
+  id: MaintsPaperPsychoC
+  size: 8,3
+  atlas: /Maps/_WL/Dungeon/wl_paper_psycho.yml
+  offset: 19,1
+  tags:
+  - MaintsPSYCHOPaper
 
 - type: entity
   parent: BaseRoomMarker
@@ -98,3 +166,42 @@
     roomWhitelist:
       tags:
       - MaintsCMOPaper
+
+- type: entity
+  parent: BaseRoomMarker
+  id: MaintsHOPPaperRoomMarker
+  name: Paper HOP maints
+  suffix: 5x7, Paper
+  components:
+  - type: RoomFill
+    minSize: 5,7
+    maxSize: 5,7
+    roomWhitelist:
+      tags:
+      - MaintsHOPPaper
+
+- type: entity
+  parent: BaseRoomMarker
+  id: MaintsCONTRAPaperRoomMarker
+  name: Paper CONTRA maints
+  suffix: 3x7, Paper
+  components:
+  - type: RoomFill
+    minSize: 3,7
+    maxSize: 3,7
+    roomWhitelist:
+      tags:
+      - MaintsCONTRAPaper
+
+- type: entity
+  parent: BaseRoomMarker
+  id: MaintsPSYCHOPaperRoomMarker
+  name: Paper PSYCHO maints
+  suffix: 8x3, Paper
+  components:
+  - type: RoomFill
+    minSize: 8,3
+    maxSize: 8,3
+    roomWhitelist:
+      tags:
+      - MaintsPSYCHOPaper

@@ -1,0 +1,41 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ClothingNeckNecklaceBase
+  components:
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
+  - type: Sprite
+    state: icon
+  - type: Tag
+    tags:
+    - Recyclable
+    - WhitelistChameleon
+
+
+- type: entity
+  parent: ClothingNeckNecklaceBase
+  id: ClothingNeckCarpTeethNecklace
+  name: carp teeth necklace
+  description: Sharp carp teeth. Their former owner wanted to keep them.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Specific/space_carp_teeth_necklace.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Specific/space_carp_teeth_necklace.rsi
+
+
+- type: entity
+  parent: ClothingNeckNecklaceBase
+  id: ClothingNeckSharkTeethNecklace
+  name: shark teeth necklace
+  description: Sharp shark-carp teeth. If they fell out, it means you did something very brave… or very stupid.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Neck/Specific/space_shark_teeth_necklace.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Neck/Specific/space_shark_teeth_necklace.rsi

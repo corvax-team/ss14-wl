@@ -114,3 +114,17 @@
     - type: ModifyLanguages
       languages:
         - Kuniluc
+
+- type: trait
+  id: Yangyu
+  name: trait-language-yangyu
+  description: trait-language-yangyu-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Yangyu

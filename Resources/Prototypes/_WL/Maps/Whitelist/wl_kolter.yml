@@ -16,7 +16,7 @@
            !type:NanotrasenNameGenerator
             prefixCreator: "NB"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_WL/Shuttles/emergency_wlkolter.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/wl_kolter_evac.yml
         - type: StationJobs
           availableJobs:
 

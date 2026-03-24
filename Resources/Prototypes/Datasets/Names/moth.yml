@@ -2,16 +2,16 @@
   id: NamesMothFirstMale
   values:
     prefix: names-moth-first-male-dataset-
-    count: 39
+    count: 104
 
 - type: localizedDataset
   id: NamesMothFirstFemale
   values:
     prefix: names-moth-first-female-dataset-
-    count: 38
+    count: 101
 
 - type: localizedDataset
   id: NamesMothLast
   values:
     prefix: names-moth-last-dataset-
-    count: 28
+    count: 100

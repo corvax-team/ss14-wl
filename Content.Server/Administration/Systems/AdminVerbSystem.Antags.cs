@@ -13,7 +13,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Shared.Roles.Components;
-using Content.Server._WL.GameTicking.Rules.Components; // WL-Changes: Conspirators
 
 namespace Content.Server.Administration.Systems;
 
@@ -33,7 +32,6 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
     private static readonly EntProtoId DefaultWizardRule = "Wizard";
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
-    private static readonly EntProtoId DefaultConspiratorRule = "Conspirators"; // WL-Changes: Conspirators
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
     // All antag verbs have names so invokeverb works.
@@ -226,23 +224,6 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", ninjaName, Loc.GetString("admin-verb-make-space-ninja")),
         };
         args.Verbs.Add(ninja);
-
-        //WL-Changes: Conspiratrs start
-        var conspiratorName = Loc.GetString("admin-verb-text-make-conspirator");
-        Verb conspirator = new()
-        {
-            Text = conspiratorName,
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/_WL/Interface/Misc/job_icons.rsi"), "Conspirator"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<ConspiratorRuleComponent>(targetPlayer, DefaultConspiratorRule);
-            },
-            Impact = LogImpact.High,
-            Message = string.Join(": ", conspiratorName, Loc.GetString("admin-verb-make-conspirator")),
-        };
-        args.Verbs.Add(conspirator);
-        //WL-Changes: Conspiratrs end
 
         if (HasComp<HumanoidAppearanceComponent>(args.Target)) // only humanoids can be cloned
             args.Verbs.Add(paradox);

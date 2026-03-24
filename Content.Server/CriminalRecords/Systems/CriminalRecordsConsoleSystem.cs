@@ -1,20 +1,28 @@
 using Content.Server.Popups;
+using Content.Server.Power.Components; 
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
+using Content.Server.StationRecords.Components;
 using Content.Server.StationRecords.Systems;
+using Content.Shared._WL.Records; // WL-Records
 using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Components;
 using Content.Shared.CriminalRecords.Systems;
+using Content.Shared.Humanoid.Prototypes; // WL-Records
+using Content.Shared.Paper; // WL-Records
 using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems; // WL-Records
+using Robust.Shared.Prototypes; // WL-Records
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security.Components;
 using System.Linq;
 using Content.Shared.Roles.Jobs;
+using Content.Shared._WL.Languages;
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -30,6 +38,9 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!; // WL-Records
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Records
+    [Dependency] private readonly PaperSystem _paperSystem = default!; // WL-Records
 
     public override void Initialize()
     {
@@ -45,8 +56,25 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             subs.Event<CriminalRecordAddHistory>(OnAddHistory);
             subs.Event<CriminalRecordDeleteHistory>(OnDeleteHistory);
             subs.Event<CriminalRecordSetStatusFilter>(OnStatusFilterPressed);
+            subs.Event<PrintStationRecord>(OnPrinted); // WL-Records
         });
     }
+
+    // WL-Records-Start
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<CriminalRecordsConsoleComponent, ApcPowerReceiverComponent>();
+        while (query.MoveNext(out var uid, out var console, out var receiver))
+        {
+            if (!receiver.Powered)
+                continue;
+
+            ProcessPrintingAnimation(uid, frameTime, console);
+        }
+    }
+    // WL-Records-End
 
     private void UpdateUserInterface<T>(Entity<CriminalRecordsConsoleComponent> ent, ref T args)
     {
@@ -65,6 +93,75 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         ent.Comp.FilterStatus = msg.FilterStatus;
         UpdateUserInterface(ent);
     }
+
+    // WL-Records-Start
+    private void OnPrinted(Entity<CriminalRecordsConsoleComponent> ent, ref PrintStationRecord msg)
+    {
+        var owning = _station.GetOwningStation(ent.Owner);
+
+        if (owning == null)
+            return;
+
+        if (_records.TryGetRecord<GeneralStationRecord>(new StationRecordKey(msg.Id, owning.Value), out var record))
+        {
+            var confederation = string.Empty;
+
+            if (_prototypeManager.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var proto))
+                confederation = Loc.GetString(proto.Name);
+            else
+                confederation = Loc.GetString("generic-not-available-shorthand");
+
+            ent.Comp.ContextPrint = $"""
+                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
+                ? record.Fullname : record.Name)}
+                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(record.DateOfBirth)
+                ? record.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
+                {Loc.GetString("records-confederation-edit")} {confederation}
+                {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(record.Country)
+                ? record.Country : Loc.GetString("generic-not-available-shorthand"))}
+                {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
+                {Loc.GetString("records-height", ("height", record.Height))}
+                {(!string.IsNullOrEmpty(record.SecurityRecord) ? record.SecurityRecord
+                : Loc.GetString("criminal-records-console-no-security-record"))}
+                """;
+        }
+        else
+            return;
+
+        _audioSystem.PlayPvs(ent.Comp.PrintAudio, ent.Owner);
+
+        ent.Comp.CanPrintEntries = false;
+        ent.Comp.TimePrintRemaining = ent.Comp.TimePrint;
+    }
+
+    private void ProcessPrintingAnimation(EntityUid uid, float frameTime, CriminalRecordsConsoleComponent comp)
+    {
+        if (comp.TimePrintRemaining > 0)
+        {
+            comp.TimePrintRemaining -= frameTime;
+
+            var printSoundEnd = comp.TimePrintRemaining <= 0;
+
+            if (printSoundEnd)
+            {
+                var printed = Spawn(comp.PrintPaperId, Transform(uid).Coordinates);
+
+                if (TryComp<PaperComponent>(printed, out var paper))
+                    _paperSystem.SetContent((printed, paper), comp.ContextPrint);
+
+                comp.ContextPrint = string.Empty;
+
+                comp.CanPrintEntries = true;
+
+                var ent = new Entity<CriminalRecordsConsoleComponent>(uid, comp);
+
+                UpdateUserInterface(ent);
+            }
+
+            return;
+        }
+    }
+    // WL-Records-end
 
     private void OnFiltersChanged(Entity<CriminalRecordsConsoleComponent> ent, ref SetStationRecordFilter msg)
     {
@@ -231,7 +328,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
                 .ToDictionary(x => x.Key, x => x.Value);
         }
 
-        var state = new CriminalRecordsConsoleState(listing, console.Filter);
+        var state = new CriminalRecordsConsoleState(listing, console.Filter, ent.Comp.CanPrintEntries); // WL-Records
         if (console.ActiveKey is { } id)
         {
             // get records to display when a crewmember is selected

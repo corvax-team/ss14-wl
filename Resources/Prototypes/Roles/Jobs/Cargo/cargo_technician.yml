@@ -9,6 +9,7 @@
   - Male: курьер
   - Male: почтальон
   - Male: логист
+  - Male: старший логист
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   access:

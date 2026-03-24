@@ -15,6 +15,8 @@ using Content.Shared.StationRecords;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared._WL.Languages;
+using Content.Shared._WL.Languages.Components;
 
 namespace Content.Server.StationRecords.Systems;
 
@@ -98,12 +100,16 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         if (!_inventory.TryGetSlotEntity(player, "id", out var idUid))
             return;
 
+        TryComp<LanguagesComponent>(player, out var languages);
         TryComp<FingerprintComponent>(player, out var fingerprintComponent);
         TryComp<DnaComponent>(player, out var dnaComponent);
 
+        if (languages == null)
+            return;
+
         var jobName = _role.GetSubnameByEntity(player, jobId) ?? jobProto.LocalizedName; //WL-changes
 
-        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, profile.MedicalRecord, profile.SecurityRecord, profile.EmploymentRecord, jobId, jobName, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records); //WL-changes
+        CreateGeneralRecord(station, idUid.Value, profile.Name, profile.Age, profile.Species, profile.Gender, profile.MedicalRecord, profile.SecurityRecord, profile.EmploymentRecord, profile.FullName, profile.DateOfBirth, profile.Confederation, profile.Country, profile.Height, languages.Speaking, jobId, jobName, fingerprintComponent?.Fingerprint, dnaComponent?.DNA, profile, records); //WL-changes
     }
 
 
@@ -141,9 +147,17 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         int age,
         string species,
         Gender gender,
-        string medicalRecord, // WL-Records
-        string securityRecord, // WL-Records
-        string employmentRecord, // WL-Records
+        // WL-Records-start
+        string medicalRecord,
+        string securityRecord,
+        string employmentRecord,
+        string fullName,
+        string dateOfBirth,
+        string confederation,
+        string country,
+        int height,
+        List<ProtoId<LanguagePrototype>> languages,
+        // WL-Records-end
         string jobId,
         string jobName,
         string? mobFingerprint,
@@ -171,9 +185,17 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
             JobPrototype = jobId,
             Species = species,
             Gender = gender,
-            MedicalRecord = medicalRecord, // WL-Records
-            SecurityRecord = securityRecord, // WL-Records
-            EmploymentRecord = employmentRecord, // WL-Records
+            // WL-Records-start
+            MedicalRecord = medicalRecord,
+            SecurityRecord = securityRecord,
+            EmploymentRecord = employmentRecord,
+            Fullname = fullName,
+            DateOfBirth = dateOfBirth,
+            Confederation = confederation,
+            Country = country,
+            Height = height,
+            Languages = languages,
+            // WL-Records-end
             DisplayPriority = jobPrototype.RealDisplayWeight,
             Fingerprint = mobFingerprint,
             DNA = dna

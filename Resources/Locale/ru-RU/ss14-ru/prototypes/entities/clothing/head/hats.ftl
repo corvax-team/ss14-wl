@@ -22,7 +22,7 @@ ent-ClothingHeadHatBeretWarden = берет смотрителя
     .desc = Фирменный голубой берет с эмблемой смотрителя. Для офицеров, которые предпочитают стиль безопасности.
 # WL-Changes: Roles rename start
 ent-ClothingHeadHatBeretSeniorPhysician = берет дежурного врача
-    .desc = Специалисты, одетые в цвета врачей и химиков, являются гордостью этого отдела!
+    .desc = Специалисты, одетые в цвета врачей и фармацевтов, являются гордостью этого отдела!
 # WL-Changes: Roles rename end
 ent-ClothingHeadHatBeretBrigmedic = берет бригмедика
     .desc = Белый берет для бригмедиков.

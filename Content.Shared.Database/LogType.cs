@@ -493,4 +493,9 @@ public enum LogType
     /// Events relating to midi playback.
     /// </summary>
     Instrument = 105,
+
+    /// <summary>
+    /// Events related to players connecting/disconnecting.
+    /// </summary>
+    Connection = 106,
 }

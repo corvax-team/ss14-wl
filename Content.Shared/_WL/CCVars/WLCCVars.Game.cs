@@ -24,4 +24,10 @@ public sealed partial class WLCVars
     /// </summary>
     public static readonly CVarDef<bool> RoleRestrictionChecksEnabled =
         CVarDef.Create("game.role_restriction_checks_enabled", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    /// Время через которое кнопка для установки ЧП будет активна
+    /// </summary>
+    public static readonly CVarDef<int> GameEmergencylChangeDelay =
+    CVarDef.Create("game.emergency_change_delay", 30, CVar.SERVERONLY);
 }

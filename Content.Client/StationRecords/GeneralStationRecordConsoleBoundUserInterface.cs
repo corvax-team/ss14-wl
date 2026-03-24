@@ -1,4 +1,5 @@
 using Content.Shared.StationRecords;
+using Content.Shared._WL.Records;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.StationRecords;
@@ -22,6 +23,7 @@ public sealed class GeneralStationRecordConsoleBoundUserInterface : BoundUserInt
         _window.OnFiltersChanged += (type, filterValue) =>
             SendMessage(new SetStationRecordFilter(type, filterValue));
         _window.OnDeleted += id => SendMessage(new DeleteStationRecord(id));
+        _window.OnPrint += id => SendMessage(new PrintStationRecord(id));
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

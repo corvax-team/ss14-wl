@@ -25,7 +25,7 @@
   components:
     - type: SpawnItemsOnUse
       items:
-        - id: Rose
+        - id: RoseRed
       sound:
         path: /Audio/Effects/unwrap.ogg
     - type: Sprite
@@ -36,13 +36,16 @@
 
 - type: entity
   parent: ProduceBase
-  id: Rose
+  id: RoseBase
   name: rose
   description: Artificially grown roses from plantations. A nice gift for your girlfriend.
+  abstract: true
   components:
     - type: Sprite
-      sprite: _WL/Entities/Objects/Specific/Hydroponics/rose.rsi
-      state: rose
+      sprite: _WL/Objects/Misc/rose.rsi
+    - type: Clothing
+      slots:
+      - HEAD
     - type: MeleeWeapon
       attackRate: 1
       damage:
@@ -53,3 +56,46 @@
     - type: StaticPrice
       price: 500
 
+- type: entity
+  parent: RoseBase
+  id: RoseRed
+  components:
+    - type: Sprite
+      state: rose_red
+    - type: Clothing
+      clothingVisuals:
+        head:
+        - state: rose_red_equipped-HELMET
+
+- type: entity
+  parent: RoseBase
+  id: RosePink
+  components:
+    - type: Sprite
+      state: rose_pink
+    - type: Clothing
+      clothingVisuals:
+        head:
+        - state: rose_pink_equipped-HELMET
+
+- type: entity
+  parent: RoseBase
+  id: RoseWhite
+  components:
+    - type: Sprite
+      state: rose_white
+    - type: Clothing
+      clothingVisuals:
+        head:
+        - state: rose_white_equipped-HELMET
+
+- type: entity
+  parent: RoseBase
+  id: RoseYellow
+  components:
+    - type: Sprite
+      state: rose_yelo
+    - type: Clothing
+      clothingVisuals:
+        head:
+        - state: rose_yelo_equipped-HELMET

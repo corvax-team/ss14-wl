@@ -1,0 +1,1097 @@
+meta:
+  format: 7
+  category: Map
+  engineVersion: 270.1.0
+  forkId: syndicate-wl
+  forkVersion: 4a933052826b46eeb0994822564c1a2638cc8e0a
+  time: 01/31/2026 15:51:16
+  entityCount: 137
+maps:
+- 1
+grids:
+- 1
+orphans: []
+nullspace: []
+tilemap:
+  1: Space
+  6: FloorDark
+  3: FloorHydro
+  0: FloorShuttlePurple
+  4: FloorTechMaint
+  5: FloorWhite
+  2: Plating
+  7: PlatingDamaged
+entities:
+- proto: ""
+  entities:
+  - uid: 1
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: GridTree
+    - type: Broadphase
+    - type: OccluderTree
+    - type: MapGrid
+      chunks:
+        0,0:
+          ind: 0,0
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAACAAAAAAAAAwAAAAAAAAMAAAAAAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAFAAAAAAAAAAAAAAAAAAYAAAAAAAAHAAAAAAAAAgAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAwAAAAAAAAIAAAAAAAADAAAAAAAAAAAAAAAAAAUAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAACAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAMAAAAAAAAHAAAAAAAAAgAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAACAAAAAAAAAgAAAAAAAAcAAAAAAAAAAAAAAAAABwAAAAAAAAUAAAAAAAACAAAAAAAAAAAAAAAAAAcAAAAAAAACAAAAAAAABgAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAwAAAAAAAAIAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAABQAAAAAAAAAAAAAAAAAGAAAAAAAAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAFAAAAAAAABAAAAAAAAAIAAAAAAAAAAAAAAAAABgAAAAAAAAIAAAAAAAAGAAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAADAAAAAAAAAwAAAAAAAAIAAAAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAAAFAAAAAAAAAAAAAAAAAAIAAAAAAAAGAAAAAAAAAgAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAA==
+          version: 7
+    - type: SpreaderGrid
+    - type: GridPathfinding
+    - type: Gravity
+      gravityShakeSound: !type:SoundPathSpecifier
+        path: /Audio/Effects/alert.ogg
+    - type: DecalGrid
+      chunkCollection:
+        version: 2
+        nodes:
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: Dirt
+          decals:
+            14: 1,3
+            15: 2,5
+            16: 1,7
+            17: 3,4
+            18: 2,2
+            19: 1,2
+            20: 2,3
+            21: 3,6
+            22: 2,7
+            23: 2,7
+            24: 3,1
+            25: 2,1
+            26: 1,2
+            27: 1,5
+            57: 6,6
+            58: 5,4
+            59: 6,2
+            60: 7,2
+            62: 7,5
+            63: 6,1
+            64: 6,1
+            65: 5,3
+            66: 6,6
+            80: 9,6
+            81: 9,5
+            82: 9,3
+            83: 10,2
+            84: 11,3
+            85: 11,6
+            86: 10,7
+            87: 10,2
+            88: 10,1
+            89: 5,5
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtHeavy
+          decals:
+            49: 5,3
+            50: 5,5
+            51: 6,6
+            52: 7,5
+            53: 6,3
+            54: 6,2
+            55: 7,2
+            56: 6,6
+            67: 5,5
+            68: 5,4
+            69: 6,4
+            70: 6,6
+            71: 5,2
+            72: 6,1
+            90: 10,1
+            91: 9,3
+            92: 9,4
+            93: 10,5
+            94: 10,7
+            95: 10,7
+            96: 9,5
+            97: 10,4
+            99: 11,3
+            100: 11,2
+            101: 10,2
+            102: 9,3
+            103: 10,5
+            104: 9,7
+            105: 10,5
+            106: 11,5
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtHeavyMonotile
+          decals:
+            28: 1,3
+            29: 1,3
+            30: 2,2
+            31: 2,2
+            32: 3,5
+            33: 2,6
+            34: 2,4
+            35: 2,3
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtLight
+          decals:
+            36: 1,5
+            37: 1,5
+            38: 1,7
+            39: 2,7
+            40: 3,5
+            41: 3,1
+            42: 2,1
+            43: 3,2
+            44: 3,2
+            45: 2,7
+            107: 10,3
+            108: 9,4
+            109: 9,6
+            110: 11,5
+            111: 10,4
+        - node:
+            cleanable: True
+            color: '#FFFFFFFF'
+            id: DirtMedium
+          decals:
+            46: 1,1
+            47: 1,6
+            48: 3,5
+            73: 5,6
+            74: 7,5
+            75: 2,6
+            76: 3,2
+            77: 7,7
+            78: 7,7
+            79: 7,7
+- proto: BarrelChemFilledMercury
+  entities:
+  - uid: 60
+    components:
+    - type: Transform
+      pos: 5.5,1.6
+      parent: 1
+    - type: SolutionContainerManager
+      solutions:
+        tank:
+          temperature: 293.15
+          canReact: True
+          maxVol: 400
+          name: null
+          reagents:
+          - data: []
+            ReagentId: Mercury
+            Quantity: 500
+- proto: Beaker
+  entities:
+  - uid: 73
+    components:
+    - type: Transform
+      pos: 7.7523713,3.7336516
+      parent: 1
+  - uid: 75
+    components:
+    - type: Transform
+      pos: 7.44473,3.660735
+      parent: 1
+- proto: Bucket
+  entities:
+  - uid: 57
+    components:
+    - type: Transform
+      pos: 1.3860693,4.2139015
+      parent: 1
+- proto: CannabisSeeds
+  entities:
+  - uid: 45
+    components:
+    - type: Transform
+      parent: 44
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 44
+  - uid: 46
+    components:
+    - type: Transform
+      parent: 44
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 44
+  - uid: 47
+    components:
+    - type: Transform
+      parent: 44
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 44
+  - uid: 55
+    components:
+    - type: Transform
+      pos: 2.9364057,1.2511499
+      parent: 1
+- proto: Catwalk
+  entities:
+  - uid: 9
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,2.5
+      parent: 1
+  - uid: 10
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,3.5
+      parent: 1
+  - uid: 11
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,4.5
+      parent: 1
+  - uid: 12
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,5.5
+      parent: 1
+  - uid: 13
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,5.5
+      parent: 1
+  - uid: 14
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,4.5
+      parent: 1
+  - uid: 15
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,3.5
+      parent: 1
+  - uid: 16
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,2.5
+      parent: 1
+  - uid: 17
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,2.5
+      parent: 1
+  - uid: 18
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,3.5
+      parent: 1
+  - uid: 19
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,4.5
+      parent: 1
+  - uid: 20
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,5.5
+      parent: 1
+- proto: ChairOfficeDark
+  entities:
+  - uid: 61
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.4732306,6.6575513
+      parent: 1
+  - uid: 62
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.516775,6.5325513
+      parent: 1
+  - uid: 63
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.381,6.6062593
+      parent: 1
+  - uid: 76
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5583863,3.1397562
+      parent: 1
+- proto: ChemistryBottleLithium
+  entities:
+  - uid: 40
+    components:
+    - type: Transform
+      parent: 39
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 39
+  - uid: 41
+    components:
+    - type: Transform
+      parent: 39
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 39
+  - uid: 42
+    components:
+    - type: Transform
+      parent: 39
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 39
+  - uid: 43
+    components:
+    - type: Transform
+      parent: 39
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 39
+- proto: ClothingHandsGlovesLatex
+  entities:
+  - uid: 93
+    components:
+    - type: Transform
+      pos: 6.9024663,7.608854
+      parent: 1
+  - uid: 94
+    components:
+    - type: Transform
+      pos: 7.006633,7.7130203
+      parent: 1
+- proto: ClothingMaskSterile
+  entities:
+  - uid: 89
+    components:
+    - type: Transform
+      pos: 6.600169,7.681669
+      parent: 1
+  - uid: 90
+    components:
+    - type: Transform
+      pos: 6.423086,7.837919
+      parent: 1
+- proto: ClothingNeckTieSyndie
+  entities:
+  - uid: 129
+    components:
+    - type: Transform
+      pos: 9.556159,7.6668024
+      parent: 1
+- proto: ClothingOuterCoatLabChemOpened
+  entities:
+  - uid: 91
+    components:
+    - type: Transform
+      rot: -0.3490658503988659 rad
+      pos: 6.2715774,7.6384964
+      parent: 1
+  - uid: 92
+    components:
+    - type: Transform
+      rot: -0.5235987755982988 rad
+      pos: 6.4903274,7.6176634
+      parent: 1
+- proto: CrateChemistrySecure
+  entities:
+  - uid: 39
+    components:
+    - type: Transform
+      pos: 7.5,4.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 40
+          - 41
+          - 42
+          - 43
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+- proto: CrateGenericSteel
+  entities:
+  - uid: 111
+    components:
+    - type: Transform
+      pos: 9.5,3.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 114
+          - 113
+          - 112
+          - 115
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+- proto: CrateHydroSecure
+  entities:
+  - uid: 44
+    components:
+    - type: Transform
+      pos: 3.5,6.5
+      parent: 1
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 45
+          - 46
+          - 47
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+- proto: DecalSpawnerBloodSplatters
+  entities:
+  - uid: 117
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,2.5
+      parent: 1
+  - uid: 118
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,2.5
+      parent: 1
+  - uid: 119
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,4.5
+      parent: 1
+  - uid: 120
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,3.5
+      parent: 1
+  - uid: 121
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,6.5
+      parent: 1
+  - uid: 122
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,5.5
+      parent: 1
+- proto: DrinkSugarJug
+  entities:
+  - uid: 59
+    components:
+    - type: Transform
+      pos: 7.4112406,1.6285464
+      parent: 1
+    - type: Openable
+      opened: True
+    - type: Sealable
+      sealed: False
+- proto: Dropper
+  entities:
+  - uid: 64
+    components:
+    - type: Transform
+      pos: 7.3862195,2.1806297
+      parent: 1
+  - uid: 65
+    components:
+    - type: Transform
+      pos: 7.375803,2.4306297
+      parent: 1
+- proto: FoodSnackSyndi
+  entities:
+  - uid: 130
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.659791,6.6801214
+      parent: 1
+  - uid: 131
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.681159,6.1668024
+      parent: 1
+  - uid: 132
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.681159,5.593886
+      parent: 1
+  - uid: 135
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.857707,5.5967884
+      parent: 1
+  - uid: 136
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.784791,6.7113714
+      parent: 1
+  - uid: 137
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.805624,6.1488714
+      parent: 1
+- proto: Gauze1
+  entities:
+  - uid: 127
+    components:
+    - type: Transform
+      pos: 9.888396,7.603958
+      parent: 1
+    - type: Stack
+      count: 2
+  - uid: 128
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 11.367563,1.5642438
+      parent: 1
+- proto: GroundCannabis
+  entities:
+  - uid: 54
+    components:
+    - type: Transform
+      pos: 3.4645252,7.643399
+      parent: 1
+  - uid: 56
+    components:
+    - type: Transform
+      pos: 3.5999417,7.7788157
+      parent: 1
+- proto: HydroponicsToolClippers
+  entities:
+  - uid: 49
+    components:
+    - type: Transform
+      rot: -0.8726646259971648 rad
+      pos: 2.9259892,7.6440163
+      parent: 1
+- proto: HydroponicsToolHatchet
+  entities:
+  - uid: 48
+    components:
+    - type: Transform
+      pos: 1.425989,7.5398493
+      parent: 1
+- proto: HydroponicsTrayEmpty
+  entities:
+  - uid: 2
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,1.5
+      parent: 1
+  - uid: 3
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,2.5
+      parent: 1
+  - uid: 4
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,3.5
+      parent: 1
+  - uid: 5
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,3.5
+      parent: 1
+  - uid: 6
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,2.5
+      parent: 1
+  - uid: 7
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,1.5
+      parent: 1
+- proto: JointRainbow
+  entities:
+  - uid: 52
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.5895252,7.5079823
+      parent: 1
+  - uid: 53
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 2.8082752,7.487149
+      parent: 1
+- proto: Jug
+  entities:
+  - uid: 66
+    components:
+    - type: Transform
+      pos: 5.3798265,2.3848503
+      parent: 1
+  - uid: 70
+    components:
+    - type: Transform
+      pos: 5.2756596,3.1556838
+      parent: 1
+  - uid: 71
+    components:
+    - type: Transform
+      pos: 5.6194096,3.3223503
+      parent: 1
+- proto: LeavesCannabis
+  entities:
+  - uid: 50
+    components:
+    - type: Transform
+      pos: 1.9364057,7.6960993
+      parent: 1
+  - uid: 51
+    components:
+    - type: Transform
+      rot: -0.3490658503988659 rad
+      pos: 2.0197392,7.6648493
+      parent: 1
+- proto: MaterialCloth1
+  entities:
+  - uid: 126
+    components:
+    - type: Transform
+      pos: 11.711313,3.0592055
+      parent: 1
+- proto: MaterialCloth10
+  entities:
+  - uid: 125
+    components:
+    - type: Transform
+      pos: 10.607146,7.660491
+      parent: 1
+- proto: MouseTimedSpawner
+  entities:
+  - uid: 21
+    components:
+    - type: Transform
+      pos: 2.5,5.5
+      parent: 1
+  - uid: 22
+    components:
+    - type: Transform
+      pos: 6.5,5.5
+      parent: 1
+  - uid: 23
+    components:
+    - type: Transform
+      pos: 10.5,5.5
+      parent: 1
+- proto: PillCanister
+  entities:
+  - uid: 83
+    components:
+    - type: Transform
+      pos: 5.5981517,7.620945
+      parent: 1
+  - uid: 85
+    components:
+    - type: Transform
+      pos: 5.889818,7.579278
+      parent: 1
+- proto: PillCanisterRandom
+  entities:
+  - uid: 82
+    components:
+    - type: Transform
+      pos: 5.671068,7.7251115
+      parent: 1
+  - uid: 84
+    components:
+    - type: Transform
+      pos: 5.421068,7.6938615
+      parent: 1
+- proto: PoweredDimSmallLight
+  entities:
+  - uid: 77
+    components:
+    - type: Transform
+      pos: 1.5,7.5
+      parent: 1
+  - uid: 78
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,3.5
+      parent: 1
+  - uid: 79
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,3.5
+      parent: 1
+  - uid: 86
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,3.5
+      parent: 1
+  - uid: 87
+    components:
+    - type: Transform
+      pos: 5.5,7.5
+      parent: 1
+  - uid: 88
+    components:
+    - type: Transform
+      pos: 9.5,7.5
+      parent: 1
+- proto: PuddleBloodSmall
+  entities:
+  - uid: 123
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,2.5
+      parent: 1
+  - uid: 124
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 10.5,3.5
+      parent: 1
+- proto: PuddleFluorosulfuricAcid
+  entities:
+  - uid: 80
+    components:
+    - type: Transform
+      pos: 6.5,2.5
+      parent: 1
+  - uid: 81
+    components:
+    - type: Transform
+      pos: 6.5,3.5
+      parent: 1
+- proto: ShardGlass
+  entities:
+  - uid: 67
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.35823,3.1501727
+      parent: 1
+  - uid: 68
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.8686466,2.9210062
+      parent: 1
+  - uid: 69
+    components:
+    - type: Transform
+      pos: 5.347813,2.7335062
+      parent: 1
+  - uid: 74
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.7748966,2.5043395
+      parent: 1
+  - uid: 99
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.148169,1.5886844
+      parent: 1
+  - uid: 100
+    components:
+    - type: Transform
+      pos: 9.181966,1.2814353
+      parent: 1
+  - uid: 101
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.471085,1.5053511
+      parent: 1
+  - uid: 102
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.439835,1.2553511
+      parent: 1
+  - uid: 103
+    components:
+    - type: Transform
+      pos: 9.335669,1.3491011
+      parent: 1
+  - uid: 104
+    components:
+    - type: Transform
+      pos: 11.469264,2.8894267
+      parent: 1
+  - uid: 105
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.346085,1.6824344
+      parent: 1
+  - uid: 106
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 9.231502,1.7657678
+      parent: 1
+  - uid: 107
+    components:
+    - type: Transform
+      rot: 0.8726646259971648 rad
+      pos: 11.229681,2.5144267
+      parent: 1
+  - uid: 114
+    components:
+    - type: Transform
+      parent: 111
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 111
+- proto: SheetSteel1
+  entities:
+  - uid: 109
+    components:
+    - type: Transform
+      pos: 11.375514,7.6561093
+      parent: 1
+    - type: Stack
+      count: 2
+- proto: SheetSteel10
+  entities:
+  - uid: 108
+    components:
+    - type: Transform
+      pos: 11.635931,2.34776
+      parent: 1
+- proto: ShellShotgunImprovised
+  entities:
+  - uid: 96
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.439835,1.7657678
+      parent: 1
+  - uid: 97
+    components:
+    - type: Transform
+      pos: 11.585669,1.8074344
+      parent: 1
+  - uid: 98
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.585669,1.7553511
+      parent: 1
+  - uid: 112
+    components:
+    - type: Transform
+      parent: 111
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 111
+  - uid: 113
+    components:
+    - type: Transform
+      parent: 111
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 111
+  - uid: 115
+    components:
+    - type: Transform
+      parent: 111
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 111
+- proto: Sink
+  entities:
+  - uid: 8
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,4.5
+      parent: 1
+  - uid: 72
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,4.5
+      parent: 1
+  - uid: 116
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 9.5,4.5
+      parent: 1
+- proto: SlicedBucketBase
+  entities:
+  - uid: 58
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.3098481,4.8237834
+      parent: 1
+- proto: SyndicateMicrowave
+  entities:
+  - uid: 133
+    components:
+    - type: Transform
+      pos: 9.5,2.5
+      parent: 1
+- proto: TableReinforced
+  entities:
+  - uid: 24
+    components:
+    - type: Transform
+      pos: 3.5,7.5
+      parent: 1
+  - uid: 25
+    components:
+    - type: Transform
+      pos: 1.5,7.5
+      parent: 1
+  - uid: 26
+    components:
+    - type: Transform
+      pos: 2.5,7.5
+      parent: 1
+  - uid: 27
+    components:
+    - type: Transform
+      pos: 7.5,1.5
+      parent: 1
+  - uid: 28
+    components:
+    - type: Transform
+      pos: 7.5,2.5
+      parent: 1
+  - uid: 29
+    components:
+    - type: Transform
+      pos: 7.5,3.5
+      parent: 1
+  - uid: 30
+    components:
+    - type: Transform
+      pos: 7.5,7.5
+      parent: 1
+  - uid: 31
+    components:
+    - type: Transform
+      pos: 6.5,7.5
+      parent: 1
+  - uid: 32
+    components:
+    - type: Transform
+      pos: 5.5,7.5
+      parent: 1
+  - uid: 33
+    components:
+    - type: Transform
+      pos: 9.5,7.5
+      parent: 1
+  - uid: 34
+    components:
+    - type: Transform
+      pos: 10.5,7.5
+      parent: 1
+  - uid: 35
+    components:
+    - type: Transform
+      pos: 11.5,7.5
+      parent: 1
+  - uid: 36
+    components:
+    - type: Transform
+      pos: 11.5,3.5
+      parent: 1
+  - uid: 37
+    components:
+    - type: Transform
+      pos: 11.5,2.5
+      parent: 1
+  - uid: 38
+    components:
+    - type: Transform
+      pos: 11.5,1.5
+      parent: 1
+  - uid: 134
+    components:
+    - type: Transform
+      pos: 9.5,2.5
+      parent: 1
+- proto: TargetSyndicate
+  entities:
+  - uid: 110
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,4.5
+      parent: 1
+- proto: WeaponShotgunImprovised
+  entities:
+  - uid: 95
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.502335,3.474101
+      parent: 1
+...

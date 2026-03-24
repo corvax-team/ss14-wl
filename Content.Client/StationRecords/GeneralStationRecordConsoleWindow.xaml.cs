@@ -15,6 +15,11 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
 
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
     public Action<uint>? OnDeleted;
+    // WL-Records-start
+    public Action<uint>? OnPrint;
+
+    private uint? _activatedId;
+    // WL-Records-end
 
     private bool _isPopulating;
 
@@ -72,6 +77,15 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
             StationRecordsFiltersValue.Text = "";
             FilterListingOfRecords();
         };
+
+        // WL-Records-start
+        PrintButton.OnPressed += _ =>
+        {
+            PrintButton.Disabled = true;
+            if (_activatedId != null)
+                OnPrint?.Invoke(_activatedId.Value);
+        };
+        // WL-Records-end
     }
 
     public void UpdateState(GeneralStationRecordConsoleState state)
@@ -90,6 +104,8 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         }
 
         StationRecordsFilterType.SelectId((int)_currentFilterType);
+
+        PrintButton.Disabled = !state.CanPrintRecords; // WL-Records
 
         if (state.RecordListing == null)
         {
@@ -145,6 +161,8 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         RecordContainer.RemoveAllChildren();
         var newRecord = new GeneralRecord(record, enableDelete, id, _prototypeManager);
         newRecord.OnDeletePressed = OnDeleted;
+
+        _activatedId = id; // WL-Records
 
         RecordContainer.AddChild(newRecord);
     }

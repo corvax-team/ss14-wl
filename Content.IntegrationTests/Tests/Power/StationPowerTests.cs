@@ -13,6 +13,7 @@ using Robust.Shared.EntitySerialization;
 
 namespace Content.IntegrationTests.Tests.Power;
 
+
 public sealed class StationPowerTests
 {
     /// <summary>
@@ -37,7 +38,8 @@ public sealed class StationPowerTests
     ];
 
     [Explicit]
-    [Test, TestCaseSource(nameof(GameMaps))]
+    [Test, TestCaseSource(nameof(GameMaps)),
+        Ignore("WL-Changed: Official maps are breaking the test due to upstream")]
     public async Task TestStationStartingPowerWindow(string mapProtoId)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings

@@ -30,8 +30,10 @@ ent-MedicalIDCard = ID-карта медика
     .desc = { ent-IDCardStandard.desc }
 ent-ParamedicIDCard = ID-карта парамедика
     .desc = { ent-IDCardStandard.desc }
-ent-ChemistIDCard = ID-карта химика
+# WL-Changes: Rename start
+ent-ChemistIDCard = ID-карта фармацевта
     .desc = { ent-IDCardStandard.desc }
+# WL-Changes: Rename end
 ent-PsychologistIDCard = ID-карта психолога
     .desc = { ent-IDCardStandard.desc }
 ent-SeniorPhysicianIDCard = ID-карта ведущего врача

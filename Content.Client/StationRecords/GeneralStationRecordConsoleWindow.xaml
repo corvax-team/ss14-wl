@@ -1,6 +1,6 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                Title="{Loc 'general-station-record-console-window-title'}"
-               MinSize="750 500">
+               MinSize="750 520"> <!-- WL-Records -->
     <BoxContainer Orientation="Vertical">
         <BoxContainer Margin="5 5 5 10" HorizontalExpand="true" VerticalAlignment="Center">
             <OptionButton Name="StationRecordsFilterType" MinWidth="200" Margin="0 0 10 0"/>
@@ -17,9 +17,12 @@
                     <ItemList Name="RecordListing" />
                 </ScrollContainer>
             </BoxContainer>
-            <BoxContainer Orientation="Vertical" Margin="5">
+            <BoxContainer Orientation="Vertical" Margin="5" HorizontalExpand="True" VerticalExpand="True"> <!-- WL-Records -->
                 <Label Name="RecordContainerStatus" Visible="False" Text="{Loc 'general-station-record-console-select-record-info'}"/>
-                <Control Name="RecordContainer" Visible="False"/>
+                <Control Name="RecordContainer" Visible="False" HorizontalExpand="True" VerticalExpand="True"/>
+                <BoxContainer Orientation="Horizontal" Margin="5">
+                    <Button Name="PrintButton" Text="{Loc 'records-print-button'}" MinWidth="200"/> <!-- WL-Records -->
+                </BoxContainer>
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>

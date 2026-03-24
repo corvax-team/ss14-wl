@@ -7,4 +7,7 @@ public sealed partial class StationNewsComponent : Component
 {
     [DataField]
     public List<NewsArticle> Articles = new();
+
+    [DataField]
+    public List<NewsArticle> DeletedArticles = new(); // WL-Changes: send deleted news
 }

@@ -20,6 +20,15 @@
   id: MaintsCMOPaper
 
 - type: Tag
+  id: MaintsHOPPaper
+
+- type: Tag
+  id: MaintsCONTRAPaper
+
+- type: Tag
+  id: MaintsPSYCHOPaper
+
+- type: Tag
   id: StationElementZOOPaper
 
 - type: Tag

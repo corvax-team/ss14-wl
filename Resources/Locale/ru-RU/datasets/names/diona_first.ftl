@@ -87,3 +87,17 @@ names-diona-first-dataset-86 = Лёд
 names-diona-first-dataset-87 = Муссон
 names-diona-first-dataset-88 = Пасмурность
 names-diona-first-dataset-89 = Шторм
+
+## WL names
+
+names-diona-first-dataset-90 = Ветви
+names-diona-first-dataset-91 = Ветки
+names-diona-first-dataset-92 = Цвет
+names-diona-first-dataset-93 = Тюльпан
+names-diona-first-dataset-94 = Ростки
+names-diona-first-dataset-95 = Растение
+names-diona-first-dataset-96 = Благоразумность
+names-diona-first-dataset-97 = Взгляд
+names-diona-first-dataset-98 = Течение
+names-diona-first-dataset-99 = Пруд
+names-diona-first-dataset-100 = Дерево

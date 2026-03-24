@@ -1,3 +1,7 @@
+// WL-Changes-start
+using Content.Server._WL.Emergency.Components;
+using Content.Server._WL.Emergency;
+// WL-Changes-end
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
@@ -37,6 +41,7 @@ namespace Content.Server.Communications
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
+        [Dependency] private readonly EmergencyLevelSystem _emergencySystem = default!; // WL-Changes
 
         private const float UIUpdateInterval = 5.0f;
 
@@ -44,8 +49,10 @@ namespace Content.Server.Communications
         {
             // All events that refresh the BUI
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
+            SubscribeLocalEvent<EmergencyChangedEvent>(OnEmergencyChanged); // WL-Changes
             SubscribeLocalEvent<RoundEndSystemChangedEvent>(_ => OnGenericBroadcastEvent());
             SubscribeLocalEvent<AlertLevelDelayFinishedEvent>(_ => OnGenericBroadcastEvent());
+            SubscribeLocalEvent<EmergencyDelayFinished>(_ => OnGenericBroadcastEvent()); // WL-Changes
 
             // Messages from the BUI
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleSelectAlertLevelMessage>(OnSelectAlertLevelMessage);
@@ -53,6 +60,7 @@ namespace Content.Server.Communications
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleBroadcastMessage>(OnBroadcastMessage);
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleCallEmergencyShuttleMessage>(OnCallShuttleMessage);
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleRecallEmergencyShuttleMessage>(OnRecallShuttleMessage);
+            SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleSelectEmergencyLevelMessage>(OnSelectEmergencyLevelMessage); //WL-Changes
 
             // On console init, set cooldown
             SubscribeLocalEvent<CommunicationsConsoleComponent, MapInitEvent>(OnCommunicationsConsoleMapInit);
@@ -116,6 +124,19 @@ namespace Content.Server.Communications
             }
         }
 
+        // WL-Changes-Start
+        private void OnEmergencyChanged(EmergencyChangedEvent args)
+        {
+            var query = EntityQueryEnumerator<CommunicationsConsoleComponent>();
+            while (query.MoveNext(out var uid, out var comp))
+            {
+                var entStation = _stationSystem.GetOwningStation(uid);
+                if (args.Station == entStation)
+                    UpdateCommsConsoleInterface(uid, comp);
+            }
+        }
+        // WL-Changes-End
+
         /// <summary>
         /// Updates the UI for all comms consoles.
         /// </summary>
@@ -135,13 +156,20 @@ namespace Content.Server.Communications
         {
             var stationUid = _stationSystem.GetOwningStation(uid);
             List<string>? levels = null;
+            List<string>? emergencys = null; // WL-Changes
             string currentLevel = default!;
+            string currentEmergency = default!; // WL-Changes
             float currentDelay = 0;
+            float currentEmergencyDelay = 0; // WL-Changes
 
             if (stationUid != null)
             {
                 if (TryComp(stationUid.Value, out AlertLevelComponent? alertComp) &&
-                    alertComp.AlertLevels != null)
+                    alertComp.AlertLevels != null &&
+                // WL-Changes-Start
+                    TryComp(stationUid.Value, out EmergencyLevelComponent? emergencyComp)
+                        && emergencyComp.Emergencies != null)
+                // WL-Changes-End
                 {
                     if (alertComp.IsSelectable)
                     {
@@ -158,8 +186,24 @@ namespace Content.Server.Communications
                         // WL-Changes-end
                     }
 
+                    //WL-Changes-start
+
+                    emergencys = new();
+                    foreach (var protoId in emergencyComp.Emergencies.Emergencys)
+                    {
+                        if (_prototypeManager.TryIndex(protoId, out var prototype))
+                            emergencys.Add(prototype.ID);
+                    }
+
+                    //WL-Changes-End
+
+
                     currentLevel = alertComp.CurrentLevel;
                     currentDelay = _alertLevelSystem.GetAlertLevelDelay(stationUid.Value, alertComp);
+                    //WL-Changes-start
+                    currentEmergency = emergencyComp.CurrentEmergency;
+                    currentEmergencyDelay = _emergencySystem.GetEmergencyDelay(stationUid.Value, emergencyComp);
+                    //WL-Changes-End
                 }
             }
 
@@ -169,6 +213,11 @@ namespace Content.Server.Communications
                 levels,
                 currentLevel,
                 currentDelay,
+                // WL-Changes-start
+                currentEmergency,
+                emergencys,
+                currentEmergencyDelay,
+                // WL-Changes-end
                 _roundEndSystem.ExpectedCountdownEnd
             ));
         }
@@ -229,6 +278,28 @@ namespace Content.Server.Communications
                 _alertLevelSystem.SetLevel(stationUid.Value, message.Level, true, true);
             }
         }
+
+
+        //WL-Changes-Start
+        private void OnSelectEmergencyLevelMessage(EntityUid uid, CommunicationsConsoleComponent comp, CommunicationsConsoleSelectEmergencyLevelMessage message)
+        {
+            if (message.Actor is not { Valid: true } mob)
+                return;
+
+            if (!CanUse(mob, uid))
+            {
+                _popupSystem.PopupCursor(Loc.GetString("comms-console-permission-denied"), message.Actor, PopupType.Medium);
+                return;
+            }
+
+            var stationUid = _stationSystem.GetOwningStation(uid);
+            if (stationUid != null)
+            {
+                _emergencySystem.SetEmergency(stationUid.Value, message.Emergency, true);
+            }
+        }
+
+        //WL-Changes-End
 
         private void OnAnnounceMessage(EntityUid uid, CommunicationsConsoleComponent comp,
             CommunicationsConsoleAnnounceMessage message)

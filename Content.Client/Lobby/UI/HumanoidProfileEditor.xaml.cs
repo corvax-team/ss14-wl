@@ -14,6 +14,7 @@ using Content.Client.Stylesheets;
 using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._WL.Skills; // WL-Skills
+using Content.Shared._WL.Records; // WL-Records
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Corvax.CCCVars;
@@ -41,7 +42,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
-using Content.Client.Corvax.TTS; // Corvax-TTS
+using Content.Client.Corvax.TTS;
+using Content.Client.Lathe.UI; // Corvax-TTS
 
 namespace Content.Client.Lobby.UI
 {
@@ -194,6 +196,15 @@ namespace Content.Client.Lobby.UI
         private TextEdit? _medicalRecordEdit; // WL-Records
         private TextEdit? _securityRecordEdit; // WL-Records
         private TextEdit? _employmentRecordEdit; // WL-Records
+
+        private LineEdit? _generalRecordNameEdit; // WL-Records
+        private LineEdit? _generalRecordAgeEdit; // WL-Records
+        private LineEdit? _generalRecordCountryEdit; // WL-Records
+
+        private OptionButton? _confederationButton; // WL-Records
+
+
+        private List<ConfederationRecordsPrototype> _confederations = new(); // WL-Recordss
 
         private SingleMarkingPicker _underwearPicker => CUnderwearPicker; // WL-Underwear
         private SingleMarkingPicker _undershirtPicker => CUndershirtPicker; // WL-Underwear
@@ -743,6 +754,12 @@ namespace Content.Client.Lobby.UI
             RefreshFlavorText();
 
             RefreshRecords(); // WL-Records
+
+            //_confederationButton.OnItemSelected += args =>
+            //{
+
+            //};
+
             RefreshVoiceTab(); // Corvax-TTS
 
             #region Dummy
@@ -822,9 +839,37 @@ namespace Content.Client.Lobby.UI
             _securityRecordEdit = _recordsTab.SecurityRecordInput;
             _employmentRecordEdit = _recordsTab.EmploymentRecordInput;
 
+            _generalRecordNameEdit = _recordsTab.NameEdit;
+            _generalRecordAgeEdit = _recordsTab.AgeEdit;
+            _generalRecordCountryEdit = _recordsTab.CountryEdit;
+
+            _confederationButton = _recordsTab.ConfederationButton;
+
             _recordsTab.OnMedicalRecordChanged += OnMedicalRecordChange;
             _recordsTab.OnSecurityRecordChanged += OnSecurityRecordChange;
             _recordsTab.OnEmploymentRecordChanged += OnEmploymentRecordChange;
+
+            _recordsTab.OnGeneralRecordNameChanged += OnGeneralRecordNameChanged;
+            _recordsTab.OnGeneralRecordAgeChanged += OnGeneralRecordDateOfBirthChanged;
+            _recordsTab.OnGeneralRecordCountryChanged += OnGeneralRecordCountryChanged;
+
+            _recordsTab.OnGeneralRecordConfederationChanged += SetConfederation;
+
+            _confederations.AddRange(_prototypeManager.EnumeratePrototypes<ConfederationRecordsPrototype>());
+
+            _confederations.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
+
+            for (var i = 0; i < _confederations.Count; i++)
+            {
+                var name = Loc.GetString(_confederations[i].Name);
+
+                _recordsTab.ConfederationButton.AddItem(name, i);
+
+                if (_confederations[i].ID == "NoConfederation")
+                {
+                    _recordsTab.ConfederationButton.SelectId(i);
+                }
+            }
         }
 
         private void OnMedicalRecordChange(string content)
@@ -853,6 +898,44 @@ namespace Content.Client.Lobby.UI
             Profile = Profile.WithEmploymentRecord(content);
             SetDirty();
         }
+
+        private void OnGeneralRecordNameChanged(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithFullName(content);
+            SetDirty();
+        }
+        private void OnGeneralRecordDateOfBirthChanged(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithDateOfBirth(content);
+            SetDirty();
+        }
+        private void OnGeneralRecordCountryChanged(string content)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithCountry(content);
+            SetDirty();
+        }
+        private void SetConfederation(OptionButton.ItemSelectedEventArgs args)
+        {
+            if (_confederationButton is null)
+                return;
+
+            if (Profile is null)
+                return;
+
+            _confederationButton.SelectId(args.Id);
+            Profile = Profile.WithConfederation(_confederations[args.Id].ID);
+            SetDirty();
+        }
+
         // WL-Records-End
         // Corvax-TTS-Start
         #region Voice
@@ -1909,6 +1992,24 @@ namespace Content.Client.Lobby.UI
 
             if (_employmentRecordEdit != null)
                 _employmentRecordEdit.TextRope = new Rope.Leaf(Profile?.EmploymentRecord ?? "");
+
+            if (_generalRecordNameEdit != null)
+                _generalRecordNameEdit.Text = Profile?.FullName ?? "";
+
+            if (_generalRecordAgeEdit != null)
+                _generalRecordAgeEdit.Text = Profile?.DateOfBirth ?? "";
+
+            if (_generalRecordCountryEdit != null)
+                _generalRecordCountryEdit.Text = Profile?.Country ?? "";
+
+            if (_confederationButton != null)
+                for (var i = 0; i < _confederations.Count; i++)
+                {
+                    if (Profile?.Confederation.Equals(_confederations[i].ID) == true)
+                    {
+                        _confederationButton.SelectId(i);
+                    }
+                }
         }
         // WL-Records-End
 

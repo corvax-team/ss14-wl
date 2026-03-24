@@ -1,4 +1,4 @@
-﻿ent-BasePDA = КПК
+ent-BasePDA = КПК
     .desc = Ассистент по персональным данным.
 ent-BaseWidePDA = { ent-BasePDA }
     .desc = { ent-BasePDA.desc }
@@ -71,8 +71,10 @@ ent-VisitorMedicalPDA = { ent-MedicalPDA }
     .desc = { ent-MedicalPDA.desc }
 ent-ParamedicPDA = КПК парамедика
     .desc = Блестящий и стерильный.
+# WL-Changes: Rename start
 ent-ChemistryPDA = КПК химика
     .desc = На нём есть несколько обесцвеченных пятен.
+# WL-Changes: Rename end
 ent-RnDPDA = КПК научного руководителя
     .desc = Он кажется удивительно обычным.
 ent-SciencePDA = КПК учёного
