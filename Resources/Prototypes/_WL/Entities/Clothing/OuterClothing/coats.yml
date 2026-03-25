@@ -40,3 +40,14 @@
         Blunt: 0.9
         Slash: 0.9
         Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterJohnnySilverhandJacket
+  name: Johnny silverhand jacket
+  description: Ca-can you feel it?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/johnnysilverhandcoat.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/johnnysilverhandcoat.rsi

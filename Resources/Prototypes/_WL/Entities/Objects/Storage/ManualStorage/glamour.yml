@@ -1,0 +1,18 @@
+- type: entity
+  parent: BriefcaseBase
+  id: GlamourHandbagByBenjii
+  name: Glamour handbag
+  description: Glamour!!!
+  components:
+  - type: Sprite
+    sprite: _WL/Storage/Glamour/Glamour.rsi
+    state: icon
+  - type: Item
+    sprite: _WL/Storage/Glamour/Glamour.rsi
+  - type: Storage
+    grid:
+    - 0,0,7,4
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5

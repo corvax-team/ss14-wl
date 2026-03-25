@@ -213,3 +213,14 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/cburncommander.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpsuit/cburncommander.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitJohnnySilverhand
+  name: Johnny Silverhand clothing
+  description: Wake up, Samurai.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/johnnysilverhandjumpsuit.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/johnnysilverhandjumpsuit.rsi
