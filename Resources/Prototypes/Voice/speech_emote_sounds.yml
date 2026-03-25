@@ -40,6 +40,11 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 
 - type: emoteSounds
   id: FemaleHuman
@@ -82,6 +87,11 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 
 - type: emoteSounds
   id: MaleReptilian
@@ -106,6 +116,11 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -130,6 +145,11 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 
 - type: emoteSounds
   id: MaleSlime
@@ -172,6 +192,11 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
   params:
     variation: 0.125
 
@@ -216,6 +241,11 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
   params:
     variation: 0.125
 
@@ -246,6 +276,11 @@
       path: /Audio/Effects/Gasp/vox_gasp.ogg
     DefaultDeathgasp:
       path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
   params:
     variation: 0.125
     # TODO: We need vox sounds for the other emotes
@@ -269,6 +304,11 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
   params:
     variation: 0.125
 
@@ -295,6 +335,11 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -335,6 +380,11 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
   params:
     variation: 0.125
     pitch: 0.75
@@ -378,6 +428,11 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
   params:
     variation: 0.125
     pitch: 0.75
@@ -407,6 +462,11 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 
 - type: emoteSounds
   id: UnisexSilicon
@@ -427,6 +487,11 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -449,6 +514,11 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 
 - type: emoteSounds
   id: UnisexSiliconXenoborg
@@ -471,7 +541,11 @@
       collection: XenoborgBikeHorn
     Ping:
       collection: XenoborgPing
-
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 # Vulp Sounds
 - type: emoteSounds
   id: MaleVulpkanin
@@ -512,6 +586,11 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -552,7 +631,11 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
-
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end
 # body emotes
 - type: emoteSounds
   id: GeneralBodyEmotes
@@ -720,3 +803,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: WawaDeath
+  #WL-Changes: Крутое звучение ЗДРАВСТВУЙТЕ от вещества
+  #start
+    Hello:
+      collection: Hello
+  #end

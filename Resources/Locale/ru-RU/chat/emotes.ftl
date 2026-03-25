@@ -35,6 +35,8 @@ chat-emote-name-snore = Храпеть
 chat-emote-name-snarl = Скалиться
 chat-emote-name-howl = Выть
 chat-emote-name-growl = Рычать
+chat-emote-name-hello = Приветствовать
+
 # Сообщение
 chat-emote-msg-scream = кричит!
 chat-emote-msg-laugh = смеётся.
@@ -73,3 +75,4 @@ chat-emote-msg-snore = храпит.
 chat-emote-msg-snarl = скалится.
 chat-emote-msg-howl = воет.
 chat-emote-msg-growl = рычит.
+chat-emote-msg-hello = ПРИВЕТСТВУЕТ!

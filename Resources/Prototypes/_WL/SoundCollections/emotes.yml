@@ -23,3 +23,8 @@
     - /Audio/_WL/Voice/Vulpkanin/dog_bark1.ogg
     - /Audio/_WL/Voice/Vulpkanin/dog_bark2.ogg
     - /Audio/_WL/Voice/Vulpkanin/dog_bark3.ogg
+
+- type: soundCollection
+  id: Hello
+  files:
+  - /Audio/_WL/Effects/hello.ogg

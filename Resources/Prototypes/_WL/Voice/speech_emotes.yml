@@ -1,0 +1,4 @@
+- type: emote
+  id: Hello
+  name: chat-emote-name-hello
+  chatMessages: ["chat-emote-msg-hello"]

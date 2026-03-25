@@ -195,3 +195,15 @@
     path: /Audio/Animals/wawa_question.ogg
   exclaimSound:
     path: /Audio/Animals/wawa_exclaim.ogg
+
+  #WL-Changes: добавление здраствуйте для пчелы полиморфа
+  #start
+- type: speechSounds
+  id: Hello
+  saySound:
+    path: /Audio/_WL/Effects/hello.ogg
+  askSound:
+    path: /Audio/_WL/Effects/hello.ogg
+  exclaimSound:
+    path: /Audio/_WL/Effects/hello.ogg
+  #end

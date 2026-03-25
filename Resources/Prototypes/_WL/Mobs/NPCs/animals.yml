@@ -1,0 +1,8 @@
+- type: entity
+  parent: MobBee
+  id: MobLeonBee
+  components:
+  - type: Speech
+    speechSounds: Hello
+    speechVerb: SmallMob
+    allowedEmotes: ['Hello']
