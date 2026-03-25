@@ -248,7 +248,7 @@ public sealed class ChangelingDevourSystem : EntitySystem
 
         //WL-Changes: Devour custom popups start
         var selfMessage = Loc.GetString(ent.Comp.ConsumeCompleteSelfPopup, ("user", Identity.Entity(args.User, EntityManager)));
-        var othersMessage = Loc.GetString(ent.Comp.ConsumeCompleteSelfPopup, ("user", Identity.Entity(args.User, EntityManager)));
+        var othersMessage = Loc.GetString(ent.Comp.ConsumeCompleteOthersPopup, ("user", Identity.Entity(args.User, EntityManager)));
         //WL-Changes: Devour custom popups end
         _popupSystem.PopupPredicted(
             selfMessage,
