@@ -18,3 +18,6 @@ ent-ClothingUniformJumpsuitNurse = комбинезон медсестры
 
 ent-ClothingUniformJumpsuitPathologist = комбинезон патологоанатома
     .desc = Выглядит так, будто его достали из вампирского логова...
+
+ent-ClothingUniformJumpsuitJohnnySilverhand = одежда рокера
+    .desc = Вставай, Самурай.
