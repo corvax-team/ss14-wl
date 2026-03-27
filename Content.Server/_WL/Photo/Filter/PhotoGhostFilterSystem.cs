@@ -32,7 +32,7 @@ public sealed partial class PhotoGhostFilterSystem : EntitySystem
         while (query.MoveNext(out var uid, out var comp))
         {
             if (now < comp.NextUpdateTime)
-                return;
+                continue;
 
             comp.ViewedGhosts.Clear();
             comp.NextUpdateTime = now + comp.UpdateTime;
@@ -42,9 +42,8 @@ public sealed partial class PhotoGhostFilterSystem : EntitySystem
             {
                 if (HasComp<GhostComponent>(entity))
                     comp.ViewedGhosts.Add(_transform.ToWorldPosition(entity.ToCoordinates()));
-
-                Dirty(uid, comp);
             }
+            Dirty(uid, comp);
         }
     }
 }

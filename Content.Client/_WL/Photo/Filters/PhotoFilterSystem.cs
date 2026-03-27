@@ -28,7 +28,7 @@ public sealed partial class PhotoFilterSystem : EntitySystem
 
     //TODO: Do this more pretty
 
-    //Shader
+    //Simple Shader Filter
     private void OnShaderFilterInit(EntityUid uid, PhotoShaderFilterComponent component, ComponentInit args)
     {
         _overlay.AddOverlay(new ShaderCameraOverlay());
@@ -39,7 +39,7 @@ public sealed partial class PhotoFilterSystem : EntitySystem
         _overlay.RemoveOverlay<ShaderCameraOverlay>();
     }
 
-    //Ghost
+    //Ghost Filter
     private void OnGhostFilterInit(EntityUid uid, PhotoGhostFilterComponent component, ComponentInit args)
     {
         _overlay.AddOverlay(new GhostCameraOverlay());
@@ -61,7 +61,7 @@ public sealed partial class PhotoFilterSystem : EntitySystem
         _overlay.RemoveOverlay<FaceCameraOverlay>();
     }
 
-    //Face Filter
+    //Info Filter
     private void OnInfoFilterInit(EntityUid uid, PhotoInfoFilterComponent component, ComponentInit args)
     {
         _overlay.AddOverlay(new InfoCameraOverlay());

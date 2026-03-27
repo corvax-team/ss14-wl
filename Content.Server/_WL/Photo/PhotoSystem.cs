@@ -160,12 +160,18 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         if (!TryComp<PhotoCameraFilterComponent>(args.Entity, out var filter))
             return;
 
+        if (args.Container.ID != component.FilterSlot)
+            return;
+
         EntityManager.AddComponents(uid, filter.FilterComponents);
     }
 
     private void OnFilterRemoved(EntityUid uid, PhotoCameraComponent component, EntRemovedFromContainerMessage args)
     {
         if (!TryComp<PhotoCameraFilterComponent>(args.Entity, out var filter))
+            return;
+
+        if (args.Container.ID != component.FilterSlot)
             return;
 
         EntityManager.RemoveComponents(uid, filter.FilterComponents);
