@@ -4,9 +4,9 @@
   path: "/Textures/_WL/Shaders/monochrome.swsl"
 
 - type: shader
-  id: CameraNegative
+  id: CameraNightVision
   kind: source
-  path: "/Textures/_WL/Shaders/invert.swsl"
+  path: "/Textures/_WL/Shaders/night.swsl"
 
 - type: shader
   id: CameraGhost

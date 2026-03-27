@@ -263,7 +263,6 @@
           weight: 1
         - id: ClothingHandsGlovesConducting
           weight: 0.1
-      - id: PhotoCamera #WL-Changes-Photo
       # Uncommon Group
     - !type:GroupSelector
       weight: 23
@@ -291,6 +290,7 @@
         children:
         - id: DrinkSpaceGlue
         - id: DrinkSpaceLube
+      - id: PhotoCamera #Corvax-WL-Changes
       # Rare Group
     - !type:GroupSelector
       weight: 2
@@ -309,6 +309,11 @@
       - id: SpectralLocator
       - id: LidSalami
         weight: 0.05
+      #Corvax-WL-Changes-start
+      - id: PhotoFilterMonochrome 
+      - id: PhotoFilterNightVision
+      - id: PhotoFilterGhost
+      #Corvax-WL-Changes-end
 
 - type: entity
   name: Maint Loot Spawner

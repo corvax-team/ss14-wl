@@ -48,10 +48,45 @@
   - type: FaxableObject
 
 - type: entity
+  id: PhotoFilterPack
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  name: "filter pack"
+  description: "A convenient thing for storing camera filters."
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/filter_rack.rsi
+    layers:
+    - state: rack
+    - state: fill-0
+      map: ["enum.StorageFillLayers.Fill"]
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,3,1
+  - type: StorageFillVisualizer
+    maxFillLevels: 5
+    fillBaseName: fill
+
+- type: entity
+  id: PhotoFilterPackFill
+  parent: PhotoFilterPack
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PhotoFilterMonochrome
+        - id: PhotoFilterNightVision
+        - id: PhotoFilterCatEars
+        - id: PhotoFilterInfo
+
+- type: entity
   name: 'vintage filter'
   parent: BaseItem
   id: PhotoFilterMonochrome
-  description: "Paper with printed image on it."
+  description: "A simple camera filter that gives a vintage atmosphere."
   components:
   - type: Sprite
     sprite: _WL/Objects/Misc/camera.rsi
@@ -66,10 +101,28 @@
         shader: CameraMonochrome 
 
 - type: entity
+  name: 'night filter'
+  parent: BaseItem
+  id: PhotoFilterNightVision
+  description: "A simple camera filter. Unfortunately, it doesn't provide night vision"
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/camera.rsi
+    layers:
+    - state: filter
+    - state: filter-line
+    - state: filter-top
+      color: "#a0da4b"
+  - type: PhotoCameraFilter
+    filterComponents:
+      - type: PhotoShaderFilter
+        shader: CameraNightVision
+
+- type: entity
   name: 'burned filter'
   parent: BaseItem
   id: PhotoFilterGhost
-  description: "Paper with printed image on it."
+  description: "Burnt camera filter.. giving a very strange ability."
   components:
   - type: Sprite
     sprite: _WL/Objects/Misc/camera.rsi
@@ -81,13 +134,15 @@
   - type: PhotoCameraFilter
     filterComponents:
       - type: PhotoGhostFilter
-        visual: _WL/Objects/Misc/camera.rsi/Filters/ghost.png
+        visual: 
+          sprite: _WL/Effects/photo_filters.rsi
+          state: observer
 
 - type: entity
   name: 'cat filter'
   parent: BaseItem
   id: PhotoFilterCatEars
-  description: "Paper with printed image on it."
+  description: "A smart camera filter that turns your colleagues into kittens!"
   components:
   - type: Sprite
     sprite: _WL/Objects/Misc/camera.rsi
@@ -99,4 +154,27 @@
   - type: PhotoCameraFilter
     filterComponents:
       - type: PhotoFaceFilter
-        visual: _WL/Objects/Misc/camera.rsi/Filters/cat.png
+        visual: 
+          sprite: _WL/Effects/photo_filters.rsi
+          state: cat
+
+- type: entity
+  name: 'information filter'
+  parent: BaseItem
+  id: PhotoFilterInfo
+  description: "A smart camera filter, perfect for photo reports."
+  components:
+  - type: Sprite
+    sprite:  _WL/Objects/Misc/camera.rsi
+    layers:
+    - state: filter
+    - state: filter-smart
+    - state: filter-top
+      color: "#d751cc"
+  - type: PhotoCameraFilter
+    filterComponents:
+      - type: PhotoInfoFilter
+      - type: PhotoFaceFilter
+        visual: 
+          sprite: _WL/Effects/photo_filters.rsi
+          state: box
