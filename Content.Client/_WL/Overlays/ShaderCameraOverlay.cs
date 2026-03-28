@@ -8,9 +8,10 @@ namespace Content.Client._WL.Overlays;
 public sealed partial class ShaderCameraOverlay : Overlay
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-
     [Dependency] private readonly IEntityManager _entManager = default!;
     private readonly PhotoSystem _photo;
+
+    private Dictionary<ProtoId<ShaderPrototype>, ShaderInstance> _cachedShaders = new();
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
     public override bool RequestScreenTexture => true;
@@ -43,7 +44,12 @@ public sealed partial class ShaderCameraOverlay : Overlay
         if (filter.Shader == null)
             return;
 
-        ShaderInstance shader = _prototypeManager.Index((ProtoId<ShaderPrototype>)filter.Shader).InstanceUnique();
+        ShaderInstance? shader;
+        if (!_cachedShaders.TryGetValue(filter.Shader, out shader))
+        {
+            shader = _prototypeManager.Index((ProtoId<ShaderPrototype>)filter.Shader).InstanceUnique();
+            _cachedShaders.Add(filter.Shader, shader);
+        }
 
         var handle = args.WorldHandle;
         shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);

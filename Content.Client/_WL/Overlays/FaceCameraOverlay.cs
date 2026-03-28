@@ -4,12 +4,7 @@ using Content.Shared.Humanoid;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
-using Robust.Shared.Prototypes;
-using System;
-using System.Collections.Generic;
 using System.Numerics;
-using System.Reflection;
-using System.Text;
 
 namespace Content.Client._WL.Overlays;
 public sealed partial class FaceCameraOverlay : Overlay

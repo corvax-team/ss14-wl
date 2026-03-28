@@ -1,10 +1,8 @@
 using Content.Client._WL.Overlays;
 using Content.Shared._WL.Photo.Filters;
-using Content.Shared.Clothing.Components;
 using Robust.Client.Graphics;
 
 namespace Content.Client._WL.Photo.Filters;
-
 public sealed partial class PhotoFilterSystem : EntitySystem
 {
     [Dependency] private readonly IOverlayManager _overlay = default!;
@@ -29,6 +27,7 @@ public sealed partial class PhotoFilterSystem : EntitySystem
     //TODO: Do this more pretty
 
     //Simple Shader Filter
+
     private void OnShaderFilterInit(EntityUid uid, PhotoShaderFilterComponent component, ComponentInit args)
     {
         _overlay.AddOverlay(new ShaderCameraOverlay());

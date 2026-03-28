@@ -1,20 +1,11 @@
 using Content.Client._WL.Photo;
 using Content.Client.GameTicking.Managers;
 using Content.Shared._WL.Photo.Filters;
-using Content.Shared.Humanoid;
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
-using Robust.Shared;
 using Robust.Shared.Enums;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using System;
-using System.Collections.Generic;
 using System.Numerics;
-using System.Reflection;
-using System.Reflection.Metadata;
-using System.Text;
 
 namespace Content.Client._WL.Overlays;
 public sealed partial class InfoCameraOverlay : Overlay

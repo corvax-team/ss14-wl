@@ -5,8 +5,6 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Materials;
 using Content.Shared.Movement.Events;
-using Content.Shared.Shuttles.Components;
-using Robust.Shared.Containers;
 
 namespace Content.Shared._WL.Photo;
 

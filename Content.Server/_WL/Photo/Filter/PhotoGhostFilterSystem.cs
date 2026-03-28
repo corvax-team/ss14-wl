@@ -1,14 +1,8 @@
 using Content.Shared._WL.Photo.Filters;
 using Content.Shared.Coordinates;
-using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Ghost;
-using Content.Shared.Silicons.Borgs.Components;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Timing;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Content.Server._WL.Photo.Filter;
 
