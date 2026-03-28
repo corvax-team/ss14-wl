@@ -84,6 +84,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
+      - NanoChatCartridge # Corvax-Wega-NanoChat
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -154,6 +155,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - NanoChatCartridge # Corvax-Wega-NanoChat
     - WantedListCartridge
 
 - type: entity
@@ -168,6 +170,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
+      - NanoChatCartridge # Corvax-Wega-NanoChat
       - MedTekCartridge
 
 - type: entity
@@ -480,6 +483,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - NanoChatCartridge # Corvax-Wega-NanoChat
     - AstroNavCartridge
 
 - type: entity
@@ -525,6 +529,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
+      - NanoChatCartridge # Corvax-Wega-NanoChat
       - AstroNavCartridge
 
 - type: entity
@@ -874,6 +879,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - NanoChatCartridge # Corvax-Wega-NanoChat
     - WantedListCartridge
     - LogProbeCartridge
 
@@ -944,6 +950,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
+      - NanoChatCartridge # Corvax-Wega-NanoChat
       - MedTekCartridge
       - WantedListCartridge
       - LogProbeCartridge
@@ -970,6 +977,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
+      - NanoChatCartridge # Corvax-Wega-NanoChat
       - LogProbeCartridge
       - WantedListCartridge
       - MedTekCartridge
@@ -1177,6 +1185,7 @@
       - NotekeeperCartridge
       - NanoTaskCartridge
       - NewsReaderCartridge
+      - NanoChatCartridge # Corvax-Wega-NanoChat
       - MedTekCartridge
       - WantedListCartridge
       - LogProbeCartridge
@@ -1348,6 +1357,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - NanoChatCartridge # Corvax-Wega-NanoChat
     - WantedListCartridge
     - LogProbeCartridge
 
@@ -1376,6 +1386,7 @@
     - NotekeeperCartridge
     - NanoTaskCartridge
     - NewsReaderCartridge
+    - NanoChatCartridge # Corvax-Wega-NanoChat
     - WantedListCartridge
     - MedTekCartridge
 
