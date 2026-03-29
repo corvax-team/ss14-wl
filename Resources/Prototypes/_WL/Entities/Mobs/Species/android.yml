@@ -239,6 +239,22 @@
     specieLanguage: Ternary
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: OfferItem # CorvaxGoob-Offer
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    program: 2
+  #WL-Changes: возможность проигрыванния midi для кпб start
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+  - type: MobStateActions
+    actions:
+      Alive:
+      - ActionPAIPlayMidi
+  - type: Actions
+  #end
 
 - type: entity
   save: false

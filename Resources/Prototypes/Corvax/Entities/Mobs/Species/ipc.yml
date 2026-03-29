@@ -344,6 +344,11 @@
         type: StrippableBoundUserInterface
       enum.CharacterInformationUiKey.Key: # WL-CharacterInformation
         type: CharacterInformationBoundUserInterface
+  #WL-Changes: возможность проигрыванния midi для кпб start
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+  #end
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -399,6 +404,13 @@
     specieLanguage: Ternary
   #WL-Changes: Languages end
   - type: MobCollision # WL-Changes: MobCollision works for players only
+  #WL-Changes: возможность проигрыванния midi для кпб start
+  - type: MobStateActions
+    actions:
+      Alive:
+      - ActionPAIPlayMidi
+  - type: Actions
+  #end
 
 - type: entity
   save: false
