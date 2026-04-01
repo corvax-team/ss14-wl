@@ -1,3 +1,3 @@
-job-name-adjutant = адъютант
+job-name-adjutant = горничная командования
 
-JobAdjutant = адъютант
+JobAdjutant = горничная командования

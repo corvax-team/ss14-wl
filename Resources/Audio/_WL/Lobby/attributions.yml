@@ -1,4 +1,4 @@
-﻿- files: ["the_station.ogg"]
+- files: ["the_station.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "The Station | SS13 Fan Track by A-Guy"
   source: "https://www.youtube.com/watch?v=Dyn5AVhwaR4"
@@ -21,4 +21,9 @@
 - files: ["through_space.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "maxstack"
+  source: "https://opengameart.org/content/through-space"
+
+- files: ["hehe.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "uwu"
   source: "https://opengameart.org/content/through-space"

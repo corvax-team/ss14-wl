@@ -1,10 +1,7 @@
 - type: roleLoadout
   id: JobAdjutant
   groups:
-  - AdjutantHead
-  - AdjutantJumpsuit
   - AdjutantBackpack
-  - AdjutantOuterClothing
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add

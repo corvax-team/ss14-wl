@@ -3,9 +3,6 @@
   name: job-name-adjutant
   description: job-description-adjutant
   playTimeTracker: JobAdjutant
-  subnames:
-  - Male: бюрократический супервайзер
-  - Male: младший администратор
   requirements:
     - !type:AgeRequirement
       age: 4 # WL-Changes-AgeRequirement
@@ -42,6 +39,9 @@
     shoes: ClothingShoesBootsLaceup
     id: AdjutantPDA
     ears: ClothingHeadsetAltCommand
+    jumpsuit: ClothingUniformJumpskirtTacticalMaid
+    head: ClothingHeadHatTacticalMaidHeadband
+    gloves: ClothingHandsTacticalMaidGloves
   storage:
     back:
     - Flash

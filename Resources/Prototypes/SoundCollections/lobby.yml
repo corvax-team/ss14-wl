@@ -1,32 +1,4 @@
 - type: soundCollection
   id: LobbyMusic
   files:
-    - /Audio/Lobby/thunderdome.ogg
-    - /Audio/Lobby/absconditus.ogg
-    - /Audio/Lobby/space_asshole.ogg
-    - /Audio/Lobby/the_wizard.ogg
-    - /Audio/Lobby/endless_space.ogg
-    - /Audio/Lobby/singuloose.ogg
-    - /Audio/Lobby/comet_haley.ogg
-    - /Audio/Lobby/title2.ogg
-    - /Audio/Lobby/title3.ogg
-    - /Audio/Lobby/mod.flip-flap.ogg
-    - /Audio/Lobby/Spac_Stac.ogg
-    - /Audio/Lobby/pwmur.ogg
-    - /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
-    - /Audio/Lobby/every_light_is_blinking_at_once.ogg
-    - /Audio/Corvax/Lobby/title2.ogg # Corvax-LobbyMusic
-    - /Audio/Corvax/Lobby/service.ogg # Corvax-LobbyMusic
-    - /Audio/Corvax/Lobby/nodecision.ogg # Corvax-LobbyMusic
-    # WL-Changes-start
-    - /Audio/_WL/Lobby/the_station.ogg
-    - /Audio/_WL/Lobby/spacebard.ogg
-    - /Audio/_WL/Lobby/quirky_goblins.ogg
-    - /Audio/_WL/Lobby/atomicamnesiammx.ogg
-    - /Audio/_WL/Lobby/through_space.ogg
-    - /Audio/_WL/Jukebox/Custom/Tintin_on_the_Moon_(Noisemakers_Remix).ogg
-    - /Audio/_WL/Jukebox/Custom/vibe_ace.ogg
-    - /Audio/_WL/Jukebox/Custom/marhaba.ogg
-    - /Audio/_WL/Jukebox/Custom/Monument.ogg
-    - /Audio/_WL/Jukebox/Custom/Fyreont-Endless-Space-_SolusLunes-cover_.ogg
-    # WL-Changes-end
+    - /Audio/_WL/Lobby/hehe.ogg
