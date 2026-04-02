@@ -26,6 +26,9 @@
     slots:
       filter:
         name: photo-camera-filter-slot
+        whitelist:
+          components:
+          - PhotoCameraFilter
 
 - type: entity
   name: "photo"
@@ -118,6 +121,7 @@
     filterComponents:
       - type: PhotoShaderFilter
         shader: CameraNightVision
+      - type: PhotoFilterBase
 
 - type: entity
   name: 'burned filter'
@@ -138,6 +142,7 @@
         visual: 
           sprite: _WL/Effects/photo_filters.rsi
           state: observer
+      - type: PhotoFilterBase
 
 - type: entity
   name: 'cat filter'
@@ -158,6 +163,7 @@
         visual: 
           sprite: _WL/Effects/photo_filters.rsi
           state: cat
+      - type: PhotoFilterBase
 
 - type: entity
   name: 'information filter'
@@ -179,3 +185,4 @@
         visual: 
           sprite: _WL/Effects/photo_filters.rsi
           state: box
+      - type: PhotoFilterBase

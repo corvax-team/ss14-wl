@@ -30,6 +30,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<PhotoCameraComponent, ActivatableUIOpenAttemptEvent>(OnOpenCameraInterfaceAttempt);
         Subs.BuiEvents<PhotoCameraComponent>(PhotoCameraUiKey.Key, subs =>
         {
             subs.Event<BoundUIClosedEvent>(OnCameraBoundUiClose);
@@ -41,6 +42,23 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         SubscribeLocalEvent<PhotoCardComponent, AfterActivatableUIOpenEvent>(OnOpenCardInterface);
         SubscribeLocalEvent<PhotoCameraComponent, EntInsertedIntoContainerMessage>(OnFilterInserted);
         SubscribeLocalEvent<PhotoCameraComponent, EntRemovedFromContainerMessage>(OnFilterRemoved);
+    }
+
+    private void OnOpenCameraInterfaceAttempt(EntityUid uid, PhotoCameraComponent component, ActivatableUIOpenAttemptEvent args)
+    {
+        if (component.User != null)
+        {
+            args.Cancel();
+            return;
+        }
+
+        if (!_hands.IsHolding(args.User, uid))
+        {
+            _popup.PopupEntity(Loc.GetString("photo-camera-not-holding"), uid, args.User);
+
+            args.Cancel();
+            return;
+        }
     }
 
     private void OnCameraBoundUiClose(EntityUid uid, PhotoCameraComponent component, BoundUIClosedEvent args)

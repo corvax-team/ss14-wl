@@ -5,7 +5,7 @@ ent-PhotoCard = фотография
     .desc = Лист бумаги с напечатанным изображением.
 
 ent-PhotoFilterPack = набор фильтров
-    .desc = Удобная вещь для хранения фильтров для камеры.
+    .desc = Удобная стойка для хранения фото-фильтров.
 
 ent-PhotoFilterPackFill = { ent-PhotoFilterPack }
     .desc = { ent-PhotoFilterPack.desc }

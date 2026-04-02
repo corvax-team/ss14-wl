@@ -1,7 +1,6 @@
 using Content.Client._WL.Overlays;
 using Content.Shared._WL.Photo;
 using Content.Shared._WL.Photo.Filters;
-using Content.Shared.Inventory;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 

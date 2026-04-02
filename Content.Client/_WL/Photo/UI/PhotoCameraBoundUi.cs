@@ -19,14 +19,9 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
     private readonly EyeSystem _eyeSystem;
     private readonly PhotoSystem _photoSystem;
     private readonly TransformSystem _transform;
-    private readonly SpriteSystem _spriteSystem;
 
     [Dependency] private readonly IResourceCache _cache = default!;
     [Dependency] private readonly IAudioManager _audioManager = default!;
-
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
-    private Type[] _defaultOverlays = { typeof(BeforeLightTargetOverlay), typeof(AfterLightTargetOverlay), typeof(SunShadowOverlay),
-                                        typeof(ParallaxOverlay), typeof(AmbientOcclusionOverlay), typeof(DecalOverlay) };
 
     [ViewVariables]
     private PhotoCameraWindow? _window;
@@ -45,7 +40,6 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
         _eyeSystem = EntMan.System<EyeSystem>();
         _photoSystem = EntMan.System<PhotoSystem>();
         _transform = EntMan.System<TransformSystem>();
-        _spriteSystem = EntMan.System<SpriteSystem>();
     }
 
     protected override void Open()
@@ -155,23 +149,10 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
         if (_window == null)
             return;
 
-        //List<Overlay> oldOverlays = new List<Overlay>();
-        //foreach (var overlay in _overlayManager.AllOverlays)
-        //{
-        //    if (!_defaultOverlays.Contains(overlay.GetType()))
-        //        oldOverlays.Add(overlay);
-        //}
-
-        //foreach (var overlay in oldOverlays)
-        //    _overlayManager.RemoveOverlay(overlay);
-
         _window.RenderImage(bytes =>
         {
             var message = new PhotoCameraTakeImageMessage(bytes);
             SendMessage(message);
-
-            //foreach (var overlay in oldOverlays)
-            //    _overlayManager.AddOverlay(overlay);
         });
     }
 }

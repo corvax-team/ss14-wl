@@ -1,7 +1,6 @@
 using Content.Client._WL.Photo.Filters;
 using Content.Client._WL.Photo.UI;
 using Content.Shared._WL.Photo;
-using Robust.Client.Graphics;
 using Robust.Shared.Graphics;
 
 namespace Content.Client._WL.Photo;
