@@ -99,6 +99,7 @@
     filterComponents:
       - type: PhotoShaderFilter
         shader: CameraMonochrome 
+      - type: PhotoFilterBase
 
 - type: entity
   name: 'night filter'

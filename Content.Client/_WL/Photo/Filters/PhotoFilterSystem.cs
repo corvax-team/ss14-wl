@@ -1,73 +1,113 @@
 using Content.Client._WL.Overlays;
+using Content.Shared._WL.Photo;
 using Content.Shared._WL.Photo.Filters;
+using Content.Shared.Inventory;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 
 namespace Content.Client._WL.Photo.Filters;
 public sealed partial class PhotoFilterSystem : EntitySystem
 {
     [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PhotoShaderFilterComponent, ComponentInit>(OnShaderFilterInit);
-        SubscribeLocalEvent<PhotoShaderFilterComponent, ComponentRemove>(OnShaderFilterShutdown);
+        SubscribeLocalEvent<PhotoFilterBaseComponent, ComponentInit>(OnFilterInit);
+        SubscribeLocalEvent<PhotoFilterBaseComponent, ComponentShutdown>(OnFilterShutdown);
 
-        SubscribeLocalEvent<PhotoGhostFilterComponent, ComponentInit>(OnGhostFilterInit);
-        SubscribeLocalEvent<PhotoGhostFilterComponent, ComponentRemove>(OnGhostFilterShutdown);
-
-        SubscribeLocalEvent<PhotoFaceFilterComponent, ComponentInit>(OnFaceFilterInit);
-        SubscribeLocalEvent<PhotoFaceFilterComponent, ComponentRemove>(OnFaceFilterShutdown);
-
-        SubscribeLocalEvent<PhotoInfoFilterComponent, ComponentInit>(OnInfoFilterInit);
-        SubscribeLocalEvent<PhotoInfoFilterComponent, ComponentRemove>(OnInfoFilterShutdown);
+        SubscribeLocalEvent<PhotoShaderFilterComponent, TogglePhotoFilterEvent>(OnToggleShaderFilter);
+        SubscribeLocalEvent<PhotoGhostFilterComponent, TogglePhotoFilterEvent>(OnToggleGhostFilter);
+        SubscribeLocalEvent<PhotoFaceFilterComponent, TogglePhotoFilterEvent>(OnToggleFaceFilter);
+        SubscribeLocalEvent<PhotoInfoFilterComponent, TogglePhotoFilterEvent>(OnToggleInfoFilter);
     }
 
-    //TODO: Do this more pretty
+    private void OnFilterInit(EntityUid uid, PhotoFilterBaseComponent component, ComponentInit args)
+    {
+        EnableFilter(uid);
+    }
+
+    private void OnFilterShutdown(EntityUid uid, PhotoFilterBaseComponent component, ComponentShutdown args)
+    {
+        DisableFilter(uid);
+    }
+
+    public void EnableFilter(EntityUid? uid)
+    {
+        if (uid == null || !CheckOverlay(uid.Value))
+            return;
+
+        var ev = new TogglePhotoFilterEvent(true);
+        RaiseLocalEvent(uid.Value, ev);
+    }
+
+    public void DisableFilter(EntityUid? uid)
+    {
+        if (uid == null || !CheckOverlay(uid.Value))
+            return;
+
+        var ev = new TogglePhotoFilterEvent(false);
+        RaiseLocalEvent(uid.Value, ev);
+    }
+
+    private bool CheckOverlay(EntityUid uid)
+    {
+        if (!EntityManager.TryGetComponent<PhotoCameraComponent>(uid, out var camera))
+            return false;
+
+        if (_player.LocalEntity != camera.User)
+            return false;
+
+        if (!EntityManager.TryGetComponent<PhotoFilterBaseComponent>(uid, out var filter) ||
+            filter.LifeStage >= ComponentLifeStage.Stopping)
+            return true;
+
+        return true;
+    }
+
+    //Different Filters handle
 
     //Simple Shader Filter
-
-    private void OnShaderFilterInit(EntityUid uid, PhotoShaderFilterComponent component, ComponentInit args)
+    private void OnToggleShaderFilter(EntityUid uid, PhotoShaderFilterComponent component, TogglePhotoFilterEvent args)
     {
-        _overlay.AddOverlay(new ShaderCameraOverlay());
-    }
-
-    private void OnShaderFilterShutdown(EntityUid uid, PhotoShaderFilterComponent component, ComponentRemove args)
-    {
-        _overlay.RemoveOverlay<ShaderCameraOverlay>();
+        if (args.State)
+            _overlay.AddOverlay(new ShaderCameraOverlay());
+        else
+            _overlay.RemoveOverlay<ShaderCameraOverlay>();
     }
 
     //Ghost Filter
-    private void OnGhostFilterInit(EntityUid uid, PhotoGhostFilterComponent component, ComponentInit args)
+    private void OnToggleGhostFilter(EntityUid uid, PhotoGhostFilterComponent component, TogglePhotoFilterEvent args)
     {
-        _overlay.AddOverlay(new GhostCameraOverlay());
-    }
-
-    private void OnGhostFilterShutdown(EntityUid uid, PhotoGhostFilterComponent component, ComponentRemove args)
-    {
-        _overlay.RemoveOverlay<GhostCameraOverlay>();
+        if (args.State)
+            _overlay.AddOverlay(new GhostCameraOverlay());
+        else
+            _overlay.RemoveOverlay<GhostCameraOverlay>();
     }
 
     //Face Filter
-    private void OnFaceFilterInit(EntityUid uid, PhotoFaceFilterComponent component, ComponentInit args)
+    private void OnToggleFaceFilter(EntityUid uid, PhotoFaceFilterComponent component, TogglePhotoFilterEvent args)
     {
-        _overlay.AddOverlay(new FaceCameraOverlay());
-    }
-
-    private void OnFaceFilterShutdown(EntityUid uid, PhotoFaceFilterComponent component, ComponentRemove args)
-    {
-        _overlay.RemoveOverlay<FaceCameraOverlay>();
+        if (args.State)
+            _overlay.AddOverlay(new FaceCameraOverlay());
+        else
+            _overlay.RemoveOverlay<FaceCameraOverlay>();
     }
 
     //Info Filter
-    private void OnInfoFilterInit(EntityUid uid, PhotoInfoFilterComponent component, ComponentInit args)
+    private void OnToggleInfoFilter(EntityUid uid, PhotoInfoFilterComponent component, TogglePhotoFilterEvent args)
     {
-        _overlay.AddOverlay(new InfoCameraOverlay());
-    }
-
-    private void OnInfoFilterShutdown(EntityUid uid, PhotoInfoFilterComponent component, ComponentRemove args)
-    {
-        _overlay.RemoveOverlay<InfoCameraOverlay>();
+        if (args.State)
+            _overlay.AddOverlay(new InfoCameraOverlay());
+        else
+            _overlay.RemoveOverlay<InfoCameraOverlay>();
     }
 }
+
+public record struct TogglePhotoFilterEvent(bool State)
+{
+    public bool State = State;
+}
+

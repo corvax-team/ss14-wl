@@ -30,8 +30,6 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PhotoCameraComponent, ActivatableUIOpenAttemptEvent>(OnOpenCameraInterfaceAttempt);
-        SubscribeLocalEvent<PhotoCameraComponent, AfterActivatableUIOpenEvent>(OnOpenCameraInterface);
         Subs.BuiEvents<PhotoCameraComponent>(PhotoCameraUiKey.Key, subs =>
         {
             subs.Event<BoundUIClosedEvent>(OnCameraBoundUiClose);
@@ -43,31 +41,6 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         SubscribeLocalEvent<PhotoCardComponent, AfterActivatableUIOpenEvent>(OnOpenCardInterface);
         SubscribeLocalEvent<PhotoCameraComponent, EntInsertedIntoContainerMessage>(OnFilterInserted);
         SubscribeLocalEvent<PhotoCameraComponent, EntRemovedFromContainerMessage>(OnFilterRemoved);
-    }
-
-    private void OnOpenCameraInterfaceAttempt(EntityUid uid, PhotoCameraComponent component, ActivatableUIOpenAttemptEvent args)
-    {
-        if (component.User != null)
-        {
-            args.Cancel();
-            return;
-        }
-
-        if (!_hands.IsHolding(args.User, uid))
-        {
-            _popup.PopupEntity(Loc.GetString("photo-camera-not-holding"), uid, args.User);
-
-            args.Cancel();
-            return;
-        }
-    }
-
-    private void OnOpenCameraInterface(EntityUid uid, PhotoCameraComponent component, AfterActivatableUIOpenEvent args)
-    {
-        UpdateCameraInterface(uid, component);
-
-        component.User = args.User;
-        EnsureComp<PhotoCameraUserComponent>(args.User);
     }
 
     private void OnCameraBoundUiClose(EntityUid uid, PhotoCameraComponent component, BoundUIClosedEvent args)
@@ -88,14 +61,6 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
             return;
 
         TryTakeImage(uid, component, message.Data);
-    }
-
-    private void UpdateCameraInterface(EntityUid uid, PhotoCameraComponent component, EntityUid? player = null)
-    {
-        bool hasPaper = _material.CanChangeMaterialAmount(uid, component.CardMaterial, -component.CardCost);
-
-        var state = new PhotoCameraUiState(GetNetEntity(uid), hasPaper);
-        _userInterface.SetUiState(uid, PhotoCameraUiKey.Key, state);
     }
 
     private void OnPaperInserted(EntityUid uid, PhotoCameraComponent component, MaterialAmountChangedEvent args)
