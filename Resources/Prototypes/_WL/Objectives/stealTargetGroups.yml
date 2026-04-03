@@ -4,3 +4,11 @@
   sprite:
     sprite: _WL/Mobs/Pets/goldie.rsi
     state: goldie
+
+- type: stealTargetGroup
+  id: HopMask
+  name: steal-target-groups-hop-mask
+  sprite:
+    sprite: Clothing/Mask/clown.rsi
+    state: icon
+    
