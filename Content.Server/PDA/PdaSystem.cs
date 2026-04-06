@@ -4,6 +4,8 @@ using Content.Server.CartridgeLoader;
 using Content.Server.Chat.Managers;
 using Content.Server.Instruments;
 using Content.Server.PDA.Ringer;
+using Content.Server.RoundEnd;
+using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
@@ -39,6 +41,9 @@ namespace Content.Server.PDA
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
+        [Dependency] private readonly RoundEndSystem _roundEnd = default!; // WL-Changes: ETA in PDA
+
+        [Access(typeof(EmergencyShuttleSystem), Other = AccessPermissions.None)] public TimeSpan? beforeETA; // WL-Changes: ETA in PDA
 
         public override void Initialize()
         {
@@ -61,6 +66,7 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<EntityRenamedEvent>(OnEntityRenamed, after: new[] { typeof(IdCardSystem) });
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(ChameleonControllerOutfitItemSelected);
+            SubscribeLocalEvent<RoundEndSystemChangedEvent>(_ => UpdateAllPdaUisOnStation()); // WL-Changes: ETA in PDA
         }
 
         private void ChameleonControllerOutfitItemSelected(Entity<PdaComponent> ent, ref InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent> args)
@@ -145,7 +151,7 @@ namespace Content.Server.PDA
             UpdateAllPdaUisOnStation();
         }
 
-        private void UpdateAllPdaUisOnStation()
+        public void UpdateAllPdaUisOnStation() // WL-Changes: ETA in PDA
         {
             var query = AllEntityQuery<PdaComponent>();
             while (query.MoveNext(out var ent, out var comp))
@@ -200,6 +206,8 @@ namespace Content.Server.PDA
             if (!TryComp(uid, out CartridgeLoaderComponent? loader))
                 return;
 
+            var ece = _roundEnd.IsRoundEndRequested() ? _roundEnd.ExpectedCountdownEnd : null;
+
             var programs = _cartridgeLoader.GetAvailablePrograms(uid, loader);
             var id = CompOrNull<IdCardComponent>(pda.ContainedId);
             var state = new PdaUpdateState(
@@ -221,7 +229,11 @@ namespace Content.Server.PDA
                 pda.StationName,
                 showUplink,
                 hasInstrument,
-                address);
+                address,
+                // WL-Changes-start: ETA in PDA
+                ece,
+                beforeETA);
+                // WL-Changes-end
 
             _ui.SetUiState(uid, PdaUiKey.Key, state);
         }

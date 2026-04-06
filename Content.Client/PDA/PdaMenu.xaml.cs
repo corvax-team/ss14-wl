@@ -1,3 +1,4 @@
+using System.Globalization;
 using Content.Client.GameTicking.Managers;
 using Content.Shared.PDA;
 using Robust.Shared.Utility;
@@ -33,6 +34,12 @@ namespace Content.Client.PDA
         private string _stationName = Loc.GetString("comp-pda-ui-unknown");
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
+
+        //  WL-Changes-start: ETA in PDA
+        private TimeSpan _eta = TimeSpan.Zero;
+        private TimeSpan? _expectedETA;
+        private TimeSpan? _etaToCC = TimeSpan.Zero;
+        // WL-Changes-end
 
         private int _currentView;
 
@@ -125,7 +132,12 @@ namespace Content.Client.PDA
                 _clipboard.SetText(_instructions);
             };
 
-
+            // WL-Changes-start: ETA in PDA
+            ETAButton.OnPressed += _ =>
+            {
+                _clipboard.SetText(_eta.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture));
+            };
+            // WL-Changes-end
 
 
             HideAllViews();
@@ -204,6 +216,12 @@ namespace Content.Client.PDA
                 "comp-pda-ui-station-alert-level-instructions",
                 ("instructions", _instructions))
             );
+
+            // WL-Changes-start: ETA in PDA
+            _etaToCC = state.BeforeETA;
+            _expectedETA = state.ExpectedETA;
+            UpdateETA();
+            // WL-Changes-end
 
             AddressLabel.Text = state.Address?.ToUpper() ?? " - ";
 
@@ -362,7 +380,55 @@ namespace Content.Client.PDA
 
             StationTimeLabel.SetMarkup(_locMan.GetString("comp-pda-ui-station-time",
                 ("time", stationTime.ToString("hh\\:mm\\:ss"))));
+
+            UpdateETA(); // WL-Changes: ETA in PDA
         }
         // WL-Changes-end: Loc -> _locMan
+
+        // WL-Changes-start: ETA in PDA
+        private void UpdateETA()
+        {
+            ETAButton.Visible = false;
+            if (!_expectedETA.HasValue)
+            {
+                return;
+            }
+            else
+            {
+                if (_eta >= TimeSpan.Zero && !_etaToCC.HasValue)
+                {
+                    _eta = _expectedETA.Value.Subtract(_gameTiming.CurTime);
+                }
+                // else if (_eta != TimeSpan.MinValue)
+                // {
+                //     ETAButton.Visible = true;
+                //     _eta = TimeSpan.MinValue;
+                //     ETALabel.SetMarkup(_locMan.GetString("comp-pda-ui-arrived"));
+                //     return;
+                // }
+                else if (_etaToCC.HasValue)
+                {
+                    if (_etaToCC.Value <= TimeSpan.Zero)
+                    {
+                        ETAButton.Visible = true;
+                        ETALabel.SetMarkup(_locMan.GetString("comp-pda-ui-departed"));
+                        return;
+                    }
+
+                    _etaToCC = _eta = _etaToCC.Value.Subtract(_gameTiming.CurTime);
+
+                    ETAButton.Visible = true;
+                    ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-arrived",
+                        ("time", _eta.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture))));
+                    return;
+                }
+            }
+
+            ETAButton.Visible = true;
+            ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-eta",
+                ("time", _eta.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture))));
+            return;
+        }
+        // WL-Changes-end
     }
 }

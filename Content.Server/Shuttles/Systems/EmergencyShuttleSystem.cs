@@ -9,6 +9,7 @@ using Content.Server.Communications;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
+using Content.Server.PDA;
 using Content.Server.Pinpointer;
 using Content.Server.RoundEnd;
 using Content.Server.Screens.Components;
@@ -67,6 +68,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly PdaSystem _pda = default!;// WL-Changes: ETA in PDA
 
     private const float ShuttleSpawnBuffer = 1f;
 
@@ -487,6 +489,11 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
         };
 
         _consoleAccumulator *= multiplier;
+
+        // WL-Changes-start: ETA in PDA
+        _pda.beforeETA = TimeSpan.FromSeconds(_consoleAccumulator);
+        _pda.UpdateAllPdaUisOnStation();
+        // WL-Changes-end
 
         foreach (var shuttleDockResult in dockResults)
         {

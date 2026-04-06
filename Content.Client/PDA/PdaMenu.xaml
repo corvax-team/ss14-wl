@@ -43,6 +43,11 @@
             <ContainerButton Name="StationTimeButton">
                 <RichTextLabel Name="StationTimeLabel" Access="Public"/>
             </ContainerButton>
+            <!-- WL-Changes-start: ETA in PDA -->
+            <ContainerButton Name="ETAButton">
+                <RichTextLabel Name="ETALabel" Access="Public"/>
+            </ContainerButton>
+            <!-- WL-Changes-end -->
             <ContainerButton Name="StationAlertLevelInstructionsButton">
                 <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
             </ContainerButton>
