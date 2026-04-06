@@ -41,9 +41,12 @@ namespace Content.Server.PDA
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
-        [Dependency] private readonly RoundEndSystem _roundEnd = default!; // WL-Changes: ETA in PDA
+        // WL-Changes-start: ETA in PDA
+        [Dependency] private readonly RoundEndSystem _roundEnd = default!;
 
-        [Access(typeof(EmergencyShuttleSystem), Other = AccessPermissions.None)] public TimeSpan? beforeETA; // WL-Changes: ETA in PDA
+        [Access(typeof(EmergencyShuttleSystem), Other = AccessPermissions.None)] public TimeSpan? beforeETA;
+        [Access(typeof(RoundEndSystem), Other = AccessPermissions.None)] public bool roundEnd = false;
+        // WL-Changes-end
 
         public override void Initialize()
         {
@@ -151,7 +154,7 @@ namespace Content.Server.PDA
             UpdateAllPdaUisOnStation();
         }
 
-        public void UpdateAllPdaUisOnStation() // WL-Changes: ETA in PDA
+        public void UpdateAllPdaUisOnStation() // WL-Changes: ETA in PDA // private -> public
         {
             var query = AllEntityQuery<PdaComponent>();
             while (query.MoveNext(out var ent, out var comp))
@@ -232,7 +235,8 @@ namespace Content.Server.PDA
                 address,
                 // WL-Changes-start: ETA in PDA
                 ece,
-                beforeETA);
+                beforeETA,
+                roundEnd);
                 // WL-Changes-end
 
             _ui.SetUiState(uid, PdaUiKey.Key, state);

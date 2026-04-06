@@ -19,6 +19,7 @@ namespace Content.Shared.PDA
         // WL-Changes-start: ETA in PDA
         public TimeSpan? ExpectedETA;
         public TimeSpan? BeforeETA;
+        public bool roundEnd;
         // WL-Changes-end
 
         public PdaUpdateState(
@@ -34,7 +35,8 @@ namespace Content.Shared.PDA
             string? address = null,
             // WL-Changes-start: ETA in PDA
             TimeSpan? eta = null,
-            TimeSpan? bETA = null)
+            TimeSpan? bETA = null,
+            bool roundEND = false)
             // WL-Changes-end
             : base(programs, activeUI)
         {
@@ -49,6 +51,7 @@ namespace Content.Shared.PDA
             // WL-Changes-start: ETA in PDA
             ExpectedETA = eta;
             BeforeETA = bETA;
+            roundEnd = roundEND;
             // WL-Changes-end
         }
     }

@@ -39,6 +39,8 @@ namespace Content.Client.PDA
         private TimeSpan _eta = TimeSpan.Zero;
         private TimeSpan? _expectedETA;
         private TimeSpan? _etaToCC = TimeSpan.Zero;
+        private TimeSpan _lastEtaUpdateTime;
+        public bool RoundEnd = false;
         // WL-Changes-end
 
         private int _currentView;
@@ -135,7 +137,8 @@ namespace Content.Client.PDA
             // WL-Changes-start: ETA in PDA
             ETAButton.OnPressed += _ =>
             {
-                _clipboard.SetText(_eta.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture));
+                var timeToCopy = _etaToCC.HasValue ? _etaToCC.Value : _eta;
+                _clipboard.SetText(timeToCopy.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture));
             };
             // WL-Changes-end
 
@@ -218,8 +221,10 @@ namespace Content.Client.PDA
             );
 
             // WL-Changes-start: ETA in PDA
+            RoundEnd = state.roundEnd;
             _etaToCC = state.BeforeETA;
             _expectedETA = state.ExpectedETA;
+            _lastEtaUpdateTime = _gameTiming.CurTime;
             UpdateETA();
             // WL-Changes-end
 
@@ -388,9 +393,15 @@ namespace Content.Client.PDA
         // WL-Changes-start: ETA in PDA
         private void UpdateETA()
         {
-            ETAButton.Visible = false;
+            if (RoundEnd)
+            {
+                ETAButton.Visible = true;
+                ETALabel.SetMarkup(Loc.GetString("pda-com-ui-arrived-cc"));
+                return;
+            }
             if (!_expectedETA.HasValue)
             {
+                ETAButton.Visible = false;
                 return;
             }
             else
@@ -399,15 +410,13 @@ namespace Content.Client.PDA
                 {
                     _eta = _expectedETA.Value.Subtract(_gameTiming.CurTime);
                 }
-                // else if (_eta != TimeSpan.MinValue)
-                // {
-                //     ETAButton.Visible = true;
-                //     _eta = TimeSpan.MinValue;
-                //     ETALabel.SetMarkup(_locMan.GetString("comp-pda-ui-arrived"));
-                //     return;
-                // }
                 else if (_etaToCC.HasValue)
                 {
+                    var delta = _gameTiming.CurTime - _lastEtaUpdateTime;
+                    _lastEtaUpdateTime = _gameTiming.CurTime;
+                    _etaToCC = _etaToCC.Value - delta;
+                    _eta = _etaToCC.Value;
+
                     if (_etaToCC.Value <= TimeSpan.Zero)
                     {
                         ETAButton.Visible = true;
@@ -415,10 +424,8 @@ namespace Content.Client.PDA
                         return;
                     }
 
-                    _etaToCC = _eta = _etaToCC.Value.Subtract(_gameTiming.CurTime);
-
                     ETAButton.Visible = true;
-                    ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-arrived",
+                    ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-arrive",
                         ("time", _eta.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture))));
                     return;
                 }

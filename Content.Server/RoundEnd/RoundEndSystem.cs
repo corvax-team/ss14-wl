@@ -23,6 +23,7 @@ using Robust.Shared.Timing;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Station.Components;
 using Timer = Robust.Shared.Timing.Timer;
+using Content.Server.PDA; // WL-Changes: ETA in PDA
 
 namespace Content.Server.RoundEnd
 {
@@ -43,6 +44,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly EmergencyShuttleSystem _shuttle = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private readonly PdaSystem _pda = default!; // WL-Changes: ETA in PDA
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -304,6 +306,11 @@ namespace Content.Server.RoundEnd
             _gameTicker.EndRound();
             _countdownTokenSource?.Cancel();
             _countdownTokenSource = new();
+
+            // WL-Changes-start: ETA in PDA
+            _pda.roundEnd = true;
+            _pda.UpdateAllPdaUisOnStation();
+            // WL-Changes-end
 
             countdownTime ??= TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.RoundRestartTime));
             int time;
