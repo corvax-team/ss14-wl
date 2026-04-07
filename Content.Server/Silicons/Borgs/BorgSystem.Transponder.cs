@@ -12,7 +12,6 @@ using Content.Shared.Emag.Systems;
 using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Robust.Shared.Utility;
 
-//WL-Changes
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
@@ -44,6 +43,7 @@ public sealed partial class BorgSystem
             // checks if it has a brain and if the brain is not a empty MMI (gives false anyway if the fake disable is true)
             var hasBrain = CheckBrain(chassis.BrainEntity) && !comp.FakeDisabled;
             var canDisable = comp.NextDisable == null && !comp.FakeDisabling;
+            // WL-Changes-start
             var data = new CyborgControlData(
                 comp.Sprite,
                 comp.Name,
@@ -54,6 +54,7 @@ public sealed partial class BorgSystem
                 hasBrain,
                 canDisable,
                 HasComp<AiRemoteControllerComponent>(uid));
+            // WL-Changes-end
 
             var payload = new NetworkPayload()
             {

@@ -19,7 +19,7 @@ using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
-//WL-Changes
+// WL-Changes-start
 namespace Content.Server._CorvaxNext.Silicons.Borgs;
 
 public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
@@ -197,3 +197,4 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
         _lawSystem.SetLawsSilent(fromLaws.Laws, to);
     }
 }
+// WL-Changes-end

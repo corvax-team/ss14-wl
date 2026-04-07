@@ -7,7 +7,6 @@ using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-//WL-Changes
 namespace Content.Server.Silicons.Borgs;
 
 /// <summary>
@@ -30,6 +29,7 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         if (TryComp(ent, out ActiveRadioComponent? activeRadio))
             activeRadio.Channels = [.. radioChannels];
 
+        // WL-Changes-start
         if (TryComp(ent, out AiRemoteControllerComponent? aiRemoteComp))
         {
             if (TryComp(aiRemoteComp.AiHolder, out IntrinsicRadioTransmitterComponent? stationAiTransmitter) && transmitter != null)
@@ -44,6 +44,7 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
                 activeRadio.Channels = [.. stationAiActiveRadio.Channels];
             }
         }
+        // WL-Changes-end
 
         // Borg transponder for the robotics console
         if (TryComp(ent, out BorgTransponderComponent? transponder))

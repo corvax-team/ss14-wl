@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: 2025 KillanGenifer <killangenifer@gmail.com>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+# WL-Changes-start
 
 - type: entity
   parent: BaseAction
@@ -36,3 +37,4 @@
       state: robot
   - type: InstantAction
     event: !type:ToggleRemoteDevicesScreenEvent
+# WL-Changes-end

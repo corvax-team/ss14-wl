@@ -8,7 +8,7 @@ using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Robust.Client.UserInterface;
 using static Content.Shared._CorvaxNext.Silicons.Borgs.Components.AiRemoteControllerComponent;
 
-//WL-Changes
+// WL-Changes-start
 namespace Content.Client._CorvaxNext.Silicons.Laws.Ui;
 
 public sealed class RemoteDevicesBoundUserInterface : BoundUserInterface
@@ -44,3 +44,4 @@ public sealed class RemoteDevicesBoundUserInterface : BoundUserInterface
         SendMessage(new RemoteDeviceActionMessage(action));
     }
 }
+// WL-Changes-end

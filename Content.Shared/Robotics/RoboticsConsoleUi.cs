@@ -3,7 +3,6 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
-//WL-Changes
 namespace Content.Shared.Robotics;
 
 [Serializable, NetSerializable]
@@ -124,6 +123,7 @@ public partial record struct CyborgControlData
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan Timeout = TimeSpan.Zero;
 
+    // WL-Changes-start
     [DataField]
     public bool IsAiControllable;
 
@@ -148,6 +148,7 @@ public partial record struct CyborgControlData
         CanDisable = canDisable;
         IsAiControllable = isAiControllable;
     }
+    // WL-Changes-end
 }
 
 public static class RoboticsConsoleConstants

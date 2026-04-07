@@ -105,7 +105,7 @@
     Gold: 100
     Silver: 100
     Plasma: 1000
-
+# WL-Changes-start
 - type: latheRecipe
   parent: BaseRoboticsRecipe
   id: AiRemoteBrain
@@ -116,3 +116,4 @@
     Glass: 400
     Gold: 400
     Silver: 200
+# WL-Changes-end

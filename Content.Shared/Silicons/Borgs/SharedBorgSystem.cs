@@ -39,7 +39,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-//WL-Changes
 namespace Content.Shared.Silicons.Borgs;
 
 /// <summary>
@@ -205,12 +204,14 @@ public abstract partial class SharedBorgSystem : EntitySystem
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
 
+        // WL-Changes-start
         if (HasComp<AiRemoteBrainComponent>(args.Entity))
         {
             _remoteSystem.ReturnMindIntoAi(chassis.Owner);
             RemComp<AiRemoteControllerComponent>(chassis.Owner);
             RemComp<StationAiVisionComponent>(chassis.Owner);
         }
+        // WL-Changes-end
     }
 
     private void OnMindAdded(Entity<BorgChassisComponent> chassis, ref MindAddedMessage args)
@@ -283,6 +284,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
             return;
         }
 
+        // WL-Changes-start
         if (chassis.Comp.BrainEntity == null
             && aiBrain != null
             && _whitelist.IsWhitelistPassOrNull(chassis.Comp.BrainWhitelist, used))
@@ -293,6 +295,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
                 $"{args.User} installed ai remote brain {used} into borg {chassis.Owner}");
             args.Handled = true;
         }
+        // WL-Changes-end
     }
 
     // Make the borg slower without power.

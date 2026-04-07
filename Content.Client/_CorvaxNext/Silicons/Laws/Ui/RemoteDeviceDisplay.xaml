@@ -1,3 +1,4 @@
+<!-- WL-Changes-start -->
 <Control xmlns="https://spacestation14.io"
          xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
          Margin="0 0 0 10">
@@ -16,3 +17,4 @@
         </BoxContainer>
     </PanelContainer>
 </Control>
+<!-- WL-Changes-end -->

@@ -7,7 +7,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-//WL-Changes
+// WL-Changes-start
 namespace Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 
 [RegisterComponent]
@@ -68,3 +68,4 @@ public sealed class RemoteDevicesBuiState : BoundUserInterfaceState
         DeviceList = deviceList;
     }
 }
+// WL-Changes-end

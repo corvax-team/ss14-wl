@@ -4,10 +4,11 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-//WL-Changes
+// WL-Changes-start
 namespace Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 
 [RegisterComponent]
 public sealed partial class AiRemoteBrainComponent : Component
 {
 }
+// WL-Changes-end

@@ -23,7 +23,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
 
-//WL-Changes
 namespace Content.Server.Silicons.Laws;
 
 /// <inheritdoc/>
@@ -66,8 +65,10 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
 
+        // WL-Changes-start
         if (HasComp<AiRemoteControllerComponent>(uid) || _tagSystem.HasTag(uid, "StationAi"))
             return;
+        // WL-Changes-end
 
         var msg = Loc.GetString("laws-notify");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
@@ -162,8 +163,10 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         if (component.Lawset == null)
             component.Lawset = GetLawset(component.Laws);
 
+        // WL-Changes-start
         if (HasComp<AiRemoteControllerComponent>(uid))
             return;
+        // WL-Changes-end
 
         // Show the silicon has been subverted.
         component.Subverted = true;
@@ -317,15 +320,18 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         {
             SetLaws(lawset.Laws, update, provider.LawUploadSound);
 
+            // WL-Changes-start
             if (TryComp<StationAiHeldComponent>(update, out var heldComp)
                 && heldComp.CurrentConnectedEntity != null
                 && HasComp<SiliconLawProviderComponent>(heldComp.CurrentConnectedEntity))
             {
                 SetLaws(lawset.Laws, heldComp.CurrentConnectedEntity.Value, provider.LawUploadSound);
             }
+            // WL-Changes-end
         }
     }
 
+    // WL-Changes-start
     public void SetLawsSilent(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null)
     {
         if (!TryComp<SiliconLawProviderComponent>(target, out var component))
@@ -336,6 +342,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         component.Lawset.Laws = newLaws;
     }
+    // WL-Changes-end
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]

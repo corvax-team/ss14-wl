@@ -7,7 +7,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Wires;
 using Robust.Shared.Audio;
 
-//WL-Changes
 namespace Content.Shared.Silicons.Laws;
 
 /// <summary>
@@ -35,8 +34,10 @@ public abstract partial class SharedSiliconLawSystem : EntitySystem
         if (_emag.CheckFlag(uid, EmagType.Interaction))
             return;
 
+        // WL-Changes-start
         if (HasComp<AiRemoteControllerComponent>(uid))
             return;
+        // WL-Changes-end
 
         // prevent self-emagging
         if (uid == args.UserUid)
