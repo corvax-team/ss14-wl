@@ -4,8 +4,8 @@ using Content.Server.CartridgeLoader;
 using Content.Server.Chat.Managers;
 using Content.Server.Instruments;
 using Content.Server.PDA.Ringer;
-using Content.Server.RoundEnd;
-using Content.Server.Shuttles.Systems;
+using Content.Server.RoundEnd; // WL-Changes: ETA in PDA
+using Content.Server.Shuttles.Systems; // WL-Changes: ETA in PDA
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
@@ -13,6 +13,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
 using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.GameTicking; // WL-Changes: ETA in PDA
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
 using Content.Shared.Light;
@@ -69,8 +70,17 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<EntityRenamedEvent>(OnEntityRenamed, after: new[] { typeof(IdCardSystem) });
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(ChameleonControllerOutfitItemSelected);
-            SubscribeLocalEvent<RoundEndSystemChangedEvent>(_ => UpdateAllPdaUisOnStation()); // WL-Changes: ETA in PDA
+            // WL-Changes-start: ETA in PDA
+            SubscribeLocalEvent<RoundEndSystemChangedEvent>(_ => UpdateAllPdaUisOnStation());
+            SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => Reset());
         }
+
+        private void Reset()
+        {
+            beforeETA = null;
+            roundEnd = false;
+        }
+        // WL-Changes-end
 
         private void ChameleonControllerOutfitItemSelected(Entity<PdaComponent> ent, ref InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent> args)
         {
@@ -209,7 +219,7 @@ namespace Content.Server.PDA
             if (!TryComp(uid, out CartridgeLoaderComponent? loader))
                 return;
 
-            var ece = _roundEnd.IsRoundEndRequested() ? _roundEnd.ExpectedCountdownEnd : null;
+            var ece = _roundEnd.IsRoundEndRequested() ? _roundEnd.ExpectedCountdownEnd : null; // WL-Changes: ETA in PDA
 
             var programs = _cartridgeLoader.GetAvailablePrograms(uid, loader);
             var id = CompOrNull<IdCardComponent>(pda.ContainedId);

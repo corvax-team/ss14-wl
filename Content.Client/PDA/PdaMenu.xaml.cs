@@ -1,7 +1,6 @@
-using System.Globalization;
+using System.Globalization;// WL-Changes: ETA in PDA
 using Content.Client.GameTicking.Managers;
 using Content.Shared.PDA;
-using Robust.Shared.Utility;
 using Content.Shared.CartridgeLoader;
 using Content.Client.Message;
 using Robust.Client.UserInterface;
@@ -10,6 +9,7 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client.PDA
 {
@@ -137,8 +137,7 @@ namespace Content.Client.PDA
             // WL-Changes-start: ETA in PDA
             ETAButton.OnPressed += _ =>
             {
-                var timeToCopy = _etaToCC.HasValue ? _etaToCC.Value : _eta;
-                _clipboard.SetText(timeToCopy.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture));
+                _clipboard.SetText(_eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture));
             };
             // WL-Changes-end
 
@@ -396,7 +395,7 @@ namespace Content.Client.PDA
             if (RoundEnd)
             {
                 ETAButton.Visible = true;
-                ETALabel.SetMarkup(Loc.GetString("pda-com-ui-arrived-cc"));
+                ETALabel.SetMarkup(_locMan.GetString("comp-pda-ui-arrived-cc"));
                 return;
             }
             if (!_expectedETA.HasValue)
@@ -426,14 +425,14 @@ namespace Content.Client.PDA
 
                     ETAButton.Visible = true;
                     ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-arrive",
-                        ("time", _eta.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture))));
+                        ("time", _eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture))));
                     return;
                 }
             }
 
             ETAButton.Visible = true;
             ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-eta",
-                ("time", _eta.ToString(@"hh\:mm\:ss", CultureInfo.CurrentCulture))));
+                ("time", _eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture))));
             return;
         }
         // WL-Changes-end
