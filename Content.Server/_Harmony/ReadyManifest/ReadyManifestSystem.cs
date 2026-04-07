@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.EUI;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
@@ -34,7 +35,7 @@ public sealed class ReadyManifestSystem : SharedReadyManifestSystem
 
     private void OnRoundStarting(RoundStartingEvent args)
     {
-        foreach (var (_, eui) in _openEuis)
+        foreach (var (_, eui) in _openEuis.ToArray())
         {
             eui.Close();
         }
