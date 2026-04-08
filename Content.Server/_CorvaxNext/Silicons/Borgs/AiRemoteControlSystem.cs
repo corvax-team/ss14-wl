@@ -58,9 +58,6 @@ public sealed class AiRemoteControlSystem : SharedAiRemoteControlSystem
     {
         _actions.RemoveAction(entity.Owner, entity.Comp.BackToAiActionEntity);
 
-        var backArgs = new ReturnMindIntoAiEvent();
-        backArgs.Performer = entity;
-
         if (TryComp(entity, out IntrinsicRadioTransmitterComponent? transmitter)
             && entity.Comp.PreviouslyTransmitterChannels != null)
             transmitter.Channels = [.. entity.Comp.PreviouslyTransmitterChannels];

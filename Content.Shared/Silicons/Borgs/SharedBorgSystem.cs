@@ -69,8 +69,6 @@ public abstract partial class SharedBorgSystem : EntitySystem
     [Dependency] private readonly SharedHandheldLightSystem _handheldLight = default!;
     [Dependency] private readonly SharedAccessSystem _access = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!;
-
     [Dependency] private readonly TagSystem _tag = default!; // WL android species
 
     /// <inheritdoc/>
@@ -207,7 +205,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
         // WL-Changes-start
         if (HasComp<AiRemoteBrainComponent>(args.Entity))
         {
-            _remoteSystem.ReturnMindIntoAi(chassis.Owner);
+            var ev = new ReturnMindIntoAiEvent();
+            RaiseLocalEvent(chassis.Owner, ref ev);
             RemComp<AiRemoteControllerComponent>(chassis.Owner);
             RemComp<StationAiVisionComponent>(chassis.Owner);
         }
@@ -289,8 +288,10 @@ public abstract partial class SharedBorgSystem : EntitySystem
             && aiBrain != null
             && _whitelist.IsWhitelistPassOrNull(chassis.Comp.BrainWhitelist, used))
         {
+            if (!_container.Insert(used, chassis.Comp.BrainContainer))
+                return;
+
             EnsureComp<AiRemoteControllerComponent>(chassis.Owner);
-            _container.Insert(used, chassis.Comp.BrainContainer);
             _adminLog.Add(LogType.Action, LogImpact.Medium,
                 $"{args.User} installed ai remote brain {used} into borg {chassis.Owner}");
             args.Handled = true;

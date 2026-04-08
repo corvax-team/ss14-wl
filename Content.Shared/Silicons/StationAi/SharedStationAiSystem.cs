@@ -65,8 +65,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     [Dependency] private readonly StationAiVisionSystem _vision = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!;
-
     // StationAiHeld is added to anything inside of an AI core.
     // StationAiHolder indicates it can hold an AI positronic brain (e.g. holocard / core).
     // StationAiCore holds functionality related to the core itself.
@@ -248,7 +246,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
                 && TryComp<StationAiHeldComponent>(ent.Comp.Slot.Item, out var stationAiHeldComp)
                 && stationAiHeldComp.CurrentConnectedEntity != null)
             {
-                _remoteSystem.ReturnMindIntoAi(stationAiHeldComp.CurrentConnectedEntity.Value);
+                var ev = new ReturnMindIntoAiEvent();
+                RaiseLocalEvent(stationAiHeldComp.CurrentConnectedEntity.Value, ref ev);
             }
             // WL-Changes-end
 
