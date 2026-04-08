@@ -38,7 +38,7 @@ namespace Content.Client.PDA
         //  WL-Changes-start: ETA in PDA
         private TimeSpan _eta = TimeSpan.Zero;
         private TimeSpan? _expectedETA;
-        private TimeSpan? _etaToCC = TimeSpan.Zero;
+        private TimeSpan? _etaToCC;
         private TimeSpan _lastEtaUpdateTime;
         public bool RoundEnd = false;
         // WL-Changes-end
