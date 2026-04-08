@@ -205,8 +205,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
         // WL-Changes-start
         if (HasComp<AiRemoteBrainComponent>(args.Entity))
         {
-            var ev = new ReturnMindIntoAiEvent();
-            RaiseLocalEvent(chassis.Owner, ref ev);
+            RaiseLocalEvent(chassis.Owner, new ReturnMindIntoAiEvent());
             RemComp<AiRemoteControllerComponent>(chassis.Owner);
             RemComp<StationAiVisionComponent>(chassis.Owner);
         }

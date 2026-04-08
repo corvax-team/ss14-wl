@@ -246,8 +246,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
                 && TryComp<StationAiHeldComponent>(ent.Comp.Slot.Item, out var stationAiHeldComp)
                 && stationAiHeldComp.CurrentConnectedEntity != null)
             {
-                var ev = new ReturnMindIntoAiEvent();
-                RaiseLocalEvent(stationAiHeldComp.CurrentConnectedEntity.Value, ref ev);
+                RaiseLocalEvent(stationAiHeldComp.CurrentConnectedEntity.Value, new ReturnMindIntoAiEvent());
             }
             // WL-Changes-end
 
