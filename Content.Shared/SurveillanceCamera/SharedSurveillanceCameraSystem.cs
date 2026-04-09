@@ -1,4 +1,6 @@
+using Content.Shared.ActionBlocker;
 using Content.Shared.Emp;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
@@ -7,11 +9,16 @@ namespace Content.Shared.SurveillanceCamera;
 
 public abstract class SharedSurveillanceCameraSystem : EntitySystem
 {
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<SurveillanceCameraComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpDisabledRemovedEvent>(OnEmpDisabledRemoved);
+        SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggledEvent>(OnToggle);
+        SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
+        SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggleDeactivateAttemptEvent>(OnDeactivateAttempt);
     }
 
     private void AddVerbs(EntityUid uid, SurveillanceCameraComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -49,6 +56,34 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
     public virtual void SetActive(EntityUid camera, bool setting, SurveillanceCameraComponent? component = null) { }
 
     protected virtual void OpenSetupInterface(EntityUid uid, EntityUid player, SurveillanceCameraComponent? camera = null) { }
+
+    #region CorvaxWL
+
+    private void OnToggle(Entity<SurveillanceCameraComponent> entity, ref ItemToggledEvent args)
+    {
+        SetActive(entity, args.Activated);
+    }
+
+    private void OnActivateAttempt(Entity<SurveillanceCameraComponent> entity, ref ItemToggleActivateAttemptEvent args)
+    {
+        if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value))
+        {
+            SetActive(entity, true);
+            args.Cancelled = true;
+            return;
+        }
+    }
+
+    private void OnDeactivateAttempt(Entity<SurveillanceCameraComponent> entity, ref ItemToggleDeactivateAttemptEvent args)
+    {
+        if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value))
+        {
+            SetActive(entity, false);
+            args.Cancelled = true;
+            return;
+        }
+    }
+    #endregion
 }
 
 [Serializable, NetSerializable]

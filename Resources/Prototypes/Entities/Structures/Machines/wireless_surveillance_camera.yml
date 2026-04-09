@@ -5,6 +5,20 @@
   name: wireless camera
   description: A camera. It's watching you. Kinda.
   components:
+    #WL-Changes start
+    - type: ItemToggle
+      soundActivate:
+        path: /Audio/Machines/button.ogg
+      soundDeactivate:
+        path: /Audio/Machines/button.ogg
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ToggleableVisuals.Enabled:
+          enable:
+            True: { visible: true }
+            False: { visible: false }
+    #WL-Changes end
     - type: InteractionOutline
     - type: Eye
     - type: WirelessNetworkConnection
@@ -40,6 +54,7 @@
   placement:
     mode: SnapgridCenter
 
+
 - type: entity
   abstract: true
   id: SurveillanceWirelessCameraAnchoredBase
@@ -56,9 +71,14 @@
     - type: Sprite
       noRot: true
       sprite: Structures/monitors.rsi
+      #WL-Changes start
       layers:
-        - map: [ "enum.SurveillanceCameraVisualsKey.Key" ]
-          state: television
+      - state: television
+      - state: on
+        visible: false
+        shader: unshaded
+        map: [ "enable" ]
+      #WL-Changes end
 
 - type: entity
   abstract: true
@@ -72,9 +92,14 @@
     - type: Sprite
       noRot: true
       sprite: Structures/monitors.rsi
+      #WL-Changes start
       layers:
-        - map: [ "enum.SurveillanceCameraVisualsKey.Key" ]
-          state: mobilevision
+      - state: mobilevision
+      - state: on
+        visible: false
+        shader: unshaded
+        map: [ "enable" ]
+      #WL-Changes end
 
 - type: entity
   parent: SurveillanceWirelessCameraAnchoredBase
@@ -86,6 +111,7 @@
       receiveFrequencyId: SurveillanceCamera
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
+      active: false
       setupAvailableNetworks:
         - SurveillanceCameraEntertainment
 
@@ -99,6 +125,7 @@
       receiveFrequencyId: SurveillanceCameraEntertainment
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
+      active: false
       setupAvailableNetworks:
         - SurveillanceCameraEntertainment
 
@@ -112,6 +139,7 @@
       receiveFrequencyId: SurveillanceCameraEntertainment
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
+      active: false
       networkSet: true
 
 - type: entity
@@ -124,4 +152,5 @@
       receiveFrequencyId: SurveillanceCameraEntertainment
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
+      active: false
       networkSet: true
