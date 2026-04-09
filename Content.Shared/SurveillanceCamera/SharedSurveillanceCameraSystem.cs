@@ -68,7 +68,6 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
     {
         if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value))
         {
-            SetActive(entity, true);
             args.Cancelled = true;
             return;
         }
@@ -78,7 +77,6 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
     {
         if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value))
         {
-            SetActive(entity, false);
             args.Cancelled = true;
             return;
         }
