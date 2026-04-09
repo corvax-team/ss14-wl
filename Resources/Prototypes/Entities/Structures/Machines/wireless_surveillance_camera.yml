@@ -54,7 +54,6 @@
   placement:
     mode: SnapgridCenter
 
-
 - type: entity
   abstract: true
   id: SurveillanceWirelessCameraAnchoredBase
