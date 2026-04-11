@@ -38,7 +38,7 @@
   id: FigurinesWLSpecialBiFirefly
   values:
     prefix: figurines-wl-special-bifirefly-
-    count: 24
+    count: 23
 
 - type: localizedDataset
   id: FigurinesWLSpecialNaoriFuks
@@ -290,7 +290,7 @@
   id: FigurinesWLSpecialEdwardSnow
   values:
     prefix: figurines-wl-special-edwardsnow-
-    count: 3
+    count: 6
 
 - type: localizedDataset
   id: FigurinesWLSpecialValeriaTutova

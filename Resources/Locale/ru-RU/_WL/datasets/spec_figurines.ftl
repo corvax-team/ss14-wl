@@ -79,10 +79,10 @@ figurines-wl-special-bifirefly-16 = Ну что, посплетничаем?
 figurines-wl-special-bifirefly-17 = Ты видела новенького? Он такой милаха!
 figurines-wl-special-bifirefly-18 = Я так люблю фелинидов. Они такие маленькие и милые ушастики.
 figurines-wl-special-bifirefly-19 = Ещё раз ты скажешь хоть одно слово про эту ебучую шёлковую ферму, и я переломаю тебе все твои кости...
+figurines-wl-special-bifirefly-20 = КАК УПРАВЛЯТЬ ЭТОЙ ШТУКОЙ?!?!
 figurines-wl-special-bifirefly-21 = Ты сейчас не в том положении, чтобы задавать вопросы.
 figurines-wl-special-bifirefly-22 = Ещё хоть один шаг и я начну самооборону.
 figurines-wl-special-bifirefly-23 = Стой сзади! Я тебя защищу!
-figurines-wl-special-bifirefly-24 = КАК УПРАВЛЯТЬ ЭТОЙ ШТУКОЙ?!?!
 
 figurines-wl-special-naorifuks-1 = Ладно, пора за работу.
 figurines-wl-special-naorifuks-2 = Булды, бетте.
