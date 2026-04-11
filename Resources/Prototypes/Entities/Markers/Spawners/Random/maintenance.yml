@@ -116,6 +116,7 @@
         - id: ClothingNeckCloakPan
       - id: ToyFigurineSkeleton
       - id: MysteryFigureBox
+      - id: MysteryFigureBoxWLSpec # WL-Changes
       - id: RubberPig # Corvax-Toys
       # Cult
       - !type:AllSelector
@@ -310,7 +311,7 @@
       - id: LidSalami
         weight: 0.05
       #Corvax-WL-Changes-start
-      - id: PhotoFilterMonochrome 
+      - id: PhotoFilterMonochrome
       - id: PhotoFilterNightVision
       - id: PhotoFilterGhost
       #Corvax-WL-Changes-end
