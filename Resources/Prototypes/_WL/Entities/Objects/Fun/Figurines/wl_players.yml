@@ -773,7 +773,7 @@
   - type: Sprite
     state: VeronicaSokolova_offduty
   - type: SpeakOnTrigger
-    pack: FigurinesWLSpecialVeronicaSokolova
+    pack: FigurinesLibrarian
   - type: Speech
     speechSounds: Alto
 
