@@ -13,7 +13,6 @@ namespace Content.Server._WL.Administration.Commands
     public sealed partial class DayNightCommand : LocalizedCommands
     {
         [Dependency] private readonly IEntityManager _entMan = default!;
-        [Dependency] private readonly IMapManager _mapMan = default!;
 
         public override string Command => "daynight";
         public override string Description
@@ -30,7 +29,8 @@ namespace Content.Server._WL.Administration.Commands
         {
             if (args.Length == 1)
             {
-                return CompletionResult.FromHintOptions(_mapMan.GetAllMapIds().Select(x => x.ToString()), "MapId");
+                var mapSys = _entMan.System<MapSystem>();
+                return CompletionResult.FromHintOptions(mapSys.GetAllMapIds().Select(x => x.ToString()), "MapId");
             }
             else if (args.Length == 2)
             {

@@ -408,7 +408,7 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         var (fontSize, fontId) = GetFontParams(language, speech.FontSize, speech.FontId);
 
         var locId = speech.Bold ? "chat-manager-entity-say-bold-wrap-message-lang" : "chat-manager-entity-say-wrap-message-lang";
-        Logger.Debug(fontId);
+        Log.Debug(fontId);
 
         var wrappedMessage = Loc.GetString(locId,
             ("entityName", name),

@@ -1,6 +1,5 @@
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
@@ -10,7 +9,6 @@ namespace Content.Server._WL.DayNight
     public sealed partial class DayNightSystem : EntitySystem
     {
         [Dependency] private readonly IGameTiming _gameTime = default!;
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
         [Dependency] private readonly MapSystem _mapSys = default!;
 
         public override void Initialize()

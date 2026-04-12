@@ -1,13 +1,25 @@
+using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server._WL.Speech.Components;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
+using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Server._WL.Speech.EntitySystems;
 
 public sealed class KidanAccentSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+
+    private readonly (Regex Regex, string[] Replace)[] _replace =
+    [
+        (new Regex("с+"), new[] { "з", "зз" }),
+        (new Regex("С+"), ["З", "ЗЗ"]),
+        (new Regex("з+"), ["зз", "ззз"]),
+        (new Regex("З+"), ["ЗЗ", "ЗЗЗ"]),
+        (new Regex("ж+"), ["жж", "жжж"]),
+        (new Regex("Ж+"), ["ЖЖ", "ЖЖЖ"])
+    ];
 
     public override void Initialize()
     {
@@ -19,41 +31,11 @@ public sealed class KidanAccentSystem : EntitySystem
     {
         var message = args.Message;
 
-        message = Regex.Replace(
-            message,
-            "с+",
-            _random.Pick(new List<string>() { "з", "зз" })
-        );
+        foreach (var (regex, replace) in _replace)
+        {
+            regex.Replace(message, _random.Pick(replace));
+        }
 
-        message = Regex.Replace(
-            message,
-            "С+",
-            _random.Pick(new List<string>() { "З", "ЗЗ" })
-        );
-
-        message = Regex.Replace(
-            message,
-            "з+",
-            _random.Pick(new List<string>() { "зз", "ззз" })
-        );
-
-        message = Regex.Replace(
-            message,
-            "З+",
-            _random.Pick(new List<string>() { "ЗЗ", "ЗЗЗ" })
-        );
-
-        message = Regex.Replace(
-            message,
-            "ж+",
-            _random.Pick(new List<string>() { "жж", "жжж" })
-        );
-
-        message = Regex.Replace(
-            message,
-            "Ж+",
-            _random.Pick(new List<string>() { "ЖЖ", "ЖЖЖ" })
-        );
         args.Message = message;
     }
 }

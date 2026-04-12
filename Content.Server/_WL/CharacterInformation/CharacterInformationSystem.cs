@@ -1,5 +1,4 @@
 using Content.Server.Examine;
-using Content.Server.Preferences.Managers;
 using Content.Shared._WL.CharacterInformation;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
@@ -14,7 +13,6 @@ public sealed class CharacterInformationSystem : EntitySystem
 {
     [Dependency] private readonly ExamineSystem _examineSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
 
     public override void Initialize()
     {
