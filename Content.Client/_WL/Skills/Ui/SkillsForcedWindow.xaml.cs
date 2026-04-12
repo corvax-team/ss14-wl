@@ -48,7 +48,7 @@ public sealed partial class SkillsForcedWindow : FancyWindow
         var pointsLabel = new Label
         {
             Text = $"{_totalPoints - _spentPoints} / {_totalPoints}",
-            HorizontalAlignment = Control.HAlignment.Center,
+            HorizontalAlignment = HAlignment.Center,
             Margin = new Thickness(0, 0, 0, 10)
         };
         SkillsContainer.AddChild(pointsLabel);
@@ -57,7 +57,7 @@ public sealed partial class SkillsForcedWindow : FancyWindow
         {
             Text = Loc.GetString("skills-forced-warning"),
             StyleClasses = { "LabelSubText" },
-            HorizontalAlignment = Control.HAlignment.Center,
+            HorizontalAlignment = HAlignment.Center,
             Margin = new Thickness(0, 0, 0, 20)
         };
         SkillsContainer.AddChild(warningLabel);
@@ -79,20 +79,20 @@ public sealed partial class SkillsForcedWindow : FancyWindow
         var bottomContainer = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
-            HorizontalAlignment = Control.HAlignment.Center,
+            HorizontalAlignment = HAlignment.Center,
             Margin = new Thickness(0, 20, 0, 0)
         };
 
         var confirmButton = new Button
         {
             Text = Loc.GetString("skills-confirm-button"),
-            HorizontalAlignment = Control.HAlignment.Center
+            HorizontalAlignment = HAlignment.Center
         };
 
         var warningContainer = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
-            HorizontalAlignment = Control.HAlignment.Center
+            HorizontalAlignment = HAlignment.Center
         };
 
         confirmButton.OnPressed += _ => Close();

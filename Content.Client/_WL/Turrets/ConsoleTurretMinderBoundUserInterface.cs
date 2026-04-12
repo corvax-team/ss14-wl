@@ -1,4 +1,3 @@
-using Content.Client.Ame.UI;
 using Content.Shared._WL.Turrets;
 using JetBrains.Annotations;
 
@@ -31,16 +30,6 @@ namespace Content.Client._WL.Turrets
                 return;
 
             _window?.UpdateState(consoleState);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-
-            if (disposing)
-            {
-                _window?.Dispose();
-            }
         }
 
         private void SendState(NetEntity ent)

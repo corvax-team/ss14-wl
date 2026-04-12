@@ -198,10 +198,10 @@ public sealed partial class SkillSelector : Control
         Level3Button.Pressed = _currentLevel >= 3;
         Level4Button.Pressed = _currentLevel >= 4;
 
-        Level1Button.StyleClasses.Add(StyleNano.ButtonOpenRight);
-        Level2Button.StyleClasses.Add(StyleNano.ButtonOpenBoth);
-        Level3Button.StyleClasses.Add(StyleNano.ButtonOpenBoth);
-        Level4Button.StyleClasses.Add(StyleNano.ButtonOpenLeft);
+        Level1Button.StyleClasses.Add(StyleClass.ButtonOpenRight);
+        Level2Button.StyleClasses.Add(StyleClass.ButtonOpenBoth);
+        Level3Button.StyleClasses.Add(StyleClass.ButtonOpenBoth);
+        Level4Button.StyleClasses.Add(StyleClass.ButtonOpenLeft);
     }
 
     private void UpdateLevelButtonsAppearance()

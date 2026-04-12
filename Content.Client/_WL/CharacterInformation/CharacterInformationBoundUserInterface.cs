@@ -1,6 +1,5 @@
 using Content.Shared._WL.CharacterInformation;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
 
 namespace Content.Client._WL.CharacterInformation;
 
@@ -30,13 +29,5 @@ public sealed class CharacterInformationBoundUserInterface : BoundUserInterface
         if (state is not CharacterInformationBuiState msg)
             return;
         _window?.UpdateState(msg);
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-        base.Dispose(disposing);
-        if (!disposing)
-            return;
-        _window?.Dispose();
     }
 }

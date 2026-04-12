@@ -7,6 +7,7 @@ namespace Content.Client._WL.Standing
 {
     public sealed partial class ClientStandingStateSystem : EntitySystem
     {
+        [Dependency] private readonly SpriteSystem _sprite = default!;
         private Dictionary<EntProtoId, Shared.DrawDepth.DrawDepth> _cachedDrawDepths = default!;
 
         public override void Initialize()
@@ -37,7 +38,7 @@ namespace Content.Client._WL.Standing
                 oldDrawDepth = Shared.DrawDepth.DrawDepth.Objects;
             }
 
-            spriteComp.DrawDepth = (int)oldDrawDepth;
+            _sprite.SetDrawDepth((ent, spriteComp), (int)oldDrawDepth);
         }
 
         private void OnDowned(EntityUid ent, StandingStateComponent comp, ref DownedEvent args)
@@ -61,7 +62,7 @@ namespace Content.Client._WL.Standing
                 }
             }
 
-            spriteComp.DrawDepth = (int)Shared.DrawDepth.DrawDepth.WallTops;
+            _sprite.SetDrawDepth(user, (int)Shared.DrawDepth.DrawDepth.WallTops);
         }
 
         private void OnRoundEnd(RoundRestartCleanupEvent _)

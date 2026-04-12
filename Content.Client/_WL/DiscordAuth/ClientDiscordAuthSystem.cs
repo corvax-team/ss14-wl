@@ -1,8 +1,5 @@
 using Content.Shared._WL.DiscordAuth;
-using JetBrains.Annotations;
 using Robust.Client.Player;
-using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 

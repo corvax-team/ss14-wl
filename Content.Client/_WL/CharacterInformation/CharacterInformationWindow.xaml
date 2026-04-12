@@ -7,7 +7,7 @@
     <TabContainer Name="Tabs" HorizontalExpand="True" Margin="4">
         <BoxContainer Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <SpriteView Name="CharSprite" Scale="4 4" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <RichTextLabel Name="Name" Margin="0 5 0 0" HorizontalAlignment="Center"/>
+            <RichTextLabel Name="NameLabel" Margin="0 5 0 0" HorizontalAlignment="Center"/>
         </BoxContainer>
 
         <ScrollContainer HorizontalExpand="True" HScrollEnabled="False" MinWidth="400">

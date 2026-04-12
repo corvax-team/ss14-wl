@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._WL.CharacterInformation;
@@ -31,13 +30,13 @@ public sealed partial class CharacterInformationWindow : FancyWindow
         base.FrameUpdate(args);
 
         _accumulatedTime += args.DeltaSeconds;
-        CharSprite.OverrideDirection = (Direction) ((int) _accumulatedTime % 4 * 2);
+        CharSprite.OverrideDirection = (Direction)((int)_accumulatedTime % 4 * 2);
     }
 
     public void UpdateState(CharacterInformationBuiState state)
     {
         CharSprite.SetEntity(_entity.GetEntity(state.Uid));
-        Name.SetMarkup($"[bold]{state.CharacterName}[/bold]");
+        NameLabel.SetMarkup($"[bold]{state.CharacterName}[/bold]");
 
         if (!string.IsNullOrEmpty(state.FlavorText))
         {

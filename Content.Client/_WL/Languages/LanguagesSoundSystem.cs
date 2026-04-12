@@ -1,16 +1,10 @@
 using Content.Shared.Chat;
 using Content.Shared._WL.Languages;
-using Content.Client._WL.Languages;
-using Content.Shared._WL.Languages.Components;
 using Content.Shared.Corvax.CCCVars;
 using Robust.Client.Audio;
-using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
-using Robust.Shared.ContentPack;
-using Robust.Shared.Utility;
 
 namespace Content.Client._WL.Languages;
 
@@ -36,7 +30,6 @@ public sealed class LanguagesSoundsSystem : EntitySystem
     private const float MinimalVolume = -10f;
 
     private float _volume = 0.0f;
-    private int _fileIdx = 0;
 
     public override void Initialize()
     {

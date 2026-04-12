@@ -28,9 +28,9 @@ public sealed partial class ClientLanguagesSystem : SharedLanguagesSystem
             return null;
 
         var prototypes = new List<LanguagePrototype>();
-        foreach (ProtoId<LanguagePrototype>protoid in comp.Speaking)
+        foreach (var protoId in comp.Speaking)
         {
-            var proto = GetLanguagePrototype(protoid);
+            var proto = GetLanguagePrototype(protoId);
             if (proto == null)
                 continue;
             prototypes.Add(proto);

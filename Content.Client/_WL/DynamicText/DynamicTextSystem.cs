@@ -4,6 +4,7 @@ using Robust.Client.Player;
 using Robust.Client.UserInterface;
 
 namespace Content.Client._WL.DynamicText;
+
 public sealed partial class DynamicTextSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _ent = default!;

@@ -7,6 +7,7 @@ using Robust.Shared.Enums;
 using System.Numerics;
 
 namespace Content.Client._WL.Overlays;
+
 public sealed partial class FaceCameraOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _entManager = default!;

@@ -8,7 +8,6 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Text;
 
 namespace Content.Shared._WL.Languages;
@@ -53,7 +52,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
     {
         _prototype.TryIndex(id, out var proto);
         return proto;
-    }   
+    }
 
     public void OnRadioLanguageCheck(EntityUid source, LanguagesComponent comp, ref RadioLanguageCheckEvent args)
     {
