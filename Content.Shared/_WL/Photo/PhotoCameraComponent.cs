@@ -7,7 +7,7 @@ using System.Numerics;
 namespace Content.Shared._WL.Photo;
 
 [RegisterComponent]
-public partial class PhotoCameraComponent : Component
+public sealed partial class PhotoCameraComponent : Component
 {
     [DataField]
     public Vector2 ViewBox = new Vector2(5, 5);
