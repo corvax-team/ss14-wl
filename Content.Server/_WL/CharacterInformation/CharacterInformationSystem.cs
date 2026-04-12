@@ -1,7 +1,6 @@
 using Content.Server.Examine;
 using Content.Shared._WL.CharacterInformation;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Preferences;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -41,7 +40,7 @@ public sealed class CharacterInformationSystem : EntitySystem
             Category = VerbCategory.Examine,
             Disabled = !detailsRange,
             Message = detailsRange ? null : Loc.GetString("detail-examinable-verb-disabled"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"))
         };
 
         args.Verbs.Add(verb);

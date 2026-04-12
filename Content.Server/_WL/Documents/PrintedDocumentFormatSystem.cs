@@ -47,7 +47,7 @@ namespace Content.Server._WL.Documents
             var formattedDate = $"{_gameTime.CurTime.Subtract(_gameTick.RoundStartTimeSpan).ToString(@"hh\:mm\:ss")} {DateTime.Now.AddYears(-1700):dd.MM.yyy}";
 
             var content = Loc.GetString(paperComp.Content)
-                .Replace(Loc.GetString("doc-var-date"),  formattedDate)
+                .Replace(Loc.GetString("doc-var-date"), formattedDate)
                 .Replace(Loc.GetString("doc-var-station"), stationName ?? "Station XX-000");
 
             _paper.SetContent((document, paperComp), content);

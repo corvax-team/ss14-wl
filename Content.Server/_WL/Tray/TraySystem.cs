@@ -3,7 +3,6 @@ using Content.Server.Popups;
 using Content.Shared._WL.Tray;
 using Content.Shared.Destructible;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;

@@ -6,8 +6,6 @@ using Content.Shared.Atmos.Rotting;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
-using Content.Shared.NameModifier.Components;
-using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;

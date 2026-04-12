@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Prayer;
 using Content.Shared.Administration;
-using Content.Shared.Players;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
@@ -19,8 +18,6 @@ public sealed class SubtleMessageMassCommand : LocalizedEntityCommands
     [Dependency] private readonly EntityManager _entityManager = default!;
 
     public override string Command => "massmsg";
-    public override string Description => Loc.GetString("cmd-massmsg-desc");
-    public override string Help => Loc.GetString("cmd-massmsg-help", ("command", Command));
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {

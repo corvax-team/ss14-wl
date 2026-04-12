@@ -1,9 +1,7 @@
-using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Server._WL.Speech.Components;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
-using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Server._WL.Speech.EntitySystems;
 

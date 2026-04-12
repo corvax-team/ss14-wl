@@ -1,6 +1,5 @@
 using Content.Server._WL.Speech.Components;
 using Content.Shared.Speech;
-using Robust.Shared.Random;
 
 namespace Content.Server._WL.Speech.EntitySystems
 {

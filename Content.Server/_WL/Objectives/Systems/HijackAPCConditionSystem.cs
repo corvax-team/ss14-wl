@@ -3,8 +3,6 @@ using Content.Server._WL.PulseDemon.Components;
 using Content.Shared.Mind;
 using Content.Server._WL.Objectives.Components;
 using Content.Shared.Objectives.Components;
-using System.Linq;
-using Content.Shared.Destructible.Thresholds.Triggers;
 
 namespace Content.Server._WL.Objectives.Systems;
 
