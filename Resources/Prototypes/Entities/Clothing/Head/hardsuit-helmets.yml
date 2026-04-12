@@ -948,7 +948,7 @@
   description: A pressure resistant and fireproof hood worn by special cleanup units.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/cburn.rsi
+    sprite: _WL/Clothing/Head/Hardsuits/cburn.rsi # WL-CBURN
     layers:
     - state: icon
     - state: icon-unshaded

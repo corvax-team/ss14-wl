@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Station.Systems;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
 using Content.Shared.Emag.Systems;
@@ -13,6 +14,8 @@ using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -32,6 +35,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -60,6 +64,11 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
+
+        // WL-Changes-start
+        if (HasComp<AiRemoteControllerComponent>(uid) || _tagSystem.HasTag(uid, "StationAi"))
+            return;
+        // WL-Changes-end
 
         var msg = Loc.GetString("laws-notify");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
@@ -153,6 +162,11 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     {
         if (component.Lawset == null)
             component.Lawset = GetLawset(component.Laws);
+
+        // WL-Changes-start
+        if (HasComp<AiRemoteControllerComponent>(uid))
+            return;
+        // WL-Changes-end
 
         // Show the silicon has been subverted.
         component.Subverted = true;
@@ -305,8 +319,30 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         while (query.MoveNext(out var update))
         {
             SetLaws(lawset.Laws, update, provider.LawUploadSound);
+
+            // WL-Changes-start
+            if (TryComp<StationAiHeldComponent>(update, out var heldComp)
+                && heldComp.CurrentConnectedEntity != null
+                && HasComp<SiliconLawProviderComponent>(heldComp.CurrentConnectedEntity))
+            {
+                SetLaws(lawset.Laws, heldComp.CurrentConnectedEntity.Value, provider.LawUploadSound);
+            }
+            // WL-Changes-end
         }
     }
+
+    // WL-Changes-start
+    public void SetLawsSilent(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null)
+    {
+        if (!TryComp<SiliconLawProviderComponent>(target, out var component))
+            return;
+
+        if (component.Lawset == null)
+            component.Lawset = new SiliconLawset();
+
+        component.Lawset.Laws = newLaws;
+    }
+    // WL-Changes-end
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]

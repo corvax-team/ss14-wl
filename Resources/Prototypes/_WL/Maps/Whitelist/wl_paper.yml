@@ -5,7 +5,8 @@
   mapPath: /Maps/_WL/wl_paper.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 0
+  minPlayers: 14
+  maxPlayers: 25
   stations:
     CorvaxPaper:
       stationProto: StandardNanotrasenStation

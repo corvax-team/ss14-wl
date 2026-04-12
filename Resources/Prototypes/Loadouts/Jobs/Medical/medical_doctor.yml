@@ -77,11 +77,13 @@
   id: MedicalDoctorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: MedicalDoctorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMedicalDoctor
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SeniorPhysicianJumpsuit
@@ -90,6 +92,7 @@
   #   proto: SeniorPhysician
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SeniorPhysicianJumpskirt
@@ -98,21 +101,25 @@
   #   proto: SeniorPhysician
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorPhysician
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: MedicalBlueScrubs
   equipment:
     jumpsuit: UniformScrubsColorBlue
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: MedicalGreenScrubs
   equipment:
     jumpsuit: UniformScrubsColorGreen
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: MedicalPurpleScrubs
   equipment:
     jumpsuit: UniformScrubsColorPurple
+  groupBy: "WLJJ" # WL-change-add
 
 # Back
 - type: loadout

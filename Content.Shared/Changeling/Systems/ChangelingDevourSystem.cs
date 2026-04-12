@@ -133,13 +133,15 @@ public sealed class ChangelingDevourSystem : EntitySystem
 
         if (HasComp<RottingComponent>(target))
         {
-            _popupSystem.PopupClient(Loc.GetString("changeling-devour-attempt-failed-rotting"), args.Performer, args.Performer, PopupType.Medium);
+        //WL-Changes: Devour custom popups start
+            _popupSystem.PopupClient(Loc.GetString(ent.Comp.AttemptFailedRottingPopup), args.Performer, args.Performer, PopupType.Medium);
             return;
         }
 
         if (IsTargetProtected(target, ent))
         {
-            _popupSystem.PopupClient(Loc.GetString("changeling-devour-attempt-failed-protected"), ent, ent, PopupType.Medium);
+            _popupSystem.PopupClient(Loc.GetString(ent.Comp.AttemptFailedProtectedPopup), ent, ent, PopupType.Medium);
+        //WL-Changes: Devour custom popups end
             return;
         }
 
@@ -159,8 +161,10 @@ public sealed class ChangelingDevourSystem : EntitySystem
             DuplicateCondition = DuplicateConditions.None,
         });
 
-        var selfMessage = Loc.GetString("changeling-devour-begin-windup-self", ("user", Identity.Entity(ent.Owner, EntityManager)));
-        var othersMessage = Loc.GetString("changeling-devour-begin-windup-others", ("user", Identity.Entity(ent.Owner, EntityManager)));
+        //WL-Changes: Devour custom popups start
+        var selfMessage = Loc.GetString(ent.Comp.BeginWindupSelfPopup, ("user", Identity.Entity(ent.Owner, EntityManager)));
+        var othersMessage = Loc.GetString(ent.Comp.BeginWindupOthersPopup, ("user", Identity.Entity(ent.Owner, EntityManager)));
+        //WL-Changes: Devour custom popups end
         _popupSystem.PopupPredicted(
             selfMessage,
             othersMessage,
@@ -180,8 +184,10 @@ public sealed class ChangelingDevourSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        var selfMessage = Loc.GetString("changeling-devour-begin-consume-self", ("user", Identity.Entity(ent.Owner, EntityManager)));
-        var othersMessage = Loc.GetString("changeling-devour-begin-consume-others", ("user", Identity.Entity(ent.Owner, EntityManager)));
+        //WL-Changes: Devour custom popups start
+        var selfMessage = Loc.GetString(ent.Comp.BeginConsumeSelfPopup, ("user", Identity.Entity(ent.Owner, EntityManager)));
+        var othersMessage = Loc.GetString(ent.Comp.BeginConsumeOthersPopup, ("user", Identity.Entity(ent.Owner, EntityManager)));
+        //WL-Changes: Devour custom popups end
         _popupSystem.PopupPredicted(
             selfMessage,
             othersMessage,
@@ -234,12 +240,16 @@ public sealed class ChangelingDevourSystem : EntitySystem
         if (!_mobState.IsDead((EntityUid)target))
         {
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner):player}  unsuccessfully devoured {ToPrettyString(args.Target):player}'s identity");
-            _popupSystem.PopupClient(Loc.GetString("changeling-devour-consume-failed-not-dead"), args.User, args.User, PopupType.Medium);
+        //WL-Changes: Devour custom popups start
+            _popupSystem.PopupClient(Loc.GetString(ent.Comp.ConsumeFailedNotDeadPopup), args.User, args.User, PopupType.Medium);
+        //WL-Changes: Devour custom popups end
             return;
         }
 
-        var selfMessage = Loc.GetString("changeling-devour-consume-complete-self", ("user", Identity.Entity(args.User, EntityManager)));
-        var othersMessage = Loc.GetString("changeling-devour-consume-complete-others", ("user", Identity.Entity(args.User, EntityManager)));
+        //WL-Changes: Devour custom popups start
+        var selfMessage = Loc.GetString(ent.Comp.ConsumeCompleteSelfPopup, ("user", Identity.Entity(args.User, EntityManager)));
+        var othersMessage = Loc.GetString(ent.Comp.ConsumeCompleteOthersPopup, ("user", Identity.Entity(args.User, EntityManager)));
+        //WL-Changes: Devour custom popups end
         _popupSystem.PopupPredicted(
             selfMessage,
             othersMessage,

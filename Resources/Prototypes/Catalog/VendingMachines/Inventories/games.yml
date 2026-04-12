@@ -18,6 +18,7 @@
     MysteryFigureBox: 2
     BooksBag: 3
     #WL-changes-start
+    MysteryFigureBoxWLSpec: 2
     ChipsCaseFilled: 2
     PokerCardBoxFilled: 2
     TarotCardBox: 2
