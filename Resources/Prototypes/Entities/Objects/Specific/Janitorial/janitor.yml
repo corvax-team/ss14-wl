@@ -56,11 +56,6 @@
     guides:
     - Janitorial
   - type: DnaSubstanceTrace
-  - type: Clothing
-    sprite: #ваш спрайт швабры на спине
-    quickEquip: false
-    slots:
-    - back
 
 - type: entity
   parent: MopItem
