@@ -1,4 +1,4 @@
-chat-manager-entity-say-wrap-message-lang = [BubbleHeader][bold][Name]{ $entityName }[/Name][/bold][/BubbleHeader] { $verb }, [font="{ $fontType}" size={ $fontSize }]"[BubbleContent][color={ $langColor }]{ $message }[/color][/BubbleContent]"[/font]
+chat-manager-entity-say-wrap-message-lang = [BubbleHeader][bold][Name]{ $entityName }[/Name][/bold][/BubbleHeader] { $verb }, [font="{ $fontType }" size={ $fontSize }]"[BubbleContent][color={ $langColor }]{ $message }[/color][/BubbleContent]"[/font]
 chat-manager-entity-say-bold-wrap-message-lang = [BubbleHeader][bold][Name]{ $entityName }[/Name][/bold][/BubbleHeader] { $verb }, [font="{ $fontType }" size={ $fontSize }]"[BubbleContent][bold][color={ $langColor }]{ $message }[/color][/bold][/BubbleContent]"[/font]
 
 chat-manager-entity-whisper-wrap-message-lang = [font size=11][italic][BubbleHeader][Name]{ $entityName }[/Name][/BubbleHeader] шепчет,"[BubbleContent][color={ $langColor }]{ $message }[/color][/BubbleContent]"[/italic][/font]

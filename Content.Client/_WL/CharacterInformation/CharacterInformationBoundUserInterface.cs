@@ -1,5 +1,6 @@
 using Content.Shared._WL.CharacterInformation;
 using JetBrains.Annotations;
+using Robust.Client.UserInterface;
 
 namespace Content.Client._WL.CharacterInformation;
 
@@ -17,9 +18,7 @@ public sealed class CharacterInformationBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _window = new CharacterInformationWindow();
-        _window.OnClose += Close;
-        _window.OpenCentered();
+        _window = this.CreateWindow<CharacterInformationWindow>();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
