@@ -116,7 +116,6 @@
       - WetFloorSign
       - WhitelistChameleon
 
-
 - type: entity
   suffix: Explosive
   parent: WetFloorSign
