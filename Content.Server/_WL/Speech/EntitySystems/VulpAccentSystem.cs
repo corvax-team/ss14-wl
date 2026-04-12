@@ -27,7 +27,7 @@ public sealed class VulpAccentSystem : EntitySystem
 
         foreach (var (regex, replace) in _replace)
         {
-            regex.Replace(message, _random.Pick(replace));
+            message = regex.Replace(message, _random.Pick(replace));
         }
 
         args.Message = message;

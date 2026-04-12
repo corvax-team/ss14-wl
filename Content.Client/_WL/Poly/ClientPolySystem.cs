@@ -49,7 +49,7 @@ namespace Content.Client._WL.Poly
                     }
                     catch (Exception ex)
                     {
-                        _sawmill.Error($"An unknown errod occured while rendering the photo for Poly! {ex.Message}");
+                        _sawmill.Error($"An unknown error occurred while rendering the photo for Poly! {ex.Message}");
                     }
                 });
             }
