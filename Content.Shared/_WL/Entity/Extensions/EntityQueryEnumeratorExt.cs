@@ -1,4 +1,3 @@
-using Robust.Shared.Toolshed.TypeParsers.Tuples;
 using System.Runtime.CompilerServices;
 
 namespace Content.Shared._WL.Entity.Extensions

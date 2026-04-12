@@ -8,16 +8,16 @@ namespace Content.Shared._WL.Skills.Components;
 [Access(typeof(SharedSkillsSystem))]
 public sealed partial class SkillsComponent : Component
 {
-    [DataField("skills"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public Dictionary<SkillType, int> Skills = new();
 
-    [DataField("unspentPoints"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public int UnspentPoints;
 
-    [DataField("spentPoints"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public int SpentPoints;
 
-    [DataField("bonusPoints"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public int BonusPoints;
 
     [AutoNetworkedField]

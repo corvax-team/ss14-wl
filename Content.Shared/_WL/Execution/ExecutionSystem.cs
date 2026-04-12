@@ -131,7 +131,7 @@ public sealed class ExecutionSystem : EntitySystem
         if (victim != attacker && _actionBlockerSystem.CanInteract(victim, null))
             return false;
 
-        if (Transform(attacker).Coordinates.InRange(_entityManager, _transformSystem, Transform(victim).Coordinates, 0.1f))
+        if (_transformSystem.InRange(Transform(attacker).Coordinates, Transform(victim).Coordinates, 0.1f))
             return false;
 
         // All checks passed
@@ -154,8 +154,8 @@ public sealed class ExecutionSystem : EntitySystem
         var prev = _combatSystem.IsInCombatMode(attacker);
         _combatSystem.SetInCombatMode(attacker, true);
         component.Executing = true;
-        string? internalMsg = null;
-        string? externalMsg = null;
+        //string? internalMsg = null;
+        //string? externalMsg = null;
 
         if (TryComp(uid, out MeleeWeaponComponent? melee))
         {
@@ -301,7 +301,7 @@ public sealed class ExecutionSystem : EntitySystem
 
         if (TryComp(args.FiredProjectiles[0], out ProjectileComponent? projectile))
         {
-            if(projectile.Damage.GetTotal() * comp.DamageModifier > staminaDamage)
+            if (projectile.Damage.GetTotal() * comp.DamageModifier > staminaDamage)
                 projectile.Damage *= comp.DamageModifier;
         }
 

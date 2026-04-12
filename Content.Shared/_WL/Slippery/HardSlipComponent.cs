@@ -3,7 +3,7 @@ namespace Content.Shared._WL.Slippery
     [RegisterComponent]
     public sealed partial class HardSlipComponent : Component
     {
-        [DataField("fallDamage")]
+        [DataField]
         [Access(Other = AccessPermissions.ReadWrite)]
         public float FallDamage = 1f;
     }

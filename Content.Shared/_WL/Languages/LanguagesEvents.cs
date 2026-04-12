@@ -1,6 +1,3 @@
-using Content.Shared.Chat;
-using Content.Shared._WL.Languages;
-using Content.Shared._WL.Languages.Components;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 using Robust.Shared.Prototypes;

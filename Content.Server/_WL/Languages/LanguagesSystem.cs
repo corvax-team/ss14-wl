@@ -205,7 +205,7 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         if (proto == null)
             return innerMsg;
 
-        return ObfuscateMessage(source, innerMsg, proto.ID);
+        return ObfuscateMessage(innerMsg, proto.ID);
     }
 
     public bool CanUnderstand(EntityUid source, EntityUid listener, string? message = null, ProtoId<LanguagePrototype>? overrideLang = null)

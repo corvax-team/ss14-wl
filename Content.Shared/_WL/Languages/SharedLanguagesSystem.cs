@@ -87,7 +87,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
         }
     }
 
-    public string ObfuscateMessage(EntityUid uid, string message, ProtoId<LanguagePrototype> language)
+    public string ObfuscateMessage(string message, ProtoId<LanguagePrototype> language)
     {
         var proto = GetLanguagePrototype(language);
 
@@ -155,19 +155,17 @@ public abstract class SharedLanguagesSystem : EntitySystem
     /// <returns></returns>
     public LanguagePrototype? GetLanguagePrototype(EntityUid uid, string? message = null)
     {
-        LanguagePrototype? language = null;
-
         if (!TryComp<LanguagesComponent>(uid, out var comp))
             return null;
 
-        if (string.IsNullOrEmpty(message) || message.Length < 2 || !(message.StartsWith(LanguagePrefix)))
+        if (string.IsNullOrEmpty(message) || message.Length < 2 || !message.StartsWith(LanguagePrefix))
         {
             return GetLanguagePrototype(comp.CurrentLanguage);
         }
 
         var prefix = char.ToLower(message[1]);
 
-        return _keylan.TryGetValue(prefix, out language)
+        return _keylan.TryGetValue(prefix, out var language)
             ? language : null;
     }
 

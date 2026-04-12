@@ -5,7 +5,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._WL.DiscordAuth
 {
-    public sealed partial class ClientDiscordAuthSystem : SharedDiscordAuthSystem
+    public sealed partial class ClientDiscordAuthSystem : EntitySystem
     {
         [Dependency] private readonly IPlayerManager _playMan = default!;
         [Dependency] private readonly IGameTiming _timing = default!;

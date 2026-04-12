@@ -1,16 +1,16 @@
+using System.Text;
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared._WL.CCVars;
+using Content.Shared._WL.DiscordAuth;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System.Text;
 using Robust.Shared.Player;
-using Content.Shared._WL.DiscordAuth;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server._WL.DiscordAuth
 {
-    public sealed partial class DiscordAuthSystem : SharedDiscordAuthSystem
+    public sealed partial class DiscordAuthSystem : EntitySystem
     {
         [Dependency] private readonly ISharedPlayerManager _playMan = default!;
         [Dependency] private readonly IConfigurationManager _confMan = default!;
