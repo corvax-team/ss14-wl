@@ -191,3 +191,25 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/pathologist.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpsuit/pathologist.rsi
+
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingUniformBase ]
+  id: ClothingUniformJumpsuitCBURN
+  name: CBURN uniform
+  description: A special suit made for the CBURN unit under CentComm.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/cburn.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/cburn.rsi
+
+- type: entity
+  parent: [ BaseCentcommContraband, ClothingUniformBase ]
+  id: ClothingUniformJumpsuitCBURNCommander
+  name: CBURN commander uniform
+  description: A special suit made for the CBURN commander under CentComm.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/cburncommander.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/cburncommander.rsi

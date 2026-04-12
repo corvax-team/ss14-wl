@@ -131,4 +131,33 @@ public sealed partial class ChangelingDevourComponent : Component
     public float DevourPreventionPercentageThreshold = 0.1f;
 
     public override bool SendOnlyToOwner => true;
+
+    //WL-Changes: Custom devour popups start
+    [DataField, AutoNetworkedField]
+    public string AttemptFailedRottingPopup = "changeling-devour-attempt-failed-rotting";
+
+    [DataField, AutoNetworkedField]
+    public string AttemptFailedProtectedPopup = "changeling-devour-attempt-failed-protected";
+
+    [DataField, AutoNetworkedField]
+    public string BeginWindupSelfPopup = "changeling-devour-begin-windup-self";
+
+    [DataField, AutoNetworkedField]
+    public string BeginWindupOthersPopup = "changeling-devour-begin-windup-others";
+
+    [DataField, AutoNetworkedField]
+    public string BeginConsumeSelfPopup = "changeling-devour-begin-consume-self";
+
+    [DataField, AutoNetworkedField]
+    public string BeginConsumeOthersPopup = "changeling-devour-begin-consume-others";
+
+    [DataField, AutoNetworkedField]
+    public string ConsumeFailedNotDeadPopup = "changeling-devour-consume-failed-not-dead";
+
+    [DataField, AutoNetworkedField]
+    public string ConsumeCompleteSelfPopup = "changeling-devour-consume-complete-self";
+
+    [DataField, AutoNetworkedField]
+    public string ConsumeCompleteOthersPopup = "changeling-devour-consume-complete-others";
+    //WL-Changes: Custom devour popups end
 }

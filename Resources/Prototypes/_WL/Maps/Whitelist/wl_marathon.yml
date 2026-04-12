@@ -2,8 +2,7 @@
   id: CorvaxWLMarathon
   mapName: 'Марафон'
   mapPath: /Maps/_WL/wl_marathon.yml
-  minPlayers: 15
-  maxPlayers: 55
+  minPlayers: 25
   stations:
     CorvaxWLMarathon:
       stationProto: StandardNanotrasenStation

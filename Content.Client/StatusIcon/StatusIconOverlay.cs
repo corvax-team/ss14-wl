@@ -1,3 +1,4 @@
+using Content.Client._WL.Overlays;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.GameObjects;
@@ -21,6 +22,7 @@ public sealed class StatusIconOverlay : Overlay
     private readonly TransformSystem _transform;
     private readonly StatusIconSystem _statusIcon;
     private readonly ShaderInstance _unshadedShader;
+    private readonly IgnoreGlobalOverlaysSystem _ignore; //Corvax-WL-Changes
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
@@ -32,7 +34,15 @@ public sealed class StatusIconOverlay : Overlay
         _transform = _entity.System<TransformSystem>();
         _statusIcon = _entity.System<StatusIconSystem>();
         _unshadedShader = _prototype.Index(UnshadedShader).Instance();
+        _ignore = _entity.System<IgnoreGlobalOverlaysSystem>(); //Corvax-WL-Changes
     }
+
+    //Corvax-WL-Changes-start
+    protected override bool BeforeDraw(in OverlayDrawArgs args)
+    {
+        return !_ignore.CheckIgnore(args.Viewport.Eye);
+    }
+    //Corvax-WL-Changes-end
 
     protected override void Draw(in OverlayDrawArgs args)
     {

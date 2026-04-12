@@ -1,0 +1,24 @@
+uniform sampler2D SCREEN_TEXTURE;
+
+const highp vec3 MixColor = vec3(0.0, 0.9, 0.0);
+
+highp float rand(highp vec2 v) 
+{
+    return fract(sin(dot(v, vec2(12.9898, 78.233))) * 43758.5453123);
+}
+
+highp vec4 lerpColor(highp vec4 a, highp vec4 b, highp float x)
+{
+    return (a * x + b * (1.0 - x));
+}
+
+//Night Vision effect
+void fragment() 
+{
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
+    highp float bw = zGrayscale(color.rgb);
+
+    highp vec4 outColor = lerpColor(vec4(MixColor, 1.0), vec4(vec3(0.0), 1.0), bw - (rand(UV.xy * TIME) - 0.5) * 0.1);
+
+    COLOR = outColor;
+}

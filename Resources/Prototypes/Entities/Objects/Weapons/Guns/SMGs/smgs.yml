@@ -59,6 +59,7 @@
   - type: StaticPrice
     price: 500
 # White-List components
+  - type: GunStandingRequired
   - type: Execution
 # White-List components end
 

@@ -18,11 +18,13 @@
   id: JanitorJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJanitor
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: JanitorJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtJanitor
+  groupBy: "WLJJ" # WL-change-add
 
 # Gloves
 - type: loadout

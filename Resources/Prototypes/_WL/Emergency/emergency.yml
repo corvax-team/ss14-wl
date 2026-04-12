@@ -1,0 +1,55 @@
+- type: emergencyList
+  id: stationEmergency
+  defaultEmergency: NoEmergency
+  emergencys: 
+    - NoEmergency
+    - Revolution
+    - CriticalDepressurization
+    - BiologicalHazard
+    - War
+    - Lose
+    - Revenant
+    - Dragon
+
+- type: emergency
+  id: NoEmergency
+  name: emergency-no-emergency
+  uniqueStartAnnouncement: emergency-no-emergency-universal-announcement
+  announcement: emergency-no-emergency-announcement
+  soundAnnouncment: false
+  color: Green
+
+- type: emergency
+  id: Revolution
+  name: emergency-revolution
+  announcement: emergency-revolution-announcement
+
+- type: emergency
+  id: CriticalDepressurization
+  name: emergency-critical-depressurization
+  announcement: emergency-critical-depressurization-announcement
+
+- type: emergency
+  id: BiologicalHazard
+  name: emergency-biological-hazard
+  announcement: emergency-biological-hazard-announcement
+
+- type: emergency
+  id: War
+  name: emergency-war
+  announcement: emergency-war-announcement
+
+- type: emergency
+  id: Lose
+  name: emergency-lose
+  announcement: emergency-lose-announcement
+
+- type: emergency
+  id: Revenant
+  name: emergency-revenant
+  announcement: emergency-revenant-announcement
+
+- type: emergency
+  id: Dragon
+  name: emergency-dragon
+  announcement: emergency-dragon-announcement

@@ -7,7 +7,7 @@ using System.Numerics;
 namespace Content.Shared._WL.Photo;
 
 [RegisterComponent]
-public sealed partial class PhotoCameraComponent : Component
+public partial class PhotoCameraComponent : Component
 {
     [DataField]
     public Vector2 ViewBox = new Vector2(5, 5);
@@ -19,12 +19,17 @@ public sealed partial class PhotoCameraComponent : Component
     [DataField]
     public SoundSpecifier ErrorSound = new SoundPathSpecifier("/Audio/Machines/airlock_deny.ogg");
 
+    // Card
     [DataField]
     public string CardPrototype = "PhotoCard";
     [DataField]
     public string CardMaterial = "PrinterPaper";
     [DataField]
     public int CardCost = 100;
+
+    //Filter
+    [DataField]
+    public string FilterSlot = "filter";
 
     [ViewVariables]
     public EntityUid? User;

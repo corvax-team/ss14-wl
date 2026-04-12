@@ -36,6 +36,9 @@
     - ActionJumpToCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    # WL-Changes-start
+    - ActionOpenRemoteDevicesMenu
+    # WL-Changes-end
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -48,6 +51,10 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      # WL-Changes-start
+      enum.RemoteDeviceUiKey.Key:
+        type: RemoteDevicesBoundUserInterface
+      # WL-Changes-end
       enum.CharacterInformationUiKey.Key: # WL-CharacterInformation
         type: CharacterInformationBoundUserInterface
   - type: IntrinsicUI
@@ -434,6 +441,10 @@
   - type: Eye
     drawFov: false
   - type: Examiner
+  # WL-Changes-start
+  - type: Physics
+    bodyType: KinematicController
+  # WL-Changes-end
   - type: InputMover
   - type: BlockMovement
     blockInteraction: false

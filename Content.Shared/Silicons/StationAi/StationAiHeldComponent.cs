@@ -6,4 +6,10 @@ namespace Content.Shared.Silicons.StationAi;
 /// Indicates this entity is currently held inside of a station AI core.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class StationAiHeldComponent : Component;
+// WL-Changes-start
+public sealed partial class StationAiHeldComponent : Component
+{
+    [DataField]
+    public EntityUid? CurrentConnectedEntity;
+}
+// WL-Changes-end

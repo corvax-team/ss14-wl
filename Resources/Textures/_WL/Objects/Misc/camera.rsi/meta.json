@@ -12,6 +12,24 @@
         },
         {
             "name": "card"
+        },
+        {
+            "name": "filter"
+        },
+        {
+            "name": "filter-top"
+        },
+        {
+            "name": "filter-gray"
+        },
+        {
+            "name": "filter-line"
+        },
+        {
+            "name": "filter-ghost"
+        },
+        {
+            "name": "filter-smart"
         }
     ]
 }

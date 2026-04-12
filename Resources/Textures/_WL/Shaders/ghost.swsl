@@ -1,0 +1,58 @@
+
+uniform highp float SCALE;
+
+const highp vec4 baseColor = vec4(1.0, 0.05, 0.02, 0.5);
+const highp vec4 darkColor = vec4(0.05, 0.05, 0.05, 0.5);
+
+highp vec2 hash2(highp vec2 p) 
+{
+    p = vec2(dot(p, vec2(127.1, 311.7)),
+             dot(p, vec2(269.5, 183.3)));
+    return fract(sin(p) * 43758.5453123);
+}
+
+highp vec4 lerpColor(highp vec4 a, highp vec4 b, highp float x)
+{
+    return (a * x + b * (1.0 - x));
+}
+
+highp vec2 voronoi(highp vec2 x) 
+{
+    highp vec2 n = floor(x);
+    highp vec2 f = fract(x);
+
+    highp float F1 = 1.0;
+    highp float F2 = 1.0;
+
+    for (int j = -1; j <= 1; j ++) 
+    {
+        for (int i = -1; i <= 1; i ++) 
+        {
+            highp vec2 g = vec2(float(i), float(j));
+            highp vec2 o = hash2(n + g);   
+            highp vec2 r = g + o - f;      
+            float d = dot(r, r);       
+
+            if (d < F1) 
+            {
+                F2 = F1;
+                F1 = d;
+            } 
+            else if (d < F2) 
+            {
+                F2 = d;
+            }
+        }
+    }
+
+    return vec2(sqrt(F1), sqrt(F2));
+}
+
+void fragment()
+{
+    highp float scale = 10 / SCALE;
+
+    highp vec2 noise = voronoi(UV.xy * scale * (1.0 - UV.y) + vec2(TIME));
+
+    COLOR = lerpColor(baseColor, darkColor, noise.x * 2 - 0.5);
+}

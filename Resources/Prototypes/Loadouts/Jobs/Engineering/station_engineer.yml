@@ -58,16 +58,19 @@
   id: StationEngineerJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineering
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: StationEngineerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtEngineering
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: StationEngineerHazardsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringHazard
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SeniorEngineerJumpsuit
@@ -76,6 +79,7 @@
   #   proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorEngineer
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SeniorEngineerJumpskirt
@@ -84,6 +88,7 @@
   #   proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
+  groupBy: "WLJJ" # WL-change-add
 
 # Back
 - type: loadout
