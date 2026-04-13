@@ -53,10 +53,12 @@ public sealed partial class WordsReplacementObfuscation : ObfuscationMethod
     [DataField(required: true)]
     public List<string> Replacement = [];
 
+    [DataField]
+    List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
+
     internal bool IsPunct(char ch)
     {
-        List<char> punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
-        return punctuation.Contains(ch);
+        return Punctuation.Contains(ch);
     }
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
@@ -108,10 +110,12 @@ public sealed partial class Utf16ReplacementObfuscation : ObfuscationMethod
     [DataField]
     public int Maxlength = 10;
 
+    [DataField]
+    List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
+
     internal bool IsPunct(char ch)
     {
-        List<char> punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
-        return punctuation.Contains(ch);
+        return Punctuation.Contains(ch);
     }
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
@@ -169,10 +173,12 @@ public sealed partial class ByCharReplacementObfuscation : ObfuscationMethod
     [DataField]
     public int Maxlength = 10;
 
+    [DataField]
+    List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
+
     internal bool IsPunct(char ch)
     {
-        List<char> punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
-        return punctuation.Contains(ch);
+        return Punctuation.Contains(ch);
     }
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
