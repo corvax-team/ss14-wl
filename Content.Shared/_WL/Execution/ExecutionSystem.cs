@@ -130,7 +130,7 @@ public sealed class ExecutionSystem : EntitySystem
         if (victim != attacker && _actionBlockerSystem.CanInteract(victim, null))
             return false;
 
-        if (_transformSystem.InRange(Transform(attacker).Coordinates, Transform(victim).Coordinates, 0.1f))
+        if (! _transformSystem.InRange(Transform(attacker).Coordinates, Transform(victim).Coordinates, 0.1f))
             return false;
 
         // All checks passed
