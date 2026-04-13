@@ -111,7 +111,7 @@ public sealed class ExecutionSystem : EntitySystem
             return true;
 
         // No point executing someone if they can't take damage
-        if (!TryComp<DamageableComponent>(victim, out _))
+        if (!HasComp<DamageableComponent>(victim))
             return false;
 
         // You can't execute something that cannot die
@@ -130,7 +130,8 @@ public sealed class ExecutionSystem : EntitySystem
         if (victim != attacker && _actionBlockerSystem.CanInteract(victim, null))
             return false;
 
-        if (! _transformSystem.InRange(Transform(attacker).Coordinates, Transform(victim).Coordinates, 0.1f))
+        // Attacker must be in close range with victim
+        if (!_transformSystem.InRange(Transform(attacker).Coordinates, Transform(victim).Coordinates, 0.1f))
             return false;
 
         // All checks passed

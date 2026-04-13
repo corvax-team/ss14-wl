@@ -54,7 +54,7 @@ public sealed partial class WordsReplacementObfuscation : ObfuscationMethod
     public List<string> Replacement = [];
 
     [DataField]
-    List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
+    public List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
 
     internal bool IsPunct(char ch)
     {
@@ -86,7 +86,7 @@ public sealed partial class WordsReplacementObfuscation : ObfuscationMethod
             }
             else
             {
-                buffer += System.Math.Abs(buffer * 41 + ch + 13);
+                buffer += Math.Abs(buffer * 41 + ch + 13);
                 counter++;
             }
         }
@@ -111,7 +111,7 @@ public sealed partial class Utf16ReplacementObfuscation : ObfuscationMethod
     public int Maxlength = 10;
 
     [DataField]
-    List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
+    public List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
 
     internal bool IsPunct(char ch)
     {
@@ -174,7 +174,7 @@ public sealed partial class ByCharReplacementObfuscation : ObfuscationMethod
     public int Maxlength = 10;
 
     [DataField]
-    List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
+    public List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
 
     internal bool IsPunct(char ch)
     {
