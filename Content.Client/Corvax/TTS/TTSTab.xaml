@@ -7,6 +7,7 @@
             <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="5">
                 <Label Text="{Loc 'humanoid-profile-editor-voice-categories'}" StyleClasses="LabelHeading"
                        HorizontalAlignment="Center" Margin="0 0 0 5"/>
+                    
                 <ScrollContainer VerticalExpand="True">
                     <BoxContainer Name="CategoriesContainer" Orientation="Vertical" VerticalExpand="True"
                                   SeparationOverride="5"/>
@@ -20,8 +21,13 @@
             </PanelContainer.PanelOverride>
             <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="5">
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 5">
-                    <LineEdit Name="SearchEdit" MinWidth="400" HorizontalExpand="True"
-                              PlaceHolder="{Loc 'humanoid-profile-editor-voice-placeholder'}"/>
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 0 5">
+                        <LineEdit Name="SearchEdit" MinWidth="400" HorizontalExpand="True"
+                                  PlaceHolder="{Loc 'humanoid-profile-editor-voice-placeholder'}"/>
+                        <LineEdit Name="PreviewTextEdit" HorizontalExpand="True" MinWidth="400"
+                                  PlaceHolder="{Loc 'humanoid-profile-editor-voice-placeholder-preview'}"
+                                  Margin="0 2 0 0"/>
+                    </BoxContainer>
                     <Label Name="ResultsLabel" MinWidth="100" HorizontalAlignment="Right"/>
                 </BoxContainer>
 
