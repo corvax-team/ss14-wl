@@ -26,7 +26,7 @@
                                   PlaceHolder="{Loc 'humanoid-profile-editor-voice-placeholder'}"/>
                         <LineEdit Name="PreviewTextEdit" HorizontalExpand="True" MinWidth="400"
                                   PlaceHolder="{Loc 'humanoid-profile-editor-voice-placeholder-preview'}"
-                                  Margin="0 2 0 0"/>
+                                  Margin="0 2 0 0" Access="Public"/>
                     </BoxContainer>
                     <Label Name="ResultsLabel" MinWidth="100" HorizontalAlignment="Right"/>
                 </BoxContainer>
