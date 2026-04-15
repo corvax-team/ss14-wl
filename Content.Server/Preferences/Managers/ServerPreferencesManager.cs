@@ -92,7 +92,7 @@ namespace Content.Server.Preferences.Managers
             {
                 return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), constructionFavorites/*WL-Changes: Sponsor*/, Color.FromHex(prefs.SponsorColor)/*WL-Changes: Sponsor*/);
             }
-            catch (System.ArgumentException e)
+            catch (System.ArgumentException)
             {
                 return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), constructionFavorites/*WL-Changes: Sponsor*/, Color.Red/*WL-Changes: Sponsor*/);
             }
