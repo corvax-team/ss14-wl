@@ -88,7 +88,14 @@ namespace Content.Server.Preferences.Managers
             foreach (var favorite in prefs.ConstructionFavorites)
                 constructionFavorites.Add(new ProtoId<ConstructionPrototype>(favorite));
 
-            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), constructionFavorites/*WL-Changes: Sponsor*/, Color.FromHex(prefs.SponsorColor)/*WL-Changes: Sponsor*/);
+            try
+            {
+                return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), constructionFavorites/*WL-Changes: Sponsor*/, Color.FromHex(prefs.SponsorColor)/*WL-Changes: Sponsor*/);
+            }
+            catch (System.ArgumentException e)
+            {
+                return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), constructionFavorites/*WL-Changes: Sponsor*/, Color.Red/*WL-Changes: Sponsor*/);
+            }
         }
 
         internal HumanoidCharacterProfile ConvertProfiles(Profile profile)
