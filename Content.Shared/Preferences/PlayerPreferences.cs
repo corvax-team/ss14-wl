@@ -15,12 +15,15 @@ namespace Content.Shared.Preferences
     {
         private Dictionary<int, HumanoidCharacterProfile> _characters;
 
-        public PlayerPreferences(IEnumerable<KeyValuePair<int, HumanoidCharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, List<ProtoId<ConstructionPrototype>> constructionFavorites)
+        public PlayerPreferences(IEnumerable<KeyValuePair<int, HumanoidCharacterProfile>> characters, int selectedCharacterIndex, Color adminOOCColor, List<ProtoId<ConstructionPrototype>> constructionFavorites, /*WL-Changes: Sponsor*/Color sponsorColor/*WL-Changes: Sponsor*/)
         {
             _characters = new Dictionary<int, HumanoidCharacterProfile>(characters);
             SelectedCharacterIndex = selectedCharacterIndex;
             AdminOOCColor = adminOOCColor;
             ConstructionFavorites = constructionFavorites;
+            //WL-Changes: Sponsor start
+            SponsorColor = sponsorColor;
+            //WL-Changes: Sponsor end
         }
 
         /// <summary>
@@ -44,6 +47,10 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile SelectedCharacter => Characters[SelectedCharacterIndex];
 
         public Color AdminOOCColor { get; set; }
+
+        //WL-Changes: Sponsor start
+        public Color SponsorColor { get; set; }
+        //WL-Changes: Sponsor end
 
         /// <summary>
         ///    List of favorite items in the construction menu.

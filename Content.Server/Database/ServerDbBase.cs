@@ -217,6 +217,9 @@ namespace Content.Server.Database
                 SelectedCharacterSlot = 0,
                 AdminOOCColor = Color.Red.ToHex(),
                 ConstructionFavorites = [],
+                //WL-Changes: Sponsor start
+                SponsorColor = Color.Red.ToHex(),
+                //WL-Changes: Sponsor end
             };
 
             prefs.Profiles.Add(profile);
@@ -238,6 +241,20 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
+        //WL-Changes: Sponsor start
+        public async Task SaveSponsorColorAsync(NetUserId userId, Color color)
+        {
+            await using var db = await GetDb();
+            var prefs = await db.DbContext
+                .Preference
+                .Include(p => p.Profiles)
+                .SingleAsync(p => p.UserId == userId.UserId);
+            prefs.SponsorColor = color.ToHex();
+
+            await db.DbContext.SaveChangesAsync();
+        }
+        //WL-Changes: Sponsor start
+
         public async Task SaveAdminOOCColorAsync(NetUserId userId, Color color)
         {
             await using var db = await GetDb();
@@ -248,7 +265,6 @@ namespace Content.Server.Database
             prefs.AdminOOCColor = color.ToHex();
 
             await db.DbContext.SaveChangesAsync();
-
         }
 
         public async Task SaveConstructionFavoritesAsync(NetUserId userId, List<ProtoId<ConstructionPrototype>> constructionFavorites)

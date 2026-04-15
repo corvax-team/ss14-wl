@@ -59,6 +59,10 @@ namespace Content.Server.Database
 
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
 
+        // WL-Changes: Sponsor start
+        Task SaveSponsorColorAsync(NetUserId userId, Color color);
+        // WL-Changes: Sponsor end
+
         Task SaveConstructionFavoritesAsync(NetUserId userId, List<ProtoId<ConstructionPrototype>> constructionFavorites);
 
         // Single method for two operations for transaction.
@@ -495,6 +499,14 @@ namespace Content.Server.Database
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.DeleteSlotAndSetSelectedIndex(userId, deleteSlot, newSlot));
         }
+
+        //WL-Changes: Sponsor start
+        public Task SaveSponsorColorAsync(NetUserId userId, Color color)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveSponsorColorAsync(userId, color));
+        }
+        //WL-Changes: Sponsor end
 
         public Task SaveAdminOOCColorAsync(NetUserId userId, Color color)
         {

@@ -377,6 +377,9 @@ namespace Content.Server.Database
         public string AdminOOCColor { get; set; } = null!;
         public List<string> ConstructionFavorites { get; set; } = new();
         public List<Profile> Profiles { get; } = new();
+        // WL-Changes: Sponsor start
+        public string SponsorColor { get; set; } = null!;
+        // WL-Changes: Sponsor end
     }
 
     public class Profile

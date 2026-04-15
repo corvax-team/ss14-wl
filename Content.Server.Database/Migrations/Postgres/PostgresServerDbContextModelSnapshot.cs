@@ -1113,6 +1113,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("selected_character_slot");
 
+                    b.Property<string>("SponsorColor")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("sponsor_color");
+
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
