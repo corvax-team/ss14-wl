@@ -53,13 +53,13 @@ public sealed partial class PhotoFilterSystem : EntitySystem
 
     private bool CheckOverlay(EntityUid uid)
     {
-        if (!EntityManager.TryGetComponent<PhotoCameraComponent>(uid, out var camera))
+        if (!TryComp<PhotoCameraComponent>(uid, out var camera))
             return false;
 
         if (_player.LocalEntity != camera.User)
             return false;
 
-        if (!EntityManager.TryGetComponent<PhotoFilterBaseComponent>(uid, out var filter) ||
+        if (!TryComp<PhotoFilterBaseComponent>(uid, out var filter) ||
             filter.LifeStage >= ComponentLifeStage.Stopping)
             return true;
 

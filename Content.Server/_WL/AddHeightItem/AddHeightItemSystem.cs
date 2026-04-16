@@ -20,7 +20,7 @@ namespace Content.Server._WL.AddHeightItem
         /// </summary>
         private void OnADHI(EntityUid uid, AddHeightItemComponent com, ComponentInit args)
         {
-            if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
                 return;
 
             if (!_proto.TryIndex(humanoid.Species, out var speciesProto))

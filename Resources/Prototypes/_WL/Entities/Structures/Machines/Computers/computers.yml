@@ -30,6 +30,4 @@
     range: 5
     ports:
       - TurretMinderConsoleConnect
-  - type: ApcPowerReceiver
-    powerLoad: 900
   - type: TurretMinderConsole

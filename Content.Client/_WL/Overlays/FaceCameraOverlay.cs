@@ -53,7 +53,7 @@ public sealed partial class FaceCameraOverlay : Overlay
 
         var handle = args.WorldHandle;
 
-        var query = _entManager.EntityQueryEnumerator<HumanoidAppearanceComponent>();
+        var query = _entManager.EntityQueryEnumerator<HumanoidProfileComponent>();
         while (query.MoveNext(out var ent, out _))
         {
             Vector2 deltaDir = (_transform.GetWorldRotation(ent) - _transform.GetWorldRotation(uid).Opposite()).ToVec();

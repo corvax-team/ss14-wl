@@ -1,0 +1,278 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: Murine
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      onlyGroupWhitelisted: true
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [ MurineEars ]
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: true
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ MurineTail ]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+      nudityDefault: [ UndergarmentTopTanktopVulpkanin ]
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+      nudityDefault: [ UndergarmentBottomBoxersVulpkanin ]
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceMurine
+  name: murine appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganMurineTorso
+      Head: OrganMurineHead
+      ArmLeft: OrganMurineArmLeft
+      ArmRight: OrganMurineArmRight
+      HandRight: OrganMurineHandRight
+      HandLeft: OrganMurineHandLeft
+      LegLeft: OrganMurineLegLeft
+      LegRight: OrganMurineLegRight
+      FootLeft: OrganMurineFootLeft
+      FootRight: OrganMurineFootRight
+      Brain: OrganMurineBrain
+      Eyes: OrganMurineEyes
+      Tongue: OrganMurineTongue
+      Appendix: OrganMurineAppendix
+      Ears: OrganMurineEars
+      Lungs: OrganMurineLungs
+      Heart: OrganMurineHeart
+      Stomach: OrganMurineStomach
+      Liver: OrganMurineLiver
+      Kidneys: OrganMurineKidneys
+  - type: HumanoidProfile
+    species: Murine
+
+- type: entity
+  save: false
+  name: Urist McMurine
+  parent:
+  - AppearanceMurine
+  - BaseSpeciesMobOrganic
+  id: MobMurine
+  components:
+  - type: Hunger
+    baseDecayRate: 0.032
+  - type: Icon
+    sprite: _WL/Mobs/Species/Murine/parts.rsi
+    state: full
+  - type: Perishable
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Piercing: 5
+  - type: Vocal
+    sounds:
+      Male: Mouse
+      Female: Mouse
+      Unsexed: Mouse
+  - type: Stamina
+    baseCritThreshold: 60
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  - type: Thirst
+    baseDecayRate: 0.12
+  # - type: Item # Пока убираю, чтобы разобратся что не так
+  #   size: Ginormous
+  # - type: Sprite
+  #   sprite: _WL/Mobs/Species/Murine/item.rsi
+  #   state: icon
+  # - type: MultiHandedItem
+  # - type: CanEscapeInventory
+  #   baseResistTime: 1
+  - type: Speech
+    speechSounds: Squeak
+    speechVerb: SmallMob
+    audioParams:
+      volume: -5
+  - type: Languages
+    speaking:
+      - Translate
+    understood:
+      - Translate
+    specieLanguage: Urlum
+  - type: AddHeightItem
+
+- type: entity
+  parent: OrganBase
+  id: OrganMurine
+  abstract: true
+  suffix: murine
+
+- type: entity
+  id: OrganMurineMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal ]
+
+- type: entity
+  parent: OrganMurine
+  id: OrganMurineInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  id: OrganMurineVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _WL/Mobs/Species/Murine/parts.rsi # Mobs/Species/Akula/parts.rsi #Corvax-Vulp_Port
+  - type: VisualOrganMarkings
+    markingData:
+      group: Murine
+
+- type: entity
+  parent: [ OrganMurine, OrganMurineVisual ]
+  id: OrganMurineExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Murine/parts.rsi #Mobs/Species/Akula/parts.rsi #Corvax-Vulp_Port
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganMurineExternal ]
+  id: OrganMurineTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganMurineExternal ]
+  id: OrganMurineHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.FacialHair
+    dependentHidingLayers:
+      enum.HumanoidVisualLayers.Snout:
+      - enum.HumanoidVisualLayers.SnoutCover
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganMurineExternal ]
+  id: OrganMurineArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganMurineExternal ]
+  id: OrganMurineArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganMurineExternal ]
+  id: OrganMurineHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganMurineExternal ]
+  id: OrganMurineHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganMurineExternal ]
+  id: OrganMurineLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganMurineExternal ]
+  id: OrganMurineLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganMurineExternal ]
+  id: OrganMurineFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganMurineExternal ]
+  id: OrganMurineFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganMurineInternal ]
+  id: OrganMurineBrain
+
+- type: entity
+  parent: [ OrganMurineVisual, OrganBaseEyes, OrganMurineInternal ]
+  id: OrganMurineEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganMurineInternal ]
+  id: OrganMurineTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganMurineInternal ]
+  id: OrganMurineAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganMurineInternal ]
+  id: OrganMurineEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganMurineInternal, OrganMurineMetabolizer ]
+  id: OrganMurineLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganMurineInternal, OrganMurineMetabolizer ]
+  id: OrganMurineHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganMurineInternal, OrganMurineMetabolizer ]
+  id: OrganMurineStomach
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganMurineInternal, OrganMurineMetabolizer ]
+  id: OrganMurineLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganMurineInternal, OrganMurineMetabolizer ]
+  id: OrganMurineKidneys
+

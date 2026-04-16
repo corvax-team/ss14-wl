@@ -37,7 +37,6 @@ public sealed class SlipperySystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     // WL Golem species start
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     // WL Golem species end
     [Dependency] private readonly SpeedModifierContactsSystem _speedModifier = default!;
@@ -143,11 +142,7 @@ public sealed class SlipperySystem : EntitySystem
         // WL Golem species start
         if (_entity.TryGetComponent<HardSlipComponent>(other, out var hardslip))
         {
-            if (hardslip is not null)
-            {
-                var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Blunt"), hardslip.FallDamage);
-                _damageableSystem.TryChangeDamage(other, damageSpec);
-            }
+            _damageableSystem.TryChangeDamage(other, hardslip.FallDamage);
         }
         // WL Golem species end
 
