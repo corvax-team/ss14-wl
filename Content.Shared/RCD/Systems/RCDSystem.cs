@@ -7,6 +7,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.RCD.Components;
@@ -21,6 +22,8 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Robust.Shared.Utility;
 using System.Linq;
 
 namespace Content.Shared.RCD.Systems;
@@ -51,6 +54,7 @@ public sealed class RCDSystem : EntitySystem
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
 
     private HashSet<EntityUid> _intersectingEntities = new();
+    [Access(Other = AccessPermissions.Read)] public Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo = new();
 
     public override void Initialize()
     {
@@ -63,7 +67,32 @@ public sealed class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, DoAfterAttemptEvent<RCDDoAfterEvent>>(OnDoAfterAttempt);
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
+
+        // WL-Changes-start: dehardcode
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload);
+        UpdateProtoList();
+        // WL-Changes-end
     }
+
+    // WL-Changes-start: dehardcode
+    private void UpdateProtoList()
+    {
+        var enume = _protoManager.EnumeratePrototypes<RCDGroupPrototype>();
+        foreach (var proto in enume)
+        {
+            PrototypesGroupingInfo.Add(proto.ID, (Loc.GetString(proto.Name), new SpriteSpecifier.Texture(SpriteSpecifierSerializer.TextureRoot / proto.Sprite)));
+        }
+    }
+
+    private void OnProtoReload(PrototypesReloadedEventArgs args)
+    {
+        if (!args.WasModified<RCDGroupPrototype>())
+            return;
+
+        PrototypesGroupingInfo.Clear();
+        UpdateProtoList();
+    }
+    // WL-Changes-end
 
     #region Event handling
 
@@ -445,7 +474,7 @@ public sealed class RCDSystem : EntitySystem
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
                     // Continue if no collision is possible
-                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) prototype.CollisionMask) == 0)
+                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)prototype.CollisionMask) == 0)
                         continue;
 
                     // Continue if our custom collision bounds are not intersected

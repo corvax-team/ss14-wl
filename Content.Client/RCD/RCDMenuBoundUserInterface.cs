@@ -2,12 +2,12 @@ using Content.Client.Popups;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
+using Content.Shared.RCD.Systems;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Shared.Collections;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Client.RCD;
 
@@ -16,24 +16,16 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
 {
     private const string TopLevelActionCategory = "Main";
 
-    private static readonly Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo
-        = new Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)>
-        {
-            ["WallsAndFlooring"] = ("rcd-component-walls-and-flooring", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/walls_and_flooring.png"))),
-            ["WindowsAndGrilles"] = ("rcd-component-windows-and-grilles", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/windows_and_grilles.png"))),
-            ["Airlocks"] = ("rcd-component-airlocks", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/airlocks.png"))),
-            ["Electrical"] = ("rcd-component-electrical", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/multicoil.png"))),
-            ["Lighting"] = ("rcd-component-lighting", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/lighting.png"))),
-        };
-
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    private readonly RCDSystem _rcd = default!; // WL-Changes: dehardcode
 
     private SimpleRadialMenu? _menu;
 
     public RCDMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         IoCManager.InjectDependencies(this);
+        _rcd = IoCManager.Resolve<RCDSystem>(); // WL-Changes: dehardcode
     }
 
     protected override void Open()
@@ -55,6 +47,7 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
     {
         Dictionary<string, List<RadialMenuActionOptionBase>> buttonsByCategory = new();
         ValueList<RadialMenuActionOptionBase> topLevelActions = new();
+        var prototypesGroupingInfo = _rcd.PrototypesGroupingInfo; // WL-Changes: dehardcode
         foreach (var protoId in prototypes)
         {
             var prototype = _prototypeManager.Index(protoId);
@@ -69,7 +62,7 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
                 continue;
             }
 
-            if (!PrototypesGroupingInfo.TryGetValue(prototype.Category, out var groupInfo))
+            if (!prototypesGroupingInfo.TryGetValue(prototype.Category, out var groupInfo)) // WL-Changes: dehardcode
                 continue;
 
             if (!buttonsByCategory.TryGetValue(prototype.Category, out var list))
@@ -90,7 +83,7 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
         var i = 0;
         foreach (var (key, list) in buttonsByCategory)
         {
-            var groupInfo = PrototypesGroupingInfo[key];
+            var groupInfo = prototypesGroupingInfo[key]; // WL-Changes: dehardcode
             models[i] = new RadialMenuNestedLayerOption(list)
             {
                 IconSpecifier = RadialMenuIconSpecifier.With(groupInfo.Sprite),
