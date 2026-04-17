@@ -21,7 +21,7 @@
   - type: Cartridge
     programName: notekeeper-program-name
     icon:
-      sprite:  _CorvaxGoob/Interface/Misc/program_icons.rsi # WL-Changes: Corvax-Goob-RespriteProgramsIcons
+      sprite: _CorvaxGoob/Interface/Misc/program_icons.rsi # WL-Changes: Corvax-Goob-RespriteProgramsIcons
       state: notes
   - type: NotekeeperCartridge
 
