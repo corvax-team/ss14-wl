@@ -21,3 +21,11 @@ public enum RcdUiKey : byte
 {
     Key
 }
+
+// WL-Changes: RPD
+[Serializable, NetSerializable]
+public sealed class RCDOverrideProtoIdEvent(NetEntity net, string? proto) : EntityEventArgs
+{
+    public readonly NetEntity NetEntity = net;
+    public readonly string? OverrideProtoId = proto;
+}

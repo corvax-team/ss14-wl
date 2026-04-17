@@ -1,7 +1,11 @@
+using System.Diagnostics;
 using Content.Client.Hands.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
+using Content.Shared.RCD.Systems;
+using Content.Shared.Verbs;
+using Robust.Client.GameObjects;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
@@ -20,8 +24,39 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly IPlacementManager _placementManager = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly RCDSystem _rcdSystem = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     private Direction _placementDirection = default;
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<RCDComponent, GetVerbsEvent<UtilityVerb>>(GetVerbs);
+    }
+
+    private void GetVerbs(EntityUid uid, RCDComponent comp, GetVerbsEvent<UtilityVerb> args)
+    {
+        if (!args.CanInteract)
+            return;
+
+        var coordsTarget = Transform(args.Target).Coordinates;
+        var coordsUser = Transform(args.User).Coordinates;
+
+        if (_transform.InRange(coordsTarget, coordsUser, comp.Range))
+
+        args.Verbs.Add(new UtilityVerb
+        {
+            Text = "Мое действие",
+            Category = VerbCategory.Adjust,
+            Act = () =>
+            {
+                var aie = new AfterInteractEvent(args.User, uid, args.Target, Transform(args.Target).Coordinates, true);
+                _rcdSystem.OnAfterInteract(uid, comp, aie);
+            },
+            Priority = 10
+        });
+    }
 
     public override void Update(float frameTime)
     {
@@ -73,9 +108,9 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         {
             MobUid = heldEntity.Value,
             PlacementOption = PlacementMode,
-            EntityType = prototype.Prototype,
+            EntityType = rcd.OverrideProtoId ?? prototype.Prototype,
             Range = (int)Math.Ceiling(SharedInteractionSystem.InteractionRange),
-            IsTile = (prototype.Mode == RcdMode.ConstructTile),
+            IsTile = prototype.Mode == RcdMode.ConstructTile,
             UseEditorContext = false,
         };
 

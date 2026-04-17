@@ -22,3 +22,8 @@
   id: Lighting
   name: rcd-component-lighting
   sprite: Interface/Radial/RCD/lighting.png
+
+- type: rcdGroup
+  id: Pipe
+  name: rcd-component-electrical
+  sprite: Interface/Radial/RCD/airlocks.png

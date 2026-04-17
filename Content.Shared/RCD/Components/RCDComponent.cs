@@ -21,6 +21,9 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public HashSet<ProtoId<RCDPrototype>> AvailablePrototypes { get; set; } = new();
 
+    [DataField, AutoNetworkedField]
+    public HashSet<EntProtoId> AvaliableToDeconstructEntity = new();
+
     /// <summary>
     /// Sound that plays when a RCD operation successfully completes
     /// </summary>
@@ -32,6 +35,17 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
+
+    /// <summary>
+    /// WL-Changes: RPD
+    /// ProtoId of current prototype for AlignAtmosPipeLayers.
+    /// If null RCDSystem used field Prototype from RCDPrototype
+    /// </summary>
+    [DataField]
+    public string? OverrideProtoId;
+
+    [DataField, AutoNetworkedField]
+    public float Range = 1.5f;
 
     /// <summary>
     /// The direction constructed entities will face upon spawning

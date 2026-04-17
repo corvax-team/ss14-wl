@@ -13,6 +13,7 @@ using Content.Shared.Popups;
 using Content.Shared.RCD.Components;
 using Content.Shared.Tag;
 using Content.Shared.Tiles;
+using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -71,6 +72,7 @@ public sealed class RCDSystem : EntitySystem
 
         // WL-Changes-start: dehardcode
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload);
+        SubscribeNetworkEvent<RCDOverrideProtoIdEvent>(OverrideChanged);
         UpdateProtoList();
         // WL-Changes-end
     }
@@ -92,6 +94,16 @@ public sealed class RCDSystem : EntitySystem
 
         PrototypesGroupingInfo.Clear();
         UpdateProtoList();
+    }
+
+    private void OverrideChanged(RCDOverrideProtoIdEvent args)
+    {
+        var rcd = GetEntity(args.NetEntity);
+        if (!TryComp<RCDComponent>(GetEntity(args.NetEntity), out var comp))
+            return;
+
+        comp.OverrideProtoId = args.OverrideProtoId;
+        Dirty(rcd, comp);
     }
     // WL-Changes-end
 
@@ -152,7 +164,7 @@ public sealed class RCDSystem : EntitySystem
         args.PushMarkup(msg);
     }
 
-    private void OnAfterInteract(EntityUid uid, RCDComponent component, AfterInteractEvent args)
+    public void OnAfterInteract(EntityUid uid, RCDComponent component, AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
             return;
@@ -388,8 +400,8 @@ public sealed class RCDSystem : EntitySystem
 
         // Exit if the target / target location is obstructed
         var unobstructed = (target == null)
-            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), popup: popMsgs)
-            : _interaction.InRangeUnobstructed(user, target.Value, popup: popMsgs);
+            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), component.Range, popup: popMsgs)
+            : _interaction.InRangeUnobstructed(user, target.Value, component.Range, popup: popMsgs);
 
         if (!unobstructed)
             return false;
@@ -455,7 +467,7 @@ public sealed class RCDSystem : EntitySystem
             // Check rule: Respect baseTurf and baseWhitelist
             if (prototype.Prototype != null && _tileDefMan.TryGetDefinition(prototype.Prototype, out var replacementDef))
             {
-                var replacementContentDef = (ContentTileDefinition) replacementDef;
+                var replacementContentDef = (ContentTileDefinition)replacementDef;
 
                 if (replacementContentDef.BaseTurf != tileDef.ID && !replacementContentDef.BaseWhitelist.Contains(tileDef.ID))
                 {
@@ -492,6 +504,7 @@ public sealed class RCDSystem : EntitySystem
         {
             // If the entity is the exact same prototype as what we are trying to build, then block it.
             // This is to prevent spamming objects on the same tile (e.g. lights)
+            var proto = component.OverrideProtoId ?? prototype.Prototype;
             if (prototype.Prototype != null && MetaData(ent).EntityPrototype?.ID == prototype.Prototype)
             {
                 var isIdentical = true;
@@ -609,22 +622,24 @@ public sealed class RCDSystem : EntitySystem
             return;
 
         var prototype = _protoManager.Index(component.ProtoId);
+        var proto = component.OverrideProtoId ?? prototype.Prototype;
+        component.OverrideProtoId = null;
 
-        if (prototype.Prototype == null)
+        if (proto == null)
             return;
 
         switch (prototype.Mode)
         {
             case RcdMode.ConstructTile:
-                if (!_tileDefMan.TryGetDefinition(prototype.Prototype, out var tileDef))
+                if (!_tileDefMan.TryGetDefinition(proto, out var tileDef))
                     return;
 
                 _tile.ReplaceTile(tile, (ContentTileDefinition) tileDef, gridUid, mapGrid);
-                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {gridUid} {position} to {prototype.Prototype}");
+                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {gridUid} {position} to {proto}");
                 break;
 
             case RcdMode.ConstructObject:
-                var ent = Spawn(prototype.Prototype, _mapSystem.GridTileToLocal(gridUid, mapGrid, position));
+                var ent = Spawn(proto, _mapSystem.GridTileToLocal(gridUid, mapGrid, position));
 
                 switch (prototype.Rotation)
                 {

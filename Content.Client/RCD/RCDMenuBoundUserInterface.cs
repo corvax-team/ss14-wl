@@ -1,5 +1,6 @@
 using Content.Client.Popups;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
 using Content.Shared.RCD.Systems;
@@ -18,14 +19,21 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
 
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    private readonly RCDSystem _rcd = default!; // WL-Changes: dehardcode
+    // WL-Changes-start: dehardcode and RPD
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    private RCDSystem _rcd = default!;
+    private SharedAtmosPipeLayersSystem _pipe = default!;
+    // WL-Changes-end
 
     private SimpleRadialMenu? _menu;
 
     public RCDMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         IoCManager.InjectDependencies(this);
-        _rcd = IoCManager.Resolve<RCDSystem>(); // WL-Changes: dehardcode
+        // WL-Changes-start: dehardcode
+        _rcd = _entityManager.System<RCDSystem>();
+        _pipe = _entityManager.System<SharedAtmosPipeLayersSystem>();
+        // WL-Changes-end
     }
 
     protected override void Open()

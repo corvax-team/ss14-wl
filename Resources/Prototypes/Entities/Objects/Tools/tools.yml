@@ -318,6 +318,7 @@
     - HVCable
     - CableTerminal
     - Deconstruct
+    - GasPipeStraight
   - type: LimitedCharges
     maxCharges: 30
   - type: Sprite
