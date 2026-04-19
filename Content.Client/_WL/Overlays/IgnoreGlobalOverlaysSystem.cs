@@ -17,13 +17,13 @@ public sealed partial class IgnoreGlobalOverlaysSystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, IgnoreGlobalOverlaysComponent component, ComponentInit args)
     {
-        if (EntityManager.TryGetComponent<EyeComponent>(uid, out var eye) && !IgnoreEyes.ContainsKey(eye.Eye))
+        if (TryComp<EyeComponent>(uid, out var eye) && !IgnoreEyes.ContainsKey(eye.Eye))
             IgnoreEyes.Add(eye.Eye, uid);
     }
 
     private void OnComponentShutdown(EntityUid uid, IgnoreGlobalOverlaysComponent component, ComponentShutdown args)
     {
-        if (EntityManager.TryGetComponent<EyeComponent>(uid, out var eye) && IgnoreEyes.ContainsKey(eye.Eye))
+        if (TryComp<EyeComponent>(uid, out var eye) && IgnoreEyes.ContainsKey(eye.Eye))
             IgnoreEyes.Remove(eye.Eye);
     }
 

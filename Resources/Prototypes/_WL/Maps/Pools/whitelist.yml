@@ -2,7 +2,7 @@
   id: WhitelistMapPool
   maps:
 #   Highpop (25+ players)
-  - CorvaxWLRenga
+# - CorvaxWLRenga # 🔨
   - CorvaxWLRest
   - CorvaxWLMarathon
   - CorvaxWLBagel

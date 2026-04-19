@@ -20,7 +20,6 @@ namespace Content.Shared.Nutrition.EntitySystems
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         // WL Golem species start
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-        [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly IEntityManager _entity = default!;
         [Dependency] private readonly SharedBuckleSystem _buckle = default!;
         // WL Golem species end
@@ -85,11 +84,7 @@ namespace Content.Shared.Nutrition.EntitySystems
             {
                 if (_entity.TryGetComponent<HardSlipComponent>(uid, out var hardslip))
                 {
-                    if (hardslip is not null)
-                    {
-                        var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Blunt"), hardslip.FallDamage);
-                        _damageableSystem.TryChangeDamage(uid, damageSpec);
-                    }
+                    _damageableSystem.TryChangeDamage(uid, hardslip.FallDamage);
                 }
             }
             // WL Golem species end

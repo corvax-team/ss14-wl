@@ -19,7 +19,6 @@ public sealed partial class DynamicTextWindow : FancyWindow
 
         CDynamicTextInput.Placeholder = new Rope.Leaf(loc.GetString("dynamic-text-placeholder"));
         DynamicTextSaveButton.OnPressed += OnDynamicTextSave;
-        DynamicTextCloseButton.OnPressed += _ => Close();
     }
 
     public void SetDynamicText(string text)

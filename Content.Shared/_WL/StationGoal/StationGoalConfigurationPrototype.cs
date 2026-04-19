@@ -2,7 +2,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.StationGoal
 {
-    [DataDefinition]
     [Prototype]
     public sealed partial class StationGoalConfigurationPrototype : IPrototype
     {
@@ -10,10 +9,13 @@ namespace Content.Shared._WL.StationGoal
         [IdDataField]
         public string ID { get; private set; } = default!;
 
-        [DataField] public int MinGoals { get; private set; } = 1;
+        [DataField]
+        public int MinGoals { get; private set; } = 1;
 
-        [DataField] public int MaxGoals { get; private set; } = 4;
+        [DataField]
+        public int MaxGoals { get; private set; } = 4;
 
-        [DataField] public int Priority { get; private set; } = 0;
+        [DataField]
+        public int Priority { get; private set; } = 0;
     }
 }

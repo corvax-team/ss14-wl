@@ -1,0 +1,960 @@
+- type: entity
+  abstract: true
+  parent: BaseFigurine
+  id: BaseFigurineWLSpecial
+  name: special figurine
+  suffix: WLSpec
+  components:
+  - type: Item
+    sprite: Objects/Fun/figurines.rsi
+  - type: Sprite
+    sprite: _WL/Objects/Fun/spec_figurines.rsi
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialJamesRichter
+  name: 'эксклюзивная фигурка инженера'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Доброжелательный инженер готов разобраться с вашими неполадками. 01/72."'
+  components:
+  - type: Sprite
+    state: JamesRichter_engineer
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialJamesRicher
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialSingularHyperalloy
+  name: 'эксклюзивная фигурка главного врача'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Он спас не один десяток тысяч душ за всю свою жизнь, но сам уже и не догадывается об этом. 02/72."'
+  components:
+  - type: Sprite
+    state: SingularHyperalloy_CMO
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialSingularHyperalloy
+  - type: Speech
+    speechSounds: Bass
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialTAU
+  name: 'эксклюзивная фигурка учёного'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Очень добрый ксеноархеолог. Любит муравьёв. 03/72."'
+  components:
+  - type: Sprite
+    state: TAU_scientist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialTAU
+  - type: Speech
+    speechSounds: Pai
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialFazoniySetiniCoat
+  name: 'эксклюзивная фигурка инженера в пальто'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Смешной, но эгоистичный любитель пошутить. 04/72."'
+  components:
+  - type: Sprite
+    state: FazoniySetini_engineer
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialFazoniySetiniCoat
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialEmiliaYu
+  name: 'эксклюзивная фигурка учёного'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Одинокий рокер. Любит полетать на антигравитационных ботинках за баночкой Старкиста. 05/72."'
+  components:
+  - type: Sprite
+    state: EmiliaYu_scientist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialEmiliaYu
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialVeneraArassaka
+  name: 'эксклюзивная фигурка врача'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Пацифист, готовый защитить всё живое. 06/72."'
+  components:
+  - type: Sprite
+    state: VeneraArassaka_physician
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialVeneraArassaka
+  - type: Speech
+    speechSounds: Lizard
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialBiFirefly
+  name: 'эксклюзивная фигурка учёного'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Не знает значения слов "приватность" и "личное пространство" и смеётся назойливее кого бы то ни было. Экстравертище! 07/72."'
+  components:
+  - type: Sprite
+    state: BiFirefly_scientist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialBiFirefly
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialMikeBrown
+  name: 'эксклюзивная фигурка боксёра'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Нет ничего лучше жаренной курочки, хорошего косячка и игры на нервах службы безопасности. 08/72."'
+  components:
+  - type: Sprite
+    state: MikeBrown_boxer
+  - type: SpeakOnTrigger
+    pack: FigurinesBoxer
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialNaoriFuks
+  name: 'эксклюзивная фигурка квартирмейстера'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Ответственный и вежливый перфекционист. Корпорация гордится вами. 09/72."'
+  components:
+  - type: Sprite
+    state: NaoriFuks_QM
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialNaoriFuks
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialRubenSuhoi
+  name: 'эксклюзивная фигурка пилота'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Вспыльчив и жесток. Решает всё силой. Ненавидит арахнидов. 10/72."'
+  components:
+  - type: Sprite
+    state: RubenSuhoi_pilot
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialRubenSuhoi
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAkaraNerros
+  name: 'эксклюзивная фигурка утилизатора'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Преемница одного из легендарных утилизаторов сектора. Боится громких звуков. 11/72."'
+  components:
+  - type: Sprite
+    state: AkaraNerros_salvagespec
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAkaraNerros
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialViolettDeRishelie
+  name: 'эксклюзивная фигурка пассажира'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Слышит всё. Пишет всё. Боится всего. 12/72."'
+  components:
+  - type: Sprite
+    state: ViolettDeRishelie_passenger
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialViolettDeRishelie
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialMaximBosenko
+  name: 'эксклюзивная фигурка кадета'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Сын фермера, известный как мистер Порванный Ботинок. 13/72."'
+  components:
+  - type: Sprite
+    state: MaximBosenko_cadet
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialMaximBosenko
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAuroraLaffen
+  name: 'эксклюзивная фигурка офицера СБ'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Носительница огромного количества сплетен и интересных историй. 14/72."'
+  components:
+  - type: Sprite
+    state: AuroraLaffen_secoff
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAuroraLaffen
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAsraelGrenholm
+  name: 'эксклюзивная фигурка офицера СБ'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "От бога гиперсмерти до 6 клизм. 15/72."'
+  components:
+  - type: Sprite
+    state: AsraelGrenholm_secoff
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAsraelGrenholm
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAlonIros
+  name: 'эксклюзивная фигурка капитана'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Пьет вина больше, чем воды и всего остального вместевзятого. 16/72."'
+  components:
+  - type: Sprite
+    state: AlonIros_captain
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAlonIros
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialKennetMiller
+  name: 'эксклюзивная фигурка офицера СБ'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Любитель посидеть на КПП и пообщаться с девушками в баре. 17/72."'
+  components:
+  - type: Sprite
+    state: KennetMiller_secoff
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialKennetMiller
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialRoosalinErintari
+  name: 'эксклюзивная фигурка научного руководителя'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Любознательная, но всё делает по своему. 18/72."'
+  components:
+  - type: Sprite
+    state: RoosalinErintari_RD
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialRoosalinErintari
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialDmitriyShek
+  name: 'эксклюзивная фигурка пассажира'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Добряк, что способен найти общий язык почти с каждым существом. 19/72."'
+  components:
+  - type: Sprite
+    state: DmitriyShek_passenger
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialDmitriyShek
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialLetaBurova
+  name: 'эксклюзивная фигурка уборщика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Обожает мышей, холодное оружие и распылители. 20/72."'
+  components:
+  - type: Sprite
+    state: LetaBurova_service
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialLetaBurova
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialKasaVudgita
+  name: 'эксклюзивная фигурка бригмедика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Ответственный боевой врач, точно спасёт вам жизнь. 21/72."'
+  components:
+  - type: Sprite
+    state: KasaVudgita_brigmed
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialKasaVudgita
+  - type: Speech
+    speechSounds: Lizard
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialEliasCyortis
+  name: 'эксклюзивная фигурка оперативника СБ'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Старается быть благородным и относиться ко всем с максимальной добротой. 22/72."'
+  components:
+  - type: Sprite
+    state: EliasCyortis_secoff
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialEliasCyortis
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialRichardBarklee
+  name: 'эксклюзивная фигурка учёного'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Любит помогать людям и тратить собственное время даже тогда, когда его об этом не просят. 23/72."'
+  components:
+  - type: Sprite
+    state: RichardBarklee_scientist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialRichardBarklee
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialMauzerVoitzehovskiy
+  name: 'эксклюзивная фигурка представителя ЦК'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Беспощадный страж корпоративного порядка. 24/72."'
+  components:
+  - type: Sprite
+    state: MauzerVoitzehovskiy_centcom
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialMauzerVoitzehovskiy
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialLopuh
+  name: 'эксклюзивная фигурка научного руководителя'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "На первый взгляд не от мира всего чудак, но на самом деле он просто видит всё по своему. 25/72."'
+  components:
+  - type: Sprite
+    state: Lopuh_RD
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialLopuh
+  - type: Speech
+    speechSounds: Bass
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialTovaKavari
+  name: 'эксклюзивная фигурка студента-учёного'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Студент с высоким потенциалом, который отрубается от ЭМИ. 26/72."'
+  components:
+  - type: Sprite
+    state: TovaKavari_student
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialTovaKavari
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAgriusSaturnid
+  name: 'эксклюзивная фигурка шеф-повара'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Добродушный повар, любит свою работу. 27/72."'
+  components:
+  - type: Sprite
+    state: AgriusSaturnid_cook
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAgriusSaturnid
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAlexaNightwish
+  name: 'эксклюзивная фигурка грузчика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Азартная женщина, болтушка, любит подурачиться. 28/72."'
+  components:
+  - type: Sprite
+    state: AlexaNightwish_cargotech
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAlexaNightwish
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialElfieFane
+  name: 'эксклюзивная фигурка АВД'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Борец с корпоративными нарушениями, отстаивает права и интересы клиентов NT. 29/72."'
+  components:
+  - type: Sprite
+    state: ElfieFane_IAA
+  - type: SpeakOnTrigger
+    pack: FigurinesLawyer
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialJeorgeRockwill
+  name: 'эксклюзивная фигурка учёного'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "У него нет врагов, у него есть лишь те с кем он не успел подружиться. 30/72."'
+  components:
+  - type: Sprite
+    state: JeorgeRockwill_scientist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialJeorgeRockwill
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialJanOlin
+  name: 'эксклюзивная фигурка уборщика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Довольно глуп, из-за чего легко подвержен влиянию и часто нарывается на конфликт. 31/72."'
+  components:
+  - type: Sprite
+    state: JanOlin_janitor
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialJanOlin
+  - type: Speech
+    speechSounds: Lizard
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialKitStark
+  name: 'эксклюзивная фигурка детектива'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Любитель случайных разговоров в баре. 32/72."'
+  components:
+  - type: Sprite
+    state: KitStark_detective
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialKitStark
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialReiLukon
+  name: 'эксклюзивная фигурка капитана'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Добрый дедушка для двух прекрасных внуков. 33/72."'
+  components:
+  - type: Sprite
+    state: ReiLukon_captain
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialReiLukon
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialBlummyDrimminblob
+  name: 'эксклюзивная фигурка химика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого, от неё всегда пахнет чем-то сладковато-медовым. На её подставке выгравировано: "Оптимистичная и наивная любительница энергетикиков за их количество сахара.>. 34/72."'
+  components:
+  - type: Sprite
+    state: BlummyDrimminblob_chemist
+  - type: SpeakOnTrigger
+    pack: FigurinesChemist
+  - type: Speech
+    speechSounds: Slime
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialNikolasMacHenry
+  name: 'эксклюзивная фигурка ботаника'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Добряк по жизни, в моменте бывает стеснителен. Всегда готов помочь другим в беде или просто пообщаться. 35/72."'
+  components:
+  - type: Sprite
+    state: NikolasMacHenry_botanist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialNikolasMacHenry
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAkihiroYui
+  name: 'эксклюзивная фигурка пилота'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Собственные понятия морали//чести//добра выше всех космозаконов и СРП. 36/72."'
+  components:
+  - type: Sprite
+    state: AkihiroYui_pilot
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAkihiroYui
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialNikolayVsesilniy
+  name: 'эксклюзивная фигурка офицера'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Добрый и скромный молодой человек, любящий шутить и геройствовать. Серьезен когда надо. 37/72."'
+  components:
+  - type: Sprite
+    state: NikolayVsesilniy_secoff
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialNikolayVsesilniy
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialElerosShanvi
+  name: 'эксклюзивная фигурка атмосферного техника'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Высококвалифицированный инженер, любитель топоров и дикого электричества. 38/72."'
+  components:
+  - type: Sprite
+    state: ElerosShanvi_atmostech
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialElerosShanvi
+  - type: Speech
+    speechSounds: Lizard
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialLiamWilson
+  name: 'эксклюзивная фигурка механика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Крайне хлопотливый молодой мужчина, что большую часть своего времени проводит в делах. 39/72."'
+  components:
+  - type: Sprite
+    state: LiamWilson_mechanic
+  - type: SpeakOnTrigger
+    pack: FigurinesEngineer
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialKlausShtriber
+  name: 'эксклюзивная фигурка наёмника'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Почитатель хорошего немецкого пива. 40/72."'
+  components:
+  - type: Sprite
+    state: KlausShtriber_mercenary
+  - type: SpeakOnTrigger
+    pack: FigurinesFootsoldier
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialMarena
+  name: 'эксклюзивная фигурка злодея'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Злодей из мультиков. 41/72."'
+  components:
+  - type: Sprite
+    state: Marena_Zveno
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialMarena
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialSherilinDubua
+  name: 'эксклюзивная фигурка репортера'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Почтительная, болтливая и любопытная репортерша. 42/72."'
+  components:
+  - type: Sprite
+    state: SherilinDubua_reporter
+  - type: SpeakOnTrigger
+    pack: FigurinesLibrarian
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialHelenGusto
+  name: 'эксклюзивная фигурка офицера'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Хладнокровная и дипломатичная девушка. 43/72."'
+  components:
+  - type: Sprite
+    state: HelenGusto_secoff
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialHelenGusto
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialZakVil
+  name: 'эксклюзивная фигурка научного асисстента'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Застенчивый и добрый фелинид. 44/72."'
+  components:
+  - type: Sprite
+    state: ZakVil_resassistant
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialZakVil
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialTammyVlasova
+  name: 'эксклюзивная фигурка аномалиста'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Учёная нарколептик - организатор случайных подрывов аномалий. 45/72."'
+  components:
+  - type: Sprite
+    state: TammyVlasova_scientist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialTammyVlasova
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialBatarRogov
+  name: 'эксклюзивная фигурка музыканта'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Активный и очень дружелюбный юнец с детской наивностью. 46/72."'
+  components:
+  - type: Sprite
+    state: BatarRogov_musician
+  - type: SpeakOnTrigger
+    pack: FigurinesMusician
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialMinorAri
+  name: 'эксклюзивная фигурка атмосферного техника'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Очень любит электрику и атмос, свободно может придумать какую-либо безделушку. 47/72."'
+  components:
+  - type: Sprite
+    state: MinorAri_atmostech
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialMinorAri
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialNicoleRoglicova
+  name: 'эксклюзивная фигурка химика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Крайне отвественна. Никогда не полезет в драку. 48/72."'
+  components:
+  - type: Sprite
+    state: NicoleRoglicova_chemist
+  - type: SpeakOnTrigger
+    pack: FigurinesChemist
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialIgorFyodorov
+  name: 'эксклюзивная фигурка инженера'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Добродушный человек с сельским взглядом на мир: для него всё должно быть просто и понятно. 49/72."'
+  components:
+  - type: Sprite
+    state: IgorFyodorov_engineer
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialIgorFyodorov
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialMortisArctur
+  name: 'эксклюзивная фигурка патологоанатома'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Сдержанный врач, который смотрит на живых как на трупы. 50/72."'
+  components:
+  - type: Sprite
+    state: MortisArctur_coroner
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialMortisArctur
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAlexanderAssav
+  name: 'эксклюзивная фигурка медика ОБР'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "В нужное время он всегда будет ответственно подходить к своей работе, а в трудную минуту всегда поддержит окружающих. 51/72."'
+  components:
+  - type: Sprite
+    state: AlexanderAssav_ERTmed
+  - type: SpeakOnTrigger
+    pack: FigurinesParamedic
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAlfredStedwidge
+  name: 'эксклюзивная фигурка хирурга'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Обладающий загадочной внешностью обольститель сердец. 52/72."'
+  components:
+  - type: Sprite
+    state: AlfredStedwidge_CMO
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAlfredStedwidge
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAlbertJuliani
+  name: 'эксклюзивная фигурка уборщика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Клептоман среднего возраста, распихивающий по карманам всё, что плохо приколочено. 53/72."'
+  components:
+  - type: Sprite
+    state: AlbertJuliani_janitor
+  - type: SpeakOnTrigger
+    pack: FigurinesJanitor
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialCharlotteTadzuka
+  name: 'эксклюзивная фигурка химика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Говорить с ней - как играть в шахматы с суперкомпьютером, который делает, как кажется, совершенно случайные ходы. 54/72."'
+  components:
+  - type: Sprite
+    state: CharlotteTadzuka_chemist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialCharlotteTadzuka
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAvraamNaumov
+  name: 'эксклюзивная фигурка АВД'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Человек, предпочитающий прежде всего компромиссы в своей работе. До ужаса машинальный в своём поведении. 55/72."'
+  components:
+  - type: Sprite
+    state: AvraamNaumov_IAA
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAvraamNaumov
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialDustyNucler
+  name: 'эксклюзивная фигурка снабженца'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Добряк, очень любит яркие вещи и боится темноты. 56/72."'
+  components:
+  - type: Sprite
+    state: DustyNucler_cargotech
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialDustyNucler
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAkimBurov
+  name: 'эксклюзивная фигурка бармен'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "С крайним перфекционизмом относится к своей работе и ненавидит, когда кто-то ему мешает. 57/72."'
+  components:
+  - type: Sprite
+    state: AkimBurov_bartender
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAkimBurov
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialDinArtemyev
+  name: 'эксклюзивная фигурка научного руководителя'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Любит слегка улыбаться большую часть времени. Любит поболтать, однако, не в ущерб работе... Зачастую. 58/72."'
+  components:
+  - type: Sprite
+    state: DinArtemyev_RD
+  - type: SpeakOnTrigger
+    pack: FigurinesRD
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialVeronicaSokolova
+  name: 'эксклюзивная фигурка экипажа вне службы'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Постоянно бормочет под нос. 59/72."'
+  components:
+  - type: Sprite
+    state: VeronicaSokolova_offduty
+  - type: SpeakOnTrigger
+    pack: FigurinesLibrarian
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialArturKri
+  name: 'эксклюзивная фигурка ученого'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Спит на ходу... буквально. 60/72."'
+  components:
+  - type: Sprite
+    state: ArturKri_scientist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialArturKri
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialEdwardSnow
+  name: 'эксклюзивная фигурка квартирмейстера'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Часто рефлексирует, уставившись на звёзды. 61/72."'
+  components:
+  - type: Sprite
+    state: EdwardSnow_QM
+  - type: SpeakOnTrigger
+    pack: FigurinesQM
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialValeriaTutova
+  name: 'эксклюзивная фигурка врача'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Курильщица, алкоголичка, стёбная манера общения и поведения, конфликтная. 62/72."'
+  components:
+  - type: Sprite
+    state: ValeriaTutova_physician
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialValeriaTutova
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialHannahMuller
+  name: 'эксклюзивная фигурка врача'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Глупая и наивная, но милая и жизнерадостная девочка. 63/72."'
+  components:
+  - type: Sprite
+    state: HannahMuller_physician
+  - type: SpeakOnTrigger
+    pack: FigurinesDoctor
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialADLR512E
+  name: 'эксклюзивная фигурка главы персонала'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Его работа - предназначение. 64/72."'
+  components:
+  - type: Sprite
+    state: ADLR512E_HOP
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialADLR512E
+  - type: Speech
+    speechSounds: Pai
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialMirloBaltico
+  name: 'эксклюзивная фигурка репортера'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Крутой-добрый-милый-классный-скромный слаймолюд. 65/72."'
+  components:
+  - type: Sprite
+    state: MirloBaltico_reporter
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialMirloBaltico
+  - type: Speech
+    speechSounds: Slime
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAmuraBurova
+  name: 'эксклюзивная фигурка парамедика'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Исполнительная, но очень тревожная. 66/72."'
+  components:
+  - type: Sprite
+    state: AmuraBurova_paramedic
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAmuraBurova
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAmanda
+  name: 'эксклюзивная фигурка робототехника'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Не упускает возможностей подчеркнуть несовершенство органических организмов, но старается быть на них похожа. 67/72."'
+  components:
+  - type: Sprite
+    state: Amanda_roboticist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialAmanda
+  - type: Speech
+    speechSounds: Pai
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialAlexanderSeichin
+  name: 'эксклюзивная фигурка капитана'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Любитель покурить и выпить кофейного ликера. 68/72."'
+  components:
+  - type: Sprite
+    state: AlexanderSeichin_captain
+  - type: SpeakOnTrigger
+    pack: FigurinesCaptain
+  - type: Speech
+    speechSounds: Baritone
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialNaoIn
+  name: 'эксклюзивная фигурка ботаника'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Нередко забывает про зарядку, из-за чего потом разряжается во время важного разговора. 69/72."'
+  components:
+  - type: Sprite
+    state: NaoIn_botanist
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialNaoIn
+  - type: Speech
+    speechSounds: Pai
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialRasvaHaselti
+  name: 'эксклюзивная фигурка главного врача'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Сторонница нелицеприятных серьёзных медицинских процедур. 70/72."'
+  components:
+  - type: Sprite
+    state: RasvaHaselti_CMO
+  - type: SpeakOnTrigger
+    pack: FigurinesCMO
+  - type: Speech
+    speechSounds: Alto
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialMonicaJelly
+  name: 'эксклюзивная фигурка учёного'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Любительница эффектной науки и пранков. 71/72."'
+  components:
+  - type: Sprite
+    state: MonicaJelly_scientist
+  - type: SpeakOnTrigger
+    pack: FigurinesScientist
+  - type: Speech
+    speechSounds: Slime
+
+- type: entity
+  parent: BaseFigurineWLSpecial
+  id: ToyFigurineWLSpecialRieckerTesh
+  name: 'эксклюзивная фигурка оперативника СБ'
+  description: 'Эта эксклюзивная фигурка из ограниченной коллекции "Белый лист" подозрительно похожа на кого-то знакомого. На её подставке выгравировано: "Страшный чёрный ящер. Любит детей. 72/72."'
+  components:
+  - type: Sprite
+    state: RieckerTesh_secoff
+  - type: SpeakOnTrigger
+    pack: FigurinesWLSpecialRieckerTesh
+  - type: Speech
+    speechSounds: Lizard
+
+- type: entity
+  parent: MysteryFigureBox
+  id: MysteryFigureBoxWLSpec
+  name: mystery special minifigure box
+  components:
+  - type: SpawnEntityTableOnTrigger
+    useMapCoords: true
+    table: !type:AllSelector
+      children:
+      - id: MysteryFigureBoxTrash
+      - !type:NestedSelector
+        tableId: AllFigurineWLSpecial

@@ -1,5 +1,5 @@
 using Content.Server.GameTicking;
-using Content.Server.GuideGenerator.TextTools;
+using Content.Server.Corvax.GuideGenerator;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Station.Systems;

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Content.Server._WL.DiscordAuth;
 using Content.Server._WL.Poly;
 using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
 using Content.Server.Database;
 using Content.Server.GameTicking;
@@ -70,8 +71,11 @@ public sealed partial class ServerApi : IPostInjectInit
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
+    [Dependency] private readonly IPlayerLocator _locator = default!;
+    [Dependency] private readonly IBanManager _bans = default!;
+    [Dependency] private readonly IServerDbManager _db = default!;
+
     //WL-Changes-start
-    [Dependency] private readonly IServerDbManager _serverDb = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IBaseServer _baseServer = default!;
     //WL-Changes-end
@@ -102,6 +106,7 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/round/end", ActionRoundEnd);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/round/restartnow", ActionRoundRestartNow);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/kick", ActionKick);
+        RegisterActorHandler(HttpMethod.Post, "/admin/actions/ban", ActionBan);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/add_game_rule", ActionAddGameRule);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/end_game_rule", ActionEndGameRule);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
@@ -237,7 +242,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
         await RunOnMainThread(async () =>
         {
-            var linked = await _serverDb.GetPlayerByDiscordId(http_body.DiscordId, default);
+            var linked = await _db.GetPlayerByDiscordId(http_body.DiscordId, default);
             if (linked == null)
             {
                 await RespondError(context, ErrorCode.PlayerNotFound, HttpStatusCode.BadRequest, "Текущий аккаунт не привязан к игровому аккаунту!");
@@ -274,13 +279,13 @@ public sealed partial class ServerApi : IPostInjectInit
                 return;
             }
 
-            //if (await _serverDb.IsLinkedToDiscord(session.UserId, default))
+            //if (await _db.IsLinkedToDiscord(session.UserId, default))
             //{
             //    await RespondBadRequest(context, "Текущий игровой аккаунт уже привязан к дискорд-аккаунту!");
             //    return;
             //}
 
-            if (await _serverDb.GetPlayerDiscordId(session.UserId, default) != null)
+            if (await _db.GetPlayerDiscordId(session.UserId, default) != null)
             {
                 await RespondBadRequest(context, "Текущий игровой аккаунт уже привязан к дискорд-аккаунту!");
                 return;
@@ -299,7 +304,7 @@ public sealed partial class ServerApi : IPostInjectInit
                 return;
             }
 
-            await _serverDb.LinkPlayerDiscord(session.UserId, discord_user_id, default);
+            await _db.LinkPlayerDiscord(session.UserId, discord_user_id, default);
 
             _sawmill.Info($"Игрок {session.Name} подключил к игровому аккаунту дискорд-аккаунт с ID {discord_user_id}.");
 
@@ -545,6 +550,70 @@ public sealed partial class ServerApi : IPostInjectInit
             }
 
             await RespondOk(context);
+        });
+    }
+
+    /// <summary>
+    ///     Bans a player.
+    /// </summary>
+    private async Task ActionBan(IStatusHandlerContext context, Actor actor)
+    {
+        var body = await ReadJson<BanActionBody>(context);
+        if (body == null)
+            return;
+
+        await RunOnMainThread(async () =>
+        {
+            var located = await _locator.LookupIdByNameOrIdAsync(body.Guid.ToString());
+
+            if (located == null)
+            {
+                await RespondError(
+                    context,
+                    ErrorCode.PlayerNotFound,
+                    HttpStatusCode.UnprocessableContent,
+                    "Player not found");
+                return;
+            }
+
+            var bans = await _db.GetBansAsync(userId: located.UserId,
+                address: null,
+                hwId: null,
+                modernHWIds: located.LastModernHWIds,
+                includeUnbanned: false);
+            if (bans.Count > 0)
+            {
+                await RespondError(
+                    context,
+                    ErrorCode.PlayerAlreadyBanned,
+                    HttpStatusCode.Conflict,
+                    "Player is already banned.");
+                return;
+            }
+
+            var reason = body.Reason ?? "No reason supplied";
+            var info = new CreateServerBanInfo(reason);
+
+            info.AddHWId(located.LastHWId);
+            info.AddUser(located.UserId, located.Username);
+            info.WithSeverity(body.Severity);
+            if (body.Minutes != null && body.Minutes != 0)
+            {
+                info.WithMinutes(body.Minutes.Value);
+            }
+
+            info.WithBanningAdmin(new NetUserId(actor.Guid));
+
+            // Add the ip if the user is currently connected.
+            if (_playerManager.TryGetSessionById(new NetUserId(body.Guid), out var player))
+            {
+                info.AddAddress(player.Channel.RemoteEndPoint.Address);
+            }
+
+            _bans.CreateServerBan(info);
+            await RespondOk(context);
+
+            _sawmill.Info($"Banned player {located.Username} ({located.UserId}) for {reason} lasting {body.Minutes ?? 0} minutes by {FormatLogActor(actor)}");
         });
     }
 
@@ -830,7 +899,6 @@ public sealed partial class ServerApi : IPostInjectInit
         Actor? actorData;
         try
         {
-            //WL-Changes-start
             var innerActorData = JsonSerializer.Deserialize<InnerActor>(actor);
             if (innerActorData == null)
             {
@@ -838,6 +906,9 @@ public sealed partial class ServerApi : IPostInjectInit
                 return null;
             }
 
+            //WL-Changes-start
+            actorData = JsonSerializer.Deserialize<Actor>(actor);
+            /*
             if (StuffBotIds.Contains(innerActorData.DiscordId))
             {
                 return new Actor()
@@ -848,7 +919,7 @@ public sealed partial class ServerApi : IPostInjectInit
                 };
             }
 
-            var record = await _serverDb.GetPlayerByDiscordId(innerActorData.DiscordId, default);
+            var record = await _db.GetPlayerByDiscordId(innerActorData.DiscordId, default);
             if (record == null)
             {
                 await RespondBadRequest(context, "Текущий дискорд-аккаунт не привязан к игровому аккаунту!");
@@ -856,6 +927,7 @@ public sealed partial class ServerApi : IPostInjectInit
             }
 
             actorData = new() { Record = record, DiscordId = innerActorData.DiscordId, IsStuffBot = false };
+            */
             //WL-Changes-end
         }
         catch (JsonException exception)
@@ -875,7 +947,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
     public async Task<bool> IsAdmin(NetUserId user, CancellationToken cancel = default)
     {
-        var data = await _serverDb.GetAdminDataForAsync(user, cancel);
+        var data = await _db.GetAdminDataForAsync(user, cancel);
         if (data == null)
             return false;
 
@@ -889,7 +961,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
     public async Task<bool> CheckAdminFlags(NetUserId userId, AdminFlags query_flags, CancellationToken cancel = default)
     {
-        var data = await _serverDb.GetAdminDataForAsync(userId, cancel);
+        var data = await _db.GetAdminDataForAsync(userId, cancel);
         if (data == null)
             return false;
 
@@ -903,6 +975,8 @@ public sealed partial class ServerApi : IPostInjectInit
 
     private sealed class Actor
     {
+        public required Guid Guid { get; init; }
+        public required string Name { get; init; }
         //WL-Changes-start
         public required PlayerRecord Record { get; init; }
         public required ulong DiscordId { get; init; }
@@ -935,6 +1009,14 @@ public sealed partial class ServerApi : IPostInjectInit
         public required ulong User { get; init; }
     }
     //WL-Changes-end
+
+    private sealed class BanActionBody
+    {
+        public required Guid Guid { get; init; }
+        public string? Reason { get; init; }
+        public NoteSeverity Severity { get; init; }
+        public uint? Minutes { get; init; }
+    }
 
     private sealed class GameRuleActionBody
     {
@@ -977,8 +1059,9 @@ public sealed partial class ServerApi : IPostInjectInit
         PlayerNotFound = 4,
         GameRuleNotFound = 5,
         BadRequest = 6,
+        PlayerAlreadyBanned = 7,
         //WL-Changes-start
-        ServiceUnavailable = 7
+        ServiceUnavailable = 8
         //WL-Changes-end
     }
 

@@ -116,6 +116,7 @@
         - id: ClothingNeckCloakPan
       - id: ToyFigurineSkeleton
       - id: MysteryFigureBox
+      - id: MysteryFigureBoxWLSpec # WL-Changes
       - id: RubberPig # Corvax-Toys
       # Cult
       - !type:AllSelector
@@ -310,7 +311,7 @@
       - id: LidSalami
         weight: 0.05
       #Corvax-WL-Changes-start
-      - id: PhotoFilterMonochrome 
+      - id: PhotoFilterMonochrome
       - id: PhotoFilterNightVision
       - id: PhotoFilterGhost
       #Corvax-WL-Changes-end
@@ -398,16 +399,16 @@
   id: MaintenancePlantSpawner
   parent: MarkerBase
   components:
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Objects/Misc/spaceshroom.rsi
-          state: structure
-    - type: RandomSpawner
-      prototypes:
-        - Spaceshroom
-      chance: 0.6
-      offset: 0.0
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Misc/spaceshroom.rsi
+        state: structure
+  - type: EntityTableSpawner
+    table:
+      id: Spaceshroom
+      prob: 0.6
+    offset: 0.0
 
 
 - type: entityTable
