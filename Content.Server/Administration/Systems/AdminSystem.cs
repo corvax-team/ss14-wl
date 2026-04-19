@@ -14,6 +14,7 @@ using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Forensics.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
@@ -33,7 +34,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
-using Content.Shared.Humanoid;
 using Content.Server.Roles.Jobs;
 using Content.Server.Roles;
 using Content.Server.Database;
@@ -63,7 +63,7 @@ public sealed class AdminSystem : EntitySystem
     [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     //WL-Changes-start
-    [Dependency] private readonly HumanoidAppearanceSystem _profile = default!;
+    [Dependency] private readonly HumanoidProfileSystem _profile = default!;
     //WL-Changes-end
 
     private readonly Dictionary<NetUserId, PlayerInfo> _playerList = new();
@@ -159,15 +159,13 @@ public sealed class AdminSystem : EntitySystem
             }
         }
     }
-    // Corvax WL start
+    //
     // WL-Height
     public void HeightChange(EntityUid player, int value)
     {
-        if (TryComp<HumanoidAppearanceComponent>(player, out var humanoid))
+        if (TryComp<HumanoidProfileComponent>(player, out var humanoid))
         {
-            humanoid.Height = value;
-
-            _profile.ApplyHeight(humanoid);
+            _profile.SetHeight(player, value);
         }
     }
     // Corvax WL end

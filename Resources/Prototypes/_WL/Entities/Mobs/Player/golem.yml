@@ -1,5 +1,0 @@
-- type: entity
-  save: false
-  parent: [ BaseMobGolem, BaseMob ]
-  id: MobGolem
-  name: Urist McGolem

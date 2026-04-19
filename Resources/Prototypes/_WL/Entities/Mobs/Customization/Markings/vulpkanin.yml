@@ -2,8 +2,7 @@
 - type: marking
   id: FoxEarSandfoxLarge
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears_big.rsi
       state: m_ears_sandfox_large
@@ -13,8 +12,7 @@
 - type: marking
   id: FoxEarAcrador
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears_big.rsi
       state: m_ears_acrador_long
@@ -24,8 +22,7 @@
 - type: marking
   id: FoxEarFennec
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_fennec_primary
@@ -35,8 +32,7 @@
 - type: marking
   id: FoxEarSabresune
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_sabresune_primary
@@ -46,8 +42,7 @@
 - type: marking
   id: FoxEarWolf
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_wolf_primary
@@ -57,8 +52,7 @@
 - type: marking
   id: FoxEarRaccoon
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_raccoon_primary
@@ -68,8 +62,7 @@
 # - type: marking
 #   id: FoxEarPossum
 #   bodyPart: HeadTop
-#   markingCategory: HeadTop
-#   speciesRestriction: [CorvaxVulpkanin]
+#   groupWhitelist: [Vulpkanin]
 #   sprites:
 #     - sprite: _WL/Mobs/Customization/ears.rsi
 #       state: m_ears_possum_primary
@@ -79,8 +72,7 @@
 - type: marking
   id: FoxEarPerky
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_perky_primary
@@ -90,8 +82,7 @@
 - type: marking
   id: FoxEarBigWolf
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
       state: m_ears_bigwolf_primary
@@ -101,8 +92,7 @@
 # - type: marking
 #   id: FoxEar
 #   bodyPart: HeadTop
-#   markingCategory: HeadTop
-#   speciesRestriction: [CorvaxVulpkanin]
+#   groupWhitelist: [Vulpkanin]
 #   sprites:
 #     - sprite: _WL/Mobs/Customization/ears.rsi
 #       state:
@@ -114,8 +104,7 @@
 - type: marking
   id: VulpTail #Вообще это FoxTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   coloring:
     default:
       type:
@@ -134,8 +123,7 @@
 - type: marking
   id: OtieTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
       state: otie_tail
@@ -143,8 +131,7 @@
 - type: marking
   id: MessyTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
       state: messy_tail
@@ -152,8 +139,7 @@
 - type: marking
   id: FluffyTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
       state: fluffy_tail
@@ -161,8 +147,7 @@
 - type: marking
   id: EeveeTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_eevee_primary
@@ -172,8 +157,7 @@
 - type: marking
   id: FennecTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_fennec_primary
@@ -183,8 +167,7 @@
 - type: marking
   id: FoxNTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_fox_primary
@@ -194,8 +177,7 @@
 - type: marking
   id: FoxN2Tail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_fox2_primary
@@ -203,8 +185,7 @@
 - type: marking
   id: FoxN3Tail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_fox3_primary
@@ -214,8 +195,7 @@
 - type: marking
   id: FoxannTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_foxann_primary
@@ -225,8 +205,7 @@
 - type: marking
   id: HuskyTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_husky_primary
@@ -236,8 +215,7 @@
 - type: marking
   id: OtieTailAlt
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_otie_primary
@@ -245,8 +223,7 @@
 - type: marking
   id: WolfNTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [CorvaxVulpkanin, Felinid, Android]
+  groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_wolf
@@ -256,8 +233,7 @@
 - type: marking
   id: EeveeTailAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_eevee_primary
@@ -267,8 +243,7 @@
 - type: marking
   id: FennecTailAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_fennec_primary
@@ -278,8 +253,7 @@
 - type: marking
   id: FoxNTailAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_fox_primary
@@ -289,8 +263,7 @@
 - type: marking
   id: FoxN2TailAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_fox2_primary
@@ -298,8 +271,7 @@
 - type: marking
   id: FoxN3TailAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_fox3_primary
@@ -309,8 +281,7 @@
 - type: marking
   id: FoxannTailAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_foxann_primary
@@ -320,8 +291,7 @@
 - type: marking
   id: HuskyTailAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_husky_primary
@@ -331,8 +301,7 @@
 - type: marking
   id: OtieTailAltAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_otie_primary
@@ -340,8 +309,7 @@
 - type: marking
   id: WolfNTailAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_wolf

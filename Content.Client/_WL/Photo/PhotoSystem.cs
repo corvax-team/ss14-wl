@@ -32,7 +32,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         if (!ActiveCameras.ContainsKey(component))
             ActiveCameras.Add(component, window);
 
-        if (EntityManager.TryGetComponent<EyeComponent>(uid, out var eye) && !ActiveEyes.ContainsKey(eye.Eye))
+        if (TryComp<EyeComponent>(uid, out var eye) && !ActiveEyes.ContainsKey(eye.Eye))
             ActiveEyes.Add(eye.Eye, uid.Value);
 
         _filter.EnableFilter(uid);
@@ -43,7 +43,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         if (ActiveCameras.ContainsKey(component))
             ActiveCameras.Remove(component);
 
-        if (EntityManager.TryGetComponent<EyeComponent>(uid, out var eye) && ActiveEyes.ContainsKey(eye.Eye))
+        if (TryComp<EyeComponent>(uid, out var eye) && ActiveEyes.ContainsKey(eye.Eye))
             ActiveEyes.Remove(eye.Eye);
     }
 }

@@ -37,7 +37,7 @@ public sealed partial class CharacterInformationWindow : FancyWindow
     public void UpdateState(CharacterInformationBuiState state)
     {
         CharSprite.SetEntity(_entity.GetEntity(state.Uid));
-        Name.SetMarkup($"[bold]{state.CharacterName}[/bold]");
+        NameLabel.SetMarkup($"[bold]{state.CharacterName}[/bold]");
 
         if (!string.IsNullOrEmpty(state.FlavorText))
         {

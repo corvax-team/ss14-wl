@@ -11,12 +11,10 @@
   tileReactions:
     - !type:SpillTileReaction
   metabolisms:
-    Drink:
+    Bloodstream:
       effects:
       - !type:SatiateThirst
         factor: 2
-    Medicine:
-      effects:
       - !type:ModifyBloodLevel
         conditions:
         - !type:MetabolizerTypeCondition

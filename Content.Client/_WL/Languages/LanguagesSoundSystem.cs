@@ -36,7 +36,6 @@ public sealed class LanguagesSoundsSystem : EntitySystem
     private const float MinimalVolume = -10f;
 
     private float _volume = 0.0f;
-    private int _fileIdx = 0;
 
     public override void Initialize()
     {

@@ -1,7 +1,7 @@
 using Content.Server._WL.Nutrition.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared.Body.Systems;
+using Content.Shared.Body;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -16,7 +16,6 @@ public sealed class GolemHeatSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IEntitySystemManager _systemManager = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
 
     private const int HeatChangeAmount = 4000;
     private const float SprintSpeed = 3.24f;
@@ -30,7 +29,6 @@ public sealed class GolemHeatSystem : EntitySystem
 
         if (hungerComponent.CurrentThreshold != HungerThreshold.Overfed)
         {
-            _bodySystem.UpdateMovementSpeed(uid);
             return;
         }
 

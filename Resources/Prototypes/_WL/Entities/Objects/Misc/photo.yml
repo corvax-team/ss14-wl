@@ -29,6 +29,9 @@
         whitelist:
           components:
           - PhotoCameraFilter
+  - type: ContainerContainer
+    containers:
+      filter: !type:ContainerSlot
 
 - type: entity
   name: "photo"
@@ -101,7 +104,7 @@
   - type: PhotoCameraFilter
     filterComponents:
       - type: PhotoShaderFilter
-        shader: CameraMonochrome 
+        shader: CameraMonochrome
       - type: PhotoFilterBase
 
 - type: entity
@@ -139,7 +142,7 @@
   - type: PhotoCameraFilter
     filterComponents:
       - type: PhotoGhostFilter
-        visual: 
+        visual:
           sprite: _WL/Effects/photo_filters.rsi
           state: observer
       - type: PhotoFilterBase
@@ -160,7 +163,7 @@
   - type: PhotoCameraFilter
     filterComponents:
       - type: PhotoFaceFilter
-        visual: 
+        visual:
           sprite: _WL/Effects/photo_filters.rsi
           state: cat
       - type: PhotoFilterBase
@@ -182,7 +185,7 @@
     filterComponents:
       - type: PhotoInfoFilter
       - type: PhotoFaceFilter
-        visual: 
+        visual:
           sprite: _WL/Effects/photo_filters.rsi
           state: box
       - type: PhotoFilterBase
