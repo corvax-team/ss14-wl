@@ -2,16 +2,9 @@ using System.Linq;
 using Content.Shared._WL.Records; // WL-Records
 using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared.Roles;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Corvax.CCCVars;
-using Content.Client.Corvax.TTS;
 using Content.Client._WL.Skills.Ui; // WL-Skills
 using Content.Client._WL.Records; // WL-Records
-using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Lobby.UI;
@@ -39,7 +32,8 @@ public sealed partial class HumanoidProfileEditor
 
     public void RefreshSkills()
     {
-        _skillsWindow?.Dispose();
+        _skillsWindow?.Close();
+        _skillsWindow = null;
 
         if (Profile == null)
             return;
@@ -252,7 +246,7 @@ public sealed partial class HumanoidProfileEditor
 
     private void UpdateOocTextEdit()
     {
-        if(_oocTextEdit != null)
+        if (_oocTextEdit != null)
         {
             _oocTextEdit.TextRope = new Rope.Leaf(Profile?.OocText ?? "");
         }
@@ -275,7 +269,7 @@ public sealed partial class HumanoidProfileEditor
 
     private void OpenSkills(JobPrototype? jobProto)
     {
-        _skillsWindow?.Dispose();
+        _skillsWindow?.Close();
         _skillsWindow = null;
 
         if (jobProto == null || Profile == null)

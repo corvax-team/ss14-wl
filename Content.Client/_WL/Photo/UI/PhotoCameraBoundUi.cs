@@ -1,16 +1,10 @@
-using Content.Client.Decals.Overlays;
-using Content.Client.Light;
-using Content.Client.Parallax;
+using System.Numerics;
 using Content.Shared._WL.Photo;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Sources;
-using Robust.Shared.Prototypes;
-using System.Linq;
-using System.Numerics;
 
 namespace Content.Client._WL.Photo.UI;
 
