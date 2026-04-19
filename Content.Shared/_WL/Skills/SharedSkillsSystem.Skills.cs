@@ -436,7 +436,7 @@ public abstract partial class SharedSkillsSystem
     /// Gets total points for entity
     /// </summary>
     public int GetTotalPoints(EntityUid uid, string? jobId = null,
-        SkillsComponent? comp = null, HumanoidAppearanceComponent? humanoid = null)
+        SkillsComponent? comp = null, HumanoidProfileComponent? humanoid = null)
     {
         if (!Resolve(uid, ref comp) || !Resolve(uid, ref humanoid))
             return 0;

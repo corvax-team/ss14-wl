@@ -10,7 +10,6 @@ namespace Content.Server._WL.DayNight
     public sealed partial class DayNightSystem : EntitySystem
     {
         [Dependency] private readonly IGameTiming _gameTime = default!;
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
         [Dependency] private readonly MapSystem _mapSys = default!;
 
         public override void Initialize()

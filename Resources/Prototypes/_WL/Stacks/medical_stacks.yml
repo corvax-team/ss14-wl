@@ -11,17 +11,3 @@
   icon: { sprite: "_WL/Entities/Objects/Specific/Medical/medical.rsi", state: ritium_pack }
   spawn: RitiumPack
   maxCount: 10
-
-- type: stack
-  id: MineralOintment
-  name: stack-mineral-ointment
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
-  spawn: MineralOintment
-  maxCount: 10
-
-- type: stack
-  id: MineralPaste
-  name: stack-mineral-paste
-  icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: ointment }
-  spawn: MineralPaste
-  maxCount: 10

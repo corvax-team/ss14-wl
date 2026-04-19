@@ -3,8 +3,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.Emergency.Prototype;
 
-[Prototype("emergencyList")]
-public partial class EmergencyListPrototype : IPrototype
+[Prototype]
+public sealed partial class EmergencyListPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
@@ -18,8 +18,8 @@ public partial class EmergencyListPrototype : IPrototype
     public string DefaultEmergency { get; private set; } = default!;
 }
 
-[Prototype("emergency")]
-public partial class EmergencyPrototype : IPrototype
+[Prototype]
+public sealed partial class EmergencyPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

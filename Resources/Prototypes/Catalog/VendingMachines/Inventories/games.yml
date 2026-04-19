@@ -17,7 +17,9 @@
     PaperCNCSheet: 6
     MysteryFigureBox: 2
     BooksBag: 3
+    Magic9Ball: 2
     #WL-changes-start
+    MysteryFigureBoxWLSpec: 2
     ChipsCaseFilled: 2
     PokerCardBoxFilled: 2
     TarotCardBox: 2

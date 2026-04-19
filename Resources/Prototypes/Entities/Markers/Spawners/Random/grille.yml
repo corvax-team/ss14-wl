@@ -3,15 +3,15 @@
   id: GrilleSpawner
   parent: MarkerBase
   components:
-    - type: Sprite
-      layers:
-        - sprite: Structures/Walls/random.rsi
-          state: randomgrille
-    - type: RandomSpawner
-      prototypes:
-        - Grille
-        # - GrilleBroken #Corvax-WL Changes
-        - ClockworkGrille #Corvax-WL Changes
-      chance: 1.0
+  - type: Sprite
+    layers:
+      - sprite: Structures/Walls/random.rsi
+        state: randomgrille
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: Grille
+      # - id: GrilleBroken #Corvax-WL Changes
+      - id: ClockworkGrille #Corvax-WL Changes
   placement:
     mode: AlignTileAny

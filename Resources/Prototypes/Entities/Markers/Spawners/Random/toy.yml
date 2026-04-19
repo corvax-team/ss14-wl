@@ -198,6 +198,8 @@
     # Other
     - id: MysteryFigureBox # More suspense
       weight: 10
+    - id: MysteryFigureBoxWLSpec # WL-Changes
+      weight: 1
     - id: ToyFigurineWizardFake
     - id: ToyFigurineSkeleton
     - id: ToyNuke
@@ -294,6 +296,7 @@
     - id: NukeDiskFake
     - id: DiceBag
     - id: SpectralLocator
+    - id: Magic9Ball
     - id: BarberScissors
     - id: SprayFlowerPin
     - id: ClothingShoesSkates

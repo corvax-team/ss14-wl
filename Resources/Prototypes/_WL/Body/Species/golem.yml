@@ -1,0 +1,516 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: Golem
+  limits:
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: true
+      default: [GolemBaseHead]
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 2
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceGolem
+  name: golem appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganGolemTorso
+      Head: OrganGolemHead
+      ArmLeft: OrganGolemArmLeft
+      ArmRight: OrganGolemArmRight
+      HandRight: OrganGolemHandRight
+      HandLeft: OrganGolemHandLeft
+      LegLeft: OrganGolemLegLeft
+      LegRight: OrganGolemLegRight
+      FootLeft: OrganGolemFootLeft
+      FootRight: OrganGolemFootRight
+      Brain: OrganGolemCore
+      Stomach: OrganGolemFurnace
+#   - type: HumanoidProfile
+#     species: Golem
+  - type: Inventory
+    speciesId: reptilian
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+
+- type: entity
+  save: false
+  name: Urist McGolem
+  parent:
+  - AppearanceGolem
+  - BaseSpeciesMobOrganic
+  id: MobGolem
+  components:
+    - type: OfferItem # CorvaxGoob-Offer
+    - type: Damageable
+      damageContainer: Golemical
+      damageModifierSet: Golem
+    - type: Hunger
+      thresholds:
+        Overfed: 200
+        Okay: 185
+        Peckish: 100
+        Starving: 50
+        Dead: 0
+      baseDecayRate: 0.03
+    - type: HardSlip
+      fallDamage:
+        types:
+          Blunt: 14 # учитывает резисты, урон меньше
+    - type: RangedDamageSound
+      soundGroups:
+        Brute:
+          collection:
+            MetalBulletImpact
+      soundTypes:
+        Heat:
+          collection:
+            MetalLaserImpact
+    - type: FlashImmunity
+    - type: Puller
+      needsHands: true
+    - type: Bloodstream
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Ash
+          Quantity: 300
+      bloodlossDamage:
+        types:
+          Bloodloss:
+            0.5
+      bloodlossHealDamage:
+        types:
+          Bloodloss:
+            -0.5
+    - type: Icon
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+      state: full
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      #- Stutter
+      #- Electrocution
+      - Drunk
+      - SeeingRainbows
+      - SlurredSpeech
+      - RatvarianLanguage
+      - PressureImmunity
+      - Muted
+      - ForcedSleep
+      - StaminaModifier
+    - type: MobState
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        150: Critical
+        200: Dead
+    - type: Temperature
+      currentTemperature: 334
+      specificHeat: 42
+    - type: TemperatureDamage
+      heatDamageThreshold: 1273.15
+      coldDamageThreshold: 275
+      coldDamage:
+        types:
+          Cold: 0.2 #per second, scales with temperature & other constants
+      heatDamage:
+        types:
+          Heat: 0.1
+    - type: ThermalRegulator
+      metabolismHeat: 0
+      radiatedHeat: 100
+      implicitHeatRegulation: 250
+      sweatHeatRegulation: 0
+      shiveringHeatRegulation: 50000
+      normalBodyTemperature: 334
+      thermalRegulationTemperatureThreshold: 7
+    - type: Tool
+      speedModifier: 2
+      qualities:
+        - Prying
+    - type: Prying
+      pryPowered: !type:Bool
+          true
+      force: !type:Bool
+        true
+      useSound:
+        path: /Audio/Items/crowbar.ogg
+    - type: TransferMindOnGib
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+          - !type:GibBehavior
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              GoldOre:
+                min: 1
+                max: 5
+              SteelOre:
+                min: 1
+                max: 5
+              SilverOre:
+                min: 1
+                max: 5
+              SpaceQuartz:
+                min: 1
+                max: 5
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        100: 0.8
+        130: 0.7
+    - type: DamageVisuals
+      thresholds: [ 40, 80, 150 ]
+      targetLayers:
+        - "enum.HumanoidVisualLayers.Chest"
+        - "enum.HumanoidVisualLayers.Head"
+        - "enum.HumanoidVisualLayers.LArm"
+        - "enum.HumanoidVisualLayers.LLeg"
+        - "enum.HumanoidVisualLayers.RArm"
+        - "enum.HumanoidVisualLayers.RLeg"
+      damageOverlayGroups:
+        Brute:
+          sprite: _WL/Mobs/Effects/brute_damage.rsi
+          color: "#3b3c3d"
+        Burn:
+          sprite: _WL/Mobs/Effects/burn_damage.rsi
+    - type: MeleeWeapon
+      hidden: true
+      soundHit:
+        collection: GenericHit
+      angle: 30
+      animation: WeaponArcFist
+      attackRate: 0.3
+      damage:
+        types:
+          Blunt: 15
+    - type: Speech
+      speechSounds: Bass
+    - type: TypingIndicator
+      proto: golem
+    - type: Vocal
+      sounds:
+        Male: UnisexGolem
+        Female: UnisexGolem
+        Unsexed: UnisexGolem
+    - type: BodyEmotes
+      soundsId: GolemBodyEmotes
+    - type: Physics
+      bodyType: KinematicController
+      sleepingAllowed: false
+    - type: ZombieImmune
+    - type: Stamina
+      baseCritThreshold: 200
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 400
+          restitution: 0.0
+          mask:
+            - MobMask
+          layer:
+            - MobLayer
+    - type: Reactive
+      groups:
+        Flammable: [ Touch ]
+        Extinguish: [ Touch ]
+    - type: FireVisuals
+      normalState: human_small_fire # Corvax WL /tg/ resprite
+      alternateState: human_big_fire # Corvax WL /tg/ resprite
+    - type: ExplosionResistance
+      damageCoefficient: 0.8
+    - type: FootstepModifier
+      footstepSoundCollection:
+        collection: BareFootGolem
+        params:
+          variation: 0.2
+          volume: -15
+    - type: GolemHeat
+    - type: GolemAccent
+    - type: AtmosExposed
+    # Костыльный компонент, не трогать, автотест требует наличия этого компонента
+    - type: Respirator
+      updateInterval: 9999999 # А вы знали, что големы могут задержать дыхание на 120 дней? :)))
+      damage:
+        types:
+          Asphyxiation: 0
+      damageRecovery:
+        types:
+          Asphyxiation: -100
+    - type: Languages
+      speaking:
+        - Translate
+      understood:
+        - Translate
+
+- type: entity
+  parent: OrganBase
+  id: OrganGolem
+  abstract: true
+  suffix: golem
+
+- type: entity
+  id: OrganGolemMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Golem ]
+
+- type: entity
+  parent: OrganGolem
+  id: OrganGolemInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Golem/organs.rsi
+
+- type: entity
+  id: OrganGolemVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _WL/Mobs/Species/Golem/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Golem
+
+- type: entity
+  parent: [ OrganGolem, OrganGolemVisual ]
+  id: OrganGolemExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Golem/parts.rsi
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganGolemExternal ]
+  id: OrganGolemTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganGolemExternal ]
+  id: OrganGolemHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganGolemExternal ]
+  id: OrganGolemArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganGolemExternal ]
+  id: OrganGolemArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganGolemExternal ]
+  id: OrganGolemHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganGolemExternal ]
+  id: OrganGolemHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganGolemExternal ]
+  id: OrganGolemLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganGolemExternal ]
+  id: OrganGolemLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganGolemExternal ]
+  id: OrganGolemFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganGolemExternal ]
+  id: OrganGolemFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganGolemInternal ]
+  id: OrganGolemCore
+  name: Spark
+  description: "A prison for the soul"
+  components:
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    bank: 1
+    program: 52 # микрофон на 1 режиме
+  - type: UserInterface
+    interfaces:
+     enum.InstrumentUiKey.Key:
+       type: InstrumentBoundUserInterface
+  - type: Sprite
+    layers:
+    - state: core-off
+      map: ["fire"]
+  - type: ToggleableGhostRole
+    roleName: golem-system-role-name
+    roleDescription: golem-system-role-description
+    roleRules: ghost-role-component-default-rules
+    examineTextMindPresent: golem-system-role-mind-present
+    examineTextMindSearching: golem-system-role-mind-searching
+    examineTextNoMind: golem-system-role-mind-off
+    beginSearchingText: golem-system-role-mind-searching-begin
+    mindRoles:
+    - MindRoleGhostRoleNeutral
+    wipeVerbText: golem-system-role-wipe
+    wipeVerbPopup: golem-system-role-wipe-popup
+    stopSearchVerbText: golem-system-role-search-stop
+    stopSearchVerbPopup: golem-system-role-search-stop-popup
+  - type: Input
+    context: "human"
+  - type: GolemCore # Играет музыку
+    midiActionId: "ActionGolemCorePlayMidi"
+  - type: Examiner
+  - type: DoAfter
+  - type: Actions
+  - type: TypingIndicator
+    proto: golem
+  - type: TTS # Corvax-TTS
+    voice: Gollum
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: Speech
+    speechVerb: Moth
+    speechSounds: Tenor
+  - type: MobState
+    allowedStates:
+      - Alive
+  - type: Emoting
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        fire:
+          Off: { state: core-off }
+          On: { state: core-on }
+  - type: Tag
+    tags:
+    - MindTransferTarget
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganGolemInternal, OrganGolemMetabolizer, BaseHeaterMachine ]
+  id: OrganGolemFurnace
+  name: furnace
+  description: "It radiates comfort and can even be used for cooking if fixed"
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Dynamic
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Golem/organs.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    layers:
+    - state: stomach-off
+    - map: ["enum.EntityHeaterVisuals.Setting"]
+      visible: false
+  - type: Organ
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Ore
+      - Trash
+      - Wooden
+      - ClothMade
+      - Paper
+      - Fruit
+      - ReptilianFood
+      - Meat
+      - Pill
+      - Crayon
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 20
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: ApcPowerReceiver
+    needsPower: false
+  - type: EntityHeater
+    power: 1200
+  - type: ExtensionCableReceiver
+  - type: LightningTarget
+    priority: 1
+  - type: ItemPlacer
+    maxEntities: 1
+    whitelist:
+      components:
+      - Temperature
+  - type: PlaceableSurface
+  - type: GenericVisualizer
+    visuals:
+      enum.EntityHeaterVisuals.Setting:
+        enum.EntityHeaterVisuals.Setting:
+          Off: { visible: false }
+          Low: { visible: true, state: stomach-on }
+          Medium: { visible: true, state: stomach-on }
+          High: { visible: true, state: stomach-on }
+  - type: Appearance
+

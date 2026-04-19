@@ -21,7 +21,11 @@ using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Roles;
+using Content.Shared.StationAi;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared._CorvaxNext.Silicons.Borgs;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Wires;
@@ -65,8 +69,9 @@ public abstract partial class SharedBorgSystem : EntitySystem
     [Dependency] private readonly SharedHandheldLightSystem _handheldLight = default!;
     [Dependency] private readonly SharedAccessSystem _access = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
     [Dependency] private readonly TagSystem _tag = default!; // WL android species
+
+    public const string AndroidBodyTag = "AndroidBodyTag";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -178,7 +183,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
         if (HasComp<BorgBrainComponent>(args.Entity) &&
                 _mind.TryGetMind(args.Entity, out var mindId, out var mind) &&
-                !_tag.HasTag(chassis, "AndroidBodyTag")) //WL-Changes: Androids
+                !_tag.HasTag(chassis, AndroidBodyTag)) //WL-Changes: Androids
         {
             _mind.TransferTo(mindId, chassis.Owner, mind: mind);
         }
@@ -194,10 +199,19 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
         if (HasComp<BorgBrainComponent>(args.Entity) &&
                 _mind.TryGetMind(chassis.Owner, out var mindId, out var mind) &&
-                !_tag.HasTag(chassis, "AndroidBodyTag")) //WL-Changes: Androids
+                !_tag.HasTag(chassis, AndroidBodyTag)) //WL-Changes: Androids
         {
             _mind.TransferTo(mindId, args.Entity, mind: mind);
         }
+
+        // WL-Changes-start
+        if (HasComp<AiRemoteBrainComponent>(args.Entity))
+        {
+            RaiseLocalEvent(chassis.Owner, new ReturnMindIntoAiEvent());
+            RemComp<AiRemoteControllerComponent>(chassis.Owner);
+            RemComp<StationAiVisionComponent>(chassis.Owner);
+        }
+        // WL-Changes-end
     }
 
     private void OnMindAdded(Entity<BorgChassisComponent> chassis, ref MindAddedMessage args)
@@ -233,6 +247,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
         var used = args.Used;
         TryComp<BorgBrainComponent>(used, out var brain);
         TryComp<BorgModuleComponent>(used, out var module);
+        TryComp<AiRemoteBrainComponent>(used, out var aiBrain);
 
         if (TryComp<WiresPanelComponent>(chassis, out var panel) && !panel.Open)
         {
@@ -266,7 +281,23 @@ public abstract partial class SharedBorgSystem : EntitySystem
             _adminLog.Add(LogType.Action, LogImpact.Low,
                 $"{args.User} installed module {used} into borg {chassis.Owner}");
             args.Handled = true;
+            return;
         }
+
+        // WL-Changes-start
+        if (chassis.Comp.BrainEntity == null
+            && aiBrain != null
+            && _whitelist.IsWhitelistPassOrNull(chassis.Comp.BrainWhitelist, used))
+        {
+            if (!_container.Insert(used, chassis.Comp.BrainContainer))
+                return;
+
+            EnsureComp<AiRemoteControllerComponent>(chassis.Owner);
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
+                $"{args.User} installed ai remote brain {used} into borg {chassis.Owner}");
+            args.Handled = true;
+        }
+        // WL-Changes-end
     }
 
     // Make the borg slower without power.
@@ -330,7 +361,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
         var borg = container.Owner;
 
         // WL-Changes: Androids start
-        if (_tag.HasTag(container.Owner, "AndroidBodyTag"))
+        if (_tag.HasTag(container.Owner, AndroidBodyTag))
             return;
         // WL-Changes: Androids end
 

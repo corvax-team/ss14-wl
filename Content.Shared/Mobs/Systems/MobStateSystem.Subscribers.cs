@@ -1,5 +1,4 @@
 using Content.Shared.Bed.Sleep;
-﻿using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
@@ -32,7 +31,6 @@ namespace Content.Shared.Mobs.Systems;
 public partial class MobStateSystem
 {
     // WL Golem species start
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     // WL Golem species end
@@ -136,11 +134,7 @@ public partial class MobStateSystem
                 {
                     if (_entity.TryGetComponent<HardSlipComponent>(target, out var hardslip))
                     {
-                        if (hardslip is not null)
-                        {
-                            var damageSpec = new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Blunt"), hardslip.FallDamage);
-                            _damageable.TryChangeDamage(target, damageSpec);
-                        }
+                        _damageable.TryChangeDamage(target, hardslip.FallDamage);
                     }
                 }
                 // WL Golem species end

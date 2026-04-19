@@ -23,5 +23,5 @@ ent-CyborgEnergySwordDouble = { ent-EnergySwordDouble }
     .desc = Стажеры из командования Синдиката решили, что одного клинка на энергетическом мече недостаточно. Специальная разработка для боргов Синдиката.
     .suffix = Одноручное, Для боргов
 ent-EnergyDaggerLoudBlue = { ent-EnergyDaggerLoud }
-    .suffix = синий
     .desc = { ent-EnergyDaggerLoud.desc }
+    .suffix = синий

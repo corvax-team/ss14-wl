@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.Skills;
 
-[Prototype("skill")]
+[Prototype]
 public sealed partial class SkillPrototype : IPrototype
 {
     [IdDataField]

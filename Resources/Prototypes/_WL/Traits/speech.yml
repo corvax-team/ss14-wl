@@ -1,0 +1,8 @@
+- type: trait
+  id: OwOAccent
+  name: trait-owo-name
+  description: trait-owo-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: OwOAccent

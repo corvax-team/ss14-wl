@@ -93,7 +93,7 @@ namespace Content.Server._WL.Poly
                 if (_playMan.Sessions.Length - 1 != 0)
                     return;
 
-                if (args.NewStatus is not SessionStatus.Connected or SessionStatus.InGame)
+                if (args.NewStatus is not SessionStatus.Connected)
                     return;
 
                 HandleQueries();

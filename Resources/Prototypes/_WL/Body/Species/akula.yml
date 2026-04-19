@@ -1,0 +1,236 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: Akula
+  limits:
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: true
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ AkulaTailAkula ] # Corvax-Vulp_Port VulpTailVulp
+    enum.HumanoidVisualLayers.LArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceAkula
+  name: akula appearance
+  components:
+  - type: InitialBody
+    organs:
+      Torso: OrganAkulaTorso
+      Head: OrganAkulaHead
+      ArmLeft: OrganAkulaArmLeft
+      ArmRight: OrganAkulaArmRight
+      HandRight: OrganAkulaHandRight
+      HandLeft: OrganAkulaHandLeft
+      LegLeft: OrganAkulaLegLeft
+      LegRight: OrganAkulaLegRight
+      FootLeft: OrganAkulaFootLeft
+      FootRight: OrganAkulaFootRight
+      Brain: OrganAkulaBrain
+      Eyes: OrganAkulaEyes
+      Tongue: OrganAkulaTongue
+      Appendix: OrganAkulaAppendix
+      Ears: OrganAkulaEars
+      Lungs: OrganAkulaLungs
+      Heart: OrganAkulaHeart
+      Stomach: OrganAkulaStomach
+      Liver: OrganAkulaLiver
+      Kidneys: OrganAkulaKidneys
+  - type: HumanoidProfile
+    species: Akula
+
+- type: entity
+  save: false
+  name: Urist McFish
+  parent:
+  - AppearanceAkula
+  - BaseSpeciesMobOrganic
+  id: MobAkula
+  components: # TODO: Give species uniq features
+    - type: Hunger
+    - type: Icon
+      sprite: _WL/Mobs/Species/Akula/parts.rsi
+      state: full
+    - type: Thirst
+    - type: Perishable
+    - type: MeleeWeapon
+      soundHit:
+        collection: Punch
+      animation: WeaponArcClaw
+    - type: Butcherable
+      butcheringType: Spike
+      spawned:
+        - id: FoodMeatHuman
+          amount: 5
+    - type: Vocal
+      sounds:
+        Male: MaleAkula
+        Female: FemaleAkula
+        Unsexed: MaleAkula
+    - type: Wagging
+    - type: Languages
+      speaking:
+        - Translate
+      understood:
+        - Translate
+      specieLanguage: Sarengis
+
+- type: entity
+  parent: OrganBase
+  id: OrganAkula
+  abstract: true
+  suffix: akula
+
+- type: entity
+  id: OrganAkulaMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal, Akula ]
+
+- type: entity
+  parent: OrganAkula
+  id: OrganAkulaInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  id: OrganAkulaVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _WL/Mobs/Species/Akula/parts.rsi # Mobs/Species/Akula/parts.rsi #Corvax-Vulp_Port
+  - type: VisualOrganMarkings
+    markingData:
+      group: Akula
+
+- type: entity
+  parent: [ OrganAkula, OrganAkulaVisual ]
+  id: OrganAkulaExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _WL/Mobs/Species/Akula/parts.rsi #Mobs/Species/Akula/parts.rsi #Corvax-Vulp_Port
+
+- type: entity
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganAkulaExternal ]
+  id: OrganAkulaTorso
+
+- type: entity
+  parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganAkulaExternal ]
+  id: OrganAkulaHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganAkulaExternal ]
+  id: OrganAkulaArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganAkulaExternal ]
+  id: OrganAkulaArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganAkulaExternal ]
+  id: OrganAkulaHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganAkulaExternal ]
+  id: OrganAkulaHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganAkulaExternal ]
+  id: OrganAkulaLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganAkulaExternal ]
+  id: OrganAkulaLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganAkulaExternal ]
+  id: OrganAkulaFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganAkulaExternal ]
+  id: OrganAkulaFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganAkulaInternal ]
+  id: OrganAkulaBrain
+
+- type: entity
+  parent: [ OrganAkulaVisual, OrganBaseEyes, OrganAkulaInternal ]
+  id: OrganAkulaEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganAkulaInternal ]
+  id: OrganAkulaTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganAkulaInternal ]
+  id: OrganAkulaAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganAkulaInternal ]
+  id: OrganAkulaEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganAkulaInternal, OrganAkulaMetabolizer ]
+  id: OrganAkulaLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganAkulaInternal, OrganAkulaMetabolizer ]
+  id: OrganAkulaHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganAkulaInternal, OrganAkulaMetabolizer ]
+  id: OrganAkulaStomach
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganAkulaInternal, OrganAkulaMetabolizer ]
+  id: OrganAkulaLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganAkulaInternal, OrganAkulaMetabolizer ]
+  id: OrganAkulaKidneys

@@ -1,8 +1,7 @@
 - type: marking
   id: MurineTail
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/murine_parts.rsi
       state: tail
@@ -10,8 +9,7 @@
 - type: marking
   id: MurineEars
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/murine_parts.rsi
       state: ears
@@ -19,8 +17,7 @@
 - type: marking
   id: MurineLeftLeg
   bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: leg_left
@@ -28,8 +25,7 @@
 - type: marking
   id: MurineRightLeg
   bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: leg_right
@@ -37,8 +33,7 @@
 - type: marking
   id: MurineLeftHand
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: hand_left
@@ -46,8 +41,7 @@
 - type: marking
   id: MurineRightHand
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: hand_right
@@ -55,8 +49,7 @@
 - type: marking
   id: MurineLeftArm
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: arm_left
@@ -64,8 +57,7 @@
 - type: marking
   id: MurineRightArm
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid]
   sprites:
   - sprite: _WL/Mobs/Customization/murine_parts.rsi
     state: arm_right
