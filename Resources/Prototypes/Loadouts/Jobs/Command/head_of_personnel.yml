@@ -55,6 +55,32 @@
     neck: ClothingNeckMantleHOP
 
 # Back
+# WL-HoP-Personalization-Start
+- type: loadout
+  id: HoPDuffelbag
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ProfessionalHoP
+  equipment:
+    back: ClothingBackpackDuffelHoP
+
+- type: loadout
+  id: HoPSatchel
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ProfessionalHoP
+  equipment:
+    back: ClothingBackpackSatchelHoP
+
+- type: loadout
+  id: HoPBackpack
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ProfessionalHoP
+  equipment:
+    back: ClothingBackpackHoP
+# WL-HoP-Personalization-End
+
 - type: loadout
   id: HoPBackpackIan
   effects:
