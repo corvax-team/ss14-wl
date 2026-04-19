@@ -57,9 +57,7 @@ public sealed class DynamicTextSystem : EntitySystem
 
         using (args.PushGroup(nameof(CharacterInformationComponent)))
         {
-            if (string.IsNullOrEmpty(comp.DynamicText))
-                args.PushMarkup(Loc.GetString("character-information-ui-no-dynamic-text"));
-            else
+            if (!string.IsNullOrEmpty(comp.DynamicText))
                 args.PushMarkup(comp.DynamicText);
         }
     }
