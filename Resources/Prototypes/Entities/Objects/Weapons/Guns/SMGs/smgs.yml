@@ -59,6 +59,7 @@
   - type: StaticPrice
     price: 500
 # White-List components
+  - type: GunStandingRequired
   - type: Execution
 # White-List components end
 
@@ -324,3 +325,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 5000
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8

@@ -136,6 +136,7 @@ public sealed class NewsSystem : SharedNewsSystem
             );
 
             articles.RemoveAt(msg.ArticleNum);
+            GetDeletedArticles(ent).Add(article); // WL-Changes: send deleted news
             _audio.PlayPvs(ent.Comp.ConfirmSound, ent);
         }
         else
@@ -319,6 +320,17 @@ public sealed class NewsSystem : SharedNewsSystem
         return true;
     }
 
+    private List<NewsArticle> GetDeletedArticles(EntityUid uid) // WL-Changes: send deleted news
+    {
+        if (_station.GetOwningStation(uid) is not { } station ||
+            !TryComp<StationNewsComponent>(station, out var stationNews))
+        {
+            return new List<NewsArticle>();
+        }
+
+        return stationNews.DeletedArticles;
+    }
+
     private void UpdateWriterUi(Entity<NewsWriterComponent> ent)
     {
         if (!_ui.HasUi(ent, NewsWriterUiKey.Key))
@@ -408,20 +420,25 @@ public sealed class NewsSystem : SharedNewsSystem
 
         while (query.MoveNext(out _, out var comp))
         {
-            SendArticlesListToDiscordWebhook(comp.Articles.OrderBy(article => article.ShareTime));
+            // WL-Changes-start: send deleted news
+            var articles = comp.Articles.Select(article => (Article: article, Deleted: false));
+            var deletedArticles = comp.DeletedArticles.Select(article => (Article: article, Deleted: true));
+
+            SendArticlesListToDiscordWebhook(articles.Concat(deletedArticles).OrderBy(entry => entry.Article.ShareTime));
+            // WL-Changes-end
         }
     }
 
-    private async void SendArticlesListToDiscordWebhook(IOrderedEnumerable<NewsArticle> articles)
+    private async void SendArticlesListToDiscordWebhook(IOrderedEnumerable<(NewsArticle Article, bool Deleted)> articles) // WL-Changes: send deleted news // added bool deleted
     {
-        foreach (var article in articles)
+        foreach (var (article, deleted) in articles) // WL-Changes: send deleted news // added deleted
         {
             await Task.Delay(TimeSpan.FromSeconds(1)); // TODO: proper discord rate limit handling
-            await SendArticleToDiscordWebhook(article);
+            await SendArticleToDiscordWebhook(article, deleted); // WL-Changes: send deleted news // added deleted
         }
     }
 
-    private async Task SendArticleToDiscordWebhook(NewsArticle article)
+    private async Task SendArticleToDiscordWebhook(NewsArticle article, bool deleted = false) // WL-Changes: send deleted news // added bool deleted
     {
         if (_webhookId is null)
             return;
@@ -430,7 +447,7 @@ public sealed class NewsSystem : SharedNewsSystem
         {
             var embed = new WebhookEmbed
             {
-                Title = article.Title,
+                Title = article.Title/*WL-Changes: send deleted news: */ + (deleted ? $" {Loc.GetString("news-discord-deleted")}" : ""),
                 // There is no need to cut article content. It's MaxContentLength smaller then discord's limit (4096):
                 Description = FormattedMessage.RemoveMarkupPermissive(article.Content),
                 Color = _webhookEmbedColor.ToArgb() & 0xFFFFFF, // HACK: way to get hex without A (transparency)

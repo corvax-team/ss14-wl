@@ -35,11 +35,13 @@
   id: MimeJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMime
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: MimeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMime
+  groupBy: "WLJJ" # WL-change-add
 
 # Back
 - type: loadout

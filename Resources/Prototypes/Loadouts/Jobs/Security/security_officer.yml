@@ -39,26 +39,31 @@
   id: SecurityJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SecurityJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtSec
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SecurityJumpsuitGrey
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecGrey
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SecurityJumpskirtGrey
   equipment:
     jumpsuit: ClothingUniformJumpskirtSecGrey
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: TrooperUniform
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SeniorOfficerJumpsuit
@@ -67,6 +72,7 @@
   #   proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorOfficer
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SeniorOfficerJumpskirt
@@ -75,6 +81,7 @@
   #   proto: SeniorOfficer
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorOfficer
+  groupBy: "WLJJ" # WL-change-add
 
 # Back
 - type: loadout

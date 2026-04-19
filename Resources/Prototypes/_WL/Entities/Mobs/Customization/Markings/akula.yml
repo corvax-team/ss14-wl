@@ -1,8 +1,7 @@
 - type: marking
   id: AkulaTailShark
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: tail_shark
@@ -10,8 +9,7 @@
 - type: marking
   id: AkulaTailFish
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: tail_fish
@@ -19,8 +17,7 @@
 - type: marking
   id: AkulaTailAkula
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: tail_akula_prime
@@ -32,8 +29,7 @@
 - type: marking
   id: AkulaTailDatashark
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: tail_datashark_prime
@@ -45,8 +41,7 @@
 - type: marking
   id: AkulaHeadOverlay
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_head
@@ -54,8 +49,7 @@
 - type: marking
   id: AkulaHeadHighlight
   bodyPart: Head
-  markingCategory: Head
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_highlight_head
@@ -63,8 +57,7 @@
 - type: marking
   id: AkulaRArmOverlay
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_r_arm
@@ -72,8 +65,7 @@
 - type: marking
   id: AkulaLArmOverlay
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_l_arm
@@ -81,8 +73,7 @@
 - type: marking
   id: AkulaRArmHighlight
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_highlight_r_arm
@@ -90,8 +81,7 @@
 - type: marking
   id: AkulaLArmHighlight
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_highlight_l_arm
@@ -99,8 +89,7 @@
 - type: marking
   id: AkulaRHandOverlay
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_r_hand
@@ -108,8 +97,7 @@
 - type: marking
   id: AkulaLHandOverlay
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_l_hand
@@ -117,8 +105,7 @@
 - type: marking
   id: AkulaRLegOverlay
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_r_leg
@@ -126,8 +113,7 @@
 - type: marking
   id: AkulaLLegOverlay
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_l_leg
@@ -135,8 +121,7 @@
 - type: marking
   id: AkulaRLegHighlight
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_highlight_r_leg
@@ -144,8 +129,7 @@
 - type: marking
   id: AkulaLLegHighlight
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_highlight_l_leg
@@ -153,8 +137,7 @@
 - type: marking
   id: AkulaTailSegmented
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_segmentedtail_primary
@@ -166,8 +149,7 @@
 - type: marking
   id: AkulaTailSharknofin
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_sharknofin_primary
@@ -175,8 +157,7 @@
 - type: marking
   id: AkulaTailOrca
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Akula]
+  groupWhitelist: [Akula]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_tail_orca_primary
@@ -186,8 +167,7 @@
 - type: marking
   id: AkulaTailFishAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_fish_primary
@@ -195,8 +175,7 @@
 - type: marking
   id: AkulaTailSegmentedAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_segmentedtail_primary
@@ -208,8 +187,7 @@
 - type: marking
   id: AkulaTailSharkAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_shark_primary
@@ -217,8 +195,7 @@
 - type: marking
   id: AkulaTailSharknofinAnimated
   bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: []
+  groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
       state: m_waggingtail_sharknofin_primary

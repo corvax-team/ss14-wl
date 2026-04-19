@@ -12,3 +12,4 @@
   id: JumpsuitDSS
   equipment:
     jumpsuit: ClothingUniformJumpsuitDSS
+  groupBy: "WLJJ"

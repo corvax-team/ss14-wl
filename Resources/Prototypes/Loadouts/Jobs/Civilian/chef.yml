@@ -15,11 +15,13 @@
   id: ChefJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChef
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: ChefJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChef
+  groupBy: "WLJJ" # WL-change-add
 
 # Outer clothing
 - type: loadout

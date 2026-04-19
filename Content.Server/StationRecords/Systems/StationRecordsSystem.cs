@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using Content.Server.Access.Systems;
 using Content.Server.Forensics;
 using Content.Server.GameTicking;
@@ -46,7 +45,6 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly IdCardSystem _idCard = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -250,27 +248,6 @@ public sealed class StationRecordsSystem : SharedStationRecordsSystem
         return false;
     }
 
-    /// <summary>
-    /// Gets a random record from the station's record entries.
-    /// </summary>
-    /// <param name="ent">The EntityId of the station from which you want to get the record.</param>
-    /// <param name="entry">The resulting entry.</param>
-    /// <typeparam name="T">Type to get from the record set.</typeparam>
-    /// <returns>True if a record was obtained. False otherwise.</returns>
-    public bool TryGetRandomRecord<T>(Entity<StationRecordsComponent?> ent, [NotNullWhen(true)] out T? entry)
-    {
-        entry = default;
-
-        if (!Resolve(ent.Owner, ref ent.Comp))
-            return false;
-
-        if (ent.Comp.Records.Keys.Count == 0)
-            return false;
-
-        var key = _random.Pick(ent.Comp.Records.Keys);
-
-        return ent.Comp.Records.TryGetRecordEntry(key, out entry);
-    }
 
     /// <summary>
     /// Get the name for a record, or an empty string if it has no record.

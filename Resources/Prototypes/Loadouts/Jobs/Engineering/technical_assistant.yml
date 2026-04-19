@@ -3,8 +3,10 @@
   id: YellowJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorYellow
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: YellowJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtColorYellow
+  groupBy: "WLJJ" # WL-change-add

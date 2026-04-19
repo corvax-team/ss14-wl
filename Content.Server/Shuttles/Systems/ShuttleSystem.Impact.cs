@@ -152,7 +152,7 @@ public sealed partial class ShuttleSystem
                 continue;
 
             //WL-Changes-start
-            if (!EntityManager.TryGetComponent<ShuttleComponent>(args.OtherEntity, out var otherComponent))
+            if (!TryComp<ShuttleComponent>(args.OtherEntity, out var otherComponent))
                 continue;
 
             if (component.GodShutle || otherComponent.GodShutle)

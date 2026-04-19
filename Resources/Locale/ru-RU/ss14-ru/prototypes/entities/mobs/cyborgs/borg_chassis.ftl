@@ -1,8 +1,8 @@
 ent-BorgChassisSelectable = { ent-BaseBorgChassisNT }
     .desc = { ent-BaseBorgChassisNT.desc }
 ent-BorgChassisGeneric = обычный борг
-    .suffix = Выбранный тип
     .desc = { ent-BorgChassisSelectable.desc }
+    .suffix = Выбранный тип
 ent-BorgChassisMining = борг-шахтёр
     .desc = { ent-BorgChassisSelectable.desc }
 ent-BorgChassisEngineer = борг-инженер

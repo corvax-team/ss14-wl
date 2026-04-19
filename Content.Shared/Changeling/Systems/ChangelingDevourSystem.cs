@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Armor;
 using Content.Shared.Atmos.Rotting;
-using Content.Shared.Body.Components;
+using Content.Shared.Body;
 using Content.Shared.Changeling.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -84,16 +84,7 @@ public sealed class ChangelingDevourSystem : EntitySystem
         if (target == null)
             return;
 
-        if (!TryComp<DamageableComponent>(target, out var damage))
-            return;
-
-        foreach (var damagePoints in comp.DamagePerTick.DamageDict)
-        {
-
-            if (damage.Damage.DamageDict.TryGetValue(damagePoints.Key, out var val) && val > comp.DevourConsumeDamageCap)
-                return;
-        }
-        _damageable.ChangeDamage((target.Value, damage), comp.DamagePerTick, true, true, user);
+        _damageable.ChangeDamage(target.Value, comp.DamagePerTick, true, true, user);
     }
 
     /// <summary>
@@ -133,13 +124,15 @@ public sealed class ChangelingDevourSystem : EntitySystem
 
         if (HasComp<RottingComponent>(target))
         {
-            _popupSystem.PopupClient(Loc.GetString("changeling-devour-attempt-failed-rotting"), args.Performer, args.Performer, PopupType.Medium);
+        //WL-Changes: Devour custom popups start
+            _popupSystem.PopupClient(Loc.GetString(ent.Comp.AttemptFailedRottingPopup), args.Performer, args.Performer, PopupType.Medium);
             return;
         }
 
         if (IsTargetProtected(target, ent))
         {
-            _popupSystem.PopupClient(Loc.GetString("changeling-devour-attempt-failed-protected"), ent, ent, PopupType.Medium);
+            _popupSystem.PopupClient(Loc.GetString(ent.Comp.AttemptFailedProtectedPopup), ent, ent, PopupType.Medium);
+        //WL-Changes: Devour custom popups end
             return;
         }
 
@@ -159,8 +152,10 @@ public sealed class ChangelingDevourSystem : EntitySystem
             DuplicateCondition = DuplicateConditions.None,
         });
 
-        var selfMessage = Loc.GetString("changeling-devour-begin-windup-self", ("user", Identity.Entity(ent.Owner, EntityManager)));
-        var othersMessage = Loc.GetString("changeling-devour-begin-windup-others", ("user", Identity.Entity(ent.Owner, EntityManager)));
+        //WL-Changes: Devour custom popups start
+        var selfMessage = Loc.GetString(ent.Comp.BeginWindupSelfPopup, ("user", Identity.Entity(ent.Owner, EntityManager)));
+        var othersMessage = Loc.GetString(ent.Comp.BeginWindupOthersPopup, ("user", Identity.Entity(ent.Owner, EntityManager)));
+        //WL-Changes: Devour custom popups end
         _popupSystem.PopupPredicted(
             selfMessage,
             othersMessage,
@@ -174,14 +169,16 @@ public sealed class ChangelingDevourSystem : EntitySystem
         var curTime = _timing.CurTime;
         args.Handled = true;
 
-        if (!EntityManager.EntityExists(ent.Comp.CurrentDevourSound))
+        if (!Exists(ent.Comp.CurrentDevourSound))
             _audio.Stop(ent.Comp.CurrentDevourSound!);
 
         if (args.Cancelled)
             return;
 
-        var selfMessage = Loc.GetString("changeling-devour-begin-consume-self", ("user", Identity.Entity(ent.Owner, EntityManager)));
-        var othersMessage = Loc.GetString("changeling-devour-begin-consume-others", ("user", Identity.Entity(ent.Owner, EntityManager)));
+        //WL-Changes: Devour custom popups start
+        var selfMessage = Loc.GetString(ent.Comp.BeginConsumeSelfPopup, ("user", Identity.Entity(ent.Owner, EntityManager)));
+        var othersMessage = Loc.GetString(ent.Comp.BeginConsumeOthersPopup, ("user", Identity.Entity(ent.Owner, EntityManager)));
+        //WL-Changes: Devour custom popups end
         _popupSystem.PopupPredicted(
             selfMessage,
             othersMessage,
@@ -225,7 +222,7 @@ public sealed class ChangelingDevourSystem : EntitySystem
         if (target == null)
             return;
 
-        if (EntityManager.EntityExists(ent.Comp.CurrentDevourSound))
+        if (Exists(ent.Comp.CurrentDevourSound))
             _audio.Stop(ent.Comp.CurrentDevourSound!);
 
         if (args.Cancelled)
@@ -234,12 +231,16 @@ public sealed class ChangelingDevourSystem : EntitySystem
         if (!_mobState.IsDead((EntityUid)target))
         {
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner):player}  unsuccessfully devoured {ToPrettyString(args.Target):player}'s identity");
-            _popupSystem.PopupClient(Loc.GetString("changeling-devour-consume-failed-not-dead"), args.User, args.User, PopupType.Medium);
+        //WL-Changes: Devour custom popups start
+            _popupSystem.PopupClient(Loc.GetString(ent.Comp.ConsumeFailedNotDeadPopup), args.User, args.User, PopupType.Medium);
+        //WL-Changes: Devour custom popups end
             return;
         }
 
-        var selfMessage = Loc.GetString("changeling-devour-consume-complete-self", ("user", Identity.Entity(args.User, EntityManager)));
-        var othersMessage = Loc.GetString("changeling-devour-consume-complete-others", ("user", Identity.Entity(args.User, EntityManager)));
+        //WL-Changes: Devour custom popups start
+        var selfMessage = Loc.GetString(ent.Comp.ConsumeCompleteSelfPopup, ("user", Identity.Entity(args.User, EntityManager)));
+        var othersMessage = Loc.GetString(ent.Comp.ConsumeCompleteOthersPopup, ("user", Identity.Entity(args.User, EntityManager)));
+        //WL-Changes: Devour custom popups end
         _popupSystem.PopupPredicted(
             selfMessage,
             othersMessage,
@@ -249,7 +250,7 @@ public sealed class ChangelingDevourSystem : EntitySystem
 
         if (_mobState.IsDead(target.Value)
             && TryComp<BodyComponent>(target, out var body)
-            && HasComp<HumanoidAppearanceComponent>(target)
+            && HasComp<HumanoidProfileComponent>(target)
             && TryComp<ChangelingIdentityComponent>(args.User, out var identityStorage))
         {
             _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ent.Owner):player}  successfully devoured {ToPrettyString(args.Target):player}'s identity");

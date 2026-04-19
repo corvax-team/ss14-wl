@@ -3,11 +3,13 @@
   id: JumpsuitPilot
   equipment:
     jumpsuit: ClothingUniformJumpsuitPilot
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: JumpskirtPilot
   equipment:
     jumpsuit: ClothingUniformJumpskirtPilot
+  groupBy: "WLJJ" # WL-change-add
 
 # Head
 - type: loadout
