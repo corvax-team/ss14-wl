@@ -46,8 +46,8 @@ namespace Content.Server.PDA
         // WL-Changes-start: ETA in PDA
         [Dependency] private readonly RoundEndSystem _roundEnd = default!;
 
-        [Access(typeof(EmergencyShuttleSystem), Other = AccessPermissions.None)] public TimeSpan? beforeETA;
-        [Access(typeof(RoundEndSystem), Other = AccessPermissions.None)] public bool roundEnd = false;
+        [Access(typeof(EmergencyShuttleSystem), Other = AccessPermissions.None)] public TimeSpan? BeforeETA;
+        [Access(typeof(RoundEndSystem), Other = AccessPermissions.None)] public bool RoundEnd = false;
         // WL-Changes-end
 
         public override void Initialize()
@@ -79,8 +79,8 @@ namespace Content.Server.PDA
 
         private void Reset()
         {
-            beforeETA = null;
-            roundEnd = false;
+            BeforeETA = null;
+            RoundEnd = false;
         }
         // WL-Changes-end
 
@@ -247,8 +247,8 @@ namespace Content.Server.PDA
                 address,
                 // WL-Changes-start: ETA in PDA
                 ece,
-                beforeETA,
-                roundEnd);
+                BeforeETA,
+                RoundEnd);
                 // WL-Changes-end
 
             _ui.SetUiState(uid, PdaUiKey.Key, state);
