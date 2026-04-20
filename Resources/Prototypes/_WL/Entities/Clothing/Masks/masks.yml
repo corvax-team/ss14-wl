@@ -225,15 +225,6 @@
       accessDeniedSound: null
       popup: null
     - type: Lock
-      locked: true
-      showLockVerbs: true
-      showExamine: true
-      lockOnClick: true
-      unlockOnClick: true
-      useAccess: true
-      unlockingSound: /Audio/Machines/door_lock_off.ogg # TODO: Maybe add sounds but just to the user?
-      lockingSound: /Audio/Machines/door_lock_on.ogg
-      breakOnAccessBreaker: true # more fun
       lockTime: 0
       unlockTime: 0 
     - type: VoiceMask
