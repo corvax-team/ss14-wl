@@ -5,18 +5,15 @@
 
 - type: loadout
   id: HoPDuffelbag
-  effects:
   equipment:
     back: ClothingBackpackDuffelHoP
 
 - type: loadout
   id: HoPSatchel
-  effects:
   equipment:
     back: ClothingBackpackSatchelHoP
 
 - type: loadout
   id: HoPBackpack
-  effects:
   equipment:
     back: ClothingBackpackHoP
