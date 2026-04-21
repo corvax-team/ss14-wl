@@ -26,6 +26,11 @@
       sprite: Corvax/Clothing/OuterClothing/Coats/noirdet.rsi
     - type: Clothing
       sprite: Corvax/Clothing/OuterClothing/Coats/noirdet.rsi
+      # WL-Changes-Start
+      slots:
+      - NECK
+      - OUTERCLOTHING
+      # WL-Changes-End
     - type: Armor
       modifiers:
         coefficients:

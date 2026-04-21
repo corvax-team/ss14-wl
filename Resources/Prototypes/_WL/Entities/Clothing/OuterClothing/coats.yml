@@ -8,6 +8,9 @@
     sprite: _WL/Clothing/OuterClothing/Coats/captain_trenchcoat.rsi
   - type: Clothing
     sprite: _WL/Clothing/OuterClothing/Coats/captain_trenchcoat.rsi
+    slots:
+    - NECK
+    - OUTERCLOTHING
   - type: StaticPrice
     price: 4999
   - type: Armor

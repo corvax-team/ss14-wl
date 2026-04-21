@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprite by warta98 for Corvax WL",
+  "copyright": "Sprite by warta98 for Corvax WL, Neck state by ReArtInt",
   "size": {
     "x": 32,
     "y": 32
@@ -19,6 +19,10 @@
     },
     {
       "name": "open-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-NECK",
       "directions": 4
     },
     {
