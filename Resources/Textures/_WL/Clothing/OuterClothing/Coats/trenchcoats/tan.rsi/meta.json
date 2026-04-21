@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/5ea6d8b4422027d0c22cb415d1f05a08bf39aaa0",
+  "copyright": "by whitleyvk (git)",
   "size": {
     "x": 32,
     "y": 32
@@ -11,11 +11,14 @@
       "name": "icon"
     },
     {
+      "name": "icon-open"
+    },
+    {
       "name": "equipped-OUTERCLOTHING",
       "directions": 4
     },
     {
-      "name": "equipped-OUTERCLOTHING-vox",
+      "name": "open-equipped-OUTERCLOTHING",
       "directions": 4
     },
     {
@@ -24,17 +27,6 @@
     },
     {
       "name": "inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "icon-open"
-    },
-    {
-      "name": "open-equipped-OUTERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "open-equipped-OUTERCLOTHING-vox",
       "directions": 4
     },
     {

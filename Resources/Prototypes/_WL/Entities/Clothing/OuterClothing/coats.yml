@@ -40,3 +40,175 @@
         Blunt: 0.9
         Slash: 0.9
         Heat: 0.8
+
+# WL-trenchwork-part-1
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterStorageBase ]
+  id: ClothingOuterCoatTrenchTan
+  name: tan trench coat
+  description: A comfy tan trench coat.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/tan.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/tan.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageFoldableBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ]
+  id: ClothingOuterCoatTrenchTanDetective
+  name: tan detective trench coat
+  description: A comfy tan trench coat. This one is armored for the dire security detective's needs.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/tan.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/tan.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterStorageBase ]
+  id: ClothingOuterCoatTrenchCoal
+  name: coal trench coat
+  description: A comfy coal trench coat.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/coal.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/coal.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageFoldableBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ]
+  id: ClothingOuterCoatTrenchCoalDetective
+  name: coal detective trench coat
+  description: A comfy coal trench coat. This one is armored for the dire security detective's needs.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/coal.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/coal.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterStorageBase ]
+  id: ClothingOuterCoatTrenchBlue
+  name: blue trench coat
+  description: A comfy blue trench coat.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/blue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/blue.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageFoldableBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ]
+  id: ClothingOuterCoatTrenchBlueDetective
+  name: blue detective trench coat
+  description: A comfy blue trench coat. This one is armored for the dire security detective's needs.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/blue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/blue.rsi
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterStorageBase ]
+  id: ClothingOuterCoatDetectiveDarkArmorless
+  name: noir trenchcoat
+  description: A hard-boiled private investigator's dark trenchcoat. This particular one lacks a Kevlar lining.
+  components:
+    - type: Sprite
+      sprite: Corvax/Clothing/OuterClothing/Coats/noirdet.rsi
+    - type: Clothing
+      sprite: Corvax/Clothing/OuterClothing/Coats/noirdet.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+
+- type: entity
+  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterStorageBase ]
+  id: ClothingOuterCoatDetectiveArmorless
+  name: detective trenchcoat
+  description: An 18th-century multi-purpose trenchcoat. Someone who wears this mean serious business. This particular one lacks a Kevlar lining.
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Coats/detective.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/Coats/detective.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.95
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20
+
+# WL-trenchwork-part-1-end

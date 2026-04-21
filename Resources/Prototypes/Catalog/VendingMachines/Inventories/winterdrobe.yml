@@ -45,7 +45,12 @@
     ClothingNeckScarfStripedLightBlue: 3
     ClothingNeckScarfStripedOrange: 3
     ClothingNeckScarfStripedPurple: 3
-    ClothingOuterCoatTrench: 6
+    # WL-trenchwork-part-1-start
+    # ClothingOuterCoatTrench: 6 
+    ClothingOuterCoatTrenchTan: 2
+    ClothingOuterCoatTrenchCoal: 2
+    ClothingOuterCoatTrenchBlue: 2
+    # WL-trenchwork-part-1-end
     ClothingOuterWinterCoat: 6
     ClothingShoesBootsWinter: 6
     ClothingOuterFlannelRed: 2

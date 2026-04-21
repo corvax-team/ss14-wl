@@ -64,4 +64,10 @@
     # Shoes
     ClothingShoesBootsLaceup: 3
   contrabandInventory:
+    # WL-trenchwork-part-1-start
+    ClothingOuterCoatDetectiveArmorless: 2
+    ClothingOuterCoatDetectiveDarkArmorless: 2
+    # WL-trenchwork-part-1-end
     ToyFigurineLawyer: 1
+
+    

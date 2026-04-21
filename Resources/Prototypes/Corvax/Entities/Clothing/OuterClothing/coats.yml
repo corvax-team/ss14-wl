@@ -17,22 +17,15 @@
           Heat: 0.7
 
 - type: entity
-  parent: ClothingOuterCoatDetectiveLoadout
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageFoldableBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ] # WL-trenchwork-part-1
   id: ClothingOuterCoatDetectiveDark
-  name: noir trenchcoat
+  name: noir armored trenchcoat
   description: A hard-boiled private investigator's dark trenchcoat.
   components:
     - type: Sprite
       sprite: Corvax/Clothing/OuterClothing/Coats/noirdet.rsi
     - type: Clothing
-      sprite: Corvax/Clothing/OuterClothing/Coats/noirdet.rsi
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.8
-          Slash: 0.8
-          Piercing: 0.6
-          Heat: 0.9
+      sprite: Corvax/Clothing/OuterClothing/Coats/noirdet.rsi # WL-trenchwork-part-1: Deleted armor, parent copypasted from OG ClothingOuterCoatDetective, so no need since we have ClothingOuterArmorBase
 
 - type: entity
   parent: ClothingOuterCoatWarden

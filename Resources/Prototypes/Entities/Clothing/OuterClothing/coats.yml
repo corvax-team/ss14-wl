@@ -15,7 +15,7 @@
  # WL-Changes-end
 
 - type: entity
-  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ]
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageFoldableBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ] # WL-trenchwork-part-1
   id: ClothingOuterCoatDetective
   name: detective armored trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
