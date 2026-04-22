@@ -31,10 +31,8 @@
     # Corvax-LawyerDrip-End
     LuxuryPen: 2
     HandLabeler: 2
-    # WL-trenchwork-part-1-start
-    ClothingOuterCoatDetectiveArmorless: 2
-    ClothingOuterCoatDetectiveDarkArmorless: 2
-    # WL-trenchwork-part-1-end
+    ClothingOuterCoatDetectiveDarkArmorless: 2 # WL-trenchwork-part-1-start
+    ClothingOuterCoatDetectiveArmorless: 2 # WL-trenchwork-part-1-end
   contrabandInventory:
     ClothingOuterRobesJudge: 1
     ClothingHeadHatPwig: 1

@@ -158,7 +158,7 @@
     sprite: _WL/Clothing/OuterClothing/Coats/trenchcoats/blue.rsi
 
 - type: entity
-  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterStorageBase ]
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterStorageBase ]
   id: ClothingOuterCoatDetectiveDarkArmorless
   name: noir trenchcoat
   description: A hard-boiled private investigator's dark trenchcoat. This particular one lacks a Kevlar lining.
@@ -185,9 +185,9 @@
           Quantity: 20
 
 - type: entity
-  parent: [ ClothingOuterStorageFoldableBase, ClothingOuterStorageBase ]
+  parent: [ ClothingOuterStorageFoldableBaseOpened, ClothingOuterStorageBase ]
   id: ClothingOuterCoatDetectiveArmorless
-  name: detective trenchcoat
+  name: dark trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this mean serious business. This particular one lacks a Kevlar lining.
   components:
     - type: Sprite

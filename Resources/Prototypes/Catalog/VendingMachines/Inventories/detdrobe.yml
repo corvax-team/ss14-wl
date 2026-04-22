@@ -16,11 +16,9 @@
     ClothingHandsGlovesColorBlack: 2
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetSecurity: 2
-    # WL-trenchwork-part-1-start
-    ClothingOuterCoatTrenchTanDetective: 1
+    ClothingOuterCoatTrenchTanDetective: 1 # WL-trenchwork-part-1-start
     ClothingOuterCoatTrenchCoalDetective: 1
-    ClothingOuterCoatTrenchBlueDetective: 1
-    # WL-trenchwork-part-1-end
+    ClothingOuterCoatTrenchBlueDetective: 1 # WL-trenchwork-part-1-end
   contrabandInventory:
     ToyFigurineDetective: 1
 

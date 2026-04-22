@@ -15,9 +15,9 @@
  # WL-Changes-end
 
 - type: entity
-  parent: [ ClothingOuterArmorBase, ClothingOuterStorageFoldableBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ] # WL-trenchwork-part-1
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageFoldableBaseOpened, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ] # WL-trenchwork-part-1
   id: ClothingOuterCoatDetective
-  name: detective armored trenchcoat
+  name: dark detective trenchcoat
   description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
   components:
   - type: Sprite
@@ -32,7 +32,7 @@
         - id: FlippoEngravedLighter
 
 - type: entity
-  parent: [ClothingOuterCoatDetectiveLoadout]
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ] # WL-trenchwork-part-1, can't make the new noir not getting BaseFoldableOpened
   id: ClothingOuterCoatDetectiveLoadoutGrey
   name: noir armored trenchcoat
   description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
@@ -41,11 +41,6 @@
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
-
-
-- type: entity
-  parent: ClothingOuterCoatDetective
-  id: ClothingOuterCoatDetectiveLoadout
   components:
   - type: EntityTableContainerFill
     containers:
