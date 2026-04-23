@@ -91,6 +91,13 @@
         Weapons: 4
       randomSkills: [Botany, Cooking, Mixology]
       # WL-Skills-end
+    # WL-Languages-start
+    - type: Languages
+      speaking:
+      - Wingdings
+      understood:
+      - Wingdings
+    # WL-Languages-end
 
 ## ERT Leader
 
@@ -146,6 +153,15 @@
         Weapons: 4
       randomSkills: [Botany, Cooking, Mixology]
       # WL-Skills-end
+  # WL-Languages-start
+    - type: Languages
+      speaking:
+      - Translate
+      - Wingdings
+      understood:
+      - Translate
+      - Wingdings
+  # WL-Languages-end
 
 - type: entity
   id: RandomHumanoidSpawnerERTLeaderEVA
