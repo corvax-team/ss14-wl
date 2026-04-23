@@ -1,5 +1,6 @@
 using Content.Server._WL.Destructible.Components;
 using Content.Server.Humanoid;
+using Content.Shared.Humanoid;
 using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
 using Content.Shared.Damage;
@@ -14,7 +15,6 @@ namespace Content.Server._WL.Destructible.Systems
     public sealed partial class FrozenSystem : EntitySystem
     {
         [Dependency] private readonly MetaDataSystem _metaData = default!;
-        [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
 
         public override void Initialize()
         {
@@ -43,7 +43,7 @@ namespace Content.Server._WL.Destructible.Systems
         {
             var target = args.CloneUid;
             _metaData.SetEntityName(target, comp.BaseName, raiseEvents: true);
-            _appearance.SetSkinColor(target, comp.BaseSkinColor);
+            //_profile.SetSkinColor(target, comp.BaseSkinColor);
         }
 
         private void OnHealthExamine(EntityUid ent, FrozenComponent comp, HealthBeingExaminedEvent args)
@@ -54,7 +54,7 @@ namespace Content.Server._WL.Destructible.Systems
         private void OnRejuvenate(EntityUid ent, FrozenComponent comp, RejuvenateEvent args)
         {
             _metaData.SetEntityName(ent, comp.BaseName, raiseEvents: true);
-            _appearance.SetSkinColor(ent, comp.BaseSkinColor);
+            // _profile.SetSkinColor(ent, comp.BaseSkinColor);
 
             RemComp<FrozenComponent>(ent);
         }

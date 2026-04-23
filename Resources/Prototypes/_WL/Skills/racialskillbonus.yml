@@ -54,7 +54,7 @@
 
 - type: racialSkillBonus
   id: VulpkaninSkillBonuses
-  species: CorvaxVulpkanin
+  species: Vulpkanin
   ageBonuses:
     22: 3
     24: 3
@@ -106,17 +106,6 @@
     70: 2
 
 - type: racialSkillBonus
-  id: CischiSkillBonuses
-  species: Cischi
-  ageBonuses:
-    22: 3
-    24: 3
-    30: 3
-    40: 2
-    55: 2
-    70: 2
-
-- type: racialSkillBonus
   id: ArachnidSkillBonuses
   species: Arachnid
   ageBonuses:
@@ -126,17 +115,6 @@
     40: 2
     55: 2
     70: 2
-
-- type: racialSkillBonus
-  id: GolemSkillBonuses
-  species: Golem
-  ageBonuses:
-    22: 2
-    40: 2
-    80: 3
-    150: 3
-    250: 3
-    400: 5
 
 - type: racialSkillBonus
   id: AkulaSkillBonuses

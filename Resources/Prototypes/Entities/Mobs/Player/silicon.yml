@@ -36,6 +36,9 @@
     - ActionJumpToCore
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    # WL-Changes-start
+    - ActionOpenRemoteDevicesMenu
+    # WL-Changes-end
   - type: UserInterface
     interfaces:
       enum.RadarConsoleUiKey.Key:
@@ -48,6 +51,10 @@
         type: SiliconLawBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      # WL-Changes-start
+      enum.RemoteDeviceUiKey.Key:
+        type: RemoteDevicesBoundUserInterface
+      # WL-Changes-end
       enum.CharacterInformationUiKey.Key: # WL-CharacterInformation
         type: CharacterInformationBoundUserInterface
   - type: IntrinsicUI
@@ -74,6 +81,7 @@
     color: "#5ed7aa"
     sound: /Audio/Corvax/Announcements/aiannounce.ogg # Corvax-Announcements
   - type: ShowJobIcons
+  - type: ShowCrewIcons
   - type: DamagedSiliconAccent
     startPowerCorruptionAtCharIdx: 4
     maxPowerCorruptionAtCharIdx: 20
@@ -99,6 +107,7 @@
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
   - type: ShowJobIcons
+  - type: ShowCrewIcons
 
 # Ai
 - type: entity
@@ -411,6 +420,8 @@
   parent: PositronicBrain
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
+  - type: TTS
+    voice: Machine_spirit_4 # Corvax-TTS
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
     visible: false
@@ -434,6 +445,10 @@
   - type: Eye
     drawFov: false
   - type: Examiner
+  # WL-Changes-start
+  - type: Physics
+    bodyType: KinematicController
+  # WL-Changes-end
   - type: InputMover
   - type: BlockMovement
     blockInteraction: false
@@ -639,6 +654,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleConstruction
@@ -677,6 +693,7 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModulePrying
         - BorgModuleTool
         - BorgModuleFireExtinguisher
   - type: ItemSlots
@@ -712,6 +729,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleCleaning
@@ -749,6 +767,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool
       - BorgModuleFireExtinguisher
       - BorgModuleChemical
@@ -787,6 +806,7 @@
       borg_brain:
       - PositronicBrain
       borg_module:
+      - BorgModulePrying
       - BorgModuleTool #No fire extinguisher, traversal is better
       - BorgModuleMining
       - BorgModuleTraversal

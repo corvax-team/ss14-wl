@@ -1,15 +1,16 @@
 - type: metabolizerType
+  id: Akula
+  name: metabolism-group-biorobotic
+
+- type: metabolizerType
   id: Biorobotic
-  name: metabolizer-type-biorobotic
+  name: metabolism-group-biorobotic
 
 - type: metabolizerType
   id: Cischi
-  name: metabolizer-type-cischi
+  name: metabolism-group-cischi
 
 - type: metabolizerType
   id: Golem
-  name: metabolizer-type-golem
+  name: metabolism-group-golem
 
-- type: metabolizerType
-  id: Akula
-  name: metabolizer-type-akula

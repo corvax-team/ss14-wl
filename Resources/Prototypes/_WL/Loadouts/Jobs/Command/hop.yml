@@ -2,3 +2,18 @@
   id: ClothingHeadHatBeretHoP
   equipment:
     head: ClothingHeadHatBeretHoP
+
+- type: loadout
+  id: HoPDuffelbag
+  equipment:
+    back: ClothingBackpackDuffelHoP
+
+- type: loadout
+  id: HoPSatchel
+  equipment:
+    back: ClothingBackpackSatchelHoP
+
+- type: loadout
+  id: HoPBackpack
+  equipment:
+    back: ClothingBackpackHoP

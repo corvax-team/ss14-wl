@@ -1,6 +1,6 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
-using Content.Shared.Body.Components;
+using Content.Shared.Body;
 using Content.Shared.Database;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;

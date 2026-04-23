@@ -1,0 +1,15 @@
+- type: construction
+  id: ClothingNeckCarpTeethNecklace
+  graph: ClothingNeckCarpTeethNecklace
+  startNode: start
+  targetNode: necklace
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: ClothingNeckSharkTeethNecklace
+  graph: ClothingNeckSharkTeethNecklace
+  startNode: start
+  targetNode: necklace
+  category: construction-category-clothing
+  objectType: Item

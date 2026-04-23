@@ -8,7 +8,9 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -16,9 +18,6 @@
         effectProto: StatusEffectDrowsiness
         time: 2
         type: Remove
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
 # WL android species start
       - !type:HealthChange
         conditions:
@@ -56,13 +55,9 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
 
 - type: reagent
   id: Cream
@@ -73,7 +68,7 @@
   flavor: creamy
   color: "#DFD7AF"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 1
@@ -107,7 +102,7 @@
   flavor: nutty
   color: "#f4eadb"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 4 # Coconut water is 94% water
@@ -121,7 +116,7 @@
   flavor: creamy
   color: "#FFEABF"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -141,7 +136,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -197,13 +192,12 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
         time: 2
@@ -239,14 +233,11 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
 # WL android species start
+      effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -277,9 +268,13 @@
   flavor: bitter
   color: "#6600CC"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
 # WL android species start
       - !type:HealthChange
         conditions:
@@ -300,12 +295,6 @@
           reagent: JuiceBerryPoison
           min: 10
 # WL android species end
-    Poison:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 1
 
 - type: reagent
   id: Lemonade
@@ -323,7 +312,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -363,7 +352,7 @@
     - !type:PlantAdjustWater
       amount: 0.9
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 4
@@ -404,7 +393,7 @@
   color: "#DEDACD"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 4
@@ -447,7 +436,7 @@
   flavor: terrible
   color: "#faffba"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: -2
@@ -479,7 +468,7 @@
   group: Drinks
   physicalDesc: reagent-physical-desc-nothing
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -501,7 +490,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 6
@@ -529,8 +518,6 @@
         effectProto: StatusEffectDrowsiness
         time: 3
         type: Remove
-    Poison:
-      effects:
       - !type:HealthChange
         damage:
           types:
@@ -562,7 +549,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -581,14 +568,11 @@
   color: "#8a5a3a"
   recognizable: true
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
 # WL android species start
+      effects:
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -646,7 +630,7 @@
   meltingPoint: 0.0
   friction: 0.4
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 4
@@ -670,23 +654,7 @@
           reagent: Water
           min: 10
 # WL android species end
-# WL golem species start
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 160.15
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-        amount: -30000
-      - !type:SatiateHunger
-        factor: -1.5
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-# WL golem species end
-    Gas:
+    Respiration:
       effects:
       - !type:HealthChange
         ignoreResistances: true
@@ -715,26 +683,10 @@
   - !type:PlantAdjustWater
     amount: 1
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 3 # Slightly worse for quenching thirst than just straight water
-# WL golem species start
-      - !type:AdjustTemperature
-        conditions:
-        - !type:TemperatureCondition
-          min: 160.15
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-        amount: -30000
-      - !type:SatiateHunger
-        factor: -1.5
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-# WL golem species end
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/iceglass.rsi
     state: icon_empty
@@ -751,7 +703,7 @@
   flavor: cheapnoodles
   color: "#664300"
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 1
@@ -765,7 +717,7 @@
   flavor: cheapnoodles
   color: "#664300"
   metabolisms:
-    Food:
+    Digestion:
       effects:
       - !type:SatiateHunger
         factor: 4
@@ -805,13 +757,12 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Theobromine: 0.1
       effects:
       - !type:SatiateThirst
         factor: 4
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
 
 - type: reagent
   id: Pilk
@@ -822,7 +773,7 @@
   flavor: pilk
   color: "#e7c69f"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
         - !type:SatiateThirst
           factor: 1
@@ -898,7 +849,7 @@
   flavor: mopwata
   color: "#59502b"
   metabolisms:
-    Drink:
+    Digestion:
       effects:
       - !type:SatiateThirst
         factor: 0.6

@@ -9,7 +9,6 @@
 #   - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -69,7 +68,6 @@
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -96,7 +94,6 @@
   showInVote: true #WL gamepreset vote changes
   description: greenshift-description
   rules:
-  - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
 
 - type: gamePreset
@@ -141,16 +138,16 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
-- type: gamePreset
-  id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
-  alias:
-  - secretgreenshift
-  name: secret-title
-  showInVote: false #Admin Use
-  description: secret-description
-  rules:
-  - SpaceTrafficControlFriendlyEventScheduler
-  - BasicRoundstartVariation
+# - type: gamePreset
+#   id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
+#   alias:
+#   - secretgreenshift
+#   name: secret-title
+#   showInVote: false #Admin Use
+#   description: secret-description
+#   rules:
+#   - SpaceTrafficControlFriendlyEventScheduler
+#   - BasicRoundstartVariation
 
 - type: gamePreset
   id: Sandbox

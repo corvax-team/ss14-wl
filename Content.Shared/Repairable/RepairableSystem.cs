@@ -30,7 +30,11 @@ public sealed partial class RepairableSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (!TryComp(ent.Owner, out DamageableComponent? damageable) || damageable.TotalDamage == 0)
+        if (!TryComp(ent.Owner, out DamageableComponent? damageable))
+            return;
+
+        var totalDamage = _damageableSystem.GetTotalDamage((ent.Owner, damageable));
+        if (totalDamage == 0)
             return;
 
         if (ent.Comp.DamageValue != null)
@@ -41,8 +45,10 @@ public sealed partial class RepairableSystem : EntitySystem
             RepairAllDamage((ent, damageable), args.User);
 
         _bloodstream.TryModifyBleedAmount(ent.Owner, ent.Comp.BleedAmountReduce); // WL-Changes: Androids
+        
+        totalDamage = _damageableSystem.GetTotalDamage((ent.Owner, damageable));
 
-        args.Repeat = ent.Comp.AutoDoAfter && damageable.TotalDamage > 0;
+        args.Repeat = ent.Comp.AutoDoAfter && totalDamage > 0;
         args.Args.Event.Repeat = args.Repeat;
         args.Handled = true;
 
@@ -99,7 +105,7 @@ public sealed partial class RepairableSystem : EntitySystem
             return;
 
         // Only try repair the target if it is damaged
-        if (!TryComp<DamageableComponent>(ent.Owner, out var damageable) || damageable.TotalDamage == 0)
+        if (_damageableSystem.GetTotalDamage(ent.Owner) == 0)
             return;
 
         float delay = ent.Comp.DoAfterDelay;

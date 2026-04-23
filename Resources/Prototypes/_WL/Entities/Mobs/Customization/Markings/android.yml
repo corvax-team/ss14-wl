@@ -1,8 +1,7 @@
 - type: marking
   id: AndroidSensors
   bodyPart: LLeg
-  markingCategory: Overlay
-  speciesRestriction: [Android]
+  groupWhitelist: [Android]
   sprites:
   - sprite: _WL/Mobs/Customization/android_parts.rsi
     state: sensors
@@ -15,8 +14,7 @@
 - type: marking
   id: AndroidAntennaLeft
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Android]
+  groupWhitelist: [Android]
   coloring:
     default:
       type:
@@ -29,8 +27,7 @@
 - type: marking
   id: AndroidAntennaRight
   bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Android]
+  groupWhitelist: [Android]
   coloring:
     default:
       type:

@@ -201,3 +201,38 @@
     sprite: _WL/Clothing/Masks/Balaclavs/Security/tan.rsi
   - type: Clothing
     sprite: _WL/Clothing/Masks/Balaclavs/Security/tan.rsi
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasVoiceChameleonHop
+  name: Hop theatrical voice mask
+  suffix: HOP
+  description: A high-tech gas mask belonging to the Head of Personal
+  components:
+    - type: Sprite
+      sprite: Clothing/Mask/clown.rsi
+    - type: Clothing
+      sprite: Clothing/Mask/clown.rsi
+    - type: ChameleonClothing
+      slot: [mask]
+      default: ClothingMaskClown
+    - type: AccessReader # only used for dangerous things
+      access: [["HeadOfPersonnel"]]
+    - type: UIRequiresLock
+      userInterfaceKeys:
+        - enum.ChameleonUiKey.Key
+        - enum.VoiceMaskUIKey.Key
+      accessDeniedSound: null
+      popup: null
+    - type: Lock
+      lockTime: 0
+      unlockTime: 0 
+    - type: VoiceMask
+    - type: UserInterface
+      interfaces:
+        enum.ChameleonUiKey.Key:
+          type: ChameleonBoundUserInterface
+        enum.VoiceMaskUIKey.Key:
+          type: VoiceMaskBoundUserInterface
+    - type: StealTarget
+      stealGroup: HopMask

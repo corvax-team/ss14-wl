@@ -36,7 +36,7 @@ public abstract partial class ObfuscationMethod
     }
 }
 
-public partial class ReplacementObfuscation : ObfuscationMethod
+public sealed partial class ReplacementObfuscation : ObfuscationMethod
 {
     [DataField(required: true)]
     public List<string> Replacement = [];
@@ -48,7 +48,7 @@ public partial class ReplacementObfuscation : ObfuscationMethod
     }
 }
 
-public partial class WordsReplacementObfuscation : ObfuscationMethod
+public sealed partial class WordsReplacementObfuscation : ObfuscationMethod
 {
     [DataField(required: true)]
     public List<string> Replacement = [];
@@ -91,7 +91,7 @@ public partial class WordsReplacementObfuscation : ObfuscationMethod
     }
 }
 
-public partial class Utf16ReplacementObfuscation : ObfuscationMethod
+public sealed partial class Utf16ReplacementObfuscation : ObfuscationMethod
 {
     [DataField(required:true)]
     public int utf16start = 61;
@@ -155,7 +155,7 @@ public partial class Utf16ReplacementObfuscation : ObfuscationMethod
 }
 
 
-public partial class ByCharReplacementObfuscation : ObfuscationMethod
+public sealed partial class ByCharReplacementObfuscation : ObfuscationMethod
 {
     [DataField(required: true)]
     public List<string> Replacement = [];
@@ -215,7 +215,7 @@ public partial class ByCharReplacementObfuscation : ObfuscationMethod
     }
 }
 
-public partial class LengthObfuscation : ObfuscationMethod
+public sealed partial class LengthObfuscation : ObfuscationMethod
 {
     [DataField(required: true)]
     public List<string> Replacement = [];

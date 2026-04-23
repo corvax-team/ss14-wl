@@ -1,115 +1,115 @@
-- type: guideEntry
-  id: CorvaxWLRuleset
-  name: guide-entry-rules
-  ruleEntry: true
-  priority: 5
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/CorvaxWLRules.xml"
-  children:
-  - WLRule0
-  - WLRule1
-  - WLRule2
-  - WLRule3
-  - WLRule4
-
-- type: guideEntry
-  id: WLRule0
-  name: guide-entry-rules-r1
-  ruleEntry: true
-  priority: 30
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule0.xml"
-
-- type: guideEntry
-  id: WLRule1
-  name: guide-entry-rules-r1
-  ruleEntry: true
-  priority: 30
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule1.xml"
-  children:
-  - WLRule12
-
-- type: guideEntry
-  id: WLRule12
-  name: guide-entry-rules-r12
-  ruleEntry: true
-  priority: 2
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule12.xml"
-
-- type: guideEntry
-  id: WLRule2
-  name: guide-entry-rules-r2
-  ruleEntry: true
-  priority: 3
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule2.xml"
-  children:
-  - WLRule22
-  - WLRule23
-
-- type: guideEntry
-  id: WLRule22
-  name: guide-entry-rules-r22
-  ruleEntry: true
-  priority: 4
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule22.xml"
-
-- type: guideEntry
-  id: WLRule23
-  name: guide-entry-rules-r23
-  ruleEntry: true
-  priority: 4
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule23.xml"
-
-- type: guideEntry
-  id: WLRule3
-  name: guide-entry-rules-r3
-  ruleEntry: true
-  priority: 5
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule3.xml"
-  children:
-  - WLRule32
-  - WLRule33
-  - WLRule34
-
-- type: guideEntry
-  id: WLRule32
-  name: guide-entry-rules-r32
-  ruleEntry: true
-  priority: 6
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule32.xml"
-
-- type: guideEntry
-  id: WLRule33
-  name: guide-entry-rules-r33
-  ruleEntry: true
-  priority: 6
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule33.xml"
-
-- type: guideEntry
-  id: WLRule34
-  name: guide-entry-rules-r34
-  ruleEntry: true
-  priority: 6
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule34.xml"
-
-- type: guideEntry
-  id: WLRule4
-  name: guide-entry-rules-r4
-  ruleEntry: true
-  priority: 6
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule4.xml"
-  children:
-  - WLRule42
-  - WLRule43
-
-- type: guideEntry
-  id: WLRule42
-  name: guide-entry-rules-r42
-  ruleEntry: true
-  priority: 6
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule42.xml"
-
-- type: guideEntry
-  id: WLRule43
-  name: guide-entry-rules-r43
-  ruleEntry: true
-  priority: 6
-  text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule43.xml"
+# - type: guideEntry
+#   id: CorvaxWLRuleset
+#   name: guide-entry-rules
+#   ruleEntry: true
+#   priority: 5
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/CorvaxWLRules.xml"
+#   children:
+#   - WLRule0
+#   - WLRule1
+#   - WLRule2
+#   - WLRule3
+#   - WLRule4
+#
+# - type: guideEntry
+#   id: WLRule0
+#   name: guide-entry-rules-r1
+#   ruleEntry: true
+#   priority: 30
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule0.xml"
+#
+# - type: guideEntry
+#   id: WLRule1
+#   name: guide-entry-rules-r1
+#   ruleEntry: true
+#   priority: 30
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule1.xml"
+#   children:
+#   - WLRule12
+#
+# - type: guideEntry
+#   id: WLRule12
+#   name: guide-entry-rules-r12
+#   ruleEntry: true
+#   priority: 2
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule12.xml"
+#
+# - type: guideEntry
+#   id: WLRule2
+#   name: guide-entry-rules-r2
+#   ruleEntry: true
+#   priority: 3
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule2.xml"
+#   children:
+#   - WLRule22
+#   - WLRule23
+#
+# - type: guideEntry
+#   id: WLRule22
+#   name: guide-entry-rules-r22
+#   ruleEntry: true
+#   priority: 4
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule22.xml"
+#
+# - type: guideEntry
+#   id: WLRule23
+#   name: guide-entry-rules-r23
+#   ruleEntry: true
+#   priority: 4
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule23.xml"
+#
+# - type: guideEntry
+#   id: WLRule3
+#   name: guide-entry-rules-r3
+#   ruleEntry: true
+#   priority: 5
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule3.xml"
+#   children:
+#   - WLRule32
+#   - WLRule33
+#   - WLRule34
+#
+# - type: guideEntry
+#   id: WLRule32
+#   name: guide-entry-rules-r32
+#   ruleEntry: true
+#   priority: 6
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule32.xml"
+#
+# - type: guideEntry
+#   id: WLRule33
+#   name: guide-entry-rules-r33
+#   ruleEntry: true
+#   priority: 6
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule33.xml"
+#
+# - type: guideEntry
+#   id: WLRule34
+#   name: guide-entry-rules-r34
+#   ruleEntry: true
+#   priority: 6
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule34.xml"
+#
+# - type: guideEntry
+#   id: WLRule4
+#   name: guide-entry-rules-r4
+#   ruleEntry: true
+#   priority: 6
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule4.xml"
+#   children:
+#   - WLRule42
+#   - WLRule43
+#
+# - type: guideEntry
+#   id: WLRule42
+#   name: guide-entry-rules-r42
+#   ruleEntry: true
+#   priority: 6
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule42.xml"
+#
+# - type: guideEntry
+#   id: WLRule43
+#   name: guide-entry-rules-r43
+#   ruleEntry: true
+#   priority: 6
+#   text: "/ServerInfo/Guidebook/_WL/ServerRules/Rules/WLRule43.xml"
