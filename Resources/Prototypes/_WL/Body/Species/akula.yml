@@ -2,6 +2,9 @@
   parent: Undergarments
   id: Akula
   limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
     enum.HumanoidVisualLayers.Head:
       limit: 3
       required: false
