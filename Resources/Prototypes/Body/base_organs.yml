@@ -21,6 +21,17 @@
   parent: BaseItem
   components:
   - type: Organ
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: OrganInteraction
+  - type: EmitSoundOnDrop
+    sound:
+      collection: OrganInteraction
+  - type: EmitSoundOnLand
+    sound:
+      collection: OrganInteraction
+  # Goobstation edit end
 
 - type: entity
   parent: OrganBase

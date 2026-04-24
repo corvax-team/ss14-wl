@@ -65,6 +65,26 @@
     bodyType: static
   - type: StaticPrice
     price: 30
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/wrench_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/wrench_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+    # WL-Changes-start
+    #  collection: PipeDrop
+      path: /Audio/_Goobstation/Items/Pipe/metal_pipe_fall.ogg
+      params:
+        volume: -2
+    # WL-Changes-end
+  # Goobstation edit end
 
 - type: entity
   abstract: true

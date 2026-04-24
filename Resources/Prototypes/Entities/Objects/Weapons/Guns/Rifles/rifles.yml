@@ -52,9 +52,20 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-# White-List components
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop
+  # Goobstation edit end
+  # White-List components
   - type: Execution
-# White-List components end
+  # White-List components end
 
 - type: entity
   name: AKMS
