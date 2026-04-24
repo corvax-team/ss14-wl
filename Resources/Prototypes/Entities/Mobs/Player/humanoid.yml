@@ -91,13 +91,11 @@
         Weapons: 4
       randomSkills: [Botany, Cooking, Mixology]
       # WL-Skills-end
-    # WL-Languages-start
-    - type: Languages
-      speaking:
+  # WL-Languages-start
+    - type: ModifyLanguages
+      languages:
       - Wingdings
-      understood:
-      - Wingdings
-    # WL-Languages-end
+  # WL-Languages-end
 
 ## ERT Leader
 
@@ -154,13 +152,9 @@
       randomSkills: [Botany, Cooking, Mixology]
       # WL-Skills-end
   # WL-Languages-start
-    - type: Languages
-      speaking:
-      - Translate
-      - Wingdings
-      understood:
-      - Translate
-      - Wingdings
+    - type: ModifyLanguages
+      languages:
+        - Wingdings
   # WL-Languages-end
 
 - type: entity
