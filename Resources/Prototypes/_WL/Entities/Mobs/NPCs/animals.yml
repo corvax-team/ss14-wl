@@ -1,0 +1,32 @@
+- type: entity
+  name: Spidey
+  parent: MobCockroach
+  id: ModSpidey
+  description: This station is just crawling with bugs.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _WL/Mobs/Animals/spidey.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: spidey
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spidey
+      Critical:
+        Base: spidey_dead
+      Dead:
+        Base: spidey_dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Scale
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 20
+  - type: NoSlip
+  - type: Spider
+    webSpawnCooldown: 300 #5 min
+  - type: IgnoreSpiderWeb

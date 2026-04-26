@@ -1,0 +1,14 @@
+- type: entity
+  name: Spidey Timed Spawner
+  id: SpideyTimedSpawner
+  parent: MouseTimedSpawner
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: _WL/Mobs/Animals/spidey.rsi
+          state: spidey_icon
+        - state: timed
+    - type: TimedSpawner
+      prototypes:
+        - MobSpidey
