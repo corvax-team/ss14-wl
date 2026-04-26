@@ -206,7 +206,7 @@ public abstract partial class SharedStackSystem : EntitySystem
         // Wl-changes-start
         args.Verbs.Add(new AlternativeVerb()
         {
-            Text = "Своё кол-во",
+            Text = Loc.GetString("comp-stack-split-custom"),
             Category = VerbCategory.Split,
             Act = () => _ui.OpenUi(ent.Owner, StakcAmountUiKey.Key, user),
             Priority = priority--
