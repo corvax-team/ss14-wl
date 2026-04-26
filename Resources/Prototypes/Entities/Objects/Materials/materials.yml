@@ -22,6 +22,12 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  # WL-Changes-start
+  - type: UserInterface
+    interfaces:
+      enum.StakcAmountUiKey.Key:
+        type: StackAmountBoundUserInterface
+  # WL-Changes-end
 
 - type: entity
   parent: MaterialBase

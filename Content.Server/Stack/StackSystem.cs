@@ -1,3 +1,4 @@
+using Content.Shared._WL.Stakc; // Wl-changes
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using JetBrains.Annotations;
@@ -14,6 +15,16 @@ namespace Content.Server.Stack
     public sealed class StackSystem : SharedStackSystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IEntityManager _ent = default!; // Wl-changes
+
+        // Wl-changes-start
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            SubscribeLocalEvent<StackComponent, StakcAmountSetValueMessage>(UserCustomSplit);
+        }
+        // Wl-changes-end
 
         #region Spawning
 
@@ -299,6 +310,25 @@ namespace Content.Server.Stack
 
             Popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
         }
+
+        // Wl-changes-start
+        private void UserCustomSplit(EntityUid uid, StackComponent stackComponent, StakcAmountSetValueMessage ev)
+        {
+
+            if (!_ent.TryGetEntity(ev.User, out var user))
+                return;
+
+            if (!TryComp<StackComponent>(uid, out var comp))
+                return;
+
+            if (!TryComp<TransformComponent>(user, out var transform))
+                return;
+
+            UserSplit(new Entity<StackComponent>(uid, comp),
+                new Entity<TransformComponent?>(user.Value, transform),
+                ev.Value);
+        }
+        // Wl-changes-end
         #endregion
     }
 }

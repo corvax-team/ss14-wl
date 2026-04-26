@@ -14,6 +14,12 @@
     - type: Tag
       tags:
       - ConstructionMaterial
+    # WL-Changes-start
+    - type: UserInterface
+      interfaces:
+        enum.StakcAmountUiKey.Key:
+          type: StackAmountBoundUserInterface
+    # WL-Changes-end
 
 - type: entity
   id: MicroManipulatorStockPart
