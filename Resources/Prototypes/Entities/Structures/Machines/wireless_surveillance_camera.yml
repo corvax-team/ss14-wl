@@ -5,7 +5,7 @@
   name: wireless camera
   description: A camera. It's watching you. Kinda.
   components:
-    #WL-Changes start
+    #WL-Changes: включение/выключение Start
     - type: ItemToggle
       soundActivate:
         path: /Audio/Machines/button.ogg
@@ -18,7 +18,7 @@
           enable:
             True: { visible: true }
             False: { visible: false }
-    #WL-Changes end
+    #WL-Changes: включение/выключение End
     - type: InteractionOutline
     - type: Eye
     - type: WirelessNetworkConnection
@@ -91,14 +91,14 @@
     - type: Sprite
       noRot: true
       sprite: Structures/monitors.rsi
-      #WL-Changes start
+      #WL-Changes: анимация включения/выключения Start
       layers:
       - state: mobilevision
       - state: on
         visible: false
         shader: unshaded
         map: [ "enable" ]
-      #WL-Changes end
+      #WL-Changes: анимация включения/выключения End
 
 - type: entity
   parent: SurveillanceWirelessCameraAnchoredBase
@@ -110,7 +110,7 @@
       receiveFrequencyId: SurveillanceCamera
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
-      active: false
+      active: false # WL-Changes
       setupAvailableNetworks:
         - SurveillanceCameraEntertainment
 
@@ -124,7 +124,7 @@
       receiveFrequencyId: SurveillanceCameraEntertainment
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
-      active: false
+      active: false # WL-Changes
       setupAvailableNetworks:
         - SurveillanceCameraEntertainment
 
@@ -138,7 +138,7 @@
       receiveFrequencyId: SurveillanceCameraEntertainment
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
-      active: false
+      active: false # WL-Changes
       networkSet: true
 
 - type: entity
@@ -151,5 +151,5 @@
       receiveFrequencyId: SurveillanceCameraEntertainment
       transmitFrequencyId: SurveillanceCamera
     - type: SurveillanceCamera
-      active: false
+      active: false # WL-Changes
       networkSet: true

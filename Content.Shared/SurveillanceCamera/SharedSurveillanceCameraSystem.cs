@@ -58,6 +58,7 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
     protected virtual void OpenSetupInterface(EntityUid uid, EntityUid player, SurveillanceCameraComponent? camera = null) { }
 
     #region CorvaxWL
+    //WL-Changes-Включение/выключение-Start
 
     private void OnToggle(Entity<SurveillanceCameraComponent> entity, ref ItemToggledEvent args)
     {
@@ -81,6 +82,7 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
             return;
         }
     }
+    //WL-Changes-Включение/выключение-End
     #endregion
 }
 
