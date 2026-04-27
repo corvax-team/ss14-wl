@@ -1,5 +1,6 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Emp;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Verbs;
@@ -10,6 +11,7 @@ namespace Content.Shared.SurveillanceCamera;
 public abstract class SharedSurveillanceCameraSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly ItemToggleSystem _itemToggle = default!; //WL-Changes-Включение/выключение
 
     public override void Initialize()
     {
@@ -45,11 +47,16 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
             args.Disabled = true;
             SetActive(uid, false);
         }
+
+        //WL-Changes-Включение/выключение-Start
+        _itemToggle.TryDeactivate(uid, predicted: false);
+        //WL-Changes-Включение/выключение-End
     }
 
     private void OnEmpDisabledRemoved(EntityUid uid, SurveillanceCameraComponent component, ref EmpDisabledRemovedEvent args)
     {
-        SetActive(uid, true);
+        if (!HasComp<ItemToggleComponent>(uid))
+            SetActive(uid, true);
     }
 
     // TODO: predict the rest of the server side system
@@ -67,7 +74,7 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
 
     private void OnActivateAttempt(Entity<SurveillanceCameraComponent> entity, ref ItemToggleActivateAttemptEvent args)
     {
-        if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value))
+        if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value) || HasComp<EmpDisabledComponent>(entity))
         {
             args.Cancelled = true;
             return;
@@ -76,7 +83,7 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
 
     private void OnDeactivateAttempt(Entity<SurveillanceCameraComponent> entity, ref ItemToggleDeactivateAttemptEvent args)
     {
-        if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value))
+        if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value) || HasComp<EmpDisabledComponent>(entity))
         {
             args.Cancelled = true;
             return;
