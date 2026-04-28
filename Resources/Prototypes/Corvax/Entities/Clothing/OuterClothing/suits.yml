@@ -37,7 +37,8 @@
         shader: unshaded
       - state: equipped-OUTERCLOTHING-unshaded
         shader: shaded
-      outerClothing-reptilian:
+      # WL-Changes-start
+      outerClothing-reptilian: 
       - state: equipped-OUTERCLOTHING-reptilian
       - state: equipped-OUTERCLOTHING-reptilian-unshaded
         shader: unshaded
@@ -49,4 +50,5 @@
         shader: unshaded
       - state: equipped-OUTERCLOTHING-vox-unshaded
         shader: shaded
+      # WL-Changes-end
       # Это так светооражающие элементы сделаны. Подробности в файле с ClothingOuterVestHazard
