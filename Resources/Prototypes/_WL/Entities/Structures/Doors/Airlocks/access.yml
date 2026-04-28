@@ -1,0 +1,24 @@
+- type: entity
+  parent: AirlockCommand
+  id: AirlockAdjutantLocked
+  suffix: Adjutant, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAdjutant ]
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockAdjutantGlassLocked
+  suffix: Adjutant, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAdjutant ]
+
+- type: entity
+  parent: AirlockAdjutantLocked
+  id: AirlockMaintAdjutantLocked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi

@@ -1,0 +1,9 @@
+ent-AirlockAdjutantLocked = { ent-AirlockCommand }
+    .desc = { ent-AirlockCommand.desc }
+    .suffix = Адъютант, Закрыт
+ent-AirlockAdjutantGlassLocked = { ent-AirlockCommandGlass }
+    .desc = { ent-AirlockCommandGlass.desc }
+    .suffix = Адъютант, Закрыт
+ent-AirlockMaintAdjutantLocked = { ent-AirlockAdjutantLocked }
+    .desc = { ent-AirlockAdjutantLocked.desc }
+    .suffix = { ent-AirlockAdjutantLocked.suffix }

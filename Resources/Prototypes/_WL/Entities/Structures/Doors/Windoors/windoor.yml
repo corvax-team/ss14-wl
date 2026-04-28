@@ -1,0 +1,8 @@
+- type: entity
+  parent: WindoorSecureCommandLocked
+  id: WindoorSecureAdjutantLocked
+  suffix: Adjutant, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsAdjutant ]
