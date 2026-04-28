@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by ReArtInt",
+  "copyright": "Made by ReArtInt, moth added by ReArtInt",
   "size": {
     "x": 32,
     "y": 32
@@ -25,6 +25,10 @@
     {
         "name": "inhand-right",
         "directions": 4
+    },
+    {
+      "name": "equipped-INNERCLOTHING-moth",
+      "directions": 4
     }
   ]
 }
