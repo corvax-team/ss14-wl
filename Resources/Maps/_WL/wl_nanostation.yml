@@ -34615,7 +34615,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 492
           - 549
           - 493
     - type: Fixtures
