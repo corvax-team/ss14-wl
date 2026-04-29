@@ -7,6 +7,7 @@ namespace Content.Client._WL.Passports.Systems;
 
 public sealed class PassportSystem : EntitySystem
 {
+    [Dependency] private readonly SpriteSystem _sprite = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -20,14 +21,14 @@ public sealed class PassportSystem : EntitySystem
         if (evt.Handled || !TryComp<SpriteComponent>(passport, out var sprite))
             return;
 
-        var currentState = sprite.LayerGetState(0);
+        if (!_sprite.TryGetLayer((passport.Owner, sprite), 0, out var currentLayer, true))
+            return;
 
-        if (currentState.Name == null)
+        if (currentLayer.State.Name is not { } currentName)
             return;
 
         evt.Handled = true;
 
-        var currentName = currentState.Name;
         var prefix = currentName;
 
         if (currentName.EndsWith("_open", StringComparison.Ordinal))
@@ -48,7 +49,7 @@ public sealed class PassportSystem : EntitySystem
         }
 
         if (desiredStateName != currentName)
-            sprite.LayerSetState(0, desiredStateName);
+            _sprite.LayerSetRsiState((passport.Owner, sprite), 0, desiredStateName);
     }
 
     private void OnPassportStartup(Entity<PassportComponent> passport, ref ComponentStartup args)
@@ -56,11 +57,12 @@ public sealed class PassportSystem : EntitySystem
         if (!TryComp<SpriteComponent>(passport, out var sprite))
             return;
 
-        var currentState = sprite.LayerGetState(0);
-        if (currentState.Name == null)
+        if (!_sprite.TryGetLayer((passport.Owner, sprite), 0, out var currentLayer, true))
             return;
 
-        var currentName = currentState.Name;
+        if (currentLayer.State.Name is not { } currentName)
+            return;
+
         var prefix = currentName;
 
         if (currentName.EndsWith("_open", StringComparison.Ordinal))
@@ -80,8 +82,8 @@ public sealed class PassportSystem : EntitySystem
             desiredStateName = currentName.Replace(from, to, StringComparison.Ordinal);
         }
 
-        if (desiredStateName != currentName)
-            sprite.LayerSetState(0, desiredStateName);
+        if (desiredStateName == currentName)
+            _sprite.LayerSetRsiState((passport.Owner, sprite), 0, desiredStateName);
 
         Dirty(passport);
     }
