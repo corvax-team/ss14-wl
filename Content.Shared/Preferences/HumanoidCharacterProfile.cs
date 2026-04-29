@@ -1171,7 +1171,18 @@ namespace Content.Shared.Preferences
 
             var collection = IoCManager.Instance;
             // Corvax-Sponsors-Start
-            var sponsorPrototypes = IoCManager.Resolve<ISharedSponsorsManager>().TryGetServerPrototypes(session.UserId, out var prototypes) ? prototypes.ToArray() : [];
+            string[] sponsorPrototypes;
+            try
+            {
+                var sponsorsManager = IoCManager.Resolve<ISharedSponsorsManager>();
+                sponsorPrototypes = sponsorsManager.TryGetServerPrototypes(session.UserId, out var prototypes)
+                    ? prototypes.ToArray()
+                    : Array.Empty<string>();
+            }
+            catch (Exception)
+            {
+                sponsorPrototypes = Array.Empty<string>();
+            }
             profile.EnsureValid(session, collection!, sponsorPrototypes);
             // Corvax-Sponsors-End
             return profile;
