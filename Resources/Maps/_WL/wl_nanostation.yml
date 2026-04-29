@@ -82683,20 +82683,6 @@ entities:
       fixtures: {}
 - proto: ShelfMetal
   entities:
-  - uid: 4573
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 64.5,20.5
-      parent: 2
-    - type: Storage
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-    - type: Fixtures
-      fixtures: {}
   - uid: 4999
     components:
     - type: Transform
