@@ -54,11 +54,10 @@ public sealed class DynamicTextSystem : EntitySystem
 
     private void OnExamine(EntityUid uid, CharacterInformationComponent comp, ExaminedEvent args)
     {
-
         using (args.PushGroup(nameof(CharacterInformationComponent)))
         {
             if (!string.IsNullOrEmpty(comp.DynamicText))
-                args.PushMarkup(comp.DynamicText);
+                args.PushMarkup("[color=#B5C7EB][bold]" + comp.DynamicText + "[/bold][/color]");
         }
     }
 }
