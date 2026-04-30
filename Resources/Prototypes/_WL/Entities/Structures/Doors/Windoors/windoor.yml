@@ -6,3 +6,12 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsAdjutant ]
+
+- type: entity
+  parent: WindoorServiceLocked
+  id: WindoorReporterLocked
+  suffix: Reporter, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsReporter ]
