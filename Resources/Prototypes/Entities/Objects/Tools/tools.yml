@@ -378,6 +378,18 @@
     materialComposition:
       Steel: 600
       Plastic: 100
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/handling/rcd_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/handling/rcd_drop.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: StaticPrice
     price: 110
   - type: UserInterface
