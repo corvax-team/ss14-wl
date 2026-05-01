@@ -98,9 +98,9 @@ public sealed partial class TurretMinderConsoleWindow : DefaultWindow
             var spriteView = new TextureRect()
             {
                 Margin = new(0, 0, 5, 0),
-                TextureScale = new(0.8f, 0.8f)
+                TextureScale = new(0.8f, 0.8f),
+                Texture = _sprite.Frame0(_protoMan.Index(entry.Prototype))
             };
-            spriteView.Texture = _sprite.Frame0(_protoMan.Index(entry.Prototype));
 
             main.AddChild(spriteView);
         }
