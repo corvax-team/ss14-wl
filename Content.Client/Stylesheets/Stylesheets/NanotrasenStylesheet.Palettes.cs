@@ -2,7 +2,7 @@ using Content.Client.Stylesheets.Palette;
 
 namespace Content.Client.Stylesheets.Stylesheets;
 
-public sealed partial class NanotrasenStylesheet
+public partial class NanotrasenStylesheet
 {
     //WL-Change-start
     public override ColorPalette PrimaryPalette => Palettes.WL2;
