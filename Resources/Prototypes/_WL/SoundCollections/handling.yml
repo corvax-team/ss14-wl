@@ -43,8 +43,8 @@
   id: GogglesPickup
   files:
   - /Audio/_WL/Items/goggles/goggles_pickup1.ogg
-  - /Audio/_WL/Items/goggles/goggles_pickup1.ogg
-  - /Audio/_WL/Items/goggles/goggles_pickup1.ogg
+  - /Audio/_WL/Items/goggles/goggles_pickup2.ogg
+  - /Audio/_WL/Items/goggles/goggles_pickup3.ogg
 
 - type: soundCollection
   id: GogglesEquip
