@@ -82,7 +82,7 @@ public sealed class PassportSystem : EntitySystem
             desiredStateName = currentName.Replace(from, to, StringComparison.Ordinal);
         }
 
-        if (desiredStateName == currentName)
+        if (desiredStateName != currentName)
             _sprite.LayerSetRsiState((passport.Owner, sprite), 0, desiredStateName);
 
         Dirty(passport);
