@@ -24,11 +24,11 @@ public sealed partial class HumanoidProfileEditor
 
     private OptionButton? _confederationButton; // WL-Records
 
-    private LineEdit _heightEdit => CHeightEdit; // WL-Height
+    private LineEdit HeightEdit => CHeightEdit; // WL-Height
 
     private TextEdit _oocTextEdit = null!; // WL-OOCText
 
-    private List<ConfederationRecordsPrototype> _confederations = new(); // WL-Recordss
+    private List<ConfederationRecordsPrototype> _confederations = new(); // WL-Records
 
     public void RefreshSkills()
     {
@@ -241,7 +241,7 @@ public sealed partial class HumanoidProfileEditor
 
     private void UpdateHeightEdit()
     {
-        _heightEdit.Text = Profile?.Height.ToString() ?? "";
+        HeightEdit.Text = Profile?.Height.ToString() ?? "";
     }
 
     private void UpdateOocTextEdit()

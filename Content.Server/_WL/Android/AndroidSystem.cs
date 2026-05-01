@@ -11,7 +11,6 @@ using Content.Shared.Body;
 using Content.Shared.DoAfter;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Movement.Components;

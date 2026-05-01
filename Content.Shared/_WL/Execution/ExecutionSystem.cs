@@ -177,7 +177,7 @@ public sealed class ExecutionSystem : EntitySystem
             {
                 // if can't take damage, use fallback
                 string damageTypeString = "Heat";
-                if(_prototypeManager.TryIndex<DamageTypePrototype>(damageTypeString, out var damageType))
+                if (_prototypeManager.TryIndex<DamageTypePrototype>(damageTypeString, out var damageType))
                 {
                     damageSpecifier = new DamageSpecifier(damageType, component.DamageModifier * 10f);
                 }

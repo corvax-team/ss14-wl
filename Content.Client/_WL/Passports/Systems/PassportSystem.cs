@@ -1,5 +1,5 @@
 using Content.Shared._WL.Passports.Components;
-using Content.Shared._WL.Passports.Systems;
+using Content.Shared._WL.Passports.Events;
 using Robust.Client.GameObjects;
 
 
@@ -13,10 +13,10 @@ public sealed class PassportSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<PassportComponent, ComponentStartup>(OnPassportStartup);
-        SubscribeLocalEvent<PassportComponent, SharedPassportSystem.PassportToggleEvent>(OnPassportToggled);
+        SubscribeLocalEvent<PassportComponent, PassportToggleEvent>(OnPassportToggled);
     }
 
-    private void OnPassportToggled(Entity<PassportComponent> passport, ref SharedPassportSystem.PassportToggleEvent evt)
+    private void OnPassportToggled(Entity<PassportComponent> passport, ref PassportToggleEvent evt)
     {
         if (evt.Handled || !TryComp<SpriteComponent>(passport, out var sprite))
             return;

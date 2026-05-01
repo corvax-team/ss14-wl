@@ -30,7 +30,7 @@ public sealed partial class LanguagePrototype : IPrototype
     [DataField]
     public Color Color = Color.LightGray;
 
-    [DataField("needtts")]
+    [DataField]
     public bool NeedTTS = true;
 
     [DataField]

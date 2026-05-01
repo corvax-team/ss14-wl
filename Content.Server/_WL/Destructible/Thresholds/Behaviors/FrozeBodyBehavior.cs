@@ -1,7 +1,6 @@
 using Content.Server._WL.Destructible.Components;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds.Behaviors;
-using Content.Server.Humanoid;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Humanoid;

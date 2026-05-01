@@ -14,8 +14,8 @@ namespace Content.Shared._WL.Languages;
 
 public abstract class SharedLanguagesSystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager _prototype = default!;
-    [Dependency] protected readonly SharedGameTicker _ticker = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedGameTicker _ticker = default!;
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedChatSystem _chat = default!;
