@@ -37,17 +37,20 @@
   id: JumpsuitSecBlue
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecBlue
+  groupBy: "WLJJ" # WL-change-add
 #Corvax-WL-brigmedic-loadout-update-end
 
 - type: loadout
   id: BrigmedicJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBrigmedic
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: BrigmedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBrigmedic
+  groupBy: "WLJJ" # WL-change-add
 
 # Перчатки
 - type: loadout

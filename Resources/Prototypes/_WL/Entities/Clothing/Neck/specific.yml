@@ -27,6 +27,9 @@
     sprite: _WL/Clothing/Neck/Specific/space_carp_teeth_necklace.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Specific/space_carp_teeth_necklace.rsi
+  - type: Construction
+    graph: ClothingNeckCarpTeethNecklace
+    node: necklace
 
 
 - type: entity
@@ -39,3 +42,6 @@
     sprite: _WL/Clothing/Neck/Specific/space_shark_teeth_necklace.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Specific/space_shark_teeth_necklace.rsi
+  - type: Construction
+    graph: ClothingNeckSharkTeethNecklace
+    node: necklace

@@ -26,7 +26,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Robust.Client.GameObjects;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
@@ -37,7 +36,6 @@ public sealed class LanguagesUIController : UIController, IOnStateEntered<Gamepl
 {
     [Dependency] private readonly IEntityManager _ent = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     [UISystemDependency] private readonly ClientLanguagesSystem _languages = default!;
     [UISystemDependency] private readonly SpriteSystem _sprite = default!;

@@ -1,5 +1,0 @@
-- type: entity
-  save: false
-  parent: [ BaseMobCischi, BaseMob ]
-  id: MobCischi
-  name: Urist McCischi

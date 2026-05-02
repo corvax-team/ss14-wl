@@ -3,8 +3,6 @@
   name: job-name-chemist
   description: job-description-chemist
   playTimeTracker: JobChemist
-  subnames:
-  - Male: фармацевт
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
@@ -30,12 +28,6 @@
   equipment:
     id: ChemistryPDA
     ears: ClothingHeadsetMedical
-    belt: ChemBag
-    pocket1: HandLabeler
-    eyes: ClothingEyesGlassesChemical
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: ChemistChameleonOutfit

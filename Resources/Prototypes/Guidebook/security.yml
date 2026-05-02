@@ -6,7 +6,7 @@
   - Forensics
   - Defusal
   - CriminalRecords
-  - WLCorporateLaw # WL-Changes
+#   - WLCorporateLaw # WL-Changes
 
 - type: guideEntry
   id: Forensics

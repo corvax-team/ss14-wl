@@ -4,7 +4,8 @@
   mapPath: /Maps/_WL/wl_straumur.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 20
+  minPlayers: 15
+  maxPlayers: 25
   stations:
     CorvaxWLStraumur:
       stationProto: StandardNanotrasenStation

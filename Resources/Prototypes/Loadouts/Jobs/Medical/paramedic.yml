@@ -9,11 +9,13 @@
   id: ParamedicJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: ParamedicJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtParamedic
+  groupBy: "WLJJ" # WL-change-add
 
 # Outer clothing
 - type: loadout

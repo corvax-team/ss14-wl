@@ -1,0 +1,12 @@
+ent-MarkerAntiAnomalyZone5 = антианомальная зона (радиус 5)
+    .desc = { ent-MarkerBase.desc }
+    .suffix = Маркер, АнтиАномалия
+ent-MarkerAntiAnomalyZone10 = антианомальная зона (радиус 10)
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { ent-MarkerAntiAnomalyZone5.suffix }
+ent-MarkerAntiAnomalyZone20 = антианомальная зона (радиус 20)
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { ent-MarkerAntiAnomalyZone5.suffix }
+ent-MarkerAntiAnomalyZone50 = антианомальная зона (радиус 50)
+    .desc = { ent-MarkerBase.desc }
+    .suffix = { ent-MarkerAntiAnomalyZone5.suffix }

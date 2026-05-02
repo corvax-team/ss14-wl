@@ -90,6 +90,7 @@
   id: Photo
   recipes:
   - PhotoCameraRecipe
+  - PhotoFilterPackFill
 
 - type: latheRecipePack
   id: SecBalaclavStatic

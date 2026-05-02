@@ -2,12 +2,14 @@ using Content.Server.Hands.Systems;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Shared._WL.Photo;
+using Content.Shared._WL.Photo.Filters;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Materials;
 using Content.Shared.Timing;
 using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Containers;
 
 namespace Content.Server._WL.Photo;
 
@@ -29,7 +31,6 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         base.Initialize();
 
         SubscribeLocalEvent<PhotoCameraComponent, ActivatableUIOpenAttemptEvent>(OnOpenCameraInterfaceAttempt);
-        SubscribeLocalEvent<PhotoCameraComponent, AfterActivatableUIOpenEvent>(OnOpenCameraInterface);
         Subs.BuiEvents<PhotoCameraComponent>(PhotoCameraUiKey.Key, subs =>
         {
             subs.Event<BoundUIClosedEvent>(OnCameraBoundUiClose);
@@ -39,6 +40,8 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         SubscribeLocalEvent<PhotoCameraComponent, DroppedEvent>(OnCameraDropped);
 
         SubscribeLocalEvent<PhotoCardComponent, AfterActivatableUIOpenEvent>(OnOpenCardInterface);
+        SubscribeLocalEvent<PhotoCameraComponent, EntInsertedIntoContainerMessage>(OnFilterInserted);
+        SubscribeLocalEvent<PhotoCameraComponent, EntRemovedFromContainerMessage>(OnFilterRemoved);
     }
 
     private void OnOpenCameraInterfaceAttempt(EntityUid uid, PhotoCameraComponent component, ActivatableUIOpenAttemptEvent args)
@@ -56,14 +59,6 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
             args.Cancel();
             return;
         }
-    }
-
-    private void OnOpenCameraInterface(EntityUid uid, PhotoCameraComponent component, AfterActivatableUIOpenEvent args)
-    {
-        UpdateCameraInterface(uid, component);
-
-        component.User = args.User;
-        EnsureComp<PhotoCameraUserComponent>(args.User);
     }
 
     private void OnCameraBoundUiClose(EntityUid uid, PhotoCameraComponent component, BoundUIClosedEvent args)
@@ -84,14 +79,6 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
             return;
 
         TryTakeImage(uid, component, message.Data);
-    }
-
-    private void UpdateCameraInterface(EntityUid uid, PhotoCameraComponent component, EntityUid? player = null)
-    {
-        bool hasPaper = _material.CanChangeMaterialAmount(uid, component.CardMaterial, -component.CardCost);
-
-        var state = new PhotoCameraUiState(GetNetEntity(uid), hasPaper);
-        _userInterface.SetUiState(uid, PhotoCameraUiKey.Key, state);
     }
 
     private void OnPaperInserted(EntityUid uid, PhotoCameraComponent component, MaterialAmountChangedEvent args)
@@ -149,6 +136,28 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         if (data.Length < 8) return false;
         return data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47 &&
                 data[4] == 0x0D && data[5] == 0x0A && data[6] == 0x1A && data[7] == 0x0A;
+    }
+
+    private void OnFilterInserted(EntityUid uid, PhotoCameraComponent component, EntInsertedIntoContainerMessage args)
+    {
+        if (!TryComp<PhotoCameraFilterComponent>(args.Entity, out var filter))
+            return;
+
+        if (args.Container.ID != component.FilterSlot)
+            return;
+
+        EntityManager.AddComponents(uid, filter.FilterComponents);
+    }
+
+    private void OnFilterRemoved(EntityUid uid, PhotoCameraComponent component, EntRemovedFromContainerMessage args)
+    {
+        if (!TryComp<PhotoCameraFilterComponent>(args.Entity, out var filter))
+            return;
+
+        if (args.Container.ID != component.FilterSlot)
+            return;
+
+        EntityManager.RemoveComponents(uid, filter.FilterComponents);
     }
 
     // Photo Card

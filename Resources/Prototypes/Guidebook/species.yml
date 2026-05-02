@@ -15,9 +15,7 @@
 #Corvax WhiteList
     - Akula
     - Android
-    - Cischi
     - Felinid
-    - Golem
     - Murine
     - CorvaxVulpkanin
 #Corvax WhiteList-End
@@ -74,19 +72,9 @@
   text: "/ServerInfo/Guidebook/_WL/Mobs/Android.xml"
 
 - type: guideEntry
-  id: Cischi
-  name: species-name-cischi
-  text: "/ServerInfo/Guidebook/_WL/Mobs/Cischi.xml"
-
-- type: guideEntry
   id: Felinid
   name: species-name-felinid
   text: "/ServerInfo/Guidebook/_WL/Mobs/Felinid.xml"
-
-- type: guideEntry
-  id: Golem
-  name: species-name-golem
-  text: "/ServerInfo/Guidebook/_WL/Mobs/Golem.xml"
 
 - type: guideEntry
   id: Murine

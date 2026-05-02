@@ -14,7 +14,6 @@ public sealed class CharacterInformationSystem : EntitySystem
 {
     [Dependency] private readonly ExamineSystem _examineSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferencesManager = default!;
 
     public override void Initialize()
     {
@@ -55,7 +54,7 @@ public sealed class CharacterInformationSystem : EntitySystem
             return;
 
         var charName = Identity.Name(targetUid, EntityManager);
-        var state = new CharacterInformationBuiState(GetNetEntity(targetUid), charName, charInfo.FlavorText, charInfo.OocText, charInfo.DynamicText);
+        var state = new CharacterInformationBuiState(GetNetEntity(targetUid), charName, charInfo.FlavorText, charInfo.OocText);
         _userInterfaceSystem.SetUiState(uid, CharacterInformationUiKey.Key, state);
     }
 }

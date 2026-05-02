@@ -5,3 +5,4 @@ ent-BaseSecretDoorAssembly = каркас потайной двери
     .desc = Он открывается, он закрывается и он может вас раздавить.
 ent-SolidSecretDoor = { ent-BaseSecretDoor }
     .desc = { ent-BaseSecretDoor.desc }
+    .suffix = { ent-BaseSecretDoor.suffix }

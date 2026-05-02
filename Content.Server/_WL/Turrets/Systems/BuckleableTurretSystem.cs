@@ -233,8 +233,7 @@ namespace Content.Server._WL.Turrets.Systems
                 if (!TryComp<BuckleableTurretComponent>(ent, out var comp))
                     continue;
 
-                if (!TryComp<TransformComponent>(ent, out var transformComp))
-                    continue;
+                var transformComp = Comp<TransformComponent>(ent);
 
                 if (!TryComp<DeviceNetworkComponent>(ent, out var deviceNetworkComp))
                     continue;

@@ -8,6 +8,7 @@ using Content.Server.StationEvents.Components;
 using Content.Shared._WL.Android;
 using Content.Shared._WL.Light.Events;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Body;
 using Content.Shared.DoAfter;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
@@ -49,6 +50,7 @@ namespace Content.Server._WL.Android
         [Dependency] private readonly ActionsSystem _actions = default!;
         [Dependency] private readonly ContainerSystem _container = default!;
         [Dependency] private readonly AppearanceSystem _appearance = default!;
+        [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
 
         [ViewVariables(VVAccess.ReadOnly)]
         private const float AndroidDoAfterChargeTime = 1f;
@@ -138,10 +140,21 @@ namespace Content.Server._WL.Android
 
             _pointLight.SetEnergy(lightEntity, _toggle.IsActivated(uid) ? component.LightBaseRadius : component.LightBaseRadius / 3f);
 
-            if (!TryComp<HumanoidAppearanceComponent>(uid, out var appearance))
+            if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
                 return;
 
-            if (!appearance.MarkingSet.TryGetCategory(MarkingCategories.Overlay, out var markings) || markings.Count == 0)
+            if (!_visualBody.TryGatherMarkingsData(uid,
+                [HumanoidVisualLayers.Overlay],
+                out _,
+                out _,
+                out var applied)
+                    || applied.Count == 0)
+                return;
+
+            if (!applied.TryGetValue("Torso", out var markingsSet))
+                return;
+
+            if (!markingsSet.TryGetValue(HumanoidVisualLayers.Overlay, out var markings))
                 return;
 
             Color ledColor = markings[0].MarkingColors[0].WithAlpha(255);

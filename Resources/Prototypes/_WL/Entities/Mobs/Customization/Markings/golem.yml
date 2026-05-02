@@ -1,8 +1,7 @@
 - type: marking
   id: GolemCurled
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: head_curled
@@ -10,8 +9,7 @@
 - type: marking
   id: GolemThorns
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: torso_thorns
@@ -19,8 +17,7 @@
 - type: marking
   id: GolemMetalBody
   bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: metal_torso
@@ -28,8 +25,7 @@
 - type: marking
   id: GolemModelHead1
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: model_crystal_head1
@@ -37,8 +33,7 @@
 - type: marking
   id: GolemModelHead3
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: model_crystal_head3
@@ -46,8 +41,7 @@
 - type: marking
   id: GolemModelHead4
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: model_crystal_head4
@@ -55,8 +49,7 @@
 - type: marking
   id: GolemModelHead5
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: model_crystal_head5
@@ -64,8 +57,7 @@
 - type: marking
   id: GolemAltRArm
   bodyPart: RArm
-  markingCategory: Arms
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: r_arm
@@ -73,8 +65,7 @@
 - type: marking
   id: GolemAltLArm
   bodyPart: LArm
-  markingCategory: Arms
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: l_arm
@@ -82,8 +73,7 @@
 - type: marking
   id: GolemAltRHand
   bodyPart: RHand
-  markingCategory: Arms
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: r_hand
@@ -91,8 +81,7 @@
 - type: marking
   id: GolemAltLHand
   bodyPart: LHand
-  markingCategory: Arms
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: l_hand
@@ -100,8 +89,7 @@
 - type: marking
   id: GolemAltRLeg
   bodyPart: RLeg
-  markingCategory: Legs
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: r_leg
@@ -109,8 +97,7 @@
 - type: marking
   id: GolemAltLLeg
   bodyPart: LLeg
-  markingCategory: Legs
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: l_leg
@@ -118,8 +105,7 @@
 - type: marking
   id: GolemAltRFoot
   bodyPart: RFoot
-  markingCategory: Legs
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: r_foot
@@ -127,8 +113,7 @@
 - type: marking
   id: GolemAltLFoot
   bodyPart: LFoot
-  markingCategory: Legs
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Customization/golem_parts.rsi
     state: l_foot
@@ -136,8 +121,7 @@
 - type: marking
   id: GolemBaseHead
   bodyPart: Head
-  markingCategory: HeadSide
-  speciesRestriction: [Golem]
+  groupWhitelist: [Golem]
   sprites:
   - sprite: _WL/Mobs/Species/Golem/parts.rsi
     state: head
@@ -145,8 +129,7 @@
 #- type: marking
 #  id: GolemMale
 #  bodyPart: Chest
-#  markingCategory: Chest
-#  speciesRestriction: [Golem]
+#  groupWhitelist: [Golem]
 #  sprites:
 #  - sprite: _WL/Mobs/Customization/golem_parts.rsi
 #    state: torso_male

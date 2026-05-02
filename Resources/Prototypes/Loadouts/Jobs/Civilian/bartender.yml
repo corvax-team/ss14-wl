@@ -30,16 +30,19 @@
   id: BartenderJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartender
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: BartenderJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtBartender
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: BartenderJumpsuitPurple
   equipment:
     jumpsuit: ClothingUniformJumpsuitBartenderPurple
+  groupBy: "WLJJ" # WL-change-add
 
 # Outer clothing
 - type: loadout

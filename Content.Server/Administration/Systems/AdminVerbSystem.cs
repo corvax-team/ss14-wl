@@ -472,7 +472,7 @@ namespace Content.Server.Administration.Systems
             }
 
             // Control mob verb
-            if (_toolshed.ActivePermissionController?.CheckInvokable(new CommandSpec(_toolshed.DefaultEnvironment.GetCommand("mind"), "control"), player, out _) ?? false &&
+            if ((_toolshed.ActivePermissionController?.CheckInvokable(new CommandSpec(_toolshed.DefaultEnvironment.GetCommand("mind"), "control"), player, out _) ?? false) &&
                 args.User != args.Target)
             {
                 Verb verb = new()
@@ -615,7 +615,7 @@ namespace Content.Server.Administration.Systems
 
             // Wl-height start
             // Change Height :)
-            if (_adminManager.IsAdmin(player) && EntityManager.HasComponent<HumanoidAppearanceComponent>(args.Target))
+            if (_adminManager.IsAdmin(player) && HasComp<HumanoidProfileComponent>(args.Target))
             {
                 Verb verb = new()
                 {
@@ -638,7 +638,7 @@ namespace Content.Server.Administration.Systems
             // Wl-height end
 
             // WL-Changes: Languages start
-            if (_adminManager.IsAdmin(player) && EntityManager.HasComponent<LanguagesComponent>(args.Target))
+            if (_adminManager.IsAdmin(player) && HasComp<LanguagesComponent>(args.Target))
             {
                 Verb verb = new()
                 {
@@ -662,7 +662,7 @@ namespace Content.Server.Administration.Systems
 
             // Wl-Skills-start
             // Skills Management Verb
-            if (_adminManager.HasAdminFlag(player, AdminFlags.Admin) && EntityManager.HasComponent<SkillsComponent>(args.Target))
+            if (_adminManager.HasAdminFlag(player, AdminFlags.Admin) && HasComp<SkillsComponent>(args.Target))
             {
                 args.Verbs.Add(new Verb
                 {

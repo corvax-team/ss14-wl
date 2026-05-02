@@ -3,11 +3,13 @@
   id: MusicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMusician
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: MusicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMusician
+  groupBy: "WLJJ" # WL-change-add
 
 # Outerclothing
 - type: loadout

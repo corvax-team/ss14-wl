@@ -1,9 +1,15 @@
+using Content.Client.Decals.Overlays;
+using Content.Client.Light;
+using Content.Client.Parallax;
 using Content.Shared._WL.Photo;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Sources;
+using Robust.Shared.Prototypes;
+using System.Linq;
 using System.Numerics;
 
 namespace Content.Client._WL.Photo.UI;
@@ -68,7 +74,7 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
 
         if (EntMan.TryGetComponent<PhotoCameraComponent>(_cameraEntity, out var component))
         {
-            _photoSystem.OpenCameraUi(component, this);
+            _photoSystem.OpenCameraUi(_cameraEntity, component, this);
             UpdateControl(component, 1);
         }
 
@@ -85,7 +91,7 @@ public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
         if (_cameraEntity != null)
         {
             if (EntMan.TryGetComponent<PhotoCameraComponent>(_cameraEntity, out var component))
-                _photoSystem.CloseCameraUi(component);
+                _photoSystem.CloseCameraUi(_cameraEntity, component);
 
             _cameraEntity = null;
         }

@@ -1,14 +1,19 @@
 # WL-Changes-start
 ent-SpawnPointPilot = офицер-пилот
     .desc = { ent-SpawnPointJobBase.desc }
+    .suffix = { ent-SpawnPointJobBase.suffix }
 ent-SpawnPointSurgeon = хирург
     .desc = { ent-SpawnPointJobBase.desc }
+    .suffix = { ent-SpawnPointJobBase.suffix }
 ent-SpawnPointSeniorEngineer = технический супервайзер
     .desc = { ent-SpawnPointJobBase.desc }
+    .suffix = { ent-SpawnPointJobBase.suffix }
 ent-SpawnPointSeniorPhysician = медицинский супервайзер
     .desc = { ent-SpawnPointJobBase.desc }
+    .suffix = { ent-SpawnPointJobBase.suffix }
 ent-SpawnPointSeniorResearcher = заведующий лабораторией
     .desc = { ent-SpawnPointJobBase.desc }
-# WL-Changes-end
+    .suffix = { ent-SpawnPointJobBase.suffix }
 ent-SpawnPointSeniorOfficer = инструктор СБ
     .desc = { ent-SpawnPointJobBase.desc }
+    .suffix = { ent-SpawnPointJobBase.suffix }

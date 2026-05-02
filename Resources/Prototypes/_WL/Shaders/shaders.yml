@@ -1,0 +1,14 @@
+- type: shader
+  id: CameraMonochrome
+  kind: source
+  path: "/Textures/_WL/Shaders/monochrome.swsl"
+
+- type: shader
+  id: CameraNightVision
+  kind: source
+  path: "/Textures/_WL/Shaders/night.swsl"
+
+- type: shader
+  id: CameraGhost
+  kind: source
+  path: "/Textures/_WL/Shaders/ghost.swsl"

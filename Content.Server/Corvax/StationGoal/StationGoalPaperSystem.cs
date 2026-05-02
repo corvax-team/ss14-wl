@@ -1,4 +1,5 @@
 using Content.Server.Fax;
+using Content.Server.MassMedia.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._WL.StationGoal;
 using Content.Shared.Fax.Components;
@@ -23,9 +24,8 @@ namespace Content.Server.Corvax.StationGoal
         [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly FaxSystem _fax = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly NewsSystem _news = default!;
         [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private static readonly Regex StationIdRegex = new(@".*\s(\w+-\w+)$"); //WL - Changes
 
@@ -74,7 +74,7 @@ namespace Content.Server.Corvax.StationGoal
         /// <returns>True if at least one fax received paper</returns>
         public bool SendStationGoal(StationGoalPrototype goal)
         {
-            var enumerator = EntityManager.EntityQueryEnumerator<FaxMachineComponent>();
+            var enumerator = EntityQueryEnumerator<FaxMachineComponent>();
             var wasSent = false;
             while (enumerator.MoveNext(out var uid, out var fax))
             {
@@ -128,7 +128,9 @@ namespace Content.Server.Corvax.StationGoal
 
             var amount = _random.Next(config.MinGoals, config.MaxGoals + 1);
             var pickedGoals = PickRandomGoalByWeight(allGoals, amount);
-            StationGoalPrototype goalsTotal = new StationGoalPrototype();
+
+            var goalsTotal = pickedGoals[0];
+            goalsTotal.Text = "";
 
             foreach (var goal in pickedGoals)
             {
@@ -212,6 +214,27 @@ namespace Content.Server.Corvax.StationGoal
             return content
                 .Replace("{ $station }", station)
                 .Replace("{ $date }", dateString);
+        }
+
+        /// <summary>
+        ///     Publishes a news article about the station goal in the mass media.
+        /// </summary>
+        private void PublishStationGoalNews(EntityUid ent, StationGoalPrototype goal)
+        {
+            var stationName = MetaData(ent).EntityName;
+
+            var title = Loc.GetString("station-goal-news-title", ("station", stationName));
+
+            var content = Loc.GetString(goal.Text, ("station", stationName));
+            var endPattern = Loc.GetString("station-goal-end");
+
+            if (content.EndsWith(endPattern))
+            {
+                content = content[..^endPattern.Length];
+                content = content.TrimEnd();
+            }
+
+            _news.TryAddNews(ent, title, content, out _, Loc.GetString("station-goal-news-author"));
         }
     }
 }

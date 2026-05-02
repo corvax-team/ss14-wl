@@ -1,4 +1,5 @@
-﻿using Content.Server.Inventory;
+using Content.Server.Inventory;
+using Content.Shared._CorvaxNext.Silicons.Borgs.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Radio.Components;
 using Content.Shared.Silicons.Borgs;
@@ -27,6 +28,23 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
 
         if (TryComp(ent, out ActiveRadioComponent? activeRadio))
             activeRadio.Channels = [.. radioChannels];
+
+        // WL-Changes-start
+        if (TryComp(ent, out AiRemoteControllerComponent? aiRemoteComp))
+        {
+            if (TryComp(aiRemoteComp.AiHolder, out IntrinsicRadioTransmitterComponent? stationAiTransmitter) && transmitter != null)
+            {
+                aiRemoteComp.PreviouslyTransmitterChannels = [.. radioChannels];
+                transmitter.Channels = [.. stationAiTransmitter.Channels];
+            }
+
+            if (TryComp(aiRemoteComp.AiHolder, out ActiveRadioComponent? stationAiActiveRadio) && activeRadio != null)
+            {
+                aiRemoteComp.PreviouslyActiveRadioChannels = [.. radioChannels];
+                activeRadio.Channels = [.. stationAiActiveRadio.Channels];
+            }
+        }
+        // WL-Changes-end
 
         // Borg transponder for the robotics console
         if (TryComp(ent, out BorgTransponderComponent? transponder))
@@ -80,3 +98,4 @@ public sealed class BorgSwitchableTypeSystem : SharedBorgSwitchableTypeSystem
         base.SelectBorgModule(ent, borgType);
     }
 }
+

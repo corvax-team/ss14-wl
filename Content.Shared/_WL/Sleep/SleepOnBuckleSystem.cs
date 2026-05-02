@@ -12,7 +12,7 @@ public sealed class SleepOnBuckleSystem : EntitySystem
     [Dependency] private readonly ActionContainerSystem _actConts = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
-    [Dependency] protected readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {

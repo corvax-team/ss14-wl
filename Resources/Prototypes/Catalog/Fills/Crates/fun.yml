@@ -443,8 +443,10 @@
       entity_storage: !type:AllSelector
         children:
         - id: MysteryFigureBox
-          amount: 10
-        - id: MysteryFigureBox
+          amount: 7
+        - id: MysteryFigureBoxWLSpec # WL-Changes
+          amount: 3
+        - id: MysteryFigureBoxWLSpec
           amount: 15
           prob: 0.05
 

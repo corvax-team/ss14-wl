@@ -24,13 +24,16 @@
   id: PathologistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitPathologist
+  groupBy: "WLJJ"
 
 - type: loadout
   id: NurseJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitNurse
+  groupBy: "WLJJ"
 
 - type: loadout
   id: NurseJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtNurse
+  groupBy: "WLJJ"

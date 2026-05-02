@@ -12,7 +12,6 @@ namespace Content.Client._WL.DiscordAuth
 {
     public sealed partial class PlayerSessionInfoWindow : DefaultWindow
     {
-        [Dependency] private readonly IPlayerManager _playMan = default!;
         [Dependency] private readonly IClipboardManager _clipboardMan = default!;
         private readonly ClientDiscordAuthSystem _discordAuth;
 

@@ -1,23 +1,35 @@
 - type: confederation
   id: ConfederationOfOrionStates
   name: records-confederation-of-orion-states
+  description: records-confederation-of-orion-states-desc
+  passportPrototype: OrionPassport
 
 - type: confederation
   id: SocialConfederation
   name: records-confederation-social
+  description: records-confederation-social-desc
+  passportPrototype: SocconPassport
 
 - type: confederation
   id: InterspeciesAlliance
   name: records-confederation-interspecies-alliance
+  description: records-confederation-interspecies-alliance-desc
+  passportPrototype: AlliancePassport
 
 - type: confederation
   id: HolyEmpireOfEden
   name: records-confederation-holy-empire-of-edem
+  description: records-confederation-holy-empire-of-edem-desc
+  passportPrototype: EdemPassport
 
 - type: confederation
   id: Metafront
   name: records-confederation-metafront
+  description: records-confederation-metafront-desc
+  passportPrototype: MetafrontPassport
 
 - type: confederation
   id: NoConfederation
   name: records-confederation-no
+  description: records-confederation-no-desc
+  passportPrototype: OtherPassport

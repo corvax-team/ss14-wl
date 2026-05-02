@@ -10,14 +10,14 @@
   boilingPoint: 212.0  # Dexosyephedrine vape when?
   meltingPoint: 170.0
   metabolisms:
-    Poison:
+    Bloodstream:
       # Main effects
       effects:
       - !type:HealthChange
         damage:
           types:
             Poison: 0.55
-            Blunt: 0.5
+            Blunt: 1.1 # meant to be slightly more than tricordrazine heals
       # OD
       - !type:HealthChange
         conditions:
@@ -33,8 +33,7 @@
           types:
             Poison: 3 # this is added to the base damage of the meth.
             Asphyxiation: 2
-    Narcotic:
-      effects:
+
       # Main effects
       - !type:MovementSpeedModifier
         walkSpeedModifier: 1.20
@@ -134,8 +133,7 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
-    Medicine:
-      effects:
+
       # Side effects
       - !type:ResetNarcolepsy
         conditions:
@@ -159,7 +157,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       # Main effects
       - !type:MovementSpeedModifier
@@ -190,13 +188,6 @@
         effectProto: StatusEffectStunned
         time: 1
         type: Remove
-# WL species start
-        # Golem
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem, Biorobotic ]
-          inverted: true
-# WL species end
       - !type:ModifyKnockdown
         time: 1
         type: Remove
@@ -249,8 +240,6 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
-    Medicine:
-      effects:
       # Side effects
       - !type:ResetNarcolepsy
         conditions:
@@ -275,17 +264,10 @@
   boilingPoint: 212.0
   meltingPoint: 170.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       # Main effects
       - !type:MovementSpeedModifier
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
       - !type:HealthChange
@@ -293,12 +275,6 @@
         - !type:ReagentCondition
           reagent: Stimulants
           min: 80 #please wait 3 minutes before using another stimpack
-# WL species start
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
         damage:
           types:
             Poison: 1
@@ -312,12 +288,6 @@
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStimulantsStamina # You are on meth. You keep going.
         time: 3
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
 # WL species end
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
@@ -341,10 +311,10 @@
         conditions:
         - !type:ReagentCondition
           reagent: Stimulants
-          min: 50
+          min: 45
         damage:
           types:
-            Poison: 1
+            Poison: 3
       # Interactions
       - !type:ModifyStatusEffect
         conditions:
@@ -361,15 +331,13 @@
           min: 1
         reagent: ChloralHydrate
         amount: -10
-    Medicine:
-      effects:
       # Main effects
       - !type:ModifyBleed
         amount: -1.5
       - !type:EvenHealthChange
         conditions:
-        - !type:TotalDamageCondition
-          min: 70 # only heals when you're more dead than alive
+        - !type:MobStateCondition
+          mobstate: Critical
 # WL species start
         - !type:MetabolizerTypeCondition
           type: [ Golem, Biorobotic ]
@@ -380,8 +348,8 @@
           Brute: -0.5
       - !type:HealthChange
         conditions:
-        - !type:TotalDamageCondition
-          min: 95 # Just to bring you back from the brink of death
+        - !type:MobStateCondition
+          mobstate: Critical
 # WL species start
         - !type:MetabolizerTypeCondition
           type: [ Golem, Biorobotic ]
@@ -412,19 +380,12 @@
   - !type:PlantAdjustHealth
     amount: -1
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
 
 - type: reagent
   id: Nicotine
@@ -437,15 +398,6 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
-  metabolisms:
-    Cischi:
-      effects:
-      - !type:HealthChange
-        damage:
-          groups:
-            Toxin: -0.25
-            Brute: -0.25
-            Burn: -0.25
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
@@ -458,68 +410,23 @@
   flavor: bitter
   color: "#215263"
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
       - !type:HealthChange
         damage:
           types:
             Poison: 2
-# WL species start
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Cischi, Golem ]
-          inverted: true
-# WL species end
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         time: 10
         type: Add
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
       - !type:Vomit # Vomiting is a symptom of brain damage
         probability: 0.05
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         boozePower: 20 #5 # WL-Changes
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
-    Cischi:
-       effects:
-       - !type:AdjustTemperature
-         amount: -1
-       - !type:MovementSpeedModifier
-         walkSpeedModifier: 0.5
-         sprintSpeedModifier: 0.5
-       - !type:GenericStatusEffect
-         key: ForcedSleep
-         component: ForcedSleeping
-         type: Add
 
 - type: reagent
   id: SpaceDrugs
@@ -530,19 +437,12 @@
   flavor: bitter
   color: "#63806e"
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
 
 - type: reagent
   id: Bananadine
@@ -553,19 +453,12 @@
   flavor: bitter
   color: "#ffff00"
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-# WL species start
-        conditions:
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-# WL species end
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
 - type: reagent
@@ -579,7 +472,7 @@
   boilingPoint: 444.0
   meltingPoint: 128.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects: # It would be nice to have speech slurred or mumbly, but accents are a bit iffy atm. Same for distortion effects.
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
@@ -595,7 +488,7 @@
           inverted: true
 # WL species end
         effectProto: StatusEffectForcedSleeping
-        time: 6
+        time: 9
         delay: 5
 
 - type: reagent
@@ -609,7 +502,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:GenericStatusEffect
         key: Muted
@@ -635,7 +528,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:PopupMessage
         type: Local
@@ -694,7 +587,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:PopupMessage
 # WL species start
@@ -781,7 +674,7 @@
   flavor: paintthinner
   color: "#EE35FF"
   metabolisms:
-    Narcotic:
+    Bloodstream:
       effects:
       - !type:Emote
         emote: Laugh

@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Server.Corvax.StationGoal
 {
-    [Serializable, Prototype("stationGoal")]
+    [Prototype]
     public sealed partial class StationGoalPrototype : IPrototype
     {
         [IdDataFieldAttribute]

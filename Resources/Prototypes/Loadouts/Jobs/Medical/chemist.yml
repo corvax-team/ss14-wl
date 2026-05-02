@@ -3,11 +3,13 @@
   id: ChemistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitChemistry
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: ChemistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtChemistry
+  groupBy: "WLJJ" # WL-change-add
 
 # Back
 - type: loadout

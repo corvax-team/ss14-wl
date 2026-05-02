@@ -3,8 +3,10 @@
   id: PsychologistJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitPsychologist
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: PsychologistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtPsychologist
+  groupBy: "WLJJ" # WL-change-add

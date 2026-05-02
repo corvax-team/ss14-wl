@@ -1,0 +1,17 @@
+uniform sampler2D SCREEN_TEXTURE;
+
+const highp float ColorFactor = 1.0;
+
+const highp float MixFactor = 0.9;
+const highp vec3 MixColor = vec3(0.7, 0.4, 0.1);
+
+//Monochrome effect
+void fragment() 
+{
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, UV);
+    highp vec4 bw = vec4(vec3(zGrayscale(color.rgb) * ColorFactor + color.rgb * (1 - ColorFactor)), color.a);
+
+    bw.rgb = bw.rgb * MixFactor + MixColor.rgb * (1 - MixFactor);
+
+    COLOR = bw;
+}

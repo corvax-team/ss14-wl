@@ -34615,7 +34615,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 492
           - 549
           - 493
     - type: Fixtures
@@ -82683,30 +82682,6 @@ entities:
       fixtures: {}
 - proto: ShelfMetal
   entities:
-  - uid: 4573
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 64.5,20.5
-      parent: 2
-    - type: Storage
-      storedItems:
-        11227:
-          position: 0,0
-          _rotation: South
-        12903:
-          position: 1,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 11227
-          - 12903
-    - type: Fixtures
-      fixtures: {}
   - uid: 4999
     components:
     - type: Transform
@@ -82763,9 +82738,6 @@ entities:
       parent: 2
     - type: Storage
       storedItems:
-        5498:
-          position: 0,0
-          _rotation: South
         3031:
           position: 1,0
           _rotation: South
@@ -82778,7 +82750,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 5498
           - 3031
           - 3017
     - type: Fixtures
@@ -82829,7 +82800,6 @@ entities:
           ents:
           - 11179
           - 11178
-          - 11225
     - type: Storage
       storedItems:
         11178:
@@ -82838,9 +82808,6 @@ entities:
         11179:
           position: 1,0
           _rotation: South
-        11225:
-          position: 2,0
-          _rotation: East
     - type: Fixtures
       fixtures: {}
   - uid: 11008
@@ -82896,13 +82863,7 @@ entities:
         storagebase: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - 11226
     - type: Storage
-      storedItems:
-        11226:
-          position: 0,0
-          _rotation: East
     - type: Fixtures
       fixtures: {}
   - uid: 11157
@@ -83318,7 +83279,6 @@ entities:
           - 13435
           - 13436
           - 13431
-          - 13437
     - type: Storage
       storedItems:
         13431:
@@ -83339,9 +83299,6 @@ entities:
         13436:
           position: 1,3
           _rotation: South
-        13437:
-          position: 2,3
-          _rotation: East
     - type: Fixtures
       fixtures: {}
 - proto: ShellShotgunImprovised
@@ -91643,22 +91600,6 @@ entities:
       parent: 2
     - type: Physics
       canCollide: False
-- proto: TowelColorGray
-  entities:
-  - uid: 11226
-    components:
-    - type: Transform
-      parent: 11156
-    - type: Physics
-      canCollide: False
-- proto: TowelColorGreen
-  entities:
-  - uid: 11225
-    components:
-    - type: Transform
-      parent: 10237
-    - type: Physics
-      canCollide: False
 - proto: TowelColorLightBlue
   entities:
   - uid: 10630
@@ -91726,19 +91667,6 @@ entities:
       parent: 11154
     - type: Physics
       canCollide: False
-- proto: TowelColorOrange
-  entities:
-  - uid: 5498
-    components:
-    - type: Transform
-      parent: 5497
-    - type: Physics
-      canCollide: False
-  - uid: 14179
-    components:
-    - type: Transform
-      pos: 56.49813,25.82444
-      parent: 2
 - proto: TowelColorPink
   entities:
   - uid: 13597
@@ -91768,21 +91696,6 @@ entities:
     - type: Transform
       pos: 33.484703,41.860157
       parent: 2
-- proto: TowelColorSilver
-  entities:
-  - uid: 492
-    components:
-    - type: Transform
-      parent: 3590
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 13437
-    components:
-    - type: Transform
-      parent: 11153
-    - type: Physics
-      canCollide: False
 - proto: TowelColorSyndicate
   entities:
   - uid: 13605
@@ -91791,28 +91704,12 @@ entities:
       parent: 4929
     - type: Physics
       canCollide: False
-- proto: TowelColorTeal
-  entities:
-  - uid: 11227
-    components:
-    - type: Transform
-      parent: 4573
-    - type: Physics
-      canCollide: False
 - proto: TowelColorWhite
   entities:
   - uid: 10440
     components:
     - type: Transform
       parent: 10051
-    - type: Physics
-      canCollide: False
-- proto: TowelColorYellow
-  entities:
-  - uid: 12903
-    components:
-    - type: Transform
-      parent: 4573
     - type: Physics
       canCollide: False
 - proto: ToyAi

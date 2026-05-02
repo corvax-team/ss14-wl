@@ -2,6 +2,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -154,8 +155,8 @@ public sealed class ExecutionSystem : EntitySystem
         var prev = _combatSystem.IsInCombatMode(attacker);
         _combatSystem.SetInCombatMode(attacker, true);
         component.Executing = true;
-        string? internalMsg = null;
-        string? externalMsg = null;
+        //string? internalMsg = null;
+        //string? externalMsg = null;
 
         if (TryComp(uid, out MeleeWeaponComponent? melee))
         {
@@ -175,13 +176,13 @@ public sealed class ExecutionSystem : EntitySystem
             if (damageSpecifier == null)
             {
                 // if can't take damage, use fallback
-                damageSpecifier = new DamageSpecifier()
+                string damageTypeString = "Heat";
+                if(_prototypeManager.TryIndex<DamageTypePrototype>(damageTypeString, out var damageType))
                 {
-                    DamageDict = new Dictionary<string, FixedPoint.FixedPoint2>()
-                    {
-                        { "Heat", component.DamageModifier * 10f }
-                    }
-                };
+                    damageSpecifier = new DamageSpecifier(damageType, component.DamageModifier * 10f);
+                }
+                else
+                    return;
             }
             else
             {

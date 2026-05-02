@@ -68,8 +68,9 @@
     - DawInstrumentMachineCircuitboard
     - MassMediaCircuitboard
     - JukeboxCircuitBoard
-    - PhotoCameraRecipe #WL-Changes-Photo
     # WL-Changes-start
+    - PhotoCameraRecipe
+    - PhotoFilterPackFill
     - BassGuitarInstrumentRecipe
     - ElectricGuitarInstrumentRecipe
     - MicrophoneInstrumentRecipe
@@ -109,6 +110,7 @@
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+  - FauxTileAstroAsteroidSandBorderless
   - FauxTileDesertAstroSand
   - FauxTileAstroIronsand
   - FauxTileAstroIronsandBorderless

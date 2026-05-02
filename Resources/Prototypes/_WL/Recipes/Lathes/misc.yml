@@ -8,6 +8,16 @@
     Gold: 50
 
 - type: latheRecipe
+  id: PhotoFilterPackFill
+  result: PhotoFilterPackFill
+  completetime: 5
+  materials:
+    Steel: 100
+    Glass: 200
+    Plastic: 200
+    Gold: 50
+
+- type: latheRecipe
   id: BassGuitarInstrumentRecipe
   result: BassGuitarInstrument
   completetime: 4

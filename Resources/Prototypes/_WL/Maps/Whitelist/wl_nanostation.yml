@@ -4,7 +4,7 @@
   mapName: 'НаноСтейшн'
   mapPath: /Maps/_WL/wl_nanostation.yml
   minPlayers: 0
-  maxPlayers: 25
+  maxPlayers: 13
   stations:
     CorvaxNanoStation:
       stationProto: StandardNanotrasenStation

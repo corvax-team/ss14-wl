@@ -6,12 +6,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 20h # Corvax-RoleTime
+      time: 6h # Corvax-RoleTime
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 20h # Corvax-RoleTime
+      time: 6h # Corvax-RoleTime
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
@@ -42,9 +42,9 @@
 - type: loadout
   id: SeniorEngineerBeret
   startingGear: EngineeringBeret
-  # effects: Corvax-MentorRoles
-  # - !type:GroupLoadoutEffect
-  #   proto: SeniorEngineering
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
 
 #WL Workers Lyvsi engi resprite start
 - type: loadout
@@ -58,32 +58,37 @@
   id: StationEngineerJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineering
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: StationEngineerJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtEngineering
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: StationEngineerHazardsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitEngineeringHazard
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SeniorEngineerJumpsuit
-  # effects: Corvax-MentorRoles
-  # - !type:GroupLoadoutEffect
-  #   proto: SeniorEngineering
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorEngineer
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: SeniorEngineerJumpskirt
-  # effects: Corvax-MentorRoles
-  # - !type:GroupLoadoutEffect
-  #   proto: SeniorEngineering
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
+  groupBy: "WLJJ" # WL-change-add
 
 # Back
 - type: loadout
@@ -131,8 +136,8 @@
 
 - type: loadout
   id: SeniorEngineerPDA
-  # effects: Corvax-MentorRoles
-  # - !type:GroupLoadoutEffect
-  #   proto: SeniorEngineering
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorEngineering
   equipment:
     id: SeniorEngineerPDA

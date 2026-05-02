@@ -29,11 +29,13 @@
   id: CargoTechnicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitCargo
+  groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: CargoTechnicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtCargo
+  groupBy: "WLJJ" # WL-change-add
 
 # Back
 - type: loadout
