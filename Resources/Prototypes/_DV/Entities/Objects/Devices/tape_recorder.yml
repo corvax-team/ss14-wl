@@ -20,6 +20,23 @@
     size: Small
   - type: TapeRecorder
   - type: Languages # WL-Languages
+    # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/taperecorder_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/taperecorder_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_WL/Items/taperecorder_drop.ogg
+      params:
+        volume: -4
+    # WL-Sounds-End
   - type: ActiveListener
     range: 4
   - type: UseDelay
@@ -92,6 +109,23 @@
       - Write
   - type: FitsInTapeRecorder
   - type: Appearance
+    # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/tape_pickup.ogg
+      params:
+        volume: -6
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/tape_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_WL/Items/tape_drop.ogg
+      params:
+        volume: -4
+    # WL-Sounds-End
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
