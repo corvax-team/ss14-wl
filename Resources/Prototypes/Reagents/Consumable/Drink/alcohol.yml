@@ -274,7 +274,7 @@
           inverted: true
 # WL android species end
       - !type:Drunk
-        boozePower: 20 #2 # WL-Changes
+        boozePower: 5 #2 # WL-Changes
 # WL android species start
         conditions:
 # WL-Changes-start
