@@ -19,6 +19,7 @@
   - type: Item
     size: Small
   - type: TapeRecorder
+  - type: Languages # WL-Languages
   - type: ActiveListener
     range: 4
   - type: UseDelay

@@ -5,6 +5,7 @@ using Content.Server.Speech.Components;
 using Content.Shared._Goobstation.TapeRecorder;
 using Content.Shared._Goobstation.TapeRecorder.Components;
 using Content.Shared._Goobstation.TapeRecorder.Systems;
+using Content.Shared._WL.Languages.Components;
 using Content.Shared.Chat;
 using Content.Shared.Paper;
 using Content.Shared.Speech;
@@ -46,6 +47,17 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             // TODO: mimic the exact string chosen when the message was recorded
             var verb = message.Verb ?? SharedChatSystem.DefaultSpeechVerb;
             speech.SpeechVerb = _proto.Index<SpeechVerbPrototype>(verb);
+
+            // WL-Changes-Start
+            if (TryComp<LanguagesComponent>(ent, out var languageComp))
+            {
+                // I already know that's a bad way to do it
+                languageComp.CurrentLanguage = message.Language != "Translate"
+                    ? message.Language
+                    : "Translate";
+            }
+            // WL-Changes-end
+
             //Play the message
             _chat.TrySendInGameICMessage(ent, message.Message, InGameICChatType.Speak, false);
         }
@@ -76,7 +88,18 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         //Add a new entry to the tape
         var verb = _chat.GetSpeechVerb(args.Source, args.Message);
         var name = nameEv.VoiceName;
-        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message));
+
+        // WL-Changes-Start
+        var language = "Translate";
+
+        if (TryComp<LanguagesComponent>(args.Source, out var languagesSpeaker))
+        {
+            language = languagesSpeaker.CurrentLanguage;
+        }
+        // WL-Changes-end
+
+        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message, language!)); // WL-Languages: added Language support
+
     }
 
     private void OnPrintMessage(Entity<TapeRecorderComponent> ent, ref PrintTapeRecorderMessage args)

@@ -33,12 +33,18 @@ public sealed partial class TapeCassetteRecordedMessage : IComparable<TapeCasset
     [DataField]
     public string Message = string.Empty;
 
-    public TapeCassetteRecordedMessage(float timestamp, string name, ProtoId<SpeechVerbPrototype> verb, string message)
+    // WL-Languages-start
+    [DataField]
+    public string Language = "Translate";
+    // WL-Languages-end
+
+    public TapeCassetteRecordedMessage(float timestamp, string name, ProtoId<SpeechVerbPrototype> verb, string message, string language) // WL-Languages: added Language support
     {
         Timestamp = timestamp;
         Name = name;
         Verb = verb;
         Message = message;
+        Language = language; // WL-Languages: added Language support
     }
 
     public int CompareTo(TapeCassetteRecordedMessage? other)
