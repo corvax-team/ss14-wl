@@ -40,8 +40,6 @@ public sealed partial class SuckableFoodSystem : EntitySystem
     private const float UpdatePeriod = 2f; // in seconds
     private float _updateTimer = 0f;
 
-    private static readonly LocId PutInMouthLoc = "food-sweets-put-in-mouth-popup-message";
-
     public override void Initialize()
     {
         base.Initialize();
@@ -150,7 +148,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
         if (string.IsNullOrEmpty(flavor))
             return;
 
-        var msg = Loc.GetString(PutInMouthLoc, ("flavor", flavor), ("entity", Identity.Name(food, EntityManager, ev.EquipTarget)));
+        var msg = Loc.GetString(comp.PutInMouthLoc, ("flavor", flavor), ("entity", Identity.Name(food, EntityManager, ev.EquipTarget)));
 
         _popup.PopupEntity(msg, ev.EquipTarget, Filter.Entities(ev.EquipTarget), false);
     }
