@@ -1,10 +1,12 @@
 - type: entity
-  parent: [BaseFoldable, BaseItem]
+  parent: BaseItem
   id: BasePassport
   name: passport
   description: Papers, please!
   abstract: true
   components:
+  - type: Passport
+    isClosed: true
   - type: Appearance
   - type: Flammable
     fireSpread: true
@@ -30,11 +32,6 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Foldable
-    folded: true
-    canFoldInsideContainer: true
-    unfoldVerbText: open-verb
-    foldVerbText: close-verb
   - type: Item
     size: Small
     inhandVisuals:
@@ -44,12 +41,17 @@
       - state: inhand-right
     storedRotation: 0
   - type: Sprite
+    scale: 0.8, 0.8
     layers:
-    - state: icon-opened
-      map: [ "unfoldedLayer" ]
-    - state: icon
-      map: ["foldedLayer"]
-      visible: false
+    - state: icon_closed
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - WhitelistChameleonPassports
 
 - type: entity
   parent: BasePassport
@@ -100,16 +102,123 @@
     sprite: _WL/Objects/Misc/Passports/metafront.rsi
 
 - type: entity
-  parent: [BasePassport, BasePowerCell]
+  parent: BasePassport
   id: MetafrontCellPassport
   name: metafront passport
   suffix: Battery
   components:
   - type: Sprite
     sprite: _WL/Objects/Misc/Passports/metafront_usb.rsi
+    scale: 0.8, 0.8
+    layers:
+    - state: icon_closed
+  - type: PowerCell
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 200
+    intensitySlope: 1.5
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Zinc
+          Quantity: 5
+  - type: Riggable
+  - type: Appearance
+  - type: BatteryVisuals
   - type: Battery
+    pricePerJoule: 0.15
     maxCharge: 360
     startingCharge: 360
   - type: Tag
     tags:
-      - PowerCellSmall
+    - PowerCellSmall
+    - WhitelistChameleon
+    - WhitelistChameleonPassports
+
+- type: entity
+  parent: BasePassport
+  id: SuspicionPassport
+  name: suspicion passport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/chameleon.rsi
+
+- type: entity
+  parent: [SuspicionPassport, BaseChameleon]
+  id: ChameleonPassport
+  name: suspicion passport
+  suffix: Chameleon
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/chameleon.rsi
+  - type: Tag
+    tags: [ ]
+  - type: ChameleonClothing
+    slot: [Belt]
+    default: SuspicionPassport
+    requireTag: WhitelistChameleonPassports
+  - type: ChameleonPassport
+  - type: ActivatableUI
+    key: enum.ChameleonPassportUiKey.Key
+    verbText: agent-id-open-ui-verb
+    verbOnly: true
+  - type: UIRequiresLock
+    userInterfaceKeys:
+      - enum.ChameleonUiKey.Key
+      - enum.ChameleonPassportUiKey.Key
+    accessDeniedSound: null
+    popup: null
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonPassportUiKey.Key:
+        type: ChameleonPassportBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: BasePassport
+  id: SyndicatePassport
+  name: syndicate passport
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/syndicate.rsi
+
+- type: entity
+  parent: [SyndicatePassport, BaseChameleon]
+  id: SyndicateChameleonPassport
+  name: syndicate passport
+  suffix: Chameleon
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Passports/syndicate.rsi
+  - type: Tag
+    tags: [ ]
+  - type: ChameleonClothing
+    slot: [Belt]
+    default: SyndicatePassport
+    requireTag: WhitelistChameleonPassports
+  - type: ChameleonPassport
+  - type: ActivatableUI
+    key: enum.ChameleonPassportUiKey.Key
+    verbText: agent-id-open-ui-verb
+    verbOnly: true
+  - type: UIRequiresLock
+    userInterfaceKeys:
+      - enum.ChameleonUiKey.Key
+      - enum.ChameleonPassportUiKey.Key
+    accessDeniedSound: null
+    popup: null
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonPassportUiKey.Key:
+        type: ChameleonPassportBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface

@@ -839,6 +839,7 @@
 - type: reagent
   id: AtomicBomb
   name: reagent-name-atomic-bomb
+  parent: BaseAlcohol
   desc: reagent-desc-atomic-bomb
   physicalDesc: reagent-physical-desc-cloudy
   flavor: atomicbomb
@@ -919,6 +920,7 @@
 - type: reagent
   id: BahamaMama
   name: reagent-name-bahama-mama
+  parent: BaseAlcohol
   desc: reagent-desc-bahama-mama
   physicalDesc: reagent-physical-desc-tropical
   flavor: bahamamama
@@ -1365,6 +1367,7 @@
 - type: reagent
   id: Eggnog
   name: reagent-name-eggnog
+  parent: BaseAlcohol
   desc: reagent-desc-eggnog
   physicalDesc: reagent-physical-desc-creamy
   flavor: eggnog
@@ -1450,6 +1453,7 @@
 - type: reagent
   id: GinFizz
   name: reagent-name-gin-fizz
+  parent: BaseAlcohol
   desc: reagent-desc-gin-fizz
   physicalDesc: reagent-physical-desc-fizzy
   flavor: ginfizz
@@ -1569,6 +1573,7 @@
 - type: reagent
   id: Grog
   name: reagent-name-grog
+  parent: BaseAlcohol
   desc: reagent-desc-grog
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: grog
@@ -1663,6 +1668,7 @@
 - type: reagent
   id: IrishCream
   name: reagent-name-irish-cream
+  parent: BaseAlcohol
   desc: reagent-desc-irish-cream
   physicalDesc: reagent-physical-desc-creamy
   flavor: creamy
@@ -1702,6 +1708,7 @@
 - type: reagent
   id: IrishCoffee
   name: reagent-name-irish-coffee
+  parent: BaseAlcohol
   desc: reagent-desc-irish-coffee
   physicalDesc: reagent-physical-desc-cloudy
   flavor: irishcoffee
@@ -1741,6 +1748,7 @@
 - type: reagent
   id: JackRose
   name: reagent-name-jack-rose
+  parent: BaseAlcohol
   desc: reagent-desc-jack-rose
   physicalDesc: reagent-physical-desc-tart
   flavor: jackrose
@@ -1926,6 +1934,7 @@
 - type: reagent
   id: Mead
   name: reagent-name-mead
+  parent: BaseAlcohol
   desc: reagent-desc-mead
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: mead
@@ -2012,6 +2021,7 @@
 - type: reagent
   id: Neurotoxin
   name: reagent-name-neurotoxin
+  parent: BaseAlcohol
   desc: reagent-desc-neurotoxin
   physicalDesc: reagent-physical-desc-pungent
   flavor: neurotoxin
@@ -2116,6 +2126,7 @@
 - type: reagent
   id: RedMead
   name: reagent-name-red-mead
+  parent: BaseAlcohol
   desc: reagent-desc-red-mead
   physicalDesc: reagent-physical-desc-ferrous
   flavor: redmead
@@ -2223,6 +2234,7 @@
 - type: reagent
   id: CogChamp
   name: reagent-name-cogchamp
+  parent: BaseAlcohol
   desc: reagent-desc-cogchamp
   physicalDesc: reagent-physical-desc-ground-brass
   flavor: cogchamp
