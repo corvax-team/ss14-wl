@@ -19,6 +19,7 @@ tape-recorder-menu-recording-button = Record
 tape-recorder-menu-playing-button = Playback
 tape-recorder-menu-rewinding-button = Rewind
 tape-recorder-menu-print-button = Print record transcript
+tape-recorder-menu-cassette-unnamed = Unnamed
 tape-recorder-menu-cassette-label = Cassette tape: {$cassetteName}
 tape-recorder-menu-no-cassette-label = Cassette tape is not inserted
 

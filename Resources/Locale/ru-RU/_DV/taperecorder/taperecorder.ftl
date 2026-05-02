@@ -17,6 +17,7 @@ tape-recorder-menu-stopped-button = Пауза
 tape-recorder-menu-recording-button = Запись
 tape-recorder-menu-playing-button = Воспроизведение
 tape-recorder-menu-rewinding-button = Перемотка
+tape-recorder-menu-cassette-unnamed = Без названия
 tape-recorder-menu-print-button = Распечатать расшифровку
 tape-recorder-menu-cassette-label = Кассета: { $cassetteName }
 tape-recorder-menu-no-cassette-label = Кассета не вставлена
