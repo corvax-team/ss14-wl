@@ -69,6 +69,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Maintenance",
         "Medical",
         "Quartermaster",
+        "Reporter", // WL-Reporter-Changes
         "Research",
         "ResearchDirector",
         "Salvage",

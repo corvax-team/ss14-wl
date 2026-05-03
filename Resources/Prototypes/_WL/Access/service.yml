@@ -1,0 +1,3 @@
+- type: accessLevel
+  id: Reporter
+  name: id-card-access-level-reporter
