@@ -61768,15 +61768,11 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 10931
           - 10930
     - type: Storage
       storedItems:
         10930:
           position: 0,0
-          _rotation: East
-        10931:
-          position: 2,0
           _rotation: East
     - type: Fixtures
       fixtures: {}
@@ -69292,14 +69288,6 @@ entities:
     - type: Transform
       pos: 16.579815,16.516853
       parent: 1
-- proto: TowelColorPurple
-  entities:
-  - uid: 10931
-    components:
-    - type: Transform
-      parent: 10929
-    - type: Physics
-      canCollide: False
 - proto: TowelColorRed
   entities:
   - uid: 3576

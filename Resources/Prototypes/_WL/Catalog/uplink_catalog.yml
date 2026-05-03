@@ -84,3 +84,14 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+# Passport
+- type: listing
+  id: UplinkSyndicateChameleonPassport
+  name: uplink-chameleon-passport-name
+  description: uplink-chameleon-passport-desc
+  productEntity: SyndicateChameleonPassport
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDeception
