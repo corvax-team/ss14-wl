@@ -4,11 +4,11 @@
 # {{StationGoalRandomValuePrototypeId}} -- в двойных фигурных скобках указывается ID прототипа WeightedRandom без пробелов.
 
 # Наука
-- type: stationGoal
-  id: StationGoalIILevelScience
-  department: [ Science ]
-  text: |
-      - Полное изучение второго уровня дисциплины {{StationGoalRandomDiscipline}}.
+# - type: stationGoal
+#   id: StationGoalIILevelScience
+#   department: [ Science ]
+#   text: |
+#       - Полное изучение второго уровня дисциплины {{StationGoalRandomDiscipline}}.
 
 - type: stationGoal
   id: StationGoalHONKMech
@@ -59,11 +59,11 @@
   text: |
       - Проведение экспериментов с химическими гранатами и документирование каждого эксперимента.
 
-- type: stationGoal
-  id: StationGoalTechnolgyDiscs
-  department: [ Science ]
-  text: |
-      - Отправка технологических дисков на автоматическую торговую станцию в количестве {{StationGoalRandomIntegerBetweenFiveteenAndThirdteen}} штук.
+# - type: stationGoal
+#   id: StationGoalTechnolgyDiscs
+#   department: [ Science ]
+#   text: |
+#       - Отправка технологических дисков на автоматическую торговую станцию в количестве {{StationGoalRandomIntegerBetweenFiveteenAndThirdteen}} штук.
 
 # Медицина
 - type: stationGoal
@@ -139,11 +139,11 @@
   text: |
       - Документирование психического состояния экипажа под конец смены.
 
-- type: stationGoal
-  id: StationGoalRandomSynthsesisReagent
-  department: [ Medical ]
-  text: |
-      - Синтез полного кувшина {{StationGoalRandomReagent}}.
+# - type: stationGoal
+#   id: StationGoalRandomSynthsesisReagent
+#   department: [ Medical ]
+#   text: |
+#       - Синтез полного кувшина {{StationGoalRandomReagent}}.
 
 - type: stationGoal
   id: StationGoalCorpsesDocumentation
@@ -157,11 +157,11 @@
 #   text: |
 #       - Документирование всех медицинских карт персонала.
 # WL-Changes: Cards goal remove end
-- type: stationGoal
-  id: StationGoalTwoMedicalKits
-  department: [ Medical ]
-  text: |
-      - Пополнение медицинского склада двумя наборами против {{StationGoalRandomMedicalKitsPair}}, содержащих продвинутые версии базовых лекарств.
+# - type: stationGoal
+#   id: StationGoalTwoMedicalKits
+#   department: [ Medical ]
+#   text: |
+#       - Пополнение медицинского склада двумя наборами против {{StationGoalRandomMedicalKitsPair}}, содержащих продвинутые версии базовых лекарств.
 
 # Инженерия
 - type: stationGoal
@@ -190,9 +190,9 @@
 
 - type: stationGoal
   id: StationGoalFrezonSynthesis
-  department: [ Engineering]
+  department: [ Engineering ]
   text: |
-      - Синтез канистры чистого фрезона и доставка этой канистры на {{StationGoalRandomFrezonDestination}}.
+      - Синтез канистры чистого фрезона и доставка этой канистры на автоматическую торговую станцию.
 
 - type: stationGoal
   id: StationGoalTeslaGenerator
@@ -221,11 +221,11 @@
   text: |
       - Сбор статистики, а именно документирование содержимого трёх купленных лотерейных ящиков.
 
-- type: stationGoal
-  id: StationGoalFillCrateWithRandomOre
-  department: [ Cargo ]
-  text: |
-      - Заполнение рудного ящика {{StationGoalRandomOre}}. Учтите, что ящик надо оставить на хранение на складе отдела снабжения.
+# - type: stationGoal
+#   id: StationGoalFillCrateWithRandomOre
+#   department: [ Cargo ]
+#   text: |
+#       - Заполнение рудного ящика {{StationGoalRandomOre}}. Учтите, что ящик надо оставить на хранение на складе отдела снабжения.
 
 - type: stationGoal
   id: StationGoalTwoExpeditions
@@ -245,11 +245,11 @@
   text: |
       - Переработка всего мусора станции в переработчике материалов.
 
-- type: stationGoal
-  id: StationGoalCollectThreeArtifacts
-  department: [ Cargo ]
-  text: |
-      - {{StationGoalRandomArtifactVerb}} и доставка в в научный отдел минимум трёх космических артефактов.
+# - type: stationGoal
+#   id: StationGoalCollectThreeArtifacts
+#   department: [ Cargo ]
+#   text: |
+#       - {{StationGoalRandomArtifactVerb}} и доставка в в научный отдел минимум трёх космических артефактов.
 
 - type: stationGoal
   id: StationGoalCollectFiftyThousandCredits
@@ -307,11 +307,11 @@
   text: |
        - Подробно задокументировать признаки минимум двух образцов модифицированной растительности.
 
-- type: stationGoal
-  id: StationGoalRandomServiceCrate
-  department: [ Civilian ]
-  text: |
-       - Собрать полный ящик {{StationGoalRandomServiceCrate}} и отправить его на атоматическую торговую станцию.
+# - type: stationGoal
+#   id: StationGoalRandomServiceCrate
+#   department: [ Civilian ]
+#   text: |
+#        - Собрать полный ящик {{StationGoalRandomServiceCrate}} и отправить его на атоматическую торговую станцию.
 
 
 # CorvaxWL-Changes-start

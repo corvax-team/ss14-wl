@@ -500,10 +500,12 @@
       collection: VulpkaninGrowls
     Snarl:
       collection: VulpkaninSnarls
+    #WL-Changes-Start
     Bark:
-      collection: VulpkaninBarks
+      collection: Bark
     Whine:
-      collection: VulpkaninWhines
+      path: /Audio/_WL/Voice/Vulpkanin/dog_whine.ogg
+    #WL-Changes-End
     Crying:
       collection: VulpkaninWhines
     Howl:
@@ -542,10 +544,12 @@
       collection: VulpkaninGrowls
     Snarl:
       collection: VulpkaninSnarls
+    #WL-Changes-Start
     Bark:
-      collection: VulpkaninBarks
+      collection: Bark
     Whine:
-      collection: VulpkaninWhines
+      path: /Audio/_WL/Voice/Vulpkanin/dog_whine.ogg
+    #WL-Changes-End
     Crying:
       collection: VulpkaninWhines
     Howl:

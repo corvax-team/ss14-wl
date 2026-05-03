@@ -1,0 +1,15 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsAdjutant
+  suffix: Adjutant, Locked
+  components:
+  - type: AccessReader
+    access: [["Adjutant"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsReporter
+  suffix: Reporter, Locked
+  components:
+  - type: AccessReader
+    access: [["Reporter"]]

@@ -34,7 +34,7 @@ public sealed partial class EmergencyPrototype : IPrototype
     public string UniqueStartAnnouncement { get; private set; } = string.Empty;
 
     [DataField]
-    public SoundSpecifier Sound { get; private set; } = new SoundPathSpecifier("/Audio/Misc/delta_alt.ogg");
+    public SoundSpecifier Sound { get; private set; } = new SoundPathSpecifier("/Audio/Misc/delta.ogg");
 
     [DataField("soundAnnouncment")]
     public bool IsSoundAnnouncment { get; private set; } = true;
