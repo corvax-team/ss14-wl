@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Content.Server._WL.Languages;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Speech.Components;
@@ -9,6 +10,7 @@ using Content.Shared._WL.Languages.Components;
 using Content.Shared.Chat;
 using Content.Shared.Paper;
 using Content.Shared.Speech;
+using NetCord.Gateway;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.TapeRecorder;
@@ -19,6 +21,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private readonly LanguagesSystem _language = default!;
 
     public override void Initialize()
     {
@@ -92,14 +95,11 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         // WL-Changes-Start
         var language = "Translate";
 
-        if (TryComp<LanguagesComponent>(args.Source, out var languagesSpeaker))
-        {
+        if (TryComp<LanguagesComponent>(args.Source, out var languagesSpeaker) && languagesSpeaker.CurrentLanguage.HasValue)
             language = languagesSpeaker.CurrentLanguage;
-        }
         // WL-Changes-end
 
-        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message, language!)); // WL-Languages: added Language support
-
+        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message, language)); // WL-Languages: added Language support
     }
 
     private void OnPrintMessage(Entity<TapeRecorderComponent> ent, ref PrintTapeRecorderMessage args)
@@ -136,6 +136,14 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         {
             var name = message.Name ?? ent.Comp.DefaultName;
             var time = TimeSpan.FromSeconds((double) message.Timestamp);
+
+            // WL-Languages-Start
+            if (message.Language != "Translate")
+            {
+                var language = _language.GetLanguagePrototype(message.Language);
+                message.Message = language.Obfuscation.Obfuscate(message.Message, 634);
+            }
+            // WL-Languages-End
 
             text.AppendLine(Loc.GetString("tape-recorder-print-message-text",
                 ("time", time.ToString(@"hh\:mm\:ss")),
