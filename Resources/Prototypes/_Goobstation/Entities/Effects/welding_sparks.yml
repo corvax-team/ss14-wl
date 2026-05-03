@@ -2,7 +2,7 @@
   id: EffectWeldingSparks
   categories: [ HideSpawnMenu ]
   components:
-  - type: WeldingSparksVisuals
+  # - type: WeldingSparksVisuals # WL-changes
   - type: Transform
     anchored: true
   - type: Sprite
