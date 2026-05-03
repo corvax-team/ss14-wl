@@ -38,13 +38,19 @@ public sealed partial class TapeCassetteRecordedMessage : IComparable<TapeCasset
     public string Language = "Translate";
     // WL-Languages-end
 
-    public TapeCassetteRecordedMessage(float timestamp, string name, ProtoId<SpeechVerbPrototype> verb, string message, string language) // WL-Languages: added Language support
+    // WL-TTS-start
+    [DataField]
+    public string TTS = string.Empty;
+    // WL-TTS-end
+
+    public TapeCassetteRecordedMessage(float timestamp, string name, ProtoId<SpeechVerbPrototype> verb, string message, string language, string tts) // WL-Languages: added Language and TTS support
     {
         Timestamp = timestamp;
         Name = name;
         Verb = verb;
         Message = message;
         Language = language; // WL-Languages: added Language support
+        TTS = tts;
     }
 
     public int CompareTo(TapeCassetteRecordedMessage? other)

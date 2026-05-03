@@ -8,6 +8,7 @@ using Content.Shared._Goobstation.TapeRecorder.Components;
 using Content.Shared._Goobstation.TapeRecorder.Systems;
 using Content.Shared._WL.Languages.Components;
 using Content.Shared.Chat;
+using Content.Shared.Corvax.TTS;
 using Content.Shared.Paper;
 using Content.Shared.Speech;
 using NetCord.Gateway;
@@ -52,6 +53,9 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
             speech.SpeechVerb = _proto.Index<SpeechVerbPrototype>(verb);
 
             // WL-Changes-Start
+            if (TryComp<TTSComponent>(ent, out var tts))
+                tts.VoicePrototypeId = message.TTS;
+
             if (TryComp<LanguagesComponent>(ent, out var languageComp))
             {
                 // I already know that's a bad way to do it
@@ -94,12 +98,16 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
 
         // WL-Changes-Start
         var language = "Translate";
+        var tts = string.Empty;
 
         if (TryComp<LanguagesComponent>(args.Source, out var languagesSpeaker) && languagesSpeaker.CurrentLanguage.HasValue)
             language = languagesSpeaker.CurrentLanguage;
+
+        if (TryComp<TTSComponent>(args.Source, out var ttsComp) && ttsComp.VoicePrototypeId != null)
+            tts = ttsComp.VoicePrototypeId;
         // WL-Changes-end
 
-        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message, language)); // WL-Languages: added Language support
+        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message, language, tts)); // WL-Changes: added Language and TTS support
     }
 
     private void OnPrintMessage(Entity<TapeRecorderComponent> ent, ref PrintTapeRecorderMessage args)

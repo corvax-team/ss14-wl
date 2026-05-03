@@ -20,7 +20,8 @@
     size: Small
   - type: TapeRecorder
   - type: Languages # WL-Languages
-    # WL-Sounds-Start
+  - type: TTS # WL-TTS
+  # WL-Sounds-Start
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_WL/Items/taperecorder_pickup.ogg
@@ -36,7 +37,7 @@
       path: /Audio/_WL/Items/taperecorder_drop.ogg
       params:
         volume: -4
-    # WL-Sounds-End
+  # WL-Sounds-End
   - type: ActiveListener
     range: 4
   - type: UseDelay
