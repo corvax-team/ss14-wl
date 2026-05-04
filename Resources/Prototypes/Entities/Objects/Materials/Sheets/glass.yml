@@ -12,6 +12,18 @@
     size: Normal
   - type: StaticPrice
     price: 0
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/handling/materials/glass_pick_up.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/handling/materials/glass_drop.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: Tag
     tags:
     - Sheet

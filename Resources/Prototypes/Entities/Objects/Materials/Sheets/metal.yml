@@ -16,6 +16,18 @@
     - Sheet
     - Metal
     - ConstructionMaterial
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/handling/materials/metal_pick_up.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/handling/materials/metal_drop.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic

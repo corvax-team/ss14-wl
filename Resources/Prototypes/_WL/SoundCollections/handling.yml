@@ -1,0 +1,91 @@
+# Cig pack
+- type: soundCollection
+  id: CigPackPickup
+  files:
+  - /Audio/_WL/Items/cigs/cig_pack_pickup1.ogg
+  - /Audio/_WL/Items/cigs/cig_pack_pickup2.ogg
+  - /Audio/_WL/Items/cigs/cig_pack_pickup3.ogg
+
+- type: soundCollection
+  id: CigPackDrop
+  files:
+  - /Audio/_WL/Items/cigs/cig_pack_drop1.ogg
+  - /Audio/_WL/Items/cigs/cig_pack_drop2.ogg
+
+# Hardhat
+- type: soundCollection
+  id: HardhatPickup
+  files:
+  - /Audio/_WL/Items/hard_hat/hard_hat_pickup1.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_pickup2.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_pickup3.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_pickup4.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_pickup5.ogg
+
+- type: soundCollection
+  id: HardhatEquip
+  files:
+  - /Audio/_WL/Items/hard_hat/hard_hat_equip1.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_equip2.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_equip3.ogg
+
+- type: soundCollection
+  id: HardhatDrop
+  files:
+  - /Audio/_WL/Items/hard_hat/hard_hat_drop1.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_drop2.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_drop3.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_drop4.ogg
+  - /Audio/_WL/Items/hard_hat/hard_hat_drop5.ogg
+
+# Goggles
+- type: soundCollection
+  id: GogglesPickup
+  files:
+  - /Audio/_WL/Items/goggles/goggles_pickup1.ogg
+  - /Audio/_WL/Items/goggles/goggles_pickup2.ogg
+  - /Audio/_WL/Items/goggles/goggles_pickup3.ogg
+
+- type: soundCollection
+  id: GogglesEquip
+  files:
+  - /Audio/_WL/Items/goggles/goggles_equip1.ogg
+  - /Audio/_WL/Items/goggles/goggles_equip2.ogg
+  - /Audio/_WL/Items/goggles/goggles_equip3.ogg
+
+- type: soundCollection
+  id: GogglesDrop
+  files:
+  - /Audio/_WL/Items/goggles/goggles_drop1.ogg
+  - /Audio/_WL/Items/goggles/goggles_drop2.ogg
+  - /Audio/_WL/Items/goggles/goggles_drop3.ogg
+
+# Gas Mask
+- type: soundCollection
+  id: GasMaskPickup
+  files:
+  - /Audio/_WL/Items/gas_mask/gas_mask_pickup1.ogg
+  - /Audio/_WL/Items/gas_mask/gas_mask_pickup2.ogg
+  - /Audio/_WL/Items/gas_mask/gas_mask_pickup3.ogg
+
+- type: soundCollection
+  id: GasMaskEquip
+  files:
+  - /Audio/_WL/Items/gas_mask/gas_mask_equip1.ogg
+  - /Audio/_WL/Items/gas_mask/gas_mask_equip2.ogg
+  - /Audio/_WL/Items/gas_mask/gas_mask_equip3.ogg
+
+- type: soundCollection
+  id: GasMaskDrop
+  files:
+  - /Audio/_WL/Items/gas_mask/gas_mask_drop1.ogg
+  - /Audio/_WL/Items/gas_mask/gas_mask_drop2.ogg
+  - /Audio/_WL/Items/gas_mask/gas_mask_drop3.ogg
+
+# Headset
+- type: soundCollection
+  id: HeadsetPickup
+  files:
+  - /Audio/_WL/Items/handling/headset/headset_pickup1.ogg
+  - /Audio/_WL/Items/handling/headset/headset_pickup2.ogg
+  - /Audio/_WL/Items/handling/headset/headset_pickup3.ogg
