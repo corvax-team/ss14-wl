@@ -48,8 +48,10 @@ namespace Content.Server.PDA
         // WL-Changes-start: ETA in PDA
         [Dependency] private readonly RoundEndSystem _roundEnd = default!;
 
-        [Access(typeof(EmergencyShuttleSystem), Other = AccessPermissions.None)] public TimeSpan? BeforeETA;
-        [Access(typeof(RoundEndSystem), Other = AccessPermissions.None)] public bool RoundEnd = false;
+        [Access(typeof(EmergencyShuttleSystem), Other = AccessPermissions.None)]
+        public TimeSpan? BeforeETA;
+        [Access(typeof(RoundEndSystem), Other = AccessPermissions.None)]
+        public bool RoundEnd = false;
         // WL-Changes-end
 
         public override void Initialize()

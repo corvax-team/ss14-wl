@@ -298,7 +298,7 @@ namespace Content.Server.RoundEnd
             if (_gameTicker.RunLevel != GameRunLevel.InRound) return;
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
-            _pda.roundEnd = true; // WL-Changes: ETA in PDA
+            _pda.RoundEnd = true; // WL-Changes: ETA in PDA
             RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
             _gameTicker.EndRound();
             _countdownTokenSource?.Cancel();
