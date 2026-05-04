@@ -9,6 +9,7 @@
   - ClothingBackpackChameleonFillAgent
   - ChameleonProjector
   - FakeMindShieldImplanter
+  - ChameleonPassport # WL-Change
 
 - type: thiefBackpackSet
   id: ToolsSet

@@ -15,19 +15,16 @@ public sealed class CharacterInformationBuiState : BoundUserInterfaceState
     public string CharacterName;
     public string FlavorText;
     public string? OocText;
-    public string? DynamicText;
 
     public CharacterInformationBuiState(
         NetEntity uid,
         string characterName,
         string flavorText,
-        string? oocText,
-        string? dynamicText)
+        string? oocText)
     {
         Uid = uid;
         CharacterName = characterName;
         FlavorText = flavorText;
         OocText = oocText;
-        DynamicText = dynamicText;
     }
 }

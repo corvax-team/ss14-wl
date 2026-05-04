@@ -31,7 +31,7 @@ public sealed class BedSystem : EntitySystem
     [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!; // WL-Changes: fix: lying down after sleep on bed
 
-    private EntityQuery<SleepingComponent> _sleepingQuery;
+    [Dependency] private readonly EntityQuery<SleepingComponent> _sleepingQuery = default!;
 
     public override void Initialize()
     {
@@ -47,8 +47,6 @@ public sealed class BedSystem : EntitySystem
         SubscribeLocalEvent<StasisBedComponent, GotEmaggedEvent>(OnStasisEmagged);
         SubscribeLocalEvent<StasisBedComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<StasisBedBuckledComponent, GetMetabolicMultiplierEvent>(OnStasisGetMetabolicMultiplier);
-
-        _sleepingQuery = GetEntityQuery<SleepingComponent>();
     }
 
     private void OnHealMapInit(Entity<HealOnBuckleComponent> ent, ref MapInitEvent args)

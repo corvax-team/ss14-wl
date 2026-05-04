@@ -35,6 +35,7 @@
   - GenpopEnter
   - GenpopLeave
   - Adjutant #WL-Changes: Adjutant
+  - Reporter # WL-Reporter-Changes
 
 - type: accessGroup
   id: General
