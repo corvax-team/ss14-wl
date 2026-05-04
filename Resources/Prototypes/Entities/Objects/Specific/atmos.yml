@@ -38,3 +38,15 @@
     - PipeNetworks
     - Pipes
     - GasCanisters
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/handling/gas_analyzer/gas_analyzer_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/handling/gas_analyzer/gas_analyzer_drop.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End

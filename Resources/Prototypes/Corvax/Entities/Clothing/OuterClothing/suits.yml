@@ -19,7 +19,7 @@
       sprite: Corvax/Clothing/OuterClothing/Coats/disco.rsi
     - type: Clothing
       sprite: Corvax/Clothing/OuterClothing/Coats/disco.rsi
-      
+
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingAtmosphericsOveralls
@@ -37,4 +37,18 @@
         shader: unshaded
       - state: equipped-OUTERCLOTHING-unshaded
         shader: shaded
+      # WL-Changes-start
+      outerClothing-reptilian: 
+      - state: equipped-OUTERCLOTHING-reptilian
+      - state: equipped-OUTERCLOTHING-reptilian-unshaded
+        shader: unshaded
+      - state: equipped-OUTERCLOTHING-reptilian-unshaded
+        shader: shaded
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      - state: equipped-OUTERCLOTHING-vox-unshaded
+        shader: unshaded
+      - state: equipped-OUTERCLOTHING-vox-unshaded
+        shader: shaded
+      # WL-Changes-end
       # Это так светооражающие элементы сделаны. Подробности в файле с ClothingOuterVestHazard

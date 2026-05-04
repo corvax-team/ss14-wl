@@ -157,6 +157,7 @@
     - id: ClothingOuterCoatHOP # Corvax-Resprite
     - id: PrinterDocFlatpack # Corvax-Printer
     - id: ClothingHeadHatBeretHoP # Corvax-WL
+    - id: ClothingMaskGasVoiceChameleonHop # Corvax-WL
 
 - type: entity
   id: LockerHeadOfPersonnelFilled

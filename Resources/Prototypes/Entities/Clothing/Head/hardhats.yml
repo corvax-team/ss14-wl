@@ -12,6 +12,20 @@
       map: [ "light" ]
   - type: Clothing
     equippedPrefix: off
+    # WL-Sounds-Start
+    equipSound:
+      collection: HardhatEquip
+  - type: EmitSoundOnPickup
+    sound:
+      collection: HardhatPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: HardhatDrop
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
