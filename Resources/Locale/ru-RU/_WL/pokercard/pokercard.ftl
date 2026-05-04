@@ -9,7 +9,7 @@ pokercard-system-get-card-popup = { $name } { GENDER($ent) ->
 } карту из колоды
 pokercard-system-get-random-card-verb = Вытащить случайную карту
 pokercard-system-flip-all-cards-verb = Перевернуть все карты в колоде
-pokercard-system-reveale-card-popup = { $name } { GENDER($ent) ->
+pokercard-system-reveal-card-popup = { $name } { GENDER($ent) ->
     [male] вскрыл
     [female] вскрыла
     [epicene] вскрыли

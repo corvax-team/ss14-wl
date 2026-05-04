@@ -17,7 +17,7 @@ namespace Content.Server._WL.GameTicking.Commands
         public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             _configurationManager.SetCVar(CCVars.GameMap, string.Empty);
-            shell.WriteLine(Loc.GetString("Очередь карт была очищена"));
+            shell.WriteLine(Loc.GetString("cmd-noforcemap-success"));
         }
     }
 }

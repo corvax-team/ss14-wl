@@ -157,7 +157,7 @@ namespace Content.Server._WL.Economics.Systems
                 _metaData.SetEntityName(card, comp.OriginalName);
 
                 if (user != null && comp.FlipPopup)
-                    _popup.PopupEntity(Loc.GetString("pokercard-system-reveale-card-popup", ("name", Identity.Name(user.Value, EntityManager)), ("ent", user.Value)), card);
+                    _popup.PopupEntity(Loc.GetString("pokercard-system-reveal-card-popup ", ("name", Identity.Name(user.Value, EntityManager)), ("ent", user.Value)), card);
             }
             else
             {

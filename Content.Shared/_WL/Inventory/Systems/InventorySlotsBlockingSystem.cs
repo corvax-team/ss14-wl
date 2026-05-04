@@ -44,11 +44,6 @@ namespace Content.Shared._WL.Inventory.Systems
             if (!IsSlotBlocked((args.UnEquipTarget, comp), args.Slot, out var reasons))
                 return;
 
-            var reason = Loc.GetString("isb-system-reason");
-
-            var stringReasons = reasons.Select(e => Identity.Name(e, EntityManager));
-            reason += string.Join(" и ", stringReasons);
-
             args.Reason = Loc.GetString("isb-system-reason", ("entities", string.Join(", ", reasons.Select(e => Identity.Name(e, EntityManager)))));
             args.Cancel();
         }
