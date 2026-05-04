@@ -1,5 +1,5 @@
 accent-german-words-12 = музыка
-accent-german-words-replace-12 = muzik
+accent-german-words-replace-12 = musik
 
 accent-german-words-13 = мой бог
 accent-german-words-replace-13 = mein gott
@@ -117,8 +117,8 @@ accent-german-words-48-2 = медбей
 accent-german-words-48-3 = медблок
 accent-german-words-replace-48 = krankenwagen
 
-accent-german-words-49 = здравствуйте
-accent-german-words-replace-49 = guten Tag
+accent-german-words-49 = офицер
+accent-german-words-replace-49 = offizier
 
 accent-german-words-50 = до свидания
 accent-german-words-replace-50 = auf Wiedersehen
