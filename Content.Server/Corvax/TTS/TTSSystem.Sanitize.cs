@@ -153,6 +153,7 @@ public sealed partial class TTSSystem
             {"scheisse", "Шайсэ"},
             {"wurst", "Вуст"},
             {"würste", "Вьустэ"},
+            {"quatschkopf", "Квашцекьопф"},
             {"mann", "Манн"},
             {"männer", "Мэнна"},
             {"frau", "Фрау"},
