@@ -139,20 +139,20 @@ public sealed partial class SuckableFoodSystem : EntitySystem
     private void OnEquip(EntityUid food, SuckableFoodComponent comp, GotEquippedEvent ev)
     {
         if (ev.SlotFlags.HasFlag(SlotFlags.MASK))
-            _forensics.TransferDna(food, ev.Equipee);
+            _forensics.TransferDna(food, ev.EquipTarget);
 
-        SetState((food, comp), ev.Equipee);
+        SetState((food, comp), ev.EquipTarget);
 
         if (!EnsureSolutionEntity((food, comp), out _, out var sol))
             return;
 
-        var flavor = _flavor.GetLocalizedFlavorsMessage(food, ev.Equipee, sol);
+        var flavor = _flavor.GetLocalizedFlavorsMessage(food, ev.EquipTarget, sol);
         if (string.IsNullOrEmpty(flavor))
             return;
 
-        var msg = Loc.GetString(PutInMouthLoc, ("flavor", flavor), ("entity", Identity.Name(food, EntityManager, ev.Equipee)));
+        var msg = Loc.GetString(PutInMouthLoc, ("flavor", flavor), ("entity", Identity.Name(food, EntityManager, ev.EquipTarget)));
 
-        _popup.PopupEntity(msg, ev.Equipee, Filter.Entities(ev.Equipee), false);
+        _popup.PopupEntity(msg, ev.EquipTarget, Filter.Entities(ev.EquipTarget), false);
     }
 
     private void ResetSucker<T>(EntityUid food, SuckableFoodComponent comp, T ev)

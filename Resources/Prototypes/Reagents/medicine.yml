@@ -124,7 +124,7 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrunk
-        time: 6.0
+        time: 60.0  # WL-Changes: 6.0 --> 60.0. 15u removes 30 minutes of drunkeness
         type: Remove
       - !type:HealthChange
         damage:
@@ -1720,9 +1720,8 @@
   metabolisms:
     Bloodstream:
       effects:
-      - !type:GenericStatusEffect
-        key: RadiationProtection
-        component: RadiationProtection
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectRadiationProtection
         time: 2
         type: Add
       - !type:HealthChange
