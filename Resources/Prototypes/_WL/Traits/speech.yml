@@ -6,3 +6,13 @@
   cost: 2
   components:
   - type: OwOAccent
+
+- type: trait
+  id: ChineseAccent
+  name: trait-chinese-name
+  description: trait-chinese-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: ReplacementAccent
+    accent: chinese
