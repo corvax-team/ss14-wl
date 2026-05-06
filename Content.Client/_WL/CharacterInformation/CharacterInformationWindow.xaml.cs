@@ -19,8 +19,6 @@ public sealed partial class CharacterInformationWindow : FancyWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-
-        SpriteLabel.Text = Loc.GetString("character-information-ui-sprite");
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -36,25 +34,13 @@ public sealed partial class CharacterInformationWindow : FancyWindow
         CharSprite.SetEntity(_entity.GetEntity(state.Uid));
         NameLabel.SetMarkup($"[bold]{state.CharacterName}[/bold]");
 
-        if (!string.IsNullOrEmpty(state.FlavorText))
-        {
-            FlavorText.SetMessage(state.FlavorText);
-            FlavorTextLabel.Text = Loc.GetString("character-information-ui-flavor-text");
-        }
-        else
-        {
-            FlavorText.SetMessage(Loc.GetString("character-information-ui-no-flavor-text"));
-        }
+        FlavorText.SetMessage(!string.IsNullOrEmpty(state.FlavorText)
+            ? state.FlavorText
+            : Loc.GetString("character-information-ui-no-flavor-text"));
 
-        if (!string.IsNullOrEmpty(state.OocText))
-        {
-            OocText.SetMessage(state.OocText);
-            OocTextLabel.Text = Loc.GetString("character-information-ui-ooc-text");
-        }
-        else
-        {
-            OocText.SetMessage(Loc.GetString("character-information-ui-no-ooc-text"));
-        }
+        OocText.SetMessage(!string.IsNullOrEmpty(state.OocText)
+            ? state.OocText
+            : Loc.GetString("character-information-ui-no-ooc-text"));
 
         SetWidth = Size.X + 0.1f;
     }
