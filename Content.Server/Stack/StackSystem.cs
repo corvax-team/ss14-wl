@@ -317,10 +317,6 @@ namespace Content.Server.Stack
         private void UserCustomSplit(EntityUid uid,
             StackComponent stackComponent, StackAmountSetValueMessage ev)
         {
-
-            //if (!_ent.TryGetEntity(ev.Actor, out var user))
-            //    return;
-
             if (!TryComp<StackComponent>(uid, out var comp))
                 return;
 
