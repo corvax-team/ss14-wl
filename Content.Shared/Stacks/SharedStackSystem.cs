@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._WL.Stakc; // Wl-changes
+using Content.Shared._WL.Stacks; // Wl-changes
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -208,7 +208,7 @@ public abstract partial class SharedStackSystem : EntitySystem
         {
             Text = Loc.GetString("comp-stack-split-custom"),
             Category = VerbCategory.Split,
-            Act = () => _ui.OpenUi(ent.Owner, StakcAmountUiKey.Key, user),
+            Act = () => _ui.OpenUi(ent.Owner, StackAmountUiKey.Key, user),
             Priority = priority--
         });
         // Wl-changes-end

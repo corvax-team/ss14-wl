@@ -109,5 +109,5 @@
     delay: 1
   - type: UserInterface
     interfaces:
-      enum.StakcAmountUiKey.Key:
+      enum.StackAmountUiKey.Key:
         type: StackAmountBoundUserInterface

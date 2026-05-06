@@ -1,7 +1,6 @@
-using Content.Shared._WL.Stakc;
+using Content.Shared._WL.Stacks;
 using Content.Shared.Stacks;
 using JetBrains.Annotations;
-using Robust.Client.Player;
 using Robust.Client.UserInterface;
 
 namespace Content.Client._WL.Stack.UI;
@@ -11,9 +10,6 @@ public sealed class StackAmountBoundUserInterface(EntityUid owner, Enum uiKey) :
 {
     [ViewVariables]
     private StackAmountWindow? _window;
-
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
 
     protected override void Open()
     {
@@ -27,13 +23,8 @@ public sealed class StackAmountBoundUserInterface(EntityUid owner, Enum uiKey) :
         {
             if (int.TryParse(_window.AmountLineEdit.Text, out var i))
             {
-                if (!_player.LocalEntity.HasValue)
-                    return;
 
-                if (!_ent.TryGetNetEntity(_player.LocalEntity.Value, out var netEntity))
-                    return;
-
-                SendMessage(new StakcAmountSetValueMessage(i, netEntity.Value));
+                SendMessage(new StackAmountSetValueMessage(i));
                 _window.Close();
             }
         };

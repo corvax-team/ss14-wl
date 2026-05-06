@@ -1,4 +1,4 @@
-using Content.Shared._WL.Stakc; // Wl-changes
+using Content.Shared._WL.Stacks; // Wl-changes
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using JetBrains.Annotations;
@@ -22,7 +22,7 @@ namespace Content.Server.Stack
         {
             base.Initialize();
 
-            SubscribeLocalEvent<StackComponent, StakcAmountSetValueMessage>(UserCustomSplit);
+            SubscribeLocalEvent<StackComponent, StackAmountSetValueMessage>(UserCustomSplit);
         }
         // Wl-changes-end
 
@@ -314,20 +314,21 @@ namespace Content.Server.Stack
         }
 
         // Wl-changes-start
-        private void UserCustomSplit(EntityUid uid, StackComponent stackComponent, StakcAmountSetValueMessage ev)
+        private void UserCustomSplit(EntityUid uid,
+            StackComponent stackComponent, StackAmountSetValueMessage ev)
         {
 
-            if (!_ent.TryGetEntity(ev.User, out var user))
-                return;
+            //if (!_ent.TryGetEntity(ev.Actor, out var user))
+            //    return;
 
             if (!TryComp<StackComponent>(uid, out var comp))
                 return;
 
-            if (!TryComp<TransformComponent>(user, out var transform))
+            if (!TryComp<TransformComponent>(ev.Actor, out var transform))
                 return;
 
             UserSplit(new Entity<StackComponent>(uid, comp),
-                new Entity<TransformComponent?>(user.Value, transform),
+                new Entity<TransformComponent?>(ev.Actor, transform),
                 ev.Value);
         }
         // Wl-changes-end

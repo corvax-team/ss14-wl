@@ -64,7 +64,7 @@
   # WL-Changes-start
   - type: UserInterface
     interfaces:
-      enum.StakcAmountUiKey.Key:
+      enum.StackAmountUiKey.Key:
         type: StackAmountBoundUserInterface
   # WL-Changes-end
 
@@ -143,7 +143,7 @@
   # WL-Changes-start
   - type: UserInterface
     interfaces:
-      enum.StakcAmountUiKey.Key:
+      enum.StackAmountUiKey.Key:
         type: StackAmountBoundUserInterface
   # WL-Changes-end
 
