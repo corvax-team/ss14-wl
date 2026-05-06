@@ -142,6 +142,18 @@
     - Sheet
     - ConstructionMaterial
   - type: Material
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/handling/materials/plastic_pick_up.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/handling/materials/plastic_drop.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100

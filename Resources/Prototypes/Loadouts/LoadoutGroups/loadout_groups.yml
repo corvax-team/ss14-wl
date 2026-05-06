@@ -1158,6 +1158,7 @@
   loadouts:
   - JesterHat
   - JesterAltHat
+  - ClownMitre
 
 - type: loadoutGroup
   id: ClownJumpsuit
@@ -2786,6 +2787,7 @@
   - ArmorVestSec # Corvax
   - ArmorVest
   # - ArmorVestSlim # WL-Changes-RemovingSlimArmorFromSec
+  - SecurityOfficerOvercoat # Corvax
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup

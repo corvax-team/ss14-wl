@@ -39,6 +39,23 @@
     tags:
     - CigPack
     - Trash
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: CigPackPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: CigPackDrop
+      params:
+        volume: -4
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_WL/Items/cigs/cig_pack_throw_drop.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: PhysicalComposition
     materialComposition:
       Steel: 50
@@ -105,6 +122,23 @@
       map: ["cig6"]
       sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
       visible: false
+  # WL-Sounds-Start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: CigPackPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: CigPackDrop
+      params:
+        volume: -4
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_WL/Items/cigs/cig_pack_throw_drop.ogg
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: Tag
     tags:
     - CigPack

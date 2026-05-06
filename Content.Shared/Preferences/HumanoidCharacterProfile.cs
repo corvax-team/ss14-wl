@@ -1176,8 +1176,7 @@ namespace Content.Shared.Preferences
             {
                 var sponsorsManager = IoCManager.Resolve<ISharedSponsorsManager>();
                 sponsorPrototypes = sponsorsManager.TryGetServerPrototypes(session.UserId, out var prototypes)
-                    ? prototypes.ToArray()
-                    : Array.Empty<string>();
+                    ? prototypes.ToArray() : Array.Empty<string>();
             }
             catch (Exception)
             {
