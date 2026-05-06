@@ -65,6 +65,3 @@ trait-hemophilia-desc = Ваш организм не справляется со
 
 trait-impaired-mobility-name = Нарушение подвижности
 trait-impaired-mobility-desc = Вам тяжело передвигаться без посторонней помощи.
-
-trait-chinese-name = Китайский акцент
-trait-chinese-desc = Ви плибыли с великий стляна Китай
