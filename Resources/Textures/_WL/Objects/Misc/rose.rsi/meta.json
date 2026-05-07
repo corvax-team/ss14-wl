@@ -15,6 +15,10 @@
       "directions": 4
     },
     {
+      "name": "rose_pink-equipped-MASK",
+      "directions": 4
+    },
+    {
       "name": "rose_pink-inhand-left",
       "directions": 4
     },
@@ -27,6 +31,10 @@
     },
     {
       "name": "rose_red_equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "rose_red-equipped-MASK",
       "directions": 4
     },
     {
@@ -45,6 +53,10 @@
       "directions": 4
     },
     {
+      "name": "rose_white-equipped-MASK",
+      "directions": 4
+    },
+    {
       "name": "rose_white-inhand-left",
       "directions": 4
     },
@@ -57,6 +69,10 @@
     },
     {
       "name": "rose_yelo_equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "rose_yelo-equipped-MASK",
       "directions": 4
     },
     {
