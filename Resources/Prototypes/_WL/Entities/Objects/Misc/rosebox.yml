@@ -63,7 +63,6 @@
   components:
     - type: Sprite
       state: rose_red
-      mask: rose_red-equipped-MASK
     - type: Clothing
       clothingVisuals:
         head:
@@ -77,7 +76,6 @@
   components:
     - type: Sprite
       state: rose_pink
-      mask: rose_pink-equipped-MASK
     - type: Clothing
       clothingVisuals:
         head:
@@ -91,7 +89,6 @@
   components:
     - type: Sprite
       state: rose_white
-      mask: rose_white-equipped-MASK
     - type: Clothing
       clothingVisuals:
         head:
@@ -105,7 +102,6 @@
   components:
     - type: Sprite
       state: rose_yelo
-      mask: rose_yelo-equipped-MASK
     - type: Clothing
       clothingVisuals:
         head:
