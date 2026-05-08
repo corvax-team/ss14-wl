@@ -7,14 +7,14 @@ namespace Content.Server._WL.CharacterInformation;
 public sealed partial class CharacterInformationComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("flavorText")]
+    [DataField]
     public string FlavorText = string.Empty;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("oocText")]
+    [DataField]
     public string OocText = string.Empty;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("dynamicText")]
+    [DataField]
     public string DynamicText = string.Empty;
 }

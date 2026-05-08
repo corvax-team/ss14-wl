@@ -1,21 +1,14 @@
-using System.Linq;
 using Content.Client._WL.Languages;
 using Content.Shared._WL.Languages;
 using Content.Shared._WL.Languages.Components;
-using Content.Client.CharacterInfo;
 using Content.Client.Gameplay;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.Client.UserInterface.Controls;
-using Content.Client.UserInterface.Systems.Character.Controls;
-using Content.Client.UserInterface.Systems.Character.Windows;
-using Content.Client.UserInterface.Systems.Objectives.Controls;
 using Content.Client._WL.UserInterface.Systems.Languages.Controls;
 using Content.Client._WL.UserInterface.Systems.Languages.Windows;
 using Content.Client._WL.UserInterface.Systems.Languages.LanguageUI;
 using Content.Shared.Input;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
@@ -26,7 +19,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client._WL.UserInterface.Systems.Languages;
@@ -177,21 +169,22 @@ public sealed class LanguagesUIController : UIController, IOnStateEntered<Gamepl
 
             var languageLabel = new RichTextLabel
             {
-                StyleClasses = { StyleNano.StyleClassTooltipActionTitle }
+                StyleClasses = { StyleClass.TooltipTitle }
             };
+
             languageLabel.SetMessage(languageText);
 
             languageControl.AddChild(languageLabel);
 
 
-            foreach (var protoid in speeking)
+            foreach (var protoId in speeking)
             {
-                var language = _languages.GetLanguagePrototype(protoid);
+                var language = _languages.GetLanguagePrototype(protoId);
                 if (language == null)
                     continue;
 
                 var languageItemControl = new LanguageItemControl();
-                languageItemControl.SetLanguage(protoid);
+                languageItemControl.SetLanguage(protoId);
                 languageItemControl.OnChoosePressed += LanguageChange;
                 languageItemControl.Icon.Texture = _sprite.Frame0(language.Icon);
                 var titleMessage = new FormattedMessage();
@@ -202,7 +195,7 @@ public sealed class LanguagesUIController : UIController, IOnStateEntered<Gamepl
                 languageItemControl.Title.SetMessage(titleMessage);
                 languageItemControl.Description.SetMessage(descriptionMessage);
 
-                if (current == (string)protoid)
+                if (current == (string)protoId)
                 {
                     languageItemControl.ChooseButton.Pressed = true;
                 }

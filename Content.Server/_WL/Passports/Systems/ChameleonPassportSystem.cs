@@ -1,10 +1,7 @@
 using Content.Shared.UserInterface;
 using Content.Shared._WL.Passports.Components;
 using Content.Shared._WL.Passports.Systems;
-using Content.Shared.StatusIcon;
 using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server._WL.Passports.Systems
 {

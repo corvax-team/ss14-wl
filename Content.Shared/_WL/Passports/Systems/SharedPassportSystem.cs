@@ -1,9 +1,9 @@
 using Content.Shared._WL.Passports.Components;
+using Content.Shared._WL.Passports.Events;
 using Content.Shared._WL.Records;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
-using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -13,7 +13,6 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Roles;
 using Content.Shared.GameTicking;
-using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -21,11 +20,6 @@ namespace Content.Shared._WL.Passports.Systems;
 
 public sealed class SharedPassportSystem : EntitySystem
 {
-    public int CurrentYear = DateTime.Today.Year + 849;
-    private const string NoConfederationId = "NoConfederation";
-    private const string PIDChars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
-    private static readonly TimeSpan ToggleCooldown = TimeSpan.FromSeconds(0.5);
-
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -34,6 +28,12 @@ public sealed class SharedPassportSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogManager = default!;
 
+    public int CurrentYear = DateTime.Today.Year + 849;
+    private const string NoConfederationId = "NoConfederation";
+    private const string PIDChars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
+    private static readonly TimeSpan ToggleCooldown = TimeSpan.FromSeconds(0.5);
+    private ISawmill _sawmill = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -41,6 +41,7 @@ public sealed class SharedPassportSystem : EntitySystem
         SubscribeLocalEvent<PassportComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<PassportComponent, ExaminedEvent>(OnExamined);
+        _sawmill = LogManager.GetSawmill("passport");
     }
 
     private void OnExamined(EntityUid uid, PassportComponent component, ExaminedEvent args)
@@ -65,13 +66,13 @@ public sealed class SharedPassportSystem : EntitySystem
 
     public void SpawnPassportForPlayer(EntityUid mob, HumanoidCharacterProfile profile, string? jobId)
     {
-        Logger.DebugS("passport", $"Attempting passport spawn for {profile.Name}, job: {jobId}, confederation: {profile.Confederation}");
+        _sawmill.Debug($"Attempting passport spawn for {profile.Name}, job: {jobId}, confederation: {profile.Confederation}");
 
         if (jobId == null || !_prototypeManager.TryIndex(jobId, out JobPrototype? jobPrototype)
                           || Deleted(mob)
                           || !Exists(mob))
         {
-            Logger.WarningS("passport", $"No valid jobId for {profile.Name}");
+            _sawmill.Warning($"No valid jobId for {profile.Name}");
             return;
         }
 
@@ -170,14 +171,5 @@ public sealed class SharedPassportSystem : EntitySystem
         }
 
         return new string(result);
-    }
-
-    [ByRefEvent]
-    public sealed class PassportToggleEvent : HandledEntityEventArgs;
-
-    [ByRefEvent]
-    public sealed class PassportProfileUpdatedEvent(HumanoidCharacterProfile profile) : HandledEntityEventArgs
-    {
-        public HumanoidCharacterProfile Profile { get; } = profile;
     }
 }

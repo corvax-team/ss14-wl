@@ -2,13 +2,12 @@ using Content.Client._WL.Photo;
 using Content.Shared._WL.Photo.Filters;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using System.Numerics;
 
 namespace Content.Client._WL.Overlays;
+
 public sealed partial class GhostCameraOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "CameraGhost";

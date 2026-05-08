@@ -1,5 +1,4 @@
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.DiscordAuth

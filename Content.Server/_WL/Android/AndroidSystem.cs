@@ -1,7 +1,6 @@
 using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Speech.Components;
 using Content.Server.StationEvents.Components;
@@ -12,10 +11,8 @@ using Content.Shared.Body;
 using Content.Shared.DoAfter;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Mobs;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Power.Components;
@@ -30,7 +27,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using System;
 
 namespace Content.Server._WL.Android
 {
@@ -55,7 +51,7 @@ namespace Content.Server._WL.Android
         [ViewVariables(VVAccess.ReadOnly)]
         private const float AndroidDoAfterChargeTime = 1f;
 
-       public override void Initialize()
+        public override void Initialize()
         {
             base.Initialize();
 
@@ -111,7 +107,7 @@ namespace Content.Server._WL.Android
             UpdateLight(uid, component);
         }
 
-        //region Light
+        #region Light
         private void OnToggleLightAction(EntityUid uid, AndroidComponent component, ToggleActionEvent args)
         {
             if (args.Handled || args.Action != component.ToggleLightActionEntity)
@@ -160,7 +156,7 @@ namespace Content.Server._WL.Android
             Color ledColor = markings[0].MarkingColors[0].WithAlpha(255);
             _pointLight.SetColor(lightEntity, ledColor);
         }
-        //endregion Light
+        #endregion Light
 
         private void OnModifiersRefresh(EntityUid android, AndroidComponent comp, RefreshMovementSpeedModifiersEvent args)
         {

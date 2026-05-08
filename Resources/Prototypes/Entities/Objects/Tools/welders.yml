@@ -97,6 +97,7 @@
     useSound:
       collection: Welder
     qualities: Welding
+  - type: WeldingSparks # Goobstation
   - type: Welder
   - type: PointLight
     enabled: false
@@ -181,6 +182,8 @@
         Quantity: 1
   - type: RequiresEyeProtection
     statusEffectTime: 5 # less harmful; sunglasses can block it
+  - type: WeldingSparks # Goobstation
+    effect: EffectWeldingSparksExp
 
 - type: entity
   name: emergency welding tool

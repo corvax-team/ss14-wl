@@ -1,5 +1,4 @@
 using Content.Server._WL.Emergency.Components;
-using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._WL.CCVars;
@@ -54,7 +53,7 @@ public sealed class EmergencyLevelSystem : EntitySystem
         if (!TryComp<EmergencyLevelComponent>(arg.Station, out var emergencyLevelComponent))
             return;
 
-        if (!_proto.TryIndex(emergencyLevelComponent.emergencyList, out var emergencyList))
+        if (!_proto.TryIndex(emergencyLevelComponent.EmergencyList, out var emergencyList))
             return;
 
         emergencyLevelComponent.Emergencies = emergencyList;
@@ -97,7 +96,7 @@ public sealed class EmergencyLevelSystem : EntitySystem
 
         var name = Loc.GetString(prototype.Name);
 
-        var announcementFull = string.Empty;
+        string announcementFull;
 
         if (!string.IsNullOrEmpty(prototype.UniqueStartAnnouncement))
             announcementFull = Loc.GetString(

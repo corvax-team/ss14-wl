@@ -1,4 +1,4 @@
-- type: accent
+﻿- type: accent
   id: cischi
   wordReplacements:
     accent-cischi-words-1: accent-cischi-words-replace-1
@@ -121,3 +121,74 @@
     wl-accent-french-words-75: wl-accent-french-words-replace-75
     wl-accent-french-words-76: wl-accent-french-words-replace-76
     wl-accent-french-words-77: wl-accent-french-words-replace-77
+
+#wl chinese accent
+- type: accent
+  id: chinese
+  wordReplacements:
+    wl-accent-chinese-words-1: wl-accent-chinese-words-replace-1
+    wl-accent-chinese-words-2: wl-accent-chinese-words-replace-2
+    wl-accent-chinese-words-3: wl-accent-chinese-words-replace-3
+    wl-accent-chinese-words-4: wl-accent-chinese-words-replace-4
+    wl-accent-chinese-words-5: wl-accent-chinese-words-replace-5
+    wl-accent-chinese-words-6: wl-accent-chinese-words-replace-6
+    wl-accent-chinese-words-7: wl-accent-chinese-words-replace-7
+    wl-accent-chinese-words-8: wl-accent-chinese-words-replace-8
+    wl-accent-chinese-words-9: wl-accent-chinese-words-replace-9
+    wl-accent-chinese-words-10: wl-accent-chinese-words-replace-10
+    wl-accent-chinese-words-11: wl-accent-chinese-words-replace-11
+    wl-accent-chinese-words-12: wl-accent-chinese-words-replace-12
+    wl-accent-chinese-words-13: wl-accent-chinese-words-replace-13
+    wl-accent-chinese-words-14: wl-accent-chinese-words-replace-14
+    wl-accent-chinese-words-15: wl-accent-chinese-words-replace-15
+    wl-accent-chinese-words-16: wl-accent-chinese-words-replace-16
+    wl-accent-chinese-words-17: wl-accent-chinese-words-replace-17
+    wl-accent-chinese-words-18: wl-accent-chinese-words-replace-18
+    wl-accent-chinese-words-19: wl-accent-chinese-words-replace-19
+    wl-accent-chinese-words-20: wl-accent-chinese-words-replace-20
+    wl-accent-chinese-words-21: wl-accent-chinese-words-replace-21
+    wl-accent-chinese-words-22: wl-accent-chinese-words-replace-22
+    wl-accent-chinese-words-23: wl-accent-chinese-words-replace-23
+    wl-accent-chinese-words-24: wl-accent-chinese-words-replace-24
+    wl-accent-chinese-words-25: wl-accent-chinese-words-replace-25
+    wl-accent-chinese-words-26: wl-accent-chinese-words-replace-26
+    wl-accent-chinese-words-27: wl-accent-chinese-words-replace-27
+    wl-accent-chinese-words-28: wl-accent-chinese-words-replace-28
+    wl-accent-chinese-words-29: wl-accent-chinese-words-replace-29
+    wl-accent-chinese-words-30: wl-accent-chinese-words-replace-30
+    wl-accent-chinese-words-31: wl-accent-chinese-words-replace-31
+    wl-accent-chinese-words-32: wl-accent-chinese-words-replace-32
+    wl-accent-chinese-words-33: wl-accent-chinese-words-replace-33
+    wl-accent-chinese-words-34: wl-accent-chinese-words-replace-34
+    wl-accent-chinese-words-35: wl-accent-chinese-words-replace-35
+    wl-accent-chinese-words-36: wl-accent-chinese-words-replace-36
+    wl-accent-chinese-words-37: wl-accent-chinese-words-replace-37
+    wl-accent-chinese-words-38: wl-accent-chinese-words-replace-38
+    wl-accent-chinese-words-39: wl-accent-chinese-words-replace-39
+    wl-accent-chinese-words-40: wl-accent-chinese-words-replace-40
+    wl-accent-chinese-words-41: wl-accent-chinese-words-replace-41
+    wl-accent-chinese-words-42: wl-accent-chinese-words-replace-42
+    wl-accent-chinese-words-43: wl-accent-chinese-words-replace-43
+    wl-accent-chinese-words-44: wl-accent-chinese-words-replace-44
+    wl-accent-chinese-words-45: wl-accent-chinese-words-replace-45
+    wl-accent-chinese-words-46: wl-accent-chinese-words-replace-46
+    wl-accent-chinese-words-47: wl-accent-chinese-words-replace-47
+    wl-accent-chinese-words-48: wl-accent-chinese-words-replace-48
+    wl-accent-chinese-words-49: wl-accent-chinese-words-replace-49
+    wl-accent-chinese-words-50: wl-accent-chinese-words-replace-50
+    wl-accent-chinese-words-51: wl-accent-chinese-words-replace-51
+    wl-accent-chinese-words-52: wl-accent-chinese-words-replace-52
+    wl-accent-chinese-words-53: wl-accent-chinese-words-replace-53
+    wl-accent-chinese-words-54: wl-accent-chinese-words-replace-54
+    wl-accent-chinese-words-55: wl-accent-chinese-words-replace-55
+    wl-accent-chinese-words-56: wl-accent-chinese-words-replace-56
+    wl-accent-chinese-words-57: wl-accent-chinese-words-replace-57
+    wl-accent-chinese-words-58: wl-accent-chinese-words-replace-58
+    wl-accent-chinese-words-59: wl-accent-chinese-words-replace-59
+    wl-accent-chinese-words-60: wl-accent-chinese-words-replace-60
+    wl-accent-chinese-words-61: wl-accent-chinese-words-replace-61
+    wl-accent-chinese-words-62: wl-accent-chinese-words-replace-62
+    wl-accent-chinese-words-63: wl-accent-chinese-words-replace-63
+    wl-accent-chinese-words-64: wl-accent-chinese-words-replace-64
+    wl-accent-chinese-words-65: wl-accent-chinese-words-replace-65
+    wl-accent-chinese-words-66: wl-accent-chinese-words-replace-66

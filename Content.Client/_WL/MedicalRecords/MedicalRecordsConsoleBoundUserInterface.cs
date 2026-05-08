@@ -20,7 +20,6 @@ public sealed class MedicalRecordsConsoleBoundUserInterface : BoundUserInterface
             SendMessage(new MedicalRecordsSetStationRecordFilter(type, filterValue));
         _window.OnPrinted += id =>
             SendMessage(new PrintStationRecord(id));
-        _window.OnClose += Close;
 
         _window.OpenCentered();
     }
