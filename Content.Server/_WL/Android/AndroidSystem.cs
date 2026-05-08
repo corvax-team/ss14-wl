@@ -256,7 +256,7 @@ namespace Content.Server._WL.Android
             {
                 Act = () => _doAfter.TryStartDoAfter(doAfter),
                 IconEntity = GetNetEntity(target),
-                Text = "Зарядка"
+                Text = Loc.GetString("android-system-charge-verb")
             });
         }
 

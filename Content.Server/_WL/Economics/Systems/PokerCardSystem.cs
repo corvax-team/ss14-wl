@@ -125,7 +125,7 @@ namespace Content.Server._WL.Economics.Systems
                 },
                 IconEntity = GetNetEntity(cardBox),
                 Priority = -1,
-                Text = Loc.GetString("pokercard-system-flip-all-cards-verb")//"Перевернуть все карты в колоде"
+                Text = Loc.GetString("pokercard-system-flip-all-cards-verb")
             };
 
             args.Verbs.Add(firstVerb);
