@@ -30,7 +30,7 @@ namespace Content.Server._WL.Android
         public float IonStormSlownessProbability = 0.78f;
 
         [DataField]
-        public string IonStormPopupMessage = Loc.GetString("android-comp-ion-storm-popup");
+        public LocId IonStormPopupMessage = "android-comp-ion-storm-popup";
 
         [DataField]
         public bool IsUnderIonStorm = false;
