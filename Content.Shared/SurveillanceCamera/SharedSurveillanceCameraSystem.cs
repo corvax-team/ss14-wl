@@ -57,8 +57,10 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
 
     private void OnEmpDisabledRemoved(EntityUid uid, SurveillanceCameraComponent component, ref EmpDisabledRemovedEvent args)
     {
+        //WL-Changes-Включение/выключение-Start
         if (!HasComp<ItemToggleComponent>(uid))
             SetActive(uid, true);
+        //WL-Changes-Включение/выключение-Start
     }
 
     // TODO: predict the rest of the server side system
