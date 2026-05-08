@@ -10,7 +10,7 @@ namespace Content.Shared.SurveillanceCamera;
 
 public abstract class SharedSurveillanceCameraSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!; //WL-Changes-Включение/выключение
     [Dependency] private readonly ItemToggleSystem _itemToggle = default!; //WL-Changes-Включение/выключение
 
     public override void Initialize()
