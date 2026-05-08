@@ -1,8 +1,6 @@
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using System.Linq;
 using System.Numerics;
 
 namespace Content.Server._WL.DayNight
@@ -88,7 +86,7 @@ namespace Content.Server._WL.DayNight
                 ? dayColor.B + (nightColor.B - dayColor.B) * filledPercentage
                 : nightColor.B + (dayColor.B - nightColor.B) * filledPercentage;
 
-            var result = new Color((float) r, (float) g, (float) b);
+            var result = new Color((float)r, (float)g, (float)b);
 
             return result;
         }

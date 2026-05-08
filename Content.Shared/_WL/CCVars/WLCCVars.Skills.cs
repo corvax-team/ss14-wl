@@ -11,5 +11,5 @@ public sealed partial class WLCVars
     /// ГАНС! ЕСЛИ ОНИ ВДРУГ НЕ НУЖНЫ ТО ПЕРЕКЛЮЧИ ПЕРЕКЛЮЧАТЕЛЬ!!!
     /// </summary>
     public static readonly CVarDef<bool> SkillsEnabled =
-        CVarDef.Create("skills.enabled", true, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
+        CVarDef.Create("skills.enabled", false, CVar.SERVER | CVar.REPLICATED | CVar.ARCHIVE);
 }

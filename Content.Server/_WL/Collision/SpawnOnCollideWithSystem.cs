@@ -1,14 +1,8 @@
-using Content.Shared._WL.Photo;
 using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
-using Robust.Shared.Graphics;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Events;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Numerics;
-using System.Text;
 
 namespace Content.Server._WL.Collision;
 

@@ -2,12 +2,9 @@ using Content.Shared._WL.Languages;
 using Content.Shared._WL.Languages.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
-using Content.Shared.Timing;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
-using Content.Shared.Trigger.Systems;
 using Content.Server.Atmos.EntitySystems;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -208,7 +205,7 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         if (proto == null)
             return innerMsg;
 
-        return ObfuscateMessage(source, innerMsg, proto.ID);
+        return ObfuscateMessage(innerMsg, proto.ID);
     }
 
     public bool CanUnderstand(EntityUid source, EntityUid listener, string? message = null, ProtoId<LanguagePrototype>? overrideLang = null)
@@ -408,12 +405,11 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         var (fontSize, fontId) = GetFontParams(language, speech.FontSize, speech.FontId);
 
         var locId = speech.Bold ? "chat-manager-entity-say-bold-wrap-message-lang" : "chat-manager-entity-say-wrap-message-lang";
-        Logger.Debug(fontId);
 
         var wrappedMessage = Loc.GetString(locId,
             ("entityName", name),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
-            ("fontType", fontId), //Оно не работает, даже если захардкодить. Не понимаю почему. (tau)
+            ("fontType", fontId),
             ("fontSize", fontSize),
             ("message", FormattedMessage.EscapeText(new_message)),
             ("langColor", color));
@@ -432,7 +428,7 @@ public sealed class LanguagesSystem : SharedLanguagesSystem
         {
             var fixed_pressure = MathF.Max(mixture.Pressure - MinTalkPressure, 0f);
 
-            var pressure_prob = MathF.Min(fixed_pressure/(FullTalkPressure - MinTalkPressure), 1f);
+            var pressure_prob = MathF.Min(fixed_pressure / (FullTalkPressure - MinTalkPressure), 1f);
 
             var full_prob = MathF.Min(pressure_prob + language.PressurePass, 1f);
 

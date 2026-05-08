@@ -38,7 +38,7 @@ public sealed partial class TurretMinderConsoleWindow : DefaultWindow
             {
                 VerticalAlignment = VAlignment.Center,
                 HorizontalAlignment = HAlignment.Center,
-                Text = "Не найдено подключенных орудий."
+                Text = Loc.GetString("turret-minder-no-guns")
             });
 
             return;
@@ -59,7 +59,7 @@ public sealed partial class TurretMinderConsoleWindow : DefaultWindow
         };
 
         var ent = _entMan.GetEntity(entity);
-        var name = ent.IsValid() ? Identity.Name(ent, _entMan) : "Неизвестно";
+        var name = ent.IsValid() ? Identity.Name(ent, _entMan) : Loc.GetString("generic-unknown-title");
 
         var labelBoxContainer = new BoxContainer()
         {
@@ -83,14 +83,14 @@ public sealed partial class TurretMinderConsoleWindow : DefaultWindow
 
         var button = new Button()
         {
-            Text = "Управлять"
+            Text = Loc.GetString("turret-minder-get-control")
         };
         button.OnPressed += (args) => RideButtonPressed?.Invoke(entity);
 
         if (entry.Disabled)
         {
             button.Disabled = true;
-            button.Text = "Недоступно";
+            button.Text = Loc.GetString("turret-minder-unavailable");
         }
 
         if (entry.Prototype != null)
@@ -98,9 +98,9 @@ public sealed partial class TurretMinderConsoleWindow : DefaultWindow
             var spriteView = new TextureRect()
             {
                 Margin = new(0, 0, 5, 0),
-                TextureScale = new(0.8f, 0.8f)
+                TextureScale = new(0.8f, 0.8f),
+                Texture = _sprite.Frame0(_protoMan.Index(entry.Prototype))
             };
-            spriteView.Texture = _sprite.Frame0(_protoMan.Index(entry.Prototype));
 
             main.AddChild(spriteView);
         }

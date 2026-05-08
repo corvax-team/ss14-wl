@@ -11,6 +11,18 @@
     sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+    equipSound:
+      collection: GogglesEquip
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GogglesPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GogglesDrop
+      params:
+        volume: -4
   - type: NightVision
     isEquipment: true
   - type: IdentityBlocker
@@ -52,6 +64,18 @@
     sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+    equipSound:
+      collection: GogglesEquip
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GogglesPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GogglesDrop
+      params:
+        volume: -4
   - type: ThermalVision
     isEquipment: true
     color: "#FF7A91"

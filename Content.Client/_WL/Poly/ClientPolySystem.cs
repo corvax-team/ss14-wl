@@ -1,8 +1,8 @@
+using System.IO;
 using Content.Client.Sprite;
 using Content.Shared._WL.Poly.Events;
 using JetBrains.Annotations;
 using SixLabors.ImageSharp;
-using System.IO;
 
 namespace Content.Client._WL.Poly
 {
@@ -43,13 +43,13 @@ namespace Content.Client._WL.Poly
 
                         var ev = new PolyClientResponseEvent(bytes, args.QueryId);
 
-                        _sawmill.Info($"Запрос от Поли успешно обработан! Сущность: {ToPrettyString(args.Entity)}");
+                        _sawmill.Info($"Poly's request has been successfully processed! Entity: {ToPrettyString(args.Entity)}");
 
                         RaiseNetworkEvent(ev);
                     }
                     catch (Exception ex)
                     {
-                        _sawmill.Error($"Неизвестная ошибка при рендере фотографии для Поли! {ex.Message}");
+                        _sawmill.Error($"An unknown error occurred while rendering the photo for Poly! {ex.Message}");
                     }
                 });
             }

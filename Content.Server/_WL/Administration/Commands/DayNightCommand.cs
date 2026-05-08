@@ -10,101 +10,77 @@ using System.Numerics;
 namespace Content.Server._WL.Administration.Commands
 {
     [AdminCommand(AdminFlags.Mapping)]
-    public sealed partial class DayNightCommand : LocalizedCommands
+    public sealed partial class DayNightCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly IEntityManager _entMan = default!;
-        [Dependency] private readonly IMapManager _mapMan = default!;
+        [Dependency] private readonly MapSystem _map = default!;
 
         public override string Command => "daynight";
-        public override string Description
-            =>
-            """
-                Добавляет карте смену дня и ночи.
-                Желательно, чтоб это была планета.
-                Также желательно, чтобы эта команда использовалась только с неинициализированными картами.
-            """;
-
-        public override string Help => "daynight <mapId> <fullCycle> <dayRatio> <nightRatio> <dayColor> <nightColor>";
 
         public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
         {
-            if (args.Length == 1)
-            {
-                return CompletionResult.FromHintOptions(_mapMan.GetAllMapIds().Select(x => x.ToString()), "MapId");
-            }
-            else if (args.Length == 2)
-            {
-                return CompletionResult.FromHint("FullCycle in seconds");
-            }
-            else if (args.Length == 3)
-            {
-                return CompletionResult.FromHint("Day ratio an integer");
-            }
-            else if (args.Length == 4)
-            {
-                return CompletionResult.FromHint("Night ration an integer");
-            }
-            else if (args.Length == 5)
-            {
-                return CompletionResult.FromHint("Day Hex");
-            }
-            else if (args.Length == 6)
-            {
-                return CompletionResult.FromHint("Night Hex");
-            }
+            var length = args.Length;
 
-            return CompletionResult.Empty;
+            switch (length)
+            {
+                case 1:
+                    return CompletionResult.FromHintOptions(_map.GetAllMapIds().Select(x => x.ToString()), Loc.GetString("generic-mapid"));
+                case 2:
+                    return CompletionResult.FromHint(Loc.GetString("cmd-daynight-full-cycle"));
+                case 3:
+                    return CompletionResult.FromHint(Loc.GetString("cmd-daynight-day-ratio"));
+                case 4:
+                    return CompletionResult.FromHint(Loc.GetString("cmd-daynight-night-ratio"));
+                case 5:
+                    return CompletionResult.FromHint(Loc.GetString("cmd-daynight-day-hex"));
+                case 6:
+                    return CompletionResult.FromHint(Loc.GetString("cmd-daynight-night-hex"));
+                default:
+                    return CompletionResult.Empty;
+
+            }
         }
 
         public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length != 6 && args.Length != 4)
             {
-                shell.WriteError(LocalizationManager.GetString("shell-wrong-arguments-number"));
+                shell.WriteError(LocalizationManager.GetString("shell-need-between-arguments", ("lower", 4), ("upper", 6)));
                 return;
             }
 
-            var mapSys = _entMan.System<MapSystem>();
-
             if (!int.TryParse(args[0], out var mapIntegerId))
             {
-                shell.WriteError("MapId должно быть числом!");
+                shell.WriteError(Loc.GetString("shell-invalid-map-id"));
                 return;
             }
 
             var mapId = new MapId(mapIntegerId);
 
-            if (!mapSys.MapExists(mapId))
+            if (!_map.MapExists(mapId) || !_map.TryGetMap(mapId, out var mapUid))
             {
-                shell.WriteError($"Карты с ID равнм {mapIntegerId} не существует!");
+                shell.WriteError(Loc.GetString("cmd-savemap-not-exist"));
                 return;
             }
 
             if (!int.TryParse(args[1], out var fullCycleTime) || fullCycleTime <= 0)
             {
-                shell.WriteError("fullCycleTime должен представлять целое число большее нуля!");
+                shell.WriteError(Loc.GetString("cmd-daynight-failure-parse-cycle"));
                 return;
             }
 
             if (!int.TryParse(args[2], out var dayRatio) || dayRatio <= 0)
             {
-                shell.WriteError("dayRatio должен представлять целое число большее нуля!");
+                shell.WriteError(Loc.GetString("cmd-daynight-failure-parse-day"));
                 return;
             }
 
             if (!int.TryParse(args[3], out var nightRatio) || nightRatio <= 0)
             {
-                shell.WriteError("nightRatio должен представлять целое число большее нуля!");
+                shell.WriteError(Loc.GetString("cmd-daynight-failure-parse-night"));
                 return;
             }
 
-            if (!mapSys.TryGetMap(mapId, out var mapUid) || mapUid == null)
-            {
-                shell.WriteError("Неизвестная ошибка.");
-                return;
-            }
-
-            var dayNnightComp = _entMan.EnsureComponent<DayNightComponent>(mapUid.Value);
+            var dayNnightComp = EntityManager.EnsureComponent<DayNightComponent>(mapUid.Value);
 
             dayNnightComp.DayNightRatio = new Vector2(dayRatio, nightRatio);
             dayNnightComp.FullCycle = TimeSpan.FromSeconds(fullCycleTime);
@@ -114,14 +90,15 @@ namespace Content.Server._WL.Administration.Commands
 
             var dayColor = Color.TryFromHex(args[4]);
             var nightColor = Color.TryFromHex(args[5]);
-            if (dayColor != null)
+
+            if (dayColor is null || nightColor is null)
             {
-                dayNnightComp.DayHex = args[4];
+                shell.WriteError(Loc.GetString("shell-invalid-color-hex"));
+                return;
             }
-            if (nightColor != null)
-            {
-                dayNnightComp.NightHex = args[5];
-            }
+
+            dayNnightComp.DayHex = args[4];
+            dayNnightComp.NightHex = args[5];
         }
     }
 }

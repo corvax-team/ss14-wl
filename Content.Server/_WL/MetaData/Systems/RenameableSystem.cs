@@ -3,7 +3,6 @@ using Content.Server.Administration;
 using Content.Server.Charges;
 using Content.Server.Popups;
 using Content.Shared.Charges.Components;
-using Content.Shared.Examine;
 using Content.Shared.Verbs;
 using Robust.Server.Player;
 using Robust.Shared.Player;
@@ -11,6 +10,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 
 namespace Content.Server._WL.MetaData.Systems;
+
 public sealed partial class RenameableSystem : EntitySystem
 {
     [Dependency] private readonly MetaDataSystem _metaData = default!;

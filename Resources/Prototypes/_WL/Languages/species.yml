@@ -174,7 +174,7 @@
       - щебечет
       - щебечет и двигает усиками
       - щебечет и активно двигает тельцем
-  needtts: false
+  needTTS: false
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: nian
@@ -185,7 +185,7 @@
   description: language-ternary-desc
   color: '#03b5fc'
   keylang: 'а'
-  needtts: false
+  needTTS: false
   customSound: true
   sound:
     collection: TernarySounds
@@ -214,7 +214,7 @@
       - шуршит
       - трещит ветками
       - трясёт лозами и листьями
-  needtts: false
+  needTTS: false
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: diona
@@ -225,7 +225,7 @@
   description: language-slimish-desc
   color: "#8bebb3"
   keylang: 'с'
-  needtts: false
+  needTTS: false
   emoting: true
   obfuscation:
     !type:LengthObfuscation
@@ -277,7 +277,7 @@
   description: language-urlum-desc
   color: "#999999"
   keylang: 'м'
-  needtts: false
+  needTTS: false
   emoting: true
   obfuscation:
     !type:LengthObfuscation

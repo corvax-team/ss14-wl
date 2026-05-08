@@ -1,7 +1,5 @@
 using Content.Server._WL.Nutrition.Components;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared.Body;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;

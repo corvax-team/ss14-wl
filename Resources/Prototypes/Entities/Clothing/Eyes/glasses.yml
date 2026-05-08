@@ -62,6 +62,20 @@
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/meson.rsi
+    # WL-Sounds-Start
+    equipSound:
+      collection: GogglesEquip
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GogglesPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GogglesDrop
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: EyeProtection
   - type: IdentityBlocker
     coverage: EYES
@@ -242,6 +256,20 @@
     sprite: Clothing/Eyes/Glasses/thermal.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/thermal.rsi
+    # WL-Sounds-Start
+    equipSound:
+      collection: GogglesEquip
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GogglesPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GogglesDrop
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: Armor
     modifiers:
       coefficients:
@@ -261,6 +289,20 @@
       sprite: Clothing/Eyes/Glasses/science.rsi
     - type: Clothing
       sprite: Clothing/Eyes/Glasses/science.rsi
+      # WL-Sounds-Start
+      equipSound:
+        collection: GogglesEquip
+    - type: EmitSoundOnPickup
+      sound:
+        collection: GogglesPickup
+        params:
+          volume: -4
+    - type: EmitSoundOnDrop
+      sound:
+        collection: GogglesDrop
+        params:
+          volume: -4
+  # WL-Sounds-End
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
@@ -279,6 +321,20 @@
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    # WL-Sounds-Start
+    equipSound:
+      collection: GogglesEquip
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GogglesPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GogglesDrop
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: FlashImmunity
   # WL-Night-Vision-Start
   - type: NightVision

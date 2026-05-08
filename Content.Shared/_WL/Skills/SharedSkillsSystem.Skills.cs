@@ -1,6 +1,5 @@
 using Content.Shared._WL.CCVars;
 using Content.Shared._WL.Skills.Components;
-using Content.Shared.Cloning.Events;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
