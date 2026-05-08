@@ -18,6 +18,7 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
         SubscribeLocalEvent<SurveillanceCameraComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpDisabledRemovedEvent>(OnEmpDisabledRemoved);
+        // WL-Changes-Start
         SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggledEvent>(OnToggle);
         SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
         SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggleDeactivateAttemptEvent>(OnDeactivateAttempt);
