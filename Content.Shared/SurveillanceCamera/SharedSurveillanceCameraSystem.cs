@@ -60,7 +60,7 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
         //WL-Changes-Включение/выключение-Start
         if (!HasComp<ItemToggleComponent>(uid))
             SetActive(uid, true);
-        //WL-Changes-Включение/выключение-Start
+        //WL-Changes-Включение/выключение-End
     }
 
     // TODO: predict the rest of the server side system
