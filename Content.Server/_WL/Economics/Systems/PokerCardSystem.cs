@@ -162,7 +162,7 @@ namespace Content.Server._WL.Economics.Systems
             else
             {
                 _appearance.SetData(card, PokerCardState.IsFlipped, true);
-                _metaData.SetEntityName(card, comp.FlippedCardName);
+                _metaData.SetEntityName(card, Loc.GetString(comp.FlippedCardName));
             }
 
             _audio.PlayPvs(comp.FlipSound, card, StandartParams);

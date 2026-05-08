@@ -178,7 +178,7 @@ namespace Content.Server._WL.Android
                 androidComp.IsUnderIonStorm = true;
                 _move.RefreshMovementSpeedModifiers(android, movementSpeedComp);
 
-                _popup.PopupEntity(androidComp.IonStormPopupMessage, android, android, Shared.Popups.PopupType.Medium);
+                _popup.PopupEntity(Loc.GetString(androidComp.IonStormPopupMessage), android, android, Shared.Popups.PopupType.Medium);
 
                 EnsureComp<StutteringAccentComponent>(android);
             }
