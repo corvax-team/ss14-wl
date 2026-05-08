@@ -21,6 +21,7 @@ public abstract class SharedSurveillanceCameraSystem : EntitySystem
         SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggledEvent>(OnToggle);
         SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
         SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggleDeactivateAttemptEvent>(OnDeactivateAttempt);
+        // WL-Changes-End
     }
 
     private void AddVerbs(EntityUid uid, SurveillanceCameraComponent component, GetVerbsEvent<AlternativeVerb> args)
