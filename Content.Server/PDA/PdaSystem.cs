@@ -225,7 +225,7 @@ namespace Content.Server.PDA
             if (!TryComp(uid, out CartridgeLoaderComponent? loader))
                 return;
 
-            var ece = _roundEnd.IsRoundEndRequested() ? _roundEnd.ExpectedCountdownEnd : null; // WL-Changes: ETA in PDA
+            var expectedCountdownEnd = _roundEnd.IsRoundEndRequested() ? _roundEnd.ExpectedCountdownEnd : null; // WL-Changes: ETA in PDA
 
             var programs = _cartridgeLoader.GetAvailablePrograms(uid, loader);
             var id = CompOrNull<IdCardComponent>(pda.ContainedId);
@@ -250,9 +250,9 @@ namespace Content.Server.PDA
                 hasInstrument,
                 address,
                 // WL-Changes-start: ETA in PDA
-                ece,
-                BeforeETA,
-                RoundEnd);
+                expectedCountdownEnd, // сколько до прибытия эвака на станцию
+                BeforeETA, // сколько до отбытия шаттла со станции
+                RoundEnd); // закончился ли раунд - нужен для полного отключения видимости таймера в кпк
                 // WL-Changes-end
 
             _ui.SetUiState(uid, PdaUiKey.Key, state);

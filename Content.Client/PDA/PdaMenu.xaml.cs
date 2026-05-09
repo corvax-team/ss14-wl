@@ -38,8 +38,7 @@ namespace Content.Client.PDA
         //  WL-Changes-start: ETA in PDA
         private TimeSpan _eta = TimeSpan.Zero;
         private TimeSpan? _expectedETA;
-        private TimeSpan? _etaToCC;
-        private TimeSpan _lastEtaUpdateTime;
+        private TimeSpan? _beforeETA;
         public bool RoundEnd = false;
         // WL-Changes-end
 
@@ -221,9 +220,8 @@ namespace Content.Client.PDA
 
             // WL-Changes-start: ETA in PDA
             RoundEnd = state.roundEnd;
-            _etaToCC = state.BeforeETA;
+            _beforeETA = state.BeforeETA;
             _expectedETA = state.ExpectedETA;
-            _lastEtaUpdateTime = _gameTiming.CurTime;
             UpdateETA();
             // WL-Changes-end
 
@@ -392,48 +390,35 @@ namespace Content.Client.PDA
         // WL-Changes-start: ETA in PDA
         private void UpdateETA()
         {
-            if (RoundEnd)
+            if (RoundEnd) // закончился ли раунд?
             {
                 ETAButton.Visible = true;
                 ETALabel.SetMarkup(_locMan.GetString("comp-pda-ui-arrived-cc"));
                 return;
             }
-            if (!_expectedETA.HasValue)
+            if (_beforeETA.HasValue) // Пристыковался ли эвак к станции?
             {
-                ETAButton.Visible = false;
-                return;
-            }
-            else
-            {
-                if (_eta >= TimeSpan.Zero && !_etaToCC.HasValue)
+                _eta = _beforeETA.Value - _gameTiming.CurTime;
+                if (_eta <= TimeSpan.Zero)
                 {
-                    _eta = _expectedETA.Value.Subtract(_gameTiming.CurTime);
-                }
-                else if (_etaToCC.HasValue)
-                {
-                    var delta = _gameTiming.CurTime - _lastEtaUpdateTime;
-                    _lastEtaUpdateTime = _gameTiming.CurTime;
-                    _etaToCC = _etaToCC.Value - delta;
-                    _eta = _etaToCC.Value;
-
-                    if (_etaToCC.Value <= TimeSpan.Zero)
-                    {
-                        ETAButton.Visible = true;
-                        ETALabel.SetMarkup(_locMan.GetString("comp-pda-ui-departed"));
-                        return;
-                    }
-
                     ETAButton.Visible = true;
-                    ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-arrive",
-                        ("time", _eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture))));
+                    ETALabel.SetMarkup(_locMan.GetString("comp-pda-ui-departed"));
                     return;
                 }
+                ETAButton.Visible = true;
+                ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-arrive",
+                    ("time", _eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture))));
+                return;
             }
-
-            ETAButton.Visible = true;
-            ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-eta",
-                ("time", _eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture))));
-            return;
+            if (_expectedETA.HasValue) // летит ли эвак на станцию?
+            {
+                _eta = _expectedETA.Value - _gameTiming.CurTime;
+                ETAButton.Visible = true;
+                ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-eta",
+                    ("time", _eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture))));
+                return;
+            }
+            ETALabel.Visible = false;
         }
         // WL-Changes-end
     }

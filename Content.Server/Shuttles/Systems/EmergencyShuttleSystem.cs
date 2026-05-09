@@ -491,7 +491,7 @@ public sealed partial class EmergencyShuttleSystem : SharedEmergencyShuttleSyste
         _consoleAccumulator *= multiplier;
 
         // WL-Changes-start: ETA in PDA
-        _pda.BeforeETA = TimeSpan.FromSeconds(_consoleAccumulator);
+        _pda.BeforeETA = _timing.CurTime + TimeSpan.FromSeconds(_consoleAccumulator); // передаем время, когда шаттл отправиться
         _pda.UpdateAllPdaUisOnStation();
         // WL-Changes-end
 
