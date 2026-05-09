@@ -11,7 +11,6 @@ using Content.Shared.Chat;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Paper;
 using Content.Shared.Speech;
-using NetCord.Gateway;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.TapeRecorder;
@@ -22,7 +21,7 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly LanguagesSystem _language = default!;
+    [Dependency] private readonly LanguagesSystem _language = default!; // WL-Languages
 
     public override void Initialize()
     {
@@ -103,8 +102,8 @@ public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
         if (TryComp<LanguagesComponent>(args.Source, out var languagesSpeaker) && languagesSpeaker.CurrentLanguage.HasValue)
             language = languagesSpeaker.CurrentLanguage;
 
-        if (TryComp<TTSComponent>(args.Source, out var ttsComp) && ttsComp.VoicePrototypeId != null)
-            tts = ttsComp.VoicePrototypeId;
+        if (TryComp<TTSComponent>(args.Source, out var ttsComp))
+            tts = ttsComp.VoicePrototypeId ?? "";
         // WL-Changes-end
 
         cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message, language, tts)); // WL-Changes: added Language and TTS support
