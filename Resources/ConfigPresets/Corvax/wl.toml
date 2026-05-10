@@ -41,5 +41,5 @@ arrivals_map = "/Maps/_WL/wl_terminal.yml"
 advertise = true
 tags = "lang:ru,rp:high,region:eu_e,tts"
 
-[worldgen]
+[skills]
 enabled = true

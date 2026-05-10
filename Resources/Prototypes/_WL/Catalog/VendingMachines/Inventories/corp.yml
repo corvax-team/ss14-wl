@@ -2,6 +2,8 @@
   id: CorpDrobeInventory
   startingInventory:
     # Neck
+    ClothingNeckTieRed: 4
+    ClothingNeckTieDet: 4
     ClothingNeckTieGray: 4
     ClothingNeckTieBlue: 4
     ClothingNeckTieGreen: 4

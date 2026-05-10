@@ -99840,12 +99840,6 @@ entities:
         4918:
           position: 5,0
           _rotation: South
-        4919:
-          position: 1,3
-          _rotation: South
-        4920:
-          position: 0,3
-          _rotation: South
         4921:
           position: 5,3
           _rotation: South
@@ -99861,8 +99855,6 @@ entities:
           - 4916
           - 4918
           - 4917
-          - 4919
-          - 4920
           - 4921
     - type: Fixtures
       fixtures: {}
@@ -109563,20 +109555,6 @@ entities:
     - type: Transform
       pos: 15.670766,30.595528
       parent: 2
-- proto: TowelColorOrange
-  entities:
-  - uid: 4919
-    components:
-    - type: Transform
-      parent: 4912
-    - type: Physics
-      canCollide: False
-  - uid: 4920
-    components:
-    - type: Transform
-      parent: 4912
-    - type: Physics
-      canCollide: False
 - proto: TowelColorRed
   entities:
   - uid: 3572

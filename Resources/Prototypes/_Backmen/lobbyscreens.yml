@@ -1,0 +1,29 @@
+- type: lobbyBackground
+  id: Capoleon
+  background: /Textures/_Backmen/LobbyScreens/capoleon.png
+  title: lobby-state-background-capoleon-title
+  artist: lobby-state-background-capoleon-artist
+
+- type: lobbyBackground
+  id: KissMe
+  background: /Textures/_Backmen/LobbyScreens/kissme.png
+  title: lobby-state-background-kissme-title
+  artist: lobby-state-background-kissme-artist
+
+- type: lobbyBackground
+  id: Twix
+  background: /Textures/_Backmen/LobbyScreens/twix.png
+  title: lobby-state-background-twix-title
+  artist: lobby-state-background-twix-artist
+  
+- type: lobbyBackground
+  id: Pivo
+  background: /Textures/_Backmen/LobbyScreens/pivo.png
+  title: lobby-state-background-pivo-title
+  artist: lobby-state-background-pivo-artist
+  
+- type: lobbyBackground
+  id: Vangogh
+  background: /Textures/_Backmen/LobbyScreens/vangogh.png
+  title: lobby-state-background-vangogh-title
+  artist: lobby-state-background-vangogh-artist

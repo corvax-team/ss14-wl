@@ -265,7 +265,7 @@ namespace Content.Client.Lobby.UI
             // WL-Height-Start
             #region Height
 
-            _heightEdit.OnTextChanged += args =>
+            HeightEdit.OnTextChanged += args =>
             {
                 if (!int.TryParse(args.Text, out var newHeight))
                     return;
@@ -308,7 +308,8 @@ namespace Content.Client.Lobby.UI
             };
 
             RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new ColorSelectorSliders());
-            _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
+            //_rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv; // defaults color selector to HSV
+            _rgbSkinColorSelector.SelectorType = ColorSelectorSliders.ColorSelectorType.Rgb; // WL-changes - Default-RGB
             _rgbSkinColorSelector.OnColorChanged += _ =>
             {
                 OnSkinColorOnValueChanged();
