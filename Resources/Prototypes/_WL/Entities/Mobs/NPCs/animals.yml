@@ -1,8 +1,8 @@
 - type: entity
   name: Spidey
   parent: MobCockroach
-  id: ModSpidey
-  description: This station is just crawling with bugs.
+  id: MobSpidey
+  description: Seems to consider the station its personal property.
   components:
   - type: Sprite
     drawdepth: SmallMobs

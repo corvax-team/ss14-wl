@@ -356,7 +356,7 @@
           # Creatures
         - id: MobCockroach
           prob: 0.05
-        - id: ModSpidey #WL-Changes: friedly spider
+        - id: MobSpidey #WL-Changes: friedly spider
           prob: 0.05
         - id: MobMothroach
           prob: 0.03
