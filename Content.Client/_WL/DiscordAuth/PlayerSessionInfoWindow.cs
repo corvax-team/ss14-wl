@@ -1,12 +1,10 @@
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Robust.Client.Graphics;
-using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Timing;
-using System.Data;
 
 namespace Content.Client._WL.DiscordAuth
 {

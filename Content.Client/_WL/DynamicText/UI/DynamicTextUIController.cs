@@ -1,4 +1,3 @@
-using Content.Shared._WL.DynamicText;
 using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Client._WL.DynamicText.UI;

@@ -149,7 +149,7 @@ namespace Content.Server._WL.Economics.Systems
             if (!_appearance.TryGetData(card, PokerCardState.IsFlipped, out var dataValue))
                 return;
 
-            if ((bool) dataValue == true)
+            if ((bool)dataValue == true)
             {
                 _appearance.SetData(card, PokerCardState.IsFlipped, false);
                 _metaData.SetEntityName(card, comp.OriginalName);

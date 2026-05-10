@@ -1,16 +1,10 @@
 using Content.Server._WL.Turrets.Components;
 using Content.Server.Actions;
-using Content.Server.DeviceLinking.Systems;
 using Content.Server.DoAfter;
-using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Mind;
-using Content.Server.Power.Components;
 using Content.Shared._WL.Turrets;
 using Content.Shared._WL.Turrets.Events;
-using Content.Shared.Construction.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DeviceLinking;
@@ -233,7 +227,7 @@ namespace Content.Server._WL.Turrets.Systems
                 if (!TryComp<BuckleableTurretComponent>(ent, out var comp))
                     continue;
 
-                var transformComp = Comp<TransformComponent>(ent);
+                var transformComp = Transform(ent);
 
                 if (!TryComp<DeviceNetworkComponent>(ent, out var deviceNetworkComp))
                     continue;

@@ -1,6 +1,4 @@
-using Content.Shared.Inventory;
 using Content.Shared.Item;
-using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Map;
 
 namespace Content.Shared._WL.Tray;

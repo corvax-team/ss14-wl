@@ -1,14 +1,11 @@
 using Content.Shared._WL.DiscordAuth;
-using JetBrains.Annotations;
 using Robust.Client.Player;
-using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Client._WL.DiscordAuth
 {
-    public sealed partial class ClientDiscordAuthSystem : SharedDiscordAuthSystem
+    public sealed partial class ClientDiscordAuthSystem : EntitySystem
     {
         [Dependency] private readonly IPlayerManager _playMan = default!;
         [Dependency] private readonly IGameTiming _timing = default!;

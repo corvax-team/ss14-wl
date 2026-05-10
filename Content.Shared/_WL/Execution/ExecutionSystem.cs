@@ -37,7 +37,6 @@ public sealed class ExecutionSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combatSystem = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _meleeSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
@@ -113,7 +112,7 @@ public sealed class ExecutionSystem : EntitySystem
             return true;
 
         // No point executing someone if they can't take damage
-        if (!TryComp<DamageableComponent>(victim, out _))
+        if (!HasComp<DamageableComponent>(victim))
             return false;
 
         // You can't execute something that cannot die
@@ -132,7 +131,8 @@ public sealed class ExecutionSystem : EntitySystem
         if (victim != attacker && _actionBlockerSystem.CanInteract(victim, null))
             return false;
 
-        if (Transform(attacker).Coordinates.InRange(_entityManager, _transformSystem, Transform(victim).Coordinates, 0.1f))
+        // Attacker must be in close range with victim
+        if (!_transformSystem.InRange(Transform(attacker).Coordinates, Transform(victim).Coordinates, 0.1f))
             return false;
 
         // All checks passed
@@ -177,7 +177,7 @@ public sealed class ExecutionSystem : EntitySystem
             {
                 // if can't take damage, use fallback
                 string damageTypeString = "Heat";
-                if(_prototypeManager.TryIndex<DamageTypePrototype>(damageTypeString, out var damageType))
+                if (_prototypeManager.TryIndex<DamageTypePrototype>(damageTypeString, out var damageType))
                 {
                     damageSpecifier = new DamageSpecifier(damageType, component.DamageModifier * 10f);
                 }
@@ -302,7 +302,7 @@ public sealed class ExecutionSystem : EntitySystem
 
         if (TryComp(args.FiredProjectiles[0], out ProjectileComponent? projectile))
         {
-            if(projectile.Damage.GetTotal() * comp.DamageModifier > staminaDamage)
+            if (projectile.Damage.GetTotal() * comp.DamageModifier > staminaDamage)
                 projectile.Damage *= comp.DamageModifier;
         }
 

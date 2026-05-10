@@ -5,6 +5,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._WL.Overlays;
+
 public sealed partial class ShaderCameraOverlay : Overlay
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -44,8 +45,7 @@ public sealed partial class ShaderCameraOverlay : Overlay
         if (filter.Shader == null)
             return;
 
-        ShaderInstance? shader;
-        if (!_cachedShaders.TryGetValue(filter.Shader, out shader))
+        if (!_cachedShaders.TryGetValue(filter.Shader, out var shader))
         {
             shader = _prototypeManager.Index((ProtoId<ShaderPrototype>)filter.Shader).InstanceUnique();
             _cachedShaders.Add(filter.Shader, shader);

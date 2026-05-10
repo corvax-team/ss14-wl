@@ -2,14 +2,13 @@ using Content.Server.Administration;
 using Content.Server.Database;
 using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
-using Content.Shared.Players;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 
 namespace Content.Server._WL.Administration.Commands
 {
     [AdminCommand(AdminFlags.NameColor)]
-    internal sealed class SetSponsorColor: LocalizedCommands
+    internal sealed class SetSponsorColor : LocalizedCommands
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IServerDbManager _dbManager = default!;
