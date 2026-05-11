@@ -21,6 +21,8 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
+  - type: ReplacementAccent
+    accent: xeno
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
