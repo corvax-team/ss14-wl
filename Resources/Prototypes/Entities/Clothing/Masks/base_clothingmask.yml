@@ -9,6 +9,16 @@
     size: Small
   - type: Clothing
     slots: [mask]
+    # Goobstation edit start
+    equipSound:
+      collection: GenericEquip
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/generic_small_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_Goobstation/Items/handling/generic_small_drop.ogg
+      # Goobstation edit end
   - type: StaticPrice
     price: 25
 
@@ -32,9 +42,9 @@
     event: !type:ToggleMaskEvent
 
 - type: entity
-  id: ClothingMaskBaseButcherable
-  parent: ClothingMaskBase
   abstract: true
+  parent: [SolutionFood, SolutionToolSmall, ClothingMaskBase]
+  id: ClothingMaskBaseButcherable
   components:
   - type: Butcherable
     butcheringType: Knife
@@ -46,13 +56,11 @@
       Cloth: 50
   - type: Edible
     requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 15
   - type: Tag
     tags:
     - ClothMade

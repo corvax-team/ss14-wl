@@ -31,8 +31,8 @@ namespace Content.Shared.Mobs.Systems;
 public partial class MobStateSystem
 {
     // WL Golem species start
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!;
     // WL Golem species end
     //General purpose event subscriptions. If you can avoid it register these events inside their own systems
     private void SubscribeEvents()

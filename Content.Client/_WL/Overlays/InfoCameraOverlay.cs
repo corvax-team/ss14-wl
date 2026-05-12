@@ -8,11 +8,12 @@ using Robust.Shared.Timing;
 using System.Numerics;
 
 namespace Content.Client._WL.Overlays;
+
 public sealed partial class InfoCameraOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private readonly PhotoSystem _photo;
     private readonly ClientGameTicker _gameTicker;
 
@@ -54,7 +55,7 @@ public sealed partial class InfoCameraOverlay : Overlay
         var worldMatrix = Matrix3Helpers.CreateTranslation(-args.WorldBounds.TopLeft);
 
         Angle angle = args.Viewport.Eye?.Rotation ?? Angle.Zero;
-        Vector2 zoom = (args.Viewport.Eye?.Zoom ?? Vector2.One);
+        Vector2 zoom = args.Viewport.Eye?.Zoom ?? Vector2.One;
         handle.SetTransform(args.WorldBounds.BottomLeft, -angle, zoom);
 
         DrawSizeBar(handle, args.WorldBounds, zoom);

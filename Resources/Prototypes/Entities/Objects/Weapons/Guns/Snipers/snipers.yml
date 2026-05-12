@@ -37,13 +37,24 @@
         ents: []
   - type: StaticPrice
     price: 500
-# White-List components
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: SnipersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: SnipersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: SnipersDrop
+  # Goobstation edit end
+  # White-List components
   - type: Execution
-# White-List components end
+  # White-List components end
 
 - type: entity
   name: Kardashev-Mosin
-  parent: [BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband]
+  parent: [BaseWeaponSniper, BaseGunWieldable, SolutionDart, BaseMajorContraband]
   id: WeaponSniperMosin
   description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 rifle.
   components:
@@ -74,10 +85,6 @@
   - type: MeleeRequiresWield
   - type: AltFireMelee
     attackType: Heavy
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 2
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution

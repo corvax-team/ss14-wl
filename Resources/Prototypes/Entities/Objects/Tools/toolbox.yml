@@ -7,6 +7,14 @@
     layers:
       - map: [ base ]
         state: icon
+  # Goobstation edit start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_Goobstation/Items/handling/toolbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  # Goobstation edit end
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/toolbox_drop.ogg
@@ -81,6 +89,7 @@
   description: A toolbox typically stocked with electrical gear.
   components:
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

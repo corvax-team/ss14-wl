@@ -1,6 +1,5 @@
 using Content.Shared._WL.CCVars;
 using Content.Shared._WL.Skills.Components;
-using Content.Shared.Cloning.Events;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
@@ -11,7 +10,7 @@ namespace Content.Shared._WL.Skills;
 
 public abstract partial class SharedSkillsSystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     #region Initialization
 

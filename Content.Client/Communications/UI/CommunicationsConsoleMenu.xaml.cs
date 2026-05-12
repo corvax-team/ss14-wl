@@ -16,10 +16,10 @@ namespace Content.Client.Communications.UI
     [GenerateTypedNameReferences]
     public sealed partial class CommunicationsConsoleMenu : FancyWindow
     {
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly ILocalizationManager _loc = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // Wl-Changes: Alert Level Rework
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private ILocalizationManager _loc = default!;
+        [Dependency] private  IPrototypeManager _prototypeManager = default!; // Wl-Changes: Alert Level Rework
 
         public bool CanAnnounce;
         public bool CanBroadcast;

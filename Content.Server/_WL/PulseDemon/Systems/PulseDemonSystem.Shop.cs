@@ -9,8 +9,8 @@
 
 //public sealed partial class PulseDemonSystem : EntitySystem
 //{
-//    [Dependency] private readonly StoreSystem _store = default!;
-//    [Dependency] private readonly BatterySystem _battery = default!;
+//    [Dependency] private StoreSystem _store = default!;
+//    [Dependency] private BatterySystem _battery = default!;
 
 //    private void InitializeShopEventsSubscribers()
 //    {

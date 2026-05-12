@@ -34,14 +34,14 @@
 
 //public sealed partial class PulseDemonSystem : EntitySystem
 //{
-//    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-//    [Dependency] private readonly IRobustRandom _random = default!;
-//    [Dependency] private readonly IGameTiming _gameTiming = default!;
-//    [Dependency] private readonly AlertsSystem _alerts = default!;
-//    [Dependency] private readonly ActionsSystem _action = default!;
-//    [Dependency] private readonly PowerNetSystem _power = default!;
-//    [Dependency] private readonly MovementSpeedModifierSystem _move = default!;
-//    [Dependency] private readonly IMapManager _map = default!;
+//    [Dependency] private EntityLookupSystem _lookup = default!;
+//    [Dependency] private IRobustRandom _random = default!;
+//    [Dependency] private IGameTiming _gameTiming = default!;
+//    [Dependency] private AlertsSystem _alerts = default!;
+//    [Dependency] private ActionsSystem _action = default!;
+//    [Dependency] private PowerNetSystem _power = default!;
+//    [Dependency] private MovementSpeedModifierSystem _move = default!;
+//    [Dependency] private IMapManager _map = default!;
 
 //    #region WallSpawnOffsets
 //    private static readonly List<Vector2> Offsets = new()

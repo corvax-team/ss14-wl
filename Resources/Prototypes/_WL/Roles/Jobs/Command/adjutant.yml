@@ -17,7 +17,6 @@
   weight: -1000
   startingGear: AdjutantGear
   supervisors: job-supervisors-adjutant
-  canBeAntag: false
   access:
   - Adjutant
   - Command

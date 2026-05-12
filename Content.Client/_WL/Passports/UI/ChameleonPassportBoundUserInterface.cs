@@ -1,8 +1,5 @@
 using Content.Shared._WL.Passports.Systems;
-using Content.Shared.StatusIcon;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client._WL.Passports.UI
 {

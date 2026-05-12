@@ -53,25 +53,27 @@ public sealed partial class WordsReplacementObfuscation : ObfuscationMethod
     [DataField(required: true)]
     public List<string> Replacement = [];
 
+    [DataField]
+    public List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
+
     internal bool IsPunct(char ch)
     {
-        List<char> punctuation = new List<char>() {'.', ',', ';', ':', '!', '?'};
-        return punctuation.Contains(ch);
+        return Punctuation.Contains(ch);
     }
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
     {
         int buffer = 0;
         int counter = 0;
-        const char eof = (char) 0;
+        const char eof = (char)0;
         for (int i = 0; i <= message.Length; i++)
         {
             var ch = i < message.Length ? message[i] : eof;
-            if ((IsPunct(ch) || ch == ' ' || ch == eof))
+            if (IsPunct(ch) || ch == ' ' || ch == eof)
             {
                 if (counter > 0)
                 {
-                    var index = PseudoRandom(buffer + i*counter, global_seed, 0, Replacement.Count - 1);
+                    var index = PseudoRandom(buffer + i * counter, global_seed, 0, Replacement.Count - 1);
                     builder.Append(Replacement[index]);
                     buffer = 0;
                     counter = 0;
@@ -84,7 +86,7 @@ public sealed partial class WordsReplacementObfuscation : ObfuscationMethod
             }
             else
             {
-                buffer += System.Math.Abs(buffer * 41 + ch + 13);
+                buffer += Math.Abs(buffer * 41 + ch + 13);
                 counter++;
             }
         }
@@ -93,46 +95,48 @@ public sealed partial class WordsReplacementObfuscation : ObfuscationMethod
 
 public sealed partial class Utf16ReplacementObfuscation : ObfuscationMethod
 {
-    [DataField(required:true)]
-    public int utf16start = 61;
+    [DataField(required: true)]
+    public int Utf16start = 61;
 
-    [DataField(required:true)]
-    public int utf16end = 61;
-
-    [DataField]
-    public bool randlength = true;
+    [DataField(required: true)]
+    public int Utf16end = 61;
 
     [DataField]
-    public int minlength = 3;
+    public bool Randlength = true;
 
     [DataField]
-    public int maxlength = 10;
+    public int Minlength = 3;
+
+    [DataField]
+    public int Maxlength = 10;
+
+    [DataField]
+    public List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
 
     internal bool IsPunct(char ch)
     {
-        List<char> punctuation = new List<char>() {'.', ',', ';', ':', '!', '?'};
-        return punctuation.Contains(ch);
+        return Punctuation.Contains(ch);
     }
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
     {
-        var maxLen = System.Math.Max(minlength, maxlength);
-        var minLen = System.Math.Max(1, minlength);
+        var maxLen = Math.Max(Minlength, Maxlength);
+        var minLen = Math.Max(1, Minlength);
 
         int buffer = 0;
         int counter = 0;
-        const char eof = (char) 0;
+        const char eof = (char)0;
         for (int i = 0; i <= message.Length; i++)
         {
             var ch = i < message.Length ? message[i] : eof;
-            if ((IsPunct(ch) || ch == ' ' || ch == eof))
+            if (IsPunct(ch) || ch == ' ' || ch == eof)
             {
                 if (counter > 0)
                 {
-                    var length = randlength ? PseudoRandom(buffer, global_seed, minLen, maxLen) : counter;
+                    var length = Randlength ? PseudoRandom(buffer, global_seed, minLen, maxLen) : counter;
                     for (int j = 0; j <= length; j++)
                     {
-                        var char_code = PseudoRandom(buffer*(j+3)+(j+1)*counter, global_seed, utf16start, utf16end);
+                        var char_code = PseudoRandom(buffer * (j + 3) + (j + 1) * counter, global_seed, Utf16start, Utf16end);
                         builder.Append((char)char_code);
                     }
 
@@ -161,39 +165,41 @@ public sealed partial class ByCharReplacementObfuscation : ObfuscationMethod
     public List<string> Replacement = [];
 
     [DataField]
-    public bool randlength = true;
+    public bool Randlength = true;
 
     [DataField]
-    public int minlength = 3;
+    public int Minlength = 3;
 
     [DataField]
-    public int maxlength = 10;
+    public int Maxlength = 10;
+
+    [DataField]
+    public List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
 
     internal bool IsPunct(char ch)
     {
-        List<char> punctuation = new List<char>() {'.', ',', ';', ':', '!', '?'};
-        return punctuation.Contains(ch);
+        return Punctuation.Contains(ch);
     }
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
     {
-        var maxLen = System.Math.Max(minlength, maxlength);
-        var minLen = System.Math.Max(1, minlength);
+        var maxLen = Math.Max(Minlength, Maxlength);
+        var minLen = Math.Max(1, Minlength);
 
         int buffer = 0;
         int counter = 0;
-        const char eof = (char) 0;
+        const char eof = (char)0;
         for (int i = 0; i <= message.Length; i++)
         {
             var ch = i < message.Length ? message[i] : eof;
-            if ((IsPunct(ch) || ch == ' ' || ch == eof))
+            if (IsPunct(ch) || ch == ' ' || ch == eof)
             {
                 if (counter > 0)
                 {
-                    var length = randlength ? PseudoRandom(buffer, global_seed, minLen, maxLen) : counter;
+                    var length = Randlength ? PseudoRandom(buffer, global_seed, minLen, maxLen) : counter;
                     for (int j = 0; j <= length; j++)
                     {
-                        var index = PseudoRandom(buffer*(j+3)+(j+1)*counter, global_seed, 0, Replacement.Count - 1);
+                        var index = PseudoRandom(buffer * (j + 3) + (j + 1) * counter, global_seed, 0, Replacement.Count - 1);
                         builder.Append(Replacement[index]);
                     }
 
@@ -221,18 +227,18 @@ public sealed partial class LengthObfuscation : ObfuscationMethod
     public List<string> Replacement = [];
 
     [DataField]
-    public int min = 10;
+    public int Min = 10;
 
     [DataField]
-    public int max = 1000;
+    public int Max = 1000;
 
     internal override void Obfuscate(StringBuilder builder, string message, int global_seed)
     {
-        var gap = System.Math.Max(1, max - min);
-        var normalized = (double)(message.Length - min) / gap;
-        int index = (int)System.Math.Round(normalized * Replacement.Count);
+        var gap = Math.Max(1, Max - Min);
+        var normalized = (double)(message.Length - Min) / gap;
+        int index = (int)Math.Round(normalized * Replacement.Count);
 
-        index = System.Math.Max(0, System.Math.Min(index, Replacement.Count - 1));
+        index = Math.Max(0, Math.Min(index, Replacement.Count - 1));
         builder.Append(Replacement[index]);
     }
 }

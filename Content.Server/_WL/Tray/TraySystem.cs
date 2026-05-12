@@ -3,7 +3,6 @@ using Content.Server.Popups;
 using Content.Shared._WL.Tray;
 using Content.Shared.Destructible;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
@@ -18,13 +17,13 @@ namespace Content.Server._WL.Tray;
 
 public sealed partial class TraySystem : SharedTraySystem
 {
-    [Dependency] private readonly ItemSystem _item = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly ThrowingSystem _throw = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private ItemSystem _item = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private ThrowingSystem _throw = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private List<EntityUid> _itemsToThrow = new();
 

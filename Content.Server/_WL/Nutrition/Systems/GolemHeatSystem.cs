@@ -1,7 +1,5 @@
 using Content.Server._WL.Nutrition.Components;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared.Body;
 using Content.Shared.Temperature.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -11,11 +9,11 @@ using JetBrains.Annotations;
 namespace Content.Server._WL.Nutrition.Systems;
 
 [UsedImplicitly]
-public sealed class GolemHeatSystem : EntitySystem
+public sealed partial class GolemHeatSystem : EntitySystem
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IEntitySystemManager _systemManager = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IEntitySystemManager _systemManager = default!;
+    [Dependency] private MovementSpeedModifierSystem _movement = default!;
 
     private const int HeatChangeAmount = 4000;
     private const float SprintSpeed = 3.24f;

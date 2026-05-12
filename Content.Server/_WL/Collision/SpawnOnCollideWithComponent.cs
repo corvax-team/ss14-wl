@@ -1,8 +1,5 @@
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Content.Server._WL.Collision;
 

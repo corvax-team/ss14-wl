@@ -1,5 +1,4 @@
 using Content.Server._WL.Emergency.Components;
-using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._WL.CCVars;
@@ -11,14 +10,14 @@ using System.Linq;
 
 namespace Content.Server._WL.Emergency;
 
-public sealed class EmergencyLevelSystem : EntitySystem
+public sealed partial class EmergencyLevelSystem : EntitySystem
 {
 
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ChatSystem _chatSystem = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
 
     public override void Initialize()
     {
@@ -54,7 +53,7 @@ public sealed class EmergencyLevelSystem : EntitySystem
         if (!TryComp<EmergencyLevelComponent>(arg.Station, out var emergencyLevelComponent))
             return;
 
-        if (!_proto.TryIndex(emergencyLevelComponent.emergencyList, out var emergencyList))
+        if (!_proto.TryIndex(emergencyLevelComponent.EmergencyList, out var emergencyList))
             return;
 
         emergencyLevelComponent.Emergencies = emergencyList;
@@ -97,7 +96,7 @@ public sealed class EmergencyLevelSystem : EntitySystem
 
         var name = Loc.GetString(prototype.Name);
 
-        var announcementFull = string.Empty;
+        string announcementFull;
 
         if (!string.IsNullOrEmpty(prototype.UniqueStartAnnouncement))
             announcementFull = Loc.GetString(

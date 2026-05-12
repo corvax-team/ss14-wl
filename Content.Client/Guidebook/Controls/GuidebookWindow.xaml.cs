@@ -18,11 +18,9 @@ namespace Content.Client.Guidebook.Controls;
 [GenerateTypedNameReferences]
 public sealed partial class GuidebookWindow : FancyWindow, ILinkClickHandler, IAnchorClickHandler
 {
-    [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
-    [Dependency] private readonly IResourceManager _resourceManager = default!;
-    // WL-Changes-start
-    [Dependency] private readonly IUriOpener _uriOpener = default!;
-    // WL-Changes-end
+    [Dependency] private DocumentParsingManager _parsingMan = default!;
+    [Dependency] private IResourceManager _resourceManager = default!;
+    [Dependency] private IUriOpener _uriOpener = default!; // WL-Changes
 
     private Dictionary<ProtoId<GuideEntryPrototype>, GuideEntry> _entries = new();
 

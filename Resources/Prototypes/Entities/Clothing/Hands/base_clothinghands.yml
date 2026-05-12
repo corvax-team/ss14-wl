@@ -1,24 +1,28 @@
 - type: entity
   abstract: true
-  parent: Clothing
+  parent: [SolutionFood, SolutionToolSmall, Clothing]
   id: ClothingHandsBase
   components:
   - type: Sprite
     state: icon
   - type: Clothing
     slots: [gloves]
+    # Goobstation edit start
+    equipSound:
+      path: /Audio/_Goobstation/Items/handling/generic_equip2.ogg
+      params:
+        volume: -4
+    # Goobstation edit end
   - type: Edible
     requiresSpecialDigestion: true
   - type: Item
     size: Small
     storedRotation: -90
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 15
   - type: Tag
     tags:
     - ClothMade

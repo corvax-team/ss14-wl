@@ -1,16 +1,14 @@
-using Content.Client.Communications.UI;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Communications;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
-using Robust.Shared.Timing;
 
 namespace Content.Client._WL.Communications.UI
 {
-    public sealed class WLCommunicationsConsoleBoundUserInterface : BoundUserInterface
+    public sealed partial class WLCommunicationsConsoleBoundUserInterface : BoundUserInterface
     {
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
 
         [ViewVariables]
         private NewCommunicationsConsoleMenu? _menu;

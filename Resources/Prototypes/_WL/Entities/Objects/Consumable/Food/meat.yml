@@ -13,15 +13,13 @@
     - type: Sprite
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
       state: chickentabaka
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Nutriment
-            Quantity: 7
-          - ReagentId: Vitamin
-            Quantity: 3
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 3
 
 - type: entity
   parent: FoodInjectableBase
@@ -38,15 +36,13 @@
     - type: Sprite
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
       state: cutletcischi
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-          - ReagentId: Nutriment
-            Quantity: 7
-          - ReagentId: Vitamin
-            Quantity: 3
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 3
 
 - type: entity
   parent: FoodInjectableBase
@@ -63,15 +59,13 @@
     - type: Sprite
       sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
       state: onionslicecischi
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 20
-          reagents:
-          - ReagentId: Nutriment
-            Quantity: 10
-          - ReagentId: Vitamin
-            Quantity: 5
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
 
 - type: entity
   parent: FoodInjectableBase
@@ -87,13 +81,11 @@
   - type: Sprite
     sprite: _WL/Entities/Objects/Consumable/Food/cischi.rsi
     state: pemmican
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 7
-        - ReagentId: Vitamin
-          Quantity: 3
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 7
+      - ReagentId: Vitamin
+        Quantity: 3
   - type: Item

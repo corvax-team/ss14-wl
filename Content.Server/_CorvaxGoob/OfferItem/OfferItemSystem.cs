@@ -1,14 +1,14 @@
-﻿using Content.Shared._CorvaxGoob.OfferItem;
+using Content.Shared._CorvaxGoob.OfferItem;
 using Content.Shared.Alert;
 using Content.Server.Hands.Systems;
 using Content.Shared.Hands.Components;
 
 namespace Content.Server._CorvaxGoob.OfferItem;
 
-public sealed class OfferItemSystem : SharedOfferItemSystem
+public sealed partial class OfferItemSystem : SharedOfferItemSystem
 {
-    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
+    [Dependency] private HandsSystem _hands = default!;
 
     private float _offerAcc = 0;
     private const float OfferAccMax = 3f;

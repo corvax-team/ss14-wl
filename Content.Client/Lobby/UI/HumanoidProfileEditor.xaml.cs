@@ -265,7 +265,7 @@ namespace Content.Client.Lobby.UI
             // WL-Height-Start
             #region Height
 
-            _heightEdit.OnTextChanged += args =>
+            HeightEdit.OnTextChanged += args =>
             {
                 if (!int.TryParse(args.Text, out var newHeight))
                     return;

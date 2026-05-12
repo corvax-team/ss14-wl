@@ -1,6 +1,6 @@
-using Content.Client.Ame.UI;
 using Content.Shared._WL.Turrets;
 using JetBrains.Annotations;
+using Robust.Client.UserInterface;
 
 namespace Content.Client._WL.Turrets
 {
@@ -17,10 +17,8 @@ namespace Content.Client._WL.Turrets
         {
             base.Open();
 
-            _window = new TurretMinderConsoleWindow();
+            _window = this.CreateWindow<TurretMinderConsoleWindow>();
             _window.RideButtonPressed += SendState;
-            _window.OnClose += Close;
-            _window.OpenCentered();
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)
@@ -31,16 +29,6 @@ namespace Content.Client._WL.Turrets
                 return;
 
             _window?.UpdateState(consoleState);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-
-            if (disposing)
-            {
-                _window?.Dispose();
-            }
         }
 
         private void SendState(NetEntity ent)

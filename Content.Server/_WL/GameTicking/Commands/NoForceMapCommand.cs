@@ -8,9 +8,9 @@ using Robust.Shared.Console;
 namespace Content.Server._WL.GameTicking.Commands
 {
     [AdminCommand(AdminFlags.Round)]
-    sealed class NoForceMapCommand : IConsoleCommand
+    sealed partial class NoForceMapCommand : IConsoleCommand
     {
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+        [Dependency] private IConfigurationManager _configurationManager = default!;
 
         public string Command => "noforcemap";
         public string Description => Loc.GetString("Убирает карту, которая была выставлена forcemap");

@@ -6,9 +6,9 @@ using Robust.Shared.Player;
 
 namespace Content.Server._WL.GolemCore;
 
-public sealed class PAISystem : SharedGolemCoreSystem
+public sealed partial class PAISystem : SharedGolemCoreSystem
 {
-    [Dependency] private readonly InstrumentSystem _instrumentSystem = default!;
+    [Dependency] private InstrumentSystem _instrumentSystem = default!;
 
     public override void Initialize()
     {

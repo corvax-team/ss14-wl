@@ -1,8 +1,5 @@
 using Content.Shared._WL.Emergency.Prototype;
 using Robust.Shared.Prototypes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Content.Server._WL.Emergency.Components;
 
@@ -10,7 +7,7 @@ namespace Content.Server._WL.Emergency.Components;
 public sealed partial class EmergencyLevelComponent : Component
 {
     [DataField(required: true)]
-    public ProtoId<EmergencyListPrototype> emergencyList;
+    public ProtoId<EmergencyListPrototype> EmergencyList;
 
     [ViewVariables]
     public EmergencyListPrototype? Emergencies;

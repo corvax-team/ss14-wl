@@ -8,20 +8,19 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Text;
 
 namespace Content.Shared._WL.Languages;
 
-public abstract class SharedLanguagesSystem : EntitySystem
+public abstract partial class SharedLanguagesSystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager _prototype = default!;
-    [Dependency] protected readonly SharedGameTicker _ticker = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedGameTicker _ticker = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private FrozenDictionary<char, LanguagePrototype> _keylan = default!;
 
@@ -53,7 +52,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
     {
         _prototype.TryIndex(id, out var proto);
         return proto;
-    }   
+    }
 
     public void OnRadioLanguageCheck(EntityUid source, LanguagesComponent comp, ref RadioLanguageCheckEvent args)
     {
@@ -88,7 +87,7 @@ public abstract class SharedLanguagesSystem : EntitySystem
         }
     }
 
-    public string ObfuscateMessage(EntityUid uid, string message, ProtoId<LanguagePrototype> language)
+    public string ObfuscateMessage(string message, ProtoId<LanguagePrototype> language)
     {
         var proto = GetLanguagePrototype(language);
 
@@ -156,19 +155,17 @@ public abstract class SharedLanguagesSystem : EntitySystem
     /// <returns></returns>
     public LanguagePrototype? GetLanguagePrototype(EntityUid uid, string? message = null)
     {
-        LanguagePrototype? language = null;
-
         if (!TryComp<LanguagesComponent>(uid, out var comp))
             return null;
 
-        if (string.IsNullOrEmpty(message) || message.Length < 2 || !(message.StartsWith(LanguagePrefix)))
+        if (string.IsNullOrEmpty(message) || message.Length < 2 || !message.StartsWith(LanguagePrefix))
         {
             return GetLanguagePrototype(comp.CurrentLanguage);
         }
 
         var prefix = char.ToLower(message[1]);
 
-        return _keylan.TryGetValue(prefix, out language)
+        return _keylan.TryGetValue(prefix, out var language)
             ? language : null;
     }
 

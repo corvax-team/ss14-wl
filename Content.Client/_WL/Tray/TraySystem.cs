@@ -8,9 +8,9 @@ namespace Content.Client._WL.Tray;
 
 public sealed partial class TraySystem : SharedTraySystem
 {
-    [Dependency] private readonly AppearanceSystem _apperance = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly ItemSystem _item = default!;
+    [Dependency] private AppearanceSystem _apperance = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private ItemSystem _item = default!;
 
     public override void Initialize()
     {

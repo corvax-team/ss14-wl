@@ -30,7 +30,7 @@ public sealed partial class AdminFaxWindow : DefaultWindow
 
     public Action<NetEntity>? OnFollowFax;
 
-    [Dependency] private readonly IResourceCache _resCache = default!;
+    [Dependency] private IResourceCache _resCache = default!;
 
     public AdminFaxWindow()
     {

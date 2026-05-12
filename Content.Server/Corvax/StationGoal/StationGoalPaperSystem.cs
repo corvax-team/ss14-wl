@@ -19,13 +19,13 @@ namespace Content.Server.Corvax.StationGoal
     /// <summary>
     ///     System to spawn paper with station goal.
     /// </summary>
-    public sealed class StationGoalPaperSystem : EntitySystem
+    public sealed partial class StationGoalPaperSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _proto = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly FaxSystem _fax = default!;
-        [Dependency] private readonly NewsSystem _news = default!;
-        [Dependency] private readonly StationSystem _station = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private FaxSystem _fax = default!;
+        [Dependency] private NewsSystem _news = default!;
+        [Dependency] private StationSystem _station = default!;
 
         private static readonly Regex StationIdRegex = new(@".*\s(\w+-\w+)$"); //WL - Changes
 

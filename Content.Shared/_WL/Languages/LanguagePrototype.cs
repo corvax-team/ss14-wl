@@ -18,8 +18,8 @@ public sealed partial class LanguagePrototype : IPrototype
     [DataField(required: true)]
     public string Description = string.Empty;
 
-    [DataField("icon")]
-    public SpriteSpecifier Icon = new SpriteSpecifier.Texture(new ("/Textures/_WL/Interface/Languages/languages.rsi/default.png"));
+    [DataField]
+    public SpriteSpecifier Icon = new SpriteSpecifier.Texture(new("/Textures/_WL/Interface/Languages/languages.rsi/default.png"));
 
     [DataField(required: true)]
     public ObfuscationMethod Obfuscation = ObfuscationMethod.Default;
@@ -27,30 +27,30 @@ public sealed partial class LanguagePrototype : IPrototype
     [DataField("keylang")]
     public char KeyLanguage = '\0';
 
-    [DataField("color")]
+    [DataField]
     public Color Color = Color.LightGray;
 
-    [DataField("needtts")]
+    [DataField]
     public bool NeedTTS = true;
 
-    [DataField("emoting")]
+    [DataField]
     public bool Emoting = false;
 
-    [DataField("radioPass")]
+    [DataField]
     public float RadioPass = 1f;
 
-    [DataField("pressurePass")]
+    [DataField]
     public float PressurePass = 0f;
 
-    [DataField("fontId")]
+    [DataField]
     public string FontId = "Default";
 
-    [DataField("fontSize")]
+    [DataField]
     public int FontSize = 12;
 
-    [DataField("customSound")]
+    [DataField]
     public bool CustomSound = false;
 
-    [DataField("sound")]
+    [DataField]
     public SoundCollectionSpecifier Sound = new SoundCollectionSpecifier("TernarySounds");
 }

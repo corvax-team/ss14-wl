@@ -7,8 +7,8 @@ namespace Content.Server._WL.AddHeightItem
 {
     public sealed partial class AddHeightItemSystem : EntitySystem
     {
-        [Dependency] private readonly SharedItemSystem _item = default!;
-        [Dependency] private readonly IPrototypeManager _proto = default!;
+        [Dependency] private SharedItemSystem _item = default!;
+        [Dependency] private IPrototypeManager _proto = default!;
         public override void Initialize()
         {
             base.Initialize();

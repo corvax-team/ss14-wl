@@ -1,27 +1,21 @@
 using Content.Shared.Chat;
 using Content.Shared._WL.Languages;
-using Content.Client._WL.Languages;
-using Content.Shared._WL.Languages.Components;
 using Content.Shared.Corvax.CCCVars;
 using Robust.Client.Audio;
-using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
-using Robust.Shared.ContentPack;
-using Robust.Shared.Utility;
 
 namespace Content.Client._WL.Languages;
 
 /// <summary>
 /// Play languages sounds
 /// </summary>
-public sealed class LanguagesSoundsSystem : EntitySystem
+public sealed partial class LanguagesSoundsSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ClientLanguagesSystem _languages = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ClientLanguagesSystem _languages = default!;
 
     private ISawmill _sawmill = default!;
 
