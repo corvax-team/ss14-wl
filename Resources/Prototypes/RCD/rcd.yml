@@ -277,15 +277,3 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
-
-- type: rcd
-  id: GasPipeStraight
-  category: Pipe
-  sprite: /Textures/Interface/Radial/RCD/cable_terminal.png
-  mode: ConstructObject
-  prototype: GasPipeStraight
-  cost: 1
-  delay: 0
-  collisionMask: Impassable
-  rotation: User
-  fx: EffectRCDConstruct0

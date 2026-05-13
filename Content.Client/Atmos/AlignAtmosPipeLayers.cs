@@ -1,12 +1,15 @@
 using Content.Client.Construction;
+using Content.Client.Hands.Systems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.RCD;
+using Content.Shared.RCD.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Placement;
 using Robust.Client.Placement.Modes;
-using Robust.Client.Utility;
+using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -29,11 +32,13 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transformSystem;
     private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem;
     private readonly SpriteSystem _spriteSystem;
+    private readonly HandsSystem _handsSystem;
 
     private const float SearchBoxSize = 2f;
     private EntityCoordinates _unalignedMouseCoords = default;
@@ -51,6 +56,7 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
         _transformSystem = _entityManager.System<SharedTransformSystem>();
         _pipeLayersSystem = _entityManager.System<SharedAtmosPipeLayersSystem>();
         _spriteSystem = _entityManager.System<SpriteSystem>();
+        _handsSystem = _entityManager.System<HandsSystem>();
     }
 
     /// <inheritdoc/>
@@ -160,7 +166,7 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
         constructionSystem.GetGuide(newProto);
     }
 
-    private void UpdatePlacer(AtmosPipeLayer layer)
+    public void UpdatePlacer(AtmosPipeLayer layer)
     {
         // Try to get alternative prototypes from the entity atmos pipe layer component
         if (pManager.CurrentPermission?.EntityType == null)
@@ -172,13 +178,38 @@ public sealed class AlignAtmosPipeLayers : SnapgridCenter
         if (!currentProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory))
             return;
 
+        // WL-Changes-start: pipe layers
+        Entity<RCDComponent>? rcd = null;
+
+        if (_playerManager.LocalSession?.AttachedEntity is { } player
+            && _handsSystem.TryGetActiveItem(player, out var item)
+            && _entityManager.TryGetComponent<RCDComponent>(item, out var rcdComp))
+        {
+            rcd = (item.Value, rcdComp);
+        }
+
         if (!_pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, layer, out var newProtoId))
+        {
+            if (rcd is { } rcdEnt
+                && rcdEnt.Comp.OverrideProtoId != null) // don't dirty if it already null
+                _entityManager.RaisePredictiveEvent(new RCDOverrideProtoIdEvent(_entityManager.GetNetEntity(rcd.Value.Owner), null));
             return;
+        }
+        // WL-Changes-end
 
         if (_protoManager.TryIndex<EntityPrototype>(newProtoId, out var newProto))
         {
             // Update the placed prototype
             pManager.CurrentPermission.EntityType = newProtoId;
+
+            // WL-Changes-start: RPD pipe layers
+            if (rcd is { } rcdEnt
+                && rcdEnt.Comp.OverrideProtoId != (string?)newProtoId)
+            {
+                rcdEnt.Comp.OverrideProtoId = newProtoId;
+                _entityManager.RaisePredictiveEvent(new RCDOverrideProtoIdEvent(_entityManager.GetNetEntity(rcdEnt.Owner), newProtoId));
+            }
+            // WL-Changes-end
 
             // Update the appearance of the ghost sprite
             if (newProto.TryGetComponent<SpriteComponent>(out var sprite, _entityManager.ComponentFactory))

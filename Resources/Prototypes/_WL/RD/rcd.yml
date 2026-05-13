@@ -24,6 +24,21 @@
   sprite: Interface/Radial/RCD/lighting.png
 
 - type: rcdGroup
-  id: Pipe
-  name: rcd-component-electrical
-  sprite: Interface/Radial/RCD/airlocks.png
+  id: Piping
+  name: rcd-component-piping
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/fourway.png
+
+- type: rcdGroup
+  id: AtmosphericUtility
+  name: rcd-component-atmosphericutility
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/port.png
+
+- type: rcdGroup
+  id: PumpsValves
+  name: rcd-component-pumpsvalves
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/pump_volume.png
+
+- type: rcdGroup
+  id: Vents
+  name: rcd-component-vents
+  sprite: /Textures/_Goobstation/Interface/Radial/RPD/vent_passive.png

@@ -1,14 +1,15 @@
-using System.Diagnostics;
 using Content.Client.Hands.Systems;
+using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
 using Content.Shared.RCD.Systems;
-using Content.Shared.Verbs;
 using Robust.Client.GameObjects;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
+using Robust.Shared.Input;
+using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.RCD;
@@ -28,35 +29,54 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
 
     private Direction _placementDirection = default;
+    private bool _useMirrorPrototype = false;
+    public event EventHandler? FlipConstructionPrototype;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RCDComponent, GetVerbsEvent<UtilityVerb>>(GetVerbs);
+        // WL-Changes-start: RPD port from Goob-Station
+        CommandBinds.Builder
+            .Bind(ContentKeyFunctions.EditorFlipObject,
+                new PointerInputCmdHandler(HandleFlip, outsidePrediction: true))
+            .Register<RCDConstructionGhostSystem>();
     }
 
-    private void GetVerbs(EntityUid uid, RCDComponent comp, GetVerbsEvent<UtilityVerb> args)
+    public override void Shutdown()
     {
-        if (!args.CanInteract)
-            return;
-
-        var coordsTarget = Transform(args.Target).Coordinates;
-        var coordsUser = Transform(args.User).Coordinates;
-
-        if (_transform.InRange(coordsTarget, coordsUser, comp.Range))
-
-        args.Verbs.Add(new UtilityVerb
-        {
-            Text = "Мое действие",
-            Category = VerbCategory.Adjust,
-            Act = () =>
-            {
-                var aie = new AfterInteractEvent(args.User, uid, args.Target, Transform(args.Target).Coordinates, true);
-                _rcdSystem.OnAfterInteract(uid, comp, aie);
-            },
-            Priority = 10
-        });
+        CommandBinds.Unregister<RCDConstructionGhostSystem>();
+        base.Shutdown();
     }
+
+    private bool HandleFlip(in PointerInputCmdHandler.PointerInputCmdArgs args)
+    {
+        if (args.State == BoundKeyState.Down)
+        {
+            if (!_placementManager.IsActive || _placementManager.Eraser)
+                return false;
+
+            var placerEntity = _placementManager.CurrentPermission?.MobUid;
+
+            if (!TryComp<RCDComponent>(placerEntity, out var rcd))
+                return false;
+
+            var prototype = _protoManager.Index(rcd.ProtoId);
+            if (string.IsNullOrEmpty(prototype.MirrorPrototype))
+                return false;
+
+            _useMirrorPrototype = !rcd.UseMirrorPrototype;
+
+            var useProto = _useMirrorPrototype ? prototype.MirrorPrototype : prototype.Prototype;
+            CreatePlacer(placerEntity.Value, rcd, useProto, prototype.Mode);
+
+            // tell the server
+
+            RaiseNetworkEvent(new RCDConstructionGhostFlipEvent(GetNetEntity(placerEntity.Value), _useMirrorPrototype));
+        }
+
+        return true;
+    }
+    // WL-Changes-end
 
     public override void Update(float frameTime)
     {
@@ -99,10 +119,13 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             RaiseNetworkEvent(new RCDConstructionGhostRotationEvent(GetNetEntity(heldEntity.Value), _placementDirection));
         }
 
-        // If the placer has not changed, exit
-        if (heldEntity == placerEntity && prototype.Prototype == placerProto)
-            return;
+        // WL-Changes-start: RPD port from Goob-Station
+        // If the placer has not changed build it
+        var useProto = (_useMirrorPrototype && !string.IsNullOrEmpty(prototype.MirrorPrototype)) ? prototype.MirrorPrototype : prototype.Prototype;
+        if (heldEntity != placerEntity || useProto != placerProto)
+            CreatePlacer(heldEntity.Value, rcd, useProto, prototype.Mode);
 
+        /* // moved into another method
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
@@ -116,5 +139,23 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
         _placementManager.Clear();
         _placementManager.BeginPlacing(newObjInfo);
+        */
     }
+
+    private void CreatePlacer(EntityUid uid, RCDComponent component, string? prototype, RcdMode mode)
+    {
+        var newObjInfo = new PlacementInformation
+        {
+            MobUid = uid,
+            PlacementOption = PlacementMode,
+            EntityType = prototype,
+            Range = (int)Math.Ceiling(component.Range > 0 ? component.Range : SharedInteractionSystem.MaxRaycastRange),
+            IsTile = mode == RcdMode.ConstructTile,
+            UseEditorContext = false
+        };
+
+        _placementManager.Clear();
+        _placementManager.BeginPlacing(newObjInfo);
+    }
+    // WL-Changes-end
 }

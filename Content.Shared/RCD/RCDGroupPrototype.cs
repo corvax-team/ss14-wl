@@ -1,3 +1,4 @@
+// WL-Changes-start: dehardcode
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.RCD;
@@ -14,3 +15,4 @@ public sealed partial class RCDGroupPrototype : IPrototype
     [DataField]
     public string Sprite = "";
 }
+// WL-Changes-end

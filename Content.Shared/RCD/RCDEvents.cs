@@ -22,10 +22,18 @@ public enum RcdUiKey : byte
     Key
 }
 
-// WL-Changes: RPD
-[Serializable, NetSerializable]
-public sealed class RCDOverrideProtoIdEvent(NetEntity net, string? proto) : EntityEventArgs
+// WL-Changes-start: RPD
+[Serializable, NetSerializable] // pipe layers
+public sealed class RCDOverrideProtoIdEvent(NetEntity netEntity, string? proto) : EntityEventArgs
 {
-    public readonly NetEntity NetEntity = net;
+    public readonly NetEntity NetEntity = netEntity;
     public readonly string? OverrideProtoId = proto;
 }
+
+[Serializable, NetSerializable] // RPD port from Goob-Station
+public sealed class RCDConstructionGhostFlipEvent(NetEntity netEntity, bool useMirrorPrototype) : EntityEventArgs
+{
+    public readonly NetEntity NetEntity = netEntity;
+    public readonly bool UseMirrorPrototype = useMirrorPrototype;
+}
+// WL-Changes-end

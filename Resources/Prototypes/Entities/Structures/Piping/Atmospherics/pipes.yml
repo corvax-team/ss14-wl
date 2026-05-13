@@ -83,6 +83,11 @@
       path: /Audio/_Goobstation/Items/Pipe/metal_pipe_fall.ogg
       params:
         volume: -2
+  - type: RCDDeconstructable # RPD port from Goob-Station
+    cost: 1
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
     # WL-Changes-end
   # Goobstation edit end
 

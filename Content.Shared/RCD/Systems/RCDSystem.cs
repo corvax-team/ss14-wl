@@ -7,13 +7,11 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
-using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.RCD.Components;
 using Content.Shared.Tag;
 using Content.Shared.Tiles;
-using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -48,6 +46,7 @@ public sealed class RCDSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TagSystem _tags = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -70,14 +69,24 @@ public sealed class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
 
-        // WL-Changes-start: dehardcode
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload);
-        SubscribeNetworkEvent<RCDOverrideProtoIdEvent>(OverrideChanged);
+        // WL-Changes-start
+        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload); // dehardcode
+        SubscribeNetworkEvent<RCDOverrideProtoIdEvent>(OverrideChanged); // pipe layers
+        SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent); // RPD port from Goob-Station
         UpdateProtoList();
         // WL-Changes-end
     }
 
-    // WL-Changes-start: dehardcode
+    // WL-Changes-start
+    private void OnProtoReload(PrototypesReloadedEventArgs args) // dehardcode
+    {
+        if (!args.WasModified<RCDGroupPrototype>())
+            return;
+
+        PrototypesGroupingInfo.Clear();
+        UpdateProtoList();
+    }
+
     private void UpdateProtoList()
     {
         var enume = _protoManager.EnumeratePrototypes<RCDGroupPrototype>();
@@ -87,19 +96,10 @@ public sealed class RCDSystem : EntitySystem
         }
     }
 
-    private void OnProtoReload(PrototypesReloadedEventArgs args)
-    {
-        if (!args.WasModified<RCDGroupPrototype>())
-            return;
-
-        PrototypesGroupingInfo.Clear();
-        UpdateProtoList();
-    }
-
-    private void OverrideChanged(RCDOverrideProtoIdEvent args)
+    private void OverrideChanged(RCDOverrideProtoIdEvent args) // pipe layers
     {
         var rcd = GetEntity(args.NetEntity);
-        if (!TryComp<RCDComponent>(GetEntity(args.NetEntity), out var comp))
+        if (!TryComp<RCDComponent>(rcd, out var comp))
             return;
 
         comp.OverrideProtoId = args.OverrideProtoId;
@@ -166,7 +166,7 @@ public sealed class RCDSystem : EntitySystem
 
     public void OnAfterInteract(EntityUid uid, RCDComponent component, AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach)
+        if (args.Handled || !args.CanReach && !_transform.InRange(Transform(uid).Coordinates, args.ClickLocation, component.Range > 0 ? component.Range : SharedInteractionSystem.MaxRaycastRange))
             return;
 
         var user = args.User;
@@ -365,6 +365,26 @@ public sealed class RCDSystem : EntitySystem
         Dirty(uid, rcd);
     }
 
+    // WL-Changes-start: RPD port from Goob-Station
+    private void OnRCDConstructionGhostFlipEvent(RCDConstructionGhostFlipEvent ev, EntitySessionEventArgs session)
+    {
+        var uid = GetEntity(ev.NetEntity);
+
+        // Determine if player that send the message is carrying the specified RCD in their active hand
+        if (session.SenderSession.AttachedEntity is not { } user)
+            return;
+
+        if (!_hands.TryGetActiveItem(user, out var held) || uid != held)
+            return;
+
+        if (!TryComp<RCDComponent>(uid, out var rcd))
+            return;
+
+        rcd.UseMirrorPrototype = ev.UseMirrorPrototype;
+        Dirty(uid, rcd);
+    }
+    // WL-Changes-end
+
     #endregion
 
     #region Entity construction/deconstruction rule checks
@@ -398,13 +418,34 @@ public sealed class RCDSystem : EntitySystem
             return false;
         }
 
+        var fail = false;
+
         // Exit if the target / target location is obstructed
-        var unobstructed = (target == null)
+        if (component.Range > 0)
+        {
+            var unobstructedBasic = target == null
             ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), component.Range, popup: popMsgs)
             : _interaction.InRangeUnobstructed(user, target.Value, component.Range, popup: popMsgs);
+            fail = !unobstructedBasic;
+        }
+        else
+        {
+            var unobstructedVision = target == null
+            ? _examine.InRangeUnOccluded(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), component.Range)
+            : _examine.InRangeUnOccluded(user, target.Value, component.Range);
+            var unobstructedBasic = target == null
+            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), component.Range)
+            : _interaction.InRangeUnobstructed(user, target.Value, component.Range);
 
-        if (!unobstructed)
+            fail = !unobstructedVision && !unobstructedBasic;
+        }
+
+        if (fail)
+        {
+            if (popMsgs)
+                _popup.PopupClient(Loc.GetString("interaction-system-user-interaction-cannot-reach"), user, user);
             return false;
+        }
 
         // Return whether the operation location is valid
         switch (prototype.Mode)
@@ -413,7 +454,7 @@ public sealed class RCDSystem : EntitySystem
             case RcdMode.ConstructObject:
                 return IsConstructionLocationValid(uid, component, gridUid, mapGrid, tile, position, direction, user, popMsgs);
             case RcdMode.Deconstruct:
-                return IsDeconstructionStillValid(uid, tile, target, user, popMsgs);
+                return IsDeconstructionStillValid(uid, component, tile, target, user, popMsgs); // WL-Changes: RPD port from Goob-Station // added component
         }
 
         return false;
@@ -505,7 +546,7 @@ public sealed class RCDSystem : EntitySystem
             // If the entity is the exact same prototype as what we are trying to build, then block it.
             // This is to prevent spamming objects on the same tile (e.g. lights)
             var proto = component.OverrideProtoId ?? prototype.Prototype;
-            if (prototype.Prototype != null && MetaData(ent).EntityPrototype?.ID == prototype.Prototype)
+            if (proto != null && MetaData(ent).EntityPrototype?.ID == proto)
             {
                 var isIdentical = true;
 
@@ -515,6 +556,22 @@ public sealed class RCDSystem : EntitySystem
                     if (entDirection != direction)
                         isIdentical = false;
                 }
+
+                if (prototype.AllowDualDirection)
+                {
+                    var entDirection = Transform(ent).LocalRotation.GetCardinalDir();
+                    if (entDirection == Direction.South || entDirection == Direction.North)
+                    {
+                        if (direction == Direction.East || direction == Direction.West)
+                            isIdentical = false;
+                    }
+                    else if (entDirection == Direction.East || entDirection == Direction.West)
+                    {
+                        if (direction == Direction.South || direction == Direction.North)
+                            isIdentical = false;
+                    }
+                }
+
 
                 if (isIdentical)
                 {
@@ -561,11 +618,23 @@ public sealed class RCDSystem : EntitySystem
         return true;
     }
 
-    private bool IsDeconstructionStillValid(EntityUid uid, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true)
+    private bool IsDeconstructionStillValid(EntityUid uid, RCDComponent component, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true)
     {
         // Attempt to deconstruct a floor tile
         if (target == null)
         {
+            // WL-Changes-start: RPD port from Goob-Station
+            /* Commented by WL, if u need - uncomment
+            if (component.IsRpd)
+            {
+                if (popMsgs)
+                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
+
+                return false;
+            }
+            */
+            // WL-Changes-end
+
             // The tile is empty
             if (tile.Tile.IsEmpty)
             {
@@ -599,8 +668,18 @@ public sealed class RCDSystem : EntitySystem
         // Attempt to deconstruct an object
         else
         {
+            // WL-Changes-start: RPD port from Goob-Station
+            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.RpdDeconstructable && component.IsRpd)
+            {
+                if (popMsgs)
+                    _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
+
+                return false;
+            }
+            // WL-Changes-end
+
             // The object is not in the whitelist
-            if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.Deconstructable)
+            if (!deconstructible.Deconstructable)
             {
                 if (popMsgs)
                     _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
@@ -622,25 +701,48 @@ public sealed class RCDSystem : EntitySystem
             return;
 
         var prototype = _protoManager.Index(component.ProtoId);
-        var proto = component.OverrideProtoId ?? prototype.Prototype;
-        component.OverrideProtoId = null;
+        var protoMiddle = component.OverrideProtoId ?? prototype.Prototype;
 
-        if (proto == null)
+        if (protoMiddle == null)
             return;
 
         switch (prototype.Mode)
         {
             case RcdMode.ConstructTile:
-                if (!_tileDefMan.TryGetDefinition(proto, out var tileDef))
+                if (!_tileDefMan.TryGetDefinition(protoMiddle, out var tileDef))
                     return;
 
-                _tile.ReplaceTile(tile, (ContentTileDefinition) tileDef, gridUid, mapGrid);
-                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {gridUid} {position} to {proto}");
+                _tile.ReplaceTile(tile, (ContentTileDefinition)tileDef, gridUid, mapGrid);
+                _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {gridUid} {position} to {protoMiddle}");
                 break;
 
             case RcdMode.ConstructObject:
-                var ent = Spawn(proto, _mapSystem.GridTileToLocal(gridUid, mapGrid, position));
+                // WL-Changes-start: RPD port from Goob-Station (with Funky changes)
+                var proto = (component.UseMirrorPrototype &&
+                !string.IsNullOrEmpty(prototype.MirrorPrototype))
+                    ? prototype.MirrorPrototype
+                    : protoMiddle; // WL-Changes // prototype.Prototype -> protoMiddle
 
+                // Funky - Calculate rotation and apply it before spawning
+                var rotation = prototype.Rotation switch
+                {
+                    RcdRotation.Fixed => Angle.Zero,
+                    RcdRotation.Camera => Transform(uid).LocalRotation,
+                    RcdRotation.User => direction.ToAngle(),
+                    _ => Angle.Zero // Fallback
+                };
+
+                // Convert EntityCoordinates to MapCoordinates
+                var entityCoords = _mapSystem.GridTileToLocal(gridUid, mapGrid, position);
+                var mapCoords = _transform.ToMapCoordinates(entityCoords);
+
+                var gridRotation = _transform.GetWorldRotation(gridUid);
+                var worldRotation = rotation + gridRotation;
+
+                var ent = Spawn(proto, mapCoords, rotation: worldRotation);
+                // End of funky changes
+
+                /* Funky - handled above
                 switch (prototype.Rotation)
                 {
                     case RcdRotation.Fixed:
@@ -653,6 +755,8 @@ public sealed class RCDSystem : EntitySystem
                         Transform(ent).LocalRotation = direction.ToAngle();
                         break;
                 }
+                */
+                // WL-Changes-end
 
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to spawn {ToPrettyString(ent)} at {position} on grid {gridUid}");
                 break;
@@ -698,7 +802,7 @@ public sealed partial class RCDDoAfterEvent : DoAfterEvent
     public NetCoordinates Location { get; private set; }
 
     [DataField(required: true)]
-    public NetEntity TargetGridId {get ; private set; }
+    public NetEntity TargetGridId { get; private set; }
 
     [DataField]
     public Direction Direction { get; private set; }

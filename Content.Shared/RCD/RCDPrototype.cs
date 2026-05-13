@@ -45,6 +45,22 @@ public sealed partial class RCDPrototype : IPrototype
     public string? Prototype { get; private set; }
 
     /// <summary>
+    /// WL-Changes: RPD port from Goob-Station
+    ///
+    /// If the entity can be flipped, this prototype is available as an alternate (mode dependent)
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public string? MirrorPrototype { get; private set; }
+
+    /// <summary>
+    /// WL-Changes: RPD
+    ///
+    /// TODO: description or another correct name
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool AllowDualDirection { get; private set; }
+
+    /// <summary>
     /// If true, allows placing the entity once per direction (North, West, South and East)
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]

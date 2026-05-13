@@ -1,3 +1,4 @@
+using Content.Shared.Physics;
 using Content.Shared.RCD.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -12,7 +13,7 @@ namespace Content.Shared.RCD.Components;
 /// Charges can be refilled with RCD ammo
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(RCDSystem))]
+[Access(typeof(RCDSystem), Other = AccessPermissions.ReadWrite)]
 public sealed partial class RCDComponent : Component
 {
     /// <summary>
@@ -36,16 +37,40 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
 
+    // WL-Changes-start
     /// <summary>
-    /// WL-Changes: RPD
+    /// WL-Changes: RPD pipe layers
+    ///
     /// ProtoId of current prototype for AlignAtmosPipeLayers.
     /// If null RCDSystem used field Prototype from RCDPrototype
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField, Access(Other = AccessPermissions.ReadWrite)]
     public string? OverrideProtoId;
 
+    /// <summary>
+    /// Wl-Changes: RPD
+    ///
+    /// Range for interaction, if Range <= 0, range is infinity(max for interaction sistem - 100f(tiles))
+    /// </summary>
     [DataField, AutoNetworkedField]
     public float Range = 1.5f;
+
+    /// <summary>
+    /// RPD port from Goob-Station
+    ///
+    /// Indicates if a mirrored version of the construction prototype should be used (if available)
+    /// </summary>
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
+    public bool UseMirrorPrototype = false;
+
+    /// <summary>
+    /// RPD port from Goob-Station
+    ///
+    /// Indicates whether this is an RCD or an RPD
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool IsRpd = false;
+    // WL-Changes-end
 
     /// <summary>
     /// The direction constructed entities will face upon spawning
