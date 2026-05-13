@@ -1,5 +1,6 @@
 - type: markingsGroup
   parent: Undergarments
+  onlyGroupWhitelisted: true
   id: Akula
   limits:
     enum.HumanoidVisualLayers.Hair:
