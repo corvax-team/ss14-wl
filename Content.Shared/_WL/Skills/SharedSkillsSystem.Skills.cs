@@ -10,7 +10,7 @@ namespace Content.Shared._WL.Skills;
 
 public abstract partial class SharedSkillsSystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     #region Initialization
 

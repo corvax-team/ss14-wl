@@ -15,10 +15,10 @@ namespace Content.Client.PDA
     [GenerateTypedNameReferences]
     public sealed partial class PdaMenu : PdaWindow
     {
-        [Dependency] private readonly IClipboardManager _clipboard = null!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-        [Dependency] private readonly ILocalizationManager _locMan = default!; // WL-Changes: custom alert instructions in PDA // I made this for no warning by me
+        [Dependency] private IClipboardManager _clipboard = null!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IEntitySystemManager _entitySystem = default!;
+        [Dependency] private ILocalizationManager _locMan = default!; // WL-Changes: custom alert instructions in PDA // I made this for no warning by me
         private readonly ClientGameTicker _gameTicker;
 
         public const int HomeView = 0;

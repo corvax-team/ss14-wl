@@ -46,6 +46,7 @@
     - type: Clothing
       slots:
       - HEAD
+      - MASK
     - type: MeleeWeapon
       attackRate: 1
       damage:
@@ -66,6 +67,8 @@
       clothingVisuals:
         head:
         - state: rose_red_equipped-HELMET
+        mask:
+        - state: rose_red-equipped-MASK
 
 - type: entity
   parent: RoseBase
@@ -77,6 +80,8 @@
       clothingVisuals:
         head:
         - state: rose_pink_equipped-HELMET
+        mask:
+        - state: rose_pink-equipped-MASK
 
 - type: entity
   parent: RoseBase
@@ -88,6 +93,8 @@
       clothingVisuals:
         head:
         - state: rose_white_equipped-HELMET
+        mask:
+        - state: rose_white-equipped-MASK
 
 - type: entity
   parent: RoseBase
@@ -99,3 +106,5 @@
       clothingVisuals:
         head:
         - state: rose_yelo_equipped-HELMET
+        mask:
+        - state: rose_yelo-equipped-MASK

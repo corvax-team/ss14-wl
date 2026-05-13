@@ -19,7 +19,6 @@
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
-  canBeAntag: false
   access:
   - Security
   - Brig

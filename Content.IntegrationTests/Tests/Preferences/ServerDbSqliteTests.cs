@@ -99,7 +99,7 @@ namespace Content.IntegrationTests.Tests.Preferences
 
             await pair.Server.WaitAssertion(() =>
             {
-                var updated = HumanoidCharacterAppearance.EnsureValid(profile.Appearance, profile.Species, profile.Sex, []);
+                var updated = HumanoidCharacterAppearance.EnsureValid(profile.Appearance, profile.Species, profile.Sex);
                 Assert.That(updated.Markings["Head"], Is.Empty);
                 Assert.That(updated.Markings.ContainsKey("OrganFake"), Is.False);
                 profile.Appearance = updated;

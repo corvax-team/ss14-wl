@@ -8,9 +8,9 @@ using Robust.Shared.Console;
 namespace Content.Server._WL.GameTicking.Commands
 {
     [AdminCommand(AdminFlags.Round)]
-    sealed class NoForceMapCommand : LocalizedCommands
+    sealed partial class NoForceMapCommand : LocalizedCommands
     {
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+        [Dependency] private IConfigurationManager _configurationManager = default!;
 
         public override string Command => "noforcemap";
 

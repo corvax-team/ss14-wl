@@ -5,9 +5,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._WL.Passports.Systems;
 
-public sealed class NationalitySystem : EntitySystem
+public sealed partial class NationalitySystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

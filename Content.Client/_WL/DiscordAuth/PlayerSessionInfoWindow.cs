@@ -10,7 +10,7 @@ namespace Content.Client._WL.DiscordAuth
 {
     public sealed partial class PlayerSessionInfoWindow : DefaultWindow
     {
-        [Dependency] private readonly IClipboardManager _clipboardMan = default!;
+        [Dependency] private IClipboardManager _clipboardMan = default!;
         private readonly ClientDiscordAuthSystem _discordAuth;
 
         private readonly TabContainer _mainTab;

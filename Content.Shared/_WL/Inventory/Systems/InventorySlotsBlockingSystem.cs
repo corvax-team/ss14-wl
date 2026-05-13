@@ -8,7 +8,7 @@ namespace Content.Shared._WL.Inventory.Systems
 {
     public sealed partial class InventorySlotsBlockingSystem : EntitySystem
     {
-        [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private InventorySystem _inventory = default!;
 
         public override void Initialize()
         {

@@ -18,15 +18,15 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._WL.Passports.Systems;
 
-public sealed class SharedPassportSystem : EntitySystem
+public sealed partial class SharedPassportSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly SharedStorageSystem _storage = default!;
-    [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private SharedStorageSystem _storage = default!;
+    [Dependency] private SharedTransformSystem _sharedTransformSystem = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogManager = default!;
 
     public int CurrentYear = DateTime.Today.Year + 849;
     private const string NoConfederationId = "NoConfederation";

@@ -8,8 +8,8 @@
 
 //public sealed partial class PulseDemonSystem : EntitySystem
 //{
-//    [Dependency] private readonly ApcSystem _apc = default!;
-//    [Dependency] private readonly TagSystem _tag = default!;
+//    [Dependency] private ApcSystem _apc = default!;
+//    [Dependency] private TagSystem _tag = default!;
 
 //    private const string HijackedDeviceTag = "HijackedDevice";
 

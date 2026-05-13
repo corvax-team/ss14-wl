@@ -7,7 +7,7 @@ namespace Content.Shared._WL.Trigger.Systems;
 
 public sealed partial class TriggerOnActionSystem : TriggerOnXSystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {

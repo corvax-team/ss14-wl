@@ -15,7 +15,7 @@ namespace Content.Client._WL.MedicalRecords;
 [GenerateTypedNameReferences]
 public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public Action<uint?>? OnKeySelected;
     public Action<uint>? OnPrinted;

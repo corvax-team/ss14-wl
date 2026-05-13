@@ -19108,16 +19108,6 @@ entities:
     - type: Transform
       pos: 81.5,11.5
       parent: 2
-- proto: BluespaceBeaker_wl_paper
-  entities:
-  - uid: 13204
-    components:
-    - type: Transform
-      parent: 13044
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 13044
 - proto: BlueTomatoSeeds_wl_paper
   entities:
   - uid: 5689
@@ -98859,13 +98849,6 @@ entities:
         moles:
           Oxygen: 1.7459903
           Nitrogen: 6.568249
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 13204
     - type: Fixtures
       fixtures: {}
   - uid: 17635
@@ -100645,7 +100628,7 @@ entities:
       content: >-
         [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
 
-        ░██░████░░░██░░░░        
+        ░██░████░░░██░░░░
 
         ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
 
@@ -101008,7 +100991,7 @@ entities:
       content: >-
         [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
 
-        ░██░████░░░██░░░░ 
+        ░██░████░░░██░░░░
 
         ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
 
@@ -101053,7 +101036,7 @@ entities:
       content: >-
         [color=#b8972d]███[/color][color=#1d7a1d]░███░░░░██░░░░[/color][color=#b8972d]                          ★ ★ ★[/color][color=#1d7a1d]
 
-        ░██░████░░░██░░░░    
+        ░██░████░░░██░░░░
 
         ░░█░██░██░░██░█░░                   [head=3]NanoTrasen[/head]
 

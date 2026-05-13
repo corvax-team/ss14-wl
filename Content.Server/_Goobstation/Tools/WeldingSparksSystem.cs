@@ -1,4 +1,4 @@
-﻿using Content.Server.Tools;
+using Content.Server.Tools;
 using Content.Shared._Goobstation.Tools;
 using Content.Shared._Goobstation.Tools.Components;
 using Content.Shared.Coordinates.Helpers;
@@ -11,9 +11,9 @@ using Robust.Shared.Map;
 
 namespace Content.Server._Goobstation.Tools;
 
-public sealed class WeldingSparksSystem : EntitySystem
+public sealed partial class WeldingSparksSystem : EntitySystem
 {
-    [Dependency] private readonly ToolSystem _toolSystem = default!;
+    [Dependency] private ToolSystem _toolSystem = default!;
 
     public override void Initialize()
     {
