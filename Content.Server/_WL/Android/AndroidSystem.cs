@@ -136,7 +136,7 @@ namespace Content.Server._WL.Android
 
             _pointLight.SetEnergy(lightEntity, _toggle.IsActivated(uid) ? component.LightBaseRadius : component.LightBaseRadius / 3f);
 
-            if (!TryComp<HumanoidProfileComponent>(uid, out _))
+            if (!HasComp<HumanoidProfileComponent>(uid))
                 return;
 
             if (!_visualBody.TryGatherMarkingsData(uid,
