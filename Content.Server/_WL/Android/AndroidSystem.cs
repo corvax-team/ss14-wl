@@ -3,6 +3,7 @@ using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.StationEvents.Components;
+using Content.Shared._CorvaxNext.Silicons.Borgs;
 using Content.Shared._WL.Android;
 using Content.Shared._WL.Light.Events;
 using Content.Shared.Bed.Sleep;
@@ -119,12 +120,12 @@ namespace Content.Server._WL.Android
             args.Handled = true;
         }
 
-        public void UpdateLight(EntityUid uid, AndroidComponent component, bool? enabled = null)
+        private void UpdateLight(EntityUid uid, AndroidComponent component, bool? enabled = null)
         {
             if (!component.LightEntity.HasValue)
                 return;
 
-            EntityUid lightEntity = component.LightEntity.Value;
+            var lightEntity = component.LightEntity.Value;
 
             if (enabled != null)
             {
@@ -136,24 +137,21 @@ namespace Content.Server._WL.Android
 
             _pointLight.SetEnergy(lightEntity, _toggle.IsActivated(uid) ? component.LightBaseRadius : component.LightBaseRadius / 3f);
 
-            if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
+            if (!TryComp<HumanoidProfileComponent>(uid, out _))
                 return;
 
             if (!_visualBody.TryGatherMarkingsData(uid,
                 [HumanoidVisualLayers.Overlay],
-                out _,
+                out var organData,
                 out _,
                 out var applied)
                     || applied.Count == 0)
                 return;
 
-            if (!applied.TryGetValue("Torso", out var markingsSet))
+            if (!organData.TryGetValue("Eyes", out var marking))
                 return;
 
-            if (!markingsSet.TryGetValue(HumanoidVisualLayers.Overlay, out var markings))
-                return;
-
-            Color ledColor = markings[0].MarkingColors[0].WithAlpha(255);
+            var ledColor = marking.EyeColor.WithAlpha(255);
             _pointLight.SetColor(lightEntity, ledColor);
         }
         #endregion Light
