@@ -59,6 +59,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceFelinid
+  categories: [ HideSpawnMenu ]
   name: felinid appearance
   components:
   - type: InitialBody
