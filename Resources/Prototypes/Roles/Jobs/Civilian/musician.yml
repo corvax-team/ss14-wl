@@ -9,8 +9,9 @@
   - Male: пианист
   - Male: гитарист
   - Male: певец
-  - Male: поэт
-  - Male: артист
+  # SOP-Playtest-Start
+  # - Male: поэт
+  # - Male: артист
   icon: "JobIconMusician"
   supervisors: job-supervisors-hop # Corvax-JobSupervisors
   access:
