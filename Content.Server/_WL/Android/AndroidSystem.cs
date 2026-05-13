@@ -3,7 +3,6 @@ using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.StationEvents.Components;
-using Content.Shared._CorvaxNext.Silicons.Borgs;
 using Content.Shared._WL.Android;
 using Content.Shared._WL.Light.Events;
 using Content.Shared.Bed.Sleep;
