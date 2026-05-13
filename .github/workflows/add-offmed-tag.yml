@@ -1,4 +1,5 @@
 name: Add label offmed
+
 on:
   pull_request:
     branches:
@@ -10,13 +11,6 @@ jobs:
     permissions:
       pull-requests: write
     steps:
-      - name: Add label to PR
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['Offmed'] 
-            })
+    - uses: actions-ecosystem/action-add-labels@v1
+      with:
+        labels: "Offmed"
