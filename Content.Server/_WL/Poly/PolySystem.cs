@@ -19,13 +19,13 @@ namespace Content.Server._WL.Poly
 {
     public sealed partial class PolySystem : EntitySystem
     {
-        [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly GameTicker _ticker = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IConfigurationManager _configMan = default!;
-        [Dependency] private readonly IPlayerManager _playMan = default!;
-        [Dependency] private readonly ILogManager _logMan = default!;
+        [Dependency] private IChatManager _chatManager = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private GameTicker _ticker = default!;
+        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private IConfigurationManager _configMan = default!;
+        [Dependency] private IPlayerManager _playMan = default!;
+        [Dependency] private ILogManager _logMan = default!;
 
         private ISawmill _sawmill = default!;
 

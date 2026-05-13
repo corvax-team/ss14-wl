@@ -9,6 +9,50 @@
   - !type:OverallPlaytimeRequirement
     time: 30h # Corvax-RoleTime 1
 
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: Thief
+  prefRoles:
+  - Thief
+  allowNonHumans: true
+  multiAntagSetting: NotExclusive
+  startingGear: ThiefGear
+  components:
+  #- type: Pacified # Corvax-MRP
+  - type: Thieving
+    stripTimeReduction: 2
+    stealthy: true
+  # WL-Skills-start
+  - type: InitialSkills
+    overrideExisting: false
+    initialSkills:
+      Eva: 3
+      MechPiloting: 3
+    addSkills:
+      Bureaucracy: 1
+      Piloting: 1
+      IT: 1
+      Atmospherics: 1
+      Construction: 1
+      Electrical: 1
+      Generators: 1
+      Anatomy: 1
+      Chemistry: 1
+      Medicine: 1
+      ComplexDevices: 1
+      Science: 1
+      Forensics: 1
+      Combat: 1
+      Weapons: 1
+      Botany: 1
+      Cooking: 1
+      Mixology: 1
+  # WL-Skills-end
+  mindRoles:
+  - MindRoleThief
+  briefing:
+    sound: "/Audio/Misc/thief_greeting.ogg"
+
 - type: startingGear
   id: ThiefGear
   storage:

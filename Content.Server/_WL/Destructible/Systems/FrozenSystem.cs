@@ -9,7 +9,7 @@ namespace Content.Server._WL.Destructible.Systems
 {
     public sealed partial class FrozenSystem : EntitySystem
     {
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
+        [Dependency] private MetaDataSystem _metaData = default!;
 
         public override void Initialize()
         {

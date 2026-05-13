@@ -23,22 +23,22 @@ using Robust.Shared.Player;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
-public abstract class SharedCreamPieSystem : EntitySystem
+public abstract partial class SharedCreamPieSystem : EntitySystem
 {
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IngestionSystem _ingestion = default!;
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutions = default!;
-    [Dependency] private readonly TriggerSystem _trigger = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private SharedStunSystem _stunSystem = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private IngestionSystem _ingestion = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedPuddleSystem _puddle = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutions = default!;
+    [Dependency] private TriggerSystem _trigger = default!;
+    [Dependency] private INetManager _net = default!;
     // WL Golem species start
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private IEntityManager _entity = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!;
     // WL Golem species end
 
     public override void Initialize()
@@ -136,7 +136,7 @@ public abstract class SharedCreamPieSystem : EntitySystem
         // TODO: Check if they even have a head that can be hit.
         SetCreamPied(creamPied.AsNullable(), true);
         _stunSystem.TryUpdateParalyzeDuration(creamPied.Owner, creamPie.ParalyzeTime);
-        
+
         // WL Golem species start
         if (!_buckle.IsBuckled(creamPied.Owner))
         {

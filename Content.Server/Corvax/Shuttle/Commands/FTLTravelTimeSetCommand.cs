@@ -14,10 +14,10 @@ namespace Content.Server.Corvax.Shuttle.Commands;
 
 [AdminCommand(AdminFlags.Fun)]
 
-public sealed class FTLTravelTimeSetCommand : LocalizedCommands
+public sealed partial class FTLTravelTimeSetCommand : LocalizedCommands
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _gameTiming = default!; 
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
 
     public override string Command => "ftltraveltimeset";
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -44,7 +44,7 @@ public sealed class FTLTravelTimeSetCommand : LocalizedCommands
 
         if (!_entManager.TryGetComponent<FTLComponent>(uid, out var comp))
         {
-            shell.WriteError(Loc.GetString("shell-entity-target-lacks-component",("componentName", nameof(FTLComponent)))); 
+            shell.WriteError(Loc.GetString("shell-entity-target-lacks-component",("componentName", nameof(FTLComponent))));
             return;
         }
 

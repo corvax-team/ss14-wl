@@ -5,10 +5,10 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server._WL.Passports.Systems
 {
-    public sealed class ChameleonPassportSystem : SharedChameleonPassportSystem
+    public sealed partial class ChameleonPassportSystem : SharedChameleonPassportSystem
     {
-        [Dependency] private readonly SharedChameleonPassportSystem _passportSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private SharedChameleonPassportSystem _passportSystem = default!;
+        [Dependency] private UserInterfaceSystem _uiSystem = default!;
 
         public override void Initialize()
         {

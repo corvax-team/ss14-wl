@@ -1,7 +1,7 @@
 name: RGA schema validator
 on:
   push:
-    branches: [ master, staging, stable, offmed ]
+    branches: [ master, staging, stable, offmed, offbrand-dev ]
   merge_group:
   pull_request:
     types: [ opened, reopened, synchronize, ready_for_review ]

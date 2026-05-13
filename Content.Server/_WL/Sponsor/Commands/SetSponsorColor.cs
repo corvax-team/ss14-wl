@@ -8,11 +8,11 @@ using Robust.Shared.Console;
 namespace Content.Server._WL.Administration.Commands
 {
     [AdminCommand(AdminFlags.NameColor)]
-    internal sealed class SetSponsorColor : LocalizedCommands
+    internal sealed partial class SetSponsorColor : LocalizedCommands
     {
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IServerDbManager _dbManager = default!;
-        [Dependency] private readonly IServerPreferencesManager _preferenceManager = default!;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IServerDbManager _dbManager = default!;
+        [Dependency] private IServerPreferencesManager _preferenceManager = default!;
 
         public override string Command => "setsponsorcolor";
 

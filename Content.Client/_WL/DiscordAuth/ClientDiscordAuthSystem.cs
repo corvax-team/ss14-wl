@@ -7,8 +7,8 @@ namespace Content.Client._WL.DiscordAuth
 {
     public sealed partial class ClientDiscordAuthSystem : EntitySystem
     {
-        [Dependency] private readonly IPlayerManager _playMan = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private IPlayerManager _playMan = default!;
+        [Dependency] private IGameTiming _timing = default!;
 
         private event Action<string>? OnTokenChanged;
 

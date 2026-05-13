@@ -9,11 +9,11 @@ using Robust.Shared.Animations;
 
 namespace Content.Client._Goobstation.Tools;
 
-public sealed class WeldingSparksAnimationSystem : EntitySystem
+public sealed partial class WeldingSparksAnimationSystem : EntitySystem
 {
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-    [Dependency] private readonly IEyeManager _eyeManager = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private AnimationPlayerSystem _animation = default!;
+    [Dependency] private IEyeManager _eyeManager = default!;
+    [Dependency] private TransformSystem _transformSystem = default!;
 
     private const string ANIM_KEY = "WeldAnim";
 

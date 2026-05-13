@@ -24,10 +24,10 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client._WL.UserInterface.Systems.Languages;
 
 [UsedImplicitly]
-public sealed class LanguagesUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<ClientLanguagesSystem>
+public sealed partial class LanguagesUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<ClientLanguagesSystem>
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     [UISystemDependency] private readonly ClientLanguagesSystem _languages = default!;
     [UISystemDependency] private readonly SpriteSystem _sprite = default!;

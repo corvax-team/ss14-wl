@@ -4,9 +4,9 @@ using Robust.Shared.Random;
 
 namespace Content.Server._WL.Speech.EntitySystems;
 
-public sealed class GolemAccentSystem : EntitySystem
+public sealed partial class GolemAccentSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

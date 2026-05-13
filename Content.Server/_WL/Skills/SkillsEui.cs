@@ -7,9 +7,9 @@ using Content.Shared.Eui;
 
 namespace Content.Server._WL.Skills.UI;
 
-public sealed class SkillsEui : BaseEui
+public sealed partial class SkillsEui : BaseEui
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
 
     private readonly EntityUid _entity;
     private readonly SharedSkillsSystem _skillsSystem;

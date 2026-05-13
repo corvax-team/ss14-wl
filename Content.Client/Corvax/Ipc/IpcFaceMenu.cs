@@ -14,10 +14,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Corvax.Ipc;
 
-public sealed class IpcFaceMenu : FancyWindow
+public sealed partial class IpcFaceMenu : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IEntityManager _entMan = default!;
     private readonly SpriteSystem _sprite;
 
     private readonly ItemList _list;

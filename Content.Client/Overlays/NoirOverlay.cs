@@ -9,9 +9,9 @@ public sealed partial class NoirOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> Shader = "Noir";
 
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
-    [Dependency] private readonly IEntityManager _entManager = default!; //Corvax-WL-Changes
+    [Dependency] private IEntityManager _entManager = default!; //Corvax-WL-Changes
     private readonly IgnoreGlobalOverlaysSystem _ignore; //Corvax-WL-Changes
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
