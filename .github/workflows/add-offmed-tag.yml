@@ -1,4 +1,4 @@
-name: Add label offmed
+name: "Labels: offmed"
 
 on:
   pull_request:
