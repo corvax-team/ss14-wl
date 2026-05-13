@@ -10,7 +10,7 @@ namespace Content.Client._WL.CharacterInformation;
 [GenerateTypedNameReferences]
 public sealed partial class CharacterInformationWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private IEntityManager _entity = default!;
 
     private float _accumulatedTime;
 

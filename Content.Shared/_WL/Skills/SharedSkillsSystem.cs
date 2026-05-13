@@ -5,8 +5,8 @@ namespace Content.Shared._WL.Skills;
 
 public abstract partial class SharedSkillsSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     public override void Initialize()
     {

@@ -6,7 +6,7 @@ namespace Content.Server._WL.Security.Systems;
 
 public sealed partial class SecurityBadgeSystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private InventorySystem _inventorySystem = default!;
 
     public override void Initialize()
     {

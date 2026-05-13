@@ -59,12 +59,3 @@
       Min: 1
       Max: 4
       PotencyDivisor: 25
-
-- type: entity
-  parent: BluespaceBeaker
-  id: BluespaceBeaker_wl_paper
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 250

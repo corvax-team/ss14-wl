@@ -1,6 +1,7 @@
 using Content.Server._WL.Nutrition.Components;
 using Content.Server._WL.Nutrition.Events;
 using Content.Server.Body.Systems;
+using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
 using Content.Shared.Body.Components;
@@ -24,17 +25,17 @@ namespace Content.Server._WL.Nutrition.Systems;
 
 public sealed partial class SuckableFoodSystem : EntitySystem
 {
-    [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly ForensicsSystem _forensics = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly FlavorProfileSystem _flavor = default!;
+    [Dependency] private ReactiveSystem _reactiveSystem = default!;
+    [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private InventorySystem _inventory = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private ForensicsSystem _forensics = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
+    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private FlavorProfileSystem _flavor = default!;
 
     private const float UpdatePeriod = 2f; // in seconds
     private float _updateTimer = 0f;
@@ -61,7 +62,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
 
         var isNewLoop = _updateTimer >= UpdatePeriod;
 
-        var query = EntityQueryEnumerator<SuckableFoodComponent, SolutionContainerManagerComponent>();
+        var query = EntityQueryEnumerator<SuckableFoodComponent, SolutionManagerComponent>();
         while (query.MoveNext(out var food, out var suckableComp, out var solContainerManComp))
         {
             if (!Exists(suckableComp.SuckingEntity))
@@ -116,7 +117,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
     }
 
     public bool EnsureSolutionEntity(
-        Entity<SuckableFoodComponent, SolutionContainerManagerComponent?> foodEnt,
+        Entity<SuckableFoodComponent, SolutionManagerComponent?> foodEnt,
         [NotNullWhen(true)] out Entity<SolutionComponent>? solEnt,
         [NotNullWhen(true)] out Solution? solution)
     {
@@ -126,11 +127,11 @@ public sealed partial class SuckableFoodSystem : EntitySystem
         if (!Resolve(foodEnt, ref foodEnt.Comp2, false))
             return false;
 
-        if (!_solutionContainerSystem.EnsureSolutionEntity((foodEnt, foodEnt.Comp2), foodEnt.Comp1.Solution, out var ent))
+        if (!_solutionContainerSystem.EnsureSolution((foodEnt, foodEnt.Comp2), foodEnt.Comp1.Solution, out var ent))
             return false;
 
         solEnt = ent;
-        solution = ent.Value.Comp.Solution;
+        solution = ent.Comp.Solution;
 
         return true;
     }

@@ -13,11 +13,11 @@ namespace Content.Shared.Repairable;
 
 public sealed partial class RepairableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!; // WL-Changes
+    [Dependency] private SharedToolSystem _toolSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!; // WL-Changes
 
     public override void Initialize()
     {
@@ -45,7 +45,7 @@ public sealed partial class RepairableSystem : EntitySystem
             RepairAllDamage((ent, damageable), args.User);
 
         _bloodstream.TryModifyBleedAmount(ent.Owner, ent.Comp.BleedAmountReduce); // WL-Changes: Androids
-        
+
         totalDamage = _damageableSystem.GetTotalDamage((ent.Owner, damageable));
 
         args.Repeat = ent.Comp.AutoDoAfter && totalDamage > 0;

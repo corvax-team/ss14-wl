@@ -12,7 +12,7 @@ namespace Content.Client._WL.Photo.UI;
 [GenerateTypedNameReferences]
 public sealed partial class TextureButton : ContainerButton
 {
-    [Dependency] private readonly IAudioManager _audioManager = default!;
+    [Dependency] private IAudioManager _audioManager = default!;
 
     public TextureButton()
     {

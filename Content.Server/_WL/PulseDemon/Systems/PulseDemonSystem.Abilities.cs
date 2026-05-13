@@ -25,15 +25,15 @@
 
 // public sealed partial class PulseDemonSystem
 // {
-//     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-//     [Dependency] private readonly PopupSystem _popup = default!;
-//     [Dependency] private readonly TransformSystem _transform = default!;
-//     [Dependency] private readonly AppearanceSystem _appearance = default!;
-//     [Dependency] private readonly PhysicsSystem _physics = default!;
-//     [Dependency] private readonly EmpSystem _emp = default!;
-//     [Dependency] private readonly ExplosionSystem _explosion = default!;
-//     [Dependency] private readonly SharedPointLightSystem _light = default!;
-//     [Dependency] private readonly EmagSystem _emag = default!;
+//     [Dependency] private SharedDoAfterSystem _doAfter = default!;
+//     [Dependency] private PopupSystem _popup = default!;
+//     [Dependency] private TransformSystem _transform = default!;
+//     [Dependency] private AppearanceSystem _appearance = default!;
+//     [Dependency] private PhysicsSystem _physics = default!;
+//     [Dependency] private EmpSystem _emp = default!;
+//     [Dependency] private ExplosionSystem _explosion = default!;
+//     [Dependency] private SharedPointLightSystem _light = default!;
+//     [Dependency] private EmagSystem _emag = default!;
 
 //     [ValidatePrototypeId<ExplosionPrototype>]
 //     private const string PulseDemonExplosionType = "ElectricExplosion";

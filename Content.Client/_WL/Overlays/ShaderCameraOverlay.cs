@@ -8,8 +8,8 @@ namespace Content.Client._WL.Overlays;
 
 public sealed partial class ShaderCameraOverlay : Overlay
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private readonly PhotoSystem _photo;
 
     private Dictionary<ProtoId<ShaderPrototype>, ShaderInstance> _cachedShaders = new();

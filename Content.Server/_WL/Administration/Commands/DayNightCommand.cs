@@ -12,7 +12,7 @@ namespace Content.Server._WL.Administration.Commands
     [AdminCommand(AdminFlags.Mapping)]
     public sealed partial class DayNightCommand : LocalizedEntityCommands
     {
-        [Dependency] private readonly MapSystem _map = default!;
+        [Dependency] private MapSystem _map = default!;
 
         public override string Command => "daynight";
 

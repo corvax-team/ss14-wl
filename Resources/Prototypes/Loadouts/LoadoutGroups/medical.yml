@@ -14,6 +14,7 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
+  - LeatherSatchel # WL-Changes
 
 - type: loadoutGroup
   id: MedicalShoes
@@ -169,6 +170,7 @@
   - ChemistBackpack
   - ChemistSatchel
   - ChemistDuffel
+  - LeatherSatchel # WL-Changes
 
 #- type: loadoutGroup
 #  id: ChemistJobTrinkets
