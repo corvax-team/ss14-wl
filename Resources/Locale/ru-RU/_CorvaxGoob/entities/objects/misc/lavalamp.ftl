@@ -18,7 +18,7 @@ ent-OrangeLavaLamp = { ent-BaseLavaLamp }
     .desc = { ent-BaseLavaLamp.desc }
 
 ent-GreenLavaLamp = { ent-BaseLavaLamp }
-    .suffix = Зеленная
+    .suffix = Зелёная
     .desc = { ent-BaseLavaLamp.desc }
 
 ent-PinkLavaLamp = { ent-BaseLavaLamp }
