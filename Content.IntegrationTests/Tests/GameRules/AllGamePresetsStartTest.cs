@@ -11,6 +11,7 @@ using Content.Shared.Antag;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
+using Content.Shared.Zombies;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 
@@ -184,6 +185,12 @@ public sealed class AllGamePresetsStartTest : GameTest
             // Make sure all components were added
             foreach (var comp in antag.Components)
             {
+                // WL-Changes-Start
+                // I already know this isn't a good way for doing it, but IPCs and androids are forcing me to do it
+                if (entMan.HasComponent<ZombieImmuneComponent>(ent)
+                    && comp.Value.Component is PendingZombieComponent or ZombifyOnDeathComponent)
+                    continue;
+                // WL-Changes-End
                 Assert.That(entMan.HasComponent(ent, comp.Value.Component.GetType()),
                     $"Entity {entMan.ToPrettyString(ent)} owned by {session} failed to acquire {comp.Key} component, while becoming {antag.ID}");
             }
