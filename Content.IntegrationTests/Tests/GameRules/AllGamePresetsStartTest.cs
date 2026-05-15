@@ -11,7 +11,7 @@ using Content.Shared.Antag;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
-using Content.Shared.Zombies;
+using Content.Shared.Zombies; // WL-Changes
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 
