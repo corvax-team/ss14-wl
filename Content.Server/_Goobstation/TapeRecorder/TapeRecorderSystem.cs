@@ -15,7 +15,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Goobstation.TapeRecorder;
 
-public sealed class TapeRecorderSystem : SharedTapeRecorderSystem
+public sealed partial class TapeRecorderSystem : SharedTapeRecorderSystem
 {
     [Dependency] private ChatSystem _chat = default!;
     [Dependency] private HandsSystem _hands = default!;
