@@ -182,10 +182,14 @@ public sealed class AllGamePresetsStartTest : GameTest
             var ent = mindComp.CurrentEntity!.Value;
 
             // WL-Changes-Start
-            foreach (var comp in antag.Blacklist.Registrations)
+            var compRegs = antag.Blacklist.Registrations;
+            if (compRegs != null)
             {
-                if (entMan.HasComponent(ent, comp))
-                    return;
+                foreach (var comp in compRegs)
+                {
+                    if (entMan.HasComponent(ent, comp))
+                        return;
+                }
             }
             // WL-Changes-End
 
