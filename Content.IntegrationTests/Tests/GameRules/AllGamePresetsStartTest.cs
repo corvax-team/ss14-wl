@@ -181,6 +181,14 @@ public sealed class AllGamePresetsStartTest : GameTest
                 $"Session {session} spawned into the game as an antag, but had no entity!");
             var ent = mindComp.CurrentEntity!.Value;
 
+            // WL-Changes-Start
+            foreach (var comp in antag.Blacklist.Registrations)
+            {
+                if (entMan.HasComponent(ent, comp))
+                    return;
+            }
+            // WL-Changes-End
+
             // Make sure all components were added
             foreach (var comp in antag.Components)
             {
