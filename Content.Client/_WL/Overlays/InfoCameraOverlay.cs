@@ -11,9 +11,9 @@ namespace Content.Client._WL.Overlays;
 
 public sealed partial class InfoCameraOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private readonly PhotoSystem _photo;
     private readonly ClientGameTicker _gameTicker;
 

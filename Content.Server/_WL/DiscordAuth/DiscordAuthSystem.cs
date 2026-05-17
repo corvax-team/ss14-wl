@@ -12,10 +12,10 @@ namespace Content.Server._WL.DiscordAuth
 {
     public sealed partial class DiscordAuthSystem : EntitySystem
     {
-        [Dependency] private readonly ISharedPlayerManager _playMan = default!;
-        [Dependency] private readonly IConfigurationManager _confMan = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private ISharedPlayerManager _playMan = default!;
+        [Dependency] private IConfigurationManager _confMan = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private IGameTiming _timing = default!;
 
         private Dictionary<NetUserId, string> _playersTokensKeys = default!;
 

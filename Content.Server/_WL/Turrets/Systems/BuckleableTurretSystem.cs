@@ -21,10 +21,10 @@ namespace Content.Server._WL.Turrets.Systems
 {
     public sealed partial class BuckleableTurretSystem : EntitySystem
     {
-        [Dependency] private readonly MindSystem _mind = default!;
-        [Dependency] private readonly ActionsSystem _actions = default!;
-        [Dependency] private readonly UserInterfaceSystem _ui = default!;
-        [Dependency] private readonly DoAfterSystem _doAfter = default!;
+        [Dependency] private MindSystem _mind = default!;
+        [Dependency] private ActionsSystem _actions = default!;
+        [Dependency] private UserInterfaceSystem _ui = default!;
+        [Dependency] private DoAfterSystem _doAfter = default!;
 
         public override void Initialize()
         {

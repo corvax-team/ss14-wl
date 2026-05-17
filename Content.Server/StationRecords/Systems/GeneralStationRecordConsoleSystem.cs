@@ -13,14 +13,16 @@ using System.Linq;
 
 namespace Content.Server.StationRecords.Systems;
 
-public sealed class GeneralStationRecordConsoleSystem : EntitySystem
+public sealed partial class GeneralStationRecordConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly StationRecordsSystem _stationRecords = default!;
-    [Dependency] private readonly PaperSystem _paperSystem = default!; // WL-Records
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!; // WL-Records
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!; // WL-Records
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private StationRecordsSystem _stationRecords = default!;
+    // WL-Changes: Records start
+    [Dependency] private PaperSystem _paperSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    // WL-Changes: Records end
 
     public override void Initialize()
     {

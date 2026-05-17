@@ -8,8 +8,8 @@ namespace Content.Server._WL.Collision;
 
 public sealed partial class SpawnOnCollideWithSystem : EntitySystem
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private TransformSystem _transform = default!;
 
     public override void Initialize()
     {

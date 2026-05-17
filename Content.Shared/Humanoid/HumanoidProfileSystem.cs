@@ -10,11 +10,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Humanoid;
 
-public sealed class HumanoidProfileSystem : EntitySystem
+public sealed partial class HumanoidProfileSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly GrammarSystem _grammar = default!;
-    [Dependency] private readonly SharedScaleVisualsSystem _scale = default!; // WL-Changes
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private GrammarSystem _grammar = default!;
+    [Dependency] private SharedScaleVisualsSystem _scale = default!; // WL-Changes
 
     // Corvax-TTS-Start
     public const string DefaultVoice = "Garithos";
