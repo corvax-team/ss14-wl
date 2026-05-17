@@ -1,10 +1,5 @@
 using Content.Server._WL.Destructible.Components;
-using Content.Server.Humanoid;
-using Content.Shared.Humanoid;
-using Content.Shared.Cloning;
 using Content.Shared.Cloning.Events;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.HealthExaminable;
 using Content.Shared.NameModifier.EntitySystems;
@@ -14,7 +9,7 @@ namespace Content.Server._WL.Destructible.Systems
 {
     public sealed partial class FrozenSystem : EntitySystem
     {
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
+        [Dependency] private MetaDataSystem _metaData = default!;
 
         public override void Initialize()
         {

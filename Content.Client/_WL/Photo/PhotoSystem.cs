@@ -7,7 +7,7 @@ namespace Content.Client._WL.Photo;
 
 public sealed partial class PhotoSystem : SharedPhotoSystem
 {
-    [Dependency] private readonly PhotoFilterSystem _filter = default!;
+    [Dependency] private PhotoFilterSystem _filter = default!;
 
     public Dictionary<PhotoCameraComponent, PhotoCameraBoundUserInterface> ActiveCameras = new();
     public Dictionary<IEye, EntityUid> ActiveEyes = new();

@@ -9,6 +9,60 @@
   - !type:OverallPlaytimeRequirement
     time: 30h # Corvax-RoleTime 1
 
+- type: antagSpecifier
+  abstract: true
+  parent: RestrictedAntag
+  id: BaseRev
+  name: revolutionary
+  prefRoles:
+  - GenericTeamAntagonist # For antag ban purposes
+  components:
+  - type: Revolutionary
+
+- type: antagSpecifier
+  parent: BaseRev
+  id: HeadRev
+  prefRoles:
+  - HeadRev
+  briefing:
+    text: head-rev-role-greeting
+    color: CornflowerBlue
+    sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+  startingGear: HeadRevGear
+  components:
+  - type: Revolutionary
+  - type: HeadRevolutionary
+  # WL-Skills-start
+  - type: InitialSkills
+    overrideExisting: false
+    initialSkills:
+      Eva: 3
+      MechPiloting: 3
+    addSkills:
+      Bureaucracy: 1
+      Piloting: 1
+      IT: 1
+      Atmospherics: 1
+      Construction: 1
+      Electrical: 1
+      Generators: 1
+      Anatomy: 1
+      Chemistry: 1
+      Medicine: 1
+      ComplexDevices: 1
+      Science: 1
+      Forensics: 1
+      Combat: 1
+      Weapons: 1
+      Botany: 1
+      Cooking: 1
+      Mixology: 1
+  # WL-Skills-end
+  mindRoles:
+  - MindRoleHeadRevolutionary
+
+# TODO: Make it so creating new revolutionaries uses antag prototypes! This saves a *lot* of boilerplate for conversion antags.
+
 - type: antag
   id: Rev
   name: roles-antag-rev-name

@@ -2,9 +2,9 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._WL.Shuttles;
 
-public sealed class RadarMarkerSystem : EntitySystem
+public sealed partial class RadarMarkerSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPvsOverrideSystem _pvs = default!;
+    [Dependency] private SharedPvsOverrideSystem _pvs = default!;
 
     public override void Initialize()
     {

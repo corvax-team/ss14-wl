@@ -1,8 +1,6 @@
 using Content.Server.Examine;
-using Content.Server.Preferences.Managers;
 using Content.Shared._WL.CharacterInformation;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Preferences;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -10,10 +8,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._WL.CharacterInformation;
 
-public sealed class CharacterInformationSystem : EntitySystem
+public sealed partial class CharacterInformationSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystem _examineSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private ExamineSystem _examineSystem = default!;
+    [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
 
     public override void Initialize()
     {
@@ -42,7 +40,7 @@ public sealed class CharacterInformationSystem : EntitySystem
             Category = VerbCategory.Examine,
             Disabled = !detailsRange,
             Message = detailsRange ? null : Loc.GetString("detail-examinable-verb-disabled"),
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"))
         };
 
         args.Verbs.Add(verb);

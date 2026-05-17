@@ -1,17 +1,14 @@
 using Content.Shared.UserInterface;
 using Content.Shared._WL.Passports.Components;
 using Content.Shared._WL.Passports.Systems;
-using Content.Shared.StatusIcon;
 using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server._WL.Passports.Systems
 {
-    public sealed class ChameleonPassportSystem : SharedChameleonPassportSystem
+    public sealed partial class ChameleonPassportSystem : SharedChameleonPassportSystem
     {
-        [Dependency] private readonly SharedChameleonPassportSystem _passportSystem = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private SharedChameleonPassportSystem _passportSystem = default!;
+        [Dependency] private UserInterfaceSystem _uiSystem = default!;
 
         public override void Initialize()
         {

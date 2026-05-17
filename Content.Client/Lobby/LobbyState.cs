@@ -1,3 +1,4 @@
+using Content.Client._Harmony.ReadyManifest; // Harmony
 using Content.Client.Audio;
 using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
@@ -18,21 +19,22 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Lobby
 {
-    public sealed class LobbyState : Robust.Client.State.State
+    public sealed partial class LobbyState : Robust.Client.State.State
     {
-        [Dependency] private readonly IBaseClient _baseClient = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-        [Dependency] private readonly IClientConsoleHost _consoleHost = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-        [Dependency] private readonly IResourceCache _resourceCache = default!;
-        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly ClientsidePlaytimeTrackingManager _playtimeTracking = default!;
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
+        [Dependency] private IBaseClient _baseClient = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
+        [Dependency] private IClientConsoleHost _consoleHost = default!;
+        [Dependency] private IEntityManager _entityManager = default!;
+        [Dependency] private IResourceCache _resourceCache = default!;
+        [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IVoteManager _voteManager = default!;
+        [Dependency] private ClientsidePlaytimeTrackingManager _playtimeTracking = default!;
+        [Dependency] private IPrototypeManager _protoMan = default!;
 
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
+        private ReadyManifestSystem _readyManifestSystem = default!; // Harmony
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
@@ -54,6 +56,7 @@ namespace Content.Client.Lobby
             _gameTicker = _entityManager.System<ClientGameTicker>();
             _contentAudioSystem = _entityManager.System<ContentAudioSystem>();
             _contentAudioSystem.LobbySoundtrackChanged += UpdateLobbySoundtrackInfo;
+            _readyManifestSystem = _entityManager.System<ReadyManifestSystem>(); // Harmony
 
             chatController.SetMainChat(true);
 
@@ -73,6 +76,7 @@ namespace Content.Client.Lobby
             UpdateLobbyUi();
 
             Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
+            Lobby.ManifestButton.OnPressed += OnManifestPressed; // Harmony
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
 
@@ -93,6 +97,7 @@ namespace Content.Client.Lobby
             _voteManager.ClearPopupContainer();
 
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
+            Lobby!.ManifestButton.OnPressed -= OnManifestPressed; // Harmony
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
 
@@ -119,6 +124,16 @@ namespace Content.Client.Lobby
             _lateJoin = new LateJoinGui();
             //WL-Changes-end
         }
+
+        // Harmony start - ready manifest
+        private void OnManifestPressed(BaseButton.ButtonEventArgs args)
+        {
+            if (_gameTicker.IsGameStarted)
+                return;
+
+            _readyManifestSystem.RequestReadyManifest();
+        }
+        // Harmony end - ready manifest
 
         private void OnReadyPressed(BaseButton.ButtonEventArgs args)
         {
@@ -205,6 +220,7 @@ namespace Content.Client.Lobby
                 Lobby!.ReadyButton.ToggleMode = false;
                 Lobby!.ReadyButton.Pressed = false;
                 Lobby!.ObserveButton.Disabled = false;
+                Lobby!.ManifestButton.Disabled = true; // Harmony
             }
             else
             {
@@ -214,6 +230,7 @@ namespace Content.Client.Lobby
                 Lobby!.ReadyButton.ToggleMode = true;
                 Lobby!.ReadyButton.Disabled = false;
                 Lobby!.ObserveButton.Disabled = true;
+                Lobby!.ManifestButton.Disabled = false; // Harmony
             }
 
             if (_gameTicker.ServerInfoBlob != null)

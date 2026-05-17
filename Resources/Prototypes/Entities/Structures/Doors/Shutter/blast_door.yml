@@ -33,8 +33,9 @@
   - type: RadiationBlocker
     resistance: 8
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: ContainerFill
     containers:
       board: [ DoorElectronics ]
@@ -50,6 +51,8 @@
     messagePerceivedByOthers: comp-window-knock
     interactSuccessSound:
       path: /Audio/Effects/glass_knock.ogg
+  - type: WeldingSparksAnimation # Goobstation
+    startingOffset: 0, 0.5
 
 - type: entity
   id: BlastDoorOpen
@@ -78,8 +81,9 @@
     state: assembly
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:
@@ -163,8 +167,9 @@
     state: assembly
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
+  - type: Injurable
+    damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
     - trigger:

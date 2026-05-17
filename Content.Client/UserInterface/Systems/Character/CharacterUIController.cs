@@ -29,15 +29,14 @@ using static Robust.Client.UserInterface.Controls.BaseButton;
 namespace Content.Client.UserInterface.Systems.Character;
 
 [UsedImplicitly]
-public sealed class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CharacterInfoSystem>
+public sealed partial class CharacterUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CharacterInfoSystem>
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IEntityNetworkManager _entityNetworkManager = default!; // WL-Skills
-
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IPlayerManager _player = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
     //WL-Changes-Start
-    [Dependency] private readonly DynamicTextUIController _dynamicText = default!;
+    [Dependency] private IEntityNetworkManager _entityNetworkManager = default!;
+    [Dependency] private DynamicTextUIController _dynamicText = default!;
     //WL-Changes-end
 
     [UISystemDependency] private readonly CharacterInfoSystem _characterInfo = default!;

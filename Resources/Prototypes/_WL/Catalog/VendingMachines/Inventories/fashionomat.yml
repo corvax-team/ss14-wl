@@ -41,6 +41,7 @@
     ClothingOuterHoodieBlack: 3
     ClothingOuterCoatExpensive: 3
     ClothingOuterCoatJensen: 3
+    ClothingOuterJohnnySilverhandJacket: 2
     # Costumes
     ClothingNeckHorrific: 3
     ClothingUniformJumpsuitSuperstarCop: 3
@@ -85,9 +86,12 @@
     ClothingUniformJumpskirtOperative: 3
     ClothingUniformJumpsuitTurtleneckTactick: 3
     ClothingUniformJumpsuitFamilyGuy: 3
+    ClothingUniformJumpsuitJohnnySilverhand: 2
     # Boots
     ClothingShoesFashionCombatBoots: 3
     ClothingShoesBootsCowboyBrown: 3
     ClothingShoesBootsCowboyWhite: 3
     ClothingShoesBootsCowboyBlack: 3
     ClothingShoesBootsCowboyFancy: 3
+    # storages
+    GlamourHandbagByBenjii: 2

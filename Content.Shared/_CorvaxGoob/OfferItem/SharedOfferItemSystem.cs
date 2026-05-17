@@ -1,4 +1,4 @@
-﻿using Content.Shared._CorvaxGoob.Alert.Click;
+using Content.Shared._CorvaxGoob.Alert.Click;
 using Content.Shared.Alert;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -11,9 +11,9 @@ namespace Content.Shared._CorvaxGoob.OfferItem;
 
 public abstract partial class SharedOfferItemSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     [ValidatePrototypeId<AlertPrototype>]
     protected const string OfferAlert = "Offer";

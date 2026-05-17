@@ -10,10 +10,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Administration.Systems;
 
-public sealed class SkillsAdminEui : BaseEui
+public sealed partial class SkillsAdminEui : BaseEui
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private readonly EntityUid _targetEntity;
     private readonly SharedSkillsSystem _skillsSystem;
