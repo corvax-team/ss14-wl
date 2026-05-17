@@ -15,10 +15,10 @@ namespace Content.Client._WL.Communications.UI;
 [GenerateTypedNameReferences]
 public sealed partial class NewCommunicationsConsoleMenu : FancyWindow
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ILocalizationManager _loc = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private ILocalizationManager _loc = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     public bool CanAnnounce;
     public bool CanBroadcast;
@@ -109,15 +109,13 @@ public sealed partial class NewCommunicationsConsoleMenu : FancyWindow
         {
             var name = currentAlert;
 
-            if (!_prototypeManager.TryIndex<AlertLevelPrototype>(currentAlert, out var index))
-                return;
-            if (_loc.TryGetString($"alert-level-{currentAlert.ToLower()}", out var locName))
+            if (!string.IsNullOrEmpty(currentAlert) && _prototypeManager.TryIndex<AlertLevelPrototype>(currentAlert, out var index))
             {
-                name = locName;
+                if (_loc.TryGetString($"alert-level-{currentAlert.ToLower()}", out var locName))
+                    name = locName;
+                else if (!string.IsNullOrEmpty(index.SetName))
+                    name = index.SetName;
             }
-            else if (!string.IsNullOrEmpty(index.SetName))
-                name = index.SetName;
-
 
             AlertLevelButton.AddItem(name);
             AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, currentAlert);

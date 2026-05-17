@@ -13,6 +13,7 @@
   - ChiefEngineerBackpack
   - ChiefEngineerSatchel
   - ChiefEngineerDuffel
+  - LeatherSatchel # WL-Changes
 
 - type: loadoutGroup
   id: SeniorEngineerHead
@@ -136,6 +137,7 @@
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianSatchel
   - AtmosphericTechnicianDuffel
+  - LeatherSatchel # WL-Changes
 
 - type: loadoutGroup
   id: SeniorEngineerOuterClothing
@@ -274,6 +276,7 @@
   - ScientistBackpack
   - ScientistSatchel
   - ScientistDuffel
+  - LeatherSatchel # WL-Changes
 
 - type: loadoutGroup
   id: SeniorResearcherOuterClothing
@@ -378,6 +381,7 @@
   - BrigmedicBackpack
   - BrigmedicSatchel
   - BrigmedicDuffel
+  - LeatherSatchel # WL-Changes
 
 - type: loadoutGroup
   id: BrigmedicOuterClothing
@@ -430,6 +434,7 @@
   - SecurityBackpack
   - SecuritySatchel
   - SecurityDuffel
+  - LeatherSatchel # WL-Changes
 
 - type: loadoutGroup
   id: SeniorOfficerBelt
@@ -499,6 +504,7 @@
   - MedicalDoctorBackpack
   - MedicalDoctorSatchel
   - MedicalDoctorDuffel
+  - LeatherSatchel # WL-Changes
 
 - type: loadoutGroup
   id: SeniorPhysicianShoes

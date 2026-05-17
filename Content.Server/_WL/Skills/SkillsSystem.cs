@@ -12,10 +12,10 @@ namespace Content.Server._WL.Skills;
 
 public sealed partial class SkillsSystem : SharedSkillsSystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly EuiManager _eui = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private EuiManager _eui = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private ISharedPlayerManager _player = default!;
 
     public override void Initialize()
     {

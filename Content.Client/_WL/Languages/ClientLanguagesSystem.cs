@@ -6,7 +6,7 @@ namespace Content.Client._WL.Languages;
 
 public sealed partial class ClientLanguagesSystem : SharedLanguagesSystem
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private IEntityManager _ent = default!;
 
     public override void Initialize()
     {

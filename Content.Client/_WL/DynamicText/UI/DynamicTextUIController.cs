@@ -2,9 +2,9 @@ using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Client._WL.DynamicText.UI;
 
-public sealed class DynamicTextUIController : UIController
+public sealed partial class DynamicTextUIController : UIController
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     private DynamicTextWindow? _dynamicTextWindow;
 

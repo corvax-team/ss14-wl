@@ -7,7 +7,7 @@ namespace Content.Client._WL.Standing
 {
     public sealed partial class ClientStandingStateSystem : EntitySystem
     {
-        [Dependency] private readonly SpriteSystem _sprite = default!;
+        [Dependency] private SpriteSystem _sprite = default!;
         private Dictionary<EntProtoId, Shared.DrawDepth.DrawDepth> _cachedDrawDepths = default!;
 
         public override void Initialize()

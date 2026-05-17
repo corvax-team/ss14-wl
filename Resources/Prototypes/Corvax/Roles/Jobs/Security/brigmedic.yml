@@ -21,7 +21,6 @@
   startingGear: BrigmedicGear
   icon: "JobIconBrigmedic"
   supervisors: job-supervisors-cmo
-  canBeAntag: false
   access:
   - Security
   - Brig

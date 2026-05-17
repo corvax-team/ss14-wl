@@ -14,12 +14,12 @@ namespace Content.Server._WL.Documents
 {
     public sealed partial class PrintedDocumentFormatSystem : EntitySystem
     {
-        [Dependency] private readonly PaperSystem _paper = default!;
-        [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly IGameTiming _gameTime = default!;
-        [Dependency] private readonly GameTicker _gameTick = default!;
-        [Dependency] private readonly JobSystem _job = default!;
-        [Dependency] private readonly MindSystem _mind = default!;
+        [Dependency] private PaperSystem _paper = default!;
+        [Dependency] private StationSystem _station = default!;
+        [Dependency] private IGameTiming _gameTime = default!;
+        [Dependency] private GameTicker _gameTick = default!;
+        [Dependency] private JobSystem _job = default!;
+        [Dependency] private MindSystem _mind = default!;
 
         public override void Initialize()
         {

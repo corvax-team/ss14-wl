@@ -398,6 +398,9 @@ public sealed partial class EmergencyShuttleSystem
             _deviceNetworkSystem.QueuePacket(shuttle.Value, null, payload, net.TransmitFrequency);
         }
 
+        _pda.BeforeETA = _timing.CurTime + TimeSpan.FromSeconds(_consoleAccumulator); // Передаём НОВОЕ время до отлёта в систему для корректной работы
+        _pda.UpdateAllPdaUisOnStation();
+
         return true;
     }
 

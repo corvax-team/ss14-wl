@@ -1,0 +1,16 @@
+name: "Labels: offmed"
+
+on:
+  pull_request:
+    branches:
+      - offbrand-dev
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+    - uses: actions-ecosystem/action-add-labels@v1
+      with:
+        labels: "Offmed"

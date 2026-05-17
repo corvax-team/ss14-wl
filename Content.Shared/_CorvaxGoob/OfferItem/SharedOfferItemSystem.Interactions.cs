@@ -1,4 +1,4 @@
-﻿using Content.Shared.ActionBlocker;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Hands.Components;
 using Content.Shared.Input;
 using Content.Shared.Hands.EntitySystems;
@@ -9,8 +9,8 @@ namespace Content.Shared._CorvaxGoob.OfferItem;
 
 public abstract partial class SharedOfferItemSystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] private readonly SharedHandsSystem _hand = default!;
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private SharedHandsSystem _hand = default!;
 
     private void InitializeInteractions()
     {
