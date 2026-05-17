@@ -168,6 +168,7 @@
   name: traitor-title
   description: traitor-description
   showInVote: false
+  minPlayers: 5
   rules:
     - DummyNonAntagChance
     - Traitor

@@ -17,13 +17,13 @@ namespace Content.Server._WL.Economics.Systems
 {
     public sealed partial class PokerCardSystem : EntitySystem
     {
-        [Dependency] private readonly AppearanceSystem _appearance = default!;
-        [Dependency] private readonly AudioSystem _audio = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
-        [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly ContainerSystem _container = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly HandsSystem _hands = default!;
+        [Dependency] private AppearanceSystem _appearance = default!;
+        [Dependency] private AudioSystem _audio = default!;
+        [Dependency] private MetaDataSystem _metaData = default!;
+        [Dependency] private PopupSystem _popup = default!;
+        [Dependency] private ContainerSystem _container = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private HandsSystem _hands = default!;
 
         public const string CardBoxContainer = "storagebase";
         public static readonly AudioParams StandartParams = new() { Volume = -30 };

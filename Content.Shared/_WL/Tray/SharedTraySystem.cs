@@ -3,11 +3,11 @@ using Robust.Shared.Map;
 
 namespace Content.Shared._WL.Tray;
 
-public abstract class SharedTraySystem : EntitySystem
+public abstract partial class SharedTraySystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedItemSystem _item = default!;
 
     public override void Initialize()
     {

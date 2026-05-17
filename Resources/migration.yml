@@ -888,9 +888,21 @@ CrateVendingMachineRestockChangFilled: VendingMachineRestockChang
 CrateVendingMachineRestockDiscountDansFilled: VendingMachineRestockDiscountDans
 CrateVendingMachineRestockDonutFilled: VendingMachineRestockDonut
 
+# 2026-03-28
+# The great solutions YAML nuke
+FoodMeatSnail: MobSnail
+
 # 2026-04-13
 AnimalRandomSpawner: null
 
 # 2026-04-29 WL
 OxygenAndNitrousOxideCanister: null
 OxygenAndNitrousOxideCanisterBroken: null
+
+# 2026-04-25
+CratePartsT3: null
+CratePartsT3T4: null
+CratePartsT4: null
+
+# 2026-05-06
+BluespaceBeaker_wl_paper: null

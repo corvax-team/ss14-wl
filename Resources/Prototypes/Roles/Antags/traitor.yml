@@ -9,6 +9,49 @@
   - !type:OverallPlaytimeRequirement
     time: 30h # Corvax-RoleTime 1
 
+- type: antagSpecifier
+  abstract: true
+  parent: RestrictedAntag
+  id: BaseTraitor
+
+- type: antagSpecifier
+  parent: BaseTraitor
+  id: Traitor
+  prefRoles:
+  - Traitor
+  blacklist:
+    components:
+    - AntagImmune
+  # WL-Skills-start
+  components:
+  - type: InitialSkills
+    overrideExisting: false
+    initialSkills:
+      Eva: 3
+      MechPiloting: 3
+    addSkills:
+      Bureaucracy: 1
+      Piloting: 1
+      IT: 1
+      Atmospherics: 1
+      Construction: 1
+      Electrical: 1
+      Generators: 1
+      Anatomy: 1
+      Chemistry: 1
+      Medicine: 1
+      ComplexDevices: 1
+      Science: 1
+      Forensics: 1
+      Combat: 1
+      Weapons: 1
+      Botany: 1
+      Cooking: 1
+      Mixology: 1
+  # WL-Skills-end
+  mindRoles:
+  - MindRoleTraitor
+
 - type: antag
   id: TraitorSleeper
   name: roles-antag-syndicate-agent-sleeper-name
@@ -19,6 +62,43 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 1h
+
+- type: antagSpecifier
+  parent: BaseTraitor
+  id: TraitorSleeper
+  prefRoles:
+  - TraitorSleeper
+  mindRoles:
+  - MindRoleTraitorSleeper
+
+- type: antagSpecifier
+  parent: BaseTraitor
+  id: TraitorReinforcement
+  prefRoles:
+  - Traitor
+  - GenericTeamAntagonist # Matters for Antag bans.
+  # WL-Skills-start
+  components:
+  - type: InitialSkills
+    initialSkills:
+      Eva: 3
+      Piloting: 3
+      MechPiloting: 3
+      IT: 3
+      Atmospherics: 3
+      Construction: 3
+      Electrical: 3
+      Anatomy: 3
+      Chemistry: 3
+      Medicine: 3
+      ComplexDevices: 3
+      Science: 3
+      Combat: 4
+      Weapons: 4
+    randomSkills: [Bureaucracy, Generators, Forensics, Botany, Cooking, Mixology]
+  # WL-Skills-end
+  mindRoles:
+  - MindRoleTraitorReinforcement
 
 # Syndicate Operative Outfit - Monkey
 - type: startingGear
@@ -75,7 +155,7 @@
     - WeaponPistolViper
     - Syringe
     - Syringe
-    
+
 - type: startingGear
   id: SyndicateReinforcementSpy
   equipment:

@@ -18,8 +18,8 @@ namespace Content.Client.Audio.Jukebox;
 [GenerateTypedNameReferences]
 public sealed partial class JukeboxMenu : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    private readonly AudioSystem _audioSystem;
+    [Dependency] private IEntityManager _entManager = default!;
+    private AudioSystem _audioSystem;
 
     /// <summary>
     /// Are we currently 'playing' or paused for the play / pause button.

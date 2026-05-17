@@ -7,12 +7,12 @@ using Content.Shared.Actions.Components;
 
 namespace Content.Shared._WL.Sleep;
 
-public sealed class SleepOnBuckleSystem : EntitySystem
+public sealed partial class SleepOnBuckleSystem : EntitySystem
 {
-    [Dependency] private readonly ActionContainerSystem _actConts = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
-    [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private ActionContainerSystem _actConts = default!;
+    [Dependency] private SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private SleepingSystem _sleepingSystem = default!;
+    [Dependency] private StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {

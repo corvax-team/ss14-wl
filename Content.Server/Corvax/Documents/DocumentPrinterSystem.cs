@@ -11,10 +11,10 @@ namespace Content.Server.Corvax.Documents;
 
 public sealed partial class DocumentPrinterSystem : EntitySystem
 {
-    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly SharedStationSystem _station = default!;
-    [Dependency] private readonly SharedGameTicker _gameTicker = default!;
+    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private PaperSystem _paper = default!;
+    [Dependency] private SharedStationSystem _station = default!;
+    [Dependency] private SharedGameTicker _gameTicker = default!;
 
     public override void Initialize()
     {

@@ -8,10 +8,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._WL.DynamicText;
 
-public sealed class DynamicTextSystem : EntitySystem
+public sealed partial class DynamicTextSystem : EntitySystem
 {
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly IConfigurationManager _cfm = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IConfigurationManager _cfm = default!;
 
     public override void Initialize()
     {
