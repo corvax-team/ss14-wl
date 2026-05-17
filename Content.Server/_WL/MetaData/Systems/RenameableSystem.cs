@@ -13,11 +13,11 @@ namespace Content.Server._WL.MetaData.Systems;
 
 public sealed partial class RenameableSystem : EntitySystem
 {
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly ChargesSystem _charges = default!;
-    [Dependency] private readonly QuickDialogSystem _quickDialog = default!;
-    [Dependency] private readonly IPlayerManager _playMan = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private MetaDataSystem _metaData = default!;
+    [Dependency] private ChargesSystem _charges = default!;
+    [Dependency] private QuickDialogSystem _quickDialog = default!;
+    [Dependency] private IPlayerManager _playMan = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     private static readonly LocId RenameActionLocString = "renameable-component-rename-action";
     private static readonly LocId NameTitleLocString = "renameable-component-name-field";

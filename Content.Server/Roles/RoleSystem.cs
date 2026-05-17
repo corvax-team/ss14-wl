@@ -13,12 +13,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Roles;
 
-public sealed class RoleSystem : SharedRoleSystem
+public sealed partial class RoleSystem : SharedRoleSystem
 {
-    [Dependency] private readonly IServerPreferencesManager _servPrefMan = default!;
-    [Dependency] private readonly IPlayerManager _playMan = default!;
-    [Dependency] private readonly IChatManager _chat = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private IChatManager _chat = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+// WL-Changes: start
+    [Dependency] private IServerPreferencesManager _servPrefMan = default!;
+    [Dependency] private IPlayerManager _playMan = default!;
+// WL-Changes: end
 
     public string? MindGetBriefing(EntityUid? mindId)
     {

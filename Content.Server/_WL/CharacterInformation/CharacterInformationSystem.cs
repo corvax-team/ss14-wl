@@ -8,10 +8,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._WL.CharacterInformation;
 
-public sealed class CharacterInformationSystem : EntitySystem
+public sealed partial class CharacterInformationSystem : EntitySystem
 {
-    [Dependency] private readonly ExamineSystem _examineSystem = default!;
-    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private ExamineSystem _examineSystem = default!;
+    [Dependency] private UserInterfaceSystem _userInterfaceSystem = default!;
 
     public override void Initialize()
     {

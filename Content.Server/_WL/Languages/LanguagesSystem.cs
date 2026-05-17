@@ -12,13 +12,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._WL.Languages;
 
-public sealed class LanguagesSystem : SharedLanguagesSystem
+public sealed partial class LanguagesSystem : SharedLanguagesSystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     /// <summary>
     /// Потому что <see cref="Shared.Chat.ChatChannelExtensions.TextColor(Shared.Chat.ChatChannel)" />.

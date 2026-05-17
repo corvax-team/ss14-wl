@@ -2,7 +2,6 @@ using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Speech.Components;
 using Content.Server.StationEvents.Components;
 using Content.Shared._WL.Android;
 using Content.Shared._WL.Light.Events;
@@ -19,6 +18,7 @@ using Content.Shared.Power.Components;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Speech.Components;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
@@ -32,21 +32,21 @@ namespace Content.Server._WL.Android
 {
     public sealed partial class AndroidSystem : EntitySystem
     {
-        [Dependency] private readonly BatterySystem _battery = default!;
-        [Dependency] private readonly PowerCellSystem _powerCell = default!;
-        [Dependency] private readonly DoAfterSystem _doAfter = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-        [Dependency] private readonly MovementSpeedModifierSystem _move = default!;
-        [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly PointLightSystem _pointLight = default!;
-        [Dependency] private readonly ItemToggleSystem _toggle = default!;
-        [Dependency] private readonly AudioSystem _audio = default!;
-        [Dependency] private readonly ActionsSystem _actions = default!;
-        [Dependency] private readonly ContainerSystem _container = default!;
-        [Dependency] private readonly AppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
+        [Dependency] private BatterySystem _battery = default!;
+        [Dependency] private PowerCellSystem _powerCell = default!;
+        [Dependency] private DoAfterSystem _doAfter = default!;
+        [Dependency] private IGameTiming _gameTiming = default!;
+        [Dependency] private IRobustRandom _random = default!;
+        [Dependency] private StatusEffectsSystem _statusEffect = default!;
+        [Dependency] private MovementSpeedModifierSystem _move = default!;
+        [Dependency] private PopupSystem _popup = default!;
+        [Dependency] private PointLightSystem _pointLight = default!;
+        [Dependency] private ItemToggleSystem _toggle = default!;
+        [Dependency] private AudioSystem _audio = default!;
+        [Dependency] private ActionsSystem _actions = default!;
+        [Dependency] private ContainerSystem _container = default!;
+        [Dependency] private AppearanceSystem _appearance = default!;
+        [Dependency] private SharedVisualBodySystem _visualBody = default!;
 
         [ViewVariables(VVAccess.ReadOnly)]
         private const float AndroidDoAfterChargeTime = 1f;

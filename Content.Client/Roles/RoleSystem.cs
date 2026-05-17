@@ -4,10 +4,10 @@ using Content.Shared.Roles;
 
 namespace Content.Client.Roles;
 
-public sealed class RoleSystem : SharedRoleSystem
+public sealed partial class RoleSystem : SharedRoleSystem
 {
     //WL-changes-start
-    [Dependency] private readonly IClientPreferencesManager _prefMan = default!;
+    [Dependency] private IClientPreferencesManager _prefMan = default!;
 
     public string? GetChosenSubname(string jobId)
     {

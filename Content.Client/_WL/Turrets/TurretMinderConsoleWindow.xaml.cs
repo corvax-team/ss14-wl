@@ -13,8 +13,8 @@ namespace Content.Client._WL.Turrets;
 [GenerateTypedNameReferences]
 public sealed partial class TurretMinderConsoleWindow : DefaultWindow
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     private readonly SpriteSystem _sprite;
 

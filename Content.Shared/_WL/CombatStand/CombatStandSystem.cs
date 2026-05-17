@@ -7,10 +7,10 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.CombatStand;
 
-public sealed class CombatStandSystem : EntitySystem
+public sealed partial class CombatStandSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

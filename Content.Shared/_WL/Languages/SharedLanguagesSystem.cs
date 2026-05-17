@@ -12,15 +12,15 @@ using System.Text;
 
 namespace Content.Shared._WL.Languages;
 
-public abstract class SharedLanguagesSystem : EntitySystem
+public abstract partial class SharedLanguagesSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedGameTicker _ticker = default!;
-    [Dependency] private readonly IEntityManager _ent = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedGameTicker _ticker = default!;
+    [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedChatSystem _chat = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private IRobustRandom _random = default!;
 
     private FrozenDictionary<char, LanguagePrototype> _keylan = default!;
 

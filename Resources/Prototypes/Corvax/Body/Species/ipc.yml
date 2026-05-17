@@ -87,8 +87,9 @@
   components:
   - type: CharacterInformation
   - type: Damageable
-    damageContainer: SiliconIpc
     damageModifierSet: Ipc
+  - type: Injurable
+    damageContainer: SiliconIpc
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

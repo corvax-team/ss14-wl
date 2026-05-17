@@ -18,9 +18,9 @@ namespace Content.Server._WL.Administration.Commands
     [AdminCommand(AdminFlags.MassBan)]
     public sealed partial class JobForceEnableCommand : LocalizedCommands
     {
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
-        [Dependency] private readonly IServerDbManager _serverDb = default!;
-        [Dependency] private readonly IAdminLogManager _adminLog = default!;
+        [Dependency] private IPrototypeManager _protoMan = default!;
+        [Dependency] private IServerDbManager _serverDb = default!;
+        [Dependency] private IAdminLogManager _adminLog = default!;
 
         public override string Command => "jobforceenable";
         public override string Description => "Позволяет насильно разблокировать проверку должности на возраст.";

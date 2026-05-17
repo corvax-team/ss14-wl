@@ -799,7 +799,7 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
             }
 
-            var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex, sponsorPrototypes);
+            var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
             var oocText = OocText.Length > MaxDescLength ? FormattedMessage.RemoveMarkup(OocText)[..MaxDescLength] : FormattedMessage.RemoveMarkup(OocText); // WL-OOCText
 
             // WL-Records-Start
