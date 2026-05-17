@@ -26,7 +26,7 @@ using Content.Shared.Damage.Systems;
 
 namespace Content.Shared._Goobstation.TapeRecorder.Systems;
 
-public abstract class SharedTapeRecorderSystem : EntitySystem
+public abstract partial class SharedTapeRecorderSystem : EntitySystem
 {
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] protected IGameTiming Timing = default!;
