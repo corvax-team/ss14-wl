@@ -8,7 +8,6 @@
 - type: marking
   id: ArachnidOverlayFluffy
   bodyPart: Chest
-  markingCategory: Overlay
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/chest.rsi
@@ -17,7 +16,6 @@
 - type: marking
   id: ArachnidTorsoSegments
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/chest.rsi
@@ -28,7 +26,6 @@
 - type: marking
   id: SpiderMirror
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/chest.rsi
@@ -39,7 +36,6 @@
 - type: marking
   id: ArachnidHeadSegments
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/head.rsi
@@ -52,7 +48,6 @@
 - type: marking
   id: WhipSpiderMouth
   bodyPart: Snout
-  markingCategory: HeadSide
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/snout.rsi
@@ -63,7 +58,6 @@
 - type: marking
   id: ArachnidEyesJumper
   bodyPart: Eyes
-  markingCategory: Head
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
@@ -78,7 +72,6 @@
 - type: marking
   id: ArachnidEyesJumperGlowing
   bodyPart: Eyes
-  markingCategory: Head
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
@@ -91,11 +84,9 @@
     state: jumper4
   shader: unshaded
 
-
 - type: marking
   id: ArachnidEyesRound
   bodyPart: Eyes
-  markingCategory: Head
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
@@ -110,7 +101,6 @@
 - type: marking
   id: ArachnidEyesRoundGlowing
   bodyPart: Eyes
-  markingCategory: Head
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
@@ -121,13 +111,12 @@
     state: round3
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: round4
-  shader: unshaded
+    shader: unshaded
 
 
 - type: marking
   id: SpiderEyesMulti
   bodyPart: Eyes
-  markingCategory: Head
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
@@ -142,19 +131,17 @@
 - type: marking
   id: SpiderGlowEyes
   bodyPart: Eyes
-  markingCategory: Head
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: glow
-  shader: unshaded
+    shader: unshaded
 
 # RArm
 
 - type: marking
   id: ArachnidRArmSegments
   bodyPart: RArm
-  markingCategory: RightArm
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/rarm.rsi
@@ -167,7 +154,6 @@
 - type: marking
   id: ArachnidLArmSegments
   bodyPart: LArm
-  markingCategory: LeftArm
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/larm.rsi
@@ -180,7 +166,6 @@
 - type: marking
   id: ArachnidRLegSegments
   bodyPart: RLeg
-  markingCategory: RightLeg
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/rleg.rsi
@@ -193,7 +178,6 @@
 - type: marking
   id: ArachnidLLegSegments
   bodyPart: LLeg
-  markingCategory: LeftLeg
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/lleg.rsi
@@ -216,7 +200,6 @@
 - type: marking
   id: SpiderHair1
   bodyPart: Hair
-  markingCategory: Hair
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/hair.rsi
@@ -225,7 +208,6 @@
 - type: marking
   id: SpiderHair2
   bodyPart: Hair
-  markingCategory: Hair
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/hair.rsi
@@ -234,7 +216,6 @@
 - type: marking
   id: SpiderHair3
   bodyPart: Hair
-  markingCategory: Hair
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/hair.rsi
@@ -245,7 +226,6 @@
 - type: marking
   id: ArachnidCheliceraeSmall
   bodyPart: HeadSide
-  markingCategory: HeadSide
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/headside.rsi
@@ -258,7 +238,6 @@
 - type: marking
   id: AbdomenBasic
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
@@ -269,7 +248,6 @@
 - type: marking
   id: AbdomenWidow
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi
@@ -280,7 +258,6 @@
 - type: marking
   id: CreepyArms
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Arachnid]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/tail.rsi

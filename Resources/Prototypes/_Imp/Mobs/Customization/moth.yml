@@ -8,8 +8,8 @@
 - type: marking
   id: ChestChimeraFemaleMoth
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
+  sexRestriction: Female
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: chimeraf
@@ -17,8 +17,8 @@
 - type: marking
   id: ChestChimeraMaleMoth
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
+  sexRestriction: Male
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: chimeram
@@ -26,8 +26,8 @@
 - type: marking
   id: ChestTwistingLeftFemaleMoth
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
+  sexRestriction: Female
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: twistingleftf
@@ -35,8 +35,8 @@
 - type: marking
   id: ChestTwistingLeftMaleMoth
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
+  sexRestriction: Male
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: twistingleftm
@@ -44,8 +44,8 @@
 - type: marking
   id: ChestTwistingRightFemaleMoth
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
+  sexRestriction: Female
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: twistingrightf
@@ -53,8 +53,8 @@
 - type: marking
   id: ChestTwistingRightMaleMoth
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
+  sexRestriction: Male
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: twistingrightm
@@ -62,7 +62,6 @@
 - type: marking
   id: ChestStarMoth
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
@@ -71,7 +70,6 @@
 - type: marking
   id: MothBodyClaw
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
@@ -80,17 +78,15 @@
 - type: marking
   id: MothChestGlow
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: glow
-  shader: unshaded
+    shader: unshaded
 
 - type: marking
   id: TorsoIncisionMoth
   bodyPart: Chest
-  markingCategory: Chest
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
@@ -101,7 +97,6 @@
 - type: marking
   id: BadmoltMoth
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
@@ -110,7 +105,6 @@
 - type: marking
   id: EyebagsMoth
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
@@ -119,7 +113,6 @@
 - type: marking
   id: HeadChimeraMoth
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
@@ -128,7 +121,6 @@
 - type: marking
   id: HeadTwistingMoth
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
@@ -137,7 +129,6 @@
 - type: marking
   id: MothBurnLeft
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
@@ -146,7 +137,6 @@
 - type: marking
   id: MothBurnRight
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
@@ -155,7 +145,6 @@
 - type: marking
   id: MothFaceClaw
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
@@ -164,17 +153,15 @@
 - type: marking
   id: MothHeadGlow
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: glow
-  shader: unshaded
+    shader: unshaded
 
 - type: marking
   id: MothSlashLeft
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
@@ -183,7 +170,6 @@
 - type: marking
   id: MothSlashRight
   bodyPart: Head
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
@@ -194,7 +180,6 @@
 - type: marking
   id: MouthpartsFulgoridae
   bodyPart: Snout
-  markingCategory: Snout
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -203,7 +188,6 @@
 - type: marking
   id: MouthpartsFulgoridaeUpturned
   bodyPart: Snout
-  markingCategory: Snout
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -212,7 +196,6 @@
 - type: marking
   id: MouthpartsHymenoptera
   bodyPart: Snout
-  markingCategory: Snout
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -221,7 +204,6 @@
 - type: marking
   id: MouthpartsHymenopteraLarge
   bodyPart: Snout
-  markingCategory: Snout
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -230,7 +212,6 @@
 - type: marking
   id: MouthpartsProboscisDownturned
   bodyPart: Snout
-  markingCategory: Snout
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -239,7 +220,6 @@
 - type: marking
   id: MouthpartsProboscisUpturned
   bodyPart: Snout
-  markingCategory: Snout
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -248,7 +228,6 @@
 - type: marking
   id: MouthpartsSchistocerca
   bodyPart: Snout
-  markingCategory: Snout
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/snout.rsi
@@ -259,7 +238,6 @@
 - type: marking
   id: HeterochromiaMoth
   bodyPart: Eyes
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/eyes.rsi
@@ -268,7 +246,6 @@
 - type: marking
   id: MothBiggerEyes
   bodyPart: Eyes
-  markingCategory: Head
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/eyes.rsi
@@ -279,7 +256,6 @@
 - type: marking
   id: ProstheticArmRightMoth
   bodyPart: RArm
-  markingCategory: RightArm
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rarm.rsi
@@ -288,7 +264,6 @@
 - type: marking
   id: TwistingArmRightMoth
   bodyPart: RArm
-  markingCategory: RightArm
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rarm.rsi
@@ -299,7 +274,6 @@
 - type: marking
   id: ChimeraArmLeftMoth
   bodyPart: LArm
-  markingCategory: LeftArm
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
@@ -308,7 +282,6 @@
 - type: marking
   id: ProstheticArmLeftMoth
   bodyPart: LArm
-  markingCategory: LeftArm
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
@@ -317,7 +290,6 @@
 - type: marking
   id: TwistingArmLeftMoth
   bodyPart: LArm
-  markingCategory: LeftArm
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/larm.rsi
@@ -328,7 +300,6 @@
 - type: marking
   id: LegProstheticRightMoth
   bodyPart: RLeg
-  markingCategory: RightLeg
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rleg.rsi
@@ -337,7 +308,6 @@
 - type: marking
   id: LegTwistingRightMoth
   bodyPart: RLeg
-  markingCategory: RightLeg
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rleg.rsi
@@ -348,7 +318,6 @@
 - type: marking
   id: LegChimeraLeftMoth
   bodyPart: LLeg
-  markingCategory: LeftLeg
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
@@ -357,7 +326,6 @@
 - type: marking
   id: LegProstheticLeftMoth
   bodyPart: LLeg
-  markingCategory: LeftLeg
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
@@ -365,9 +333,7 @@
 
 - type: marking
   id: LegTwistingLeftMoth
-  bodyPart: Lleg
-  markingCategory: LeftLeg
-  groupWhitelist: [Moth]
+  bodyPart: LLeg
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
     state: twisting
@@ -377,7 +343,6 @@
 - type: marking
   id: FootChimeraLeftMoth
   bodyPart: LFoot
-  markingCategory: LeftFoot
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lfoot.rsi
@@ -386,7 +351,6 @@
 - type: marking
   id: FootProstheticLeftMoth
   bodyPart: LFoot
-  markingCategory: LeftFoot
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lfoot.rsi
@@ -397,7 +361,6 @@
 - type: marking
   id: FootProstheticRightMoth
   bodyPart: RFoot
-  markingCategory: RightFoot
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rfoot.rsi
@@ -408,7 +371,6 @@
 - type: marking
   id: HandChimeraLeftMoth
   bodyPart: LHand
-  markingCategory: LeftHand
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
@@ -417,7 +379,6 @@
 - type: marking
   id: HandProstheticLeftMoth
   bodyPart: LHand
-  markingCategory: LeftHand
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
@@ -426,7 +387,6 @@
 - type: marking
   id: HandTwistingLeftMoth
   bodyPart: LHand
-  markingCategory: LeftHand
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lhand.rsi
@@ -437,7 +397,6 @@
 - type: marking
   id: HandProstheticRightMoth
   bodyPart: RHand
-  markingCategory: RightHand
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rhand.rsi
@@ -446,7 +405,6 @@
 - type: marking
   id: HandTwistingRightMoth
   bodyPart: RHand
-  markingCategory: RightHand
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/rhand.rsi
@@ -457,7 +415,6 @@
 - type: marking
   id: PlateBlunt
   bodyPart: HeadSide
-  markingCategory: HeadSide
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
@@ -466,7 +423,6 @@
 - type: marking
   id: PlateDaisy
   bodyPart: HeadSide
-  markingCategory: HeadSide
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
@@ -475,7 +431,6 @@
 - type: marking
   id: PlateHeart
   bodyPart: HeadSide
-  markingCategory: HeadSide
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
@@ -484,7 +439,6 @@
 - type: marking
   id: PlateHorn
   bodyPart: HeadSide
-  markingCategory: HeadSide
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
@@ -493,7 +447,6 @@
 - type: marking
   id: PlateSmallSpike
   bodyPart: HeadSide
-  markingCategory: HeadSide
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headside.rsi
@@ -504,7 +457,6 @@
 - type: marking
   id: MothBeetleHorn1
   bodyPart: HeadTop
-  markingCategory: HeadTop
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
@@ -513,7 +465,6 @@
 - type: marking
   id: MothBeetleHorn2
   bodyPart: HeadTop
-  markingCategory: HeadTop
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
@@ -522,17 +473,15 @@
 - type: marking
   id: MothGlowAntenna
   bodyPart: HeadTop
-  markingCategory: HeadTop
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
     state: glowantenna
-  shader: unshaded
+    shader: unshaded
 
 - type: marking
   id: AntennaCockroach
   bodyPart: HeadTop
-  markingCategory: HeadTop
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
@@ -541,7 +490,6 @@
 - type: marking
   id: AntennaFly
   bodyPart: HeadTop
-  markingCategory: HeadTop
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
@@ -550,7 +498,6 @@
 - type: marking
   id: AntennaHeart
   bodyPart: HeadTop
-  markingCategory: HeadTop
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
@@ -561,7 +508,6 @@
 - type: marking
   id: AntennaShort
   bodyPart: HeadTop
-  markingCategory: HeadTop
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
@@ -572,7 +518,6 @@
 - type: marking
   id: LunaWings
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -583,7 +528,6 @@
 - type: marking
   id: MothBee
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -596,7 +540,6 @@
 - type: marking
   id: MothBeetleTail
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -609,7 +552,6 @@
 - type: marking
   id: MothFirefly
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -618,17 +560,15 @@
 - type: marking
   id: MothFireflyOverlay
   bodyPart: Tail
-  markingCategory: Overlay
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
     state: firefly1
-  shader: unshaded
+    shader: unshaded
 
 - type: marking
   id: MothGlasswing
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -641,7 +581,6 @@
 - type: marking
   id: MothRhinoBeetle
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -654,7 +593,6 @@
 - type: marking
   id: MothSnoth
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -665,7 +603,6 @@
 - type: marking
   id: MothTrueButterfly
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -678,7 +615,6 @@
 - type: marking
   id: WingsBackstabbed
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -687,7 +623,6 @@
 - type: marking
   id: WingsDragonfly
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -700,7 +635,6 @@
 - type: marking
   id: WingsFly
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
@@ -713,7 +647,6 @@
 - type: marking
   id: WingsLanternfly
   bodyPart: Tail
-  markingCategory: Tail
   groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
