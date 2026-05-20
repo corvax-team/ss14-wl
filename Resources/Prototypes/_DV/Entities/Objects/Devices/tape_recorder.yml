@@ -101,7 +101,7 @@
       visible: false
   - type: Item
     size: Tiny
-  - type: Damageable
+  - type: Injurable
   - type: TapeCassette
     maxCapacity: 180
     repairWhitelist:
