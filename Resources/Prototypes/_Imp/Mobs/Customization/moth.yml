@@ -75,14 +75,16 @@
   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
     state: claw
 
-- type: marking
-  id: MothChestGlow
-  bodyPart: Chest
-  groupWhitelist: [Moth]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
-    state: glow
-    shader: unshaded
+# WL-Changes-start
+# - type: marking
+#   id: MothChestGlow
+#   bodyPart: Chest
+#   groupWhitelist: [Moth]
+#   sprites:
+#   - sprite: _Impstation/Mobs/Customization/Moth/chest.rsi
+#     state: glow
+#     shader: unshaded
+# WL-Changes-end
 
 - type: marking
   id: TorsoIncisionMoth
@@ -150,14 +152,16 @@
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: claw
 
-- type: marking
-  id: MothHeadGlow
-  bodyPart: Head
-  groupWhitelist: [Moth]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
-    state: glow
-    shader: unshaded
+# WL-Changes-start
+# - type: marking
+#   id: MothHeadGlow
+#   bodyPart: Head
+#   groupWhitelist: [Moth]
+#   sprites:
+#   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+#     state: glow
+#     shader: unshaded
+# WL-Changes-end
 
 - type: marking
   id: MothSlashLeft
@@ -470,14 +474,16 @@
   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
     state: beetlehorn2
 
-- type: marking
-  id: MothGlowAntenna
-  bodyPart: HeadTop
-  groupWhitelist: [Moth]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
-    state: glowantenna
-    shader: unshaded
+# WL-Changes-start
+# - type: marking
+#   id: MothGlowAntenna
+#   bodyPart: HeadTop
+#   groupWhitelist: [Moth]
+#   sprites:
+#   - sprite: _Impstation/Mobs/Customization/Moth/headtop.rsi
+#     state: glowantenna
+#     shader: unshaded
+# WL-Changes-end
 
 - type: marking
   id: AntennaCockroach

@@ -69,23 +69,25 @@
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: jumper4
 
-- type: marking
-  id: ArachnidEyesJumperGlowing
-  bodyPart: Eyes
-  groupWhitelist: [Arachnid]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
-    state: jumper1
-    shader: unshaded
-  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
-    state: jumper2
-    shader: unshaded
-  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
-    state: jumper3
-    shader: unshaded
-  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
-    state: jumper4
-    shader: unshaded
+# WL-Changes-start
+# - type: marking
+#   id: ArachnidEyesJumperGlowing
+#   bodyPart: Eyes
+#   groupWhitelist: [Arachnid]
+#   sprites:
+#   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+#     state: jumper1
+#     shader: unshaded
+#   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+#     state: jumper2
+#     shader: unshaded
+#   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+#     state: jumper3
+#     shader: unshaded
+#   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+#     state: jumper4
+#     shader: unshaded
+# WL-Changes-end
 
 - type: marking
   id: ArachnidEyesRound
@@ -101,20 +103,25 @@
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: round4
 
-- type: marking
-  id: ArachnidEyesRoundGlowing
-  bodyPart: Eyes
-  groupWhitelist: [Arachnid]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
-    state: round1
-  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
-    state: round2
-  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
-    state: round3
-  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
-    state: round4
-    shader: unshaded
+# WL-Changes-start
+# - type: marking
+#   id: ArachnidEyesRoundGlowing
+#   bodyPart: Eyes
+#   groupWhitelist: [Arachnid]
+#   sprites:
+#   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+#     state: round1
+#     shader: unshaded
+#   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+#     state: round2
+#     shader: unshaded
+#   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+#     state: round3
+#     shader: unshaded
+#   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+#     state: round4
+#     shader: unshaded
+# WL-Changes-end
 
 
 - type: marking
@@ -131,14 +138,16 @@
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: multi4
 
-- type: marking
-  id: SpiderGlowEyes
-  bodyPart: Eyes
-  groupWhitelist: [Arachnid]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
-    state: glow
-    shader: unshaded
+# WL-Changes-start
+# - type: marking
+#   id: SpiderGlowEyes
+#   bodyPart: Eyes
+#   groupWhitelist: [Arachnid]
+#   sprites:
+#   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
+#     state: glow
+#     shader: unshaded
+# WL-Changes-end
 
 # RArm
 
