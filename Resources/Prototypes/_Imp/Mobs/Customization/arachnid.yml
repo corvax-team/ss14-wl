@@ -76,13 +76,16 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: jumper1
+    shader: unshaded
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: jumper2
+    shader: unshaded
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: jumper3
+    shader: unshaded
   - sprite: _Impstation/Mobs/Customization/Arachnid/eyes.rsi
     state: jumper4
-  shader: unshaded
+    shader: unshaded
 
 - type: marking
   id: ArachnidEyesRound
