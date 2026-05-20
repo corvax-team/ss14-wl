@@ -334,6 +334,7 @@
 - type: marking
   id: LegTwistingLeftMoth
   bodyPart: LLeg
+  groupWhitelist: [Moth]
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/lleg.rsi
     state: twisting
