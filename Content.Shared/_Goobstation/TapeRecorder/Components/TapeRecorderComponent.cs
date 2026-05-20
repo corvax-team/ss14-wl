@@ -48,7 +48,7 @@ public sealed partial class TapeRecorderComponent : Component
     /// Sound on print transcript
     /// </summary>
     [DataField]
-    public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/diagnoser_printing.ogg")
+    public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/_WL/Items/tape/taperecorder_print.ogg") // WL-Changes: Old sound /Audio/Machines/diagnoser_printing.ogg
     {
         Params = AudioParams.Default.WithVolume(-2f).WithMaxDistance(3f)
     };

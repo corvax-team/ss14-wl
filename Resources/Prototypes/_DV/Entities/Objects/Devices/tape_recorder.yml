@@ -24,17 +24,17 @@
   # WL-Sounds-Start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_WL/Items/taperecorder_pickup.ogg
+      path: /Audio/_WL/Items/tape/taperecorder_pickup.ogg
       params:
         volume: -6
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/_WL/Items/taperecorder_drop.ogg
+      path: /Audio/_WL/Items/tape/taperecorder_drop.ogg
       params:
         volume: -4
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_WL/Items/taperecorder_drop.ogg
+      path: /Audio/_WL/Items/tape/taperecorder_drop.ogg
       params:
         volume: -4
   # WL-Sounds-End
@@ -47,6 +47,8 @@
     slots:
       cassette_tape:
         priority: 4
+        insertSound: /Audio/_WL/Items/tape/taperecorder_close.ogg # WL-Changes
+        ejectSound: /Audio/_WL/Items/tape/taperecorder_open.ogg # WL-Changes
         whitelist:
           components:
           - FitsInTapeRecorder
@@ -113,17 +115,17 @@
     # WL-Sounds-Start
   - type: EmitSoundOnPickup
     sound:
-      path: /Audio/_WL/Items/tape_pickup.ogg
+      path: /Audio/_WL/Items/tape/tape_pickup.ogg
       params:
         volume: -6
   - type: EmitSoundOnDrop
     sound:
-      path: /Audio/_WL/Items/tape_drop.ogg
+      path: /Audio/_WL/Items/tape/tape_drop.ogg
       params:
         volume: -4
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_WL/Items/tape_drop.ogg
+      path: /Audio/_WL/Items/tape/tape_drop.ogg
       params:
         volume: -4
     # WL-Sounds-End
