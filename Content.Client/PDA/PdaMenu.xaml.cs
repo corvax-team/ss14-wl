@@ -1,6 +1,6 @@
+using System.Globalization;// WL-Changes: ETA in PDA
 using Content.Client.GameTicking.Managers;
 using Content.Shared.PDA;
-using Robust.Shared.Utility;
 using Content.Shared.CartridgeLoader;
 using Content.Client.Message;
 using Robust.Client.UserInterface;
@@ -9,6 +9,7 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client.PDA
 {
@@ -33,6 +34,13 @@ namespace Content.Client.PDA
         private string _stationName = Loc.GetString("comp-pda-ui-unknown");
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
+
+        //  WL-Changes-start: ETA in PDA
+        private TimeSpan _eta = TimeSpan.Zero;
+        private TimeSpan? _expectedETA;
+        private TimeSpan? _beforeETA;
+        public bool RoundEnd = false;
+        // WL-Changes-end
 
         private int _currentView;
 
@@ -125,7 +133,12 @@ namespace Content.Client.PDA
                 _clipboard.SetText(_instructions);
             };
 
-
+            // WL-Changes-start: ETA in PDA
+            ETAButton.OnPressed += _ =>
+            {
+                _clipboard.SetText(_eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture));
+            };
+            // WL-Changes-end
 
 
             HideAllViews();
@@ -204,6 +217,13 @@ namespace Content.Client.PDA
                 "comp-pda-ui-station-alert-level-instructions",
                 ("instructions", _instructions))
             );
+
+            // WL-Changes-start: ETA in PDA
+            RoundEnd = state.roundEnd;
+            _beforeETA = state.BeforeETA;
+            _expectedETA = state.ExpectedETA;
+            UpdateETA();
+            // WL-Changes-end
 
             AddressLabel.Text = state.Address?.ToUpper() ?? " - ";
 
@@ -362,7 +382,44 @@ namespace Content.Client.PDA
 
             StationTimeLabel.SetMarkup(_locMan.GetString("comp-pda-ui-station-time",
                 ("time", stationTime.ToString("hh\\:mm\\:ss"))));
+
+            UpdateETA(); // WL-Changes: ETA in PDA
         }
         // WL-Changes-end: Loc -> _locMan
+
+        // WL-Changes-start: ETA in PDA
+        private void UpdateETA()
+        {
+            if (RoundEnd) // закончился ли раунд?
+            {
+                ETAButton.Visible = true;
+                ETALabel.SetMarkup(_locMan.GetString("comp-pda-ui-arrived-cc"));
+                return;
+            }
+            if (_beforeETA.HasValue) // Пристыковался ли эвак к станции?
+            {
+                _eta = _beforeETA.Value - _gameTiming.CurTime;
+                if (_eta <= TimeSpan.Zero)
+                {
+                    ETAButton.Visible = true;
+                    ETALabel.SetMarkup(_locMan.GetString("comp-pda-ui-departed"));
+                    return;
+                }
+                ETAButton.Visible = true;
+                ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-arrive",
+                    ("time", _eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture))));
+                return;
+            }
+            if (_expectedETA.HasValue) // летит ли эвак на станцию?
+            {
+                _eta = _expectedETA.Value - _gameTiming.CurTime;
+                ETAButton.Visible = true;
+                ETALabel.SetMarkup(_locMan.GetString($"comp-pda-ui-eta",
+                    ("time", _eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture))));
+                return;
+            }
+            ETALabel.Visible = false;
+        }
+        // WL-Changes-end
     }
 }

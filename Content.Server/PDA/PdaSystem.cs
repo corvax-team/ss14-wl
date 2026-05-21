@@ -5,6 +5,8 @@ using Content.Server.CartridgeLoader;
 using Content.Server.Chat.Managers;
 using Content.Server.Instruments;
 using Content.Server.PDA.Ringer;
+using Content.Server.RoundEnd; // WL-Changes: ETA in PDA
+using Content.Server.Shuttles.Systems; // WL-Changes: ETA in PDA
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
@@ -12,6 +14,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
 using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.GameTicking; // WL-Changes: ETA in PDA
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
 using Content.Shared.Light;
@@ -42,6 +45,14 @@ namespace Content.Server.PDA
         [Dependency] private ContainerSystem _containerSystem = default!;
         [Dependency] private IdCardSystem _idCard = default!;
         [Dependency] private IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
+        // WL-Changes-start: ETA in PDA
+        [Dependency] private RoundEndSystem _roundEnd = default!;
+
+        [Access(typeof(EmergencyShuttleSystem), Other = AccessPermissions.None)]
+        public TimeSpan? BeforeETA;
+        [Access(typeof(RoundEndSystem), Other = AccessPermissions.None)]
+        public bool RoundEnd = false;
+        // WL-Changes-end
 
         public override void Initialize()
         {
@@ -65,7 +76,17 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<ChameleonControllerOutfitSelectedEvent>>(OnRelayedEventToIdCard);
             SubscribeLocalEvent<PdaComponent, InventoryRelayedEvent<VoiceMaskNameUpdatedEvent>>(OnRelayedEventToIdCard);
+            // WL-Changes-start: ETA in PDA
+            SubscribeLocalEvent<RoundEndSystemChangedEvent>(_ => UpdateAllPdaUisOnStation());
+            SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => Reset());
         }
+
+        private void Reset()
+        {
+            BeforeETA = null;
+            RoundEnd = false;
+        }
+        // WL-Changes-end
 
         private void OnRelayedEventToIdCard<T>(Entity<PdaComponent> ent, ref InventoryRelayedEvent<T> args)
         {
@@ -149,7 +170,7 @@ namespace Content.Server.PDA
             UpdateAllPdaUisOnStation();
         }
 
-        private void UpdateAllPdaUisOnStation()
+        public void UpdateAllPdaUisOnStation() // WL-Changes: ETA in PDA // private -> public
         {
             var query = AllEntityQuery<PdaComponent>();
             while (query.MoveNext(out var ent, out var comp))
@@ -204,6 +225,8 @@ namespace Content.Server.PDA
             if (!TryComp(uid, out CartridgeLoaderComponent? loader))
                 return;
 
+            var expectedCountdownEnd = _roundEnd.IsRoundEndRequested() ? _roundEnd.ExpectedCountdownEnd : null; // WL-Changes: ETA in PDA
+
             var programs = _cartridgeLoader.GetAvailablePrograms(uid, loader);
             var id = CompOrNull<IdCardComponent>(pda.ContainedId);
             var state = new PdaUpdateState(
@@ -225,7 +248,12 @@ namespace Content.Server.PDA
                 pda.StationName,
                 showUplink,
                 hasInstrument,
-                address);
+                address,
+                // WL-Changes-start: ETA in PDA
+                expectedCountdownEnd, // сколько до прибытия эвака на станцию
+                BeforeETA, // сколько до отбытия шаттла со станции
+                RoundEnd); // закончился ли раунд - нужен для полного отключения видимости таймера в кпк
+                // WL-Changes-end
 
             _ui.SetUiState(uid, PdaUiKey.Key, state);
         }
