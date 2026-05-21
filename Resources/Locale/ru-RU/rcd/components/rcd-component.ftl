@@ -49,7 +49,7 @@ rcd-component-plating = корпусное покрытие
 
 ### WL-Changes: RPD port from Goob-Station
 rcd-component-piping = Трубы
-rcd-component-atmosphericutility =  Атмос
+rcd-component-atmosphericutility = Атмос
 rcd-component-pumpsvalves = Насосы и клапаны
 rcd-component-vents = Вентиляция
 

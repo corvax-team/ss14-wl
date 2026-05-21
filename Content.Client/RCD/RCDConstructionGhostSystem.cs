@@ -3,15 +3,12 @@ using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
-using Content.Shared.Verbs;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Client.RCD;
 
@@ -30,7 +27,6 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
     private Direction _placementDirection = default;
     // WL-Changes-start: RPD port from Goob-Station
     private bool _useMirrorPrototype = false;
-    public event EventHandler? FlipConstructionPrototype;
     public override void Initialize()
     {
         base.Initialize();
