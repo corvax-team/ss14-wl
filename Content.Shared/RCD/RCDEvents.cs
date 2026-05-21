@@ -38,14 +38,6 @@ public sealed class RCDChangeModeEvent(NetEntity rcd, float igniteChance, TimeSp
     public readonly TimeSpan IgnitedTime = ignitedTime;
 }
 
-[Serializable, NetSerializable]
-public sealed class RCDDeconstructVerb(NetEntity user, NetEntity target, NetEntity used) : EntityEventArgs
-{
-    public readonly NetEntity User = user;
-    public readonly NetEntity Target = target;
-    public readonly NetEntity Used = used;
-}
-
 [Serializable, NetSerializable] // RPD port from Goob-Station
 public sealed class RCDConstructionGhostFlipEvent(NetEntity netEntity, bool useMirrorPrototype) : EntityEventArgs
 {

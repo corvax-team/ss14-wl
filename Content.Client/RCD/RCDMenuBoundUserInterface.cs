@@ -128,6 +128,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
         SendMessage(new RCDSystemMessage(proto.ID));
 
 
+        // WL-Changes: fix RPD layers & fire from basics RD
         if (_playerManager.LocalSession?.AttachedEntity is not { } player)
             return;
 
@@ -140,6 +141,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
             if (rcdComp.OverrideProtoId != null)
                 _entityManager.RaisePredictiveEvent(new RCDOverrideProtoIdEvent(_entityManager.GetNetEntity(item.Value), null));
         }
+        // WL-Changes-end
 
         var msg = Loc.GetString("rcd-component-change-mode", ("mode", Loc.GetString(proto.SetName)));
 

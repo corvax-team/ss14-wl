@@ -26,43 +26,19 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private IPlacementManager _placementManager = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private HandsSystem _hands = default!;
-    [Dependency] private IEntityManager _entityManager = default!;
-    [Dependency] private IGameTiming _timing = default!;
 
     private Direction _placementDirection = default;
+    // WL-Changes-start: RPD port from Goob-Station
     private bool _useMirrorPrototype = false;
-    private ProtoId<RCDPrototype> _lastProtoId = default!;
     public event EventHandler? FlipConstructionPrototype;
     public override void Initialize()
     {
         base.Initialize();
 
-        // WL-Changes-start: RPD port from Goob-Station
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.EditorFlipObject,
                 new PointerInputCmdHandler(HandleFlip, outsidePrediction: true))
             .Register<RCDConstructionGhostSystem>();
-
-        SubscribeLocalEvent<GetVerbsEvent<Verb>>(AddDeconstructVerb);
-    }
-
-    private void AddDeconstructVerb(GetVerbsEvent<Verb> args)
-    {
-        var user = args.User;
-        var used = args.Using;
-        if (used is not { } rcd
-            || !TryComp<RCDComponent>(rcd, out var rcdComp))
-            return;
-
-        Verb verb = new()
-        {
-            Text = Loc.GetString("rcd-deconstruct-verb-text"),
-            Icon = new SpriteSpecifier.Rsi(new("/Texture/Objects/Tools/rcd.rsi"), "icon"),
-            //ClientExclusive = true,
-            Act = () => RaisePredictiveEvent(new RCDDeconstructVerb(GetNetEntity(user), GetNetEntity(args.Target), GetNetEntity(rcd)))
-
-        };
-        args.Verbs.Add(verb);
     }
 
     public override void Shutdown()
@@ -143,18 +119,18 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
         }
 
         // WL-Changes-start: RPD port from Goob-Station
-        // If the placer has not changed build it
+        // If the placer has not changed, build it
         var useProto = (_useMirrorPrototype && !string.IsNullOrEmpty(prototype.MirrorPrototype)) ? prototype.MirrorPrototype : prototype.Prototype;
         if (heldEntity != placerEntity || useProto != placerProto)
             CreatePlacer(heldEntity.Value, rcd, useProto, prototype.Mode);
 
-        /* // moved into another method
+        /* moved into another method
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
             MobUid = heldEntity.Value,
             PlacementOption = PlacementMode,
-            EntityType = rcd.OverrideProtoId ?? prototype.Prototype,
+            EntityType = prototype.Prototype,
             Range = (int)Math.Ceiling(SharedInteractionSystem.InteractionRange),
             IsTile = prototype.Mode == RcdMode.ConstructTile,
             UseEditorContext = false,
@@ -171,7 +147,7 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
         {
             MobUid = uid,
             PlacementOption = PlacementMode,
-            EntityType = component.OverrideProtoId ?? prototype,
+            EntityType = component.OverrideProtoId ?? prototype, // WL-Changes: pipe layers
             Range = (int)Math.Ceiling(component.Range > 0 ? component.Range : SharedInteractionSystem.MaxRaycastRange),
             IsTile = mode == RcdMode.ConstructTile,
             UseEditorContext = false

@@ -21,14 +21,16 @@ public sealed partial class AlignRCDConstruction : PlacementMode
 {
     [Dependency] private IEntityManager _entityManager = default!;
     [Dependency] private IMapManager _mapManager = default!;
+    // WL-Changes-start: pipe layers RPD
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IStateManager _stateManager = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
+    // WL-Changes-end
     private readonly SharedMapSystem _mapSystem;
     private readonly HandsSystem _handsSystem;
     private readonly RCDSystem _rcdSystem;
     private readonly SharedTransformSystem _transformSystem;
-    private AlignAtmosPipeLayers _pipeLayers;
+    private AlignAtmosPipeLayers _pipeLayers; // WL-Changes: pipe layers RPD
 
     private const float SearchBoxSize = 2f;
     private const float PlaceColorBaseAlpha = 0.5f;
@@ -45,7 +47,7 @@ public sealed partial class AlignRCDConstruction : PlacementMode
         _handsSystem = _entityManager.System<HandsSystem>();
         _rcdSystem = _entityManager.System<RCDSystem>();
         _transformSystem = _entityManager.System<SharedTransformSystem>();
-        _pipeLayers = new AlignAtmosPipeLayers(pMan);
+        _pipeLayers = new AlignAtmosPipeLayers(pMan); // WL-Changes: pipe layers RPD
 
         ValidPlaceColor = ValidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
     }
@@ -88,7 +90,6 @@ public sealed partial class AlignRCDConstruction : PlacementMode
         // WL-Changes-end
 
         _unalignedMouseCoords = ScreenToCursorGrid(mouseScreen);
-
         MouseCoords = _unalignedMouseCoords.AlignWithClosestGridTile(SearchBoxSize, _entityManager, _mapManager);
 
         var gridId = _transformSystem.GetGrid(MouseCoords);
@@ -127,10 +128,10 @@ public sealed partial class AlignRCDConstruction : PlacementMode
 
         if (!_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
             return false;
-        // WL-Changes-end
 
-        // WL-Changes: SharedInteractionSystem.InteractionRange -> rcd.Range > 0 ? rcd.Range : SharedInteractionSystem.MaxRaycastRange
+        // SharedInteractionSystem.InteractionRange -> rcd.Range > 0 ? rcd.Range : SharedInteractionSystem.MaxRaycastRange
         if (!_transformSystem.InRange(xform.Coordinates, position, rcd.Range > 0 ? rcd.Range : SharedInteractionSystem.MaxRaycastRange))
+        // WL-Changes-end
         {
             InvalidPlaceColor = InvalidPlaceColor.WithAlpha(0);
             return false;

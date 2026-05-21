@@ -8,6 +8,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IgnitionSource;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
+using Content.Shared.Mobs;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.RCD.Components;
@@ -49,9 +50,11 @@ public sealed partial class RCDSystem : EntitySystem
     [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TagSystem _tags = default!;
+    // WL-Changes-start: RPD & fire from basics RD
     [Dependency] private ExamineSystemShared _examine = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedIgnitionSourceSystem _source = default!;
+    // WL-Changes-end
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -60,8 +63,7 @@ public sealed partial class RCDSystem : EntitySystem
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
 
     private HashSet<EntityUid> _intersectingEntities = new();
-    [Access(Other = AccessPermissions.Read)] public Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo = new();
-
+    [Access(Other = AccessPermissions.Read)] public Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo = new(); // WL-Changes: dehardcode
     public override void Initialize()
     {
         base.Initialize();
@@ -78,7 +80,6 @@ public sealed partial class RCDSystem : EntitySystem
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload); // dehardcode
         SubscribeNetworkEvent<RCDOverrideProtoIdEvent>(OverrideChanged); // pipe layers
         SubscribeNetworkEvent<RCDChangeModeEvent>(OnModeChanged);
-        SubscribeNetworkEvent<RCDDeconstructVerb>(OnRCDDeconstructVerb);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent); // RPD port from Goob-Station
         UpdateProtoList();
         // WL-Changes-end
@@ -183,33 +184,19 @@ public sealed partial class RCDSystem : EntitySystem
 
     private void OnAfterInteract(EntityUid uid, RCDComponent component, AfterInteractEvent args)
     {
+        // WL-Changes-start: BRPD
         var distance = component.Range > 0 ? component.Range : SharedInteractionSystem.MaxRaycastRange;
         if (args.Handled || !args.CanReach && !_transform.InRange(Transform(uid).Coordinates, args.ClickLocation, distance))
             return;
-        var handled = OnAfterUsing(uid, component, args.User, args.Target, args.ClickLocation);
-        if (handled)
-            args.Handled = true;
-    }
+        // WL-Changes-end
 
-    private void OnRCDDeconstructVerb(RCDDeconstructVerb args)
-    {
-        var rcd = GetEntity(args.Used);
-        var user = GetEntity(args.User);
-        var target = GetEntity(args.Target);
-        if (!TryComp<RCDComponent>(rcd, out var rcdComp))
-            return;
-        OnAfterUsing(rcd, rcdComp, user, target, Transform(target).Coordinates);
-    }
-    public bool OnAfterUsing(EntityUid rcd, RCDComponent component, EntityUid user, EntityUid? target, EntityCoordinates location)
-    {
-        //var user = args.User;
-        //var location = args.ClickLocation;
-        var distance = component.Range > 0 ? component.Range : SharedInteractionSystem.MaxRaycastRange;
+        var user = args.User;
+        var location = args.ClickLocation;
         var prototype = _protoManager.Index(component.ProtoId);
 
         // Initial validity checks
         if (!location.IsValid(EntityManager))
-            return false;
+            return;
 
         // Get grid corresponding to user's click location.
         // If that doesn't exist, try using the one they're standing on.
@@ -221,17 +208,17 @@ public sealed partial class RCDSystem : EntitySystem
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
         {
-            _popup.PopupClient(Loc.GetString("rcd-component-no-valid-grid"), rcd, user);
-            return false;
+            _popup.PopupClient(Loc.GetString("rcd-component-no-valid-grid"), uid, user);
+            return;
         }
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
-        if (!IsRCDOperationStillValid(rcd, component, gridUid.Value, mapGrid, tile, position, component.ConstructionDirection, target, user))
-            return false;
+        if (!IsRCDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, component.ConstructionDirection, args.Target, user))
+            return;
 
         if (!_net.IsServer)
-            return false;
+            return;
 
         // Get the starting cost, delay, and effect from the prototype
         var cost = prototype.Cost;
@@ -246,9 +233,9 @@ public sealed partial class RCDSystem : EntitySystem
             case RcdMode.Deconstruct:
 
                 // Deconstructing an object
-                if (target != null)
+                if (args.Target != null)
                 {
-                    if (TryComp<RCDDeconstructableComponent>(target, out var destructible))
+                    if (TryComp<RCDDeconstructableComponent>(args.Target, out var destructible))
                     {
                         cost = destructible.Cost;
                         delay = destructible.Delay;
@@ -297,7 +284,7 @@ public sealed partial class RCDSystem : EntitySystem
             component.ProtoId,
             cost,
             GetNetEntity(effect));
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, rcd, target: target, used: rcd)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
         {
             NeedHand = true,
             BreakOnDamage = true,
@@ -306,12 +293,14 @@ public sealed partial class RCDSystem : EntitySystem
             AttemptFrequency = AttemptFrequency.EveryTick,
             CancelDuplicate = false,
             BlockDuplicate = false,
-            DistanceThreshold = distance
+            DistanceThreshold = distance // WL-Changes: BRPD
         };
+
+        args.Handled = true;
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
             QueueDel(effect);
-        return true;
+        return;
     }
 
     private void OnDoAfterAttempt(EntityUid uid, RCDComponent component, DoAfterAttemptEvent<RCDDoAfterEvent> args)
@@ -453,6 +442,7 @@ public sealed partial class RCDSystem : EntitySystem
             return false;
         }
 
+        // WL-Changes-start: BRPD
         var fail = false;
 
         // Exit if the target / target location is obstructed
@@ -481,6 +471,7 @@ public sealed partial class RCDSystem : EntitySystem
                 _popup.PopupClient(Loc.GetString("interaction-system-user-interaction-cannot-reach"), user, user);
             return false;
         }
+        // WL-Changes-end
 
         // Return whether the operation location is valid
         switch (prototype.Mode)
@@ -580,7 +571,8 @@ public sealed partial class RCDSystem : EntitySystem
         {
             // If the entity is the exact same prototype as what we are trying to build, then block it.
             // This is to prevent spamming objects on the same tile (e.g. lights)
-            var proto = component.OverrideProtoId ?? prototype.Prototype;
+            // WL-Changes: pipe layers
+            var proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(prototype.MirrorPrototype)) ? prototype.MirrorPrototype : component.OverrideProtoId ?? prototype.Prototype;
             if (proto != null && MetaData(ent).EntityPrototype?.ID == proto)
             {
                 var isIdentical = true;
@@ -592,6 +584,7 @@ public sealed partial class RCDSystem : EntitySystem
                         isIdentical = false;
                 }
 
+                // WL-Changes-start: pipes
                 if (prototype.AllowDualDirection)
                 {
                     var entDirection = Transform(ent).LocalRotation.GetCardinalDir();
@@ -606,6 +599,7 @@ public sealed partial class RCDSystem : EntitySystem
                             isIdentical = false;
                     }
                 }
+                // WL-Changes-end
 
 
                 if (isIdentical)
@@ -653,7 +647,7 @@ public sealed partial class RCDSystem : EntitySystem
         return true;
     }
 
-    private bool IsDeconstructionStillValid(EntityUid uid, RCDComponent component, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true)
+    private bool IsDeconstructionStillValid(EntityUid uid, RCDComponent component, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true) // WL-Changes: RPD port from Goob-Station // added RCDComponent
     {
         // Attempt to deconstruct a floor tile
         if (target == null)
@@ -711,10 +705,10 @@ public sealed partial class RCDSystem : EntitySystem
 
                 return false;
             }
-            // WL-Changes-end
 
             // The object is not in the whitelist
             if (!deconstructible.Deconstructable)
+            // WL-Changes-end
             {
                 if (popMsgs)
                     _popup.PopupClient(Loc.GetString("rcd-component-deconstruct-target-not-on-whitelist-message"), uid, user);
@@ -736,6 +730,7 @@ public sealed partial class RCDSystem : EntitySystem
             return;
 
         var prototype = _protoManager.Index(component.ProtoId);
+        // WL-Changes-start: pipe layers
         var protoMiddle = component.OverrideProtoId ?? prototype.Prototype;
 
         if (protoMiddle == null)
@@ -749,6 +744,7 @@ public sealed partial class RCDSystem : EntitySystem
 
                 _tile.ReplaceTile(tile, (ContentTileDefinition)tileDef, gridUid, mapGrid);
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {gridUid} {position} to {protoMiddle}");
+        // WL-Changes-end
                 break;
 
             case RcdMode.ConstructObject:

@@ -21,9 +21,6 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public HashSet<ProtoId<RCDPrototype>> AvailablePrototypes { get; set; } = new();
 
-    [DataField, AutoNetworkedField]
-    public HashSet<EntProtoId> AvaliableToDeconstructEntity = new();
-
     /// <summary>
     /// Sound that plays when a RCD operation successfully completes
     /// </summary>
