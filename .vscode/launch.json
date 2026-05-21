@@ -32,41 +32,12 @@
             "stopAtEntry": false
         },
         {
-            "name": "Release Server",
-            "type": "coreclr",
-            "request": "launch",
-            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
-            "args": [],
-            "console": "integratedTerminal",
-            "stopAtEntry": false
-        },
-        {
             "name": "YAML Linter",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build-yaml-linter",
             "program": "${workspaceFolder}/bin/Content.YAMLLinter/Content.YAMLLinter.dll",
             "cwd": "${workspaceFolder}/Content.YAMLLinter",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            "name": "Unit Tests",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "test",
-            "program": "${workspaceFolder}/Content.Tests/bin/Content.Tests/Content.Tests.dll",
-            "cwd": "${workspaceFolder}/Content.Tests",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            "name": "Integration Tests",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "integration-test",
-            "program": "${workspaceFolder}/Content.IntegrationTests/bin/Content.IntegrationTests/Content.IntegrationTests.dll",
-            "cwd": "${workspaceFolder}/Content.IntegrationTests",
             "console": "internalConsole",
             "stopAtEntry": false
         }
@@ -78,15 +49,7 @@
                 "Server",
                 "Client"
             ],
-            //"preLaunchTask": "build"
-        },
-        {
-            "name": "Release Server/Client",
-            "configurations": [
-                "Server",
-                "Client"
-            ],
-            "preLaunchTask": "build-release"
+            "preLaunchTask": "build"
         }
     ]
 }
