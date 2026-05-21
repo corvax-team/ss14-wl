@@ -114,13 +114,23 @@ public sealed partial class RCDSystem : EntitySystem
         Dirty(rcd, comp);
     }
 
-    private void OnModeChanged(RCDChangeModeEvent args)
+    private void OnModeChanged(RCDChangeModeEvent args, EntitySessionEventArgs session)
     {
-        if (_random.Prob(args.IgniteChance))
+        if (session.SenderSession.AttachedEntity is not { } player)
+            return;
+
+        var rcd = GetEntity(args.Rcd);
+
+        if (!_hands.TryGetActiveItem(player, out var held) || held != rcd)
+            return;
+
+        if (!TryComp<RCDComponent>(rcd, out var rcdComp) || !rcdComp.EnableIgnite)
+            return;
+
+        if (_random.Prob(rcdComp.IgniteChance))
         {
-            var rcd = GetEntity(args.Rcd);
             _source.SetIgnited((rcd, null), true);
-            Timer.Spawn(args.IgnitedTime, () => _source.SetIgnited((rcd, null), false));
+            Timer.Spawn(rcdComp.IgnitedTime, () => _source.SetIgnited((rcd, null), false));
         }
     }
     // WL-Changes-end

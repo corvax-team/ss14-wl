@@ -31,11 +31,9 @@ public sealed class RCDOverrideProtoIdEvent(NetEntity netEntity, string? proto) 
 }
 
 [Serializable, NetSerializable]
-public sealed class RCDChangeModeEvent(NetEntity rcd, float igniteChance, TimeSpan ignitedTime) : EntityEventArgs
+public sealed class RCDChangeModeEvent(NetEntity rcd) : EntityEventArgs
 {
     public readonly NetEntity Rcd = rcd;
-    public readonly float IgniteChance = igniteChance;
-    public readonly TimeSpan IgnitedTime = ignitedTime;
 }
 
 [Serializable, NetSerializable] // RPD port from Goob-Station

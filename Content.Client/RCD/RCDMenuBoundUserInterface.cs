@@ -137,7 +137,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
         {
             if (_entityManager.HasComponent<IgnitionSourceComponent>(item)
                 && rcdComp.EnableIgnite)
-                _entityManager.RaisePredictiveEvent(new RCDChangeModeEvent(_entityManager.GetNetEntity(item.Value), rcdComp.IgniteChance, rcdComp.IgnitedTime));
+                _entityManager.RaisePredictiveEvent(new RCDChangeModeEvent(_entityManager.GetNetEntity(item.Value)));
             if (rcdComp.OverrideProtoId != null)
                 _entityManager.RaisePredictiveEvent(new RCDOverrideProtoIdEvent(_entityManager.GetNetEntity(item.Value), null));
         }
