@@ -5,6 +5,7 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IgnitionSource;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -20,8 +21,10 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
 
@@ -47,6 +50,8 @@ public sealed partial class RCDSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TagSystem _tags = default!;
     [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedIgnitionSourceSystem _source = default!;
 
     private readonly int _instantConstructionDelay = 0;
     private readonly EntProtoId _instantConstructionFx = "EffectRCDConstruct0";
@@ -72,6 +77,8 @@ public sealed partial class RCDSystem : EntitySystem
         // WL-Changes-start
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload); // dehardcode
         SubscribeNetworkEvent<RCDOverrideProtoIdEvent>(OverrideChanged); // pipe layers
+        SubscribeNetworkEvent<RCDChangeModeEvent>(OnModeChanged);
+        SubscribeNetworkEvent<RCDDeconstructVerb>(OnRCDDeconstructVerb);
         SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent); // RPD port from Goob-Station
         UpdateProtoList();
         // WL-Changes-end
@@ -80,7 +87,7 @@ public sealed partial class RCDSystem : EntitySystem
     // WL-Changes-start
     private void OnProtoReload(PrototypesReloadedEventArgs args) // dehardcode
     {
-        if (!args.WasModified<RCDGroupPrototype>())
+        if (!args.WasModified<RDGroupPrototype>())
             return;
 
         PrototypesGroupingInfo.Clear();
@@ -89,7 +96,7 @@ public sealed partial class RCDSystem : EntitySystem
 
     private void UpdateProtoList()
     {
-        var enume = _protoManager.EnumeratePrototypes<RCDGroupPrototype>();
+        var enume = _protoManager.EnumeratePrototypes<RDGroupPrototype>();
         foreach (var proto in enume)
         {
             PrototypesGroupingInfo.Add(proto.ID, (Loc.GetString(proto.Name), new SpriteSpecifier.Texture(SpriteSpecifierSerializer.TextureRoot / proto.Sprite)));
@@ -104,6 +111,16 @@ public sealed partial class RCDSystem : EntitySystem
 
         comp.OverrideProtoId = args.OverrideProtoId;
         Dirty(rcd, comp);
+    }
+
+    private void OnModeChanged(RCDChangeModeEvent args)
+    {
+        if (_random.Prob(args.IgniteChance))
+        {
+            var rcd = GetEntity(args.Rcd);
+            _source.SetIgnited((rcd, null), true);
+            Timer.Spawn(args.IgnitedTime, () => _source.SetIgnited((rcd, null), false));
+        }
     }
     // WL-Changes-end
 
@@ -130,7 +147,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!component.AvailablePrototypes.Contains(args.ProtoId))
             return;
 
-        if (!_protoManager.Resolve<RCDPrototype>(args.ProtoId, out var prototype))
+        if (!_protoManager.Resolve(args.ProtoId, out var prototype))
             return;
 
         // Set the current RCD prototype to the one supplied
@@ -164,18 +181,35 @@ public sealed partial class RCDSystem : EntitySystem
         args.PushMarkup(msg);
     }
 
-    public void OnAfterInteract(EntityUid uid, RCDComponent component, AfterInteractEvent args)
+    private void OnAfterInteract(EntityUid uid, RCDComponent component, AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach && !_transform.InRange(Transform(uid).Coordinates, args.ClickLocation, component.Range > 0 ? component.Range : SharedInteractionSystem.MaxRaycastRange))
+        var distance = component.Range > 0 ? component.Range : SharedInteractionSystem.MaxRaycastRange;
+        if (args.Handled || !args.CanReach && !_transform.InRange(Transform(uid).Coordinates, args.ClickLocation, distance))
             return;
+        var handled = OnAfterUsing(uid, component, args.User, args.Target, args.ClickLocation);
+        if (handled)
+            args.Handled = true;
+    }
 
-        var user = args.User;
-        var location = args.ClickLocation;
+    private void OnRCDDeconstructVerb(RCDDeconstructVerb args)
+    {
+        var rcd = GetEntity(args.Used);
+        var user = GetEntity(args.User);
+        var target = GetEntity(args.Target);
+        if (!TryComp<RCDComponent>(rcd, out var rcdComp))
+            return;
+        OnAfterUsing(rcd, rcdComp, user, target, Transform(target).Coordinates);
+    }
+    public bool OnAfterUsing(EntityUid rcd, RCDComponent component, EntityUid user, EntityUid? target, EntityCoordinates location)
+    {
+        //var user = args.User;
+        //var location = args.ClickLocation;
+        var distance = component.Range > 0 ? component.Range : SharedInteractionSystem.MaxRaycastRange;
         var prototype = _protoManager.Index(component.ProtoId);
 
         // Initial validity checks
         if (!location.IsValid(EntityManager))
-            return;
+            return false;
 
         // Get grid corresponding to user's click location.
         // If that doesn't exist, try using the one they're standing on.
@@ -187,17 +221,17 @@ public sealed partial class RCDSystem : EntitySystem
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
         {
-            _popup.PopupClient(Loc.GetString("rcd-component-no-valid-grid"), uid, user);
-            return;
+            _popup.PopupClient(Loc.GetString("rcd-component-no-valid-grid"), rcd, user);
+            return false;
         }
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
-        if (!IsRCDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, component.ConstructionDirection, args.Target, args.User))
-            return;
+        if (!IsRCDOperationStillValid(rcd, component, gridUid.Value, mapGrid, tile, position, component.ConstructionDirection, target, user))
+            return false;
 
         if (!_net.IsServer)
-            return;
+            return false;
 
         // Get the starting cost, delay, and effect from the prototype
         var cost = prototype.Cost;
@@ -212,9 +246,9 @@ public sealed partial class RCDSystem : EntitySystem
             case RcdMode.Deconstruct:
 
                 // Deconstructing an object
-                if (args.Target != null)
+                if (target != null)
                 {
-                    if (TryComp<RCDDeconstructableComponent>(args.Target, out var destructible))
+                    if (TryComp<RCDDeconstructableComponent>(target, out var destructible))
                     {
                         cost = destructible.Cost;
                         delay = destructible.Delay;
@@ -263,7 +297,7 @@ public sealed partial class RCDSystem : EntitySystem
             component.ProtoId,
             cost,
             GetNetEntity(effect));
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, uid, target: args.Target, used: uid)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, ev, rcd, target: target, used: rcd)
         {
             NeedHand = true,
             BreakOnDamage = true,
@@ -271,13 +305,13 @@ public sealed partial class RCDSystem : EntitySystem
             BreakOnMove = true,
             AttemptFrequency = AttemptFrequency.EveryTick,
             CancelDuplicate = false,
-            BlockDuplicate = false
+            BlockDuplicate = false,
+            DistanceThreshold = distance
         };
-
-        args.Handled = true;
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
             QueueDel(effect);
+        return true;
     }
 
     private void OnDoAfterAttempt(EntityUid uid, RCDComponent component, DoAfterAttemptEvent<RCDDoAfterEvent> args)

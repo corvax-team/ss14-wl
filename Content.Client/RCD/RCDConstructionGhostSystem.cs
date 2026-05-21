@@ -3,14 +3,15 @@ using Content.Shared.Input;
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
-using Content.Shared.RCD.Systems;
-using Robust.Client.GameObjects;
+using Content.Shared.Verbs;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client.RCD;
 
@@ -25,9 +26,12 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private IPlacementManager _placementManager = default!;
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private HandsSystem _hands = default!;
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
 
     private Direction _placementDirection = default;
     private bool _useMirrorPrototype = false;
+    private ProtoId<RCDPrototype> _lastProtoId = default!;
     public event EventHandler? FlipConstructionPrototype;
     public override void Initialize()
     {
@@ -38,6 +42,27 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
             .Bind(ContentKeyFunctions.EditorFlipObject,
                 new PointerInputCmdHandler(HandleFlip, outsidePrediction: true))
             .Register<RCDConstructionGhostSystem>();
+
+        SubscribeLocalEvent<GetVerbsEvent<Verb>>(AddDeconstructVerb);
+    }
+
+    private void AddDeconstructVerb(GetVerbsEvent<Verb> args)
+    {
+        var user = args.User;
+        var used = args.Using;
+        if (used is not { } rcd
+            || !TryComp<RCDComponent>(rcd, out var rcdComp))
+            return;
+
+        Verb verb = new()
+        {
+            Text = Loc.GetString("rcd-deconstruct-verb-text"),
+            Icon = new SpriteSpecifier.Rsi(new("/Texture/Objects/Tools/rcd.rsi"), "icon"),
+            //ClientExclusive = true,
+            Act = () => RaisePredictiveEvent(new RCDDeconstructVerb(GetNetEntity(user), GetNetEntity(args.Target), GetNetEntity(rcd)))
+
+        };
+        args.Verbs.Add(verb);
     }
 
     public override void Shutdown()
@@ -146,7 +171,7 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
         {
             MobUid = uid,
             PlacementOption = PlacementMode,
-            EntityType = prototype,
+            EntityType = component.OverrideProtoId ?? prototype,
             Range = (int)Math.Ceiling(component.Range > 0 ? component.Range : SharedInteractionSystem.MaxRaycastRange),
             IsTile = mode == RcdMode.ConstructTile,
             UseEditorContext = false

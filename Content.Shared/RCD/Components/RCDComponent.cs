@@ -1,4 +1,3 @@
-using Content.Shared.Physics;
 using Content.Shared.RCD.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -70,6 +69,15 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsRpd = false;
+
+    [DataField, AutoNetworkedField]
+    public bool EnableIgnite = true;
+
+    [DataField, AutoNetworkedField]
+    public float IgniteChance = 0.25f;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan IgnitedTime = TimeSpan.FromSeconds(0.5);
     // WL-Changes-end
 
     /// <summary>

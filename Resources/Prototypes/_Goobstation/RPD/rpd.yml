@@ -16,7 +16,6 @@
   delay: 0
   rotation: User
   fx: EffectRCDConstruct0
-  allowDualDirection: true
 
 - type: rcd
   id: PipeStraight
@@ -40,7 +39,6 @@
   delay: 0
   rotation: User
   fx: EffectRCDConstruct0
-  allowDualDirection: true
 
 - type: rcd
   id: PipeTJunction
@@ -53,7 +51,6 @@
   collisionMask: Impassable
   rotation: User
   fx: EffectRCDConstruct0
-  allowDualDirection: true
 
 - type: rcd
   id: PressurePump

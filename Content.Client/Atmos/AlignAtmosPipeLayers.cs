@@ -166,7 +166,7 @@ public sealed partial class AlignAtmosPipeLayers : SnapgridCenter
         constructionSystem.GetGuide(newProto);
     }
 
-    public void UpdatePlacer(AtmosPipeLayer layer)
+    private void UpdatePlacer(AtmosPipeLayer layer)
     {
         // Try to get alternative prototypes from the entity atmos pipe layer component
         if (pManager.CurrentPermission?.EntityType == null)

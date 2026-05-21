@@ -30,6 +30,22 @@ public sealed class RCDOverrideProtoIdEvent(NetEntity netEntity, string? proto) 
     public readonly string? OverrideProtoId = proto;
 }
 
+[Serializable, NetSerializable]
+public sealed class RCDChangeModeEvent(NetEntity rcd, float igniteChance, TimeSpan ignitedTime) : EntityEventArgs
+{
+    public readonly NetEntity Rcd = rcd;
+    public readonly float IgniteChance = igniteChance;
+    public readonly TimeSpan IgnitedTime = ignitedTime;
+}
+
+[Serializable, NetSerializable]
+public sealed class RCDDeconstructVerb(NetEntity user, NetEntity target, NetEntity used) : EntityEventArgs
+{
+    public readonly NetEntity User = user;
+    public readonly NetEntity Target = target;
+    public readonly NetEntity Used = used;
+}
+
 [Serializable, NetSerializable] // RPD port from Goob-Station
 public sealed class RCDConstructionGhostFlipEvent(NetEntity netEntity, bool useMirrorPrototype) : EntityEventArgs
 {

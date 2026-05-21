@@ -1,6 +1,7 @@
+using Content.Client.Hands.Systems;
 using Content.Client.Popups;
 using Content.Client.UserInterface.Controls;
-using Content.Shared.Atmos.EntitySystems;
+using Content.Shared.IgnitionSource;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
 using Content.Shared.RCD.Systems;
@@ -33,7 +34,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
     // WL-Changes-start: dehardcode and RPD
     [Dependency] private IEntityManager _entityManager = default!;
     private RCDSystem _rcd = default!;
-    private SharedAtmosPipeLayersSystem _pipe = default!;
+    private HandsSystem _hands = default!;
     // WL-Changes-end
 
     private SimpleRadialMenu? _menu;
@@ -43,7 +44,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
         IoCManager.InjectDependencies(this);
         // WL-Changes-start: dehardcode
         _rcd = _entityManager.System<RCDSystem>();
-        _pipe = _entityManager.System<SharedAtmosPipeLayersSystem>();
+        _hands = _entityManager.System<HandsSystem>();
         // WL-Changes-end
     }
 
@@ -127,8 +128,18 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
         SendMessage(new RCDSystemMessage(proto.ID));
 
 
-        if (_playerManager.LocalSession?.AttachedEntity == null)
+        if (_playerManager.LocalSession?.AttachedEntity is not { } player)
             return;
+
+        if (_hands.TryGetActiveItem(player, out var item)
+            && _entityManager.TryGetComponent<RCDComponent>(item, out var rcdComp))
+        {
+            if (_entityManager.HasComponent<IgnitionSourceComponent>(item)
+                && rcdComp.EnableIgnite)
+                _entityManager.RaisePredictiveEvent(new RCDChangeModeEvent(_entityManager.GetNetEntity(item.Value), rcdComp.IgniteChance, rcdComp.IgnitedTime));
+            if (rcdComp.OverrideProtoId != null)
+                _entityManager.RaisePredictiveEvent(new RCDOverrideProtoIdEvent(_entityManager.GetNetEntity(item.Value), null));
+        }
 
         var msg = Loc.GetString("rcd-component-change-mode", ("mode", Loc.GetString(proto.SetName)));
 

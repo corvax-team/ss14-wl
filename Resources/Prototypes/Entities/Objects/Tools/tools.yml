@@ -362,7 +362,6 @@
     - HVCable
     - CableTerminal
     - Deconstruct
-    - GasPipeStraight
   - type: LimitedCharges
     maxCharges: 30
   - type: Sprite
@@ -400,6 +399,10 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
+  # WL-Changes-start: RD ignite
+  - type: IgnitionSource
+    temperature: 800
+  # WL-Changes-end
 
 - type: entity
   id: RCDEmpty

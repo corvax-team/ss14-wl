@@ -46,3 +46,10 @@ rcd-component-lighting = Освещение
 rcd-component-deconstruct = демонтаж
 rcd-component-floor-steel = стальной пол
 rcd-component-plating = корпусное покрытие
+
+### WL-Changes: RPD port from Goob-Station
+rcd-component-piping = Трубы
+rcd-component-atmosphericutility =  Атмос
+rcd-component-pumpsvalves = Насосы и клапаны
+rcd-component-vents = Вентиляция
+
