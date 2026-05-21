@@ -32,13 +32,13 @@ public sealed partial class AlignAtmosPipeLayers : SnapgridCenter
     [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private IMapManager _mapManager = default!;
     [Dependency] private IEyeManager _eyeManager = default!;
-    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private IPlayerManager _playerManager = default!; // WL-Changes: pipe layers RPD
 
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transformSystem;
     private readonly SharedAtmosPipeLayersSystem _pipeLayersSystem;
     private readonly SpriteSystem _spriteSystem;
-    private readonly HandsSystem _handsSystem;
+    private readonly HandsSystem _handsSystem; // WL-Changes: pipe layers RPD
 
     private const float SearchBoxSize = 2f;
     private EntityCoordinates _unalignedMouseCoords = default;
@@ -56,7 +56,7 @@ public sealed partial class AlignAtmosPipeLayers : SnapgridCenter
         _transformSystem = _entityManager.System<SharedTransformSystem>();
         _pipeLayersSystem = _entityManager.System<SharedAtmosPipeLayersSystem>();
         _spriteSystem = _entityManager.System<SpriteSystem>();
-        _handsSystem = _entityManager.System<HandsSystem>();
+        _handsSystem = _entityManager.System<HandsSystem>(); // WL-Changes: pipe layers RPD
     }
 
     /// <inheritdoc/>
