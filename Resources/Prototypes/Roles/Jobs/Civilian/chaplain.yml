@@ -4,8 +4,10 @@
   description: job-description-chaplain
   playTimeTracker: JobChaplain
   startingGear: ChaplainGear
-  subnames:
-  - Male: религиовед
+  # SOP-Playtest-Start
+  #  subnames:
+  #  - Male: религиовед
+  # SOP-Playtest-End
   icon: "JobIconChaplain"
   supervisors: job-supervisors-hop
   access:
