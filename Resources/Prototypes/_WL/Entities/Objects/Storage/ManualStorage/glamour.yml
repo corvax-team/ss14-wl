@@ -1,6 +1,6 @@
 - type: entity
   parent: BriefcaseBase
-  id: GlamourHandbagByBenjii
+  id: GlamourHandbag
   name: Glamour handbag
   description: Glamour!!!
   components:
@@ -11,8 +11,8 @@
     sprite: _WL/Storage/Glamour/Glamour.rsi
   - type: Storage
     grid:
-    - 0,0,7,4
+    - 0,0,5,3
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 5
+        Blunt: 1
