@@ -7,9 +7,10 @@ using Robust.Shared.Enums;
 using System.Numerics;
 
 namespace Content.Client._WL.Overlays;
+
 public sealed partial class FaceCameraOverlay : Overlay
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private IEntityManager _entManager = default!;
     private readonly PhotoSystem _photo;
     private readonly SpriteSystem _sprite;
     private readonly TransformSystem _transform;
@@ -53,7 +54,7 @@ public sealed partial class FaceCameraOverlay : Overlay
 
         var handle = args.WorldHandle;
 
-        var query = _entManager.EntityQueryEnumerator<HumanoidAppearanceComponent>();
+        var query = _entManager.EntityQueryEnumerator<HumanoidProfileComponent>();
         while (query.MoveNext(out var ent, out _))
         {
             Vector2 deltaDir = (_transform.GetWorldRotation(ent) - _transform.GetWorldRotation(uid).Opposite()).ToVec();

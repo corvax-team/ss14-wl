@@ -1,13 +1,10 @@
 using Content.Server._WL.Destructible.Components;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds.Behaviors;
-using Content.Server.Humanoid;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
-using Content.Shared.NameModifier.Components;
-using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -25,7 +22,7 @@ namespace Content.Server._WL.Destructible.Thresholds.Behaviors
         public void Execute(EntityUid bodyId, DestructibleSystem system, EntityUid? cause = null)
         {
             var entMan = system.EntityManager;
-            var humanoidAppearanceSys = entMan.System<HumanoidAppearanceSystem>();
+            var humanoidProfileSys = entMan.System<HumanoidProfileSystem>();
             var transformSys = entMan.System<TransformSystem>();
             var popupSys = entMan.System<SharedPopupSystem>();
             var metaDataSys = entMan.System<MetaDataSystem>();
@@ -33,24 +30,26 @@ namespace Content.Server._WL.Destructible.Thresholds.Behaviors
             var frozenComp = entMan.EnsureComponent<FrozenComponent>(bodyId);
 
             //Обновляем цвет кожи
-            if (!entMan.TryGetComponent<HumanoidAppearanceComponent>(bodyId, out var humanoidAppearnceComp))
+            if (!entMan.TryGetComponent<HumanoidProfileComponent>(bodyId, out var humanoidProfileComp))
                 return;
+            /*
 
             var curColor = humanoidAppearnceComp.SkinColor;
             frozenComp.BaseSkinColor = curColor;
 
-            humanoidAppearanceSys.SetSkinColor(
+            humanoidProfileSys.SetSkinColor(
                 bodyId,
                 Color.InterpolateBetween(curColor, InterpolateColor, InterpolateStrength),
                 sync: true,
                 verify: false
                 );
+            */
 
             //Устанавливаем префикс
             var baseName = Identity.Name(bodyId, entMan);
             frozenComp.BaseName = baseName;
 
-            var genderString = humanoidAppearnceComp.Gender switch
+            var genderString = humanoidProfileComp.Gender switch
             {
                 Gender.Male => "male",
                 Gender.Female => "female",

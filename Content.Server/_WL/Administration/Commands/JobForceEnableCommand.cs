@@ -1,7 +1,7 @@
+/*
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Database;
-using Content.Server.Preferences.Managers;
 using Content.Shared.Administration;
 using Content.Shared.Database;
 using Content.Shared.Preferences;
@@ -18,9 +18,9 @@ namespace Content.Server._WL.Administration.Commands
     [AdminCommand(AdminFlags.MassBan)]
     public sealed partial class JobForceEnableCommand : LocalizedCommands
     {
-        [Dependency] private readonly IPrototypeManager _protoMan = default!;
-        [Dependency] private readonly IServerDbManager _serverDb = default!;
-        [Dependency] private readonly IAdminLogManager _adminLog = default!;
+        [Dependency] private IPrototypeManager _protoMan = default!;
+        [Dependency] private IServerDbManager _serverDb = default!;
+        [Dependency] private IAdminLogManager _adminLog = default!;
 
         public override string Command => "jobforceenable";
         public override string Description => "Позволяет насильно разблокировать проверку должности на возраст.";
@@ -38,7 +38,7 @@ namespace Content.Server._WL.Administration.Commands
                 {
                     var characters = await _serverDb.GetPlayerPreferencesAsync(user_id.UserId, cancel);
                     if (characters != null)
-                        return CompletionResult.FromHintOptions(characters.Characters.Select(c => c.Value.Name), "<character_name>");
+                        return CompletionResult.FromHintOptions(characters.Profiles.Select(c => c.CharacterName), "<character_name>");
                 }
             }
             else if (args.Length == 3)
@@ -93,10 +93,10 @@ namespace Content.Server._WL.Administration.Commands
                     return;
                 }
 
-                var character_profile_and_slot = characters.Characters
-                    .FirstOrNull(kv => kv.Value.Name.Equals(character_name, StringComparison.CurrentCultureIgnoreCase));
+                var character_profile_and_slot = characters.Profiles
+                    .FirstOrDefault(kv => kv.CharacterName.Equals(character_name, StringComparison.CurrentCultureIgnoreCase));
 
-                var character_profile = (HumanoidCharacterProfile?)character_profile_and_slot?.Value;
+                var character_profile = (HumanoidCharacterProfile?)character_profile_and_slot;
                 var character_slot = character_profile_and_slot?.Key;
 
                 if (character_profile_and_slot == null || character_profile == null || character_slot == null)
@@ -153,3 +153,4 @@ namespace Content.Server._WL.Administration.Commands
         }
     }
 }
+*/

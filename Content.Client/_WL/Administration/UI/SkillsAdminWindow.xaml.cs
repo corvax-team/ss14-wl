@@ -11,7 +11,7 @@ namespace Content.Client._WL.Administration.UI;
 [GenerateTypedNameReferences]
 public sealed partial class SkillsAdminWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private IEntityManager _entMan = default!;
     private readonly SharedSkillsSystem _skillsSystem;
 
     public event Action<byte, int>? OnSkillChanged;

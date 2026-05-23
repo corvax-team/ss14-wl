@@ -1,0 +1,37 @@
+- type: entity
+  parent: MarkerBase
+  id: MarkerAntiAnomalyZone5
+  name: anti-anomaly zone (radius 5)
+  suffix: Marker, AntiAnomaly
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Structures/Specific/anomaly.rsi
+      state: anom1
+  - type: AntiAnomalyZone
+    zoneRadius: 5
+
+- type: entity
+  parent: MarkerAntiAnomalyZone5
+  id: MarkerAntiAnomalyZone10
+  name: anti-anomaly zone (radius 10)
+  components:
+  - type: AntiAnomalyZone
+    zoneRadius: 10
+
+- type: entity
+  parent: MarkerAntiAnomalyZone5
+  id: MarkerAntiAnomalyZone20
+  name: anti-anomaly zone (radius 20)
+  components:
+  - type: AntiAnomalyZone
+    zoneRadius: 20
+
+- type: entity
+  parent: MarkerAntiAnomalyZone5
+  id: MarkerAntiAnomalyZone50
+  name: anti-anomaly zone (radius 50)
+  components:
+  - type: AntiAnomalyZone
+    zoneRadius: 50

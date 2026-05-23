@@ -12,14 +12,13 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 10h # Corvax-RoleTime 5
+      time: 10h
       inverted: true # stop playing intern if you're good at med!
     - !type:AgeRequirement # WL-Changes-AgeRequirement
       age: 2 # WL-Changes-AgeRequirement
   startingGear: MedicalInternGear
   icon: "JobIconMedicalIntern"
   supervisors: job-supervisors-medicine
-  canBeAntag: true
   access:
   - Medical
   - Maintenance
@@ -36,11 +35,7 @@
     shoes: ClothingShoesColorWhite
     id: MedicalInternPDA
     ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalFilled
     pocket2: BookMedicalReferenceBook
-  #storage:
-    #back:
-    #- Stuff
 
 - type: chameleonOutfit
   id: MedicalInternChameleonOutfit

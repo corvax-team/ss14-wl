@@ -13,11 +13,11 @@ namespace Content.Shared.Repairable;
 
 public sealed partial class RepairableSystem : EntitySystem
 {
-    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!; // WL-Changes
+    [Dependency] private SharedToolSystem _toolSystem = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private SharedBloodstreamSystem _bloodstream = default!; // WL-Changes
 
     public override void Initialize()
     {
@@ -30,7 +30,11 @@ public sealed partial class RepairableSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (!TryComp(ent.Owner, out DamageableComponent? damageable) || damageable.TotalDamage == 0)
+        if (!TryComp(ent.Owner, out DamageableComponent? damageable))
+            return;
+
+        var totalDamage = _damageableSystem.GetTotalDamage((ent.Owner, damageable));
+        if (totalDamage == 0)
             return;
 
         if (ent.Comp.DamageValue != null)
@@ -42,7 +46,9 @@ public sealed partial class RepairableSystem : EntitySystem
 
         _bloodstream.TryModifyBleedAmount(ent.Owner, ent.Comp.BleedAmountReduce); // WL-Changes: Androids
 
-        args.Repeat = ent.Comp.AutoDoAfter && damageable.TotalDamage > 0;
+        totalDamage = _damageableSystem.GetTotalDamage((ent.Owner, damageable));
+
+        args.Repeat = ent.Comp.AutoDoAfter && totalDamage > 0;
         args.Args.Event.Repeat = args.Repeat;
         args.Handled = true;
 
@@ -99,7 +105,7 @@ public sealed partial class RepairableSystem : EntitySystem
             return;
 
         // Only try repair the target if it is damaged
-        if (!TryComp<DamageableComponent>(ent.Owner, out var damageable) || damageable.TotalDamage == 0)
+        if (_damageableSystem.GetTotalDamage(ent.Owner) == 0)
             return;
 
         float delay = ent.Comp.DoAfterDelay;

@@ -3,7 +3,6 @@ using Content.Server._WL.PulseDemon.Components;
 using Content.Shared.Mind;
 using Content.Server._WL.Objectives.Components;
 using Content.Shared.Objectives.Components;
-using System.Linq;
 
 namespace Content.Server._WL.Objectives.Systems;
 
@@ -28,16 +27,19 @@ public sealed class HijackAPCConditionSystem : EntitySystem
 
         var gridUid = Transform(mind.OwnedEntity.Value).GridUid;
 
-        var apcs = EntityQuery<ApcComponent, TransformComponent>()
-            .Where(apc => apc.Item2.GridUid == gridUid);
+        var apcsCount = 0f;
+        var hijackedApcsCount = 0f;
 
-        var hijackedApcs = apcs.Where(hijacked => HasComp<HijackedByPulseDemonComponent>(hijacked.Item2.Owner));
+        var query = EntityQueryEnumerator<ApcComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out _, out var transform))
+        {
+            if (transform.GridUid != gridUid) continue;
 
-        var apcsCount = apcs.Count();
-        var hijackedApcsCount = (float)hijackedApcs.Count();
+            apcsCount += 1;
 
-        return apcsCount == 0
-            ? 1f
-            : hijackedApcsCount / apcsCount;
+            if (HasComp<HijackedByPulseDemonComponent>(uid)) hijackedApcsCount += 1;
+        }
+
+        return apcsCount == 0 ? 1f : hijackedApcsCount / apcsCount;
     }
 }

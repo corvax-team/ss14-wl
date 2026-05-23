@@ -6,10 +6,10 @@
     sprite: Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
-  - ClothingBackpackChameleonFill
+  - ClothingBackpackChameleonFillAgent
   - ChameleonProjector
   - FakeMindShieldImplanter
-  - AgentIDCard
+  - ChameleonPassport # WL-Change
 
 - type: thiefBackpackSet
   id: ToolsSet

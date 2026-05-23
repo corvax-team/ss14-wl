@@ -18,16 +18,18 @@ using System.Linq;
 
 namespace Content.Server.Access.Systems;
 
-public sealed class PresetIdCardSystem : EntitySystem
+public sealed partial class PresetIdCardSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IdCardSystem _cardSystem = default!;
-    [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly RoleSystem _role = default!; //WL-Changes
-    [Dependency] private readonly ContainerSystem _container = default!; //WL-Changes
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private IdCardSystem _cardSystem = default!;
+    [Dependency] private SharedAccessSystem _accessSystem = default!;
+    [Dependency] private StationSystem _stationSystem = default!;
+    // WL-Changes: start
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private RoleSystem _role = default!;
+    // WL-Changes: end
 
-    private static readonly string IDItemSlot = "id"; //WL-Changes
+    private static string IDItemSlot = "id"; //WL-Changes
 
     public override void Initialize()
     {

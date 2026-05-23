@@ -2,9 +2,9 @@ using Content.Shared.Actions;
 
 namespace Content.Shared._WL.GolemCore
 {
-    public abstract class SharedGolemCoreSystem : EntitySystem
+    public abstract partial class SharedGolemCoreSystem : EntitySystem
     {
-        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+        [Dependency] private SharedActionsSystem _actionsSystem = default!;
 
         public override void Initialize()
         {

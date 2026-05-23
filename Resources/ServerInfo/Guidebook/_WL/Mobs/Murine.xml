@@ -1,7 +1,7 @@
 <Document>
   # Мурины
   <Box>
-    <GuideEntityEmbed Entity="MobHumanoidMurine" Caption=""/>
+    <GuideEntityEmbed Entity="MobMurine" Caption=""/>
   </Box>
 \n
    Среди сотрудников NanoTrasen появилась раса гуманоидных мышей - мурины.\n

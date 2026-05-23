@@ -1,0 +1,228 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprites made by DanielOhar for Space Station 14 Corvax WL.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ADLR512E_HOP"
+        },
+        {
+            "name": "AgriusSaturnid_cook"
+        },
+        {
+            "name": "AkaraNerros_salvagespec"
+        },
+        {
+            "name": "AkihiroYui_pilot"
+        },
+        {
+            "name": "AkimBurov_bartender"
+        },
+        {
+            "name": "AlbertJuliani_janitor"
+        },
+        {
+            "name": "AlexanderAssav_ERTmed"
+        },
+        {
+            "name": "AlexanderSeichin_captain"
+        },
+        {
+            "name": "AlexaNightwish_cargotech"
+        },
+        {
+            "name": "AlfredStedwidge_CMO"
+        },
+        {
+            "name": "AlonIros_captain"
+        },
+        {
+            "name": "Amanda_roboticist"
+        },
+        {
+            "name": "AmuraBurova_paramedic"
+        },
+        {
+            "name": "ArturKri_scientist"
+        },
+        {
+            "name": "AsraelGrenholm_secoff"
+        },
+        {
+            "name": "AuroraLaffen_secoff"
+        },
+        {
+            "name": "AvraamNaumov_IAA"
+        },
+        {
+            "name": "BatarRogov_musician"
+        },
+        {
+            "name": "BiFirefly_scientist"
+        },
+        {
+            "name": "BlummyDrimminblob_chemist"
+        },
+        {
+            "name": "CharlotteTadzuka_chemist"
+        },
+        {
+            "name": "DinArtemyev_RD"
+        },
+        {
+            "name": "DmitriyShek_passenger"
+        },
+        {
+            "name": "DustyNucler_cargotech"
+        },
+        {
+            "name": "EdwardSnow_QM"
+        },
+        {
+            "name": "ElerosShanvi_atmostech"
+        },
+        {
+            "name": "ElfieFane_IAA"
+        },
+        {
+            "name": "EliasCyortis_secoff"
+        },
+        {
+            "name": "EmiliaYu_scientist"
+        },
+        {
+            "name": "FazoniySetini_engineer"
+        },
+        {
+            "name": "HannahMuller_physician"
+        },
+        {
+            "name": "HelenGusto_secoff"
+        },
+        {
+            "name": "IgorFyodorov_engineer"
+        },
+        {
+            "name": "JamesRichter_engineer"
+        },
+        {
+            "name": "JanOlin_janitor"
+        },
+        {
+            "name": "JeorgeRockwill_scientist"
+        },
+        {
+            "name": "KasaVudgita_brigmed"
+        },
+        {
+            "name": "KennetMiller_secoff"
+        },
+        {
+            "name": "KitStark_detective"
+        },
+        {
+            "name": "KlausShtriber_mercenary"
+        },
+        {
+            "name": "LetaBurova_service"
+        },
+        {
+            "name": "LiamWilson_mechanic"
+        },
+        {
+            "name": "Lopuh_RD"
+        },
+        {
+            "name": "Marena_Zveno"
+        },
+        {
+            "name": "MauzerVoitzehovskiy_centcom"
+        },
+        {
+            "name": "MaximBosenko_cadet"
+        },
+        {
+            "name": "MikeBrown_boxer"
+        },
+        {
+            "name": "MinorAri_atmostech"
+        },
+        {
+            "name": "MirloBaltico_reporter"
+        },
+        {
+            "name": "MonicaJelly_scientist"
+        },
+        {
+            "name": "MortisArctur_coroner"
+        },
+        {
+            "name": "NaoIn_botanist"
+        },
+        {
+            "name": "NaoriFuks_QM"
+        },
+        {
+            "name": "NicoleRoglicova_chemist"
+        },
+        {
+            "name": "NikolasMacHenry_botanist"
+        },
+        {
+            "name": "NikolayVsesilniy_secoff"
+        },
+        {
+            "name": "RasvaHaselti_CMO"
+        },
+        {
+            "name": "ReiLukon_captain"
+        },
+        {
+            "name": "RichardBarklee_scientist"
+        },
+        {
+            "name": "RieckerTesh_secoff"
+        },
+        {
+            "name": "RoosalinErintari_RD"
+        },
+        {
+            "name": "RubenSuhoi_pilot"
+        },
+        {
+            "name": "SherilinDubua_reporter"
+        },
+        {
+            "name": "SingularHyperalloy_CMO"
+        },
+        {
+            "name": "TammyVlasova_scientist"
+        },
+        {
+            "name": "TAU_scientist"
+        },
+        {
+            "name": "TovaKavari_student"
+        },
+        {
+            "name": "ValeriaTutova_physician"
+        },
+        {
+            "name": "VeneraArassaka_physician"
+        },
+        {
+            "name": "VeronicaSokolova_offduty"
+        },
+        {
+            "name": "ViolettDeRishelie_passenger"
+        },
+        {
+            "name": "ZakVil_resassistant"
+        }
+    ]
+}
+

@@ -19,12 +19,12 @@ namespace Content.Server.Nutrition.EntitySystems
 {
     public sealed partial class SmokingSystem
     {
-        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
-        [Dependency] private readonly IngestionSystem _ingestion = default!;
-        [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private DamageableSystem _damageableSystem = default!;
+        [Dependency] private EmagSystem _emag = default!;
+        [Dependency] private IngestionSystem _ingestion = default!;
+        [Dependency] private ExplosionSystem _explosionSystem = default!;
+        [Dependency] private PopupSystem _popupSystem = default!;
 
         private void InitializeVapes()
         {
@@ -55,6 +55,17 @@ namespace Content.Server.Nutrition.EntitySystems
                     args.User);
                 return;
             }
+
+            // WL-Changes-Start
+            if (solution.Volume < entity.Comp.RemoveSolutionPerUse)
+            {
+                _popupSystem.PopupEntity(
+                    Loc.GetString("vape-component-vape-not-enough"),
+                    args.Target.Value,
+                    args.User);
+                return;
+            }
+            // WL-Changes-End
 
             if (args.Target == args.User)
             {
@@ -138,7 +149,10 @@ namespace Content.Server.Nutrition.EntitySystems
 
             _atmos.Merge(environment, merger);
 
-            args.Solution.RemoveAllSolution();
+            // WL-Changes-Start
+            //args.Solution.RemoveAllSolution();
+            args.Solution.RemoveSolution(entity.Comp.RemoveSolutionPerUse);
+            // WL-Changes-End
 
             if (args.Forced)
             {

@@ -5,9 +5,10 @@ using Content.Shared.Stacks;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._WL.Lathe.Systems;
-public sealed class LatheCraftedItemsSystem : EntitySystem
+
+public sealed partial class LatheCraftedItemsSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
     {

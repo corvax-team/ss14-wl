@@ -46,6 +46,7 @@
   - AdjutantBackpack
   - AdjutantSatchel
   - AdjutantDuffel
+  - LeatherSatchel
 
 - type: loadoutGroup
   id: AdjutantOuterClothing

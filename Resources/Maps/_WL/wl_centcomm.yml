@@ -77801,29 +77801,11 @@ entities:
         - position: 0,0
           _rotation: East
       storedItems:
-        7387:
-          position: 0,0
-          _rotation: East
-        7388:
-          position: 0,1
-          _rotation: East
         7389:
           position: 2,4
           _rotation: East
         7385:
           position: 2,3
-          _rotation: East
-        7391:
-          position: 0,4
-          _rotation: East
-        7392:
-          position: 0,3
-          _rotation: East
-        7386:
-          position: 2,1
-          _rotation: East
-        7390:
-          position: 2,0
           _rotation: East
     - type: ContainerContainer
       containers:
@@ -77831,14 +77813,8 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 7387
-          - 7388
           - 7389
           - 7385
-          - 7391
-          - 7392
-          - 7386
-          - 7390
     - type: Fixtures
       fixtures: {}
 - proto: ShelfWood
@@ -84331,55 +84307,9 @@ entities:
     - type: Transform
       pos: -66.51221,0.46861267
       parent: 2
-- proto: TowelColorGold
-  entities:
-  - uid: 7386
-    components:
-    - type: Transform
-      parent: 7384
-    - type: Physics
-      canCollide: False
-- proto: TowelColorGray
-  entities:
-  - uid: 7387
-    components:
-    - type: Transform
-      parent: 7384
-    - type: Physics
-      canCollide: False
-  - uid: 7388
-    components:
-    - type: Transform
-      parent: 7384
-    - type: Physics
-      canCollide: False
 - proto: TowelColorNT
   entities:
   - uid: 7389
-    components:
-    - type: Transform
-      parent: 7384
-    - type: Physics
-      canCollide: False
-- proto: TowelColorOrange
-  entities:
-  - uid: 7390
-    components:
-    - type: Transform
-      parent: 7384
-    - type: Physics
-      canCollide: False
-- proto: TowelColorRed
-  entities:
-  - uid: 7391
-    components:
-    - type: Transform
-      parent: 7384
-    - type: Physics
-      canCollide: False
-- proto: TowelColorSilver
-  entities:
-  - uid: 7392
     components:
     - type: Transform
       parent: 7384

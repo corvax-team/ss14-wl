@@ -284,6 +284,15 @@
       "directions": 4
     },
     {
+      "name": "stripe_clown"
+    },
+    {
+      "name": "stripe_top"
+    },
+    {
+      "name": "stripe_bottom"
+    },
+    {
       "name": "idwizard"
     },
     {

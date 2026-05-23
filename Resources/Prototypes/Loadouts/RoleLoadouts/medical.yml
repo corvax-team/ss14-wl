@@ -1,0 +1,83 @@
+# Medical
+- type: roleLoadout
+  id: JobChiefMedicalOfficer
+  groups:
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - GroupTankHarness
+  - ChiefMedicalOfficerHead
+  - MedicalMask
+  - ChiefMedicalOfficerJumpsuit
+  - MedicalBackpack
+  - ChiefMedicalOfficerOuterClothing
+  - ChiefMedicalOfficerNeck
+  - ChiefMedicalOfficerShoes
+  - SurvivalMedical
+  - Trinkets
+  - WLNeck # WL-Changes: Neck add
+  # - ChiefMedicalOfficerJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobMedicalDoctor
+  groups:
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - GroupTankHarness
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalDoctorJumpsuit
+  - MedicalBackpack
+  - MedicalDoctorOuterClothing
+  - MedicalShoes
+  - MedicalDoctorPDA
+  - SurvivalMedical
+  - Trinkets
+  - WLNeck # WL-Changes: Neck add
+  - MedicalDoctorNeck # WL-Changes
+  # - MedicalDoctorJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobMedicalIntern
+  groups:
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - GroupTankHarness
+  - MedicalInternJumpsuit
+  - MedicalBackpack
+  - SurvivalMedical
+  - Trinkets
+  - WLNeck # WL-Changes: Neck add
+  # - MedicalInternJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobChemist
+  groups:
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - GroupTankHarness
+  - MedicalMask
+  - ChemistJumpsuit
+  - ChemistBackpack
+  - ChemistOuterClothing
+  - MedicalShoes
+  - SurvivalMedical
+  - Trinkets
+  - WLNeck # WL-Changes: Neck add
+  # - ChemistJobTrinkets
+  - GroupSpeciesBreathToolMedical
+
+- type: roleLoadout
+  id: JobParamedic
+  groups:
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - GroupTankHarness
+  - ParamedicHead
+  - MedicalMask
+  - ParamedicJumpsuit
+  - MedicalBackpack
+  - ParamedicOuterClothing
+  - ParamedicShoes
+  - SurvivalMedical
+  - Trinkets
+  - WLNeck # WL-Changes: Neck add
+  # - ParamedicJobTrinkets
+  - GroupSpeciesBreathToolMedical

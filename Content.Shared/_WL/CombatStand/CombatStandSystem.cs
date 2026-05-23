@@ -1,23 +1,16 @@
-using System.Linq;
 using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
-using Content.Shared.Timing;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Standing;
-using Robust.Shared.Collections;
 using Robust.Shared.Timing;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.CombatStand;
 
-public sealed class CombatStandSystem : EntitySystem
+public sealed partial class CombatStandSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -66,5 +59,5 @@ public sealed partial class GunStandingRequiredComponent : Component
     public TimeSpan PopupCooldown = TimeSpan.FromSeconds(1);
 
     [DataField]
-    public LocId? StandRequiresExamineMessage  = "gunstandingrequired-component-examine";
+    public LocId? StandRequiresExamineMessage = "gunstandingrequired-component-examine";
 }

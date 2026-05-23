@@ -17,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
+using Robust.Shared.Random;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -270,8 +271,7 @@ public sealed partial class EmergencyShuttleSystem
             return;
         }
 
-        // TODO: This is fucking bad
-        if (!component.AuthorizedEntities.Remove(MetaData(idCard).EntityName))
+        if (!component.AuthorizedEntities.Remove(idCard.Owner))
             return;
 
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch REPEAL by {args.Actor:user}");
@@ -291,9 +291,12 @@ public sealed partial class EmergencyShuttleSystem
             return;
         }
 
-        // TODO: This is fucking bad
-        if (!component.AuthorizedEntities.Add(MetaData(idCard).EntityName))
+        var idCardUid = idCard.Owner;
+
+        if (component.AuthorizedEntities.ContainsKey(idCardUid))
             return;
+
+        component.AuthorizedEntities[idCardUid] = MetaData(idCard).EntityName;
 
         _logger.Add(LogType.EmergencyShuttle, LogImpact.High, $"Emergency shuttle early launch AUTH by {args.Actor:user}");
         var remaining = component.AuthorizationsRequired - component.AuthorizedEntities.Count;
@@ -337,7 +340,7 @@ public sealed partial class EmergencyShuttleSystem
     {
         var auths = new List<string>();
 
-        foreach (var auth in component.AuthorizedEntities)
+        foreach (var auth in component.AuthorizedEntities.Values)
         {
             auths.Add(auth);
         }
@@ -394,6 +397,9 @@ public sealed partial class EmergencyShuttleSystem
             };
             _deviceNetworkSystem.QueuePacket(shuttle.Value, null, payload, net.TransmitFrequency);
         }
+
+        _pda.BeforeETA = _timing.CurTime + TimeSpan.FromSeconds(_consoleAccumulator); // Передаём НОВОЕ время до отлёта в систему для корректной работы
+        _pda.UpdateAllPdaUisOnStation();
 
         return true;
     }

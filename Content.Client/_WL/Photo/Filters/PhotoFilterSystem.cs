@@ -5,10 +5,11 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 
 namespace Content.Client._WL.Photo.Filters;
+
 public sealed partial class PhotoFilterSystem : EntitySystem
 {
-    [Dependency] private readonly IOverlayManager _overlay = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private IOverlayManager _overlay = default!;
+    [Dependency] private IPlayerManager _player = default!;
 
     public override void Initialize()
     {
@@ -53,13 +54,13 @@ public sealed partial class PhotoFilterSystem : EntitySystem
 
     private bool CheckOverlay(EntityUid uid)
     {
-        if (!EntityManager.TryGetComponent<PhotoCameraComponent>(uid, out var camera))
+        if (!TryComp<PhotoCameraComponent>(uid, out var camera))
             return false;
 
         if (_player.LocalEntity != camera.User)
             return false;
 
-        if (!EntityManager.TryGetComponent<PhotoFilterBaseComponent>(uid, out var filter) ||
+        if (!TryComp<PhotoFilterBaseComponent>(uid, out var filter) ||
             filter.LifeStage >= ComponentLifeStage.Stopping)
             return true;
 

@@ -4,16 +4,18 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared._WL.Skills;
 
-[Prototype("racialSkillBonus")]
+[Prototype]
+[DataDefinition]
 public sealed partial class RacialSkillBonusPrototype : IPrototype
 {
+    [ViewVariables]
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField("species", customTypeSerializer: typeof(PrototypeIdSerializer<SpeciesPrototype>), required: true)]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SpeciesPrototype>), required: true)]
     public string Species { get; private set; } = default!;
 
-    [DataField("ageBonuses")]
+    [DataField]
     public Dictionary<int, int> AgeBonuses { get; private set; } = new();
 
     public int GetBonusForAge(int age)

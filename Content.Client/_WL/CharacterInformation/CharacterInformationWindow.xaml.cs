@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Client.Message;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._WL.CharacterInformation;
@@ -11,7 +10,7 @@ namespace Content.Client._WL.CharacterInformation;
 [GenerateTypedNameReferences]
 public sealed partial class CharacterInformationWindow : FancyWindow
 {
-    [Dependency] private readonly IEntityManager _entity = default!;
+    [Dependency] private IEntityManager _entity = default!;
 
     private float _accumulatedTime;
 
@@ -19,11 +18,6 @@ public sealed partial class CharacterInformationWindow : FancyWindow
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-
-        Tabs.SetTabTitle(0, Loc.GetString("character-information-ui-sprite"));
-        Tabs.SetTabTitle(1, Loc.GetString("character-information-ui-flavor-text"));
-        Tabs.SetTabTitle(2, Loc.GetString("character-information-ui-ooc-text"));
-        Tabs.SetTabTitle(3, Loc.GetString("character-information-ui-dynamic-text"));
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -31,46 +25,21 @@ public sealed partial class CharacterInformationWindow : FancyWindow
         base.FrameUpdate(args);
 
         _accumulatedTime += args.DeltaSeconds;
-        CharSprite.OverrideDirection = (Direction) ((int) _accumulatedTime % 4 * 2);
+        CharSprite.OverrideDirection = (Direction)((int)_accumulatedTime % 4 * 2);
     }
 
     public void UpdateState(CharacterInformationBuiState state)
     {
         CharSprite.SetEntity(_entity.GetEntity(state.Uid));
-        Name.SetMarkup($"[bold]{state.CharacterName}[/bold]");
+        NameLabel.SetMarkup($"[bold]{state.CharacterName}[/bold]");
 
-        if (!string.IsNullOrEmpty(state.FlavorText))
-        {
-            FlavorText.SetMessage(state.FlavorText);
-            FlavorTextLabel.Text = Loc.GetString("character-information-ui-flavor-text") + ":";
-        }
-        else
-        {
-            FlavorText.SetMessage("");
-            FlavorTextLabel.Text = Loc.GetString("character-information-ui-no-flavor-text");
-        }
+        FlavorText.SetMessage(!string.IsNullOrEmpty(state.FlavorText)
+            ? state.FlavorText
+            : Loc.GetString("character-information-ui-no-flavor-text"));
 
-        if (!string.IsNullOrEmpty(state.OocText))
-        {
-            OocText.SetMessage(state.OocText);
-            OocTextLabel.Text = Loc.GetString("character-information-ui-ooc-text") + ":";
-        }
-        else
-        {
-            OocText.SetMessage("");
-            OocTextLabel.Text = Loc.GetString("character-information-ui-no-ooc-text");
-        }
-
-        if (!string.IsNullOrEmpty(state.DynamicText))
-        {
-            DynamicText.SetMessage(state.DynamicText);
-            DynamicTextLabel.Text = Loc.GetString("character-information-ui-dynamic-text") + ":";
-        }
-        else
-        {
-            DynamicText.SetMessage("");
-            DynamicTextLabel.Text = Loc.GetString("character-information-ui-no-dynamic-text");
-        }
+        OocText.SetMessage(!string.IsNullOrEmpty(state.OocText)
+            ? state.OocText
+            : Loc.GetString("character-information-ui-no-ooc-text"));
 
         SetWidth = Size.X + 0.1f;
     }

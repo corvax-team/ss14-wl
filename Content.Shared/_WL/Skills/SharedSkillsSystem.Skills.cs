@@ -1,6 +1,5 @@
 using Content.Shared._WL.CCVars;
 using Content.Shared._WL.Skills.Components;
-using Content.Shared.Cloning.Events;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
@@ -11,7 +10,7 @@ namespace Content.Shared._WL.Skills;
 
 public abstract partial class SharedSkillsSystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
 
     #region Initialization
 
@@ -436,7 +435,7 @@ public abstract partial class SharedSkillsSystem
     /// Gets total points for entity
     /// </summary>
     public int GetTotalPoints(EntityUid uid, string? jobId = null,
-        SkillsComponent? comp = null, HumanoidAppearanceComponent? humanoid = null)
+        SkillsComponent? comp = null, HumanoidProfileComponent? humanoid = null)
     {
         if (!Resolve(uid, ref comp) || !Resolve(uid, ref humanoid))
             return 0;

@@ -21,8 +21,8 @@
   - type: Cartridge
     programName: notekeeper-program-name
     icon:
-      sprite:  Objects/Misc/books.rsi
-      state: book_icon
+      sprite: _CorvaxGoob/Interface/Misc/program_icons.rsi # WL-Changes: Corvax-Goob-RespriteProgramsIcons
+      state: notes
   - type: NotekeeperCartridge
 
 - type: entity
@@ -89,8 +89,8 @@
     - type: Cartridge
       programName: net-probe-program-name
       icon:
-        sprite: Structures/Machines/server.rsi
-        state: server
+        sprite: _CorvaxGoob/Interface/Misc/program_icons.rsi # WL-Changes: Corvax-Goob-RespriteProgramsIcons
+        state: netprobe
     - type: NetProbeCartridge
 
 - type: entity
@@ -109,8 +109,8 @@
     - type: Cartridge
       programName: log-probe-program-name
       icon:
-        sprite: Structures/Doors/Airlocks/Standard/security.rsi
-        state: closed
+        sprite: _CorvaxGoob/Interface/Misc/program_icons.rsi # WL-Changes: Corvax-Goob-RespriteProgramsIcons
+        state: logprobe
     - type: LogProbeCartridge
     - type: GuideHelp
       guides:
@@ -132,8 +132,8 @@
   - type: Cartridge
     programName: wanted-list-program-name
     icon:
-      sprite: Objects/Misc/books.rsi
-      state: icon_magnifier
+      sprite: _CorvaxGoob/Interface/Misc/program_icons.rsi # WL-Changes: Corvax-Goob-RespriteProgramsIcons
+      state: watchdog
   - type: WantedListCartridge
   - type: StealTarget
     stealGroup: WantedListCartridge
@@ -152,8 +152,8 @@
     - type: Cartridge
       programName: med-tek-program-name
       icon:
-        sprite: Objects/Specific/Medical/healthanalyzer.rsi
-        state: icon
+        sprite: _CorvaxGoob/Interface/Misc/program_icons.rsi # WL-Changes: Corvax-Goob-RespriteProgramsIcons
+        state: medtek
     - type: MedTekCartridge
 
 - type: entity
@@ -170,6 +170,6 @@
     - type: Cartridge
       programName: astro-nav-program-name
       icon:
-        sprite: Objects/Devices/gps.rsi
-        state: icon
+        sprite: _CorvaxGoob/Interface/Misc/program_icons.rsi # WL-Changes: Corvax-Goob-RespriteProgramsIcons
+        state: astronav
     - type: AstroNavCartridge

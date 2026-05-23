@@ -1,8 +1,7 @@
 - type: marking
   id: Malstrem
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Human]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -15,8 +14,7 @@
 - type: marking
   id: Beholder
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Human]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -29,8 +27,7 @@
 - type: marking
   id: Terminator
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Human]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:
@@ -43,8 +40,7 @@
 - type: marking
   id: Iron_jaw
   bodyPart: Eyes
-  markingCategory: Head
-  speciesRestriction: [Human]
+  groupWhitelist: [Human]
   coloring:
     default:
       type:

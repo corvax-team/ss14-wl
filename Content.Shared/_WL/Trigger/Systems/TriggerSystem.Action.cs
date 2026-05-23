@@ -1,14 +1,13 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.Components;
 using Content.Shared.Trigger;
-using Content.Shared.Trigger.Components.Triggers;
 using Content.Shared._WL.Trigger.Components.Triggers;
 
 namespace Content.Shared._WL.Trigger.Systems;
 
 public sealed partial class TriggerOnActionSystem : TriggerOnXSystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
 
     public override void Initialize()
     {

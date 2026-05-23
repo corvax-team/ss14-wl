@@ -2,6 +2,7 @@ using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -26,19 +27,18 @@ namespace Content.Shared._WL.Execution;
 /// <summary>
 ///     Verb for violently murdering cuffed creatures.
 /// </summary>
-public sealed class ExecutionSystem : EntitySystem
+public sealed partial class ExecutionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private readonly SharedCombatModeSystem _combatSystem = default!;
-    [Dependency] private readonly SharedMeleeWeaponSystem _meleeSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
+    [Dependency] private ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private SharedGunSystem _gunSystem = default!;
+    [Dependency] private SharedCombatModeSystem _combatSystem = default!;
+    [Dependency] private SharedMeleeWeaponSystem _meleeSystem = default!;
+    [Dependency] private SharedTransformSystem _transformSystem = default!;
+    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -112,7 +112,7 @@ public sealed class ExecutionSystem : EntitySystem
             return true;
 
         // No point executing someone if they can't take damage
-        if (!TryComp<DamageableComponent>(victim, out _))
+        if (!HasComp<DamageableComponent>(victim))
             return false;
 
         // You can't execute something that cannot die
@@ -131,7 +131,8 @@ public sealed class ExecutionSystem : EntitySystem
         if (victim != attacker && _actionBlockerSystem.CanInteract(victim, null))
             return false;
 
-        if (Transform(attacker).Coordinates.InRange(_entityManager, _transformSystem, Transform(victim).Coordinates, 0.1f))
+        // Attacker must be in close range with victim
+        if (!_transformSystem.InRange(Transform(attacker).Coordinates, Transform(victim).Coordinates, 0.1f))
             return false;
 
         // All checks passed
@@ -154,8 +155,8 @@ public sealed class ExecutionSystem : EntitySystem
         var prev = _combatSystem.IsInCombatMode(attacker);
         _combatSystem.SetInCombatMode(attacker, true);
         component.Executing = true;
-        string? internalMsg = null;
-        string? externalMsg = null;
+        //string? internalMsg = null;
+        //string? externalMsg = null;
 
         if (TryComp(uid, out MeleeWeaponComponent? melee))
         {
@@ -175,13 +176,13 @@ public sealed class ExecutionSystem : EntitySystem
             if (damageSpecifier == null)
             {
                 // if can't take damage, use fallback
-                damageSpecifier = new DamageSpecifier()
+                string damageTypeString = "Heat";
+                if (_prototypeManager.TryIndex<DamageTypePrototype>(damageTypeString, out var damageType))
                 {
-                    DamageDict = new Dictionary<string, FixedPoint.FixedPoint2>()
-                    {
-                        { "Heat", component.DamageModifier * 10f }
-                    }
-                };
+                    damageSpecifier = new DamageSpecifier(damageType, component.DamageModifier * 10f);
+                }
+                else
+                    return;
             }
             else
             {
@@ -301,7 +302,7 @@ public sealed class ExecutionSystem : EntitySystem
 
         if (TryComp(args.FiredProjectiles[0], out ProjectileComponent? projectile))
         {
-            if(projectile.Damage.GetTotal() * comp.DamageModifier > staminaDamage)
+            if (projectile.Damage.GetTotal() * comp.DamageModifier > staminaDamage)
                 projectile.Damage *= comp.DamageModifier;
         }
 

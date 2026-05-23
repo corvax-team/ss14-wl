@@ -1,12 +1,10 @@
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
-using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
 using Content.Shared._WL.Languages;
 using Content.Shared._WL.MedicalRecords;
 using Content.Shared._WL.MedicalRecords.Components;
 using Content.Shared._WL.Records;
-using Content.Shared.CriminalRecords.Components;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Paper;
 using Content.Shared.StationRecords;
@@ -16,14 +14,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._WL.MedicalRecords.Systems;
 
-public sealed class MedicalRecordsConsoleSystem : EntitySystem
+public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly StationRecordsSystem _records = default!;
-    [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly PaperSystem _paperSystem = default!;
+    [Dependency] private StationRecordsSystem _records = default!;
+    [Dependency] private StationSystem _station = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private PaperSystem _paperSystem = default!;
 
     public override void Initialize()
     {

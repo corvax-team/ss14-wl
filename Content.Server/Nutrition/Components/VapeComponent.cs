@@ -39,6 +39,12 @@ namespace Content.Server.Nutrition.Components // Vapes are very nutritious.
         [ViewVariables(VVAccess.ReadWrite)]
         public float ReductionFactor { get; set; } = 300f;
 
+        // WL-Changes-Start
+        [DataField("removeSolutionPerUse")]
+        [ViewVariables(VVAccess.ReadWrite)]
+        public int RemoveSolutionPerUse;
+        // WL-Changes-End
+
         // TODO when this gets fixed, use prototype serializers
         [DataField("solutionNeeded")]
         [ViewVariables(VVAccess.ReadWrite)]

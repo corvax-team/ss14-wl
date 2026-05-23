@@ -1,0 +1,335 @@
+- type: localizedDataset
+  id: FigurinesWLSpecialJamesRicher
+  values:
+    prefix: figurines-wl-special-jamesricher-
+    count: 4
+
+- type: localizedDataset
+  id: FigurinesWLSpecialSingularHyperalloy
+  values:
+    prefix: figurines-wl-special-singularhyperalloy-
+    count: 5
+
+- type: localizedDataset
+  id: FigurinesWLSpecialTAU
+  values:
+    prefix: figurines-wl-special-tau-
+    count: 2
+
+- type: localizedDataset
+  id: FigurinesWLSpecialFazoniySetiniCoat
+  values:
+    prefix: figurines-wl-special-fazoniysetini-
+    count: 4
+
+- type: localizedDataset
+  id: FigurinesWLSpecialEmiliaYu
+  values:
+    prefix: figurines-wl-special-emiliayu-
+    count: 36
+
+- type: localizedDataset
+  id: FigurinesWLSpecialVeneraArassaka
+  values:
+    prefix: figurines-wl-special-veneraarassaka-
+    count: 5
+
+- type: localizedDataset
+  id: FigurinesWLSpecialBiFirefly
+  values:
+    prefix: figurines-wl-special-bifirefly-
+    count: 23
+
+- type: localizedDataset
+  id: FigurinesWLSpecialNaoriFuks
+  values:
+    prefix: figurines-wl-special-naorifuks-
+    count: 2
+
+- type: localizedDataset
+  id: FigurinesWLSpecialRubenSuhoi
+  values:
+    prefix: figurines-wl-special-rubensuhoi-
+    count: 19
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAkaraNerros
+  values:
+    prefix: figurines-wl-special-akaranerros-
+    count: 33
+
+- type: localizedDataset
+  id: FigurinesWLSpecialViolettDeRishelie
+  values:
+    prefix: figurines-wl-special-violettderishelie-
+    count: 6
+
+- type: localizedDataset
+  id: FigurinesWLSpecialMaximBosenko
+  values:
+    prefix: figurines-wl-special-maximbosenko-
+    count: 8
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAuroraLaffen
+  values:
+    prefix: figurines-wl-special-auroralaffen-
+    count: 11
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAsraelGrenholm
+  values:
+    prefix: figurines-wl-special-asraelgrenholm-
+    count: 6
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAlonIros
+  values:
+    prefix: figurines-wl-special-aloniros-
+    count: 9
+
+- type: localizedDataset
+  id: FigurinesWLSpecialKennetMiller
+  values:
+    prefix: figurines-wl-special-kennetmiller-
+    count: 5
+
+- type: localizedDataset
+  id: FigurinesWLSpecialRoosalinErintari
+  values:
+    prefix: figurines-wl-special-roosalinerintari-
+    count: 4
+
+- type: localizedDataset
+  id: FigurinesWLSpecialDmitriyShek
+  values:
+    prefix: figurines-wl-special-dmitriyshek-
+    count: 18
+
+- type: localizedDataset
+  id: FigurinesWLSpecialLetaBurova
+  values:
+    prefix: figurines-wl-special-letaburova-
+    count: 7
+
+- type: localizedDataset
+  id: FigurinesWLSpecialKasaVudgita
+  values:
+    prefix: figurines-wl-special-kasavudgita-
+    count: 8
+
+- type: localizedDataset
+  id: FigurinesWLSpecialEliasCyortis
+  values:
+    prefix: figurines-wl-special-eliascyortis-
+    count: 6
+
+- type: localizedDataset
+  id: FigurinesWLSpecialRichardBarklee
+  values:
+    prefix: figurines-wl-special-richardbarklee-
+    count: 7
+
+- type: localizedDataset
+  id: FigurinesWLSpecialMauzerVoitzehovskiy
+  values:
+    prefix: figurines-wl-special-mauzervoitzehovskiy-
+    count: 34
+
+- type: localizedDataset
+  id: FigurinesWLSpecialLopuh
+  values:
+    prefix: figurines-wl-special-lopuh-
+    count: 16
+
+- type: localizedDataset
+  id: FigurinesWLSpecialTovaKavari
+  values:
+    prefix: figurines-wl-special-tovakavari-
+    count: 38
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAgriusSaturnid
+  values:
+    prefix: figurines-wl-special-agriussaturnid-
+    count: 6
+
+- type: localizedDataset
+  id: FigurinesWLSpecialJeorgeRockwill
+  values:
+    prefix: figurines-wl-special-jeorgerockwill-
+    count: 46
+
+- type: localizedDataset
+  id: FigurinesWLSpecialJanOlin
+  values:
+    prefix: figurines-wl-special-janolin-
+    count: 10
+
+- type: localizedDataset
+  id: FigurinesWLSpecialKitStark
+  values:
+    prefix: figurines-wl-special-kitstark-
+    count: 6
+
+- type: localizedDataset
+  id: FigurinesWLSpecialReiLukon
+  values:
+    prefix: figurines-wl-special-reilukon-
+    count: 4
+
+- type: localizedDataset
+  id: FigurinesWLSpecialNikolasMacHenry
+  values:
+    prefix: figurines-wl-special-nikolasmachenry-
+    count: 10
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAkihiroYui
+  values:
+    prefix: figurines-wl-special-akihiroyui-
+    count: 15
+
+- type: localizedDataset
+  id: FigurinesWLSpecialNikolayVsesilniy
+  values:
+    prefix: figurines-wl-special-nikolayvsesilniy-
+    count: 9
+
+- type: localizedDataset
+  id: FigurinesWLSpecialElerosShanvi
+  values:
+    prefix: figurines-wl-special-elerosshanvi-
+    count: 36
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAlexaNightwish
+  values:
+    prefix: figurines-wl-special-alexanightwish-
+    count: 8
+
+- type: localizedDataset
+  id: FigurinesWLSpecialMarena
+  values:
+    prefix: figurines-wl-special-marena-
+    count: 3
+
+- type: localizedDataset
+  id: FigurinesWLSpecialHelenGusto
+  values:
+    prefix: figurines-wl-special-helengusto-
+    count: 6
+
+- type: localizedDataset
+  id: FigurinesWLSpecialZakVil
+  values:
+    prefix: figurines-wl-special-zakvil-
+    count: 16
+
+- type: localizedDataset
+  id: FigurinesWLSpecialTammyVlasova
+  values:
+    prefix: figurines-wl-special-tammyvlasova-
+    count: 15
+
+- type: localizedDataset
+  id: FigurinesWLSpecialMinorAri
+  values:
+    prefix: figurines-wl-special-minorari-
+    count: 22
+
+- type: localizedDataset
+  id: FigurinesWLSpecialIgorFyodorov
+  values:
+    prefix: figurines-wl-special-igorfyodorov-
+    count: 19
+
+- type: localizedDataset
+  id: FigurinesWLSpecialMortisArctur
+  values:
+    prefix: figurines-wl-special-mortisarctur-
+    count: 7
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAlfredStedwidge
+  values:
+    prefix: figurines-wl-special-alfredstedwidge-
+    count: 11
+
+- type: localizedDataset
+  id: FigurinesWLSpecialCharlotteTadzuka
+  values:
+    prefix: figurines-wl-special-charlottetadzuka-
+    count: 12
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAvraamNaumov
+  values:
+    prefix: figurines-wl-special-avraamnaumov-
+    count: 8
+
+- type: localizedDataset
+  id: FigurinesWLSpecialDustyNucler
+  values:
+    prefix: figurines-wl-special-dustynucler-
+    count: 7
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAkimBurov
+  values:
+    prefix: figurines-wl-special-akimburov-
+    count: 7
+
+- type: localizedDataset
+  id: FigurinesWLSpecialArturKri
+  values:
+    prefix: figurines-wl-special-arturkri-
+    count: 3
+
+- type: localizedDataset
+  id: FigurinesWLSpecialEdwardSnow
+  values:
+    prefix: figurines-wl-special-edwardsnow-
+    count: 5
+
+- type: localizedDataset
+  id: FigurinesWLSpecialValeriaTutova
+  values:
+    prefix: figurines-wl-special-valeriatutova-
+    count: 13
+
+- type: localizedDataset
+  id: FigurinesWLSpecialADLR512E
+  values:
+    prefix: figurines-wl-special-adlr512e-
+    count: 25
+
+- type: localizedDataset
+  id: FigurinesWLSpecialMirloBaltico
+  values:
+    prefix: figurines-wl-special-mirlobaltico-
+    count: 8
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAmuraBurova
+  values:
+    prefix: figurines-wl-special-amuraburova-
+    count: 18
+
+- type: localizedDataset
+  id: FigurinesWLSpecialAmanda
+  values:
+    prefix: figurines-wl-special-amanda-
+    count: 6
+
+- type: localizedDataset
+  id: FigurinesWLSpecialNaoIn
+  values:
+    prefix: figurines-wl-special-naoin-
+    count: 3
+
+- type: localizedDataset
+  id: FigurinesWLSpecialRieckerTesh
+  values:
+    prefix: figurines-wl-special-rieckertesh-
+    count: 14

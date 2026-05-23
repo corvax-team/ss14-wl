@@ -3,8 +3,8 @@ meta:
   category: Map
   engineVersion: 270.1.0
   forkId: syndicate-wl
-  forkVersion: 05f1ef8a796f15c8c07070a0ac3d613dbc745109
-  time: 02/20/2026 14:24:03
+  forkVersion: a5135ca15e9cbe36a51702bde454b08d8596c09d
+  time: 03/14/2026 13:13:38
   entityCount: 21491
 maps:
 - 1
@@ -197,7 +197,7 @@ entities:
           version: 7
         -1,-2:
           ind: -1,-2
-          tiles: bAAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAABsAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB9AAAAAAAAfQAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAAAAGwAAAAAAAB+AAAAAAAAbAAAAAAAAGwAAAAAAAB+AAAAAAAAbAAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfQAAAAAAAH0AAAAAAAAAAAAAAAAAAAAAAAAAAH0AAAAAAAB+AAAAAAAAJgAAAAAAACYAAAAAAAB+AAAAAAAAfgAAAAAAAGwAAAAAAAB+AAAAAAAABwAAAAAAAAcAAAAACQAJAAAAAAoAfQAAAAAAAH0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9AAAAAAAAfwAAAAAAAH8AAAAAAABTAAAAAAAAfgAAAAAAAH4AAAAAAABsAAAAAAAAfgAAAAAAAAcAAAAABgAHAAAAAAAABwAAAAAAAAcAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAAAAH8AAAAAAAB/AAAAAAAAUwAAAAAAAH4AAAAAAAB+AAAAAAAAbAAAAAAAAH4AAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAACgAHAAAAAAAACQAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAH0AAAAAAAB/AAAAAAAAfwAAAAAAAFMAAAAAAAB+AAAAAAAAfgAAAAAAAGwAAAAAAAB+AAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAEABwAAAAABAAcAAAAAAAAHAAAAAAMABwAAAAAAAAAAAAAAAAAAAAAAAAAAfwAAAAAAAH8AAAAAAABTAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAAcAAAAABgAHAAAAAAAABwAAAAAAAAcAAAAABgAHAAAAAAIABwAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAACYAAAAAAABdAAAAAAAAfgAAAAAAAH4AAAAAAAAfAAAAAAEAHwAAAAACAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAABVAAAAAAAAVQAAAAABAFUAAAAAAwBVAAAAAAAAVQAAAAAAAFUAAAAAAQBVAAAAAAEAVQAAAAAAAFUAAAAAAgBVAAAAAAEAVQAAAAADAFUAAAAAAQBVAAAAAAMAVQAAAAADAFUAAAAAAQBVAAAAAAAAMwAAAAABADMAAAAAAABdAAAAAAEAXQAAAAADAF0AAAAAAABdAAAAAAEAXQAAAAABADMAAAAAAgAzAAAAAAEAXQAAAAADAF0AAAAAAgBdAAAAAAMAXQAAAAAAAF0AAAAAAwBdAAAAAAIAXQAAAAADAFUAAAAAAABVAAAAAAAAVQAAAAAAAFUAAAAAAgBVAAAAAAEAVQAAAAACAFUAAAAAAABVAAAAAAIAVQAAAAAAAFUAAAAAAgBVAAAAAAEAVQAAAAAAAFUAAAAAAABVAAAAAAAAVQAAAAABAFUAAAAAAgB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAB8AAAAAAgAfAAAAAAEAHwAAAAAAAB8AAAAAAAAfAAAAAAIAfgAAAAAAACwAAAAAAwABAAAAAAAALAAAAAADAH4AAAAAAABdAAAAAAEAIAAAAAABACQAAAAAAQAkAAAAAAIAJAAAAAADAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAsAAAAAAAAXQAAAAAAACIAAAAAAAAmAAAAAAAAJgAAAAAAACYAAAAAAAAkAAAAAAAAJAAAAAAAAH4AAAAAAABsAAAAAAAAbAAAAAAAAGwAAAAAAABsAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAfgAAAAAAAF0AAAAAAQAgAAAAAAIAJgAAAAAAACYAAAAAAAAmAAAAAAAAJgAAAAAAACYAAAAAAAB+AAAAAAAAbAAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAACwAAAAAAwBdAAAAAAMAfgAAAAAAACYAAAAAAAAmAAAAAAAAJgAAAAAAACYAAAAAAAAmAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAB+AAAAAAAAXQAAAAAAAA==
+          tiles: bAAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAABsAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB9AAAAAAAAfQAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAAAAGwAAAAAAAB+AAAAAAAAbAAAAAAAAGwAAAAAAAB+AAAAAAAAbAAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfQAAAAAAAH0AAAAAAAAAAAAAAAAAAAAAAAAAAH0AAAAAAAB+AAAAAAAAJgAAAAAAACYAAAAAAAB+AAAAAAAAfgAAAAAAAGwAAAAAAAB+AAAAAAAABwAAAAAAAAcAAAAACQAJAAAAAAoAfQAAAAAAAH0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9AAAAAAAAfwAAAAAAAH8AAAAAAABTAAAAAAAAfgAAAAAAAH4AAAAAAABsAAAAAAAAfgAAAAAAAAcAAAAABgAHAAAAAAAABwAAAAAAAAcAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfQAAAAAAAH8AAAAAAAB/AAAAAAAAUwAAAAAAAH4AAAAAAAB+AAAAAAAAbAAAAAAAAH4AAAAAAAAHAAAAAAAABwAAAAAAAAcAAAAACgAHAAAAAAAACQAAAAAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAH0AAAAAAAB/AAAAAAAAfwAAAAAAAFMAAAAAAAB+AAAAAAAAfgAAAAAAAGwAAAAAAAB+AAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAEABwAAAAABAAcAAAAAAAAHAAAAAAMABwAAAAAAAAAAAAAAAAAAAAAAAAAAfwAAAAAAAH8AAAAAAABTAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAAcAAAAABgAHAAAAAAAABwAAAAAAAAcAAAAABgAHAAAAAAIABwAAAAAAAAkAAAAAAAAJAAAAAAAAAAAAAAAAACYAAAAAAABdAAAAAAAAfgAAAAAAAH4AAAAAAAAfAAAAAAEAHwAAAAACAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAABVAAAAAAAAVQAAAAABAFUAAAAAAwBVAAAAAAAAVQAAAAAAAFUAAAAAAQBVAAAAAAEAVQAAAAAAAFUAAAAAAgBVAAAAAAEAVQAAAAADAFUAAAAAAQBVAAAAAAMAVQAAAAADAFUAAAAAAQBVAAAAAAAAMwAAAAABADMAAAAAAABdAAAAAAEAXQAAAAADAF0AAAAAAABdAAAAAAEAXQAAAAABADMAAAAAAgAzAAAAAAEAXQAAAAADAF0AAAAAAgBdAAAAAAMAXQAAAAAAAF0AAAAAAwBdAAAAAAIAXQAAAAADAFUAAAAAAABVAAAAAAAAVQAAAAAAAFUAAAAAAgBVAAAAAAEAVQAAAAACAFUAAAAAAABVAAAAAAIAVQAAAAAAAFUAAAAAAgBVAAAAAAEAVQAAAAAAAFUAAAAAAABVAAAAAAAAVQAAAAABAFUAAAAAAgB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAB8AAAAAAgAfAAAAAAEAHwAAAAAAAB8AAAAAAAAfAAAAAAIAfgAAAAAAACwAAAAAAwABAAAAAAAALAAAAAADAH4AAAAAAABdAAAAAAEAIAAAAAABACQAAAAAAQAkAAAAAAIAJAAAAAADAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAsAAAAAAAAXQAAAAAAACYAAAAAAAAmAAAAAAAAJgAAAAAAACYAAAAAAAAkAAAAAAAAJAAAAAAAAH4AAAAAAABsAAAAAAAAbAAAAAAAAGwAAAAAAABsAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAfgAAAAAAAF0AAAAAAQAgAAAAAAIAJgAAAAAAACYAAAAAAAAmAAAAAAAAJgAAAAAAACYAAAAAAAB+AAAAAAAAbAAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAACwAAAAAAwBdAAAAAAMAfgAAAAAAACYAAAAAAAAmAAAAAAAAJgAAAAAAACYAAAAAAAAmAAAAAAAAfgAAAAAAAH4AAAAAAAB+AAAAAAAAfgAAAAAAAH4AAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAB+AAAAAAAAXQAAAAAAAA==
           version: 7
         -2,0:
           ind: -2,0
@@ -6662,11 +6662,6 @@ entities:
           decals:
             9380: -40.984055,-46.031506
         - node:
-            color: '#DE3A3A47'
-            id: HerringboneOverlay
-          decals:
-            1616: -16,-19
-        - node:
             zIndex: 1
             color: '#FFFFFFFF'
             id: LoadingArea
@@ -10485,7 +10480,6 @@ entities:
             6419: -11.223964,-28.066826
             6420: -11.19424,-26.8032
             6421: -18.503054,-18.438278
-            6422: -15.72386,-18.913996
             6424: -21.029593,-10.866432
             6429: -9.855338,-4.928139
             6430: -9.392418,-1.7633226
@@ -19003,7 +18997,7 @@ entities:
       pos: -10.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -140884.84
+      secondsUntilStateChange: -141470.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19025,7 +19019,7 @@ entities:
       pos: -27.5,1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -117071.28
+      secondsUntilStateChange: -117656.71
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19034,11 +19028,6 @@ entities:
     components:
     - type: Transform
       pos: -7.5,7.5
-      parent: 2
-  - uid: 190
-    components:
-    - type: Transform
-      pos: -15.5,-18.5
       parent: 2
   - uid: 191
     components:
@@ -19627,7 +19616,7 @@ entities:
       pos: -89.5,-39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -3719.234
+      secondsUntilStateChange: -4304.666
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -19812,7 +19801,7 @@ entities:
       pos: -0.5,0.5
       parent: 20522
     - type: Door
-      secondsUntilStateChange: -45223.72
+      secondsUntilStateChange: -45809.152
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20046,7 +20035,7 @@ entities:
       pos: -27.5,-45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -20643.082
+      secondsUntilStateChange: -21228.514
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20468,7 +20457,7 @@ entities:
       pos: -14.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41624.055
+      secondsUntilStateChange: -42209.49
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20806,19 +20795,21 @@ entities:
       parent: 2
 - proto: AirlockSecurityLawyerLocked
   entities:
+  - uid: 190
+    components:
+    - type: Transform
+      pos: -15.5,-18.5
+      parent: 2
+  - uid: 1117
+    components:
+    - type: Transform
+      pos: -15.5,-12.5
+      parent: 2
   - uid: 1632
     components:
     - type: Transform
       pos: -13.5,-3.5
       parent: 2
-  - uid: 1774
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -15.5,-12.5
-      parent: 2
-    - type: DeviceLinkSink
-      invokeCounter: 1
 - proto: AirlockServiceGlassLocked
   entities:
   - uid: 451
@@ -20862,7 +20853,7 @@ entities:
       pos: -22.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -230.06032
+      secondsUntilStateChange: -815.4922
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -22359,6 +22350,20 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-9.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 1122
+    components:
+    - type: Transform
+      pos: -99.5,-22.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 1774
+    components:
+    - type: Transform
+      pos: -95.5,-22.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -25454,39 +25459,6 @@ entities:
       rot: 2.9670597283903604 rad
       pos: -69.65732,-30.326431
       parent: 2
-  - uid: 1117
-    components:
-    - type: Transform
-      pos: -33.28958,1.6432581
-      parent: 2
-    - type: Storage
-      storedItems:
-        1118:
-          position: 0,0
-          _rotation: South
-        1119:
-          position: 1,0
-          _rotation: South
-        1120:
-          position: 2,0
-          _rotation: South
-        1121:
-          position: 3,0
-          _rotation: South
-        1122:
-          position: 4,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 1118
-          - 1119
-          - 1120
-          - 1121
-          - 1122
   - uid: 1123
     components:
     - type: Transform
@@ -25983,6 +25955,21 @@ entities:
       parent: 2
 - proto: CableApcExtension
   entities:
+  - uid: 1119
+    components:
+    - type: Transform
+      pos: -36.5,-45.5
+      parent: 2
+  - uid: 1120
+    components:
+    - type: Transform
+      pos: -27.5,-46.5
+      parent: 2
+  - uid: 2124
+    components:
+    - type: Transform
+      pos: -26.5,-46.5
+      parent: 2
   - uid: 2125
     components:
     - type: Transform
@@ -26067,6 +26054,11 @@ entities:
     components:
     - type: Transform
       pos: -49.5,-68.5
+      parent: 2
+  - uid: 6526
+    components:
+    - type: Transform
+      pos: -28.5,-46.5
       parent: 2
   - uid: 7120
     components:
@@ -30191,12 +30183,12 @@ entities:
   - uid: 9799
     components:
     - type: Transform
-      pos: -36.5,-45.5
+      pos: -28.5,-47.5
       parent: 2
   - uid: 9800
     components:
     - type: Transform
-      pos: -35.5,-45.5
+      pos: -28.5,-48.5
       parent: 2
   - uid: 9801
     components:
@@ -34678,10 +34670,20 @@ entities:
     - type: Transform
       pos: -18.5,-41.5
       parent: 2
+  - uid: 11788
+    components:
+    - type: Transform
+      pos: -28.5,-49.5
+      parent: 2
   - uid: 13510
     components:
     - type: Transform
       pos: -94.5,-21.5
+      parent: 2
+  - uid: 13601
+    components:
+    - type: Transform
+      pos: -28.5,-50.5
       parent: 2
   - uid: 13668
     components:
@@ -57313,6 +57315,16 @@ entities:
       inSlotFlag: HEAD
     - type: Physics
       canCollide: False
+- proto: ClothingHeadHatBeretHoP
+  entities:
+  - uid: 1118
+    components:
+    - type: MetaData
+      desc: Поношенный берет с инициалами Х.А. На обороте видна приписка "Самому наглому ублюдку, от всего сердца, Л.Г.
+      name: именной берет главы персонала
+    - type: Transform
+      pos: -33.516907,1.6492753
+      parent: 2
 - proto: ClothingHeadHatBeretHoS
   entities:
   - uid: 6604
@@ -66326,7 +66338,7 @@ entities:
       tags:
       - DrinkBottle
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.22441816
+      sprayFizzinessThresholdRoll: 0.49229357
     - type: SolutionContainerManager
       solutions: null
       containers:
@@ -69031,7 +69043,7 @@ entities:
       pos: -51.5,-22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -1086.8302
+      secondsUntilStateChange: -1672.2621
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -71777,16 +71789,15 @@ entities:
       parent: 2
 - proto: FloraTreeLarge
   entities:
+  - uid: 1121
+    components:
+    - type: Transform
+      pos: -37.395317,-48.198723
+      parent: 2
   - uid: 1359
     components:
     - type: Transform
       pos: -31.450691,-47.484272
-      parent: 2
-  - uid: 2124
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -37.552975,-48.311607
       parent: 2
 - proto: FoamBlade
   entities:
@@ -104554,7 +104565,7 @@ entities:
       pos: -13.5,-37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -41617.02
+      secondsUntilStateChange: -42202.453
       state: Closing
   - uid: 11619
     components:
@@ -104617,7 +104628,7 @@ entities:
       pos: -11.5,-45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -120788.35
+      secondsUntilStateChange: -121373.78
       state: Closing
   - uid: 11633
     components:
@@ -106663,11 +106674,6 @@ entities:
     components:
     - type: Transform
       pos: -51.624054,-52.53534
-      parent: 2
-  - uid: 11788
-    components:
-    - type: Transform
-      pos: -33.673576,1.6607132
       parent: 2
 - proto: MachineAnomalyGenerator
   entities:
@@ -108760,36 +108766,6 @@ entities:
       rot: 3.2288591161895095 rad
       pos: -69.322815,-30.306763
       parent: 2
-  - uid: 1118
-    components:
-    - type: Transform
-      parent: 1117
-    - type: Physics
-      canCollide: False
-  - uid: 1119
-    components:
-    - type: Transform
-      parent: 1117
-    - type: Physics
-      canCollide: False
-  - uid: 1120
-    components:
-    - type: Transform
-      parent: 1117
-    - type: Physics
-      canCollide: False
-  - uid: 1121
-    components:
-    - type: Transform
-      parent: 1117
-    - type: Physics
-      canCollide: False
-  - uid: 1122
-    components:
-    - type: Transform
-      parent: 1117
-    - type: Physics
-      canCollide: False
   - uid: 1237
     components:
     - type: Transform
@@ -119012,7 +118988,7 @@ entities:
   - uid: 13522
     components:
     - type: Transform
-      pos: -35.64557,-18.324768
+      pos: -35.746048,-18.190678
       parent: 2
   - uid: 13523
     components:
@@ -119034,7 +119010,7 @@ entities:
   - uid: 13526
     components:
     - type: Transform
-      pos: -35.31773,-18.526768
+      pos: -35.714798,-18.49276
       parent: 2
   - uid: 13528
     components:
@@ -119541,22 +119517,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -89.44821,-43.578697
       parent: 2
-- proto: Screen
-  entities:
-  - uid: 13601
-    components:
-    - type: Transform
-      pos: -95.5,-22.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 13602
-    components:
-    - type: Transform
-      pos: -99.5,-22.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
 - proto: ScreenTimer
   entities:
   - uid: 1678
@@ -121138,11 +121098,6 @@ entities:
     - type: Transform
       pos: -14.5,-11.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        1774:
-        - - Pressed
-          - DoorBolt
     - type: Fixtures
       fixtures: {}
   - uid: 2005

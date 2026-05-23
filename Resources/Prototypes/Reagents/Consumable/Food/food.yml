@@ -8,7 +8,7 @@
   flavor: nutriment
   color: "#24591F"
   metabolisms:
-    Food:
+    Metabolites:
       effects:
       - !type:SatiateHunger
 # WL android species start
@@ -31,20 +31,6 @@
           reagent: Nutriment
           min: 10
 # WL android species end
-# WL species start
-      # Golem
-      - !type:HealthChange
-        probability: 0.5
-        damage:
-          groups:
-            Airloss: -0.1
-            Brute: -0.1
-            Burn: -0.1
-            Toxin: -0.1
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-# WL species end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1.5
@@ -61,23 +47,18 @@
   flavor: vitamin
   color: "#D3D3D3"
   metabolisms:
-    Food: #This makes it not compete with medicines, a large bonus for something that can heal
+    Metabolites: #This makes it not compete with medicines, a large bonus for something that can heal
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         probability: 0.5
         damage:
-          groups:
-            Brute: -0.5
-            Burn: -0.5
+          Brute: -0.5
+          Burn: -0.5
 # WL species start
         # Android
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
-          inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
           inverted: true
       # Android
       - !type:HealthChange
@@ -98,18 +79,6 @@
         - !type:ReagentCondition
           reagent: Vitamin
           min: 10
-      # Golem
-      - !type:HealthChange
-        probability: 0.5
-        damage:
-          groups:
-            Airloss: -0.5
-            Brute: -0.5
-            Burn: -0.5
-            Toxin: -0.5
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
 # WL species end
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleed
@@ -119,10 +88,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
-          inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
           inverted: true
 # WL species end
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
@@ -143,22 +108,17 @@
   flavor: protein
   color: "#FFFFE5"
   metabolisms:
-    Food:
+    Metabolites:
       effects:
-      - !type:HealthChange
+      - !type:EvenHealthChange
         probability: 0.5
         damage:
-          groups:
             Brute: -0.4
 # WL species start
         # Android
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
-          inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
           inverted: true
 # WL species end
       - !type:HealthChange
@@ -188,25 +148,9 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
           inverted: true
-        # Golem
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
 # WL species end
       - !type:SatiateHunger
 # WL species start
-      # Golem
-      - !type:HealthChange
-        probability: 0.5
-        damage:
-          groups:
-            Airloss: -0.1
-            Brute: -0.1
-            Burn: -0.1
-            Toxin: -0.1
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
 # WL species end
   pricePerUnit: 3
 
@@ -220,7 +164,7 @@
   color: white
   meltingPoint: 146.0
   metabolisms:
-    Food:
+    Metabolites:
       effects:
       - !type:SatiateHunger
         conditions:

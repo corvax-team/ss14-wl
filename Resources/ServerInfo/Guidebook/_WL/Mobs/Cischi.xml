@@ -33,8 +33,7 @@
 \n
   Попросите у бармена [color=#a4885c]"Смерть коня"[/color] и [color=#a4885c]"Ложка дёгтя"[/color]
 
-  <GuideReagentEmbed Reagent="DeathHorse"></GuideReagentEmbed>
-  <GuideReagentEmbed Reagent="SpoonOfTar"></GuideReagentEmbed>
+    <GuideReagentEmbed Reagent="SpoonOfTar"></GuideReagentEmbed>
 
 \n Или же одно из следующих блюд:
 

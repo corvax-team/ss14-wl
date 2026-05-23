@@ -1,27 +1,21 @@
-using Content.Client.Decals.Overlays;
-using Content.Client.Light;
-using Content.Client.Parallax;
+using System.Numerics;
 using Content.Shared._WL.Photo;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Sources;
-using Robust.Shared.Prototypes;
-using System.Linq;
-using System.Numerics;
 
 namespace Content.Client._WL.Photo.UI;
 
-public sealed class PhotoCameraBoundUserInterface : BoundUserInterface
+public sealed partial class PhotoCameraBoundUserInterface : BoundUserInterface
 {
     private readonly EyeSystem _eyeSystem;
     private readonly PhotoSystem _photoSystem;
     private readonly TransformSystem _transform;
 
-    [Dependency] private readonly IResourceCache _cache = default!;
-    [Dependency] private readonly IAudioManager _audioManager = default!;
+    [Dependency] private IResourceCache _cache = default!;
+    [Dependency] private IAudioManager _audioManager = default!;
 
     [ViewVariables]
     private PhotoCameraWindow? _window;

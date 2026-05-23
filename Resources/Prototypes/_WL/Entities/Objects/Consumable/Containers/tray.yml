@@ -11,7 +11,7 @@
       - sprite: _WL/Objects/Consumable/tray.rsi
         state: items-inhand-right
   - type: Appearance
-    
+
 - type: entity
   name: tray
   parent: [ BaseItem, TrayBase ]
@@ -36,7 +36,7 @@
       - state: tray-inhand-right
   - type: Tray
     capacity: 5
-    hasCap: true 
+    hasCap: true
     capInhandVisuals:
       left:
       - state: cap-inhand-left
@@ -48,6 +48,7 @@
       types:
         Blunt: 5
   - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:

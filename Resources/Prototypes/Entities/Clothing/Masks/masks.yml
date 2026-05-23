@@ -8,6 +8,20 @@
     sprite: Clothing/Mask/gas.rsi
   - type: Clothing
     sprite: Clothing/Mask/gas.rsi
+    # WL-Sounds-Start
+    equipSound:
+      collection: GasMaskEquip
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GasMaskPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GasMaskDrop
+      params:
+        volume: -4
+  # WL-Sounds-End
   - type: BreathMask
   - type: IngestionBlocker
   - type: IdentityBlocker
@@ -710,9 +724,6 @@
     sprite: Clothing/Mask/italian_moustache.rsi
   - type: Item
     storedRotation: -90
-  - type: AddAccentClothing
-    accent: ReplacementAccent
-    replacement: italian
 
 - type: entity
   parent: ClothingMaskBase

@@ -4,7 +4,7 @@
   description: language-wingdings-desc
   color: '#a6a6a6'
   keylang: 'ж'
-  needtts: false
+  needTTS: false
   emoting: true
   radioPass: 0
   pressurePass: 1

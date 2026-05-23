@@ -1,0 +1,27 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            Title="{Loc chameleon-passport-menu-title}"
+            MinSize="350 440"
+            SetSize="350 440">
+    <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="100">
+
+        <Label Name="CurrentName" Text="{Loc 'chameleon-passport-current-name'}" />
+        <LineEdit Name="NameLineEdit" />
+
+        <Label Name="CurrentSpecies" Text="{Loc 'chameleon-passport-current-species'}" />
+        <LineEdit Name="SpeciesLineEdit" />
+
+        <Label Name="CurrentGender" Text="{Loc 'chameleon-passport-current-gender'}" />
+        <LineEdit Name="GenderLineEdit" />
+
+        <Label Name="CurrentYOB" Text="{Loc 'chameleon-passport-current-year-of-birth'}" />
+        <LineEdit Name="YOBLineEdit" />
+
+        <Label Name="CurrentHeight" Text="{Loc 'chameleon-passport-current-height'}" />
+        <LineEdit Name="HeightLineEdit" />
+
+        <Label Name="CurrentPID" Text="{Loc 'chameleon-passport-current-PID'}" />
+        <LineEdit Name="PIDLineEdit" />
+
+    </BoxContainer>
+</DefaultWindow>
