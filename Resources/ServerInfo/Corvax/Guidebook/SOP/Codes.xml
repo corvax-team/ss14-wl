@@ -22,7 +22,7 @@
       </Box>
     </ColorBox>
   </Table>
-  <Box Margin="4"/>
+  <Box Margin="4"></Box>
   <Table Columns="1">
     <ColorBox Color="#103461">
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
@@ -41,7 +41,7 @@
       </Box>
     </ColorBox>
   </Table>
-  <Box Margin="4"/>
+  <Box Margin="4"></Box>
   <Table Columns="1">
     <ColorBox Color="#5b101a">
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
@@ -60,7 +60,7 @@
       </Box>
     </ColorBox>
   </Table>
-  <Box Margin="4"/>
+  <Box Margin="4"></Box>
   <Table Columns="1">
     <ColorBox Color="#5e2151">
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
@@ -79,7 +79,7 @@
       </Box>
     </ColorBox>
   </Table>
-  <Box Margin="4"/>
+  <Box Margin="4"></Box>
   <Table Columns="1">
     <ColorBox Color="#242c38">
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">
@@ -118,7 +118,7 @@
       </Box>
     </ColorBox>
   </Table>
-  <Box Margin="4"/>
+  <Box Margin="4"></Box>
   <Table Columns="1">
     <ColorBox Color="#321951">
       <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2">

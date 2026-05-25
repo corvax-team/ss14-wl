@@ -1,67 +1,98 @@
 <Document>
   # Общие СРП
-  Медицинский отдел — это структура, занимающаяся медицинской деятельностью в рамках Объекта.
-  СРП медицинского отдела распространяются на следующие должности: главный врач, дежурный врач, врач, фармацевт, парамедик, психотерапевт, интерн.
-
   ### Сотрудник медицинского отдела обязан
   <FTLTextpart Key="guidebook-SOP-medical-general-must"/>
 
   ### Сотрудник медицинского отдела имеет право
   <FTLTextpart Key="guidebook-SOP-medical-general-right"/>
 
+  ### Сотруднику медицинского отдела запрещено
+  <FTLTextpart Key="guidebook-SOP-medical-general-prohibited"/>
+
   # Должностные СРП
   ## СРП Главного врача
-  Главный врач (также медицинский директор)  — лицо, ответственное за здоровье сотрудников в рамках Объекта. Является главой медицинского отдела.
-
   ### Главный врач обязан
   <FTLTextpart Key="guidebook-SOP-ChiefMedicalOfficer-must"/>
 
-  ## СРП Дежурного врача
-  Дежурный врач — лицо, ответственное за обучение сотрудников, проходящих стажировку в медицинском отделе.
+  ### Главный врач имеет право
+  <FTLTextpart Key="guidebook-SOP-ChiefMedicalOfficer-right"/>
 
-  ### Дежурный врач обязан
-  <FTLTextpart Key="guidebook-SOP-DutyDoctor-must"/>
-
-  ### Дежурный врач имеет право
-  <FTLTextpart Key="guidebook-SOP-DutyDoctor-right"/>
+  ### Главному врачу запрещено
+  <FTLTextpart Key="guidebook-SOP-ChiefMedicalOfficer-prohibited"/>
 
   ## СРП Парамедика
-  Парамедик — лицо, профессионально занимающееся оказанием скорой медицинской помощи.
-
   ### Парамедик обязан
   <FTLTextpart Key="guidebook-SOP-Paramedic-must"/>
 
   ### Парамедик имеет право
   <FTLTextpart Key="guidebook-SOP-Paramedic-right"/>
 
-  ## СРП Врача
-  Врач (также вирусолог, генетик, патологоанатом, терапевт, хирург) — лицо, профессионально занимающееся профилактикой и лечением соматических травм.
+  ### Парамедику запрещено
+  <FTLTextpart Key="guidebook-SOP-Paramedic-prohibited"/>
 
+  ## СРП Врача
   ### Врач обязан
   <FTLTextpart Key="guidebook-SOP-MedicalDoctor-must"/>
 
   ### Врач имеет право
   <FTLTextpart Key="guidebook-SOP-MedicalDoctor-right"/>
 
-  ## СРП Фармацефта
-  Фармацевт — лицо, профессионально занимающееся синтезом химических веществ в медицинских целях.
+  ### Врачу запрещено
+  <FTLTextpart Key="guidebook-SOP-MedicalDoctor-prohibited"/>
 
-  ### Фармацевт обязан
+  ## СРП Химика
+  ### Химик обязан
   <FTLTextpart Key="guidebook-SOP-Chemist-must"/>
 
-  ## СРП Психотерапевта
-  Психотерапевт (также психиатр) — лицо, профессионально занимающееся оказанием психиатрической медицинской и психологической помощи.
+  ### Химик имеет право
+  <FTLTextpart Key="guidebook-SOP-Chemist-right"/>
 
-  ### Психотерапевт обязан
+  ### Химику запрещено
+  <FTLTextpart Key="guidebook-SOP-Chemist-prohibited"/>
+
+  ## СРП Психолога
+  ### Психолог обязан
   <FTLTextpart Key="guidebook-SOP-Psychologist-must"/>
+
+  ### Психолог имеет право
+  <FTLTextpart Key="guidebook-SOP-Psychologist-right"/>
+
+  ### Психологу запрещено
+  <FTLTextpart Key="guidebook-SOP-Psychologist-prohibited"/>
+
+  ## СРП Хирурга
+  ### Хирург обязан
+  <FTLTextpart Key="guidebook-SOP-Surgeon-must"/>
+
+  ### Хирургу запрещено
+  <FTLTextpart Key="guidebook-SOP-Surgeon-prohibited"/>
+
+  ## СРП Патологоанатома
+  ### Патологоанатом обязан
+  <FTLTextpart Key="guidebook-SOP-Pathologist-must"/>
+
+  ### Патологоанатом имеет право
+  <FTLTextpart Key="guidebook-SOP-Pathologist-right"/>
+
+  ## СРП Вирусолога
+  ### Вирусолог обязан
+  <FTLTextpart Key="guidebook-SOP-Virologist-must"/>
+
+  ### Вирусолог имеет право
+  <FTLTextpart Key="guidebook-SOP-Virologist-right"/>
 
   ## СРП Интерна
   ### Интерн обязан
   <FTLTextpart Key="guidebook-SOP-MedicalIntern-must"/>
 
+  ### Интерн имеет право
+  <FTLTextpart Key="guidebook-SOP-MedicalIntern-right"/>
+
+  ### Интерну запрещено
+  <FTLTextpart Key="guidebook-SOP-MedicalIntern-prohibited"/>
+
   # Процедуры и протоколы
   ## Техника безопасности медицинского отдела
-  Техника безопасности медицинского отдела регулирует деятельность медицинского отдела со стороны безопасности Объекта и его сотрудников.
   <FTLTextpart Key="guidebook-SOP-medical-procedure-safety"/>
 
   ## Нормы обращения с телами разумных существ

@@ -1,28 +1,41 @@
 <Document>
+  # Общие СРП
+  ### Обязанности отдела снабжения
+  <FTLTextpart Key="guidebook-SOP-cargo-general-must"/>
+
+  ### Права отдела снабжения
+  <FTLTextpart Key="guidebook-SOP-cargo-general-right"/>
+
+  ### Запреты отдела снабжения
+  <FTLTextpart Key="guidebook-SOP-cargo-general-prohibited"/>
+
   # Должностные СРП
   ## СРП Квартирмейстера
-  Квартирмейстер (также директор логистики) — лицо, ответственное за материальное и финансовое обеспечение Объекта и распределение ресурсов в его рамках. Является главой отдела снабжения.
-
   ### Квартирмейстер обязан
   <FTLTextpart Key="guidebook-SOP-Quartermaster-must"/>
 
   ### Квартирмейстер имеет право
   <FTLTextpart Key="guidebook-SOP-Quartermaster-right"/>
 
-  ## СРП Утилизатора
-  Утилизатор (также шахтёр, полевой исследователь, пилот экспедиции) — лицо, занимающееся утилизацией.
+  ### Квартирмейстеру запрещено
+  <FTLTextpart Key="guidebook-SOP-Quartermaster-prohibited"/>
 
+  ## СРП Утилизатора
   ### Утилизатор обязан
   <FTLTextpart Key="guidebook-SOP-SalvageSpecialist-must"/>
 
   ### Утилизатор имеет право
   <FTLTextpart Key="guidebook-SOP-SalvageSpecialist-right"/>
 
-  ## СРП Грузчика
-  Грузчик (также курьер, логист, почтальон, работник склада, старший логист) — лицо, занимающееся транспортировкой грузов.
+  ### Утилизатору запрещено
+  <FTLTextpart Key="guidebook-SOP-SalvageSpecialist-prohibited"/>
 
+  ## СРП Грузчика
   ### Грузчик обязан
   <FTLTextpart Key="guidebook-SOP-CargoTechnician-must"/>
+
+  ### Грузчик имеет право
+  <FTLTextpart Key="guidebook-SOP-CargoTechnician-right"/>
 
   # Процедуры и протоколы
   ## Процедура утилизации найденных вещей
