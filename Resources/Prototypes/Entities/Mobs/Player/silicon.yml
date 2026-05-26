@@ -74,6 +74,31 @@
     transmitFrequencyId: ShuttleTimer
   - type: RadarConsole
     followEntity: false
+  # WL-Changes-start
+  - type: Languages
+    currentLanguage: Translate # Added to stop tests from yapping
+    speaking:
+      - Translate
+      - Ternary
+    understood:
+      - Translate
+      - BottomTranslate
+      - Kuniluc
+      - OldEarth
+      - RootSpeak
+      - Sarengis
+      - SikTair
+      - SintaUnati
+      - Slimish
+      - TopTranslate
+      - Urhas
+      - Urlum
+      - VoxPigin
+      - Weaver
+      - Wingdings
+      - Yangyu
+      - Ternary
+  # WL-Changes-end
   - type: CommunicationsConsole
     canShuttle: false
     title: comms-console-announcement-title-station-ai
@@ -433,29 +458,6 @@
   components:
   - type: TTS
     voice: Machine_spirit_4 # Corvax-TTS
-  # WL-Changes-start
-  - type: Languages
-    speaking:
-      - Translate
-    understood:
-      - Translate
-      - BottomTranslate
-      - Kuniluc
-      - OldEarth
-      - RootSpeak
-      - Sarengis
-      - SikTair
-      - SintaUnati
-      - Slimish
-      - TopTranslate
-      - Urhas
-      - Urlum
-      - VoxPigin
-      - Weaver
-      - Wingdings
-      - Yangyu
-    specieLanguage: Ternary
-  # WL-Changes-end
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
     visible: false
