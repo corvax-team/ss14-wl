@@ -15,7 +15,6 @@ namespace Content.Server.Stack
     public sealed partial class StackSystem : SharedStackSystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly IEntityManager _ent = default!; // Wl-changes
 
         // Wl-changes-start
         public override void Initialize()
@@ -320,12 +319,7 @@ namespace Content.Server.Stack
             if (!TryComp<StackComponent>(uid, out var comp))
                 return;
 
-            if (!TryComp<TransformComponent>(ev.Actor, out var transform))
-                return;
-
-            UserSplit(new Entity<StackComponent>(uid, comp),
-                new Entity<TransformComponent?>(ev.Actor, transform),
-                ev.Value);
+            UserSplit(new Entity<StackComponent>(uid, comp), ev.Actor, ev.Value);
         }
         // Wl-changes-end
         #endregion
