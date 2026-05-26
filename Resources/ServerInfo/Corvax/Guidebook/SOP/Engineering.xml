@@ -31,9 +31,6 @@
   ### Атмосферный техник имеет право
   <FTLTextpart Key="guidebook-SOP-AtmosphericTechnician-right"/>
 
-  ### Атмосферному технику запрещено
-  <FTLTextpart Key="guidebook-SOP-AtmosphericTechnician-prohibited"/>
-
   ## СРП Инженера
   Инженер (также инженер-структурщик, механик, системный администратор, управленец ГЭУ, электрик) — лицо, профессионально технически обслуживающее Объект.
 
