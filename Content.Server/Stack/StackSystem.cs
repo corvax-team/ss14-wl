@@ -14,7 +14,7 @@ namespace Content.Server.Stack
     [UsedImplicitly]
     public sealed partial class StackSystem : SharedStackSystem
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!; // Wl-change я скажу так. Привет чай, уберешь коментарий? ☺
 
         // Wl-changes-start
         public override void Initialize()
