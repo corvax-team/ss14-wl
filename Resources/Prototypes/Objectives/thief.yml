@@ -181,8 +181,6 @@
 
 # steal item
 
-#WL-obj-start
-
 - type: entity
   parent: [BaseThiefObjective, BaseCounterObjective]
   id: MailFraudObjective
@@ -200,8 +198,6 @@
     title: objective-condition-mail-fraud-title
   - type: ObjectiveLimit
     limit: 1
-
-#WL-obj-end
 
 - type: entity                                      #Security subgroup
   parent: BaseThiefStealObjective
