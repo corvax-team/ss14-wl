@@ -31,7 +31,7 @@ public abstract partial class SharedStackSystem : EntitySystem
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] protected SharedPopupSystem Popup = default!;
     [Dependency] private SharedStorageSystem _storage = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!; // Wl-changes-start
+    [Dependency] private SharedUserInterfaceSystem _ui = default!; // Wl-changes-start
 
     // TODO: These should be in the prototype.
     public static readonly int[] DefaultSplitAmounts = { 1, 5, 10, 20, 30, 50 };
