@@ -76,23 +76,11 @@
   ### Музыкант обязан
   <FTLTextpart Key="guidebook-SOP-Musician-must"/>
 
-  ### Музыкант имеет право
-  <FTLTextpart Key="guidebook-SOP-Musician-right"/>
-
-  ### Музыканту запрещено
-  <FTLTextpart Key="guidebook-SOP-Musician-prohibited"/>
-
   ## СРП Репортёра
   Репортёр (также журналист, корреспондент, радиоведущий, телеведущий, социолог) — лицо, ответственное за осведомлённость членов экипажа о новостях Объекта.
 
   ### Репортёр обязан
   <FTLTextpart Key="guidebook-SOP-Reporter-must"/>
-
-  ### Репортёр имеет право
-  <FTLTextpart Key="guidebook-SOP-Reporter-right"/>
-
-  ### Репортёру запрещено
-  <FTLTextpart Key="guidebook-SOP-Reporter-prohibited"/>
 
   ## СРП Боксера
   ### Боксер обязан
