@@ -109,15 +109,13 @@ public sealed partial class NewCommunicationsConsoleMenu : FancyWindow
         {
             var name = currentAlert;
 
-            if (!_prototypeManager.TryIndex<AlertLevelPrototype>(currentAlert, out var index))
-                return;
-            if (_loc.TryGetString($"alert-level-{currentAlert.ToLower()}", out var locName))
+            if (!string.IsNullOrEmpty(currentAlert) && _prototypeManager.TryIndex<AlertLevelPrototype>(currentAlert, out var index))
             {
-                name = locName;
+                if (_loc.TryGetString($"alert-level-{currentAlert.ToLower()}", out var locName))
+                    name = locName;
+                else if (!string.IsNullOrEmpty(index.SetName))
+                    name = index.SetName;
             }
-            else if (!string.IsNullOrEmpty(index.SetName))
-                name = index.SetName;
-
 
             AlertLevelButton.AddItem(name);
             AlertLevelButton.SetItemMetadata(AlertLevelButton.ItemCount - 1, currentAlert);

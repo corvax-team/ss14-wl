@@ -1,5 +1,6 @@
 - type: markingsGroup
   parent: Undergarments
+  onlyGroupWhitelisted: true
   id: Akula
   limits:
     enum.HumanoidVisualLayers.Hair:
@@ -52,6 +53,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceAkula
+  categories: [ HideSpawnMenu ]
   name: akula appearance
   components:
   - type: InitialBody

@@ -16,6 +16,11 @@ namespace Content.Shared.PDA
         public bool HasUplink;
         public bool CanPlayMusic;
         public string? Address;
+        // WL-Changes-start: ETA in PDA
+        public TimeSpan? ExpectedETA;
+        public TimeSpan? BeforeETA;
+        public bool roundEnd;
+        // WL-Changes-end
 
         public PdaUpdateState(
             List<NetEntity> programs,
@@ -27,7 +32,12 @@ namespace Content.Shared.PDA
             string? stationName,
             bool hasUplink = false,
             bool canPlayMusic = false,
-            string? address = null)
+            string? address = null,
+            // WL-Changes-start: ETA in PDA
+            TimeSpan? eta = null,
+            TimeSpan? bETA = null,
+            bool roundEND = false)
+            // WL-Changes-end
             : base(programs, activeUI)
         {
             FlashlightEnabled = flashlightEnabled;
@@ -38,6 +48,11 @@ namespace Content.Shared.PDA
             CanPlayMusic = canPlayMusic;
             StationName = stationName;
             Address = address;
+            // WL-Changes-start: ETA in PDA
+            ExpectedETA = eta;
+            BeforeETA = bETA;
+            roundEnd = roundEND;
+            // WL-Changes-end
         }
     }
 
