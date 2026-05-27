@@ -19,13 +19,6 @@ public sealed partial class RenameableSystem : EntitySystem
     [Dependency] private IPlayerManager _playMan = default!;
     [Dependency] private PopupSystem _popup = default!;
 
-    private static readonly LocId RenameActionLocString = "renameable-component-rename-action";
-    private static readonly LocId NameTitleLocString = "renameable-component-name-field";
-
-    private static readonly LocId NewNameConditions = "renameable-system-new-name-conditions";
-
-    private static readonly ResPath VerbTexturePath = new("/Textures/Interface/AdminActions/rename.png");
-
     // TODO: вынести в поле в компоненте
     private const int NewNameMaxLength = 40;
 
@@ -88,14 +81,14 @@ public sealed partial class RenameableSystem : EntitySystem
         if (!Resolve(item, ref item.Comp, false))
             return false;
 
-        var titleLoc = Loc.GetString(RenameActionLocString);
-        var promptLoc = Loc.GetString(NameTitleLocString);
+        var titleLoc = Loc.GetString(item.Comp.RenameActionLocString);
+        var promptLoc = Loc.GetString(item.Comp.NameTitleLocString);
 
         _quickDialog.OpenDialog(session, titleLoc, promptLoc, (string newName) =>
         {
             if (!IsNewNameValid(newName))
             {
-                _popup.PopupCursor(Loc.GetString(NewNameConditions, ("count", NewNameMaxLength)), session, Shared.Popups.PopupType.Medium);
+                _popup.PopupCursor(Loc.GetString(item.Comp.NewNameConditions, ("count", NewNameMaxLength)), session, Shared.Popups.PopupType.Medium);
                 return;
             }
 
@@ -135,8 +128,8 @@ public sealed partial class RenameableSystem : EntitySystem
                 TryOpenDialog(session, item);
             },
             Impact = Shared.Database.LogImpact.Low,
-            Text = Loc.GetString(RenameActionLocString),
-            Icon = new SpriteSpecifier.Texture(VerbTexturePath),
+            Text = Loc.GetString(comp.RenameActionLocString),
+            Icon = new SpriteSpecifier.Texture(comp.VerbTexturePath),
             Priority = 10,
         };
 

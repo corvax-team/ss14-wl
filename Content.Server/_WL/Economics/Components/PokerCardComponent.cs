@@ -9,7 +9,7 @@ namespace Content.Server._WL.Economics.Components
         public SoundSpecifier FlipSound = new SoundPathSpecifier(@"/Audio/_WL/Economics/flip.ogg");
 
         [DataField]
-        public string FlippedCardName = "перевёрнутая карта";
+        public LocId FlippedCardName = "pokercard-comp-flipped-card";
 
         [DataField]
         public bool FlipPopup = true;

@@ -1,121 +1,86 @@
 <Document>
+  ## Введение СРП сервисного отдела
+  Сервисный отдел — это структура, занимающаяся поддержкой на высоком уровне психоэмоционального состояния членов экипажа.
+  СРП сервисного отдела распространяются на следующие должности: глава персонала, бармен, ботаник, священник, шеф-повар, клоун, уборщик, библиотекарь, мим, музыкант, репортёр, сервисный работник.
+
   # Должностные СРП
   ## СРП Главы персонала
+  Глава персонала (также директор по персоналу, старший администратор) — лицо, ответственное за психоэмоциональное состояние членов экипажа. Является главой сервисного отдела.
+
   ### Глава персонала обязан
   <FTLTextpart Key="guidebook-SOP-HeadOfPersonnel-must"/>
 
-  ### Глава персонала имеет право
-  <FTLTextpart Key="guidebook-SOP-HeadOfPersonnel-right"/>
-
-  ### Главе персонала запрещено
-  <FTLTextpart Key="guidebook-SOP-HeadOfPersonnel-prohibited"/>
-
   ## СРП Сервисного работника
+  Сервисный работник (также крупье, официант, сервисный ассистент, стюард, артист, театральный режиссёр) — лицо, ассистирующее сервисному отделу в различных сферах.
+
   ### Сервисный работник обязан
   <FTLTextpart Key="guidebook-SOP-ServiceWorker-must"/>
 
-  ### Сервисный работник имеет право
-  <FTLTextpart Key="guidebook-SOP-ServiceWorker-right"/>
-
   ## СРП Клоуна
+  Клоун (также комик) — лицо, профессионально занимающееся юмором.
+
   ### Клоун обязан
   <FTLTextpart Key="guidebook-SOP-Clown-must"/>
 
-  ### Клоун имеет право
-  <FTLTextpart Key="guidebook-SOP-Clown-right"/>
-
-  ### Клоуну запрещено
-  <FTLTextpart Key="guidebook-SOP-Clown-prohibited"/>
-
   ## СРП Мима
+  Мим (также пантомимист) — лицо, профессионально занимающееся пантомимами.
+
   ### Мим обязан
   <FTLTextpart Key="guidebook-SOP-Mime-must"/>
 
-  ### Мим имеет право
-  <FTLTextpart Key="guidebook-SOP-Mime-right"/>
-
-  ### Миму запрещено
-  <FTLTextpart Key="guidebook-SOP-Mime-prohibited"/>
-
   ## СРП Шеф-повара
+  Шеф-повар (также кондитер, кулинар, мясник, пекарь, повар, работник столовой, су-шеф) — лицо, профессионально занимающееся кулинарией.
+
   ### Шеф-повар обязан
   <FTLTextpart Key="guidebook-SOP-Chef-must"/>
 
-  ### Шеф-повар имеет право
-  <FTLTextpart Key="guidebook-SOP-Chef-right"/>
-
-  ### Шеф-повару запрещено
-  <FTLTextpart Key="guidebook-SOP-Chef-prohibited"/>
-
   ## СРП Ботаника
+  Ботаник (также агроном, агротехник, зооботаник, оператор гидропонного отсека, флорист) — лицо, профессионально занимающееся ботаникой.
+
   ### Ботаник обязан
   <FTLTextpart Key="guidebook-SOP-Botanist-must"/>
 
   ### Ботаник имеет право
   <FTLTextpart Key="guidebook-SOP-Botanist-right"/>
 
-  ### Ботанику запрещено
-  <FTLTextpart Key="guidebook-SOP-Botanist-prohibited"/>
-
   ## СРП Бармена
+  Бармен (также бариста, сомелье) — лицо, управляющее баром.
+
   ### Бармен обязан
   <FTLTextpart Key="guidebook-SOP-Bartender-must"/>
 
   ### Бармен имеет право
   <FTLTextpart Key="guidebook-SOP-Bartender-right"/>
 
-  ### Бармену запрещено
-  <FTLTextpart Key="guidebook-SOP-Bartender-prohibited"/>
-
   ## СРП Уборщика
+  Уборщик (также специалист по переработке) — лицо, ответственное за чистоту Объекта.
+
   ### Уборщик обязан
   <FTLTextpart Key="guidebook-SOP-Janitor-must"/>
 
-  ### Уборщик имеет право
-  <FTLTextpart Key="guidebook-SOP-Janitor-right"/>
-
-  ### Уборщику запрещено
-  <FTLTextpart Key="guidebook-SOP-Janitor-prohibited"/>
-
   ## СРП Библиотекаря
+  Библиотекарь — лицо, управляющее библиотекой.
+
   ### Библиотекарь обязан
   <FTLTextpart Key="guidebook-SOP-Librarian-must"/>
 
-  ### Библиотекарь имеет право
-  <FTLTextpart Key="guidebook-SOP-Librarian-right"/>
-
-  ### Библиотекарю запрещено
-  <FTLTextpart Key="guidebook-SOP-Librarian-prohibited"/>
-
   ## СРП Священника
+  Священник — лицо, официально занимающееся проповедованием.
+
   ### Священник обязан
   <FTLTextpart Key="guidebook-SOP-Chaplain-must"/>
 
-  ### Священник имеет право
-  <FTLTextpart Key="guidebook-SOP-Chaplain-right"/>
-
-  ### Священнику запрещено
-  <FTLTextpart Key="guidebook-SOP-Chaplain-prohibited"/>
-
   ## СРП Музыканта
+  Музыкант (также гитарист, диджей, певец, пианист) — лицо, профессионально исполняющее музыку.
+
   ### Музыкант обязан
   <FTLTextpart Key="guidebook-SOP-Musician-must"/>
 
-  ### Музыкант имеет право
-  <FTLTextpart Key="guidebook-SOP-Musician-right"/>
-
-  ### Музыканту запрещено
-  <FTLTextpart Key="guidebook-SOP-Musician-prohibited"/>
-
   ## СРП Репортёра
+  Репортёр (также журналист, корреспондент, радиоведущий, телеведущий, социолог) — лицо, ответственное за осведомлённость членов экипажа о новостях Объекта.
+
   ### Репортёр обязан
   <FTLTextpart Key="guidebook-SOP-Reporter-must"/>
-
-  ### Репортёр имеет право
-  <FTLTextpart Key="guidebook-SOP-Reporter-right"/>
-
-  ### Репортёру запрещено
-  <FTLTextpart Key="guidebook-SOP-Reporter-prohibited"/>
 
   ## СРП Боксера
   ### Боксер обязан

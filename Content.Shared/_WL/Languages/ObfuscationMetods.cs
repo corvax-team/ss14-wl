@@ -20,7 +20,7 @@ public abstract partial class ObfuscationMethod
         int result = 0;
         int gap = end - start + 1;
         result = seed ^ (global_seed * 127) + 1;
-        result = System.Math.Abs((result + 619251) * 27644437);
+        result = Math.Abs((result + 619251) * 27644437);
         result %= gap;
         result += start;
         return result;

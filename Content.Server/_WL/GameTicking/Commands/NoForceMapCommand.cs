@@ -8,18 +8,16 @@ using Robust.Shared.Console;
 namespace Content.Server._WL.GameTicking.Commands
 {
     [AdminCommand(AdminFlags.Round)]
-    sealed partial class NoForceMapCommand : IConsoleCommand
+    sealed partial class NoForceMapCommand : LocalizedCommands
     {
         [Dependency] private IConfigurationManager _configurationManager = default!;
 
-        public string Command => "noforcemap";
-        public string Description => Loc.GetString("Убирает карту, которая была выставлена forcemap");
-        public string Help => string.Empty;
+        public override string Command => "noforcemap";
 
-        public void Execute(IConsoleShell shell, string argStr, string[] args)
+        public override void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             _configurationManager.SetCVar(CCVars.GameMap, string.Empty);
-            shell.WriteLine(Loc.GetString("Очередь карт была очищена"));
+            shell.WriteLine(Loc.GetString("cmd-noforcemap-success"));
         }
     }
 }

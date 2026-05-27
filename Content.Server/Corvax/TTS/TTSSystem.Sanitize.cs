@@ -7,9 +7,13 @@ namespace Content.Server.Corvax.TTS;
 // ReSharper disable once InconsistentNaming
 public sealed partial class TTSSystem
 {
-    private static readonly Regex _regexInvalidChars = new Regex(@"[^a-zA-Zа-яА-ЯёЁ0-9,\-+?!. ]");
+    // WL-Changes-start
+    //private static readonly Regex _regexInvalidChars = new Regex(@"[^a-zA-Zа-яА-ЯёЁ0-9,\-+?!. ]");
+    private static readonly Regex _regexInvalidChars = new Regex(@"[^a-zA-ZäöüÄÖÜа-яА-ЯёЁ0-9,\-+?!. ]");
+    //private static readonly Regex _regexWordBoundary = new Regex(@"(?<![a-zA-Zа-яёА-ЯЁ])[a-zA-Zа-яёА-ЯЁ]+?(?![a-zA-Zа-яёА-ЯЁ])", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+    private static readonly Regex _regexWordBoundary = new Regex(@"(?<![a-zA-ZäöüÄÖÜа-яёА-ЯЁ])[a-zA-ZäöüÄÖÜа-яёА-ЯЁ]+?(?![a-zA-ZäöüÄÖÜа-яёА-ЯЁ])", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+    // WL-Changes-End
     private static readonly Regex _regexLatToCyr = new Regex(@"[a-zA-Z]", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-    private static readonly Regex _regexWordBoundary = new Regex(@"(?<![a-zA-Zа-яёА-ЯЁ])[a-zA-Zа-яёА-ЯЁ]+?(?![a-zA-Zа-яёА-ЯЁ])", RegexOptions.Multiline | RegexOptions.IgnoreCase);
     private static readonly Regex _regexDecimal = new Regex(@"(?<=[1-90])(\.|,)(?=[1-90])");
     private static readonly Regex _regexDigits = new Regex(@"\d+");
     private void OnTransformSpeech(TransformSpeechEvent args)
