@@ -175,7 +175,7 @@ namespace Content.Server._WL.Android
                 androidComp.IsUnderIonStorm = true;
                 _move.RefreshMovementSpeedModifiers(android, movementSpeedComp);
 
-                _popup.PopupEntity(androidComp.IonStormPopupMessage, android, android, Shared.Popups.PopupType.Medium);
+                _popup.PopupEntity(Loc.GetString(androidComp.IonStormPopupMessage), android, android, Shared.Popups.PopupType.Medium);
 
                 EnsureComp<StutteringAccentComponent>(android);
             }
@@ -253,7 +253,7 @@ namespace Content.Server._WL.Android
             {
                 Act = () => _doAfter.TryStartDoAfter(doAfter),
                 IconEntity = GetNetEntity(target),
-                Text = "Зарядка"
+                Text = Loc.GetString("android-system-charge-verb")
             });
         }
 

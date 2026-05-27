@@ -308,7 +308,25 @@
     sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
+    # WL-Changes-Start
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-unshaded
+        shader: shaded
     quickEquip: true
+  - type: ToggleableVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+      - state: equipped-HELMET-unshaded
+        shader: unshaded
+      - state: equipped-HELMET-unshaded
+        shader: shaded
+    # WL-Changes-End
   - type: IngestionBlocker
   - type: TemperatureProtection
     heatingCoefficient: 0.3

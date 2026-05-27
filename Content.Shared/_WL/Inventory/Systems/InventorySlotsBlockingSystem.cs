@@ -29,12 +29,7 @@ namespace Content.Shared._WL.Inventory.Systems
             if (!IsSlotBlocked((args.EquipTarget, comp), args.SlotFlags, out var reasons))
                 return;
 
-            var reason = $"Для начала нужно снять ";
-
-            var stringReasons = reasons.Select(e => Identity.Name(e, EntityManager));
-            reason += string.Join(" и ", stringReasons);
-
-            args.Reason = reason;
+            args.Reason = Loc.GetString("isb-system-reason", ("entities", string.Join(", ", reasons.Select(e => Identity.Name(e, EntityManager)))));
             args.Cancel();
         }
 
@@ -49,19 +44,13 @@ namespace Content.Shared._WL.Inventory.Systems
             if (!IsSlotBlocked((args.UnEquipTarget, comp), args.Slot, out var reasons))
                 return;
 
-            var reason = $"Для начала нужно снять ";
-
-            var stringReasons = reasons.Select(e => Identity.Name(e, EntityManager));
-            reason += string.Join(" и ", stringReasons);
-
-            args.Reason = reason;
+            args.Reason = Loc.GetString("isb-system-reason", ("entities", string.Join(", ", reasons.Select(e => Identity.Name(e, EntityManager)))));
             args.Cancel();
         }
 
         public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, SlotDefinition slotDef, [NotNullWhen(true)] out List<EntityUid>? reasons)
         {
-            var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef.SlotFlags, out var reass);
-            reasons = reass;
+            var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef.SlotFlags, out reasons);
             return blocked;
         }
 
@@ -99,8 +88,7 @@ namespace Content.Shared._WL.Inventory.Systems
             if (!_inventory.TryGetSlot(entityWithInventoryComp.Owner, slot, out var slotDef, entityWithInventoryComp.Comp))
                 return false;
 
-            var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef, out var reass);
-            reasons = reass;
+            var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef, out reasons);
             return blocked;
         }
     }

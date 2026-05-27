@@ -1,4 +1,5 @@
 using Content.Shared.Charges.Components;
+using Robust.Shared.Utility;
 
 namespace Content.Server._WL.MetaData.Components;
 
@@ -19,4 +20,15 @@ public sealed partial class RenameOnInteractComponent : Component
     /// </summary>
     [DataField]
     public bool UseVerbs { get; set; } = true;
+
+    [DataField]
+    public LocId RenameActionLocString = "renameable-component-rename-action";
+
+    [DataField]
+    public LocId NameTitleLocString = "renameable-component-name-field";
+
+    [DataField]
+    public LocId NewNameConditions = "renameable-system-new-name-conditions";
+    [DataField]
+    public ResPath VerbTexturePath = new("/Textures/Interface/AdminActions/rename.png");
 }
