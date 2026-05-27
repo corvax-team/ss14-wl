@@ -11,7 +11,7 @@
     sprite: _WL/Storage/Glamour/Glamour.rsi
   - type: Storage
     grid:
-    - 0,0,5,3
+    - 0,0,6,3
   - type: MeleeWeapon
     damage:
       types:
