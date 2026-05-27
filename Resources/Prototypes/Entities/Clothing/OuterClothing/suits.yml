@@ -87,6 +87,23 @@
     sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+    # WL-Changes-Start
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: unshaded
+      - state: equipped-OUTERCLOTHING-unshaded
+        shader: shaded
+      outerClothing-reptilian: 
+      - state: equipped-OUTERCLOTHING-reptilian
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
+      - state: equipped-OUTERCLOTHING-vox-unshaded
+        shader: unshaded
+      - state: equipped-OUTERCLOTHING-vox-unshaded
+        shader: shaded
+    # WL-Changes-end
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000

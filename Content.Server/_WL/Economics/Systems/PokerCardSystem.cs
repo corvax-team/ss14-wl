@@ -49,7 +49,7 @@ namespace Content.Server._WL.Economics.Systems
             {
                 Act = () => FlipCard(card, args.User, comp),
                 IconEntity = GetNetEntity(card),
-                Text = "Перевернуть"
+                Text = Loc.GetString("pokercard-system-flip-verb")
             };
 
             args.Verbs.Add(verb);
@@ -72,6 +72,8 @@ namespace Content.Server._WL.Economics.Systems
             if (!args.CanInteract || !args.CanAccess)
                 return;
 
+            var user = args.User;
+
             var firstVerb = new AlternativeVerb()
             {
                 Act = () =>
@@ -84,20 +86,20 @@ namespace Content.Server._WL.Economics.Systems
 
                     if (container.ContainedEntities.Count == 0)
                     {
-                        _popup.PopupCursor("В коробке нет карт!", args.User);
+                        _popup.PopupCursor(Loc.GetString("pokercard-system-box-no-cards-popup"), user);
                         return;
                     }
 
                     var pickedCard = _random.Pick(container.ContainedEntities);
                     if (_container.RemoveEntity(cardBox, pickedCard, containerManagerComp, force: true))
-                        _hands.TryPickupAnyHand(args.User, pickedCard, animateUser: true);
+                        _hands.TryPickupAnyHand(user, pickedCard, animateUser: true);
 
                     if (comp.TakePopup)
-                        _popup.PopupEntity($"{Identity.Name(args.User, EntityManager)} вытащил карту из колоды.", cardBox);
+                        _popup.PopupEntity(Loc.GetString("pokercard-system-get-card-popup", ("name", Identity.Name(user, EntityManager)), ("ent", user)), cardBox);
                 },
                 IconEntity = GetNetEntity(cardBox),
                 Priority = -1,
-                Text = "Вытащить случайную карту"
+                Text = Loc.GetString("pokercard-system-get-random-card-verb")
             };
 
             var secondVerb = new AlternativeVerb()
@@ -112,7 +114,7 @@ namespace Content.Server._WL.Economics.Systems
 
                     if (container.ContainedEntities.Count == 0)
                     {
-                        _popup.PopupCursor("В коробке нет карт!", args.User);
+                        _popup.PopupCursor(Loc.GetString("pokercard-system-box-no-cards-popup"), user);
                         return;
                     }
 
@@ -123,7 +125,7 @@ namespace Content.Server._WL.Economics.Systems
                 },
                 IconEntity = GetNetEntity(cardBox),
                 Priority = -1,
-                Text = "Перевернуть все карты в колоде"
+                Text = Loc.GetString("pokercard-system-flip-all-cards-verb")
             };
 
             args.Verbs.Add(firstVerb);
@@ -155,12 +157,12 @@ namespace Content.Server._WL.Economics.Systems
                 _metaData.SetEntityName(card, comp.OriginalName);
 
                 if (user != null && comp.FlipPopup)
-                    _popup.PopupEntity($"{Identity.Name(user.Value, EntityManager)} вскрыл карту!", card);
+                    _popup.PopupEntity(Loc.GetString("pokercard-system-reveal-card-popup", ("name", Identity.Name(user.Value, EntityManager)), ("ent", user.Value)), card);
             }
             else
             {
                 _appearance.SetData(card, PokerCardState.IsFlipped, true);
-                _metaData.SetEntityName(card, comp.FlippedCardName);
+                _metaData.SetEntityName(card, Loc.GetString(comp.FlippedCardName));
             }
 
             _audio.PlayPvs(comp.FlipSound, card, StandartParams);

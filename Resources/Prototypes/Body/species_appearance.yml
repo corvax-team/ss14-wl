@@ -44,8 +44,14 @@
     - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "back" ]
-    - map: [ "neck" ]
+    #- map: [ "neck" ] # WL-Comented
     - map: [ "suitstorage" ]
+
+    # WL-Changes-Start
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+    - map: [ "neck" ]
+    # WL-Changes-End
 
     # Stuff that goes in front of equipment
     - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
@@ -53,8 +59,10 @@
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
     - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-    - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+    # WL-Comented-Start
+    # - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    # - map: [ "enum.HumanoidVisualLayers.TailOverlay" ]
+    # WL-Comented-End
 
     # Stuff that goes in front of stuff that goes in front of equipment
     - map: [ "mask" ]

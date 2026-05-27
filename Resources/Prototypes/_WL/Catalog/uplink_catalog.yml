@@ -95,3 +95,16 @@
     Telecrystal: 2
   categories:
   - UplinkDeception
+
+- type: listing
+  id: UplinkReverseCard
+  name: uplink-reverse-card-name
+  description: uplink-reverse-card-desc
+  productEntity: SyndicateReverseCard
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkDeception

@@ -14,44 +14,47 @@
       required: false
     enum.HumanoidVisualLayers.HeadTop:
       limit: 1
-      required: true
+      required: false
     enum.HumanoidVisualLayers.Snout:
       limit: 1
-      required: true
+      required: false
     enum.HumanoidVisualLayers.SnoutCover:
       limit: 3
       required: false
     enum.HumanoidVisualLayers.Tail:
       limit: 1
-      required: true
+      required: false
     enum.HumanoidVisualLayers.LArm:
-      limit: 2
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.RArm:
-      limit: 2
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.LHand:
-      limit: 2
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.RHand:
-      limit: 2
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.LLeg:
-      limit: 2
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.RLeg:
-      limit: 2
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.LFoot:
-      limit: 2
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.RFoot:
-      limit: 2
+      limit: 1
       required: false
     enum.HumanoidVisualLayers.UndergarmentTop:
       limit: 1
       required: false
     enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Overlay:
@@ -62,6 +65,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceAndroid
+  categories: [ HideSpawnMenu ]
   name: android appearance
   components:
   - type: InitialBody

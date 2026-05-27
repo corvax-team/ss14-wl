@@ -59,6 +59,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceMurine
+  categories: [ HideSpawnMenu ]
   name: murine appearance
   components:
   - type: InitialBody

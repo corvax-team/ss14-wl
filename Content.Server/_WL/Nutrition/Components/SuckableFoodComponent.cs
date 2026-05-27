@@ -36,4 +36,7 @@ public sealed partial class SuckableFoodComponent : Component
 
     [Access(typeof(SuckableFoodSystem))]
     public EntityUid? SuckingEntity;
+
+    [DataField]
+    public LocId PutInMouthLoc = "food-sweets-put-in-mouth-popup-message";
 }

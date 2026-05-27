@@ -7,7 +7,7 @@
   - Male: комик
   - Male: актёр
     Female: актриса
-  - Male: театральный режиссёр
+  # - Male: театральный режиссёр # SOP-Playtest
   requirements:
   - !type:OverallPlaytimeRequirement
       time: 3600 #1 hrs # Corvax-RoleTime

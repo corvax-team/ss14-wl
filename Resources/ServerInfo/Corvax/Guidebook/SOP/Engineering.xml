@@ -1,60 +1,48 @@
 <Document>
   # Общие СРП
+  Инженерный отдел — это структура, занимающаяся техническим обслуживанием Объекта.
+  СРП инженерного отдела распространяются на следующие должности: старший инженер, технический супервайзер, атмосферный техник, инженер, технический ассистент.
+
   ### Сотрудник инженерного отдела обязан
   <FTLTextpart Key="guidebook-SOP-engineering-general-must"/>
-  ### Сотрудник инженерного отдела имеет право
-  <FTLTextpart Key="guidebook-SOP-engineering-general-right"/>
-  ### Сотруднику инженерного отдела запрещено
-  <FTLTextpart Key="guidebook-SOP-engineering-general-prohibited"/>
 
   # Должностные СРП
   ## СРП Старшего инженера
+  Старший инженер (также технический директор) — лицо, ответственное за техническое состояние Объекта. Является главой инженерного отдела.
+
   ### Старший инженер обязан
   <FTLTextpart Key="guidebook-SOP-ChiefEngineer-must"/>
 
-  ### Старший инженер имеет право
-  <FTLTextpart Key="guidebook-SOP-ChiefEngineer-right"/>
+  ## СРП технического супервайзера
+  Технический супервайзер — лицо, ответственное за обучение сотрудников, проходящих стажировку в инженерном отделе.
 
-  ### Старшему инженеру запрещено
-  <FTLTextpart Key="guidebook-SOP-ChiefEngineer-prohibited"/>
-
-  ## СРП Ведущего инженера
-  ### Ведущий инженер обязан
+  ### Технический супервайзер обязан
   <FTLTextpart Key="guidebook-SOP-SeniorEngineer-must"/>
 
-  ### Ведущий инженер имеет право
+  ### Технический супервайзер имеет право
   <FTLTextpart Key="guidebook-SOP-SeniorEngineer-right"/>
 
-  ### Ведущему инженеру запрещено
-  <FTLTextpart Key="guidebook-SOP-SeniorEngineer-prohibited"/>
-
-  ## СРП Инженера
-  ### Инженер обязан
-  <FTLTextpart Key="guidebook-SOP-StationEngineer-must"/>
-
-  ### Инженер имеет право
-  <FTLTextpart Key="guidebook-SOP-StationEngineer-right"/>
-
-  ### Инженеру запрещено
-  <FTLTextpart Key="guidebook-SOP-StationEngineer-prohibited"/>
-
   ## СРП Атмосферного техника
+  Атмосферный техник (также газовый технолог, техник СЖО) — лицо, профессионально обслуживающее систему жизнеобеспечения Объекта.
+
   ### Атмосферный техник обязан
   <FTLTextpart Key="guidebook-SOP-AtmosphericTechnician-must"/>
 
   ### Атмосферный техник имеет право
   <FTLTextpart Key="guidebook-SOP-AtmosphericTechnician-right"/>
 
-  ### Атмосферному технику запрещено
-  <FTLTextpart Key="guidebook-SOP-AtmosphericTechnician-prohibited"/>
+  ## СРП Инженера
+  Инженер (также инженер-структурщик, механик, системный администратор, управленец ГЭУ, электрик) — лицо, профессионально технически обслуживающее Объект.
+
+  ### Инженер обязан
+  <FTLTextpart Key="guidebook-SOP-StationEngineer-must"/>
+
+  ### Инженер имеет право
+  <FTLTextpart Key="guidebook-SOP-StationEngineer-right"/>
 
   ## СРП Технического ассистента
+  Технический ассистент (также инженер-стажёр, ремонтный техник) — лицо, проходящее стажировку в качестве сотрудника инженерного отдела.
+
   ### Технический ассистент обязан
   <FTLTextpart Key="guidebook-SOP-TechnicalAssistant-must"/>
-
-  ### Технический ассистент имеет право
-  <FTLTextpart Key="guidebook-SOP-TechnicalAssistant-right"/>
-
-  ### Техническому ассистенту запрещено
-  <FTLTextpart Key="guidebook-SOP-TechnicalAssistant-prohibited"/>
 </Document>
