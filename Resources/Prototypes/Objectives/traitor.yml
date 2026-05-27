@@ -397,7 +397,7 @@
     limit: 1
 
 #- type: entity
-  parent: [BaseThiefObjective, BaseCounterObjective] # WL-Changes: BaseTraitorObjective -> BaseThiefObjective
+#  parent: [BaseThiefObjective, BaseCounterObjective] # WL-Changes: BaseTraitorObjective -> BaseThiefObjective
 #  id: MailFraudObjective
 #  description: We're interested in Nanotrasen's correspondence. Letter opener not provided.
 #  components:
@@ -413,4 +413,3 @@
 #    title: objective-condition-mail-fraud-title
 #  - type: ObjectiveLimit
 #    limit: 1
-# WL-comment
