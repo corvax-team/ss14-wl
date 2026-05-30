@@ -4,7 +4,6 @@ using Content.Shared._WL.Records;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
@@ -32,7 +31,6 @@ public sealed partial class SharedPassportSystem : EntitySystem
     private const string NoConfederationId = "NoConfederation";
     private const string PIDChars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
     private static readonly TimeSpan ToggleCooldown = TimeSpan.FromSeconds(0.5);
-    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
@@ -41,7 +39,6 @@ public sealed partial class SharedPassportSystem : EntitySystem
         SubscribeLocalEvent<PassportComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<PassportComponent, ExaminedEvent>(OnExamined);
-        _sawmill = LogManager.GetSawmill("passport");
     }
 
     private void OnExamined(EntityUid uid, PassportComponent component, ExaminedEvent args)
@@ -66,24 +63,22 @@ public sealed partial class SharedPassportSystem : EntitySystem
 
     public void SpawnPassportForPlayer(EntityUid mob, HumanoidCharacterProfile profile, string? jobId)
     {
-        _sawmill.Debug($"Attempting passport spawn for {profile.Name}, job: {jobId}, confederation: {profile.Confederation}");
+        if (jobId is "StationAi" or "Borg")
+            return;
 
-        if (jobId == null || !_prototypeManager.TryIndex(jobId, out JobPrototype? jobPrototype)
+        if (jobId == null || !_prototypeManager.TryIndex(jobId, out JobPrototype? _)
                           || Deleted(mob)
                           || !Exists(mob))
-        {
-            _sawmill.Warning($"No valid jobId for {profile.Name}");
             return;
-        }
 
         var confederationId = string.IsNullOrEmpty(profile.Confederation)
             ? NoConfederationId
             : profile.Confederation;
 
         if (!_prototypeManager.TryIndex(confederationId, out ConfederationRecordsPrototype? confProto) ||
-            !_prototypeManager.TryIndex(confProto.PassportPrototype, out EntityPrototype? entityPrototype))
+            !_prototypeManager.TryIndex(confProto.PassportPrototype, out var entityPrototype))
         {
-            if (!_prototypeManager.TryIndex<ConfederationRecordsPrototype>(NoConfederationId, out confProto) ||
+            if (!_prototypeManager.TryIndex(NoConfederationId, out confProto) ||
                 !_prototypeManager.TryIndex(confProto.PassportPrototype, out entityPrototype))
                 return;
         }
@@ -113,7 +108,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
     {
         passport.Comp.OwnerProfile = profile;
 
-        var speciesProto = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
+        var speciesProto = _prototypeManager.Index(profile.Species);
         var genderString = profile.Gender.ToString();
         passport.Comp.DisplayName = profile.Name;
         passport.Comp.DisplaySpecies = Loc.GetString(speciesProto.Name);
