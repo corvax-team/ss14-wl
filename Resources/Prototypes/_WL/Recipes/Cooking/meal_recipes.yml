@@ -55,3 +55,15 @@
 #    FoodDough: 1
 #    FoodOnionSlice: 1
 
+- type: microwaveMealRecipe
+  id: RecipeShaurma
+  name: shaurma recipe
+  result: FoodShaurma
+  time: 15
+  group: Savory
+  solids:
+    FoodDoughSlice: 1
+    FoodMeatCutlet: 1
+    FoodCabbage: 1
+    FoodPotato: 1
+    FoodTomato: 1

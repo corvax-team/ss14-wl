@@ -1,0 +1,22 @@
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodShaurma
+  name: "shaurma"
+  description: "Fried onion rings with fragrant cheese in a convenient cone."
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - shaurma
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/shaurma.rsi
+      state: icon
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
