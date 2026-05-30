@@ -146,7 +146,7 @@
       # WL-Midi-Start
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
-        requireInputValidation: false
+        requireInputValidation: true
       # WL-Midi-End
   - type: InteractionPopup
     successChance: 1
