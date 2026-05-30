@@ -184,6 +184,8 @@
     modifiers:
       coefficients:
         Heat: 0.40
+        piercing: 0.75
+        slash: 0.85
   - type: ExplosionResistance
     damageCoefficient: 0.25
 
