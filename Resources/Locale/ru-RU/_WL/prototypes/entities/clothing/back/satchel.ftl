@@ -3,3 +3,6 @@ ent-ClothingBackpackSatchelHoP = сумка главы персонала
 
 ent-ClothingBackpackSatchelAdjutant = сумка адъютанта
     .desc = Крепко сшитая сумка, которой только предстоит ощутить на себе тяжесть власти.
+
+ent-ClothingBackpackSatchelBlueShield = сумка офицера "Синий Щит"
+    .desc = Крепко сшитая сумка, которой только предстоит ощутить на себе плотный поток пуль.

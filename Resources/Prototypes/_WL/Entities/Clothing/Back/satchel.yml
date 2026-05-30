@@ -15,3 +15,14 @@
   components:
   - type: Sprite
     sprite: _WL/Clothing/Back/Satchels/aidedecamp.rsi
+
+- type: entity
+  parent: [ClothingBackpackSatchel, BaseCentcommContraband]
+  id: ClothingBackpackSatchelBlueShield
+  name: blue shield satchel backpack
+  description: In this backpack, I want to say "Papers, please."
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Back/Satchels/blueshield.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1

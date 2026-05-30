@@ -224,3 +224,14 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/johnnysilverhandjumpsuit.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpsuit/johnnysilverhandjumpsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueShield
+  name: blue shield formal suit
+  description: Nice shirt and cargo pants. What could be more universal?
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Uniforms/Jumpsuit/blueshield.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Uniforms/Jumpsuit/blueshield.rsi

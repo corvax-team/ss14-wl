@@ -1,0 +1,37 @@
+- type: entity
+  id: CrateCommandBlueShield
+  parent: CrateCommandSecure
+  name: ящик снаряжения офицера "Синий Щит"
+  description: Ящик, полный снаряжения элитного телохранителя.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitBlueShield
+      - id: ClothingOuterVestBlueShield
+      - id: ClothingUniformJumpsuitBlueShield
+      - id: ClothingShoesBootsJackBlueShieldFilled
+      - id: ClothingBeltMilitaryWebbingBlueShieldFilled
+      - id: ClothingBackpackDuffelBlueShield
+      - id: ClothingBackpackSatchelBlueShield
+      - id: ClothingBackpackBlueShield
+      - id: ClothingHeadHatBeretBlueShield
+      - id: ClothingMaskGasBlueShield
+      - id: ClothingEyesGlassesBlueShield
+      - id: BoxSurvivalMilitaryDouble
+      - id: PowerCellHyper
+      - id: TelescopicShield
+      - id: EmergencyMedipen
+      - id: EmergencyMedipen
+      - id: Hypospray
+      - id: ChemistryBottleOmnizine
+      - id: ChemistryBottleEpinephrine
+      - id: ChemistryBottleOmnizine
+      - id: ChemistryBottleEpinephrine
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingHeadsetCentCom
+      - id: BoxMagazinePistol
+      - id: BoxMagazineRifle
+      - id: WeaponRifleBonza
+      - id: HandheldCrewMonitor
+      - id: TrackingImplanter
+      - id: JawsOfLife

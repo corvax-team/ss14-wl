@@ -32,3 +32,6 @@ ent-ClothingUniformJumpsuitCBURN = униформа РХБЗЗ
 
 ent-ClothingUniformJumpsuitCBURNCommander = униформа командира РХБЗЗ
     .desc = Специальный костюм, созданный для командиров РХБЗЗ Центкома.
+
+ent-ClothingUniformJumpsuitBlueShield = формальный костюм офицера "Синий Щит"
+    .desc = Красивая рубашка и карго-штаны. Что может быть универсальнее?

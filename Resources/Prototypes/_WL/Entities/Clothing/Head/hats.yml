@@ -151,3 +151,19 @@
     sprite: _WL/Clothing/Head/Hats/aidedecamp_cap.rsi
   - type: Clothing
     sprite: _WL/Clothing/Head/Hats/aidedecamp_cap.rsi
+
+- type: entity
+  parent: [ClothingHeadBase, BaseCentcommContraband]
+  id: ClothingHeadHatBeretBlueShield
+  name: blue shield officer's beret
+  description: That's much better, isn't it?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_blue_shield.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_blue_shield.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - WhitelistChameleon

@@ -15,3 +15,12 @@
   components:
   - type: Sprite
     sprite: _WL/Clothing/Back/Backpacks/aidedecamp.rsi
+
+- type: entity
+  parent: [ClothingBackpackERTLeader]
+  id: ClothingBackpackBlueShield
+  name: blue shield backpack
+  description: A convenient backpack for carrying everything you need. Extremely practical.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Back/Backpacks/blueshield.rsi
