@@ -185,7 +185,7 @@
       coefficients:
         Heat: 0.40
         Piercing: 0.75
-        slash: 0.85
+        Slash: 0.85
   - type: ExplosionResistance
     damageCoefficient: 0.25
 
