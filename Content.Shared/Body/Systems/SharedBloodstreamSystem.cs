@@ -461,6 +461,8 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     {
         var bleedLevel = EffectiveBleedLevel(entity); // Offbrand
 
+        BleedAlertModify(entity, bleedLevel); // Corvax-WL Offbrand
+
         // Removes blood from the bloodstream based on bleed amount (bleed rate)
         // as well as stop their bleeding to a certain extent.
         if (bleedLevel <= 0) // Offbrand
@@ -520,6 +522,27 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
     }
     // End Offbrand
 
+
+    // Corvax-WL Offbrand start
+    private void BleedAlertModify(Entity<BloodstreamComponent> ent, float bleedLevel)
+    {
+
+        if (!_alertsSystem.IsShowingAlert(ent.Owner, ent.Comp.BleedingAlert) && bleedLevel <= 0)
+            return;
+
+        if (bleedLevel == 0)
+            _alertsSystem.ClearAlert(ent.Owner, ent.Comp.BleedingAlert);
+        else
+        {
+            var severity = (short)Math.Clamp(Math.Round(bleedLevel, MidpointRounding.ToZero),
+                _alertsSystem.GetMinSeverity(ent.Comp.BleedingAlert),
+                _alertsSystem.GetMaxSeverity(ent.Comp.BleedingAlert));
+            _alertsSystem.ShowAlert(ent.Owner, ent.Comp.BleedingAlert, severity);
+        }
+    }
+    // Corvax-WL Offbrand end
+
+
     /// <summary>
     /// Tries to make an entity bleed more or less.
     /// </summary>
@@ -536,13 +559,14 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         // Begin Offbrand
         var bleedLevel = EffectiveBleedLevel((ent, ent.Comp));
 
-        if (bleedLevel == 0)
-            _alertsSystem.ClearAlert(ent.Owner, ent.Comp.BleedingAlert);
-        else
-        {
-            var severity = (short)Math.Clamp(Math.Round(bleedLevel, MidpointRounding.ToZero), 0, 10);
-            _alertsSystem.ShowAlert(ent.Owner, ent.Comp.BleedingAlert, severity);
-        }
+        //if (bleedLevel == 0)
+        //    _alertsSystem.ClearAlert(ent.Owner, ent.Comp.BleedingAlert);
+        //else
+        //{
+        //    var severity = (short)Math.Clamp(Math.Round(bleedLevel, MidpointRounding.ToZero), 0, 10);
+        //    _alertsSystem.ShowAlert(ent.Owner, ent.Comp.BleedingAlert, severity);
+        //}
+        BleedAlertModify((ent.Owner, ent.Comp), bleedLevel); // Corvax-WL Offbrand
         // End Offbrand
 
         return true;

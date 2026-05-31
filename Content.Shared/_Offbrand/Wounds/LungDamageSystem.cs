@@ -96,6 +96,7 @@ public sealed partial class LungDamageSystem : OffbrandDamageSystem
         if (targetAlert is { } alert)
         {
             _alerts.ShowAlert(ent.Owner, alert);
+            ent.Comp.CurrentAlertThresholdState = targetAlert; // Corvax-WL-Offbrain
         }
         else
         {
