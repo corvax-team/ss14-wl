@@ -23,8 +23,8 @@
 - type: entity
   parent: ClothingShoesBootsJack
   id: ClothingShoesBootsJackBlueShield
-  name: подкованные сапоги офицера "Синий Щит"
-  description: Совсем новые. Кажутся даже удобнее обычных подкованных...
+  name: blue shield shod boots
+  description: They're brand new. They seem even more convenient than the usual savvy ones...
   components:
     - type: Sprite
       sprite: _WL/Clothing/Shoes/Boots/blueshield.rsi

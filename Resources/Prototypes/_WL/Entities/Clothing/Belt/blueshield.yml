@@ -23,8 +23,8 @@
 - type: entity
   parent: [ClothingBeltStorageWebbingBS, ContentsExplosionResistanceBase, BaseCentcommContraband]
   id: ClothingBeltMilitaryWebbingBlueShield
-  name: blue shueld military webbing
-  description: A comfortable shoulder strap wywtem with an additional holster.
+  name: blue shield military webbing
+  description: A comfortable shoulder strap system with an additional holster.
   components:
   - type: Sprite
     sprite: _WL/Clothing/Belt/blueshield.rsi
