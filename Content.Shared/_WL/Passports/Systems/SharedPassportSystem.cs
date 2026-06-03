@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._WL.Passports.Components;
 using Content.Shared._WL.Passports.Events;
 using Content.Shared._WL.Records;
@@ -30,6 +31,13 @@ public sealed partial class SharedPassportSystem : EntitySystem
     public int CurrentYear = DateTime.Today.Year + 849;
     private const string NoConfederationId = "NoConfederation";
     private const string PIDChars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
+
+    private static readonly List<string> ProhibitedJobs = new()
+    {
+        "StationAi",
+        "Borg",
+    };
+
     private static readonly TimeSpan ToggleCooldown = TimeSpan.FromSeconds(0.5);
 
     public override void Initialize()
@@ -63,7 +71,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
 
     public void SpawnPassportForPlayer(EntityUid mob, HumanoidCharacterProfile profile, string? jobId)
     {
-        if (jobId is "StationAi" or "Borg")
+        if (ProhibitedJobs.Any(job => jobId == job))
             return;
 
         if (jobId == null || !_prototypeManager.TryIndex(jobId, out JobPrototype? _)
