@@ -2,7 +2,7 @@ passport-registered-to = Имя: { $name }
 passport-species = Вид: { $species }
 passport-gender = Пол: { $gender }
 passport-height = Рост: { $height } см
-passport-date-of-birth = День рождения: { $date }
+passport-date-of-birth = Дата рождения: { $date }
 passport-pid = Номер: { $pid }
 
 passport-identity-gender-feminine = Женский
@@ -15,6 +15,6 @@ chameleon-passport-menu-title = Настройка паспорта
 chameleon-passport-current-name = Имя:
 chameleon-passport-current-species = Вид:
 chameleon-passport-current-gender = Пол:
-chameleon-passport-current-date-of-birth = День рождения:
+chameleon-passport-current-date-of-birth = Дата рождения:
 chameleon-passport-current-height = Рост:
 chameleon-passport-current-PID = Номер:

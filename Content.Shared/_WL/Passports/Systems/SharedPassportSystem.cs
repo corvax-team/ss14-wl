@@ -71,7 +71,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
 
     private void SpawnPassportForPlayer(EntityUid mob, HumanoidCharacterProfile profile, string? jobId)
     {
-        if (ProhibitedJobs.Any(job => jobId == job))
+        if (jobId != null && ProhibitedJobs.Contains<string>(jobId))
             return;
 
         if (jobId == null || !_prototypeManager.TryIndex(jobId, out JobPrototype? _)

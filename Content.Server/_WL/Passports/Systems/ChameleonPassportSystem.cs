@@ -32,13 +32,12 @@ namespace Content.Server._WL.Passports.Systems
                 return;
 
             var state = new ChameleonPassportBoundUserInterfaceState(
-                passport.DisplayName ?? "",
-                passport.DisplaySpecies ?? "",
-                passport.DisplayGender ?? "",
-                passport.DisplayDateOfBirth ?? "",
-                passport.DisplayHeight ?? "",
-                passport.DisplayPID ?? ""
-                );
+                passport.DisplayName,
+                passport.DisplaySpecies,
+                passport.DisplayGender,
+                passport.DisplayDateOfBirth,
+                passport.DisplayHeight,
+                passport.DisplayPID);
             _uiSystem.SetUiState(uid, ChameleonPassportUiKey.Key, state);
         }
 
