@@ -45,19 +45,8 @@
   ### Атмосферный техник имеет право
   <FTLTextpart Key="guidebook-SOP-AtmosphericTechnician-right"/>
 
-<<<<<<< HEAD
-  ## СРП Инженера
-  Инженер (также инженер-структурщик, механик, системный администратор, управленец ГЭУ, электрик) — лицо, профессионально технически обслуживающее Объект.
-
-  ### Инженер обязан
-  <FTLTextpart Key="guidebook-SOP-StationEngineer-must"/>
-
-  ### Инженер имеет право
-  <FTLTextpart Key="guidebook-SOP-StationEngineer-right"/>
-=======
   ### Атмосферному технику запрещено
   <FTLTextpart Key="guidebook-SOP-AtmosphericTechnician-prohibited"/>
->>>>>>> parent of 92f2052cea (плейтест СРП (#619))
 
   ## СРП Технического ассистента
   ### Технический ассистент обязан
