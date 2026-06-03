@@ -50,7 +50,7 @@ highp vec2 voronoi(highp vec2 x)
 
 void fragment()
 {
-    highp float scale = 10 / SCALE;
+    highp float scale = 10.0 / SCALE;
 
     highp vec2 noise = voronoi(UV.xy * scale * (1.0 - UV.y) + vec2(TIME));
 
