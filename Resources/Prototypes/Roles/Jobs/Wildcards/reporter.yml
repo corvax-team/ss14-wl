@@ -11,7 +11,6 @@
   - Male: корреспондент
   - Male: телеведущий
   - Male: радиоведущий
-  - Male: социолог # SOP-Playtest
   startingGear: ReporterGear
   icon: "JobIconReporter"
   supervisors: job-supervisors-hop
