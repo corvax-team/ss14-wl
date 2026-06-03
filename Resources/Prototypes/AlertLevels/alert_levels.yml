@@ -32,7 +32,6 @@
 - type: alertLevel
   id: Violet
   announcement: alert-level-violet-announcement
-  selectable: false # SOP-Playtest
   sound: /Audio/Misc/notice1.ogg
   color: Violet
   emergencyLightColor: Violet
@@ -42,7 +41,6 @@
 - type: alertLevel
   id: Yellow
   announcement: alert-level-yellow-announcement
-  selectable: false # SOP-Playtest
   sound: /Audio/Misc/notice1.ogg
   color: Yellow
   emergencyLightColor: Goldenrod

@@ -14,11 +14,6 @@
   - Male: стюард
   - Male: сервисный ассистент
   - Male: крупье
-  # SOP-Playtest-Start
-  - Male: артист
-    Female: артистка
-  - Male: театральный режиссёр
-  # SOP-Playtest-End
   icon: "JobIconServiceWorker"
   supervisors: job-supervisors-service
   access:

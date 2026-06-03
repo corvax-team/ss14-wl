@@ -6,10 +6,8 @@
   requirements:
     - !type:AgeRequirement
       age: 4 # WL-Changes-AgeRequirement
-  # SOP-Playtest-Start
-  # subnames:
-  # - Male: социологист
-  # SOP-Playtest-End
+  subnames:
+  - Male: социологист
   startingGear: LibrarianGear
   icon: "JobIconLibrarian"
   supervisors: job-supervisors-hop

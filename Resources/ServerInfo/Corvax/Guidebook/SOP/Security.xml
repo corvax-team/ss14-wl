@@ -1,37 +1,43 @@
 <Document>
   # Общие СРП
-  Службы безопасности — это структура, занимающаяся охраной правопорядка на территории Объекта.
-  СРП службы безопасности распространяются на следующие должности: глава службы безопасности, смотритель, инструктор службы безопасности, бригмедик, детектив, офицер-пилот, офицер службы безопасности, кадет службы безопасности.
   ### Сотрудник СБ обязан
   <FTLTextpart Key="guidebook-SOP-security-general-must"/>
 
   ### Сотрудник СБ имеет право
   <FTLTextpart Key="guidebook-SOP-security-general-right"/>
 
+  ### Сотруднику СБ запрещено
+  <FTLTextpart Key="guidebook-SOP-security-general-prohibited"/>
+
   # Должностные СРП
   ## СРП Главы СБ
-  Глава службы безопасности (также директор безопасности) — лицо, ответственное за внутреннюю безопасность на территории Объекта. Является главой службы безопасности.
   ### Глава СБ обязан
   <FTLTextpart Key="guidebook-SOP-HeadOfSecurity-must"/>
 
+  ### Глава СБ имеет право
+  <FTLTextpart Key="guidebook-SOP-HeadOfSecurity-right"/>
+
+  ### Главе СБ запрещено
+  <FTLTextpart Key="guidebook-SOP-HeadOfSecurity-prohibited"/>
+
   ## СРП Смотрителя
-  Смотритель (также администратор ИВС) — лицо, ответственное за обеспечение безопасности и осуществление процедур службы безопасности на территории брига.
   ### Смотритель обязан
   <FTLTextpart Key="guidebook-SOP-Warden-must"/>
 
   ### Смотритель имеет право
   <FTLTextpart Key="guidebook-SOP-Warden-right"/>
 
-  ## СРП Инструктора СБ
-  Инструктор службы безопасности — лицо, ответственное за обучение сотрудников, проходящих стажировку в службе безопасности.
-  ### Инструктор СБ обязан
+  ## СРП Помощника смотрителя
+  ### Помощник смотрителя обязан
   <FTLTextpart Key="guidebook-SOP-WardenHelper-must"/>
 
-  ### Инструктор СБ имеет право
+  ### Помощник смотрителя имеет право
   <FTLTextpart Key="guidebook-SOP-WardenHelper-right"/>
 
+  ### Помощнику смотрителя запрещено
+  <FTLTextpart Key="guidebook-SOP-WardenHelper-prohibited"/>
+
   ## СРП Офицера СБ
-  Офицер службы безопасности (также офицер охраны, офицер-оперативник, патрульный офицер, специалист по безопасности) — лицо, непосредственно обеспечивающее правопорядок на Объекте.
   ### Офицер СБ обязан
   <FTLTextpart Key="guidebook-SOP-Security-must"/>
 
@@ -39,7 +45,6 @@
   <FTLTextpart Key="guidebook-SOP-Security-right"/>
 
   ## СРП Детектива
-  Детектив (также криминалист, офицер-следователь) — лицо, ответственное за проведение следственных мероприятий.
   ### Детектив обязан
   <FTLTextpart Key="guidebook-SOP-Detective-must"/>
 
@@ -47,25 +52,31 @@
   <FTLTextpart Key="guidebook-SOP-Detective-right"/>
 
   ## СРП Пилота СБ
-  Офицер-пилот (также космический патрульный) — лицо, профессионально занимающееся поддержанием правопорядка в космическом пространстве Объекта.
   ### Пилот СБ обязан
   <FTLTextpart Key="guidebook-SOP-SecurityPilot-must"/>
 
   ### Пилот СБ имеет право
   <FTLTextpart Key="guidebook-SOP-SecurityPilot-right"/>
 
+  ### Пилоту СБ запрещено
+  <FTLTextpart Key="guidebook-SOP-SecurityPilot-prohibited"/>
+
   ## СРП Бригмедика
-  Бригмедик (также фельдшер безопасности) — лицо, ответственное за поддержание здоровья лиц на территории брига.
   ### Бригмедик обязан
   <FTLTextpart Key="guidebook-SOP-Brigmedic-must"/>
 
   ### Бригмедик имеет право
   <FTLTextpart Key="guidebook-SOP-Brigmedic-right"/>
 
+  ### Бригмедику запрещено
+  <FTLTextpart Key="guidebook-SOP-Brigmedic-prohibited"/>
+
   ## СРП Кадета СБ
-  Кадет службы безопасности (также стажёр безопасности) — лицо, проходящее стажировку в качестве сотрудника службы безопасности.
   ### Кадет СБ обязан
   <FTLTextpart Key="guidebook-SOP-SecurityCadet-must"/>
+
+  ### Кадету СБ запрещено
+  <FTLTextpart Key="guidebook-SOP-SecurityCadet-prohibited"/>
 
   # Процедуры и протоколы
   ## Общее положение о вооружении отдела СБ

@@ -1,26 +1,84 @@
 <Document>
   # Общие СРП
-  Глава отдела — лицо, ответственное за деятельность своего отдела.
-  СРП главы отдела распространяются на следующие должности: капитан, главный врач, квартирмейстер, старший инженер, научный руководитель, глава персонала, глава службы безопасности.
-
   ### Глава отдела обязан
   <FTLTextpart Key="guidebook-SOP-command-general-must"/>
 
   ### Глава отдела имеет право
   <FTLTextpart Key="guidebook-SOP-command-general-right"/>
 
+  ### Главе отдела запрещено
+  <FTLTextpart Key="guidebook-SOP-command-general-prohibited"/>
+
   # Должностные СРП
   ## СРП Капитана
-  Капитан (также директор НИК) — лицо, ответственное за деятельность и состояние доверенного ему Объекта. Является главой отдела командования.
-
   ### Капитан обязан
   <FTLTextpart Key="guidebook-SOP-Captain-must"/>
 
-  ## СРП Адъютанта
-  Адъютант (также бюрократический супервайзер, младший администратор) — лицо, ассистирующее главам отделов.
+  ### Капитан имеет право
+  <FTLTextpart Key="guidebook-SOP-Captain-right"/>
 
-  ### Адъютант обязан
-  <FTLTextpart Key="guidebook-SOP-Adjutant-must"/>
+  ### Капитану запрещено
+  <FTLTextpart Key="guidebook-SOP-Captain-prohibited"/>
+
+  ## СРП Главы персонала
+  ### Глава персонала обязан
+  <FTLTextpart Key="guidebook-SOP-HeadOfPersonnel-must"/>
+
+  ### Глава персонала имеет право
+  <FTLTextpart Key="guidebook-SOP-HeadOfPersonnel-right"/>
+
+  ### Главе персонала запрещено
+  <FTLTextpart Key="guidebook-SOP-HeadOfPersonnel-prohibited"/>
+
+  ## СРП Главы службы безопасности
+  ### Глава службы безопасности обязан
+  <FTLTextpart Key="guidebook-SOP-HeadOfSecurity-must"/>
+
+  ### Глава службы безопасности имеет право
+  <FTLTextpart Key="guidebook-SOP-HeadOfSecurity-right"/>
+
+  ### Главе службы безопасности запрещено
+  <FTLTextpart Key="guidebook-SOP-HeadOfSecurity-prohibited"/>
+
+  ## СРП Научного руководителя
+  ### Научный руководитель обязан
+  <FTLTextpart Key="guidebook-SOP-ResearchDirector-must"/>
+
+  ### Научный руководитель имеет право
+  <FTLTextpart Key="guidebook-SOP-ResearchDirector-right"/>
+
+  ### Научному руководителю запрещено
+  <FTLTextpart Key="guidebook-SOP-ResearchDirector-prohibited"/>
+
+  ## СРП Главного врача
+  ### Главный врач обязан
+  <FTLTextpart Key="guidebook-SOP-ChiefMedicalOfficer-must"/>
+
+  ### Главный врач имеет право
+  <FTLTextpart Key="guidebook-SOP-ChiefMedicalOfficer-right"/>
+
+  ### Главному врачу запрещено
+  <FTLTextpart Key="guidebook-SOP-ChiefMedicalOfficer-prohibited"/>
+
+  ## СРП Старшего инженера
+  ### Старший инженер обязан
+  <FTLTextpart Key="guidebook-SOP-ChiefEngineer-must"/>
+
+  ### Старший инженер имеет право
+  <FTLTextpart Key="guidebook-SOP-ChiefEngineer-right"/>
+
+  ### Старшему инженеру запрещено
+  <FTLTextpart Key="guidebook-SOP-ChiefEngineer-prohibited"/>
+
+  ## СРП Квартирмейстера
+  ### Квартирмейстер обязан
+  <FTLTextpart Key="guidebook-SOP-Quartermaster-must"/>
+
+  ### Квартирмейстер имеет право
+  <FTLTextpart Key="guidebook-SOP-Quartermaster-right"/>
+
+  ### Квартирмейстеру запрещено
+  <FTLTextpart Key="guidebook-SOP-Quartermaster-prohibited"/>
 
   # Процедуры и протоколы
   ## Процедура назначения ВрИО капитана

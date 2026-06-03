@@ -1,24 +1,34 @@
 <Document>
-  ## Введение СРП юридического департамента
-  Юридический департамент — это структура, занимающаяся правовой деятельностью от лица NanoTrasen.
-  СРП юридического департамента распространяются на следующие должности: верховный магистрат, чтец, кардинал, консул, магистрат, агент внутренних дел.
-
-  # Общее СРП
-  <FTLTextpart Key="guidebook-SOP-Legal-must"/>
-
   # Должностные СРП
   ## СРП Магистрата
-  Магистрат — лицо, являющееся постоянным представителем юридического департамента в рамках доверенного ему сектора.
   ### Магистрат обязан
   <FTLTextpart Key="guidebook-SOP-Magistrate-must"/>
 
   ### Магистрат имеет право
   <FTLTextpart Key="guidebook-SOP-Magistrate-right"/>
 
+  ### Магистрату запрещено
+  <FTLTextpart Key="guidebook-SOP-Magistrate-prohibited"/>
+
+  ## СРП Адвоката
+  ### Адвокат обязан
+  <FTLTextpart Key="guidebook-SOP-Lawyer-must"/>
+
+  ### Адвокат имеет право
+  <FTLTextpart Key="guidebook-SOP-Lawyer-right"/>
+
+  ### Адвокату запрещено
+  <FTLTextpart Key="guidebook-SOP-Lawyer-prohibited"/>
+
   ## СРП Агента внутренних дел
-  Агент внутренних дел — лицо, являющееся постоянным представителем юридического департамента в рамках Объекта.
   ### Агент внутренних дел обязан
   <FTLTextpart Key="guidebook-SOP-IAA-must"/>
+
+  ### Агент внутренних дел имеет право
+  <FTLTextpart Key="guidebook-SOP-IAA-right"/>
+
+  ### Агенту внутренних дел запрещено
+  <FTLTextpart Key="guidebook-SOP-IAA-prohibited"/>
 
   # Процедуры и протоколы
   ## Процедура внутреннего расследования
