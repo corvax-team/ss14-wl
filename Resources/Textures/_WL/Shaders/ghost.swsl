@@ -31,7 +31,7 @@ highp vec2 voronoi(highp vec2 x)
             highp vec2 g = vec2(float(i), float(j));
             highp vec2 o = hash2(n + g);   
             highp vec2 r = g + o - f;      
-            float d = dot(r, r);       
+            highp float d = dot(r, r);       
 
             if (d < F1) 
             {
