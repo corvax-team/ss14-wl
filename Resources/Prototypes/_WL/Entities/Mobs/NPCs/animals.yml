@@ -18,8 +18,9 @@
         Base: spidey_dead
       Dead:
         Base: spidey_dead
-  - type: Damageable
+  - type: Injurable
     damageContainer: Biological
+  - type: Damageable
     damageModifierSet: Scale
   - type: ReplacementAccent
     accent: xeno
