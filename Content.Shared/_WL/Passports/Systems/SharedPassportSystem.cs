@@ -28,7 +28,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
     [Dependency] private SharedTransformSystem _sharedTransformSystem = default!;
     [Dependency] private ISharedAdminLogManager _adminLogManager = default!;
 
-    public int CurrentYear = DateTime.Today.Year + 849;
+    private readonly int _currentYear = DateTime.Today.Year + 849;
     private const string NoConfederationId = "NoConfederation";
     private const string PIDChars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
 
@@ -58,7 +58,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
         args.PushText(Loc.GetString("passport-species", ("species", component.DisplaySpecies)), 49);
         args.PushText(Loc.GetString("passport-gender", ("gender", component.DisplayGender)), 48);
         args.PushText(Loc.GetString("passport-height", ("height", component.DisplayHeight)), 47);
-        args.PushText(Loc.GetString("passport-year-of-birth", ("year", component.DisplayYearOfBirth)), 47);
+        args.PushText(Loc.GetString("passport-date-of-birth", ("date", component.DisplayDateOfBirth)), 47);
         args.PushText(Loc.GetString("passport-pid", ("pid", component.DisplayPID)), 46);
     }
 
@@ -69,7 +69,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
         SpawnPassportForPlayer(ev.Mob, profile, ev.JobId);
     }
 
-    public void SpawnPassportForPlayer(EntityUid mob, HumanoidCharacterProfile profile, string? jobId)
+    private void SpawnPassportForPlayer(EntityUid mob, HumanoidCharacterProfile profile, string? jobId)
     {
         if (ProhibitedJobs.Any(job => jobId == job))
             return;
@@ -111,8 +111,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
         }
     }
 
-
-    public void UpdatePassportProfile(Entity<PassportComponent> passport, HumanoidCharacterProfile profile)
+    private void UpdatePassportProfile(Entity<PassportComponent> passport, HumanoidCharacterProfile profile)
     {
         passport.Comp.OwnerProfile = profile;
 
@@ -127,7 +126,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
             _ => Loc.GetString("passport-identity-gender-person")
         };
         passport.Comp.DisplayHeight = profile.Height.ToString();
-        passport.Comp.DisplayYearOfBirth = (CurrentYear - profile.Age).ToString();
+        passport.Comp.DisplayDateOfBirth = profile.DateOfBirth != "" ? profile.DateOfBirth : $"xx.xx.{(_currentYear - profile.Age).ToString()}";
         passport.Comp.DisplayPID = GenerateIdentityString(
             profile.Name + profile.Height + profile.Age + profile.Height + profile.FlavorText
         );

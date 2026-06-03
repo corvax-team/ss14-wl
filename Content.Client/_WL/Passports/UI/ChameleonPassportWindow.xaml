@@ -14,8 +14,8 @@
         <Label Name="CurrentGender" Text="{Loc 'chameleon-passport-current-gender'}" />
         <LineEdit Name="GenderLineEdit" />
 
-        <Label Name="CurrentYOB" Text="{Loc 'chameleon-passport-current-year-of-birth'}" />
-        <LineEdit Name="YOBLineEdit" />
+        <Label Name="CurrentDateOfBirth" Text="{Loc 'chameleon-passport-current-date-of-birth'}" />
+        <LineEdit Name="DateOfBirthLineEdit" />
 
         <Label Name="CurrentHeight" Text="{Loc 'chameleon-passport-current-height'}" />
         <LineEdit Name="HeightLineEdit" />
