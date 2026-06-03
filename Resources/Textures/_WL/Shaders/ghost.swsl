@@ -54,5 +54,5 @@ void fragment()
 
     highp vec2 noise = voronoi(UV.xy * scale * (1.0 - UV.y) + vec2(TIME));
 
-    COLOR = lerpColor(baseColor, darkColor, noise.x * 2 - 0.5);
+    COLOR = lerpColor(baseColor, darkColor, noise.x * 2.0 - 0.5);
 }
