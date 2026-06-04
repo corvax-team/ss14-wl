@@ -95,6 +95,13 @@ namespace Content.Client.Lobby.UI
         public void SelectItem(string subname, bool silent)
         {
             var index = _subnames.IndexOf(subname);
+            // WL-Changes-Start
+            if (index == -1)
+            {
+                Log.Error($"Subrole {subname} not found");
+                return;
+            }
+            // WL-Changes-End
 
             SelectItem(index, silent);
         }
