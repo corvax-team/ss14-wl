@@ -69,8 +69,11 @@
   - type: Vape
     damage:
       types:
-        Heat: 2
-    reductionFactor: 30 #WL-Changes: Vape low spend
+        Heat: 0.2 # WL-Changes: 2 -> 0.2
+    # WL-Changes-Start
+    reductionFactor: 70
+    removeSolutionPerUse: 5
+    # WL-Changes-End
   - type: RefillableSolution
     solution: smokable
   - type: ExaminableSolution

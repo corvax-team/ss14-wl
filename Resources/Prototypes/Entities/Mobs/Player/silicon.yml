@@ -74,6 +74,31 @@
     transmitFrequencyId: ShuttleTimer
   - type: RadarConsole
     followEntity: false
+  # WL-Changes-start
+  - type: Languages
+    currentLanguage: Translate # Added to stop tests from yapping
+    speaking:
+      - Translate
+      - Ternary
+    understood:
+      - Translate
+      - BottomTranslate
+      - Kuniluc
+      - OldEarth
+      - RootSpeak
+      - Sarengis
+      - SikTair
+      - SintaUnati
+      - Slimish
+      - TopTranslate
+      - Urhas
+      - Urlum
+      - VoxPigin
+      - Weaver
+      - Wingdings
+      - Yangyu
+      - Ternary
+  # WL-Changes-end
   - type: CommunicationsConsole
     canShuttle: false
     title: comms-console-announcement-title-station-ai

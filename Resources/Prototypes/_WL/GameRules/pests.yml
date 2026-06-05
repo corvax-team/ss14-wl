@@ -1,0 +1,11 @@
+- type: entity
+  id: SpideyMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: 50
+  - type: VentCrittersRule
+    entries:
+    - id: MobSpidey
+      prob: 0.03

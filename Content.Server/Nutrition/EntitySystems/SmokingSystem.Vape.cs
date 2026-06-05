@@ -56,6 +56,17 @@ namespace Content.Server.Nutrition.EntitySystems
                 return;
             }
 
+            // WL-Changes-Start
+            if (solution.Volume < entity.Comp.RemoveSolutionPerUse)
+            {
+                _popupSystem.PopupEntity(
+                    Loc.GetString("vape-component-vape-not-enough"),
+                    args.Target.Value,
+                    args.User);
+                return;
+            }
+            // WL-Changes-End
+
             if (args.Target == args.User)
             {
                 delay = entity.Comp.UserDelay;
@@ -138,7 +149,10 @@ namespace Content.Server.Nutrition.EntitySystems
 
             _atmos.Merge(environment, merger);
 
-            args.Solution.RemoveAllSolution();
+            // WL-Changes-Start
+            //args.Solution.RemoveAllSolution();
+            args.Solution.RemoveSolution(entity.Comp.RemoveSolutionPerUse);
+            // WL-Changes-End
 
             if (args.Forced)
             {

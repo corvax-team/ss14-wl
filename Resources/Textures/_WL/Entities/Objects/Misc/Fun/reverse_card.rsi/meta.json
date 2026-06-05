@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites taken from tg/station.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "reverse-blue"
+    },
+    {
+      "name": "reverse-green"
+    },
+    {
+      "name": "reverse-yellow"
+    },
+    {
+      "name": "reverse-back"
+    }
+  ]
+}

@@ -252,7 +252,7 @@
   meltingPoint: 700.0
   boilingPoint: 1737.0
   metabolisms:
-    Digestion:
+    Bloodstream:
       effects:
 # WL-Changes-start
       - !type:HealthChange
@@ -272,7 +272,7 @@
   boilingPoint: 3265.0
   meltingPoint: 1414.0
   metabolisms:
-    Digestion:
+    Bloodstream:
       effects:
       - !type:HealthChange
         damage:

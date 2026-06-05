@@ -1,0 +1,14 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobSpidey
+  name: Spidey Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _WL/Mobs/Animals/spidey.rsi
+      state: spidey_icon
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobSpidey

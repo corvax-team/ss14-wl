@@ -32,3 +32,21 @@
     sprite: _WL/Clothing/OuterClothing/Vests/loaders_overalls.rsi
   - type: Clothing
     sprite: _WL/Clothing/OuterClothing/Vests/loaders_overalls.rsi
+
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingOuterVestBlueShield
+  name: blue shield officer's vest
+  description: A practical and, most importantly, comfortable bulletproof vest for the dust-free work of a bodyguard.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/OuterClothing/Vests/blueshield.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/OuterClothing/Vests/blueshield.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.6
+          Slash: 0.6
+          Piercing: 0.35
+          Heat: 0.7

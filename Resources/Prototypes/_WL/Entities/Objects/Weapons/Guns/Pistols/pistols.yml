@@ -29,3 +29,38 @@
         whitelist:
           tags:
             - KitchenCartridge
+
+- type: entity
+  name: TC 12
+  parent: [BaseWeaponPistol]
+  id: WeaponPistolTC12
+  description: It's a good pistol that was adopted by Nanotrasen structures much later than the MK, but it hasn't become weaker.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Weapons/Guns/Pistols/TC-12.rsi
+  - type: Clothing
+    sprite: _WL/Objects/Weapons/Guns/Pistols/TC-12.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 5
+    angleIncrease: 1
+    angleDecay: 3
+    fireRate: 5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
+      params:
+        volume: -7
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail

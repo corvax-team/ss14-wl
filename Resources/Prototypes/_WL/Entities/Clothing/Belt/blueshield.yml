@@ -1,0 +1,44 @@
+- type: entity
+  abstract: true
+  parent: ClothingBeltBase
+  id: ClothingBeltStorageWebbingBS # Родитель хранилища РПС
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,6,1
+    - 8,0,10,1
+  - type: Item
+    size: Ginormous
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+
+- type: entity
+  parent: [ClothingBeltStorageWebbingBS, ContentsExplosionResistanceBase, BaseCentcommContraband]
+  id: ClothingBeltMilitaryWebbingBlueShield
+  name: blue shield military webbing
+  description: A comfortable shoulder strap system with an additional holster.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Belt/blueshield.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Belt/blueshield.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+
+- type: entity
+  id: ClothingBeltMilitaryWebbingBlueShieldFilled
+  parent: ClothingBeltMilitaryWebbingBlueShield
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: BeltBlueShieldEntityTable

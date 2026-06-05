@@ -1,5 +1,6 @@
 - type: markingsGroup
   parent: Undergarments
+  onlyGroupWhitelisted: true # WL-Changes
   id: Ipc
   limits:
     enum.HumanoidVisualLayers.Hair:
@@ -52,6 +53,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceIpc
+  categories: [ HideSpawnMenu ] # WL-Changes
   name: Ipc appearance
   components:
   - type: Inventory

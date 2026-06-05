@@ -114,8 +114,8 @@
 # WL-Changes-start
 - type: entity
   id: ActionGhostReturnToLobby
-  name: Вернуться в лобби
-  description: "[color=red]СТРОГО ЗАПРЕЩАЕТСЯ[/color] заходить за персонажей, которые уже были в раунде. Если вы стали свидетелем оного, то смело пишите жалобу, руководствуясь правилом 4."
+  name: Return to lobby
+  description: "[color=red]IT IS STRICTLY PROHIBITED[/color] to play as characters who have already been in the round. If you witness this, feel free to file a complaint following rule 4."
   categories: [ HideSpawnMenu ]
   components:
   - type: Action
