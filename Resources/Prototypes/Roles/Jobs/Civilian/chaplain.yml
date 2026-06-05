@@ -13,6 +13,7 @@
   access:
   - Chapel
   - Maintenance
+  - Service # WL-Changes
   special:
   - !type:AddComponentSpecial
     components:
