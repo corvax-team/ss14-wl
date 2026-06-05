@@ -1,6 +1,6 @@
 - type: marking
   id: AndroidSensors
-  bodyPart: LLeg
+  bodyPart: Chest
   groupWhitelist: [Android]
   sprites:
   - sprite: _WL/Mobs/Customization/android_parts.rsi
