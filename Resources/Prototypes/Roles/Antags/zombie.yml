@@ -24,8 +24,8 @@
     sound: "/Audio/Ambience/Antag/zombie_start.ogg"
   components:
   - type: PendingZombie #less time to prepare than normal
-    minInitialInfectedGrace: 300
-    maxInitialInfectedGrace: 450
+    minInitialInfectedGrace: 1200 # WL-Changes: 300 -> 1200
+    maxInitialInfectedGrace: 1800 # WL-Changes: 450 -> 1800
   - type: ZombifyOnDeath
   - type: IncurableZombie
   - type: InitialInfected
