@@ -315,6 +315,7 @@
    abstract: true
    components:
    - type: Metabolizer
+     updateInterval: 2
      metabolizerTypes: [ Golem ]
 
  - type: entity
@@ -395,11 +396,14 @@
    id: OrganGolemFootRight
 
  - type: entity
-   parent: [ OrganBaseBrain, OrganGolemInternal ]
+   parent: [ OrganBaseBrain, OrganGolemInternal, OrganGolemMetabolizer ]
    id: OrganGolemCore
    name: Spark
    description: "A prison for the soul"
    components:
+   - type: Metabolizer
+     maxReagents: 6
+     stages: [ Bloodstream, Metabolites ]
    - type: Instrument
      allowPercussion: false
      handheld: false
@@ -478,6 +482,9 @@
      - map: ["enum.EntityHeaterVisuals.Setting"]
        visible: false
    - type: Organ
+   - type: Metabolizer
+     maxReagents: 6
+     stages: [ Digestion ]
    - type: Stomach
      specialDigestible:
        tags:
@@ -491,15 +498,10 @@
        - Meat
        - Pill
        - Crayon
-   - type: SolutionContainerManager
+   - type: SolutionManager
      solutions:
-       stomach:
-         maxVol: 20
-       food:
-         maxVol: 5
-         reagents:
-         - ReagentId: UncookedAnimalProteins
-           Quantity: 5
+     - SolutionGolemStomach
+     - SolutionGolemFurnaceFood
    - type: ApcPowerReceiver
      needsPower: false
    - type: EntityHeater
@@ -522,3 +524,25 @@
            Medium: { visible: true, state: stomach-on }
            High: { visible: true, state: stomach-on }
    - type: Appearance
+
+ - type: entity
+   parent: SolutionStomach
+   id: SolutionGolemStomach
+   categories: [ HideSpawnMenu ]
+   components:
+   - type: Solution
+     id: stomach
+     solution:
+       maxVol: 70
+
+ - type: entity
+   parent: SolutionFood
+   id: SolutionGolemFurnaceFood
+   categories: [ HideSpawnMenu ]
+   components:
+   - type: Solution
+     solution:
+       maxVol: 5
+       reagents:
+       - ReagentId: UncookedAnimalProteins
+         Quantity: 5

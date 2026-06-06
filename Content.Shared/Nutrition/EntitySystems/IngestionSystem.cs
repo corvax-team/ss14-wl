@@ -18,6 +18,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
+using Content.Shared.Stacks;
 using Content.Shared.Tools.EntitySystems;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
@@ -382,6 +383,12 @@ public sealed partial class IngestionSystem : EntitySystem
         var afterEv = new IngestedEvent(args.User, entity, split, forceFed, beforeEv.Transfer >= beforeEv.Max);
         RaiseLocalEvent(food, ref afterEv);
 
+        if (TryComp<StackComponent>(food, out var stack) && stack.Count > 0)
+        {
+            afterEv.Destroy = false;
+            afterEv.Repeat = false;
+        }
+
         _stomach.TryTransferSolution((stomachToUse.Value, stomachToUse.Value.Comp), split);
 
         if (!afterEv.Destroy)
@@ -511,7 +518,7 @@ public sealed partial class IngestionSystem : EntitySystem
             };
             RaiseLocalEvent(args.Target, ref ev);
 
-            args.Repeat = !args.ForceFed;
+            args.Repeat = !args.ForceFed && !HasComp<StackComponent>(entity);
             return;
         }
 

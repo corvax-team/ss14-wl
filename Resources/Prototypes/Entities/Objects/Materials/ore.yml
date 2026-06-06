@@ -11,6 +11,13 @@
   - type: Tag
     tags:
     - Ore
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
   - type: Fixtures
     fixtures:
       fix1:
