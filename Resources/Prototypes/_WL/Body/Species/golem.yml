@@ -4,14 +4,14 @@
    limits:
      enum.HumanoidVisualLayers.Head:
        limit: 1
-       required: false
-     enum.HumanoidVisualLayers.HeadTop:
-       limit: 1
-       required: true
-     enum.HumanoidVisualLayers.HeadSide:
-       limit: 1
        required: true
        default: [GolemBaseHead]
+     enum.HumanoidVisualLayers.HeadTop:
+       limit: 1
+       required: false
+     enum.HumanoidVisualLayers.HeadSide:
+       limit: 1
+       required: false
      enum.HumanoidVisualLayers.LArm:
        limit: 2
        required: false
@@ -56,8 +56,8 @@
        FootRight: OrganGolemFootRight
        Brain: OrganGolemCore
        Stomach: OrganGolemFurnace
- #   - type: HumanoidProfile
- #     species: Golem
+   - type: HumanoidProfile
+     species: Golem
    - type: Inventory
      speciesId: reptilian
      femaleDisplacements:
@@ -349,6 +349,11 @@
    parent: [ OrganBaseHead, OrganGolemExternal ]
    id: OrganGolemHead
    components:
+   - type: VisualOrgan
+     layer: enum.HumanoidVisualLayers.Head
+     data:
+       sprite: _WL/Mobs/Customization/empty.rsi
+       state: empty
    - type: VisualOrganMarkings
      hideableLayers:
      - enum.HumanoidVisualLayers.HeadTop
