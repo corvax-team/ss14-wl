@@ -88,7 +88,7 @@
    name: Urist McGolem
    parent:
    - AppearanceGolem
-   - BaseSpeciesMobOrganic
+   - BaseSpeciesMob
    id: MobGolem
    components:
      - type: OfferItem # CorvaxGoob-Offer
