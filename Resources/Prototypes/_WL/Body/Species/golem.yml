@@ -214,6 +214,9 @@
        speedModifierThresholds:
          100: 0.8
          130: 0.7
+     - type: MovementSpeedModifier
+       baseWalkSpeed: 1.5
+       baseSprintSpeed: 2.5
      - type: DamageVisuals
        thresholds: [ 40, 80, 150 ]
        targetLayers:
