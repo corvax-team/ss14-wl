@@ -1,7 +1,7 @@
 marking-GolemBaseHead = Каменистая голова
 marking-GolemCurled = Завитая голова
 marking-GolemThorns = Шипы
-marking-GolemMetalBody = Металлическое торс
+marking-GolemMetalBody = Металлический торс
 marking-GolemModelHead1 = Голова "Бур"
 marking-GolemModelHead3 = Человекоподобная голова
 marking-GolemModelHead4 = Унатхоподобная голова
