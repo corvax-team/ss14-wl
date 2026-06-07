@@ -679,9 +679,19 @@
       metabolismRate: 0.03 # Effectively once every 30 seconds.
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
         damage:
           types:
             Poison: 0.6 # Makes it 20 damage per unit.
+      - !type:EvenHealthChange
+        damage:
+          Brute: -2
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 
 - type: reagent
   id: Bungotoxin
@@ -747,6 +757,17 @@
       - !type:Electrocute
         electrocuteTime: 1
         probability: 0.5
+      - !type:Drunk
+        boozePower: 5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        time: 4
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 
 - type: reagent
   id: Lipolicide

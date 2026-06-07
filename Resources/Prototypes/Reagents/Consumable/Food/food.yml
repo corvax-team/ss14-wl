@@ -11,6 +11,17 @@
     Metabolites:
       effects:
       - !type:SatiateHunger
+      - !type:EvenHealthChange
+        probability: 0.5
+        damage:
+          Brute: -0.5
+          Burn: -0.5
+          Airloss: -0.5
+          Toxin: -0.5
+          Genetic: -0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL android species start
       - !type:HealthChange
         conditions:
@@ -55,11 +66,21 @@
           Brute: -0.5
           Burn: -0.5
 # WL species start
-        # Android
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic ]
+          type: [ Biorobotic, Golem ]
           inverted: true
+      - !type:EvenHealthChange
+        probability: 0.5
+        damage:
+          Brute: -0.5
+          Burn: -0.5
+          Airloss: -0.5
+          Toxin: -0.5
+          Genetic: -0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
       # Android
       - !type:HealthChange
         conditions:
@@ -84,10 +105,9 @@
       - !type:ModifyBleed
         amount: -0.25
 # WL species start
-        # Android
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic ]
+          type: [ Biorobotic, Golem ]
           inverted: true
 # WL species end
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
@@ -115,11 +135,21 @@
         damage:
             Brute: -0.4
 # WL species start
-        # Android
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic ]
+          type: [ Biorobotic, Golem ]
           inverted: true
+      - !type:EvenHealthChange
+        probability: 0.5
+        damage:
+          Brute: -0.5
+          Burn: -0.5
+          Airloss: -0.5
+          Toxin: -0.5
+          Genetic: -0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL species end
       - !type:HealthChange
         conditions:
@@ -143,10 +173,9 @@
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
 # WL species start
-        # Android
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic ]
+          type: [ Biorobotic, Golem ]
           inverted: true
 # WL species end
       - !type:SatiateHunger

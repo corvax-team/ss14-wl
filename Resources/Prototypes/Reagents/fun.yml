@@ -41,6 +41,10 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Moth ]
+      - !type:SatiateHunger
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 
 - type: reagent
   id: BuzzochloricBees
@@ -174,6 +178,17 @@
       - !type:Electrocute
         siemensCoefficient: 0.5
         probability: 0.5
+      - !type:Drunk
+        boozePower: 5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        time: 4
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 
 - type: reagent
   id: Razorium
@@ -284,6 +299,20 @@
         - !type:TemperatureCondition
           min: 160.15 # not quite enough for cryo, but can speed it up if you wanna take the risk
         amount: -10000
+      - !type:SatiateHunger
+        factor: -500
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 4
+        conditions:
+        - !type:ReagentCondition
+          reagent: Fresium
+          min: 8
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
       - !type:MovementSpeedModifier
         conditions:
         - !type:ReagentCondition

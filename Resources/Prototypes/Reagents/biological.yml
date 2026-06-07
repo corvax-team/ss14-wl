@@ -196,6 +196,18 @@
       effects:
       - !type:SatiateThirst
         factor: 1.5
+      - !type:SatiateHunger
+        factor: 200
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.5
+        sprintSpeedModifier: 1.5
+        time: 4
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
     # Dragon doesn't require airloss healing, so omnizine is still best for humans.
       - !type:ModifyBloodLevel
         amount: 3
@@ -233,6 +245,14 @@
   flavor: terrible
   color: "#d8d8b0"
   physicalDesc: reagent-physical-desc-exotic-smelling
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
   footstepSound:
     collection: FootstepBlood
     params:

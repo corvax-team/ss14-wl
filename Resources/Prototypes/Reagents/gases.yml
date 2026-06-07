@@ -100,9 +100,18 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
         damage:
           types:
             Poison: 1.5
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
@@ -364,6 +373,10 @@
       effects:
       - !type:HealthChange
         ignoreResistances: true
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
         damage:
           types:
             Cellular: 0.5
@@ -385,6 +398,23 @@
         probability: 0.1
         conditions:
         minScale: 2
+      - !type:SatiateHunger
+        factor: -6
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:AdjustTemperature
+        amount: -2500
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        type: Update
+        time: 4
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
     Respiration:
       effects:
       - !type:HealthChange

@@ -163,6 +163,12 @@
     Digestion:
       metabolites:
         Nutriment: 1.5
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 
 - type: reagent
   id: Oil
@@ -178,6 +184,14 @@
   meltingPoint: -16.0
   tileReactions:
   - !type:FlammableTileReaction {}
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 
 - type: reagent
   id: CapsaicinOil
