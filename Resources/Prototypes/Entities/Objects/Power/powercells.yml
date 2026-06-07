@@ -13,7 +13,7 @@
     maxIntensity: 200
     intensitySlope: 1.5
   - type: Sprite
-    sprite: Objects/Power/power_cells.rsi
+    sprite: _WL/Objects/Power/power_cells.rsi # WL-Resprite
   - type: SolutionManager
     solutions:
     - SolutionRiggable
@@ -57,6 +57,7 @@
   parent: BasePowerCell
   components:
   - type: Sprite
+    sprite: Objects/Power/power_cells.rsi # WL-Resprite
     layers:
     - state: potato
   - type: Battery
