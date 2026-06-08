@@ -1,4 +1,4 @@
-- type: markingsGroup #ХУЙ
+- type: markingsGroup
   parent: Undergarments
   id: Cischi
   limits:
