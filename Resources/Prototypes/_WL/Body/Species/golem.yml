@@ -396,11 +396,17 @@
    id: OrganGolemFootRight
 
  - type: entity
-   parent: [ OrganBaseBrain, OrganGolemInternal, OrganGolemMetabolizer ]
+   parent: [ OrganGolemInternal, OrganGolemMetabolizer ]
    id: OrganGolemCore
    name: Spark
    description: "A prison for the soul"
    components:
+   - type: GibbableOrgan
+   - type: Organ
+     category: Brain
+   - type: Brain
+   - type: Item
+     heldPrefix: brain
    - type: Metabolizer
      maxReagents: 6
      stages: [ Bloodstream, Metabolites ]
@@ -433,6 +439,13 @@
      stopSearchVerbPopup: golem-system-role-search-stop-popup
    - type: Input
      context: "human"
+   - type: InputMover
+   - type: MobMover
+   - type: MovementSpeedModifier
+     baseWalkSpeed: 1.5
+     baseSprintSpeed: 2.5
+   - type: Physics
+     bodyType: KinematicController
    - type: GolemCore # Играет музыку
      midiActionId: "ActionGolemCorePlayMidi"
    - type: Examiner
