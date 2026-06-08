@@ -54,11 +54,6 @@
           type: [ Cischi ]
         walkSpeedModifier: 0.85
         sprintSpeedModifier: 0.85
-      - !type:SatiateHunger
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Cischi ]
-        factor: -1
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
