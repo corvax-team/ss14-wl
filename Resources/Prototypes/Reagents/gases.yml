@@ -48,15 +48,17 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Human, Animal, Rat, Plant, Arachnid, Moth ] # WL Cischi species
-      #- !type:MovespeedModifier
-      #  conditions:
-      #  - !type:ReagentCondition
-      #    reagent: Oxygen
-      #    min: 0.1
-      #  - !type:MetabolizerTypeCondition
-      #    type: [ Cischi ]
-      #  walkSpeedModifier: 0.85
-      #  sprintSpeedModifier: 0.85
+      - !type:MovementSpeedModifier
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
+      - !type:SatiateHunger
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        factor: -1
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -100,20 +102,43 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
         damage:
           types:
             Poison: 1.5
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Asphyxiation: 1.5
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
     Respiration:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
         ignoreResistances: true
         damage:
           types:
             Poison:
               0.1
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        ignoreResistances: true
+        damage:
+          types:
+            Asphyxiation: 0.1
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
@@ -201,7 +226,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant ] # WL Cischi species
+          type: [ Plant, Cischi ] # WL Cischi species
       - !type:HealthChange
         minScale: 0.5
         conditions:
@@ -363,10 +388,23 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
         ignoreResistances: true
         damage:
           types:
             Cellular: 0.5
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          Brute: -1.5
+          Burn: -1.5
+          Toxin: -1.5
+          Airloss: -1.5
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
@@ -389,10 +427,24 @@
       effects:
       - !type:HealthChange
         minScale: 0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
         ignoreResistances: true
         damage:
           types:
             Cellular: 0.05
+      - !type:EvenHealthChange
+        minScale: 0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          Brute: -0.2
+          Burn: -0.2
+          Toxin: -0.2
+          Airloss: -0.2
       - !type:ModifyStatusEffect
         minScale: 1
         effectProto: StatusEffectSeeingRainbow
