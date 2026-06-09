@@ -18,7 +18,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
-using Content.Shared.Stacks;
+using Content.Shared.Stacks; // WL_changes Lyvsi
 using Content.Shared.Tools.EntitySystems;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
@@ -383,11 +383,13 @@ public sealed partial class IngestionSystem : EntitySystem
         var afterEv = new IngestedEvent(args.User, entity, split, forceFed, beforeEv.Transfer >= beforeEv.Max);
         RaiseLocalEvent(food, ref afterEv);
 
+//WL-changes-start
         if (TryComp<StackComponent>(food, out var stack) && stack.Count > 0)
         {
             afterEv.Destroy = false;
             afterEv.Repeat = false;
         }
+//WL-changes-end
 
         _stomach.TryTransferSolution((stomachToUse.Value, stomachToUse.Value.Comp), split);
 
@@ -518,7 +520,7 @@ public sealed partial class IngestionSystem : EntitySystem
             };
             RaiseLocalEvent(args.Target, ref ev);
 
-            args.Repeat = !args.ForceFed && !HasComp<StackComponent>(entity);
+            args.Repeat = !args.ForceFed && !HasComp<StackComponent>(entity); //WL-changes
             return;
         }
 

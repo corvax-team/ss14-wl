@@ -172,6 +172,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Vox]
+#WL-changes-start
       - !type:SatiateHunger
         factor: 1.5
         conditions:
@@ -188,6 +189,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
       - !type:HealthChange
 # WL species start
         conditions:

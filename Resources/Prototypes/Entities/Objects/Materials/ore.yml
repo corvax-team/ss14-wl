@@ -11,6 +11,8 @@
   - type: Tag
     tags:
     - Ore
+
+#WL-changes-start
   - type: Edible
     requiresSpecialDigestion: true
   - type: Solution
@@ -18,6 +20,8 @@
       reagents:
       - ReagentId: Nutriment
         Quantity: 10
+#WL-changes-end
+
   - type: Fixtures
     fixtures:
       fix1:

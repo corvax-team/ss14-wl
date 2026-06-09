@@ -8,6 +8,7 @@
   color: "#848789"
   boilingPoint: 2327.0
   meltingPoint: 660.0
+#WL-changes-start
   metabolisms:
     Bloodstream:
       effects:
@@ -17,6 +18,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Carbon
@@ -28,6 +30,7 @@
   color: "#22282b"
   boilingPoint: 4200.0
   meltingPoint: 3550.0
+#WL-changes-start
   metabolisms:
     Digestion:
       effects:
@@ -36,6 +39,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Chlorine
@@ -81,7 +85,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid, Golem ]
+          type: [ Arachnid, Golem ]  #WL-changes
           inverted: true
         damage:
           types:
@@ -91,12 +95,14 @@
         - !type:MetabolizerTypeCondition
           type: [ Arachnid ]
         amount: 0.4
+#WL-changes-start
       - !type:EvenHealthChange
         damage:
           Brute: -6
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Fluorine
@@ -135,6 +141,7 @@
   color: "#F7C430"
   boilingPoint: 2700.0
   meltingPoint: 1064.76
+#WL-changes-start
   metabolisms:
     Bloodstream:
       effects:
@@ -144,6 +151,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Hydrogen
@@ -166,6 +174,7 @@
   color: "#BC8A00"
   boilingPoint: 184.3
   meltingPoint: 113.7
+#WL-changes-start
   metabolisms:
     Bloodstream:
       effects:
@@ -176,6 +185,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Iron
@@ -201,7 +211,7 @@
       - !type:ModifyBloodLevel
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid, Golem ]
+          type: [ Arachnid, Golem ]     #WL-changes
           inverted: true
         amount: 0.4
       - !type:EvenHealthChange
@@ -226,10 +236,12 @@
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
           inverted: true
+#WL-changes-end
         damage:
           types:
             Poison: 0.05
@@ -237,12 +249,15 @@
         emote: Scream
         probability: 0.05
         conditions:
+#WL-changes-start
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
           inverted: true
+#WL-changes-end
       - !type:Emote
         emote: Laugh
         probability: 0.05
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
@@ -254,6 +269,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
   # TODO: cause some brain damage when woundmed, and generally reduce the stutter/scrambledaccent unless high doses
 
@@ -288,6 +304,7 @@
   color: "#c6c8cc"
   meltingPoint: 65.5
   boilingPoint: 759.0
+#WL-changes-start
   metabolisms:
     Bloodstream:
       effects:
@@ -300,6 +317,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Phosphorus
@@ -368,6 +386,7 @@
   color: "#d0d0d0"
   boilingPoint: 2212.0
   meltingPoint: 960.5
+#WL-changes-start
   metabolisms:
     Bloodstream:
       effects:
@@ -377,6 +396,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Sulfur
@@ -392,13 +412,16 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
           inverted: true
+#WL-changes-end
         damage:
           types:
             Caustic: 0.1
+#WL-changes-start
       - !type:HealthChange
         damage:
           types:
@@ -408,6 +431,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Sodium
@@ -419,6 +443,7 @@
   color: "#a7b3d6"
   meltingPoint: 97.8
   boilingPoint: 883.0
+#WL-changes-start
   metabolisms:
     Bloodstream:
       effects:
@@ -429,6 +454,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Uranium
@@ -468,6 +494,7 @@
   color: "#bababa"
   meltingPoint: 419.5
   boilingPoint: 907.0
+#WL-changes-start
   metabolisms:
     Bloodstream:
       effects:
@@ -477,3 +504,4 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end

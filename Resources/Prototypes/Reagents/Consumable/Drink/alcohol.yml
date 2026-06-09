@@ -235,9 +235,11 @@
         - !type:MetabolizerTypeCondition
           type: [ Dwarf ]
           inverted: true
+#WL-changes-start
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
           inverted: true
+#WL-changes-end
         damage:
           types:
             Poison: 0.1
@@ -288,6 +290,11 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
           inverted: true
+#WL-changes-start
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
+#WL-changes-end
       - !type:SatiateHunger
         factor: 1.5
         conditions:

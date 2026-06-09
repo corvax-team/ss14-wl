@@ -100,18 +100,22 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
           inverted: true
+#WL-changes-end
         damage:
           types:
             Poison: 1.5
+#WL-changes-start
       - !type:SatiateHunger
         factor: 1.5
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
@@ -373,10 +377,12 @@
       effects:
       - !type:HealthChange
         ignoreResistances: true
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
           inverted: true
+#WL-changes-end
         damage:
           types:
             Cellular: 0.5
@@ -398,6 +404,7 @@
         probability: 0.1
         conditions:
         minScale: 2
+#WL-changes-start
       - !type:SatiateHunger
         factor: -6
         conditions:
@@ -415,6 +422,7 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
+#WL-changes-end
     Respiration:
       effects:
       - !type:HealthChange
