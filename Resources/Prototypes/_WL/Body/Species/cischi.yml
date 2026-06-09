@@ -54,6 +54,7 @@
       limit: 1
       required: false
       nudityDefault: [ UndergarmentBottomBoxersVulpkanin ]
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceCischi
@@ -83,6 +84,7 @@
       Kidneys: OrganCischiKidneys
 #   - type: HumanoidProfile
 #     species: Cischi
+
   - type: Inventory
     speciesId: reptilian
 #Corvax-Vulp_Port start
@@ -97,7 +99,7 @@
           32:
             sprite: Corvax/Mobs/Species/displacement.rsi
             state: shoes
-    #########
+
     displacements:
       jumpsuit:
         sizeMaps:
@@ -114,6 +116,7 @@
           32:
             sprite: Corvax/Mobs/Species/displacement.rsi
             state: outerclothing
+
 - type: entity
   name: Urist MacCischi
   parent:
@@ -125,6 +128,7 @@
   - type: Thirst
   - type: Damageable
     damageModifierSet: Cischi
+
   - type: Inventory
     templateId: cischi
     speciesId: reptilian
@@ -150,6 +154,7 @@
           32:
             sprite: Corvax/Mobs/Species/displacement.rsi
             state: shoes
+
   - type: Bloodstream
     bloodReferenceSolution:
         reagents:
@@ -169,9 +174,11 @@
 #       reagents:
 #       - ReagentId: Cryoxadone
 #         Quantity: 0.1
+
   - type: Temperature
     currentTemperature: 283.15
     specificHeat: 42
+
   - type: TemperatureDamage
     heatDamageThreshold: 295.15
     coldDamageThreshold: 233.15
@@ -181,6 +188,7 @@
     heatDamage:
       types:
         Heat: 1.5
+
   - type: ThermalRegulator
     metabolismHeat:  800
     radiatedHeat: 100
@@ -189,10 +197,12 @@
     shiveringHeatRegulation: 2000
     normalBodyTemperature: 283.15
     thermalRegulationTemperatureThreshold: 5
+
   - type: Barotrauma
     damage:
       types:
         Blunt: 0.3
+
   - type: Respirator
     damage:
       types:
@@ -200,36 +210,45 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
+
   - type: PointLight
     energy: 1
     radius: 2
     color: "#10ad83"
+
   - type: CischiAccent
+
   - type: ReplacementAccent
     accent: cischi
+
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BareFootCischi
       params:
         variation: 0.2
         volume: -14
+
   - type: NoSlip
+
   - type: Languages
     speaking:
       - Translate
     understood:
       - Translate
+
 - type: entity
   parent: OrganBase
   id: OrganCischi
   abstract: true
   suffix: cischi
+
 - type: entity
   id: OrganCischiMetabolizer
   abstract: true
   components:
   - type: Metabolizer
     metabolizerTypes: [ Animal, Cischi ]
+
 - type: entity
   parent: OrganCischi
   id: OrganCischiInternal
@@ -237,6 +256,7 @@
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
+
 - type: entity
   id: OrganCischiVisual
   abstract: true
@@ -247,6 +267,7 @@
   - type: VisualOrganMarkings
     markingData:
       group: Cischi
+
 - type: entity
   parent: [ OrganCischi, OrganCischiVisual ]
   id: OrganCischiExternal
@@ -254,9 +275,11 @@
   components:
   - type: Sprite
     sprite: _WL/Mobs/Species/Cischi/parts.rsi #Mobs/Species/Cischi/parts.rsi #Corvax-Vulp_Port
+
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganCischiExternal ]
   id: OrganCischiTorso
+
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganCischiExternal ]
   id: OrganCischiHead
@@ -271,57 +294,74 @@
     dependentHidingLayers:
       enum.HumanoidVisualLayers.Snout:
       - enum.HumanoidVisualLayers.SnoutCover
+
 - type: entity
   parent: [ OrganBaseArmLeft, OrganCischiExternal ]
   id: OrganCischiArmLeft
+
 - type: entity
   parent: [ OrganBaseArmRight, OrganCischiExternal ]
   id: OrganCischiArmRight
+
 - type: entity
   parent: [ OrganBaseHandLeft, OrganCischiExternal ]
   id: OrganCischiHandLeft
+
 - type: entity
   parent: [ OrganBaseHandRight, OrganCischiExternal ]
   id: OrganCischiHandRight
+
 - type: entity
   parent: [ OrganBaseLegLeft, OrganCischiExternal ]
   id: OrganCischiLegLeft
+
 - type: entity
   parent: [ OrganBaseLegRight, OrganCischiExternal ]
   id: OrganCischiLegRight
+
 - type: entity
   parent: [ OrganBaseFootLeft, OrganCischiExternal ]
   id: OrganCischiFootLeft
+
 - type: entity
   parent: [ OrganBaseFootRight, OrganCischiExternal ]
   id: OrganCischiFootRight
+
 - type: entity
   parent: [ OrganBaseBrain, OrganSpriteHumanInternal, OrganCischiInternal ]
   id: OrganCischiBrain
 - type: entity
   parent: [ OrganCischiVisual, OrganBaseEyes, OrganCischiInternal ]
   id: OrganCischiEyes
+
 - type: entity
   parent: [ OrganBaseTongue, OrganCischiInternal ]
   id: OrganCischiTongue
+
 - type: entity
   parent: [ OrganBaseAppendix, OrganCischiInternal ]
   id: OrganCischiAppendix
+
 - type: entity
   parent: [ OrganBaseEars, OrganCischiInternal ]
   id: OrganCischiEars
+
 - type: entity
   parent: [ OrganBaseLungs, OrganCischiInternal, OrganCischiMetabolizer ]
   id: OrganCischiLungs
+
 - type: entity
   parent: [ OrganBaseHeart, OrganCischiInternal, OrganCischiMetabolizer ]
   id: OrganCischiHeart
+
 - type: entity
   parent: [ OrganBaseStomach, OrganCischiInternal, OrganCischiMetabolizer ]
   id: OrganCischiStomach
+
 - type: entity
   parent: [ OrganBaseLiver, OrganCischiInternal, OrganCischiMetabolizer ]
   id: OrganCischiLiver
+
 - type: entity
   parent: [ OrganBaseKidneys, OrganCischiInternal, OrganCischiMetabolizer ]
   id: OrganCischiKidneys
