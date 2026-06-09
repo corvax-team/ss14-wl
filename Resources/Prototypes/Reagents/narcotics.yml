@@ -398,6 +398,7 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+#WL-changes-start
   metabolisms:
     Bloodstream:
       effects:
@@ -410,6 +411,7 @@
           Burn: -0.5
           Toxin: -0.5
           Airloss: -0.5
+#WL-changes-end
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
@@ -425,33 +427,41 @@
     Bloodstream:
       effects:
       - !type:MovementSpeedModifier
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Cischi ]
           inverted: true
+#WL-changes-end
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:HealthChange
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Cischi ]
           inverted: true
+#WL-changes-end
         damage:
           types:
             Poison: 2
       - !type:ModifyStatusEffect
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Cischi ]
           inverted: true
+#WL-changes-end
         effectProto: StatusEffectSeeingRainbow
         time: 10
         type: Add
       - !type:Vomit # Vomiting is a symptom of brain damage
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Cischi ]
           inverted: true
+#WL-changes-end
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
         conditions:
@@ -459,6 +469,7 @@
           type: [ Cischi ]
           inverted: true
         boozePower: 20 #5 # WL-Changes
+#WL-changes-start
       - !type:MovementSpeedModifier
         conditions:
         - !type:MetabolizerTypeCondition
@@ -472,6 +483,7 @@
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Update
+#WL-changes-end
 
 - type: reagent
   id: SpaceDrugs
