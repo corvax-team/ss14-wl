@@ -216,6 +216,7 @@
     doAfterDelay: 20
     selfRepairPenalty: 2
   - type: DamagedSiliconAccent
+  - type: EyeProtection # WL-Changes
   - type: Reflect
     reflectProb: 0.05
   - type: SleepEmitSound

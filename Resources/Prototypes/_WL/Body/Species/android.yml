@@ -174,6 +174,7 @@
   - type: Blindable
   - type: EyeProtection
   - type: FlashImmunity
+    showInExamine: false
   - type: Icon
     sprite: _WL/Mobs/Species/Android/parts.rsi
     state: full
