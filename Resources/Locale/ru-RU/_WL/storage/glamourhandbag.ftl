@@ -1,2 +1,2 @@
-ent-GlamourHandbagByBenjii = гламурная дамская сумочка
+ent-GlamourHandbag = гламурная дамская сумочка
     .desc = Она такая милая!
