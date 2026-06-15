@@ -45,7 +45,9 @@ public sealed partial class ServerSurgeryToolSystem : EntitySystem
             return;
 
         var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
-        var rand = new System.Random(seed);
+        var rand = new RobustRandom();
+
+        rand.SetSeed(seed);
 
         if (!rand.Prob(surgTool.SuccessChance))
         {
@@ -74,7 +76,7 @@ public sealed partial class ServerSurgeryToolSystem : EntitySystem
                     if (!rand.Prob(surgTool.WoundChance))
                         break;
 
-                    var woundSpecifier = surgTool.FailWounds[(i+shift)%length];
+                    var woundSpecifier = surgTool.FailWounds[(i + shift) % length];
 
                     _woundable.TryWound((ent, woundable), woundSpecifier.WoundPrototype, woundSpecifier.WoundDamages);
                 }
@@ -91,7 +93,7 @@ public sealed partial class ServerSurgeryToolSystem : EntitySystem
 
     private void OnToolSpeedModifier(Entity<SurgeryTargetComponent> ent, ref ToolSpeedModifierEvent args)
     {
-        if (!TryComp<SurgeryToolComponent>(args.Tool , out var surgTool))
+        if (!TryComp<SurgeryToolComponent>(args.Tool, out var surgTool))
             return;
 
         if (surgTool.SpeedModifier is not null)
