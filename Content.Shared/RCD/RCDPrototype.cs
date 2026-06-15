@@ -55,10 +55,10 @@ public sealed partial class RCDPrototype : IPrototype
     /// <summary>
     /// WL-Changes: RPD
     ///
-    /// TODO: description or another correct name
+    /// If true, allows placing the entity once in a crosswise direction
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public bool AllowDualDirection { get; private set; }
+    public bool AllowCrossDirection { get; private set; }
 
     /// <summary>
     /// If true, allows placing the entity once per direction (North, West, South and East)

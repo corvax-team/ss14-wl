@@ -5,10 +5,9 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.IgnitionSource;
+using Content.Shared.IgnitionSource; // WL-Changes: RPD
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
-using Content.Shared.Mobs;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.RCD.Components;
@@ -22,11 +21,11 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Robust.Shared.Random; // WL-Changes: RPD
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
-using Robust.Shared.Timing;
-using Robust.Shared.Utility;
+using Robust.Shared.Serialization.TypeSerializers.Implementations; // WL-Changes: RPD
+using Robust.Shared.Timing; // WL-Changes: RPD
+using Robust.Shared.Utility; // WL-Changes: RPD
 using System.Linq;
 
 namespace Content.Shared.RCD.Systems;
@@ -63,7 +62,8 @@ public sealed partial class RCDSystem : EntitySystem
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
 
     private HashSet<EntityUid> _intersectingEntities = new();
-    [Access(Other = AccessPermissions.Read)] public Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo = new(); // WL-Changes: dehardcode
+    [Access(Other = AccessPermissions.Read)]
+    public Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo = new(); // WL-Changes: dehardcode
     public override void Initialize()
     {
         base.Initialize();
@@ -310,7 +310,6 @@ public sealed partial class RCDSystem : EntitySystem
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs))
             QueueDel(effect);
-        return;
     }
 
     private void OnDoAfterAttempt(EntityUid uid, RCDComponent component, DoAfterAttemptEvent<RCDDoAfterEvent> args)
@@ -595,7 +594,7 @@ public sealed partial class RCDSystem : EntitySystem
                 }
 
                 // WL-Changes-start: pipes
-                if (prototype.AllowDualDirection)
+                if (prototype.AllowCrossDirection)
                 {
                     var entDirection = Transform(ent).LocalRotation.GetCardinalDir();
                     if (entDirection == Direction.South || entDirection == Direction.North)
