@@ -1,7 +1,5 @@
 using Content.Shared.Jittering;
 using Content.Shared.Popups;
-using Content.Shared.Tools.Components;
-using Content.Shared.Tools.Systems;
 using Content.Shared.Random.Helpers;
 using Content.Shared._WL._Offbrand.Surgery;
 using Content.Shared._Offbrand.Surgery;
@@ -25,7 +23,6 @@ public sealed partial class ServerSurgeryToolSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private IEntityManager _entityManager = default!;
 
     private const float JitterAmplitude = 10.0f;
     private const float JitterFrequency = 4.0f;

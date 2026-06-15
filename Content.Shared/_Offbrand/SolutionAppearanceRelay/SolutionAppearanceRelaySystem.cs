@@ -50,8 +50,10 @@ public sealed partial class SolutionAppearanceRelaySystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(ent.Owner, ent.Comp.Solution, out var solutionEntity, out _))
             return;
 
+        // WL-Changes-start: Appearance fix
         //if (!TryComp<ContainedSolutionComponent>(solutionEntity, out var containedSolution))
         //    return;
+        // WL-Changes-end
 
         if (!_entityWhitelist.CheckBoth(container.Owner, ent.Comp.Blacklist, ent.Comp.Whitelist))
             return;

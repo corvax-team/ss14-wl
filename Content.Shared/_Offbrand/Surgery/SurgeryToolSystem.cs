@@ -1,14 +1,11 @@
+using Content.Shared._WL._Offbrand.Surgery;
+using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Standing;
 using Content.Shared.Tools.Components;
+using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
-using Content.Shared.Tools.Systems;
-using Content.Shared.DoAfter;
-using Content.Shared.Random.Helpers;
-using Content.Shared._WL._Offbrand.Surgery;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._Offbrand.Surgery;
 
@@ -21,8 +18,7 @@ public sealed partial class SurgeryToolSystem : EntitySystem
     [Dependency] private StandingStateSystem _standingState = default!;
 
     // WL-Changes: Getto-surg start
-    [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private ExamineSystemShared _examine = default!;
     // WL-Changes: Getto-surg end
 
     public override void Initialize()
@@ -32,7 +28,7 @@ public sealed partial class SurgeryToolSystem : EntitySystem
         SubscribeLocalEvent<SurgeryToolComponent, ToolUseAttemptEvent>(OnToolAttemptUse);
 
         // WL-Changes: Getto-surg start
-        //SubscribeLocalEvent<SurgeryToolComponent, SharedToolSystem.ToolDoAfterEvent>(OnAfterUseTool);
+        SubscribeLocalEvent<SurgeryToolComponent, GetVerbsEvent<ExamineVerb>>(OnDetailedExamine);
         // WL-Changes: Getto-surg end
     }
 
@@ -71,6 +67,17 @@ public sealed partial class SurgeryToolSystem : EntitySystem
 
             return;
         }
+    }
 
+    private void OnDetailedExamine(Entity<SurgeryToolComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
+    {
+        var iconTexture = "/Textures/_WL/Interface/VerbIcons/scalpel.png";
+
+        _examine.AddHoverExamineVerb(args,
+            ent.Comp,
+            Loc.GetString("surgery-tool-verb-text"),
+            Loc.GetString("surgery-tool-verb-text-message", ("successChance", ent.Comp.SuccessChance)),
+            iconTexture
+        );
     }
 }

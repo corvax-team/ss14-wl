@@ -1,8 +1,3 @@
-using Content.Shared.DoAfter;
-using Robust.Shared.Serialization;
-using Robust.Shared.Prototypes;
-
-
 namespace Content.Shared._WL.Construction;
 
 [ByRefEvent]

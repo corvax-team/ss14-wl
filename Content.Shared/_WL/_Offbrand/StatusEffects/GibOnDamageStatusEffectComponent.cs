@@ -11,7 +11,7 @@ public sealed partial class GibOnDamageStatusEffectComponent : Component
     public float MinimumDamage;
 
     [DataField(required: true)]
-    public ProtoId<DamageTypePrototype> DamageType ;
+    public ProtoId<DamageTypePrototype> DamageType;
 
     [DataField]
     public bool ShowPopup = true;
