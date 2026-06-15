@@ -1,3 +1,4 @@
+using System.ComponentModel.Design;
 using Content.Client.Hands.Systems;
 using Content.Shared.Input; // WL-Changes: RPD
 using Content.Shared.Interaction;
@@ -26,7 +27,8 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
 
     private Direction _placementDirection = default;
     // WL-Changes-start: RPD port from Goob-Station
-    private bool _useMirrorPrototype = false;
+    private bool _useMirrorPrototype;
+    private EntityUid? _lastPlacer; // WL-Changes: fix network issue
     public override void Initialize()
     {
         base.Initialize();
@@ -59,7 +61,7 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
             if (string.IsNullOrEmpty(prototype.MirrorPrototype))
                 return false;
 
-            _useMirrorPrototype = !rcd.UseMirrorPrototype;
+            _useMirrorPrototype = !_useMirrorPrototype;
 
             var useProto = _useMirrorPrototype ? prototype.MirrorPrototype : prototype.Prototype;
             CreatePlacer(placerEntity.Value, rcd, useProto, prototype.Mode);
@@ -106,6 +108,14 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
             return;
         }
         var prototype = _protoManager.Index(rcd.ProtoId);
+
+        // WL-Changes-start: fix network issue
+        if (_lastPlacer != heldEntity)
+        {
+            _useMirrorPrototype = rcd.UseMirrorPrototype;
+            _lastPlacer = heldEntity;
+        }
+        // Wl-Changes-end
 
         // Update the direction the RCD prototype based on the placer direction
         if (_placementDirection != _placementManager.Direction)
