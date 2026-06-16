@@ -1,6 +1,6 @@
 {
     "license": "CC-BY-SA-3.0",
-    "copyright": "Original Goldie sprites by ReArtInt, displacement maps by tau27",
+    "copyright": "Original Goldie sprites by ReArtInt, displacement maps by tau27, fixed by ReArtInt",
     "version": 1,
     "size": {
         "x": 32,
@@ -16,6 +16,22 @@
         },
         {
             "name": "goldie_head_displacement",
+            "directions": 4
+        },
+        {
+            "name": "goldie_ears_displacement",
+            "directions": 4
+        },
+        {
+            "name": "goldie_belt_displacement",
+            "directions": 4
+        },
+        {
+            "name": "goldie_mask_displacement",
+            "directions": 4
+        },
+        {
+            "name": "goldie_neck_displacement",
             "directions": 4
         }
     ]
