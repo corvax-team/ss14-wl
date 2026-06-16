@@ -1,7 +1,7 @@
 ent-ClothingOuterVestHeavyDSS = тяжёлый бронежилет
     .desc = Бронежилет 5-го класса с дополнительным комплектом противоосколочной защиты. Достаточно увесистый.
 
-ent-ClothingOuterVestHeavyLoadersOveralls = комбенизон грузчика
+ent-ClothingOuterVestHeavyLoadersOveralls = рабочий жилет грузчика
     .desc = Комбинезон, который не даст испачкать одежду
 
 ent-ClothingOuterVestBlueShield = бронежилет офицера "Синий Щит"
