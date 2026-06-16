@@ -101,18 +101,21 @@
   - type: Speech
     speechVerb: Canine
     speechSounds: Dog
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
+  - type: TypingIndicator
+    proto: vulpkanin
   - type: Vocal
     sounds:
       Male: MaleVulpkanin
       Female: FemaleVulpkanin
-      Unsexed: MaleVulpkanin
+      Unsexed: FemaleVulpkanin
   - type: ThermalVision
     color: "#A3A3A3"
-    activateSound: null
+    activateSound: /Audio/_WL/Effects/sniff.ogg
     deactivateSound: null
   - type: NightVision
     color: "#A3A3A3"
-    activateSound: null
+    activateSound: /Audio/_WL/Effects/sniff.ogg
     deactivateSound: null
   - type: JumpAbility
     action: ActionVulpkaninGravityJump
