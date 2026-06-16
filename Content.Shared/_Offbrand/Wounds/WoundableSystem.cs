@@ -279,18 +279,23 @@ public sealed partial class WoundableSystem : OffbrandDamageSystem
         foreach (var (type, newValue) in evt.Accumulator.DamageDict)
         {
             // WL-Changes: Offmed unwoundable fix start
-            damageFinal.DamageDict[type] = newValue;
-            // WL-Changes: Offmed unwoundable fix end
+            var curDamage = newValue;
+            if (ent.Comp1.MaximumDamage.TryGetValue(type, out var data) && newValue > data.Base) curDamage = data.Base;
+
+            damageFinal.DamageDict[type] = curDamage;
 
             var oldValue = dict.GetValueOrDefault(type, FixedPoint2.Zero);
 
-            damageDone.DamageDict[type] = newValue - oldValue;
+            damageDone.DamageDict[type] = curDamage - oldValue;
+            // WL-Changes: Offmed unwoundable fix end
         }
 
         // WL-Changes: Offmed unwoundable fix start
         foreach (var type in UnwoundableDamages)
         {
             var oldValue = dict.GetValueOrDefault(type, FixedPoint2.Zero);
+
+            if (ent.Comp1.MaximumDamage.TryGetValue(type, out var data) && oldValue > data.Base) oldValue = data.Base;
 
             damageFinal.DamageDict[type] = oldValue;
         }
