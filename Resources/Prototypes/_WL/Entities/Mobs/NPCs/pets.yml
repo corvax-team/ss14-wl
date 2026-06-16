@@ -109,10 +109,6 @@
       Male: MaleVulpkanin
       Female: FemaleVulpkanin
       Unsexed: FemaleVulpkanin
-  - type: ThermalVision
-    color: "#A3A3A3"
-    activateSound: /Audio/_WL/Effects/sniff.ogg
-    deactivateSound: null
   - type: NightVision
     color: "#A3A3A3"
     activateSound: /Audio/_WL/Effects/sniff.ogg
