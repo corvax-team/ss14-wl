@@ -13,6 +13,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - SecurityContractorPin
   - SecurityCorporalPin
   - SecuritySubSergeantPin
   - SecuritySergeantPin
@@ -25,6 +26,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - SecurityContractorPin
   - SecuritySubSergeantPin
   - SecuritySergeantPin
   - SecurityChiefSergeantPin
@@ -36,6 +38,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - SecurityContractorPin
   - SecuritySergeantPin
   - SecurityChiefSergeantPin
   - SecuritySubLieutenantPin
@@ -46,6 +49,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - SecurityContractorPin
   - SecuritySergeantPin
   - SecurityChiefSergeantPin
   - SecuritySubLieutenantPin
@@ -56,6 +60,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - SecurityContractorPin
   - SecuritySubLieutenantPin
   - SecurityLieutenantPin
 
@@ -65,6 +70,7 @@
   minLimit: 1
   maxLimit: 1
   loadouts:
+  - SecurityContractorPin
   - SecurityLieutenantPin
   - SecurityChiefLieutenantPin
 

@@ -9,3 +9,4 @@ security-badge-rank-lieutenant = Лейтенант
 security-badge-rank-chief-lieutenant = Обер-лейтенант
 security-badge-rank-captain = Капитан
 security-badge-rank-major = Майор
+security-badge-rank-contractor = Внештатный офицер
