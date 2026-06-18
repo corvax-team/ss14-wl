@@ -6,6 +6,8 @@
   subnames:
   - Male: шахтёр
   - Male: полевой исследователь
+  - Male: полевой техник
+  - Male: полевой санитар
   - Male: пилот экспедиции
   requirements:
     - !type:DepartmentTimeRequirement
