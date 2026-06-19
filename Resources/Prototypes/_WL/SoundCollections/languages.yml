@@ -9,3 +9,16 @@
   - /Audio/_WL/Languages/Android/android_voice6.ogg
   - /Audio/_WL/Languages/Android/android_voice7.ogg
   - /Audio/_WL/Languages/Android/android_voice8.ogg
+
+- type: soundCollection
+  id: ArachnySounds
+  files:
+  - /Audio/_WL/Languages/Arachnid/arachnid_voice1.ogg
+  - /Audio/_WL/Languages/Arachnid/arachnid_voice2.ogg
+  - /Audio/_WL/Languages/Arachnid/arachnid_voice3.ogg
+  - /Audio/_WL/Languages/Arachnid/arachnid_voice4.ogg
+  - /Audio/_WL/Languages/Arachnid/arachnid_voice5.ogg
+  - /Audio/_WL/Languages/Arachnid/arachnid_voice6.ogg
+  - /Audio/_WL/Languages/Arachnid/arachnid_voice7.ogg
+  - /Audio/_WL/Languages/Arachnid/arachnid_voice8.ogg
+

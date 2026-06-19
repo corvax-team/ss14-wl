@@ -148,6 +148,7 @@
       - Translate
     understood:
       - Translate
+    specieLanguage: Arachny
   #WL-Changes: Languages end
 
 - type: entity
