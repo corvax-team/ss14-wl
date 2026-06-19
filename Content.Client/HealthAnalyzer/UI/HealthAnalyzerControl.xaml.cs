@@ -222,40 +222,40 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             }
             BrainHealthText.Visible = true;
             BrainHealthLabel.Visible = true;
-            BrainHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-brain-health-value", ("value", $"{woundable.BrainHealth * 100:F1}"), ("rating", woundable.BrainHealthRating));
+            BrainHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-brain-health-value", ("value", $"{woundable.BrainHealth * 100:F1}"), ("rating", woundable.BrainHealthRating)); // WL-Changes: add Rating for all Data
             BrainHealthButton.Visible = true;
 
             HeartHealthText.Visible = true;
             HeartHealthLabel.Visible = true;
-            HeartHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-heart-health-value", ("value", $"{woundable.HeartHealth * 100:F1}"));
+            HeartHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-heart-health-value", ("value", $"{woundable.HeartHealth * 100:F1}"), ("rating", woundable.HeartHealthRating)); // WL-Changes: add Rating for all Data
             HeartHealthButton.Visible = true;
 
             HeartRateText.Visible = true;
             HeartRateLabel.Visible = true;
-            HeartRateLabel.Text = Loc.GetString("health-analyzer-window-entity-heart-rate-value", ("value", woundable.HeartRate));
+            HeartRateLabel.Text = Loc.GetString("health-analyzer-window-entity-heart-rate-value", ("value", woundable.HeartRate), ("rating", woundable.HeartRateRating)); // WL-Changes: add Rating for all Data
             HeartRateButton.Visible = true;
 
             var (systolic, diastolic) = woundable.BloodPressure;
             BloodPressureText.Visible = true;
             BloodPressureLabel.Visible = true;
-            BloodPressureLabel.Text = Loc.GetString("health-analyzer-window-entity-blood-pressure-value", ("systolic", systolic), ("diastolic", diastolic));
+            BloodPressureLabel.Text = Loc.GetString("health-analyzer-window-entity-blood-pressure-value", ("systolic", systolic), ("diastolic", diastolic), ("rating", woundable.BloodPressureRating)); // WL-Changes: add Rating for all Data
             BloodPressureButton.Visible = true;
 
             LungHealthText.Visible = true;
             LungHealthLabel.Visible = true;
-            LungHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-lung-health-value", ("value", $"{woundable.LungHealth * 100:F1}"));
+            LungHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-lung-health-value", ("value", $"{woundable.LungHealth * 100:F1}"), ("rating", woundable.LungHealthRating)); // WL-Changes: add Rating for all Data
             LungHealthButton.Visible = true;
 
             SpO2Text.Visible = true;
             SpO2Text.Text = Loc.GetString("health-analyzer-window-entity-spo2-text", ("spo2", Loc.GetString(woundable.Spo2Name)));
             SpO2Label.Visible = true;
-            SpO2Label.Text = Loc.GetString("health-analyzer-window-entity-spo2-value", ("value", $"{woundable.Spo2 * 100:F1}"));
+            SpO2Label.Text = Loc.GetString("health-analyzer-window-entity-spo2-value", ("value", $"{woundable.Spo2 * 100:F1}"), ("rating", woundable.Spo2Rating)); // WL-Changes: add Rating for all Data
             SpO2Button.Visible = true;
 
             EtCO2Text.Visible = true;
             EtCO2Text.Text = Loc.GetString("health-analyzer-window-entity-etco2-text", ("etco2", Loc.GetString(woundable.Etco2Name)));
             EtCO2Label.Visible = true;
-            EtCO2Label.Text = Loc.GetString("health-analyzer-window-entity-etco2-value", ("value", $"{woundable.Etco2}"));
+            EtCO2Label.Text = Loc.GetString("health-analyzer-window-entity-etco2-value", ("value", $"{woundable.Etco2}"), ("rating", woundable.Etco2Rating)); // WL-Changes: add Rating for all Data
             EtCO2Button.Visible = true;
 
             RespiratoryRateText.Visible = true;
