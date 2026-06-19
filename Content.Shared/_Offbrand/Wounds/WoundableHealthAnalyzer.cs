@@ -13,16 +13,31 @@ public sealed partial class WoundableHealthAnalyzerData
     public float BrainHealth;
 
     [DataField]
+    public MetricRanking BrainHealthRating; // WL-Changes: add Rating for all Data
+
+    [DataField]
     public float HeartHealth;
+
+    [DataField]
+    public MetricRanking HeartHealthRating; // WL-Changes: add Rating for all Data
 
     [DataField]
     public (int, int) BloodPressure;
 
     [DataField]
+    public MetricRanking BloodPressureRating; // WL-Changes: add Rating for all Data
+
+    [DataField]
     public int HeartRate;
 
     [DataField]
+    public MetricRanking HeartRateRating; // WL-Changes: add Rating for all Data
+
+    [DataField]
     public int Etco2;
+
+    [DataField]
+    public MetricRanking Etco2Rating; // WL-Changes: add Rating for all Data
 
     [DataField]
     public int RespiratoryRate;
@@ -31,7 +46,13 @@ public sealed partial class WoundableHealthAnalyzerData
     public float Spo2;
 
     [DataField]
+    public MetricRanking Spo2Rating; // WL-Changes: add Rating for all Datф
+
+    [DataField]
     public float LungHealth;
+
+    [DataField]
+    public MetricRanking LungHealthRating; // WL-Changes: add Rating for all Data
 
     [DataField]
     public bool AnyVitalCritical;
@@ -68,7 +89,8 @@ public enum MetricRanking : byte
     Okay = 1,
     Poor = 2,
     Bad = 3,
-    Dangerous = 4,
+    Awful = 4, // WL-Changes: add Rating for all Data
+    Dangerous = 5, // WL-Changes: add Rating for all Data // 4 -> 5
 }
 
 public abstract partial class SharedWoundableHealthAnalyzerSystem : EntitySystem
@@ -79,6 +101,9 @@ public abstract partial class SharedWoundableHealthAnalyzerSystem : EntitySystem
     [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     protected const string MedicineGroup = "Medicine";
+
+    private MetricRanking RateHigherIsBetter(double value) => RateHigherIsWorse(1d - value);
+    private MetricRanking RateHigherIsWorse(double value) => (MetricRanking)(byte)Math.Clamp(Math.Floor(6d * value), 0d, 5d);
 
     public List<string>? SampleWounds(EntityUid uid)
     {
@@ -107,8 +132,8 @@ public abstract partial class SharedWoundableHealthAnalyzerSystem : EntitySystem
 
     public MetricRanking Ranking(Entity<HeartrateComponent> ent)
     {
-        var strain = (MetricRanking)Math.Min((int)MathF.Round(4f * _heart.Strain(ent)), 4);
-        var spo2 = (MetricRanking)Math.Min((int)MathF.Round(4f * (1f - _heart.Spo2(ent).Float())), 4);
+        var strain = (MetricRanking)Math.Min((int)MathF.Round(4f * _heart.Strain(ent)), 5); // WL-Changes: add Rating for all Data // 4 -> 5
+        var spo2 = (MetricRanking)Math.Min((int)MathF.Round(4f * (1f - _heart.Spo2(ent).Float())), 5); // WL-Changes: add Rating for all Data // 4 -> 5
 
         if ((byte)spo2 > (byte)strain)
             return spo2;
@@ -137,26 +162,35 @@ public abstract partial class SharedWoundableHealthAnalyzerSystem : EntitySystem
 
         var hasNonMedical = false;
         var reagents = withWounds ? SampleReagents(uid, out hasNonMedical) : null;
+        var etco2 = _heart.Etco2((uid, heartrate));
+        var spo2 = _heart.Spo2((uid, heartrate));
 
         return new WoundableHealthAnalyzerData()
-            {
-                BrainHealth = brainHealth,
-                HeartHealth = heartHealth,
-                BloodPressure = (upper, lower),
-                HeartRate = _heart.HeartRate((uid, heartrate)),
-                Etco2 = _heart.Etco2((uid, heartrate)),
-                RespiratoryRate = _heart.RespiratoryRate((uid, heartrate)),
-                Spo2 = _heart.Spo2((uid, heartrate)).Float(),
-                LungHealth = lungHealth,
-                AnyVitalCritical = _shockThresholds.IsCritical(uid) || _brainDamage.IsCritical(uid) || _heart.IsCritical(uid),
-                Etco2Name = heartrate.Etco2Name,
-                Etco2GasName = heartrate.Etco2GasName,
-                Spo2Name = heartrate.Spo2Name,
-                Spo2GasName = heartrate.Spo2GasName,
-                Wounds = withWounds ? SampleWounds(uid) : null,
-                Reagents = reagents,
-                NonMedicalReagents = hasNonMedical,
-                Ranking = Ranking((uid, heartrate)),
-            };
+        {
+            BrainHealth = brainHealth,
+            BrainHealthRating = RateHigherIsBetter(brainHealth), // WL-Changes: add Rating for all Data
+            HeartHealth = heartHealth,
+            HeartHealthRating = RateHigherIsBetter(heartHealth), // WL-Changes: add Rating for all Data
+            BloodPressure = (upper, lower),
+            BloodPressureRating = RateHigherIsBetter(heartrate.Perfusion), // WL-Changes: add Rating for all Data
+            HeartRate = _heart.HeartRate((uid, heartrate)),
+            HeartRateRating = !heartrate.Running ? MetricRanking.Dangerous : Ranking((uid, heartrate)), // WL-Changes: add Rating for all Data
+            Etco2 = etco2, // WL-Changes: add Rating for all Data
+            Etco2Rating = RateHigherIsBetter(etco2 / (double)heartrate.Etco2Base), // WL-Changes: add Rating for all Data
+            RespiratoryRate = _heart.RespiratoryRate((uid, heartrate)),
+            Spo2 = spo2.Float(), // WL-Changes: add Rating for all Data
+            Spo2Rating = RateHigherIsBetter(spo2.Double()), // WL-Changes: add Rating for all Data
+            LungHealth = lungHealth,
+            LungHealthRating = RateHigherIsBetter(lungHealth), // WL-Changes: add Rating for all Data
+            AnyVitalCritical = _shockThresholds.IsCritical(uid) || _brainDamage.IsCritical(uid) || _heart.IsCritical(uid),
+            Etco2Name = heartrate.Etco2Name,
+            Etco2GasName = heartrate.Etco2GasName,
+            Spo2Name = heartrate.Spo2Name,
+            Spo2GasName = heartrate.Spo2GasName,
+            Wounds = withWounds ? SampleWounds(uid) : null,
+            Reagents = reagents,
+            NonMedicalReagents = hasNonMedical,
+            Ranking = Ranking((uid, heartrate)),
+        };
     }
 }

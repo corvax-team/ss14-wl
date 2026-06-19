@@ -1,4 +1,4 @@
-<PanelContainer xmlns="https://spacestation14.io" StyleClasses="tooltipBox">
+<PanelContainer xmlns="https://spacestation14.io" StyleClasses="TooltipPanel">
     <BoxContainer
         Orientation="Vertical"
         RectClipContent="True"

@@ -222,7 +222,7 @@ public sealed partial class HealthAnalyzerControl : BoxContainer
             }
             BrainHealthText.Visible = true;
             BrainHealthLabel.Visible = true;
-            BrainHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-brain-health-value", ("value", $"{woundable.BrainHealth * 100:F1}"));
+            BrainHealthLabel.Text = Loc.GetString("health-analyzer-window-entity-brain-health-value", ("value", $"{woundable.BrainHealth * 100:F1}"), ("rating", woundable.BrainHealthRating));
             BrainHealthButton.Visible = true;
 
             HeartHealthText.Visible = true;

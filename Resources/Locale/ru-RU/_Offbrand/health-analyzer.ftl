@@ -1,3 +1,13 @@
+-health-analyzer-rating = { $rating ->
+    [good] ([color=#00D3B8]хорошо[/color])
+    [okay] ([color=#30CC19]удовлетворительно[/color])
+    [poor] ([color=#bdcc00]неудовлетворительно[/color])
+    [bad] ([color=#E8CB2D]плохо[/color])
+    [awful] ([color=#EF973C]ужасно[/color])
+    [dangerous] ([color=#FF6C7F]опасно[/color])
+   *[other] (неизвестно)
+    }
+
 health-analyzer-window-entity-brain-health-text = Мозговая Активность:
 health-analyzer-window-entity-blood-pressure-text = Кровяное Давление:
 health-analyzer-window-entity-heart-rate-text = Сердцебиение:
@@ -7,14 +17,14 @@ health-analyzer-window-entity-spo2-text = { $spo2 }:
 health-analyzer-window-entity-etco2-text = { $etco2 }:
 health-analyzer-window-entity-respiratory-rate-text = Частота Дыхания:
 
-health-analyzer-window-entity-brain-health-value = {$value}%
-health-analyzer-window-entity-heart-health-value = {$value}%
-health-analyzer-window-entity-lung-health-value = {$value}%
-health-analyzer-window-entity-heart-rate-value = {$value} уд/мин
-health-analyzer-window-entity-blood-pressure-value = {$systolic}/{$diastolic}
+health-analyzer-window-entity-brain-health-value = {$value}% {-health-analyzer-rating(rating: $rating)}
+health-analyzer-window-entity-heart-health-value = {$value}% {-health-analyzer-rating(rating: $rating)}
+health-analyzer-window-entity-lung-health-value = {$value}% {-health-analyzer-rating(rating: $rating)}
+health-analyzer-window-entity-heart-rate-value = {$value} уд/мин {-health-analyzer-rating(rating: $rating)}
+health-analyzer-window-entity-blood-pressure-value = {$systolic}/{$diastolic} {-health-analyzer-rating(rating: $rating)}
 health-analyzer-window-entity-respiratory-rate-value = {$value} вдох/мин
-health-analyzer-window-entity-spo2-value = {$value}%
-health-analyzer-window-entity-etco2-value = {$value} мм рт. ст.
+health-analyzer-window-entity-spo2-value = {$value}% {-health-analyzer-rating(rating: $rating)}
+health-analyzer-window-entity-etco2-value = {$value} мм рт. ст. {-health-analyzer-rating(rating: $rating)}
 health-analyzer-window-entity-non-medical-reagents = [color=yellow]Пациент имеет немедицинские вещества в крови.[/color]
 
 wound-bone-death = [color=red]У пациента системная костная смерть.[/color]
