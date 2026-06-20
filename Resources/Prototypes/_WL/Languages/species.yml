@@ -200,6 +200,24 @@
     state: android
 
 - type: language
+  id: Arachny
+  name: language-arachny
+  description: language-arachny-desc
+  color: '#009a50'
+  keylang: 'п'
+  needTTS: false
+  customSound: true
+  sound:
+    collection: ArachnySounds
+  obfuscation:
+    !type:Utf16ReplacementObfuscation
+      utf16start: 224
+      utf16end: 382
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: arachnid
+
+- type: language
   id: RootSpeak
   name: language-rootspeak
   description: language-rootspeak-desc

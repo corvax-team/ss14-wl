@@ -466,14 +466,33 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Animal] # Applying damage to the mobs with lower metabolism capabilities
+#WL-cgane-start
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
+#WL-changes-end
         damage:
           types:
             Poison: 0.4
+#WL-changes-start
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          Brute: -1
+          Burn: -1
+#WL-changes-end
       - !type:Vomit
         probability: 0.04 #Scaled for time, not metabolismrate.
         conditions:
           - !type:MetabolizerTypeCondition
             type: [Animal]
+#WL-changes-start
+          - !type:MetabolizerTypeCondition
+            type: [ Cischi ]
+            inverted: true
+#WL-changes-end
 
 - type: reagent
   id: Amatoxin
@@ -610,6 +629,18 @@
         damage:
           types:
             Poison: 0.06
+#WL-changes-start
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Allicin
+          min: 1
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Poison: -1
+#WL-changes-end
 
 - type: reagent
   id: Pax

@@ -252,6 +252,16 @@
         - !type:ReagentCondition
           reagent: Ammonia
           min: 0.25
+#WL-changes-start
+      - !type:Drunk
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        - !type:ReagentCondition
+          reagent: Ammonia
+          min: 0.8
+        boozePower: 5
+#WL-changes-end
       - !type:EvenHealthChange
         conditions:
         - !type:MetabolizerTypeCondition

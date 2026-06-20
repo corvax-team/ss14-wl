@@ -1,10 +1,10 @@
+using System.Linq;
 using Content.Shared._WL.Passports.Components;
 using Content.Shared._WL.Passports.Events;
 using Content.Shared._WL.Records;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
@@ -28,11 +28,17 @@ public sealed partial class SharedPassportSystem : EntitySystem
     [Dependency] private SharedTransformSystem _sharedTransformSystem = default!;
     [Dependency] private ISharedAdminLogManager _adminLogManager = default!;
 
-    public int CurrentYear = DateTime.Today.Year + 849;
+    private readonly int _currentYear = DateTime.Today.Year + 849;
     private const string NoConfederationId = "NoConfederation";
     private const string PIDChars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
+
+    private static readonly List<string> ProhibitedJobs = new()
+    {
+        "StationAi",
+        "Borg",
+    };
+
     private static readonly TimeSpan ToggleCooldown = TimeSpan.FromSeconds(0.5);
-    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
@@ -41,7 +47,6 @@ public sealed partial class SharedPassportSystem : EntitySystem
         SubscribeLocalEvent<PassportComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
         SubscribeLocalEvent<PassportComponent, ExaminedEvent>(OnExamined);
-        _sawmill = LogManager.GetSawmill("passport");
     }
 
     private void OnExamined(EntityUid uid, PassportComponent component, ExaminedEvent args)
@@ -53,7 +58,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
         args.PushText(Loc.GetString("passport-species", ("species", component.DisplaySpecies)), 49);
         args.PushText(Loc.GetString("passport-gender", ("gender", component.DisplayGender)), 48);
         args.PushText(Loc.GetString("passport-height", ("height", component.DisplayHeight)), 47);
-        args.PushText(Loc.GetString("passport-year-of-birth", ("year", component.DisplayYearOfBirth)), 47);
+        args.PushText(Loc.GetString("passport-date-of-birth", ("date", component.DisplayDateOfBirth)), 47);
         args.PushText(Loc.GetString("passport-pid", ("pid", component.DisplayPID)), 46);
     }
 
@@ -64,26 +69,24 @@ public sealed partial class SharedPassportSystem : EntitySystem
         SpawnPassportForPlayer(ev.Mob, profile, ev.JobId);
     }
 
-    public void SpawnPassportForPlayer(EntityUid mob, HumanoidCharacterProfile profile, string? jobId)
+    private void SpawnPassportForPlayer(EntityUid mob, HumanoidCharacterProfile profile, string? jobId)
     {
-        _sawmill.Debug($"Attempting passport spawn for {profile.Name}, job: {jobId}, confederation: {profile.Confederation}");
+        if (jobId != null && ProhibitedJobs.Contains<string>(jobId))
+            return;
 
-        if (jobId == null || !_prototypeManager.TryIndex(jobId, out JobPrototype? jobPrototype)
+        if (jobId == null || !_prototypeManager.TryIndex(jobId, out JobPrototype? _)
                           || Deleted(mob)
                           || !Exists(mob))
-        {
-            _sawmill.Warning($"No valid jobId for {profile.Name}");
             return;
-        }
 
         var confederationId = string.IsNullOrEmpty(profile.Confederation)
             ? NoConfederationId
             : profile.Confederation;
 
         if (!_prototypeManager.TryIndex(confederationId, out ConfederationRecordsPrototype? confProto) ||
-            !_prototypeManager.TryIndex(confProto.PassportPrototype, out EntityPrototype? entityPrototype))
+            !_prototypeManager.TryIndex(confProto.PassportPrototype, out var entityPrototype))
         {
-            if (!_prototypeManager.TryIndex<ConfederationRecordsPrototype>(NoConfederationId, out confProto) ||
+            if (!_prototypeManager.TryIndex(NoConfederationId, out confProto) ||
                 !_prototypeManager.TryIndex(confProto.PassportPrototype, out entityPrototype))
                 return;
         }
@@ -108,12 +111,11 @@ public sealed partial class SharedPassportSystem : EntitySystem
         }
     }
 
-
-    public void UpdatePassportProfile(Entity<PassportComponent> passport, HumanoidCharacterProfile profile)
+    private void UpdatePassportProfile(Entity<PassportComponent> passport, HumanoidCharacterProfile profile)
     {
         passport.Comp.OwnerProfile = profile;
 
-        var speciesProto = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
+        var speciesProto = _prototypeManager.Index(profile.Species);
         var genderString = profile.Gender.ToString();
         passport.Comp.DisplayName = profile.Name;
         passport.Comp.DisplaySpecies = Loc.GetString(speciesProto.Name);
@@ -124,7 +126,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
             _ => Loc.GetString("passport-identity-gender-person")
         };
         passport.Comp.DisplayHeight = profile.Height.ToString();
-        passport.Comp.DisplayYearOfBirth = (CurrentYear - profile.Age).ToString();
+        passport.Comp.DisplayDateOfBirth = profile.DateOfBirth != "" ? profile.DateOfBirth : $"xx.xx.{(_currentYear - profile.Age).ToString()}";
         passport.Comp.DisplayPID = GenerateIdentityString(
             profile.Name + profile.Height + profile.Age + profile.Height + profile.FlavorText
         );
