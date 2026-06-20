@@ -102,8 +102,7 @@
 #WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          type: [ Cischi ]
+          type: [ Golem, Cischi ]
           inverted: true
 #WL-changes-end
         damage:
@@ -402,16 +401,10 @@
 #WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Cischi ]
+          type: [ Cischi, Golem ]
           inverted: true
 #WL-changes-end
         ignoreResistances: true
-#WL-changes-start
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Golem ]
-          inverted: true
-#WL-changes-end
         damage:
           types:
             Cellular: 0.5
