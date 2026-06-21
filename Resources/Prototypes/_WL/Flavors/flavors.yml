@@ -33,3 +33,7 @@
 #  flavorType: Base
 #  description: как шоколадный милкшейк
 
+- type: flavor
+  id: shaurma
+  flavorType: Base
+  description: сочно
