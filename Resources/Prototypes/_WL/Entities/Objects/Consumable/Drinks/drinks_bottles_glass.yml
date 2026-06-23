@@ -6,10 +6,9 @@
   components:
   - type: Solution
     solution:
-      drink:
-        reagents:
-        - ReagentId: DarkBeer
-          Quantity: 50
+      reagents:
+      - ReagentId: DarkBeer
+        Quantity: 120
   - type: Label
     currentLabel: reagent-name-dark-beer
   - type: Sprite
@@ -30,11 +29,10 @@
   components:
   - type: Solution
     solution:
-      drink:
-        maxVol: 150
-        reagents:
-        - ReagentId: DarkBeer
-          Quantity: 150
+      maxVol: 240
+      reagents:
+      - ReagentId: DarkBeer
+        Quantity: 240
   - type: Label
     currentLabel: reagent-name-dark-beer
   - type: Sprite

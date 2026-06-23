@@ -37,10 +37,9 @@
   components:
   - type: Solution
     solution:
-      drink:
-        reagents:
-        - ReagentId: DarkBeer
-          Quantity: 30
+      reagents:
+      - ReagentId: DarkBeer
+        Quantity: 60
   - type: Icon
     sprite: _WL/Objects/Consumable/Drinks/darkbeerglass.rsi
     state: icon
