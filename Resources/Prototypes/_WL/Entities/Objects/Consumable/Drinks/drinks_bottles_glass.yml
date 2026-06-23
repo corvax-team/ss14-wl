@@ -8,7 +8,7 @@
     solution:
       reagents:
       - ReagentId: DarkBeer
-        Quantity: 120
+        Quantity: 60
   - type: Label
     currentLabel: reagent-name-dark-beer
   - type: Sprite
