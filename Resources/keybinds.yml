@@ -654,3 +654,9 @@ binds:
 - function: OfferItem # CorvaxGoob-Offer
   type: State
   key: H
+  #Corvax-WL-CombatIndicator - start
+- function: CombatIndicator
+  type: State
+  key: F
+  mod1: Alt
+  #Corvax-WL-CombatIndicator - end
