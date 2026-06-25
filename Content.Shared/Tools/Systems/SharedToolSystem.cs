@@ -1,4 +1,3 @@
-using Content.Shared._Goobstation;
 using Content.Shared._Goobstation.Tools; // goob
 using Robust.Shared.Audio; // goob
 using Content.Shared._WL._Offbrand.Surgery;

@@ -1,7 +1,5 @@
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Content.Shared.Gibbing;
 using Content.Shared.StatusEffectNew;
@@ -28,14 +26,9 @@ public sealed partial class GibOnDamageStatusEffectSystem : EntitySystem
             return;
 
         var dict = _damageable.GetAllDamage((args.Target, damageable)).DamageDict;
-
-        Logger.Debug(dict.GetValueOrDefault(ent.Comp.DamageType, FixedPoint2.Zero).ToString());
-        var mess = dict.ToString();
-        if (mess is not null)
-            Logger.Debug(mess);
+;
         if (ent.Comp.MinimumDamage > dict.GetValueOrDefault(ent.Comp.DamageType, FixedPoint2.Zero))
             return;
-        Logger.Debug("GIBBO");
 
         if (ent.Comp.ShowPopup)
             _popupSystem.PopupCoordinates(Loc.GetString(ent.Comp.PopupText, ("target", args.Target)),

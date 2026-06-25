@@ -1,7 +1,5 @@
 using Content.Shared.Jittering;
 using Content.Shared.Popups;
-using Content.Shared.Tools.Components;
-using Content.Shared.Tools.Systems;
 using Content.Shared.Random.Helpers;
 using Content.Shared._WL._Offbrand.Surgery;
 using Content.Shared._Offbrand.Surgery;
@@ -25,7 +23,6 @@ public sealed partial class ServerSurgeryToolSystem : EntitySystem
     [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private IEntityManager _entityManager = default!;
 
     private const float JitterAmplitude = 10.0f;
     private const float JitterFrequency = 4.0f;
@@ -45,7 +42,9 @@ public sealed partial class ServerSurgeryToolSystem : EntitySystem
             return;
 
         var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
-        var rand = new System.Random(seed);
+        var rand = new RobustRandom();
+
+        rand.SetSeed(seed);
 
         if (!rand.Prob(surgTool.SuccessChance))
         {
@@ -74,7 +73,7 @@ public sealed partial class ServerSurgeryToolSystem : EntitySystem
                     if (!rand.Prob(surgTool.WoundChance))
                         break;
 
-                    var woundSpecifier = surgTool.FailWounds[(i+shift)%length];
+                    var woundSpecifier = surgTool.FailWounds[(i + shift) % length];
 
                     _woundable.TryWound((ent, woundable), woundSpecifier.WoundPrototype, woundSpecifier.WoundDamages);
                 }
@@ -91,7 +90,7 @@ public sealed partial class ServerSurgeryToolSystem : EntitySystem
 
     private void OnToolSpeedModifier(Entity<SurgeryTargetComponent> ent, ref ToolSpeedModifierEvent args)
     {
-        if (!TryComp<SurgeryToolComponent>(args.Tool , out var surgTool))
+        if (!TryComp<SurgeryToolComponent>(args.Tool, out var surgTool))
             return;
 
         if (surgTool.SpeedModifier is not null)
