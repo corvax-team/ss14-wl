@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807; fluffycurls, twilight, shortstraightparted, shortstraight, moonprince, messyart, maletowa, longstraight, longlowstraightponytail, Kioku, jimmy, hank, denki, armetaj, pigtail, ponytail_long, ponytail_short, short_cute, short_cute2 made by discord:reartint, spikyponytailalt by NEBULON",
+  "copyright": "Taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807; fluffycurls, twilight, shortstraightparted, shortstraight, moonprince, messyart, maletowa, longstraight, longlowstraightponytail, Kioku, jimmy, hank, denki, armetaj, pigtail, ponytail_long, ponytail_short, short_cute, short_cute2 made by discord:reartint, spikyponytailalt by NEBULON, sceneemo1 and sceneemo2 added by ReArtInt",
   "size": {
     "x": 32,
     "y": 32
@@ -52,7 +52,7 @@
       "directions": 4
     },
     {
-      "name": "short_cute",
+      "name": "short_cute1",
       "directions": 4
     },
     {
@@ -64,7 +64,11 @@
       "directions": 4
     },
     {
-      "name": "denki",
+      "name": "denki1",
+      "directions": 4
+    },
+    {
+      "name": "denki2",
       "directions": 4
     },
     {
@@ -76,7 +80,11 @@
       "directions": 4
     },
     {
-      "name": "kioku",
+      "name": "kioku1",
+      "directions": 4
+    },
+    {
+      "name": "kioku2",
       "directions": 4
     },
     {
@@ -117,6 +125,102 @@
     },
     {
       "name": "spikyponytailalt",
+      "directions": 4
+    },
+    {
+      "name": "sceneemo1",
+      "directions": 4
+    },
+    {
+      "name": "sceneemo2",
+      "directions": 4
+    },
+    {
+      "name": "cuteemo1",
+      "directions": 4
+    },
+    {
+      "name": "cuteemo2",
+      "directions": 4
+    },
+    {
+      "name": "emoboi1",
+      "directions": 4
+    },
+    {
+      "name": "emoboi2",
+      "directions": 4
+    },
+    {
+      "name": "emoscenelong1",
+      "directions": 4
+    },
+    {
+      "name": "emoscenelong2",
+      "directions": 4
+    },
+    {
+      "name": "fluffygoth1",
+      "directions": 4
+    },
+    {
+      "name": "fluffygoth2",
+      "directions": 4
+    },
+    {
+      "name": "icy",
+      "directions": 4
+    },
+    {
+      "name": "jessie",
+      "directions": 4
+    },
+    {
+      "name": "longbangs",
+      "directions": 4
+    },
+    {
+      "name": "pinkie",
+      "directions": 4
+    },
+    {
+      "name": "simple1",
+      "directions": 4
+    },
+    {
+      "name": "simple2",
+      "directions": 4
+    },
+    {
+      "name": "simplelong1",
+      "directions": 4
+    },
+    {
+      "name": "simplelong2",
+      "directions": 4
+    },
+    {
+      "name": "simpleextralong1",
+      "directions": 4
+    },
+    {
+      "name": "simpleextralong2",
+      "directions": 4
+    },
+    {
+      "name": "stella1",
+      "directions": 4
+    },
+    {
+      "name": "stella2",
+      "directions": 4
+    },
+    {
+      "name": "wolfcut1",
+      "directions": 4
+    },
+    {
+      "name": "wolfcut2",
       "directions": 4
     }
   ]

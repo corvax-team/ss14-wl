@@ -189,7 +189,7 @@
   # some of these limitations could possibly be removed with better control over how the marking can be customized - possibly removing stacking, allowing recoloring & clamping higher-end colors for the eyeshadow, etc.
   bodyPart: Eyes
   groupWhitelist: [Human, Slime, Reptilian, Android, Felinid] #WL-Changes: Felinids
-  forcedColoring: true
+  forcedColoring: false #WL-Changes: Emo Update, i disagree with the statement above.
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
     state: eyeshadow_upper
@@ -198,7 +198,7 @@
   id: TattooEyeshadowLower
   bodyPart: Eyes
   groupWhitelist: [Human, Slime, Reptilian, Android, Felinid] #WL-Changes: Felinids
-  forcedColoring: true
+  forcedColoring: false #WL-Changes: Emo Update
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
     state: eyeshadow_lower
