@@ -303,7 +303,7 @@
       state: stella2
 
 - type: marking
-  id: HumanHairSWolfcut
+  id: HumanHairWolfcut
   bodyPart: Hair
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
