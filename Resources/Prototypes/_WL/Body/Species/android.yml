@@ -55,7 +55,7 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Chest:
-      limit: 1
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.Overlay:
       limit: 1
