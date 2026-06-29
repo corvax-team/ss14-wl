@@ -22,6 +22,7 @@ marking-HumanHairShortstraightparted = Прямой пробор (Коротки
 marking-HumanHairTwilight = Сумеречная
 marking-HumanHairFluffycurls = Пушистые локоны
 marking-HumanHairSpikyPonyTailAlt = Шипастый хвостик (Альт.)
+marking-HumanHairBunchn = Пучок (Альт.)
 
 marking-TajaraFacialHairGoateeFaded = Козлиная бородка (блеклая)
 marking-TajaraFacialHairGoatee = Козлиная бородка

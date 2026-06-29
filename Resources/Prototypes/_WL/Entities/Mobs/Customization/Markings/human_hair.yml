@@ -193,3 +193,10 @@
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: spikyponytailalt
+
+- type: marking
+  id: HumanHairBunchn
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: hairbunchn
