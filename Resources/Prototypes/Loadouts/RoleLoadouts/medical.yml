@@ -3,6 +3,7 @@
   id: JobChiefMedicalOfficer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ChiefMedicalOfficerHead
   - MedicalMask
@@ -21,6 +22,7 @@
   id: JobMedicalDoctor
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - MedicalDoctorHead
   - MedicalMask
@@ -40,6 +42,7 @@
   id: JobMedicalIntern
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
@@ -53,6 +56,7 @@
   id: JobChemist
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - MedicalMask
   - ChemistJumpsuit
@@ -69,6 +73,7 @@
   id: JobParamedic
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ParamedicHead
   - MedicalMask

@@ -15,3 +15,5 @@ loadout-group-sec-badges-wl = Значки отличия, шея
 
 loadout-group-photo = Фотоаппарат
 loadout-group-corp-uniform = Формальные комбинезоны
+
+loadout-group-form-inventory = Вещи по квенте

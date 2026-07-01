@@ -123,3 +123,10 @@
   - LawyerJumpskirtGood
   - ReporterJumpsuit
   - JournalistJumpsuit
+
+- type: loadoutGroup
+  id: FormInventory
+  name: loadout-group-form-inventory
+  minLimit: 0
+  loadouts:
+  - DetectiveJumpskirtWLWLWL
