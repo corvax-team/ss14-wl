@@ -11,11 +11,11 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.2,-0.2,0.2,0.2"
-        density: 800
+        density: 1200
         mask:
-        - MachineMask
+        - TabletopMachineMask
         layer:
-        - MachineLayer
+        - BulletImpassable
   - type: Anchorable
   - type: Pullable
   - type: Damageable
@@ -44,8 +44,8 @@
 - type: entity
   id: SafeCodeCapsSpare
   parent: BaseSafeCode
-  name: The Captain's Gold Safe золотой сейф капитана
-  description: An imposing golden safe that clearly holds something precious. Внушительный золотой сейф, в котором, несомненно, хранится что-то ценное.
+  name: captain's Gold Safe 
+  description: An imposing golden safe that clearly holds something precious. 
   components:
   - type: Sprite
     sprite: _WL/Storage/Safes/spare_safe.rsi
