@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 02/24/2026 18:42:07
-  entityCount: 19214
+  time: 07/02/2026 11:52:18
+  entityCount: 19098
 maps:
 - 1
 grids:
@@ -10846,6 +10846,8 @@ entities:
     - type: NavMap
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
   - uid: 4
     components:
     - type: MetaData
@@ -10854,13 +10856,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 3
   - uid: 11751
     mapInit: true
@@ -10873,13 +10873,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 11165
   - uid: 16405
     components:
@@ -11089,6 +11087,8 @@ entities:
     - type: RadiationGridResistance
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
   - uid: 16722
     components:
     - type: MetaData
@@ -11238,6 +11238,8 @@ entities:
           stiffness: 5139.567
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
   - uid: 17033
     components:
     - type: MetaData
@@ -11298,6 +11300,8 @@ entities:
           stiffness: 5144.3657
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
   - uid: 17839
     mapInit: true
     paused: true
@@ -11309,13 +11313,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 17838
   - uid: 18098
     mapInit: true
@@ -11328,13 +11330,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 18097
   - uid: 18102
     mapInit: true
@@ -11347,13 +11347,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 1
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 1
     - type: ContainedSolution
-      containerName: food
       container: 18101
 - proto: AccordionInstrument
   entities:
@@ -56663,10 +56661,7 @@ entities:
     - type: SolutionContainerManager
       solutions:
         drink:
-          temperature: 293.15
-          canReact: True
           maxVol: 20
-          name: null
           reagents:
           - data: null
             ReagentId: GreenTea
@@ -56674,6 +56669,7 @@ entities:
           - data: null
             ReagentId: Milk
             Quantity: 5
+      containers: []
 - proto: DrinkHosFlask
   entities:
   - uid: 6774
@@ -56807,14 +56803,12 @@ entities:
     - type: SolutionContainerManager
       solutions:
         drink:
-          temperature: 293.15
-          canReact: True
           maxVol: 30
-          name: null
           reagents:
           - data: null
             ReagentId: Tea
             Quantity: 30
+      containers: []
 - proto: DrinkVodkaBottleFull
   entities:
   - uid: 6784
@@ -57567,7 +57561,6 @@ entities:
       examineThreshold: 1
     missingComponents:
     - Edible
-    - SolutionContainerManager
     - Slippery
     - Item
     - Pullable
@@ -62194,8 +62187,6 @@ entities:
     - type: Transform
       pos: 42.5,8.5
       parent: 2
-    - type: Drain
-      accumulator: 0.1664857
     - type: Fixtures
       fixtures: {}
   - uid: 7354
@@ -62203,8 +62194,6 @@ entities:
     - type: Transform
       pos: 54.5,-10.5
       parent: 2
-    - type: Drain
-      accumulator: 0.1664857
     - type: Fixtures
       fixtures: {}
   - uid: 7355
@@ -97438,17 +97427,23 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 61.5,-7.5
       parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 17680
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 31.5,-17.5
       parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 17681
     components:
     - type: Transform
       pos: 36.5,-20.5
       parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: IntercomCommon
   entities:
   - uid: 11000
@@ -100281,13 +100276,6 @@ entities:
     - type: Transform
       pos: 8.507294,-0.5046463
       parent: 17033
-- proto: OxygenAndNitrousOxideCanister
-  entities:
-  - uid: 11239
-    components:
-    - type: Transform
-      pos: 49.5,-11.5
-      parent: 2
 - proto: OxygenCanister
   entities:
   - uid: 2536
@@ -100443,10 +100431,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -101326,6 +101310,8 @@ entities:
       rot: 0.5235987755982988 rad
       pos: 39.617558,39.438103
       parent: 2
+    - type: Flammable
+      nextUpdate: -1474.6170204
     - type: PhotoCard
       imageData:
       - 137
@@ -116778,10 +116764,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -116835,6 +116817,8 @@ entities:
       rot: -1.064650843716541 rad
       pos: 27.138554,14.55771
       parent: 2
+    - type: Flammable
+      nextUpdate: -1474.6170204
     - type: PhotoCard
       imageData:
       - 137
@@ -176072,10 +176056,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -176129,6 +176109,8 @@ entities:
       rot: 1.3962634015954636 rad
       pos: 39.571144,36.02556
       parent: 2
+    - type: Flammable
+      nextUpdate: -1474.6170204
     - type: PhotoCard
       imageData:
       - 137
@@ -220186,10 +220168,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -220243,6 +220221,8 @@ entities:
       rot: 1.7453292519943295 rad
       pos: 39.507107,35.42515
       parent: 2
+    - type: Flammable
+      nextUpdate: -1474.6170204
     - type: PhotoCard
       imageData:
       - 137
@@ -234195,10 +234175,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -234543,7 +234519,7 @@ entities:
   - uid: 19139
     components:
     - type: MetaData
-      name: перевёрнутая карта
+      name: pokercard-comp-flipped-card
     - type: Transform
       rot: 2.6179938779914944 rad
       pos: 12.118976,68.1243
@@ -234553,7 +234529,7 @@ entities:
   - uid: 18109
     components:
     - type: MetaData
-      name: перевёрнутая карта
+      name: pokercard-comp-flipped-card
     - type: Transform
       rot: 3.07177948351002 rad
       pos: 40.049633,34.7093
@@ -235633,11 +235609,6 @@ entities:
     components:
     - type: Transform
       pos: 29.5,18.5
-      parent: 2
-  - uid: 11517
-    components:
-    - type: Transform
-      pos: 24.5,26.5
       parent: 2
   - uid: 11518
     components:
@@ -242892,6 +242863,13 @@ entities:
     - type: Transform
       pos: 8.722956,9.704671
       parent: 2
+- proto: SafeCodeCapsSpare
+  entities:
+  - uid: 421
+    components:
+    - type: Transform
+      pos: 24.5,26.5
+      parent: 2
 - proto: SalvageCanisterSpawner
   entities:
   - uid: 12717
@@ -246460,15 +246438,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 49.5,38.5
       parent: 2
-    - type: Drain
-      accumulator: 0.1664857
   - uid: 13041
     components:
     - type: Transform
       pos: 58.5,-9.5
       parent: 2
-    - type: Drain
-      accumulator: 0.1664857
   - uid: 13042
     components:
     - type: Transform
@@ -246489,16 +246463,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 20.5,42.5
       parent: 2
-    - type: Drain
-      accumulator: 0.1664857
   - uid: 13046
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 65.5,47.5
       parent: 2
-    - type: Drain
-      accumulator: 0.1664857
   - uid: 13047
     components:
     - type: Transform
@@ -252987,8 +252957,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 6.5,27.5
       parent: 2
-    - type: Drain
-      accumulator: 0.1664857
   - uid: 13867
     components:
     - type: Transform
@@ -253145,23 +253113,6 @@ entities:
           occludes: True
           ents:
           - 12252
-- proto: TowelColorGreen
-  entities:
-  - uid: 13881
-    components:
-    - type: Transform
-      pos: -2.4796333,42.491962
-      parent: 2
-- proto: TowelColorLightBlue
-  entities:
-  - uid: 5731
-    components:
-    - type: Transform
-      parent: 5729
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 5729
 - proto: TowelColorWhite
   entities:
   - uid: 5734
@@ -253172,13 +253123,6 @@ entities:
       canCollide: False
     - type: InsideEntityStorage
       storage: 5732
-- proto: TowelColorYellow
-  entities:
-  - uid: 13882
-    components:
-    - type: Transform
-      pos: 1.5620327,39.460712
-      parent: 2
 - proto: ToyFigurineBartender
   entities:
   - uid: 13883
@@ -253548,12 +253492,10 @@ entities:
       activated: True
     - type: ItemToggleMeleeWeapon
       deactivatedDamage:
-        groups: null
         types:
           Blunt: 1
     - type: MeleeWeapon
       damage:
-        groups: null
         types:
           Slash: 4
       soundHit: !type:SoundPathSpecifier
@@ -267067,7 +267009,6 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 5731
           - 5730
         paper_label: !type:ContainerSlot
           showEnts: False

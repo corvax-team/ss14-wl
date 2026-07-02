@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.0.0
-  forkId: syndicate-wl
-  forkVersion: fc06a6f2dd7c8a9b6aba02296543f9e4ac1750a5
-  time: 05/31/2026 14:49:08
-  entityCount: 28475
+  forkId: ""
+  forkVersion: ""
+  time: 07/02/2026 12:01:13
+  entityCount: 28473
 maps:
 - 1
 grids:
@@ -37944,7 +37944,7 @@ entities:
       pos: 17.5,2.5
       parent: 26755
     - type: Door
-      secondsUntilStateChange: -135562.72
+      secondsUntilStateChange: -135779.27
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -66828,14 +66828,6 @@ entities:
     - type: Transform
       pos: 3.5096526,48.633846
       parent: 2
-- proto: CaptainIDCard
-  entities:
-  - uid: 4900
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -42.449604,-7.3594494
-      parent: 2
 - proto: CarbonDioxideCanister
   entities:
   - uid: 4901
@@ -91769,13 +91761,6 @@ entities:
     - type: Transform
       pos: -1.5,3.5
       parent: 21760
-- proto: Flash
-  entities:
-  - uid: 8206
-    components:
-    - type: Transform
-      pos: -29.917799,-11.362779
-      parent: 2
 - proto: FlashlightLantern
   entities:
   - uid: 8207
@@ -145122,6 +145107,13 @@ entities:
     - type: Transform
       pos: -33.328598,30.283764
       parent: 2
+- proto: SafeCodeCapsSpare
+  entities:
+  - uid: 4900
+    components:
+    - type: Transform
+      pos: -29.5,-11.5
+      parent: 2
 - proto: SalvageHumanCorpseSpawner
   entities:
   - uid: 9497
@@ -195290,11 +195282,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 9.5,34.5
       parent: 2
-  - uid: 23025
-    components:
-    - type: Transform
-      pos: -29.5,-11.5
-      parent: 2
   - uid: 23026
     components:
     - type: Transform
@@ -196249,6 +196236,14 @@ entities:
     - type: Transform
       pos: -32.5,-12.5
       parent: 2
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
+    - type: Door
+      secondsUntilStateChange: -14.417759
+      state: Opening
+    - type: Airlock
+      autoClose: False
   - uid: 23142
     components:
     - type: Transform

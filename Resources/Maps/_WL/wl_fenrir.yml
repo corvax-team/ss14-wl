@@ -4,8 +4,8 @@ meta:
   engineVersion: 277.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/25/2026 00:56:30
-  entityCount: 20967
+  time: 07/02/2026 12:04:52
+  entityCount: 20966
 maps:
 - 1
 grids:
@@ -50172,13 +50172,6 @@ entities:
     components:
     - type: Transform
       pos: -6.495081,29.587519
-      parent: 2
-- proto: CaptainIDCard
-  entities:
-  - uid: 5775
-    components:
-    - type: Transform
-      pos: 25.49827,34.654907
       parent: 2
 - proto: CarbonDioxideCanister
   entities:
@@ -110255,11 +110248,6 @@ entities:
     - type: Transform
       pos: -43.452274,17.938507
       parent: 2
-  - uid: 13731
-    components:
-    - type: Transform
-      pos: 10.521879,36.619625
-      parent: 2
   - uid: 13732
     components:
     - type: Transform
@@ -114168,12 +114156,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -3.5,24.5
       parent: 2
-  - uid: 14382
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 10.5,36.5
-      parent: 2
   - uid: 14383
     components:
     - type: Transform
@@ -117948,6 +117930,13 @@ entities:
     components:
     - type: Transform
       pos: -36.92709,-25.260359
+      parent: 2
+- proto: SafeCodeCapsSpare
+  entities:
+  - uid: 13731
+    components:
+    - type: Transform
+      pos: 10.5,36.5
       parent: 2
 - proto: SalvageMagnet
   entities:
@@ -127060,6 +127049,11 @@ entities:
       parent: 19927
 - proto: TableReinforcedGlass
   entities:
+  - uid: 5775
+    components:
+    - type: Transform
+      pos: 10.5,36.5
+      parent: 2
   - uid: 16229
     components:
     - type: Transform

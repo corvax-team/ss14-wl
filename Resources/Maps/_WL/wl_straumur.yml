@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
-  forkId: syndicate-wl
-  forkVersion: 4a014e9d4b1939960b04a11eccd9d565f651e386
-  time: 03/25/2026 15:31:15
-  entityCount: 16985
+  engineVersion: 277.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 07/02/2026 11:55:53
+  entityCount: 16976
 maps:
 - 1
 grids:
@@ -13136,6 +13136,8 @@ entities:
     - type: BecomesStation
       id: CorvaxWLStraumur
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
   - uid: 3846
     mapInit: true
     paused: true
@@ -13147,13 +13149,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 10
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 3845
   - uid: 3848
     mapInit: true
@@ -13166,13 +13166,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 10
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 3847
   - uid: 3855
     mapInit: true
@@ -13185,10 +13183,8 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: battery
         reagents: []
     - type: ContainedSolution
-      containerName: battery
       container: 3854
   - uid: 3860
     mapInit: true
@@ -13201,10 +13197,8 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: battery
         reagents: []
     - type: ContainedSolution
-      containerName: battery
       container: 3859
   - uid: 3863
     mapInit: true
@@ -13217,13 +13211,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 10
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 3862
   - uid: 3868
     mapInit: true
@@ -13236,10 +13228,8 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: battery
         reagents: []
     - type: ContainedSolution
-      containerName: battery
       container: 3867
   - uid: 3876
     mapInit: true
@@ -13252,10 +13242,8 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: battery
         reagents: []
     - type: ContainedSolution
-      containerName: battery
       container: 3875
   - uid: 3882
     mapInit: true
@@ -13268,13 +13256,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 50
-        name: drink
         reagents:
         - data: []
           ReagentId: Water
           Quantity: 50
     - type: ContainedSolution
-      containerName: drink
       container: 3881
   - uid: 3884
     mapInit: true
@@ -13287,13 +13273,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 30
-        name: food
         reagents:
         - data: []
           ReagentId: Nutriment
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 3883
   - uid: 14821
     components:
@@ -13439,6 +13423,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
 - proto: ActionToggleInternals
   entities:
   - uid: 2714
@@ -20244,16 +20230,6 @@ entities:
           - 10353
 - proto: BriefcaseBrownFilled
   entities:
-  - uid: 1246
-    components:
-    - type: Transform
-      pos: 0.4511094,26.737099
-      parent: 2
-  - uid: 1247
-    components:
-    - type: Transform
-      pos: 0.6386094,26.573036
-      parent: 2
   - uid: 1445
     components:
     - type: Transform
@@ -51327,10 +51303,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -51517,10 +51489,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -52077,10 +52045,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -53737,13 +53701,6 @@ entities:
     components:
     - type: Transform
       pos: 33.5,22.5
-      parent: 2
-- proto: CrateVendingMachineRestockDonutFilled
-  entities:
-  - uid: 9265
-    components:
-    - type: Transform
-      pos: 9.5,-13.5
       parent: 2
 - proto: CrayonWhite
   entities:
@@ -59072,7 +59029,6 @@ entities:
     - type: Transform
       parent: 3877
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - drink
     - type: MeleeWeapon
@@ -63548,10 +63504,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -89133,6 +89085,8 @@ entities:
     - type: Transform
       pos: 28.5,-36.5
       parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: IntercomEngineering
   entities:
   - uid: 16718
@@ -92606,7 +92560,6 @@ entities:
       lastCharge: 720
       lastUpdate: -73.1777539
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - battery
     - type: EmitSoundOnCollide
@@ -92627,7 +92580,6 @@ entities:
       lastCharge: 720
       lastUpdate: -73.1777539
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - battery
     - type: EmitSoundOnCollide
@@ -92648,7 +92600,6 @@ entities:
       lastCharge: 720
       lastUpdate: -73.1777539
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - battery
     - type: EmitSoundOnCollide
@@ -95341,12 +95292,6 @@ entities:
     components:
     - type: Transform
       pos: -14.5,27.5
-      parent: 2
-  - uid: 1203
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,26.5
       parent: 2
   - uid: 1230
     components:
@@ -99171,6 +99116,13 @@ entities:
     components:
     - type: Transform
       pos: -30.103584,21.59953
+      parent: 2
+- proto: SafeCodeCapsSpare
+  entities:
+  - uid: 1203
+    components:
+    - type: Transform
+      pos: 0.5,26.5
       parent: 2
 - proto: SalvageMagnet
   entities:
@@ -105148,7 +105100,6 @@ entities:
           startTime: 0
           length: 1
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - battery
     - type: EmitSoundOnCollide
@@ -108476,6 +108427,11 @@ entities:
     - type: Transform
       pos: -3.5,30.5
       parent: 2
+  - uid: 1246
+    components:
+    - type: Transform
+      pos: 0.5,26.5
+      parent: 2
   - uid: 1768
     components:
     - type: Transform
@@ -109517,32 +109473,6 @@ entities:
     - type: Transform
       pos: 49.541615,-36.34849
       parent: 2
-- proto: TowelColorGold
-  entities:
-  - uid: 1426
-    components:
-    - type: Transform
-      pos: -14.485123,27.64916
-      parent: 2
-- proto: TowelColorGray
-  entities:
-  - uid: 4492
-    components:
-    - type: Transform
-      pos: 2.4544773,-27.295412
-      parent: 2
-  - uid: 4493
-    components:
-    - type: Transform
-      pos: 2.6029148,-27.389162
-      parent: 2
-- proto: TowelColorLightBlue
-  entities:
-  - uid: 1901
-    components:
-    - type: Transform
-      pos: 29.538773,8.62394
-      parent: 2
 - proto: TowelColorNT
   entities:
   - uid: 1401
@@ -109554,18 +109484,6 @@ entities:
     components:
     - type: Transform
       pos: 15.670766,30.595528
-      parent: 2
-- proto: TowelColorRed
-  entities:
-  - uid: 3572
-    components:
-    - type: Transform
-      pos: 25.442986,-21.31839
-      parent: 2
-  - uid: 3573
-    components:
-    - type: Transform
-      pos: 25.622673,-21.404327
       parent: 2
 - proto: TowelColorWhite
   entities:
@@ -110321,6 +110239,13 @@ entities:
     components:
     - type: Transform
       pos: 13.5,5.5
+      parent: 2
+- proto: VendingMachineRestockDonut
+  entities:
+  - uid: 9265
+    components:
+    - type: Transform
+      pos: 9.5,-13.5
       parent: 2
 - proto: VendingMachineRoboDrobe
   entities:

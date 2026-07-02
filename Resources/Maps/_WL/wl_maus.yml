@@ -2,10 +2,10 @@ meta:
   format: 7
   category: Map
   engineVersion: 277.0.0
-  forkId: syndicate-wl
-  forkVersion: 69b36b0e10a7f005c364f964516b5155b11642d2
-  time: 06/21/2026 17:56:42
-  entityCount: 21490
+  forkId: ""
+  forkVersion: ""
+  time: 07/02/2026 12:10:44
+  entityCount: 21487
 maps:
 - 1
 grids:
@@ -19305,7 +19305,7 @@ entities:
       pos: -10.5,3.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -148756.7
+      secondsUntilStateChange: -148845.23
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19327,7 +19327,7 @@ entities:
       pos: -27.5,1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -124943.13
+      secondsUntilStateChange: -125031.66
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -19924,7 +19924,7 @@ entities:
       pos: -89.5,-39.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11591.085
+      secondsUntilStateChange: -11679.609
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -20109,7 +20109,7 @@ entities:
       pos: -0.5,0.5
       parent: 20522
     - type: Door
-      secondsUntilStateChange: -53095.57
+      secondsUntilStateChange: -53184.094
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20343,7 +20343,7 @@ entities:
       pos: -27.5,-45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -28514.932
+      secondsUntilStateChange: -28603.455
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20729,7 +20729,7 @@ entities:
       pos: -83.5,-30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -6740.901
+      secondsUntilStateChange: -6829.425
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20766,7 +20766,7 @@ entities:
       pos: -14.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -49495.906
+      secondsUntilStateChange: -49584.43
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -20932,7 +20932,7 @@ entities:
       pos: -45.5,-63.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5495.1357
+      secondsUntilStateChange: -5583.6597
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21168,7 +21168,7 @@ entities:
       pos: -22.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8101.911
+      secondsUntilStateChange: -8190.435
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -50339,13 +50339,6 @@ entities:
     - type: Transform
       pos: -18.494244,12.466522
       parent: 2
-- proto: CaptainIDCard
-  entities:
-  - uid: 5462
-    components:
-    - type: Transform
-      pos: -37.593105,-9.4279785
-      parent: 2
 - proto: CarbonDioxideCanister
   entities:
   - uid: 520
@@ -69298,7 +69291,7 @@ entities:
       pos: -51.5,-22.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -8958.681
+      secondsUntilStateChange: -9047.205
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -104827,7 +104820,7 @@ entities:
       pos: -13.5,-37.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -49488.87
+      secondsUntilStateChange: -49577.395
       state: Closing
   - uid: 11619
     components:
@@ -104890,7 +104883,7 @@ entities:
       pos: -11.5,-45.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -128660.2
+      secondsUntilStateChange: -128748.73
       state: Closing
   - uid: 11633
     components:
@@ -109343,24 +109336,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -19.409615,-46.633568
-      parent: 2
-  - uid: 12017
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -37.52306,-2.3571105
-      parent: 2
-  - uid: 12018
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -37.38927,-2.4463077
-      parent: 2
-  - uid: 12019
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -37.329807,-2.5503707
       parent: 2
   - uid: 12020
     components:
@@ -119289,6 +119264,13 @@ entities:
     components:
     - type: Transform
       pos: -16.75821,9.503291
+      parent: 2
+- proto: SafeCodeCapsSpare
+  entities:
+  - uid: 5462
+    components:
+    - type: Transform
+      pos: -37.5,-2.5
       parent: 2
 - proto: Salt1
   entities:
