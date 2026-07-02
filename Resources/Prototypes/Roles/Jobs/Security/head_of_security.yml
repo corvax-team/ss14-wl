@@ -79,3 +79,4 @@
   equipment:
     mask: ClothingMaskGasSecurity
     neck: ClothingNeckCloakHos
+    pocket1: CardCapsSpare # WL-code-safe

@@ -66,3 +66,4 @@
     neck: ClothingNeckCloakRd
     outerClothing: ClothingOuterCoatRD
     gloves: ClothingHandsGlovesRNDhands # WL-Changes: Resprite Day
+    pocket1: CardCapsSpare # WL-code-safe
