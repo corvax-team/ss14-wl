@@ -222,6 +222,10 @@
     {
       "name": "wolfcut2",
       "directions": 4
+    },
+    {
+      "name": "hairpunchn",
+      "directions": 4
     }
   ]
 }

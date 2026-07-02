@@ -310,3 +310,10 @@
       state: wolfcut1
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: wolfcut2
+
+- type: marking
+  id: HumanHairPunchn
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: hairpunchn

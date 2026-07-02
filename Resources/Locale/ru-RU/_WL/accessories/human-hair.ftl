@@ -94,3 +94,5 @@ marking-HumanHairSimpleLong = Простая длинная градиент
 marking-HumanHairSimpleExtraLong = Простая очень длинная градиент
 marking-HumanHairStella = Магические двойные хвостики
 marking-HumanHairWolfcut = Вульфкат
+
+marking-HumanHairPunchn = Пучок (Альт.)
