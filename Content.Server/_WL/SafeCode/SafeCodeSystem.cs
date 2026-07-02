@@ -33,7 +33,6 @@ public sealed partial class SafeCodeSystem : SharedSafeCodeSystem
         var maxValue = (int) Math.Pow(10, ent.Comp.CodeLength);
         var code = _random.Next(maxValue);
 
-        _random.Next(maxValue);
         ent.Comp.Code = code.ToString().PadLeft(ent.Comp.CodeLength, '0');
 
         _appearance.SetData(ent.Owner, SafeCodeVisuals.Locked, ent.Comp.Locked);
