@@ -84,6 +84,11 @@
       path: /Audio/_Goobstation/Items/Pipe/metal_pipe_fall.ogg
       params:
         volume: -2
+  - type: RCDDeconstructable # RPD port from FonkyStation
+    cost: 1 # TODO: скок оставить то, в int или полу-float
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
     # WL-Changes-end
   # Goobstation edit end
 

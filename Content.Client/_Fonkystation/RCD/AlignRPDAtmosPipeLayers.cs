@@ -15,7 +15,10 @@ using Robust.Client.State;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Reflection;
+using Robust.Shared.Serialization.TypeSerializers.Implementations;
 using Robust.Shared.Utility;
+using System.Linq;
 using System.Numerics;
 using static Robust.Client.Placement.PlacementManager;
 
@@ -37,6 +40,7 @@ public sealed partial class AlignRPDAtmosPipeLayers : PlacementMode
     [Dependency] private IStateManager _stateManager = default!;
     [Dependency] private IEyeManager _eyeManager = default!;
     [Dependency] private IEntityNetworkManager _entityNetwork = default!;
+    [Dependency] private IReflectionManager _reflection = default!;
 
     private readonly SharedMapSystem _mapSystem;
     private readonly SharedTransformSystem _transformSystem;
@@ -88,7 +92,7 @@ public sealed partial class AlignRPDAtmosPipeLayers : PlacementMode
             return;
 
         // Draw guide circles for each pipe layer if we are not in line/grid placing mode
-        if (rcd.CurrentMode == RpdMode.Free && pManager.PlacementType == PlacementTypes.None )
+        if (rcd.CurrentMode == RpdMode.Free && pManager.PlacementType == PlacementTypes.None)
         {
             var gridRotation = _transformSystem.GetWorldRotation(gridUid.Value);
             var worldPosition = _mapSystem.LocalToWorld(gridUid.Value, grid, MouseCoords.Position);
@@ -213,7 +217,41 @@ public sealed partial class AlignRPDAtmosPipeLayers : PlacementMode
             return;
 
         if (!_pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, layer, out var newProtoId))
+        // WL-Changes-start
+        {
+            if (currentProto.TryGetComponent<SpriteComponent>(out var sprite, _entityManager.ComponentFactory))
+            {
+                var textures = new List<IDirectionalTextureProvider>();
+
+                var layersList = sprite.AllLayers.ToList();
+                for (int i = 0; i < layersList.Count; i++)
+                {
+                    var spriteLayer = layersList[i];
+                    var rsiPath = spriteLayer.ActualRsi?.Path;
+                    var stateName = spriteLayer.RsiState.Name;
+
+                    foreach (var (layerKey, layerPaths) in atmosPipeLayers.SpriteLayersRsiPaths)
+                    {
+                        if (_reflection.TryParseEnumReference(layerKey, out var @enum)
+                            && _spriteSystem.LayerMapTryGet((default, sprite), @enum, out var layerIndex, false))
+                        {
+                            if (layerIndex == i && layerPaths.TryGetValue(layer, out var altPath))
+                            {
+                                rsiPath = SpriteSpecifierSerializer.TextureRoot / new ResPath(altPath);
+                                break;
+                            }
+                        }
+                    }
+
+                    if (rsiPath != null && stateName != null)
+                        textures.Add(_spriteSystem.RsiStateLike(new SpriteSpecifier.Rsi(rsiPath.Value, stateName)));
+                }
+
+                pManager.CurrentTextures = textures;
+            }
             return;
+        }
+        // WL-Changes-end
 
         if (_protoManager.TryIndex<EntityPrototype>(newProtoId, out var newProto))
         {

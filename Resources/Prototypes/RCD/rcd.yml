@@ -16,7 +16,7 @@
   id: DeconstructLattice   # Hidden prototype - do not add to RCDs
   name: rcd-component-deconstruct
   mode: Deconstruct
-  cost: 2
+  cost: 2 # TODO: скок оставить то, в int или полу-float
   delay: 0
   rotation: Camera
   fx: EffectRCDConstruct0

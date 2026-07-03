@@ -399,6 +399,9 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
+  # WL-Changes-start: RD Ignite
+  - type: IgnitionSource
+    temperature: 800
 
 - type: entity
   id: RCDEmpty

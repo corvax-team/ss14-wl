@@ -72,7 +72,7 @@ public sealed partial class RCDSystem : EntitySystem
     private HashSet<EntityUid> _intersectingEntities = new();
 
     [Access(Other = AccessPermissions.Read)]
-    public Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo = new();
+    public Dictionary<string, (string Tooltip, SpriteSpecifier? Sprite)> PrototypesGroupingInfo = new();
 
     public override void Initialize()
     {
@@ -94,6 +94,7 @@ public sealed partial class RCDSystem : EntitySystem
         SubscribeNetworkEvent<RPDEyeRotationEvent>(OnRPDEyeRotationEvent); // rpd port from FonkyStation
         SubscribeNetworkEvent<RDChangeModeEvent>(OnRDChangeModeEvent); // Ignition
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload); // dehardcode
+        UpdateProtoList(); // dehardcode
         // WL-Changes-end
     }
 
@@ -134,19 +135,19 @@ public sealed partial class RCDSystem : EntitySystem
     // WL-Changes-start
     private void OnProtoReload(PrototypesReloadedEventArgs args) // dehardcode
     {
-        if (!args.WasModified<RDGroupPrototype>())
-            return;
-
-        PrototypesGroupingInfo.Clear();
-        UpdateProtoList();
+        if (args.WasModified<RDGroupPrototype>())
+            UpdateProtoList();
     }
 
     private void UpdateProtoList() // deharcode
     {
+        PrototypesGroupingInfo.Clear();
         var enume = _protoManager.EnumeratePrototypes<RDGroupPrototype>();
         foreach (var proto in enume)
         {
-            PrototypesGroupingInfo.Add(proto.ID, (Loc.GetString(proto.Name), new SpriteSpecifier.Texture(SpriteSpecifierSerializer.TextureRoot / proto.Sprite)));
+            if (proto.Name == null)
+                continue;
+            PrototypesGroupingInfo.Add(proto.ID, (proto.Name, proto.Sprite));
         }
     }
     private void OnRDChangeModeEvent(RDChangeModeEvent ev, EntitySessionEventArgs session) // Ignition
@@ -886,13 +887,17 @@ public sealed partial class RCDSystem : EntitySystem
                     ? prototype.MirrorPrototype
                     : prototype.Prototype;
 
+                var setLayer = false; // WL_changes
+
                 if (component.IsRpd && prototype.HasLayers)
                 {
                     if (_protoManager.TryIndex<EntityPrototype>(proto, out var entityProto) &&
-                        entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
-                        _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, component.CurrentLayer, out var newProtoId))
+                        entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory)) // WL-changes
                     {
-                        proto = newProtoId;
+                        if (_pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, component.CurrentLayer, out var newProtoId))
+                            proto = newProtoId;
+                        else
+                            setLayer = true; // WL-changes
                     }
                 }
 
@@ -923,6 +928,9 @@ public sealed partial class RCDSystem : EntitySystem
                         Transform(ent).LocalRotation = direction.ToAngle();
                         break;
                 }
+
+                if (setLayer && TryComp<AtmosPipeLayersComponent>(ent, out var layers)) // WL-changes
+                    _pipeLayersSystem.SetPipeLayer((ent, layers), component.CurrentLayer);
 
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to spawn {ToPrettyString(ent)} at {position} on grid {gridUid}");
                 break;

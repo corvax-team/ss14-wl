@@ -9,6 +9,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.RCD.Systems;
 
+// WL-Changes: ported original file & modifided | deleted RCDSystem
 public sealed class RPDSystem : EntitySystem
 {
     public override void Initialize()
@@ -32,13 +33,11 @@ public sealed class RPDSystem : EntitySystem
 
         private readonly Entity<RCDComponent> _uid;
         private readonly bool _isRpd;
-        private readonly RCDSystem _rcdSystem;
 
         public RPDModeStatusControl(Entity<RCDComponent> entity)
         {
-            _uid = entity;
+            _uid = entity; // WL-Changes
             _isRpd = entity.Comp.IsRpd;
-            _rcdSystem = IoCManager.Resolve<IEntityManager>().System<RCDSystem>();//EntitySystem.Get<RCDSystem>();
             AddChild(_label);
         }
 
@@ -48,7 +47,7 @@ public sealed class RPDSystem : EntitySystem
 
             base.FrameUpdate(args);
 
-            var currentMode = _uid.Comp.CurrentMode;
+            var currentMode = _uid.Comp.CurrentMode; // WL-Changes
 
             var modeKey = $"rcd-rpd-mode-{currentMode.ToString().ToLowerInvariant()}";
             var modeName = Robust.Shared.Localization.Loc.GetString(modeKey);

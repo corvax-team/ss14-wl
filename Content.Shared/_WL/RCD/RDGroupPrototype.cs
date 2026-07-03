@@ -1,4 +1,5 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.RCD;
 
@@ -9,8 +10,8 @@ public sealed partial class RDGroupPrototype : IPrototype
     public string ID { get; private set; } = default!;
 
     [DataField]
-    public string Name = "";
+    public string? Name;
 
     [DataField]
-    public string Sprite = "";
+    public SpriteSpecifier? Sprite;
 }
