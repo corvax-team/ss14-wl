@@ -496,3 +496,10 @@
   sprites:
     - sprite: Corvax/Mobs/Customization/human_hair.rsi
       state: ziegler
+
+- type: marking
+  id: HumanHairRyan
+  bodyPart: Hair
+  sprites:
+    - sprite: Corvax/Mobs/Customization/human_hair.rsi
+      state: ryan
