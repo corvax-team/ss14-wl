@@ -1,0 +1,48 @@
+# Facescarfs
+- type: loadout
+  groupBy: "Facescarfs"
+  id: FacescarfBlue
+  equipment:
+    neck: ADTClothingNeckFacescarfBlue
+
+- type: loadout
+  groupBy: "Facescarfs"
+  id: FacescarfGreen
+  equipment:
+    neck: ADTClothingNeckFacescarfGreen
+
+- type: loadout
+  groupBy: "Facescarfs"
+  id: FacescarfGrey
+  equipment:
+    neck: ADTClothingNeckFacescarfGrey
+
+- type: loadout
+  groupBy: "Facescarfs"
+  id: FacescarfOrange
+  equipment:
+    neck: ADTClothingNeckFacescarfOrange
+
+- type: loadout
+  groupBy: "Facescarfs"
+  id: FacescarfPurple
+  equipment:
+    neck: ADTClothingNeckFacescarfPurple
+
+- type: loadout
+  groupBy: "Facescarfs"
+  id: FacescarfRed
+  equipment:
+    neck: ADTClothingNeckFacescarfRed
+
+- type: loadout
+  groupBy: "Facescarfs"
+  id: FacescarfWhite
+  equipment:
+    neck: ADTClothingNeckFacescarfWhite
+
+- type: loadout
+  groupBy: "Facescarfs"
+  id: FacescarfBlack
+  equipment:
+    neck: ADTClothingNeckFacescarfBlack
