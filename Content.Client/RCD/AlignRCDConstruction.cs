@@ -1,10 +1,12 @@
 using System.Numerics;
 using Content.Client.Gameplay;
 using Content.Client.Hands.Systems;
+using Content.Shared.Administration;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.RCD.Components;
 using Content.Shared.RCD.Systems;
+using Robust.Client.Graphics;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Client.State;
@@ -42,6 +44,24 @@ public sealed partial class AlignRCDConstruction : PlacementMode
 
         ValidPlaceColor = ValidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
     }
+
+    // WL-Changes-start
+    public override void Render(in OverlayDrawArgs args)
+    {
+        if (_playerManager.LocalSession?.AttachedEntity is not { } player ||
+            !_handsSystem.TryGetActiveItem(player, out var held) ||
+            !_entityManager.TryGetComponent<RCDComponent>(held.Value, out var rcd))
+            return;
+
+        var range = rcd.Range > 0 ? rcd.Range : SharedInteractionSystem.MaxRaycastRange;
+
+        if (!_entityManager.TryGetComponent<TransformComponent>(player, out var xform) ||
+            !_transformSystem.InRange(xform.Coordinates, MouseCoords, range))
+            return;
+
+        base.Render(args);
+    }
+    // WL-Changes-end
 
     public override void AlignPlacementMode(ScreenCoordinates mouseScreen)
     {

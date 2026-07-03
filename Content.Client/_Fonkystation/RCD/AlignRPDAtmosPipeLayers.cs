@@ -74,10 +74,17 @@ public sealed partial class AlignRPDAtmosPipeLayers : PlacementMode
 
     public override void Render(in OverlayDrawArgs args)
     {
+        // WL-Changes-start
         // Early exit if mouse is out of interaction range
         if (_playerManager.LocalSession?.AttachedEntity is not { } player ||
-            !_entityManager.TryGetComponent<TransformComponent>(player, out var xform) ||
-            !_transformSystem.InRange(xform.Coordinates, MouseCoords, SharedInteractionSystem.InteractionRange))
+            !_handsSystem.TryGetActiveItem(player, out var heldEntity) ||
+            !_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
+            return;
+
+        var range = rcd.Range > 0 ? rcd.Range : SharedInteractionSystem.MaxRaycastRange;
+
+        if (!_entityManager.TryGetComponent<TransformComponent>(player, out var xform) ||
+            !_transformSystem.InRange(xform.Coordinates, MouseCoords, range))
         {
             return;
         }
@@ -86,10 +93,7 @@ public sealed partial class AlignRPDAtmosPipeLayers : PlacementMode
 
         if (gridUid == null || !_entityManager.TryGetComponent<MapGridComponent>(gridUid, out var grid))
             return;
-
-        if (!_handsSystem.TryGetActiveItem(player, out var heldEntity) ||
-            !_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
-            return;
+        // WL-Changes-end
 
         // Draw guide circles for each pipe layer if we are not in line/grid placing mode
         if (rcd.CurrentMode == RpdMode.Free && pManager.PlacementType == PlacementTypes.None)
