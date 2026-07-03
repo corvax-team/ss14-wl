@@ -39,7 +39,7 @@ ent-ClothingUniformJumpsuitBlueShield = формальный костюм офи
 ent-ClothingUniformJumpsuitBlackBlazerWhiteShirt = белая рубашка с чёрным пиджаком
     .desc = Элегантная белая рубашка с чёрным пиджаком.
 
-ent-ClothingUniformJumpsuitBlackShirt = белая рубашка с чёрным пиджаком
+ent-ClothingUniformJumpsuitBlackShirt = чёрная рубашка
     .desc = Элегантная чёрная рубашка.
 
 ent-ClothingUniformJumpsuitBlackBlazerBlackShirt = чёрная рубашка с чёрным пиджаком

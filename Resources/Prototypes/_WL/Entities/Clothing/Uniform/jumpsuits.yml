@@ -25,7 +25,6 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBlackBlazerWhiteShirt
-  abstract: true
   name:  black jacket with a white shirt
   description: an elegant suit with a white shirt
   components:
@@ -37,7 +36,6 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBlackShirt
-  abstract: true
   name:  black shirt
   description: an elegant black shirt
   components:
@@ -49,7 +47,6 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitBlackBlazerBlackShirt
-  abstract: true
   name:  black jacket with a black shirt
   description: an elegant suit with a black shirt
   components:
