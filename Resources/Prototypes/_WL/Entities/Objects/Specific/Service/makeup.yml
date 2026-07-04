@@ -8,6 +8,7 @@
     sprite: _WL/Objects/Tools/makeupbrush.rsi
     state: icon
   - type: MagicMirror
+    modifyTime: 3
     organs:
     - Eyes
     layers:

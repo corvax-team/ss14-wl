@@ -36,7 +36,7 @@ public sealed partial class MagicMirrorComponent : Component
     /// Do after time to modify an entity's markings
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan ModifyTime = TimeSpan.FromSeconds(5);
+    public TimeSpan ModifyTime = TimeSpan.FromSeconds(7);
 
     /// <summary>
     /// Sound emitted when slots are changed
