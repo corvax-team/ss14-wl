@@ -286,7 +286,19 @@ public sealed partial class AlignRPDAtmosPipeLayers : PlacementMode
         if (!_entityManager.TryGetComponent<TransformComponent>(player, out var xform))
             return false;
 
-        if (!_transformSystem.InRange(xform.Coordinates, position, SharedInteractionSystem.InteractionRange))
+        // WL-Changes-start
+
+        // Determine if player is carrying an RCD in their active hand
+        if (!_handsSystem.TryGetActiveItem(player.Value, out var heldEntity))
+            return false;
+
+        if (!_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
+            return false;
+
+        var range = rcd.Range > 0 ? rcd.Range : SharedInteractionSystem.MaxRaycastRange;
+
+        if (!_transformSystem.InRange(xform.Coordinates, position, range))
+        // WL-Changes-end
         {
             InvalidPlaceColor = InvalidPlaceColor.WithAlpha(0);
             return false;
@@ -297,13 +309,7 @@ public sealed partial class AlignRPDAtmosPipeLayers : PlacementMode
         {
             InvalidPlaceColor = InvalidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
         }
-
-        // Determine if player is carrying an RCD in their active hand
-        if (!_handsSystem.TryGetActiveItem(player.Value, out var heldEntity))
-            return false;
-
-        if (!_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
-            return false;
+        // WL-Changes-end
 
         var gridUid = _transformSystem.GetGrid(position);
         if (!_entityManager.TryGetComponent<MapGridComponent>(gridUid, out var mapGrid))
