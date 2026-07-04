@@ -161,7 +161,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (!_hands.TryGetActiveItem(player, out var held) || held != rcd)
             return;
 
-        if (!TryComp<RCDComponent>(rcd, out var rcdComp) || rcdComp.EnableIgnite)
+        if (!TryComp<RCDComponent>(rcd, out var rcdComp) || !rcdComp.EnableIgnite)
             return;
 
         if (_random.Prob(rcdComp.IgniteChance))
@@ -221,6 +221,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (rcd.LastKnownEyeRotation != ev.EyeRotation)
         {
             rcd.LastKnownEyeRotation = ev.EyeRotation;
+            Dirty(uid, rcd); // WL-Changes: Sync
         }
     }
 
@@ -588,8 +589,8 @@ public sealed partial class RCDSystem : EntitySystem
         if (component.Range > 0)
         {
             var unobstructedBasic = target == null
-            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), component.Range, popup: popMsgs)
-            : _interaction.InRangeUnobstructed(user, target.Value, component.Range, popup: popMsgs);
+            ? _interaction.InRangeUnobstructed(user, _mapSystem.GridTileToWorld(gridUid, mapGrid, position), component.Range)
+            : _interaction.InRangeUnobstructed(user, target.Value, component.Range);
             fail = !unobstructedBasic;
         }
         else

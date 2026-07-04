@@ -102,6 +102,9 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
 
             return;
         }
+        // WL-Changes-start
+        if (heldEntity != placerEntity)
+            _useMirrorPrototype = rcd.UseMirrorPrototype;
         // WL-Changes-start: rpd port from FonkyStation
         // Determine if mirrored
         // WL-Changes-start: update code from port
@@ -112,7 +115,7 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
         bool isLayered = rcd.IsRpd && curProto.HasLayers;
 
         var desiredMode = isLayered ? RpdPlacementMode : PlacementMode;
-        // WL-Changes-end
+        // WL-Changes-end | x3
 
         // Update the direction the RCD prototype based on the placer direction
         if (_placementDirection != _placementManager.Direction)
