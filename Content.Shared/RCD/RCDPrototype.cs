@@ -60,7 +60,7 @@ public sealed partial class RCDPrototype : IPrototype
     public bool AllowCrossDirection { get; private set; }
 
     /// <summary>
-    /// rpd port from FonkyStation
+    /// rpd port from FunkyStation
     ///
     /// If the entity can be flipped, this prototype is available as an alternate (mode dependent)
     /// </summary>
@@ -138,7 +138,7 @@ public sealed partial class RCDPrototype : IPrototype
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public RcdRotation Rotation { get; private set; } = RcdRotation.User;
 
-    // WL-Changes-start: rpd port from FonkyStation
+    // WL-Changes-start: rpd port from FunkyStation
     /// <summary>
     /// Determines whether this prototype uses layered placement (true for traditional placement, false for layered). Only applies to RPD.
     /// </summary>

@@ -16,7 +16,7 @@
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # WL-Changes: rpd port from FunkyStation
     delay: 6
     fx: EffectRCDDeconstruct6
   - type: Destructible
@@ -86,7 +86,7 @@
   - type: Damageable
     damageModifierSet: RGlass
   - type: RCDDeconstructable
-    cost: 4
+    cost: 40 # WL-Changes: rpd port from FunkyStation
     delay: 4
     fx: EffectRCDDeconstruct4
   - type: Destructible

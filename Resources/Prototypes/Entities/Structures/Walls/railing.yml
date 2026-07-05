@@ -22,7 +22,7 @@
   - type: Construction
     graph: Railing
   - type: RCDDeconstructable
-    cost: 2
+    cost: 20 # WL-Changes: rpd port from FunkyStation
     delay: 2
     fx: EffectRCDDeconstruct2
 

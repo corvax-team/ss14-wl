@@ -34,9 +34,9 @@
     - SensorPipe
     - Deconstruct
   - type: LimitedCharges
-    maxCharges: 450 # TODO: скок оставить то, в int или полу-float
+    maxCharges: 450
   - type: Sprite
-    sprite: _Fonkystation/Objects/Tools/rpd.rsi
+    sprite: _Funkystation/Objects/Tools/rpd.rsi
   # WL-Changes-start: Sounds
   - type: EmitSoundOnPickup
     sound:

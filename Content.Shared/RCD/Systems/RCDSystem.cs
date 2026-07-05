@@ -55,8 +55,8 @@ public sealed partial class RCDSystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TagSystem _tags = default!;
     // WL-Changes-start
-    [Dependency] private SharedAtmosPipeLayersSystem _pipeLayersSystem = default!; // rpd port from FonkyStation
-    [Dependency] private IEntityManager _entityManager = default!; // rpd port from FonkyStation
+    [Dependency] private SharedAtmosPipeLayersSystem _pipeLayersSystem = default!; // rpd port from FunkyStation
+    [Dependency] private IEntityManager _entityManager = default!; // rpd port from FunkyStation
     [Dependency] private IRobustRandom _random = default!; // Ignition
     [Dependency] private SharedIgnitionSourceSystem _source = default!; // Ignition
     [Dependency] private ExamineSystemShared _examine = default!; // BRPD
@@ -79,7 +79,7 @@ public sealed partial class RCDSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<RCDComponent, MapInitEvent>(OnMapInit);
-        // WL-Changes-start: rpd port from FonkyStation
+        // WL-Changes-start: rpd port from FunkyStation
         SubscribeLocalEvent<RCDComponent, GetVerbsEvent<UtilityVerb>>(OnGetUtilityVerb);
         SubscribeLocalEvent<RCDComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb);
         // WL-Changes-end
@@ -90,8 +90,8 @@ public sealed partial class RCDSystem : EntitySystem
         SubscribeLocalEvent<RCDComponent, RCDSystemMessage>(OnRCDSystemMessage);
         SubscribeNetworkEvent<RCDConstructionGhostRotationEvent>(OnRCDconstructionGhostRotationEvent);
         // WL-Changes-start
-        SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent); // rpd port from FonkyStation
-        SubscribeNetworkEvent<RPDEyeRotationEvent>(OnRPDEyeRotationEvent); // rpd port from FonkyStation
+        SubscribeNetworkEvent<RCDConstructionGhostFlipEvent>(OnRCDConstructionGhostFlipEvent); // rpd port from FunkyStation
+        SubscribeNetworkEvent<RPDEyeRotationEvent>(OnRPDEyeRotationEvent); // rpd port from FunkyStation
         SubscribeNetworkEvent<RDChangeModeEvent>(OnRDChangeModeEvent); // Ignition
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload); // dehardcode
         UpdateProtoList(); // dehardcode
@@ -194,7 +194,7 @@ public sealed partial class RCDSystem : EntitySystem
 
         args.PushMarkup(msg);
 
-        // WL-Changes-start: rpd port from FonkyStation
+        // WL-Changes-start: rpd port from FunkyStation
         if (component.IsRpd)
         {
             var modeLoc = $"rcd-rpd-mode-{component.CurrentMode.ToString().ToLowerInvariant()}";
@@ -203,7 +203,7 @@ public sealed partial class RCDSystem : EntitySystem
         // WL-Changes-end
     }
 
-    // WL-Changes-start: rpd port from FonkyStation
+    // WL-Changes-start: rpd port from FunkyStation
     private void OnRPDEyeRotationEvent(RPDEyeRotationEvent ev, EntitySessionEventArgs session)
     {
         var uid = GetEntity(ev.NetEntity);
@@ -293,7 +293,7 @@ public sealed partial class RCDSystem : EntitySystem
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
 
-        // WL-Changes-start: rpd port from FonkyStation
+        // WL-Changes-start: rpd port from FunkyStation
         if (component.IsRpd && prototype.HasLayers)
         {
             var tileSize = mapGrid.TileSize;
@@ -509,7 +509,7 @@ public sealed partial class RCDSystem : EntitySystem
         Dirty(uid, rcd);
     }
 
-    // begin funkystation
+    // WL-Changes-start: rpd port from FunkyStation
     private void OnRCDConstructionGhostFlipEvent(RCDConstructionGhostFlipEvent ev, EntitySessionEventArgs session)
     {
         var uid = GetEntity(ev.NetEntity);
@@ -547,7 +547,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (user != null)
             _audio.PlayPredicted(component.SoundSwitchMode, uid, user.Value);
     }
-    // end funkystation
+    // WL-Changes-end: rpd port from FunkyStation
 
     #endregion
 
@@ -620,7 +620,7 @@ public sealed partial class RCDSystem : EntitySystem
             case RcdMode.ConstructObject:
                 return IsConstructionLocationValid(uid, component, gridUid, mapGrid, tile, position, direction, user, popMsgs);
             case RcdMode.Deconstruct:
-                return IsDeconstructionStillValid(uid, component, tile, target, user, popMsgs); // WL-Changes: rpd port from FonkyStation
+                return IsDeconstructionStillValid(uid, component, tile, target, user, popMsgs); // WL-Changes: rpd port from FunkyStation
         }
 
         return false;
@@ -784,12 +784,12 @@ public sealed partial class RCDSystem : EntitySystem
         return true;
     }
 
-    private bool IsDeconstructionStillValid(EntityUid uid, RCDComponent component, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true) // funkystation
+    private bool IsDeconstructionStillValid(EntityUid uid, RCDComponent component, TileRef tile, EntityUid? target, EntityUid user, bool popMsgs = true) // WL-Changes: rpd port from FunkyStation
     {
         // Attempt to deconstruct a floor tile
         if (target == null)
         {
-            // WL-Changes-start: rpd port from FonkyStation
+            // WL-Changes-start: rpd port from FunkyStation
             /* commented by WL, if u need - uncomment
             if (component.IsRpd)
             {
@@ -834,7 +834,7 @@ public sealed partial class RCDSystem : EntitySystem
         // Attempt to deconstruct an object
         else
         {
-            // WL-Changes-start: rpd port from FonkyStation
+            // WL-Changes-start: rpd port from FunkyStation
             // The object is not in the RPD whitelist
             if (!TryComp<RCDDeconstructableComponent>(target, out var deconstructible) || !deconstructible.RpdDeconstructable && component.IsRpd)
             {
@@ -883,7 +883,7 @@ public sealed partial class RCDSystem : EntitySystem
                 break;
 
             case RcdMode.ConstructObject:
-                // WL-Changes-start: rpd port from FonkyStation
+                // WL-Changes-start: rpd port from FunkyStation
                 var proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(prototype.MirrorPrototype))
                     ? prototype.MirrorPrototype
                     : prototype.Prototype;

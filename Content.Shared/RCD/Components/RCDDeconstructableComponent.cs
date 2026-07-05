@@ -32,7 +32,7 @@ public sealed partial class RCDDeconstructableComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool Deconstructable = true;
 
-    // WL-Changes-start: rpd port from FonkyStation
+    // WL-Changes-start: rpd port from FunkyStation
     /// <summary>
     /// Toggles whether this entity is deconstructable by the RPD or not
     /// </summary>

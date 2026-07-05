@@ -10,7 +10,7 @@
           path:
             "/Audio/Weapons/grille_hit.ogg"
     - type: RCDDeconstructable
-      cost: 6
+      cost: 60 # WL-Changes: rpd port from FunkyStation
       delay: 4
       fx: EffectRCDDeconstruct4
     - type: CanBuildWindowOnTop
@@ -123,7 +123,7 @@
     sprite: Structures/Walls/grille.rsi
     state: grille_broken
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # WL-Changes: rpd port from FunkyStation
     delay: 4
     fx: EffectRCDDeconstruct4
   - type: Construction

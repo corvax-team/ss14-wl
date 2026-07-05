@@ -105,7 +105,7 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
         // WL-Changes-start
         if (heldEntity != placerEntity)
             _useMirrorPrototype = rcd.UseMirrorPrototype;
-        // WL-Changes-start: rpd port from FonkyStation
+        // WL-Changes-start: rpd port from FunkyStation
         // Determine if mirrored
         // WL-Changes-start: update code from port
         var curProto = _protoManager.Index<RCDPrototype>(rcd.ProtoId);
@@ -125,7 +125,7 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
         }
 
         // If the placer has not changed, exit
-        // WL-Changes-start: rpd port from FonkyStation
+        // WL-Changes-start: rpd port from FunkyStation
         if (heldEntity == placerEntity &&
             prototype == placerProto &&
             _placementManager.CurrentPermission?.PlacementOption == desiredMode)
@@ -136,12 +136,12 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
         var newObjInfo = new PlacementInformation
         {
             MobUid = heldEntity.Value,
-            // WL-Changes-start: rpd port from FonkyStation
+            // WL-Changes-start: rpd port from FunkyStation
             PlacementOption = desiredMode,
             EntityType = prototype,
             // WL-Changes-end
             Range = (int)Math.Ceiling(SharedInteractionSystem.InteractionRange),
-            IsTile = curProto.Mode == RcdMode.ConstructTile, // WL-Changes: rpd port from FonkyStation | update code from port
+            IsTile = curProto.Mode == RcdMode.ConstructTile, // WL-Changes: rpd port from FunkyStation | update code from port
             UseEditorContext = false,
         };
 

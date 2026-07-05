@@ -55,7 +55,7 @@
   - type: CableVis
     node: power
   - type: RCDDeconstructable
-    cost: 2
+    cost: 8 # WL-Changes: rpd port from FunkyStation
     delay: 0
     fx: EffectRCDConstruct0
 

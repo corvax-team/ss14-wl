@@ -30,7 +30,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
     //         ["Lighting"] = ("rcd-component-lighting", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/lighting.png"))),
     //     };
 
-    private bool IsRpd => EntMan.TryGetComponent<RCDComponent>(Owner, out var rcd) && rcd.IsRpd; // WL-Changes: rpd port from FonkyStation
+    private bool IsRpd => EntMan.TryGetComponent<RCDComponent>(Owner, out var rcd) && rcd.IsRpd; // WL-Changes: rpd port from FunkyStation
 
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private ISharedPlayerManager _playerManager = default!;

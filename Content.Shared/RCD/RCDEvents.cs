@@ -17,7 +17,7 @@ public sealed class RCDConstructionGhostRotationEvent(NetEntity netEntity, Direc
 }
 // WL-Changes-start
 [Serializable, NetSerializable]
-public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs // rpd port from FonkyStation
+public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs // rpd port from FunkyStation
 {
     public readonly NetEntity NetEntity;
     public readonly bool UseMirrorPrototype;
@@ -29,7 +29,7 @@ public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs // rpd port 
 }
 
 [Serializable, NetSerializable]
-public sealed class RPDEyeRotationEvent : EntityEventArgs // rpd port from FonkyStation
+public sealed class RPDEyeRotationEvent : EntityEventArgs // rpd port from FunkyStation
 {
     public readonly NetEntity NetEntity;
     public float? EyeRotation;

@@ -19,7 +19,7 @@
     - type: Injurable
       damageContainer: StructuralInorganic
     - type: RCDDeconstructable
-      cost: 2
+      cost: 20 # WL-Changes: rpd port from FunkyStation
       delay: 0
       fx: EffectRCDConstruct0
     - type: Destructible

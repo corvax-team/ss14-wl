@@ -89,7 +89,7 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: RCDDeconstructable
-    cost: 8
+    cost: 80 # WL-Changes: rpd port from FunkyStation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible

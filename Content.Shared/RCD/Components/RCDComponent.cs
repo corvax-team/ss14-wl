@@ -52,7 +52,7 @@ public sealed partial class RCDComponent : Component
     public TimeSpan IgnitedTime = TimeSpan.FromSeconds(0.5f);
 
     /// <summary>
-    /// rpd port from FonkyStation
+    /// rpd port from FunkyStation
     ///
     /// Indicates if a mirrored version of the construction prototype should be used (if available)
     /// </summary>
@@ -60,7 +60,7 @@ public sealed partial class RCDComponent : Component
     public bool UseMirrorPrototype = false;
 
     /// <summary>
-    /// rpd port from FonkyStation
+    /// rpd port from FunkyStation
     ///
     /// Indicates whether this is an RCD or an RPD
     /// </summary>
@@ -93,7 +93,7 @@ public sealed partial class RCDComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; }
 
-    // WL-Changes-start: rpd port from FonkyStation
+    // WL-Changes-start: rpd port from FunkyStation
     /// <summary>
     /// Stores player rotation
     /// This is a workaround to the fact eye rotation is not currently networked and required for pipe layering

@@ -26,24 +26,24 @@
 - type: rdGroup
   id: Piping
   name: rcd-component-piping
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/fourway.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/fourway.png
 
 - type: rdGroup
   id: AtmosphericUtility
   name: rcd-component-atmosphericutility
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/port.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/port.png
 
 - type: rdGroup
   id: PumpsValves
   name: rcd-component-pumpsvalves
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/pump_volume.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_volume.png
 
 - type: rdGroup
   id: Vents
   name: rcd-component-vents
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/vent_passive.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/vent_passive.png
 
 - type: rdGroup
   id: SensorsMonitors
   name: rcd-component-sensorsmonitors
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/alarm.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/alarm.png

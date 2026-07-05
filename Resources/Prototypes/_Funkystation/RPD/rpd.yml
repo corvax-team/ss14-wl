@@ -1,10 +1,10 @@
 - type: rcd
   id: PipeFourway
   category: Piping
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/fourway.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/fourway.png
   mode: ConstructObject
   prototype: GasPipeFourway
-  cost: 10 # TODO: скок оставить то, в int или полу-float
+  cost: 10
   delay: 0
   rotation: User
   hasLayers: true
@@ -13,7 +13,7 @@
 - type: rcd
   id: PipeStraight
   category: Piping
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/straight.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/straight.png
   mode: ConstructObject
   prototype: GasPipeStraight
   cost: 10
@@ -25,7 +25,7 @@
 - type: rcd
   id: PipeBend
   category: Piping
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/bend.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/bend.png
   mode: ConstructObject
   prototype: GasPipeBend
   cost: 10
@@ -37,7 +37,7 @@
 - type: rcd
   id: PipeTJunction
   category: Piping
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/tjunction.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/tjunction.png
   mode: ConstructObject
   prototype: GasPipeTJunction
   cost: 10
@@ -50,7 +50,7 @@
 - type: rcd
   id: PipeHalf
   category: Piping
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/pipe_half.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/pipe_half.png
   mode: ConstructObject
   prototype: GasPipeHalf
   cost: 10
@@ -63,7 +63,7 @@
 - type: rcd
   id: ManifoldGas
   category: Piping
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/manifold.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/manifold.png
   mode: ConstructObject
   prototype: GasPipeManifold
   cost: 20
@@ -75,7 +75,7 @@
 - type: rcd
   id: PressurePump
   category: PumpsValves
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/pump_pressure.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_pressure.png
   mode: ConstructObject
   prototype: GasPressurePump
   cost: 20
@@ -88,7 +88,7 @@
 - type: rcd
   id: VolumetricPump
   category: PumpsValves
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/pump_volume.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_volume.png
   mode: ConstructObject
   prototype: GasVolumePump
   cost: 20
@@ -101,7 +101,7 @@
 - type: rcd
   id: ManualValve
   category: PumpsValves
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/pump_manual_valve.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_manual_valve.png
   mode: ConstructObject
   prototype: GasValve
   cost: 20
@@ -114,7 +114,7 @@
 - type: rcd
   id: SignalValve
   category: PumpsValves
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/pump_signal_valve.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_signal_valve.png
   mode: ConstructObject
   prototype: SignalControlledValve
   cost: 20
@@ -127,7 +127,7 @@
 - type: rcd
   id: PressureValve
   category: PumpsValves
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/pneumatic_valve.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/pneumatic_valve.png
   mode: ConstructObject
   prototype: PressureControlledValve
   cost: 20
@@ -140,7 +140,7 @@
 - type: rcd
   id: PressureRegulator
   category: PumpsValves
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/pump_pressure_regulator.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_pressure_regulator.png
   mode: ConstructObject
   prototype: GasPressureRegulator
   cost: 20
@@ -153,7 +153,7 @@
 - type: rcd
   id: OutletInjector
   category: Vents
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/injector.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/injector.png
   mode: ConstructObject
   prototype: GasOutletInjector
   cost: 20
@@ -166,7 +166,7 @@
 - type: rcd
   id: VentScrubber
   category: Vents
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/scrub_off.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/scrub_off.png
   mode: ConstructObject
   prototype: GasVentScrubber
   cost: 20
@@ -179,7 +179,7 @@
 - type: rcd
   id: VentGas
   category: Vents
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/vent_off.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/vent_off.png
   mode: ConstructObject
   prototype: GasVentPump
   cost: 20
@@ -192,7 +192,7 @@
 - type: rcd
   id: DualPortVent
   category: Vents
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/dual_port.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/dual_port.png
   mode: ConstructObject
   prototype: GasDualPortVentPump
   cost: 20
@@ -205,7 +205,7 @@
 - type: rcd
   id: VentPassive
   category: Vents
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/vent_passive.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/vent_passive.png
   mode: ConstructObject
   prototype: GasPassiveVent
   cost: 20
@@ -218,7 +218,7 @@
 - type: rcd
   id: Radiator
   category: AtmosphericUtility
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/radiator.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/radiator.png
   mode: ConstructObject
   prototype: HeatExchanger
   cost: 20
@@ -230,7 +230,7 @@
 - type: rcd
   id: RadiatorBend
   category: AtmosphericUtility
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/he_bend.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/he_bend.png
   mode: ConstructObject
   prototype: HeatExchangerBend
   cost: 20
@@ -242,7 +242,7 @@
 - type: rcd
   id: MixerGas
   category: AtmosphericUtility
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/gas_mixer.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/gas_mixer.png
   mode: ConstructObject
   prototype: GasMixer
   mirrorPrototype: GasMixerFlipped
@@ -256,7 +256,7 @@
 - type: rcd
   id: FilterGas
   category: AtmosphericUtility
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/gas_filter.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/gas_filter.png
   mode: ConstructObject
   prototype: GasFilter
   mirrorPrototype: GasFilterFlipped
@@ -270,7 +270,7 @@
 - type: rcd
   id: CanisterPort
   category: AtmosphericUtility
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/port.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/port.png
   mode: ConstructObject
   prototype: GasPort
   cost: 20
@@ -283,7 +283,7 @@
 - type: rcd
   id: Alarm
   category: SensorsMonitors
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/alarm.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/alarm.png
   mode: ConstructObject
   prototype: AirAlarm
   cost: 35
@@ -294,7 +294,7 @@
 - type: rcd
   id: Sensor
   category: SensorsMonitors
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/sensor.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/sensor.png
   mode: ConstructObject
   prototype: AirSensor
   cost: 20
@@ -306,7 +306,7 @@
 - type: rcd
   id: SensorPipe
   category: SensorsMonitors
-  sprite: /Textures/_Fonkystation/Interface/Radial/RPD/sensorpipe.png
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/sensorpipe.png
   mode: ConstructObject
   prototype: GasPipeSensor
   cost: 20

@@ -111,6 +111,10 @@
     guides:
     - AirAlarms
     - DeviceMonitoringAndControl
+  - type: RCDDeconstructable # WL-Changes: rpd port from FunkyStation
+    cost: 20
+    delay: 2
+    fx: EffectRCDDeconstruct2
 
 - type: entity
   parent: BaseWallmountMetallic

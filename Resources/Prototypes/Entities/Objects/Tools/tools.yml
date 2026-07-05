@@ -363,7 +363,7 @@
     - CableTerminal
     - Deconstruct
   - type: LimitedCharges
-    maxCharges: 30
+    maxCharges: 300 # WL-Changes: rpd port from FunkyStation
   - type: Sprite
     sprite: Objects/Tools/rcd.rsi
     state: icon
@@ -399,8 +399,7 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
-  # WL-Changes-start: RD Ignite
-  - type: IgnitionSource
+  - type: IgnitionSource # WL-Changes: RD Ignite
     temperature: 800
 
 - type: entity
@@ -419,7 +418,7 @@
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
-    maxCharges: 20
+    maxCharges: 200 # WL-Changes: rpd port from FunkyStation
   - type: AutoRecharge
     rechargeDuration: 10
 
