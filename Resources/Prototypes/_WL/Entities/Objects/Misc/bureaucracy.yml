@@ -1,5 +1,6 @@
 - type: entity
   id: SafeCodeNote
+  categories: [ HideSpawnMenu ]
   parent: Paper
   name: top-secret code
   description: This must not fall into the hands of an ordinary crew.

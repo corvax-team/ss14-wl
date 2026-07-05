@@ -57,6 +57,7 @@
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetCMO
+    pocket1: CardCapsSpare # WL-code-safe
   storage:
     back:
     - Flash
@@ -72,4 +73,3 @@
     neck: ClothingCloakCmo
     outerClothing: ClothingOuterCoatLabCmo
     gloves: ClothingHandsGlovesNitrile
-    pocket1: CardCapsSpare # WL-code-safe

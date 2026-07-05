@@ -67,6 +67,7 @@
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity
     pocket1: WeaponPistolMk58
+    pocket2: CardCapsSpare # WL-code-safe
   storage:
     back:
     - Flash
@@ -79,4 +80,3 @@
   equipment:
     mask: ClothingMaskGasSecurity
     neck: ClothingNeckCloakHos
-    pocket1: CardCapsSpare # WL-code-safe

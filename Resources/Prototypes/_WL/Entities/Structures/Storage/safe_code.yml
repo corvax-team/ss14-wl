@@ -43,6 +43,7 @@
 
 - type: entity
   id: SafeCodeCapsSpare
+  suffix: Only one 
   parent: BaseSafeCode
   name: captain's Gold Safe 
   description: An imposing golden safe that clearly holds something precious. 
