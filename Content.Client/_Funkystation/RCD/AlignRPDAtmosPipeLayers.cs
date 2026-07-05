@@ -150,8 +150,12 @@ public sealed partial class AlignRPDAtmosPipeLayers : PlacementMode
         if (!_entityManager.TryGetComponent<TransformComponent>(player.Value, out var playerXform))
             return;
 
-        if (!_transformSystem.InRange(playerXform.Coordinates, MouseCoords, SharedInteractionSystem.InteractionRange))
+        // WL-Chanes-start
+        var range = rcd.Range > 0 ? rcd.Range : SharedInteractionSystem.MaxRaycastRange;
+
+        if (!_transformSystem.InRange(playerXform.Coordinates, MouseCoords, range))
             return;
+        // WL-Changes-end
 
         var mouseCoordsDiff = _mouseCoordsRaw.Position - MouseCoords.Position;
         var newLayer = AtmosPipeLayer.Primary; // fallback
