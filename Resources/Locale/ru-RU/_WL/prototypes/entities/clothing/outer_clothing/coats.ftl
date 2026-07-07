@@ -6,3 +6,6 @@ ent-ClothingOuterCoatCaptainTrenchOpened = тренч капитана
 
 ent-ClothingOuterCoatAdjutantCC = тренч адъютанта центкома
     .desc = { ent-ClothingOuterCoatCaptainTrench.desc }
+
+ent-ClothingOuterCoatDetectiveWhite = белый тренч детектива
+    .desc = только для лучших из лучших.

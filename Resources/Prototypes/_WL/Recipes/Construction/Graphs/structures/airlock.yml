@@ -161,16 +161,3 @@
       steps:
       - tool: Prying
         doAfter: 5
-
-    - to: airlockExternal
-      completed:
-      - !type:GivePrototype
-        prototype: SheetSteel1
-        amount: 2
-      conditions:
-      - !type:WirePanel {}
-      - !type:HasTag
-        tag: Airlock
-      steps:
-      - tool: Prying
-        doAfter: 4

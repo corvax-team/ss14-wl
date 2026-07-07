@@ -57,6 +57,7 @@
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetCMO
+    pocket1: CardCapsSpare # WL-code-safe
   storage:
     back:
     - Flash

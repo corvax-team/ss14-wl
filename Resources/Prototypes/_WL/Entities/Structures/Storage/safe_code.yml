@@ -1,0 +1,82 @@
+- type: entity
+  id: BaseSafeCode
+  parent: BaseStructure
+  abstract: true
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        density: 1200
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
+  - type: Anchorable
+  - type: Pullable
+  - type: Damageable
+    damageModifierSet: StrongMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: Storage
+  - type: UserInterface
+    interfaces:
+      enum.SafeCodeUiKey.Key:
+        type: SafeCodeBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ActivatableUI
+    key: enum.SafeCodeUiKey.Key
+  - type: Appearance
+  - type: Emag
+  - type: SafeCode
+  - type: Clickable
+  - type: InteractionOutline
+
+- type: entity
+  id: SafeCodeCapsSpare
+  suffix: Only one 
+  parent: BaseSafeCode
+  name: captain's Gold Safe 
+  description: An imposing golden safe that clearly holds something precious. 
+  components:
+  - type: Sprite
+    sprite: _WL/Storage/Safes/spare_safe.rsi
+    layers:
+    - state: base
+      map: ["base"]
+    - state: locked
+      map: ["enum.SafeCodeVisualLayers.Lights"]
+      visible: false
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    maxItemSize: Small
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CaptainIDCard
+  - type: SafeCode
+    failSound:
+      path: /Audio/Machines/custom_deny.ogg
+  - type: CapsSpareSafe

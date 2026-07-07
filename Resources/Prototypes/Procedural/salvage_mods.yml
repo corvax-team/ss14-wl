@@ -261,3 +261,11 @@
   proto: Haunted
   biomes:
     - Caves
+
+# Corvax WL
+- type: salvageDungeonMod
+  id: Cult
+  desc: salvage-dungeon-mod-cult
+  proto: Cult
+  biomes:
+    - Grasslands

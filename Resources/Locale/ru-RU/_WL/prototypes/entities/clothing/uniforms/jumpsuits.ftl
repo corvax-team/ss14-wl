@@ -44,3 +44,8 @@ ent-ClothingUniformJumpsuitBlackShirt = белая рубашка с чёрны�
 
 ent-ClothingUniformJumpsuitBlackBlazerBlackShirt = чёрная рубашка с чёрным пиджаком
     .desc = Элегантная чёрная рубашка с чёрным пиджаком.
+ent-ClothingUniformJumpsuitWeddingSuitWhite = белый костюм
+    .desc = Подходит для свадьбы.
+
+ent-ClothingUniformJumpsuitSuitWhite = белый костюм детектива
+    .desc = Изящный и эффектный.

@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "lines and blush by ReArtInt",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blush",
+      "directions": 4
+    },
+    {
+      "name": "bottomlines",
+      "directions": 4
+    },
+    {
+      "name": "upperlines",
+      "directions": 4
+    },
+    {
+      "name": "cheeklines",
+      "directions": 4
+    },
+    {
+      "name": "cheekdots",
+      "directions": 4
+    },
+    {
+      "name": "manly",
+      "directions": 4
+    },
+    {
+      "name": "lashes",
+      "directions": 4
+    },
+    {
+      "name": "face",
+      "directions": 4
+    },
+    {
+      "name": "strong_human",
+      "directions": 4
+    },
+    {
+      "name": "thin_human",
+      "directions": 4
+    },
+    {
+      "name": "strong_lizard",
+      "directions": 4
+    },
+    {
+      "name": "thin_lizard",
+      "directions": 4
+    },
+    {
+      "name": "strong_android",
+      "directions": 4
+    },
+    {
+      "name": "thin_android",
+      "directions": 4
+    },
+    {
+      "name": "smile",
+      "directions": 4
+    },
+    {
+      "name": "lips",
+      "directions": 4
+    },
+    {
+      "name": "nose",
+      "directions": 4
+    },
+    {
+      "name": "uppershadowstrong",
+      "directions": 4
+    },
+    {
+      "name": "lowershadowstrong",
+      "directions": 4
+    }
+  ]
+}
