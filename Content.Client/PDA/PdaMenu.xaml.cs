@@ -418,7 +418,7 @@ namespace Content.Client.PDA
                     ("time", _eta.ToString(@"mm\:ss", CultureInfo.CurrentCulture))));
                 return;
             }
-            ETALabel.Visible = false;
+            ETAButton.Visible = false;
         }
         // WL-Changes-end
     }
