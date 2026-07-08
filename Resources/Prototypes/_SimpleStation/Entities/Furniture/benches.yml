@@ -322,8 +322,9 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Pullable
-  - type: Damageable
+  - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
