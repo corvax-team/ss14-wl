@@ -108,7 +108,7 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public RpdMode CurrentMode { get; set; } = RpdMode.Free;
 
-    [DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField, Access(Other = AccessPermissions.ReadWrite)] // WL-Changes
     public AtmosPipeLayer CurrentLayer { get; set; } = AtmosPipeLayer.Primary;
 
     [DataField]

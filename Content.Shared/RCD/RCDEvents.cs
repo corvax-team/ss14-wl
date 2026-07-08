@@ -1,3 +1,4 @@
+using Content.Shared.Atmos.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -38,6 +39,19 @@ public sealed class RPDEyeRotationEvent : EntityEventArgs // rpd port from Funky
     {
         NetEntity = netEntity;
         EyeRotation = eyeRotation;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class RPDLayerUpdateEvent : EntityEventArgs
+{
+    public readonly NetEntity NetEntity;
+    public AtmosPipeLayer NewLayer;
+
+    public RPDLayerUpdateEvent(NetEntity netEntity, AtmosPipeLayer newLayer)
+    {
+        NetEntity = netEntity;
+        NewLayer = newLayer;
     }
 }
 

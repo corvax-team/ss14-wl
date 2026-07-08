@@ -94,6 +94,7 @@ public sealed partial class RCDSystem : EntitySystem
         SubscribeNetworkEvent<RPDEyeRotationEvent>(OnRPDEyeRotationEvent); // rpd port from FunkyStation
         SubscribeNetworkEvent<RDChangeModeEvent>(OnRDChangeModeEvent); // Ignition
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnProtoReload); // dehardcode
+        SubscribeNetworkEvent<RPDLayerUpdateEvent>(OnLayerChanged);
         UpdateProtoList(); // dehardcode
         // WL-Changes-end
     }
@@ -150,6 +151,24 @@ public sealed partial class RCDSystem : EntitySystem
             PrototypesGroupingInfo.Add(proto.ID, (proto.Name, proto.Sprite));
         }
     }
+
+    private void OnLayerChanged(RPDLayerUpdateEvent ev, EntitySessionEventArgs session)
+    {
+        if (session.SenderSession.AttachedEntity is not { } player)
+            return;
+
+        var rcd = GetEntity(ev.NetEntity);
+
+        if (!_hands.TryGetActiveItem(player, out var held) || held != rcd)
+            return;
+
+        if (!TryComp<RCDComponent>(rcd, out var rcdComp) || rcdComp.CurrentLayer == ev.NewLayer)
+            return;
+
+        rcdComp.CurrentLayer = ev.NewLayer;
+        Dirty(rcd, rcdComp);
+    }
+
     private void OnRDChangeModeEvent(RDChangeModeEvent ev, EntitySessionEventArgs session) // Ignition
     {
         if (session.SenderSession.AttachedEntity is not { } player)
@@ -292,48 +311,6 @@ public sealed partial class RCDSystem : EntitySystem
         }
         var tile = _mapSystem.GetTileRef(gridUid.Value, mapGrid, location);
         var position = _mapSystem.TileIndicesFor(gridUid.Value, mapGrid, location);
-
-        // WL-Changes-start: rpd port from FunkyStation
-        if (component.IsRpd && prototype.HasLayers)
-        {
-            var tileSize = mapGrid.TileSize;
-            var tileCenter = new Vector2(tile.X + tileSize / 2, tile.Y + tileSize / 2);
-            var mouseCoordsDiff = args.ClickLocation.Position - tileCenter - new Vector2(0.5f, 0.5f);
-            var mouseDeadzoneRadius = 0.25f;
-
-            component.CurrentLayer = AtmosPipeLayer.Primary;
-
-            switch (component.CurrentMode)
-            {
-                case RpdMode.Primary:
-                    component.CurrentLayer = AtmosPipeLayer.Primary;
-                    break;
-
-                case RpdMode.Secondary:
-                    component.CurrentLayer = AtmosPipeLayer.Secondary;
-                    break;
-
-                case RpdMode.Tertiary:
-                    component.CurrentLayer = AtmosPipeLayer.Tertiary;
-                    break;
-
-                case RpdMode.Free:
-                    // Only use mouse direction in Free mode
-                    if (mouseCoordsDiff.Length() > mouseDeadzoneRadius && component.LastKnownEyeRotation.HasValue)
-                    {
-                        var gridRotation = _transform.GetWorldRotation(gridUid.Value);
-                        var angle = new Angle(mouseCoordsDiff);
-                        var eyeRotation = new Angle(component.LastKnownEyeRotation.Value);
-                        var direction = (angle + eyeRotation + gridRotation + Math.PI / 2).GetCardinalDir();
-
-                        component.CurrentLayer = (direction == Direction.North || direction == Direction.East)
-                            ? AtmosPipeLayer.Secondary
-                            : AtmosPipeLayer.Tertiary;
-                    }
-                    break;
-            }
-        }
-        // WL-Changes-end
 
         if (!IsRCDOperationStillValid(uid, component, gridUid.Value, mapGrid, tile, position, component.ConstructionDirection, args.Target, args.User))
             return;
@@ -707,11 +684,23 @@ public sealed partial class RCDSystem : EntitySystem
         _intersectingEntities.Clear();
         _lookup.GetLocalEntitiesIntersecting(gridUid, position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
 
+        // WL-Changes-start
+        var proto = (component.UseMirrorPrototype && !string.IsNullOrEmpty(prototype.MirrorPrototype))
+                    ? prototype.MirrorPrototype
+                    : prototype.Prototype;
+
+        if (component.IsRpd && prototype.HasLayers && proto != null &&
+            _protoManager.TryIndex<EntityPrototype>(proto, out var entityProto) &&
+            entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
+            _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, component.CurrentLayer, out var newProtoId))
+            proto = newProtoId;
+        // WL-Changes-end
+
         foreach (var ent in _intersectingEntities)
         {
             // If the entity is the exact same prototype as what we are trying to build, then block it.
             // This is to prevent spamming objects on the same tile (e.g. lights)
-            if (prototype.Prototype != null && MetaData(ent).EntityPrototype?.ID == prototype.Prototype)
+            if (proto != null && MetaData(ent).EntityPrototype?.ID == proto) // WL-Changes
             {
                 var isIdentical = true;
 

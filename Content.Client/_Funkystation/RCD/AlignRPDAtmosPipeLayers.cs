@@ -192,7 +192,16 @@ public sealed partial class AlignRPDAtmosPipeLayers : PlacementMode
 
         // Update layer if changed
         if (newLayer != _currentLayer)
+        {
             _currentLayer = newLayer;
+            // WL-Changes-start
+            if (rcd.CurrentLayer != newLayer)
+            {
+                rcd.CurrentLayer = newLayer;
+                _entityNetwork.SendSystemNetworkMessage(new RPDLayerUpdateEvent(_entityManager.GetNetEntity(heldEntity.Value), newLayer));
+            }
+            // WL-Changes-end
+        }
 
         if (rcd.CurrentMode == RpdMode.Free)
             UpdateEyeRotation(heldEntity.Value, _eyeManager.CurrentEye.Rotation);
