@@ -1,0 +1,70 @@
+- type: entity
+  parent: BaseItem
+  id: FoodSnackWhiteChocolate
+  name: white chocolate bar
+  description: Tastes like milk. Safe to consume for animals.
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/Chocolate.rsi
+    state: whitechocolatebar
+  - type: Item
+    heldPrefix: whitechocolatebar
+    size: Tiny
+    storedOffset: 1,-1
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodPacketWhiteChocolateTrash
+    - id: FoodSnackWhiteChocolateBar
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackWhiteChocolateBar
+  name: white chocolate bar
+  description: Tastes like milk. Safe to consume for animals.
+  components:
+  - type: FlavorProfile
+    flavors:
+    - chocolate
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/Chocolate.rsi
+    state: whitechocolatebar-open
+  - type: Item
+    sprite: _WL/Entities/Objects/Consumable/Food/Chocolate.rsi
+    heldPrefix: whitechocolatebar-open
+    storedOffset: 1,-2
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ReptilianFood
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Milk
+        Quantity: 3
+      - ReagentId: CocoaPowder
+        Quantity: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketWhiteChocolateTrash
+  name: white chocolate wrapper
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/Chocolate.rsi
+    state: whitechocolatebar-trash
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: trash-inhand-left
+        color: "#FFFFFF"
+      right:
+      - state: trash-inhand-right
+        color: "#FFFFFF"
