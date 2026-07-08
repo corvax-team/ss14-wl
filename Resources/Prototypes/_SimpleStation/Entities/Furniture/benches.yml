@@ -252,6 +252,7 @@
   - type: Pullable
   - type: Injurable
     damageContainer: Inorganic
+  - type: Damageable
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
