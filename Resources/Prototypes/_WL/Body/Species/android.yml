@@ -276,7 +276,7 @@
     cellSlotId: cell_slot
     fitsInCharger: true
   - type: PowerCellDraw
-    drawRate: 0.5
+    drawRate: 0.25
   - type: LockedWiresPanel
   - type: WiresPanel
   - type: Android
