@@ -663,10 +663,10 @@
     exactVolume: true
   - type: Injector
     solutionName: hypospray
-    activeModeProtoId: HypopenDynamicMode
+    activeModeProtoId: HyposprayDynamicMode # WL-Changes: Remove Hypopen Delay
     allowedModes:
     - HyposprayInjectMode
-    - HypopenDynamicMode
+    - HyposprayDynamicMode # WL-Changes: Remove Hypopen Delay
   - type: UseDelay
     delay: 0.5
   - type: StaticPrice # A new shitcurity meta
