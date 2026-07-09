@@ -9,10 +9,10 @@
      enum.HumanoidVisualLayers.HeadTop:
        limit: 1
        required: false
-    enum.HumanoidVisualLayers.Hair:
+     enum.HumanoidVisualLayers.Hair:
       limit: 1
       required: false
-    enum.HumanoidVisualLayers.FacialHair:
+     enum.HumanoidVisualLayers.FacialHair:
       limit: 1
       required: false
      enum.HumanoidVisualLayers.HeadSide:
