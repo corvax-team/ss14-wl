@@ -83,7 +83,7 @@
     color: Red
     selectableColor: true
   - type: LimitedCharges
-    maxCharges: 30
+    maxCharges: 1000 # WL-Changes: 30 -> 1000
 
 - type: entity
   parent: CrayonRainbow
