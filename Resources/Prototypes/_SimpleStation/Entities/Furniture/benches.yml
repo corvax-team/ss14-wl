@@ -9,6 +9,8 @@
   suffix: Middle
   abstract: true
   parent: SeatBase
+  placement:
+    mode: SnapgridCenter
   description: Multiple seats spanning a single object. Truly a marvel of science.
   components:
   - type: Physics
@@ -232,12 +234,12 @@
   - type: Construction # Frontier
     graph: SofasGraph # Frontier
     node: BenchSofaRightNode # Frontier
-    
+
 - type: entity
   name: sofa
   id: BenchSofaCorner
   suffix: Corner
-#  parent: BenchSofaMiddle
+  parent: BenchSofaMiddle
   placement:
     mode: SnapgridCenter
   components:
@@ -309,7 +311,7 @@
   name: grey sofa
   id: BenchSofaCorpCorner
   suffix: Corner
-#  parent: BenchSofaCorpMiddle
+  parent: BenchSofaCorpMiddle
   placement:
     mode: SnapgridCenter
   components:
