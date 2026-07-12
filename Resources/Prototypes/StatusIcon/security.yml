@@ -69,8 +69,10 @@
   id: CrewBorderIcon
   priority: 2
   offset: -4
-  offsetHorizontal: 4
-  locationPreference: Right
+  # WL-Changes-Start
+  offsetHorizontal: -4
+  locationPreference: Left
+  # WL-Changes-End
   layer: Mod
   isShaded: true
   icon:
@@ -81,8 +83,10 @@
   id: CrewUncertainBorderIcon
   priority: 2
   offset: -4
-  offsetHorizontal: 4
-  locationPreference: Right
+  # WL-Changes-Start
+  offsetHorizontal: -4
+  locationPreference: Left
+  # WL-Changes-End
   layer: Mod
   isShaded: true
   icon:
