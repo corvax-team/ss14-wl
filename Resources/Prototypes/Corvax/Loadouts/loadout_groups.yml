@@ -410,6 +410,7 @@
   - SecurityHat
   - SecurityBeretDSS # WL-Changes: DSS uniform
   - SecuritySoftDSS # WL-Changes: DSS adding
+  - SecurityBeretSenior # WL-redo-427-resprite
 
 - type: loadoutGroup
   id: SeniorOfficerJumpsuit
@@ -417,7 +418,7 @@
   loadouts:
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
-  - JumpsuitDSS # WL-Changes: DSS uniform
+  - JumpsuitSeniorDSS # WL-Changes: DSS adding, WL-redo-427-resprite
   # Wl-change-start
   - JumpskirtTurtleneckRed
   - JumpsuitTurtleneckRed

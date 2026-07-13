@@ -257,3 +257,18 @@
       sprite: _WL/Clothing/Uniforms/Jumpsuit/whitesuit.rsi
     - type: Clothing
       sprite: _WL/Clothing/Uniforms/Jumpsuit/whitesuit.rsi
+
+# WL-redo-427-resprite-start
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSeniorDSS
+  name: senior DSB tactical jumpsuit
+  description: Stylish and extremely comfortable tactical jumpsuit, made in the colors of the Department of Security. This one is extra white.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/dss_senior.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/dss_senior.rsi
+
+# WL-redo-427-resprite-end

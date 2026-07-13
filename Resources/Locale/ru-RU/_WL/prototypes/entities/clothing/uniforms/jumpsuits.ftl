@@ -41,3 +41,6 @@ ent-ClothingUniformJumpsuitWeddingSuitWhite = белый костюм
 
 ent-ClothingUniformJumpsuitSuitWhite = белый костюм детектива
     .desc = Изящный и эффектный.
+
+ent-ClothingUniformJumpsuitSeniorDSS = старший тактический комбинезон ДСБ
+    .desc = Стильный и до предела удобный тактический комбинезон с белым признаком мастерства и престижа, выполненный в тонах Департамента Службы Безопасности. 
