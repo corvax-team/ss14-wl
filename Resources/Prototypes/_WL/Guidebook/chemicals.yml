@@ -1,0 +1,5 @@
+- type: guideEntry
+  id: Biorobotic
+  name: guide-entry-biorobotic
+  text: "/ServerInfo/Guidebook/_WL/ChemicalTabs/Biorobotic.xml"
+  filterEnabled: True

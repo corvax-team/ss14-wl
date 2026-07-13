@@ -18,5 +18,9 @@
     Welder: 1
     Screwdriver: 2
     Crowbar: 2
+    RepairTape: 5
+    RepairSpray: 3
+    SkinPatch: 3
+    SteelMesh: 2
   contrabandInventory:
-    FoodBurgerRobot: 1  
+    FoodBurgerRobot: 1

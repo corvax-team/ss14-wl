@@ -31,6 +31,22 @@
 #    state: icon
 
 - type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticSmallBaseFull]
+  id: DrinkInsulatorBottleFull
+  name: insulator bottle
+  description: Simple clean insulator of unknown origin. You think that maybe you dont want to know it.
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Insulator
+        Quantity: 60
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/waterbottle.rsi
+  - type: Label
+    currentLabel: reagent-name-insulator
+
+- type: entity
   parent: DrinkGlass
   id: DrinkDarkBeerGlass
   suffix: dark beer

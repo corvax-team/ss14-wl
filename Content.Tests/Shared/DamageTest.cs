@@ -142,7 +142,7 @@ namespace Content.Tests.Shared
             // And again, checking for some other behavior
             damageSpec = DamageSpecifier.ApplyModifierSet(damageSpec, modifierSet);
             Assert.That(damageSpec.DamageDict["Blunt"], Is.EqualTo(FixedPoint2.New(30)));
-            Assert.That(damageSpec.DamageDict["Piercing"], Is.EqualTo(FixedPoint2.New(-40))); // resistances don't apply to healing
+            Assert.That(damageSpec.DamageDict["Piercing"], Is.EqualTo(FixedPoint2.New(80))); // resistances don't apply to healing //WL-Changes: No, apply
             Assert.That(!damageSpec.DamageDict.ContainsKey("Slash"));  // Reduction reduced to 0, and removed from specifier
             Assert.That(damageSpec.DamageDict["Radiation"], Is.EqualTo(FixedPoint2.New(65.62)));
         }

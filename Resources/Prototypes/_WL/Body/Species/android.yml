@@ -55,12 +55,11 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.Chest:
-      limit: 1
+      limit: 2
       required: false
     enum.HumanoidVisualLayers.Overlay:
-      limit: 1
-      required: true
-      default: [ AndroidSensors ]
+      limit: 3
+      required: false
 
 - type: entity
   parent: BaseSpeciesAppearance
@@ -108,7 +107,7 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 0.50 #per second, scales with pressure and other constants.
+        Blunt: 0.5
         Heat: 0.1
   - type: HealthExaminable
     examinableTypes:
@@ -117,7 +116,6 @@
       - Piercing
       - Heat
       - Shock
-      - Cold
       - Caustic
   - type: Bloodstream
     bloodReferenceSolution:
@@ -135,11 +133,13 @@
     maxBleedAmount: 1.0
     bloodRefreshAmount: 0.0
     bleedReductionAmount: 0.0
+    damageBleedModifiers: BloolossBioRobotic
   - type: Reactive
     groups:
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
       Acidic: [Touch, Ingestion]
+      Biorobotic: [Touch, Ingestion]
     reactions:
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
@@ -171,6 +171,7 @@
       - StaminaModifier
       - TemporaryBlindness
       - Flashed
+      - Adrenaline
   - type: Blindable
   - type: EyeProtection
   - type: FlashImmunity
@@ -217,13 +218,13 @@
       Unsexed: MaleAndroid
   - type: Emoting
   - type: BodyEmotes
-    soundsId: GeneralBodyEmotes
+    soundsId: GeneralBioroboticEmotes
   - type: Destructible
     thresholds:
       - trigger:
           !type:DamageTypeTrigger
           damageType: Blunt
-          damage: 600
+          damage: 800
         behaviors:
           - !type:GibBehavior { }
   - type: SlowOnDamage
@@ -253,17 +254,11 @@
   - type: Repairable
     damage:
       types:
-        Blunt: -10
-        Slash: -10
-        Piercing: -10
-        Heat: -10
-        Shock: -10
-        Caustic: -10
-        Asphyxiation: -10
-        Bloodloss: -10
-        Radiation: -10
+        Blunt: -3
+        Slash: -7
+        Heat: 3
     fuelCost: 5
-    bleedAmountReduce: -100
+    bleedAmountReduce: -5
     doAfterDelay: 3
   - type: Speech
     speechSounds: Pai
@@ -297,6 +292,7 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: ItemToggle
     activated: true
+    onActivate: false
     onUse: false
   - type: ContainerContainer
     containers:

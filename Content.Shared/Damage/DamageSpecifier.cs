@@ -136,11 +136,13 @@ namespace Content.Shared.Damage
                 if (value == 0)
                     continue;
 
-                if (value < 0)
-                {
-                    newDamage.DamageDict[key] = value;
-                    continue;
-                }
+                // WL-Changes: Heal modifiers apply start
+                // if (value < 0)
+                // {
+                //     newDamage.DamageDict[key] = value;
+                //     continue;
+                // }
+                // WL-Changes: Heal modifiers apply end
 
                 float newValue = value.Float();
 
