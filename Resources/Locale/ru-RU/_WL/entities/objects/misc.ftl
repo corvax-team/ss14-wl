@@ -12,3 +12,5 @@ ent-EnvelopeValentinePink = розовая валентинка
 
 ent-EnvelopeValentineRedSingulo = подозрительная валентинка
     .desc = Выглядит подозрительно...
+
+biorobotic-box-label = биосинтетический

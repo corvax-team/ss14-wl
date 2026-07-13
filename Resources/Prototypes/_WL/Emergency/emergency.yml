@@ -1,7 +1,7 @@
 - type: emergencyList
   id: stationEmergency
   defaultEmergency: NoEmergency
-  emergencys: 
+  emergencys:
     - NoEmergency
     - Revolution
     - CriticalDepressurization
@@ -10,6 +10,7 @@
     - Lose
     - Revenant
     - Dragon
+    - Unknown
 
 - type: emergency
   id: NoEmergency
@@ -53,3 +54,8 @@
   id: Dragon
   name: emergency-dragon
   announcement: emergency-dragon-announcement
+
+- type: emergency
+  id: Unknown
+  name: emergency-unknown
+  announcement: emergency-unknown-announcement

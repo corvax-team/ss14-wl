@@ -1,0 +1,151 @@
+- type: entity
+  parent: BoxSurvival
+  id: BoxSurvivalBiorobotic
+  name: biorobotic survival box
+  suffix: Biorobotic
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyNitrogenTankFilled
+        - id: BioroboticMedipen
+        - id: Flare
+        - id: RepairTape1
+        - id: DrinkInsulatorBottleFull
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: nitrogentank
+  - type: Label
+    currentLabel: biorobotic-box-label
+
+- type: entity
+  parent: BoxSurvivalBiorobotic
+  id: BoxSurvivalBioroboticEngineering
+  name: extended-capacity biorobotic survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Extended
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: ExtendedEmergencyNitrogenTankFilled
+        - id: BioroboticMedipen
+        - id: Flare
+        - id: RepairTape1
+        - id: DrinkInsulatorBottleFull
+
+- type: entity
+  parent: BoxSurvivalBiorobotic
+  id: BoxSurvivalBioroboticSecurity
+  name: biorobotic survival box
+  description: It's a box with basic internals inside.
+  suffix: Security
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSecurity
+        - id: EmergencyOxygenTankFilled
+        - id: BioroboticMedipen
+        - id: Flare
+        - id: RepairTape1
+        - id: DrinkInsulatorBottleFull
+
+- type: entity
+  parent: BoxSurvivalBiorobotic
+  id: BoxSurvivalBioroboticMedical
+  name: biorobotic survival box
+  description: It's a box with basic internals inside.
+  suffix: Medical
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedical
+        - id: EmergencyNitrogenTankFilled
+        - id: BioroboticMedipen
+        - id: Flare
+        - id: RepairTape1
+        - id: DrinkInsulatorBottleFull
+
+- type: entity
+  parent: BoxSurvivalBiorobotic
+  id: BoxHugBiorobotic
+  name: biorobotic box of hugs
+  description: A special box for sensitive people.
+  suffix: Emergency
+  components:
+  - type: Sprite
+    layers:
+    - state: box_hug
+    - state: heart
+  - type: Item
+    heldPrefix: hug
+  - type: Tag
+    tags:
+    - BoxCardboard
+    - BoxHug
+
+- type: entity
+  parent: BoxSurvivalBiorobotic
+  id: BoxMimeBiorobotic
+  suffix: Mime, Emergency
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyNitrogenTankFilled
+        - id: BioroboticMedipen
+        - id: Flare
+        - id: RepairTape1
+        - id: DrinkInsulatorBottleFull
+
+- type: entity
+  parent: BoxSurvivalBiorobotic
+  id: BoxSurvivalBioroboticSyndicate
+  name: extended-capacity biorobotic survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Syndicate
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSyndicate
+        - id: DoubleEmergencyNitrogenTankFilled
+        - id: BioroboticMedipen
+        - id: Flare
+        - id: DrinkInsulatorBottleFull
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: extendedtank
+
+- type: entity
+  parent: BoxCardboardSmall # Cannot fit 3x3 boxes into already-filled ERT backpacks.
+  id: BoxSurvivalMilitaryDoubleBiorobotic
+  suffix: Military Biorobotic
+  description: It's a box with basic internals inside. This one is labelled to contain an double extended-capacity tank.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DoubleEmergencyNitrogenTankFilled
+        - id: BioroboticMedipen
+        - id: Flare
+  - type: Sprite
+    layers:
+    - state: internals
+    - state: nitrogentank
+  - type: Label
+    currentLabel: biorobotic-box-label

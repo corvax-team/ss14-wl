@@ -131,7 +131,9 @@
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
-      collection: MaleDeathGasp
+      collection: BioroboticDeathGasp
+      params:
+        volume: -6
 
 - type: emoteSounds
   id: FemaleAndroid
@@ -171,4 +173,22 @@
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
-      collection: FemaleDeathGasp
+      collection: BioroboticDeathGasp
+      params:
+        volume: -6
+
+- type: emoteSounds
+  id: GeneralBioroboticEmotes
+  sounds:
+    Clap:
+      collection: Claps
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes
+    Honk:
+      collection: BikeHorn

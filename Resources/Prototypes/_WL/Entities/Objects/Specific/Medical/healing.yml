@@ -16,9 +16,9 @@
       - BioRobotic
     damage:
       types:
-        Slash: -5
-        Piercing: -10
-    bloodlossModifier: -10
+        Slash: -10
+        Piercing: -5
+    bloodlossModifier: -3
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
@@ -75,4 +75,187 @@
   components:
   - type: Stack
     stackType: BioTube
+    count: 1
+
+- type: entity
+  parent: BaseHealingItem
+  id: RepairSpray
+  name: repair spray
+  description: Spray with repair foam.
+  components:
+  - type: Tag
+    tags:
+    - Gauze
+  - type: Item
+    sprite: _WL/Entities/Objects/Specific/Medical/biorobotic.rsi
+    heldPrefix: spray
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/biorobotic.rsi
+    state: spray
+    scale: "0.7, 0.7"
+  - type: Healing
+    damageContainers:
+      - BioRobotic
+    damage:
+      types:
+        Slash: -10
+        Piercing: -20
+    bloodlossModifier: -7
+    delay: 8
+    healingBeginSound:
+      path: "/Audio/Effects/spray.ogg"
+    healingEndSound:
+      path: "/Audio/Effects/spray3.ogg"
+
+- type: entity
+  parent: BaseHealingItem
+  id: RepairSprayPlus
+  name: repair spray plus
+  description: Spray with repair foam and coagulant.
+  components:
+  - type: Tag
+    tags:
+    - Gauze
+  - type: Item
+    sprite: _WL/Entities/Objects/Specific/Medical/biorobotic.rsi
+    heldPrefix: spray_plus
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/biorobotic.rsi
+    state: spray_plus
+    scale: "0.7, 0.7"
+  - type: Healing
+    damageContainers:
+      - BioRobotic
+    damage:
+      types:
+        Blunt: -15
+        Slash: -15
+        Piercing: -30
+    bloodlossModifier: -10
+    delay: 6
+    healingBeginSound:
+      path: "/Audio/Effects/spray.ogg"
+    healingEndSound:
+      path: "/Audio/Effects/spray3.ogg"
+
+- type: entity
+  parent: BaseHealingItem
+  id: SkinPatch
+  name: synthetic skin patch
+  description: Synthetic skin patch.
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Gauze
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/biorobotic.rsi
+    state: patch
+  - type: Healing
+    damageContainers:
+      - BioRobotic
+    damage:
+      types:
+        Heat: -10
+        Caustic: -10
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+  - type: Stack
+    stackType: SkinPatch
+    count: 10
+  - type: StackPrice
+    price: 100
+
+- type: entity
+  id: SkinPatch1
+  parent: SkinPatch
+  suffix: One
+  components:
+  - type: Stack
+    stackType: SkinPatch
+    count: 1
+
+- type: entity
+  parent: BaseHealingItem
+  id: SteelMesh
+  name: steel mesh
+  description: Repair steel mesh.
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Gauze
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/biorobotic.rsi
+    state: mesh
+  - type: Healing
+    damageContainers:
+      - BioRobotic
+    damage:
+      types:
+        Blunt: -15
+        Slash: 2
+        Piercing: 1
+    bloodlossModifier: 1
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+    delay: 4
+  - type: Stack
+    stackType: SteelMesh
+    count: 10
+  - type: StackPrice
+    price: 100
+
+- type: entity
+  id: SteelMesh1
+  parent: SteelMesh
+  suffix: One
+  components:
+  - type: Stack
+    stackType: SteelMesh
+    count: 1
+
+- type: entity
+  parent: BaseHealingItem
+  id: RepairTape
+  name: repair tape
+  description: Repair sticky tape.
+  suffix: Full
+  components:
+  - type: Tag
+    tags:
+    - Gauze
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/biorobotic.rsi
+    state: tape
+  - type: Healing
+    damageContainers:
+      - BioRobotic
+    damage:
+      types:
+        Slash: -2
+        Piercing: -2
+    bloodlossModifier: -3
+    healingBeginSound:
+      path: "/Audio/_WL/Items/tape/duct_tape.ogg"
+    healingEndSound:
+      path: "/Audio/_WL/Items/tape/duct_tape.ogg"
+    delay: 1.5
+  - type: Stack
+    stackType: RepairTape
+    count: 10
+  - type: StackPrice
+    price: 100
+
+- type: entity
+  id: RepairTape1
+  parent: RepairTape
+  suffix: One
+  components:
+  - type: Stack
+    stackType: RepairTape
     count: 1
