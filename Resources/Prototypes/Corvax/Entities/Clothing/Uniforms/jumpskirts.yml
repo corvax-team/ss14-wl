@@ -94,6 +94,6 @@
   description: Security pilot skirt.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Uniforms/Jumpskirt/pilot.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/pilot.rsi # WL-redo-427-resprite
     - type: Clothing
-      sprite: Corvax/Clothing/Uniforms/Jumpskirt/pilot.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/pilot.rsi # WL-redo-427-resprite
