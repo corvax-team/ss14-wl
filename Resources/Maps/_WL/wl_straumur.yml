@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 270.1.0
+  engineVersion: 277.0.0
   forkId: syndicate-wl
-  forkVersion: 4a014e9d4b1939960b04a11eccd9d565f651e386
-  time: 03/25/2026 15:31:15
-  entityCount: 16985
+  forkVersion: 8600185e5c2dea90ddbbc80a54364676d5564804
+  time: 07/10/2026 21:53:02
+  entityCount: 16971
 maps:
 - 1
 grids:
@@ -11957,8 +11957,7 @@ entities:
           -3,-1:
             0: 29900
           -3,1:
-            3: 6
-            0: 1760
+            0: 1766
           -3,4:
             0: 56591
           -2,0:
@@ -12887,12 +12886,12 @@ entities:
             0: 9830
           -8,-11:
             1: 79
-            4: 40960
+            3: 40960
           -9,-11:
             1: 31
             0: 57344
           -8,-10:
-            4: 10
+            3: 10
             1: 3840
           -9,-10:
             0: 78
@@ -12901,16 +12900,16 @@ entities:
             0: 65262
           -7,-11:
             1: 79
-            4: 40960
+            3: 40960
           -7,-10:
             1: 3840
-            4: 10
+            3: 10
           -6,-11:
             1: 79
-            4: 40960
+            3: 40960
           -6,-10:
             1: 3840
-            4: 10
+            3: 10
           -11,-10:
             1: 50376
           -11,-9:
@@ -13123,11 +13122,6 @@ entities:
             Oxygen: 27.225372
             Nitrogen: 102.419266
         - volume: 2500
-          temperature: 293.14975
-          moles:
-            Oxygen: 20.078888
-            Nitrogen: 75.53487
-        - volume: 2500
           temperature: 293.15
           moles: {}
         chunkSize: 4
@@ -13136,6 +13130,8 @@ entities:
     - type: BecomesStation
       id: CorvaxWLStraumur
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
   - uid: 3846
     mapInit: true
     paused: true
@@ -13147,13 +13143,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 10
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 3845
   - uid: 3848
     mapInit: true
@@ -13166,13 +13160,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 10
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 3847
   - uid: 3855
     mapInit: true
@@ -13185,10 +13177,8 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: battery
         reagents: []
     - type: ContainedSolution
-      containerName: battery
       container: 3854
   - uid: 3860
     mapInit: true
@@ -13201,10 +13191,8 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: battery
         reagents: []
     - type: ContainedSolution
-      containerName: battery
       container: 3859
   - uid: 3863
     mapInit: true
@@ -13217,13 +13205,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 10
-        name: food
         reagents:
         - data: []
           ReagentId: Fiber
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 3862
   - uid: 3868
     mapInit: true
@@ -13236,10 +13222,8 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: battery
         reagents: []
     - type: ContainedSolution
-      containerName: battery
       container: 3867
   - uid: 3876
     mapInit: true
@@ -13252,10 +13236,8 @@ entities:
     - type: Solution
       solution:
         maxVol: 5
-        name: battery
         reagents: []
     - type: ContainedSolution
-      containerName: battery
       container: 3875
   - uid: 3882
     mapInit: true
@@ -13268,13 +13250,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 50
-        name: drink
         reagents:
         - data: []
           ReagentId: Water
           Quantity: 50
     - type: ContainedSolution
-      containerName: drink
       container: 3881
   - uid: 3884
     mapInit: true
@@ -13287,13 +13267,11 @@ entities:
     - type: Solution
       solution:
         maxVol: 30
-        name: food
         reagents:
         - data: []
           ReagentId: Nutriment
           Quantity: 10
     - type: ContainedSolution
-      containerName: food
       container: 3883
   - uid: 14821
     components:
@@ -13439,6 +13417,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ExplosionAirtightGrid
+    - type: TileHistory
+      chunkHistory: {}
 - proto: ActionToggleInternals
   entities:
   - uid: 2714
@@ -15846,15 +15826,15 @@ entities:
       fixtures: {}
 - proto: AirAlarmFreezer
   entities:
-  - uid: 12858
+  - uid: 4912
     components:
     - type: Transform
-      pos: -11.5,11.5
+      pos: -10.5,11.5
       parent: 2
     - type: DeviceList
       devices:
       - 12847
-      - 14047
+      - 3968
     - type: Fixtures
       fixtures: {}
 - proto: AirCanister
@@ -16590,12 +16570,12 @@ entities:
     - type: Transform
       pos: 0.5,0.5
       parent: 14821
-- proto: AirlockFreezerLocked
+- proto: AirlockFreezer
   entities:
-  - uid: 5028
+  - uid: 843
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: -1.5707963267948966 rad
       pos: -8.5,9.5
       parent: 2
 - proto: AirlockGlass
@@ -16947,6 +16927,7 @@ entities:
   - uid: 829
     components:
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: -12.5,7.5
       parent: 2
 - proto: AirlockMaintLawyerLocked
@@ -40009,13 +39990,6 @@ entities:
     - type: Transform
       pos: 27.508072,-10.508864
       parent: 2
-- proto: CaptainIDCard
-  entities:
-  - uid: 1486
-    components:
-    - type: Transform
-      pos: -8.489071,24.65349
-      parent: 2
 - proto: CarbonDioxideCanister
   entities:
   - uid: 4363
@@ -51327,10 +51301,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -51517,10 +51487,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -52077,10 +52043,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -52634,6 +52596,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 2.5,-14.5
+      parent: 2
+- proto: ComputerCargoOrdersSecurity
+  entities:
+  - uid: 848
+    components:
+    - type: Transform
+      pos: 20.5,-17.5
       parent: 2
 - proto: ComputerCargoOrdersService
   entities:
@@ -53310,34 +53279,6 @@ entities:
       parent: 2
 - proto: CrateFreezer
   entities:
-  - uid: 843
-    components:
-    - type: Transform
-      pos: -9.5,4.5
-      parent: 2
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-          Oxygen: 1.7459903
-          Nitrogen: 6.568249
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 848
-          - 844
-          - 846
-          - 847
-          - 845
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
   - uid: 2160
     components:
     - type: Transform
@@ -53510,10 +53451,10 @@ entities:
       parent: 2
 - proto: CrateLockBoxSecurity
   entities:
-  - uid: 4463
+  - uid: 4493
     components:
     - type: Transform
-      pos: 20.5,-17.5
+      pos: 30.5,-17.5
       parent: 2
 - proto: CrateLockBoxService
   entities:
@@ -53599,14 +53540,14 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 850
           - 6779
-          - 6778
-          - 6777
-          - 6776
-          - 6775
-          - 6772
           - 6780
+          - 6772
+          - 6775
+          - 6776
+          - 6777
+          - 6778
+          - 850
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -53625,17 +53566,25 @@ entities:
     - type: Transform
       pos: 7.5,-17.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
+          - 1426
+          - 1901
+          - 3572
+          - 3573
           - 3965
-          - 3966
-          - 3967
-          - 3968
-          - 3969
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -53737,13 +53686,6 @@ entities:
     components:
     - type: Transform
       pos: 33.5,22.5
-      parent: 2
-- proto: CrateVendingMachineRestockDonutFilled
-  entities:
-  - uid: 9265
-    components:
-    - type: Transform
-      pos: 9.5,-13.5
       parent: 2
 - proto: CrayonWhite
   entities:
@@ -58665,14 +58607,6 @@ entities:
     - type: Transform
       pos: -5.5132184,3.6795382
       parent: 2
-- proto: DrinkBeerBottleFull
-  entities:
-  - uid: 4913
-    components:
-    - type: Transform
-      parent: 4912
-    - type: Physics
-      canCollide: False
 - proto: DrinkBeerCan
   entities:
   - uid: 2744
@@ -58698,24 +58632,6 @@ entities:
     - type: Transform
       pos: -14.498024,-26.372204
       parent: 2
-  - uid: 4914
-    components:
-    - type: Transform
-      parent: 4912
-    - type: Physics
-      canCollide: False
-  - uid: 4915
-    components:
-    - type: Transform
-      parent: 4912
-    - type: Physics
-      canCollide: False
-  - uid: 4916
-    components:
-    - type: Transform
-      parent: 4912
-    - type: Physics
-      canCollide: False
   - uid: 5637
     components:
     - type: Transform
@@ -58784,26 +58700,10 @@ entities:
   - uid: 1439
     components:
     - type: Transform
-      pos: -9.082821,24.606615
+      pos: -8.772663,24.616714
       parent: 2
 - proto: DrinkGildlagerBottleFull
   entities:
-  - uid: 847
-    components:
-    - type: Transform
-      parent: 843
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 843
-  - uid: 848
-    components:
-    - type: Transform
-      parent: 843
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 843
   - uid: 1460
     components:
     - type: Transform
@@ -58872,18 +58772,6 @@ entities:
       parent: 1459
     - type: Physics
       canCollide: False
-  - uid: 4917
-    components:
-    - type: Transform
-      parent: 4912
-    - type: Physics
-      canCollide: False
-  - uid: 4918
-    components:
-    - type: Transform
-      parent: 4912
-    - type: Physics
-      canCollide: False
   - uid: 6584
     components:
     - type: Transform
@@ -58908,22 +58796,6 @@ entities:
       parent: 2
 - proto: DrinkGlassCoupeShaped
   entities:
-  - uid: 845
-    components:
-    - type: Transform
-      parent: 843
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 843
-  - uid: 846
-    components:
-    - type: Transform
-      parent: 843
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 843
   - uid: 1278
     components:
     - type: Transform
@@ -58944,17 +58816,6 @@ entities:
     - type: Transform
       pos: 50.81954,-26.396091
       parent: 2
-- proto: DrinkGoldenCup
-  entities:
-  - uid: 4921
-    components:
-    - type: MetaData
-      desc: На стойке кубка написано 'За полный контроль строительства станции и личное участие в её постройке...'. Дальше буквы стёрты.
-      name: кубок
-    - type: Transform
-      parent: 4912
-    - type: Physics
-      canCollide: False
 - proto: DrinkGrapeCan
   entities:
   - uid: 2914
@@ -59015,16 +58876,6 @@ entities:
     - type: Transform
       pos: 46.51941,-31.456549
       parent: 2
-- proto: DrinkIceBucket
-  entities:
-  - uid: 844
-    components:
-    - type: Transform
-      parent: 843
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 843
 - proto: DrinkLean
   entities:
   - uid: 9588
@@ -59072,7 +58923,6 @@ entities:
     - type: Transform
       parent: 3877
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - drink
     - type: MeleeWeapon
@@ -59082,7 +58932,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.35348833
+      sprayFizzinessThresholdRoll: 0.7657878
     - type: ContainerContainer
       containers:
         solution@drink: !type:ContainerSlot
@@ -59422,6 +59272,32 @@ entities:
     - type: Transform
       pos: -10.5,-16.5
       parent: 2
+- proto: ExtinguisherCabinet
+  entities:
+  - uid: 845
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-18.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 846
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -36.5,-16.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 847
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -33.5,-3.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: ExtinguisherCabinetFilled
   entities:
   - uid: 2856
@@ -60022,6 +59898,16 @@ entities:
       - 13555
       - 13556
       - 13557
+    - type: Fixtures
+      fixtures: {}
+- proto: FireAxeCabinetFilled
+  entities:
+  - uid: 4492
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-34.5
+      parent: 2
     - type: Fixtures
       fixtures: {}
 - proto: Firelock
@@ -63548,10 +63434,6 @@ entities:
     - type: SolutionContainerManager
       solutions:
         food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
           reagents: []
       containers:
       - food
@@ -63966,14 +63848,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -21.5,-34.5
       parent: 2
-  - uid: 6184
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -11.5,9.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#454EFFFF'
   - uid: 6185
     components:
     - type: Transform
@@ -71963,14 +71837,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -28.5,-13.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#454EFFFF'
-  - uid: 14362
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -9.5,9.5
       parent: 2
     - type: AtmosPipeColor
       color: '#454EFFFF'
@@ -80713,6 +80579,14 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#454EFFFF'
+  - uid: 3966
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -11.5,9.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#454EFFFF'
   - uid: 5557
     components:
     - type: Transform
@@ -83399,6 +83273,14 @@ entities:
       parent: 14821
 - proto: GasPressurePumpAlt1
   entities:
+  - uid: 3967
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -9.5,9.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#454EFFFF'
   - uid: 5156
     components:
     - type: Transform
@@ -83458,6 +83340,15 @@ entities:
       parent: 2
 - proto: GasThermoMachineFreezerEnabled
   entities:
+  - uid: 547
+    components:
+    - type: Transform
+      pos: -11.5,10.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#454EFFFF'
+    - type: AtmosPipeLayers
+      pipeLayer: Secondary
   - uid: 5481
     components:
     - type: Transform
@@ -83537,6 +83428,19 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 12246
+    - type: AtmosPipeLayers
+      pipeLayer: Secondary
+    - type: AtmosPipeColor
+      color: '#454EFFFF'
+  - uid: 3968
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -12.5,9.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 4912
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -84901,18 +84805,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 12857
-    - type: AtmosPipeLayers
-      pipeLayer: Secondary
-    - type: AtmosPipeColor
-      color: '#454EFFFF'
-  - uid: 14047
-    components:
-    - type: Transform
-      pos: -11.5,10.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 12858
     - type: AtmosPipeLayers
       pipeLayer: Secondary
     - type: AtmosPipeColor
@@ -86398,7 +86290,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 12858
+      - 4912
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
     - type: AtmosPipeColor
@@ -89097,12 +88989,12 @@ entities:
       parent: 2
 - proto: IngotGold1
   entities:
-  - uid: 3965
+  - uid: 1901
     components:
     - type: Transform
       parent: 3964
     - type: Stack
-      count: 3
+      count: 5
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -89116,12 +89008,12 @@ entities:
       parent: 2
 - proto: IngotSilver1
   entities:
-  - uid: 3966
+  - uid: 1426
     components:
     - type: Transform
       parent: 3964
     - type: Stack
-      count: 3
+      count: 5
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -89133,6 +89025,8 @@ entities:
     - type: Transform
       pos: 28.5,-36.5
       parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: IntercomEngineering
   entities:
   - uid: 16718
@@ -89727,6 +89621,13 @@ entities:
     components:
     - type: Transform
       pos: 25.5,-17.5
+      parent: 2
+- proto: LockerFreezer
+  entities:
+  - uid: 3969
+    components:
+    - type: Transform
+      pos: -9.5,10.5
       parent: 2
 - proto: LockerFreezerVaultFilled
   entities:
@@ -92606,7 +92507,6 @@ entities:
       lastCharge: 720
       lastUpdate: -73.1777539
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - battery
     - type: EmitSoundOnCollide
@@ -92627,7 +92527,6 @@ entities:
       lastCharge: 720
       lastUpdate: -73.1777539
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - battery
     - type: EmitSoundOnCollide
@@ -92648,7 +92547,6 @@ entities:
       lastCharge: 720
       lastUpdate: -73.1777539
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - battery
     - type: EmitSoundOnCollide
@@ -94614,7 +94512,7 @@ entities:
   - uid: 286
     components:
     - type: Transform
-      pos: -10.5,10.5
+      pos: -11.5,10.5
       parent: 2
   - uid: 833
     components:
@@ -99172,6 +99070,18 @@ entities:
     - type: Transform
       pos: -30.103584,21.59953
       parent: 2
+- proto: SafeCodeCapsSpare
+  entities:
+  - uid: 1486
+    components:
+    - type: Transform
+      pos: 8.5,22.5
+      parent: 2
+  - uid: 4913
+    components:
+    - type: Transform
+      pos: 8.5,22.5
+      parent: 2
 - proto: SalvageMagnet
   entities:
   - uid: 15228
@@ -99526,10 +99436,12 @@ entities:
     - type: Transform
       pos: 42.425713,-30.372465
       parent: 2
-  - uid: 3967
+  - uid: 3965
     components:
     - type: Transform
       parent: 3964
+    - type: Stack
+      count: 20
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -99642,19 +99554,21 @@ entities:
     - type: Transform
       pos: 45.51408,4.5883164
       parent: 2
+  - uid: 3572
+    components:
+    - type: Transform
+      parent: 3964
+    - type: Stack
+      count: 20
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 3964
   - uid: 3715
     components:
     - type: Transform
       pos: 42.639256,-30.429756
       parent: 2
-  - uid: 3968
-    components:
-    - type: Transform
-      parent: 3964
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 3964
 - proto: SheetSteel
   entities:
   - uid: 2861
@@ -99741,19 +99655,21 @@ entities:
     - type: Transform
       pos: 45.623455,4.658629
       parent: 2
+  - uid: 3573
+    components:
+    - type: Transform
+      parent: 3964
+    - type: Stack
+      count: 20
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+      storage: 3964
   - uid: 3716
     components:
     - type: Transform
       pos: 42.540295,-30.471422
       parent: 2
-  - uid: 3969
-    components:
-    - type: Transform
-      parent: 3964
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 3964
   - uid: 4279
     components:
     - type: Transform
@@ -99813,49 +99729,6 @@ entities:
           - 1462
           - 1463
           - 1464
-    - type: Fixtures
-      fixtures: {}
-  - uid: 4912
-    components:
-    - type: Transform
-      pos: -27.5,-18.5
-      parent: 2
-    - type: Storage
-      storedItems:
-        4913:
-          position: 0,0
-          _rotation: South
-        4914:
-          position: 1,0
-          _rotation: South
-        4915:
-          position: 2,0
-          _rotation: South
-        4916:
-          position: 3,0
-          _rotation: South
-        4917:
-          position: 4,0
-          _rotation: South
-        4918:
-          position: 5,0
-          _rotation: South
-        4921:
-          position: 5,3
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 4913
-          - 4914
-          - 4915
-          - 4916
-          - 4918
-          - 4917
-          - 4921
     - type: Fixtures
       fixtures: {}
   - uid: 6580
@@ -103452,13 +103325,6 @@ entities:
     - type: Transform
       pos: -35.5,-26.5
       parent: 2
-- proto: SpaceHeaterAnchored
-  entities:
-  - uid: 547
-    components:
-    - type: Transform
-      pos: -9.5,10.5
-      parent: 2
 - proto: Spaceshroom
   entities:
   - uid: 800
@@ -105148,7 +105014,6 @@ entities:
           startTime: 0
           length: 1
     - type: SolutionContainerManager
-      solutions: null
       containers:
       - battery
     - type: EmitSoundOnCollide
@@ -109517,32 +109382,6 @@ entities:
     - type: Transform
       pos: 49.541615,-36.34849
       parent: 2
-- proto: TowelColorGold
-  entities:
-  - uid: 1426
-    components:
-    - type: Transform
-      pos: -14.485123,27.64916
-      parent: 2
-- proto: TowelColorGray
-  entities:
-  - uid: 4492
-    components:
-    - type: Transform
-      pos: 2.4544773,-27.295412
-      parent: 2
-  - uid: 4493
-    components:
-    - type: Transform
-      pos: 2.6029148,-27.389162
-      parent: 2
-- proto: TowelColorLightBlue
-  entities:
-  - uid: 1901
-    components:
-    - type: Transform
-      pos: 29.538773,8.62394
-      parent: 2
 - proto: TowelColorNT
   entities:
   - uid: 1401
@@ -109554,18 +109393,6 @@ entities:
     components:
     - type: Transform
       pos: 15.670766,30.595528
-      parent: 2
-- proto: TowelColorRed
-  entities:
-  - uid: 3572
-    components:
-    - type: Transform
-      pos: 25.442986,-21.31839
-      parent: 2
-  - uid: 3573
-    components:
-    - type: Transform
-      pos: 25.622673,-21.404327
       parent: 2
 - proto: TowelColorWhite
   entities:
@@ -110275,6 +110102,13 @@ entities:
     - type: Transform
       pos: 46.5,11.5
       parent: 2
+- proto: VendingMachineHappyHonk
+  entities:
+  - uid: 844
+    components:
+    - type: Transform
+      pos: -9.5,4.5
+      parent: 2
 - proto: VendingMachineHydrobe
   entities:
   - uid: 471
@@ -110321,6 +110155,13 @@ entities:
     components:
     - type: Transform
       pos: 13.5,5.5
+      parent: 2
+- proto: VendingMachineRestockDonut
+  entities:
+  - uid: 9265
+    components:
+    - type: Transform
+      pos: 9.5,-13.5
       parent: 2
 - proto: VendingMachineRoboDrobe
   entities:
@@ -122103,7 +121944,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 6903
+      - 4463
   - uid: 6886
     components:
     - type: Transform
@@ -122111,7 +121952,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 6903
+      - 4463
   - uid: 6887
     components:
     - type: Transform
@@ -122119,7 +121960,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 6903
+      - 4463
   - uid: 6888
     components:
     - type: Transform
@@ -122127,7 +121968,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 6903
+      - 4463
   - uid: 6889
     components:
     - type: Transform
@@ -122135,7 +121976,7 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 6903
+      - 4463
   - uid: 6890
     components:
     - type: Transform
@@ -122143,10 +121984,10 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - 6903
-- proto: WeaponEnergyTurretAIControlPanel
+      - 4463
+- proto: WeaponEnergyTurretCommandControlPanel
   entities:
-  - uid: 6903
+  - uid: 4463
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -122154,12 +121995,12 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 6887
-      - 6890
-      - 6889
       - 6888
-      - 6885
+      - 6889
+      - 6890
+      - 6887
       - 6886
+      - 6885
 - proto: WeaponLaserCarbine
   entities:
   - uid: 1331
