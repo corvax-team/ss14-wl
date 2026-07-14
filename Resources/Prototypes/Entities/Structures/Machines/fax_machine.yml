@@ -14,7 +14,7 @@
     insertOnInteract: false
   # WL-Changes-end
   - type: Sprite
-    sprite: Structures/Machines/fax_machine.rsi
+    sprite: _WL/Structures/Machines/fax_machine.rsi # WL-Resprite
     drawdepth: SmallObjects
     layers:
     - state: icon
@@ -69,6 +69,7 @@
       enum.FaxMachineVisuals.VisualState:
         enum.FaxMachineVisuals.VisualState:
           Printing: { state: printing }
+          Opened: { state: icon-open } # WL-Changes
           Normal: {state: idle}
   - type: ItemSlots
   - type: ContainerContainer
