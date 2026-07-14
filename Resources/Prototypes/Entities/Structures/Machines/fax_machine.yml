@@ -20,7 +20,7 @@
     - state: icon
       map: [ "enum.FaxMachineVisuals.VisualState" ]
   - type: Icon
-    sprite: Structures/Machines/fax_machine.rsi
+    sprite: _WL/Structures/Machines/fax_machine.rsi # WL-Resprite
     state: icon
   - type: Appearance
   - type: Physics
