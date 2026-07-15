@@ -58,6 +58,12 @@
     - RollingPaper
     - Trash
   - type: SpaceGarbage
+  # WL-Changes-start
+  - type: UserInterface
+    interfaces:
+      enum.StackAmountUiKey.Key:
+        type: StackAmountBoundUserInterface
+  # WL-Changes-end
 
 - type: entity
   id: PaperRolling1
@@ -87,6 +93,12 @@
     tags:
     - CigFilter
     - Trash
+  # WL-Changes-start
+  - type: UserInterface
+    interfaces:
+      enum.StackAmountUiKey.Key:
+        type: StackAmountBoundUserInterface
+  # WL-Changes-end
 
 - type: entity
   id: CigaretteFilter1

@@ -1,0 +1,1 @@
+comp-stack-split-custom = своё кол-во

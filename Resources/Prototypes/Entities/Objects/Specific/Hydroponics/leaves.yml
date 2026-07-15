@@ -30,6 +30,12 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/cannabis.rsi # Corvax-Resprite: Fix path
     state: dried
+  # WL-Changes-start
+  - type: UserInterface
+    interfaces:
+      enum.StackAmountUiKey.Key:
+        type: StackAmountBoundUserInterface
+  # WL-Changes-end
 
 - type: entity
   name: ground cannabis
@@ -57,6 +63,12 @@
       - Smokable
   - type: Item
     size: Tiny
+  # WL-Changes-start
+  - type: UserInterface
+    interfaces:
+      enum.StackAmountUiKey.Key:
+        type: StackAmountBoundUserInterface
+  # WL-Changes-end
 
 - type: entity
   name: rainbow cannabis leaves
@@ -199,6 +211,13 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
+  # WL-Changes-start
+  - type: UserInterface
+    interfaces:
+      enum.StackAmountUiKey.Key:
+        type: StackAmountBoundUserInterface
+  # WL-Changes-end
+
 
 - type: entity
   name: ground tobacco
@@ -226,3 +245,9 @@
       - Smokable
   - type: Item
     size: Tiny
+  # WL-Changes-start
+  - type: UserInterface
+    interfaces:
+      enum.StackAmountUiKey.Key:
+        type: StackAmountBoundUserInterface
+  # WL-Changes-end

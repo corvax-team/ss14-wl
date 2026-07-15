@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._WL.Stacks; // Wl-changes
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -30,6 +31,7 @@ public abstract partial class SharedStackSystem : EntitySystem
     [Dependency] private SharedPhysicsSystem _physics = default!;
     [Dependency] protected SharedPopupSystem Popup = default!;
     [Dependency] private SharedStorageSystem _storage = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!; // Wl-changes-start
 
     // TODO: These should be in the prototype.
     public static readonly int[] DefaultSplitAmounts = { 1, 5, 10, 20, 30, 50 };
@@ -200,6 +202,17 @@ public abstract partial class SharedStackSystem : EntitySystem
         args.Verbs.Add(halve);
 
         var priority = 0;
+
+        // Wl-changes-start
+        args.Verbs.Add(new AlternativeVerb()
+        {
+            Text = Loc.GetString("comp-stack-split-custom"),
+            Category = VerbCategory.Split,
+            Act = () => _ui.OpenUi(ent.Owner, StackAmountUiKey.Key, user),
+            Priority = priority--
+        });
+        // Wl-changes-end
+
         foreach (var amount in DefaultSplitAmounts)
         {
             if (amount >= ent.Comp.Count)

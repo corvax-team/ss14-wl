@@ -1,3 +1,4 @@
+using Content.Shared._WL.Stacks; // Wl-changes
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using JetBrains.Annotations;
@@ -13,7 +14,16 @@ namespace Content.Server.Stack
     [UsedImplicitly]
     public sealed partial class StackSystem : SharedStackSystem
     {
-        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private IPrototypeManager _prototypeManager = default!; // Wl-change я скажу так. Привет чай, уберешь коментарий? ☺
+
+        // Wl-changes-start
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            SubscribeLocalEvent<StackComponent, StackAmountSetValueMessage>(UserCustomSplit);
+        }
+        // Wl-changes-end
 
         #region Spawning
 
@@ -301,6 +311,17 @@ namespace Content.Server.Stack
 
             Popup.PopupCursor(Loc.GetString("comp-stack-split"), user.Owner);
         }
+
+        // Wl-changes-start
+        private void UserCustomSplit(EntityUid uid,
+            StackComponent stackComponent, StackAmountSetValueMessage ev)
+        {
+            if (!TryComp<StackComponent>(uid, out var comp))
+                return;
+
+            UserSplit(new Entity<StackComponent>(uid, comp), ev.Actor, ev.Value);
+        }
+        // Wl-changes-end
         #endregion
     }
 }

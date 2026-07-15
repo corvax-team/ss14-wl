@@ -107,3 +107,7 @@
         variation: 0.125
   - type: UseDelay
     delay: 1
+  - type: UserInterface
+    interfaces:
+      enum.StackAmountUiKey.Key:
+        type: StackAmountBoundUserInterface
