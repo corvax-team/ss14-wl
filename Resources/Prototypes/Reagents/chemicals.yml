@@ -197,6 +197,15 @@
   flavor: bitter
   color: "#E6E6DA"
   physicalDesc: reagent-physical-desc-crystalline
+#WL-changes-start
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+#WL-changes-end
 
 - type: reagent
   id: Rororium

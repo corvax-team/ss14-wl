@@ -36,6 +36,14 @@
   flavor: oily
   color: yellow
   recognizable: true
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 
 - type: reagent
   id: HorseradishSauce

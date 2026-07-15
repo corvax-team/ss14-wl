@@ -241,7 +241,7 @@
     sprite: Objects/Specific/Service/vending_machine_restock.rsi
     state: base
   product: CrateVendingMachineRestockRoboticsFilled
-  cost: 1600
+  cost: 4200 # WL-Changes: Signalis update
   category: cargoproduct-category-name-science
   group: market
 

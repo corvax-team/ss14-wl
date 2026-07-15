@@ -11,6 +11,19 @@
     Metabolites:
       effects:
       - !type:SatiateHunger
+#WL-changes-start
+      - !type:EvenHealthChange
+        probability: 0.5
+        damage:
+          Brute: -0.5
+          Burn: -0.5
+          Airloss: -0.5
+          Toxin: -0.5
+          Genetic: -0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+#WL-changes-end
 # WL android species start
       - !type:HealthChange
         conditions:
@@ -54,12 +67,25 @@
         damage:
           Brute: -0.5
           Burn: -0.5
-# WL species start
-        # Android
+#WL-changes-start
+          Airloss: -0.5
+          Toxin: -0.5
+          Genetic: -0.5
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic ]
+          type: [ Biorobotic, Golem ]
           inverted: true
+      - !type:EvenHealthChange
+        probability: 0.5
+        damage:
+          Brute: -0.5
+          Burn: -0.5
+          Airloss: -0.5
+          Toxin: -0.5
+          Genetic: -0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
       # Android
       - !type:HealthChange
         conditions:
@@ -79,17 +105,16 @@
         - !type:ReagentCondition
           reagent: Vitamin
           min: 10
-# WL species end
+#WL-changes-end
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleed
         amount: -0.25
-# WL species start
-        # Android
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic ]
+          type: [ Biorobotic, Golem ]
           inverted: true
-# WL species end
+#WL-changes-end
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
   # Lets plants benefit too
   plantMetabolism:
@@ -114,13 +139,23 @@
         probability: 0.5
         damage:
             Brute: -0.4
-# WL species start
-        # Android
+#WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic ]
+          type: [ Biorobotic, Golem ]
           inverted: true
-# WL species end
+      - !type:EvenHealthChange
+        probability: 0.5
+        damage:
+          Brute: -0.5
+          Burn: -0.5
+          Airloss: -0.5
+          Toxin: -0.5
+          Genetic: -0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+#WL-changes-end
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -142,13 +177,12 @@
 # WL android species end
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
-# WL species start
-        # Android
+# WL-changes-start
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic ]
+          type: [ Biorobotic, Golem ]
           inverted: true
-# WL species end
+#WL-changes-end
       - !type:SatiateHunger
 # WL species start
 # WL species end

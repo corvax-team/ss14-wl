@@ -1,5 +1,6 @@
 - type: markingsGroup
   parent: Undergarments
+  onlyGroupWhitelisted: true # WL-Changes
   id: Ipc
   limits:
     enum.HumanoidVisualLayers.Hair:
@@ -52,6 +53,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceIpc
+  categories: [ HideSpawnMenu ] # WL-Changes
   name: Ipc appearance
   components:
   - type: Inventory
@@ -143,6 +145,11 @@
         type: IpcFaceUserInterface
       enum.CharacterInformationUiKey.Key: # WL-CharacterInformation
         type: CharacterInformationBoundUserInterface
+      # WL-Midi-Start
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: true
+      # WL-Midi-End
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
@@ -214,6 +221,7 @@
     doAfterDelay: 20
     selfRepairPenalty: 2
   - type: DamagedSiliconAccent
+  - type: EyeProtection # WL-Changes
   - type: Reflect
     reflectProb: 0.05
   - type: SleepEmitSound
@@ -275,6 +283,17 @@
       - Translate
     specieLanguage: Ternary
   #WL-Changes: Languages end
+  # WL-Midi-Start
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    program: 2
+  - type: MobStateActions
+    actions:
+      Alive:
+      - ActionPAIPlayMidi
+  - type: Actions
+  # WL-Midi-End
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: OfferItem # CorvaxGoob-Offer
 

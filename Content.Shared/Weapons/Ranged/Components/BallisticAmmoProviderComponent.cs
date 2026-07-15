@@ -63,4 +63,10 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     /// </summary>
     [DataField]
     public bool AutoCycle = true;
+
+    /// <summary>
+    /// Whitelist - Reloading on move
+    /// </summary>
+    [DataField]
+    public bool ReloadOnMove = false;
 }

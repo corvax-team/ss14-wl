@@ -104,7 +104,7 @@
         Heat: 0.90
         Radiation: 0.75
   - type: PointLight
-    radius: 5
+    radius: 5 # WL-Changes
     energy: 2
     color: "#00ffff"
   - type: Tag

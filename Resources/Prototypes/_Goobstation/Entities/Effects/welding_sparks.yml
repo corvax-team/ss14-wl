@@ -17,7 +17,10 @@
   - type: AnimationPlayer
   - type: PointLight
     color: orange
-    radius: 1.5
+    # WL-Changes-Start
+    radius: 2.5
+    energy: 1.5
+    # WL-Changes-End
   - type: Tag
     tags:
     - HideContextMenu
@@ -32,5 +35,9 @@
     - state: smoke
     - state: exp_welding_sparks
       shader: unshaded
+  # WL-Changes-Start
   - type: PointLight
+    radius: 4.0
+    energy: 2.0
     color: MediumAquamarine
+  # WL-Changes-End

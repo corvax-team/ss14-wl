@@ -27,7 +27,7 @@ namespace Content.Client._WL.DiscordAuth
 
             _discordAuth = auth;
 
-            Title = "Информация о сессии";
+            Title = Loc.GetString("psiw-title");
 
             var main_tab = new TabContainer()
             {
@@ -63,7 +63,7 @@ namespace Content.Client._WL.DiscordAuth
             var discord_content_box_title = new Label()
             {
                 HorizontalAlignment = HAlignment.Center,
-                Text = "Аутентификация",
+                Text = Loc.GetString("psiw-auth"),
                 Margin = new(0, 7)
             };
             discord_content_box_title.AddStyleClass("LabelKeyText");
@@ -75,7 +75,7 @@ namespace Content.Client._WL.DiscordAuth
 
             var discord_content_bot_ucode_title = new Label()
             {
-                Text = "Уникальный  код:",
+                Text = Loc.GetString("psiw-unique-code"),
                 VerticalAlignment = VAlignment.Center,
                 Margin = new(20, 0, 20, 0)
             };
@@ -85,7 +85,7 @@ namespace Content.Client._WL.DiscordAuth
             var token = _discordAuth.GetUserCode();
             var discord_content_bot_ucode_value = new RichTextLabel()
             {
-                Text = token ?? "Unknown"
+                Text = token ?? Loc.GetString("generic-unknown-title")
             };
 
             _discordAuth.SubscribeOnTokenChanged(token =>
@@ -97,7 +97,7 @@ namespace Content.Client._WL.DiscordAuth
             {
                 PanelOverride = style_box,
                 MouseFilter = MouseFilterMode.Stop,
-                ToolTip = "Кликните, чтобы скопировать код в буфер обмена."
+                ToolTip = Loc.GetString("psiw-copy-tooltip")
             };
 
             discord_content_bot_ucode_value_panel.OnMouseEntered += _ =>
@@ -139,7 +139,7 @@ namespace Content.Client._WL.DiscordAuth
 
             var progress_bar_box_label = new Label()
             {
-                Text = "До смены ключа авторизации:",
+                Text = Loc.GetString("psiw-auth-time-expire"),
                 Margin = new(10, 0)
             };
             progress_bar_box_label.AddStyleClass("LabelKeyText");
@@ -164,7 +164,7 @@ namespace Content.Client._WL.DiscordAuth
             var discord_tab_box = new BoxContainer();
             discord_tab_box.AddChild(discord_tab);
 
-            AddTab(0, "Дискорд", discord_tab_box);
+            AddTab(0, Loc.GetString("psiw-discord"), discord_tab_box);
             #endregion
 
             AddChild(main_tab);

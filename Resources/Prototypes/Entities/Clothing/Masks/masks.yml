@@ -53,6 +53,10 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.95
+  # WL-Stun-Resist-Playtest-End
 
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
@@ -101,6 +105,10 @@
     sprite: Clothing/Mask/gascaptain.rsi
   - type: BreathMask
   - type: IngestionBlocker
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.90
+  # WL-Stun-Resist-Playtest-End
 
 - type: entity
   parent: [ ClothingMaskGasAtmos, BaseCentcommContraband ]
@@ -114,6 +122,10 @@
     sprite: Clothing/Mask/gascentcom.rsi
   - type: BreathMask
   - type: IngestionBlocker
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
 
 - type: entity
   parent: [ClothingMaskGas, BaseCargoContraband]
@@ -484,6 +496,10 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
 
 - type: entity
   parent: ClothingMaskGasERT

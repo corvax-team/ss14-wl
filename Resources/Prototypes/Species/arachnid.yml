@@ -10,8 +10,6 @@
   femaleFirstNames: NamesArachnidFirst
   maleLastNames: NamesArachnidLast # Corvax-LastnameGender
   femaleLastNames: NamesArachnidLast # Corvax-LastnameGender
-  sexes:
-  - Unsexed
   # WL-Changes-start
   minHeight: 150
   maxHeight: 230

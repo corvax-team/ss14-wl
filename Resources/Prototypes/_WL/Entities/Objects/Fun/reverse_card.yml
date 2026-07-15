@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseTarotCard
+  id: SyndicateReverseCard
+  name: reverse card
+  description: Get fooled.
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Misc/Fun/reverse_card.rsi
+    scale: 0.8,0.8
+    layers:
+    - state: reverse-blue
+      map: ["enum.PokerCardLayers.NonFlipped"]
+    - state: reverse-back
+      map: ["enum.PokerCardLayers.Flipped"]
+  - type: ReverseCard
+  - type: StaticPrice
+    price: 100

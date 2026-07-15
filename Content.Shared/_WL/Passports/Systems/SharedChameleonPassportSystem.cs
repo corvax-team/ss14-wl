@@ -1,20 +1,16 @@
-using Content.Shared.Administration.Logs;
 using Content.Shared._WL.Passports.Components;
-using Content.Shared.CCVar;
-using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.Passports.Systems
 {
     public abstract class SharedChameleonPassportSystem : EntitySystem
     {
-        private int _maxNameLength = 32;
-        private int _maxSpeciesLength = 15;
-        private int _maxGenderLength = 11;
-        private int _maxYOBLength = 4;
-        private int _maxHeightLength = 3;
-        private int _maxPIDLength = 17;
+        private const int MaxNameLength = 32;
+        private const int MaxSpeciesLength = 15;
+        private const int MaxGenderLength = 11;
+        private const int MaxDateOfBirthLength = 24;
+        private const int MaxHeightLength = 3;
+        private const int MaxPIDLength = 17;
 
         public bool TryChangeNameTitle(EntityUid uid, string? nameTitle, PassportComponent? passport = null)
         {
@@ -24,8 +20,8 @@ namespace Content.Shared._WL.Passports.Systems
             nameTitle = nameTitle?.Trim();
             if (string.IsNullOrWhiteSpace(nameTitle))
                 nameTitle = string.Empty;
-            else if (nameTitle.Length > _maxNameLength)
-                nameTitle = nameTitle[.._maxNameLength];
+            else if (nameTitle.Length > MaxNameLength)
+                nameTitle = nameTitle[..MaxNameLength];
 
             if (passport.DisplayName == nameTitle)
                 return true;
@@ -43,8 +39,8 @@ namespace Content.Shared._WL.Passports.Systems
             speciesTitle = speciesTitle?.Trim();
             if (string.IsNullOrWhiteSpace(speciesTitle))
                 speciesTitle = string.Empty;
-            else if (speciesTitle.Length > _maxSpeciesLength)
-                speciesTitle = speciesTitle[.._maxSpeciesLength];
+            else if (speciesTitle.Length > MaxSpeciesLength)
+                speciesTitle = speciesTitle[..MaxSpeciesLength];
 
             if (passport.DisplaySpecies == speciesTitle)
                 return true;
@@ -62,8 +58,8 @@ namespace Content.Shared._WL.Passports.Systems
             genderTitle = genderTitle?.Trim();
             if (string.IsNullOrWhiteSpace(genderTitle))
                 genderTitle = string.Empty;
-            else if (genderTitle.Length > _maxGenderLength)
-                genderTitle = genderTitle[.._maxGenderLength];
+            else if (genderTitle.Length > MaxGenderLength)
+                genderTitle = genderTitle[..MaxGenderLength];
 
             if (passport.DisplayGender == genderTitle)
                 return true;
@@ -73,7 +69,7 @@ namespace Content.Shared._WL.Passports.Systems
             return true;
         }
 
-        public bool TryChangeYOBTitle(EntityUid uid, string? yobTitle, PassportComponent? passport = null)
+        public bool TryChangeDateOfBirthTitle(EntityUid uid, string? yobTitle, PassportComponent? passport = null)
         {
             if (!Resolve(uid, ref passport))
                 return false;
@@ -81,12 +77,12 @@ namespace Content.Shared._WL.Passports.Systems
             yobTitle = yobTitle?.Trim();
             if (string.IsNullOrWhiteSpace(yobTitle))
                 yobTitle = string.Empty;
-            else if (yobTitle.Length > _maxYOBLength)
-                yobTitle = yobTitle[.._maxYOBLength];
+            else if (yobTitle.Length > MaxDateOfBirthLength)
+                yobTitle = yobTitle[..MaxDateOfBirthLength];
 
-            if (passport.DisplayYearOfBirth == yobTitle)
+            if (passport.DisplayDateOfBirth == yobTitle)
                 return true;
-            passport.DisplayYearOfBirth = yobTitle;
+            passport.DisplayDateOfBirth = yobTitle;
             Dirty(uid, passport);
 
             return true;
@@ -100,8 +96,8 @@ namespace Content.Shared._WL.Passports.Systems
             heightTitle = heightTitle?.Trim();
             if (string.IsNullOrWhiteSpace(heightTitle))
                 heightTitle = string.Empty;
-            else if (heightTitle.Length > _maxHeightLength)
-                heightTitle = heightTitle[.._maxHeightLength];
+            else if (heightTitle.Length > MaxHeightLength)
+                heightTitle = heightTitle[..MaxHeightLength];
 
             if (passport.DisplayHeight == heightTitle) // предполагаем, что DisplayHeight тоже string
                 return true;
@@ -119,8 +115,8 @@ namespace Content.Shared._WL.Passports.Systems
             pidTitle = pidTitle?.Trim();
             if (string.IsNullOrWhiteSpace(pidTitle))
                 pidTitle = string.Empty;
-            else if (pidTitle.Length > _maxPIDLength)
-                pidTitle = pidTitle[.._maxPIDLength];
+            else if (pidTitle.Length > MaxPIDLength)
+                pidTitle = pidTitle[..MaxPIDLength];
 
             if (passport.DisplayPID == pidTitle)
                 return true;
@@ -145,90 +141,56 @@ namespace Content.Shared._WL.Passports.Systems
     /// Represents an <see cref="ChameleonPassportComponent"/> state that can be sent to the client
     /// </summary>
     [Serializable, NetSerializable]
-    public sealed class ChameleonPassportBoundUserInterfaceState : BoundUserInterfaceState
+    public sealed class ChameleonPassportBoundUserInterfaceState(
+        string currentName,
+        string currentSpecies,
+        string currentGender,
+        string currentDateOfBirth,
+        string currentHeight,
+        string currentPid)
+        : BoundUserInterfaceState
     {
-        public string CurrentName { get; }
-        public string CurrentSpecies { get; }
-        public string CurrentGender { get; }
-        public string CurrentYOB { get; }
-        public string CurrentHeight { get; }
-        public string CurrentPID { get; }
-
-        public ChameleonPassportBoundUserInterfaceState(string currentName, string currentSpecies, string currentGender,
-                                                        string currentYOB, string currentHeight, string currentPID)
-        {
-            CurrentName = currentName;
-            CurrentSpecies = currentSpecies;
-            CurrentGender = currentGender;
-            CurrentYOB = currentYOB;
-            CurrentHeight = currentHeight;
-            CurrentPID = currentPID;
-        }
+        public string CurrentName { get; } = currentName;
+        public string CurrentSpecies { get; } = currentSpecies;
+        public string CurrentGender { get; } = currentGender;
+        public string CurrentDateOfBirth { get; } = currentDateOfBirth;
+        public string CurrentHeight { get; } = currentHeight;
+        public string CurrentPID { get; } = currentPid;
     }
 
     [Serializable, NetSerializable]
-    public sealed class ChameleonPassportNameChangedMessage : BoundUserInterfaceMessage
+    public sealed class ChameleonPassportNameChangedMessage(string name) : BoundUserInterfaceMessage
     {
-        public string Name { get; }
-
-        public ChameleonPassportNameChangedMessage(string name)
-        {
-            Name = name;
-        }
+        public string Name { get; } = name;
     }
 
     [Serializable, NetSerializable]
-    public sealed class ChameleonPassportSpeciesChangedMessage : BoundUserInterfaceMessage
+    public sealed class ChameleonPassportSpeciesChangedMessage(string species) : BoundUserInterfaceMessage
     {
-        public string Species { get; }
-
-        public ChameleonPassportSpeciesChangedMessage(string species)
-        {
-            Species = species;
-        }
+        public string Species { get; } = species;
     }
 
     [Serializable, NetSerializable]
-    public sealed class ChameleonPassportGenderChangedMessage : BoundUserInterfaceMessage
+    public sealed class ChameleonPassportGenderChangedMessage(string gender) : BoundUserInterfaceMessage
     {
-        public string Gender { get; }
-
-        public ChameleonPassportGenderChangedMessage(string gender)
-        {
-            Gender = gender;
-        }
+        public string Gender { get; } = gender;
     }
 
     [Serializable, NetSerializable]
-    public sealed class ChameleonPassportYOBChangedMessage : BoundUserInterfaceMessage
+    public sealed class ChameleonPassportDateOfBirthChangedMessage(string date) : BoundUserInterfaceMessage
     {
-        public string YOB { get; }
-
-        public ChameleonPassportYOBChangedMessage(string yob)
-        {
-            YOB = yob;
-        }
+        public string DateOfBirth { get; } = date;
     }
 
     [Serializable, NetSerializable]
-    public sealed class ChameleonPassportHeightChangedMessage : BoundUserInterfaceMessage
+    public sealed class ChameleonPassportHeightChangedMessage(string height) : BoundUserInterfaceMessage
     {
-        public string Height { get; }
-
-        public ChameleonPassportHeightChangedMessage(string height)
-        {
-            Height = height;
-        }
+        public string Height { get; } = height;
     }
 
     [Serializable, NetSerializable]
-    public sealed class ChameleonPassportPIDChangedMessage : BoundUserInterfaceMessage
+    public sealed class ChameleonPassportPIDChangedMessage(string pid) : BoundUserInterfaceMessage
     {
-        public string PID { get; }
-
-        public ChameleonPassportPIDChangedMessage(string pid)
-        {
-            PID = pid;
-        }
+        public string PID { get; } = pid;
     }
 }

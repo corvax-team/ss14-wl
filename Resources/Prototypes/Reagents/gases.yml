@@ -48,15 +48,14 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Human, Animal, Rat, Plant, Arachnid, Moth ] # WL Cischi species
-      #- !type:MovespeedModifier
-      #  conditions:
-      #  - !type:ReagentCondition
-      #    reagent: Oxygen
-      #    min: 0.1
-      #  - !type:MetabolizerTypeCondition
-      #    type: [ Cischi ]
-      #  walkSpeedModifier: 0.85
-      #  sprintSpeedModifier: 0.85
+#WL-changes-start
+      - !type:MovementSpeedModifier
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        walkSpeedModifier: 0.85
+        sprintSpeedModifier: 0.85
+#WL-changes-end
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -100,20 +99,56 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+#WL-changes-start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem, Cischi ]
+          inverted: true
+#WL-changes-end
         damage:
           types:
             Poison: 1.5
+#WL-changes-start
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Asphyxiation: 1.5
+#WL-changes-end
       - !type:AdjustReagent
         reagent: Inaprovaline
         amount: -2.0
     Respiration:
       effects:
       - !type:HealthChange
+#WL-changes-start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
+#WL-changes-end
         ignoreResistances: true
         damage:
           types:
             Poison:
               0.1
+#WL-changes-start
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        ignoreResistances: true
+        damage:
+          types:
+            Asphyxiation: 0.1
+#WL-changes-end
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
@@ -201,7 +236,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Plant ] # WL Cischi species
+          type: [ Plant, Cischi ] # WL Cischi species
       - !type:HealthChange
         minScale: 0.5
         conditions:
@@ -363,10 +398,27 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+#WL-changes-start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi, Golem ]
+          inverted: true
+#WL-changes-end
         ignoreResistances: true
         damage:
           types:
             Cellular: 0.5
+#WL-changes-start
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          Brute: -1.5
+          Burn: -1.5
+          Toxin: -1.5
+          Airloss: -1.5
+#WL-changes-end
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         type: Add
@@ -385,14 +437,51 @@
         probability: 0.1
         conditions:
         minScale: 2
+#WL-changes-start
+      - !type:SatiateHunger
+        factor: -6
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:AdjustTemperature
+        amount: -2500
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        type: Update
+        time: 4
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+#WL-changes-end
     Respiration:
       effects:
       - !type:HealthChange
         minScale: 0.5
+#WL-changes-start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
+#WL-changes-end
         ignoreResistances: true
         damage:
           types:
             Cellular: 0.05
+#WL-changes-start
+      - !type:EvenHealthChange
+        minScale: 0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          Brute: -0.2
+          Burn: -0.2
+          Toxin: -0.2
+          Airloss: -0.2
+#WL-changes-end
       - !type:ModifyStatusEffect
         minScale: 1
         effectProto: StatusEffectSeeingRainbow

@@ -1,0 +1,47 @@
+- type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassSmallBaseFull]
+  id: DrinkDarkBeerBottleFull
+  name: Kaiserstout beer bottle
+  description: A hoppy drink with a creamy texture, coffee bitterness and notes of burnt caramel.
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: DarkBeer
+        Quantity: 60
+  - type: Label
+    currentLabel: reagent-name-dark-beer
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/Drinks/darkbeer.rsi
+  - type: Openable
+    closeable: false
+  - type: Sealable
+    examineTextUnsealed: "sealable-component-on-examine-is-unsealed-crown-cap"
+  - type: Tag
+    tags:
+    - Beer
+
+- type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  id: DrinkDarkBeerBottleFullGrowler
+  name: Kaiserstout beer growler
+  description: A hoppy drink with a creamy texture, coffee bitterness and notes of burnt caramel. XL growler bottle.
+  components:
+  - type: Solution
+    solution:
+      maxVol: 240
+      reagents:
+      - ReagentId: DarkBeer
+        Quantity: 240
+  - type: Label
+    currentLabel: reagent-name-dark-beer
+  - type: Sprite
+    sprite: _WL/Objects/Consumable/Drinks/darkbeer.rsi
+  - type: Openable
+    closeable: false
+  - type: Sealable
+    examineTextUnsealed: "sealable-component-on-examine-is-unsealed-crown-cap"
+  - type: Tag
+    tags:
+    - Beer
+    - DrinkBottle

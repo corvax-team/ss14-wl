@@ -149,7 +149,7 @@
   - type: StaticPrice
     price: 500
   - type: PowerCellDraw
-    drawRate: 4
+    drawRate: 10 #wl - not-infinite-speed-boots
   - type: ToggleCellDraw
   - type: ItemSlots
     slots:

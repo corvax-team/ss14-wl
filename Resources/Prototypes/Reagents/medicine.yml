@@ -36,9 +36,27 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+#WL-changes-start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
+#WL-changes-end
         damage:
           types:
             Poison: -1
+#WL-changes-start
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        reagent: Histamine
+        amount: 0.5
+      - !type:Jitter
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+#WL-changes-end
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -152,6 +170,25 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic, Golem, Cischi ]
           inverted: true
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Radiation: -6
+            Blunt: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        reagent: Histamine
+        amount: 0.25
+      - !type:Vomit
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        probability: 0.1
 # WL species end
 
 - type: reagent
@@ -171,7 +208,7 @@
 # WL species start
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic, Golem, Cischi ]
+          type: [ Biorobotic, Golem ]
           inverted: true
 # WL species end
       - !type:HealthChange
@@ -181,7 +218,7 @@
           min: 15
 # WL species start
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic, Golem, Cischi ]
+          type: [ Biorobotic, Golem ]
           inverted: true
 # WL species end
         damage:
@@ -200,6 +237,20 @@
           reagent: Bicaridine
           min: 15
       - !type:Drunk
+#WL-changes-start
+      - !type:Emote
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        emote: Laugh
+        showInChat: true
+        probability: 0.5
+      - !type:Drunk
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        boozePower: 5
+#WL-changes-end
 
 - type: reagent
   id: Cryoxadone
@@ -292,6 +343,15 @@
             Asphyxiation: 1
             Cold: 2
             Blunt: 0.5
+#WL-changes-start
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          Burn: -4
+          Toxin: -2
+#WL-changes-end
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
@@ -486,6 +546,12 @@
           types:
             Radiation: -1
       - !type:Vomit
+#WL-changes-start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
+#WL-changes-end
         probability: 0.02
       - !type:HealthChange
         conditions:
@@ -520,6 +586,34 @@
           reagent: Ipecac
           min: 4
         probability: 0.3
+#WL-changes-start
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ipecac
+          min: 10
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Poison: -20
+      - !type:ModifyParalysis
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ipecac
+          min: 10
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        time: 3
+        probability: 0.5
+      - !type:Jitter
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ipecac
+          min: 10
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+#WL-changes-end
 
 - type: reagent
   id: Inaprovaline
@@ -554,6 +648,18 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic, Golem ]
           inverted: true
+      - !type:Emote
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        emote: Laugh
+        showInChat: true
+        probability: 0.5
+      - !type:Drunk
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        boozePower: 5
 # WL species end
 
 - type: reagent
@@ -576,9 +682,16 @@
 # WL species start
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Biorobotic, Golem, Cischi ]
+          type: [ Biorobotic, Golem ]
           inverted: true
-# WL species end
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Poison: -4
+#WL-changes-end
       - !type:SatiateThirst
         factor: -10
         conditions:
@@ -628,12 +741,31 @@
         conditions:
         - !type:TemperatureCondition
           max: 293.15
+#WL-changes-start
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
+#WL-changes-end
         amount: 100000 # thermal energy, not temperature!
       - !type:AdjustTemperature
         conditions:
         - !type:TemperatureCondition
           min: 293.15
+#WL-changes-start
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+          inverted: true
+#WL-changes-end
         amount: -10000
+#WL-changes-start
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Bloodloss: -8
+#WL-changes-end
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -647,17 +779,24 @@
         conditions:
         - !type:TemperatureCondition
           min: 160.15
-        amount: -30000
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+        amount: -2500
       - !type:SatiateHunger
-        factor: 3
-      - !type:GenericStatusEffect
+        factor: -6
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        type: Update
+        time: 4
         conditions:
         - !type:ReagentCondition
           reagent: Leporazine
           min: 5
-        key: ForcedSleep
-        component: ForcedSleeping
-        type: Add
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
 # WL golem species end
 
 - type: reagent
@@ -908,6 +1047,16 @@
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic, Golem, Cischi ]
           inverted: true
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Caustic: -12
+            Heat: -4
+            Shock: -4
+            Cold: -4
 # WL species end
 
 - type: reagent
@@ -925,6 +1074,12 @@
     Bloodstream:
       effects:
       - !type:HealthChange
+#WL-changes-start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
+#WL-changes-end
         damage:
           types:
             Poison: -4
@@ -935,6 +1090,19 @@
           min: 1
         reagent: Amatoxin
         amount: -3
+#WL-changes-start
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        reagent: Histamine
+        amount: 2
+      - !type:Vomit
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        probability: 0.3
+#WL-changes-end
 
 - type: reagent
   id: Synaptizine
@@ -1019,6 +1187,22 @@
           types:
             Caustic: 3
 # WL android species end
+#WL-changes-start
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        effectProto: StatusEffectSeeingRainbow
+        time: 15
+        type: Add
+      - !type:Emote
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        emote: Laugh
+        showInChat: true
+        probability: 0.3
+#WL-changes-end
 
 - type: reagent
   id: Tricordrazine
@@ -1067,6 +1251,16 @@
       # what the hell, this isn't satiating at all!!
       - !type:SatiateHunger
         factor: -1
+#WL-changes-start
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Poison: -12
+            Radiation: -2
+#WL-changes-end
 
   # Should heal quite literally everything, use in very small amounts
 - type: reagent
@@ -1110,6 +1304,11 @@
           reagent: Ultravasculine
           min: 0
           max: 20
+#WL-changes-start
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
+#WL-changes-end
         damage:
           Toxin: -6
       - !type:HealthChange
@@ -1127,11 +1326,30 @@
         damage:
           types:
             Blunt: 1.5
+#WL-changes-start
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ultravasculine
+          max: 30
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Radiation: -4
+            Poison: -4
+            Blunt: 2
+#WL-changes-end
       - !type:EvenHealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Ultravasculine
           min: 20
+#Wl-changes-start
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+          inverted: true
+#WL-changes-end
         damage:
           Toxin: -2
       - !type:HealthChange
@@ -1148,6 +1366,18 @@
         damage:
           types:
             Blunt: 6
+#WL-changes-start
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ultravasculine
+          min: 30
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Blunt: 6
+#WL-changes-end
       - !type:AdjustReagent
         conditions:
         - !type:ReagentCondition
@@ -1266,13 +1496,23 @@
         damage:
           types:
             Caustic: -1.25 # 5 per u
-# WL species start
+#WL-changes-start
         # Android
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic, Golem, Cischi ]
           inverted: true
-# WL species end
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Caustic: -6
+            Heat: 2
+            Blunt: 2
+            Poison: 1
+#WL-changes-end
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -1287,6 +1527,20 @@
         damage:
           types:
             Heat: 1 # 4 per u
+#WL-changes-start
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Sigynate
+          min: 20
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        damage:
+          types:
+            Heat: 2
+            Blunt: 4
+            Poison: 4
+#WL-changes-end
       - !type:Jitter
         conditions:
         - !type:ReagentCondition
@@ -1354,6 +1608,20 @@
         damage:
           types:
             Cold: 1.5 # 6 per u
+#WL-changes-start
+      - !type:Emote
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        emote: Laugh
+        showInChat: true
+        probability: 0.3
+      - !type:Drunk
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        boozePower: 5
+#WL-changes-end
 
 - type: reagent
   id: Puncturase
@@ -1386,6 +1654,20 @@
         damage:
           types:
             Blunt: 3 # 12 per u
+#WL-changes-start
+      - !type:Emote
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        emote: Laugh
+        showInChat: true
+        probability: 0.3
+      - !type:Drunk
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        boozePower: 5
+#WL-changes-end
 
 - type: reagent
   id: Bruizine
@@ -1419,6 +1701,20 @@
         damage:
           types:
             Poison: 2.5 # 10 per u
+#WL-changes-start
+      - !type:Emote
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        emote: Laugh
+        showInChat: true
+        probability: 0.3
+      - !type:Drunk
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Cischi ]
+        boozePower: 5
+#WL-changes-end
 
 - type: reagent
   id: Holywater

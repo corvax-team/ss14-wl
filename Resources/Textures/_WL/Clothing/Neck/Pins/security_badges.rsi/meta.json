@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Archestratigus АКА Заступник",
+  "copyright": "Archestratigus АКА Заступник; Recolor to white pomava",
   "size": {
     "x": 32,
     "y": 32
@@ -75,6 +75,13 @@
     },
     {
       "name": "cya-equipped-NECK",
+      "directions": 4
+    },
+    {
+      "name": "icon-whi"
+    },
+    {
+      "name": "whi-equipped-NECK",
       "directions": 4
     }
   ]

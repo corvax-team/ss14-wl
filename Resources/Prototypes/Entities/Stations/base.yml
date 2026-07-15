@@ -84,6 +84,23 @@
           - /Maps/Corvax/Ruins/corvax_ussp_debris.yml
           - /Maps/Corvax/Ruins/corvax_ussp_asteroid.yml
           # Corvax-Mapping-End
+          # Corvax-WL-Mapping-Start
+          - /Maps/_WL/Ruins/cargo.yml
+          - /Maps/_WL/Ruins/cinema.yml
+          - /Maps/_WL/Ruins/fucked_shuttle.yml
+          - /Maps/_WL/Ruins/subject.yml
+          - /Maps/_WL/Ruins/foamsafe.yml
+          - /Maps/_WL/Ruins/foamshuttle.yml
+          - /Maps/_WL/Ruins/garage.yml
+          - /Maps/_WL/Ruins/gladiator.yml
+          - /Maps/_WL/Ruins/gym.yml
+          - /Maps/_WL/Ruins/ironcult.yml
+          - /Maps/_WL/Ruins/mail.yml
+          - /Maps/_WL/Ruins/mimic.yml
+          - /Maps/_WL/Ruins/storage.yml
+          - /Maps/_WL/Ruins/tyuryaga.yml
+          - /Maps/_WL/Ruins/toy_store.yml
+          # Corvax-WL-Mapping-End          
           - /Maps/Ruins/wrecklaimer.yml
           - /Maps/Ruins/displaced_telescience.yml
         wrecks: !type:DungeonSpawnGroup

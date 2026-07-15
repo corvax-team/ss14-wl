@@ -6,3 +6,5 @@ flavor-cischi5-Base = горько
 
 flavor-strawberry = клубнично
 flavor-raspberry = малиново
+
+flavor-complex-darkbeer = как жжёная карамель

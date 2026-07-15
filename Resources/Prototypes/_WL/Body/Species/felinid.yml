@@ -18,7 +18,7 @@
       default: [ CatEars ]
     enum.HumanoidVisualLayers.Snout:
       limit: 1
-      required: true
+      required: false
     enum.HumanoidVisualLayers.Tail:
       limit: 1
       required: true
@@ -59,6 +59,7 @@
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceFelinid
+  categories: [ HideSpawnMenu ]
   name: felinid appearance
   components:
   - type: InitialBody
@@ -100,6 +101,8 @@
       Male: MaleFelinid
       Female: FemaleFelinid
       Unsexed: MaleFelinid
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 5.1
 #  - type: Damageable
 #    damageContainer: Biological
 #    damageModifierSet: Felinid
@@ -111,9 +114,16 @@
       types:
         Blunt: 1
         Slash: 5
-  # - type: Thieving
-  #   stealthy: true
-  #  stripTimeReduction: 2.5
+  - type: StripModifiers
+    stripTimeReduction: 0
+    stripTimeMultiplier: 0.5
+  - type: NightVision
+    toggleAction: PulseEchoVision
+    isEquipment: false
+    color: "#000"
+    pulseTime: 0.2
+    overlayOpacity: 1.4
+    noise: 0
   - type: Speech
     speechSounds: Alto
     allowedEmotes: ['Purr']
@@ -154,6 +164,18 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damagePerUnit:
+      types:
+        Cellular: -0.25
+    damage:
+      types:
+        Heat: -0.7
+        Blunt: -0.5
+        Piercing: -0.5
+        Slash: -0.5
 
 - type: entity
   parent: OrganBase

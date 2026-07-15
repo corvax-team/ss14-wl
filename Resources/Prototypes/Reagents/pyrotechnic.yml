@@ -172,6 +172,24 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [Vox]
+#WL-changes-start
+      - !type:SatiateHunger
+        factor: 1.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:EvenHealthChange
+        damage:
+          Brute: 0.2
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:Drunk
+        boozePower: 5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+#WL-changes-end
       - !type:HealthChange
 # WL species start
         conditions:

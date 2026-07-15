@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by ReArtInt",
+  "states": [
+    {
+      "name": "spidey",
+      "directions": 4
+    },
+    {
+      "name": "spidey_dead"
+    },
+    {
+      "name": "spidey_icon"
+    },
+    {
+      "name": "spidey_dance",
+      "directions": 4,
+      "delays": [
+        [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+        ],
+        [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+        ],
+        [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+        ],
+        [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+        ]
+      ]
+    }
+  ]
+}

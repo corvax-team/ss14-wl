@@ -37,3 +37,20 @@
 #  metamorphicMaxFillLevels: 5
 #  metamorphicFillBaseName: fill-
 #  metamorphicChangeColor: false
+
+- type: reagent
+  id: DarkBeer
+  name: reagent-name-dark-beer
+  parent: BaseAlcohol
+  desc: reagent-desc-dark-beer
+  physicalDesc: reagent-physical-desc-bubbly
+  flavor: darkbeer
+  color: "#321d17"
+  recognizable: true
+  metamorphicSprite:
+    sprite: _WL/Objects/Consumable/Drinks/darkbeerglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  fizziness: 0.6

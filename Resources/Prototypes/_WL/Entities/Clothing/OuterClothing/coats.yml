@@ -51,3 +51,20 @@
     sprite: _WL/Clothing/OuterClothing/Coats/johnnysilverhandcoat.rsi
   - type: Clothing
     sprite: _WL/Clothing/OuterClothing/Coats/johnnysilverhandcoat.rsi
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ]
+  id: ClothingOuterCoatDetectiveWhite
+  name: White detective trenchcoat
+  description: Modern-looking trenchcoat with an armored underlay. Someone who wears this means serious business while being stylish.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/wdetective.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/wdetective.rsi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokingPipeFilledTobacco
+        - id: FlippoEngravedLighter

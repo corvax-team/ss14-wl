@@ -16,23 +16,22 @@ public sealed partial class NationalitySystem : EntitySystem
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawnComplete);
     }
 
-    private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args) =>
+    private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
+    {
         ApplyNationality(args.Mob, args.Profile);
+    }
 
-    public void ApplyNationality(EntityUid uid, HumanoidCharacterProfile profile)
+    private void ApplyNationality(EntityUid uid, HumanoidCharacterProfile profile)
     {
         var nationalityId = profile.Confederation;
 
         if (!_prototype.TryIndex<ConfederationRecordsPrototype>(nationalityId, out var confederationRecordsPrototype))
-        {
-            Log.Warning($"Nationality '{nationalityId}' not found!");
             return;
-        }
 
         AddNationality(uid, confederationRecordsPrototype);
     }
 
-    public void AddNationality(EntityUid uid, ConfederationRecordsPrototype confederationRecordsPrototype)
+    private void AddNationality(EntityUid uid, ConfederationRecordsPrototype confederationRecordsPrototype)
     {
         foreach (var special in confederationRecordsPrototype.Special)
         {

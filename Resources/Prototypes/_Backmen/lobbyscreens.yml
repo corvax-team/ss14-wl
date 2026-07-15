@@ -17,12 +17,6 @@
   artist: lobby-state-background-twix-artist
   
 - type: lobbyBackground
-  id: Pivo
-  background: /Textures/_Backmen/LobbyScreens/pivo.png
-  title: lobby-state-background-pivo-title
-  artist: lobby-state-background-pivo-artist
-  
-- type: lobbyBackground
   id: Vangogh
   background: /Textures/_Backmen/LobbyScreens/vangogh.png
   title: lobby-state-background-vangogh-title

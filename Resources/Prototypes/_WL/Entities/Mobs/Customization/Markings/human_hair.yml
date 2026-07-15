@@ -80,12 +80,7 @@
   bodyPart: Hair
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
-      state: short_cute
-
-- type: marking
-  id: HumanHairShortCute2
-  bodyPart: Hair
-  sprites:
+      state: short_cute1
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: short_cute2
 
@@ -101,7 +96,9 @@
   bodyPart: Hair
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
-      state: denki
+      state: denki1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: denki2
 
 - type: marking
   id: HumanHairHank
@@ -122,7 +119,9 @@
   bodyPart: Hair
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
-      state: kioku
+      state: kioku1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: kioku2
 
 - type: marking
   id: HumanHairLonglowstraightponytail
@@ -193,3 +192,128 @@
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: spikyponytailalt
+
+- type: marking
+  id: HumanHairSceneEmo
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: sceneemo1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: sceneemo2
+
+- type: marking
+  id: HumanHairCuteEmo
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: cuteemo1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: cuteemo2
+
+- type: marking
+  id: HumanHairEmoBoi
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: emoboi1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: emoboi2
+
+- type: marking
+  id: HumanHairEmoSceneLong
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: emoscenelong1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: emoscenelong2
+
+- type: marking
+  id: HumanHairFluffyGoth
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: fluffygoth1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: fluffygoth2
+
+- type: marking
+  id: HumanHairIcy
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: icy
+
+- type: marking
+  id: HumanHairJessie
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: jessie
+
+- type: marking
+  id: HumanHairLongBangsPonytail
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: longbangs
+
+- type: marking
+  id: HumanHairPinkieCurls
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: pinkie
+
+- type: marking
+  id: HumanHairSimple
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: simple1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: simple2
+
+- type: marking
+  id: HumanHairSimpleLong
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: simplelong1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: simplelong2
+
+- type: marking
+  id: HumanHairSimpleExtraLong
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: simpleextralong1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: simpleextralong2
+
+- type: marking
+  id: HumanHairStella
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: stella1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: stella2
+
+- type: marking
+  id: HumanHairWolfcut
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: wolfcut1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: wolfcut2
+
+- type: marking
+  id: HumanHairPunchn
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: hairpunchn

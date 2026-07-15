@@ -8,7 +8,7 @@
       sprite: _WL/Clothing/Shoes/Boots/fashion_combat_boots.rsi
     - type: Clothing
       sprite: _WL/Clothing/Shoes/Boots/fashion_combat_boots.rsi
-      
+
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsLoader
@@ -19,3 +19,24 @@
     sprite: _WL/Clothing/Shoes/Boots/loader_boots.rsi
   - type: Clothing
     sprite: _WL/Clothing/Shoes/Boots/loader_boots.rsi
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ClothingShoesBootsJackBlueShield
+  name: blue shield shod boots
+  description: They're brand new. They seem even more convenient than the usual savvy ones...
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/blueshield.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/blueshield.rsi
+
+- type: entity
+  id: ClothingShoesBootsJackBlueShieldFilled
+  parent: ClothingShoesBootsJackBlueShield
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - EnergyKnifeBlueShield

@@ -1,0 +1,84 @@
+- type: job
+  id: BlueShield
+  name: job-name-blueshield
+  description: job-description-blueshield
+  playTimeTracker: JobBlueShield
+  setPreference: false
+  startingGear: BlueShieldGearEVA
+  icon: "JobIconERTSecurity"
+  supervisors: job-supervisors-centcom
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+
+- type: startingGear
+  id: BlueShieldGear
+  equipment:
+    belt: ClothingBeltMilitaryWebbingBlueShieldFilled
+    jumpsuit: ClothingUniformJumpsuitBlueShield
+    shoes: ClothingShoesBootsJackBlueShieldFilled
+    head: ClothingHeadHatBeretBlueShield
+    eyes: ClothingEyesGlassesBlueShield
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterVestBlueShield
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetCentCom
+    back: ClothingBackpackBlueShield
+    suitstorage: WeaponRifleBonza
+    pocket1: HandheldCrewMonitor
+    pocket2: Hypospray
+  storage:
+    back:
+    - BoxSurvivalMilitaryDouble
+    - PowerCellHyper
+    - TelescopicShield
+    - EmergencyMedipen
+    - EmergencyMedipen
+    - MagazinePistol
+    - MagazineRifle
+    - MagazineRifle
+    - MagazineRifle
+    - ChemistryBottleOmnizine
+    - ChemistryBottleOmnizine
+    - ChemistryBottleEpinephrine
+    - ChemistryBottleEpinephrine
+    - Flash
+    - JawsOfLife
+
+- type: startingGear
+  id: BlueShieldGearEVA
+  equipment:
+    belt: ClothingBeltMilitaryWebbingBlueShieldFilled
+    jumpsuit: ClothingUniformJumpsuitBlueShield
+    shoes: ClothingShoesBootsJackBlueShieldFilled
+    head: ClothingHeadHatBeretBlueShield
+    eyes: ClothingEyesGlassesBlueShield
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterHardsuitBlueShield
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetCentCom
+    back: ClothingBackpackBlueShield
+    suitstorage: WeaponRifleBonza
+    pocket1: HandheldCrewMonitor
+    pocket2: Hypospray
+  storage:
+    back:
+    - BoxSurvivalMilitaryDouble
+    - PowerCellHyper
+    - TelescopicShield
+    - EmergencyMedipen
+    - EmergencyMedipen
+    - MagazinePistol
+    - MagazineRifle
+    - MagazineRifle
+    - MagazineRifle
+    - ChemistryBottleOmnizine
+    - ChemistryBottleOmnizine
+    - ChemistryBottleEpinephrine
+    - ChemistryBottleEpinephrine
+    - Flash
+    - JawsOfLife

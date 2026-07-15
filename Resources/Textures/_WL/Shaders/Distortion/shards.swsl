@@ -1,0 +1,64 @@
+//Gravitational lensing effect. Loosely inspired by https://unionassets.com/blog/the-effect-of-the-gravitational-lens-195 to be Clyde based (based on what)
+
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp vec2 renderScale;
+uniform highp float maxDistance;
+
+uniform highp float[5] vars; // 0 - main frec/speed, 1 - spin speed, 2 - deform int, 3 - dist scale
+uniform highp vec2 position;
+
+uniform highp float curTime;
+
+highp vec2 cx_mul(highp vec2 a, highp vec2 b) {
+    return vec2(a.x*b.x - a.y*b.y, a.x*b.y + a.y*b.x);
+}
+
+highp vec2 cx_square(highp vec2 a) {
+    return cx_mul(a, a);
+}
+
+void fragment() {
+
+    highp vec2 finalCoords = FRAGCOORD.xy;
+    highp vec2 delta;
+    highp vec2 z;
+    highp vec2 c;
+    highp float lowCycle;
+    highp float lowTime;
+    highp float lowAngle;
+    highp float distance;
+    highp float deformation;
+    highp float angle;
+
+    delta = FRAGCOORD.xy - position;
+    distance = length(delta / renderScale);
+
+    lowTime = 0.0001*curTime*0.458*vars[0]/(2*3.14)+3.14/2;
+    lowAngle = -60*vars[1]*3.14/0.158*sin(lowTime);
+
+    deformation = vars[2]*2000000 / pow(distance, 2.5) * cos(lowTime)*cos(sin(lowTime)*564*3.14);
+    angle = atan(delta.x, delta.y);
+
+    if (distance >= maxDistance*vars[3]) {
+        deformation = 0.0;
+    } else {
+        deformation *= (1.0 - pow(distance/(maxDistance*vars[3]), 4.0));
+    }
+
+    z = delta/renderScale*0.01;
+    //c = vec2(0.74543, 0.11301);
+    c = z*5;
+
+    z = cx_mul(z, normalize(vec2(cos(lowAngle), sin(lowAngle))));
+
+    for (int j = 0; j < 1 ; j++) {
+        z = cx_mul(cx_square(cx_square(cx_square(z))), z);
+    }
+
+    if ((int(distance*(cos(lowTime)*lowTime)) % 2+10 > 0) && (atan(z.x, z.y) > 0) || distance >= maxDistance*vars[3]/1.5)
+        deformation *= length(z)*0.0001;
+
+    finalCoords -= cx_square(c) * deformation;
+
+    COLOR = zTextureSpec(SCREEN_TEXTURE, finalCoords*SCREEN_PIXEL_SIZE);
+}

@@ -1,0 +1,35 @@
+- type: entity
+  name: Spidey
+  parent: MobCockroach
+  id: MobSpidey
+  description: Seems to consider the station its personal property.
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _WL/Mobs/Animals/spidey.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: spidey
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: spidey
+      Critical:
+        Base: spidey_dead
+      Dead:
+        Base: spidey_dead
+  - type: Injurable
+    damageContainer: Biological
+  - type: Damageable
+    damageModifierSet: Scale
+  - type: ReplacementAccent
+    accent: xeno
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 20
+  - type: NoSlip
+  - type: Spider
+    webSpawnCooldown: 300 #5 min
+  - type: IgnoreSpiderWeb

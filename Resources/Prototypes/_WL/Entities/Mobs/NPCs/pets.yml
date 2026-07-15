@@ -32,7 +32,7 @@
         - MobLayer
   - type: Inventory
     speciesId: puppy
-    templateId: petAdvanced
+    templateId: SmartCorgi
     displacements:
       head:
         sizeMaps:
@@ -44,6 +44,26 @@
           32:
             sprite: _WL/Mobs/Pets/displacements.rsi
             state: goldie_eyes_displacement
+      neck:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Pets/displacements.rsi
+            state: goldie_neck_displacement
+      mask:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Pets/displacements.rsi
+            state: goldie_mask_displacement
+      ears:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Pets/displacements.rsi
+            state: goldie_ears_displacement
+      belt:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Pets/displacements.rsi
+            state: goldie_belt_displacement
   - type: DamageStateVisuals
     states:
       Alive:
@@ -81,6 +101,30 @@
   - type: Speech
     speechVerb: Canine
     speechSounds: Dog
+    allowedEmotes: [ 'Bark', 'Snarl', 'Whine', 'Howl', 'Growl' ]
+  - type: TypingIndicator
+    proto: vulpkanin
+  - type: Vocal
+    sounds:
+      Male: MaleVulpkanin
+      Female: FemaleVulpkanin
+      Unsexed: FemaleVulpkanin
+  - type: NightVision
+    color: "#A3A3A3"
+    activateSound: /Audio/_WL/Effects/sniff.ogg
+    deactivateSound: null
+  - type: JumpAbility
+    action: ActionVulpkaninGravityJump
+    canCollide: true
+    jumpDistance: 3
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: 1.33
+        volume: -5
+        variation: 0.05
+  - type: MessyDrinker
+    spillChance: 0.33
   - type: Tag
     tags:
     - CannotSuicide

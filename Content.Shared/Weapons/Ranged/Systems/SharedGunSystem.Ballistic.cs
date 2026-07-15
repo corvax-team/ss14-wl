@@ -78,13 +78,27 @@ public abstract partial class SharedGunSystem
 
         args.Handled = true;
 
-        // Continuous loading
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.FillDelay, new AmmoFillDoAfterEvent(), used: uid, target: args.Target, eventTarget: uid)
+        // WL-Changes-Start
+        if (component.ReloadOnMove)
         {
-            BreakOnMove = true,
-            BreakOnDamage = false,
-            NeedHand = true,
-        });
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.FillDelay, new AmmoFillDoAfterEvent(), used: uid, target: args.Target, eventTarget: uid)
+            {
+                BreakOnMove = false,
+                BreakOnDamage = false,
+                NeedHand = true,
+            });
+        }
+        else
+        {
+            // Continuous loading
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, component.FillDelay, new AmmoFillDoAfterEvent(), used: uid, target: args.Target, eventTarget: uid)
+            {
+                BreakOnMove = true,
+                BreakOnDamage = false,
+                NeedHand = true,
+            });
+        }
+        // WL-Changes-End
     }
 
     private void OnBallisticAmmoFillDoAfter(EntityUid uid, BallisticAmmoProviderComponent component, AmmoFillDoAfterEvent args)

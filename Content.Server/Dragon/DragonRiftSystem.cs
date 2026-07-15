@@ -12,6 +12,7 @@ using System.Numerics;
 using Content.Shared.Damage.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
+using Robust.Shared.Random; //WL-Changes
 using Robust.Shared.Utility;
 
 namespace Content.Server.Dragon;
@@ -27,6 +28,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
     [Dependency] private NavMapSystem _navMap = default!;
     [Dependency] private NPCSystem _npc = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IRobustRandom _random = default!; //WL-Changes
 
     public override void Initialize()
     {
@@ -88,7 +90,13 @@ public sealed partial class DragonRiftSystem : EntitySystem
             if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
-                var ent = Spawn(comp.SpawnPrototype, xform.Coordinates);
+                //WL-Changes-Start
+                //var ent = Spawn(comp.SpawnPrototype, xform.Coordinates);
+                var ent = Spawn(_random.Next(comp.SharkSpawnChance) == 0
+                    ? comp.SharkSpawnPrototype
+                    : comp.CarpSpawnPrototype,
+                    xform.Coordinates);
+                //WL-Changes-End
 
                 // Update their look to match the leader.
                 if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))

@@ -1,20 +1,20 @@
-# - type: species
-#   id: Golem
-#   name: species-name-golem
-#   roundStart: true
-#   prototype: MobGolem
-#   defaultSkinTone: "#FFFFFF"
-#   dollPrototype: AppearanceGolem
-#   maleFirstNames: NamesGolemFirst
-#   femaleFirstNames: NamesGolemFirst
-#   maleLastNames: NamesGolemLast
-#   femaleLastNames: NamesGolemLast
-#   skinColoration: Hues
-#   sexes:
-#   - Unsexed
-#   minHeight: 110
-#   maxHeight: 230
-#   minAge: 0
-#   youngAge: 900
-#   oldAge: 2100
-#   maxAge: 3000
+ - type: species
+   id: Golem
+   name: species-name-golem
+   roundStart: true
+   prototype: MobGolem
+   defaultSkinTone: "#FFFFFF"
+   dollPrototype: AppearanceGolem
+   maleFirstNames: NamesGolemFirst
+   femaleFirstNames: NamesGolemFirst
+   maleLastNames: NamesGolemLast
+   femaleLastNames: NamesGolemLast
+   skinColoration: Hues
+   sexes:
+   - Unsexed
+   minHeight: 110
+   maxHeight: 230
+   minAge: 0
+   youngAge: 900
+   oldAge: 2100
+   maxAge: 3000

@@ -226,7 +226,7 @@
       popup: null
     - type: Lock
       lockTime: 0
-      unlockTime: 0 
+      unlockTime: 0
     - type: VoiceMask
     - type: UserInterface
       interfaces:
@@ -236,3 +236,31 @@
           type: VoiceMaskBoundUserInterface
     - type: StealTarget
       stealGroup: HopMask
+
+- type: entity
+  parent: [ClothingMaskGas, BaseCentcommContraband]
+  id: ClothingMaskGasBlueShield
+  name: blue shield gas mask
+  description: If someone walks in it, it means everything is bad.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Masks/blueshield.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Masks/blueshield.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+    hideOnToggle: true
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90

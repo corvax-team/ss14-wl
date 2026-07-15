@@ -3,3 +3,6 @@ ent-ClothingBackpackDuffelHoP = вещмешок главы персонала
 
 ent-ClothingBackpackDuffelAdjutant = вещмешок адъютанта
     .desc = Крепко сшитый вещмешок, которому только предстоит ощутить на себе тяжесть власти.
+
+ent-ClothingBackpackDuffelBlueShield = вещмешок офицера "Синий Щит"
+    .desc = Крепко сшитый вещмешок, которому только предстоит ощутить на себе плотный поток пуль.

@@ -58,3 +58,9 @@
     back:
     - ClothingNeckSecurityMajorPin
 
+- type: loadout
+  id: SecurityContractorPin
+  storage:
+    back:
+    - ClothingNeckSecurityContractorPin
+

@@ -103,7 +103,7 @@
   description: Tastes like cardboard.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/snacks.rsi
+    sprite: _WL/Entities/Objects/Consumable/Food/Chocolate.rsi # WL-Resprite
     state: chocolatebar
   - type: Item
     heldPrefix: chocolatebar
@@ -129,8 +129,10 @@
     flavors:
       - chocolate
   - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/Chocolate.rsi # WL-Resprite
     state: chocolatebar-open
   - type: Item
+    sprite: _WL/Entities/Objects/Consumable/Food/Chocolate.rsi # WL-Resprite
     heldPrefix: chocolatebar-open
     storedOffset: 1,-2
   - type: Tag
@@ -652,6 +654,7 @@
   name: chocolate wrapper
   components:
   - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/Chocolate.rsi # WL-Resprite
     state: chocolatebar-trash
   - type: Item
     inhandVisuals:

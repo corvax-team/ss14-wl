@@ -143,6 +143,7 @@
     - PowerCellsStatic
     - ElectronicsStatic
     - ManualStorageStatic # WL-changes-storage
+    - TapeRecorderStatic # DeltaV
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic

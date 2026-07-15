@@ -35,6 +35,7 @@ using Robust.Client.Input;
 using Robust.Client.Replays.Loading;
 using Robust.Client.State;
 using Robust.Client.UserInterface;
+using Content.Client._WL.Shaders;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
@@ -165,6 +166,8 @@ namespace Content.Client.Entry
             ContentContexts.SetupContexts(_inputManager.Contexts);
 
             _parallaxManager.LoadDefaultParallax();
+
+            _overlayManager.AddOverlay(new ShadersOverlay()); // WL-Changes: Shaders
 
             _overlayManager.AddOverlay(new SingularityOverlay());
             _overlayManager.AddOverlay(new RadiationPulseOverlay());

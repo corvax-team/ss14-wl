@@ -356,6 +356,18 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+#WL-changes-start
+      - !type:SatiateHunger
+        factor: -1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:AdjustTemperature
+        amount: -150
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+#WL-changes-end
 # WL android species start
       - !type:HealthChange
         conditions:
@@ -685,8 +697,20 @@
   metabolisms:
     Digestion:
       effects:
+#WL-changes-start
       - !type:SatiateThirst
         factor: 3 # Slightly worse for quenching thirst than just straight water
+      - !type:SatiateHunger
+        factor: -1.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:AdjustTemperature
+        amount: -300
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+#WL-changes-end
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/iceglass.rsi
     state: icon_empty

@@ -38,3 +38,13 @@
   - type: Action
     useDelay: 4
   - type: InstantAction
+
+- type: entity
+  parent: ToggleNightVision
+  id: PulseNightVision
+  name: Pulse Night Vision
+  description: Activate night vision temporarily.
+  components:
+  - type: Action
+    useDelay: 10
+  - type: InstantAction

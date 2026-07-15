@@ -33,3 +33,7 @@
 #  flavorType: Base
 #  description: как шоколадный милкшейк
 
+- type: flavor
+  id: darkbeer
+  flavorType: Complex
+  description: flavor-complex-darkbeer

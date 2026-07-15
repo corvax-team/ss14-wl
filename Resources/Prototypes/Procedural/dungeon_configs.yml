@@ -292,6 +292,77 @@
   - !type:AutoCablingDunGen
     entity: CableApcExtension
 
+# WL Cult
+
+- type: dungeonConfig
+  id: Cult
+  layers:
+  - !type:PrefabDunGen
+    roomWhitelist:
+      tags:
+      - Cult
+    presets:
+    - Bucket
+    - Wow
+    - SpaceShip
+    - Tall
+
+  - !type:CorridorDunGen
+    width: 3
+    tile: FloorWood
+
+  - !type:DungeonEntranceDunGen
+    count: 2
+    tile: FloorWood
+    contents: CultEntrance
+
+  - !type:RoomEntranceDunGen
+    tile: FloorWood
+    contents: CultDoor
+
+  - !type:EntranceFlankDunGen
+    tile: FloorWood
+    contents: CultWindow
+
+  - !type:ExternalWindowDunGen
+    tile: FloorWood
+    contents: CultWindow
+
+  - !type:BoundaryWallDunGen
+    wall: WallWood
+    tile: FloorWood
+
+  - !type:JunctionDunGen
+    width: 1
+    tile: FloorWood
+    contents: CultDoor
+
+  - !type:JunctionDunGen
+    width: 3
+    tile: FloorWood
+    contents: CultDoor
+
+  - !type:CornerClutterDunGen
+    contents: BaseClutter
+
+  - !type:CorridorDecalSkirtingDunGen
+    color: "#55391AFF"
+    cardinalDecals:
+      South: WoodThinLineSWhite
+      East: WoodThinLineEWhite
+      North: WoodThinLineNWhite
+      West: WoodThinLineWWhite
+    cornerDecals:
+      SouthEast: WoodThinCornerSeWhite
+      SouthWest: WoodThinCornerSwWhite
+      NorthEast: WoodThinCornerNeWhite
+      NorthWest: WoodThinCornerNwWhite
+    pocketDecals:
+      SouthWest: WoodThinInnerSwWhite
+      SouthEast: WoodThinInnerSeWhite
+      NorthWest: WoodThinInnerNwWhite
+      NorthEast: WoodThinInnerNeWhite
+
 # Spawn groups
 # Basic
 - type: entityTable
@@ -391,3 +462,24 @@
       prob: 0.05
     - id: IntercomScience
       prob: 0.1
+
+# WL Cult
+- type: entityTable
+  id: CultEntrance
+  table: !type:GroupSelector
+    children:
+    - id: WoodDoor
+
+- type: entityTable
+  id: CultDoor
+  table: !type:GroupSelector
+    children:
+    - id: WoodDoor
+
+- type: entityTable
+  id: CultWindow
+  table: !type:GroupSelector
+    children:
+    - id: WoodenSupportWall
+    - id: WoodenSupportBeam
+      prob: 0.4

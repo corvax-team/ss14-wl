@@ -314,6 +314,7 @@
         - id: DrinkVodkaBottleFull
         - id: DrinkWhiskeyBottleFull
         - id: DrinkWineBottleFull
+        - id: DrinkDarkBeerBottleFullGrowler   # Corvax-WL
 
 - type: entity
   parent: CratePlastic
@@ -354,6 +355,8 @@
         children:
           # Creatures
         - id: MobCockroach
+          prob: 0.05
+        - id: MobSpidey #WL-Changes: friendly spider
           prob: 0.05
         - id: MobMothroach
           prob: 0.03

@@ -36,3 +36,41 @@
         occludes: True
         ent: null
 
+- type: entity
+  parent: [BaseCentcommContraband, ClothingOuterHardsuitBase]
+  id: ClothingOuterHardsuitBlueShield
+  name: blue shield hardsuit
+  description: A special suit that protects against exposure to dangerous environments with low pressure. The series is limited to the bodyguards of the "first persons".
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Hardsuits/blueshield.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Hardsuits/blueshield.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
+    damageCoefficient: 0.4
+  - type: FireProtection
+    reduction: 0.7
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitBlueShield
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon

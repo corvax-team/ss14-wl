@@ -131,3 +131,15 @@
     rankLoc: security-badge-rank-major
   - type: Clothing
     equippedPrefix: cya
+
+# Контрактник
+- type: entity
+  parent: ClothingNeckSecurityPinBase
+  id: ClothingNeckSecurityContractorPin
+  components:
+  - type: Sprite
+    state: icon-whi
+  - type: SecurityBadge
+    rankLoc: security-badge-rank-contractor
+  - type: Clothing
+    equippedPrefix: whi

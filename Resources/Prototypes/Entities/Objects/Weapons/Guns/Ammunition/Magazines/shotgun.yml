@@ -9,6 +9,7 @@
     - MagazineShotgun
   - type: BallisticAmmoProvider
     mayTransfer: true
+    reloadOnMove: true # WL-Changes
     whitelist:
       tags:
         - ShellShotgun

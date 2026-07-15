@@ -1,0 +1,11 @@
+- type: entityTable
+  id: BeltBlueShieldEntityTable
+  table: !type:AllSelector
+    children:
+    - id: Truncheon
+    - id: Handcuffs
+    - id: HoloprojectorField
+    - id: MagazinePistol
+    - id: MedkitCombatFilled
+    - id: WeaponPistolTC12
+    - id: WeaponDisabler

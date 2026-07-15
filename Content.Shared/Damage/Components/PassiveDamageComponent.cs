@@ -23,6 +23,14 @@ public sealed partial class PassiveDamageComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier Damage = new();
 
+    // WL-Changes: Passive damage/healing start
+    /// <summary>
+    /// Damage / Healing per interval dealt to the entity every interval
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier DamagePerUnit = new();
+    // WL-Changes: Passive damage/healing end
+
     /// <summary>
     /// Delay between damage events in seconds
     /// </summary>
