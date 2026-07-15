@@ -175,7 +175,7 @@
     DefaultDeathgasp:
       collection: BioroboticDeathGasp
       params:
-        volume: -6
+        volume: -20
 
 - type: emoteSounds
   id: GeneralBioroboticEmotes

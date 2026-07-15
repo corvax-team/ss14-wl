@@ -5,8 +5,7 @@
   time: 5
   group: Medicinal
   solids:
-    SheetPlastic1: 2
-    SheetSteel1: 1
+    RepairTape: 1
   reagents:
     RepairFoam: 10
     GlassFiber: 5
@@ -18,9 +17,8 @@
   time: 10
   group: Medicinal
   solids:
-    SheetPlastic1: 1
-    SheetPlasteel1: 1
-    SkinPatch1: 1
+    RepairTape: 2
+    SkinPatch: 1
   reagents:
     RepairFoam: 20
     FastSilicone: 15

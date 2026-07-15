@@ -12,7 +12,7 @@
         - id: EmergencyNitrogenTankFilled
         - id: BioroboticMedipen
         - id: Flare
-        - id: RepairTape1
+        - id: RepairTape
         - id: DrinkInsulatorBottleFull
   - type: Sprite
     layers:
@@ -36,7 +36,7 @@
         - id: ExtendedEmergencyNitrogenTankFilled
         - id: BioroboticMedipen
         - id: Flare
-        - id: RepairTape1
+        - id: RepairTape
         - id: DrinkInsulatorBottleFull
 
 - type: entity
@@ -54,7 +54,7 @@
         - id: EmergencyOxygenTankFilled
         - id: BioroboticMedipen
         - id: Flare
-        - id: RepairTape1
+        - id: RepairTape
         - id: DrinkInsulatorBottleFull
 
 - type: entity
@@ -72,7 +72,7 @@
         - id: EmergencyNitrogenTankFilled
         - id: BioroboticMedipen
         - id: Flare
-        - id: RepairTape1
+        - id: RepairTape
         - id: DrinkInsulatorBottleFull
 
 - type: entity
@@ -106,7 +106,7 @@
         - id: EmergencyNitrogenTankFilled
         - id: BioroboticMedipen
         - id: Flare
-        - id: RepairTape1
+        - id: RepairTape
         - id: DrinkInsulatorBottleFull
 
 - type: entity
