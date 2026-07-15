@@ -1,0 +1,9 @@
+- type: entity
+  parent: PulseNightVision
+  id: PulseEchoVision
+  name: Pulse Echo Vision
+  description: Activate echo vision temporarily.
+  components:
+  - type: Action
+    useDelay: 10
+  - type: InstantAction

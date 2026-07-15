@@ -25,7 +25,7 @@ public sealed partial class OwOAccentSystem : RelayAccentSystem<OwOAccentCompone
             message = message.Replace(word, repl);
         }
 
-        return message.Replace("!", _random.Pick(Faces))
+        return message//.Replace("!", _random.Pick(Faces)) WL-Changes: Decringefy accent
             // Corvax-Localization-Start
             .Replace("р", "в").Replace("Р", "В")
             .Replace("л", "в").Replace("Л", "В")
