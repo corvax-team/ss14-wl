@@ -1,6 +1,6 @@
 - type: entity
   parent: RPD
-  id: BRPD
+  id: BluespaceRPD
   name: bluespace RPD
   description: A bluespace device used to rapidly pipe things.
   components:
@@ -8,7 +8,7 @@
     range: -1
     enableIgnite: false
   - type: LimitedCharges
-    maxCharges: 60
+    maxCharges: 600
   - type: Sprite
     sprite: _WL/Objects/Tools/brpd.rsi
 
@@ -32,7 +32,7 @@
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
-    maxCharges: 30
+    maxCharges: 300
   - type: AutoRecharge
     rechargeDuration: 10
 
@@ -64,6 +64,6 @@
   - type: RCD
     enableIgnite: false
   - type: LimitedCharges
-    maxCharges: 45
+    maxCharges: 450
   - type: Sprite
     sprite: _WL/Objects/Tools/cercd.rsi

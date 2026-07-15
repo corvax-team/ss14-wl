@@ -1,5 +1,5 @@
 using System.Linq;
-using System.Numerics;
+using Content.Shared._Goobstation.Sparks;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.EntitySystems;
@@ -31,7 +31,6 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Shared.RCD.Systems;
 
@@ -59,6 +58,7 @@ public sealed partial class RCDSystem : EntitySystem
     [Dependency] private IEntityManager _entityManager = default!; // rpd port from FunkyStation
     [Dependency] private IRobustRandom _random = default!; // Ignition
     [Dependency] private SharedIgnitionSourceSystem _source = default!; // Ignition
+    [Dependency] private SparksSystem _sparks = default!;
     [Dependency] private ExamineSystemShared _examine = default!; // BRPD
     // WL-Changes-end
 
@@ -186,6 +186,7 @@ public sealed partial class RCDSystem : EntitySystem
         if (_random.Prob(rcdComp.IgniteChance))
         {
             _source.SetIgnited((rcd, null), true);
+            _sparks.DoSparks(Transform(rcd).Coordinates);
             Timer.Spawn(rcdComp.IgnitedTime, () => _source.SetIgnited((rcd, null), false));
         }
     }
