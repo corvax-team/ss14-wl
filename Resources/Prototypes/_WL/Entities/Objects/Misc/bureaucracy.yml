@@ -1,9 +1,9 @@
 - type: entity
   id: SafeCodeNote
-  categories: [ HideSpawnMenu ]
   parent: Paper
   name: top-secret code
   description: This must not fall into the hands of an ordinary crew.
+  suffix: NOMAPPING
   components:
   - type: SafeCodeNote
   - type: Paper
@@ -17,6 +17,7 @@
   id: CardCapsSpare
   name: sealed envelope
   description: A confidential card. The tasteful blue color and NT logo on the front makes it look a little like a chocolate bar. On the back, DO NOT DIGEST is printed in large lettering.
+  suffix: NOMAPPING
   components:
   - type: Item
     size: Small
@@ -31,7 +32,6 @@
       path: /Audio/_WL/Items/card_caps_spare/card_caps_spare_open.ogg
 
 - type: entity
-  categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: CardCapsSpareCracked
   name: a piece of an envelope
