@@ -83,7 +83,9 @@ namespace Content.Server._WL.Android
                     continue;
                 }
 
-                _powerCell.SetDrawEnabled((uid, powerCellDrawComp), true);
+                var shouldDraw = ShouldDrawCheck((uid, androidComp));
+
+                _powerCell.SetDrawEnabled((uid, powerCellDrawComp), shouldDraw);
             }
         }
 
@@ -288,6 +290,11 @@ namespace Content.Server._WL.Android
             }
 
             args.Repeat = true;
+        }
+
+        private bool ShouldDrawCheck(Entity<AndroidComponent> ent)
+        {
+            return !HasComp<SleepingComponent>(ent);
         }
     }
 }

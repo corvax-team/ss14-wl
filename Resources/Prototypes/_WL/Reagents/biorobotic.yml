@@ -1,0 +1,363 @@
+- type: reagent
+  id: Ritium
+  name: reagent-name-ritium
+  group: Biorobotic
+  desc: reagent-desc-ritium
+  flavor: oily
+  color: "#224dff"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-viscous
+  viscosity: 0.25
+  tileReactions:
+    - !type:SpillTileReaction
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:SatiateThirst
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        factor: 2
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        amount: 1
+
+- type: reagent
+  id: Oxidant
+  name: reagent-name-oxidant
+  group: Biorobotic
+  desc: reagent-desc-oxidant
+  flavor: metallic
+  color: "#450b0b"
+  physicalDesc: reagent-physical-desc-dark-red
+  viscosity: 0.1
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 0.1
+      effects:
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        amount: 2
+      - !type:ModifyBleed
+        amount: -1.5
+      - !type:EvenHealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        damage:
+          Airloss: -3
+
+- type: reagent
+  id: RepairFoam
+  name: reagent-name-repairfoam
+  group: Biorobotic
+  desc: reagent-desc-repairfoam
+  flavor: acid
+  color: "#627280"
+  physicalDesc: reagent-physical-desc-foamy
+  reactiveEffects:
+    Biorobotic:
+      methods: [ Touch ]
+      effects:
+      - !type:ModifyBleed
+        amount: -0.5
+      - !type:HealthChange
+        ignoreResistances: false
+        damage:
+          types:
+            Slash: -0.3
+            Piercing: -0.3
+      - !type:PopupMessage
+        type: Pvs
+        visualType: MediumCaution
+        messages: [ "bioropotic-foam-activation-popup" ]
+        probability: 1
+  metabolisms:
+    Bloodstream:
+      metabolismRate: 1
+      effects:
+      - !type:ModifyBleed
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        amount: -1.5
+      - !type:HealthChange
+        conditions:
+        damage:
+          types:
+            Asphyxiation: 2
+
+- type: reagent
+  id: RPLKStim
+  name: reagent-name-rplkstim
+  group: Biorobotic
+  desc: reagent-desc-rplkstim
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: tingly
+  color: "#00bdbd"
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+          # they gotta be in crit first
+        - !type:MobStateCondition
+          mobstate: Critical
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        damage:
+          types:
+            Asphyxiation: -3
+            Blunt: 0.1
+            Heat: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: RPLKStim
+          min: 20
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        damage:
+          types:
+            Asphyxiation: 1
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        time: 0.75
+        type: Remove
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+      - !type:ModifyKnockdown
+        time: 0.75
+        type: Remove
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 1.1
+        sprintSpeedModifier: 1.1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 3
+        type: Remove
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+      - !type:Jitter
+
+- type: reagent
+  id: Insulator
+  name: reagent-name-insulator
+  desc: reagent-desc-insulator
+  evaporationSpeed: 0.3
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: oily
+  color: "#595959"
+  friction: 0.4
+  group: Biorobotic
+  slipData:
+    requiredSlipSpeed: 3.5
+  reactiveEffects:
+    Extinguish:
+      methods: [ Touch ]
+      effects:
+      - !type:Extinguish
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        damage:
+          types:
+            Heat: -0.1
+            Shock: -0.1
+
+- type: reagent
+  id: ConcentratedInsulator
+  name: reagent-name-concentratedinsulator
+  desc: reagent-desc-concentratedinsulator
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: bitter
+  color: "#806632"
+  group: Biorobotic
+  reactiveEffects:
+    Biorobotic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: -0.3
+            Caustic: -0.2
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        damage:
+          types:
+            Heat: -0.5
+            Shock: -2
+
+- type: reagent
+  id: Refrigerant
+  name: reagent-name-refrigerant
+  desc: reagent-desc-refrigerant
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: bitter
+  color: "#29a6f2"
+  group: Biorobotic
+  reactiveEffects:
+    Biorobotic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: -0.3
+            Shock: -0.1
+      - !type:AdjustTemperature
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        amount: -1000
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        damage:
+          types:
+            Heat: -3
+            Shock: -0.1
+      - !type:AdjustTemperature
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        amount: -100000
+
+- type: reagent
+  id: FastSilicone
+  name: reagent-name-fastsilicone
+  desc: reagent-desc-fastsilicone
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: fiber
+  color: "#ffeb85"
+  group: Biorobotic
+  reactiveEffects:
+    Biorobotic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        ignoreResistances: false
+        damage:
+          types:
+            Heat: -0.3
+            Shock: -0.1
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.6
+        sprintSpeedModifier: 0.6
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        damage:
+          types:
+            Blunt: -3
+            Slash: -1
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.6
+        sprintSpeedModifier: 0.6
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+
+- type: reagent
+  id: Deionizer
+  name: reagent-name-deionizer
+  desc: reagent-desc-deionizer
+  physicalDesc: reagent-physical-desc-porous
+  flavor: electrons
+  color: "#cfae0a"
+  group: Biorobotic
+  reactiveEffects:
+    Biorobotic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        ignoreResistances: false
+        damage:
+          types:
+            Radiation: -0.3
+            Shock: 0.1
+      - !type:Electrocute
+        electrocuteTime: 1
+        probability: 0.01
+  metabolisms:
+    Bloodstream:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Biorobotic ]
+        damage:
+          types:
+            Radiation: -2
+            Shock: 0.5
+      - !type:Electrocute
+        electrocuteTime: 1
+        probability: 0.2
+
+- type: reagent
+  id: GlassFiber
+  name: reagent-name-glassfiber
+  desc: reagent-desc-glassfiber
+  physicalDesc: reagent-physical-desc-fibrous
+  flavor: fiber
+  color: "#909090"
+  group: Biorobotic
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        ignoreResistances: false
+        damage:
+          types:
+            Piercing: 0.1
+  metabolisms:
+    Digestion:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Golem ]
+      - !type:HealthChange
+        damage:
+          types:
+            Piercing: 0.1

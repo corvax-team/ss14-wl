@@ -6,9 +6,6 @@
     species:
     - SlimePerson
     - Vox
-    #WL-Changes-start
-    - Android
-    #WL-Changes-end
 
 - type: loadoutEffectGroup
   id: OxygenBreather

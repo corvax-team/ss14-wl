@@ -8,7 +8,7 @@
   - StripableInventoryBase
   - BaseSpeciesAppearance
   - TTS_speaker # Corvax-TTS
-  id: BaseSpeciesMob
+  id: BaseSpeciesNoDna # WL - NoDnaMobs
   save: false
   components:
   - type: DamageVisuals
@@ -105,7 +105,7 @@
   - type: SSDIndicator
   - type: StandingState
   - type: Crawler
-  - type: Dna
+#  - type: Dna WL - NoDnaMobs
   - type: MindContainer
   - type: MindExaminable
   - type: CanEnterCryostorage
@@ -164,6 +164,16 @@
     - AnomalyHost
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: OfferItem # CorvaxGoob-Offer
+
+# WL - NoDnaMobs - start
+- type: entity
+  abstract: true
+  parent: BaseSpeciesNoDna
+  id: BaseSpeciesMob
+  save: false
+  components:
+  - type: Dna
+# WL - NoDnaMobs - end
 
 - type: entity
   abstract: true

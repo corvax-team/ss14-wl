@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Client._WL.Silicon;
 using Content.Client.Graphics;
 using Content.Shared.Silicons.StationAi;
 using Robust.Client.Graphics;
@@ -31,6 +32,8 @@ public sealed partial class StationAiOverlay : Overlay
 
     private float _updateRate = 1f / 30f;
     private float _accumulator;
+
+    private readonly AiNavMapOverlay _navMap = new(); // Corvax-WL NavMap
 
     public StationAiOverlay()
     {
@@ -69,6 +72,8 @@ public sealed partial class StationAiOverlay : Overlay
             var lookups = _entManager.System<EntityLookupSystem>();
             var xforms = _entManager.System<SharedTransformSystem>();
 
+            _navMap.AiFrameUpdate((float) _timing.FrameTime.TotalSeconds, gridUid); // Corvax-WL NavMap
+
             if (_accumulator <= 0f)
             {
                 _accumulator = MathF.Max(0f, _accumulator + _updateRate);
@@ -79,6 +84,7 @@ public sealed partial class StationAiOverlay : Overlay
             var gridMatrix = xforms.GetWorldMatrix(gridUid);
             var matty =  Matrix3x2.Multiply(gridMatrix, invMatrix);
 
+            // Corvax-WL NavMap Start
             // Draw visible tiles to stencil
             worldHandle.RenderInRenderTarget(res.StencilTexture!, () =>
             {
@@ -91,17 +97,17 @@ public sealed partial class StationAiOverlay : Overlay
                 }
             },
             Color.Transparent);
-
-            // Once this is gucci optimise rendering.
             worldHandle.RenderInRenderTarget(res.StaticTexture!,
             () =>
             {
-                worldHandle.SetTransform(invMatrix);
-                var shader = _proto.Index(CameraStaticShader).Instance();
-                worldHandle.UseShader(shader);
-                worldHandle.DrawRect(worldBounds, Color.White);
+                worldHandle.SetTransform(matty);
+
+                Matrix3x2.Invert(gridMatrix, out var gridInvMatrix);
+                var gridLocalBounds = gridInvMatrix.TransformBox(worldBounds).Scale(grid.TileSize);
+                _navMap.Draw(worldHandle, gridLocalBounds);
             },
             Color.Black);
+            // Corvax-WL NavMap End
         }
         // Not on a grid
         else
@@ -150,4 +156,5 @@ public sealed partial class StationAiOverlay : Overlay
             StencilTexture?.Dispose();
         }
     }
+
 }

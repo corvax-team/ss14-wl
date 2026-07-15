@@ -1,0 +1,22 @@
+- type: entity
+  parent: ChemicalMedipen
+  id: BioroboticMedipen
+  name: biorobotic autoinjector
+  description: A single-dose, non-refillable autoinjector containing oxidant and special stimulator, used to reactivate android body in critical condition and buy time for them to recieve proper medical treatment. Beware of overdose.
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: injector
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: injector_empty
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: RPLKStim
+        Quantity: 12
+      - ReagentId: Oxidant
+        Quantity: 8

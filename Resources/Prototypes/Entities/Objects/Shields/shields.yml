@@ -89,6 +89,15 @@
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
+    # WL-Resprite-Start
+    - type: Sprite
+      sprite: _WL/Objects/Weapons/Melee/shields.rsi
+      state: riot-icon
+    - type: Item
+      sprite: _WL/Objects/Weapons/Melee/shields.rsi
+      size: Ginormous
+      heldPrefix: riot
+  # WL-Resprite-End
     - type: StaticPrice
       price: 90
     - type: Blocking
@@ -130,10 +139,15 @@
   id: RiotBulletShield
   description: A shield built for protecting against ballistics, but not much else.
   components:
+    # WL-Resprite-Start
     - type: Sprite
+      sprite: _WL/Objects/Weapons/Melee/shields.rsi
       state: riot_bullet-icon
     - type: Item
+      sprite: _WL/Objects/Weapons/Melee/shields.rsi
+      size: Ginormous
       heldPrefix: riot_bullet
+  # WL-Resprite-End
     - type: Blocking
       passiveBlockModifier:
         coefficients:
@@ -577,7 +591,7 @@
     - type: ItemToggleSize
       activatedSize: Huge
     - type: Sprite
-      sprite: Objects/Weapons/Melee/teleriot_shield.rsi
+      sprite: _WL/Objects/Weapons/Melee/teleriot_shield.rsi # WL-Resprite
       layers:
         - state: teleriot-icon
         - state: teleriot-on
@@ -585,7 +599,7 @@
           map: [ "shield" ]
     - type: Item
       size: Small
-      sprite: Objects/Weapons/Melee/teleriot_shield.rsi
+      sprite: _WL/Objects/Weapons/Melee/teleriot_shield.rsi # WL-Resprite
       heldPrefix: teleriot
     - type: UseDelay
       delay: 0.5

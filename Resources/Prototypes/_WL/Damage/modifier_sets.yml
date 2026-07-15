@@ -9,8 +9,26 @@
 - type: damageModifierSet
   id: BioRobotic
   coefficients:
-    Radiation: 0.5
+    Radiation: 0.2
     Shock: 1.3
+
+- type: damageModifierSet
+  id: BloolossBioRobotic
+  coefficients:
+    Asphyxiation: 0.0
+    Bloodloss: 0.0
+    Blunt: 0.0
+    Caustic: 0.0
+    Cellular: 0.0
+    Cold: 0.0
+    Heat: -0.2
+    Holy: 0
+    Piercing: 0.1
+    Poison: 0.0
+    Radiation: 0.0
+    Shock: 0.0
+    Slash: 0.25
+    Structural: 0.0
 
 - type: damageModifierSet
   id: Cischi

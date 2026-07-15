@@ -1,0 +1,61 @@
+//Gravitational lensing effect. Loosely inspired by https://unionassets.com/blog/the-effect-of-the-gravitational-lens-195 to be Clyde based (based on what)
+
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp vec2 renderScale;
+uniform highp float maxDistance;
+
+uniform highp float[5] vars;
+uniform highp vec2 position;
+
+highp vec2 cx_mul(highp vec2 a, highp vec2 b) {
+    return vec2(a.x*b.x - a.y*b.y, a.x*b.y + a.y*b.x);
+}
+
+highp vec2 cx_square(highp vec2 a) {
+    return cx_mul(a, a);
+}
+
+void fragment() {
+
+    highp vec2 finalCoords = FRAGCOORD.xy;
+    highp vec2 delta;
+    highp vec2 z;
+    highp vec2 c;
+    highp float distance;
+    highp float deformation;
+    highp float angle;
+
+    delta = FRAGCOORD.xy - position;
+    distance = length(delta / renderScale);
+
+    deformation = 200 / pow(distance, 2);//vars[1] / pow(distance, 2); // falloffPower[i]);
+    angle = atan(delta.x, delta.y);
+
+    // ensure deformation goes to zero at max distance
+    // avoids long-range single-pixel shifts that are noticeable when leaving PVS.
+
+    if (distance >= maxDistance) {
+        deformation = 0.0;
+    } else {
+        deformation *= (1.0 - pow(distance/maxDistance, 4.0));
+        // deformation *= (2*vars[1] - cos(angle));
+    }
+
+    z = delta*0.001;
+    //c = vec2(0.74543, 0.11301);
+    c = z;
+
+    for (int j = 0; j < 1000 && length(z) < 2 && distance < maxDistance; j++) {
+        z = cx_square(z) + c;
+    }
+
+    if (length(z) > 2)
+        deformation *= length(z)*0.1;//vars[1];
+
+    // if(deformation > 0.8)
+    //     deformation = pow(deformation, 0.3);
+
+    finalCoords -= cx_square(z) * deformation*10;
+
+    COLOR = zTextureSpec(SCREEN_TEXTURE, finalCoords*SCREEN_PIXEL_SIZE);
+}

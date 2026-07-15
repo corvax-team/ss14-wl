@@ -1,0 +1,8 @@
+- type: weightedRandom
+  id: TraitorObjectiveGroupTeach
+  weights:
+    TeachRandomPersonObjective: 1 #Goobstation  Teach them a lesson
+    TeachRandomHeadObjective: 0.25 #Goobstation  Teach them a lesson
+    KillRandomPersonObjective: 1
+    KillStationAiObjective: 0.25
+    KillRandomHeadObjective: 0.25

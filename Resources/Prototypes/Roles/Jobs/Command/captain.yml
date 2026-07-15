@@ -59,6 +59,7 @@
     gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
+    pocket1: CardCapsSpare # WL-code-safe
   storage:
     back:
     - Flash

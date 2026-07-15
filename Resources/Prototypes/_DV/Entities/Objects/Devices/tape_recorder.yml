@@ -91,7 +91,7 @@
   parent: BaseItem
   id: CassetteTape
   name: cassette tape
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  description: A magnetic tape that can hold up to five minutes of content on either side.
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/cassette_tapes.rsi
@@ -105,7 +105,7 @@
     size: Tiny
   - type: Injurable
   - type: TapeCassette
-    maxCapacity: 180
+    maxCapacity: 300 # WL-Changes: 180 -> 300
     repairWhitelist:
       tags:
       - Screwdriver

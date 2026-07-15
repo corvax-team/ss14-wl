@@ -34,6 +34,10 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.90
+  # WL-Stun-Resist-Playtest-End
 
 #Basic Helmet (Security Helmet)
 - type: entity
@@ -89,6 +93,10 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
   - type: ExplosionResistance
     damageCoefficient: 0.75
   - type: HideLayerClothing
@@ -129,6 +137,10 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.95
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.80
+  # WL-Stun-Resist-Playtest-End
   - type: HideLayerClothing
     layers:
       Hair: HEAD
@@ -384,6 +396,10 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
 
 #ERT Security Helmet
 - type: entity
@@ -399,6 +415,10 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
 
 #ERT Medic Helmet
 - type: entity
@@ -414,6 +434,10 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
 
 #ERT Engineer Helmet
 - type: entity
@@ -429,6 +453,10 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
 
 #ERT Janitor Helmet
 - type: entity
@@ -444,6 +472,10 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
 
 - type: entity
   parent: [ BaseSyndicateContraband, ClothingHeadHelmetBase ]
@@ -462,6 +494,10 @@
         Slash: 0.85
         Piercing: 0.85
         Heat: 0.85
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.80
+  # WL-Stun-Resist-Playtest-End
   - type: HideLayerClothing
     layers:
       Hair: HEAD

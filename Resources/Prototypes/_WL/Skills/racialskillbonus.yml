@@ -146,3 +146,25 @@
     30: 3
     40: 3
     55: 2
+
+- type: racialSkillBonus
+  id: CischiSkillBonuses
+  species: Cischi
+  ageBonuses:
+    22: 2
+    24: 2
+    30: 2
+    40: 1
+    55: 1
+    70: 1
+
+- type: racialSkillBonus
+  id: GolemSkillBonuses
+  species: Golem
+  ageBonuses:
+    22: 1
+    40: 1
+    80: 2
+    150: 2
+    250: 2
+    400: 4

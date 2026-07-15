@@ -42,7 +42,18 @@ public sealed partial class PassiveDamageSystem : EntitySystem
             foreach (var allowedState in comp.AllowedStates)
             {
                 if(allowedState == mobState.CurrentState)
-                    _damageable.ChangeDamage((uid, damage), comp.Damage, true, false);
+                // WL-Changes: Passive damage/healing start
+                {
+                    var startDamage = _damageable.GetPositiveDamage((uid, damage)).GetTotal();
+                    var total = _damageable.ChangeDamage((uid, damage), comp.Damage, true, false).GetTotal();
+                    var afterDamage = _damageable.GetPositiveDamage((uid, damage)).GetTotal();
+
+                    var totalDamage = afterDamage - startDamage;
+
+                    if (total != 0)
+                        _damageable.ChangeDamage((uid, damage), comp.DamagePerUnit * totalDamage, true, false);
+                }
+                // WL-Changes: Passive damage/healing end
             }
         }
     }

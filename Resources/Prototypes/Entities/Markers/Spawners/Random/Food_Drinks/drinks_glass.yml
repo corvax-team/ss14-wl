@@ -119,8 +119,8 @@
         - id: DrinkWhiteRussianGlass
         - id: DrinkWineGlass
         - id: XenoBasherGlass
-        - id: DrinkShakeBlue
-        - id: DrinkShakeWhite
+        #- id: DrinkShakeBlue # WL-Changes
+        #- id: DrinkShakeWhite # WL-Changes
         - id: DrinkTheMartinez
         - id: DrinkMoonshineGlass
       - !type:GroupSelector #rare
@@ -135,8 +135,8 @@
         - id: DrinkNeurotoxinGlass
         - id: DrinkNuclearColaGlass
         - id: DrinkSilencerGlass
-        - id: DrinkShakeMeat
-        - id: DrinkShakeRobo
+        # - id: DrinkShakeMeat # WL-Changes
+        # - id: DrinkShakeRobo # WL-Changes
         - id: DrinkHoochGlass
         - id: DrinkBeepskySmashGlass
         - id: DrinkBacchusBlessing

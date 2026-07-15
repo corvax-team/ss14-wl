@@ -74,3 +74,20 @@ marking-HumanHairPonytailLong = Красивый хвостик (Длинный)
 marking-HumanHairPonytailShort = Красивый хвостик (Короткий)
 marking-HumanHairShortCute = Изящная короткая
 marking-HumanHairShortCute2 = Изящная короткая (Заколка)
+
+marking-HumanHairSceneEmo = Сценический Эмо
+marking-HumanHairCuteEmo = Милый Эмо
+marking-HumanHairEmoBoi = Эмо Парниша
+marking-HumanHairEmoSceneLong = Сценический Эмо Длинный
+marking-HumanHairFluffyGoth = Пушистый Гот
+marking-HumanHairIcy = Айси
+marking-HumanHairJessie = Джесси
+marking-HumanHairLongBangsPonytail = Длинная чёлка хвостик
+marking-HumanHairPinkieCurls = Вечериночная кудрявая
+marking-HumanHairSimple = Простая (Градиент)
+marking-HumanHairSimpleLong = Простая длинная (Градиент)
+marking-HumanHairSimpleExtraLong = Простая очень длинная (Градиент)
+marking-HumanHairStella = Магические двойные хвостики
+marking-HumanHairWolfcut = Вульфкат
+
+marking-HumanHairPunchn = Пучок (Альт.)
