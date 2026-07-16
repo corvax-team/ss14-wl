@@ -7,7 +7,7 @@
   description: A handheld device used for remotely sending signals to objects within a small radius of about 15 meters.
   components:
   - type: Sprite
-    sprite: Objects/Devices/signaller.rsi
+    sprite: _WL/Objects/Devices/signaller.rsi # WL-Changes-resprite
     state: signaller
   - type: Signaller
   - type: SignalOnTrigger

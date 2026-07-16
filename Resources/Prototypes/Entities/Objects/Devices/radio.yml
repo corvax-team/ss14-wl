@@ -13,13 +13,13 @@
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _WL/Objects/Devices/communication.rsi # WL-Changes-resprite
     layers:
     - state: walkietalkie
     - state: walkietalkie-on
     state: walkietalkie
   - type: Item
-    sprite: Objects/Devices/communication.rsi
+    sprite: _WL/Objects/Devices/communication.rsi # WL-Changes-resprite
     heldPrefix: walkietalkie
   - type: Tag
     tags:
@@ -39,7 +39,7 @@
     channels:
     - Security
   - type: Sprite
-    sprite: Objects/Devices/securityhandy.rsi
+    sprite: _WL/Objects/Devices/securityhandy.rsi # WL-Changes-resprite
   - type: Item
-    sprite: Objects/Devices/securityhandy.rsi
+    sprite: _WL/Objects/Devices/securityhandy.rsi # WL-Changes-resprite
     heldPrefix: walkietalkie
