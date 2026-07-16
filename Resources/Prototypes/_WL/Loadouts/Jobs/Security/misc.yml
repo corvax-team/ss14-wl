@@ -13,3 +13,17 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitDSS
   groupBy: "WLJJ"
+# WL-redo-427-resprite-start
+
+- type: loadout
+  id: SecurityBeretSenior
+  equipment:
+    head: ClothingHeadHatBeretSeniorSecurity
+
+- type: loadout
+  id: JumpsuitSeniorDSS
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSeniorDSS
+
+# WL-redo-427-resprite-end
+

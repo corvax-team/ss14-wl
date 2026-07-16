@@ -87,7 +87,6 @@
   loadouts:
   - EmergencyNitrogen
   - EmergencyOxygen
-  - EmergencyBiorobotic #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 # nitrogen or oxygen tank, depending on what your species needs
@@ -1305,7 +1304,6 @@
   loadouts:
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
-  - EmergencyBioroboticClown #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
@@ -1470,7 +1468,6 @@
   - EmergencyNitrogenMime
   - EmergencyOxygenMime
   - EmergencySpeciesMothMime
-  - EmergencyBioroboticMime #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 #- type: loadoutGroup
@@ -2326,7 +2323,6 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
-  - EmergencyBioroboticExtended #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 # Science
@@ -2724,6 +2720,7 @@
   - WardenBeret
   - SecurityBeretDSS # WL-Changes: DSS adding
   - SecuritySoftDSS # WL-Changes: DSS adding
+  - SecurityBeretSenior # WL-redo-427-resprite
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -2731,7 +2728,7 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
-  - JumpsuitDSS # WL-Changes: DSS adding
+  - JumpsuitSeniorDSS # WL-Changes: DSS adding, WL-redo-427-resprite
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -2907,7 +2904,6 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
-  - EmergencyBioroboticSecurity #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 # Wildcards
@@ -3158,7 +3154,6 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
-  - EmergencyBioroboticSyndicate #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
@@ -3169,7 +3164,6 @@
   loadouts:
   - EmergencyNitrogenMilitaryDouble
   - EmergencyOxygenMilitaryDouble
-  - EmergencyBioroboticMilitaryDouble #WL-Changes: Signalis update
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

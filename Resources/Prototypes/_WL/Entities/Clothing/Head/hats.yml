@@ -178,3 +178,26 @@
     sprite: _WL/Clothing/Head/Hats/wfedora.rsi
   - type: Clothing
     sprite: _WL/Clothing/Head/Hats/wfedora.rsi
+
+# WL-redo-427-resprite-start
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSeniorSecurity
+  name: senior security beret
+  description: A beret with a junior commander's rank emblem. For officers that are more inclined towards style than safety.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_security_senior.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_security_senior.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - PetWearable
+    - CorgiWearable
+    - HamsterWearable
+    - WhitelistChameleon
+
+# WL-redo-427-resprite-end
