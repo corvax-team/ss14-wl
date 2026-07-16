@@ -162,7 +162,7 @@
   abstract: true
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Animal ] # [ Arachnid ] before
+    metabolizerTypes: [ Animal ] # [ Arachnid ] before # WL-Changes
  
 - type: entity
   parent: OrganArachnid
@@ -260,7 +260,7 @@
   id: OrganArachnidHeart
 
 - type: entity
-  parent: [ OrganBaseStomach, OrganArachnidInternal, OrganArachnidMetabolizer ]
+  parent: [ OrganBaseStomach, OrganArachnidInternal, OrganArachnidMetabolizer ] # WL-Changes
   id: OrganArachnidStomach
 
 - type: entity
