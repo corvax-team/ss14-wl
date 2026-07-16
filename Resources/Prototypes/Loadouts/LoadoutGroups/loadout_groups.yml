@@ -3158,7 +3158,7 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
-  - EmergencyBioroboticSyndicate
+  - EmergencyBioroboticSyndicate #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
@@ -3169,7 +3169,7 @@
   loadouts:
   - EmergencyNitrogenMilitaryDouble
   - EmergencyOxygenMilitaryDouble
-  - EmergencyBioroboticMilitaryDouble
+  - EmergencyBioroboticMilitaryDouble #WL-Changes: Signalis update
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool
