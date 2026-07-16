@@ -28,6 +28,14 @@
     {
       "name": "advanced-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "signaller-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "signaller-inhand-right",
+      "directions": 4
     }
   ]
 }
