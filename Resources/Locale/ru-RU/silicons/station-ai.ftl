@@ -56,7 +56,7 @@ station-ai-hologram-face = Бестелесная голова
 station-ai-hologram-cat = Форма кота
 station-ai-hologram-dog = Форма корги
 
-    # WL-Changes: new AI form
+# WL-Changes: new AI form
 station-ai-hologram-beachball = Форма мяча
 station-ai-hologram-male2 = Образ парня
 station-ai-hologram-monster = Неизвестный образ

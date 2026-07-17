@@ -56,7 +56,7 @@ station-ai-hologram-face = Disembodied head
 station-ai-hologram-cat = Cat form
 station-ai-hologram-dog = Corgi form
 
-    # WL-Changes: new AI form
+# WL-Changes: new AI form
 station-ai-hologram-beachball = Beachball form
 station-ai-hologram-male2 = Guy appearance
 station-ai-hologram-monster = Unknown appearance
