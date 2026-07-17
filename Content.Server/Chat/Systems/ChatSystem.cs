@@ -465,7 +465,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         else
             obfusWrappedMessage = _languages.GetWrappedMessage(obfusMessage, source, name, speech);
 
-        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, obfusWrappedMessage, source, range);
+        SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, obfusWrappedMessage, source, range, null, InGameICChatType.Speak); // Wl-Changes Chat Type
         //WL-Changes: Languages end
 
         var ev = new EntitySpokeEvent(source, message, originalMessage, null, null, /*WL-Changes: Languages*/obfusMessage, null/*WL-Changes: Languages*/);
@@ -557,7 +557,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         //WL-Changes: Languages end
 
 
-        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
+        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange, InGameICChatType.Whisper)) // Wl-Changes Chat Type
         {
             EntityUid listener;
 
@@ -648,7 +648,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             !TryEmoteChatInput(source, action))
             return;
 
-        SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, wrappedMessage, source, range, author);
+        SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, wrappedMessage, source, range, null, InGameICChatType.Emote); // Wl-Changes Chat Type
         if (!hideLog)
             if (name != Name(source))
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {source} as {name}: {action}");
@@ -756,10 +756,10 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
-    private void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string obfusWrappedMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null)
+    private void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, string obfusWrappedMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, InGameICChatType chatType = InGameICChatType.Speak) // Wl-Changes Chat Type
     {
         var obfusMessage = _languages.ObfuscateMessageFromSource(message, source); //WL-Changes: Languages
-        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType)) // Wl-Changes Chat Type
         {
             //WL-Changes: Languages start
             if (session.AttachedEntity is not { Valid: true } playerEntity)
@@ -898,7 +898,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <summary>
     ///     Returns list of players and ranges for all players withing some range. Also returns observers with a range of -1.
     /// </summary>
-    private Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange)
+    private Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange, InGameICChatType chatType = InGameICChatType.Speak) // Wl-Changes Chat Type
     {
         // TODO proper speech occlusion
 
@@ -933,7 +933,7 @@ public sealed partial class ChatSystem : SharedChatSystem
                 recipients.Add(player, new ICChatRecipientData(-1, true));
         }
 
-        RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients));
+        RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients, chatType)); // Wl-Changes Chat Type
         return recipients;
     }
 
@@ -978,6 +978,6 @@ public sealed partial class ChatSystem : SharedChatSystem
 ///     This event is raised before chat messages are sent out to clients. This enables some systems to send the chat
 ///     messages to otherwise out-of view entities (e.g. for multiple viewports from cameras).
 /// </summary>
-public record ExpandICChatRecipientsEvent(EntityUid Source, float VoiceRange, Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients)
+public record ExpandICChatRecipientsEvent(EntityUid Source, float VoiceRange, Dictionary<ICommonSession, ChatSystem.ICChatRecipientData> Recipients, InGameICChatType ChatType = InGameICChatType.Speak) // Wl-Changes Chat Type
 {
 }

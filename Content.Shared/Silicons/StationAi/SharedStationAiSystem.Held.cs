@@ -1,11 +1,13 @@
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Interaction; // Wl-Changes
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Doors.Components; // Wl-Changes
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -23,6 +25,8 @@ public abstract partial class SharedStationAiSystem
         SubscribeLocalEvent<StationAiRadialMessage>(OnRadialMessage);
         SubscribeLocalEvent<StationAiWhitelistComponent, BoundUserInterfaceMessageAttempt>(OnMessageAttempt);
         SubscribeLocalEvent<StationAiWhitelistComponent, GetVerbsEvent<AlternativeVerb>>(OnTargetVerbs);
+        SubscribeLocalEvent<StationAiWhitelistComponent, ActivateInWorldEvent>(OnWhitelistActivate); // Wl-Changes
+        SubscribeLocalEvent<StationAiWhitelistComponent, InteractHandEvent>(OnWhitelistInteractHand); // Wl-Changes
 
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
@@ -165,6 +169,51 @@ public abstract partial class SharedStationAiSystem
             ShowDeviceNotRespondingPopup(ent.Owner);
         }
     }
+
+    /// WL-Changes: AiDoorInteract start
+    /// <summary>
+    /// Attempts to toggle a door if the user is a Station AI and the target door
+    /// has an enabled <see cref="StationAiWhitelistComponent"/>.
+    /// </summary>
+    private bool TryAiToggleDoor(EntityUid target, EntityUid user)
+    {
+        if (!HasComp<StationAiHeldComponent>(user))
+            return false;
+
+        if (!TryComp<StationAiWhitelistComponent>(target, out var whitelist) || !whitelist.Enabled)
+            return false;
+
+        if (!TryComp<DoorComponent>(target, out var door))
+            return false;
+
+        _doors.TryToggleDoor(target, door, user, predicted: true);
+        return true;
+    }
+
+    /// <summary>
+    /// Handles hand interaction with a Station AI whitelisted entity,
+    /// allowing the AI to toggle the door.
+    /// </summary>
+    private void OnWhitelistInteractHand(Entity<StationAiWhitelistComponent> ent, ref InteractHandEvent args)
+    {
+        if (args.Handled) return;
+
+        if (TryAiToggleDoor(ent.Owner, args.User))
+            args.Handled = true;
+    }
+
+    /// <summary>
+    /// Handles world activation of a Station AI whitelisted entity,
+    /// allowing the AI to toggle the door.
+    /// </summary>
+    private void OnWhitelistActivate(Entity<StationAiWhitelistComponent> ent, ref ActivateInWorldEvent args)
+    {
+        if (args.Handled) return;
+
+        if (TryAiToggleDoor(ent.Owner, args.User))
+            args.Handled = true;
+    }
+    /// WL-Changes: AiDoorInteract end
 
     private void OnTargetVerbs(Entity<StationAiWhitelistComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
