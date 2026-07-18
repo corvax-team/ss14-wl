@@ -376,7 +376,7 @@
     - Belt
   - type: PhysicalComposition
     materialComposition:
-      Steel: 600
+      Steel: 400 # WL-Changes
       Plastic: 100
   # WL-Sounds-Start
   - type: EmitSoundOnPickup
