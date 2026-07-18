@@ -185,7 +185,7 @@
     - id: DoorRemoteEngineering
     - id: BoxCECircuitboards
     - id: RCDRechargingCE # WL-Changes
-    - id: BluespaceRPD
+    - id: BluespaceRPD # WL-Changes
     - id: RCDAmmo
     - id: RubberStampCE
     - id: MetalFoamGrenade
