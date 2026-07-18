@@ -94,5 +94,5 @@ reagent-desc-posca = Напиток бедных воинов из забыто�
 reagent-name-mopwata = швабода
 reagent-desc-mopwata = Грязная, застоявшаяся вода из-под швабры, швабровая вода.
 
-reagent-name-orange-lime-soda = цитрусовый трёп
+reagent-name-orange-lime-soda = кира спешл
 reagent-desc-orange-lime-soda = Газировка должна быть апельсиновая! Нет, она должна быть лимон-лайм!
