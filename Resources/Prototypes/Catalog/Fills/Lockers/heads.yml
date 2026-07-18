@@ -184,7 +184,8 @@
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
     - id: BoxCECircuitboards
-    - id: RCD
+    - id: RCDRechargingCE # WL-Changes
+    - id: BluespaceRPD
     - id: RCDAmmo
     - id: RubberStampCE
     - id: MetalFoamGrenade

@@ -22,6 +22,9 @@
   - HandheldStationMap
   - ClothingHeadHatWelding
   - ClothingHeadHatCone
+  - RCD # WL-Changes
+  - RPD # WL-Changes
+  - RCDAmmo # WL-Changes
 
 - type: latheRecipePack
   id: AtmosStatic
@@ -61,6 +64,7 @@
   - PowerDrill
   - WelderExperimental
   - JawsOfLife
+  - BluespaceRPD # WL-Changes: rpd
   - Fulton
   - FultonBeacon
 
