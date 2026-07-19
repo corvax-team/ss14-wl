@@ -34,7 +34,7 @@ namespace Content.Shared.Preferences
     public sealed partial class HumanoidCharacterProfile
     {
         public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
-        private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' \"-]"); // Corvax-Localization + WL-Changes
+        //private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' \"-]"); // Corvax-Localization + WL-Changes. Also - we dont't need it
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         //WL-Changes-start
@@ -772,10 +772,12 @@ namespace Content.Shared.Preferences
 
             name = name.Trim();
 
-            if (configManager.GetCVar(CCVars.RestrictedNames))
-            {
-                name = RestrictedNameRegex.Replace(name, string.Empty);
-            }
+            // WL-Changes-Start
+            // if (configManager.GetCVar(CCVars.RestrictedNames))
+            // {
+            //     //name = RestrictedNameRegex.Replace(name, string.Empty);
+            // }
+            // WL-Changes-End
 
             if (configManager.GetCVar(CCVars.ICNameCase))
             {
