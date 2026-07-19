@@ -430,7 +430,7 @@
   description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
   components:
   - type: AutoRecharge
-  rechargeDuration: 0.1
+    rechargeDuration: 0.1
 
 - type: entity
   name: compressed matter
