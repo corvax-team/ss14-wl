@@ -91,3 +91,8 @@ marking-HumanHairStella = Магические двойные хвостики
 marking-HumanHairWolfcut = Вульфкат
 
 marking-HumanHairPunchn = Пучок (Альт.)
+
+marking-HumanHairKiraTwintails = Двойные шипастые хвостики
+marking-HumanHairDoctorWho = Доктор
+marking-HumanHairOnlyBangs = Только чёлка
+marking-HumanHairLayeredStraight = Прямой вульфкат

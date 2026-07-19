@@ -317,3 +317,37 @@
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: hairpunchn
+
+- type: marking
+  id: HumanHairKiraTwintails
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: kira1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: kira2
+
+- type: marking
+  id: HumanHairDoctorWho
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: doctor
+
+- type: marking
+  id: HumanHairOnlyBangs
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: onlybangs1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: onlybangs2
+
+- type: marking
+  id: HumanHairLayeredStraight
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: layeredstraight1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: layeredstraight2

@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Created by ReArtInt",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ear_r_akula",
+      "directions": 4
+    },
+	{
+      "name": "ear_l_akula",
+      "directions": 4
+    },
+	{
+      "name": "low_ear_r",
+      "directions": 4
+    },
+	{
+      "name": "low_ear_l",
+      "directions": 4
+    },
+	{
+      "name": "top_ear_r",
+      "directions": 4
+    },
+	{
+      "name": "top_ear_l",
+      "directions": 4
+    },
+	{
+      "name": "low_ear_r_murine",
+      "directions": 4
+    },
+	{
+      "name": "low_ear_l_murine",
+      "directions": 4
+    },
+	{
+      "name": "top_ear_r_murine",
+      "directions": 4
+    },
+	{
+      "name": "top_ear_l_murine",
+      "directions": 4
+    }
+  ]
+}
