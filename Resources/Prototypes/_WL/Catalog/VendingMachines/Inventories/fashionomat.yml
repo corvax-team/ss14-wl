@@ -22,6 +22,9 @@
     ClothingHeadHatSombrero: 3
     ClothingHeadHatFez: 3
     ClothingHeadHatSolidHeadband: 3
+    ClothingHeadhatBlueFlowerHeadband: 3
+    ClothingHeadhatPurpleFlowerHeadband: 3
+    ClothingHeadhatLuckyClover: 2
     # Eyes
     ClothingEyesSalesman: 3
     ClothingEyesGlassesJensen: 3
@@ -42,6 +45,13 @@
     ClothingOuterCoatExpensive: 3
     ClothingOuterCoatJensen: 3
     ClothingOuterJohnnySilverhandJacket: 2
+    ClothingOuterCoatBlueAssymetry: 2
+    ClothingOuterCoatPinkMiniFurcoat: 3
+    ClothingOuterCoatRaspberryCoat: 1
+    ClothingOuterCoatBlueCuteCardigan: 3
+    ClothingOuterCoatPurpleCuteCardigan: 3
+    ClothingOuterCoatMusicianBikingJacket: 3
+    ClothingOuterVestJeansVest: 2
     # Costumes
     ClothingNeckHorrific: 3
     ClothingUniformJumpsuitSuperstarCop: 3
@@ -87,11 +97,40 @@
     ClothingUniformJumpsuitTurtleneckTactick: 3
     ClothingUniformJumpsuitFamilyGuy: 3
     ClothingUniformJumpsuitJohnnySilverhand: 2
+    ClothingUniformJumpsuitRaspberryRichShirt: 1
+    ClothingUniformJumpsuitFreedomYellowCollar: 3
+    ClothingUniformJumpsuitBlueHawaii: 2
+    ClothingUniformJumpsuitBeerDino: 3
+    ClothingUniformJumpsuitPinkBeerDino: 3
+    ClothingUniformJumpsuitCoolWolf: 3
+    ClothingUniformJumpsuitStarSweater: 3
+    ClothingUniformJumpsuitBlackCoolVest: 3
+    ClothingUniformJumpskirtGothCorsetDress: 3
+    ClothingUniformJumpskirtFluffyPinkDress: 3
+    ClothingUniformJumpskirtWaterfallBlueDress: 3
+    ClothingUniformJumpskirtSimpleSchoolDress: 3
+    ClothingUniformJumpskirtFarmHomeDress: 3
+    ClothingUniformJumpskirtYellowSimpleDress: 2
+    ClothingUniformJumpskirtAsianStyleDress: 2
+    ClothingUniformJumpskirtFlamingoPinkFluffyDress: 2
+    ClothingUniformJumpskirtBarbieTop: 3
+    ClothingUniformJumpskirtPinkDesignerDress: 1
+    ClothingUniformJumpskirtDivineTunic: 2
+    ClothingUniformJumpsuitEngineerVest: 3
+    ClothingUniformJumpsuitAnarchyShirt: 3
+    ClothingUniformJumpsuitSkeletonShirt: 3
+    ClothingUniformJumpsuitWitchySweater: 2
+    ClothingUniformJumpskirtSkullSkirt: 3
+    ClothingUniformJumpsuitMaidenless: 2
+    ClothingUniformJumpskirtMenlessShirt: 2
     # Boots
     ClothingShoesFashionCombatBoots: 3
     ClothingShoesBootsCowboyBrown: 3
     ClothingShoesBootsCowboyWhite: 3
     ClothingShoesBootsCowboyBlack: 3
     ClothingShoesBootsCowboyFancy: 3
+    ClothingShoesWhiteWinterHighHeels: 2
+    ClothingShoesTallBoots: 2
+    ClothingShoesColorfullBoots: 2
     # storages
     GlamourHandbagByBenjii: 2
