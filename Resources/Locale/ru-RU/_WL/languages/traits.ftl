@@ -26,3 +26,6 @@ trait-language-wingdings-desc = Популярный жестовый язык. 
 
 trait-language-yangyu = Янгуй
 trait-language-yangyu-desc = Язык, сочетающий в себе элементы китайского, японского и корейского языков.
+
+trait-language-iberian = Иберийский
+trait-language-iberian-desc = Человеческий язык, развившийся из слияния испанского, португальского и мирандийского языков.

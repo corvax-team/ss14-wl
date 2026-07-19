@@ -128,3 +128,17 @@
     - type: ModifyLanguages
       languages:
         - Yangyu
+
+- type: trait
+  id: Iberian
+  name: trait-language-iberian
+  description: trait-language-iberian-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Iberian

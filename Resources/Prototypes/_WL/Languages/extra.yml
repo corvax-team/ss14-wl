@@ -176,3 +176,45 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: felinid
+
+- type: language
+  id: Iberian
+  name: language-iberian
+  description: language-iberian-desc
+  color: '#df2f85'
+  keylang: 'и'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+      replacement:
+      - oi
+      - spano
+      - si
+      - el
+      - de
+      - sa
+      - ve
+      - qué
+      - pasa
+      - los
+      - las
+      - por
+      - chile
+      - con
+      - una
+      - carne
+      - por
+      - para
+      - mop
+      - diez
+      - suce
+      - diendo
+      - suce
+      - favor
+      - mente
+      - suavo
+      - uno
+      - "¿"
+      - "¡"
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: hermano
