@@ -20,9 +20,9 @@
 #   suffix: AutoRecharge
 #   components:
 #   - type: LimitedCharges
-#     maxCharges: 40
+#     maxCharges: 400
 #   - type: AutoRecharge
-#     rechargeDuration: 10
+#     rechargeDuration: 1
 
 - type: entity
   id: RPDRecharging
@@ -34,7 +34,7 @@
   - type: LimitedCharges
     maxCharges: 300
   - type: AutoRecharge
-    rechargeDuration: 10
+    rechargeDuration: 1
 
 - type: entity
   id: RPDExperimental
@@ -46,7 +46,7 @@
   - type: RCD
     enableIgnite: false
   - type: AutoRecharge
-    rechargeDuration: 1
+    rechargeDuration: 0.1
 
 - type: entity
   id: RPDEmpty

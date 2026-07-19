@@ -420,7 +420,7 @@
   - type: LimitedCharges
     maxCharges: 200 # WL-Changes: rpd port from FunkyStation
   - type: AutoRecharge
-    rechargeDuration: 10
+    rechargeDuration: 1 # WL-Changes
 
 - type: entity
   id: RCDExperimental
@@ -430,7 +430,7 @@
   description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
   components:
   - type: AutoRecharge
-    rechargeDuration: 1
+  rechargeDuration: 0.1
 
 - type: entity
   name: compressed matter
