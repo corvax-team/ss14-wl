@@ -172,6 +172,8 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/champagnebottle.rsi
   - type: Openable
+    sound: # WL-Changes: Changed open sound
+      path: /Audio/_WL/Items/champagne_pop.ogg
     closeable: false # Champagne corks are fat. Not worth the effort.
   - type: Sealable
     examineTextUnsealed: "sealable-component-on-examine-is-unsealed-no-cork" # tell the player why it can't close
