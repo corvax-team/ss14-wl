@@ -18,7 +18,7 @@ ent-ClothingUniformJumpskirtAdjutantCC = юбка-комбинезон адъю�
 ent-ClothingUniformJumpskirtWeddingSuitWhite = белый костюм с юбкой
     .desc = Подходит для свадьбы.
 
-ent-ClothingUniformJumpskirtSkirtWhite = белый костюм с юбкой детектива
+ent-ClothingUniformJumpskirtSuitWhite = белый костюм с юбкой детектива
     .desc = Изящный и эффектный.
 
 ent-ClothingUniformJumpskirtSkullSkirt = топ с черепом
