@@ -62,5 +62,3 @@
       sprite: _WL/Clothing/Shoes/Boots/colorfull_boots.rsi
     - type: Clothing
       sprite: _WL/Clothing/Shoes/Boots/colorfull_boots.rsi
-    - type: ClothingSpeedModifier
-      sprintModifier: 1.1
