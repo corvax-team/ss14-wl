@@ -8,7 +8,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Silicons.StationAi;
 
-public sealed class StationAiEmoteVisibilitySystem : EntitySystem
+public sealed partial class StationAiEmoteVisibilitySystem : EntitySystem
 {
     [Dependency] private ExamineSystemShared _examine = default!;
     [Dependency] private SharedStationAiSystem _stationAiSystem = default!;
