@@ -260,7 +260,7 @@
     - WhitelistChameleon
 
 # WL-redo-427-resprite-start-
-  type: entity
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSeniorSecurity
   name: senior security beret
