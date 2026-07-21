@@ -14,3 +14,20 @@
               doAfter: 1
     - node: Envelope
       entity: Envelope
+
+- type: constructionGraph
+  id: Garlands
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Garlands
+          steps:
+            - material: Glass
+              amount: 1
+              doAfter: 1
+            - material: Cable
+              amount: 2
+              doAfter: 1
+    - node: Garlands
+      entity: Garlands

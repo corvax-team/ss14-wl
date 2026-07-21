@@ -5,3 +5,12 @@
   targetNode: Envelope
   category: construction-category-tools
   objectType: Item
+
+- type: construction
+  id: Garlands
+  graph: Garlands
+  startNode: start
+  targetNode: Garlands
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
