@@ -192,6 +192,7 @@ public sealed partial class PryingSystem : EntitySystem
         if (args.Used != null && comp != null)
         {
             _audioSystem.PlayPredicted(comp.UseSound, args.Used.Value, args.User);
+            _audioSystem.PlayPredicted(comp.DoorPryingSound, args.Used.Value, args.User); // WL-Changes
         }
 
         var ev = new PriedEvent(args.User);
