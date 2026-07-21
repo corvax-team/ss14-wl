@@ -274,9 +274,9 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.7
-  - type: ClothingSpeedModifier
-    walkModifier: 0.65
-    sprintModifier: 0.65
+  - type: ClothingSpeedModifier # WL-Changes: 0.65 -> 0.85
+    walkModifier: 0.85
+    sprintModifier: 0.85
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBrigmedic
