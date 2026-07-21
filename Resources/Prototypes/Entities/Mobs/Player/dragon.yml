@@ -180,7 +180,14 @@
     activateSound: null
     deactivateSound: null
   # WL-Thermal-Vision-End
-
+  - type: Armor #Based on /tg/ but slightly compensated to fit the fact that armor stacks in SS14.
+    modifiers:
+      coefficients:
+        Heat: 0.40
+        Piercing: 0.75
+        Slash: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.25
 
 - type: entity
   parent: BaseMobDragon
@@ -191,7 +198,7 @@
   - type: GhostRole
     mindRoles:
     - MindRoleDragon
-  - type: ActionGun
+  - type: ActionGun 
     action: ActionDragonsBreath
     gunProto: DragonsBreathGun
   - type: GuideHelp
