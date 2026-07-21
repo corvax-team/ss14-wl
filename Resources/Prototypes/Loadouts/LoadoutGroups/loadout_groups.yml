@@ -2870,6 +2870,7 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
+  - ClothingOuterCoatDetectiveDark # WL-Changes
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup
