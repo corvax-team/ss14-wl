@@ -1685,6 +1685,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
+  - ClothingHeadHatPostmanCap # WL-Changes
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -1692,6 +1693,7 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
+  - ClothingUniformJumpsuitPostman # WL-Changes
 # WL-Change-start
   - JumpsuitColorWhite
   - JumpskirtColorWhite
@@ -1807,6 +1809,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
+  - ClothingOuterPostmanJacket # WL-Changes
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
