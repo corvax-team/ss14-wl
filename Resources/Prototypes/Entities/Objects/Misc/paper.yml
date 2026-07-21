@@ -502,3 +502,6 @@
         acts: [ "Destruction" ]
   - type: Injurable
   - type: StationAiWhitelist
+  - type: Construction # WL-Crafts
+    graph: Envelope
+    node: Envelope
