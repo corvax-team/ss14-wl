@@ -31,6 +31,7 @@
     quickEquip: false
     slots:
     - idcard
+    - belt
   - type: Storage
     grid:
     - 0,0,3,1
