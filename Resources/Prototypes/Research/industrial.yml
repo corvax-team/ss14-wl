@@ -150,6 +150,8 @@
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
   - HolofanProjector
+  - RPD # WL-Changes
+  - BluespaceRPD # WL-Changes
   technologyPrerequisites:
   - AtmosphericTech
 
@@ -166,7 +168,8 @@
     - WelderExperimental
     - PowerDrill
     - JawsOfLife
-    - BluespaceRPD # WL-Changes
+    - RCD # WL-Changes
+    - RCDAmmo # WL-Changes
     - BorgModuleAdvancedTool
     - Fulton
     - FultonBeacon
