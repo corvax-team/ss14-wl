@@ -7,7 +7,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _WL/Objects/Misc/wallet.rsi
+    sprite: _WL/Objects/Misc/Wallets/leather.rsi
     layers:
     - state: icon
       map: [ "base" ]
