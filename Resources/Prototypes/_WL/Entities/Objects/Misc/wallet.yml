@@ -21,17 +21,11 @@
       map: [ "enum.WalletVisualLayers.Frame" ]
       visible: false
   - type: Appearance
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: PDA
-    prefix: device-address-prefix-console
-    savableAddress: false
   - type: Wallet
   - type: Clothing
     quickEquip: false
     slots:
     - idcard
-    - belt
   - type: Storage
     grid:
     - 0,0,3,1

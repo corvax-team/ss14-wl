@@ -5,7 +5,6 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.Wallet;
 
-
 public sealed partial class WalletSystem : EntitySystem
 {
     [Dependency] private SharedAppearanceSystem _appearance = default!;
@@ -17,39 +16,39 @@ public sealed partial class WalletSystem : EntitySystem
 
         SubscribeLocalEvent<WalletComponent, EntInsertedIntoContainerMessage>(OnIdInserted);
         SubscribeLocalEvent<WalletComponent, EntRemovedFromContainerMessage>(OnIdRemoved);
+        SubscribeLocalEvent<WalletComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
     }
 
     private void OnIdInserted(Entity<WalletComponent> ent, ref EntInsertedIntoContainerMessage args)
     {
-        if (args.Container.ID != ent.Comp.IdSlotId)
-            return;
-
-        ent.Comp.ContainedId = args.Entity;
-
-        _appearance.SetData(ent, WalletVisuals.HasId, args.Container.ContainedEntities.Count > 0);
-
-        UpdateJobStatus(ent);
+        UpdateIdSlot(ent, args.Container);
     }
 
     private void OnIdRemoved(Entity<WalletComponent> ent, ref EntRemovedFromContainerMessage args)
     {
-        if (args.Container.ID != ent.Comp.IdSlotId)
+        UpdateIdSlot(ent, args.Container);
+    }
+
+    private void OnGetAdditionalAccess(Entity<WalletComponent> ent, ref GetAdditionalAccessEvent args)
+    {
+        if (ent.Comp.ContainedId is { } id)
+            args.Entities.Add(id);
+    }
+
+    private void UpdateIdSlot(Entity<WalletComponent> ent, BaseContainer container)
+    {
+        if (container.ID != ent.Comp.IdSlotId)
             return;
 
-        ent.Comp.ContainedId = null;
+        var hasId = container.ContainedEntities.Count > 0;
+        ent.Comp.ContainedId = hasId ? container.ContainedEntities[0] : null;
 
-        _appearance.SetData(ent, WalletVisuals.HasId, args.Container.ContainedEntities.Count > 0);
+        Dirty(ent);
 
-        UpdateJobStatus(ent);
-    }
-
-    private void UpdateJobStatus(EntityUid uid)
-    {
-        var parent = Transform(uid).ParentUid;
-        _jobStatus.UpdateStatus(parent);
+        _appearance.SetData(ent, WalletVisuals.HasId, hasId);
+        _jobStatus.UpdateStatus(Transform(ent).ParentUid);
     }
 }
-
 
 [Serializable, NetSerializable]
 public enum WalletVisuals : byte

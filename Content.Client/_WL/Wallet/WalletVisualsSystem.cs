@@ -1,4 +1,6 @@
-﻿using Content.Shared._WL.Wallet;
+﻿using System.Linq;
+using System.Numerics;
+using Content.Shared._WL.Wallet;
 using Robust.Client.GameObjects;
 using Robust.Shared.Containers;
 
@@ -12,7 +14,6 @@ public sealed partial class WalletVisualsSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<WalletComponent, AppearanceChangeEvent>(OnAppearanceChanged);
     }
 
@@ -26,31 +27,35 @@ public sealed partial class WalletVisualsSystem : EntitySystem
 
         _sprite.LayerSetVisible((ent, args.Sprite), WalletVisualLayers.Frame, hasId);
 
-        if (!hasId)
+        if (!hasId || !TryComp<SpriteComponent>(container!.ContainedEntities[0], out var idSprite))
         {
             _sprite.LayerSetVisible((ent, args.Sprite), WalletVisualLayers.IdBase, false);
             _sprite.LayerSetVisible((ent, args.Sprite), WalletVisualLayers.IdIcon, false);
             return;
         }
 
-        var idUid = container!.ContainedEntities[0];
-
-        if (!TryComp<SpriteComponent>(idUid, out var idSprite))
-            return;
-
-        var baseCard = idSprite[0];
-        _sprite.LayerSetRsi((ent, args.Sprite), WalletVisualLayers.IdBase, baseCard.Rsi ?? idSprite.BaseRSI);
-        _sprite.LayerSetRsiState((ent, args.Sprite), WalletVisualLayers.IdBase, baseCard.RsiState);
-        _sprite.LayerSetColor((ent, args.Sprite), WalletVisualLayers.IdBase, baseCard.Color);
-        _sprite.LayerSetOffset((ent, args.Sprite), WalletVisualLayers.IdBase, ent.Comp.CardOffset);
-        _sprite.LayerSetVisible((ent, args.Sprite), WalletVisualLayers.IdBase, true);
-
-        var baseIdIcon = idSprite[1];
-        _sprite.LayerSetRsi((ent, args.Sprite), WalletVisualLayers.IdIcon, baseIdIcon.Rsi ?? idSprite.BaseRSI);
-        _sprite.LayerSetRsiState((ent, args.Sprite), WalletVisualLayers.IdIcon, baseIdIcon.RsiState);
-        _sprite.LayerSetColor((ent, args.Sprite), WalletVisualLayers.IdIcon, baseIdIcon.Color);
-        _sprite.LayerSetOffset((ent, args.Sprite), WalletVisualLayers.IdIcon, ent.Comp.IdOffset);
-        _sprite.LayerSetVisible((ent, args.Sprite), WalletVisualLayers.IdIcon, true);
+        SetIdLayer(ent, args.Sprite, idSprite, 0, WalletVisualLayers.IdBase, ent.Comp.CardOffset);
+        SetIdLayer(ent, args.Sprite, idSprite, 1, WalletVisualLayers.IdIcon, ent.Comp.IdOffset);
     }
 
+    private void SetIdLayer(
+        EntityUid uid,
+        SpriteComponent walletSprite,
+        SpriteComponent idSprite,
+        int idLayerIndex,
+        WalletVisualLayers targetLayer,
+        Vector2 offset)
+    {
+        if (idLayerIndex >= idSprite.AllLayers.Count())
+        {
+            _sprite.LayerSetVisible((uid, walletSprite), targetLayer, false);
+            return;
+        }
+
+        var layer = idSprite[idLayerIndex];
+        _sprite.LayerSetRsi((uid, walletSprite), targetLayer, layer.Rsi ?? idSprite.BaseRSI, layer.RsiState);
+        _sprite.LayerSetColor((uid, walletSprite), targetLayer, layer.Color);
+        _sprite.LayerSetOffset((uid, walletSprite), targetLayer, offset);
+        _sprite.LayerSetVisible((uid, walletSprite), targetLayer, true);
+    }
 }
