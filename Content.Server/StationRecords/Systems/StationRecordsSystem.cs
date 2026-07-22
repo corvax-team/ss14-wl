@@ -17,6 +17,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared._WL.Languages;
 using Content.Shared._WL.Languages.Components;
+using Content.Shared._WL.Wallet; // WL-Changes: Wallet
 
 namespace Content.Server.StationRecords.Systems;
 
@@ -226,6 +227,13 @@ public sealed partial class StationRecordsSystem : SharedStationRecordsSystem
         {
             keyStorageEntity = id;
         }
+
+        // WL-Changes-Start: Wallet
+        if (TryComp<WalletComponent>(idUid, out var wallet) && wallet.ContainedId is { } idCard)
+        {
+            keyStorageEntity = idCard;
+        }
+        // WL-Changes-End
 
         _keyStorage.AssignKey(keyStorageEntity, key);
     }

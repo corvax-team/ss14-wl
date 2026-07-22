@@ -1,3 +1,4 @@
+using Content.Shared._WL.Wallet; // WL-Changes: Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
@@ -56,6 +57,15 @@ public sealed partial class IdExaminableSystem : EntitySystem
             {
                 return GetNameAndJob(id);
             }
+
+            // WL-Changes-Start: Wallet
+            if (TryComp(idUid, out WalletComponent? wallet) &&
+                TryComp<IdCardComponent>(wallet.ContainedId, out var idCard))
+            {
+                return GetNameAndJob(idCard);
+            }
+            // WL-Changes-End
+
             // ID Card
             if (TryComp(idUid, out id))
             {
