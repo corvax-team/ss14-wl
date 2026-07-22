@@ -29,7 +29,18 @@
   - type: Storage
     grid:
     - 0,0,3,1
-    maxItemSize: Small # Todo whitelist
+    maxItemSize: Small
+    whitelist:
+      tags:
+      - Trash
+      - Paper
+      components:
+      - Passport
+      - IdCard # Hiding cards from others, kinda cool
+      - IgnitionSource # For lighters
+    blacklist:
+      tags:
+      - CigPack
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
