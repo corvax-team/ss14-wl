@@ -135,10 +135,7 @@
   - type: Speech
     allowedEmotes: ['Purr']
   - type: Vocal
-    sounds:
-      Male: MaleTajaran
-      Female: FemaleTajaran
-      Unsexed: MaleTajaran
+    emoteSounds: MaleTajaran
   - type: GrowlingAccent
   - type: MeleeWeapon
     animation: WeaponArcClaw

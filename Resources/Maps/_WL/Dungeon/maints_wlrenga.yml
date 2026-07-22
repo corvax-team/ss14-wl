@@ -2699,31 +2699,26 @@ entities:
   - uid: 342
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,19.5
       parent: 1
   - uid: 448
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 8.5,24.5
       parent: 1
   - uid: 560
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 22.5,22.5
       parent: 1
   - uid: 562
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 24.5,22.5
       parent: 1
   - uid: 575
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 20.5,25.5
       parent: 1
   - uid: 578
@@ -2739,13 +2734,11 @@ entities:
   - uid: 868
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 24.5,11.5
       parent: 1
   - uid: 889
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 28.5,10.5
       parent: 1
 - proto: HandheldStationMapEmpty

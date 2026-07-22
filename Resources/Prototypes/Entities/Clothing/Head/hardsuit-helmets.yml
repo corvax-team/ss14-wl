@@ -971,7 +971,7 @@
         Radiation: 0.80
         Caustic: 0.95
   # WL-Night-Vision-Start
-  - type: NightVision
+  - type: NightVisionEye
     color: "#A3A3A3"
     activateSound: null
     deactivateSound: null

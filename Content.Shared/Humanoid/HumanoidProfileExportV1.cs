@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
@@ -71,7 +72,7 @@ public sealed partial class HumanoidCharacterProfileV1
     public ProtoId<SpeciesPrototype> Species;
 
     [DataField] //Corvax-TTS
-    public string Voice = HumanoidProfileSystem.DefaultVoice;
+    public string TTSVoice = HumanoidProfileSystem.DefaultVoice;
 
     [DataField]
     public int Age;
@@ -122,7 +123,16 @@ public sealed partial class HumanoidCharacterProfileV1
     //WL-Changes: Records end
     public HumanoidCharacterProfile ToV2()
     {
-        return new(Name, FlavorText, OocText, Species, Voice, Age, Height, Sex, Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, JobSubnames, AntagPreferences, TraitPreferences, Loadouts, JobUnblockings, MedicalRecord, SecurityRecord, EmploymentRecord, FullName, DateOfBirth, Confederation, Country, Skills);
+        return new(Name, FlavorText, OocText, Species, TTSVoice, Age, Height, Sex, GetDefaultVoice(Species, Sex), Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, JobSubnames, AntagPreferences, TraitPreferences, Loadouts, JobUnblockings, MedicalRecord, SecurityRecord, EmploymentRecord, FullName, DateOfBirth, Confederation, Country, Skills); //WL-Changes; WL fiches
+    }
+
+    // In V2 voices are stored as a separate database entry, this picks the default for the species and sex, which would give the same voice as pre-nubody.
+    private ProtoId<EmoteSoundsPrototype> GetDefaultVoice(ProtoId<SpeciesPrototype> species, Sex sex)
+    {
+        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+
+        var speciesPrototye = prototypeManager.Index(species);
+        return speciesPrototye.DefaultSoundsBySex[(int)sex];
     }
 }
 

@@ -96,3 +96,25 @@
       sprite: _WL/Clothing/Uniforms/Jumpsuit/pilot.rsi # WL-redo-427-resprite
     - type: Clothing
       sprite: _WL/Clothing/Uniforms/Jumpsuit/pilot.rsi # WL-redo-427-resprite
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMagistrate
+  name: magistrate's jumpsuit
+  description: Judge of space law.
+  components:
+  - type: Sprite
+    sprite: Corvax/Clothing/Uniforms/Jumpsuit/magistrate.rsi
+  - type: Clothing
+    sprite: Corvax/Clothing/Uniforms/Jumpsuit/magistrate.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMagistrateFormal
+  name: magistrate's formal suit
+  description: Fancy judge of space law.
+  components:
+  - type: Sprite
+    sprite: Corvax/Clothing/Uniforms/Jumpsuit/magistrateformal.rsi
+  - type: Clothing
+    sprite: Corvax/Clothing/Uniforms/Jumpsuit/magistrateformal.rsi

@@ -18,6 +18,12 @@
     drawdepth: SmallObjects
     layers:
     - state: icon
+    - state: idle
+      map: [ "faxEyes" ]
+    - state: printing
+      map: [ "printing" ]
+      visible: false
+    - state: 
       map: [ "enum.FaxMachineVisuals.VisualState" ]
   - type: Icon
     sprite: _WL/Structures/Machines/fax_machine.rsi # WL-Resprite
@@ -63,14 +69,18 @@
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
-        enum.FaxMachineVisuals.VisualState:
-          True: { state: idle }
-          False: { state: icon }
+        faxEyes:
+          True: { visible: true }
+          False: { visible: false }
       enum.FaxMachineVisuals.VisualState:
-        enum.FaxMachineVisuals.VisualState:
-          Printing: { state: printing }
+        printing:
+          Printing: { visible: true }
           Opened: { state: icon-open } # WL-Changes
-          Normal: {state: idle}
+          Normal: { visible: false }
+        enum.FaxMachineVisuals.VisualState:
+          Inserting: { visible: true }
+          Opened: { state: icon-open } # WL-Changes
+          Normal: { visible: false }
   - type: ItemSlots
   - type: ContainerContainer
     containers:
@@ -90,10 +100,16 @@
   suffix: CentCom
   components:
   - type: Sprite
-    layers:
-      - state: icon
-        map: [ "base" ]
-        color: "#bfe3ff"
+    layers:      
+    - state: icon
+      color: "#bfe3ff"
+    - state: idle
+      map: [ "faxEyes" ]
+    - state: printing
+      map: [ "printing" ]
+      visible: false
+    - state: 
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
   - type: FaxMachine
     name: "Central Command"
     printConsumeMaterialAmount: 1 # WL-Changes
@@ -107,10 +123,16 @@
   suffix: Syndicate
   components:
   - type: Sprite
-    layers:
-      - state: icon
-        map: [ "base" ]
-        color: "#a3a3a3"
+    layers:      
+    - state: icon
+      color: "#a3a3a3"
+    - state: idle
+      map: [ "faxEyes" ]
+    - state: printing
+      map: [ "printing" ]
+      visible: false
+    - state: 
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
   - type: FaxMachine
     name: "ERR*?*%!"
     printConsumeMaterialAmount: 1 # WL-Changes

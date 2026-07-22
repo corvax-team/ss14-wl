@@ -90,6 +90,7 @@
     baseSprintSpeed : 2.2
   - type: MovementAlwaysTouching # it flies in space by pure will power
   - type: FlashImmunity
+    showInExamine: false
   - type: MobThresholds # tankier
     thresholds:
       0: Alive
@@ -174,6 +175,7 @@
       collection: FootstepHoverXenoborg
   - type: MovementAlwaysTouching # it flies in space with tiny thrusters
   - type: FlashImmunity
+    showInExamine: false
   - type: BorgChassis
     maxModules: 4
     hasMindState: xenoborg_scout_e
@@ -253,13 +255,6 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHigh
-  # WL-Night-Vision-Start
-  - type: NightVision
-    color: "#224fff"
-    activateSound: null
-    deactivateSound: null
-  # WL-Night-Vision-End
-
 
 # xenoborgs empty
 - type: entity

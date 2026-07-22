@@ -100,15 +100,11 @@
         collection: Punch
       animation: WeaponArcClaw
     - type: Butcherable
-      butcheringType: Spike
       spawned:
         - id: FoodMeatHuman
           amount: 5
     - type: Vocal
-      sounds:
-        Male: MaleAkula
-        Female: FemaleAkula
-        Unsexed: MaleAkula
+      emoteSounds: MaleAkula
     - type: Wagging
     - type: Languages
       speaking:

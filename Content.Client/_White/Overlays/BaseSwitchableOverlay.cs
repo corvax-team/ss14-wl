@@ -19,7 +19,7 @@ public sealed partial class BaseSwitchableOverlay<TComp> : Overlay where TComp :
 
     public bool IsActive = true;
 
-    public const string defaultOverlayPrototype = "NightVision";
+    public const string defaultOverlayPrototype = "NightVisionEye";
 
     public BaseSwitchableOverlay()
     {

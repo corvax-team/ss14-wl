@@ -10,7 +10,7 @@
       - ReagentId: DarkBeer
         Quantity: 60
   - type: Label
-    currentLabel: reagent-name-dark-beer
+    localizedLabel: reagent-name-dark-beer
   - type: Sprite
     sprite: _WL/Objects/Consumable/Drinks/darkbeer.rsi
   - type: Openable
@@ -34,7 +34,7 @@
       - ReagentId: DarkBeer
         Quantity: 240
   - type: Label
-    currentLabel: reagent-name-dark-beer
+    localizedLabel: reagent-name-dark-beer
   - type: Sprite
     sprite: _WL/Objects/Consumable/Drinks/darkbeer.rsi
   - type: Openable

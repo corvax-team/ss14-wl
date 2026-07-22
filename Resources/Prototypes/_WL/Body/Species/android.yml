@@ -212,10 +212,7 @@
   - type: Injurable
     damageContainer: BioRobotic
   - type: Vocal
-    sounds:
-      Male: MaleAndroid
-      Female: FemaleAndroid
-      Unsexed: MaleAndroid
+    emoteSounds: MaleAndroid
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBioroboticEmotes
@@ -247,7 +244,6 @@
       types:
         Blunt: 10
   - type: Butcherable
-    butcheringType: Spike
     spawned:
       - id: SheetPlastic
         amount: 5

@@ -97,10 +97,7 @@
   id: MobFelinid
   components:
   - type: Vocal
-    sounds:
-      Male: MaleFelinid
-      Female: FemaleFelinid
-      Unsexed: MaleFelinid
+    emoteSounds: FemaleFelinid
   - type: MovementSpeedModifier
     baseSprintSpeed: 5.1
 #  - type: Damageable
@@ -117,7 +114,7 @@
   - type: StripModifiers
     stripTimeReduction: 0
     stripTimeMultiplier: 0.5
-  - type: NightVision
+  - type: NightVisionEye
     toggleAction: PulseEchoVision
     isEquipment: false
     color: "#000"

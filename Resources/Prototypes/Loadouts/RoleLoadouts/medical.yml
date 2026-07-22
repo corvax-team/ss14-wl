@@ -11,6 +11,8 @@
   - ChiefMedicalOfficerOuterClothing
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerShoes
+  - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
@@ -29,6 +31,8 @@
   - MedicalDoctorOuterClothing
   - MedicalShoes
   - MedicalDoctorPDA
+  - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
@@ -43,6 +47,8 @@
   - GroupTankHarness
   - MedicalInternJumpsuit
   - MedicalBackpack
+  - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
@@ -59,6 +65,8 @@
   - ChemistBackpack
   - ChemistOuterClothing
   - MedicalShoes
+  - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add
@@ -76,6 +84,8 @@
   - MedicalBackpack
   - ParamedicOuterClothing
   - ParamedicShoes
+  - Glasses
+  - AssistiveItems
   - SurvivalMedical
   - Trinkets
   - WLNeck # WL-Changes: Neck add

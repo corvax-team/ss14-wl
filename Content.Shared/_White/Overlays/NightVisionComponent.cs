@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.Overlays;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class NightVisionComponent : SwitchableVisionOverlayComponent
+public sealed partial class NightVisionEyeComponent : SwitchableVisionOverlayComponent
 {
     public override EntProtoId? ToggleAction { get; set; } = "ToggleNightVision";
 

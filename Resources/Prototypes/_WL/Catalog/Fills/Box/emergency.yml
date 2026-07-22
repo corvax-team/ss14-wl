@@ -19,7 +19,7 @@
     - state: internals
     - state: nitrogentank
   - type: Label
-    currentLabel: biorobotic-box-label
+    localizedLabel: biorobotic-box-label
 
 - type: entity
   parent: BoxSurvivalBiorobotic
@@ -148,4 +148,4 @@
     - state: internals
     - state: nitrogentank
   - type: Label
-    currentLabel: biorobotic-box-label
+    localizedLabel: biorobotic-box-label

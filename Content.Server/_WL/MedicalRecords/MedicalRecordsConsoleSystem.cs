@@ -1,6 +1,8 @@
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
-using Content.Server.StationRecords.Systems;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Events;
+using Content.Shared.StationRecords.Systems;
 using Content.Shared._WL.Languages;
 using Content.Shared._WL.MedicalRecords;
 using Content.Shared._WL.MedicalRecords.Components;
@@ -26,7 +28,6 @@ public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<MedicalRecordsConsoleComponent, RecordModifiedEvent>(UpdateUserInterface);
-        SubscribeLocalEvent<MedicalRecordsConsoleComponent, AfterGeneralRecordCreatedEvent>(UpdateUserInterface);
 
         Subs.BuiEvents<MedicalRecordsConsoleComponent>(MedicalRecordsConsoleKey.Key, subs =>
         {

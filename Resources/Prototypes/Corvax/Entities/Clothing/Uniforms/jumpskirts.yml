@@ -97,3 +97,14 @@
       sprite: _WL/Clothing/Uniforms/Jumpskirt/pilot.rsi # WL-redo-427-resprite
     - type: Clothing
       sprite: _WL/Clothing/Uniforms/Jumpskirt/pilot.rsi # WL-redo-427-resprite
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMagistrate
+  name: magistrate's jumpskirt
+  description: Judge of space law.
+  components:
+  - type: Sprite
+    sprite: Corvax/Clothing/Uniforms/Jumpskirt/magistrate.rsi
+  - type: Clothing
+    sprite: Corvax/Clothing/Uniforms/Jumpskirt/magistrate.rsi

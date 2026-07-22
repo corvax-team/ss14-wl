@@ -17,6 +17,17 @@ namespace Content.Client.RCD;
 [UsedImplicitly]
 public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
 {
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private PopupSystem _popup = default!;
+
+    // WL-Changes: dehardcode start
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private RCDSystem _rcd = default!;
+    [Dependency] private HandsSystem _hands = default!; // Ignition
+    // WL-Changes: dehardcode end
+    private SimpleRadialMenu? _menu;
+
     private const string TopLevelActionCategory = "Main";
 
     // WL-Changes: dehardcode // commented
@@ -32,23 +43,8 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
 
     private bool IsRpd => EntMan.TryGetComponent<RCDComponent>(Owner, out var rcd) && rcd.IsRpd; // WL-Changes: rpd port from FunkyStation
 
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
-    [Dependency] private ISharedPlayerManager _playerManager = default!;
-
-    // WL-Changes-start: dehardcode
-    [Dependency] private IEntityManager _entityManager = default!;
-    private RCDSystem _rcd;
-    private HandsSystem _hands; // Ignition
-    // WL-Changes-end
-    private SimpleRadialMenu? _menu;
-
     public RCDMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
-        IoCManager.InjectDependencies(this);
-        // WL-Changes-start: dehardcode
-        _rcd = _entityManager.System<RCDSystem>();
-        _hands = _entityManager.System<HandsSystem>();
-        // WL-Changes-end
     }
 
     protected override void Open()
@@ -160,8 +156,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
         }
 
         // Popup message
-        var popup = EntMan.System<PopupSystem>();
-        popup.PopupClient(msg, Owner, _playerManager.LocalSession.AttachedEntity);
+        _popup.PopupEntity(msg, Owner);
     }
 
     private string GetTooltip(RCDPrototype proto)

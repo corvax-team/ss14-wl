@@ -9,18 +9,16 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Roles;
 
 public sealed partial class RoleSystem : SharedRoleSystem
 {
     [Dependency] private IChatManager _chat = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
-// WL-Changes: start
+    // WL-Changes: start
     [Dependency] private IServerPreferencesManager _servPrefMan = default!;
     [Dependency] private IPlayerManager _playMan = default!;
-// WL-Changes: end
+    // WL-Changes: end
 
     public string? MindGetBriefing(EntityUid? mindId)
     {
@@ -93,7 +91,7 @@ public sealed partial class RoleSystem : SharedRoleSystem
         if (!profile.JobSubnames.TryGetValue(jobId, out var subname))
             return null;
 
-        if (_proto.TryIndex<JobPrototype>(jobId, out var proto))
+        if (ProtoMan.TryIndex<JobPrototype>(jobId, out var proto))
             if (!proto.GetSubnames(profile.Gender).Contains(subname))
                 return proto.LocalizedName;
 
@@ -112,7 +110,7 @@ public sealed partial class RoleSystem : SharedRoleSystem
         if (!profile.JobSubnames.TryGetValue(jobId, out var subname))
             return null;
 
-        if (_proto.TryIndex<JobPrototype>(jobId, out var proto))
+        if (ProtoMan.TryIndex<JobPrototype>(jobId, out var proto))
             if (!proto.GetSubnames(profile.Gender).Contains(subname))
                 return proto.LocalizedName;
 
@@ -124,7 +122,7 @@ public sealed partial class RoleSystem : SharedRoleSystem
         if (!Player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        if (!_proto.Resolve(mind.RoleType, out var proto))
+        if (!ProtoMan.Resolve(mind.RoleType, out var proto))
             return;
 
         var roleText = Loc.GetString(proto.Name);

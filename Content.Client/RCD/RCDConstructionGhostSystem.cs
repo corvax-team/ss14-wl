@@ -22,7 +22,6 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
 
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IPlacementManager _placementManager = default!;
-    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private HandsSystem _hands = default!;
 
     private Direction _placementDirection = default;
@@ -56,7 +55,7 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
             var placerEntity = _placementManager.CurrentPermission?.MobUid;
 
             if (!TryComp<RCDComponent>(placerEntity, out var rcd) ||
-                string.IsNullOrEmpty(_protoManager.Index(rcd.ProtoId).MirrorPrototype))
+                string.IsNullOrEmpty(ProtoMan.Index(rcd.ProtoId).MirrorPrototype))
                 return false;
 
             _useMirrorPrototype = !rcd.UseMirrorPrototype;
@@ -108,7 +107,7 @@ public sealed partial class RCDConstructionGhostSystem : EntitySystem
         // WL-Changes-start: rpd port from FunkyStation
         // Determine if mirrored
         // WL-Changes-start: update code from port
-        var curProto = _protoManager.Index<RCDPrototype>(rcd.ProtoId);
+        var curProto = ProtoMan.Index<RCDPrototype>(rcd.ProtoId);
         var wantMirror = _useMirrorPrototype && !string.IsNullOrEmpty(curProto.MirrorPrototype);
         var prototype = wantMirror ? curProto.MirrorPrototype : curProto.Prototype;
 

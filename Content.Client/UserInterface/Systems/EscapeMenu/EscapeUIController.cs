@@ -1,5 +1,4 @@
-using Content.Client._WL.DiscordAuth;
-﻿using Content.Client.FeedbackPopup;
+using Content.Client.FeedbackPopup;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -28,9 +27,6 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
     [Dependency] private OptionsUIController _options = default!;
     [Dependency] private GuidebookUIController _guidebook = default!;
     [Dependency] private FeedbackPopupUIController _feedback = null!;
-    //WL-Changes-start
-    [Dependency] private PlayerSessionInfoUIController _sessionInfo = default!;
-    //WL-Changes-end
 
     private Options.UI.EscapeMenu? _escapeWindow;
 
@@ -68,14 +64,6 @@ public sealed partial class EscapeUIController : UIController, IOnStateEntered<G
 
         _escapeWindow.OnClose += DeactivateButton;
         _escapeWindow.OnOpen += ActivateButton;
-
-        //WL-Changes-start
-        _escapeWindow.SessionInfoButton.OnPressed += _ =>
-        {
-            CloseEscapeWindow();
-            _sessionInfo.ToggleWindow();
-        };
-        //WL-Changes-end
 
         _escapeWindow.FeedbackButton.OnPressed += _ =>
         {

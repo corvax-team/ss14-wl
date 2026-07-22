@@ -57,6 +57,8 @@ namespace Content.Server.Corvax.StationGoal
             ═════════════════════════════════════════
             [italic]Место для печатей[/italic]
             """;
+        [Dependency] private IPlayerManager _playerManager = default!;
+        [Dependency] private IConfigurationManager _cfg = default!;
 
         public override void Initialize()
         {

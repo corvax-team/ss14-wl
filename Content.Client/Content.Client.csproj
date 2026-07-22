@@ -41,4 +41,5 @@
       <DependentUpon>PhotoCameraWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
+  <Import Project="..\RobustToolbox\MSBuild\Robust.EntitySystemSubscriptionsGenerator.targets" />
 </Project>

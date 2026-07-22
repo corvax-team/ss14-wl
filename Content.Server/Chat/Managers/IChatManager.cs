@@ -50,8 +50,6 @@ namespace Content.Server.Chat.Managers
         /// <returns>False if the player has violated rate limits and should be blocked from sending further messages.</returns>
         RateLimitStatus HandleRateLimit(ICommonSession player);
 
-        //WL-Changes-start
-        event Action<ChatMessage> OnAfterChatMessage;
-        //WL-Changes-end
+        string PrependFollowButtonIfAppropriate(string wrappedMessage, EntityUid source, INetChannel recipient);
     }
 }

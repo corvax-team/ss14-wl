@@ -111,10 +111,7 @@
       types:
         Piercing: 5
   - type: Vocal
-    sounds:
-      Male: Mouse
-      Female: Mouse
-      Unsexed: Mouse
+    emoteSounds: Mouse
   - type: Stamina
     baseCritThreshold: 60
   - type: DamageOnHighSpeedImpact

@@ -88,10 +88,7 @@ namespace Content.Server._WL.Administration.Commands
             if (args.Length != 6)
                 return;
 
-            var dayColor = Color.TryFromHex(args[4]);
-            var nightColor = Color.TryFromHex(args[5]);
-
-            if (dayColor is null || nightColor is null)
+            if (!Color.TryFromHex(args[4], out var _) || !Color.TryFromHex(args[5], out var _))
             {
                 shell.WriteError(Loc.GetString("shell-invalid-color-hex"));
                 return;

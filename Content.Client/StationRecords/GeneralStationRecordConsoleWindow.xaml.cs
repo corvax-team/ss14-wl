@@ -88,26 +88,31 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         // WL-Records-end
     }
 
-    public void UpdateState(GeneralStationRecordConsoleState state)
+    public void UpdateState(uint? selectedKey,
+        GeneralStationRecord? record,
+        Dictionary<uint, string>? recordListing,
+        StationRecordsFilter? filter,
+        bool canDeleteEntries,
+        bool canPrintRecords) // WL-Changes: Records
     {
-        if (state.Filter != null)
+        if (filter != null)
         {
-            if (state.Filter.Type != _currentFilterType)
+            if (filter.Type != _currentFilterType)
             {
-                _currentFilterType = state.Filter.Type;
+                _currentFilterType = filter.Type;
             }
 
-            if (state.Filter.Value != StationRecordsFiltersValue.Text)
+            if (filter.Value != StationRecordsFiltersValue.Text)
             {
-                StationRecordsFiltersValue.Text = state.Filter.Value;
+                StationRecordsFiltersValue.Text = filter.Value;
             }
         }
 
         StationRecordsFilterType.SelectId((int)_currentFilterType);
 
-        PrintButton.Disabled = !state.CanPrintRecords; // WL-Records
+        PrintButton.Disabled = !canPrintRecords; // WL-Changes: Records
 
-        if (state.RecordListing == null)
+        if (recordListing == null)
         {
             RecordListingStatus.Visible = true;
             RecordListing.Visible = false;
@@ -121,17 +126,17 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         RecordListing.Visible = true;
         RecordContainer.Visible = true;
 
-        PopulateRecordListing(state.RecordListing!, state.SelectedKey);
+        PopulateRecordListing(recordListing, selectedKey);
 
-        RecordContainerStatus.Visible = state.Record == null;
+        RecordContainerStatus.Visible = record == null;
 
-        if (state.Record != null)
+        if (record != null)
         {
-            RecordContainerStatus.Visible = state.SelectedKey == null;
-            RecordContainerStatus.Text = state.SelectedKey == null
+            RecordContainerStatus.Visible = selectedKey == null;
+            RecordContainerStatus.Text = selectedKey == null
                 ? Loc.GetString("general-station-record-console-no-record-found")
                 : Loc.GetString("general-station-record-console-select-record-info");
-            PopulateRecordContainer(state.Record, state.CanDeleteEntries, state.SelectedKey);
+            PopulateRecordContainer(record, canDeleteEntries, selectedKey);
         }
         else
         {

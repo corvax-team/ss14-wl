@@ -5,7 +5,6 @@ using Content.Shared.GameTicking;
 using Content.Shared.Lathe;
 using Content.Shared.Paper;
 using Content.Shared.Station;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Corvax.Documents;
 

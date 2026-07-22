@@ -15,3 +15,10 @@
   minHeight: 140
   maxHeight: 180
   # WL-Changes-end: Height
+  defaultSoundsBySex:
+  - MaleTajaran
+  - FemaleTajaran
+  - MaleTajaran
+  voices:
+  - MaleTajaran
+  - FemaleTajaran

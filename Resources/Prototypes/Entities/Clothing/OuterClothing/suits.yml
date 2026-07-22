@@ -151,6 +151,8 @@
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodRad
     slot: head
+    verbText: toggle-clothing-verb-hood
+    action: ActionToggleSuitPiece
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -194,6 +196,7 @@
     - type: Stealth
       minVisibility: 0.1
       lastVisibility: 0.1
+      shimmerFrequency: 0.05
   - type: PowerCellDraw
     drawRate: 1.8 # 200 seconds on the default cell
   - type: ToggleCellDraw
@@ -294,6 +297,8 @@
     sprite: Clothing/OuterClothing/Suits/iansuit.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodIan
+    verbText: toggle-clothing-verb-hood
+    action: ActionToggleSuitPiece
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
@@ -305,8 +310,8 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: AddAccentClothing
-    accent: BarkAccent
+  - type: BarkAccent
+    relayAccent: true
 
 - type: entity
   parent: ClothingOuterBase
@@ -323,6 +328,8 @@
     sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodCarp
+    verbText: toggle-clothing-verb-hood
+    action: ActionToggleSuitPiece
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}

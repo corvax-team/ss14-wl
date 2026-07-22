@@ -38,5 +38,5 @@
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
-  - type: NightVision
+  - type: NightVisionEye
     isEquipment: true

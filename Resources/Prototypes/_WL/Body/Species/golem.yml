@@ -254,10 +254,7 @@
      - type: TypingIndicator
        proto: golem
      - type: Vocal
-       sounds:
-         Male: UnisexGolem
-         Female: UnisexGolem
-         Unsexed: UnisexGolem
+       emoteSounds: UnisexGolem
      - type: BodyEmotes
        soundsId: GolemBodyEmotes
      - type: Physics
