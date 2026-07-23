@@ -41,7 +41,7 @@
 - type: skinColoration
   id: HumanToned
   strategy: !type:HumanTonedSkinColoration {}
-  realisticColors: true
+  realisticColors: false
 
 - type: skinColoration
   id: VulpkaninColors
