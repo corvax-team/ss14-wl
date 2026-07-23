@@ -292,7 +292,7 @@
            volume: -15
      - type: GolemHeat
      - type: GolemAccent
-#     - type: IgnoreClothingSlowdown         ////////////////////////////////////////////////////////////////////////////////
+     - type: IgnoreClothingSlowdown
      - type: AtmosExposed
      # Костыльный компонент, не трогать, автотест требует наличия этого компонента
      - type: Respirator

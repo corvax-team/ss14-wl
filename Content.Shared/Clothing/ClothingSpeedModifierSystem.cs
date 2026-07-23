@@ -9,7 +9,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 // #WL-changes-start
-//using Content.Shared._WL.Clothing;
+using Content.Shared._WL.Clothing;
 // #WL-changes-end
 
 namespace Content.Shared.Clothing;
@@ -66,9 +66,9 @@ public sealed partial class ClothingSpeedModifierSystem : EntitySystem
             return;
 
         // #WL-changes-start
-//        if (HasComp<IgnoreClothingSlowdownComponent>(args.Owner) &&
-//            (component.WalkModifier < 1f || component.SprintModifier < 1f))
-//            return;
+        if (HasComp<IgnoreClothingSlowdownComponent>(args.Owner) &&
+            (component.WalkModifier < 1f || component.SprintModifier < 1f))
+            return;
         // #WL-changes-end
 
         args.Args.ModifySpeed(component.WalkModifier, component.SprintModifier);
