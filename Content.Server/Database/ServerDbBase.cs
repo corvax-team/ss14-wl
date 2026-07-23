@@ -195,6 +195,7 @@ namespace Content.Server.Database
         private static async Task DeleteCharacterSlot(ServerDbContext db, NetUserId userId, int slot)
         {
             var profile = await db.Profile.Include(p => p.Preference)
+                .Include(p => p.JobSubnames)
                 .Where(p => p.Preference.UserId == userId.UserId && p.Slot == slot)
                 .SingleOrDefaultAsync();
 
