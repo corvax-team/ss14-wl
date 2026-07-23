@@ -98,7 +98,7 @@ namespace Content.Client.Lobby.UI
             // WL-Changes-Start
             if (index == -1)
             {
-                Log.Error($"Subrole {subname} not found");
+                Log.Debug($"Subrole {subname} not found");
                 return;
             }
             // WL-Changes-End
