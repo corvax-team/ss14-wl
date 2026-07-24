@@ -58,6 +58,19 @@ public abstract partial class SharedRoleSystem : EntitySystem
             Log.Error($"Unknown JobRequirementOverridePrototype: {value}");
     }
 
+    // WL-Changes-start
+    public string? GetSubname(HumanoidCharacterProfile profile, ProtoId<JobPrototype> jobId)
+    {
+        if (!profile.JobSubnames.TryGetValue(jobId, out var subname))
+            return null;
+
+        if (ProtoMan.TryIndex(jobId, out var proto) && !proto.GetSubnames(profile.Gender).Contains(subname))
+            return proto.LocalizedName;
+
+        return subname;
+    }
+    // WL-Changes-end
+
     /// <summary>
     ///     Adds multiple mind roles to a mind
     /// </summary>
