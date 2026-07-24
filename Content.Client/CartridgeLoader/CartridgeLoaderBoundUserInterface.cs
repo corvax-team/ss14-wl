@@ -66,7 +66,7 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
     protected void ActivateCartridge(EntityUid cartridgeUid)
     {
         var message = new CartridgeLoaderUiMessage(_entManager.GetNetEntity(cartridgeUid), CartridgeUiMessageAction.Activate);
-        SendPredictedMessage(message);
+        SendMessage(message); // WL-Changes-start
     }
 
     protected void DeactivateActiveCartridge()
@@ -132,7 +132,7 @@ public abstract class CartridgeLoaderBoundUserInterface : BoundUserInterface
     private void SendCartridgeUiReadyEvent(EntityUid cartridgeUid)
     {
         var message = new CartridgeLoaderUiMessage(_entManager.GetNetEntity(cartridgeUid), CartridgeUiMessageAction.UIReady);
-        SendMessage(message);
+        SendPredictedMessage(message); // WL-Changes-start
     }
 
     private UIFragment? RetrieveCartridgeUI(EntityUid? cartridgeUid)
