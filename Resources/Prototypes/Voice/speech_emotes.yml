@@ -94,11 +94,11 @@
   category: Vocal
   icon: Interface/Emotes/honk.png
   whitelist:
-    requireAll: true
-    components:
-    - Vocal
+  # WL-Changes-start
     tags:
     - SiliconEmotes
+    - AndroidBodyTag
+  # WL-Changes-end
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
     - honk
@@ -645,11 +645,11 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   whitelist:
-    requireAll: true
-    components:
-    - Vocal
-    tags:
-    - SiliconEmotes
+  # WL-Changes-start
+     tags:
+     - SiliconEmotes
+     - AndroidBodyTag
+  # WL-Changes-end
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
     - buzzing

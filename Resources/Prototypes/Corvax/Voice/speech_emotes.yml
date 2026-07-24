@@ -136,6 +136,11 @@
     components:
     - Vocal
     - BorgChassis
+  # WL-Changes-start
+  blacklist:
+    tags:
+    - AndroidBodyTag
+  # WL-Changes-end
   chatMessages: ["chat-emote-msg-honk"]
   chatTriggers:
     - хонкает
