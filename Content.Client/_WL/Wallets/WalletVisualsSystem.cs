@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Numerics;
-using Content.Shared._WL.Wallet;
+using Content.Shared._WL.Wallets;
 using Robust.Client.GameObjects;
 using Robust.Shared.Containers;
 
-namespace Content.Client._WL.Wallet;
+namespace Content.Client._WL.Wallets;
 
 public sealed partial class WalletVisualsSystem : EntitySystem
 {

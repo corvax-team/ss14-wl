@@ -1,5 +1,5 @@
 using System.Globalization;
-using Content.Shared._WL.Wallet; // WL-Changes: Wallet
+using Content.Shared._WL.Wallets; // WL-Changes: Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;

@@ -4,7 +4,7 @@ using Content.Shared.Storage;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._WL.Wallet;
+namespace Content.Shared._WL.Wallets;
 
 public sealed partial class WalletSystem : EntitySystem
 {
@@ -46,7 +46,7 @@ public sealed partial class WalletSystem : EntitySystem
         }
     }
 
-    private void UpdateIdSlot(Entity<WalletComponent> ent, BaseContainer container)
+    private void UpdateIdSlot(Entity<Wallets.WalletComponent> ent, BaseContainer container)
     {
         if (container.ID != ent.Comp.IdSlotId)
             return;

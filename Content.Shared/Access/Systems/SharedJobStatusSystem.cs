@@ -1,4 +1,4 @@
-using Content.Shared._WL.Wallet; // WL-Changes: Wallets
+using Content.Shared._WL.Wallets; // WL-Changes: Wallets
 using Content.Shared.Access.Components;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
