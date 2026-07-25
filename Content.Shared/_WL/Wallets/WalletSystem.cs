@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Storage;
 using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 
@@ -33,6 +34,16 @@ public sealed partial class WalletSystem : EntitySystem
     {
         if (ent.Comp.ContainedId is { } id)
             args.Entities.Add(id);
+
+        // Needed for Syndie wallet
+        if (!ent.Comp.CopyAccesses || !TryComp<StorageComponent>(ent, out var storage))
+            return;
+
+        foreach (var stored in storage.Container.ContainedEntities)
+        {
+            if (HasComp<IdCardComponent>(stored))
+                args.Entities.Add(stored);
+        }
     }
 
     private void UpdateIdSlot(Entity<WalletComponent> ent, BaseContainer container)

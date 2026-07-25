@@ -17,4 +17,7 @@ public sealed partial class WalletComponent : Component
 
     [DataField]
     public Vector2 IdOffset = new(-0.17f, 0.02f);
+
+    [DataField, AutoNetworkedField]
+    public bool CopyAccesses;
 }

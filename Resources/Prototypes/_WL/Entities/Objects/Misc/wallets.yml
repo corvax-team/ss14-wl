@@ -39,6 +39,7 @@
       - IdCard # Hiding cards from others, kinda cool
       - IgnitionSource # For lighters
       - Cash
+      - Injector # Hypospray and medipens
     blacklist:
       tags:
       - CigPack
@@ -63,7 +64,7 @@
   parent: Wallet
   id: WalletWhite
   name: white wallet
-  description: A small leather wallet. It has a slot for an id-card. 
+  description: A small leather wallet. It has a slot for an id-card.
   components:
   - type: Sprite
     sprite: _WL/Objects/Misc/Wallets/white.rsi
@@ -112,3 +113,8 @@
   components:
   - type: Sprite
     sprite: _WL/Objects/Misc/Wallets/syndie.rsi
+  - type: Wallet
+    copyAccesses: true
+  - type: Storage
+    grid:
+    - 0,0,4,1
