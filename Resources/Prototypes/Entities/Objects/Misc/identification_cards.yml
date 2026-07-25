@@ -311,7 +311,7 @@
   name: medical ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi #WL resprite
+    # sprite: Objects/Misc/id_cards.rsi #WL resprite
     layers:
     - state: default
     # - state:stripe_top #WL-Resprite
