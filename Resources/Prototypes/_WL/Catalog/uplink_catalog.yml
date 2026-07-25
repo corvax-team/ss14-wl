@@ -114,7 +114,7 @@
 - type: listing
   id: UplinkSyndicateWallet
   name: uplink-syndicate-wallet-name
-  description: uplink-syndicate-wallet-description
+  description: uplink-syndicate-wallet-desc
   productEntity: WalletSyndicate
   cost:
     Telecrystal: 1
