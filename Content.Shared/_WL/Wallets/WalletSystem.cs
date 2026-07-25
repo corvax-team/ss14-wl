@@ -46,7 +46,7 @@ public sealed partial class WalletSystem : EntitySystem
         }
     }
 
-    private void UpdateIdSlot(Entity<Wallets.WalletComponent> ent, BaseContainer container)
+    private void UpdateIdSlot(Entity<WalletComponent> ent, BaseContainer container)
     {
         if (container.ID != ent.Comp.IdSlotId)
             return;
