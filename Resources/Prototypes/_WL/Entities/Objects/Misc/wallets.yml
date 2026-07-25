@@ -38,6 +38,7 @@
       - Passport
       - IdCard # Hiding cards from others, kinda cool
       - IgnitionSource # For lighters
+      - Cash
     blacklist:
       tags:
       - CigPack
@@ -57,3 +58,57 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+
+- type: entity
+  parent: Wallet
+  id: WalletWhite
+  name: white wallet
+  description: A small leather wallet. It has a slot for an id-card. 
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/white.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletBlack
+  name: black wallet
+  description: A small leather wallet. It has a slot for an id-card.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/black.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletTanned
+  name: tanned wallet
+  description: A small leather wallet. It has a slot for an id-card.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/tanned.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletPink
+  name: wallet
+  description: A small leather wallet. It has a slot for an id-card. Looks pretty glamourous.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/pink.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletNanotrasen
+  name: blue wallet
+  description: A small leather wallet. It has a slot for an id-card. Looks like a corporate merch.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/nt.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletSyndicate
+  name: blood-red wallet
+  description: A small leather wallet. It has a slot for an id-card. Looks ominous.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/syndie.rsi
