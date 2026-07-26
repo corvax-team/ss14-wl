@@ -53,11 +53,10 @@ public sealed partial class WalletSystem : EntitySystem
 
         var hasId = container.ContainedEntities.Count > 0;
         ent.Comp.ContainedId = hasId ? container.ContainedEntities[0] : null;
-
-        Dirty(ent);
-
         _appearance.SetData(ent, WalletVisuals.HasId, hasId);
         _jobStatus.UpdateStatus(Transform(ent).ParentUid);
+
+        Dirty(ent);
     }
 }
 
