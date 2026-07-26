@@ -1,10 +1,12 @@
 using System.Numerics;
 using Content.Client.Gameplay;
 using Content.Client.Hands.Systems;
+using Content.Shared.Administration;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.RCD.Components;
 using Content.Shared.RCD.Systems;
+using Robust.Client.Graphics;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Client.State;
@@ -16,7 +18,6 @@ namespace Content.Client.RCD;
 public sealed partial class AlignRCDConstruction : PlacementMode
 {
     [Dependency] private IEntityManager _entityManager = default!;
-    [Dependency] private IMapManager _mapManager = default!;
     private readonly SharedMapSystem _mapSystem;
     private readonly HandsSystem _handsSystem;
     private readonly RCDSystem _rcdSystem;
@@ -43,10 +44,28 @@ public sealed partial class AlignRCDConstruction : PlacementMode
         ValidPlaceColor = ValidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
     }
 
+    // WL-Changes-start
+    public override void Render(in OverlayDrawArgs args)
+    {
+        if (_playerManager.LocalSession?.AttachedEntity is not { } player ||
+            !_handsSystem.TryGetActiveItem(player, out var held) ||
+            !_entityManager.TryGetComponent<RCDComponent>(held.Value, out var rcd))
+            return;
+
+        var range = rcd.Range > 0 ? rcd.Range : SharedInteractionSystem.MaxRaycastRange;
+
+        if (!_entityManager.TryGetComponent<TransformComponent>(player, out var xform) ||
+            !_transformSystem.InRange(xform.Coordinates, MouseCoords, range))
+            return;
+
+        base.Render(args);
+    }
+    // WL-Changes-end
+
     public override void AlignPlacementMode(ScreenCoordinates mouseScreen)
     {
         _unalignedMouseCoords = ScreenToCursorGrid(mouseScreen);
-        MouseCoords = _unalignedMouseCoords.AlignWithClosestGridTile(SearchBoxSize, _entityManager, _mapManager);
+        MouseCoords = _unalignedMouseCoords.AlignWithClosestGridTile(SearchBoxSize, _entityManager);
 
         var gridId = _transformSystem.GetGrid(MouseCoords);
 
@@ -78,7 +97,18 @@ public sealed partial class AlignRCDConstruction : PlacementMode
         if (!_entityManager.TryGetComponent<TransformComponent>(player, out var xform))
             return false;
 
-        if (!_transformSystem.InRange(xform.Coordinates, position, SharedInteractionSystem.InteractionRange))
+        // WL-Changes-start
+
+        // Determine if player is carrying an RCD in their active hand
+        if (!_handsSystem.TryGetActiveItem(player.Value, out var heldEntity))
+            return false;
+
+        if (!_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
+            return false;
+
+        var range = rcd.Range > 0 ? rcd.Range : SharedInteractionSystem.MaxRaycastRange;
+
+        if (!_transformSystem.InRange(xform.Coordinates, position, range))
         {
             InvalidPlaceColor = InvalidPlaceColor.WithAlpha(0);
             return false;
@@ -90,12 +120,7 @@ public sealed partial class AlignRCDConstruction : PlacementMode
             InvalidPlaceColor = InvalidPlaceColor.WithAlpha(PlaceColorBaseAlpha);
         }
 
-        // Determine if player is carrying an RCD in their active hand
-        if (!_handsSystem.TryGetActiveItem(player.Value, out var heldEntity))
-            return false;
-
-        if (!_entityManager.TryGetComponent<RCDComponent>(heldEntity, out var rcd))
-            return false;
+        // WL-Changes-end
 
         var gridUid = _transformSystem.GetGrid(position);
         if (!_entityManager.TryGetComponent<MapGridComponent>(gridUid, out var mapGrid))

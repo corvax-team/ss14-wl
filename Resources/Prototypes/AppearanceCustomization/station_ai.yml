@@ -22,6 +22,15 @@
   - StationAiHologramFace
   - StationAiHologramCat
   - StationAiHologramDog
+  # WL-Changes: new AI form start
+  - StationAiHologramBeachball
+  - StationAiHologramMale2
+  - StationAiHologramMonster
+  - StationAiHologramOrb
+  - StationAiHologramDoll
+  - StationAiHologramXeno
+  - StationAiHologramCloudkat
+  # WL-Changes: new AI form end
 
 # Iconography
 - type: stationAiCustomization
@@ -161,3 +170,67 @@
     Hologram:
       sprite: Mobs/Silicon/holograms.rsi
       state: ai_dog
+
+#WL
+- type: stationAiCustomization
+  id: StationAiHologramBeachball
+  name: station-ai-hologram-beachball
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: Mobs/Silicon/holograms.rsi
+      state: ai_beachball
+
+- type: stationAiCustomization
+  id: StationAiHologramMale2
+  name: station-ai-hologram-male2
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: Mobs/Silicon/holograms.rsi
+      state: ai_male2
+
+- type: stationAiCustomization
+  id: StationAiHologramMonster
+  name: station-ai-hologram-monster
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: Mobs/Silicon/holograms.rsi
+      state: ai_monster
+
+- type: stationAiCustomization
+  id: StationAiHologramOrb
+  name: station-ai-hologram-orb
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: Mobs/Silicon/holograms.rsi
+      state: ai_orb
+
+- type: stationAiCustomization
+  id: StationAiHologramDoll
+  name: station-ai-hologram-doll
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: Mobs/Silicon/holograms.rsi
+      state: ai_doll
+
+- type: stationAiCustomization
+  id: StationAiHologramXeno
+  name: station-ai-hologram-xeno
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: Mobs/Silicon/holograms.rsi
+      state: ai_xeno
+
+- type: stationAiCustomization
+  id: StationAiHologramCloudkat
+  name: station-ai-hologram-cloudkat
+  previewKey: Hologram
+  layerData:
+    Hologram:
+      sprite: Mobs/Silicon/holograms.rsi
+      state: ai_cloudkat

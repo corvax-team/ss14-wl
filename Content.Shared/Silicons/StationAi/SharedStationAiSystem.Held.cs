@@ -1,11 +1,13 @@
 using Content.Shared.Actions.Events;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Interaction; // Wl-Changes
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Doors.Components; // Wl-Changes
 
 namespace Content.Shared.Silicons.StationAi;
 
@@ -15,34 +17,27 @@ public abstract partial class SharedStationAiSystem
      * Added when an entity is inserted into a StationAiCore.
      */
 
-    //TODO: Fix this, please
-    private const string JobNameLocId = "job-name-station-ai";
-
     private void InitializeHeld()
     {
         SubscribeLocalEvent<StationAiRadialMessage>(OnRadialMessage);
         SubscribeLocalEvent<StationAiWhitelistComponent, BoundUserInterfaceMessageAttempt>(OnMessageAttempt);
         SubscribeLocalEvent<StationAiWhitelistComponent, GetVerbsEvent<AlternativeVerb>>(OnTargetVerbs);
+        SubscribeLocalEvent<StationAiWhitelistComponent, ActivateInWorldEvent>(OnWhitelistActivate); // Wl-Changes
+        SubscribeLocalEvent<StationAiWhitelistComponent, InteractHandEvent>(OnWhitelistInteractHand); // Wl-Changes
 
         SubscribeLocalEvent<StationAiHeldComponent, InteractionAttemptEvent>(OnHeldInteraction);
         SubscribeLocalEvent<StationAiHeldComponent, AttemptRelayActionComponentChangeEvent>(OnHeldRelay);
         SubscribeLocalEvent<StationAiHeldComponent, JumpToCoreEvent>(OnCoreJump);
 
-        SubscribeLocalEvent<TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
+        SubscribeLocalEvent<StationAiHeldComponent, TryGetIdentityShortInfoEvent>(OnTryGetIdentityShortInfo);
     }
 
-    private void OnTryGetIdentityShortInfo(TryGetIdentityShortInfoEvent args)
+    private void OnTryGetIdentityShortInfo(Entity<StationAiHeldComponent> ent, ref TryGetIdentityShortInfoEvent args)
     {
         if (args.Handled)
-        {
             return;
-        }
 
-        if (!HasComp<StationAiHeldComponent>(args.ForActor))
-        {
-            return;
-        }
-        args.Title = $"{Name(args.ForActor)} ({Loc.GetString(JobNameLocId)})";
+        args.Title = $"{Name(args.Target)} ({Loc.GetString("job-name-station-ai")})";
         args.Handled = true;
     }
 
@@ -166,6 +161,51 @@ public abstract partial class SharedStationAiSystem
         }
     }
 
+    /// WL-Changes: AiDoorInteract start
+    /// <summary>
+    /// Attempts to toggle a door if the user is a Station AI and the target door
+    /// has an enabled <see cref="StationAiWhitelistComponent"/>.
+    /// </summary>
+    private bool TryAiToggleDoor(EntityUid target, EntityUid user)
+    {
+        if (!HasComp<StationAiHeldComponent>(user))
+            return false;
+
+        if (!TryComp<StationAiWhitelistComponent>(target, out var whitelist) || !whitelist.Enabled)
+            return false;
+
+        if (!TryComp<DoorComponent>(target, out var door))
+            return false;
+
+        _doors.TryToggleDoor(target, door, user, predicted: true);
+        return true;
+    }
+
+    /// <summary>
+    /// Handles hand interaction with a Station AI whitelisted entity,
+    /// allowing the AI to toggle the door.
+    /// </summary>
+    private void OnWhitelistInteractHand(Entity<StationAiWhitelistComponent> ent, ref InteractHandEvent args)
+    {
+        if (args.Handled) return;
+
+        if (TryAiToggleDoor(ent.Owner, args.User))
+            args.Handled = true;
+    }
+
+    /// <summary>
+    /// Handles world activation of a Station AI whitelisted entity,
+    /// allowing the AI to toggle the door.
+    /// </summary>
+    private void OnWhitelistActivate(Entity<StationAiWhitelistComponent> ent, ref ActivateInWorldEvent args)
+    {
+        if (args.Handled) return;
+
+        if (TryAiToggleDoor(ent.Owner, args.User))
+            args.Handled = true;
+    }
+    /// WL-Changes: AiDoorInteract end
+
     private void OnTargetVerbs(Entity<StationAiWhitelistComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!_uiSystem.HasUi(args.Target, AiUi.Key))
@@ -204,12 +244,12 @@ public abstract partial class SharedStationAiSystem
 
     private void ShowDeviceNotRespondingPopup(EntityUid toEntity)
     {
-        _popup.PopupClient(Loc.GetString("ai-device-not-responding"), toEntity, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString("ai-device-not-responding"), toEntity, toEntity, PopupType.MediumCaution);
     }
 
     private void ShowDeviceNoAccessPopup(EntityUid toEntity)
     {
-        _popup.PopupClient(Loc.GetString("ai-device-no-access"), toEntity, PopupType.MediumCaution);
+        _popup.PopupEntity(Loc.GetString("ai-device-no-access"), toEntity, toEntity, PopupType.MediumCaution);
     }
 }
 

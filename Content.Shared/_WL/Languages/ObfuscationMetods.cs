@@ -168,10 +168,16 @@ public sealed partial class ByCharReplacementObfuscation : ObfuscationMethod
     public bool Randlength = true;
 
     [DataField]
-    public int Minlength = 3;
+    public int Minlength = 1;
 
     [DataField]
     public int Maxlength = 10;
+
+    [DataField]
+    public float Prob = 1f;
+
+    [DataField]
+    public int Accuracy = 1000;
 
     [DataField]
     public List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
@@ -214,7 +220,9 @@ public sealed partial class ByCharReplacementObfuscation : ObfuscationMethod
             }
             else
             {
-                buffer += buffer * 41 + ch;
+                if (PseudoRandom(buffer, global_seed, 0, Accuracy) < Prob * Accuracy)
+                    buffer += buffer * 41 + ch;
+
                 counter++;
             }
         }

@@ -21,3 +21,9 @@
   # WL-Changes-end
   sexes:
   - Unsexed
+  defaultSoundsBySex:
+  - UnsexedIpc
+  - UnsexedIpc
+  - UnsexedIpc
+  voices:
+  - UnsexedIpc

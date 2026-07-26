@@ -1,3 +1,4 @@
+using Content.Shared._WL.Wallets; // WL-Changes: Wallets
 using Content.Shared.Access.Components;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
@@ -11,7 +12,6 @@ namespace Content.Shared.Access.Systems;
 public abstract partial class SharedJobStatusSystem : EntitySystem
 {
     [Dependency] private AccessReaderSystem _accessReader = default!;
-    [Dependency] private IPrototypeManager _prototype = default!;
 
     private static readonly ProtoId<JobIconPrototype> JobIconForNoId = "JobIconNoId";
 
@@ -55,11 +55,35 @@ public abstract partial class SharedJobStatusSystem : EntitySystem
                     iconId = id.JobIcon;
                     break;
                 }
+
+                // WL-Changes-Start: Wallet
+                if (TryComp<WalletComponent>(item, out var wallet)
+                    && wallet.ContainedId != null
+                    && TryComp(wallet.ContainedId, out id))
+                {
+                    iconId = id.JobIcon;
+                    break;
+                }
+                // WL-Changes-End
             }
         }
 
         ent.Comp.JobStatusIcon = iconId;
-        ent.Comp.IsCrew = _prototype.Index(iconId).IsCrewJob;
+        ent.Comp.IsCrew = ProtoMan.Index(iconId).IsCrewJob;
         Dirty(ent);
+    }
+
+    /// <summary>
+    /// Updates the job status of the entity wearing/holding the given ID card.
+    /// </summary>
+    public void UpdateIdHolderStatus(EntityUid idCard)
+    {
+        var holder = Transform(idCard).ParentUid;
+
+        // ID is inside a PDA, ascend to whoever is wearing/holding the PDA.
+        if (HasComp<PdaComponent>(holder))
+            holder = Transform(holder).ParentUid;
+
+        UpdateStatus(holder);
     }
 }

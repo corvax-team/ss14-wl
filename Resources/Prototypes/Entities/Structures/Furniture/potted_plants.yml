@@ -31,6 +31,23 @@
     tryInsertItemSound: /Audio/Effects/plant_rustle.ogg
     tryRemoveItemSound: /Audio/Effects/plant_rustle.ogg
     secretStashName: secret-stash-plant
+  # WL-Changes-Start
+  - type: EmitSoundOnPickup
+    sound:
+      collection: PottedPlantsPickup
+      params:
+        volume: -9
+  - type: EmitSoundOnDrop
+    sound:
+      collection: PottedPlantsDrop
+      params:
+        volume: -9
+  - type: EmitSoundOnLand
+    sound:
+      collection: PottedPlantsDrop
+      params:
+        volume: -9
+  # WL-Changes-End
   - type: ContainerContainer
     containers:
       stash: !type:ContainerSlot {}

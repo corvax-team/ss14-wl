@@ -24,7 +24,6 @@ namespace Content.Client._WL.Passports.UI
             _window.OnSpeciesChanged += OnSpeciesChanged;
             _window.OnGenderChanged += OnGenderChanged;
             _window.OnDateOfBirthChanged += OnDateOfBirthChanged;
-            _window.OnHeightChanged += OnHeightChanged;
             _window.OnPIDChanged += OnPIDChanged;
         }
 
@@ -48,11 +47,6 @@ namespace Content.Client._WL.Passports.UI
             SendMessage(new ChameleonPassportDateOfBirthChangedMessage(newDateOfBirth));
         }
 
-        private void OnHeightChanged(string newHeight)
-        {
-            SendMessage(new ChameleonPassportHeightChangedMessage(newHeight));
-        }
-
         private void OnPIDChanged(string newPID)
         {
             SendMessage(new ChameleonPassportPIDChangedMessage(newPID));
@@ -73,7 +67,6 @@ namespace Content.Client._WL.Passports.UI
             _window.SetCurrentSpecies(cast.CurrentSpecies);
             _window.SetCurrentGender(cast.CurrentGender);
             _window.SetCurrentDateOfBirth(cast.CurrentDateOfBirth);
-            _window.SetCurrentHeight(cast.CurrentHeight);
             _window.SetCurrentPID(cast.CurrentPID);
         }
     }

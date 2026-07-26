@@ -43,13 +43,14 @@
 
 - type: entity
   id: SafeCodeCapsSpare
-  suffix: Only one 
+  suffix: Only one
   parent: BaseSafeCode
-  name: captain's Gold Safe 
-  description: An imposing golden safe that clearly holds something precious. 
+  name: captain's Gold Safe
+  description: An imposing golden safe that clearly holds something precious.
   components:
   - type: Sprite
     sprite: _WL/Storage/Safes/spare_safe.rsi
+    drawdepth: LargeObjects
     layers:
     - state: base
       map: ["base"]

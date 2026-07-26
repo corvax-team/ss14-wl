@@ -13,3 +13,9 @@
   youngAge: 18
   oldAge: 40
   maxAge: 60
+  defaultSoundsBySex:
+  - Mouse
+  - Mouse
+  - Mouse
+  voices:
+  - Mouse

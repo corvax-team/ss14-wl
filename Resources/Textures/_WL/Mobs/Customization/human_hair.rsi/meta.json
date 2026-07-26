@@ -226,6 +226,34 @@
     {
       "name": "hairpunchn",
       "directions": 4
+    },
+    {
+      "name": "kira1",
+      "directions": 4
+    },
+    {
+      "name": "kira2",
+      "directions": 4
+    },
+    {
+      "name": "doctor",
+      "directions": 4
+    },
+    {
+      "name": "onlybangs1",
+      "directions": 4
+    },
+    {
+      "name": "onlybangs2",
+      "directions": 4
+    },
+    {
+      "name": "layeredstraight1",
+      "directions": 4
+    },
+    {
+      "name": "layeredstraight2",
+      "directions": 4
     }
   ]
 }

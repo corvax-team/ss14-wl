@@ -67,26 +67,26 @@ namespace Content.Server._WL.Poly
 
             SubscribeNetworkEvent<PolyClientResponseEvent>(OnClientPolyResponse);
 
-            _chatManager.OnAfterChatMessage += (msg) =>
-            {
-                if (!_readyToPick)
-                    return;
+            // _chatManager.OnAfterChatMessage += (msg) =>
+            // {
+            //     if (!_readyToPick)
+            //         return;
 
-                var sender = msg.SenderEntity;
+            //     var sender = msg.SenderEntity;
 
-                DebugTools.AssertNotNull(sender);
+            //     DebugTools.AssertNotNull(sender);
 
-                if (!sender.Valid)
-                    return;
+            //     if (!sender.Valid)
+            //         return;
 
-                if (!ShouldMessageBeChosen(msg))
-                    return;
+            //     if (!ShouldMessageBeChosen(msg))
+            //         return;
 
-                QueryAddMessage(msg);
+            //     QueryAddMessage(msg);
 
-                ResetTimer();
-                _readyToPick = false;
-            };
+            //     ResetTimer();
+            //     _readyToPick = false;
+            // };
 
             _playMan.PlayerStatusChanged += (sender, args) =>
             {

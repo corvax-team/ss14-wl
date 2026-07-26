@@ -111,10 +111,7 @@
       types:
         Piercing: 5
   - type: Vocal
-    sounds:
-      Male: Mouse
-      Female: Mouse
-      Unsexed: Mouse
+    emoteSounds: Mouse
   - type: Stamina
     baseCritThreshold: 60
   - type: DamageOnHighSpeedImpact
@@ -141,8 +138,10 @@
   - type: Languages
     speaking:
       - Translate
+      - Urlum
     understood:
       - Translate
+      - Urlum
     specieLanguage: Urlum
   - type: AddHeightItem
 

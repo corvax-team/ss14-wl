@@ -21,3 +21,9 @@
   # WL-Changes-end
   sexes:
   - Unsexed
+  defaultSoundsBySex:
+  - UnisexDiona
+  - UnisexDiona
+  - UnisexDiona
+  voices:
+  - UnisexDiona

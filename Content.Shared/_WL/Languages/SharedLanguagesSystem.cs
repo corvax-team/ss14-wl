@@ -2,6 +2,7 @@ using Content.Shared._WL.Languages.Components;
 using Content.Shared.Chat;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
+using Content.Shared.Speech.Muting;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
@@ -41,12 +42,6 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
             .ToFrozenDictionary(x => x.KeyLanguage);
     }
 
-
-    /// <summary>
-    /// на основе айди прототипа
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
     [return: NotNullIfNotNull(nameof(id))]
     public LanguagePrototype? GetLanguagePrototype(ProtoId<LanguagePrototype>? id)
     {
@@ -54,9 +49,15 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         return proto;
     }
 
+    public bool TryGetLanguagePrototype(ProtoId<LanguagePrototype>? id, [NotNullWhen(true)] out LanguagePrototype? prototype)
+    {
+        return _prototype.TryIndex(id, out prototype);
+    }
+
     public void OnRadioLanguageCheck(EntityUid source, LanguagesComponent comp, ref RadioLanguageCheckEvent args)
     {
         var passability = CheckRadioPass(source, args.Message);
+
         if (passability == 0)
         {
             args.Cancelled = true;
@@ -89,40 +90,33 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
 
     public string ObfuscateMessage(string message, ProtoId<LanguagePrototype> language)
     {
-        var proto = GetLanguagePrototype(language);
-
-        if (proto == null)
-        {
+        if (!TryGetLanguagePrototype(language, out var prototype))
             return message;
-        }
-        else
-        {
-            var obfus = proto.Obfuscation.Obfuscate(message, _ticker.RoundId);
-            return obfus;
-        }
+
+        var obfuscated = prototype.Obfuscation.Obfuscate(message, _ticker.RoundId);
+
+        return SanitizeMessage(obfuscated);
     }
 
-    public bool TryChangeLanguage(NetEntity netEnt, ProtoId<LanguagePrototype> protoid)
+    public bool TryChangeLanguage(NetEntity netEnt, ProtoId<LanguagePrototype> protoId)
     {
         if (!_ent.TryGetEntity(netEnt, out var ent))
             return false;
 
         if (!TryComp<LanguagesComponent>(ent, out var comp))
             return false;
-        if (!comp.Understood.Contains(protoid))
+
+        if (!comp.Speaking.Contains(protoId))
             return false;
 
-        if (ent == null)
-            return false;
-
-        comp.CurrentLanguage = protoid;
+        comp.CurrentLanguage = protoId;
         Dirty(ent.Value, comp);
 
-        var ev = new LanguageChangeEvent(netEnt, protoid);
+        var ev = new LanguageChangeEvent(netEnt, protoId);
         RaiseNetworkEvent(ev);
         RaiseLocalEvent(ent.Value, ev);
 
-        var ev2 = new LanguagesInfoEvent(netEnt, (string)protoid, comp.Speaking, comp.Understood);
+        var ev2 = new LanguagesInfoEvent(netEnt, (string)protoId, comp.Speaking, comp.Understood);
         RaiseNetworkEvent(ev2);
 
         return true;
@@ -216,6 +210,9 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     {
         var language = GetLanguagePrototype(source, msg);
 
+        if (HasComp<MutedComponent>(source))
+            return 0f;
+
         if (language == null)
             return 1.0f;
 
@@ -242,7 +239,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         return modifiedMessage.ToString();
     }
 
-    public string SanitizeWrappedMessage(EntityUid source, string message, bool capitalize = true)
+    public string SanitizeMessage(string message, bool capitalize = true)
     {
         var newMessage = message.Trim();
 

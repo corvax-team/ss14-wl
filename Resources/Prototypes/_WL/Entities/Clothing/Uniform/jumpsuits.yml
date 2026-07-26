@@ -21,3 +21,205 @@
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpsuit/engassistant.rsi
 #WL Workers Lyvsi end
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWhiteWaiter
+  name: white waiter uniform
+  description: Doesn't get in the way when you have a food tray.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/altwaiter.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/altwaiter.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGreenWaiter
+  name: green waiter uniform
+  description: Doesn't get in the way when you have a food tray.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/waiter.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/waiter.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitChemistScientist
+  name: chemist scientist uniform
+  description: Should protect you from getting chemical burns.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/chemist.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/chemist.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitClassicScientist
+  name: classic scientist uniform
+  description: Brings you back too good ol' times when science was simpler...
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/oldscientist.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/scientist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAltScientist
+  name: alternative robotechnician uniform
+  description: Robotechnician, but not edgy
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/altsci.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/altsci.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRaspberryRichShirt
+  name: rich shirt
+  description: My raspberry pants give me power!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/raspberry.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/raspberry.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitFreedomYellowCollar
+  name: collared shirt of freedom
+  description: Feels like freedom.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/yellowcollar.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/yellowcollar.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueHawaii
+  name: blue hawaiian shirt
+  description: Perfect for an illegal drive on a stolen shuttle.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/bluehawaii.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/bluehawaii.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBeerDino
+  name: dinobeer shirt
+  description: BEEER!!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/beerdino.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/beerdino.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPinkBeerDino
+  name: pink dinobeer shirt
+  description: BEEER!! But for ladies.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/pinkbeerdino.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/pinkbeerdino.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCoolWolf
+  name: wolf shirt
+  description: AWOOO!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/coolwolf.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/coolwolf.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitStarSweater
+  name: star sweater jumpsuit
+  description: Just a jumpsuit with a star on it.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/starpurple.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/starpurple.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlackCoolVest
+  name: black vest
+  description: Hey there pretty engineer boy
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/blackcool.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/blackcool.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitEngineerVest
+  name: engineer vest
+  description: good for hot weather, even if it is only in the room with you
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/engivest.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/engivest.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAnarchyShirt
+  name: anarchy shirt
+  description: Tyrants fall my fireworks fly
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/anarchy.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/anarchy.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSkeletonShirt
+  name: skeleton shirt
+  description: Spooky and scary
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/skeleton.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/skeleton.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWitchySweater
+  name: witchy sweater
+  description: Not sure if it is witchy, but it is whimsical
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/witchy.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/witchy.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMaidenless
+  name: no girls shirt
+  description: You Are Only Interesting to men then I guess
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/maidenless.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/maidenless.rsi

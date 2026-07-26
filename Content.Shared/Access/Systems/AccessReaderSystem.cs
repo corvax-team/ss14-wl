@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
+using Content.Shared._WL.Wallets; // WL-Changes: Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
@@ -14,6 +15,8 @@ using Content.Shared.Lock;
 using Content.Shared.NameIdentifier;
 using Content.Shared.PDA;
 using Content.Shared.StationRecords;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Systems;
 using Content.Shared.Tag;
 using Robust.Shared.Containers;
 using Robust.Shared.Collections;
@@ -25,7 +28,6 @@ namespace Content.Shared.Access.Systems;
 
 public sealed partial class AccessReaderSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private InventorySystem _inventorySystem = default!;
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private EmagSystem _emag = default!;
@@ -33,7 +35,8 @@ public sealed partial class AccessReaderSystem : EntitySystem
     [Dependency] private SharedGameTicker _gameTicker = default!;
     [Dependency] private SharedHandsSystem _handsSystem = default!;
     [Dependency] private SharedContainerSystem _containerSystem = default!;
-    [Dependency] private SharedStationRecordsSystem _recordsSystem = default!;
+    [Dependency] private StationRecordsSystem _recordsSystem = default!;
+    [Dependency] private IdentitySystem _identity = default!;
 
     private static readonly ProtoId<TagPrototype> PreventAccessLoggingTag = "PreventAccessLogging";
 
@@ -870,7 +873,7 @@ public sealed partial class AccessReaderSystem : EntitySystem
     private bool FindAccessTagsItem(EntityUid uid, out HashSet<ProtoId<AccessLevelPrototype>> tags)
     {
         tags = new();
-        var ev = new GetAccessTagsEvent(tags, _prototype);
+        var ev = new GetAccessTagsEvent(tags, ProtoMan);
         RaiseLocalEvent(uid, ref ev);
 
         return tags.Count != 0;
@@ -900,6 +903,18 @@ public sealed partial class AccessReaderSystem : EntitySystem
             }
         }
 
+        // WL-Changes-Start: Wallet
+        if (TryComp<WalletComponent>(uid, out var wallet) &&
+            wallet.ContainedId is { Valid: true } cardId)
+        {
+            if (TryComp<StationRecordKeyStorageComponent>(cardId, out var walletStorage) && walletStorage.Key != null)
+            {
+                key = walletStorage.Key;
+                return true;
+            }
+        }
+        // WL-Changes-End
+
         key = null;
         return false;
     }
@@ -920,12 +935,7 @@ public sealed partial class AccessReaderSystem : EntitySystem
 
         // TODO pass the ID card on IsAllowed() instead of using this expensive method
         // Set name if the accessor has a card and that card has a name and allows itself to be recorded
-        var getIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(ent, accessor, true);
-        RaiseLocalEvent(getIdentityShortInfoEvent);
-        if (getIdentityShortInfoEvent.Title != null)
-        {
-            name = getIdentityShortInfoEvent.Title;
-        }
+        name = _identity.GetIdentityShortInfo(accessor, ent, true) ?? name;
 
         LogAccess(ent, name ?? Loc.GetString("access-reader-unknown-id"));
     }
@@ -967,7 +977,7 @@ public sealed partial class AccessReaderSystem : EntitySystem
             {
                 var accessName = Loc.GetString("access-reader-unknown-id");
 
-                if (_prototype.Resolve(access, out var accessProto) && !string.IsNullOrWhiteSpace(accessProto.Name))
+                if (ProtoMan.Resolve(access, out var accessProto) && !string.IsNullOrWhiteSpace(accessProto.Name))
                     accessName = Loc.GetString(accessProto.Name);
 
                 sb.Append(Loc.GetString("access-reader-access-label", ("access", accessName)));

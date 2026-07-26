@@ -26,6 +26,7 @@
   keylang: 'ш'
   obfuscation:
     !type:ByCharReplacementObfuscation
+      maxlength: 5
       replacement:
       - les
       - as
@@ -172,7 +173,6 @@
       - zh
       - li
       - ":"
-      - " "
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: felinid

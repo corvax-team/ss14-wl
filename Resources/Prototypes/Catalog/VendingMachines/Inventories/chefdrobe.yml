@@ -6,6 +6,13 @@
     ClothingOuterWinterChef: 2
     ClothingOuterJacketChef: 1
     ClothingUniformJumpsuitChef: 1
+    ClothingUniformJumpsuitWhiteWaiter: 3 #WL-Changes: Эмо обновление 2
+    ClothingUniformJumpsuitGreenWaiter: 3 #WL-Changes: Эмо обновление 2
+    ClothingUniformJumpskirtWhiteWaitress: 3 #WL-Changes: Эмо обновление 2
+    ClothingUniformJumpskirtGreenWaitress: 3 #WL-Changes: Эмо обновление 2
+    ClothingBeltStorageWaitressApron: 3 #WL-Changes: Эмо обновление 2
+    ClothingHeadHatWhiteWaitress: 3 #WL-Changes: Эмо обновление 2
+    ClothingHeadHatGreenWaitress: 3 #WL-Changes: Эмо обновление 2
     ClothingMaskItalianMoustache: 2
     ClothingUniformJumpskirtChef:  2
     ClothingHeadHatChef: 2
@@ -14,3 +21,4 @@
     ClothingBeltChef: 2
   contrabandInventory:
     ToyFigurineChef: 1
+    ClothingHeadHatCatEars: 1 #WL-Changes: Эмо обновление 2

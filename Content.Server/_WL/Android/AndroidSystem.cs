@@ -175,7 +175,7 @@ namespace Content.Server._WL.Android
                     return;
 
                 androidComp.IsUnderIonStorm = true;
-                _move.RefreshMovementSpeedModifiers(android, movementSpeedComp);
+                _move.RefreshMovementSpeedModifiers((android, movementSpeedComp));
 
                 _popup.PopupEntity(Loc.GetString(androidComp.IonStormPopupMessage), android, android, Shared.Popups.PopupType.Medium);
 
@@ -192,7 +192,7 @@ namespace Content.Server._WL.Android
             while (query.MoveNext(out var android, out var androidComp, out var movementSpeedComp))
             {
                 androidComp.IsUnderIonStorm = false;
-                _move.RefreshMovementSpeedModifiers(android, movementSpeedComp);
+                _move.RefreshMovementSpeedModifiers((android, movementSpeedComp));
 
                 RemComp<StutteringAccentComponent>(android);
             }

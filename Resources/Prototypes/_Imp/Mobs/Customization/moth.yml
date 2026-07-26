@@ -556,22 +556,24 @@
   - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
     state: beetle3
 
-- type: marking
-  id: MothFirefly
-  bodyPart: Tail
-  groupWhitelist: [Moth]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
-    state: firefly2
-
-- type: marking
-  id: MothFireflyOverlay
-  bodyPart: Tail
-  groupWhitelist: [Moth]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
-    state: firefly1
-    shader: unshaded
+# WL-Deleted-start: This shit is broken
+#- type: marking
+#  id: MothFirefly
+#  bodyPart: Tail
+#  groupWhitelist: [Moth]
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+#    state: firefly2
+#
+#- type: marking
+#  id: MothFireflyOverlay
+#  bodyPart: Tail
+#  groupWhitelist: [Moth]
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/Moth/tail.rsi
+#    state: firefly1
+#    shader: unshaded
+# WL-Deleted-end
 
 - type: marking
   id: MothGlasswing

@@ -19,7 +19,6 @@ namespace Content.Server._WL.Passports.Systems
             SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportSpeciesChangedMessage>(OnSpeciesChanged);
             SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportGenderChangedMessage>(OnGenderChanged);
             SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportDateOfBirthChangedMessage>(OnDateOfBirthChanged);
-            SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportHeightChangedMessage>(OnHeightChanged);
             SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportPIDChangedMessage>(OnPIDChanged);
         }
 
@@ -36,7 +35,6 @@ namespace Content.Server._WL.Passports.Systems
                 passport.DisplaySpecies,
                 passport.DisplayGender,
                 passport.DisplayDateOfBirth,
-                passport.DisplayHeight,
                 passport.DisplayPID);
             _uiSystem.SetUiState(uid, ChameleonPassportUiKey.Key, state);
         }
@@ -71,14 +69,6 @@ namespace Content.Server._WL.Passports.Systems
                 return;
 
             _passportSystem.TryChangeDateOfBirthTitle(uid, args.DateOfBirth, passport);
-        }
-
-        private void OnHeightChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportHeightChangedMessage args)
-        {
-            if (!TryComp<PassportComponent>(uid, out var passport))
-                return;
-
-            _passportSystem.TryChangeHeightTitle(uid, args.Height, passport);
         }
 
         private void OnPIDChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportPIDChangedMessage args)

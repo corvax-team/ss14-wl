@@ -27,7 +27,7 @@
     stackType: BioTube
     count: 10
   - type: StackPrice
-    price: 100
+    price: 5
 
 - type: entity
   id: BioTube1
@@ -66,7 +66,7 @@
     stackType: RitiumPack
     count: 10
   - type: StackPrice
-    price: 100
+    price: 5
 
 - type: entity
   id: RitiumPack1
@@ -166,7 +166,7 @@
     stackType: SkinPatch
     count: 10
   - type: StackPrice
-    price: 100
+    price: 5
 
 - type: entity
   id: SkinPatch1
@@ -208,7 +208,7 @@
     stackType: SteelMesh
     count: 10
   - type: StackPrice
-    price: 100
+    price: 5
 
 - type: entity
   id: SteelMesh1
@@ -239,6 +239,7 @@
       types:
         Slash: -2
         Piercing: -2
+        Shock: -2
     bloodlossModifier: -3
     healingBeginSound:
       path: "/Audio/_WL/Items/tape/duct_tape.ogg"
@@ -249,7 +250,7 @@
     stackType: RepairTape
     count: 10
   - type: StackPrice
-    price: 100
+    price: 5
 
 - type: entity
   id: RepairTape1

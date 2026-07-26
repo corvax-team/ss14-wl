@@ -63,5 +63,11 @@
     ClothingUniformJumpsuitJournalist: 3
     # Shoes
     ClothingShoesBootsLaceup: 3
+    # Wallets
+    Wallet: 2
+    WalletBlack: 2
+    WalletWhite: 2
+    WalletTanned: 2
+    WalletNanotrasen: 2
   contrabandInventory:
     ToyFigurineLawyer: 1

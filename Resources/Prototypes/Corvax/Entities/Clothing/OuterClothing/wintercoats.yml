@@ -5,9 +5,9 @@
   description: Armored insulated jacket for security pilots.
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/OuterClothing/WinterCoats/coatpilot.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coatpilot.rsi # WL-redo-427-resprite
   - type: Clothing
-    sprite: Corvax/Clothing/OuterClothing/WinterCoats/coatpilot.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coatpilot.rsi # WL-redo-427-resprite
   - type: Armor
     modifiers:
       coefficients:

@@ -1,3 +1,3 @@
 namespace Content.Shared._White.Overlays;
 
-public sealed class SharedNightVisionSystem : SwitchableOverlaySystem<NightVisionComponent, ToggleNightVisionEvent>;
+public sealed class SharedNightVisionSystem : SwitchableOverlaySystem<NightVisionEyeComponent, ToggleNightVisionEvent>;

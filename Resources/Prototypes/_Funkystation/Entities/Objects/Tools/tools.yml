@@ -1,0 +1,51 @@
+- type: entity
+  id: RPD
+  parent: RCD
+  name: RPD
+  description: A device used to rapidly pipe things.
+  components:
+  - type: RCD
+    isRpd: true
+    availablePrototypes:
+    - PipeFourway
+    - PipeStraight
+    - PipeBend
+    - PipeTJunction
+    - PipeHalf
+    - ManifoldGas
+    - OutletInjector
+    - ManualValve
+    - VolumetricPump
+    - PressurePump
+    - VentScrubber
+    - PressureValve
+    - PressureRegulator
+    - DualPortVent
+    - VentGas
+    - VentPassive
+    - MixerGas
+    - Radiator
+    - RadiatorBend
+    - SignalValve
+    - CanisterPort
+    - FilterGas
+    - Alarm
+    - Sensor
+    - SensorPipe
+    - Deconstruct
+  - type: LimitedCharges
+    maxCharges: 450
+  - type: Sprite
+    sprite: _Funkystation/Objects/Tools/rpd.rsi
+  # WL-Changes-start: Sounds
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_WL/Items/handling/rpd_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_WL/Items/handling/rpd_drop.ogg
+      params:
+        volume: -4
+  # WL-Changes-end

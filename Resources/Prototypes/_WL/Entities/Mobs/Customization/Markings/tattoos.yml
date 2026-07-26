@@ -65,7 +65,7 @@
 - type: marking
   id: TattooNose
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/tattoos.rsi
     state: nose
@@ -73,7 +73,7 @@
 - type: marking
   id: TattooLips
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/tattoos.rsi
     state: lips
@@ -149,3 +149,83 @@
   sprites:
   - sprite: _WL/Mobs/Customization/tattoos.rsi
     state: thin_android
+
+- type: marking
+  id: PiercingLowEarL
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: low_ear_l
+
+- type: marking
+  id: PiercingLowEarR
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: low_ear_r
+
+- type: marking
+  id: PiercingTopEarL
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: top_ear_l
+
+- type: marking
+  id: PiercingTopEarR
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: top_ear_r
+
+- type: marking
+  id: PiercingEarLAkula
+  bodyPart: Eyes
+  groupWhitelist: [Akula]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: ear_l_akula
+
+- type: marking
+  id: PiercingEarRAkula
+  bodyPart: Eyes
+  groupWhitelist: [Akula]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: ear_r_akula
+
+- type: marking
+  id: PiercingLowEarLMurine
+  bodyPart: Eyes
+  groupWhitelist: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: low_ear_l_murine
+
+- type: marking
+  id: PiercingLowEarRMurine
+  bodyPart: Eyes
+  groupWhitelist: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: low_ear_r_murine
+
+- type: marking
+  id: PiercingTopEarLMurine
+  bodyPart: Eyes
+  groupWhitelist: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: top_ear_l_murine
+
+- type: marking
+  id: PiercingTopEarRMurine
+  bodyPart: Eyes
+  groupWhitelist: [Murine]
+  sprites:
+  - sprite: _WL/Mobs/Customization/piercings.rsi
+    state: top_ear_r_murine
