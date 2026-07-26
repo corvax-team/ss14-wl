@@ -57,6 +57,7 @@
   - type: ContainerContainer
     containers:
       idSlot: !type:ContainerSlot
+        showEnts: true
       storagebase: !type:Container
   - type: Tag
     tags:
