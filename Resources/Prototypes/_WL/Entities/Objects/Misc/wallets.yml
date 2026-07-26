@@ -57,6 +57,7 @@
   - type: ContainerContainer
     containers:
       idSlot: !type:ContainerSlot
+      storagebase: !type:Container
   - type: Tag
     tags:
     - DoorBumpOpener
