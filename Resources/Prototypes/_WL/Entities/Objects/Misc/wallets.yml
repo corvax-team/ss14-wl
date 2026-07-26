@@ -126,6 +126,7 @@
       tags:
       - Paper
       - HighRiskItem
+      - Pen
       components:
       - Passport
       - IdCard # Hiding cards from others, kinda cool
