@@ -41,8 +41,9 @@
       - NukeDisk
     blacklist:
       tags:
-      - Storage
       - CigPack
+      components:
+      - Storage
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
