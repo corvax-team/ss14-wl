@@ -35,7 +35,7 @@ public sealed partial class CombatStandSystem : EntitySystem
                 component.LastPopup = time;
                 var message = Loc.GetString("standing-component-requires", ("item", uid));
 
-                _popup.PopupClient(message, args.Used, args.User);
+                _popup.PopupEntity(message, args.Used, args.User);
             }
         }
     }
