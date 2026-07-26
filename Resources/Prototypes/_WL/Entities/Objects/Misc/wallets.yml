@@ -33,6 +33,7 @@
     whitelist:
       tags:
       - Paper
+      - Pen
       components:
       - Passport
       - IgnitionSource # For lighters
