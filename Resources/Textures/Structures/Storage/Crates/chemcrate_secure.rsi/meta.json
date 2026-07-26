@@ -20,6 +20,12 @@
       "name": "open"
     },
     {
+      "name": "locked"
+    },
+    {
+      "name": "unlocked"
+    },
+    {
       "name": "welded"
     },
     {
