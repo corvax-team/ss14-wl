@@ -29,3 +29,6 @@ ent-ClothingHeadHatAdjutantCap = кепка адъютанта
 
 ent-ClothingHeadHatBeretBlueShield = берет офицера "Синий Щит"
     .desc = Так гораздо лучше, не правда ли?
+
+ent-ClothingHeadHatFedoraDetectiveWhite = белая федора
+    .desc = Для особых событий или ради моды.

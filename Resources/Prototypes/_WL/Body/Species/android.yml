@@ -101,7 +101,7 @@
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  - BaseSpeciesMob
+  - BaseSpeciesNoDna #WL - NoDnaAndorid
   id: MobAndroid
   components:
   - type: ZombieImmune

@@ -51,6 +51,7 @@
   equipment:
     id: RnDPDA
     ears: ClothingHeadsetRD
+    pocket1: CardCapsSpare # WL-code-safe
   storage:
     back:
     - Flash

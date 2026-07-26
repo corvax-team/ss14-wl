@@ -29,6 +29,10 @@
         Radiation: 0.1
   - type: ExplosionResistance
     damageCoefficient: 0.7
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0
+  # WL-Stun-Resist-Playtest-End
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURNLeader
 

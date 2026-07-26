@@ -167,3 +167,14 @@
     - PetWearable
     - CorgiWearable
     - WhitelistChameleon
+
+- type: entity
+  id: ClothingHeadHatFedoraDetectiveWhite
+  parent: ClothingHeadBase
+  name: detective's white fedora
+  description: For special ocassions.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/wfedora.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/wfedora.rsi

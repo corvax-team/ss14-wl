@@ -1,0 +1,26 @@
+﻿- type: entity
+  id: MakeupBrush
+  name: makeup brush
+  description: Is used for makeup.
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Tools/makeupbrush.rsi
+    state: icon
+  - type: MagicMirror
+    modifyTime: 3
+    organs:
+    - Eyes
+    layers:
+    - Eyes
+  - type: ActivatableUI
+    key: enum.MagicMirrorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: true
+  - type: UserInterface
+    interfaces:
+      enum.MagicMirrorUiKey.Key:
+        type: MagicMirrorBoundUserInterface
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 1

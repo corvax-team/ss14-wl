@@ -37,6 +37,16 @@
     ClothingUniformJumpsuitTurtleneckWhiteSleeveless: 2 
     ClothingUniformJumpskirtTurtleneckWhiteSleeveless: 2
     # WL-Turtleneck-end
+    # WL-Facescarf-start
+    ADTClothingNeckFacescarfBlack: 3
+    ADTClothingNeckFacescarfBlue: 3
+    ADTClothingNeckFacescarfGreen: 3
+    ADTClothingNeckFacescarfGrey: 3
+    ADTClothingNeckFacescarfOrange: 3
+    ADTClothingNeckFacescarfPurple: 3
+    ADTClothingNeckFacescarfRed: 3
+    ADTClothingNeckFacescarfWhite: 3
+    # WL-Facescarf-end
     ClothingNeckScarfStripedRed: 3
     ClothingNeckScarfStripedGreen: 3
     ClothingNeckScarfStripedBlue: 3

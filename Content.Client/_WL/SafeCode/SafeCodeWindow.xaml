@@ -1,0 +1,72 @@
+﻿<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    Title="{Loc 'safe-code-window-title'}"
+    MinSize="250 220">
+    <BoxContainer
+        Orientation="Vertical"
+        Margin="10"
+        SeparationOverride="5">
+        <Label
+            Name="CodeDisplay"
+            Access="Public"
+            Text="_____"
+            HorizontalAlignment="Center"/>
+        <Label
+            Name="ErrorLabel"
+            Access="Public"
+            Text="{Loc 'safe-code-incorrect-input'}"
+            FontColorOverride="Red"
+            HorizontalAlignment="Center"
+            Visible="False"/>
+        <BoxContainer
+            Orientation="Vertical"
+            HorizontalAlignment="Center"
+            SeparationOverride="5">
+            <GridContainer
+                Columns="3"
+                HSeparationOverride="5"
+                VSeparationOverride="5">
+                <Button Name="OneButton"
+                        Text="1"/>
+                <Button Name="TwoButton"
+                        Text="2"/>
+                <Button Name="ThreeButton"
+                        Text="3"/>
+                <Button Name="FourButton"
+                        Text="4"/>
+                <Button Name="FiveButton"
+                        Text="5"/>
+                <Button Name="SixButton"
+                        Text="6"/>
+                <Button Name="SevenButton"
+                        Text="7"/>
+                <Button Name="EightButton"
+                        Text="8"/>
+                <Button Name="NineButton"
+                        Text="9"/>
+                <Control/>
+                <Button Name="ZeroButton"
+                        Text="0"/>
+                <Control/>
+            </GridContainer>
+        </BoxContainer>
+        <BoxContainer
+            Orientation="Horizontal"
+            SeparationOverride="5">
+            <Button
+                Name="ClearButton"
+                Text="{Loc 'safe-code-reset-button'}"
+                HorizontalExpand="True"/>
+            <Button
+                Name="SubmitButton"
+                Text="{Loc 'safe-code-confirm-button'}"
+                HorizontalExpand="True"/>
+        </BoxContainer>
+        <Button
+            Name="LockButton"
+            Text="{Loc 'safe-code-lock-button'}"
+            HorizontalExpand="True"
+            Visible="False"/>
+    </BoxContainer>
+</controls:FancyWindow>

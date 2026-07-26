@@ -1,0 +1,46 @@
+- type: entity
+  id: SafeCodeNote
+  categories: [ HideSpawnMenu ]
+  parent: Paper
+  name: top-secret code
+  description: This must not fall into the hands of an ordinary crew.
+  components:
+  - type: SafeCodeNote
+  - type: Paper
+    stampState: paper_stamp-centcom
+    stampedBy:
+      - stampedName: stamp-component-stamped-name-centcom
+        stampedColor: "#006600FF"
+
+- type: entity
+  parent: BaseItem
+  id: CardCapsSpare
+  name: sealed envelope
+  description: A confidential card. The tasteful blue color and NT logo on the front makes it look a little like a chocolate bar. On the back, DO NOT DIGEST is printed in large lettering.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _WL/Objects/Misc/bureaucracy.rsi
+    state: card
+  - type: SpawnItemsOnUse
+    items:
+    - id: CardCapsSpareCracked
+    - id: SafeCodeNote
+    sound:
+      path: /Audio/_WL/Items/card_caps_spare/card_caps_spare_open.ogg
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: CardCapsSpareCracked
+  name: a piece of an envelope
+  description: A pleasant, recognisable shade of blue.
+  components:
+  - type: Tag
+    tags:
+    - Trash
+  - type: Sprite
+    sprite: _WL/Objects/Misc/bureaucracy.rsi
+    state: card-cracked
+  - type: Item

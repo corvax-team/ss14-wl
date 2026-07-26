@@ -80,12 +80,7 @@
   bodyPart: Hair
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
-      state: short_cute
-
-- type: marking
-  id: HumanHairShortCute2
-  bodyPart: Hair
-  sprites:
+      state: short_cute1
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: short_cute2
 
@@ -101,7 +96,9 @@
   bodyPart: Hair
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
-      state: denki
+      state: denki1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: denki2
 
 - type: marking
   id: HumanHairHank
@@ -122,7 +119,9 @@
   bodyPart: Hair
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
-      state: kioku
+      state: kioku1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: kioku2
 
 - type: marking
   id: HumanHairLonglowstraightponytail

@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 270.1.0
-  forkId: syndicate-wl
-  forkVersion: 8330d798a11b015e1119de634356e3ba0d1c330e
-  time: 02/23/2026 19:55:31
-  entityCount: 12762
+  engineVersion: 277.0.0
+  forkId: ""
+  forkVersion: ""
+  time: 06/24/2026 17:56:21
+  entityCount: 12754
 maps: []
 grids:
 - 2
@@ -112,11 +112,11 @@ entities:
           version: 7
         -2,-1:
           ind: -2,-1
-          tiles: DwAAAAAAAAoAAAAAAAAKAAAAAAAACgAAAAAAAAoAAAAAAAAAAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAABIAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAEAAAAAAAAAAAAAAAAAASAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAEgAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAABIAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAAAAAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAAAAAAAAAAHQAAAAAAAB0AAAAAAAAeAAAAAAAAFgAAAAAAABUAAAAAAAAZAAAAAAAAGQAAAAAAABgAAAAAAAAZAAAAAAAAGQAAAAAAABUAAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAAAAAAAAAAB0AAAAAAAAfAAAAAAAAHgAAAAAAAAAAAAAAAAAVAAAAAAAAGQAAAAAAABkAAAAAAAAYAAAAAAAAGQAAAAAAABkAAAAAAAAVAAAAAAAAFgAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAAAAAAAAAAAAdAAAAAAAAHwAAAAAAAB4AAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAAAAAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAAAAAAAAAAHQAAAAAAAB0AAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0AAAAAAAAfAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAdAAAAAAAAHwAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAfAAAAAAAAHwAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHwAAAAAAAA==
+          tiles: DwAAAAAAAAoAAAAAAAAKAAAAAAAACgAAAAAAAAoAAAAAAAAAAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAABIAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAATAAAAAAAAEwAAAAAAABMAAAAAAAATAAAAAAAAEAAAAAAAAAAAAAAAAAASAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAEgAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAABIAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAB4AAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAAAAAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAAAAAAAAAAHQAAAAAAAB0AAAAAAAAeAAAAAAAAFgAAAAAAABUAAAAAAAAZAAAAAAAAGQAAAAAAABgAAAAAAAAZAAAAAAAAGQAAAAAAABUAAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAAAAAAAAAAB0AAAAAAAAfAAAAAAAAHgAAAAAAAAAAAAAAAAAVAAAAAAAAGQAAAAAAABkAAAAAAAAYAAAAAAAAGQAAAAAAABkAAAAAAAAVAAAAAAAAFgAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAAAAAAAAAAAAdAAAAAAAAHwAAAAAAAB4AAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAAAAAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAAAAAAAAAAHQAAAAAAAB0AAAAAAAAeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAABYAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0AAAAAAAAfAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAdAAAAAAAAHwAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAfAAAAAAAAHwAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAdAAAAAAAAHwAAAAAAAA==
           version: 7
         -3,-1:
           ind: -3,-1
-          tiles: DwAAAAAAAA8AAAAAAAAPAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAABIAAAAAAAASAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAEgAAAAAAABIAAAAAAAAPAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAAAAASAAAAAAAADwAAAAAAABAAAAAAAAATAAAAAAAAIgAAAAAAACIAAAAAAAAiAAAAAAAAAAAAAAAAAB8AAAAAAAAfAAAAAAAAHgAAAAAAAB4AAAAAAAAfAAAAAAAAHwAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAAoAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAfAAAAAAAAHwAAAAAAAB4AAAAAAAAeAAAAAAAAHwAAAAAAAB8AAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAAAAAAAAAAHwAAAAAAAB8AAAAAAAAeAAAAAAAAHgAAAAAAAB8AAAAAAAAfAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAAAAAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAAAB4AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAASAAAAAAAAEQAAAAAAABIAAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAeAAAAAAAAHQAAAAAAAB8AAAAAAAAdAAAAAAAAEgAAAAAAABEAAAAAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAADwAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAHgAAAAAAAB0AAAAAAAAfAAAAAAAAHQAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAAAAAAAAAAAAVAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAAAAAAAAAAB4AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAHQAAAAAAAB8AAAAAAAAdAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAPAAAAAAAAHgAAAAAAAB0AAAAAAAAfAAAAAAAAHQAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADwAAAAAAAB4AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAHQAAAAAAAB8AAAAAAAAdAAAAAAAAJQAAAAAAACUAAAAAAAAlAAAAAAAAAAAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAkAAAAAAAAHgAAAAAAAB0AAAAAAAAfAAAAAAAAHwAAAAAAAA==
+          tiles: DwAAAAAAAA8AAAAAAAAPAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAABIAAAAAAAASAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAEgAAAAAAABIAAAAAAAAPAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAAAAASAAAAAAAADwAAAAAAABAAAAAAAAATAAAAAAAAIgAAAAAAACIAAAAAAAAiAAAAAAAAAAAAAAAAAB8AAAAAAAAfAAAAAAAAHgAAAAAAAB4AAAAAAAAfAAAAAAAAHwAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAAoAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAAAAAfAAAAAAAAHwAAAAAAAB4AAAAAAAAeAAAAAAAAHwAAAAAAAB8AAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAAAAAAAAAAHwAAAAAAAB8AAAAAAAAeAAAAAAAAHgAAAAAAAB8AAAAAAAAfAAAAAAAAAAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAAAAAAAAAAAAYAAAAAAAAGAAAAAAAABgAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAAAB4AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAASAAAAAAAAEQAAAAAAABIAAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAAAAFQAAAAAAABUAAAAAAAAeAAAAAAAAHQAAAAAAAB8AAAAAAAAdAAAAAAAAEgAAAAAAABEAAAAAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAADwAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAHgAAAAAAAB0AAAAAAAAfAAAAAAAAHQAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAAAAAAAAAAAAVAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAFQAAAAAAABUAAAAAAAAVAAAAAAAAAAAAAAAAAB4AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAHQAAAAAAAB8AAAAAAAAdAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAPAAAAAAAAHgAAAAAAAB0AAAAAAAAfAAAAAAAAHQAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAADwAAAAAAAB4AAAAAAAAdAAAAAAAAHQAAAAAAAB0AAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAAAAAAAAHQAAAAAAAB8AAAAAAAAdAAAAAAAAJQAAAAAAACUAAAAAAAAlAAAAAAAAAAAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAeAAAAAAAAHgAAAAAAAB4AAAAAAAAkAAAAAAAAHgAAAAAAAB0AAAAAAAAfAAAAAAAAHwAAAAAAAA==
           version: 7
         -2,-2:
           ind: -2,-2
@@ -140,7 +140,7 @@ entities:
           version: 7
         -3,1:
           ind: -3,1
-          tiles: EQAAAAAAABEAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAABEAAAAAAAARAAAAAAAAAAAAAAAAABAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAARAAAAAAAAEQAAAAAAAA8AAAAAAAAQAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABAAAAAAAAAAAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAAAAAAAAAAAEAAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEAAAAAAAAA8AAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAASAAAAAAAAIQAAAAAAAAAAAAAAAAAQAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABAAAAAAAAAPAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEgAAAAAAACEAAAAAAAAAAAAAAAAAEAAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAAAAAhAAAAAAAAAAAAAAAAABAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAmAAAAAAAAJgAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAADwAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAbAAAAAAAAGwAAAAAAABsAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAcAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGwAAAAAAABwAAAAAAAAbAAAAAAAAGwAAAAAAABwAAAAAAAAbAAAAAAAAGwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAAAAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAGwAAAAAAABsAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAABwAAAAAAAAbAAAAAAAAHAAAAAAAABsAAAAAAAAcAAAAAAAAGwAAAAAAABsAAAAAAAAAAAAAAAAADwAAAAAAAA8AAAAAAAAPAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAcAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAcAAAAAAAAAAAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAA==
+          tiles: EQAAAAAAABEAAAAAAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAAAAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAABEAAAAAAAARAAAAAAAAAAAAAAAAABAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAARAAAAAAAAEQAAAAAAAA8AAAAAAAAQAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABAAAAAAAAAAAAAAAAAAEgAAAAAAABIAAAAAAAASAAAAAAAAEgAAAAAAABIAAAAAAAAAAAAAAAAAEAAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEAAAAAAAAA8AAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAASAAAAAAAAIQAAAAAAAAAAAAAAAAAQAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABAAAAAAAAAPAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEgAAAAAAACEAAAAAAAAAAAAAAAAAEAAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAAAAAhAAAAAAAAAAAAAAAAABAAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEQAAAAAAABEAAAAAAAARAAAAAAAAEAAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAmAAAAAAAAJgAAAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAQAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAAAAADwAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAAAAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAABwAAAAAAAAcAAAAAAAAHAAAAAAAABwAAAAAAAAbAAAAAAAAGwAAAAAAABsAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAcAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGwAAAAAAABwAAAAAAAAbAAAAAAAAGwAAAAAAABwAAAAAAAAbAAAAAAAAGwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAAAAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAGwAAAAAAABsAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAAAAAAAAAAAAPAAAAAAAADwAAAAAAAA8AAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAABwAAAAAAAAbAAAAAAAAHAAAAAAAABsAAAAAAAAcAAAAAAAAGwAAAAAAABsAAAAAAAAAAAAAAAAADwAAAAAAAA8AAAAAAAAPAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAcAAAAAAAAJwAAAAAAACcAAAAAAAAnAAAAAAAAJwAAAAAAACcAAAAAAAAcAAAAAAAAAAAAAAAAAA8AAAAAAAAPAAAAAAAADwAAAAAAAA==
           version: 7
         -2,1:
           ind: -2,1
@@ -8087,44 +8087,8 @@ entities:
     - type: RadiationGridResistance
     - type: NavMap
     - type: ExplosionAirtightGrid
-  - uid: 4
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 3
-    - type: Solution
-      solution:
-        maxVol: 1
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Fiber
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: food
-      container: 3
-  - uid: 6
-    mapInit: true
-    paused: true
-    components:
-    - type: MetaData
-      name: solution - food
-    - type: Transform
-      parent: 5
-    - type: Solution
-      solution:
-        maxVol: 1
-        name: food
-        reagents:
-        - data: []
-          ReagentId: Fiber
-          Quantity: 1
-    - type: ContainedSolution
-      containerName: food
-      container: 5
+    - type: TileHistory
+      chunkHistory: {}
 - proto: ActionToggleInternals
   entities:
   - uid: 12
@@ -10333,6 +10297,11 @@ entities:
       parent: 2
 - proto: AirlockCentralCommandLocked
   entities:
+  - uid: 5
+    components:
+    - type: Transform
+      pos: -14.5,-7.5
+      parent: 2
   - uid: 165
     components:
     - type: Transform
@@ -10356,12 +10325,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -56.5,8.5
-      parent: 2
-  - uid: 169
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -14.5,-7.5
       parent: 2
   - uid: 170
     components:
@@ -10418,16 +10381,14 @@ entities:
       parent: 2
 - proto: AirlockEngineeringLocked
   entities:
-  - uid: 181
+  - uid: 6
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -32.5,10.5
       parent: 2
-  - uid: 182
+  - uid: 169
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -31.5,10.5
       parent: 2
 - proto: AirlockExternalGlassCargoLocked
@@ -10583,6 +10544,16 @@ entities:
       parent: 2
 - proto: AirlockGlass
   entities:
+  - uid: 181
+    components:
+    - type: Transform
+      pos: -16.5,-9.5
+      parent: 2
+  - uid: 182
+    components:
+    - type: Transform
+      pos: -17.5,-9.5
+      parent: 2
   - uid: 199
     components:
     - type: Transform
@@ -10625,17 +10596,6 @@ entities:
     - type: Transform
       pos: -7.5,-1.5
       parent: 2
-  - uid: 207
-    components:
-    - type: Transform
-      pos: -17.5,-9.5
-      parent: 2
-    - type: Door
-      secondsUntilStateChange: -118379.93
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 208
     components:
     - type: Transform
@@ -10659,18 +10619,11 @@ entities:
     - type: Transform
       pos: -15.5,10.5
       parent: 2
-  - uid: 212
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -16.5,-9.5
-      parent: 2
 - proto: AirlockJanitorLocked
   entities:
-  - uid: 223
+  - uid: 207
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -46.5,-4.5
       parent: 2
 - proto: AirlockKitchenLocked
@@ -10918,6 +10871,9 @@ entities:
     - type: Transform
       pos: -82.5,-31.5
       parent: 2
+    - type: GridFill
+      addComponents: []
+      path: /Maps/_WL/Shuttles/wl_DS_shuttle.yml
   - uid: 10372
     components:
     - type: Transform
@@ -70791,200 +70747,6 @@ entities:
     - type: InsideEntityStorage
 - proto: Paper
   entities:
-  - uid: 3
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      rot: -0.20943951023931956 rad
-      pos: -9.474321,-5.5057325
-      parent: 2
-    - type: Paper
-      stampState: paper_stamp-greytide
-      stampedBy:
-      - overrideTextureSize: null
-        stampedTextureIsBorder: True
-        stampedTexture: /Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png
-        stampedColor: '#323232FF'
-        stampedName: Департамент Специальных Операций
-      content: >-
-        [color=#414141]███[/color][color=#313131]░███░░░░██░░░░[/color][color=#313131]                        ★ ★ ★ ★[/color][color=#313131]
-
-        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
-
-        ░░█░██░██░░██░█░░                   [head=3]Nanotrasen[/head]
-
-        ░░░░██░░██░██░██░                    [bold]Сек.Штаб ЦК[/bold]
-
-        ░░░░██░░░████░[/color][color=#414141]███[/color][color=#414141]                        ★ ★ ★ ★[/color]
-
-        =============================================
-                               [bold]УВЕДОМЛЕНИЕ СОВЕТА ДСО[/bold]
-        ============================================= 
-
-        [bold]Составитель документа:[/bold] 11-21-66-71
-
-        [bold]Должность составителя:[/bold] Оператор ДСО
-
-
-        Уважаемый [bold]Секториальный Штаб Центрального Командования[/bold]! Совет Департамента Специальных Операций напоминает вам об установленном протоколе, который может быть инициирован во внештатных ситуациях:
-
-        [bullet] В случае подтверждённой угрозы будущего внедрения на станцию центрального командования со стороны "попутчиков" экипажа станции сотрудник СЦК имеет право заблокировать проход, открыв гермозатворы к турелям.
-
-        =============================================
-                                        [italic]Место для печатей[/italic]
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
-          reagents: []
-      containers:
-      - food
-    - type: EmitSoundOnCollide
-      nextSound: -25001.1083322
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.25
-            - 0.25,-0.25
-            - 0.25,0.25
-            - -0.25,0.25
-          mask:
-          - Impassable
-          - HighImpassable
-          layer: []
-          density: 20
-          hard: True
-          restitution: 0.3
-          friction: 0.2
-        flammable:
-          shape: !type:PhysShapeCircle
-            radius: 0.35
-            position: 0,0
-          mask:
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - BulletImpassable
-          - InteractImpassable
-          - Opaque
-          layer: []
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 4
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
-  - uid: 5
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      rot: -3.141592653589793 rad
-      pos: -9.4469385,6.4361434
-      parent: 2
-    - type: Paper
-      stampState: paper_stamp-greytide
-      stampedBy:
-      - overrideTextureSize: null
-        stampedTextureIsBorder: True
-        stampedTexture: /Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png
-        stampedColor: '#323232FF'
-        stampedName: Департамент Специальных Операций
-      content: >-
-        [color=#414141]███[/color][color=#313131]░███░░░░██░░░░[/color][color=#313131]                        ★ ★ ★ ★[/color][color=#313131]
-
-        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
-
-        ░░█░██░██░░██░█░░                   [head=3]Nanotrasen[/head]
-
-        ░░░░██░░██░██░██░                    [bold]Сек.Штаб ЦК[/bold]
-
-        ░░░░██░░░████░[/color][color=#414141]███[/color][color=#414141]                        ★ ★ ★ ★[/color]
-
-        =============================================
-                               [bold]УВЕДОМЛЕНИЕ СОВЕТА ДСО[/bold]
-        ============================================= 
-
-        [bold]Составитель документа:[/bold] 11-21-66-71
-
-        [bold]Должность составителя:[/bold] Оператор ДСО
-
-
-        Уважаемый [bold]Секториальный Штаб Центрального Командования[/bold]! Совет Департамента Специальных Операций напоминает вам об установленном протоколе, который может быть инициирован во внештатных ситуациях:
-
-        [bullet] В случае подтверждённой угрозы будущего внедрения на станцию центрального командования со стороны "попутчиков" экипажа станции сотрудник СЦК имеет право заблокировать проход, открыв гермозатворы к турелям.
-
-        =============================================
-                                        [italic]Место для печатей[/italic]
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          temperature: 293.15
-          canReact: True
-          maxVol: 0
-          name: food
-          reagents: []
-      containers:
-      - food
-    - type: EmitSoundOnCollide
-      nextSound: -25001.1083322
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape: !type:PolygonShape
-            radius: 0.01
-            vertices:
-            - -0.25,-0.25
-            - 0.25,-0.25
-            - 0.25,0.25
-            - -0.25,0.25
-          mask:
-          - Impassable
-          - HighImpassable
-          layer: []
-          density: 20
-          hard: True
-          restitution: 0.3
-          friction: 0.2
-        flammable:
-          shape: !type:PhysShapeCircle
-            radius: 0.35
-            position: 0,0
-          mask:
-          - TableLayer
-          - HighImpassable
-          - LowImpassable
-          - BulletImpassable
-          - InteractImpassable
-          - Opaque
-          layer: []
-          density: 1
-          hard: False
-          restitution: 0
-          friction: 0.4
-    - type: ContainerContainer
-      containers:
-        solution@food: !type:ContainerSlot
-          ent: 6
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
   - uid: 4011
     components:
     - type: Transform
@@ -71034,6 +70796,86 @@ entities:
 
 
                    [italic]Не удивляйтесь штрафам потом.[/italic]
+  - uid: 7390
+    components:
+    - type: Transform
+      rot: 0.20943951023931956 rad
+      pos: -9.452526,-5.4901724
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-greytide
+      stampedBy:
+      - overrideTextureSize: null
+        stampedTextureIsBorder: True
+        stampedTexture: /Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png
+        stampedColor: '#323232FF'
+        stampedName: Департамент Специальных Операций
+      content: >-
+        [color=#414141]███[/color][color=#313131]░███░░░░██░░░░[/color][color=#313131]                        ★ ★ ★ ★[/color][color=#313131]
+
+        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
+
+        ░░█░██░██░░██░█░░                   [head=3]Nanotrasen[/head]
+
+        ░░░░██░░██░██░██░                    [bold]Сек.Штаб ЦК[/bold]
+
+        ░░░░██░░░████░[/color][color=#414141]███[/color][color=#414141]                        ★ ★ ★ ★[/color]
+
+        =============================================
+                               [bold]УВЕДОМЛЕНИЕ СОВЕТА ДСО[/bold]
+        ============================================= 
+
+        [bold]Составитель документа:[/bold] 11-21-66-71
+
+        [bold]Должность составителя:[/bold] Оператор ДСО
+
+
+        Уважаемый [bold]Секториальный Штаб Центрального Командования[/bold]! Совет Департамента Специальных Операций напоминает вам об установленном протоколе, который может быть инициирован во внештатных ситуациях:
+
+        [bullet] В случае подтверждённой угрозы будущего внедрения на станцию центрального командования со стороны "попутчиков" экипажа станции сотрудник СЦК имеет право заблокировать проход, открыв гермозатворы к турелям.
+
+        =============================================
+                                        [italic]Место для печатей[/italic]
+  - uid: 7391
+    components:
+    - type: Transform
+      rot: 2.7576202181510405 rad
+      pos: -9.378029,6.5604615
+      parent: 2
+    - type: Paper
+      stampState: paper_stamp-greytide
+      stampedBy:
+      - overrideTextureSize: null
+        stampedTextureIsBorder: True
+        stampedTexture: /Textures/Interface/Paper/paper_stamp_border.svg.96dpi.png
+        stampedColor: '#323232FF'
+        stampedName: Департамент Специальных Операций
+      content: >-
+        [color=#414141]███[/color][color=#313131]░███░░░░██░░░░[/color][color=#313131]                        ★ ★ ★ ★[/color][color=#313131]
+
+        ░██░████░░░██░░░░           [head=3]Бланк документа[/head]
+
+        ░░█░██░██░░██░█░░                   [head=3]Nanotrasen[/head]
+
+        ░░░░██░░██░██░██░                    [bold]Сек.Штаб ЦК[/bold]
+
+        ░░░░██░░░████░[/color][color=#414141]███[/color][color=#414141]                        ★ ★ ★ ★[/color]
+
+        =============================================
+                               [bold]УВЕДОМЛЕНИЕ СОВЕТА ДСО[/bold]
+        ============================================= 
+
+        [bold]Составитель документа:[/bold] 11-21-66-71
+
+        [bold]Должность составителя:[/bold] Оператор ДСО
+
+
+        Уважаемый [bold]Секториальный Штаб Центрального Командования[/bold]! Совет Департамента Специальных Операций напоминает вам об установленном протоколе, который может быть инициирован во внештатных ситуациях:
+
+        [bullet] В случае подтверждённой угрозы будущего внедрения на станцию центрального командования со стороны "попутчиков" экипажа станции сотрудник СЦК имеет право заблокировать проход, открыв гермозатворы к турелям.
+
+        =============================================
+                                        [italic]Место для печатей[/italic]
   - uid: 12452
     components:
     - type: Transform
@@ -92182,61 +92024,57 @@ entities:
     - type: Transform
       pos: -19.5,36.5
       parent: 2
-- proto: WarpPointBeacon
+- proto: WarpPoint
   entities:
-  - uid: 7542
+  - uid: 3
+    components:
+    - type: Transform
+      pos: -71.5,-15.5
+      parent: 2
+    - type: WarpPoint
+      location: СЦК - Брифрум ДСО
+  - uid: 4
+    components:
+    - type: Transform
+      pos: -70.5,-27.5
+      parent: 2
+    - type: WarpPoint
+      location: СЦК - Эскадрон
+  - uid: 212
     components:
     - type: Transform
       pos: -34.5,1.5
       parent: 2
     - type: WarpPoint
       location: СЦК
-  - uid: 12735
-    components:
-    - type: Transform
-      pos: -65.5,4.5
-      parent: 2
-    - type: WarpPoint
-      location: СЦК ФАКС
-  - uid: 12736
+  - uid: 223
     components:
     - type: Transform
       pos: -10.5,0.5
       parent: 2
     - type: WarpPoint
-      location: СЦК ПРИБЫТИЕ
-  - uid: 12737
+      location: СЦК - Прибытие
+  - uid: 7386
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -71.5,-15.5
-      parent: 2
-    - type: WarpPoint
-      location: СЦК ДСО БРИФ
-  - uid: 12738
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -70.5,-27.5
-      parent: 2
-    - type: WarpPoint
-      location: СЦК ЭС
-  - uid: 12739
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
       pos: -83.5,12.5
       parent: 2
     - type: WarpPoint
-      location: СЦК СТЫК ПЦК
-  - uid: 12740
+      location: СЦК - Док ПЦК
+  - uid: 7387
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -20.5,-20.5
       parent: 2
     - type: WarpPoint
-      location: СЦК СУД
+      location: СЦК - Суд
+  - uid: 7388
+    components:
+    - type: Transform
+      pos: -65.5,4.5
+      parent: 2
+    - type: WarpPoint
+      location: СЦК - Факс
 - proto: WaterCooler
   entities:
   - uid: 9499

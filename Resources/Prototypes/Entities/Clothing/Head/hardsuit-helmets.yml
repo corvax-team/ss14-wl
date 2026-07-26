@@ -212,6 +212,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.95
+  # WL-Stun-Resist-Playtest-End
 
 #Goliath Hardsuit
 - type: entity
@@ -288,6 +292,10 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.90
+  # WL-Stun-Resist-Playtest-End
 
 #Security Hardsuit
 - type: entity
@@ -386,6 +394,10 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
   - type: PointLight # Corvax-Resprite
     color: "#AF89D5FF"
 
@@ -531,6 +543,10 @@
   - type: PressureProtection
     highPressureMultiplier: 0.525
     lowPressureMultiplier: 1000
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.10
+  # WL-Stun-Resist-Playtest-End
   - type: PointLight
     radius: 7
     energy: 3
@@ -559,6 +575,10 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -586,6 +606,10 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -615,6 +639,10 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -642,6 +670,10 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -669,6 +701,10 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.85
+  # WL-Stun-Resist-Playtest-End
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -938,6 +974,10 @@
         Heat: 0.9
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.75
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.10
+  # WL-Stun-Resist-Playtest-End
 
 #Deathsquad Hardsuit
 - type: entity
@@ -982,6 +1022,10 @@
     toggleAction: ToggleThermalVision
     isEquipment: true
   # WL-Thermal-Vision-End
+  # WL-Stun-Resist-Playtest-Start
+  - type: StaminaResistance
+    damageCoefficient: 0.80
+  # WL-Stun-Resist-Playtest-End
 
 #MISC. HARDSUITS
 #Clown Hardsuit

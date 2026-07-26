@@ -235,3 +235,25 @@
       sprite: _WL/Clothing/Uniforms/Jumpsuit/blueshield.rsi
     - type: Clothing
       sprite: _WL/Clothing/Uniforms/Jumpsuit/blueshield.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWeddingSuitWhite
+  name: white wedding suit
+  description: White suit suitable for weddings, or just looking nice
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Uniforms/Jumpsuit/weddingsuit.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Uniforms/Jumpsuit/weddingsuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSuitWhite
+  name: white suit
+  description: White suit for looking stylish
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Uniforms/Jumpsuit/whitesuit.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Uniforms/Jumpsuit/whitesuit.rsi

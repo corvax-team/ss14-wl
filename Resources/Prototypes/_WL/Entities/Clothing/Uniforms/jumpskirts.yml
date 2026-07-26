@@ -88,3 +88,25 @@
     sprite: _WL/Clothing/Uniforms/Jumpskirt/nurse.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpskirt/nurse.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtWeddingSuitWhite
+  name: white wedding suitskirt
+  description: White suit suitable for weddings, or just looking nice
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/weddingsuit.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/weddingsuit.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSuitWhite
+  name: white suitskirt
+  description: White suit for looking stylish
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/whitesuit.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/whitesuit.rsi
