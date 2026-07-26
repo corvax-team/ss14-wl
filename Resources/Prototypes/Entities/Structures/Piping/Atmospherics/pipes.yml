@@ -21,6 +21,7 @@
   - type: CollideOnAnchor
   - type: Anchorable
   - type: Rotatable
+    increment: 90
   - type: Destructible
     thresholds:
     - trigger: # for nukes
@@ -84,6 +85,11 @@
       path: /Audio/_Goobstation/Items/Pipe/metal_pipe_fall.ogg
       params:
         volume: -2
+  - type: RCDDeconstructable # RPD port from FunkyStation
+    cost: 5
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
     # WL-Changes-end
   # Goobstation edit end
 

@@ -1,4 +1,3 @@
-using Content.Client._WL.DiscordAuth;
 using Content.Client.Changelog;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Guidebook;
@@ -13,10 +12,6 @@ namespace Content.Client.Info
     public sealed class LinkBanner : BoxContainer
     {
         private readonly IConfigurationManager _cfg;
-
-        //WL-Changes-start
-        private readonly PlayerSessionInfoUIController _playerSessionInfoUIController;
-        //WL-Changes-end
 
         private ValueList<(CVarDef<string> cVar, Button button)> _infoLinks;
 
@@ -40,18 +35,6 @@ namespace Content.Client.Info
             AddInfoButton("server-info-wiki-button", CCVars.InfoLinksWiki);
             AddInfoButton("server-info-forum-button", CCVars.InfoLinksForum);
             AddInfoButton("server-info-telegram-button", CCVars.InfoLinksTelegram);
-
-            //WL-Changes-start
-            _playerSessionInfoUIController = UserInterfaceManager.GetUIController<PlayerSessionInfoUIController>();
-
-            var session_info_button = new Button()
-            {
-                Text = "Информация"
-            };
-
-            session_info_button.OnPressed += _ => _playerSessionInfoUIController.ToggleWindow();
-            buttons.AddChild(session_info_button);
-            //WL-Changes-end
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
             var guidebookButton = new Button() { Text = Loc.GetString("server-info-guidebook-button") };

@@ -180,7 +180,7 @@ public sealed partial class FaxMachineComponent : Component
     public bool IsNotifyOnEmptyEnable = true;
 
     [DataField]
-    public bool IsMaterialStorageOpen = false;
+    public bool IsMaterialStorageOpen;
     // WL-Changes-end
 }
 

@@ -1,0 +1,80 @@
+- type: loadoutEffectGroup
+  id: BioroboticBreather
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Android
+
+- type: loadout
+  id: EmergencyBiorobotic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BioroboticBreather
+  storage:
+    back:
+    - BoxSurvivalBiorobotic
+
+- type: loadout
+  id: EmergencyBioroboticClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BioroboticBreather
+  storage:
+    back:
+    - BoxHugBiorobotic
+
+- type: loadout
+  id: EmergencyBioroboticMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BioroboticBreather
+  storage:
+    back:
+    - BoxMimeBiorobotic
+
+- type: loadout
+  id: EmergencyBioroboticExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BioroboticBreather
+  storage:
+    back:
+    - BoxSurvivalBioroboticEngineering
+
+- type: loadout
+  id: EmergencyBioroboticMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BioroboticBreather
+  storage:
+    back:
+    - BoxSurvivalBioroboticMedical
+
+- type: loadout
+  id: EmergencyBioroboticSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BioroboticBreather
+  storage:
+    back:
+    - BoxSurvivalBioroboticSyndicate
+
+- type: loadout
+  id: EmergencyBioroboticMilitaryDouble
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BioroboticBreather
+  equipment:
+    pocket1: DoubleEmergencyNitrogenTankFilled
+  storage:
+    back:
+    - BoxSurvivalMilitaryDoubleBiorobotic
+
+- type: loadout
+  id: EmergencyBioroboticSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: BioroboticBreather
+  storage:
+    back:
+    - BoxSurvivalBioroboticSecurity

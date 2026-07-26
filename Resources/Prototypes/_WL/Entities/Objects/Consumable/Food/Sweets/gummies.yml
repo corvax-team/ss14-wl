@@ -27,7 +27,7 @@
     flavors:
     - milk
     - creamy
-    - fish
+    - fishy
 
 - type: entity
   parent: FoodSweetsGummyBase
@@ -73,7 +73,7 @@
   - type: FlavorProfile
     flavors:
     - sweet
-    - slime
+    - slimy
 
 - type: entity
   parent: FoodSweetsGummyBase

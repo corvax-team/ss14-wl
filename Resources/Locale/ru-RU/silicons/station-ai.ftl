@@ -55,3 +55,12 @@ station-ai-hologram-male = Мужской образ
 station-ai-hologram-face = Бестелесная голова
 station-ai-hologram-cat = Форма кота
 station-ai-hologram-dog = Форма корги
+
+# WL-Changes: new AI form
+station-ai-hologram-beachball = Форма мяча
+station-ai-hologram-male2 = Образ парня
+station-ai-hologram-monster = Неизвестный образ
+station-ai-hologram-orb = Форма сферы
+station-ai-hologram-doll = Форма куклы
+station-ai-hologram-xeno = Образ ксеноморфа
+station-ai-hologram-cloudkat = Форма облачного кота

@@ -86,6 +86,7 @@
   keylang: 'у'
   obfuscation:
     !type:ByCharReplacementObfuscation
+      maxlength: 6
       replacement:
       - we
       - s

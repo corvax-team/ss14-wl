@@ -75,7 +75,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - lyrran6
+      - cischi4
   - type: Edible
     transferAmount: 5
   - type: Sprite

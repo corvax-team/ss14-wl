@@ -9,6 +9,12 @@
      enum.HumanoidVisualLayers.HeadTop:
        limit: 1
        required: false
+     enum.HumanoidVisualLayers.Hair:
+      limit: 1
+      required: false
+     enum.HumanoidVisualLayers.FacialHair:
+      limit: 1
+      required: false
      enum.HumanoidVisualLayers.HeadSide:
        limit: 1
        required: false
@@ -248,10 +254,7 @@
      - type: TypingIndicator
        proto: golem
      - type: Vocal
-       sounds:
-         Male: UnisexGolem
-         Female: UnisexGolem
-         Unsexed: UnisexGolem
+       emoteSounds: UnisexGolem
      - type: BodyEmotes
        soundsId: GolemBodyEmotes
      - type: Physics

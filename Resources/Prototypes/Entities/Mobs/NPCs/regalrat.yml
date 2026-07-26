@@ -1,7 +1,7 @@
 - type: entity
   name: rat king
   id: MobRatKing
-  parent: [ BaseMobRat, SimpleMobBase, MobCombat ]
+  parent: [ BaseMobRat, SimpleMobBase, MobCombat, BaseSlicingRefinable, MobNightVision ]
   description: He's da rat. He make da roolz.
   components:
   - type: CombatMode
@@ -110,8 +110,8 @@
   - type: MobsterAccent
   - type: Speech
     speechVerb: SmallMob
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: ClothingHeadHatFancyCrown #how did that get there?
       amount: 1
   - type: MobPrice
@@ -127,15 +127,10 @@
   - type: Grammar
     attributes:
       gender: male
-  - type: Sharp
+  - type: Tool
+    qualities: Slicing
   - type: TTS # Corvax-TTS
     voice: Rat
-  # WL-Night-Vision-Start
-  - type: NightVision
-    color: "#A3A3A3"
-    activateSound: null
-    deactivateSound: null
-  # WL-Night-Vision-End
 
 - type: entity
   id: MobRatKingBuff
@@ -177,7 +172,7 @@
 - type: entity
   name: rat servant
   id: MobRatServant
-  parent: [ BaseMobRat, SimpleMobBase, MobCombat ]
+  parent: [ BaseMobRat, SimpleMobBase, MobCombat, BaseSlicingRefinable ]
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
@@ -285,15 +280,12 @@
         Base: dead
       Dead:
         Base: splat
-  - type: Butcherable
-    spawned:
+  - type: ToolRefinable
+    refineResult:
     - id: FoodMeatRat
       amount: 1
   - type: Vocal
-    sounds:
-      Male: Mouse
-      Female: Mouse
-      Unsexed: Mouse
+    emoteSounds: Mouse
     wilhelmProbability: 0.001
   - type: Tag
     tags:
@@ -315,7 +307,7 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
   # WL-Night-Vision-Start
-  - type: NightVision
+  - type: NightVisionEye
     color: "#A3A3A3"
     activateSound: null
     deactivateSound: null

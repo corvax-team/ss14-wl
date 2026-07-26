@@ -16,7 +16,7 @@ public sealed partial class ChatSanitizationManager : IChatSanitizationManager
     [
         // Corvax-Localization-Start
         Entry("хд", "chatsan-laughs"),
-        Entry("о-о", "chatsan-wide-eyed"), // cyrillic о
+        // Entry("о-о", "chatsan-wide-eyed"), // cyrillic о // corvax-wl remove
         Entry("о.о", "chatsan-wide-eyed"), // cyrillic о
         Entry("0_о", "chatsan-wide-eyed"), // cyrillic о
         Entry("о/", "chatsan-waves"), // cyrillic о

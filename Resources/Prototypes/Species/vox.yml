@@ -19,3 +19,9 @@
   oldAge: 42
   maxAge: 60
   # WL-Changes-end
+  defaultSoundsBySex:
+  - UnisexVox
+  - UnisexVox
+  - UnisexVox
+  voices:
+  - UnisexVox

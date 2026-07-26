@@ -12,3 +12,10 @@
   femaleLastNames: NamesSarengLast
   minHeight: 170
   maxHeight: 220
+  defaultSoundsBySex:
+  - MaleAkula
+  - FemaleAkula
+  - MaleAkula
+  voices:
+  - MaleAkula
+  - FemaleAkula

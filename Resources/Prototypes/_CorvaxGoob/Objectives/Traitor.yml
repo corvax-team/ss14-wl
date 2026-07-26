@@ -29,7 +29,13 @@
   - type: TargetObjective
     title: objective-condition-teach-lesson-title
   - type: PickRandomPerson
-
+    conditions:
+    # Can't have multiple objectives to kill the same person.
+    - !type:ObjectiveTargetCondition
+      inverted: true
+      whitelist:
+        components:
+        - TeachALessonCondition
 
 - type: entity
   parent: [BaseTraitorObjective, BaseTeachALessonObjective]
@@ -44,8 +50,8 @@
   - type: TargetObjective
     title: objective-condition-teach-lesson-title
   - type: PickRandomPerson
-    filters:
-    - !type:BodyMindFilter
+    conditions:
+    - !type:BodyWhitelistCondition
       whitelist:
         components:
         - CommandStaff

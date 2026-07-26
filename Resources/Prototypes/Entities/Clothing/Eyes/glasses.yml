@@ -337,7 +337,7 @@
   # WL-Sounds-End
   - type: FlashImmunity
   # WL-Night-Vision-Start
-  - type: NightVision
+  - type: NightVisionEye
     isEquipment: true
   # WL-Night-Vision-End
 

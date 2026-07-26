@@ -47,6 +47,14 @@ public sealed partial class StationAiCoreComponent : Component
     /// Name of the container slot that holds the 'brain' used to construct the AI core
     /// </summary>
     public const string BrainContainer = "station_ai_brain_slot";
+
+    /// WL-Changes: SeeEmote start
+    /// <summary>
+    /// When false, the AI cant see emote
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool CanSeeEmote = true;
+    /// WL-Changes: SeeEmote end
 }
 
 /// <summary>

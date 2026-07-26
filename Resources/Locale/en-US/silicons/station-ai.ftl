@@ -55,3 +55,12 @@ station-ai-hologram-male = Male appearance
 station-ai-hologram-face = Disembodied head
 station-ai-hologram-cat = Cat form
 station-ai-hologram-dog = Corgi form
+
+# WL-Changes: new AI form
+station-ai-hologram-beachball = Beachball form
+station-ai-hologram-male2 = Guy appearance
+station-ai-hologram-monster = Unknown appearance
+station-ai-hologram-orb = Orb form
+station-ai-hologram-doll = Doll form
+station-ai-hologram-xeno = Xeno appearance
+station-ai-hologram-cloudkat = Cloudkat form

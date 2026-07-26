@@ -1,0 +1,143 @@
+- type: reaction
+  id: FerrochromicAcid
+  reactants:
+    Iron:
+      amount: 1
+    Oxygen:
+      amount: 2
+    FluorosulfuricAcid:
+      amount: 4
+  products:
+    FerrochromicAcid: 4
+    Oxygen: 1
+    Hydrogen: 2
+    Fluorine: 1
+
+- type: reaction
+  id: RepairFoam
+  reactants:
+    Aluminium:
+      amount: 2
+    FoamingAgent:
+      amount: 1
+    FerrochromicAcid:
+      amount: 1
+  products:
+    RepairFoam: 4
+
+- type: reaction
+  id: Oxidant
+  reactants:
+    Iron:
+      amount: 2
+    WeldingFuel:
+      amount: 1
+    SodiumPolyacrylate:
+      amount: 1
+  products:
+    Oxidant: 4
+
+- type: reaction
+  id: InsulatorBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Insulator:
+      amount: 10
+  products:
+    SpaceGlue: 5
+    ConcentratedInsulator: 3
+    SodiumPolyacrylate: 2
+
+- type: reaction
+  id: GlassFiber
+  minTemp: 500
+  reactants:
+    Fiber:
+      amount: 1
+    Sodium:
+      amount: 1
+  products:
+    Fiber: 1
+    GlassFiber: 1
+
+- type: reaction
+  id: Insulator
+  reactants:
+    SpaceGlue:
+      amount: 1
+    Oil:
+      amount: 1
+    Hydroxide:
+      amount: 1
+  products:
+    Insulator: 3
+
+- type: reaction
+  id: Refrigerant
+  reactants:
+    Lye:
+      amount: 1
+    WeldingFuel:
+      amount: 2
+    Oxygen:
+      amount: 1
+  products:
+    Refrigerant: 3
+
+- type: reaction
+  id: FastSilicone
+  minTemp: 420
+  reactants:
+    Fersilicite:
+      amount: 1
+    SpaceGlue:
+      amount: 2
+    PolytrinicAcid:
+      amount: 1
+  products:
+    FastSilicone: 3
+    PolytrinicAcid: 1
+
+- type: reaction
+  id: Deionizer
+  minTemp: 350
+  reactants:
+    Bleach:
+      amount: 1
+    Lithium:
+      amount: 2
+    Radium:
+      amount: 1
+  products:
+    Deionizer: 3
+    Radium: 1
+
+- type: reaction
+  id: RitiumBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Ritium:
+      amount: 10
+  products:
+    Oxidant: 4
+    Refrigerant: 3
+    Deionizer: 3
+
+- type: reaction
+  id: RPLKStim
+  reactants:
+    Oxidant:
+      amount: 1
+    Nitrogen:
+      amount: 1
+    Acetone:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    RPLKStim: 3
+    SulfuricAcid: 1

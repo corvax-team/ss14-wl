@@ -54,6 +54,20 @@ namespace Content.Shared.Chat
             AudioVolume = audioVolume;
         }
 
+        public ChatMessage(ChatMessage copyFrom)
+        {
+            Channel = copyFrom.Channel;
+            Message = copyFrom.Message;
+            WrappedMessage = copyFrom.WrappedMessage;
+            SenderEntity = copyFrom.SenderEntity;
+            SenderKey = copyFrom.SenderKey;
+            HideChat = copyFrom.HideChat;
+            MessageColorOverride = copyFrom.MessageColorOverride;
+            AudioPath = copyFrom.AudioPath;
+            AudioVolume = copyFrom.AudioVolume;
+            Read = copyFrom.Read;
+        }
+
         //WL-Changes-start
         public bool Equals(ChatMessage? other)
         {

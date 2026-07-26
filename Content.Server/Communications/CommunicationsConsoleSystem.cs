@@ -40,8 +40,12 @@ namespace Content.Server.Communications
         [Dependency] private UserInterfaceSystem _uiSystem = default!;
         [Dependency] private IConfigurationManager _cfg = default!;
         [Dependency] private IAdminLogManager _adminLogger = default!;
-        [Dependency] private IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
-        [Dependency] private EmergencyLevelSystem _emergencySystem = default!; // WL-Changes
+        [Dependency] private IdentitySystem _identity = default!;
+        
+        // WL-Changes: Start
+        [Dependency] private IPrototypeManager _prototypeManager = default!;
+        [Dependency] private EmergencyLevelSystem _emergencySystem = default!;
+        // WL-Changes: End
 
         private const float UIUpdateInterval = 5.0f;
 
@@ -320,9 +324,7 @@ namespace Content.Server.Communications
                     return;
                 }
 
-                var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(uid, mob);
-                RaiseLocalEvent(tryGetIdentityShortInfoEvent);
-                author = tryGetIdentityShortInfoEvent.Title;
+                author = _identity.GetIdentityShortInfo(mob, uid) ?? author;
             }
 
             comp.AnnouncementCooldownRemaining = comp.Delay;

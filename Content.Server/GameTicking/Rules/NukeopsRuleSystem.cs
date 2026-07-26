@@ -10,7 +10,6 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
-using Content.Server.StationRecords.Systems;
 using Content.Server.Store.Systems;
 using Content.Shared.Access.Systems;
 using Content.Shared.GameTicking.Components;
@@ -42,6 +41,7 @@ using Robust.Shared.Utility;
 using System.Data;
 using System.Linq;
 using System.Text;
+using Content.Shared.StationRecords.Systems;
 using Content.Shared.CombatMode.Pacification;//Corvax-DionaPacifist
 
 namespace Content.Server.GameTicking.Rules;
@@ -68,6 +68,12 @@ public sealed partial class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleCompon
     private static readonly ProtoId<CurrencyPrototype> TelecrystalCurrencyPrototype = "Telecrystal";
     private static readonly ProtoId<TagPrototype> NukeOpsUplinkTagPrototype = "NukeOpsUplink";
 
+    // TODO: This shouldn't be matching by ProtoId.
+    // It would be better if this were checked by component or something,
+    // but it needs to be distinct between the full Nukeops and Loneops rules,
+    // which NukeopsRuleComponent currently isn't.
+    // Better yet, maybe the behaviors this is used for could be moved to the rule component.
+    private static readonly EntProtoId NukeopsGameRule = "Nukeops";
 
     public override void Initialize()
     {
@@ -207,8 +213,8 @@ public sealed partial class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleCompon
                 if (ev.OwningStation == GetOutpost(uid))
                 {
                     nukeops.WinConditions.Add(WinCondition.NukeExplodedOnNukieOutpost);
-                    SetWinType((uid, nukeops), WinType.CrewMajor, GameTicker.IsGameRuleActive("Nukeops")); // End the round ONLY if the actual gamemode is NukeOps.
-                    if (!GameTicker.IsGameRuleActive("Nukeops")) // End the rule if the LoneOp shuttle got nuked, because that particular LoneOp clearly failed, and should not be considered a Syndie victory even if a future LoneOp wins.
+                    SetWinType((uid, nukeops), WinType.CrewMajor, GameTicker.IsGameRuleActive(NukeopsGameRule)); // End the round ONLY if the actual gamemode is NukeOps.
+                    if (!GameTicker.IsGameRuleActive(NukeopsGameRule)) // End the rule if the LoneOp shuttle got nuked, because that particular LoneOp clearly failed, and should not be considered a Syndie victory even if a future LoneOp wins.
                         GameTicker.EndGameRule(uid);
                     continue;
                 }
@@ -239,7 +245,7 @@ public sealed partial class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleCompon
                 nukeops.WinConditions.Add(WinCondition.NukeExplodedOnIncorrectLocation);
             }
 
-            if (GameTicker.IsGameRuleActive("Nukeops")) // If it's Nukeops then end the round on any detonation
+            if (GameTicker.IsGameRuleActive(NukeopsGameRule)) // If it's Nukeops then end the round on any detonation
             {
                 _roundEndSystem.EndRound();
             }
@@ -316,14 +322,14 @@ public sealed partial class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleCompon
 
         if (_antag.AllAntagsAlive(ent.Owner))
         {
-            SetWinType(ent, WinType.OpsMinor);
             ent.Comp.WinConditions.Add(WinCondition.AllNukiesAlive);
-            return;
         }
-
-        ent.Comp.WinConditions.Add(_antag.AnyAliveAntags(ent.Owner)
-            ? WinCondition.SomeNukiesAlive
-            : WinCondition.AllNukiesDead);
+        else
+        {
+            ent.Comp.WinConditions.Add(_antag.AnyAliveAntags(ent.Owner)
+                ? WinCondition.SomeNukiesAlive
+                : WinCondition.AllNukiesDead);
+        }
 
         var diskAtCentCom = false;
         var diskQuery = AllEntityQuery<NukeDiskComponent, TransformComponent>();
@@ -338,7 +344,6 @@ public sealed partial class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleCompon
         }
 
         // If the disk is currently at Central Command, the crew wins - just slightly.
-        // This also implies that some nuclear operatives have died.
         SetWinType(ent,
             diskAtCentCom
             ? WinType.CrewMinor

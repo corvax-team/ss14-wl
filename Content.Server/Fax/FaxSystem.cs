@@ -170,6 +170,10 @@ public sealed partial class FaxSystem : EntitySystem
     private void OnStorageButtonPressed(EntityUid uid, FaxMachineComponent component, FaxSwitchStorageMessage args)
     {
         component.IsMaterialStorageOpen = !component.IsMaterialStorageOpen;
+        var ejectSound = new SoundPathSpecifier("/Audio/Machines/tray_eject.ogg");
+        _audioSystem.PlayPvs(ejectSound, uid);
+
+        UpdateAppearance(uid, component);
         UpdateUserInterface(uid, component);
     }
 
@@ -471,6 +475,10 @@ public sealed partial class FaxSystem : EntitySystem
         }
         else if (component.PrintingTimeRemaining > 0)
             _appearanceSystem.SetData(uid, FaxMachineVisuals.VisualState, FaxMachineVisualState.Printing);
+        // WL-Changes-Start
+        else if (component.IsMaterialStorageOpen)
+            _appearanceSystem.SetData(uid, FaxMachineVisuals.VisualState, FaxMachineVisualState.Opened);
+        // WL-Changes-End
         else
             _appearanceSystem.SetData(uid, FaxMachineVisuals.VisualState, FaxMachineVisualState.Normal);
     }

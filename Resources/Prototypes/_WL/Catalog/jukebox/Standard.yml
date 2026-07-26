@@ -90,13 +90,6 @@
     path: /Audio/Lobby/pwmur.ogg
 
 - type: jukebox
-  id: Singuloose
-  author: Janis Schiedková
-  name: Singuloose
-  path:
-    path: /Audio/Lobby/singuloose.ogg
-
-- type: jukebox
   id: SpacStac
   author: Hayabusa
   name: Spac Stack

@@ -1,7 +1,7 @@
 - type: marking
   id: MakeupCheekLeftDownDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: cheek_l_d_dot
@@ -9,7 +9,7 @@
 - type: marking
   id: MakeupCheekLeftDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: cheek_l_dot
@@ -17,7 +17,7 @@
 - type: marking
   id: MakeupCheekRightDownDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: cheek_r_d_dot
@@ -25,7 +25,7 @@
 - type: marking
   id: MakeupCheekRightDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: cheek_r_dot
@@ -33,7 +33,7 @@
 - type: marking
   id: MakeupChinDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: chin_dot
@@ -41,7 +41,7 @@
 - type: marking
   id: MakeupChinLeftDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: chin_l_dot
@@ -49,7 +49,7 @@
 - type: marking
   id: MakeupChinRightDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: chin_r_dot
@@ -57,7 +57,7 @@
 - type: marking
   id: MakeupEyeLeftDownDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Reptilian, Tajaran, Vulpkanin, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: eye_l_d_dot
@@ -65,7 +65,7 @@
 - type: marking
   id: MakeupEyeLeftDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Murine, Reptilian, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: eye_l_dot
@@ -73,7 +73,7 @@
 - type: marking
   id: MakeupEyeLeftUpDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: eye_l_u_dot
@@ -81,7 +81,7 @@
 - type: marking
   id: MakeupEyeMidDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: eye_m_dot
@@ -89,7 +89,7 @@
 - type: marking
   id: MakeupEyeRightDownDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Reptilian, Tajaran, Vulpkanin, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: eye_r_d_dot
@@ -97,7 +97,7 @@
 - type: marking
   id: MakeupEyeRightDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Murine, Reptilian, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: eye_r_dot
@@ -105,7 +105,7 @@
 - type: marking
   id: MakeupEyeRightUpDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: eye_r_u_dot
@@ -113,7 +113,7 @@
 - type: marking
   id: MakeupEyelashLeftDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: eyelash_l_dot
@@ -121,7 +121,7 @@
 - type: marking
   id: MakeupEyelashRightDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: eyelash_r_dot
@@ -129,7 +129,7 @@
 - type: marking
   id: MakeupForeheadDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: forehead_dot
@@ -137,7 +137,7 @@
 - type: marking
   id: MakeupForeheadLeftDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: forehead_l_dot
@@ -145,7 +145,7 @@
 - type: marking
   id: MakeupForeheadRightDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: forehead_r_dot
@@ -153,7 +153,7 @@
 - type: marking
   id: MakeupForeheadUpDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: forehead_u_dot
@@ -161,7 +161,7 @@
 - type: marking
   id: MakeupHead1Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_1_dot
@@ -169,7 +169,7 @@
 - type: marking
   id: MakeupHead2Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_2_dot
@@ -177,7 +177,7 @@
 - type: marking
   id: MakeupHead3Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_3_dot
@@ -185,7 +185,7 @@
 - type: marking
   id: MakeupHead4Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_4_dot
@@ -193,7 +193,7 @@
 - type: marking
   id: MakeupHead5Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_5_dot
@@ -201,7 +201,7 @@
 - type: marking
   id: MakeupHead6Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_6_dot
@@ -209,7 +209,7 @@
 - type: marking
   id: MakeupHead7Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_7_dot
@@ -217,7 +217,7 @@
 - type: marking
   id: MakeupHead8Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_8_dot
@@ -225,7 +225,7 @@
 - type: marking
   id: MakeupHead9Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_9_dot
@@ -233,7 +233,7 @@
 - type: marking
   id: MakeupHead10Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_10_dot
@@ -241,7 +241,7 @@
 - type: marking
   id: MakeupHead11Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_11_dot
@@ -249,7 +249,7 @@
 - type: marking
   id: MakeupHead12Dot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_12_dot
@@ -257,7 +257,7 @@
 - type: marking
   id: MakeupHeadUpDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: head_u_dot
@@ -265,7 +265,7 @@
 - type: marking
   id: MakeupMouthLeftDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Moth]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: mouth_l_dot
@@ -273,7 +273,7 @@
 - type: marking
   id: MakeupMouthRightDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Moth]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: mouth_r_dot
@@ -281,7 +281,7 @@
 - type: marking
   id: MakeupNeckLeftDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: neck_l_dot
@@ -289,7 +289,7 @@
 - type: marking
   id: MakeupNeckRightDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: neck_r_dot
@@ -297,7 +297,7 @@
 - type: marking
   id: MakeupNoseLeftDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: nose_l_dot
@@ -305,7 +305,7 @@
 - type: marking
   id: MakeupNoseRightDot
   bodyPart: Eyes
-  groupWhitelist: [Human, Slime, Android, Felinid]
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Moth, Arachnid]
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: nose_r_dot

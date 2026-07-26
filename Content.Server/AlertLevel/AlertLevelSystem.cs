@@ -12,7 +12,6 @@ namespace Content.Server.AlertLevel;
 public sealed partial class AlertLevelSystem : EntitySystem
 {
     [Dependency] private IConfigurationManager _cfg = default!;
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private ChatSystem _chatSystem = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private StationSystem _stationSystem = default!;
@@ -51,7 +50,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
         if (!TryComp<AlertLevelComponent>(args.Station, out var alertLevelComponent))
             return;
 
-        if (!_prototypeManager.TryIndex(alertLevelComponent.AlertLevelsListPrototype, out AlertLevelsListPrototype? alerts)) // WL-Changes: Alert Level Rework
+        if (!ProtoMan.TryIndex(alertLevelComponent.AlertLevelsListPrototype, out AlertLevelsListPrototype? alerts)) // WL-Changes: Alert Level Rework
         {
             return;
         }
@@ -150,7 +149,7 @@ public sealed partial class AlertLevelSystem : EntitySystem
             // WL-Changes: Alert Level Rework
             || component.CurrentLevel == level
             || !component.AlertLevels.Levels.Contains(level)
-            || !_prototypeManager.TryIndex<AlertLevelPrototype>(level, out var prototype)
+            || !ProtoMan.TryIndex<AlertLevelPrototype>(level, out var prototype)
             || prototype == null)
             return;
             // WL-Changes-end

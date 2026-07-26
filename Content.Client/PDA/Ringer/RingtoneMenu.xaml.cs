@@ -52,6 +52,14 @@ namespace Content.Client.PDA.Ringer
                     }
 
                     input.CursorPosition = input.Text.Length;
+
+                    // WL-Changes-start
+                    if (index + 1 < RingerNoteInputs.Length)
+                    {
+                        RingerNoteInputs[index + 1].SelectAllOnFocus = true;
+                        RingerNoteInputs[index + 1].GrabKeyboardFocus();
+                    }
+                    // WL-Changes-end
                 };
 
                 input.OnFocusExit += _ =>

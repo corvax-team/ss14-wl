@@ -5,6 +5,32 @@
   maxLimit: 5
   loadouts: []
 
+#Law
+
+- type: loadoutGroup
+  id: MagistrateHead
+  name: loadout-group-magistrate-head
+  loadouts:
+  - MagistrateHeadPwig
+  - MagistrateHeadPwigFancy
+
+- type: loadoutGroup
+  id: MagistrateJumpsuit
+  name: loadout-group-magistrate-jumpsuit
+  loadouts:
+  - MagistrateJumpsuit
+  - MagistrateJumpskirt
+  - MagistrateJumpsuitFormal
+
+- type: loadoutGroup
+  id: MagistrateOuterClothing
+  name: loadout-group-magistrate-outerclothing
+  loadouts:
+  - MagistrateOuterClothingRobe
+  - MagistrateOuterClothingRobeAlt
+  - MagistrateOuterClothingRobeFancy
+  - MagistrateOuterClothingRobeRed
+
 # Engineering
 - type: loadoutGroup
   id: ChiefEngineerBackpack
@@ -410,6 +436,7 @@
   - SecurityHat
   - SecurityBeretDSS # WL-Changes: DSS uniform
   - SecuritySoftDSS # WL-Changes: DSS adding
+  - SecurityBeretSenior # WL-redo-427-resprite
 
 - type: loadoutGroup
   id: SeniorOfficerJumpsuit
@@ -417,7 +444,7 @@
   loadouts:
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
-  - JumpsuitDSS # WL-Changes: DSS uniform
+  - JumpsuitSeniorDSS # WL-Changes: DSS adding, WL-redo-427-resprite
   # Wl-change-start
   - JumpskirtTurtleneckRed
   - JumpsuitTurtleneckRed

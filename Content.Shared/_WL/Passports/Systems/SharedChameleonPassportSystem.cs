@@ -9,7 +9,6 @@ namespace Content.Shared._WL.Passports.Systems
         private const int MaxSpeciesLength = 15;
         private const int MaxGenderLength = 11;
         private const int MaxDateOfBirthLength = 24;
-        private const int MaxHeightLength = 3;
         private const int MaxPIDLength = 17;
 
         public bool TryChangeNameTitle(EntityUid uid, string? nameTitle, PassportComponent? passport = null)
@@ -88,25 +87,6 @@ namespace Content.Shared._WL.Passports.Systems
             return true;
         }
 
-        public bool TryChangeHeightTitle(EntityUid uid, string? heightTitle, PassportComponent? passport = null)
-        {
-            if (!Resolve(uid, ref passport))
-                return false;
-
-            heightTitle = heightTitle?.Trim();
-            if (string.IsNullOrWhiteSpace(heightTitle))
-                heightTitle = string.Empty;
-            else if (heightTitle.Length > MaxHeightLength)
-                heightTitle = heightTitle[..MaxHeightLength];
-
-            if (passport.DisplayHeight == heightTitle) // предполагаем, что DisplayHeight тоже string
-                return true;
-            passport.DisplayHeight = heightTitle;
-            Dirty(uid, passport);
-
-            return true;
-        }
-
         public bool TryChangePIDTitle(EntityUid uid, string? pidTitle, PassportComponent? passport = null)
         {
             if (!Resolve(uid, ref passport))
@@ -146,7 +126,6 @@ namespace Content.Shared._WL.Passports.Systems
         string currentSpecies,
         string currentGender,
         string currentDateOfBirth,
-        string currentHeight,
         string currentPid)
         : BoundUserInterfaceState
     {
@@ -154,7 +133,6 @@ namespace Content.Shared._WL.Passports.Systems
         public string CurrentSpecies { get; } = currentSpecies;
         public string CurrentGender { get; } = currentGender;
         public string CurrentDateOfBirth { get; } = currentDateOfBirth;
-        public string CurrentHeight { get; } = currentHeight;
         public string CurrentPID { get; } = currentPid;
     }
 
@@ -180,12 +158,6 @@ namespace Content.Shared._WL.Passports.Systems
     public sealed class ChameleonPassportDateOfBirthChangedMessage(string date) : BoundUserInterfaceMessage
     {
         public string DateOfBirth { get; } = date;
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class ChameleonPassportHeightChangedMessage(string height) : BoundUserInterfaceMessage
-    {
-        public string Height { get; } = height;
     }
 
     [Serializable, NetSerializable]

@@ -17,9 +17,6 @@
         <Label Name="CurrentDateOfBirth" Text="{Loc 'chameleon-passport-current-date-of-birth'}" />
         <LineEdit Name="DateOfBirthLineEdit" />
 
-        <Label Name="CurrentHeight" Text="{Loc 'chameleon-passport-current-height'}" />
-        <LineEdit Name="HeightLineEdit" />
-
         <Label Name="CurrentPID" Text="{Loc 'chameleon-passport-current-PID'}" />
         <LineEdit Name="PIDLineEdit" />
 

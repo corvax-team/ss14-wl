@@ -508,37 +508,31 @@ entities:
   - uid: 45
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 1.5,7.5
       parent: 1
   - uid: 46
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 1.5,0.5
       parent: 1
   - uid: 47
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 2.5,0.5
       parent: 1
   - uid: 48
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -2.5,0.5
       parent: 1
   - uid: 49
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 0.5,7.5
       parent: 1
   - uid: 50
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: -1.5,0.5
       parent: 1
 - proto: CrateToyBox

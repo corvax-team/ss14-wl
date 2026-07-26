@@ -9,18 +9,16 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chat.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Roles;
 
 public sealed partial class RoleSystem : SharedRoleSystem
 {
     [Dependency] private IChatManager _chat = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
-// WL-Changes: start
+    // WL-Changes: start
     [Dependency] private IServerPreferencesManager _servPrefMan = default!;
     [Dependency] private IPlayerManager _playMan = default!;
-// WL-Changes: end
+    // WL-Changes: end
 
     public string? MindGetBriefing(EntityUid? mindId)
     {
@@ -75,13 +73,13 @@ public sealed partial class RoleSystem : SharedRoleSystem
         return genericProfile as HumanoidCharacterProfile;
     }
 
+    // WL-Changes-start
     public string? GetSubnameByMind(MindComponent mind, string jobId)
     {
-        if (mind != null)
-            if (mind.OwnedEntity.HasValue)
-                return GetSubnameByEntity(mind.OwnedEntity.Value, jobId);
+        if (mind == null || !mind.OwnedEntity.HasValue)
+            return null;
 
-        return null;
+        return GetSubnameByEntity(mind.OwnedEntity.Value, jobId);
     }
 
     public string? GetSubnameByEntity(EntityUid entity, string jobId)
@@ -90,14 +88,7 @@ public sealed partial class RoleSystem : SharedRoleSystem
         if (profile == null)
             return null;
 
-        if (!profile.JobSubnames.TryGetValue(jobId, out var subname))
-            return null;
-
-        if (_proto.TryIndex<JobPrototype>(jobId, out var proto))
-            if (!proto.GetSubnames(profile.Gender).Contains(subname))
-                return proto.LocalizedName;
-
-        return subname;
+        return GetSubname(profile, jobId);
     }
 
     public string? GetSubnameBySesssion(ICommonSession? session, string jobId)
@@ -109,22 +100,16 @@ public sealed partial class RoleSystem : SharedRoleSystem
         if (profile == null)
             return null;
 
-        if (!profile.JobSubnames.TryGetValue(jobId, out var subname))
-            return null;
-
-        if (_proto.TryIndex<JobPrototype>(jobId, out var proto))
-            if (!proto.GetSubnames(profile.Gender).Contains(subname))
-                return proto.LocalizedName;
-
-        return subname;
+        return GetSubname(profile, jobId);
     }
+    // WL-Changes-end
 
     public void RoleUpdateMessage(MindComponent mind)
     {
         if (!Player.TryGetSessionById(mind.UserId, out var session))
             return;
 
-        if (!_proto.Resolve(mind.RoleType, out var proto))
+        if (!ProtoMan.Resolve(mind.RoleType, out var proto))
             return;
 
         var roleText = Loc.GetString(proto.Name);

@@ -1,4 +1,5 @@
 using System.Globalization;
+using Content.Shared._WL.Wallets; // WL-Changes: Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -24,8 +25,8 @@ public abstract partial class SharedIdCardSystem : EntitySystem
     [Dependency] private SharedHandsSystem _hands = default!;
     [Dependency] private InventorySystem _inventorySystem = default!;
     [Dependency] private MetaDataSystem _metaSystem = default!;
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SharedJobStatusSystem _jobStatus = default!;
+    [Dependency] private SharedAgentIdCardSystem _agentIdCard = default!;
 
     // CCVar.
     private int _maxNameLength;
@@ -65,27 +66,20 @@ public abstract partial class SharedIdCardSystem : EntitySystem
     private void OnTryGetIdentityShortInfo(TryGetIdentityShortInfoEvent ev)
     {
         if (ev.Handled)
-        {
             return;
-        }
 
-        string? title = null;
-        if (TryFindIdCard(ev.ForActor, out var idCard) && !(ev.RequestForAccessLogging && idCard.Comp.BypassLogging))
+        if (TryFindIdCard(ev.Target, out var idCard) && !(ev.RequestForAccessLogging && idCard.Comp.BypassLogging))
         {
-            title = ExtractFullTitle(idCard);
+            ev.Title = ExtractFullTitle(idCard);
+            ev.Handled = true;
         }
-
-        ev.Title = title;
-        ev.Handled = true;
     }
 
     private void OnHandleState(Entity<IdCardComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         // Try to update the job status icon of the player owning the ID, if any.
-        if (HasComp<PdaComponent>(Transform(ent).ParentUid))
-            _jobStatus.UpdateStatus(Transform(Transform(ent).ParentUid).ParentUid); //ID is inside a PDA
-        else
-            _jobStatus.UpdateStatus(Transform(ent).ParentUid); //ID is held/directly in the ID slot
+        _jobStatus.UpdateIdHolderStatus(ent);
+        _agentIdCard.UpdateUi(ent);
     }
 
     /// <summary>
@@ -130,6 +124,14 @@ public abstract partial class SharedIdCardSystem : EntitySystem
             idCard = (pda.ContainedId.Value, idCardComp);
             return true;
         }
+        // WL-Changes-Start: Wallet
+        if (TryComp(uid, out WalletComponent? wallet) &&
+            TryComp<IdCardComponent>(wallet.ContainedId, out var cardComp))
+        {
+            idCard = (wallet.ContainedId.Value, cardComp);
+            return true;
+        }
+        // WL-Changes-End
 
         idCard = default;
         return false;
@@ -143,6 +145,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
     /// If provided with a player's EntityUid to the player parameter, adds the change to the admin logs.
     /// Actually works with the LocalizedJobTitle DataField and not with JobTitle.
     /// </remarks>
+    /// <returns> True if the job title changed, false if nothing changed. </returns>
     public bool TryChangeJobTitle(EntityUid uid, string? jobTitle, IdCardComponent? id = null, EntityUid? player = null)
     {
         if (!Resolve(uid, ref id))
@@ -161,7 +164,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
         }
 
         if (id.LocalizedJobTitle == jobTitle)
-            return true;
+            return false;
         id.LocalizedJobTitle = jobTitle;
         Dirty(uid, id);
         UpdateEntityName(uid, id);
@@ -174,6 +177,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
         return true;
     }
 
+    /// <returns> True if the job icon changed, false if nothing changed. </returns>
     public bool TryChangeJobIcon(EntityUid uid, JobIconPrototype jobIcon, IdCardComponent? id = null, EntityUid? player = null)
     {
         if (!Resolve(uid, ref id))
@@ -183,7 +187,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
 
         if (id.JobIcon == jobIcon.ID)
         {
-            return true;
+            return false;
         }
 
         id.JobIcon = jobIcon.ID;
@@ -204,7 +208,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
             return false;
 
         id.JobDepartments.Clear();
-        foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
+        foreach (var department in ProtoMan.EnumeratePrototypes<DepartmentPrototype>())
         {
             if (department.Roles.Contains(job.ID))
                 id.JobDepartments.Add(department.ID);
@@ -238,6 +242,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
     /// <remarks>
     /// If provided with a player's EntityUid to the player parameter, adds the change to the admin logs.
     /// </remarks>
+    /// <returns> True if the name changed, false if nothing changed. </returns>
     public bool TryChangeFullName(EntityUid uid, string? fullName, IdCardComponent? id = null, EntityUid? player = null)
     {
         if (!Resolve(uid, ref id))
@@ -255,7 +260,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
         }
 
         if (id.FullName == fullName)
-            return true;
+            return false;
         id.FullName = fullName;
         Dirty(uid, id);
         UpdateEntityName(uid, id);
@@ -323,6 +328,7 @@ public abstract partial class SharedIdCardSystem : EntitySystem
 
         _access.TrySetTags(ent, ent.Comp.ExpiredAccess);
         ent.Comp.Expired = true;
+        ent.Comp.Permanent = false;
         Dirty(ent);
     }
 

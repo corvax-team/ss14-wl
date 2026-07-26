@@ -1,5 +1,15 @@
 # Miscellaneous
 - type: loadoutGroup
+  id: Glasses
+  name: loadout-group-glasses
+  minLimit: 0
+  loadouts:
+  - Glasses
+  - GlassesJamjar
+  - GlassesJensen
+  - CheapSunglasses # WL-Changes
+
+- type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
   minLimit: 0
@@ -19,6 +29,14 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
+  # WL-Changes-Start
+  - WalletLeather
+  - WalletBlack
+  - WalletTanned
+  - WalletWhite
+  - WalletPink
+  - WalletNanotrasen
+  # WL-Changes-End
   - BoxFolderBaseThreePapers
   - BoxFolderPlasticClipboardThreePapers
   - BoxFolderClipboardThreePapers
@@ -40,6 +58,14 @@
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
+  - TowelColorWhite
+
+- type: loadoutGroup
+  id: AssistiveItems
+  name: loadout-group-assistive-items
+  minLimit: 0
+  maxLimit: 1 # Increase this limit in the future once there's more assistive items than just canes!
+  loadouts:
   - OffsetCane
   - OffsetCaneWood
   - OffsetCaneClown
@@ -59,17 +85,6 @@
   - ClothingNeckVoidPin
   - ClothingNeckWhiteListPin
   # Corvax-Loadouts-End
-  - TowelColorWhite
-
-- type: loadoutGroup
-  id: Glasses
-  name: loadout-group-glasses
-  minLimit: 0
-  loadouts:
-  - Glasses
-  - CheapSunglasses # WL-Changes
-  - GlassesJamjar
-  - GlassesJensen
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -87,6 +102,7 @@
   loadouts:
   - EmergencyNitrogen
   - EmergencyOxygen
+  - EmergencyBiorobotic #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 # nitrogen or oxygen tank, depending on what your species needs
@@ -1304,6 +1320,7 @@
   loadouts:
   - EmergencyNitrogenClown
   - EmergencyOxygenClown
+  - EmergencyBioroboticClown #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
@@ -1683,6 +1700,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
+  - ClothingHeadHatPostmanCap # WL-Changes
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -1690,6 +1708,7 @@
   loadouts:
   - CargoTechnicianJumpsuit
   - CargoTechnicianJumpskirt
+  - ClothingUniformJumpsuitPostman # WL-Changes
 # WL-Change-start
   - JumpsuitColorWhite
   - JumpskirtColorWhite
@@ -1805,6 +1824,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
+  - ClothingOuterPostmanJacket # WL-Changes
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -2323,6 +2343,7 @@
   loadouts:
   - EmergencyNitrogenExtended
   - EmergencyOxygenExtended
+  - EmergencyBioroboticExtended #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 # Science
@@ -2720,6 +2741,7 @@
   - WardenBeret
   - SecurityBeretDSS # WL-Changes: DSS adding
   - SecuritySoftDSS # WL-Changes: DSS adding
+  - SecurityBeretSenior # WL-redo-427-resprite
 
 - type: loadoutGroup
   id: WardenJumpsuit
@@ -2727,7 +2749,7 @@
   loadouts:
   - WardenJumpsuit
   - WardenJumpskirt
-  - JumpsuitDSS # WL-Changes: DSS adding
+  - JumpsuitSeniorDSS # WL-Changes: DSS adding, WL-redo-427-resprite
 
 - type: loadoutGroup
   id: WardenOuterClothing
@@ -2863,6 +2885,7 @@
   - DetectiveArmorVest
   - DetectiveCoat
   - DetectiveCoatGrey
+  - ClothingOuterCoatDetectiveDark # WL-Changes
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup
@@ -2903,6 +2926,7 @@
   loadouts:
   - EmergencyNitrogenSecurity
   - EmergencyOxygenSecurity
+  - EmergencyBioroboticSecurity #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 # Wildcards
@@ -3153,6 +3177,7 @@
   loadouts:
   - EmergencyNitrogenSyndicate
   - EmergencyOxygenSyndicate
+  - EmergencyBioroboticSyndicate #WL-Changes: Signalis update
   - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
@@ -3163,6 +3188,7 @@
   loadouts:
   - EmergencyNitrogenMilitaryDouble
   - EmergencyOxygenMilitaryDouble
+  - EmergencyBioroboticMilitaryDouble #WL-Changes: Signalis update
 
 - type: loadoutGroup
   id: GroupSpeciesBreathTool

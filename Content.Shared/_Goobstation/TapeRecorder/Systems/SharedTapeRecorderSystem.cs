@@ -363,6 +363,7 @@ public abstract partial class SharedTapeRecorderSystem : EntitySystem
         ent.Comp.Mode = mode;
         Dirty(ent);
 
+        UpdateAppearance(ent); // WL-Changes
         UpdateUI(ent);
     }
 

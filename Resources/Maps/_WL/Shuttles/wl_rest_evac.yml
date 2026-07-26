@@ -1962,79 +1962,66 @@ entities:
   - uid: 115
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -1.5,-4.5
       parent: 1
   - uid: 117
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 6.5,1.5
       parent: 1
   - uid: 118
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 5.5,1.5
       parent: 1
   - uid: 119
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 4.5,1.5
       parent: 1
   - uid: 120
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 13.5,1.5
       parent: 1
   - uid: 121
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 14.5,1.5
       parent: 1
   - uid: 122
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 12.5,1.5
       parent: 1
   - uid: 123
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 16.5,1.5
       parent: 1
   - uid: 124
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 15.5,1.5
       parent: 1
   - uid: 131
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 7.5,1.5
       parent: 1
   - uid: 134
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -1.5,-0.5
       parent: 1
   - uid: 136
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -2.5,-2.5
       parent: 1
   - uid: 137
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 8.5,1.5
       parent: 1
 - proto: GrilleDiagonal

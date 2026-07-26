@@ -31,18 +31,17 @@ namespace Content.Server._WL.Administration.Commands
                 return;
             }
 
-            var color = Color.TryFromHex(args[1]);
-            if (!color.HasValue)
+            if (!Color.TryFromHex(args[1], out var color))
             {
                 shell.WriteError(Loc.GetString("shell-invalid-color-hex"));
                 return;
             }
 
             // Save the DB
-            _dbManager.SaveSponsorColorAsync(session.UserId, color.Value);
+            _dbManager.SaveSponsorColorAsync(session.UserId, color);
             // Update the cached preference
             var prefs = _preferenceManager.GetPreferences(session.UserId);
-            prefs.SponsorColor = color.Value;
+            prefs.SponsorColor = color;
         }
     }
 }

@@ -1,0 +1,10 @@
+marking-PiercingLowEarL = Пирсинг на левое ухо снизу
+marking-PiercingLowEarR = Пирсинг на правое ухо снизу
+marking-PiercingTopEarL =  Пирсинг на левое ухо сверху
+marking-PiercingTopEarR =  Пирсинг на правое ухо сверху
+marking-PiercingEarLAkula = Пирсинг на левое ухо акулы
+marking-PiercingEarRAkula =  Пирсинг на правое ухо акулы
+marking-PiercingLowEarLMurine = Пирсинг на левое ухо мурина снизу
+marking-PiercingLowEarRMurine = Пирсинг на правое ухо мурина снизу
+marking-PiercingTopEarLMurine = Пирсинг на левое ухо мурина сверху
+marking-PiercingTopEarRMurine = Пирсинг на правое ухо мурина сверху

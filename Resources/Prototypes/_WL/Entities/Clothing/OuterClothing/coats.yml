@@ -68,3 +68,86 @@
         children:
         - id: SmokingPipeFilledTobacco
         - id: FlippoEngravedLighter
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterEngiCoat
+  name: engineer coat
+  description: The perfect uniform for an experiment with singularity on an april night.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/engicoat.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/engicoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.90
+        Radiation: 0.90
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatBlueAssymetry
+  name: assymetrical coat
+  description: Daring and blue.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/blueassymetry.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/blueassymetry.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatPinkMiniFurcoat
+  name: pink mini fur coat
+  description: Thats not protecting you from the cold, gurl...
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/pinkfluff.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/pinkfluff.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRaspberryCoat
+  name: raspberry coat
+  description: You can finally LARP as a rich person!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/raspberry.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/raspberry.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterCoatBlueCuteCardigan
+  name: blue flowery cardigan
+  description: Soft and comforting for those who deserve it most.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/cutecardigan.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/cutecardigan.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterCoatPurpleCuteCardigan
+  name: purple flowery cardigan
+  description: Soft and comforting for those who deserve it most.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/cutecardiganalt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/cutecardiganalt.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatMusicianBikingJacket
+  name: biking jacket
+  description: You can already feel the music.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/musical.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/musical.rsi

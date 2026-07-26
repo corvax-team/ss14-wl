@@ -43,6 +43,9 @@ reagent-desc-milk = Непрозрачная белая жидкость, выр
 reagent-name-milk-goat = козье молоко
 reagent-desc-milk-goat = Непрозрачная белая жидкость, производимая козами. Высокая концентрация обезжиренных сливок.
 
+reagent-name-milk-sheep = овечье молоко
+reagent-desc-milk-sheep = Непрозрачная белая жидкость, производимая овцами. Содержит много жира.
+
 reagent-name-milk-oat = овсяное молоко
 reagent-desc-milk-oat = На удивление вкусное.
 
@@ -94,5 +97,5 @@ reagent-desc-posca = Напиток бедных воинов из забыто�
 reagent-name-mopwata = швабода
 reagent-desc-mopwata = Грязная, застоявшаяся вода из-под швабры, швабровая вода.
 
-reagent-name-orange-lime-soda = цитрусовый трёп
+reagent-name-orange-lime-soda = кира спешл
 reagent-desc-orange-lime-soda = Газировка должна быть апельсиновая! Нет, она должна быть лимон-лайм!

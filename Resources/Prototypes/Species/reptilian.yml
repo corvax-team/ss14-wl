@@ -17,3 +17,10 @@
   oldAge: 60
   maxAge: 110
   # WL-Changes-end
+  defaultSoundsBySex:
+  - MaleReptilian
+  - FemaleReptilian
+  - MaleReptilian
+  voices:
+  - MaleReptilian
+  - FemaleReptilian
