@@ -31,4 +31,6 @@ public sealed partial class RenameOnInteractComponent : Component
     public LocId NewNameConditions = "renameable-system-new-name-conditions";
     [DataField]
     public ResPath VerbTexturePath = new("/Textures/Interface/AdminActions/rename.png");
+    [DataField]
+    public int MaxLength = 40;
 }

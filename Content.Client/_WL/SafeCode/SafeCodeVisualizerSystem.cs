@@ -26,11 +26,11 @@ public sealed partial class SafeCodeVisualizerSystem : VisualizerSystem<SafeCode
 
         if (broken)
         {
-            _sprite.LayerSetVisible((uid, sprite),SafeCodeVisualLayers.Lights, false);
+            _sprite.LayerSetVisible((uid, sprite), SafeCodeVisualLayers.Lights, false);
             return;
         }
 
-        _sprite.LayerSetVisible((uid, sprite),SafeCodeVisualLayers.Lights, true);
+        _sprite.LayerSetVisible((uid, sprite), SafeCodeVisualLayers.Lights, true);
         _sprite.LayerSetRsiState((uid, sprite), SafeCodeVisualLayers.Lights, locked ? "locked" : "unlocked");
     }
 }

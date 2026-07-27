@@ -11,7 +11,6 @@ using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 using System.IO;
 using System.Linq;
 
@@ -19,37 +18,27 @@ namespace Content.Server._WL.Poly
 {
     public sealed partial class PolySystem : EntitySystem
     {
-        [Dependency] private IChatManager _chatManager = default!;
         [Dependency] private IRobustRandom _random = default!;
         [Dependency] private GameTicker _ticker = default!;
         [Dependency] private IGameTiming _timing = default!;
         [Dependency] private IConfigurationManager _configMan = default!;
         [Dependency] private IPlayerManager _playMan = default!;
-        [Dependency] private ILogManager _logMan = default!;
 
-        private ISawmill _sawmill = default!;
-
-        private List<MessageEntry> _messages = default!;
+        private List<MessageEntry> _messages = new();
 
         private TimeSpan _time = TimeSpan.Zero;
         private bool _readyToPick = false;
         private TimeSpan _chooseInterval = default!;
         private bool _neededCleanup = false;
 
-        private Dictionary<string, ChatMessage> _queriedEntities = default!;
-        private Dictionary<string, byte[]?> _handledImages = default!;
+        private Dictionary<string, ChatMessage> _queriedEntities = new();
+        private Dictionary<string, byte[]?> _handledImages = new();
 
         private const int MAX_QUERIES_PER_PLAYER = 20;
 
         public override void Initialize()
         {
             base.Initialize();
-
-            _messages = new();
-            _queriedEntities = new();
-            _handledImages = new();
-
-            _sawmill = _logMan.GetSawmill("poly.server");
 
             _readyToPick = _configMan.GetCVar(WLCVars.PolyNeededRoundEndCleanup);
             _chooseInterval = TimeSpan.FromSeconds(_configMan.GetCVar(WLCVars.PolyMessageChooseCooldown));

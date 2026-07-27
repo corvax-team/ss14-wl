@@ -86,7 +86,7 @@ public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
 
             for (int i = 0; i < record.Languages.Count; i++)
             {
-                languages += Loc.GetString(_prototypeManager.Index<LanguagePrototype>(record.Languages[i]).Name);
+                languages += Loc.GetString(_prototypeManager.Index(record.Languages[i]).Name);
 
                 if (i != record.Languages.Count - 1)
                     languages += ", ";
@@ -134,9 +134,7 @@ public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
 
                 comp.CanPrintEntries = true;
 
-                var ent = new Entity<MedicalRecordsConsoleComponent>(uid, comp);
-
-                UpdateUserInterface(ent);
+                UpdateUserInterface((uid, comp));
             }
 
             return;
@@ -155,7 +153,7 @@ public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
         }
 
         var listing = _records.BuildListing((owningStation.Value, stationRecords), console.Filter);
-        var state = new MedicalRecordsConsoleState(listing, console.Filter, ent.Comp.CanPrintEntries);
+        var state = new MedicalRecordsConsoleState(listing, console.Filter, console.CanPrintEntries);
 
         if (console.ActiveKey is { } id)
         {

@@ -225,7 +225,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
 
         for (var i = 0; i < message.Length; i++)
         {
-            if (char.IsWhiteSpace((modifiedMessage[i])))
+            if (char.IsWhiteSpace(modifiedMessage[i]))
             {
                 continue;
             }

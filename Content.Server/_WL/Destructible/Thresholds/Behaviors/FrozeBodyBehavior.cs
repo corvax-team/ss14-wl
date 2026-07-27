@@ -22,7 +22,7 @@ namespace Content.Server._WL.Destructible.Thresholds.Behaviors
         public void Execute(EntityUid bodyId, DestructibleSystem system, EntityUid? cause = null)
         {
             var entMan = system.EntityManager;
-            var humanoidProfileSys = entMan.System<HumanoidProfileSystem>();
+            //var humanoidProfileSys = entMan.System<HumanoidProfileSystem>();
             var transformSys = entMan.System<TransformSystem>();
             var popupSys = entMan.System<SharedPopupSystem>();
             var metaDataSys = entMan.System<MetaDataSystem>();

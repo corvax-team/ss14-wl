@@ -12,7 +12,7 @@ public sealed partial class SkillPrototype : IPrototype
     public SkillType SkillType { get; private set; }
 
     [DataField(required: true)]
-    public int[] Costs { get; private set; } = new[] { 0, 0, 0, 0 };
+    public int[] Costs { get; private set; } = [0, 0, 0, 0];
 
     [DataField(required: true)]
     public Color Color { get; private set; } = Color.White;

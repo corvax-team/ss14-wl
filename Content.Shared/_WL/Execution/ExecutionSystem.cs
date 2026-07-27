@@ -158,15 +158,8 @@ public sealed partial class ExecutionSystem : EntitySystem
         //string? internalMsg = null;
         //string? externalMsg = null;
 
-        if (TryComp(uid, out MeleeWeaponComponent? melee))
-        {
-            _meleeSystem.AttemptLightAttack(attacker, weapon, melee, victim);
-
-            //internalMsg = component.DefaultCompleteInternalMeleeExecutionMessage;
-            //externalMsg = component.DefaultCompleteExternalMeleeExecutionMessage;
-        }
         // TODO: Fcking shit code by GunSystem and HitscanPrototype
-        else if (TryComp(uid, out BatteryAmmoProviderComponent? hitscanBatteryAmmo) &&
+        if (TryComp(uid, out BatteryAmmoProviderComponent? hitscanBatteryAmmo) &&
                  hitscanBatteryAmmo.Shots != 0 &&
                  TryComp(uid, out GunComponent? laserGun))
         {
@@ -237,6 +230,13 @@ public sealed partial class ExecutionSystem : EntitySystem
                 _gunSystem.AttemptShoot(attacker, ent, new EntityCoordinates(victim, 0.01984f, -0.00451f), target: victim);
             }
             args.Handled = true;
+        }
+        else if (TryComp(uid, out MeleeWeaponComponent? melee))
+        {
+            _meleeSystem.AttemptLightAttack(attacker, weapon, melee, victim);
+
+            //internalMsg = component.DefaultCompleteInternalMeleeExecutionMessage;
+            //externalMsg = component.DefaultCompleteExternalMeleeExecutionMessage;
         }
 
         _combatSystem.SetInCombatMode(attacker, prev);

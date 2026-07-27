@@ -32,7 +32,7 @@ public sealed partial class EmergencyLevelSystem : EntitySystem
 
         var query = EntityQueryEnumerator<EmergencyLevelComponent>();
 
-        while (query.MoveNext(out var station, out var emergency))
+        while (query.MoveNext(out _, out var emergency))
         {
             if (emergency.CurrentDelay <= 0)
             {

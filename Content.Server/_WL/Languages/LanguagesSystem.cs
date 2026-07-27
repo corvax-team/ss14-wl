@@ -143,7 +143,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
     public void OnGlobalLanguageChange(LanguageChangeEvent msg, EntitySessionEventArgs args)
     {
         var entity = _ent.GetEntity(msg.Entity);
-        if (!TryComp<LanguagesComponent>(entity, out var component))
+        if (!HasComp<LanguagesComponent>(entity))
             return;
         OnLanguageChange(entity, (string)msg.Language);
     }

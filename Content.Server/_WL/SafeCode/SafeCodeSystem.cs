@@ -1,5 +1,4 @@
 ﻿using Content.Shared._WL.SafeCode;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
@@ -30,7 +29,7 @@ public sealed partial class SafeCodeSystem : SharedSafeCodeSystem
 
     private void OnInit(Entity<SafeCodeComponent> ent, ref MapInitEvent args)
     {
-        var maxValue = (int) Math.Pow(10, ent.Comp.CodeLength);
+        var maxValue = (int)Math.Pow(10, ent.Comp.CodeLength);
         var code = _random.Next(maxValue);
 
         ent.Comp.Code = code.ToString().PadLeft(ent.Comp.CodeLength, '0');

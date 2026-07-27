@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Content.Server._WL.Speech.Components;
 using Content.Shared.Speech;
 

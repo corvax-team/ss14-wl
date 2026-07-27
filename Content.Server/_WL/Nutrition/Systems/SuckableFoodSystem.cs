@@ -44,12 +44,25 @@ public sealed partial class SuckableFoodSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<SuckableFoodComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SuckableFoodComponent, GotEquippedEvent>(OnEquip);
         SubscribeLocalEvent<SuckableFoodComponent, GotUnequippedEvent>(ResetSucker);
 
         SubscribeLocalEvent<SuckableFoodComponent, ComponentShutdown>(ResetSucker);
 
         SubscribeLocalEvent<SuckableFoodComponent, SuckableFoodDissolvedEvent>(OnDissolved);
+    }
+
+    private void OnInit(Entity<SuckableFoodComponent> ent, ref ComponentInit args)
+    {
+        if (ent.Comp.EquippedEntityOnDissolve is not { } onDissolve)
+            return;
+
+        if (_protoMan.TryIndex(onDissolve, out var suckerProto) && suckerProto.HasComp<SuckableFoodComponent>(EntityManager.ComponentFactory))
+        {
+            Log.Error($"EquippedEntityOnDissolve {onDissolve} on entity {ToPrettyString(ent)} has {nameof(SuckableFoodComponent)}!");
+            ent.Comp.EquippedEntityOnDissolve = null;
+        }
     }
 
     public override void Update(float frameTime)
@@ -107,12 +120,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
             _updateTimer -= UpdatePeriod;
     }
 
-    public void SetState(Entity<SuckableFoodComponent> foodEnt, EntityUid? sucker)
-    {
-        var (food, comp) = foodEnt;
-
-        comp.SuckingEntity = sucker;
-    }
+    public void SetState(Entity<SuckableFoodComponent> foodEnt, EntityUid? sucker) => foodEnt.Comp.SuckingEntity = sucker;
 
     public bool EnsureSolutionEntity(
         Entity<SuckableFoodComponent, SolutionManagerComponent?> foodEnt,
@@ -125,13 +133,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
         if (!Resolve(foodEnt, ref foodEnt.Comp2, false))
             return false;
 
-        if (!_solutionContainerSystem.EnsureSolution((foodEnt, foodEnt.Comp2), foodEnt.Comp1.Solution, out var ent))
-            return false;
-
-        solEnt = ent;
-        solution = ent.Comp.Solution;
-
-        return true;
+        return _solutionContainerSystem.TryGetSolution((foodEnt, foodEnt.Comp2), foodEnt.Comp1.Solution, out solEnt, out solution);
     }
 
     private void OnEquip(EntityUid food, SuckableFoodComponent comp, GotEquippedEvent ev)
@@ -173,13 +175,6 @@ public sealed partial class SuckableFoodSystem : EntitySystem
 
         if (comp.EquippedEntityOnDissolve != null)
         {
-            if (_protoMan.TryIndex(comp.EquippedEntityOnDissolve.Value, out var proto)
-                && proto.HasComponent<SuckableFoodComponent>(_componentFactory))
-            {
-                Log.Error($"EquippedEntityOnDissolve {comp.EquippedEntityOnDissolve.Value} on entity {ToPrettyString(food)} has {nameof(SuckableFoodComponent)}!");
-                return;
-            }
-
             var ent = SpawnNextToOrDrop(comp.EquippedEntityOnDissolve.Value, ev.Sucker, overrides: comp.ComponentsOverride);
             _inventory.TryEquip(ev.Sucker, ent, ev.Container.ID, true);
         }

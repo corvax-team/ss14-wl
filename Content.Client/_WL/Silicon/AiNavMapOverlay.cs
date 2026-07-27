@@ -16,8 +16,7 @@ namespace Content.Client._WL.Silicon;
 [Virtual]
 public partial class AiNavMapOverlay
 {
-    [Dependency] public IEntityManager _entManager = default!;
-    [Dependency] public IResourceCache _cache = default!;
+    [Dependency] private IEntityManager _entManager = default!;
 
     public EntityUid? Owner;
     public EntityUid? MapUid;

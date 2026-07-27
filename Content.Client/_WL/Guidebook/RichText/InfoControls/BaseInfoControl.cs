@@ -40,8 +40,10 @@ public abstract class BaseInfoControl : PanelContainer, IDocumentTag
             Margin = new Thickness(10, 10, 10, 15),
         };
 
-        var leftSeparator = new VSeparator(controlColor);
-        leftSeparator.MinSize = new Vector2(4, 5);
+        var leftSeparator = new VSeparator(controlColor)
+        {
+            MinSize = new Vector2(4, 5)
+        };
 
         var rightContentBox = new BoxContainer()
         {

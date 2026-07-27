@@ -2,8 +2,6 @@ using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.Silicons.StationAi;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Log;
 using Robust.Shared.Player;
 
 namespace Content.Server.Silicons.StationAi;

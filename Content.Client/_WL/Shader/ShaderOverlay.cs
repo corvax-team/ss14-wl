@@ -81,7 +81,7 @@ namespace Content.Client._WL.Shaders
 
                 _positions[_count] = tempCoords;
                 _vars[_count] = source.Vars.ToArray();
-                _times[_count] = source.CreationTick.Value*_timing.TickPeriod;
+                _times[_count] = source.CreationTick.Value * _timing.TickPeriod;
                 _count++;
 
                 if (_count == MaxCount)

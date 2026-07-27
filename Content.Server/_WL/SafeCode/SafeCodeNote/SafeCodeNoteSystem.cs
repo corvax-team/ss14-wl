@@ -1,5 +1,4 @@
-﻿using Content.Server.Station.Systems;
-using Content.Shared._WL.SafeCode;
+﻿using Content.Shared._WL.SafeCode;
 using Content.Shared._WL.SafeCode.CapsSpareSafe;
 using Content.Shared.Paper;
 using Content.Shared.Station.Components;
@@ -11,7 +10,6 @@ public sealed partial class SafeCodeNoteSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private PaperSystem _paper = default!;
-    [Dependency] private StationSystem _station = default!;
     /// <inheritdoc/>
     public override void Initialize()
     {

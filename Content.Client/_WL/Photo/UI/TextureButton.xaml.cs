@@ -21,19 +21,19 @@ public sealed partial class TextureButton : ContainerButton
 
         Icon.DisplayRect.Stretch = TextureRect.StretchMode.Scale;
 
-        this.OnMouseEntered += args =>
+        OnMouseEntered += args =>
         {
             if (PointedTexture != null)
                 Icon.SetFromSpriteSpecifier(PointedTexture);
         };
 
-        this.OnMouseExited += args =>
+        OnMouseExited += args =>
         {
             if (BaseTexture != null)
                 Icon.SetFromSpriteSpecifier(BaseTexture);
         };
 
-        this.OnButtonDown += args =>
+        OnButtonDown += args =>
         {
             if (PressedTexture != null)
                 Icon.SetFromSpriteSpecifier(PressedTexture);
@@ -41,7 +41,7 @@ public sealed partial class TextureButton : ContainerButton
             _clickSound?.Restart();
         };
 
-        this.OnButtonUp += args =>
+        OnButtonUp += args =>
         {
             if (PointedTexture != null)
                 Icon.SetFromSpriteSpecifier(PointedTexture);

@@ -10,7 +10,7 @@ namespace Content.Shared._WL.Shaders.Components
         public string Shader = "";
 
         [DataField, AutoNetworkedField]
-        public List<float> Vars = new List<float> {1f, 1f, 1f, 1f, 1f};
+        public List<float> Vars = new List<float> { 1f, 1f, 1f, 1f, 1f };
 
         [DataField]
         public LocId? ExamineMessage = "gunstandingrequired-component-examine";
