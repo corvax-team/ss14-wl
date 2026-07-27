@@ -152,6 +152,7 @@
     size: Tiny
   - type: StaticPrice
     price: 75
+  - type: Coin
 
 - type: entity
   parent: TreasureCoinIron
