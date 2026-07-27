@@ -29,6 +29,14 @@
   - CigPackBlack
   - CigarCase
   - CigarGold
+  # WL-Changes-Start
+  - WalletLeather
+  - WalletBlack
+  - WalletTanned
+  - WalletWhite
+  - WalletPink
+  - WalletNanotrasen
+  # WL-Changes-End
   - BoxFolderBaseThreePapers
   - BoxFolderPlasticClipboardThreePapers
   - BoxFolderClipboardThreePapers

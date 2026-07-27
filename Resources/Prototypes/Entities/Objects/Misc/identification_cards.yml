@@ -271,7 +271,7 @@
   name: senior engineer ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi #WL resprite
+    # sprite: Objects/Misc/id_cards.rsi #WL resprite
     layers:
     - state: default
     # - state:stripe_top #WL-Resprite
@@ -292,7 +292,7 @@
   name: medical intern ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi #WL resprite
+    # sprite: Objects/Misc/id_cards.rsi #WL resprite
     layers:
     - state: default
     # - state:stripe_top #WL-Resprite
@@ -311,7 +311,7 @@
   name: medical ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi #WL resprite
+    # sprite: Objects/Misc/id_cards.rsi #WL resprite
     layers:
     - state: default
     # - state:stripe_top #WL-Resprite
@@ -330,7 +330,7 @@
   name: paramedic ID card
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi #WL resprite
+    # sprite: Objects/Misc/id_cards.rsi #WL resprite
     layers:
     - state: default
     # - state:stripe_top #WL-Resprite

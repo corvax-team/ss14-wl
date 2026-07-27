@@ -1,0 +1,44 @@
+- type: loadout
+  id: WalletLeather
+  storage:
+    back:
+    - Wallet
+  groupBy: "wallets"
+
+- type: loadout
+  id: WalletBlack
+  storage:
+    back:
+    - WalletBlack
+  groupBy: "wallets"
+
+- type: loadout
+  id: WalletTanned
+  storage:
+    back:
+    - WalletTanned
+  groupBy: "wallets"
+
+- type: loadout
+  id: WalletWhite
+  storage:
+    back:
+    - WalletWhite
+  groupBy: "wallets"
+
+- type: loadout
+  id: WalletPink
+  storage:
+    back:
+    - WalletPink
+  groupBy: "wallets"
+
+- type: loadout
+  id: WalletNanotrasen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Command
+  storage:
+    back:
+    - WalletNanotrasen
+  groupBy: "wallets"

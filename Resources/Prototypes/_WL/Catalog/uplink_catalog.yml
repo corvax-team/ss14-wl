@@ -108,3 +108,15 @@
     Telecrystal: 3
   categories:
   - UplinkDeception
+
+# Wallet
+
+- type: listing
+  id: UplinkSyndicateWallet
+  name: uplink-syndicate-wallet-name
+  description: uplink-syndicate-wallet-desc
+  productEntity: WalletSyndicate
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless

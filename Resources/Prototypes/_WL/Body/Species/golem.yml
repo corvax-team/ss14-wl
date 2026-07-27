@@ -245,7 +245,7 @@
          collection: GenericHit
        angle: 30
        animation: WeaponArcFist
-       attackRate: 0.3
+       attackRate: 0.6
        damage:
          types:
            Blunt: 15

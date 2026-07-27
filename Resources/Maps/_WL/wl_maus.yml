@@ -106803,18 +106803,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: MagicalLamp
-  entities:
-  - uid: 1264
-    components:
-    - type: Transform
-      pos: -85.53996,-51.491676
-      parent: 2
-  - uid: 1834
-    components:
-    - type: Transform
-      pos: -23.506714,8.431786
-      parent: 2
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 11809

@@ -1,4 +1,5 @@
 using System.Globalization;
+using Content.Shared._WL.Wallets; // WL-Changes: Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -123,6 +124,14 @@ public abstract partial class SharedIdCardSystem : EntitySystem
             idCard = (pda.ContainedId.Value, idCardComp);
             return true;
         }
+        // WL-Changes-Start: Wallet
+        if (TryComp(uid, out WalletComponent? wallet) &&
+            TryComp<IdCardComponent>(wallet.ContainedId, out var cardComp))
+        {
+            idCard = (wallet.ContainedId.Value, cardComp);
+            return true;
+        }
+        // WL-Changes-End
 
         idCard = default;
         return false;

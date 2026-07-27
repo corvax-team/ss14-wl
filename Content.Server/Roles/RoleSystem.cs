@@ -73,13 +73,13 @@ public sealed partial class RoleSystem : SharedRoleSystem
         return genericProfile as HumanoidCharacterProfile;
     }
 
+    // WL-Changes-start
     public string? GetSubnameByMind(MindComponent mind, string jobId)
     {
-        if (mind != null)
-            if (mind.OwnedEntity.HasValue)
-                return GetSubnameByEntity(mind.OwnedEntity.Value, jobId);
+        if (mind == null || !mind.OwnedEntity.HasValue)
+            return null;
 
-        return null;
+        return GetSubnameByEntity(mind.OwnedEntity.Value, jobId);
     }
 
     public string? GetSubnameByEntity(EntityUid entity, string jobId)
@@ -88,14 +88,7 @@ public sealed partial class RoleSystem : SharedRoleSystem
         if (profile == null)
             return null;
 
-        if (!profile.JobSubnames.TryGetValue(jobId, out var subname))
-            return null;
-
-        if (ProtoMan.TryIndex<JobPrototype>(jobId, out var proto))
-            if (!proto.GetSubnames(profile.Gender).Contains(subname))
-                return proto.LocalizedName;
-
-        return subname;
+        return GetSubname(profile, jobId);
     }
 
     public string? GetSubnameBySesssion(ICommonSession? session, string jobId)
@@ -107,15 +100,9 @@ public sealed partial class RoleSystem : SharedRoleSystem
         if (profile == null)
             return null;
 
-        if (!profile.JobSubnames.TryGetValue(jobId, out var subname))
-            return null;
-
-        if (ProtoMan.TryIndex<JobPrototype>(jobId, out var proto))
-            if (!proto.GetSubnames(profile.Gender).Contains(subname))
-                return proto.LocalizedName;
-
-        return subname;
+        return GetSubname(profile, jobId);
     }
+    // WL-Changes-end
 
     public void RoleUpdateMessage(MindComponent mind)
     {

@@ -1,3 +1,4 @@
+using Content.Shared._WL.Wallets; // WL-Changes: Wallets
 using Content.Shared.Access.Components;
 using Content.Shared.Hands;
 using Content.Shared.Inventory.Events;
@@ -54,6 +55,16 @@ public abstract partial class SharedJobStatusSystem : EntitySystem
                     iconId = id.JobIcon;
                     break;
                 }
+
+                // WL-Changes-Start: Wallet
+                if (TryComp<WalletComponent>(item, out var wallet)
+                    && wallet.ContainedId != null
+                    && TryComp(wallet.ContainedId, out id))
+                {
+                    iconId = id.JobIcon;
+                    break;
+                }
+                // WL-Changes-End
             }
         }
 

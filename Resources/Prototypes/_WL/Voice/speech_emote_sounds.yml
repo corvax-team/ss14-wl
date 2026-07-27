@@ -90,6 +90,12 @@
   sounds:
     Clap:
       collection: GolemClap
+    ClapSingle:
+      collection: ClapSingle
+    Snap:
+      collection: Snaps
+    Salute:
+      collection: Salutes
   params:
     variation: 0.125
 
@@ -134,6 +140,8 @@
       collection: BioroboticDeathGasp
       params:
         volume: -6
+    Honk:
+      collection: BikeHorn
 
 - type: emoteSounds
   id: FemaleAndroid
@@ -176,6 +184,8 @@
       collection: BioroboticDeathGasp
       params:
         volume: -20
+    Honk:
+      collection: BikeHorn
 
 - type: emoteSounds
   id: GeneralBioroboticEmotes

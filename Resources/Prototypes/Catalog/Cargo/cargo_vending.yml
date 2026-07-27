@@ -41,7 +41,7 @@
   container:
     entity: WrappedParcel
     containerId: contents
-  cost: 8000 # WL-Changes-Fix-Balance-Litogin
+  cost: 9000 # WL-Changes-Fix-Balance-Litogin
   category: cargoproduct-category-name-service
   group: market
 

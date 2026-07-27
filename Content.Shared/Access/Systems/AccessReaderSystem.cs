@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
+using Content.Shared._WL.Wallets; // WL-Changes: Wallet
 using Content.Shared.Access.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Systems;
@@ -901,6 +902,18 @@ public sealed partial class AccessReaderSystem : EntitySystem
                 return true;
             }
         }
+
+        // WL-Changes-Start: Wallet
+        if (TryComp<WalletComponent>(uid, out var wallet) &&
+            wallet.ContainedId is { Valid: true } cardId)
+        {
+            if (TryComp<StationRecordKeyStorageComponent>(cardId, out var walletStorage) && walletStorage.Key != null)
+            {
+                key = walletStorage.Key;
+                return true;
+            }
+        }
+        // WL-Changes-End
 
         key = null;
         return false;

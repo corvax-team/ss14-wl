@@ -95,6 +95,8 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: Paper
+    sound: # WL-Changes
+      collection: PaperWriting
   - type: PaperLabelType
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
