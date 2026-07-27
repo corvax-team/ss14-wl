@@ -37,7 +37,7 @@ public sealed partial class SharedCoinSystem : EntitySystem
 
     private void OnExamined(Entity<CoinComponent> ent, ref ExaminedEvent ev)
     {
-        var side = Loc.GetString(ent.Comp.SideNames.TryGetValue(ent.Comp.CurSide, out var value) ? value : "coin-component-head");
+        var side = Loc.GetString(ent.Comp.SideNames.TryGetValue(Math.Max(ent.Comp.CurSide, 0), out var value) ? value : "coin-component-head");
         ev.PushMarkup(Loc.GetString("coin-system-cur-side", ("side", side)));
     }
 
@@ -45,7 +45,7 @@ public sealed partial class SharedCoinSystem : EntitySystem
     {
         var rand = SharedRandomExtensions.PredictedRandom(_timing, GetNetEntity(ent));
 
-        var sideNum = rand.Next(1, ent.Comp.SideCount + 1);
+        var sideNum = rand.Next(1, Math.Max(ent.Comp.SideCount, 0) + 1);
         var side = Loc.GetString(ent.Comp.SideNames.TryGetValue(sideNum, out var value) ? value : "coin-component-head");
 
         _popup.PopupEntity(side, ent);
