@@ -44,5 +44,4 @@ public sealed partial class DynamicTextSystem : EntitySystem
     {
         _userInterfaceManager.GetUIController<DynamicTextUIController>().SetDynamicText(ev.DynamicText);
     }
-
 }

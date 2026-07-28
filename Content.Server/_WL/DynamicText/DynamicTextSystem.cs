@@ -38,10 +38,17 @@ public sealed partial class DynamicTextSystem : EntitySystem
 
         var maxDynamicTextLength = _cfm.GetCVar(WLCVars.MaxDynamicTextLength);
 
-        comp.DynamicText = ev.DynamicText.Length > maxDynamicTextLength ? FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText)[..maxDynamicTextLength] : FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText);
+        var newText = ev.DynamicText.Length > maxDynamicTextLength
+            ? FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText)[..maxDynamicTextLength]
+            : FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText);
+
+        if (newText == comp.DynamicText)
+            return;
+
+        comp.DynamicText = newText;
 
         var name = Name(ent.Value);
-        _popup.PopupEntity(Loc.GetString("dynamic-text-changed-popup", ("name", name)), ent.Value, PopupType.Medium);
+        _popup.PopupEntity(Loc.GetString("dynamic-text-changed-popup", ("name", name)), ent.Value);
     }
 
     private void RequestDynamicText(RequestDynamicTextEvent ev, EntitySessionEventArgs args)
