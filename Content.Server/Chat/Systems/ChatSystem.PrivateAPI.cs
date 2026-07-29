@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Chat;
+using Content.Server.Chat.Systems;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Radio;
@@ -19,7 +20,8 @@ public sealed partial class ChatSystem
         ChatTransmitRange range,
         string? nameOverride,
         bool hideLog = false,
-        bool ignoreActionBlocker = false
+        bool ignoreActionBlocker = false,
+        InGameICChatType chatType = InGameICChatType.Speak
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -57,7 +59,7 @@ public sealed partial class ChatSystem
             return;
         else if (pressureCheckEv.ForceWhisper)
         {
-            SendEntityWhisper(source, originalMessage, range, null, nameOverride);
+            SendEntityWhisper(source, originalMessage, range, null, nameOverride, chatType: InGameICChatType.Whisper);
             return;
         }
         message = pressureCheckEv.Message;
@@ -75,7 +77,7 @@ public sealed partial class ChatSystem
         var obfuscationChannel = isEmoting ? ChatChannel.Emotes
             : ChatChannel.Local;
 
-        SendInVoiceRangeObfuscated(ChatChannel.Local, message, wrappedMessage, obfuscationChannel, obfuscatedMessage, obfusWrappedMessage, source, range);
+        SendInVoiceRangeObfuscated(ChatChannel.Local, message, wrappedMessage, obfuscationChannel, obfuscatedMessage, obfusWrappedMessage, source, range, chatType: chatType);
         // WL-Change: Lang X Chat End
 
         var ev = new EntitySpokeEvent(source, message, originalMessage, null, null, /*WL-Changes: Languages*/obfuscatedMessage, null/*WL-Changes: Languages*/);
@@ -112,7 +114,8 @@ public sealed partial class ChatSystem
         RadioChannelPrototype? channel,
         string? nameOverride,
         bool hideLog = false,
-        bool ignoreActionBlocker = false
+        bool ignoreActionBlocker = false,
+        InGameICChatType chatType = InGameICChatType.Whisper
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -166,7 +169,7 @@ public sealed partial class ChatSystem
             ("message", FormattedMessage.EscapeText(fullObfuscatedMessage)));
         //WL-Changes: Languages end
 
-        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange))
+        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange, chatType))
         {
             EntityUid listener;
 
@@ -241,7 +244,8 @@ public sealed partial class ChatSystem
         bool hideLog = false,
         bool checkEmote = true,
         bool ignoreActionBlocker = false,
-        NetUserId? author = null
+        NetUserId? author = null,
+        InGameICChatType chatType = InGameICChatType.Emote
         )
     {
         if (!_actionBlocker.CanEmote(source) && !ignoreActionBlocker)
@@ -261,7 +265,7 @@ public sealed partial class ChatSystem
             !TryEmoteChatInput(source, action))
             return;
 
-        SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author);
+        SendInVoiceRange(ChatChannel.Emotes, action, wrappedMessage, source, range, author, chatType);
         if (!hideLog)
             if (name != Name(source))
                 _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Emote from {source} as {name}: {action}");

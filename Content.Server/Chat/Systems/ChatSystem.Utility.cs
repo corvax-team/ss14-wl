@@ -62,9 +62,9 @@ public sealed partial class ChatSystem
     }
 
     // WL-Changes: Lang X Chat start
-    private void SendInVoiceRangeObfuscated(ChatChannel channel, string message, string wrappedMessage, ChatChannel obfuscatedChannel, string obfuscatedMessage, string obfuscatedWrapMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null)
+    private void SendInVoiceRangeObfuscated(ChatChannel channel, string message, string wrappedMessage, ChatChannel obfuscatedChannel, string obfuscatedMessage, string obfuscatedWrapMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, InGameICChatType chatType = InGameICChatType.Speak)
     {
-        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType))
         {
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
@@ -92,9 +92,15 @@ public sealed partial class ChatSystem
     /// <summary>
     ///     Sends a chat message to the given players in range of the source entity.
     /// </summary>
-    private void SendInVoiceRange(ChatChannel channel, string message, string wrappedMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null)
+    private void SendInVoiceRange(ChatChannel channel,
+        string message,
+        string wrappedMessage,
+        EntityUid source,
+        ChatTransmitRange range,
+        NetUserId? author = null,
+        InGameICChatType chatType = InGameICChatType.Speak)
     {
-        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType))
         {
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
@@ -214,7 +220,7 @@ public sealed partial class ChatSystem
     /// <summary>
     ///     Returns list of players and ranges for all players withing some range. Also returns observers with a range of -1.
     /// </summary>
-    private Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange)
+    private Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange, InGameICChatType chatType = InGameICChatType.Speak)
     {
         // TODO proper speech occlusion
 
@@ -247,7 +253,7 @@ public sealed partial class ChatSystem
                 recipients.Add(player, new ICChatRecipientData(-1, true));
         }
 
-        RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients));
+        RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients, chatType));
         return recipients;
     }
 
