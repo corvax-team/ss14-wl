@@ -6,7 +6,6 @@
 
 - type: entity
   id: AdminObjective
-  abstract: true
   parent: BaseObjective
   name: admin objective
   description: A task assigned by an administrator.
