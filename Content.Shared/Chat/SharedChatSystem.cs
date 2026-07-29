@@ -324,7 +324,7 @@ public abstract partial class SharedChatSystem : EntitySystem
         bool checkEmote = true,
         bool ignoreActionBlocker = false,
         NetUserId? author = null,
-        InGameICChatType chatType = InGameICChatType.Emote
+        InGameICChatType chatType = InGameICChatType.Emote // Wl-Changes Chat Type
     )
     { }
 

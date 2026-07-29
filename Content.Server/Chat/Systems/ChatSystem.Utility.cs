@@ -62,9 +62,9 @@ public sealed partial class ChatSystem
     }
 
     // WL-Changes: Lang X Chat start
-    private void SendInVoiceRangeObfuscated(ChatChannel channel, string message, string wrappedMessage, ChatChannel obfuscatedChannel, string obfuscatedMessage, string obfuscatedWrapMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, InGameICChatType chatType = InGameICChatType.Speak)
+    private void SendInVoiceRangeObfuscated(ChatChannel channel, string message, string wrappedMessage, ChatChannel obfuscatedChannel, string obfuscatedMessage, string obfuscatedWrapMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, InGameICChatType chatType = InGameICChatType.Speak) // Wl-Changes Chat Type
     {
-        foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType))
+        foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType)) // Wl-Changes Chat Type
         {
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
@@ -100,7 +100,7 @@ public sealed partial class ChatSystem
         NetUserId? author = null,
         InGameICChatType chatType = InGameICChatType.Speak)
     {
-        foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType))
+        foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType)) // Wl-Changes Chat Type
         {
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
@@ -220,7 +220,7 @@ public sealed partial class ChatSystem
     /// <summary>
     ///     Returns list of players and ranges for all players withing some range. Also returns observers with a range of -1.
     /// </summary>
-    private Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange, InGameICChatType chatType = InGameICChatType.Speak)
+    private Dictionary<ICommonSession, ICChatRecipientData> GetRecipients(EntityUid source, float voiceGetRange, InGameICChatType chatType = InGameICChatType.Speak) // Wl-Changes Chat Type
     {
         // TODO proper speech occlusion
 
@@ -253,7 +253,7 @@ public sealed partial class ChatSystem
                 recipients.Add(player, new ICChatRecipientData(-1, true));
         }
 
-        RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients, chatType));
+        RaiseLocalEvent(new ExpandICChatRecipientsEvent(source, voiceGetRange, recipients, chatType)); // Wl-Changes Chat Type
         return recipients;
     }
 

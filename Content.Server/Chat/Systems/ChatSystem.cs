@@ -215,7 +215,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         // Was there an emote in the message? If so, send it.
         if (player != null && emoteStr != message && emoteStr != null)
         {
-            SendEntityEmote(source, emoteStr, range, nameOverride, ignoreActionBlocker, chatType: InGameICChatType.Emote);
+            SendEntityEmote(source, emoteStr, range, nameOverride, ignoreActionBlocker, chatType: InGameICChatType.Emote); // Wl-Changes Chat Type
         }
 
         // This can happen if the entire string is sanitized out.
@@ -236,13 +236,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         switch (desiredType)
         {
             case InGameICChatType.Speak:
-                SendEntitySpeak(source, message, range, nameOverride, hideLog, ignoreActionBlocker, chatType: InGameICChatType.Speak);
+                SendEntitySpeak(source, message, range, nameOverride, hideLog, ignoreActionBlocker, chatType: InGameICChatType.Speak); // Wl-Changes Chat Type
                 break;
             case InGameICChatType.Whisper:
-                SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker, chatType: InGameICChatType.Whisper);
+                SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker, chatType: InGameICChatType.Whisper); // Wl-Changes Chat Type
                 break;
             case InGameICChatType.Emote:
-                SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker, chatType: InGameICChatType.Emote);
+                SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker, chatType: InGameICChatType.Emote); // Wl-Changes Chat Type
                 break;
         }
     }
