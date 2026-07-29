@@ -28,7 +28,7 @@ void fragment() {
     delta = FRAGCOORD.xy - position;
     distance = length(delta / renderScale);
 
-    deformation = 200 / pow(distance, 2);//vars[1] / pow(distance, 2); // falloffPower[i]);
+    deformation = 200.0 / pow(distance, 2.0);//vars[1] / pow(distance, 2.0); // falloffPower[i]);
     angle = atan(delta.x, delta.y);
 
     // ensure deformation goes to zero at max distance
@@ -45,17 +45,17 @@ void fragment() {
     //c = vec2(0.74543, 0.11301);
     c = z;
 
-    for (int j = 0; j < 1000 && length(z) < 2 && distance < maxDistance; j++) {
+    for (int j = 0; j < 1000 && length(z) < 2.0 && distance < maxDistance; j++) {
         z = cx_square(z) + c;
     }
 
-    if (length(z) > 2)
+    if (length(z) > 2.0)
         deformation *= length(z)*0.1;//vars[1];
 
     // if(deformation > 0.8)
     //     deformation = pow(deformation, 0.3);
 
-    finalCoords -= cx_square(z) * deformation*10;
+    finalCoords -= cx_square(z) * deformation*10.0;
 
     COLOR = zTextureSpec(SCREEN_TEXTURE, finalCoords*SCREEN_PIXEL_SIZE);
 }

@@ -33,10 +33,10 @@ void fragment() {
     delta = FRAGCOORD.xy - position;
     distance = length(delta / renderScale);
 
-    lowTime = 0.0001*curTime*0.458*vars[0]/(2*3.14)+3.14/2;
-    lowAngle = -60*vars[1]*3.14/0.158*sin(lowTime);
+    lowTime = 0.0001*curTime*0.458*vars[0]/(2.0*3.14)+3.14/2.0;
+    lowAngle = -60.0*vars[1]*3.14/0.158*sin(lowTime);
 
-    deformation = vars[2]*2000000 / pow(distance, 2.5) * cos(lowTime)*cos(sin(lowTime)*564*3.14);
+    deformation = vars[2]*2000000.0 / pow(distance, 2.5) * cos(lowTime)*cos(sin(lowTime)*564.0*3.14);
     angle = atan(delta.x, delta.y);
 
     if (distance >= maxDistance*vars[3]) {
@@ -47,7 +47,7 @@ void fragment() {
 
     z = delta/renderScale*0.01;
     //c = vec2(0.74543, 0.11301);
-    c = z*5;
+    c = z*5.0;
 
     z = cx_mul(z, normalize(vec2(cos(lowAngle), sin(lowAngle))));
 
@@ -55,7 +55,7 @@ void fragment() {
         z = cx_mul(cx_square(cx_square(cx_square(z))), z);
     }
 
-    if ((int(distance*(cos(lowTime)*lowTime)) % 2+10 > 0) && (atan(z.x, z.y) > 0) || distance >= maxDistance*vars[3]/1.5)
+    if ((int(distance*(cos(lowTime)*lowTime)) % 2+10 > 0) && (atan(z.x, z.y) > 0.0) || distance >= maxDistance*vars[3]/1.5)
         deformation *= length(z)*0.0001;
 
     finalCoords -= cx_square(c) * deformation;
