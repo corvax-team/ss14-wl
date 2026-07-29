@@ -6,8 +6,8 @@
 
 - type: entity
   id: AdminObjective
+  abstract: true
   parent: BaseObjective
-  noSpawn: true
   name: admin objective
   description: A task assigned by an administrator.
   components:
