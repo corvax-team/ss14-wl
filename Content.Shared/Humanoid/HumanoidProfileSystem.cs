@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.Corvax.TTS;
+using Content.Shared.Corvax.Barks;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
@@ -51,6 +52,13 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
         if (TryComp<TTSComponent>(ent, out var _TTSComponent) && _TTSComponent.VoicePrototypeId == "Taskmaster")
         {
             _TTSComponent.VoicePrototypeId = profile.TTSVoice;
+        }
+        if (TryComp<SpeechBarksComponent>(ent, out var barks))
+        {
+            barks.Voice = profile.BarkVoice;
+            barks.Pitch = profile.BarkPitch;
+            barks.MinDelay = profile.BarkMinDelay;
+            barks.MaxDelay = profile.BarkMaxDelay;
         }
         // Corvax-TTS-end
         //Wl-Changes: Height start

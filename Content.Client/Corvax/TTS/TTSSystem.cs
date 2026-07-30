@@ -1,5 +1,6 @@
 using Content.Shared.Chat;
 using Content.Shared.Corvax.CCCVars;
+using Content.Shared.Corvax.Barks;
 using Content.Shared.Corvax.TTS;
 using Robust.Client.Audio;
 using Robust.Client.ResourceManagement;
@@ -71,6 +72,9 @@ public sealed partial class TTSSystem : EntitySystem
 
     private void OnPlayTTS(PlayTTSEvent ev)
     {
+        if (!ev.IsPreview && _cfg.GetCVar(CCCVars.SpeechMode) != SpeechMode.Tts)
+            return;
+
         _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
         var filePath = new ResPath($"{_fileIdx++}.ogg");

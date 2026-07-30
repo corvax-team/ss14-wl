@@ -202,6 +202,7 @@ namespace Content.Server.Preferences.Managers
                 profile.OocText, // WL-OOCText
                 species,
                 TTSVoice, // Corvax-TTS
+                profile.BarkVoice,
                 profile.Age,
                 profile.Height, // WL-Heights
                 sex,
@@ -229,7 +230,12 @@ namespace Content.Server.Preferences.Managers
                 profile.Confederation, // WL-Records
                 profile.Country, // WL-Records
                 jobSkills // WL-Skills
-            );
+            )
+            {
+                BarkPitch = profile.BarkPitch,
+                BarkMinDelay = profile.BarkMinDelay,
+                BarkMaxDelay = profile.BarkMaxDelay,
+            };
         }
 
         private async void HandleSelectCharacterMessage(MsgSelectCharacter message)

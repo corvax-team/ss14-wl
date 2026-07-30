@@ -305,6 +305,10 @@ namespace Content.Server.Database
             profile.Country = humanoid.Country; // WL-Records
             profile.Species = humanoid.Species;
             profile.TTSVoice = humanoid.TTSVoice; // Corvax-TTS
+            profile.BarkVoice = humanoid.BarkVoice;
+            profile.BarkPitch = humanoid.BarkPitch;
+            profile.BarkMinDelay = humanoid.BarkMinDelay;
+            profile.BarkMaxDelay = humanoid.BarkMaxDelay;
             profile.Age = humanoid.Age;
             profile.Height = humanoid.Height; // WL-Height
             profile.Sex = humanoid.Sex.ToString();

@@ -1,3 +1,4 @@
+using Content.Shared.Corvax.Barks;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 
@@ -32,4 +33,16 @@ public sealed partial class VoiceOverrideComponent : Component
     /// </summary>
     [DataField]
     public bool Enabled = true;
+
+    [DataField]
+    public ProtoId<BarkPrototype>? BarkVoiceOverride;
+
+    [DataField]
+    public float? BarkPitchOverride;
+
+    [DataField]
+    public float? BarkMinDelayOverride;
+
+    [DataField]
+    public float? BarkMaxDelayOverride;
 }

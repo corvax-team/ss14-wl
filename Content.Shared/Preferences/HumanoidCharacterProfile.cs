@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
+using Content.Shared.Corvax.Barks;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.GameTicking;
@@ -101,6 +102,18 @@ namespace Content.Shared.Preferences
         public string TTSVoice { get; set; } = HumanoidProfileSystem.DefaultVoice;
 
         [DataField]
+        public ProtoId<BarkPrototype> BarkVoice { get; set; } = "Human1";
+
+        [DataField]
+        public float BarkPitch { get; set; } = SpeechBarksComponent.DefaultPitch;
+
+        [DataField]
+        public float BarkMinDelay { get; set; } = SpeechBarksComponent.DefaultMinDelay;
+
+        [DataField]
+        public float BarkMaxDelay { get; set; } = SpeechBarksComponent.DefaultMaxDelay;
+
+        [DataField]
         public int Age { get; set; } = 18;
 
         [DataField]
@@ -152,6 +165,7 @@ namespace Content.Shared.Preferences
             string ooctext, // WL-OOCText
             string species,
             string TTS_voice, // Corvax-TTS
+            ProtoId<BarkPrototype> barkVoice,
             int age,
             int height,
             Sex sex,
@@ -189,6 +203,7 @@ namespace Content.Shared.Preferences
             OocText = ooctext; // WL-OOCText
             Species = species;
             TTSVoice = TTS_voice; // Corvax-TTS
+            BarkVoice = barkVoice;
             Age = age;
             Height = height; // WL-Heigh
             Sex = sex;
@@ -239,6 +254,7 @@ namespace Content.Shared.Preferences
                 other.OocText, // WL-OOC
                 other.Species,
                 other.TTSVoice,
+                other.BarkVoice,
                 other.Age,
                 other.Height, // WL-Heigh
                 other.Sex,
@@ -263,6 +279,9 @@ namespace Content.Shared.Preferences
                 other.Country, // WL-Records
                 other.Skills) // WL-Skills
         {
+            BarkPitch = other.BarkPitch;
+            BarkMinDelay = other.BarkMinDelay;
+            BarkMaxDelay = other.BarkMaxDelay;
         }
 
         /// <summary>
@@ -600,6 +619,26 @@ namespace Content.Shared.Preferences
         }
         // Corvax-TTS-End
 
+        public HumanoidCharacterProfile WithBarkVoice(ProtoId<BarkPrototype> voice)
+        {
+            return new(this) { BarkVoice = voice };
+        }
+
+        public HumanoidCharacterProfile WithBarkPitch(float pitch)
+        {
+            return new(this) { BarkPitch = pitch };
+        }
+
+        public HumanoidCharacterProfile WithBarkMinDelay(float delay)
+        {
+            return new(this) { BarkMinDelay = delay };
+        }
+
+        public HumanoidCharacterProfile WithBarkMaxDelay(float delay)
+        {
+            return new(this) { BarkMaxDelay = delay };
+        }
+
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
             return new(this) { Appearance = appearance };
@@ -876,6 +915,10 @@ namespace Content.Shared.Preferences
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
             if (TTSVoice != other.TTSVoice) return false; // Corvax-TTS
+            if (BarkVoice != other.BarkVoice) return false;
+            if (BarkPitch != other.BarkPitch) return false;
+            if (BarkMinDelay != other.BarkMinDelay) return false;
+            if (BarkMaxDelay != other.BarkMaxDelay) return false;
             return Appearance.Equals(other.Appearance);
         }
 
@@ -1117,6 +1160,12 @@ namespace Content.Shared.Preferences
                 TTSVoice = HumanoidProfileSystem.DefaultSexVoice[sex];
             // Corvax-TTS-End
 
+            if (!prototypeManager.HasIndex<BarkPrototype>(BarkVoice))
+                BarkVoice = "Human1";
+            BarkPitch = Math.Clamp(BarkPitch, SpeechBarksComponent.MinPitch, SpeechBarksComponent.MaxPitch);
+            (BarkMinDelay, BarkMaxDelay) =
+                SpeechBarksComponent.SanitizeDelays(BarkMinDelay, BarkMaxDelay);
+
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
 
@@ -1228,6 +1277,10 @@ namespace Content.Shared.Preferences
             hashCode.Add((int)Sex);
             hashCode.Add(Voice);
             hashCode.Add(TTSVoice); // Corvax-TTS
+            hashCode.Add(BarkVoice);
+            hashCode.Add(BarkPitch);
+            hashCode.Add(BarkMinDelay);
+            hashCode.Add(BarkMaxDelay);
             hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);

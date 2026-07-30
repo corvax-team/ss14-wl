@@ -1,5 +1,6 @@
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
+using Content.Shared.Corvax.Barks;
 using Content.Shared.Humanoid;
 
 namespace Content.Shared.VoiceMask;
@@ -46,6 +47,14 @@ public sealed partial class VoiceMaskComponent : Component
     public string VoiceId = HumanoidProfileSystem.DefaultVoice;
     // Corvax-TTS-End
 
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<BarkPrototype> BarkVoice = "Human1";
+
+    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float BarkPitch = SpeechBarksComponent.DefaultPitch;
+
     /// <summary>
     ///     Reference to the action.
     /// </summary>
@@ -84,4 +93,3 @@ public sealed partial class VoiceMaskComponent : Component
     [DataField]
     public LocId TitleText = "voice-mask-name-change-window";
 }
-

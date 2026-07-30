@@ -271,7 +271,15 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     private void UpdateUI(Entity<VoiceMaskComponent> entity)
     {
         if (_uiSystem.HasUi(entity, VoiceMaskUIKey.Key))
-            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide, entity.Comp.TitleText, entity.Comp.VoiceId)); //entity.Comp.VoiceId Corvax-TTS
+            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(
+                GetCurrentVoiceName(entity),
+                entity.Comp.VoiceMaskSpeechVerb,
+                entity.Comp.Active,
+                entity.Comp.AccentHide,
+                entity.Comp.TitleText,
+                entity.Comp.VoiceId,
+                entity.Comp.BarkVoice,
+                entity.Comp.BarkPitch));
     }
     #endregion
 
@@ -291,4 +299,3 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     }
     #endregion
 }
-

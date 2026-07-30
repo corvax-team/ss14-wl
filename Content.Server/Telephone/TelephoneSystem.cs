@@ -4,6 +4,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Chat;
+using Content.Shared.Corvax.Barks;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Database;
 using Content.Shared.Labels.Components;
@@ -114,18 +115,39 @@ public sealed partial class TelephoneSystem : SharedTelephoneSystem
 
         var range = args.TelephoneSource.Comp.LinkedTelephones.Count > 1 ? ChatTransmitRange.HideChat : ChatTransmitRange.GhostRangeLimit;
         var volume = entity.Comp.SpeakerVolume == TelephoneVolume.Speak ? InGameICChatType.Speak : InGameICChatType.Whisper;
-        // Corvax-TTS-Start
-        // If speaker entity has TTS, the telephone will speak with the same voice
+        // Copy both speech systems. Each listener independently chooses whether
+        // they hear TTS or barks, so the telephone proxy must support both.
         if(TryComp<TTSComponent>(args.MessageSource, out var ttsSpeaker))
         {
             var ttsTelephone = EnsureComp<TTSComponent>(speaker);
             ttsTelephone.VoicePrototypeId = ttsSpeaker.VoicePrototypeId;
         }
-        else // Remove TTS if the speaker has no TTS
+        else
         {
             RemComp<TTSComponent>(speaker);
         }
-        // Corvax-TTS-End
+
+        if (TryComp<SpeechBarksComponent>(args.MessageSource, out var barkSpeaker))
+        {
+            var barkTransform = new TransformSpeakerBarkEvent(
+                args.MessageSource,
+                barkSpeaker.Voice,
+                barkSpeaker.Pitch,
+                barkSpeaker.MinDelay,
+                barkSpeaker.MaxDelay);
+            RaiseLocalEvent(args.MessageSource, barkTransform);
+
+            var barkTelephone = EnsureComp<SpeechBarksComponent>(speaker);
+            barkTelephone.Voice = barkTransform.Voice;
+            barkTelephone.Pitch = barkTransform.Pitch;
+            barkTelephone.MinDelay = barkTransform.MinDelay;
+            barkTelephone.MaxDelay = barkTransform.MaxDelay;
+        }
+        else
+        {
+            RemComp<SpeechBarksComponent>(speaker);
+        }
+
         _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false);
     }
 
