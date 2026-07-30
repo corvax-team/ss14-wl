@@ -32,7 +32,8 @@ public sealed partial class DynamicTextSystem : EntitySystem
         args.Verbs.Add(new Verb
         {
             Text = Loc.GetString("dynamic-text-verb"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/pencil.png")),
+            Icon = new SpriteSpecifier.Texture(
+                new ResPath("/Textures/_WL/Interface/VerbIcons/pen.svg.192dpi.png")),
             ClientExclusive = true,
             Act = () => _userInterfaceManager
                 .GetUIController<DynamicTextUIController>()
