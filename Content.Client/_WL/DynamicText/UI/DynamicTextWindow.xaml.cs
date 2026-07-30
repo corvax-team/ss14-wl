@@ -26,7 +26,8 @@ public sealed partial class DynamicTextWindow : FancyWindow
         _maxLength = _configuration.GetCVar(WLCVars.MaxDynamicTextLength);
 
         CDynamicTextInput.Placeholder = new Rope.Leaf(loc.GetString("dynamic-text-placeholder"));
-        CDynamicTextInput.OnTextChanged += args => UpdateCharacterCounter(Rope.CalcTotalLength(args.TextRope));
+        CDynamicTextInput.OnTextChanged += args =>
+            UpdateCharacterCounter(Rope.Collapse(args.TextRope).Trim().Length);
         DynamicTextSaveButton.OnPressed += OnDynamicTextSave;
         DynamicTextCloseButton.OnPressed += _ => Close();
         UpdateCharacterCounter(0);
@@ -35,15 +36,16 @@ public sealed partial class DynamicTextWindow : FancyWindow
     public void SetDynamicText(string text)
     {
         CDynamicTextInput.TextRope = new Rope.Leaf(text);
-        UpdateCharacterCounter(text.Length);
+        UpdateCharacterCounter(text.Trim().Length);
     }
 
     private void OnDynamicTextSave(BaseButton.ButtonEventArgs obj)
     {
-        if (Rope.CalcTotalLength(CDynamicTextInput.TextRope) > _maxLength)
+        var text = Rope.Collapse(CDynamicTextInput.TextRope).Trim();
+        if (text.Length > _maxLength)
             return;
 
-        OnDynamicTextSaveButtonPressed?.Invoke(Rope.Collapse(CDynamicTextInput.TextRope).Trim());
+        OnDynamicTextSaveButtonPressed?.Invoke(text);
     }
 
     private void UpdateCharacterCounter(long length)
