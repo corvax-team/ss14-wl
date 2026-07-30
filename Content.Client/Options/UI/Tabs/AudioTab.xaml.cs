@@ -31,25 +31,35 @@ public sealed partial class AudioTab : Control
         masterVolume.ImmediateValueChanged += OnMasterVolumeSliderChanged;
 
         // Corvax-TTS-Start
+        var ttsEnabled = _cfg.GetCVar(CCCVars.TTSEnabled);
+        SliderVolumeTts.Visible = ttsEnabled;
         Control.AddOptionPercentSlider(
             CCCVars.TTSVolume,
             SliderVolumeTts,
             scale: ContentAudioSystem.TtsMultiplier);
 
+        var speechModes = new List<OptionDropDownCVar<SpeechMode>.ValueOption>();
+        if (ttsEnabled)
+        {
+            speechModes.Add(new OptionDropDownCVar<SpeechMode>.ValueOption(
+                SpeechMode.Tts,
+                Loc.GetString("ui-options-speech-mode-tts")));
+        }
+
+        speechModes.Add(new OptionDropDownCVar<SpeechMode>.ValueOption(
+            SpeechMode.Barks,
+            Loc.GetString("ui-options-speech-mode-barks")));
+        speechModes.Add(new OptionDropDownCVar<SpeechMode>.ValueOption(
+            SpeechMode.Disabled,
+            Loc.GetString("ui-options-speech-mode-disabled")));
+
+        if (!ttsEnabled && _cfg.GetCVar(CCCVars.SpeechMode) == SpeechMode.Tts)
+            _cfg.SetCVar(CCCVars.SpeechMode, SpeechMode.Barks);
+
         Control.AddOptionDropDown(
             CCCVars.SpeechMode,
             DropDownSpeechMode,
-            [
-                new OptionDropDownCVar<SpeechMode>.ValueOption(
-                    SpeechMode.Tts,
-                    Loc.GetString("ui-options-speech-mode-tts")),
-                new OptionDropDownCVar<SpeechMode>.ValueOption(
-                    SpeechMode.Barks,
-                    Loc.GetString("ui-options-speech-mode-barks")),
-                new OptionDropDownCVar<SpeechMode>.ValueOption(
-                    SpeechMode.Disabled,
-                    Loc.GetString("ui-options-speech-mode-disabled")),
-            ]);
+            speechModes);
 
         Control.AddOptionPercentSlider(
             CCCVars.BarksVolume,

@@ -28,8 +28,22 @@ public sealed partial class SpeechBarksComponent : Component
     [DataField]
     public float MaxDelay = DefaultMaxDelay;
 
+    public static float SanitizePitch(float pitch)
+    {
+        if (!float.IsFinite(pitch))
+            return DefaultPitch;
+
+        return Math.Clamp(pitch, MinPitch, MaxPitch);
+    }
+
     public static (float Min, float Max) SanitizeDelays(float min, float max)
     {
+        if (!float.IsFinite(min))
+            min = DefaultMinDelay;
+
+        if (!float.IsFinite(max))
+            max = DefaultMaxDelay;
+
         // Migrate profiles saved with the experimental narrow cadence back to
         // the ADT defaults. That narrow range made short voices sound like a
         // mechanical burst instead of distinct game-dialogue grains.

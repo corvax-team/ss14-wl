@@ -28,6 +28,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     private List<BarkPrototype> _barks = new();
 
     private string? _verb;
+    private float _barkPitch = SpeechBarksComponent.DefaultPitch;
     public VoiceMaskNameChangeWindow()
     {
         RobustXamlLoader.Load(this);
@@ -137,10 +138,17 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
     private void OnBarkPitchCommitted(LineEdit.LineEditEventArgs args)
     {
         if (!float.TryParse(args.Text, out var pitch) || !float.IsFinite(pitch))
+        {
+            BarkPitchSelector.Text = _barkPitch.ToString("F2");
+            return;
+        }
+
+        pitch = SpeechBarksComponent.SanitizePitch(pitch);
+        BarkPitchSelector.Text = pitch.ToString("F2");
+        if (pitch == _barkPitch)
             return;
 
-        pitch = Math.Clamp(pitch, SpeechBarksComponent.MinPitch, SpeechBarksComponent.MaxPitch);
-        BarkPitchSelector.Text = pitch.ToString("F2");
+        _barkPitch = pitch;
         OnBarkPitchChange?.Invoke(pitch);
     }
 
@@ -177,6 +185,7 @@ public sealed partial class VoiceMaskNameChangeWindow : FancyWindow
         var barkIdx = _barks.FindIndex(v => v.ID == barkVoice);
         if (barkIdx != -1)
             BarkSelector.Select(barkIdx);
-        BarkPitchSelector.Text = barkPitch.ToString("F2");
+        _barkPitch = SpeechBarksComponent.SanitizePitch(barkPitch);
+        BarkPitchSelector.Text = _barkPitch.ToString("F2");
     }
 }

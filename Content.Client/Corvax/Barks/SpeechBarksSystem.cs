@@ -81,10 +81,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             Transform(source.Value).MapID == MapId.Nullspace)
             return;
 
-        var pitch = Math.Clamp(
-            ev.Pitch,
-            SpeechBarksComponent.MinPitch,
-            SpeechBarksComponent.MaxPitch);
+        var pitch = SpeechBarksComponent.SanitizePitch(ev.Pitch);
         var (minDelay, maxDelay) =
             SpeechBarksComponent.SanitizeDelays(ev.MinDelay, ev.MaxDelay);
         // Keep ADT's speech behaviour: every message and every already-started
@@ -116,7 +113,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
 
         StopPreview();
 
-        pitch = Math.Clamp(pitch, SpeechBarksComponent.MinPitch, SpeechBarksComponent.MaxPitch);
+        pitch = SpeechBarksComponent.SanitizePitch(pitch);
         (minDelay, maxDelay) = SpeechBarksComponent.SanitizeDelays(minDelay, maxDelay);
         var prosody = BarkProsody.FromMessage(message);
 

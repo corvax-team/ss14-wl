@@ -34,4 +34,35 @@ public sealed class BarkSettingsTest
             Assert.That(delays.Max, Is.EqualTo(expectedMax).Within(0.0001f));
         });
     }
+
+    [Test]
+    public void NonFinitePitchUsesDefault()
+    {
+        Assert.Multiple(() =>
+        {
+            Assert.That(
+                SpeechBarksComponent.SanitizePitch(float.NaN),
+                Is.EqualTo(SpeechBarksComponent.DefaultPitch));
+            Assert.That(
+                SpeechBarksComponent.SanitizePitch(float.PositiveInfinity),
+                Is.EqualTo(SpeechBarksComponent.DefaultPitch));
+            Assert.That(
+                SpeechBarksComponent.SanitizePitch(float.NegativeInfinity),
+                Is.EqualTo(SpeechBarksComponent.DefaultPitch));
+        });
+    }
+
+    [Test]
+    public void NonFiniteDelaysUseDefaults()
+    {
+        var delays = SpeechBarksComponent.SanitizeDelays(
+            float.NaN,
+            float.PositiveInfinity);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(delays.Min, Is.EqualTo(SpeechBarksComponent.DefaultMinDelay));
+            Assert.That(delays.Max, Is.EqualTo(SpeechBarksComponent.DefaultMaxDelay));
+        });
+    }
 }

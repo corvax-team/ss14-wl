@@ -1162,7 +1162,7 @@ namespace Content.Shared.Preferences
 
             if (!prototypeManager.HasIndex<BarkPrototype>(BarkVoice))
                 BarkVoice = "Human1";
-            BarkPitch = Math.Clamp(BarkPitch, SpeechBarksComponent.MinPitch, SpeechBarksComponent.MaxPitch);
+            BarkPitch = SpeechBarksComponent.SanitizePitch(BarkPitch);
             (BarkMinDelay, BarkMaxDelay) =
                 SpeechBarksComponent.SanitizeDelays(BarkMinDelay, BarkMaxDelay);
 

@@ -16,7 +16,8 @@ public sealed partial class HumanoidProfileEditor
 
     private void RefreshVoiceTab()
     {
-        _ttsTab = new TTSTab();
+        var ttsEnabled = _cfgManager.GetCVar(CCCVars.TTSEnabled);
+        _ttsTab = ttsEnabled ? new TTSTab() : null;
         _barkTab = new BarkTab();
         var speechTabs = new TabContainer
         {
@@ -24,20 +25,36 @@ public sealed partial class HumanoidProfileEditor
             VerticalExpand = true,
             Margin = new Thickness(5, 0, 5, 5),
         };
-        speechTabs.AddChild(_ttsTab);
+
+        var tabIndex = 0;
+        if (_ttsTab is { } ttsTab)
+        {
+            speechTabs.AddChild(ttsTab);
+            speechTabs.SetTabTitle(tabIndex++, Loc.GetString("ui-options-speech-mode-tts"));
+        }
+
         speechTabs.AddChild(_barkTab);
-        speechTabs.SetTabTitle(0, Loc.GetString("ui-options-speech-mode-tts"));
-        speechTabs.SetTabTitle(1, Loc.GetString("ui-options-speech-mode-barks"));
+        speechTabs.SetTabTitle(tabIndex, Loc.GetString("ui-options-speech-mode-barks"));
 
         _speechModeButton = new OptionButton
         {
             HorizontalAlignment = HAlignment.Right,
             MinWidth = 180,
         };
-        _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-tts"), (int) SpeechMode.Tts);
+        if (ttsEnabled)
+            _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-tts"), (int) SpeechMode.Tts);
+
         _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-barks"), (int) SpeechMode.Barks);
         _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-disabled"), (int) SpeechMode.Disabled);
-        _speechModeButton.SelectId((int) _cfgManager.GetCVar(CCCVars.SpeechMode));
+
+        var speechMode = _cfgManager.GetCVar(CCCVars.SpeechMode);
+        if (!ttsEnabled && speechMode == SpeechMode.Tts)
+        {
+            speechMode = SpeechMode.Barks;
+            _cfgManager.SetCVar(CCCVars.SpeechMode, speechMode);
+        }
+
+        _speechModeButton.SelectId((int) speechMode);
         _speechModeButton.OnItemSelected += args =>
         {
             _speechModeButton.SelectId(args.Id);
@@ -95,16 +112,19 @@ public sealed partial class HumanoidProfileEditor
 
         TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-voice-tab"));
 
-        _ttsTab.OnVoiceSelected += voiceId =>
+        if (_ttsTab is { } currentTtsTab)
         {
-            SetVoice(voiceId);
-            _ttsTab.SetSelectedVoice(voiceId);
-        };
+            currentTtsTab.OnVoiceSelected += voiceId =>
+            {
+                SetVoice(voiceId);
+                currentTtsTab.SetSelectedVoice(voiceId);
+            };
 
-        _ttsTab.OnPreviewRequested += voiceId =>
-        {
-            _entManager.System<TTSSystem>().RequestPreviewTTS(voiceId, _ttsTab.PreviewTextEdit.Text);
-        };
+            currentTtsTab.OnPreviewRequested += voiceId =>
+            {
+                _entManager.System<TTSSystem>().RequestPreviewTTS(voiceId, currentTtsTab.PreviewTextEdit.Text);
+            };
+        }
 
         _barkTab.OnBarkSelected += barkId =>
         {
@@ -130,11 +150,11 @@ public sealed partial class HumanoidProfileEditor
 
     private void UpdateTTSVoicesControls()
     {
-        if (Profile is null || _ttsTab is null)
+        if (Profile is null)
             return;
 
-        _ttsTab.UpdateControls(Profile, Profile.Sex);
-        _ttsTab.SetSelectedVoice(Profile.TTSVoice);
+        _ttsTab?.UpdateControls(Profile, Profile.Sex);
+        _ttsTab?.SetSelectedVoice(Profile.TTSVoice);
         _barkTab?.SetSelectedBark(
             Profile.BarkVoice,
             Profile.BarkPitch,

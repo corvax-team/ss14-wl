@@ -29,10 +29,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
         if (!_prototypes.TryIndex(transform.Voice, out var voice))
             return;
 
-        var pitch = Math.Clamp(
-            transform.Pitch,
-            SpeechBarksComponent.MinPitch,
-            SpeechBarksComponent.MaxPitch);
+        var pitch = SpeechBarksComponent.SanitizePitch(transform.Pitch);
         var (minDelay, maxDelay) =
             SpeechBarksComponent.SanitizeDelays(transform.MinDelay, transform.MaxDelay);
         var prosody = BarkProsody.FromMessage(args.Message);

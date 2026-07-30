@@ -172,13 +172,13 @@ public sealed partial class BarkTab : Control
         if (_updatingSettings)
             return;
 
-        if (!float.TryParse(args.Text, out var pitch))
+        if (!float.TryParse(args.Text, out var pitch) || !float.IsFinite(pitch))
         {
             PitchEdit.Text = _currentPitch.ToString("F2");
             return;
         }
 
-        pitch = Math.Clamp(pitch, SpeechBarksComponent.MinPitch, SpeechBarksComponent.MaxPitch);
+        pitch = SpeechBarksComponent.SanitizePitch(pitch);
         PitchEdit.Text = pitch.ToString("F2");
         if (pitch == _currentPitch)
             return;
@@ -192,7 +192,7 @@ public sealed partial class BarkTab : Control
         if (_updatingSettings)
             return;
 
-        if (!float.TryParse(args.Text, out var minVar))
+        if (!float.TryParse(args.Text, out var minVar) || !float.IsFinite(minVar))
         {
             DelayVariationMinEdit.Text = _currentMinVar.ToString("F2");
             return;
@@ -212,7 +212,7 @@ public sealed partial class BarkTab : Control
         if (_updatingSettings)
             return;
 
-        if (!float.TryParse(args.Text, out var maxVar))
+        if (!float.TryParse(args.Text, out var maxVar) || !float.IsFinite(maxVar))
         {
             DelayVariationMaxEdit.Text = _currentMaxVar.ToString("F2");
             return;
@@ -240,7 +240,7 @@ public sealed partial class BarkTab : Control
 
     private void SetSettings(float pitch, float minVar, float maxVar, bool notify)
     {
-        pitch = Math.Clamp(pitch, SpeechBarksComponent.MinPitch, SpeechBarksComponent.MaxPitch);
+        pitch = SpeechBarksComponent.SanitizePitch(pitch);
         (minVar, maxVar) = SpeechBarksComponent.SanitizeDelays(minVar, maxVar);
 
         _currentPitch = pitch;

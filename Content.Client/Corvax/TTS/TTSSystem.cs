@@ -29,7 +29,7 @@ public sealed partial class TTSSystem : EntitySystem
     private static bool _contentRootAdded;
 
     /// <summary>
-    /// Reducing the volume of the TTS when whispering. Will be converted to logarithm.
+    /// Reducing the volume of the TTS when whispering, in decibels.
     /// </summary>
     private const float WhisperFade = 4f;
 
@@ -115,7 +115,7 @@ public sealed partial class TTSSystem : EntitySystem
 
         if (isWhisper)
         {
-            volume -= SharedAudioSystem.GainToVolume(WhisperFade);
+            volume -= WhisperFade;
         }
 
         return volume;
