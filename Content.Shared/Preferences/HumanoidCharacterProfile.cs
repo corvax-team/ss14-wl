@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
-using Content.Shared.Corvax.Barks;
+using Content.Shared._WL.Barks;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.GameTicking;

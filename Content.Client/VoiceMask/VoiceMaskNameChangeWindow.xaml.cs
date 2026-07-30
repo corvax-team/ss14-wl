@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared.Corvax.Barks;
+using Content.Shared._WL.Barks;
 using Content.Shared.Corvax.TTS;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Corvax.CCCVars;

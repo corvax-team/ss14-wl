@@ -1,4 +1,4 @@
-using Content.Shared.Corvax.Barks;
+using Content.Shared._WL.Barks;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;

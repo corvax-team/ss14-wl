@@ -1,0 +1,77 @@
+- type: speechBark
+  id: OpenBarkVoiceBlomp
+  name: open-bark-voice-blomp
+  sound: /Audio/_WL/Barks/OpenBarks/voice_blomp_0.ogg
+  category: openbarks_voice
+
+- type: speechBark
+  id: OpenBarkVoiceBompLow
+  name: open-bark-voice-bomp-low
+  sound: /Audio/_WL/Barks/OpenBarks/voice_bomp.ogg
+  category: openbarks_voice
+
+- type: speechBark
+  id: OpenBarkVoiceBompHigh
+  name: open-bark-voice-bomp-high
+  sound: /Audio/_WL/Barks/OpenBarks/voice_bomp_2.ogg
+  category: openbarks_voice
+
+- type: speechBark
+  id: OpenBarkVoiceBong
+  name: open-bark-voice-bong
+  sound: /Audio/_WL/Barks/OpenBarks/voice_bong.ogg
+  category: openbarks_voice
+
+- type: speechBark
+  id: OpenBarkVoiceBorpLow
+  name: open-bark-voice-borp-low
+  sound: /Audio/_WL/Barks/OpenBarks/voice_borp.ogg
+  category: openbarks_voice
+
+- type: speechBark
+  id: OpenBarkVoiceBorpHigh
+  name: open-bark-voice-borp-high
+  sound: /Audio/_WL/Barks/OpenBarks/voice_borp_2.ogg
+  category: openbarks_voice
+
+- type: speechBark
+  id: OpenBarkVoiceTick
+  name: open-bark-voice-tick
+  sound: /Audio/_WL/Barks/OpenBarks/voice_tick.ogg
+  category: openbarks_voice
+
+- type: speechBark
+  id: OpenBarkVoiceTinkLow
+  name: open-bark-voice-tink-low
+  sound: /Audio/_WL/Barks/OpenBarks/voice_tink.ogg
+  category: openbarks_voice
+
+- type: speechBark
+  id: OpenBarkVoiceTinkHigh
+  name: open-bark-voice-tink-high
+  sound: /Audio/_WL/Barks/OpenBarks/voice_tink_2.ogg
+  category: openbarks_voice
+
+- type: speechBark
+  id: OpenBarkSynthBlip1
+  name: open-bark-synth-blip-1
+  sound: /Audio/_WL/Barks/OpenBarks/blipui1.ogg
+  category: openbarks_synth
+
+- type: speechBark
+  id: OpenBarkSynthBlip2
+  name: open-bark-synth-blip-2
+  sound: /Audio/_WL/Barks/OpenBarks/blipui2.ogg
+  category: openbarks_synth
+
+- type: speechBark
+  id: OpenBarkSynthBlip3
+  name: open-bark-synth-blip-3
+  sound: /Audio/_WL/Barks/OpenBarks/blipui3.ogg
+  category: openbarks_synth
+
+- type: speechBark
+  id: OpenBarkSynthBlip5
+  name: open-bark-synth-blip-5
+  sound: /Audio/_WL/Barks/OpenBarks/blipui5.ogg
+  category: openbarks_synth

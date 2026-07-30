@@ -1,5 +1,5 @@
 using Content.Shared.VoiceMask;
-using Content.Shared.Corvax.Barks;
+using Content.Shared._WL.Barks;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;

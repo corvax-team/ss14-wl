@@ -1,5 +1,5 @@
 using Content.Shared.Chat;
-using Content.Shared.Corvax.Barks;
+using Content.Shared._WL.Barks;
 using Content.Server.Speech.Components;
 
 namespace Content.Server.Speech.EntitySystems;

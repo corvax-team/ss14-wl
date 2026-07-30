@@ -4,7 +4,7 @@ using Content.Shared.Chat;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Climbing.Events;
-using Content.Shared.Corvax.Barks;
+using Content.Shared._WL.Barks;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Contraband;
 using Content.Shared.Damage.Events;

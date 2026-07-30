@@ -1,7 +1,8 @@
-using Content.Client.ADT.Bark;
-using Content.Client.Corvax.Barks;
+using Content.Client._WL.Barks.UI;
+using Content.Client._WL.Barks;
 using Content.Client.Corvax.TTS;
-using Content.Shared.Corvax.Barks;
+using Content.Shared._WL.Barks;
+using Content.Shared._WL.CCVars;
 using Content.Shared.Corvax.CCCVars;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -47,18 +48,18 @@ public sealed partial class HumanoidProfileEditor
         _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-barks"), (int) SpeechMode.Barks);
         _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-disabled"), (int) SpeechMode.Disabled);
 
-        var speechMode = _cfgManager.GetCVar(CCCVars.SpeechMode);
+        var speechMode = _cfgManager.GetCVar(WLCVars.SpeechMode);
         if (!ttsEnabled && speechMode == SpeechMode.Tts)
         {
             speechMode = SpeechMode.Barks;
-            _cfgManager.SetCVar(CCCVars.SpeechMode, speechMode);
+            _cfgManager.SetCVar(WLCVars.SpeechMode, speechMode);
         }
 
         _speechModeButton.SelectId((int) speechMode);
         _speechModeButton.OnItemSelected += args =>
         {
             _speechModeButton.SelectId(args.Id);
-            _cfgManager.SetCVar(CCCVars.SpeechMode, (SpeechMode) args.Id);
+            _cfgManager.SetCVar(WLCVars.SpeechMode, (SpeechMode) args.Id);
         };
 
         var modeText = new BoxContainer

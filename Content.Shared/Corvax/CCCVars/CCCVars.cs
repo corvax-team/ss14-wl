@@ -1,5 +1,4 @@
-﻿using Content.Shared.Corvax.Barks;
-using Robust.Shared.Configuration;
+﻿using Robust.Shared.Configuration;
 
 namespace Content.Shared.Corvax.CCCVars;
 
@@ -77,18 +76,6 @@ public sealed class CCCVars
     /// </summary>
     public static readonly CVarDef<float> TTSVolume =
         CVarDef.Create("tts.volume", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// Selects how spoken chat messages are voiced on this client.
-    /// </summary>
-    public static readonly CVarDef<SpeechMode> SpeechMode =
-        CVarDef.Create("audio.speech_mode", Content.Shared.Corvax.Barks.SpeechMode.Tts, CVar.CLIENTONLY | CVar.ARCHIVE);
-
-    /// <summary>
-    /// Client volume for speech barks.
-    /// </summary>
-    public static readonly CVarDef<float> BarksVolume =
-        CVarDef.Create("audio.barks_volume", 1f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
     /// Count of in-memory cached tts voice lines.
