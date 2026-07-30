@@ -3,3 +3,5 @@ dynamic-text-save-button = Сохранить
 dynamic-text-close-button = Закрыть
 dynamic-text-placeholder = Динамическое описание
 dynamic-text-changed-popup = { $name } изменяется визуально
+dynamic-text-verb = Динамическое описание
+dynamic-text-character-counter = { $current } / { $maximum }
