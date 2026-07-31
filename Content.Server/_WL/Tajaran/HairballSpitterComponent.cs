@@ -12,6 +12,9 @@ namespace Content.Server._WL.Tajaran;
 public sealed partial class HairballSpitterComponent : Component
 {
     [DataField]
+    public TimeSpan CoughUpTime = TimeSpan.FromSeconds(2.15);
+
+    [DataField]
     public EntProtoId HairballPrototype = "TajaranHairball";
 
     [DataField]

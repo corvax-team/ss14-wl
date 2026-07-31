@@ -13,6 +13,7 @@ using Content.Shared.Audio;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
@@ -32,13 +33,12 @@ public sealed partial class TajaranHairballSystem : EntitySystem
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedSolutionContainerSystem _solutions = default!;
     [Dependency] private VomitSystem _vomit = default!;
-
-    private readonly List<EntityUid> _finishedCoughing = new();
 
     public override void Initialize()
     {
@@ -47,29 +47,9 @@ public sealed partial class TajaranHairballSystem : EntitySystem
         SubscribeLocalEvent<HairballSpitterComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<HairballSpitterComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<HairballSpitterComponent, HairballActionEvent>(OnHairball);
+        SubscribeLocalEvent<HairballSpitterComponent, HairballDoAfterEvent>(OnHairballDoAfter);
         SubscribeLocalEvent<HairballComponent, ThrowDoHitEvent>(OnHairballHit);
         SubscribeLocalEvent<HairballComponent, GettingPickedUpAttemptEvent>(OnHairballPickupAttempt);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<CoughingUpHairballComponent, HairballSpitterComponent>();
-        while (query.MoveNext(out var uid, out var coughing, out var hairball))
-        {
-            coughing.Accumulator += frameTime;
-            if (coughing.Accumulator < coughing.CoughUpTime.TotalSeconds)
-                continue;
-
-            SpawnHairball(uid, hairball);
-            _finishedCoughing.Add(uid);
-        }
-
-        foreach (var uid in _finishedCoughing)
-            RemCompDeferred<CoughingUpHairballComponent>(uid);
-
-        _finishedCoughing.Clear();
     }
 
     private void OnMapInit(EntityUid uid, HairballSpitterComponent component, MapInitEvent args)
@@ -84,16 +64,18 @@ public sealed partial class TajaranHairballSystem : EntitySystem
 
     private void OnHairball(EntityUid uid, HairballSpitterComponent component, HairballActionEvent args)
     {
-        if (args.Handled || HasComp<CoughingUpHairballComponent>(uid))
+        if (args.Handled || IsMouthBlocked(uid))
             return;
 
-        if (_inventory.TryGetSlotEntity(uid, "mask", out var mask) &&
-            TryComp<IngestionBlockerComponent>(mask, out var blocker) &&
-            blocker.Enabled)
-        {
-            _popup.PopupEntity(Loc.GetString("tajaran-hairball-mask", ("mask", mask.Value)), uid, uid, PopupType.SmallCaution);
+        var doAfter = new DoAfterArgs(
+            EntityManager,
+            uid,
+            component.CoughUpTime,
+            new HairballDoAfterEvent(),
+            uid);
+
+        if (!_doAfter.TryStartDoAfter(doAfter))
             return;
-        }
 
         _popup.PopupEntity(
             Loc.GetString("tajaran-hairball-cough", ("name", Identity.Entity(uid, EntityManager))),
@@ -103,8 +85,31 @@ public sealed partial class TajaranHairballSystem : EntitySystem
             uid,
             AudioHelpers.WithVariation(0.15f));
 
-        EnsureComp<CoughingUpHairballComponent>(uid);
         args.Handled = true;
+    }
+
+    private void OnHairballDoAfter(EntityUid uid, HairballSpitterComponent component, HairballDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || IsMouthBlocked(uid))
+            return;
+
+        SpawnHairball(uid, component);
+        args.Handled = true;
+    }
+
+    private bool IsMouthBlocked(EntityUid uid)
+    {
+        if (!_inventory.TryGetSlotEntity(uid, "mask", out var mask) ||
+            !TryComp<IngestionBlockerComponent>(mask, out var blocker) ||
+            !blocker.Enabled)
+            return false;
+
+        _popup.PopupEntity(
+            Loc.GetString("tajaran-hairball-mask", ("mask", mask.Value)),
+            uid,
+            uid,
+            PopupType.SmallCaution);
+        return true;
     }
 
     private void SpawnHairball(EntityUid uid, HairballSpitterComponent component)

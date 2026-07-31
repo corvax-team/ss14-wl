@@ -4,7 +4,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using Content.Shared.Actions;
+using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.Tajaran;
 
 public sealed partial class HairballActionEvent : InstantActionEvent;
+
+[Serializable, NetSerializable]
+public sealed partial class HairballDoAfterEvent : SimpleDoAfterEvent;
