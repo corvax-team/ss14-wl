@@ -4,7 +4,7 @@ using Content.Shared.Chat;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Climbing.Events;
-using Content.Shared._WL.Barks;
+using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Contraband;
 using Content.Shared.Damage.Events;
@@ -74,7 +74,7 @@ public partial class InventorySystem
 
         // Corvax-TTS
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerVoiceEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, TransformSpeakerBarkEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, TransformSpeakerBarkEvent>(RelayInventoryEvent); // WL-Changes
 
         // by-ref events
         SubscribeLocalEvent<InventoryComponent, RefreshFrictionModifiersEvent>(RefRelayInventoryEvent);

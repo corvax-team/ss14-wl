@@ -4,7 +4,6 @@ using Content.Server.Polymorph.Components;
 using Content.Shared.Body;
 using Content.Shared.Buckle;
 using Content.Shared.Coordinates;
-using Content.Shared._WL.Barks;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
@@ -270,16 +269,6 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (configuration.TransferHumanoidAppearance)
         {
             _visualBody.CopyAppearanceFrom(uid, child);
-        }
-
-        if (configuration.TransferSpeechBarks &&
-            TryComp<SpeechBarksComponent>(uid, out var sourceBarks))
-        {
-            var childBarks = EnsureComp<SpeechBarksComponent>(child);
-            childBarks.Voice = sourceBarks.Voice;
-            childBarks.Pitch = sourceBarks.Pitch;
-            childBarks.MinDelay = sourceBarks.MinDelay;
-            childBarks.MaxDelay = sourceBarks.MaxDelay;
         }
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))

@@ -88,12 +88,6 @@ public sealed partial record PolymorphConfiguration
     public bool TransferHumanoidAppearance;
 
     /// <summary>
-    /// Whether the selected speech bark and its playback settings follow the entity.
-    /// </summary>
-    [DataField(serverOnly: true)]
-    public bool TransferSpeechBarks;
-
-    /// <summary>
     /// Whether or not the entity transfers its inventory and equipment between forms.
     /// </summary>
     [DataField(serverOnly: true)]

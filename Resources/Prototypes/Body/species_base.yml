@@ -33,7 +33,7 @@
     defaultRotation: 90
     horizontalRotation: 90
   - type: HumanoidProfile
-  - type: SpeechBarks
+  - type: SpeechBarks # WL-Changes
   - type: TypingIndicator
   - type: SlowOnDamage
     speedModifierThresholds:
