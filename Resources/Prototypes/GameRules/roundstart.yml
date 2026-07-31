@@ -126,6 +126,7 @@
     - NamesOperationSuffix
     nameFormat: name-format-nuclear-operation
   - type: NukeopsRule
+    warDeclarationMinOps: 0 # WL-Changes
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
