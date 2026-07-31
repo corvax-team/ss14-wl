@@ -156,7 +156,7 @@
       types:
         Asphyxiation: -2.0
   - type: Wagging
-  - type: TajaranHairball
+  - type: TajaranHairball # WL-Changes
   # WL-Changes: Languages
   - type: Languages
     speaking:

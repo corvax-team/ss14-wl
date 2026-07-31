@@ -6,8 +6,8 @@
 - type: entity
   parent: BaseAction
   id: ActionTajaranHairball
-  name: action-name-tajaran-hairball
-  description: action-description-tajaran-hairball
+  name: Cough up a hairball
+  description: Cough up a clump of fur containing some chemicals from your bloodstream.
   categories: [ HideSpawnMenu ]
   components:
   - type: Action

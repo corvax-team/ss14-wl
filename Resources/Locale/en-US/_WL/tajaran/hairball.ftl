@@ -1,5 +1,5 @@
-action-name-tajaran-hairball = Cough up a hairball
-action-description-tajaran-hairball = Cough up a clump of fur containing some chemicals from your bloodstream.
+ent-ActionTajaranHairball = Cough up a hairball
+    .desc = Cough up a clump of fur containing some chemicals from your bloodstream.
 
 ent-TajaranHairball = hairball
     .desc = A wet clump of Tajaran fur. Disgusting.

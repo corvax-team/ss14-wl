@@ -1,5 +1,5 @@
-action-name-tajaran-hairball = Выкашлять комок шерсти
-action-description-tajaran-hairball = Выкашляйте комок шерсти, содержащий часть химикатов из вашей крови.
+ent-ActionTajaranHairball = Выкашлять комок шерсти
+    .desc = Выкашляйте комок шерсти, содержащий часть химикатов из вашей крови.
 
 ent-TajaranHairball = комок шерсти
     .desc = Мокрый комок таяранской шерсти. Отвратительно.
