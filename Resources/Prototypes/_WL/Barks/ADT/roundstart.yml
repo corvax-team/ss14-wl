@@ -143,7 +143,7 @@
   id: UnderswapSans # U-hu. A bit different from normal sans @@@ QWERTY barks addont folder
   name: bark-underswap-sans-name
   sound: /Audio/ADT/Voice/Vocal-Barks/underswap-sans.ogg
-  category: undertale
+  category: underswap
 
 - type: speechBark
   id: Temmie
