@@ -31,9 +31,12 @@
   - type: Sprite
     sprite: "_CorvaxGoob/Structures/Walls/girder_diagonal.rsi"
     state: wall_girder
+  # WL-Changes-start: change to new API
   - type: Damageable
-    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
+  - type: Injurable
+    damageContainer: StructuralInorganic
+  # WL-Changes-end
   - type: Destructible
     thresholds:
     - trigger:
