@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._WL.Tajaran;
 
 [RegisterComponent]
-public sealed partial class TajaranHairballComponent : Component
+public sealed partial class HairballSpitterComponent : Component
 {
     [DataField]
     public EntProtoId HairballPrototype = "TajaranHairball";

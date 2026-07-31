@@ -44,9 +44,9 @@ public sealed partial class TajaranHairballSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TajaranHairballComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<TajaranHairballComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<TajaranHairballComponent, HairballActionEvent>(OnHairball);
+        SubscribeLocalEvent<HairballSpitterComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<HairballSpitterComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<HairballSpitterComponent, HairballActionEvent>(OnHairball);
         SubscribeLocalEvent<HairballComponent, ThrowDoHitEvent>(OnHairballHit);
         SubscribeLocalEvent<HairballComponent, GettingPickedUpAttemptEvent>(OnHairballPickupAttempt);
     }
@@ -55,7 +55,7 @@ public sealed partial class TajaranHairballSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<CoughingUpHairballComponent, TajaranHairballComponent>();
+        var query = EntityQueryEnumerator<CoughingUpHairballComponent, HairballSpitterComponent>();
         while (query.MoveNext(out var uid, out var coughing, out var hairball))
         {
             coughing.Accumulator += frameTime;
@@ -72,17 +72,17 @@ public sealed partial class TajaranHairballSystem : EntitySystem
         _finishedCoughing.Clear();
     }
 
-    private void OnMapInit(EntityUid uid, TajaranHairballComponent component, MapInitEvent args)
+    private void OnMapInit(EntityUid uid, HairballSpitterComponent component, MapInitEvent args)
     {
         _actions.AddAction(uid, ref component.HairballActionEntity, component.HairballActionPrototype);
     }
 
-    private void OnShutdown(EntityUid uid, TajaranHairballComponent component, ComponentShutdown args)
+    private void OnShutdown(EntityUid uid, HairballSpitterComponent component, ComponentShutdown args)
     {
         _actions.RemoveAction(uid, component.HairballActionEntity);
     }
 
-    private void OnHairball(EntityUid uid, TajaranHairballComponent component, HairballActionEvent args)
+    private void OnHairball(EntityUid uid, HairballSpitterComponent component, HairballActionEvent args)
     {
         if (args.Handled || HasComp<CoughingUpHairballComponent>(uid))
             return;
@@ -107,7 +107,7 @@ public sealed partial class TajaranHairballSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void SpawnHairball(EntityUid uid, TajaranHairballComponent component)
+    private void SpawnHairball(EntityUid uid, HairballSpitterComponent component)
     {
         var hairball = Spawn(component.HairballPrototype, Transform(uid).Coordinates);
 
@@ -125,7 +125,7 @@ public sealed partial class TajaranHairballSystem : EntitySystem
 
     private void OnHairballHit(EntityUid uid, HairballComponent component, ThrowDoHitEvent args)
     {
-        if (HasComp<TajaranHairballComponent>(args.Target) ||
+        if (HasComp<HairballSpitterComponent>(args.Target) ||
             !HasComp<StatusEffectsComponent>(args.Target) ||
             !_random.Prob(0.2f))
             return;
@@ -138,7 +138,7 @@ public sealed partial class TajaranHairballSystem : EntitySystem
         HairballComponent component,
         GettingPickedUpAttemptEvent args)
     {
-        if (HasComp<TajaranHairballComponent>(args.User) ||
+        if (HasComp<HairballSpitterComponent>(args.User) ||
             !HasComp<StatusEffectsComponent>(args.User) ||
             !_random.Prob(0.2f))
             return;
