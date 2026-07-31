@@ -8,7 +8,7 @@
       sprite: Corvax/Clothing/Hands/Gloves/kim.rsi
     - type: Clothing
       sprite: Corvax/Clothing/Hands/Gloves/kim.rsi
-    - type: Insulated
+    # - type: Insulated # WL-Changes
 
 - type: entity
   parent: ClothingHandsBase
