@@ -119,8 +119,12 @@
   parent: Girder
   id: DiagonalShuttleWall
   name: construction-recipe-diagonal-shuttle-wall
-  targetNode: diagonalshuttleWall
+  graph: GirderDiagonal
+  targetNode: shuttleWallDiagonal # WL-Changes: diagonal walls port from CorvaxGoob
   canRotate: true
+  conditions:
+  - !type:TileNotBlocked
+    failIfSpace: false
 
 - type: construction
   parent: Girder
