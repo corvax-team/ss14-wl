@@ -968,11 +968,11 @@
           collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
-    # WL-Changes-start: diagonal walls port from CorvaxGoob
-    - type: Construction
-      graph: GirderDiagonal
-      node: wallDiagonal
-    # WL-Changes-end
+  # WL-Changes-start: diagonal walls port from CorvaxGoob
+  - type: Construction
+    graph: GirderDiagonal
+    node: wallDiagonal
+  # WL-Changes-end
 
 - type: entity
   parent: WallSolid
