@@ -16,8 +16,8 @@
     CableHVStack10: 0.5
     SheetPlasma10: 0.4
     SheetUranium: 0.15
-    IngotGold30: 0.15
-    IngotSilver30: 0.2
+    IngotGold: 0.15
+    IngotSilver: 0.2
     # Crates
     CrateEngineeringCableBulk: 1.5
     CrateHydroponicsSeeds: 1.5
