@@ -47,6 +47,7 @@
     CrateNPCParrot: 0.3
     CrateNPCPenguin: 0.2
     CrateNPCCat: 0.2
+    CrateCargoGambling: 0.7
     # Cash
     SpaceCash100: 1
     SpaceCash500: 0.4
