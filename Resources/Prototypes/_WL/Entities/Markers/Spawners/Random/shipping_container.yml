@@ -10,14 +10,14 @@
     MaterialCloth: 2
     MaterialCardboard: 2
     MaterialWoodPlank: 1.5
-    SheetRGlass10: 1
+    SheetRGlass: 1
     CableApcStack10: 1.5
     CableMVStack10: 1
     CableHVStack10: 0.5
     SheetPlasma10: 0.4
-    SheetUranium10: 0.15
-    IngotGold10: 0.15
-    IngotSilver10: 0.2
+    SheetUranium: 0.15
+    IngotGold30: 0.15
+    IngotSilver30: 0.2
     # Crates
     CrateEngineeringCableBulk: 1.5
     CrateHydroponicsSeeds: 1.5
