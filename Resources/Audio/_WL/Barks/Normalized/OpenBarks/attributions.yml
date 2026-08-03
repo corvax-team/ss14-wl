@@ -1,24 +1,24 @@
-# Lossless WAV copies normalized to a common active RMS level for bark playback in ss14-wl.
+# Ogg Vorbis copies normalized to a common active RMS level for bark playback in ss14-wl.
 
 - files:
-  - voice_blomp_0.wav
-  - voice_bomp.wav
-  - voice_bomp_2.wav
-  - voice_bong.wav
-  - voice_borp.wav
-  - voice_borp_2.wav
-  - voice_tick.wav
-  - voice_tink.wav
-  - voice_tink_2.wav
+  - voice_blomp_0.ogg
+  - voice_bomp.ogg
+  - voice_bomp_2.ogg
+  - voice_bong.ogg
+  - voice_borp.ogg
+  - voice_borp_2.ogg
+  - voice_tick.ogg
+  - voice_tink.ogg
+  - voice_tink_2.ogg
   license: "CC0-1.0"
   copyright: "Created and recorded by mcramm; converted to mono OGG Vorbis"
   source: "https://opengameart.org/content/blinksblonks"
 
 - files:
-  - blipui1.wav
-  - blipui2.wav
-  - blipui3.wav
-  - blipui5.wav
+  - blipui1.ogg
+  - blipui2.ogg
+  - blipui3.ogg
+  - blipui5.ogg
   license: "CC0-1.0"
   copyright: "Created by FunnyDude with labChirp; converted to mono OGG Vorbis"
   source: "https://opengameart.org/content/5-blip-ui-sound-effects"

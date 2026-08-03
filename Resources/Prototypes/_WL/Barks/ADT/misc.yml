@@ -8,43 +8,43 @@
 - type: speechBark
   id: CanineVoice
   name: bark-bark-name # @@@ QWERTY barks addon folder
-  sound: /Audio/_WL/Barks/Normalized/ADT/bark-bark.wav
+  sound: /Audio/_WL/Barks/Normalized/ADT/bark-bark.ogg
   roundStart: false
 
 - type: speechBark
   id: FelineVoice
   name: bark-meow-name # @@@ QWERTY barks addon folder
-  sound: /Audio/_WL/Barks/Normalized/ADT/bark-meow.wav
+  sound: /Audio/_WL/Barks/Normalized/ADT/bark-meow.ogg
   roundStart: false
 
 - type: speechBark
   id: StatisticSound
   name: bark-stats-name # @@@ QWERTY barks addon folder
-  sound: /Audio/_WL/Barks/Normalized/ADT/undertale-stats.wav
+  sound: /Audio/_WL/Barks/Normalized/ADT/undertale-stats.ogg
   roundStart: false
 
 - type: speechBark
   id: DefaultBarkSound
   name: bark-default-name # @@@ QWERTY barks addon folder
-  sound: /Audio/_WL/Barks/Normalized/ADT/undertale-default.wav
+  sound: /Audio/_WL/Barks/Normalized/ADT/undertale-default.ogg
   roundStart: false
 
 - type: speechBark
   id: YetAnotherDefaultBarkSound
   name: bark-oneshot-name # @@@ QWERTY barks addon folder
-  sound: /Audio/_WL/Barks/Normalized/ADT/oneshot-text.wav
+  sound: /Audio/_WL/Barks/Normalized/ADT/oneshot-text.ogg
   category: oneshot
 
 - type: speechBark
   id: AngryFlowey
   name: bark-angryflowey-name # @@@ QWERTY barks addon folder
-  sound: /Audio/_WL/Barks/Normalized/ADT/undertale-flowey-angry.wav
+  sound: /Audio/_WL/Barks/Normalized/ADT/undertale-flowey-angry.ogg
   roundStart: false
 
 - type: speechBark
   id: OneshotRobot
   name: bark-oneshot-robot-name # @@@ QWERTY barks addon folder
-  sound: /Audio/_WL/Barks/Normalized/ADT/oneshot-robot.wav
+  sound: /Audio/_WL/Barks/Normalized/ADT/oneshot-robot.ogg
   category: oneshot
 
 - type: speechBark
