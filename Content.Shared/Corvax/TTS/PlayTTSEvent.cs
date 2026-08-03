@@ -9,6 +9,7 @@ public sealed class PlayTTSEvent : EntityEventArgs
     public byte[] Data { get; }
     public NetEntity? SourceUid { get; }
     public bool IsWhisper { get; }
+    // WL-Changes-Start: TTS preview playback
     public bool IsPreview { get; }
 
     public PlayTTSEvent(
@@ -22,4 +23,5 @@ public sealed class PlayTTSEvent : EntityEventArgs
         IsWhisper = isWhisper;
         IsPreview = isPreview;
     }
+    // WL-Changes-End
 }

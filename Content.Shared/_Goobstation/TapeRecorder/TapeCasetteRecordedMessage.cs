@@ -1,4 +1,4 @@
-using Content.Shared._WL.Barks;
+using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 
@@ -44,6 +44,7 @@ public sealed partial class TapeCassetteRecordedMessage : IComparable<TapeCasset
     public string TTS = string.Empty;
     // WL-TTS-end
 
+    // WL-Changes-Start: Speech barks
     [DataField]
     public string BarkVoice = string.Empty;
 
@@ -79,6 +80,7 @@ public sealed partial class TapeCassetteRecordedMessage : IComparable<TapeCasset
         BarkMinDelay = barkMinDelay;
         BarkMaxDelay = barkMaxDelay;
     }
+    // WL-Changes-End
 
     public int CompareTo(TapeCassetteRecordedMessage? other)
     {

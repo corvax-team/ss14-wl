@@ -1,17 +1,18 @@
-using Content.Client._WL.Barks.UI;
-using Content.Client._WL.Barks;
+using Content.Client._WL.Barks.UI; // WL-Changes
+using Content.Client._WL.Barks; // WL-Changes
 using Content.Client.Corvax.TTS;
-using Content.Shared._WL.Barks;
-using Content.Shared._WL.CCVars;
+using Content.Shared._WL.Barks; // WL-Changes
+using Content.Shared._WL.CCVars; // WL-Changes
 using Content.Shared.Corvax.CCCVars;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controls;
+using Robust.Client.UserInterface.Controls; // WL-Changes
 
 namespace Content.Client.Lobby.UI;
 
 public sealed partial class HumanoidProfileEditor
 {
     private TTSTab? _ttsTab;
+    // WL-Changes-Start: Speech barks
     private BarkTab? _barkTab;
     private OptionButton? _speechModeButton;
 
@@ -162,6 +163,8 @@ public sealed partial class HumanoidProfileEditor
             Profile.BarkMinDelay,
             Profile.BarkMaxDelay);
     }
+    // WL-Changes-End
+
     private void SetVoice(string newVoice)
     {
         Profile = Profile?.WithVoice(newVoice);

@@ -1,4 +1,4 @@
-using Content.Shared._WL.Barks;
+using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 
@@ -34,6 +34,7 @@ public sealed partial class VoiceOverrideComponent : Component
     [DataField]
     public bool Enabled = true;
 
+    // WL-Changes-Start: Speech barks
     [DataField]
     public ProtoId<BarkPrototype>? BarkVoiceOverride;
 
@@ -45,4 +46,5 @@ public sealed partial class VoiceOverrideComponent : Component
 
     [DataField]
     public float? BarkMaxDelayOverride;
+    // WL-Changes-End
 }

@@ -1,4 +1,4 @@
-using Content.Shared._WL.Barks;
+using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Implants;
 using Content.Shared.Inventory;
@@ -13,11 +13,13 @@ public partial class VoiceMaskSystem
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerVoiceEvent>>(OnSpeakerVoiceTransform);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeVoiceMessage>(OnChangeVoice);
         SubscribeLocalEvent<VoiceMaskComponent, ImplantRelayEvent<TransformSpeakerVoiceEvent>>(OnSpeakerVoiceTransformImplant);
+        // WL-Changes-Start: Speech barks
         SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerBarkEvent>>(OnSpeakerBarkTransform);
         SubscribeLocalEvent<VoiceMaskComponent, ImplantRelayEvent<TransformSpeakerBarkEvent>>(OnSpeakerBarkTransformImplant);
         SubscribeLocalEvent<VoiceMaskComponent, TransformSpeakerBarkEvent>(OnInnateSpeakerBarkTransform);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeBarkMessage>(OnChangeBark);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeBarkPitchMessage>(OnChangeBarkPitch);
+        // WL-Changes-End
     }
 
     private void OnSpeakerVoiceTransform(EntityUid uid, VoiceMaskComponent component, InventoryRelayedEvent<TransformSpeakerVoiceEvent> args)
@@ -45,6 +47,7 @@ public partial class VoiceMaskSystem
         args.Args.VoiceId = component.VoiceId;
     }
 
+    // WL-Changes-Start: Speech barks
     private static void TransformBark(VoiceMaskComponent component, TransformSpeakerBarkEvent args)
     {
         if (!component.Active)
@@ -100,4 +103,5 @@ public partial class VoiceMaskSystem
         _popupSystem.PopupEntity(Loc.GetString("voice-mask-voice-popup-success"), entity);
         UpdateUI(entity);
     }
+    // WL-Changes-End
 }

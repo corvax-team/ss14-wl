@@ -1,7 +1,7 @@
 using Content.Shared.Chat;
-using Content.Shared._WL.CCVars;
+using Content.Shared._WL.CCVars; // WL-Changes
 using Content.Shared.Corvax.CCCVars;
-using Content.Shared._WL.Barks;
+using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Corvax.TTS;
 using Robust.Client.Audio;
 using Robust.Client.ResourceManagement;
@@ -29,10 +29,12 @@ public sealed partial class TTSSystem : EntitySystem
 
     private static bool _contentRootAdded;
 
+    // WL-Changes-Start: Correct whisper attenuation units
     /// <summary>
     /// Reducing the volume of the TTS when whispering, in decibels.
     /// </summary>
     private const float WhisperFade = 4f;
+    // WL-Changes-End
 
     /// <summary>
     /// The volume at which the TTS sound will not be heard.
@@ -73,8 +75,10 @@ public sealed partial class TTSSystem : EntitySystem
 
     private void OnPlayTTS(PlayTTSEvent ev)
     {
+        // WL-Changes-Start: Speech mode
         if (!ev.IsPreview && _cfg.GetCVar(WLCVars.SpeechMode) != SpeechMode.Tts)
             return;
+        // WL-Changes-End
 
         _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
@@ -116,7 +120,7 @@ public sealed partial class TTSSystem : EntitySystem
 
         if (isWhisper)
         {
-            volume -= WhisperFade;
+            volume -= WhisperFade; // WL-Changes
         }
 
         return volume;

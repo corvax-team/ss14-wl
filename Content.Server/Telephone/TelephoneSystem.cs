@@ -4,7 +4,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Chat;
-using Content.Shared._WL.Barks;
+using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Database;
 using Content.Shared.Labels.Components;
@@ -115,6 +115,7 @@ public sealed partial class TelephoneSystem : SharedTelephoneSystem
 
         var range = args.TelephoneSource.Comp.LinkedTelephones.Count > 1 ? ChatTransmitRange.HideChat : ChatTransmitRange.GhostRangeLimit;
         var volume = entity.Comp.SpeakerVolume == TelephoneVolume.Speak ? InGameICChatType.Speak : InGameICChatType.Whisper;
+        // WL-Changes-Start: Speech barks
         // Copy both speech systems. Each listener independently chooses whether
         // they hear TTS or barks, so the telephone proxy must support both.
         if(TryComp<TTSComponent>(args.MessageSource, out var ttsSpeaker))
@@ -147,6 +148,7 @@ public sealed partial class TelephoneSystem : SharedTelephoneSystem
         {
             RemComp<SpeechBarksComponent>(speaker);
         }
+        // WL-Changes-End
 
         _chat.TrySendInGameICMessage(speaker, args.Message, volume, range, nameOverride: name, checkRadioPrefix: false);
     }

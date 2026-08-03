@@ -407,10 +407,12 @@ namespace Content.Server.Database
         public string Gender { get; set; } = null!;
         public string Species { get; set; } = null!;
         [Column("ttsvoice")] public string TTSVoice { get; set; } = null!; // Corvax-TTS
+        // WL-Changes-Start: Speech barks
         public string BarkVoice { get; set; } = "Human1";
         public float BarkPitch { get; set; } = 1f;
         public float BarkMinDelay { get; set; } = 0.1f;
         public float BarkMaxDelay { get; set; } = 0.5f;
+        // WL-Changes-End
         [Column(TypeName = "jsonb")] public JsonDocument? OrganMarkings { get; set; } = null!;
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
         public string HairName { get; set; } = null!;

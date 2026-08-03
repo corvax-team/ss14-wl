@@ -18,6 +18,7 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
     public readonly bool AccentHide;
     public readonly LocId TitleText;
     public readonly string TTSVoice; // Corvax-TTS
+    // WL-Changes-Start: Speech barks
     public readonly string BarkVoice;
     public readonly float BarkPitch;
 
@@ -40,6 +41,7 @@ public sealed class VoiceMaskBuiState : BoundUserInterfaceState
         BarkVoice = barkVoice;
         BarkPitch = barkPitch;
     }
+    // WL-Changes-End
 }
 
 [Serializable, NetSerializable]
