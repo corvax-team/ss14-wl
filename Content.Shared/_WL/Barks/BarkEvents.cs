@@ -12,7 +12,7 @@ public sealed class PlaySpeechBarksEvent(
     float pitch,
     float minDelay,
     float maxDelay,
-    int count,
+    BarkBoundary[] rhythm,
     BarkProsody prosody,
     bool isWhisper) : EntityEventArgs
 {
@@ -21,7 +21,7 @@ public sealed class PlaySpeechBarksEvent(
     public float Pitch = pitch;
     public float MinDelay = minDelay;
     public float MaxDelay = maxDelay;
-    public int Count = count;
+    public BarkBoundary[] Rhythm = rhythm;
     public BarkProsody Prosody = prosody;
     public bool IsWhisper = isWhisper;
 }

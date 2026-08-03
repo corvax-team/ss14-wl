@@ -81,14 +81,81 @@ public sealed class BarkProsodyTest
         });
     }
 
-    [TestCase("", 1)]
-    [TestCase("а", 1)]
-    [TestCase("аб", 1)]
-    [TestCase("абв", 2)]
-    [TestCase("абвг", 2)]
-    [TestCase("абвгде", 3)]
-    public void BarkCountUsesOneGrainPerThreeCharacters(string message, int expected)
+    [TestCase("", 0)]
+    [TestCase("...", 0)]
+    [TestCase("?!, - —", 0)]
+    [TestCase("Ку.", 1)]
+    [TestCase("Привет.", 2)]
+    [TestCase("Здрав-ствуй-те.", 3)]
+    [TestCase("Здравствуйте.", 3)]
+    [TestCase("Привет, как дела?", 5)]
+    [TestCase("hello", 2)]
+    [TestCase("voice", 1)]
+    [TestCase("table", 2)]
+    [TestCase("123 РП", 2)]
+    public void BarkCountFollowsSpokenSyllables(string message, int expected)
     {
         Assert.That(BarkProsody.GetBarkCount(message), Is.EqualTo(expected));
+    }
+
+    [Test]
+    public void BarkCountIsCappedForLongMessages()
+    {
+        Assert.That(
+            BarkProsody.GetBarkCount(new string('а', 100)),
+            Is.EqualTo(24));
+    }
+
+    [Test]
+    public void PunctuationCreatesRhythmWithoutExtraBarks()
+    {
+        var rhythm = BarkProsody.GetBarkRhythm("Привет, мир. Как дела?");
+
+        Assert.That(rhythm, Is.EqualTo(new[]
+        {
+            BarkBoundary.None,
+            BarkBoundary.Comma,
+            BarkBoundary.Period,
+            BarkBoundary.None,
+            BarkBoundary.None,
+            BarkBoundary.Question,
+        }));
+    }
+
+    [Test]
+    public void EllipsisCreatesTheLongestPause()
+    {
+        var rhythm = BarkProsody.GetBarkRhythm("Да... Нет!");
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(rhythm, Is.EqualTo(new[]
+            {
+                BarkBoundary.Ellipsis,
+                BarkBoundary.Exclamation,
+            }));
+            Assert.That(
+                rhythm[0].GetAdditionalDelay(),
+                Is.GreaterThan(rhythm[1].GetAdditionalDelay()));
+        });
+    }
+
+    [Test]
+    public void PunctuationChangesExistingBarksWithoutAddingNewOnes()
+    {
+        var plain = BarkProsody.GetBarkRhythm("Привет мир");
+        var punctuated = BarkProsody.GetBarkRhythm("Привет, мир. Да!");
+        var dashed = BarkProsody.GetBarkRhythm("Привет — мир");
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(plain, Has.Length.EqualTo(3));
+            Assert.That(punctuated, Has.Length.EqualTo(4));
+            Assert.That(punctuated[1], Is.EqualTo(BarkBoundary.Comma));
+            Assert.That(punctuated[2], Is.EqualTo(BarkBoundary.Period));
+            Assert.That(punctuated[3], Is.EqualTo(BarkBoundary.Exclamation));
+            Assert.That(dashed, Has.Length.EqualTo(3));
+            Assert.That(dashed[1], Is.EqualTo(BarkBoundary.Clause));
+        });
     }
 }

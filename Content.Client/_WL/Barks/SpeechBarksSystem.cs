@@ -23,6 +23,9 @@ public sealed partial class SpeechBarksSystem : EntitySystem
     private const float PitchVariation = 0.1f;
     private const float MinPlaybackPitch = 0.45f;
     private const float MaxPlaybackPitch = 1.85f;
+    // Let adjacent grains overlap slightly without allowing long samples to
+    // pile up into an unintelligible wall of sound.
+    private const float PlaybackFractionBeforeNextBark = 0.75f;
 
     [Dependency] private AudioSystem _audio = default!;
     [Dependency] private IConfigurationManager _cfg = default!;
@@ -77,6 +80,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
     private void OnBarks(PlaySpeechBarksEvent ev)
     {
         if (_speechMode != SpeechMode.Barks ||
+            ev.Rhythm.Length == 0 ||
             !TryGetEntity(ev.Source, out var source) ||
             Transform(source.Value).MapID == MapId.Nullspace)
             return;
@@ -84,10 +88,8 @@ public sealed partial class SpeechBarksSystem : EntitySystem
         var pitch = SpeechBarksComponent.SanitizePitch(ev.Pitch);
         var (minDelay, maxDelay) =
             SpeechBarksComponent.SanitizeDelays(ev.MinDelay, ev.MaxDelay);
-        // Keep ADT's speech behaviour: every message and every already-started
-        // grain is allowed to finish independently. This is what makes very
-        // short voice collections sound like natural game dialogue instead of
-        // a stream repeatedly cut by a concurrency limiter.
+        // Already-started grains are allowed to finish, while complete phrases
+        // from the same speaker are played sequentially.
         QueueBark(
             source.Value,
             ev.Sound,
@@ -96,7 +98,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             AdjustVolume(ev.Prosody, ev.IsWhisper),
             minDelay,
             maxDelay,
-            Math.Max(1, ev.Count),
+            ev.Rhythm,
             ev.Prosody,
             false);
     }
@@ -125,7 +127,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             AdjustVolume(prosody, false),
             minDelay,
             maxDelay,
-            BarkProsody.GetBarkCount(message),
+            BarkProsody.GetBarkRhythm(message),
             prosody,
             true);
     }
@@ -138,11 +140,14 @@ public sealed partial class SpeechBarksSystem : EntitySystem
         float volume,
         float minDelay,
         float maxDelay,
-        int count,
+        BarkBoundary[] rhythm,
         BarkProsody prosody,
         bool isPreview)
     {
-        _active.Add(new ActiveBark(
+        if (rhythm.Length == 0)
+            return;
+
+        var queued = new ActiveBark(
             source,
             sound,
             pitch,
@@ -150,9 +155,26 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             volume,
             minDelay,
             maxDelay,
-            count,
+            rhythm,
             prosody,
-            isPreview));
+            isPreview);
+
+        if (!isPreview && source is { } speaker)
+        {
+            foreach (var active in _active)
+            {
+                if (active.IsPreview || active.Source != speaker)
+                    continue;
+
+                // A person cannot naturally speak two phrases at once. Keep
+                // only their newest pending phrase to avoid a delayed backlog
+                // after chat spam.
+                active.Pending = queued;
+                return;
+            }
+        }
+
+        _active.Add(queued);
     }
 
     public void StopPreview()
@@ -180,18 +202,37 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             if (bark.NextSound > _timing.CurTime)
                 continue;
 
-            if (bark.Played >= bark.Count || bark.Source is { } source && Deleted(source))
+            if (bark.Source is { } source && Deleted(source))
             {
                 _active.RemoveAt(i);
                 continue;
             }
 
-            var progress = bark.Count <= 1
+            if (bark.Played >= bark.Count)
+            {
+                if (bark.Pending is { } pending)
+                {
+                    pending.NextSound = _timing.CurTime;
+                    _active[i] = pending;
+                }
+                else
+                {
+                    _active.RemoveAt(i);
+                }
+
+                continue;
+            }
+
+            var progress = bark.Rhythm.Length <= 1
                 ? 1f
-                : bark.Played / (bark.Count - 1f);
+                : bark.Played / (bark.Rhythm.Length - 1f);
+            var boundary = bark.Rhythm[bark.Played];
             var variation = _random.NextFloat(1f - PitchVariation, 1f + PitchVariation);
             var pitch = Math.Clamp(
-                bark.Pitch * bark.Prosody.GetPitchMultiplier(progress) * variation,
+                bark.Pitch *
+                bark.Prosody.GetPitchMultiplier(progress) *
+                boundary.GetPitchMultiplier() *
+                variation,
                 MinPlaybackPitch,
                 MaxPlaybackPitch);
 
@@ -231,6 +272,10 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             bark.Played++;
             var cadence = _random.NextFloat(bark.MinDelay, bark.MaxDelay);
             cadence *= bark.Prosody.DelayScale;
+            cadence = Math.Max(
+                cadence,
+                (float) playbackDuration.TotalSeconds * PlaybackFractionBeforeNextBark);
+            cadence += boundary.GetAdditionalDelay();
             bark.NextSound = _timing.CurTime + TimeSpan.FromSeconds(cadence);
         }
     }
@@ -255,7 +300,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
         float volume,
         float minDelay,
         float maxDelay,
-        int count,
+        BarkBoundary[] rhythm,
         BarkProsody prosody,
         bool isPreview = false)
     {
@@ -266,11 +311,14 @@ public sealed partial class SpeechBarksSystem : EntitySystem
         public float Volume = volume;
         public float MinDelay = minDelay;
         public float MaxDelay = maxDelay;
-        public int Count = count;
+        public BarkBoundary[] Rhythm = rhythm;
         public BarkProsody Prosody = prosody;
         public bool IsPreview = isPreview;
         public int Played;
         public TimeSpan NextSound;
+        public ActiveBark? Pending;
+
+        public int Count => Rhythm.Length;
     }
 
 }

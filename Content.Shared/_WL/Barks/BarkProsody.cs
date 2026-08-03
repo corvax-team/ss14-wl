@@ -14,6 +14,9 @@ public readonly record struct BarkProsody(
     float DelayScale,
     float VolumeOffset)
 {
+    private const int MaxBarkCount = 24;
+    private const string CyrillicVowels = "аеёиоуыэюяіїє";
+
     public static readonly BarkProsody Neutral = new(0f, 0f, 1f, 0f);
 
     public float GetPitchMultiplier(float progress)
@@ -39,10 +42,130 @@ public readonly record struct BarkProsody(
 
     public static int GetBarkCount(string message)
     {
-        // Match ADT: one initial grain, then one more for every three
-        // characters. Exact multiples intentionally receive the trailing
-        // grain as well (3 -> 2, 6 -> 3).
-        return Math.Max(1, message.Length / 3 + 1);
+        return GetBarkRhythm(message).Length;
+    }
+
+    public static BarkBoundary[] GetBarkRhythm(string message)
+    {
+        var rhythm = new List<BarkBoundary>(Math.Min(message.Length, MaxBarkCount));
+        var wordStart = -1;
+
+        for (var i = 0; i <= message.Length; i++)
+        {
+            if (i < message.Length && char.IsLetterOrDigit(message[i]))
+            {
+                if (wordStart == -1)
+                    wordStart = i;
+
+                continue;
+            }
+
+            if (wordStart != -1)
+            {
+                var syllables = EstimateWordSyllables(message.AsSpan(wordStart, i - wordStart));
+                for (var syllable = 0; syllable < syllables && rhythm.Count < MaxBarkCount; syllable++)
+                    rhythm.Add(BarkBoundary.None);
+
+                wordStart = -1;
+            }
+
+            if (i < message.Length && rhythm.Count > 0)
+            {
+                var boundary = GetBoundary(message, i);
+                if (GetBoundaryPriority(boundary) > GetBoundaryPriority(rhythm[^1]))
+                    rhythm[^1] = boundary;
+            }
+        }
+
+        return rhythm.ToArray();
+    }
+
+    private static BarkBoundary GetBoundary(string message, int index)
+    {
+        return message[index] switch
+        {
+            ',' => BarkBoundary.Comma,
+            ';' or ':' => BarkBoundary.Clause,
+            '—' or '–' => BarkBoundary.Clause,
+            '-' when (index > 0 && char.IsWhiteSpace(message[index - 1])) ||
+                (index + 1 < message.Length && char.IsWhiteSpace(message[index + 1])) => BarkBoundary.Clause,
+            '?' => BarkBoundary.Question,
+            '!' => BarkBoundary.Exclamation,
+            '.' when (index > 0 && message[index - 1] == '.') ||
+                (index + 1 < message.Length && message[index + 1] == '.') => BarkBoundary.Ellipsis,
+            '.' => BarkBoundary.Period,
+            '\n' or '\r' => BarkBoundary.Period,
+            _ => BarkBoundary.None,
+        };
+    }
+
+    private static int GetBoundaryPriority(BarkBoundary boundary)
+    {
+        return boundary switch
+        {
+            BarkBoundary.None => 0,
+            BarkBoundary.Comma => 1,
+            BarkBoundary.Clause => 2,
+            BarkBoundary.Period => 3,
+            BarkBoundary.Question => 4,
+            BarkBoundary.Exclamation => 5,
+            BarkBoundary.Ellipsis => 6,
+            _ => 0,
+        };
+    }
+
+    private static int EstimateWordSyllables(ReadOnlySpan<char> word)
+    {
+        var syllables = 0;
+        var hasCyrillicVowel = false;
+        var insideLatinVowelGroup = false;
+
+        for (var i = 0; i < word.Length; i++)
+        {
+            var character = char.ToLowerInvariant(word[i]);
+            if (CyrillicVowels.Contains(character))
+            {
+                syllables++;
+                hasCyrillicVowel = true;
+                insideLatinVowelGroup = false;
+                continue;
+            }
+
+            if (IsLatinVowel(character, i))
+            {
+                if (!insideLatinVowelGroup)
+                    syllables++;
+
+                insideLatinVowelGroup = true;
+                continue;
+            }
+
+            insideLatinVowelGroup = false;
+        }
+
+        if (!hasCyrillicVowel && HasSilentLatinE(word) && syllables > 1)
+            syllables--;
+
+        // Numbers, abbreviations and words from unsupported alphabets still
+        // need one grain so that they do not disappear from the rhythm.
+        return Math.Max(1, syllables);
+    }
+
+    private static bool IsLatinVowel(char character, int index)
+    {
+        return character is 'a' or 'e' or 'i' or 'o' or 'u' ||
+            character == 'y' && index > 0;
+    }
+
+    private static bool HasSilentLatinE(ReadOnlySpan<char> word)
+    {
+        if (word.Length < 2 || char.ToLowerInvariant(word[^1]) != 'e')
+            return false;
+
+        // A final consonant + "le", as in "table", normally forms a syllable.
+        return word.Length < 3 ||
+            char.ToLowerInvariant(word[^2]) != 'l' ||
+            IsLatinVowel(char.ToLowerInvariant(word[^3]), word.Length - 3);
     }
 
     private static EmotionalEnding GetEmotionalEnding(string message)

@@ -33,13 +33,17 @@ public sealed partial class SpeechBarksSystem : EntitySystem
         var (minDelay, maxDelay) =
             SpeechBarksComponent.SanitizeDelays(transform.MinDelay, transform.MaxDelay);
         var prosody = BarkProsody.FromMessage(args.Message);
+        var rhythm = BarkProsody.GetBarkRhythm(args.Message);
+        if (rhythm.Length == 0)
+            return;
+
         var ev = new PlaySpeechBarksEvent(
             GetNetEntity(ent),
             voice.Sound,
             pitch,
             minDelay,
             maxDelay,
-            BarkProsody.GetBarkCount(args.Message),
+            rhythm,
             prosody,
             args.ObfuscatedMessage != null);
 
