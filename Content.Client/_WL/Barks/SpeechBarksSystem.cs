@@ -1,8 +1,10 @@
 using Content.Shared.Chat;
 using Content.Shared._WL.Barks;
 using Content.Shared._WL.CCVars;
+using Content.Client.UserInterface.Systems.Chat;
 using Robust.Client.Audio;
 using Robust.Client.Player;
+using Robust.Client.UserInterface;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -30,6 +32,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IUserInterfaceManager _ui = default!;
 
     private readonly List<ActiveBark> _active = new();
     private readonly HashSet<EntityUid> _previewStreams = new();
@@ -232,6 +235,20 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             var cadence = _random.NextFloat(bark.MinDelay, bark.MaxDelay);
             cadence *= bark.Prosody.DelayScale;
             bark.NextSound = _timing.CurTime + TimeSpan.FromSeconds(cadence);
+
+            if (!bark.IsPreview && bark.Source is { } speechSource && streamEntity != null)
+            {
+                // Keep the bubble visible through both the current grain and the pause
+                // before the next one. The final grain only uses its playback duration.
+                var timeUntilNextGrain = bark.Played < bark.Count
+                    ? TimeSpan.FromSeconds(cadence)
+                    : TimeSpan.Zero;
+                var remainingPlayback = playbackDuration > timeUntilNextGrain
+                    ? playbackDuration
+                    : timeUntilNextGrain;
+                _ui.GetUIController<ChatUIController>()
+                    .KeepSpeechBubbleVisible(speechSource, remainingPlayback);
+            }
         }
     }
 
