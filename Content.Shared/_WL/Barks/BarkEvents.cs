@@ -35,13 +35,15 @@ public sealed class TransformSpeakerBarkEvent(
     ProtoId<BarkPrototype> voice,
     float pitch,
     float minDelay,
-    float maxDelay) : EntityEventArgs, IInventoryRelayEvent
+    float maxDelay,
+    bool playOnRadio = true) : EntityEventArgs, IInventoryRelayEvent
 {
     public EntityUid Sender = sender;
     public ProtoId<BarkPrototype> Voice = voice;
     public float Pitch = pitch;
     public float MinDelay = minDelay;
     public float MaxDelay = maxDelay;
+    public bool PlayOnRadio = playOnRadio;
 
     SlotFlags IInventoryRelayEvent.TargetSlots => SlotFlags.WITHOUT_POCKET;
 }

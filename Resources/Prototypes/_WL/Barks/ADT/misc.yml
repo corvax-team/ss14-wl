@@ -1,10 +1,4 @@
 - type: speechBark
-  id: GhostRadio
-  name: bark-ghost-radio-name
-  sound: /Audio/ADT/Voice/Vocal-Barks/noise-bark.ogg
-  roundStart: false
-
-- type: speechBark
   id: SkeletonBarkOne
   name: bark-skeleton-first-name # @@@ QWERTY barks update
   sound:
@@ -14,44 +8,44 @@
 - type: speechBark
   id: CanineVoice
   name: bark-bark-name # @@@ QWERTY barks addon folder
-  sound: /Audio/ADT/Voice/Vocal-Barks/bark-bark.ogg
+  sound: /Audio/_WL/Barks/Normalized/ADT/bark-bark.wav
   roundStart: false
 
 - type: speechBark
   id: FelineVoice
   name: bark-meow-name # @@@ QWERTY barks addon folder
-  sound: /Audio/ADT/Voice/Vocal-Barks/bark-meow.ogg
+  sound: /Audio/_WL/Barks/Normalized/ADT/bark-meow.wav
   roundStart: false
 
 - type: speechBark
   id: StatisticSound
   name: bark-stats-name # @@@ QWERTY barks addon folder
-  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-stats.ogg
+  sound: /Audio/_WL/Barks/Normalized/ADT/undertale-stats.wav
   roundStart: false
 
 - type: speechBark
   id: DefaultBarkSound
   name: bark-default-name # @@@ QWERTY barks addon folder
-  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-default.ogg
+  sound: /Audio/_WL/Barks/Normalized/ADT/undertale-default.wav
   roundStart: false
 
 - type: speechBark
   id: YetAnotherDefaultBarkSound
   name: bark-oneshot-name # @@@ QWERTY barks addon folder
-  sound: /Audio/ADT/Voice/Vocal-Barks/oneshot-text.ogg
-  roundStart: false
+  sound: /Audio/_WL/Barks/Normalized/ADT/oneshot-text.wav
+  category: oneshot
 
 - type: speechBark
   id: AngryFlowey
   name: bark-angryflowey-name # @@@ QWERTY barks addon folder
-  sound: /Audio/ADT/Voice/Vocal-Barks/undertale-flowey-angry.ogg
+  sound: /Audio/_WL/Barks/Normalized/ADT/undertale-flowey-angry.wav
   roundStart: false
 
 - type: speechBark
   id: OneshotRobot
   name: bark-oneshot-robot-name # @@@ QWERTY barks addon folder
-  sound: /Audio/ADT/Voice/Vocal-Barks/oneshot-robot.ogg
-  roundStart: false
+  sound: /Audio/_WL/Barks/Normalized/ADT/oneshot-robot.wav
+  category: oneshot
 
 - type: speechBark
   id: FatalErrorSans

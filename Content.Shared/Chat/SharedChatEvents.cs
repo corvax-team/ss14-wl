@@ -62,6 +62,14 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     public readonly string OriginalMessage;
     public readonly string? ObfuscatedMessage; // not null if this was a whisper
 
+    // WL-Changes-start: Speech barks
+    /// <summary>
+    /// Whether the message originally had a radio channel. Unlike <see cref="Channel"/>,
+    /// this is not cleared after a radio transmitter handles the message.
+    /// </summary>
+    public readonly bool WasRadio;
+    // WL-Changes-end
+
     //WL-Changes: Languages start
     public readonly string? LangMessage;
     public readonly string? LangObfusMessage;
@@ -79,6 +87,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         Message = message;
         OriginalMessage = originalMessage; // Corvax-TTS: Spec symbol sanitize
         Channel = channel;
+        WasRadio = channel != null; // WL-Changes: Speech barks
         ObfuscatedMessage = obfuscatedMessage;
         //WL-Changes: Languages start
         LangMessage = langMessage;

@@ -18,7 +18,7 @@ public sealed partial class BarkTab : Control
     [
         ("humanoid-profile-editor-bark-group-general", ["standard", "voice", "synth"]),
         ("humanoid-profile-editor-bark-group-undertale", ["undertale", "undertale_yellow", "deltarune", "deltarune_rewritten", "underswap"]),
-        ("humanoid-profile-editor-bark-group-games", ["minecraft", "dont_starve", "ace_attorney", "banjo_kazooie"]),
+        ("humanoid-profile-editor-bark-group-games", ["minecraft", "oneshot", "dont_starve", "ace_attorney", "banjo_kazooie"]),
         ("humanoid-profile-editor-bark-group-stations", ["goon_station", "citadel_station"]),
         ("humanoid-profile-editor-bark-group-other", ["other"]),
     ];

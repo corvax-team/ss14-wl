@@ -23,8 +23,12 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             ent.Comp.Voice,
             ent.Comp.Pitch,
             ent.Comp.MinDelay,
-            ent.Comp.MaxDelay);
+            ent.Comp.MaxDelay,
+            ent.Comp.PlayOnRadio);
         RaiseLocalEvent(ent, transform);
+
+        if (args.WasRadio && !transform.PlayOnRadio)
+            return;
 
         if (!_prototypes.TryIndex(transform.Voice, out var voice))
             return;

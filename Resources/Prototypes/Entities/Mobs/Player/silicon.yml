@@ -453,6 +453,11 @@
   components:
   - type: TTS
     voice: Machine_spirit_4 # Corvax-TTS
+  # WL-Changes-start: Speech barks
+  - type: SpeechBarks
+    voice: Sam
+    playOnRadio: false
+  # WL-Changes-end
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
     visible: false

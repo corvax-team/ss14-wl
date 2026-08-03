@@ -1,0 +1,61 @@
+# Lossless WAV copies normalized to a common active RMS level for bark playback in ss14-wl.
+
+- files: ["Banjo-Cn3.wav", "Banjo-Cn4.wav", "Guitar-C2.wav", "Guitar-C3.wav", "Guitar-C4.wav", "bloop.wav", "merp.wav", "synth-2.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sound from https://github.com/deathride58/Citadel-Station-13/"
+  source: "https://github.com/deathride58/Citadel-Station-13/"
+
+- files: ["undertale-alphy.wav", "undertale-asgore.wav", "undertale-chrip-1.wav", "undertale-chrip-2.wav", "undertale-default.wav", "undertale-flowey-angry.wav", "undertale-flowey.wav", "undertale-papyrus.wav", "undertale-sans.wav", "undertale-stats.wav", "undertale-synth-1.wav", "undertale-synth-2.wav", "undertale-undyne.wav", "undertale_mettaton_1.wav", "undertale_mettaton_2.wav", "undertale_mettaton_3.wav", "undertale_mettaton_4.wav", "undertale_mettaton_5.wav", "undertale_mettaton_6.wav", "undertale_mettaton_7.wav", "undertale_mettaton_8.wav", "undertale_gaster_1.wav", "undertale_gaster_2.wav", "undertale_gaster_3.wav", "undertale_gaster_4.wav", "undertale_gaster_5.wav", "undertale_gaster_6.wav", "undertale_gaster_7.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sound by Toby Fox"
+  source: "https://store.steampowered.com/app/391540/Undertale/"
+
+- files: ["deltarune-berdly.wav", "deltarune-gerson.wav", "deltarune-jackenstein.wav", "deltarune-jevil.wav", "deltarune-lancer.wav", "deltarune-noelle.wav", "deltarune-noellemom.wav", "deltarune-queen.wav", "deltarune-ralsei.wav", "deltarune-rouxls-01.wav", "deltarune-rouxls-02.wav", "deltarune-rouxls-03.wav", "deltarune-rudolph.wav", "deltarune-spamton.wav", "deltarune-susie.wav", "deltarune-tenna-01.wav", "deltarune-tenna-02.wav", "deltarune-tenna-03.wav", "deltarune-tenna-04.wav", "deltarune-tenna-05.wav", "deltarune-tenna-06.wav", "deltarune-tenna-07.wav", "deltarune-tenna-08.wav", "deltarune-tenna-09.wav", "deltarune-tenna-10.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sound by Toby Fox"
+  source: "https://store.steampowered.com/app/1671210/DELTARUNE/"
+
+- files: ["deltaruneREwritten_charkis.wav", "deltaruneREwritten_junkil.wav", "deltaruneREwritten_scamton.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by Sad_Bread for 'deltarune rewritten Scamton the great' game."
+  source: "https://gamejolt.com/@Sad_Bread_Official"
+
+- files: ["ts_underswap_alphys.wav", "ts_underswap_bugerpant.wav", "ts_underswap_coffin_k.wav", "ts_underswap_crossbones.wav", "ts_underswap_harry.wav", "ts_underswap_larry.wav", "ts_underswap_mettalot.wav", "ts_underswap_moldrick.wav", "ts_underswap_sgt_splosion.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by Team Switched for 'TS!UNDERSWAP' game."
+  source: "https://gamejolt.com/games/tsunderswap/160094"
+
+- files: ["undertale-yellow-ace.wav", "undertale-yellow-axis.wav", "undertale-yellow-ceroba.wav", "undertale-yellow-chujin.wav", "undertale-yellow-davl.wav", "undertale-yellow-ed.wav", "undertale-yellow-martlet.wav", "undertale-yellow-mooch.wav", "undertale-yellow-moray.wav", "undertale-yellow-starlo.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by Team Undertale Yellow for 'Undertale Yellow' game."
+  source: "https://gamejolt.com/games/UndertaleYellow/136925"
+
+- files: ["minecraft_bass.wav", "minecraft_bassattack.wav", "minecraft_bell.wav", "minecraft_bit.wav", "minecraft_cow_bell.wav", "minecraft_didgeridoo.wav", "minecraft_flute.wav", "minecraft_guitar.wav", "minecraft_harp.wav", "minecraft_icechime.wav", "minecraft_iron_xylophone.wav", "minecraft_pling.wav", "minecraft_xylobone.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by Mojang Studios."
+  source: "https://www.minecraft.net/en-us"
+
+- files: ["underverse_fatal_error_sans_1.wav", "underverse_fatal_error_sans_2.wav", "underverse_fatal_error_sans_3.wav", "underverse_fatal_error_sans_4.wav", "underverse_fatal_error_sans_5.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Sounds made by Jakei for UNDERVERSE series."
+  source: "https://www.youtube.com/@Jakeiartwork/videos"
+
+- files: ["microsoft-sam-01.wav", "microsoft-sam-02.wav", "microsoft-sam-03.wav", "microsoft-sam-04.wav", "microsoft-sam-05.wav", "microsoft-sam-06.wav"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Unlumy by using https://discordier.github.io/sam/"
+  source: "https://discordier.github.io/sam/"
+
+- files: ["bark-bark.wav", "bark-meow.wav", "oneshot-robot.wav", "oneshot-text.wav", "underswap-sans.wav"]
+  license: "MIT"
+  copyright: "Added to Adventure Time SS14 by le-kote"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT/pull/886"
+
+- files: ["skeleton-01.wav", "skeleton-02.wav", "skeleton-03.wav", "skeleton-04.wav", "skeleton-05.wav", "skeleton-06.wav"]
+  license: "MIT"
+  copyright: "Added to Adventure Time SS14 by JackTalentedCoder"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT/pull/1759"
+
+- files: ["weh.wav"]
+  license: "MIT"
+  copyright: "Added to Adventure Time SS14 by le-kote"
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT/pull/216"

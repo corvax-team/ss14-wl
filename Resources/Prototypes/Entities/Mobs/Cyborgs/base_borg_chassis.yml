@@ -6,6 +6,11 @@
   save: false
   abstract: true
   components:
+  # WL-Changes-start: Speech barks
+  - type: SpeechBarks
+    voice: BlueMoonBarksDontStarveWX78
+  - type: RandomizedSpeechBarks
+  # WL-Changes-end
   - type: Reactive
     groups:
       Acidic: [Touch]

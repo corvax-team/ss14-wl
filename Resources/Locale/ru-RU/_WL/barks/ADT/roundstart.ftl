@@ -75,7 +75,6 @@ bark-minecraftironxylophone-name = Вибрафон (Minecraft)
 bark-minecraftpling-name = Синтезатор (Minecraft)
 bark-minecraftxylobone-name = Ксилофон (Minecraft)
 bark-sam-name = TTS Сэм (Microsoft)
-bark-ghost-radio-name = Радио призраков
 bark-skeleton-first-name = Скелет
 bark-bark-name = Собачий лай
 bark-meow-name = Кошачье мяуканье

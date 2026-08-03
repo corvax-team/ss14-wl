@@ -35,11 +35,6 @@
   copyright: "Original sounds by Mojang Studios."
   source: "https://www.minecraft.net/en-us"
 
-- files: ["noise-bark.ogg"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Original sound from https://zvukipro.com/situacii/387-zvuki-belogo-shuma.html"
-  source: "https://zvukipro.com/situacii/387-zvuki-belogo-shuma.html"
-
 - files: ["underverse_fatal_error_sans_1.ogg", "underverse_fatal_error_sans_2.ogg", "underverse_fatal_error_sans_3.ogg", "underverse_fatal_error_sans_4.ogg", "underverse_fatal_error_sans_5.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Sounds made by Jakei for UNDERVERSE series."

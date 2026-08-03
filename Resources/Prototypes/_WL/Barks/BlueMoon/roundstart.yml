@@ -1,19 +1,19 @@
 - type: speechBark
   id: BlueMoonBarksUndertaleAsgore
   name: bluemoon-bark-barks-undertale-asgore
-  sound: /Audio/_WL/Barks/BlueMoon/voice_asgore.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_asgore.wav
   category: bluemoon_undertale
 
 - type: speechBark
   id: BlueMoonBarksUndertaleFlowey
   name: bluemoon-bark-barks-undertale-flowey
-  sound: /Audio/_WL/Barks/BlueMoon/voice_flowey_1.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_flowey_1.wav
   category: bluemoon_undertale
 
 - type: speechBark
   id: BlueMoonBarksUndertaleFloweyEvil
   name: bluemoon-bark-barks-undertale-flowey-evil
-  sound: /Audio/_WL/Barks/BlueMoon/voice_flowey_2.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_flowey_2.wav
   category: bluemoon_undertale
 
 - type: speechBark
@@ -26,269 +26,269 @@
 - type: speechBark
   id: BlueMoonBarksUndertaleMettaton
   name: bluemoon-bark-barks-undertale-mettaton
-  sound: /Audio/_WL/Barks/BlueMoon/voice_metta_1.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_metta_1.wav
   category: bluemoon_undertale
 
 - type: speechBark
   id: BlueMoonBarksUndertaleMonster1
   name: bluemoon-bark-barks-undertale-monster1
-  sound: /Audio/_WL/Barks/BlueMoon/voice_monster1.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_monster1.wav
   category: bluemoon_undertale
 
 - type: speechBark
   id: BlueMoonBarksUndertaleMonster2
   name: bluemoon-bark-barks-undertale-monster2
-  sound: /Audio/_WL/Barks/BlueMoon/voice_monster2.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_monster2.wav
   category: bluemoon_undertale
 
 - type: speechBark
   id: BlueMoonBarksUndertalePapyrus
   name: bluemoon-bark-barks-undertale-papyrus
-  sound: /Audio/_WL/Barks/BlueMoon/voice_papyrus.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_papyrus.wav
   category: bluemoon_undertale
 
 - type: speechBark
   id: BlueMoonBarksUndertaleTemmie
   name: bluemoon-bark-barks-undertale-temmie
-  sound: /Audio/_WL/Barks/BlueMoon/voice_temmie.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_temmie.wav
   category: bluemoon_undertale
 
 - type: speechBark
   id: BlueMoonBarksUndertaleToriel
   name: bluemoon-bark-barks-undertale-toriel
-  sound: /Audio/_WL/Barks/BlueMoon/voice_toriel.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_toriel.wav
   category: bluemoon_undertale
 
 - type: speechBark
   id: BlueMoonBarksUndertaleRalsei
   name: bluemoon-bark-barks-undertale-ralsei
-  sound: /Audio/_WL/Barks/BlueMoon/voice_ralsei.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_ralsei.wav
   category: bluemoon_deltarune
 
 - type: speechBark
   id: BlueMoonBarksUndertaleSusie
   name: bluemoon-bark-barks-undertale-susie
-  sound: /Audio/_WL/Barks/BlueMoon/voice_susie.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/voice_susie.wav
   category: bluemoon_deltarune
 
 - type: speechBark
   id: BlueMoonBarksDontStarveWilson
   name: bluemoon-bark-barks-dont-starve-wilson
-  sound: /Audio/_WL/Barks/BlueMoon/wilson_bark.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/wilson_bark.wav
   category: bluemoon_dont_starve
 
 - type: speechBark
   id: BlueMoonBarksDontStarveWolfgang
   name: bluemoon-bark-barks-dont-starve-wolfgang
-  sound: /Audio/_WL/Barks/BlueMoon/wolfgang_bark.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/wolfgang_bark.wav
   category: bluemoon_dont_starve
 
 - type: speechBark
   id: BlueMoonBarksDontStarveWoodie
   name: bluemoon-bark-barks-dont-starve-woodie
-  sound: /Audio/_WL/Barks/BlueMoon/woodie_bark.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/woodie_bark.wav
   category: bluemoon_dont_starve
 
 - type: speechBark
   id: BlueMoonBarksDontStarveWurt
   name: bluemoon-bark-barks-dont-starve-wurt
-  sound: /Audio/_WL/Barks/BlueMoon/wurt_bark.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/wurt_bark.wav
   category: bluemoon_dont_starve
 
 - type: speechBark
   id: BlueMoonBarksDontStarveWX78
   name: bluemoon-bark-barks-dont-starve-wx78
-  sound: /Audio/_WL/Barks/BlueMoon/wx78_bark.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/wx78_bark.wav
   category: bluemoon_dont_starve
 
 - type: speechBark
   id: BlueMoonBarksGoonBlub
   name: bluemoon-bark-barks-goon-blub
-  sound: /Audio/_WL/Barks/BlueMoon/blub.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/blub.wav
   category: bluemoon_goon
 
 - type: speechBark
   id: BlueMoonBarksGoonBuwoo
   name: bluemoon-bark-barks-goon-buwoo
-  sound: /Audio/_WL/Barks/BlueMoon/buwoo.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/buwoo.wav
   category: bluemoon_goon
 
 - type: speechBark
   id: BlueMoonBarksGoonLizard
   name: bluemoon-bark-barks-goon-lizard
-  sound: /Audio/_WL/Barks/BlueMoon/lizard.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/lizard.wav
   category: bluemoon_goon
 
 - type: speechBark
   id: BlueMoonBarksGoonPugg
   name: bluemoon-bark-barks-goon-pugg
-  sound: /Audio/_WL/Barks/BlueMoon/pugg.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/pugg.wav
   category: bluemoon_goon
 
 - type: speechBark
   id: BlueMoonBarksGoonRoach
   name: bluemoon-bark-barks-goon-roach
-  sound: /Audio/_WL/Barks/BlueMoon/roach.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/roach.wav
   category: bluemoon_goon
 
 - type: speechBark
   id: BlueMoonBarksGoonSkelly
   name: bluemoon-bark-barks-goon-skelly
-  sound: /Audio/_WL/Barks/BlueMoon/skelly.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/skelly.wav
   category: bluemoon_goon
 
 - type: speechBark
   id: BlueMoonBarksAceAttorneyTalk1
   name: bluemoon-bark-barks-ace-attorney-talk1
-  sound: /Audio/_WL/Barks/BlueMoon/aa_blip.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/aa_blip.wav
   category: bluemoon_ace_attorney
 
 - type: speechBark
   id: BlueMoonBarksAceAttorneyTalk2
   name: bluemoon-bark-barks-ace-attorney-talk2
-  sound: /Audio/_WL/Barks/BlueMoon/aa_dd_blip.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/aa_dd_blip.wav
   category: bluemoon_ace_attorney
 
 - type: speechBark
   id: BlueMoonBarksAceAttorneyTalk3
   name: bluemoon-bark-barks-ace-attorney-talk3
-  sound: /Audio/_WL/Barks/BlueMoon/aa_tgaa_blip.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/aa_tgaa_blip.wav
   category: bluemoon_ace_attorney
 
 - type: speechBark
   id: BlueMoonBarksAceAttorneyTalk4
   name: bluemoon-bark-barks-ace-attorney-talk4
-  sound: /Audio/_WL/Barks/BlueMoon/aa_blip_typewriter.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/aa_blip_typewriter.wav
   category: bluemoon_ace_attorney
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieCaw1
   name: bluemoon-bark-barks-banjo-kazooie-caw1
-  sound: /Audio/_WL/Barks/BlueMoon/caw.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/caw.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieCaw2
   name: bluemoon-bark-barks-banjo-kazooie-caw2
-  sound: /Audio/_WL/Barks/BlueMoon/caw2.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/caw2.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieCaw3
   name: bluemoon-bark-barks-banjo-kazooie-caw3
-  sound: /Audio/_WL/Barks/BlueMoon/caw3.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/caw3.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieDwoop
   name: bluemoon-bark-barks-banjo-kazooie-dwoop
-  sound: /Audio/_WL/Barks/BlueMoon/dwoop.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/dwoop.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieEhh1
   name: bluemoon-bark-barks-banjo-kazooie-ehh1
-  sound: /Audio/_WL/Barks/BlueMoon/ehh.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/ehh.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieEhh2
   name: bluemoon-bark-barks-banjo-kazooie-ehh2
-  sound: /Audio/_WL/Barks/BlueMoon/ehh2.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/ehh2.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieEhh3
   name: bluemoon-bark-barks-banjo-kazooie-ehh3
-  sound: /Audio/_WL/Barks/BlueMoon/ehh3.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/ehh3.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieEhh4
   name: bluemoon-bark-barks-banjo-kazooie-ehh4
-  sound: /Audio/_WL/Barks/BlueMoon/ehh4.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/ehh4.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieEhh5
   name: bluemoon-bark-barks-banjo-kazooie-ehh5
-  sound: /Audio/_WL/Barks/BlueMoon/ehh5.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/ehh5.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieEugh
   name: bluemoon-bark-barks-banjo-kazooie-eugh
-  sound: /Audio/_WL/Barks/BlueMoon/eugh.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/eugh.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieFaucet1
   name: bluemoon-bark-barks-banjo-kazooie-faucet1
-  sound: /Audio/_WL/Barks/BlueMoon/faucet.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/faucet.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieFaucet2
   name: bluemoon-bark-barks-banjo-kazooie-faucet2
-  sound: /Audio/_WL/Barks/BlueMoon/faucet2.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/faucet2.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieGrowl1
   name: bluemoon-bark-barks-banjo-kazooie-growl1
-  sound: /Audio/_WL/Barks/BlueMoon/growl.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/growl.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieGrowl2
   name: bluemoon-bark-barks-banjo-kazooie-growl2
-  sound: /Audio/_WL/Barks/BlueMoon/growl2.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/growl2.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieHaha
   name: bluemoon-bark-barks-banjo-kazooie-haha
-  sound: /Audio/_WL/Barks/BlueMoon/haha.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/haha.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieSlurp
   name: bluemoon-bark-barks-banjo-kazooie-slurp
-  sound: /Audio/_WL/Barks/BlueMoon/slurp.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/slurp.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieUhm
   name: bluemoon-bark-barks-banjo-kazooie-uhm
-  sound: /Audio/_WL/Barks/BlueMoon/uhm.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/uhm.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksBanjoKazooieZap
   name: bluemoon-bark-barks-banjo-kazooie-zap
-  sound: /Audio/_WL/Barks/BlueMoon/zap.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/zap.wav
   category: bluemoon_banjo_kazooie
 
 - type: speechBark
   id: BlueMoonBarksCitadelBeepy
   name: bluemoon-bark-barks-citadel-beepy
-  sound: /Audio/_WL/Barks/BlueMoon/terminal_select.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/terminal_select.wav
   category: bluemoon_citadel
 
 - type: speechBark
   id: BlueMoonBarksCitadelWindy
   name: bluemoon-bark-barks-citadel-windy
-  sound: /Audio/_WL/Barks/BlueMoon/bulletflyby.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/bulletflyby.wav
   category: bluemoon_citadel
 
 - type: speechBark
   id: BlueMoonBarksCitadelBrassy
   name: bluemoon-bark-barks-citadel-brassy
-  sound: /Audio/_WL/Barks/BlueMoon/integration_cog_install.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/integration_cog_install.wav
   category: bluemoon_citadel
 
 - type: speechBark
   id: BlueMoonBarksOtherNomi
   name: bluemoon-bark-barks-other-nomi
-  sound: /Audio/_WL/Barks/BlueMoon/nomi.ogg
+  sound: /Audio/_WL/Barks/Normalized/BlueMoon/nomi.wav
   category: bluemoon_other

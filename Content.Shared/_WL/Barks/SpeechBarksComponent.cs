@@ -28,6 +28,12 @@ public sealed partial class SpeechBarksComponent : Component
     [DataField]
     public float MaxDelay = DefaultMaxDelay;
 
+    /// <summary>
+    /// Whether barks should be played at the speaker when the message is sent over radio.
+    /// </summary>
+    [DataField]
+    public bool PlayOnRadio = true;
+
     public static float SanitizePitch(float pitch)
     {
         if (!float.IsFinite(pitch))

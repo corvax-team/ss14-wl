@@ -21,6 +21,7 @@ bark-category-deltarune = Deltarune
 bark-category-deltarune_rewritten = Deltarune: Chapter RE
 bark-category-underswap = TS!Underswap
 bark-category-minecraft = Minecraft
+bark-category-oneshot = OneShot
 bark-category-Standard_barks = Стандартные
 bark-category-voice = Голосовые
 bark-category-synth = Синтезированные
