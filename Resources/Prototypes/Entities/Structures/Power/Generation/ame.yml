@@ -9,7 +9,7 @@
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _WL/Structures/Power/Generation/ame.rsi # WL-Changes: resprite port
     state: control
     layers:
     - state: control
@@ -90,7 +90,7 @@
   - type: PowerMonitoringDevice
     group: Generator
     loadNode: input
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _WL/Structures/Power/Generation/ame.rsi # WL-Changes: resprite port
     state: static
   - type: PowerSupplier
     supplyRate: 0
@@ -133,7 +133,7 @@
   - type: InteractionOutline
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _WL/Structures/Power/Generation/ame.rsi # WL-Changes: resprite port
     state: shield_0
     layers:
     - state: shield_0
