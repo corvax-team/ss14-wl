@@ -40,6 +40,7 @@ namespace Content.Shared.Preferences
     {
         public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
         public static readonly ProtoId<EmoteSoundsPrototype> DefaultVoice = "MaleHuman";
+        private static readonly ProtoId<ConfederationRecordsPrototype> DefaultConfederation = "NoConfederation";
         //private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' -]"); // Corvax-Localization + WL-Changes. Also - we dont't need it
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
@@ -1031,10 +1032,14 @@ namespace Content.Shared.Preferences
             var medicalRecord = StructuredCharacterRecords.NormalizeMedical(MedicalRecord);
             var securityRecord = StructuredCharacterRecords.NormalizeSecurity(SecurityRecord);
             var employmentRecord = StructuredCharacterRecords.NormalizeEmployment(EmploymentRecord);
-            var fullName = FullName;
-            var dateOfBirth = DateOfBirth;
-            var confederation = Confederation;
-            var country = Country;
+            var fullName = StructuredCharacterRecords.NormalizeShortText(FullName);
+            var dateOfBirth = StructuredCharacterRecords.NormalizeShortText(DateOfBirth);
+            var confederation = StructuredCharacterRecords.NormalizeShortText(Confederation);
+            var country = StructuredCharacterRecords.NormalizeShortText(Country);
+            if (!prototypeManager.HasIndex<ConfederationRecordsPrototype>(confederation))
+                confederation = prototypeManager.HasIndex(DefaultConfederation)
+                    ? DefaultConfederation.Id
+                    : string.Empty;
             // WL-Changes-Records-End
 
             var prefsUnavailableMode = PreferenceUnavailable switch

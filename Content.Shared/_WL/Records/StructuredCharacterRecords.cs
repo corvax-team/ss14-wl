@@ -193,7 +193,7 @@ public static class StructuredCharacterRecords
 
         return new SecurityRecordData
         {
-            Residence = ClampLong(fields[0]),
+            Residence = ClampSerialized(fields[0], MaxLongTextLength),
             IdentifyingFeatures = ClampShort(fields[1]),
             MaritalStatus = ReadEnum<RecordMaritalStatus>(fields[2]),
             CloseRelatives = ClampShort(fields[3]),
@@ -211,7 +211,7 @@ public static class StructuredCharacterRecords
     {
         return WriteFields(SecurityPrefix, new[]
         {
-            ClampLong(record.Residence),
+            ClampSerialized(record.Residence, MaxLongTextLength),
             ClampShort(record.IdentifyingFeatures),
             record.MaritalStatus.ToString(),
             ClampShort(record.CloseRelatives),
@@ -418,9 +418,19 @@ public static class StructuredCharacterRecords
 
     private static bool ReadBool(string value) => value == "1";
     private static string WriteBool(bool value) => value ? "1" : "0";
-    private static string ClampShort(string? value) => Clamp(value, MaxShortTextLength);
+    public static string NormalizeShortText(string? value) => Clamp(value, MaxShortTextLength);
+
+    private static string ClampShort(string? value) => NormalizeShortText(value);
     private static string ClampLong(string? value) => Clamp(value, MaxLongTextLength);
     private static string ClampNotes(string? value) => Clamp(value, MaxNotesTextLength);
+
+    private static string ClampSerialized(string? value, int maxLength)
+    {
+        if (string.IsNullOrEmpty(value))
+            return string.Empty;
+
+        return value.Length <= maxLength ? value : value[..maxLength];
+    }
 
     private static string Clamp(string? value, int maxLength)
     {

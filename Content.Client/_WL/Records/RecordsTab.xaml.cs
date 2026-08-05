@@ -357,9 +357,7 @@ public sealed partial class RecordsTab : Control
         {
             Residence = StructuredCharacterRecords.WriteResidence(new ResidenceRecordData
             {
-                Confederation = IsCustomResidenceSelected()
-                    ? SecurityResidenceCustom.Text
-                    : _residenceConfederationValues[SecurityResidenceConfederation.SelectedId],
+                Confederation = GetSelectedResidenceConfederation(),
                 Planet = SecurityResidencePlanet.Text,
                 Street = SecurityResidenceStreet.Text,
                 Unit = SecurityResidenceUnit.Text,
@@ -387,10 +385,31 @@ public sealed partial class RecordsTab : Control
 
     private bool IsCustomResidenceSelected()
     {
+        return TryGetSelectedResidenceConfederation(out var confederation) &&
+               string.IsNullOrEmpty(confederation);
+    }
+
+    private string GetSelectedResidenceConfederation()
+    {
+        if (!TryGetSelectedResidenceConfederation(out var confederation))
+            return string.Empty;
+
+        return string.IsNullOrEmpty(confederation)
+            ? SecurityResidenceCustom.Text
+            : confederation;
+    }
+
+    private bool TryGetSelectedResidenceConfederation(out string confederation)
+    {
         var selected = SecurityResidenceConfederation.SelectedId;
-        return selected >= 0 &&
-               selected < _residenceConfederationValues.Count &&
-               string.IsNullOrEmpty(_residenceConfederationValues[selected]);
+        if (selected < 0 || selected >= _residenceConfederationValues.Count)
+        {
+            confederation = string.Empty;
+            return false;
+        }
+
+        confederation = _residenceConfederationValues[selected];
+        return true;
     }
 
     private void EmitEmployment()
@@ -774,10 +793,19 @@ public sealed partial class RecordsTab : Control
 
     private void PopulateEnumOptions<T>(RecordOptionButton button, IEnumerable<T> values, string keyPrefix) where T : struct, Enum
     {
-        var id = 0;
         foreach (var value in values)
-            button.AddItem(Loc.GetString($"{keyPrefix}-{value.ToString().ToLowerInvariant()}"), id++);
+            button.AddItem(
+                Loc.GetString($"{keyPrefix}-{value.ToString().ToLowerInvariant()}"),
+                Convert.ToInt32(value));
         button.SelectId(0);
+    }
+
+    protected override void ExitedTree()
+    {
+        base.ExitedTree();
+
+        _previewWindow?.Close();
+        _previewWindow = null;
     }
 
     private static string GetText(RecordTextEdit edit) => Rope.Collapse(edit.TextRope).Trim();

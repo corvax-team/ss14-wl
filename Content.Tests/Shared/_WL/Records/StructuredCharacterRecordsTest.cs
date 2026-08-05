@@ -197,6 +197,20 @@ public sealed class StructuredCharacterRecordsTest
     }
 
     [Test]
+    public void SecurityRecordDoesNotAlterNestedResidencePayload()
+    {
+        const string residence = "WL_ADDRESS_V1:5;0:10:[bold]Luna0:0:0:";
+        var storage = StructuredCharacterRecords.WriteSecurity(new SecurityRecordData
+        {
+            Residence = residence,
+        });
+
+        var restored = StructuredCharacterRecords.ReadSecurity(storage);
+
+        Assert.That(restored.Residence, Is.EqualTo(residence));
+    }
+
+    [Test]
     public void PrintedSecurityRecordUsesMarkupInsteadOfSerializedStorage()
     {
         var storage = StructuredCharacterRecords.WriteSecurity(new SecurityRecordData
