@@ -25,6 +25,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
     private const float PitchVariation = 0.1f;
     private const float MinPlaybackPitch = 0.45f;
     private const float MaxPlaybackPitch = 1.85f;
+    private const float MaxBarkPlaybackSeconds = 0.6f;
     // Let adjacent grains overlap slightly without allowing long samples to
     // pile up into an unintelligible wall of sound.
     private const float PlaybackFractionBeforeNextBark = 0.75f;
@@ -246,7 +247,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
 
             var sound = _audio.ResolveSound(bark.Sound);
             var playbackDuration = TimeSpan.FromSeconds(
-                _audio.GetAudioLength(sound).TotalSeconds / pitch);
+                Math.Min(_audio.GetAudioLength(sound).TotalSeconds / pitch, MaxBarkPlaybackSeconds));
             EntityUid? streamEntity = null;
 
             if (bark.Source == null || bark.Source == _player.LocalEntity)
