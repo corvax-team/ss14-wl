@@ -3,6 +3,7 @@ using Content.Server.Power.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
+using Content.Server._WL.Records; // WL-Changes-Records
 using Content.Shared._WL.Records; // WL-Records
 using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
@@ -102,9 +103,12 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         UpdateUserInterface(ent);
     }
 
-    // WL-Records-Start
+    // WL-Changes-Records-Start
     private void OnPrinted(Entity<CriminalRecordsConsoleComponent> ent, ref PrintStationRecord msg)
     {
+        if (!ent.Comp.CanPrintEntries)
+            return;
+
         var owning = _station.GetOwningStation(ent.Owner);
 
         if (owning == null)
@@ -112,26 +116,13 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
 
         if (_records.TryGetRecord<GeneralStationRecord>(new StationRecordKey(msg.Id, owning.Value), out var record))
         {
-            var confederation = string.Empty;
-
-            if (_prototypeManager.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var proto))
-                confederation = Loc.GetString(proto.Name);
-            else
-                confederation = Loc.GetString("generic-not-available-shorthand");
-
-            ent.Comp.ContextPrint = $"""
-                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
-                ? record.Fullname : record.Name)}
-                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(record.DateOfBirth)
-                ? record.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
-                {Loc.GetString("records-confederation-edit")} {confederation}
-                {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(record.Country)
-                ? record.Country : Loc.GetString("generic-not-available-shorthand"))}
-                {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
-                {Loc.GetString("records-height", ("height", record.Height))}
-                {(!string.IsNullOrEmpty(record.SecurityRecord) ? record.SecurityRecord
-                : Loc.GetString("criminal-records-console-no-security-record"))}
-                """;
+            var identity = RecordPrintIdentityBuilder.FromStationRecord(record, _prototypeManager, Loc.GetString);
+            ent.Comp.ContextPrint = StructuredRecordFormatter.FormatDocument(
+                Loc.GetString("records-print-security-title"),
+                "#8A3F42",
+                identity,
+                StructuredRecordFormatter.FormatSecurity(record.SecurityRecord, Loc.GetString),
+                Loc.GetString);
         }
         else
             return;
@@ -169,7 +160,7 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             return;
         }
     }
-    // WL-Records-end
+    // WL-Changes-Records-End
 
     private void OnFiltersChanged(Entity<CriminalRecordsConsoleComponent> ent, ref SetStationRecordFilter msg)
     {

@@ -195,6 +195,7 @@ public sealed partial class StationRecordsSystem : EntitySystem
             Country = profile.Country,
             DateOfBirth = profile.DateOfBirth,
             Height = profile.Height,
+            Sex = profile.Sex, // WL-Changes-Records
             Fullname = profile.FullName,
             Languages = languages
             // WL-Changes-end

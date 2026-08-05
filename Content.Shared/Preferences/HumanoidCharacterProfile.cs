@@ -2,6 +2,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._WL.Skills; // WL-Skills
+using Content.Shared._WL.Records; // WL-Changes-Records
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
 using Content.Shared._WL.Barks; // WL-Changes
@@ -44,7 +45,7 @@ namespace Content.Shared.Preferences
 
         //WL-Changes-start
         public const int MaxDescLength = 512 * 2; // WL-CharacterInfo: Increase
-        public const int MaxRecordLength = 4096; // WL-Records
+        public const int MaxRecordLength = 32768; // WL-Changes-Records: structured record storage
 
         [DataField]
         private Dictionary<string, string> _jobSubnames = new();
@@ -1025,21 +1026,16 @@ namespace Content.Shared.Preferences
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
             var oocText = OocText.Length > MaxDescLength ? FormattedMessage.RemoveMarkup(OocText)[..MaxDescLength] : FormattedMessage.RemoveMarkup(OocText); // WL-OOCText
 
-            // WL-Records-Start
-            var medicalRecord = MedicalRecord.Length > MaxRecordLength
-                ? FormattedMessage.RemoveMarkupOrThrow(MedicalRecord)[..MaxRecordLength]
-                : FormattedMessage.RemoveMarkupOrThrow(MedicalRecord);
-            var securityRecord = SecurityRecord.Length > MaxRecordLength
-                ? FormattedMessage.RemoveMarkupOrThrow(SecurityRecord)[..MaxRecordLength]
-                : FormattedMessage.RemoveMarkupOrThrow(SecurityRecord);
-            var employmentRecord = EmploymentRecord.Length > MaxRecordLength
-                ? FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord)[..MaxRecordLength]
-                : FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord);
+            // WL-Changes-Records-Start
+            // Structured storage sanitizes each user-facing field separately and migrates legacy text to notes.
+            var medicalRecord = StructuredCharacterRecords.NormalizeMedical(MedicalRecord);
+            var securityRecord = StructuredCharacterRecords.NormalizeSecurity(SecurityRecord);
+            var employmentRecord = StructuredCharacterRecords.NormalizeEmployment(EmploymentRecord);
             var fullName = FullName;
             var dateOfBirth = DateOfBirth;
             var confederation = Confederation;
             var country = Country;
-            // WL-Records-End
+            // WL-Changes-Records-End
 
             var prefsUnavailableMode = PreferenceUnavailable switch
             {

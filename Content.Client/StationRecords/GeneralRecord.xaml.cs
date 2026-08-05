@@ -1,3 +1,4 @@
+using Content.Client._WL.Records; // WL-Changes-Records
 using Content.Shared._WL.Languages;
 using Content.Shared._WL.Records; // WL-Records
 using Content.Shared.Humanoid.Prototypes;
@@ -16,7 +17,7 @@ public sealed partial class GeneralRecord : Control
     public GeneralRecord(GeneralStationRecord record, bool canDelete, uint? id, IPrototypeManager prototypeManager)
     {
         RobustXamlLoader.Load(this);
-        // WL-Records-Edit-Start
+        // WL-Changes-Records-Start
         // RecordName.Text = record.Name;
         // Age.Text = Loc.GetString("general-station-record-console-record-age", ("age", record.Age.ToString()));
         // Title.Text = Loc.GetString("general-station-record-console-record-title",
@@ -26,43 +27,9 @@ public sealed partial class GeneralRecord : Control
         // Gender.Text = Loc.GetString("general-station-record-console-record-gender",
         //     ("gender", record.Gender.ToString()));
 
-        var confederation = string.Empty;
-
-        if (prototypeManager.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var proto))
-            confederation = Loc.GetString(proto.Name);
-        else
-            confederation = Loc.GetString("generic-not-available-shorthand");
-
-        string languages = string.Empty;
-
-        for (int i = 0; i < record.Languages.Count; i++)
-        {
-            languages += Loc.GetString(prototypeManager.Index<LanguagePrototype>(record.Languages[i]).Name);
-
-            if (i != record.Languages.Count - 1)
-                languages += ", ";
-            else
-                languages += ".";
-        }
-
-        Record.Text = $"""
-                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
-                ? record.Fullname : record.Name)}
-                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(record.DateOfBirth)
-                ? record.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
-                {Loc.GetString("records-confederation-edit")} {confederation}
-                {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(record.Country)
-                ? record.Country : Loc.GetString("generic-not-available-shorthand"))}
-                {Loc.GetString("records-species")} {Loc.GetString(prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
-                {Loc.GetString("records-language")} {languages}
-                {(!string.IsNullOrEmpty(record.EmploymentRecord) ? record.EmploymentRecord
-                : Loc.GetString("general-station-console-no-employment-record"))}
-                """;
-        // WL-Records-Edit-End
-        Fingerprint.Text = Loc.GetString("general-station-record-console-record-fingerprint",
-            ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")));
-        Dna.Text = Loc.GetString("general-station-record-console-record-dna",
-            ("dna", record.DNA ?? Loc.GetString("generic-not-available-shorthand")));
+        var identity = RecordIdentityBuilder.FromStationRecord(record, prototypeManager, Loc.GetString);
+        RecordView.SetData(RecordViewBuilder.Employment(identity, record.EmploymentRecord, Loc.GetString, true));
+        // WL-Changes-Records-End
 
         if (canDelete && id != null)
         {

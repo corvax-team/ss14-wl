@@ -1,0 +1,18 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:records="clr-namespace:Content.Client._WL.Records"
+                      Title="{Loc 'records-preview-window-title'}"
+                      MinSize="720 500"
+                      SetSize="900 650">
+    <BoxContainer Orientation="Vertical" Margin="10" HorizontalExpand="True" VerticalExpand="True">
+        <records:RecordTabContainer Name="PreviewTabs" HorizontalExpand="True" VerticalExpand="True">
+            <records:RecordCardView Name="MedicalView"/>
+            <records:RecordCardView Name="SecurityView"/>
+            <records:RecordCardView Name="EmploymentView"/>
+        </records:RecordTabContainer>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 8 0 0">
+            <Control HorizontalExpand="True"/>
+            <Button Name="DismissButton" Text="{Loc 'records-preview-close'}" MinWidth="120"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

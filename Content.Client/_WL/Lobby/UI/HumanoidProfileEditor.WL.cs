@@ -4,6 +4,8 @@ using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared.Roles;
 using Content.Client._WL.Skills.Ui; // WL-Skills
 using Content.Client._WL.Records; // WL-Records
+using Content.Shared.Humanoid.Prototypes; // WL-Records
+using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 
@@ -14,15 +16,11 @@ public sealed partial class HumanoidProfileEditor
     private SkillsWindow? _skillsWindow;
 
     private RecordsTab? _recordsTab; // WL-Records
-    private TextEdit? _medicalRecordEdit; // WL-Records
-    private TextEdit? _securityRecordEdit; // WL-Records
-    private TextEdit? _employmentRecordEdit; // WL-Records
 
     private LineEdit? _generalRecordNameEdit; // WL-Records
-    private LineEdit? _generalRecordAgeEdit; // WL-Records
     private LineEdit? _generalRecordCountryEdit; // WL-Records
 
-    private OptionButton? _confederationButton; // WL-Records
+    private RecordOptionButton? _confederationButton; // WL-Records
 
     private LineEdit HeightEdit => CHeightEdit; // WL-Height
 
@@ -105,12 +103,7 @@ public sealed partial class HumanoidProfileEditor
         TabContainer.AddChild(_recordsTab);
         TabContainer.SetTabTitle(TabContainer.ChildCount - 1, Loc.GetString("humanoid-profile-editor-records-tab"));
 
-        _medicalRecordEdit = _recordsTab.MedicalRecordInput;
-        _securityRecordEdit = _recordsTab.SecurityRecordInput;
-        _employmentRecordEdit = _recordsTab.EmploymentRecordInput;
-
         _generalRecordNameEdit = _recordsTab.NameEdit;
-        _generalRecordAgeEdit = _recordsTab.AgeEdit;
         _generalRecordCountryEdit = _recordsTab.CountryEdit;
 
         _confederationButton = _recordsTab.ConfederationButton;
@@ -125,21 +118,39 @@ public sealed partial class HumanoidProfileEditor
 
         _recordsTab.OnGeneralRecordConfederationChanged += SetConfederation;
 
-        _confederations.AddRange(_prototypeManager.EnumeratePrototypes<ConfederationRecordsPrototype>());
-
-        _confederations.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
+        _confederations.AddRange(_prototypeManager
+            .EnumeratePrototypes<ConfederationRecordsPrototype>()
+            .OrderBy(confederation => confederation.Order));
 
         for (var i = 0; i < _confederations.Count; i++)
         {
             var name = Loc.GetString(_confederations[i].Name);
 
-            _recordsTab.ConfederationButton.AddItem(name, i);
+            var icon = GetRegionIcon(_confederations[i]);
+            if (icon == null)
+                _recordsTab.ConfederationButton.AddItem(name, i);
+            else
+                _recordsTab.ConfederationButton.AddItem(icon, name, i);
 
             if (_confederations[i].ID == "NoConfederation")
             {
                 _recordsTab.ConfederationButton.SelectId(i);
             }
         }
+
+        var other = _confederations.FirstOrDefault(confederation => confederation.ID == "NoConfederation");
+        _recordsTab.SetResidenceRegions(
+            _confederations
+                .Where(confederation => confederation.ID != "NoConfederation")
+                .Select(confederation => (Loc.GetString(confederation.Name), GetRegionIcon(confederation))),
+            other == null ? null : GetRegionIcon(other));
+    }
+
+    private Texture? GetRegionIcon(ConfederationRecordsPrototype confederation)
+    {
+        return confederation.Icon is { } path
+            ? _sprite.Frame0(new SpriteSpecifier.Texture(path))
+            : null;
     }
 
     private void OnMedicalRecordChange(string content)
@@ -207,24 +218,39 @@ public sealed partial class HumanoidProfileEditor
         _confederationButton.SelectId(args.Id);
         Profile = Profile.WithConfederation(_confederations[args.Id].ID);
         SetDirty();
+        UpdateRecordsEdit();
     }
 
     private void UpdateRecordsEdit()
     {
-        if (_medicalRecordEdit != null)
-            _medicalRecordEdit.TextRope = new Rope.Leaf(Profile?.MedicalRecord ?? "");
+        if (_recordsTab != null && Profile != null)
+        {
+            var speciesDisplay = _prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var species)
+                ? Loc.GetString(species.Name)
+                : Profile.Species.Id;
+            var confederation = _confederations.FirstOrDefault(proto => proto.ID == Profile.Confederation);
+            var confederationDisplay = confederation == null
+                ? string.Empty
+                : Loc.GetString(confederation.Name);
+            var sexDisplay = Loc.GetString($"humanoid-profile-editor-sex-{Profile.Sex.ToString().ToLowerInvariant()}-text");
 
-        if (_securityRecordEdit != null)
-            _securityRecordEdit.TextRope = new Rope.Leaf(Profile?.SecurityRecord ?? "");
-
-        if (_employmentRecordEdit != null)
-            _employmentRecordEdit.TextRope = new Rope.Leaf(Profile?.EmploymentRecord ?? "");
+            _recordsTab.SetRecords(
+                Profile.MedicalRecord,
+                Profile.SecurityRecord,
+                Profile.EmploymentRecord,
+                Profile.Species.Id,
+                speciesDisplay,
+                sexDisplay,
+                confederationDisplay,
+                Profile.FullName,
+                Profile.Country,
+                Profile.DateOfBirth,
+                Profile.Age,
+                Profile.Height);
+        }
 
         if (_generalRecordNameEdit != null)
             _generalRecordNameEdit.Text = Profile?.FullName ?? "";
-
-        if (_generalRecordAgeEdit != null)
-            _generalRecordAgeEdit.Text = Profile?.DateOfBirth ?? "";
 
         if (_generalRecordCountryEdit != null)
             _generalRecordCountryEdit.Text = Profile?.Country ?? "";
@@ -333,5 +359,6 @@ public sealed partial class HumanoidProfileEditor
     {
         Profile = Profile?.WithHeight(newHeight);
         IsDirty = true;
+        UpdateRecordsEdit();
     }
 }
