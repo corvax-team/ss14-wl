@@ -796,7 +796,7 @@ public sealed partial class RecordsTab : Control
         foreach (var value in values)
             button.AddItem(
                 Loc.GetString($"{keyPrefix}-{value.ToString().ToLowerInvariant()}"),
-                Convert.ToInt32(value));
+                value.GetHashCode());
         button.SelectId(0);
     }
 
