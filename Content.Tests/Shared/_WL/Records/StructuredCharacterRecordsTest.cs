@@ -237,9 +237,29 @@ public sealed class StructuredCharacterRecordsTest
             Assert.That(printed, Does.Not.Contain("WL_ADDRESS_V1"));
             Assert.That(printed, Does.Contain("MANUFACTURE DATE:"));
             Assert.That(printed, Does.Contain("180 cm"));
+            // Ensure fingerprint/dna labels and placeholder values are present when requested
             Assert.That(printed, Does.Contain("records-view-fingerprint"));
             Assert.That(printed, Does.Contain("records-view-dna"));
+            Assert.That(printed, Does.Contain("No fingerprint"));
+            Assert.That(printed, Does.Contain("No DNA"));
             Assert.That(FormattedMessage.TryFromMarkup(printed, out _), Is.True);
+        });
+
+        // Also ensure that when includeFingerprintAndDNA is false, neither labels nor values are present
+        var printedWithout = StructuredRecordFormatter.FormatDocument(
+            "Security dossier",
+            "#8A3F42",
+            new RecordPrintIdentity("Employee", "MANUFACTURE DATE:", "01.01.2850", "Male", "IPC", "180 cm", "No fingerprint", "No DNA", "Common", "None", "None"),
+            body,
+            key => key,
+            false);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(printedWithout, Does.Not.Contain("records-view-fingerprint"));
+            Assert.That(printedWithout, Does.Not.Contain("records-view-dna"));
+            Assert.That(printedWithout, Does.Not.Contain("No fingerprint"));
+            Assert.That(printedWithout, Does.Not.Contain("No DNA"));
         });
     }
 

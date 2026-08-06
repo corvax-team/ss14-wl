@@ -56,42 +56,14 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
 
     public void OnModifyInit(EntityUid ent, ModifyLanguagesComponent component, ref ComponentInit args)
     {
-        var langs = component.Languages;
         if (!TryComp<LanguagesComponent>(ent, out var out_comp))
         {
             RemComp<ModifyLanguagesComponent>(ent);
             return;
         }
 
-        if (langs.Count > 0)
-        {
-            foreach (ProtoId<LanguagePrototype> protoid in langs)
-            {
-                var proto = GetLanguagePrototype(protoid);
-                if (proto != null)
-                {
-                    if (component.ToSpeaking)
-                        out_comp.Speaking.Add(protoid);
-
-                    if (component.ToUnderstood)
-                        out_comp.Understood.Add(protoid);
-                }
-            }
-        }
-
-        if (component.SpecieLanguage)
-        {
-            var protoid = out_comp.SpecieLanguage;
-            var proto = GetLanguagePrototype(protoid);
-            if (proto != null && protoid != null)
-            {
-                if (component.ToSpeaking)
-                    out_comp.Speaking.Remove(protoid.Value);
-
-                if (component.ToUnderstood)
-                    out_comp.Understood.Remove(protoid.Value);
-            }
-        }
+        // Apply aggregated component using shared helper which preserves per-language permissions.
+        ModifyLanguagesAggregator.ApplyTo(out_comp, component);
 
         RemComp<ModifyLanguagesComponent>(ent);
 

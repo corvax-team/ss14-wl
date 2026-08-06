@@ -19,6 +19,13 @@ public sealed partial class ModifyLanguagesComponent : Component
     [DataField]
     public bool SpecieLanguage = false;
 
+    // Per-language permissions: lists allow preserving speaking/understood per language.
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> SpeakingLanguages = [];
+
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> UnderstoodLanguages = [];
+
     [DataField]
     public List<ProtoId<LanguagePrototype>> Languages = [];
 

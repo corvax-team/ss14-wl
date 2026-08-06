@@ -961,15 +961,21 @@ public sealed partial class RecordsTab : Control
 
             try
             {
-                var parts = value.Split('.');
-                if (parts.Length == 3)
+                var parts = (value ?? string.Empty).Split('.');
+                // Validate parts: must be exactly 3 parts, each non-empty, all digits, and within length limits
+                if (parts.Length == 3 &&
+                    IsValidDatePart(parts[0], 2) &&
+                    IsValidDatePart(parts[1], 2) &&
+                    IsValidDatePart(parts[2], 4))
                 {
-                    Day.Text = SanitizeDatePart(parts[0], 2);
-                    Month.Text = SanitizeDatePart(parts[1], 2);
-                    Year.Text = SanitizeDatePart(parts[2], 4);
+                    // Trusted structured date — assign exactly the parts (no additional sanitization)
+                    Day.Text = parts[0].Trim();
+                    Month.Text = parts[1].Trim();
+                    Year.Text = parts[2].Trim();
                     return;
                 }
 
+                // Not a valid structured date — clear fields and preserve the original string as legacy value
                 Day.Text = string.Empty;
                 Month.Text = string.Empty;
                 Year.Text = string.Empty;
@@ -981,6 +987,24 @@ public sealed partial class RecordsTab : Control
             {
                 _setting = false;
             }
+        }
+
+        private static bool IsValidDatePart(string part, int maxLength)
+        {
+            if (string.IsNullOrEmpty(part))
+                return false;
+
+            var trimmed = part.Trim();
+            if (trimmed.Length == 0 || trimmed.Length > maxLength)
+                return false;
+
+            foreach (var c in trimmed)
+            {
+                if (!char.IsDigit(c))
+                    return false;
+            }
+
+            return true;
         }
 
         private void MarkEdited()
