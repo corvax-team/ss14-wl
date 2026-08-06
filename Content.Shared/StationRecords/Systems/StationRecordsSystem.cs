@@ -9,6 +9,7 @@ using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.StationRecords.Components;
+using Content.Shared.Traits;
 using Content.Shared.StationRecords.Events;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -59,8 +60,15 @@ public sealed partial class StationRecordsSystem : EntitySystem
     {
         if (!_recordsQuery.TryComp(args.Station, out var stationRecords))
             return;
+ 
+        var station = args.Station;
+        Timer.Spawn(TimeSpan.Zero, () =>
+        {
+            if (!_recordsQuery.TryComp(station, out var deferredStationRecords))
+                return;
 
-        CreateGeneralRecord((args.Station, stationRecords), args.Mob, args.Profile, args.JobId);
+            CreateGeneralRecord((station, deferredStationRecords), args.Mob, args.Profile, args.JobId);
+        });
     }
 
     [SubscribeLocalEvent]

@@ -4,6 +4,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
+using Content.Shared._WL.Languages.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traits;
@@ -44,9 +45,33 @@ public sealed partial class TraitSystem : EntitySystem
                 continue;
 
             // Add all components required by the prototype
+            //WL-Changes-Languages-Start
             if (traitPrototype.Components.Count > 0)
-                EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
-
+            {
+                foreach (var componentEntry in traitPrototype.Components)
+                {
+                    if (componentEntry.Value.Component is ModifyLanguagesComponent modifyLanguagesComponent &&
+                        TryComp<ModifyLanguagesComponent>(args.Mob, out var existingModifyLanguages))
+                    {
+                        existingModifyLanguages.ToRemove |= modifyLanguagesComponent.ToRemove;
+                        existingModifyLanguages.ToUnderstood |= modifyLanguagesComponent.ToUnderstood;
+                        existingModifyLanguages.ToSpeaking |= modifyLanguagesComponent.ToSpeaking;
+                        existingModifyLanguages.SpecieLanguage |= modifyLanguagesComponent.SpecieLanguage;
+                        foreach (var language in modifyLanguagesComponent.Languages)
+                        {
+                            if (!existingModifyLanguages.Languages.Contains(language))
+                            {
+                                existingModifyLanguages.Languages.Add(language);
+                            }
+                        }
+                        continue;
+                    }
+ 
+                    EntityManager.AddComponent(args.Mob, componentEntry.Value, false);
+                }
+            }
+            //WL-Changes-Languages-End
+ 
             // Add all JobSpecials required by the prototype
             foreach (var special in traitPrototype.Specials)
             {

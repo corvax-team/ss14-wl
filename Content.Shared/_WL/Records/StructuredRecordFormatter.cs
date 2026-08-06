@@ -11,6 +11,8 @@ public sealed record RecordPrintIdentity(
     string Sex,
     string Species,
     string Height,
+    string Fingerprint,
+    string DNA,
     string Languages,
     string Confederation,
     string Country);
@@ -42,6 +44,8 @@ public static class StructuredRecordFormatter
         AppendAutomatic(builder, loc("records-sex"), identity.Sex, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-species"), identity.Species, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-height-label"), identity.Height, loc("records-value-no-data"));
+        AppendAutomatic(builder, loc("records-view-fingerprint"), identity.Fingerprint, loc("records-value-no-data"));
+        AppendAutomatic(builder, loc("records-view-dna"), identity.DNA, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-language"), identity.Languages, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-confederation-edit"), identity.Confederation, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-country-edit"), identity.Country, loc("records-value-no-data"));
