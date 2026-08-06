@@ -18,6 +18,12 @@
     <ScrollContainer VerticalExpand="True" HScrollEnabled="True">
         <BoxContainer Orientation="Vertical" Name="ProbedDeviceContainer"/>
     </ScrollContainer>
+    <!-- WL-Changes: NanoChat Start -->
+    <BoxContainer Orientation="Vertical" Name="NanoChatContainer" Margin="4 4" Visible="False">
+        <Label Name="NanoChatHeader" StyleClasses="LabelSubText"/>
+        <BoxContainer Orientation="Vertical" Name="NanoChatContactsContainer"/>
+    </BoxContainer>
+    <!-- WL-Changes: NanoChat End -->
     <BoxContainer Orientation="Horizontal" Margin="4 8">
         <Button Name="PrintButton" HorizontalAlignment="Left" Text="{Loc 'log-probe-print-button'}" Disabled="True"/>
         <BoxContainer HorizontalExpand="True"/>

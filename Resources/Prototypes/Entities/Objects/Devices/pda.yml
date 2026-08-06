@@ -96,6 +96,7 @@
         - id: NotekeeperCartridge
         - id: NanoTaskCartridge
         - id: NewsReaderCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
   - type: ActivatableUI
     key: enum.PdaUiKey.Key
     singleUser: true
@@ -383,6 +384,7 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+    - NanoChatNoStationDirectory # WL-Changes: NanoChat
 
 - type: entity
   parent: BasePDA
@@ -467,6 +469,7 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+    - NanoChatNoStationDirectory # WL-Changes: NanoChat
 
 - type: entity
   name: quartermaster PDA
@@ -594,6 +597,7 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+    - NanoChatNoStationDirectory # WL-Changes: NanoChat
 
 - type: entity
   parent: BaseSecurityPDA
@@ -629,6 +633,7 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+    - NanoChatNoStationDirectory # WL-Changes: NanoChat
 
 - type: entity
   parent: BasePDA
@@ -787,6 +792,7 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+    - NanoChatNoStationDirectory # WL-Changes: NanoChat
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1042,6 +1048,7 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+    - NanoChatNoStationDirectory # WL-Changes: NanoChat
 
 - type: entity
   parent: BasePDA
@@ -1089,6 +1096,7 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+    - NanoChatNoStationDirectory # WL-Changes: NanoChat
 
 - type: entity
   parent: [ BasePDA, BaseSyndicateContraband ]

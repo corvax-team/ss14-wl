@@ -25,6 +25,11 @@ log-probe-print-button = Распечатать логи
 log-probe-printout-device = Сканированное устройство: { $name }
 log-probe-printout-header = Последние логи:
 log-probe-printout-entry = #{ $number } / { $time } / { $accessor }
+# WL-Changes: NanoChat Start
+log-probe-nanochat-header = Номер NanoChat: #{ $number }
+log-probe-nanochat-header-no-number = NanoChat: номер не присвоен
+log-probe-nanochat-contact = { $name } #{ $number } ({ $count } сообщ.)
+# WL-Changes: NanoChat End
 
 astro-nav-program-name = АстроНав
 

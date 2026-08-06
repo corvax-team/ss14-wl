@@ -25,6 +25,11 @@ log-probe-print-button = Print Logs
 log-probe-printout-device = Scanned Device: {$name}
 log-probe-printout-header = Latest logs:
 log-probe-printout-entry = #{$number} / {$time} / {$accessor}
+# WL-Changes: NanoChat Start
+log-probe-nanochat-header = NanoChat number: #{$number}
+log-probe-nanochat-header-no-number = NanoChat: no number assigned
+log-probe-nanochat-contact = {$name} #{$number} ({$count} messages)
+# WL-Changes: NanoChat End
 
 astro-nav-program-name = AstroNav
 
