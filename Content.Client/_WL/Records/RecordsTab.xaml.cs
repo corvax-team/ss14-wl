@@ -913,80 +913,80 @@ public sealed partial class RecordsTab : Control
 
     private sealed record EducationFieldLabel(Label Label, string LocalizationKey);
 
-    private sealed class DateFieldControls
-{
-    private string? _legacyValue;
-    private bool _setting;
-    private bool _edited;
-
-    public LineEdit Day { get; }
-    public LineEdit Month { get; }
-    public LineEdit Year { get; }
-
-    public DateFieldControls(LineEdit day, LineEdit month, LineEdit year)
+       private sealed class DateFieldControls
     {
-        Day = day;
-        Month = month;
-        Year = year;
+        private string? _legacyValue;
+        private bool _setting;
+        private bool _edited;
 
-        Day.OnTextChanged += _ => MarkEdited();
-        Month.OnTextChanged += _ => MarkEdited();
-        Year.OnTextChanged += _ => MarkEdited();
-    }
+        public LineEdit Day { get; }
+        public LineEdit Month { get; }
+        public LineEdit Year { get; }
 
-    public string Text
-    {
-        get
+        public DateFieldControls(LineEdit day, LineEdit month, LineEdit year)
         {
-            if (!_edited && _legacyValue != null)
-                return _legacyValue;
+            Day = day;
+            Month = month;
+            Year = year;
 
-            var dayText = Day.Text.Trim();
-            var monthText = Month.Text.Trim();
-            var yearText = Year.Text.Trim();
-
-            return dayText.Length == 0 &&
-                   monthText.Length == 0 &&
-                   yearText.Length == 0
-                ? string.Empty
-                : $"{dayText}.{monthText}.{yearText}";
+            Day.OnTextChanged += _ => MarkEdited();
+            Month.OnTextChanged += _ => MarkEdited();
+            Year.OnTextChanged += _ => MarkEdited();
         }
-    }
 
-    public void Set(string value)
-    {
-        _setting = true;
-        _edited = false;
-        _legacyValue = null;
-
-        try
+        public string Text
         {
-            var parts = value.Split('.');
-            if (parts.Length == 3)
+            get
             {
-                Day.Text = SanitizeDatePart(parts[0], 2);
-                Month.Text = SanitizeDatePart(parts[1], 2);
-                Year.Text = SanitizeDatePart(parts[2], 4);
-                return;
+                if (!_edited && _legacyValue != null)
+                    return _legacyValue;
+
+                var dayText = Day.Text.Trim();
+                var monthText = Month.Text.Trim();
+                var yearText = Year.Text.Trim();
+
+                return dayText.Length == 0 &&
+                       monthText.Length == 0 &&
+                       yearText.Length == 0
+                    ? string.Empty
+                    : $"{dayText}.{monthText}.{yearText}";
             }
-
-            Day.Text = string.Empty;
-            Month.Text = string.Empty;
-            Year.Text = string.Empty;
-
-            if (!string.IsNullOrWhiteSpace(value))
-                _legacyValue = value;
         }
-        finally
+
+        public void Set(string value)
         {
-            _setting = false;
+            _setting = true;
+            _edited = false;
+            _legacyValue = null;
+
+            try
+            {
+                var parts = value.Split('.');
+                if (parts.Length == 3)
+                {
+                    Day.Text = SanitizeDatePart(parts[0], 2);
+                    Month.Text = SanitizeDatePart(parts[1], 2);
+                    Year.Text = SanitizeDatePart(parts[2], 4);
+                    return;
+                }
+
+                Day.Text = string.Empty;
+                Month.Text = string.Empty;
+                Year.Text = string.Empty;
+
+                if (!string.IsNullOrWhiteSpace(value))
+                    _legacyValue = value;
+            }
+            finally
+            {
+                _setting = false;
+            }
+        }
+
+        private void MarkEdited()
+        {
+            if (!_setting)
+                _edited = true;
         }
     }
-
-    private void MarkEdited()
-    {
-        if (!_setting)
-            _edited = true;
-    }
-}
 }
