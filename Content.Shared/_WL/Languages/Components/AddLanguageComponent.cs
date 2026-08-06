@@ -29,6 +29,10 @@ public sealed partial class ModifyLanguagesComponent : Component
     [DataField]
     public List<ProtoId<LanguagePrototype>> Languages = [];
 
+    // When ToRemove is set, RemoveLanguages holds the specific languages to remove (aggregated per-component).
+    [DataField]
+    public List<ProtoId<LanguagePrototype>> RemoveLanguages = [];
+
     [Serializable, NetSerializable]
     public sealed class State : ComponentState
     {
@@ -36,5 +40,6 @@ public sealed partial class ModifyLanguagesComponent : Component
         public bool ToUnderstood = default!;
         public bool ToSpeaking = default!;
         public List<ProtoId<LanguagePrototype>> Languages = default!;
+        public List<ProtoId<LanguagePrototype>> RemoveLanguages = default!;
     }
 }

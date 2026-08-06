@@ -14,7 +14,7 @@ namespace Content.Shared._WL.Languages
         {
             var understood = new Dictionary<ProtoId<LanguagePrototype>, bool>();
             var speaking = new Dictionary<ProtoId<LanguagePrototype>, bool>();
-            var aggToRemove = false;
+            var remove = new HashSet<ProtoId<LanguagePrototype>>();
             var aggSpecieLanguage = false;
             var aggToSpeakingForSpecie = false;
             var aggToUnderstoodForSpecie = false;
@@ -24,7 +24,6 @@ namespace Content.Shared._WL.Languages
                 if (comp == null)
                     continue;
 
-                aggToRemove |= comp.ToRemove;
                 aggSpecieLanguage |= comp.SpecieLanguage;
 
                 // If component explicitly lists per-language permissions, use them.
@@ -50,7 +49,23 @@ namespace Content.Shared._WL.Languages
 
                         if (comp.ToUnderstood)
                             understood[l] = understood.GetValueOrDefault(l) || true;
+
+                        // If this component requested removal, mark this language for removal
+                        if (comp.ToRemove)
+                            remove.Add(l);
                     }
+                }
+
+                // Also if component has explicit per-language lists and requested removal, mark those
+                if (comp.ToRemove)
+                {
+                    if (comp.SpeakingLanguages?.Count > 0)
+                        foreach (var l in comp.SpeakingLanguages)
+                            remove.Add(l);
+
+                    if (comp.UnderstoodLanguages?.Count > 0)
+                        foreach (var l in comp.UnderstoodLanguages)
+                            remove.Add(l);
                 }
 
                 // Preserve ToSpeaking/ToUnderstood flags for specie-language handling
@@ -62,7 +77,8 @@ namespace Content.Shared._WL.Languages
             }
 
             var result = new ModifyLanguagesComponent();
-            result.ToRemove = aggToRemove;
+            // If any component requested removal, set ToRemove so ApplyTo knows to perform removals.
+            result.ToRemove = remove.Count > 0;
             result.SpecieLanguage = aggSpecieLanguage;
             // Use specie-specific aggregated flags for backwards-compatible specie removal behavior
             result.ToSpeaking = aggToSpeakingForSpecie;
@@ -83,6 +99,10 @@ namespace Content.Shared._WL.Languages
             foreach (var l in union)
                 result.Languages.Add(l);
 
+            // Populate RemoveLanguages with the per-component removals
+            foreach (var l in remove)
+                result.RemoveLanguages.Add(l);
+
             return result;
         }
 
@@ -96,12 +116,19 @@ namespace Content.Shared._WL.Languages
             if (component.ToRemove)
             {
                 var toRemove = new HashSet<ProtoId<LanguagePrototype>>();
-                if (component.SpeakingLanguages?.Count > 0)
-                    toRemove.UnionWith(component.SpeakingLanguages);
-                if (component.UnderstoodLanguages?.Count > 0)
-                    toRemove.UnionWith(component.UnderstoodLanguages);
-                if (component.Languages?.Count > 0)
-                    toRemove.UnionWith(component.Languages);
+
+                // Prefer explicit RemoveLanguages when present (aggregated per-component removals)
+                if (component.RemoveLanguages?.Count > 0)
+                    toRemove.UnionWith(component.RemoveLanguages);
+                else
+                {
+                    if (component.SpeakingLanguages?.Count > 0)
+                        toRemove.UnionWith(component.SpeakingLanguages);
+                    if (component.UnderstoodLanguages?.Count > 0)
+                        toRemove.UnionWith(component.UnderstoodLanguages);
+                    if (component.Languages?.Count > 0)
+                        toRemove.UnionWith(component.Languages);
+                }
 
                 foreach (var l in toRemove)
                 {
