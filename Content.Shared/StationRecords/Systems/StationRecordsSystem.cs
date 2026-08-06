@@ -69,6 +69,7 @@ public sealed partial class StationRecordsSystem : EntitySystem
 
             CreateGeneralRecord((station, deferredStationRecords), args.Mob, args.Profile, args.JobId);
         });
+        # WL-Changes-End
     }
 
     [SubscribeLocalEvent]
