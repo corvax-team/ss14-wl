@@ -913,26 +913,53 @@ public sealed partial class RecordsTab : Control
 
     private sealed record EducationFieldLabel(Label Label, string LocalizationKey);
 
-    private sealed class DateFieldControls(LineEdit day, LineEdit month, LineEdit year)
+    private sealed class DateFieldControls
+{
+    private string? _legacyValue;
+    private bool _setting;
+    private bool _edited;
+
+    public LineEdit Day { get; }
+    public LineEdit Month { get; }
+    public LineEdit Year { get; }
+
+    public DateFieldControls(LineEdit day, LineEdit month, LineEdit year)
     {
-        public LineEdit Day { get; } = day;
-        public LineEdit Month { get; } = month;
-        public LineEdit Year { get; } = year;
+        Day = day;
+        Month = month;
+        Year = year;
 
-        public string Text
+        Day.OnTextChanged += _ => MarkEdited();
+        Month.OnTextChanged += _ => MarkEdited();
+        Year.OnTextChanged += _ => MarkEdited();
+    }
+
+    public string Text
+    {
+        get
         {
-            get
-            {
-                var dayText = Day.Text.Trim();
-                var monthText = Month.Text.Trim();
-                var yearText = Year.Text.Trim();
-                return dayText.Length == 0 && monthText.Length == 0 && yearText.Length == 0
-                    ? string.Empty
-                    : $"{dayText}.{monthText}.{yearText}";
-            }
-        }
+            if (!_edited && _legacyValue != null)
+                return _legacyValue;
 
-        public void Set(string value)
+            var dayText = Day.Text.Trim();
+            var monthText = Month.Text.Trim();
+            var yearText = Year.Text.Trim();
+
+            return dayText.Length == 0 &&
+                   monthText.Length == 0 &&
+                   yearText.Length == 0
+                ? string.Empty
+                : $"{dayText}.{monthText}.{yearText}";
+        }
+    }
+
+    public void Set(string value)
+    {
+        _setting = true;
+        _edited = false;
+        _legacyValue = null;
+
+        try
         {
             var parts = value.Split('.');
             if (parts.Length == 3)
@@ -946,6 +973,20 @@ public sealed partial class RecordsTab : Control
             Day.Text = string.Empty;
             Month.Text = string.Empty;
             Year.Text = string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(value))
+                _legacyValue = value;
+        }
+        finally
+        {
+            _setting = false;
         }
     }
+
+    private void MarkEdited()
+    {
+        if (!_setting)
+            _edited = true;
+    }
+}
 }
