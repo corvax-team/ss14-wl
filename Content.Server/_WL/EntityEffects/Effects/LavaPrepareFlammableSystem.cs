@@ -36,7 +36,6 @@ public sealed partial class LavaPrepareFlammableEntityEffectSystem
         if (_tag.HasAnyTag(uid, "HighRiskItem", "FireResistant"))
             return;
 
-
         if (_entMan.HasComponent<FlammableComponent>(uid))
             return;
 
@@ -53,7 +52,6 @@ public sealed partial class LavaPrepareFlammableEntityEffectSystem
 
             if (!reactive.ReactiveGroups.ContainsKey("Extinguish"))
                 reactive.ReactiveGroups["Extinguish"] = new HashSet<ReactionMethod>();
-
 
             reactive.ReactiveGroups["Extinguish"].Add(ReactionMethod.Touch);
         }
