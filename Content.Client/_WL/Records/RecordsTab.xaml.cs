@@ -34,6 +34,7 @@ public sealed partial class RecordsTab : Control
     private string _medicalStorage = string.Empty;
     private string _securityStorage = string.Empty;
     private string _employmentStorage = string.Empty;
+    private string _birthYearText = string.Empty;
     private int _height;
     private RecordsPreviewWindow? _previewWindow;
 
@@ -54,7 +55,7 @@ public sealed partial class RecordsTab : Control
         BindLineEdit(MedicalPostmortem, EmitMedical);
         BindLineEdit(MedicalEmergencyContact, EmitMedical);
         BindLineEdit(MedicalRefusedTreatment, EmitMedical);
-        BindLineEdit(MedicalLastUpdated, EmitMedical);
+        var medicalLastUpdated = RegisterDateField(MedicalLastUpdatedDay, MedicalLastUpdatedMonth, MedicalLastUpdatedYear, EmitMedical);
         BindTextEdit(MedicalSurgeries, EmitMedical);
         BindTextEdit(MedicalMedication, EmitMedical);
         BindTextEdit(MedicalPhysiological, EmitMedical);
@@ -74,7 +75,7 @@ public sealed partial class RecordsTab : Control
         BindLineEdit(SecurityFeatures, EmitSecurity);
         BindLineEdit(SecurityRelatives, EmitSecurity);
         BindLineEdit(SecurityEmergencyContact, EmitSecurity);
-        BindLineEdit(SecurityLastUpdated, EmitSecurity);
+        var securityLastUpdated = RegisterDateField(SecurityLastUpdatedDay, SecurityLastUpdatedMonth, SecurityLastUpdatedYear, EmitSecurity);
         BindTextEdit(SecurityPermits, EmitSecurity);
         BindTextEdit(SecurityArrests, EmitSecurity);
         BindTextEdit(SecurityImprisonment, EmitSecurity);
@@ -96,9 +97,9 @@ public sealed partial class RecordsTab : Control
             EmitSecurity();
         };
 
-        BindLineEdit(EmploymentAcademicTitleDate, EmitEmployment);
+        var employmentAcademicTitleDate = RegisterDateField(EmploymentAcademicTitleDateDay, EmploymentAcademicTitleDateMonth, EmploymentAcademicTitleDateYear, EmitEmployment);
         BindLineEdit(EmploymentAcademicTitleField, EmitEmployment);
-        BindLineEdit(EmploymentLastUpdated, EmitEmployment);
+        var employmentLastUpdated = RegisterDateField(EmploymentLastUpdatedDay, EmploymentLastUpdatedMonth, EmploymentLastUpdatedYear, EmitEmployment);
         BindTextEdit(EmploymentLicenses, EmitEmployment);
         BindTextEdit(EmploymentHistory, EmitEmployment);
         BindTextEdit(EmploymentNotes, EmitEmployment);
@@ -117,8 +118,9 @@ public sealed partial class RecordsTab : Control
                 OnGeneralRecordNameChanged?.Invoke(NameEdit.Text.Trim());
             UpdatePreview();
         };
-        BirthDayEdit.OnTextChanged += _ => UpdateBirthDate();
-        BirthMonthEdit.OnTextChanged += _ => UpdateBirthDate();
+        ConfigureDatePart(BirthDayEdit, 2, UpdateBirthDate);
+        ConfigureDatePart(BirthMonthEdit, 2, UpdateBirthDate);
+        BirthYearEdit.OnTextChanged += _ => ResetBirthYearEdit();
         CountryEdit.OnTextChanged += _ =>
         {
             if (!_updating)
@@ -133,7 +135,17 @@ public sealed partial class RecordsTab : Control
         RecordTabs.OnTabChanged += _ => UpdatePreview();
         PreviewButton.OnPressed += _ => OpenPreview();
         OnResized += UpdateEducationLayout;
+
+        _medicalLastUpdated = medicalLastUpdated;
+        _securityLastUpdated = securityLastUpdated;
+        _employmentAcademicTitleDate = employmentAcademicTitleDate;
+        _employmentLastUpdated = employmentLastUpdated;
     }
+
+    private readonly DateFieldControls _medicalLastUpdated;
+    private readonly DateFieldControls _securityLastUpdated;
+    private readonly DateFieldControls _employmentAcademicTitleDate;
+    private readonly DateFieldControls _employmentLastUpdated;
 
     public void SetResidenceRegions(IEnumerable<(string DisplayName, Texture? Icon)> regions, Texture? otherIcon)
     {
@@ -211,14 +223,14 @@ public sealed partial class RecordsTab : Control
             birthDate = WLCalendar.RecalculateBirthDate(_characterAge, birthDate);
             BirthDayEdit.Text = birthDate.Day.ToString("00");
             BirthMonthEdit.Text = birthDate.Month.ToString("00");
-            BirthYearEdit.Text = birthDate.Year.ToString("0000");
+            SetBirthYear(birthDate.Year.ToString("0000"));
             BirthDateValidationLabel.Visible = false;
             return WLCalendar.FormatBirthDate(birthDate);
         }
 
         BirthDayEdit.Text = string.Empty;
         BirthMonthEdit.Text = string.Empty;
-        BirthYearEdit.Text = string.Empty;
+        SetBirthYear(string.Empty);
         BirthDateValidationLabel.Visible = !string.IsNullOrWhiteSpace(storedDate);
         BirthDateValidationLabel.Text = Loc.GetString("records-date-of-birth-legacy-invalid", ("date", storedDate));
         return null;
@@ -233,7 +245,7 @@ public sealed partial class RecordsTab : Control
         var monthText = BirthMonthEdit.Text.Trim();
         if (dayText.Length == 0 && monthText.Length == 0)
         {
-            BirthYearEdit.Text = string.Empty;
+            SetBirthYear(string.Empty);
             BirthDateValidationLabel.Visible = false;
             OnGeneralRecordAgeChanged?.Invoke(string.Empty);
             UpdatePreview();
@@ -244,14 +256,14 @@ public sealed partial class RecordsTab : Control
             !int.TryParse(monthText, out var month) ||
             !WLCalendar.TryCreateBirthDate(_characterAge, day, month, out var birthDate))
         {
-            BirthYearEdit.Text = string.Empty;
+            SetBirthYear(string.Empty);
             BirthDateValidationLabel.Text = Loc.GetString("records-date-of-birth-invalid");
             BirthDateValidationLabel.Visible = dayText.Length > 0 && monthText.Length > 0;
             UpdatePreview();
             return;
         }
 
-        BirthYearEdit.Text = birthDate.Year.ToString("0000");
+        SetBirthYear(birthDate.Year.ToString("0000"));
         BirthDateValidationLabel.Visible = false;
         OnGeneralRecordAgeChanged?.Invoke(WLCalendar.FormatBirthDate(birthDate));
         UpdatePreview();
@@ -269,7 +281,7 @@ public sealed partial class RecordsTab : Control
         SetText(MedicalPhysiological, record.PhysiologicalNotes);
         SetText(MedicalPsychological, record.PsychologicalNotes);
         SetText(MedicalNotes, record.Notes);
-        MedicalLastUpdated.Text = record.LastUpdated;
+        _medicalLastUpdated.Set(record.LastUpdated);
     }
 
     private void SetSecurity(SecurityRecordData record)
@@ -302,7 +314,7 @@ public sealed partial class RecordsTab : Control
         SetText(SecurityArrests, record.ArrestHistory);
         SetText(SecurityImprisonment, record.ImprisonmentHistory);
         SetText(SecurityNotes, record.Notes);
-        SecurityLastUpdated.Text = record.LastUpdated;
+        _securityLastUpdated.Set(record.LastUpdated);
     }
 
     private void SetEmployment(EmploymentRecordData record)
@@ -316,12 +328,12 @@ public sealed partial class RecordsTab : Control
 
         EmploymentAcademicTitle.SelectId((int) record.AcademicTitle);
         EmploymentAcademicTitleField.Text = record.AcademicTitleField;
-        EmploymentAcademicTitleDate.Text = record.AcademicTitleDate;
+        _employmentAcademicTitleDate.Set(record.AcademicTitleDate);
         UpdateAcademicTitleVisibility(false);
         SetText(EmploymentLicenses, record.Licenses);
         SetText(EmploymentHistory, record.EmploymentHistory);
         SetText(EmploymentNotes, record.Notes);
-        EmploymentLastUpdated.Text = record.LastUpdated;
+        _employmentLastUpdated.Set(record.LastUpdated);
         UpdateEducationButton();
     }
 
@@ -342,7 +354,7 @@ public sealed partial class RecordsTab : Control
             PhysiologicalNotes = GetText(MedicalPhysiological),
             PsychologicalNotes = GetText(MedicalPsychological),
             Notes = GetText(MedicalNotes),
-            LastUpdated = MedicalLastUpdated.Text,
+            LastUpdated = _medicalLastUpdated.Text,
         });
         OnMedicalRecordChanged?.Invoke(_medicalStorage);
         UpdatePreview();
@@ -372,7 +384,7 @@ public sealed partial class RecordsTab : Control
             ArrestHistory = GetText(SecurityArrests),
             ImprisonmentHistory = GetText(SecurityImprisonment),
             Notes = GetText(SecurityNotes),
-            LastUpdated = SecurityLastUpdated.Text,
+            LastUpdated = _securityLastUpdated.Text,
         });
         OnSecurityRecordChanged?.Invoke(_securityStorage);
         UpdatePreview();
@@ -422,11 +434,11 @@ public sealed partial class RecordsTab : Control
         {
             AcademicTitle = (RecordAcademicTitle) EmploymentAcademicTitle.SelectedId,
             AcademicTitleField = hasAcademicTitle ? EmploymentAcademicTitleField.Text : string.Empty,
-            AcademicTitleDate = hasAcademicTitle ? EmploymentAcademicTitleDate.Text : string.Empty,
+            AcademicTitleDate = hasAcademicTitle ? _employmentAcademicTitleDate.Text : string.Empty,
             Licenses = GetText(EmploymentLicenses),
             EmploymentHistory = GetText(EmploymentHistory),
             Notes = GetText(EmploymentNotes),
-            LastUpdated = EmploymentLastUpdated.Text,
+            LastUpdated = _employmentLastUpdated.Text,
         };
 
         foreach (var entry in _educationEntries)
@@ -459,7 +471,7 @@ public sealed partial class RecordsTab : Control
         var wasUpdating = _updating;
         _updating = true;
         EmploymentAcademicTitleField.Text = string.Empty;
-        EmploymentAcademicTitleDate.Text = string.Empty;
+        _employmentAcademicTitleDate.Set(string.Empty);
         _updating = wasUpdating;
     }
 
@@ -521,13 +533,24 @@ public sealed partial class RecordsTab : Control
         PopulateEnumOptions(degree, Enum.GetValues<RecordAcademicDegree>(), "records-degree");
         degree.SelectId((int) record.Degree);
         var institution = new LineEdit { Text = record.Institution, HorizontalExpand = true, MinWidth = 230 };
-        var diplomaDate = new LineEdit { Text = record.DiplomaDate, HorizontalExpand = true, MinWidth = 230 };
+        var diplomaDateContainer = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalExpand = true, MinWidth = 230 };
+        var diplomaDate = RegisterDateField(
+            new LineEdit { PlaceHolder = Loc.GetString("records-date-day"), MinWidth = 45, MaxWidth = 55 },
+            new LineEdit { PlaceHolder = Loc.GetString("records-date-month"), MinWidth = 45, MaxWidth = 55 },
+            new LineEdit { PlaceHolder = Loc.GetString("records-date-year"), MinWidth = 75, MaxWidth = 90 },
+            EmitEmployment);
+        diplomaDate.Set(record.DiplomaDate);
+        diplomaDateContainer.Children.Add(diplomaDate.Day);
+        diplomaDateContainer.Children.Add(new Label { Text = ".", VerticalAlignment = VAlignment.Center, Margin = new Thickness(3, 0) });
+        diplomaDateContainer.Children.Add(diplomaDate.Month);
+        diplomaDateContainer.Children.Add(new Label { Text = ".", VerticalAlignment = VAlignment.Center, Margin = new Thickness(3, 0) });
+        diplomaDateContainer.Children.Add(diplomaDate.Year);
 
         var specialtyField = CreateEducationField("records-specialty", specialty, out var specialtyLabel);
         var specialtyGroupField = CreateEducationField("records-specialty-group", specialtyGroup, out var specialtyGroupLabel);
         var specialtySubgroupField = CreateEducationField("records-specialty-subgroup", specialtySubgroup, out var specialtySubgroupLabel);
         var degreeField = CreateEducationField("records-degree", degree, out var degreeLabel);
-        var diplomaDateField = CreateEducationField("records-diploma-date", diplomaDate, out var diplomaDateLabel);
+        var diplomaDateField = CreateEducationField("records-diploma-date", diplomaDateContainer, out var diplomaDateLabel);
         var institutionField = CreateEducationField("records-institution", institution, out var institutionLabel);
 
         var firstRow = new BoxContainer
@@ -623,7 +646,6 @@ public sealed partial class RecordsTab : Control
 
         BindLineEdit(specialty, EmitEmployment);
         BindLineEdit(institution, EmitEmployment);
-        BindLineEdit(diplomaDate, EmitEmployment);
         degree.OnItemSelected += args =>
         {
             degree.SelectId(args.Id);
@@ -781,6 +803,68 @@ public sealed partial class RecordsTab : Control
     private static bool IsOrganic(string species) => species is not ("Ipc" or "Android" or "Golem");
     private static bool IsManufactured(string species) => species is "Ipc" or "Android";
 
+    private void SetBirthYear(string value)
+    {
+        _birthYearText = value;
+        BirthYearEdit.Text = value;
+    }
+
+    private void ResetBirthYearEdit()
+    {
+        if (_updating || BirthYearEdit.Text == _birthYearText)
+            return;
+
+        var wasUpdating = _updating;
+        _updating = true;
+        BirthYearEdit.Text = _birthYearText;
+        BirthYearEdit.CursorPosition = _birthYearText.Length;
+        _updating = wasUpdating;
+    }
+
+    private DateFieldControls RegisterDateField(LineEdit day, LineEdit month, LineEdit year, Action callback)
+    {
+        var date = new DateFieldControls(day, month, year);
+        ConfigureDatePart(day, 2, callback);
+        ConfigureDatePart(month, 2, callback);
+        ConfigureDatePart(year, 4, callback);
+        return date;
+    }
+
+    private void ConfigureDatePart(LineEdit edit, int maxLength, Action callback)
+    {
+        edit.OnTextChanged += _ =>
+        {
+            var sanitized = SanitizeDatePart(edit.Text, maxLength);
+            if (edit.Text != sanitized)
+            {
+                var wasUpdating = _updating;
+                _updating = true;
+                edit.Text = sanitized;
+                edit.CursorPosition = Math.Min(edit.CursorPosition, sanitized.Length);
+                _updating = wasUpdating;
+            }
+
+            callback();
+        };
+    }
+
+    private static string SanitizeDatePart(string value, int maxLength)
+    {
+        var result = new char[Math.Min(value.Length, maxLength)];
+        var length = 0;
+        foreach (var character in value)
+        {
+            if (!char.IsDigit(character))
+                continue;
+
+            result[length++] = character;
+            if (length >= maxLength)
+                break;
+        }
+
+        return new string(result, 0, length);
+    }
+
     private static void BindLineEdit(LineEdit edit, Action callback)
     {
         edit.OnTextChanged += _ => callback();
@@ -825,7 +909,43 @@ public sealed partial class RecordsTab : Control
         IReadOnlyList<string> SpecialtySubgroupValues,
         OptionButton Degree,
         LineEdit Institution,
-        LineEdit DiplomaDate);
+        DateFieldControls DiplomaDate);
 
     private sealed record EducationFieldLabel(Label Label, string LocalizationKey);
+
+    private sealed class DateFieldControls(LineEdit day, LineEdit month, LineEdit year)
+    {
+        public LineEdit Day { get; } = day;
+        public LineEdit Month { get; } = month;
+        public LineEdit Year { get; } = year;
+
+        public string Text
+        {
+            get
+            {
+                var dayText = Day.Text.Trim();
+                var monthText = Month.Text.Trim();
+                var yearText = Year.Text.Trim();
+                return dayText.Length == 0 && monthText.Length == 0 && yearText.Length == 0
+                    ? string.Empty
+                    : $"{dayText}.{monthText}.{yearText}";
+            }
+        }
+
+        public void Set(string value)
+        {
+            var parts = value.Split('.');
+            if (parts.Length == 3)
+            {
+                Day.Text = SanitizeDatePart(parts[0], 2);
+                Month.Text = SanitizeDatePart(parts[1], 2);
+                Year.Text = SanitizeDatePart(parts[2], 4);
+                return;
+            }
+
+            Day.Text = string.Empty;
+            Month.Text = string.Empty;
+            Year.Text = string.Empty;
+        }
+    }
 }

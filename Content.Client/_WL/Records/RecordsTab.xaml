@@ -16,11 +16,11 @@
                         <records:RecordOptionButton Name="ConfederationButton" MinWidth="210" HorizontalExpand="True" Access="Public"/>
                         <Label Name="BirthDateLabel" Text="{Loc 'records-date-of-birth-edit'}" VAlign="Center" MinWidth="135"/>
                         <BoxContainer Orientation="Horizontal" MinWidth="210">
-                            <LineEdit Name="BirthDayEdit" PlaceHolder="{Loc 'records-date-of-birth-day'}" MinWidth="45" MaxWidth="55"/>
+                            <LineEdit Name="BirthDayEdit" PlaceHolder="{Loc 'records-date-day'}" MinWidth="45" MaxWidth="55"/>
                             <Label Text="." VAlign="Center" Margin="3 0"/>
-                            <LineEdit Name="BirthMonthEdit" PlaceHolder="{Loc 'records-date-of-birth-month'}" MinWidth="45" MaxWidth="55"/>
+                            <LineEdit Name="BirthMonthEdit" PlaceHolder="{Loc 'records-date-month'}" MinWidth="45" MaxWidth="55"/>
                             <Label Text="." VAlign="Center" Margin="3 0"/>
-                            <LineEdit Name="BirthYearEdit" PlaceHolder="{Loc 'records-date-of-birth-year'}" Editable="False" MinWidth="75" MaxWidth="90"/>
+                            <LineEdit Name="BirthYearEdit" PlaceHolder="{Loc 'records-date-year'}" ToolTip="{Loc 'records-date-of-birth-year-tooltip'}" MinWidth="75" MaxWidth="90"/>
                         </BoxContainer>
                         <Label Text="{Loc 'records-country-edit'}" VAlign="Center" MinWidth="145" Margin="12 0 0 0"/>
                         <LineEdit Name="CountryEdit" MinWidth="210" HorizontalExpand="True" Access="Public"/>
@@ -61,7 +61,13 @@
                         <PanelContainer StyleClasses="LowDivider" Margin="0 12 0 8"/>
                         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
                             <Label Text="{Loc 'records-last-updated'}" VAlign="Center" MinWidth="205"/>
-                            <LineEdit Name="MedicalLastUpdated" MinWidth="320" HorizontalExpand="True"/>
+                            <BoxContainer Name="MedicalLastUpdatedContainer" Orientation="Horizontal" MinWidth="320" HorizontalExpand="True">
+                                <LineEdit Name="MedicalLastUpdatedDay" PlaceHolder="{Loc 'records-date-day'}" MinWidth="45" MaxWidth="55"/>
+                                <Label Text="." VAlign="Center" Margin="3 0"/>
+                                <LineEdit Name="MedicalLastUpdatedMonth" PlaceHolder="{Loc 'records-date-month'}" MinWidth="45" MaxWidth="55"/>
+                                <Label Text="." VAlign="Center" Margin="3 0"/>
+                                <LineEdit Name="MedicalLastUpdatedYear" PlaceHolder="{Loc 'records-date-year'}" MinWidth="75" MaxWidth="90"/>
+                            </BoxContainer>
                         </BoxContainer>
                     </BoxContainer>
                 </ScrollContainer>
@@ -126,7 +132,13 @@
                         <PanelContainer StyleClasses="LowDivider" Margin="0 12 0 8"/>
                         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
                             <Label Text="{Loc 'records-last-updated'}" VAlign="Center" MinWidth="205"/>
-                            <LineEdit Name="SecurityLastUpdated" MinWidth="320" HorizontalExpand="True"/>
+                            <BoxContainer Name="SecurityLastUpdatedContainer" Orientation="Horizontal" MinWidth="320" HorizontalExpand="True">
+                                <LineEdit Name="SecurityLastUpdatedDay" PlaceHolder="{Loc 'records-date-day'}" MinWidth="45" MaxWidth="55"/>
+                                <Label Text="." VAlign="Center" Margin="3 0"/>
+                                <LineEdit Name="SecurityLastUpdatedMonth" PlaceHolder="{Loc 'records-date-month'}" MinWidth="45" MaxWidth="55"/>
+                                <Label Text="." VAlign="Center" Margin="3 0"/>
+                                <LineEdit Name="SecurityLastUpdatedYear" PlaceHolder="{Loc 'records-date-year'}" MinWidth="75" MaxWidth="90"/>
+                            </BoxContainer>
                         </BoxContainer>
                     </BoxContainer>
                 </ScrollContainer>
@@ -155,7 +167,13 @@
                                 </BoxContainer>
                                 <BoxContainer Name="AcademicTitleDateContainer" Orientation="Vertical" HorizontalExpand="True" MinWidth="250">
                                     <Label Text="{Loc 'records-academic-title-date'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
-                                    <LineEdit Name="EmploymentAcademicTitleDate" HorizontalExpand="True"/>
+                                    <BoxContainer Name="EmploymentAcademicTitleDateContainerFields" Orientation="Horizontal" HorizontalExpand="True">
+                                        <LineEdit Name="EmploymentAcademicTitleDateDay" PlaceHolder="{Loc 'records-date-day'}" MinWidth="45" MaxWidth="55"/>
+                                        <Label Text="." VAlign="Center" Margin="3 0"/>
+                                        <LineEdit Name="EmploymentAcademicTitleDateMonth" PlaceHolder="{Loc 'records-date-month'}" MinWidth="45" MaxWidth="55"/>
+                                        <Label Text="." VAlign="Center" Margin="3 0"/>
+                                        <LineEdit Name="EmploymentAcademicTitleDateYear" PlaceHolder="{Loc 'records-date-year'}" MinWidth="75" MaxWidth="90"/>
+                                    </BoxContainer>
                                 </BoxContainer>
                             </BoxContainer>
                         </PanelContainer>
@@ -169,7 +187,13 @@
                         <PanelContainer StyleClasses="LowDivider" Margin="0 12 0 8"/>
                         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
                             <Label Text="{Loc 'records-last-updated'}" VAlign="Center" MinWidth="205"/>
-                            <LineEdit Name="EmploymentLastUpdated" MinWidth="320" HorizontalExpand="True"/>
+                            <BoxContainer Name="EmploymentLastUpdatedContainer" Orientation="Horizontal" MinWidth="320" HorizontalExpand="True">
+                                <LineEdit Name="EmploymentLastUpdatedDay" PlaceHolder="{Loc 'records-date-day'}" MinWidth="45" MaxWidth="55"/>
+                                <Label Text="." VAlign="Center" Margin="3 0"/>
+                                <LineEdit Name="EmploymentLastUpdatedMonth" PlaceHolder="{Loc 'records-date-month'}" MinWidth="45" MaxWidth="55"/>
+                                <Label Text="." VAlign="Center" Margin="3 0"/>
+                                <LineEdit Name="EmploymentLastUpdatedYear" PlaceHolder="{Loc 'records-date-year'}" MinWidth="75" MaxWidth="90"/>
+                            </BoxContainer>
                         </BoxContainer>
                     </BoxContainer>
                 </ScrollContainer>
