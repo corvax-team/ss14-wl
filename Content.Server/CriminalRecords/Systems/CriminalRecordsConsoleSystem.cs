@@ -122,7 +122,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
                 "#8A3F42",
                 identity,
                 StructuredRecordFormatter.FormatSecurity(record.SecurityRecord, Loc.GetString),
-                Loc.GetString);
+                Loc.GetString,
+                true);
         }
         else
             return;

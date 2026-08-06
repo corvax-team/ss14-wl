@@ -228,7 +228,8 @@ public sealed class StructuredCharacterRecordsTest
             "#8A3F42",
             new RecordPrintIdentity("Employee", "MANUFACTURE DATE:", "01.01.2850", "Male", "IPC", "180 cm", "No fingerprint", "No DNA", "Common", "None", "None"),
             body,
-            key => key);
+            key => key,
+            true);
 
         Assert.Multiple(() =>
         {

@@ -63,7 +63,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
             return;
         }
 
-        if (!component.SpecieLanguage)
+        if (langs.Count > 0)
         {
             foreach (ProtoId<LanguagePrototype> protoid in langs)
             {
@@ -78,7 +78,8 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
                 }
             }
         }
-        else
+
+        if (component.SpecieLanguage)
         {
             var protoid = out_comp.SpecieLanguage;
             var proto = GetLanguagePrototype(protoid);
