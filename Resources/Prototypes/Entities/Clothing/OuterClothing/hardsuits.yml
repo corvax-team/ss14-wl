@@ -745,6 +745,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - FireResistant # WL-Changes
 
 #Ling Space Suit
 - type: entity

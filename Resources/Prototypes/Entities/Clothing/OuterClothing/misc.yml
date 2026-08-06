@@ -203,6 +203,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - FireResistant # WL-Changes
 
 - type: entity
   parent: ClothingOuterWizardBase
@@ -218,6 +219,7 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+    - FireResistant # WL-Changes
 
 - type: entity
   parent: ClothingOuterWizardBase
@@ -232,6 +234,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - FireResistant # WL-Changes
 
 - type: entity
   parent: ClothingOuterBase

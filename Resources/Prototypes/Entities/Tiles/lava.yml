@@ -17,6 +17,7 @@
         - Catwalk
   - type: TileEntityEffect
     effects:
+    - !type:LavaPrepareFlammable # WL-Changes
     - !type:Flammable
       multiplier: 3.75
       multiplierOnExisting: 0.75
@@ -48,7 +49,7 @@
           !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         layer:
-          - SlipLayer
+          - WallLayer # WL-Changes: before `SlipLayer`
         mask:
           - ItemMask
         density: 1000
@@ -56,3 +57,9 @@
   - type: Tag
     tags:
       - HideContextMenu
+# WL-Changes-Start
+  - type: FloorOccluder
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+# WL-Changes-End

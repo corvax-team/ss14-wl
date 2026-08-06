@@ -50,6 +50,11 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch]
+# WL-Changes-Start
+  - type: Tag
+    tags:
+    - FireResistant
+# WL-Changes-End
 
 - type: entity
   parent: BaseAction
