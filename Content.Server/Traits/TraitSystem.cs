@@ -5,7 +5,9 @@ using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
 using Content.Shared._WL.Languages.Components;
+using Content.Shared._WL.Languages;
 using Robust.Shared.Prototypes;
+using System.Collections.Generic;
 
 namespace Content.Server.Traits;
 
@@ -32,6 +34,11 @@ public sealed partial class TraitSystem : EntitySystem
             return;
         }
 
+        //WL-Changes-Languages-Start
+        // Aggregate language modifications from all selected traits before applying any ModifyLanguagesComponent
+        var modifyComps = new List<ModifyLanguagesComponent>();
+        //WL-Changes-Languages-End
+
         foreach (var traitId in args.Profile.TraitPreferences)
         {
             if (!ProtoMan.TryIndex<TraitPrototype>(traitId, out var traitPrototype))
@@ -45,32 +52,27 @@ public sealed partial class TraitSystem : EntitySystem
                 continue;
 
             // Add all components required by the prototype
-            //WL-Changes-Languages-Start
+            // Aggregate language modifications across all selected traits to avoid races with LanguagesSystem
+            // (LanguagesSystem processes ModifyLanguagesComponent on ComponentInit and may remove it immediately).
+
             if (traitPrototype.Components.Count > 0)
             {
                 foreach (var componentEntry in traitPrototype.Components)
                 {
-                    if (componentEntry.Value.Component is ModifyLanguagesComponent modifyLanguagesComponent &&
-                        TryComp<ModifyLanguagesComponent>(args.Mob, out var existingModifyLanguages))
+                    if (componentEntry.Value.Component is ModifyLanguagesComponent modifyLanguagesComponent)
                     {
-                        existingModifyLanguages.ToRemove |= modifyLanguagesComponent.ToRemove;
-                        existingModifyLanguages.ToUnderstood |= modifyLanguagesComponent.ToUnderstood;
-                        existingModifyLanguages.ToSpeaking |= modifyLanguagesComponent.ToSpeaking;
-                        existingModifyLanguages.SpecieLanguage |= modifyLanguagesComponent.SpecieLanguage;
-                        foreach (var language in modifyLanguagesComponent.Languages)
-                        {
-                            if (!existingModifyLanguages.Languages.Contains(language))
-                            {
-                                existingModifyLanguages.Languages.Add(language);
-                            }
-                        }
+                        //WL-Changes-Languages-Start
+                        // Collect ModifyLanguagesComponent instances to aggregate later.
+                        modifyComps.Add(modifyLanguagesComponent);
+
+                        // Don't immediately add this trait's ModifyLanguagesComponent
                         continue;
+                        //WL-Changes-Languages-End
                     }
- 
+
                     EntityManager.AddComponent(args.Mob, componentEntry.Value, false);
                 }
             }
-            //WL-Changes-Languages-End
  
             // Add all JobSpecials required by the prototype
             foreach (var special in traitPrototype.Specials)
@@ -92,5 +94,15 @@ public sealed partial class TraitSystem : EntitySystem
                 checkActionBlocker: false,
                 handsComp: handsComponent);
         }
+
+        //WL-Changes-Languages-Start
+        // After processing all traits, apply aggregated ModifyLanguagesComponent once
+        var aggregated = ModifyLanguagesAggregator.Aggregate(modifyComps);
+
+        if ((aggregated.Languages.Count > 0) || aggregated.ToRemove || aggregated.ToUnderstood || aggregated.ToSpeaking || aggregated.SpecieLanguage)
+        {
+            AddComp(args.Mob, aggregated, false);
+        }
+        //WL-Changes-Languages-End
     }
 }
