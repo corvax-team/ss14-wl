@@ -26,7 +26,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
 
     public event Action<ProtoId<LoadoutPrototype>>? OnLoadoutPressed;
     public event Action<ProtoId<LoadoutPrototype>>? OnLoadoutUnpressed;
-    public bool HasLoadouts { get; private set; }
+    public bool HasLoadouts { get; private set; } // WL-Changes: items from forms
 
     public LoadoutGroupContainer(HumanoidCharacterProfile profile, RoleLoadout loadout, LoadoutGroupPrototype groupProto, ICommonSession session, IDependencyCollection collection)
     {
@@ -167,7 +167,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
                     CreateLoadoutUI(protos[0], profile, loadout, session, collection, loadoutSystem)
                 );
             }
-            HasLoadouts = validProtos.Any();
+            HasLoadouts = validProtos.Any(); // WL-Changes: items from forms
         }
     }
 
