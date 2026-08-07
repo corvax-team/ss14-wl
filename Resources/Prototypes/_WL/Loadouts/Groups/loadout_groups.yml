@@ -136,5 +136,20 @@
   id: FormInventory
   name: loadout-group-form-inventory
   minLimit: 0
+  maxLimit: 0
   loadouts:
-  - DetectiveJumpskirtWLWLWL
+  - BeretPilotAurora
+  - LuxuryPenSyndiCarp
+  - CowboyHatAurora
+  - FlippoLighterComrade
+  - FlippoLighterWhitley
+  - BeretQMRellimo
+  - UniformBrigmedicBambanater
+  - ViolinInstrumentDanger
+  - UniformScientistRiki
+  - HatTophatSrochnik
+  - NeckPendantCL
+  - CoatLabCmoVissent
+  - EyesGlassesReArt
+  - LawyerClipboardSkirgan
+  - WristwatchGoldFreealeq

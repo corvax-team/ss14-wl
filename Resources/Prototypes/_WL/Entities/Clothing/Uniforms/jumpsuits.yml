@@ -272,3 +272,14 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/dss_senior.rsi
 
 # WL-redo-427-resprite-end
+
+
+# From forms
+- type: entity
+  parent: ClothingUniformJumpsuitScientist
+  id: ClothingUniformJumpsuitScientistRiki
+  name: Outlandish costume
+  description: It looks like the uniform of a researcher from outside these sectors.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/scientist_riki.rsi

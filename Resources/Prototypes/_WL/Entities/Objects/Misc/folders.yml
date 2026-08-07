@@ -1,0 +1,13 @@
+# From forms
+- type: entity
+  parent: BoxFolderCentComClipboardEmpty
+  id: BoxFolderLawyerClipboardEmptySkirgan
+  name: legal department tablet
+  description: An expensive tablet made of heavy material. The Legal Department’s shield.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/lawyer_clipboard.rsi
+  - type: Item
+    sprite: _WL/Objects/Misc/lawyer_clipboard.rsi
+  - type: Clothing
+    sprite: _WL/Objects/Misc/lawyer_clipboard.rsi
