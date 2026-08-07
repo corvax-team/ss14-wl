@@ -1,0 +1,33 @@
+- type: constructionGraph
+  id: Envelope
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Envelope
+          steps:
+            - tag: Paper
+              name: construction-graph-tag-paper
+              icon:
+                sprite: Objects/Misc/bureaucracy.rsi
+                state: paper
+              doAfter: 1
+    - node: Envelope
+      entity: Envelope
+
+- type: constructionGraph
+  id: Garlands
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Garlands
+          steps:
+            - material: Glass
+              amount: 1
+              doAfter: 1
+            - material: Cable
+              amount: 2
+              doAfter: 1
+    - node: Garlands
+      entity: Garlands

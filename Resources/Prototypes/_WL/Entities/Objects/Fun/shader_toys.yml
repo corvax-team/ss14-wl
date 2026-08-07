@@ -1,0 +1,59 @@
+- type: entity
+  parent: BaseItem
+  id: ShaderToy
+  name: shader-brand toy
+  description: Strange toy.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/toy_singularity.rsi
+    state: icon
+  - type: Icon
+    sprite: Objects/Fun/toy_singularity.rsi
+    state: icon
+  - type: ShaderSource
+    shader: Mandelbrot
+    vars:
+      - 1
+      - 1
+      - 1
+      - 0.5
+      - 1
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: singu-inhand-left
+        shader: unshaded
+      right:
+      - state: singu-inhand-right
+        shader: unshaded
+
+- type: entity
+  parent: BaseItem
+  id: ShardsToy
+  name: shards-brand toy
+  description: Strange toy.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/toy_singularity.rsi
+    state: icon
+  - type: Icon
+    sprite: Objects/Fun/toy_singularity.rsi
+    state: icon
+  - type: ShaderSource
+    shader: Shards
+    vars:
+      - 1
+      - 1
+      - 1
+      - 0.5
+      - 1
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: singu-inhand-left
+        shader: unshaded
+      right:
+      - state: singu-inhand-right
+        shader: unshaded

@@ -1,4 +1,5 @@
 using Content.Shared.VoiceMask;
+using Content.Shared._WL.Barks; // WL-Changes
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
@@ -29,6 +30,10 @@ public sealed partial class VoiceMaskBoundUserInterface : BoundUserInterface
         _window.OnToggle += OnToggle;
         _window.OnAccentToggle += OnAccentToggle;
         _window.OnVoiceChange += voice => SendMessage(new VoiceMaskChangeVoiceMessage(voice)); // Corvax-TTS
+        // WL-Changes-Start: Speech barks
+        _window.OnBarkChange += bark => SendMessage(new VoiceMaskChangeBarkMessage(bark));
+        _window.OnBarkPitchChange += pitch => SendMessage(new VoiceMaskChangeBarkPitchMessage(pitch));
+        // WL-Changes-End
     }
 
     private void OnNameSelected(string name)
@@ -53,7 +58,17 @@ public sealed partial class VoiceMaskBoundUserInterface : BoundUserInterface
             return;
         }
 
-        _window.UpdateState(cast.Name, cast.Verb, cast.Active, cast.AccentHide, cast.TitleText, cast.Voice);//cast.Voice Corvax-TTS
+        // WL-Changes-Start: Speech barks
+        _window.UpdateState(
+            cast.Name,
+            cast.Verb,
+            cast.Active,
+            cast.AccentHide,
+            cast.TitleText,
+            cast.TTSVoice,
+            cast.BarkVoice,
+            cast.BarkPitch);
+        // WL-Changes-End
     }
 
     protected override void Dispose(bool disposing)

@@ -1,10 +1,9 @@
 using Content.Server.Popups;
-using Content.Server.Power.Components; 
+using Content.Server.Power.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
-using Content.Server.StationRecords.Components;
-using Content.Server.StationRecords.Systems;
+using Content.Server._WL.Records; // WL-Changes-Records
 using Content.Shared._WL.Records; // WL-Records
 using Content.Shared.Access.Systems;
 using Content.Shared.CriminalRecords;
@@ -19,12 +18,14 @@ using Robust.Shared.Audio.Systems; // WL-Records
 using Robust.Shared.Prototypes; // WL-Records
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Security.Components;
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Roles.Jobs;
 using Content.Shared._WL.Languages;
+using Content.Shared.StationRecords.Components;
+using Content.Shared.StationRecords.Events;
+using Content.Shared.StationRecords.Systems;
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -41,6 +42,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
     [Dependency] private StationRecordsSystem _records = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+
     // WL-Changes: Records start
     [Dependency] private SharedAudioSystem _audioSystem = default!; // WL-Records
     [Dependency] private IPrototypeManager _prototypeManager = default!; // WL-Records
@@ -50,7 +53,7 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
     public override void Initialize()
     {
         SubscribeLocalEvent<CriminalRecordsConsoleComponent, RecordModifiedEvent>(UpdateUserInterface);
-        SubscribeLocalEvent<CriminalRecordsConsoleComponent, AfterGeneralRecordCreatedEvent>(UpdateUserInterface);
+        SubscribeLocalEvent<CriminalRecordsConsoleComponent, GeneralRecordCreatedEvent>(UpdateUserInterface);
 
         Subs.BuiEvents<CriminalRecordsConsoleComponent>(CriminalRecordsConsoleKey.Key, subs =>
         {
@@ -93,15 +96,19 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         ent.Comp.ActiveKey = msg.SelectedKey;
         UpdateUserInterface(ent);
     }
+
     private void OnStatusFilterPressed(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordSetStatusFilter msg)
     {
         ent.Comp.FilterStatus = msg.FilterStatus;
         UpdateUserInterface(ent);
     }
 
-    // WL-Records-Start
+    // WL-Changes-Records-Start
     private void OnPrinted(Entity<CriminalRecordsConsoleComponent> ent, ref PrintStationRecord msg)
     {
+        if (!ent.Comp.CanPrintEntries)
+            return;
+
         var owning = _station.GetOwningStation(ent.Owner);
 
         if (owning == null)
@@ -109,26 +116,13 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
 
         if (_records.TryGetRecord<GeneralStationRecord>(new StationRecordKey(msg.Id, owning.Value), out var record))
         {
-            var confederation = string.Empty;
-
-            if (_prototypeManager.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var proto))
-                confederation = Loc.GetString(proto.Name);
-            else
-                confederation = Loc.GetString("generic-not-available-shorthand");
-
-            ent.Comp.ContextPrint = $"""
-                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
-                ? record.Fullname : record.Name)}
-                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(record.DateOfBirth)
-                ? record.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
-                {Loc.GetString("records-confederation-edit")} {confederation}
-                {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(record.Country)
-                ? record.Country : Loc.GetString("generic-not-available-shorthand"))}
-                {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
-                {Loc.GetString("records-height", ("height", record.Height))}
-                {(!string.IsNullOrEmpty(record.SecurityRecord) ? record.SecurityRecord
-                : Loc.GetString("criminal-records-console-no-security-record"))}
-                """;
+            var identity = RecordPrintIdentityBuilder.FromStationRecord(record, _prototypeManager, Loc.GetString);
+            ent.Comp.ContextPrint = StructuredRecordFormatter.FormatDocument(
+                Loc.GetString("records-print-security-title"),
+                "#8A3F42",
+                identity,
+                StructuredRecordFormatter.FormatSecurity(record.SecurityRecord, Loc.GetString),
+                Loc.GetString);
         }
         else
             return;
@@ -166,7 +160,7 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             return;
         }
     }
-    // WL-Records-end
+    // WL-Changes-Records-End
 
     private void OnFiltersChanged(Entity<CriminalRecordsConsoleComponent> ent, ref SetStationRecordFilter msg)
     {
@@ -176,13 +170,6 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
             ent.Comp.Filter = new StationRecordsFilter(msg.Type, msg.Value);
             UpdateUserInterface(ent);
         }
-    }
-
-    private void GetOfficer(EntityUid uid, out string officer)
-    {
-        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, uid);
-        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
-        officer = tryGetIdentityShortInfoEvent.Title ?? Loc.GetString("criminal-records-console-unknown-officer");
     }
 
     private void OnChangeStatus(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordChangeStatus msg)
@@ -210,8 +197,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
 
         var oldStatus = record.Status;
 
-        var name = _records.RecordName(key.Value);
-        GetOfficer(mob.Value, out var officer);
+        var officer = _identity.GetIdentityShortInfo(mob.Value, ent)
+                      ?? Loc.GetString("criminal-records-console-unknown-officer");
 
         // when arresting someone add it to history automatically
         // fallback exists if the player was not set to wanted beforehand
@@ -223,18 +210,12 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         }
 
         // will probably never fail given the checks above
-        name = _records.RecordName(key.Value);
-        officer = Loc.GetString("criminal-records-console-unknown-officer");
+        var name = _records.RecordName(key.Value);
         var jobName = "Unknown";
 
         _records.TryGetRecord<GeneralStationRecord>(key.Value, out var entry);
         if (entry != null)
             jobName = entry.JobTitle;
-
-        var tryGetIdentityShortInfoEvent = new TryGetIdentityShortInfoEvent(null, mob.Value);
-        RaiseLocalEvent(tryGetIdentityShortInfoEvent);
-        if (tryGetIdentityShortInfoEvent.Title != null)
-            officer = tryGetIdentityShortInfoEvent.Title;
 
         _criminalRecords.TryChangeStatus(key.Value, msg.Status, msg.Reason, officer);
 
@@ -291,7 +272,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
         if (line.Length < 1 || line.Length > ent.Comp.MaxStringLength)
             return;
 
-        GetOfficer(mob.Value, out var officer);
+        var officer = _identity.GetIdentityShortInfo(mob.Value, ent)
+                      ?? Loc.GetString("criminal-records-console-unknown-officer");
 
         if (!_criminalRecords.TryAddHistory(key.Value, line, officer))
             return;

@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.Corvax.TTS;
+using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
@@ -12,7 +13,6 @@ namespace Content.Shared.Humanoid;
 
 public sealed partial class HumanoidProfileSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private GrammarSystem _grammar = default!;
     [Dependency] private SharedScaleVisualsSystem _scale = default!; // WL-Changes
 
@@ -45,13 +45,24 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
         ent.Comp.Gender = profile.Gender;
         ent.Comp.Age = profile.Age;
         ent.Comp.Species = profile.Species;
+        ent.Comp.Voice = profile.Voice;
         ent.Comp.Sex = profile.Sex;
         // Corvax-TTS-start
-        ent.Comp.Voice = profile.Voice;
+        ent.Comp.TTSVoice = profile.TTSVoice;
         if (TryComp<TTSComponent>(ent, out var _TTSComponent) && _TTSComponent.VoicePrototypeId == "Taskmaster")
         {
-            _TTSComponent.VoicePrototypeId = profile.Voice;
+            _TTSComponent.VoicePrototypeId = profile.TTSVoice;
         }
+        // WL-Changes-Start: Speech barks
+        if (TryComp<SpeechBarksComponent>(ent, out var barks))
+        {
+            barks.Voice = profile.BarkVoice;
+            barks.Pitch = profile.BarkPitch;
+            barks.MinDelay = profile.BarkMinDelay;
+            barks.MaxDelay = profile.BarkMaxDelay;
+            Dirty(ent.Owner, barks);
+        }
+        // WL-Changes-End
         // Corvax-TTS-end
         //Wl-Changes: Height start
         ent.Comp.Height = profile.Height;
@@ -59,8 +70,8 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
         //Wl-Changes: Height end
         Dirty(ent);
 
-        var sexChanged = new SexChangedEvent(ent.Comp.Sex, profile.Sex);
-        RaiseLocalEvent(ent, ref sexChanged);
+        var voiceChanged = new VoiceChangedEvent(ent.Comp.Voice, profile.Voice);
+        RaiseLocalEvent(ent, ref voiceChanged);
 
         if (TryComp<GrammarComponent>(ent, out var grammar))
         {
@@ -104,7 +115,7 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
     /// </summary>
     public string GetSpeciesRepresentation(ProtoId<SpeciesPrototype> species)
     {
-        if (_prototype.TryIndex(species, out var speciesPrototype))
+        if (ProtoMan.TryIndex(species, out var speciesPrototype))
             return Loc.GetString(speciesPrototype.Name);
 
         Log.Error("Tried to get representation of unknown species: {speciesId}");
@@ -116,7 +127,7 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
     /// </summary>
     public string GetAgeRepresentation(ProtoId<SpeciesPrototype> species, int age)
     {
-        if (!_prototype.TryIndex(species, out var speciesPrototype))
+        if (!ProtoMan.TryIndex(species, out var speciesPrototype))
         {
             Log.Error("Tried to get age representation of species that couldn't be indexed: " + species);
             return Loc.GetString("identity-age-young");

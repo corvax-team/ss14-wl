@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using System.Text.RegularExpressions; // Corvax-Replacement-Filter
 using Content.Client.Administration.Managers;
 using Content.Client.Chat;
 using Content.Client.Chat.Managers;
@@ -134,6 +135,14 @@ public sealed partial class ChatUIController : UIController
     /// </summary>
     private readonly Dictionary<EntityUid, SpeechBubbleQueueData> _queuedSpeechBubbles
         = new();
+
+    // WL-Changes-Start: Keep voiced messages visible until their audio finishes
+    /// <summary>
+    /// Playback can begin just before its chat message reaches the bubble queue.
+    /// Remember the deadline so the newly created bubble still receives it.
+    /// </summary>
+    private readonly Dictionary<EntityUid, TimeSpan> _speechPlaybackEndTimes = new();
+    // WL-Changes-End
 
     private readonly HashSet<ChatBox> _chats = new();
     public IReadOnlySet<ChatBox> Chats => _chats;
@@ -468,6 +477,14 @@ public sealed partial class ChatUIController : UIController
         existing.Add(bubble);
         _speechBubbleRoot.AddChild(bubble);
 
+        // WL-Changes-Start: Keep voiced messages visible until their audio finishes
+        if (_speechPlaybackEndTimes.TryGetValue(entity, out var playbackEndTime) &&
+            playbackEndTime > _timing.RealTime)
+        {
+            bubble.KeepAliveUntil(playbackEndTime);
+        }
+        // WL-Changes-End
+
         if (existing.Count > SpeechBubbleCap)
         {
             // Get the next speech bubble to fade
@@ -590,8 +607,37 @@ public sealed partial class ChatUIController : UIController
 
     public override void FrameUpdate(FrameEventArgs delta)
     {
+        // WL-Changes-Start: Keep voiced messages visible until their audio finishes
+        foreach (var (entity, playbackEndTime) in _speechPlaybackEndTimes.ShallowClone())
+        {
+            if (playbackEndTime <= _timing.RealTime)
+                _speechPlaybackEndTimes.Remove(entity);
+        }
+        // WL-Changes-End
+
         UpdateQueuedSpeechBubbles(delta);
     }
+
+    // WL-Changes-Start: Keep voiced messages visible until their audio finishes
+    /// <summary>
+    /// Keeps the newest bubble for an entity visible for the remaining speech playback.
+    /// </summary>
+    public void KeepSpeechBubbleVisible(EntityUid entity, TimeSpan playbackDuration)
+    {
+        if (playbackDuration <= TimeSpan.Zero)
+            return;
+
+        var playbackEndTime = _timing.RealTime + playbackDuration;
+        if (!_speechPlaybackEndTimes.TryGetValue(entity, out var currentEndTime) ||
+            playbackEndTime > currentEndTime)
+        {
+            _speechPlaybackEndTimes[entity] = playbackEndTime;
+        }
+
+        if (_activeSpeechBubbles.TryGetValue(entity, out var bubbles) && bubbles.Count > 0)
+            bubbles[^1].KeepAliveUntil(playbackEndTime);
+    }
+    // WL-Changes-End
 
     private void UpdateQueuedSpeechBubbles(FrameEventArgs delta)
     {
@@ -827,6 +873,16 @@ public sealed partial class ChatUIController : UIController
             if (grammar != null && grammar.ProperNoun == true)
                 msg.WrappedMessage = SharedChatSystem.InjectTagInsideTag(msg, "Name", "color", GetNameColor(SharedChatSystem.GetStringInsideTag(msg, "Name")));
         }
+
+        // Corvax-Replacement-Filter-Start
+        foreach (var replacement in _replacements)
+        {
+            var pattern = $"(?i)({replacement.Keyword})(?-i)(?![^\\[]*\\])";
+
+            msg.WrappedMessage = new Regex(pattern).Replace(msg.WrappedMessage, replacement.Replacement);
+            msg.Message = new Regex($"(?i)({replacement.Keyword})(?-i)").Replace(msg.Message, replacement.Replacement);
+        }
+        // Corvax-Replacement-Filter-End
 
         // Color any words chosen by the client.
         foreach (var highlight in _highlights)

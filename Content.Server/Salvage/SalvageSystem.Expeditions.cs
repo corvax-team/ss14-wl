@@ -145,7 +145,7 @@ public sealed partial class SalvageSystem
         component.Missions.Clear();
 
         //WL-Changes-start
-        var difficulties = _prototypeManager.EnumeratePrototypes<SalvageDifficultyPrototype>();
+        var difficulties = ProtoMan.EnumeratePrototypes<SalvageDifficultyPrototype>();
         //WL-Changes-end
 
         for (var i = 0; i < MissionLimit; i++)
@@ -174,8 +174,8 @@ public sealed partial class SalvageSystem
             SalvageJobTime,
             EntityManager,
             _timing,
-            _logManager,
-            _prototypeManager,
+            LogManager,
+            ProtoMan,
             _anchorable,
             _biome,
             _dungeon,

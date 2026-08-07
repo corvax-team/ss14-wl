@@ -40,3 +40,25 @@
     containers:
       item:
       - EnergyKnifeBlueShield
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ClothingShoesTallBoots
+  name: tall boots
+  description: An illusion of being tall
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/tall_boots.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/tall_boots.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesColorfullBoots
+  name: colorfull boots
+  description: Full of whimsy
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/colorfull_boots.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/colorfull_boots.rsi

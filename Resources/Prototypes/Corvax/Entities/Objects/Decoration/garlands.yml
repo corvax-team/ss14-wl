@@ -45,3 +45,6 @@
     - state: base
     - state: lights
       shader: unshaded
+  - type: Construction # WL-Crafts
+    graph: Garlands
+    node: Garlands

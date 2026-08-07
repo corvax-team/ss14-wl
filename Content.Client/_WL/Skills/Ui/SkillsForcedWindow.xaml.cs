@@ -115,10 +115,9 @@ public sealed partial class SkillsForcedWindow : FancyWindow
 
             var skillSelector = new SkillSelector(skillType, currentLevel, costs, color, defaultLevel)
             {
-                Margin = new Thickness(0, 5)
+                Margin = new Thickness(0, 5),
+                IsLocked = defaultLevel == 4
             };
-
-            skillSelector.IsLocked = defaultLevel == 4;
 
             skillSelector.UpdateAvailability(unspentPoints, _skillsSystem);
 

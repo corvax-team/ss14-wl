@@ -20,5 +20,15 @@
             <OptionButton Name="VoiceSelector" /> <!-- Populated in LoadVerbs -->
         </BoxContainer>
         <!-- Corvax-TTS-End -->
+        <!-- WL-Changes-Start: Speech barks -->
+        <BoxContainer Orientation="Horizontal" Margin="5">
+            <Label Text="{Loc 'voice-mask-bark-change-info'}" />
+            <OptionButton Name="BarkSelector" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="5">
+            <Label Text="{Loc 'voice-mask-bark-pitch-change-info'}" />
+            <LineEdit Name="BarkPitchSelector" HorizontalExpand="True" />
+        </BoxContainer>
+        <!-- WL-Changes-End -->
     </BoxContainer>
 </controls:FancyWindow>

@@ -160,8 +160,10 @@ ent-ClothingHeadHatGreyFlatcap = серая плоская кепка
     .desc = В моде как у рабочего класса, так и у стариков навроде Дженкинса.
 ent-ClothingHeadHatBrownFlatcap = коричневая плоская кепка
     .desc = "\"Тупой клоун! Ты выставил меня в плохом свете!\""
+# Corvax-WL-Changes-Start
 ent-ClothingHeadHatCowboyBrown = коричневая ковбойская шляпа
-    .desc = "\"Эта шляпа слишком тесна для нас двоих.\""
+    .desc = Эта шляпа слишком тесна для нас двоих.
+# Corvax-WL-Changes-End
 ent-ClothingHeadHatCowboyBlack = чёрная ковбойская шляпа
     .desc = { ent-ClothingHeadHatCowboyBrown.desc }
 ent-ClothingHeadHatCowboyGrey = серая ковбойская шляпа

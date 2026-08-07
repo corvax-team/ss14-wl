@@ -14,3 +14,15 @@ ent-ClothingUniformJumpskirtAdjutant = юбка-комбинезон адъют�
 
 ent-ClothingUniformJumpskirtAdjutantCC = юбка-комбинезон адъютанта центкома
     .desc = Тёмно-зелёная юбка-комбинезон, пошитая качественно с золотистым обрамлением.
+
+ent-ClothingUniformJumpskirtWeddingSuitWhite = белый костюм с юбкой
+    .desc = Подходит для свадьбы.
+
+ent-ClothingUniformJumpskirtSuitWhite = белый костюм с юбкой детектива
+    .desc = Изящный и эффектный.
+
+ent-ClothingUniformJumpskirtSkullSkirt = топ с черепом
+    .desc = Круто. Мрачно.
+
+ent-ClothingUniformJumpskirtMenlessShirt = майка без мужчин
+    .desc = Дамы, вперёд!

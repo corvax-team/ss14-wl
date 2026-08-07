@@ -41,7 +41,7 @@ namespace Content.Server._WL.Turrets.Systems
             SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhost);
 
             //Attempts
-            SubscribeLocalEvent<BuckledOnTurretComponent, DamageChangedEvent>(OnDamageChanged);
+            SubscribeLocalEvent<BuckledOnTurretComponent, DamageDealtEvent>(OnDamageDealt);
             SubscribeLocalEvent<BuckledOnTurretComponent, MoveEvent>(OnMove);
             SubscribeLocalEvent<BuckledOnTurretComponent, StatusEffectAddedEvent>(OnStatusEffectAdded);
             SubscribeLocalEvent<BuckledOnTurretComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -55,9 +55,9 @@ namespace Content.Server._WL.Turrets.Systems
         }
 
         #region Attempts
-        private void OnDamageChanged(EntityUid user, BuckledOnTurretComponent comp, DamageChangedEvent args)
+        private void OnDamageDealt(EntityUid user, BuckledOnTurretComponent comp, ref DamageDealtEvent args)
         {
-            if (!args.DamageIncreased)
+            if (args.Damage.Empty)
                 return;
 
             Unvisit(comp);

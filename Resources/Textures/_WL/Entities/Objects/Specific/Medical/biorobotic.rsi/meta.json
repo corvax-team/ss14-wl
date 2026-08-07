@@ -1,0 +1,42 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Art for Corvax WL",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+       {
+         "name": "spray"
+       },
+       {
+         "name": "spray_plus"
+       },
+       {
+         "name": "spray-inhand-right",
+         "directions": 4
+       },
+       {
+         "name": "spray-inhand-left",
+         "directions": 4
+       },
+       {
+         "name": "spray_plus-inhand-right",
+         "directions": 4
+       },
+       {
+         "name": "spray_plus-inhand-left",
+         "directions": 4
+       },
+       {
+         "name": "patch"
+       },
+       {
+         "name": "mesh"
+       },
+       {
+         "name": "tape"
+       }
+    ]
+}

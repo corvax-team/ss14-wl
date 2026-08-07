@@ -1,0 +1,16 @@
+- type: entity
+  id: EffectCombatIndicator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _WL/Effects/combat_indicator.rsi
+      state: combat
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu

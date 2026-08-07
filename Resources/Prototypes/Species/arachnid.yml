@@ -17,3 +17,11 @@
   oldAge: 70
   maxAge: 100
   # WL-Changes-end
+  sexes:
+  - Unsexed
+  defaultSoundsBySex:
+  - UnisexArachnid
+  - UnisexArachnid
+  - UnisexArachnid
+  voices:
+  - UnisexArachnid

@@ -2,13 +2,18 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._WL.Skills; // WL-Skills
+using Content.Shared._WL.Records; // WL-Changes-Records
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
+using Content.Shared._WL.Barks; // WL-Changes
+using Content.Shared.Chat.Prototypes;
+using Content.Shared.EntityEffects.Effects;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
+using Content.Shared.Speech.Components;
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
@@ -34,12 +39,14 @@ namespace Content.Shared.Preferences
     public sealed partial class HumanoidCharacterProfile
     {
         public static readonly ProtoId<SpeciesPrototype> DefaultSpecies = "Human";
-        private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' \"-]"); // Corvax-Localization + WL-Changes
+        public static readonly ProtoId<EmoteSoundsPrototype> DefaultVoice = "MaleHuman";
+        private static readonly ProtoId<ConfederationRecordsPrototype> DefaultConfederation = "NoConfederation";
+        //private static readonly Regex RestrictedNameRegex = new("[^А-Яа-яёЁ0-9' -]"); // Corvax-Localization + WL-Changes. Also - we dont't need it
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         //WL-Changes-start
         public const int MaxDescLength = 512 * 2; // WL-CharacterInfo: Increase
-        public const int MaxRecordLength = 4096; // WL-Records
+        public const int MaxRecordLength = 32768; // WL-Changes-Records: structured record storage
 
         [DataField]
         private Dictionary<string, string> _jobSubnames = new();
@@ -94,13 +101,30 @@ namespace Content.Shared.Preferences
         public ProtoId<SpeciesPrototype> Species { get; set; } = DefaultSpecies;
 
         [DataField] //Corvax-TTS
-        public string Voice { get; set; } = HumanoidProfileSystem.DefaultVoice;
+        public string TTSVoice { get; set; } = HumanoidProfileSystem.DefaultVoice;
+
+        // WL-Changes-Start: Speech barks
+        [DataField]
+        public ProtoId<BarkPrototype> BarkVoice { get; set; } = "Human1";
+
+        [DataField]
+        public float BarkPitch { get; set; } = SpeechBarksComponent.DefaultPitch;
+
+        [DataField]
+        public float BarkMinDelay { get; set; } = SpeechBarksComponent.DefaultMinDelay;
+
+        [DataField]
+        public float BarkMaxDelay { get; set; } = SpeechBarksComponent.DefaultMaxDelay;
+        // WL-Changes-End
 
         [DataField]
         public int Age { get; set; } = 18;
 
         [DataField]
         public Sex Sex { get; private set; } = Sex.Male;
+
+        [DataField]
+        public ProtoId<EmoteSoundsPrototype> Voice { get; set; } = DefaultVoice;
 
         [DataField]
         public Gender Gender { get; private set; } = Gender.Male;
@@ -144,10 +168,11 @@ namespace Content.Shared.Preferences
             string flavortext,
             string ooctext, // WL-OOCText
             string species,
-            string voice, // Corvax-TTS
+            string TTS_voice, // Corvax-TTS
             int age,
             int height,
             Sex sex,
+            ProtoId<EmoteSoundsPrototype> voice,
             Gender gender,
             HumanoidCharacterAppearance appearance,
             SpawnPriorityPreference spawnPriority,
@@ -180,10 +205,11 @@ namespace Content.Shared.Preferences
             FlavorText = flavortext;
             OocText = ooctext; // WL-OOCText
             Species = species;
-            Voice = voice; // Corvax-TTS
+            TTSVoice = TTS_voice; // Corvax-TTS
             Age = age;
             Height = height; // WL-Heigh
             Sex = sex;
+            Voice = voice;
             Gender = gender;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
@@ -229,10 +255,11 @@ namespace Content.Shared.Preferences
                 other.FlavorText,
                 other.OocText, // WL-OOC
                 other.Species,
-                other.Voice,
+                other.TTSVoice,
                 other.Age,
                 other.Height, // WL-Heigh
                 other.Sex,
+                other.Voice,
                 other.Gender,
                 other.Appearance.Clone(),
                 other.SpawnPriority,
@@ -253,6 +280,12 @@ namespace Content.Shared.Preferences
                 other.Country, // WL-Records
                 other.Skills) // WL-Skills
         {
+            // WL-Changes-Start: Speech barks
+            BarkVoice = other.BarkVoice;
+            BarkPitch = other.BarkPitch;
+            BarkMinDelay = other.BarkMinDelay;
+            BarkMaxDelay = other.BarkMaxDelay;
+            // WL-Changes-End
         }
 
         /// <summary>
@@ -283,45 +316,114 @@ namespace Content.Shared.Preferences
             };
         }
 
-        // TODO: This should eventually not be a visual change only.
-        public static HumanoidCharacterProfile Random(HashSet<string>? ignoredSpecies = null)
+        /// <summary>
+        /// An enum defining randomizable values in character editor.
+        /// </summary>
+        [Flags]
+        public enum RandomizeCfg
         {
-            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-            var random = IoCManager.Resolve<IRobustRandom>();
-
-            var species = random.Pick(prototypeManager
-                .EnumeratePrototypes<SpeciesPrototype>()
-                .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
-                .ToArray()
-            ).ID;
-
-            return RandomWithSpecies(species);
+            // profile
+            None = 0,
+            Name = 1 << 0,
+            Species = 1 << 1,
+            Age = 1 << 2,
+            Sex = 1 << 3,
+            Gender = 1 << 4,
+            // appearance
+            Eyes = 1 << 5,
+            Skin = 1 << 6,
+            Markings = 1 << 7,
         }
 
-        public static HumanoidCharacterProfile RandomWithSpecies(string? species = null)
-        {
-            species ??= HumanoidCharacterProfile.DefaultSpecies;
+        /// <summary>
+        /// A randomize config that covers all possible values (including appearance).
+        /// </summary>
+        public const RandomizeCfg RandomizeConfigAll =
+            RandomizeCfg.Name
+            | RandomizeCfg.Species
+            | RandomizeCfg.Age
+            | RandomizeCfg.Sex
+            | RandomizeCfg.Gender
+            | RandomizeCfg.Eyes
+            | RandomizeCfg.Skin
+            | RandomizeCfg.Markings;
 
+        /// <summary>
+        /// Picks a random species from roundstart species.
+        /// <param name="ignoredSpecies">Species to exclude from randomizer.</param>
+        /// </summary>
+        public static SpeciesPrototype RandomSpecies(HashSet<string>? ignoredSpecies = null)
+        {
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
 
-            var sex = Sex.Unsexed;
-            var age = 18;
-            var height = 165; // WL-Height
-            if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
-            {
-                sex = random.Pick(speciesPrototype.Sexes);
-                age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
-                height = random.Next(speciesPrototype.MinHeight, speciesPrototype.MaxHeight); // WL-Height
-            }
+            var pool = prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
+                .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
+                .ToArray();
+            var species = random.Pick(pool);
+            return species;
+        }
 
-            // Corvax-TTS-Start
+        // WL-Changes: Height start
+        public static int RandomHeight(SpeciesPrototype species)
+        {
+            var random = IoCManager.Resolve<IRobustRandom>();
+
+            var height = random.Next(species.MinHeight, species.MaxHeight);
+            return height;
+        }
+        // WL-Changes: Height end
+
+        /// <summary>
+        /// Picks a random name using species and gender.
+        /// </summary>
+        public static string RandomName(SpeciesPrototype species, Gender gender)
+        {
+            var name = GetName(species.ID, gender);
+            return name;
+        }
+
+        /// <summary>
+        /// Picks a random age using species.
+        /// </summary>
+        public static int RandomAge(SpeciesPrototype species)
+        {
+            var random = IoCManager.Resolve<IRobustRandom>();
+
+            var age = random.Next(species.MinAge, species.OldAge);
+            return age;
+        }
+
+        /// <summary>
+        /// Picks a random sex using species.
+        /// </summary>
+        public static Sex RandomSex(SpeciesPrototype species)
+        {
+            var random = IoCManager.Resolve<IRobustRandom>();
+
+            var sex = random.Pick(species.Sexes);
+            return sex;
+        }
+
+        // Corvax-TTS-Start
+        public static String RandomTTS(Sex sex)
+        {
+            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+            var random = IoCManager.Resolve<IRobustRandom>();
+
             var voiceId = random.Pick(prototypeManager
                 .EnumeratePrototypes<TTSVoicePrototype>()
                 .Where(o => CanHaveVoice(o, sex)).ToArray()
             ).ID;
-            // Corvax-TTS-End
+            return voiceId;
+        }
+        // Corvax-TTS-End
 
+        /// <summary>
+        /// Picks a random gender using species sex;
+        /// </summary>
+        public static Gender RandomGender(Sex sex)
+        {
             var gender = Gender.Epicene;
 
             switch (sex)
@@ -333,19 +435,76 @@ namespace Content.Shared.Preferences
                     gender = Gender.Female;
                     break;
             }
+            return gender;
+        }
 
-            var name = GetName(species, gender);
-
-            return new HumanoidCharacterProfile()
+        /// <summary>
+        /// Generates a randomized character profile.
+        /// </summary>
+        /// <returns>A new character profile with values randomized</returns>
+        public static HumanoidCharacterProfile Random(HashSet<string>? ignoredSpecies = null)
+        {
+            var config = RandomizeConfigAll;
+            var baseProfile = new HumanoidCharacterProfile();
+            if (ignoredSpecies != null)
             {
-                Name = name,
-                Sex = sex,
-                Age = age,
-                Gender = gender,
-                Species = species,
-                Voice = voiceId, // Corvax-TTS
-                Appearance = HumanoidCharacterAppearance.Random(species, sex),
-            };
+                baseProfile.Species = RandomSpecies(ignoredSpecies);
+            }
+            var profile = Random(config, baseProfile);
+            return profile;
+        }
+
+        /// <summary>
+        /// Generates a randomized character profile with selective randomizing.
+        /// </summary>
+        /// <param name="randomizeCfg">Which values to randomize.</param>
+        /// <param name="baseProfile">Profile to base the new profile on. Values that are not randomized will be taken from this profile.</param>
+        /// <returns>A new character profile with selected values randomized</returns>
+        public static HumanoidCharacterProfile Random(RandomizeCfg randomizeCfg, HumanoidCharacterProfile baseProfile)
+        {
+            var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+
+            var profile = new HumanoidCharacterProfile();
+            if ((randomizeCfg & RandomizeCfg.Species) != 0)
+            {
+                profile.Species = RandomSpecies();
+            }
+            else
+            {
+                profile.Species = DefaultSpecies;
+                if (prototypeManager.HasIndex(baseProfile.Species))
+                {
+                    profile.Species = baseProfile.Species;
+                }
+            }
+            var speciesProto = prototypeManager.Index(profile.Species);
+
+            profile.Sex = (randomizeCfg & RandomizeCfg.Sex) != 0 ? RandomSex(speciesProto) : baseProfile.Sex;
+            profile.Voice = speciesProto.DefaultSoundsBySex[(int)profile.Sex];
+            profile.Gender = (randomizeCfg & RandomizeCfg.Gender) != 0 ? RandomGender(profile.Sex) : baseProfile.Gender;
+            profile.Name = (randomizeCfg & RandomizeCfg.Name) != 0 ? RandomName(speciesProto, profile.Gender) : baseProfile.Name;
+            profile.Age = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomAge(speciesProto) : baseProfile.Age;
+            profile.TTSVoice = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomTTS(profile.Sex) : baseProfile.TTSVoice; // Corvax-TTS
+            profile.Height = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomHeight(speciesProto) : baseProfile.Height; //WL-Changes: Height
+
+            profile.Appearance = HumanoidCharacterAppearance.Random(speciesProto, profile.Sex, randomizeCfg, baseProfile.Appearance);
+
+            return profile;
+        }
+
+        /// <summary>
+        /// Generates a randomized character profile.
+        /// </summary>
+        /// <param name="species">Species to constrain randomizer to.</param>
+        /// <returns>A new character profile</returns>
+        public static HumanoidCharacterProfile RandomWithSpecies(string? species = null)
+        {
+            species ??= DefaultSpecies;
+
+            return Random(
+                RandomizeConfigAll ^ RandomizeCfg.Species,
+                new HumanoidCharacterProfile().WithSpecies(species)
+            );
         }
 
         //WL-Changes-start
@@ -442,6 +601,11 @@ namespace Content.Shared.Preferences
             return new(this) { Sex = sex };
         }
 
+        public HumanoidCharacterProfile WithVoice(ProtoId<EmoteSoundsPrototype> voice)
+        {
+            return new(this) { Voice = voice };
+        }
+
         public HumanoidCharacterProfile WithGender(Gender gender)
         {
             return new(this) { Gender = gender };
@@ -455,9 +619,31 @@ namespace Content.Shared.Preferences
         // Corvax-TTS-Start
         public HumanoidCharacterProfile WithVoice(string voice)
         {
-            return new(this) { Voice = voice };
+            return new(this) { TTSVoice = voice };
         }
         // Corvax-TTS-End
+
+        // WL-Changes-Start: Speech barks
+        public HumanoidCharacterProfile WithBarkVoice(ProtoId<BarkPrototype> voice)
+        {
+            return new(this) { BarkVoice = voice };
+        }
+
+        public HumanoidCharacterProfile WithBarkPitch(float pitch)
+        {
+            return new(this) { BarkPitch = pitch };
+        }
+
+        public HumanoidCharacterProfile WithBarkMinDelay(float delay)
+        {
+            return new(this) { BarkMinDelay = delay };
+        }
+
+        public HumanoidCharacterProfile WithBarkMaxDelay(float delay)
+        {
+            return new(this) { BarkMaxDelay = delay };
+        }
+        // WL-Changes-End
 
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
@@ -534,6 +720,31 @@ namespace Content.Shared.Preferences
             return new(this) { Skills = newSkills };
         }
         //WL-Changes-end
+
+        /// <summary>
+        /// Return a HumanoidCharacterProfile with only the job priorities listed in the NewCharacterJobs cvar
+        /// </summary>
+        public HumanoidCharacterProfile WithJobFromCvar(IConfigurationManager cfg)
+        {
+            // This path should run only rarely, so the cvar does not need to be locally stored
+            var jobs = new HashSet<string>(cfg.GetCVar(CCVars.NewCharacterJobs).Split(","));
+            var priority = JobPriority.High;
+            Dictionary<ProtoId<JobPrototype>, JobPriority> priorities = new();
+
+            foreach (var job in jobs)
+            {
+                // Remove whitespaces in case the input contained any
+                priorities.Add(job.Trim(), priority);
+
+                // There can be only one High priority
+                priority = JobPriority.Medium;
+            }
+
+            return new(this)
+            {
+                _jobPriorities = priorities,
+            };
+        }
 
         public HumanoidCharacterProfile WithJobPriority(ProtoId<JobPrototype> jobId, JobPriority priority)
         {
@@ -666,10 +877,11 @@ namespace Content.Shared.Preferences
         {
             if (Name != other.Name) return false;
             if (Age != other.Age) return false;
-            if (Height != other.Height) return false; // WL-Height
-            if (OocText != other.OocText) return false; // WL-OocText
             if (Sex != other.Sex) return false;
+
             // WL-Changes-start
+            if (Height != other.Height) return false;
+            if (OocText != other.OocText) return false;
             if (FlavorText != other.FlavorText) return false;
             if (MedicalRecord != other.MedicalRecord) return false;
             if (SecurityRecord != other.SecurityRecord) return false;
@@ -678,19 +890,8 @@ namespace Content.Shared.Preferences
             if (DateOfBirth != other.DateOfBirth) return false;
             if (Confederation != other.Confederation) return false;
             if (Country != other.Country) return false;
-            // WL-Changes-end
-            if (Gender != other.Gender) return false;
-            if (Species != other.Species) return false;
-            if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
-            if (SpawnPriority != other.SpawnPriority) return false;
-            if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
-            if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
-            if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
-            if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
-            if (!_jobSubnames.SequenceEqual(other._jobSubnames)) return false; // WL-JobSubnames
-            if (!_jobUnblockings.SequenceEqual(other._jobUnblockings)) return false; // WL-Changes
-            if (FlavorText != other.FlavorText) return false;
-            // WL-Skills-start
+            if (!_jobSubnames.SequenceEqual(other._jobSubnames)) return false;
+            if (!_jobUnblockings.SequenceEqual(other._jobUnblockings)) return false;
             if (Skills.Count != other.Skills.Count) return false;
             foreach (var kv in Skills)
             {
@@ -707,7 +908,25 @@ namespace Content.Shared.Preferences
                         return false;
                 }
             }
-            // WL-Skills-end
+            // WL-Changes-end
+
+            if (Voice != other.Voice) return false;
+            if (Gender != other.Gender) return false;
+            if (Species != other.Species) return false;
+            if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
+            if (SpawnPriority != other.SpawnPriority) return false;
+            if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
+            if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
+            if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
+            if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
+            if (FlavorText != other.FlavorText) return false;
+            if (TTSVoice != other.TTSVoice) return false; // Corvax-TTS
+            // WL-Changes-Start: Speech barks
+            if (BarkVoice != other.BarkVoice) return false;
+            if (BarkPitch != other.BarkPitch) return false;
+            if (BarkMinDelay != other.BarkMinDelay) return false;
+            if (BarkMaxDelay != other.BarkMaxDelay) return false;
+            // WL-Changes-End
             return Appearance.Equals(other.Appearance);
         }
 
@@ -737,6 +956,10 @@ namespace Content.Shared.Preferences
                 Sex.Unsexed => Sex.Unsexed,
                 _ => Sex.Male // Invalid enum values.
             };
+
+            var voice = Voice;
+            if (!speciesPrototype.Voices.Contains(voice))
+                voice = speciesPrototype.DefaultSoundsBySex[(int)sex];
 
             // ensure the species can be that sex and their age fits the founds
             var height = Math.Clamp(Height, speciesPrototype.MinHeight, speciesPrototype.MaxHeight); // WL-Height
@@ -772,10 +995,12 @@ namespace Content.Shared.Preferences
 
             name = name.Trim();
 
-            if (configManager.GetCVar(CCVars.RestrictedNames))
-            {
-                name = RestrictedNameRegex.Replace(name, string.Empty);
-            }
+            // WL-Changes-Start
+            // if (configManager.GetCVar(CCVars.RestrictedNames))
+            // {
+            //     //name = RestrictedNameRegex.Replace(name, string.Empty);
+            // }
+            // WL-Changes-End
 
             if (configManager.GetCVar(CCVars.ICNameCase))
             {
@@ -802,21 +1027,20 @@ namespace Content.Shared.Preferences
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
             var oocText = OocText.Length > MaxDescLength ? FormattedMessage.RemoveMarkup(OocText)[..MaxDescLength] : FormattedMessage.RemoveMarkup(OocText); // WL-OOCText
 
-            // WL-Records-Start
-            var medicalRecord = MedicalRecord.Length > MaxRecordLength
-                ? FormattedMessage.RemoveMarkupOrThrow(MedicalRecord)[..MaxRecordLength]
-                : FormattedMessage.RemoveMarkupOrThrow(MedicalRecord);
-            var securityRecord = SecurityRecord.Length > MaxRecordLength
-                ? FormattedMessage.RemoveMarkupOrThrow(SecurityRecord)[..MaxRecordLength]
-                : FormattedMessage.RemoveMarkupOrThrow(SecurityRecord);
-            var employmentRecord = EmploymentRecord.Length > MaxRecordLength
-                ? FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord)[..MaxRecordLength]
-                : FormattedMessage.RemoveMarkupOrThrow(EmploymentRecord);
-            var fullName = FullName;
-            var dateOfBirth = DateOfBirth;
-            var confederation = Confederation;
-            var country = Country;
-            // WL-Records-End
+            // WL-Changes-Records-Start
+            // Structured storage sanitizes each user-facing field separately and migrates legacy text to notes.
+            var medicalRecord = StructuredCharacterRecords.NormalizeMedical(MedicalRecord);
+            var securityRecord = StructuredCharacterRecords.NormalizeSecurity(SecurityRecord);
+            var employmentRecord = StructuredCharacterRecords.NormalizeEmployment(EmploymentRecord);
+            var fullName = StructuredCharacterRecords.NormalizeShortText(FullName);
+            var dateOfBirth = StructuredCharacterRecords.NormalizeShortText(DateOfBirth);
+            var confederation = StructuredCharacterRecords.NormalizeShortText(Confederation);
+            var country = StructuredCharacterRecords.NormalizeShortText(Country);
+            if (!prototypeManager.HasIndex<ConfederationRecordsPrototype>(confederation))
+                confederation = prototypeManager.HasIndex(DefaultConfederation)
+                    ? DefaultConfederation.Id
+                    : string.Empty;
+            // WL-Changes-Records-End
 
             var prefsUnavailableMode = PreferenceUnavailable switch
             {
@@ -916,6 +1140,7 @@ namespace Content.Shared.Preferences
             Age = age;
             Height = height; // WL-Height
             Sex = sex;
+            Voice = voice;
             Gender = gender;
             Appearance = appearance;
             SpawnPriority = spawnPriority;
@@ -937,10 +1162,18 @@ namespace Content.Shared.Preferences
             _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager));
 
             // Corvax-TTS-Start
-            prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
-            if (voice is null || !CanHaveVoice(voice, Sex))
-                Voice = HumanoidProfileSystem.DefaultSexVoice[sex];
+            prototypeManager.TryIndex<TTSVoicePrototype>(TTSVoice, out var TTS_voice);
+            if (TTS_voice is null || !CanHaveVoice(TTS_voice, Sex))
+                TTSVoice = HumanoidProfileSystem.DefaultSexVoice[sex];
             // Corvax-TTS-End
+
+            // WL-Changes-Start: Speech barks
+            if (!prototypeManager.HasIndex<BarkPrototype>(BarkVoice))
+                BarkVoice = "Human1";
+            BarkPitch = SpeechBarksComponent.SanitizePitch(BarkPitch);
+            (BarkMinDelay, BarkMaxDelay) =
+                SpeechBarksComponent.SanitizeDelays(BarkMinDelay, BarkMaxDelay);
+            // WL-Changes-End
 
             // Checks prototypes exist for all loadouts and dump / set to default if not.
             var toRemove = new ValueList<string>();
@@ -1051,6 +1284,14 @@ namespace Content.Shared.Preferences
             hashCode.Add(Species);
             hashCode.Add(Age);
             hashCode.Add((int)Sex);
+            hashCode.Add(Voice);
+            hashCode.Add(TTSVoice); // Corvax-TTS
+            // WL-Changes-Start: Speech barks
+            hashCode.Add(BarkVoice);
+            hashCode.Add(BarkPitch);
+            hashCode.Add(BarkMinDelay);
+            hashCode.Add(BarkMaxDelay);
+            // WL-Changes-End
             hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
             hashCode.Add((int)SpawnPriority);

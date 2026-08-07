@@ -1,0 +1,43 @@
+# SPDX-FileCopyrightText: 2024 Aidenkrz <aiden@djkraz.com>
+# SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+- type: entity
+  parent: BaseAction
+  id: ActionTajaranHairball
+  name: Cough up a hairball
+  description: Cough up a clump of fur containing some chemicals from your bloodstream.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _WL/Objects/Specific/Species/tajaran_hairball.rsi
+      state: icon
+    useDelay: 30
+  - type: InstantAction
+    event: !type:HairballActionEvent
+
+- type: entity
+  parent: BaseItem
+  id: TajaranHairball
+  name: hairball
+  description: A wet clump of Tajaran fur. Disgusting.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Specific/Species/tajaran_hairball.rsi
+    state: icon
+  - type: Hairball
+  - type: SolutionContainerManager
+    solutions:
+      hairball:
+        maxVol: 25
+        reagents:
+        - ReagentId: Protein
+          Quantity: 2
+  - type: Extractable
+    grindableSolutionName: hairball
+  - type: Tag
+    tags:
+    - Recyclable
+    - Trash

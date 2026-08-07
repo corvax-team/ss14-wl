@@ -10,6 +10,10 @@
     ClothingUniformJumpskirtScienceStudent: 2
     ClothingUniformJumpsuitScienceHazard: 2
     ClothingUniformJumpsuitScientistFormal: 3
+    ClothingUniformJumpsuitChemistScientist: 3 #WL-Changes: Эмо обновление 2
+    ClothingUniformJumpsuitClassicScientist: 3 #WL-Changes: Эмо обновление 2
+    ClothingUniformJumpskirtChemistScientist: 3 #WL-Changes: Эмо обновление 2
+    ClothingUniformJumpskirtClassicScientist: 3 #WL-Changes: Эмо обновление 2
     ClothingOuterCoatRnd: 3
     ClothingShoesColorWhite: 3
     ClothingNeckTieSci: 3

@@ -1,0 +1,138 @@
+- type: entity
+  parent: BaseItem
+  id: Wallet
+  name: wallet
+  description: A small leather wallet. It has a slot for an id-card.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/leather.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+    - state: blank
+      map: [ "enum.WalletVisualLayers.IdBase" ]
+      visible: false
+    - state: blank
+      map: [ "enum.WalletVisualLayers.IdIcon" ]
+      visible: false
+    - state: overlay
+      map: [ "enum.WalletVisualLayers.Frame" ]
+      visible: false
+  - type: Appearance
+  - type: Wallet
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - idcard
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Small
+    whitelist:
+      tags:
+      - Paper
+      - Pen
+      components:
+      - Passport
+      - IgnitionSource # For lighters
+      - Cash
+      - Injector # Hypospray and medipens
+      - NukeDisk
+    blacklist:
+      tags:
+      - CigPack
+      components:
+      - Storage
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ItemSlots
+    slots:
+      idSlot:
+        whitelist:
+          components:
+          - IdCard
+  - type: ContainerContainer
+    containers:
+      idSlot: !type:ContainerSlot
+        showEnts: true
+      storagebase: !type:Container
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  parent: Wallet
+  id: WalletWhite
+  name: white wallet
+  description: A small leather wallet. It has a slot for an id-card.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/white.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletBlack
+  name: black wallet
+  description: A small leather wallet. It has a slot for an id-card.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/black.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletTanned
+  name: tanned wallet
+  description: A small leather wallet. It has a slot for an id-card.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/tanned.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletPink
+  name: wallet
+  description: A small leather wallet. It has a slot for an id-card. Looks pretty glamourous.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/pink.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletNanotrasen
+  name: blue wallet
+  description: A small leather wallet. It has a slot for an id-card. Looks like a corporate merch.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/nt.rsi
+
+- type: entity
+  parent: Wallet
+  id: WalletSyndicate
+  name: blood-red wallet
+  description: A small leather wallet. It has a slot for an id-card. Looks ominous.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Wallets/syndie.rsi
+  - type: Wallet
+    copyAccesses: true
+  - type: Storage
+    grid:
+    - 0,0,4,1
+    whitelist:
+      tags:
+      - Paper
+      - HighRiskItem
+      - Pen
+      components:
+      - Passport
+      - IdCard # Hiding cards from others, kinda cool
+      - IgnitionSource
+      - Cash
+      - Injector
+    blacklist:
+      tags:
+      - CigPack

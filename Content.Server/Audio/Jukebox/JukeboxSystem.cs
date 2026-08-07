@@ -15,7 +15,6 @@ namespace Content.Server.Audio.Jukebox;
 
 public sealed partial class JukeboxSystem : SharedJukeboxSystem
 {
-    [Dependency] private IPrototypeManager _protoManager = default!;
     [Dependency] private AppearanceSystem _appearanceSystem = default!;
 
     public override void Initialize()
@@ -54,7 +53,7 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
     private void StartPlaying(EntityUid uid, JukeboxComponent component)
     {
         if (string.IsNullOrEmpty(component.SelectedSongId) ||
-            !_protoManager.Resolve(component.SelectedSongId, out var jukeboxProto))
+            !ProtoMan.Resolve(component.SelectedSongId, out var jukeboxProto))
         {
             return;
         }
@@ -87,7 +86,7 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
         if (!args.IsInDetailsRange)
             return;
 
-        if (!_protoManager.TryIndex(component.SelectedSongId, out var proto) ||
+        if (!ProtoMan.TryIndex(component.SelectedSongId, out var proto) ||
             component.AudioStream == null ||
             !TryComp<AudioComponent>(component.AudioStream, out var audioComp) ||
             audioComp.State is AudioState.Paused)
@@ -253,7 +252,7 @@ public sealed partial class JukeboxSystem : SharedJukeboxSystem
         else
         {
             if (string.IsNullOrEmpty(ent.Comp.SelectedSongId) ||
-                !_protoManager.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
+                !ProtoMan.Resolve(ent.Comp.SelectedSongId, out var jukeboxProto))
             {
                 return false;
             }

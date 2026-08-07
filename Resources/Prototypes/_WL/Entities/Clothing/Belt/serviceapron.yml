@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltStorageWaitressApron
+  name: waitress apron
+  description: Oh look, its got a pocket!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Belt/apron.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Belt/apron.rsi
+  - type: Storage
+    grid:
+    - 0,0,5,1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.95

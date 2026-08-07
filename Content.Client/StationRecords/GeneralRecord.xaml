@@ -1,23 +1,16 @@
-<Control xmlns="https://spacestation14.io">
+<!-- WL-Changes-Records: shared employment record card. -->
+<Control xmlns="https://spacestation14.io"
+         xmlns:records="clr-namespace:Content.Client._WL.Records">
     <BoxContainer Orientation="Vertical" Margin="5">
-        <!-- WL-Records-Edit-Start -->
+        <!-- WL-Changes-Records-Start -->
         <!-- <Label Name="RecordName" StyleClasses="LabelBig"/>
         <Label Name="Age"/>
         <Label Name="Title"/>
         <Label Name="Job"/>
         <Label Name="Species"/>
         <Label Name="Gender"/> -->
-        <Label Text="{Loc 'general-station-record-employment-record'}"/>
-        <ScrollContainer VerticalExpand="True" MinHeight="300" HScrollEnabled="False">
-            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
-                <RichTextLabel Name="Record"
-                               Margin="5"
-                               HorizontalExpand="True"/>
-            </BoxContainer>
-        </ScrollContainer>
-        <!-- WL-Records-Edit-End -->
-        <Label Name="Fingerprint"/>
-        <Label Name="Dna"/>
+        <records:RecordCardView Name="RecordView"/>
+        <!-- WL-Changes-Records-End -->
         <Button Visible="False" Name="DeleteButton" Text="{Loc 'general-station-record-console-delete'}"/>
     </BoxContainer>
 </Control>

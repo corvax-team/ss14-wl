@@ -62,6 +62,7 @@
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
+    pocket1: CardCapsSpare # WL-code-safe
   storage:
     back:
     - Flash

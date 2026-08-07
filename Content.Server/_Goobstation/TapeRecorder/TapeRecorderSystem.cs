@@ -8,6 +8,7 @@ using Content.Shared._Goobstation.TapeRecorder.Components;
 using Content.Shared._Goobstation.TapeRecorder.Systems;
 using Content.Shared._WL.Languages.Components;
 using Content.Shared.Chat;
+using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Paper;
 using Content.Shared.Speech;
@@ -55,6 +56,26 @@ public sealed partial class TapeRecorderSystem : SharedTapeRecorderSystem
             if (TryComp<TTSComponent>(ent, out var tts))
                 tts.VoicePrototypeId = message.TTS;
 
+            // WL-Changes-Start: Speech barks
+            if (!string.IsNullOrEmpty(message.BarkVoice) &&
+                _proto.HasIndex<BarkPrototype>(message.BarkVoice))
+            {
+                EnsureComp<SpeechBarksComponent>(ent);
+                voice.BarkVoiceOverride = message.BarkVoice;
+                voice.BarkPitchOverride = message.BarkPitch;
+                voice.BarkMinDelayOverride = message.BarkMinDelay;
+                voice.BarkMaxDelayOverride = message.BarkMaxDelay;
+            }
+            else
+            {
+                RemComp<SpeechBarksComponent>(ent);
+                voice.BarkVoiceOverride = null;
+                voice.BarkPitchOverride = null;
+                voice.BarkMinDelayOverride = null;
+                voice.BarkMaxDelayOverride = null;
+            }
+            // WL-Changes-End
+
             if (TryComp<LanguagesComponent>(ent, out var languageComp))
             {
                 // I already know that's a bad way to do it
@@ -98,15 +119,44 @@ public sealed partial class TapeRecorderSystem : SharedTapeRecorderSystem
         // WL-Changes-Start
         var language = "Translate";
         var tts = string.Empty;
+        var barkVoice = string.Empty;
+        var barkPitch = SpeechBarksComponent.DefaultPitch;
+        var barkMinDelay = SpeechBarksComponent.DefaultMinDelay;
+        var barkMaxDelay = SpeechBarksComponent.DefaultMaxDelay;
 
         if (TryComp<LanguagesComponent>(args.Source, out var languagesSpeaker) && languagesSpeaker.CurrentLanguage.HasValue)
             language = languagesSpeaker.CurrentLanguage;
 
         if (TryComp<TTSComponent>(args.Source, out var ttsComp))
             tts = ttsComp.VoicePrototypeId ?? "";
-        // WL-Changes-end
 
-        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(cassette.Comp.CurrentPosition, name, verb, args.Message, language, tts)); // WL-Changes: added Language and TTS support
+        if (TryComp<SpeechBarksComponent>(args.Source, out var barkComp))
+        {
+            var barkTransform = new TransformSpeakerBarkEvent(
+                args.Source,
+                barkComp.Voice,
+                barkComp.Pitch,
+                barkComp.MinDelay,
+                barkComp.MaxDelay);
+            RaiseLocalEvent(args.Source, barkTransform);
+            barkVoice = barkTransform.Voice;
+            barkPitch = barkTransform.Pitch;
+            barkMinDelay = barkTransform.MinDelay;
+            barkMaxDelay = barkTransform.MaxDelay;
+        }
+        // WL-Changes: added language, TTS and speech bark support
+        cassette.Comp.Buffer.Add(new TapeCassetteRecordedMessage(
+            cassette.Comp.CurrentPosition,
+            name,
+            verb,
+            args.Message,
+            language,
+            tts,
+            barkVoice,
+            barkPitch,
+            barkMinDelay,
+            barkMaxDelay));
+        // WL-Changes-end
     }
 
     private void OnPrintMessage(Entity<TapeRecorderComponent> ent, ref PrintTapeRecorderMessage args)

@@ -1,7 +1,9 @@
 using Content.Server._WL.CharacterInformation;
+using Content.Server.Popups;
 using Content.Shared._WL.CCVars;
 using Content.Shared._WL.DynamicText;
 using Content.Shared.Examine;
+using Content.Shared.Popups;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -12,6 +14,7 @@ public sealed partial class DynamicTextSystem : EntitySystem
 {
     [Dependency] private IEntityManager _ent = default!;
     [Dependency] private IConfigurationManager _cfm = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -35,7 +38,17 @@ public sealed partial class DynamicTextSystem : EntitySystem
 
         var maxDynamicTextLength = _cfm.GetCVar(WLCVars.MaxDynamicTextLength);
 
-        comp.DynamicText = ev.DynamicText.Length > maxDynamicTextLength ? FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText)[..maxDynamicTextLength] : FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText);
+        var newText = ev.DynamicText.Length > maxDynamicTextLength
+            ? FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText)[..maxDynamicTextLength]
+            : FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText);
+
+        if (newText == comp.DynamicText)
+            return;
+
+        comp.DynamicText = newText;
+
+        var name = Name(ent.Value);
+        _popup.PopupEntity(Loc.GetString("dynamic-text-changed-popup", ("name", name)), ent.Value);
     }
 
     private void RequestDynamicText(RequestDynamicTextEvent ev, EntitySessionEventArgs args)

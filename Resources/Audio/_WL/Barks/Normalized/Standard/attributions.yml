@@ -1,0 +1,9 @@
+# Ogg Vorbis copies normalized to a common active RMS level for bark playback in ss14-wl.
+
+- files:
+  - speak_1.ogg
+  - speak_2.ogg
+  - speak_3.ogg
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Goonstation, modified by Whisper"
+  source: "https://github.com/goonstation/goonstation/tree/eb3e7df6292d23f6af2f18b4372d3a8ba4b0fda7/sound/misc/talk"

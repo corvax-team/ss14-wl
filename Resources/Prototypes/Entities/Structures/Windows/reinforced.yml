@@ -16,20 +16,11 @@
   - type: Injurable
     damageContainer: StructuralInorganic
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # WL-Changes: rpd port from FunkyStation
     delay: 6
     fx: EffectRCDDeconstruct6
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150 #excess damage (nuke?). avoid computational cost of spawning entities.
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WindowShatter
     - trigger:
         !type:DamageTrigger
         damage: 75
@@ -86,20 +77,11 @@
   - type: Damageable
     damageModifierSet: RGlass
   - type: RCDDeconstructable
-    cost: 4
+    cost: 40 # WL-Changes: rpd port from FunkyStation
     delay: 4
     fx: EffectRCDDeconstruct4
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WindowShatter
     - trigger:
         !type:DamageTrigger
         damage: 37

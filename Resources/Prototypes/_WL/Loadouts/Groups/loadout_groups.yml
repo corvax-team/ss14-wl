@@ -91,6 +91,14 @@
   - TiePurple
   - TiePink
   - TieRainbow
+  - FacescarfRed
+  - FacescarfGreen
+  - FacescarfGrey
+  - FacescarfOrange
+  - FacescarfPurple
+  - FacescarfBlack
+  - FacescarfWhite
+  - FacescarfBlue
 
 - type: loadoutGroup
   id: PhotoGroup

@@ -1,0 +1,38 @@
+- type: entity
+  id: EffectSpark
+  name: sparks
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: sparks
+  - type: AnimationPlayer
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 4
+    color: "#FAA019"
+    netsync: false
+  - type: LightFade
+    duration: 0.7
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu

@@ -238,7 +238,7 @@
         probability: 0.12
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Rat, Vox, Cischi ] # Cischi
+          type: [ Rat, Vox, Cischi, Biorobotic ] # Cischi and Androids
           inverted: true
         - !type:ReagentCondition
           reagent: Ammonia

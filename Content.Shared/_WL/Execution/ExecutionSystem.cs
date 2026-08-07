@@ -158,15 +158,8 @@ public sealed partial class ExecutionSystem : EntitySystem
         //string? internalMsg = null;
         //string? externalMsg = null;
 
-        if (TryComp(uid, out MeleeWeaponComponent? melee))
-        {
-            _meleeSystem.AttemptLightAttack(attacker, weapon, melee, victim);
-
-            //internalMsg = component.DefaultCompleteInternalMeleeExecutionMessage;
-            //externalMsg = component.DefaultCompleteExternalMeleeExecutionMessage;
-        }
         // TODO: Fcking shit code by GunSystem and HitscanPrototype
-        else if (TryComp(uid, out BatteryAmmoProviderComponent? hitscanBatteryAmmo) &&
+        if (TryComp(uid, out BatteryAmmoProviderComponent? hitscanBatteryAmmo) &&
                  hitscanBatteryAmmo.Shots != 0 &&
                  TryComp(uid, out GunComponent? laserGun))
         {
@@ -238,6 +231,13 @@ public sealed partial class ExecutionSystem : EntitySystem
             }
             args.Handled = true;
         }
+        else if (TryComp(uid, out MeleeWeaponComponent? melee))
+        {
+            _meleeSystem.AttemptLightAttack(attacker, weapon, melee, victim);
+
+            //internalMsg = component.DefaultCompleteInternalMeleeExecutionMessage;
+            //externalMsg = component.DefaultCompleteExternalMeleeExecutionMessage;
+        }
 
         _combatSystem.SetInCombatMode(attacker, prev);
         component.Executing = false;
@@ -257,7 +257,7 @@ public sealed partial class ExecutionSystem : EntitySystem
             var proto = _prototypeManager.Index(hitscanProto);
 
             // Trying get component HitscanBasicDamage from prototype
-            if (proto.TryGetComponent<HitscanBasicDamageComponent>(out var basicDamageComp, EntityManager.ComponentFactory))
+            if (proto.TryComp<HitscanBasicDamageComponent>(out var basicDamageComp, EntityManager.ComponentFactory))
             {
                 return basicDamageComp.Damage * _damageable.UniversalHitscanDamageModifier;
             }
@@ -313,7 +313,7 @@ public sealed partial class ExecutionSystem : EntitySystem
     {
         if (predict)
         {
-            _popupSystem.PopupClient(
+            _popupSystem.PopupEntity(
                 Loc.GetString(locString, ("attacker", attacker), ("victim", victim), ("weapon", weapon)),
                 attacker,
                 attacker,
@@ -337,7 +337,7 @@ public sealed partial class ExecutionSystem : EntitySystem
     {
         if (predict)
         {
-            _popupSystem.PopupClient(
+            _popupSystem.PopupEntity(
                Loc.GetString(locString, ("attacker", Identity.Entity(attacker, EntityManager)), ("victim", Identity.Entity(victim, EntityManager)), ("weapon", weapon)),
                attacker,
                attacker,

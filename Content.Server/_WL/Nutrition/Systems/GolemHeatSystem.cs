@@ -49,7 +49,7 @@ public sealed partial class GolemHeatSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<GolemHeatComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var uid, out _))
         {
             ChangeGolemHeat(uid, frameTime);
         }

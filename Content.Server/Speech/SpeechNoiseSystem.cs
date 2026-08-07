@@ -1,8 +1,8 @@
 using Content.Shared.Chat;
+using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Player; // WL-Changes
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -11,9 +11,8 @@ namespace Content.Server.Speech
     public sealed partial class SpeechSoundSystem : EntitySystem
     {
         [Dependency] private IGameTiming _gameTiming = default!;
-        [Dependency] private IPrototypeManager _protoManager = default!;
         [Dependency] private IRobustRandom _random = default!;
-        [Dependency] private SharedAudioSystem _audio = default!;
+        // WL-Changes: Speech sounds are sent to clients so barks can suppress them locally.
 
         public override void Initialize()
         {
@@ -29,7 +28,7 @@ namespace Content.Server.Speech
 
             // Play speech sound
             SoundSpecifier? contextSound;
-            var prototype = _protoManager.Index<SpeechSoundsPrototype>(ent.Comp.SpeechSounds);
+            var prototype = ProtoMan.Index<SpeechSoundsPrototype>(ent.Comp.SpeechSounds);
 
             // Different sounds for ask/exclaim based on last character
             contextSound = message[^1] switch
@@ -69,8 +68,15 @@ namespace Content.Server.Speech
                 return;
 
             var sound = GetSpeechSound((uid, component), args.Message);
+            // WL-Changes-Start: Client-side speech sound playback
+            if (sound == null)
+                return;
+
             component.LastTimeSoundPlayed = currentTime;
-            _audio.PlayPvs(sound, uid);
+            RaiseNetworkEvent(
+                new PlaySpeechSoundEvent(GetNetEntity(uid), sound),
+                Filter.Pvs(uid));
+            // WL-Changes-End
         }
     }
 }

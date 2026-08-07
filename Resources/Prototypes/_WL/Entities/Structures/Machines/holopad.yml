@@ -4,4 +4,4 @@
   suffix: Adjutant
   components:
   - type: Label
-    currentLabel: holopad-command-adjutant
+    localizedLabel: holopad-command-adjutant

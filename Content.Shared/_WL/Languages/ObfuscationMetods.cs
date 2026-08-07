@@ -17,9 +17,8 @@ public abstract partial class ObfuscationMethod
 
     internal int PseudoRandom(int seed, int global_seed, int start, int end)
     {
-        int result = 0;
         int gap = end - start + 1;
-        result = seed ^ (global_seed * 127) + 1;
+        var result = seed ^ (global_seed * 127) + 1;
         result = Math.Abs((result + 619251) * 27644437);
         result %= gap;
         result += start;
@@ -168,10 +167,16 @@ public sealed partial class ByCharReplacementObfuscation : ObfuscationMethod
     public bool Randlength = true;
 
     [DataField]
-    public int Minlength = 3;
+    public int Minlength = 1;
 
     [DataField]
     public int Maxlength = 10;
+
+    [DataField]
+    public float Prob = 1f;
+
+    [DataField]
+    public int Accuracy = 1000;
 
     [DataField]
     public List<char> Punctuation = new List<char>() { '.', ',', ';', ':', '!', '?' };
@@ -214,7 +219,9 @@ public sealed partial class ByCharReplacementObfuscation : ObfuscationMethod
             }
             else
             {
-                buffer += buffer * 41 + ch;
+                if (PseudoRandom(buffer, global_seed, 0, Accuracy) < Prob * Accuracy)
+                    buffer += buffer * 41 + ch;
+
                 counter++;
             }
         }

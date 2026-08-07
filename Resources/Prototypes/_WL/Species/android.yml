@@ -8,3 +8,10 @@
   minHeight: 120
   maxHeight: 250
   maxAge: 200
+  voices:
+  - MaleAndroid
+  - FemaleAndroid
+  defaultSoundsBySex:
+  - MaleAndroid
+  - FemaleAndroid
+  - MaleAndroid

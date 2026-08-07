@@ -59,9 +59,11 @@
   name: trait-muted-name
   description: trait-muted-desc
   category: Disabilities
-  blacklist:
-    components:
-      - BorgChassis
+  # WL-Changes-start
+  # blacklist:
+    # components:
+      # - BorgChassis
+  # WL-Changes-end
   components:
     - type: Muted
 

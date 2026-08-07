@@ -50,12 +50,6 @@
   - type: Injurable
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -101,6 +95,8 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: Paper
+    sound: # WL-Changes
+      collection: PaperWriting
   - type: PaperLabelType
   - type: ActivatableUI
     key: enum.PaperUiKey.Key
@@ -502,3 +498,6 @@
         acts: [ "Destruction" ]
   - type: Injurable
   - type: StationAiWhitelist
+  - type: Construction # WL-Crafts
+    graph: Envelope
+    node: Envelope

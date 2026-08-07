@@ -29,3 +29,9 @@ ent-ClothingHeadHatAdjutantCap = кепка адъютанта
 
 ent-ClothingHeadHatBeretBlueShield = берет офицера "Синий Щит"
     .desc = Так гораздо лучше, не правда ли?
+
+ent-ClothingHeadHatFedoraDetectiveWhite = белая федора
+    .desc = Для особых событий или ради моды.
+
+ent-ClothingHeadHatBeretSeniorSecurity = берет старшей охраны
+    .desc = Берет с эмблемой старшего сержантского состава. Для сотрудников СБ, которые предпочитают защите стиль.

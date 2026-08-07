@@ -495,7 +495,7 @@ public abstract partial class SharedSkillsSystem
     /// <summary>
     /// Applies the initial skills from the component
     /// </summary>
-    public void ApplyInitialSkills(EntityUid uid, SkillsComponent skillsComp, InitialSkillsComponent initial)
+    public void ApplyInitialSkills(EntityUid _, SkillsComponent skillsComp, InitialSkillsComponent initial)
     {
         if (initial.OverrideExisting)
         {

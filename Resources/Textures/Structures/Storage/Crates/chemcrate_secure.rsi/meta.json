@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC0-1.0",
-  "copyright": "Created by EmoGarbage404 (github) for Space Station 14.",
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by EmoGarbage404 (github) for Space Station 14, Resprite by DarkChoco",
   "size": {
     "x": 32,
     "y": 32
@@ -20,6 +20,12 @@
       "name": "open"
     },
     {
+      "name": "locked"
+    },
+    {
+      "name": "unlocked"
+    },
+    {
       "name": "welded"
     },
     {
@@ -34,12 +40,6 @@
           0.1
         ]
       ]
-    },
-    {
-      "name": "locked"
-    },
-    {
-      "name": "unlocked"
     }
   ]
 }

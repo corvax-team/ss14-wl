@@ -1,0 +1,19 @@
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: RPD
+  result: RPDEmpty
+  completetime: 4
+  materials:
+    Steel: 1000
+    Plastic: 300
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: BluespaceRPD
+  result: BluespaceRPD
+  completetime: 6
+  materials:
+    Steel: 1250
+    Silver: 800
+    Gold: 500
+    Uranium: 500

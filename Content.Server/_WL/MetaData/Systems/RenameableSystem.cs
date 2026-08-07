@@ -19,9 +19,6 @@ public sealed partial class RenameableSystem : EntitySystem
     [Dependency] private IPlayerManager _playMan = default!;
     [Dependency] private PopupSystem _popup = default!;
 
-    // TODO: вынести в поле в компоненте
-    private const int NewNameMaxLength = 40;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -31,12 +28,12 @@ public sealed partial class RenameableSystem : EntitySystem
 
     public bool TryRename(Entity<RenameOnInteractComponent?, MetaDataComponent?> entity, string newName, bool raiseEvents = true)
     {
-        var name = FormatNewName(newName);
-
-        if (!IsNewNameValid(name))
+        if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2, false))
             return false;
 
-        if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2, false))
+        var name = FormatNewName(newName);
+
+        if (!IsNewNameValid(name, entity.Comp1))
             return false;
 
         if (entity.Comp1.NeedCharges)
@@ -53,9 +50,9 @@ public sealed partial class RenameableSystem : EntitySystem
         return true;
     }
 
-    public bool IsNewNameValid(string str)
+    public bool IsNewNameValid(string str, RenameOnInteractComponent comp)
     {
-        if (str.Length > NewNameMaxLength)
+        if (str.Length > comp.MaxLength)
             return false;
 
         if (string.IsNullOrWhiteSpace(str))
@@ -86,9 +83,9 @@ public sealed partial class RenameableSystem : EntitySystem
 
         _quickDialog.OpenDialog(session, titleLoc, promptLoc, (string newName) =>
         {
-            if (!IsNewNameValid(newName))
+            if (!IsNewNameValid(newName, item.Comp))
             {
-                _popup.PopupCursor(Loc.GetString(item.Comp.NewNameConditions, ("count", NewNameMaxLength)), session, Shared.Popups.PopupType.Medium);
+                _popup.PopupCursor(Loc.GetString(item.Comp.NewNameConditions, ("count", item.Comp.MaxLength)), session, Shared.Popups.PopupType.Medium);
                 return;
             }
 

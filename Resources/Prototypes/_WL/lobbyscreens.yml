@@ -1,3 +1,57 @@
 - type: lobbyBackground
   id: AlonNAdler
   background: /Textures/_WL/LobbyScreens/alon-n-adler.webp
+
+- type: lobbyBackground
+  id: BigWhitelist
+  background: /Textures/_WL/LobbyScreens/big_whitelist.webp
+  artist: lobby-state-background-bigwhitelist-artist
+  title: lobby-state-background-bigwhitelist-title
+
+- type: lobbyBackground
+  id: Bobooom
+  background: /Textures/_WL/LobbyScreens/bobooom.webp
+  artist: lobby-state-background-bobooom-artist
+  title: lobby-state-background-bobooom-title
+
+- type: lobbyBackground
+  id: Bunker
+  background: /Textures/_WL/LobbyScreens/bunker.webp
+  artist: lobby-state-background-bunker-artist
+  title: lobby-state-background-bunker-title
+
+- type: lobbyBackground
+  id: CaptainWhitelist
+  background: /Textures/_WL/LobbyScreens/captain_whitelist.webp
+  artist: lobby-state-background-captainwhitelist-artist
+  title: lobby-state-background-captainwhitelist-title
+
+- type: lobbyBackground
+  id: CentcomWL
+  background: /Textures/_WL/LobbyScreens/centcom.webp
+  artist: lobby-state-background-CentcomWLandUnathi-artist
+  title: lobby-state-background-centcomwl-title
+
+- type: lobbyBackground
+  id: EvacWL
+  background: /Textures/_WL/LobbyScreens/evac.webp
+  artist: lobby-state-background-evacwl-artist
+  title: lobby-state-background-evacwl-title
+
+- type: lobbyBackground
+  id: NewYearSecurity
+  background: /Textures/_WL/LobbyScreens/newyear_security.webp
+  artist: lobby-state-background-newyearsecurity-artist
+  title: lobby-state-background-newyearsecurity-title
+
+- type: lobbyBackground
+  id: NoElectricity
+  background: /Textures/_WL/LobbyScreens/no_electricity.webp
+  artist: lobby-state-background-noelectricity-artist
+  title: lobby-state-background-noelectricity-title
+
+- type: lobbyBackground
+  id: Unathi
+  background: /Textures/_WL/LobbyScreens/unathi.webp
+  artist: lobby-state-background-CentcomWLandUnathi-artist
+  title: lobby-state-background-unathi-title

@@ -1,0 +1,1 @@
+salvage-dungeon-mod-cult = Cultists' palace

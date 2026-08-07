@@ -1,7 +1,10 @@
+<!-- WL-Changes-Records: shared record card layout and readable console size. -->
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:records="clr-namespace:Content.Client._WL.Records"
                       Title="{Loc 'criminal-records-console-window-title'}"
-                      MinSize="695 440">
+                      MinSize="720 500"
+                      SetSize="900 650">
     <BoxContainer Orientation="Vertical">
         <BoxContainer Name="AllList"
                       Orientation="Vertical"
@@ -47,7 +50,7 @@
                        Align="Center"
                        FontColorOverride="DarkGray" />
                 <!-- Selected record info -->
-                <!-- WL-Records-Edit-Start -->
+                <!-- WL-Changes-Records-Start -->
                 <TabContainer Name="RecordTabs"
                               HorizontalExpand="True"
                               VerticalExpand="True"
@@ -115,15 +118,14 @@
                      <BoxContainer Orientation="Vertical"
                                    VerticalExpand="True"
                                    HorizontalExpand="True">
-                         <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
-                         <RichTextLabel Name="SecurityRecord"
-                                        Margin="5"
-                                        HorizontalExpand="True"/>
-                         </ScrollContainer>
-                         <Button Name="PrintButton" Text="{Loc 'records-print-button'}" MinWidth="200"/>
+                         <records:RecordCardView Name="SecurityRecordView"/>
+                         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 8 0 0">
+                             <Control HorizontalExpand="True"/>
+                             <Button Name="PrintButton" Text="{Loc 'records-print-button'}" MinWidth="150"/>
+                         </BoxContainer>
                      </BoxContainer>
                 </TabContainer>
-                <!-- WL-Records-Edit-End -->
+                <!-- WL-Changes-Records-End -->
             </BoxContainer>
             <BoxContainer Orientation="Horizontal"
                           Margin="0 0 0 5">

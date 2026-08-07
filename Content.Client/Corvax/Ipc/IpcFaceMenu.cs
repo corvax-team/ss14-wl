@@ -1,14 +1,9 @@
-using System;
 using System.Numerics;
 using Content.Shared.Corvax.Ipc;
 using Content.Shared.Humanoid.Markings;
 using Content.Client.UserInterface.Controls;
 using Robust.Client.GameObjects;
-using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 

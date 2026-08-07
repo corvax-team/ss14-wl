@@ -28,10 +28,10 @@ namespace Content.Server._WL.AddHeightItem
 
             if (speciesProto.MaxItemHeight >= humanoid.Height)
             {
-                var size1 = "Ginormous";
+                var size = "Ginormous";
 
                 var item = EnsureComp<ItemComponent>(uid);
-                _item.SetSize(uid, size1, item);
+                _item.SetSize(uid, size, item);
 
                 EnsureComp<MultiHandedItemComponent>(uid);
 

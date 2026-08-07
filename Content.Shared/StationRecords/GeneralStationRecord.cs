@@ -1,5 +1,6 @@
 using Content.Shared._WL.Languages;
 using Content.Shared.CrewManifest;
+using Content.Shared.Humanoid; // WL-Changes-Records
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -9,8 +10,9 @@ namespace Content.Shared.StationRecords;
 /// <summary>
 ///     General station record. Indicates the crewmember's name and job.
 /// </summary>
+[DataDefinition]
 [Serializable, NetSerializable]
-public sealed record GeneralStationRecord
+public sealed partial record GeneralStationRecord : StationRecord
 {
     /// <summary>
     ///     Name tied to this station record.
@@ -76,6 +78,10 @@ public sealed record GeneralStationRecord
 
     [DataField]
     public int Height;
+
+    // WL-Changes-Records: Fixed record forms display biological sex separately from gender identity.
+    [DataField]
+    public Sex Sex = Sex.Unsexed;
 
     [DataField]
     public List<ProtoId<LanguagePrototype>> Languages = [];

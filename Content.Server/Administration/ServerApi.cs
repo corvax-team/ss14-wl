@@ -7,11 +7,11 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server._WL.DiscordAuth;
 using Content.Server._WL.Poly;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
+using Content.Server.Corvax.Api.AHelp; // Corvax-API
 using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
@@ -112,19 +112,7 @@ public sealed partial class ServerApi : IPostInjectInit
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/force_preset", ActionForcePreset);
         RegisterActorHandler(HttpMethod.Post, "/admin/actions/set_motd", ActionForceMotd);
         RegisterActorHandler(HttpMethod.Patch, "/admin/actions/panic_bunker", ActionPanicPunker);
-
-        //WL-Changes-start
-        RegisterActorHandler(HttpMethod.Post, "/admin/actions/ahelp", ActionAhelp);
-        RegisterHandler(HttpMethod.Post, "/player/actions/link/account", LinkDiscordAccount);
-
-        RegisterHandler(HttpMethod.Post, "/player/info/discord", GetLinkedAccount);
-
-        RegisterActorHandler(HttpMethod.Patch, "/admin/actions/server/shutdown", ShutdownServer);
-
-        RegisterHandler(HttpMethod.Get, "/admin/info/poly/random_message", PolyMessage);
-
-        RegisterParameterizedHandler(HttpMethod.Get, $"/admin/info/poly/images/{{${Constants.PolyMapImage}}}.png", PolyImage);
-        //wL-Changes-end
+        AHelpBotApiSystem.RegisterStatusHostHandler(_statusHost, _entitySystemManager); // Corvax-API
     }
 
     public void Initialize()
@@ -158,194 +146,6 @@ public sealed partial class ServerApi : IPostInjectInit
     //WL-Changes-end
 
     #region Actions
-
-    //WL-Changes-start
-    private async Task PolyMessage(IStatusHandlerContext context)
-    {
-        var poly_system = _entitySystemManager.GetEntitySystem<PolySystem>();
-
-        var entry = poly_system.Pick();
-
-        if (entry == null)
-        {
-            var is_ready = poly_system.IsReadyToPick();
-            var how_long = poly_system.HowLongBeforeReady();
-
-            var msg = is_ready
-                ? "Поли ожидает подходящего сообщения!"
-                : $"Поли устала! До готовности: {how_long}";
-
-            await RespondError(
-                context,
-                ErrorCode.ServiceUnavailable,
-                HttpStatusCode.ServiceUnavailable,
-                msg);
-
-            return;
-        }
-
-        await context.RespondJsonAsync(entry.Value);
-    }
-
-    private async Task PolyImage(IStatusHandlerContext context, Dictionary<string, string> maps)
-    {
-        var poly_system = _entitySystemManager.GetEntitySystem<PolySystem>();
-
-        if (!maps.TryGetValue(Constants.PolyMapImage, out var map))
-        {
-            await RespondError(
-                context,
-                ErrorCode.ServiceUnavailable,
-                HttpStatusCode.InternalServerError,
-                "Ошибка при получении ссылки!");
-            return;
-        }
-
-        using var stream = poly_system.PickImage(map);
-
-        if (stream == null)
-        {
-            await RespondError(
-                context,
-                ErrorCode.ServiceUnavailable,
-                HttpStatusCode.InternalServerError,
-                "Изображение не было найдено!");
-            return;
-        }
-
-        await using var resp_stream = await context.RespondStreamAsync();
-
-        stream.CopyTo(resp_stream);
-    }
-
-    private async Task ShutdownServer(IStatusHandlerContext context, Actor actor)
-    {
-        if (!await IsAdmin(actor.Record.UserId))
-        {
-            await RespondBadRequest(context, "Вы не являетесь администратором!");
-            return;
-        }
-
-        await RunOnMainThread(async () =>
-        {
-            _adminLog.Add(LogType.WLHttpApi, LogImpact.Extreme, $"Администратор {actor.Record.LastSeenUserName} перезапустил сервер с помощью HTTP api.");
-
-            _baseServer.Shutdown("Сервер был перезапущен администратором!");
-        });
-    }
-
-    private async Task GetLinkedAccount(IStatusHandlerContext context)
-    {
-        var http_body = await ReadJson<InnerActor>(context);
-        if (http_body == null)
-            return;
-
-        await RunOnMainThread(async () =>
-        {
-            var linked = await _db.GetPlayerByDiscordId(http_body.DiscordId, default);
-            if (linked == null)
-            {
-                await RespondError(context, ErrorCode.PlayerNotFound, HttpStatusCode.BadRequest, "Текущий аккаунт не привязан к игровому аккаунту!");
-                return;
-            }
-
-            var body = new
-            {
-                Guid = linked.UserId.UserId.ToString(),
-                Username = linked.LastSeenUserName
-            };
-
-            await context.RespondJsonAsync(body, HttpStatusCode.OK);
-        });
-    }
-
-    private async Task LinkDiscordAccount(IStatusHandlerContext context)
-    {
-        var body = await ReadJson<LinkUserDiscordBody>(context);
-        if (body == null)
-            return;
-
-        await RunOnMainThread(async () =>
-        {
-            var auth = _entitySystemManager.GetEntitySystem<DiscordAuthSystem>();
-
-            var username = body.Login;
-            var discord_user_id = body.User;
-            var code = body.Code;
-
-            if (!_playerManager.TryGetSessionByUsername(username, out var session))
-            {
-                await RespondBadRequest(context, "Указанного игрока нет на сервере!");
-                return;
-            }
-
-            //if (await _db.IsLinkedToDiscord(session.UserId, default))
-            //{
-            //    await RespondBadRequest(context, "Текущий игровой аккаунт уже привязан к дискорд-аккаунту!");
-            //    return;
-            //}
-
-            if (await _db.GetPlayerDiscordId(session.UserId, default) != null)
-            {
-                await RespondBadRequest(context, "Текущий игровой аккаунт уже привязан к дискорд-аккаунту!");
-                return;
-            }
-
-            var check_code = auth.GetUserCode(session.UserId);
-            if (check_code == null)
-            {
-                await RespondError(context, ErrorCode.PlayerNotFound, HttpStatusCode.InternalServerError, "Уникальный код указанного игрока равен <NULL>");
-                return;
-            }
-
-            if (!CryptographicOperations.FixedTimeEquals(Encoding.UTF8.GetBytes(check_code), Encoding.UTF8.GetBytes(code)))
-            {
-                await RespondBadRequest(context, "Указанный уникальный код недействителен!");
-                return;
-            }
-
-            await _db.LinkPlayerDiscord(session.UserId, discord_user_id, default);
-
-            _sawmill.Info($"Игрок {session.Name} подключил к игровому аккаунту дискорд-аккаунт с ID {discord_user_id}.");
-
-            await RespondOk(context);
-        });
-    }
-
-    private async Task ActionAhelp(IStatusHandlerContext context, Actor actor)
-    {
-        var body = await ReadJson<AhelpBody>(context);
-        if (body == null)
-            return;
-
-        await RunOnMainThread(async () =>
-        {
-            var bwoink = _entitySystemManager.GetEntitySystem<BwoinkSystem>();
-            var ticker = _entitySystemManager.GetEntitySystem<GameTicker>();
-
-            var targetUsername = body.TargetUsername;
-            var senderNetId = actor.Record;
-
-            if (!_playerManager.TryGetSessionByUsername(targetUsername, out var session))
-            {
-                await RespondBadRequest(context, "Указанного guid игрока нет на сервере на данный момент.");
-                return;
-            }
-
-            var record = actor.Record;
-
-            var sent = await bwoink.HandleDiscordAhelp(new(session.UserId, senderNetId.UserId, body.Message),
-                record.LastSeenUserName,
-                record.UserId,
-                !actor.IsStuffBot
-            );
-
-            _sawmill.Info($"Администратор {record.LastSeenUserName} дистанционно отправил сообщение \"{body.Message}\" игроку {session.Name}");
-
-            await (sent ? RespondOk(context) : RespondError(context, ErrorCode.BadRequest, HttpStatusCode.NotAcceptable, "Вы не являетесь администратором!"));
-        });
-    }
-    //WL-Changes-end
 
     /// <summary>
     ///     Changes the panic bunker settings.

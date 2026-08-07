@@ -1,0 +1,19 @@
+# This shit is being used by Admin Objectives. Do not touch, or you'll be skinned alive
+
+- type: objectiveIssuer
+  id: AdminObjectiveIssuer
+  name: admin-objective-issuer
+
+- type: entity
+  id: AdminObjective
+  parent: BaseObjective
+  name: admin objective
+  description: A task assigned by an administrator.
+  components:
+  - type: Objective
+    difficulty: 1
+    issuer: AdminObjectiveIssuer
+    unique: false
+    icon:
+      sprite: _WL/Administration/event_icon.rsi
+      state: custom

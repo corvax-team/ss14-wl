@@ -11,15 +11,15 @@ public sealed partial class DynamicTextUIController : UIController
     public void OpenWindow()
     {
         if (_dynamicTextWindow == null || _dynamicTextWindow.Disposed)
-            _dynamicTextWindow = UIManager.CreateWindow<DynamicTextWindow>();
-
-        if (_dynamicTextWindow != null)
         {
+            _dynamicTextWindow = UIManager.CreateWindow<DynamicTextWindow>();
             _dynamicTextWindow.OnDynamicTextSaveButtonPressed += OnSave;
         }
+
         _entManager.System<DynamicTextSystem>().RequestDynamicText();
         _dynamicTextWindow?.OpenCentered();
     }
+
     public void SetDynamicText(string text)
     {
         _dynamicTextWindow?.SetDynamicText(text);

@@ -1,0 +1,69 @@
+- type: entity
+  parent: RPD
+  id: BluespaceRPD
+  name: bluespace RPD
+  description: A bluespace device used to rapidly pipe things.
+  components:
+  - type: RCD
+    range: -1
+    enableIgnite: false
+  - type: LimitedCharges
+    maxCharges: 600
+  - type: Sprite
+    sprite: _WL/Objects/Tools/brpd.rsi
+
+# - type: entity
+#   parent: RPD
+#   id: RPDRechargingCE
+#   name: experimental RPD
+#   description: Rapid Piping Device which creates compressed matter on the fly using an internal fabricator.
+#   suffix: AutoRecharge
+#   components:
+#   - type: LimitedCharges
+#     maxCharges: 400
+#   - type: AutoRecharge
+#     rechargeDuration: 1
+
+- type: entity
+  id: RPDRecharging
+  parent: RPD
+  name: experimental RPD
+  description: Cyborg-mounted Rapid Piping Device which creates compressed matter on the fly using an internal fabricator.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 300
+  - type: AutoRecharge
+    rechargeDuration: 1
+
+- type: entity
+  id: RPDExperimental
+  parent: RPD
+  suffix: Admeme
+  name: experimental RPD
+  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
+  components:
+  - type: RCD
+    enableIgnite: false
+  - type: AutoRecharge
+    rechargeDuration: 0.1
+
+- type: entity
+  id: RPDEmpty
+  parent: RPD
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    lastCharges: -1
+
+- type: entity
+  id: RCDRechargingCE
+  parent: RCDRecharging
+  suffix: AutoRecharge, CE
+  components:
+  - type: RCD
+    enableIgnite: false
+  - type: LimitedCharges
+    maxCharges: 450
+  - type: Sprite
+    sprite: _WL/Objects/Tools/cercd.rsi

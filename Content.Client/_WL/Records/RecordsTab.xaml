@@ -1,98 +1,178 @@
 <Control Name="CRecordsTab" xmlns="https://spacestation14.io"
-         xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        
-        <ScrollContainer HScrollEnabled="False" VerticalExpand="True">
-            <BoxContainer Orientation="Vertical" VerticalExpand="True">
+         xmlns:records="clr-namespace:Content.Client._WL.Records">
+    <BoxContainer Name="FormColumn" Orientation="Vertical"
+                  HorizontalExpand="True" VerticalExpand="True">
+            <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True" Margin="0 0 0 6">
+                <BoxContainer Orientation="Vertical" Margin="8">
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                        <Label Text="{Loc 'records-general'}" StyleClasses="LabelBig" FontColorOverride="#B46BCB"/>
+                        <Control HorizontalExpand="True"/>
+                        <Button Name="PreviewButton" Text="{Loc 'records-preview-show'}"/>
+                    </BoxContainer>
+                    <GridContainer Columns="4" HorizontalExpand="True" Margin="0 5 0 0">
+                        <Label Text="{Loc 'records-full-name-edit'}" VAlign="Center" MinWidth="135"/>
+                        <LineEdit Name="NameEdit" MinWidth="210" HorizontalExpand="True" Access="Public"/>
+                        <Label Text="{Loc 'records-confederation-edit'}" VAlign="Center" MinWidth="145" Margin="12 0 0 0"/>
+                        <records:RecordOptionButton Name="ConfederationButton" MinWidth="210" HorizontalExpand="True" Access="Public"/>
+                        <Label Name="BirthDateLabel" Text="{Loc 'records-date-of-birth-edit'}" VAlign="Center" MinWidth="135"/>
+                        <BoxContainer Orientation="Horizontal" MinWidth="210">
+                            <LineEdit Name="BirthDayEdit" PlaceHolder="{Loc 'records-date-of-birth-day'}" MinWidth="45" MaxWidth="55"/>
+                            <Label Text="." VAlign="Center" Margin="3 0"/>
+                            <LineEdit Name="BirthMonthEdit" PlaceHolder="{Loc 'records-date-of-birth-month'}" MinWidth="45" MaxWidth="55"/>
+                            <Label Text="." VAlign="Center" Margin="3 0"/>
+                            <LineEdit Name="BirthYearEdit" PlaceHolder="{Loc 'records-date-of-birth-year'}" Editable="False" MinWidth="75" MaxWidth="90"/>
+                        </BoxContainer>
+                        <Label Text="{Loc 'records-country-edit'}" VAlign="Center" MinWidth="145" Margin="12 0 0 0"/>
+                        <LineEdit Name="CountryEdit" MinWidth="210" HorizontalExpand="True" Access="Public"/>
+                    </GridContainer>
+                    <Label Name="BirthDateValidationLabel" StyleClasses="LabelDanger" Visible="False" Margin="0 4 0 0"/>
+                </BoxContainer>
+            </PanelContainer>
 
-                <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True" Margin="0 0 0 5">
-                    <BoxContainer Orientation="Vertical" Margin="5">
-                        <Label Text="{Loc 'records-general'}" StyleClasses="LabelBig" FontColorOverride="#2196F3"/>
-                        <PanelContainer StyleClasses="Inset" Margin="0 5 0 0" HorizontalExpand="True">
-                            <PanelContainer.PanelOverride>
-                                <graphics:StyleBoxFlat BackgroundColor="#1E1E1E" ContentMarginLeftOverride="5" ContentMarginBottomOverride="5"/>
-                            </PanelContainer.PanelOverride>
-                            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                                
-                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                                    <Label Text="{Loc 'records-full-name-edit'}" />
-                                    <Control MinWidth="10"/>
-                                    <LineEdit Name="NameEdit" MinWidth="250" Access="Public"/>
+            <records:RecordTabContainer Name="RecordTabs" HorizontalExpand="True" VerticalExpand="True">
+                <ScrollContainer Name="MedicalTab" HScrollEnabled="False" VerticalExpand="True">
+                    <BoxContainer Orientation="Vertical" Margin="10" HorizontalExpand="True">
+                        <GridContainer Columns="2" HorizontalExpand="True" HorizontalAlignment="Left" MaxWidth="780">
+                            <Label Text="{Loc 'records-weight'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="MedicalWeight" MinWidth="320" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-postmortem'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="MedicalPostmortem" MinWidth="320" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-emergency-contact'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="MedicalEmergencyContact" MinWidth="320" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-refused-treatment'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="MedicalRefusedTreatment" MinWidth="320" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-do-not-resuscitate'}" VAlign="Center" MinWidth="205"/>
+                            <records:RecordOptionButton Name="MedicalDnr" MinWidth="220" MaxWidth="320" HorizontalExpand="True"/>
+                        </GridContainer>
+
+                        <BoxContainer Name="OrganicMedicalFields" Orientation="Vertical" HorizontalExpand="True">
+                            <Label Text="{Loc 'records-surgeries'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                            <records:RecordTextEdit Name="MedicalSurgeries" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-medication'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                            <records:RecordTextEdit Name="MedicalMedication" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        </BoxContainer>
+                        <Label Text="{Loc 'records-physiological-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="MedicalPhysiological" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <Label Text="{Loc 'records-psychological-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="MedicalPsychological" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <Label Text="{Loc 'records-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="MedicalNotes" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
+
+                        <PanelContainer StyleClasses="LowDivider" Margin="0 12 0 8"/>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
+                            <Label Text="{Loc 'records-last-updated'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="MedicalLastUpdated" MinWidth="320" HorizontalExpand="True"/>
+                        </BoxContainer>
+                    </BoxContainer>
+                </ScrollContainer>
+
+                <ScrollContainer Name="SecurityTab" HScrollEnabled="False" VerticalExpand="True">
+                    <BoxContainer Orientation="Vertical" Margin="10" HorizontalExpand="True">
+                        <Label Text="{Loc 'records-residence-registration'}" StyleClasses="LabelBig" FontColorOverride="#B46BCB" MaxWidth="860"/>
+                        <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True" MaxWidth="860" Margin="0 4 0 10">
+                            <BoxContainer Orientation="Vertical" Margin="10" HorizontalExpand="True">
+                                <Label Text="{Loc 'records-residence-entry'}" Margin="0 0 0 6"/>
+                                <BoxContainer Name="ResidenceFirstRow" Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10">
+                                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" MinWidth="250">
+                                        <Label Text="{Loc 'records-residence-confederation'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
+                                        <records:RecordOptionButton Name="SecurityResidenceConfederation" HorizontalExpand="True"/>
+                                    </BoxContainer>
+                                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" MinWidth="250">
+                                        <Label Text="{Loc 'records-residence-planet'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
+                                        <LineEdit Name="SecurityResidencePlanet" HorizontalExpand="True"/>
+                                    </BoxContainer>
                                 </BoxContainer>
-                                
-                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                                    <Label Text="{Loc 'records-date-of-birth-edit'}" />
-                                    <Control MinWidth="10"/>
-                                    <LineEdit Name="AgeEdit" MinWidth="150" Access="Public"/>
+                                <BoxContainer Name="ResidenceCustomRow" Orientation="Vertical" HorizontalExpand="True" Margin="0 6 0 0">
+                                    <Label Name="SecurityResidenceCustomLabel" Text="{Loc 'records-residence-confederation-custom'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
+                                    <LineEdit Name="SecurityResidenceCustom" HorizontalExpand="True"/>
                                 </BoxContainer>
-                                
-                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                                    <Label Text="{Loc 'records-confederation-edit'}" />
-                                    <Control MinWidth="10"/>
-                                    <OptionButton Name="ConfederationButton" HorizontalAlignment="Right" Access="Public"/>
+                                <BoxContainer Name="ResidenceSecondRow" Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10" Margin="0 6 0 0">
+                                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" MinWidth="250">
+                                        <Label Text="{Loc 'records-residence-street'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
+                                        <LineEdit Name="SecurityResidenceStreet" HorizontalExpand="True"/>
+                                    </BoxContainer>
+                                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" MinWidth="250">
+                                        <Label Text="{Loc 'records-residence-unit'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
+                                        <LineEdit Name="SecurityResidenceUnit" HorizontalExpand="True"/>
+                                    </BoxContainer>
                                 </BoxContainer>
-                                
-                                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                                    <Label Text="{Loc 'records-country-edit'}" />
-                                    <Control MinWidth="10"/>
-                                    <LineEdit Name="CountryEdit" MinWidth="250" Access="Public"/>
+                                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 6 0 0">
+                                    <Label Text="{Loc 'records-residence-details'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
+                                    <LineEdit Name="SecurityResidenceDetails" HorizontalExpand="True"/>
                                 </BoxContainer>
-                                
                             </BoxContainer>
                         </PanelContainer>
-                    </BoxContainer>
-                </PanelContainer>
-                
-                <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True" Margin="0 0 0 5">
-                    <BoxContainer Orientation="Vertical" Margin="5">
-                        <Label Text="{Loc 'records-medical'}" StyleClasses="LabelBig" FontColorOverride="#2196F3"/>
-                        <PanelContainer StyleClasses="Inset" Margin="0 5 0 0" HorizontalExpand="True">
-                            <PanelContainer.PanelOverride>
-                                <graphics:StyleBoxFlat BackgroundColor="#1E1E1E" ContentMarginLeftOverride="5" ContentMarginBottomOverride="5"/>
-                            </PanelContainer.PanelOverride>
-                            <TextEdit Name="MedicalRecordInput" Access="Public"
-                                      MinSize="200 150" HorizontalExpand="True"
-                                      Margin="0" VerticalExpand="True"/>
-                        </PanelContainer>
-                    </BoxContainer>
-                </PanelContainer>
+                        <GridContainer Columns="2" HorizontalExpand="True" HorizontalAlignment="Left" MaxWidth="780">
+                            <Label Text="{Loc 'records-identifying-features'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="SecurityFeatures" MinWidth="320" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-marital-status'}" VAlign="Center" MinWidth="205"/>
+                            <records:RecordOptionButton Name="SecurityMaritalStatus" MinWidth="220" MaxWidth="320" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-close-relatives'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="SecurityRelatives" MinWidth="320" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-emergency-contact'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="SecurityEmergencyContact" MinWidth="320" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-security-supervision-short'}" VAlign="Center" MinWidth="205"/>
+                            <records:RecordOptionButton Name="SecuritySupervision" MinWidth="220" MaxWidth="320" HorizontalExpand="True"/>
+                        </GridContainer>
+                        <Label Text="{Loc 'records-permits'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="SecurityPermits" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <Label Text="{Loc 'records-arrest-history'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="SecurityArrests" MinHeight="90" MaxHeight="150" HorizontalExpand="True"/>
+                        <Label Text="{Loc 'records-imprisonment-history'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="SecurityImprisonment" MinHeight="90" MaxHeight="150" HorizontalExpand="True"/>
+                        <Label Text="{Loc 'records-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="SecurityNotes" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
 
-                <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True" Margin="0 0 0 5">
-                    <BoxContainer Orientation="Vertical" Margin="5">
-                        <Label Text="{Loc 'records-security'}" StyleClasses="LabelBig" FontColorOverride="#F44336"/>
-                        <PanelContainer StyleClasses="Inset" Margin="0 5 0 0" HorizontalExpand="True">
-                            <PanelContainer.PanelOverride>
-                                <graphics:StyleBoxFlat BackgroundColor="#1E1E1E" ContentMarginLeftOverride="5" ContentMarginBottomOverride="5"/>
-                            </PanelContainer.PanelOverride>
-                            <TextEdit Name="SecurityRecordInput" Access="Public"
-                                      MinSize="200 150" HorizontalExpand="True"
-                                      Margin="0" VerticalExpand="True"/>
-                        </PanelContainer>
+                        <PanelContainer StyleClasses="LowDivider" Margin="0 12 0 8"/>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
+                            <Label Text="{Loc 'records-last-updated'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="SecurityLastUpdated" MinWidth="320" HorizontalExpand="True"/>
+                        </BoxContainer>
                     </BoxContainer>
-                </PanelContainer>
+                </ScrollContainer>
 
-                <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True" Margin="0 0 0 5">
-                    <BoxContainer Orientation="Vertical" Margin="5">
-                        <Label Text="{Loc 'records-employment'}" StyleClasses="LabelBig" FontColorOverride="#4CAF50"/>
-                        <PanelContainer StyleClasses="Inset" Margin="0 5 0 0" HorizontalExpand="True">
-                            <PanelContainer.PanelOverride>
-                                <graphics:StyleBoxFlat BackgroundColor="#1E1E1E" ContentMarginLeftOverride="5" ContentMarginBottomOverride="5"/>
-                            </PanelContainer.PanelOverride>
-                            <TextEdit Name="EmploymentRecordInput" Access="Public"
-                                      MinSize="200 150" HorizontalExpand="True"
-                                      Margin="0" VerticalExpand="True"/>
+                <ScrollContainer Name="EmploymentTab" HScrollEnabled="False" VerticalExpand="True">
+                    <BoxContainer Orientation="Vertical" Margin="10" HorizontalExpand="True">
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" MaxWidth="860">
+                            <Label Text="{Loc 'records-education'}" StyleClasses="LabelBig" FontColorOverride="#B46BCB" VerticalAlignment="Center"/>
+                            <Control HorizontalExpand="True"/>
+                            <Button Name="AddEducation" Text="{Loc 'records-add-education-short'}" StyleClasses="ButtonCaution"/>
+                        </BoxContainer>
+                        <BoxContainer Name="EducationEntries" Orientation="Vertical" HorizontalExpand="True" MaxWidth="860"/>
+
+                        <Label Text="{Loc 'records-academic-title-section'}" StyleClasses="LabelBig" FontColorOverride="#B46BCB" MaxWidth="860" Margin="0 10 0 0"/>
+                        <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True" MaxWidth="860" Margin="0 4 0 0">
+                            <BoxContainer Orientation="Vertical" Margin="10" HorizontalExpand="True" SeparationOverride="6">
+                                <BoxContainer Name="AcademicTitleFirstRow" Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="10">
+                                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" MinWidth="250">
+                                        <Label Text="{Loc 'records-academic-title-short'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
+                                        <records:RecordOptionButton Name="EmploymentAcademicTitle" HorizontalExpand="True"/>
+                                    </BoxContainer>
+                                    <BoxContainer Name="AcademicTitleFieldContainer" Orientation="Vertical" HorizontalExpand="True" MinWidth="250">
+                                        <Label Text="{Loc 'records-academic-title-field'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
+                                        <LineEdit Name="EmploymentAcademicTitleField" HorizontalExpand="True"/>
+                                    </BoxContainer>
+                                </BoxContainer>
+                                <BoxContainer Name="AcademicTitleDateContainer" Orientation="Vertical" HorizontalExpand="True" MinWidth="250">
+                                    <Label Text="{Loc 'records-academic-title-date'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
+                                    <LineEdit Name="EmploymentAcademicTitleDate" HorizontalExpand="True"/>
+                                </BoxContainer>
+                            </BoxContainer>
                         </PanelContainer>
+                        <Label Text="{Loc 'records-licenses'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="EmploymentLicenses" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <Label Text="{Loc 'records-employment-history'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="EmploymentHistory" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
+                        <Label Text="{Loc 'records-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <records:RecordTextEdit Name="EmploymentNotes" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
+
+                        <PanelContainer StyleClasses="LowDivider" Margin="0 12 0 8"/>
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
+                            <Label Text="{Loc 'records-last-updated'}" VAlign="Center" MinWidth="205"/>
+                            <LineEdit Name="EmploymentLastUpdated" MinWidth="320" HorizontalExpand="True"/>
+                        </BoxContainer>
                     </BoxContainer>
-                </PanelContainer>
-                
-            </BoxContainer>
-        </ScrollContainer>
-        
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 5 0 0">
-            <Button Name="MedicalTemplateButton" Text="{Loc 'records-template-medical'}" HorizontalExpand="True" Margin="0 0 2 0"/>
-            <Button Name="SecurityTemplateButton" Text="{Loc 'records-template-security'}" HorizontalExpand="True" Margin="2 0 2 0"/>
-            <Button Name="EmploymentTemplateButton" Text="{Loc 'records-template-employment'}" HorizontalExpand="True" Margin="2 0 0 0"/>
-        </BoxContainer>
-        
+                </ScrollContainer>
+            </records:RecordTabContainer>
     </BoxContainer>
 </Control>

@@ -9,7 +9,7 @@
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _WL/Structures/Power/Generation/ame.rsi # WL-Changes: resprite port
     state: control
     layers:
     - state: control
@@ -34,12 +34,6 @@
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 100
@@ -96,7 +90,7 @@
   - type: PowerMonitoringDevice
     group: Generator
     loadNode: input
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _WL/Structures/Power/Generation/ame.rsi # WL-Changes: resprite port
     state: static
   - type: PowerSupplier
     supplyRate: 0
@@ -115,6 +109,7 @@
     requirePower: true
     highVoltageNode: input
     mediumVoltageNode: ame
+  - type: AmbientMusicMarkerEngineering
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -138,7 +133,7 @@
   - type: InteractionOutline
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _WL/Structures/Power/Generation/ame.rsi # WL-Changes: resprite port
     state: shield_0
     layers:
     - state: shield_0
@@ -167,12 +162,6 @@
     damageContainer: StructuralInorganic
   - type: Destructible
     thresholds:
-    - trigger: # Excess damage, don't spawn entities
-        !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 100

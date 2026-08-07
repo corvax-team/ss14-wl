@@ -59,6 +59,7 @@
       #  shader: unshaded
   - type: PointLight
     color: "#adffe6"
+    radius: 5 # WL-Changes
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -125,6 +126,7 @@
       #  shader: unshaded
   - type: PointLight
     color: "#ffdbad"
+    radius: 5 # WL-Changes
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
@@ -443,6 +445,7 @@
       #  shader: unshaded
   - type: PointLight # Corvax-Resprite
     color: "#e6aa5c"
+    radius: 5 # WL-Changes
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -968,7 +971,7 @@
         Radiation: 0.80
         Caustic: 0.95
   # WL-Night-Vision-Start
-  - type: NightVision
+  - type: NightVisionEye
     color: "#A3A3A3"
     activateSound: null
     deactivateSound: null

@@ -86,6 +86,7 @@
     ears: ClothingHeadsetAltCommand
     belt: BoxFolderClipboardThreePapers
     eyes: ClothingEyesHudCommand
+    pocket1: CardCapsSpare # WL-code-safe
   storage:
     back:
     - Flash

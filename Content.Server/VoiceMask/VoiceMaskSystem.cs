@@ -15,7 +15,6 @@ using Content.Shared.Speech;
 using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.VoiceMask;
 
@@ -25,7 +24,6 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popupSystem = default!;
     [Dependency] private IConfigurationManager _cfgManager = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private LockSystem _lock = default!;
     [Dependency] private SharedContainerSystem _container = default!;
@@ -191,7 +189,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     #region User inputs from UI
     private void OnChangeVerb(Entity<VoiceMaskComponent> entity, ref VoiceMaskChangeVerbMessage msg)
     {
-        if (msg.Verb is { } id && !_proto.HasIndex<SpeechVerbPrototype>(id))
+        if (msg.Verb is { } id && !ProtoMan.HasIndex<SpeechVerbPrototype>(id))
             return;
 
         entity.Comp.VoiceMaskSpeechVerb = msg.Verb;
@@ -272,8 +270,18 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
     private void UpdateUI(Entity<VoiceMaskComponent> entity)
     {
+        // WL-Changes-Start: Speech barks
         if (_uiSystem.HasUi(entity, VoiceMaskUIKey.Key))
-            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(GetCurrentVoiceName(entity), entity.Comp.VoiceMaskSpeechVerb, entity.Comp.Active, entity.Comp.AccentHide, entity.Comp.TitleText, entity.Comp.VoiceId)); //entity.Comp.VoiceId Corvax-TTS
+            _uiSystem.SetUiState(entity.Owner, VoiceMaskUIKey.Key, new VoiceMaskBuiState(
+                GetCurrentVoiceName(entity),
+                entity.Comp.VoiceMaskSpeechVerb,
+                entity.Comp.Active,
+                entity.Comp.AccentHide,
+                entity.Comp.TitleText,
+                entity.Comp.VoiceId,
+                entity.Comp.BarkVoice,
+                entity.Comp.BarkPitch));
+        // WL-Changes-End
     }
     #endregion
 
@@ -293,4 +301,3 @@ public sealed partial class VoiceMaskSystem : EntitySystem
     }
     #endregion
 }
-

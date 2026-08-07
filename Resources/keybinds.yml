@@ -490,7 +490,7 @@ binds:
   type: State
   key: F8
 - function: ToggleRoundEndSummaryWindow
-  type: Toggle
+  type: State
   key: F9
 - function: OpenSandboxWindow
   type: State
@@ -654,3 +654,9 @@ binds:
 - function: OfferItem # CorvaxGoob-Offer
   type: State
   key: H
+  #Corvax-WL-CombatIndicator - start
+- function: CombatIndicator
+  type: State
+  key: F
+  mod1: Alt
+  #Corvax-WL-CombatIndicator - end

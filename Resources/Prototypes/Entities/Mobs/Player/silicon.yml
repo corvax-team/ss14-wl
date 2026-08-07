@@ -141,9 +141,6 @@
   description: Handles AI interactions across holocards + AI cores
   components:
   - type: ItemSlots
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: StationAiHolder
     slot:
       name: station-ai-mind-slot
@@ -218,9 +215,6 @@
     - Anchorable
   - type: Rotatable
   - type: WarpPoint
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Fixtures
     fixtures:
       fix1:
@@ -459,6 +453,11 @@
   components:
   - type: TTS
     voice: Machine_spirit_4 # Corvax-TTS
+  # WL-Changes-start: Speech barks
+  - type: SpeechBarks
+    voice: Sam
+    playOnRadio: false
+  # WL-Changes-end
   - type: Sprite
     # Once it's in a core it's pretty much an abstract entity at that point.
     visible: false
@@ -541,14 +540,8 @@
         layer:
         - GhostImpassable
   - type: NoFTL
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Eye
     pvsScale: 1.5
   - type: Visibility
@@ -570,14 +563,8 @@
   components:
   - type: Transform
     anchored: true
-  - type: Tag
-    tags:
-    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Eye
   - type: ContentEye
   - type: Examiner
@@ -901,7 +888,10 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
   - type: RandomMetadata
-    nameSegments: [NamesDeathCommando]
+    nameSegments: # TODO: add unique syndieborg-specific names; right now this is the same pool that syndicate agents use
+    - NamesDeathCommandoFirst
+    - NamesDeathCommandoLast
+    nameFormat: name-format-standard
 
 - type: entity
   parent: PlayerSyndicateAssaultBorgDerelict

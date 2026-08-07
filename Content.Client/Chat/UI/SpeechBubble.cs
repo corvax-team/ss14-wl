@@ -186,6 +186,19 @@ namespace Content.Client.Chat.UI
             }
         }
 
+        // WL-Changes-Start: Keep voiced messages visible until their audio finishes
+        /// <summary>
+        /// Keeps the bubble fully visible until <paramref name="playbackEndTime"/>,
+        /// then gives it the usual fade-out time.
+        /// </summary>
+        public void KeepAliveUntil(TimeSpan playbackEndTime)
+        {
+            var requestedDeathTime = playbackEndTime + FadeTime;
+            if (requestedDeathTime > _deathTime)
+                _deathTime = requestedDeathTime;
+        }
+        // WL-Changes-End
+
         protected FormattedMessage FormatSpeech(string message, Color? fontColor = null)
         {
             var msg = new FormattedMessage();

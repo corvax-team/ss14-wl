@@ -1,0 +1,25 @@
+- type: microwaveMealRecipe
+  id: RecipeRepairSpray
+  name: repair spray recipe
+  result: RepairSpray
+  time: 5
+  group: Medicinal
+  solids:
+    RepairTape: 1
+  reagents:
+    RepairFoam: 10
+    GlassFiber: 5
+
+- type: microwaveMealRecipe
+  id: RecipeRepairSprayPlus
+  name: repair spray plus recipe
+  result: RepairSprayPlus
+  time: 10
+  group: Medicinal
+  solids:
+    RepairTape: 2
+    SkinPatch: 1
+  reagents:
+    RepairFoam: 20
+    FastSilicone: 15
+    GlassFiber: 10

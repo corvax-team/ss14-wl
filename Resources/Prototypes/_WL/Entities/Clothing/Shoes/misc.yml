@@ -8,3 +8,24 @@
     sprite: _WL/Clothing/Shoes/Misc/scienceslippers.rsi
   - type: Clothing
     sprite: _WL/Clothing/Shoes/Misc/scienceslippers.rsi
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesWhiteWinterHighHeels
+  name: white winter heels
+  description: Can't walk on dirt with these.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 6
+  - type: Sprite
+    sprite: _WL/Clothing/Shoes/Misc/whitehighheel.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Shoes/Misc/whitehighheel.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepHighHeels
+      params:
+        volume: -6
+        variation: 0.09

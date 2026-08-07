@@ -167,3 +167,115 @@
     - PetWearable
     - CorgiWearable
     - WhitelistChameleon
+
+- type: entity
+  id: ClothingHeadHatFedoraDetectiveWhite
+  parent: ClothingHeadBase
+  name: detective's white fedora
+  description: For special ocassions.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/wfedora.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/wfedora.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWhiteWaitress
+  name: white waitress headband
+  description: Keeps your hair away from the food tray.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/altwaiter.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/altwaiter.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatGreenWaitress
+  name: green waitress headband
+  description: Keeps your hair away from the food tray.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/waiter.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/waiter.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadhatBlueFlowerHeadband
+  name: blue flower headband
+  description: Flower on the head peace in the head.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/flowerband.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/flowerband.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadhatPurpleFlowerHeadband
+  name: purple flower headband
+  description: Flower on the head peace in the head.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/flowerbandalt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/flowerbandalt.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadhatLuckyClover
+  name: lucky clover
+  description: I wonder if it grew under a rainbow... Oh wait, it's from fabric.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/clover.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/clover.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+
+# WL-redo-427-resprite-start-
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSeniorSecurity
+  name: senior security beret
+  description: A beret with a junior commanders rank emblem. For officers that are more inclined towards style than safety.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_security_senior.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_security_senior.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - Recyclable
+    - PetWearable
+    - CorgiWearable
+    - HamsterWearable
+    - WhitelistChameleon
+# WL-redo-427-resprite-end

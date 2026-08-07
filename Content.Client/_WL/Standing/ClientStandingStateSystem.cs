@@ -49,10 +49,10 @@ namespace Content.Client._WL.Standing
             if (prototype == null)
                 return;
 
-            if (!TryComp<SpriteComponent>(user, out var spriteComp))
+            if (!HasComp<SpriteComponent>(user))
                 return;
 
-            if (!_cachedDrawDepths.TryGetValue(prototype.ID, out var oldDrawDepth))
+            if (!_cachedDrawDepths.ContainsKey(prototype.ID))
             {
                 if (TryComp<SpriteComponent>(user, out var innerSpriteCompNull) &&
                     innerSpriteCompNull is SpriteComponent innerSpriteComp)

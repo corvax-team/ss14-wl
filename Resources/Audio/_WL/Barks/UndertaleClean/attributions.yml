@@ -1,0 +1,10 @@
+- files:
+  - temmie_1.ogg
+  - temmie_3.ogg
+  - temmie_4.ogg
+  - temmie_5.ogg
+  - temmie_6.ogg
+  - toriel.ogg
+  license: "CC-BY-SA-3.0"
+  copyright: "Original sounds by Toby Fox. Ogg Vorbis adaptation with edge de-clicking by wzzker21."
+  source: "https://github.com/AdventureTimeSS14/space_station_ADT/tree/master/Resources/Audio/ADT/Voice/Vocal-Barks"

@@ -1,7 +1,10 @@
+using Content.Client.Hands.Systems;
 using Content.Client.Popups;
 using Content.Client.UserInterface.Controls;
+using Content.Shared.IgnitionSource;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
+using Content.Shared.RCD.Systems;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Shared.Collections;
@@ -14,26 +17,34 @@ namespace Content.Client.RCD;
 [UsedImplicitly]
 public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
 {
-    private const string TopLevelActionCategory = "Main";
-
-    private static readonly Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo
-        = new Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)>
-        {
-            ["WallsAndFlooring"] = ("rcd-component-walls-and-flooring", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/walls_and_flooring.png"))),
-            ["WindowsAndGrilles"] = ("rcd-component-windows-and-grilles", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/windows_and_grilles.png"))),
-            ["Airlocks"] = ("rcd-component-airlocks", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/airlocks.png"))),
-            ["Electrical"] = ("rcd-component-electrical", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/multicoil.png"))),
-            ["Lighting"] = ("rcd-component-lighting", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/lighting.png"))),
-        };
-
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private PopupSystem _popup = default!;
 
+    // WL-Changes: dehardcode start
+    [Dependency] private IEntityManager _entityManager = default!;
+    [Dependency] private RCDSystem _rcd = default!;
+    [Dependency] private HandsSystem _hands = default!; // Ignition
+    // WL-Changes: dehardcode end
     private SimpleRadialMenu? _menu;
+
+    private const string TopLevelActionCategory = "Main";
+
+    // WL-Changes: dehardcode // commented
+    // private static readonly Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)> PrototypesGroupingInfo
+    //     = new Dictionary<string, (string Tooltip, SpriteSpecifier Sprite)>
+    //     {
+    //         ["WallsAndFlooring"] = ("rcd-component-walls-and-flooring", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/walls_and_flooring.png"))),
+    //         ["WindowsAndGrilles"] = ("rcd-component-windows-and-grilles", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/windows_and_grilles.png"))),
+    //         ["Airlocks"] = ("rcd-component-airlocks", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/airlocks.png"))),
+    //         ["Electrical"] = ("rcd-component-electrical", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/multicoil.png"))),
+    //         ["Lighting"] = ("rcd-component-lighting", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/lighting.png"))),
+    //     };
+
+    private bool IsRpd => EntMan.TryGetComponent<RCDComponent>(Owner, out var rcd) && rcd.IsRpd; // WL-Changes: rpd port from FunkyStation
 
     public RCDMenuBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
-        IoCManager.InjectDependencies(this);
     }
 
     protected override void Open()
@@ -55,6 +66,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
     {
         Dictionary<string, List<RadialMenuActionOptionBase>> buttonsByCategory = new();
         ValueList<RadialMenuActionOptionBase> topLevelActions = new();
+        var prototypesGroupingInfo = _rcd.PrototypesGroupingInfo; // WL-Changes: dehardcode
         foreach (var protoId in prototypes)
         {
             var prototype = _prototypeManager.Index(protoId);
@@ -69,7 +81,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
                 continue;
             }
 
-            if (!PrototypesGroupingInfo.TryGetValue(prototype.Category, out var groupInfo))
+            if (!prototypesGroupingInfo.TryGetValue(prototype.Category, out var groupInfo)) // WL-Changes: dehardcode
                 continue;
 
             if (!buttonsByCategory.TryGetValue(prototype.Category, out var list))
@@ -90,7 +102,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
         var i = 0;
         foreach (var (key, list) in buttonsByCategory)
         {
-            var groupInfo = PrototypesGroupingInfo[key];
+            var groupInfo = prototypesGroupingInfo[key]; // WL-Changes: dehardcode
             models[i] = new RadialMenuNestedLayerOption(list)
             {
                 IconSpecifier = RadialMenuIconSpecifier.With(groupInfo.Sprite),
@@ -115,8 +127,18 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
         SendMessage(new RCDSystemMessage(proto.ID));
 
 
-        if (_playerManager.LocalSession?.AttachedEntity == null)
+        // WL-Changes-start: Ignition
+        if (_playerManager.LocalSession?.AttachedEntity is not { } player)
             return;
+
+        if (_hands.TryGetActiveItem(player, out var item)
+            && _entityManager.TryGetComponent<RCDComponent>(item, out var rcd)
+            && _entityManager.HasComponent<IgnitionSourceComponent>(item)
+            && rcd.EnableIgnite)
+        {
+            _entityManager.RaisePredictiveEvent(new RDChangeModeEvent(_entityManager.GetNetEntity(item.Value)));
+        }
+        // WL-Changes-end
 
         var msg = Loc.GetString("rcd-component-change-mode", ("mode", Loc.GetString(proto.SetName)));
 
@@ -134,8 +156,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
         }
 
         // Popup message
-        var popup = EntMan.System<PopupSystem>();
-        popup.PopupClient(msg, Owner, _playerManager.LocalSession.AttachedEntity);
+        _popup.PopupEntity(msg, Owner);
     }
 
     private string GetTooltip(RCDPrototype proto)

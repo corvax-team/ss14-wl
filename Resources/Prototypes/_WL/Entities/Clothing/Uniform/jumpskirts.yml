@@ -10,3 +10,205 @@
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpskirt/ce_parade.rsi
 #WL Workers Lyvsi end
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtWhiteWaitress
+  name: white waitress skirt
+  description: Doesn't get in the way when you have a food tray.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/altwaitress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/altwaitress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtGreenWaitress
+  name: green waitress skirt
+  description: Doesn't get in the way when you have a food tray.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/waitress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/waitress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtChemistScientist
+  name: chemist scientist skirt
+  description: Should protect you from getting chemical burns.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/chemist.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/chemist.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtClassicScientist
+  name: classic scientist skirt
+  description: Brings you back too good ol' times when science was simpler...
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/oldscientist.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/scientist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtAltScientist
+  name: alternative robotechnician skirt
+  description: Robotechnician, but not edgy
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/altsci.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/altsci.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtGothCorsetDress
+  name: gothic dress with a corset
+  description: Dark. It's cool.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/gothdress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/gothdress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtFluffyPinkDress
+  name: fluffy pink dress
+  description: Well, it's fluffy alright.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/pinkdress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/pinkdress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtWaterfallBlueDress
+  name: blue dress
+  description: Kinda like a waterfall, and it even feels nice.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/bluedress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/bluedress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtSimpleSchoolDress
+  name: black skirt dress
+  description: Looks like a school dress tho.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/schooldress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/schooldress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtFarmHomeDress
+  name: farm dress
+  description: Comfy and practical.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/farmdress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/farmdress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtYellowSimpleDress
+  name: yellow dress
+  description: Perfect in it's simplicity.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/yellowdress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/yellowdress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtAsianStyleDress
+  name: asian dress
+  description: it nice, but which asians are we talking about again?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/asian.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/asian.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtFlamingoPinkFluffyDress
+  name: pink fluffy dress
+  description: How many shrimps do you have to eat before your skin turns pink?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/flamingo.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/flamingo.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtBarbieTop
+  name: pink skirt with a top
+  description: Life is pixels, its fantas- Wait that doesn't rythme.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/barbie.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/barbie.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtPinkDesignerDress
+  name: pink designer dress
+  description: Quite inconvinient, but at least shows you love money.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/pinkdesigner.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/pinkdesigner.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtDivineTunic
+  name: divine tunic
+  description: You aren't a greek god, but it's pretty.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/divinetunic.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/divinetunic.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtSkullSkirt
+  name: skull shirt with a skirt
+  description: Oh so spooky!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/skullskirt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/skullskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtMenlessShirt
+  name: no men shirt
+  description: You go girl!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/menless.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/menless.rsi

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Sprited by ReArtInt, inhands by whitleyvk (git)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "signaller"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "advanced"
+    },
+    {
+      "name": "advanced-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "advanced-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "signaller-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "signaller-inhand-right",
+      "directions": 4
+    }
+  ]
+}

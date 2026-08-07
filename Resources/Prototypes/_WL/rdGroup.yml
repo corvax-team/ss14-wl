@@ -1,0 +1,49 @@
+- type: rdGroup
+  id: WallsAndFlooring
+  name: rcd-component-walls-and-flooring
+  sprite: /Textures/Interface/Radial/RCD/walls_and_flooring.png
+
+- type: rdGroup
+  id: WindowsAndGrilles
+  name: rcd-component-windows-and-grilles
+  sprite: /Textures/Interface/Radial/RCD/windows_and_grilles.png
+
+- type: rdGroup
+  id: Airlocks
+  name: rcd-component-airlocks
+  sprite: /Textures/Interface/Radial/RCD/airlocks.png
+
+- type: rdGroup
+  id: Electrical
+  name: rcd-component-electrical
+  sprite: /Textures/Interface/Radial/RCD/multicoil.png
+
+- type: rdGroup
+  id: Lighting
+  name: rcd-component-lighting
+  sprite: /Textures/Interface/Radial/RCD/lighting.png
+
+- type: rdGroup
+  id: Piping
+  name: rcd-component-piping
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/fourway.png
+
+- type: rdGroup
+  id: AtmosphericUtility
+  name: rcd-component-atmosphericutility
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/port.png
+
+- type: rdGroup
+  id: PumpsValves
+  name: rcd-component-pumpsvalves
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_volume.png
+
+- type: rdGroup
+  id: Vents
+  name: rcd-component-vents
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/vent_passive.png
+
+- type: rdGroup
+  id: SensorsMonitors
+  name: rcd-component-sensorsmonitors
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/alarm.png

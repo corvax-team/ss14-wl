@@ -1,16 +1,16 @@
-- type: marking
-  id: TopHeadEmpty
-  bodyPart: HeadTop
-  groupWhitelist: [Felinid]
-  sponsorOnly: false
-  sprites:
-  - sprite: _WL/Mobs/Customization/empty.rsi
-    state: empty
-
-- type: marking
-  id: TailEmpty
-  bodyPart: Tail
-  groupWhitelist: [Felinid]
-  sprites:
-  - sprite: _WL/Mobs/Customization/empty.rsi
-    state: empty
+# - type: marking
+#   id: TopHeadEmpty
+#   bodyPart: HeadTop
+#   groupWhitelist: [Felinid]
+#   sponsorOnly: false
+#   sprites:
+#   - sprite: _WL/Mobs/Customization/empty.rsi
+#     state: empty
+#
+# - type: marking
+#   id: TailEmpty
+#   bodyPart: Tail
+#   groupWhitelist: [Felinid]
+#   sprites:
+#   - sprite: _WL/Mobs/Customization/empty.rsi
+#     state: empty

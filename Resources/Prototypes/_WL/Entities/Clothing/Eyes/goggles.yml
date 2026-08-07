@@ -23,7 +23,7 @@
       collection: GogglesDrop
       params:
         volume: -4
-  - type: NightVision
+  - type: NightVisionEye
     isEquipment: true
   - type: IdentityBlocker
     coverage: EYES

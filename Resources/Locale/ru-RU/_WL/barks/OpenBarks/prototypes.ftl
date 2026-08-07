@@ -1,0 +1,13 @@
+open-bark-voice-blomp = Бломп (голос)
+open-bark-voice-bomp-low = Бомп - низкий (голос)
+open-bark-voice-bomp-high = Бомп - высокий (голос)
+open-bark-voice-bong = Бонг (голос)
+open-bark-voice-borp-low = Борп - низкий (голос)
+open-bark-voice-borp-high = Борп - высокий (голос)
+open-bark-voice-tick = Тик (голос)
+open-bark-voice-tink-low = Тинк - низкий (голос)
+open-bark-voice-tink-high = Тинк - высокий (голос)
+open-bark-synth-blip-1 = Синтезированный блуп 1
+open-bark-synth-blip-2 = Синтезированный блуп 2
+open-bark-synth-blip-3 = Синтезированный блуп 3
+open-bark-synth-blip-5 = Синтезированный блуп 5

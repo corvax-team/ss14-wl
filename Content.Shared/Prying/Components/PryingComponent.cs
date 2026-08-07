@@ -45,6 +45,11 @@ public sealed partial class PryingComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype>? PryingAlertProtoId = "Prying";
+
+    // WL-Changes-Start
+    [DataField]
+    public SoundSpecifier DoorPryingSound = new SoundPathSpecifier("/Audio/_WL/Machines/Airlock/airlockforced.ogg");
+    // WL-Changes-End
 }
 
 /// <summary>

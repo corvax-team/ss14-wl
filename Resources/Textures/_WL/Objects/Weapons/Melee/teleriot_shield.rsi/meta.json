@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from /tg/station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "teleriot-icon"
+    },
+    {
+      "name": "teleriot-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "teleriot-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "teleriot-on"
+    },
+    {
+      "name": "inhand-right-shield",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left-shield",
+      "directions": 4
+    }
+  ]
+}

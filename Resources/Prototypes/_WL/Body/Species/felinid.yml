@@ -7,7 +7,6 @@
       required: false
     enum.HumanoidVisualLayers.FacialHair:
       limit: 1
-      onlyGroupWhitelisted: true
       required: false
     enum.HumanoidVisualLayers.Head:
       limit: 3
@@ -97,10 +96,9 @@
   id: MobFelinid
   components:
   - type: Vocal
-    sounds:
-      Male: MaleFelinid
-      Female: FemaleFelinid
-      Unsexed: MaleFelinid
+    emoteSounds: FemaleFelinid
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 5.1
 #  - type: Damageable
 #    damageContainer: Biological
 #    damageModifierSet: Felinid
@@ -112,9 +110,16 @@
       types:
         Blunt: 1
         Slash: 5
-  # - type: Thieving
-  #   stealthy: true
-  #  stripTimeReduction: 2.5
+  - type: StripModifiers
+    stripTimeReduction: 0
+    stripTimeMultiplier: 0.5
+  - type: NightVisionEye
+    toggleAction: PulseEchoVision
+    isEquipment: false
+    color: "#000"
+    pulseTime: 0.2
+    overlayOpacity: 1.4
+    noise: 0
   - type: Speech
     speechSounds: Alto
     allowedEmotes: ['Purr']
@@ -145,8 +150,10 @@
   - type: Languages
     speaking:
       - Translate
+      - OldEarth
     understood:
       - Translate
+      - OldEarth
     specieLanguage: OldEarth
   - type: Inventory
     femaleDisplacements:
@@ -155,6 +162,18 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damagePerUnit:
+      types:
+        Cellular: -0.25
+    damage:
+      types:
+        Heat: -0.7
+        Blunt: -0.5
+        Piercing: -0.5
+        Slash: -0.5
 
 - type: entity
   parent: OrganBase
