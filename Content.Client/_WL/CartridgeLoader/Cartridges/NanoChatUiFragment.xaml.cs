@@ -30,13 +30,13 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
     private NanoChatUiState? _state;
     private NanoChatViewMode _viewMode;
-    private uint? _pendingChat;
-    private bool _pendingMessageReflow;
+    private uint? _selectedChat;
+    private uint? _pendingNewChat;
     private bool _scrollToBottom;
     private uint? _lastRenderedChat;
-    private float _lastMessageViewportWidth;
     private const string DirectoryVisibleTexture = "/Textures/_WL/Interface/NanoChat/eye-open.svg.192dpi.png";
-    private const string DirectoryHiddenTexture = "/Textures/_WL/Interface/NanoChat/eye-closed.svg.192dpi.png";
+    private const string DirectoryHiddenTexture = "/Textures/_WL/Interface/NanoChat/eye-slash.svg.192dpi.png";
+    private const float MessageBubbleMaxWidth = 300f;
 
     private static readonly Color AccentColor = Color.FromHex("#58BCE8");
     private static readonly Color SelectedEntryColor = Color.FromHex("#27404D");
@@ -51,9 +51,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         RobustXamlLoader.Load(this);
         HorizontalExpand = true;
         VerticalExpand = true;
-
-        MessagesScroll.OnResized += QueueMessageReflow;
-        ConversationView.OnResized += QueueMessageReflow;
 
         LookupButton.OnPressed += _ =>
         {
@@ -71,9 +68,9 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         ListNumberButton.OnPressed += _ => ToggleListNumber?.Invoke();
         DeleteChatButton.OnPressed += _ =>
         {
-            if (_state?.CurrentChat is { } number)
+            if ((_selectedChat ?? _state?.CurrentChat) is { } number)
             {
-                _pendingChat = null;
+                _selectedChat = null;
                 DeleteChat?.Invoke(number);
                 Rebuild();
             }
@@ -89,27 +86,37 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
     public void UpdateState(NanoChatUiState state)
     {
-        if (_state?.OwnNumber != state.OwnNumber)
-            _pendingMessageReflow = true;
-
-        _lastMessageViewportWidth = 0f;
-
         var shouldFollowBottom = ShouldFollowBottom(state);
+        var selectedChat = _selectedChat;
+        var selectionConfirmed = selectedChat != null && selectedChat == state.CurrentChat;
+        var keepRenderedConversation = selectionConfirmed &&
+                                       _state is { } previous &&
+                                       CanKeepRenderedConversation(previous, state, selectedChat.GetValueOrDefault());
 
-        if (_pendingChat is { } pending &&
-            (pending == state.CurrentChat ||
-             !state.Recipients.ContainsKey(pending) && !state.Messages.ContainsKey(pending)))
-            _pendingChat = null;
+        if (selectionConfirmed ||
+            _selectedChat is { } unavailable && !state.Recipients.ContainsKey(unavailable))
+            _selectedChat = null;
+
+        if (_pendingNewChat is { } pending)
+        {
+            if (state.CurrentChat == pending && state.Recipients.ContainsKey(pending))
+            {
+                _viewMode = NanoChatViewMode.Chats;
+                NumberInput.Clear();
+            }
+
+            _pendingNewChat = null;
+        }
 
         _state = state;
 
         if (shouldFollowBottom)
             RequestScrollToBottom();
 
-        Rebuild();
+        Rebuild(!keepRenderedConversation);
     }
 
-    private void Rebuild()
+    private void Rebuild(bool rebuildConversation = true)
     {
         if (_state is null)
             return;
@@ -147,7 +154,8 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         }
 
         RebuildChatList();
-        RebuildMessages();
+        if (rebuildConversation)
+            RebuildMessages();
     }
 
     private void RebuildLookup()
@@ -210,10 +218,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
             button.OnPressed += _ =>
             {
-                _pendingChat = recipient.Number;
-                _viewMode = NanoChatViewMode.Chats;
-                NewChat?.Invoke(recipient.Number, recipient.Name, recipient.JobTitle);
-                Rebuild();
+                RequestNewChat(recipient);
             };
             LookupList.AddChild(button);
         }
@@ -247,7 +252,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
         foreach (var recipient in contacts)
         {
-            var isSelected = (_pendingChat ?? _state.CurrentChat) == recipient.Number;
+            var isSelected = (_selectedChat ?? _state.CurrentChat) == recipient.Number;
             var preview = GetLastMessagePreview(recipient.Number);
             var button = new Button
             {
@@ -298,7 +303,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             button.AddChild(row);
             button.OnPressed += _ =>
             {
-                _pendingChat = recipient.Number;
+                _selectedChat = recipient.Number;
                 SelectChat?.Invoke(recipient.Number);
                 Rebuild();
             };
@@ -314,7 +319,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
         MessageList.RemoveAllChildren();
 
-        var activeChat = _pendingChat ?? state.CurrentChat;
+        var activeChat = _selectedChat ?? state.CurrentChat;
         var hasChats = state.Recipients.Count > 0;
         var focusComposer = activeChat is not null && !MessageInputContainer.Visible;
         WelcomeView.Visible = !hasChats;
@@ -339,15 +344,12 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         }
 
         var hasRecipient = state.Recipients.TryGetValue(current, out var selectedRecipient);
-        var contactName = hasRecipient
-            ? selectedRecipient.Name
-            : Loc.GetString("nanochat-unknown-contact");
-        CurrentChatName.Text = FormatHeaderText(contactName);
-        CurrentChatName.FontColorOverride = AccentColor;
-        CurrentChatName.ToolTip = contactName;
         CurrentChatDetails.Text = hasRecipient && selectedRecipient.JobTitle is { } jobTitle
             ? $"{jobTitle} · #{current:D4}"
             : $"#{current:D4}";
+        CurrentChatDetails.ToolTip = hasRecipient
+            ? selectedRecipient.Name
+            : Loc.GetString("nanochat-unknown-contact");
         CurrentChatHeader.PanelOverride = HeaderPanel;
         CurrentChatHeader.ModulateSelfOverride = null;
         DeleteChatButton.ToolTip = Loc.GetString("nanochat-delete-chat");
@@ -372,7 +374,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         foreach (var message in messages)
         {
             var own = message.Sender == state.OwnNumber;
-            var bubbleMaxWidth = Math.Max(132f, MessagesScroll.Size.X - 30f);
             var row = new BoxContainer
             {
                 Orientation = LayoutOrientation.Horizontal,
@@ -383,7 +384,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             var card = new PanelContainer
             {
                 MinWidth = 84,
-                MaxWidth = bubbleMaxWidth,
+                MaxWidth = MessageBubbleMaxWidth,
                 Margin = new Thickness(1),
                 PanelOverride = own ? OutgoingMessagePanel : IncomingMessagePanel,
                 ModulateSelfOverride = own ? Color.FromHex("#C2D9E6") : Color.FromHex("#B8C0C9"),
@@ -392,7 +393,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             var contents = new BoxContainer { Orientation = LayoutOrientation.Vertical, Margin = new Thickness(8, 6, 8, 5) };
             var messageLabel = new RichTextLabel
             {
-                MaxWidth = Math.Max(98f, bubbleMaxWidth - 22f),
+                MaxWidth = MessageBubbleMaxWidth - 22f,
                 HorizontalExpand = true,
             };
             messageLabel.SetMessage(message.Content, MessageTextColor);
@@ -423,7 +424,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         if (_state is null)
             return;
 
-        var number = _pendingChat ?? _state.CurrentChat;
+        var number = _selectedChat ?? _state.CurrentChat;
         var text = MessageInput.Text.Trim();
 
         if (number is not { } recipient || string.IsNullOrWhiteSpace(text) || text.Length > NanoChatMessage.MaxLength)
@@ -438,7 +439,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     private void UpdateComposerState(string text)
     {
         var length = text.Length;
-        var hasChat = _state?.CurrentChat != null || _pendingChat != null;
+        var hasChat = _state?.CurrentChat != null || _selectedChat != null;
         var tooLong = length > NanoChatMessage.MaxLength;
 
         SendButton.Disabled = !hasChat || string.IsNullOrWhiteSpace(text) || tooLong;
@@ -456,18 +457,32 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             return;
 
         var directoryEntry = _state?.Directory?.FirstOrDefault(r => r.Number == number);
-        var name = directoryEntry?.Name ?? Loc.GetString("nanochat-unknown-contact");
+        if (directoryEntry is { } knownContact)
+        {
+            RequestNewChat(knownContact);
+            return;
+        }
 
-        _pendingChat = number;
-        _viewMode = NanoChatViewMode.Chats;
-        NewChat?.Invoke(number, name, directoryEntry?.JobTitle);
-        NumberInput.Clear();
-        Rebuild();
+        _pendingNewChat = number;
+        NewChat?.Invoke(number, Loc.GetString("nanochat-unknown-contact"), null);
+        UpdateStartChatState(NumberInput.Text);
     }
 
     private void UpdateStartChatState(string text)
     {
-        StartChatButton.Disabled = !uint.TryParse(text.Trim(), out var number) || number == _state?.OwnNumber;
+        StartChatButton.Disabled = _pendingNewChat != null ||
+                                   !uint.TryParse(text.Trim(), out var number) ||
+                                   number == _state?.OwnNumber;
+    }
+
+    private void RequestNewChat(NanoChatRecipient recipient)
+    {
+        if (_pendingNewChat != null)
+            return;
+
+        _pendingNewChat = recipient.Number;
+        NewChat?.Invoke(recipient.Number, recipient.Name, recipient.JobTitle);
+        UpdateStartChatState(NumberInput.Text);
     }
 
     private string GetLastMessagePreview(uint number)
@@ -476,7 +491,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         {
             var message = messages[^1];
             return message.Sender == _state!.OwnNumber
-                ? $"Я: {message.Content}"
+                ? Loc.GetString("nanochat-message-preview-own", ("message", message.Content))
                 : message.Content;
         }
 
@@ -484,12 +499,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     }
 
     private static string FormatListText(string text)
-    {
-        const int maxCharacters = 28;
-        return text.Length <= maxCharacters ? text : text[..(maxCharacters - 1)] + "…";
-    }
-
-    private static string FormatHeaderText(string text)
     {
         const int maxCharacters = 28;
         return text.Length <= maxCharacters ? text : text[..(maxCharacters - 1)] + "…";
@@ -520,16 +529,11 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         _scrollToBottom = true;
     }
 
-    private void QueueMessageReflow()
-    {
-        _pendingMessageReflow = true;
-    }
-
     private bool ShouldFollowBottom(NanoChatUiState nextState)
     {
         var previousState = _state;
-        var previousChat = _pendingChat ?? previousState?.CurrentChat;
-        var nextChat = _pendingChat ?? nextState.CurrentChat;
+        var previousChat = _selectedChat ?? previousState?.CurrentChat;
+        var nextChat = _selectedChat ?? nextState.CurrentChat;
 
         if (nextChat == null)
             return previousChat != null;
@@ -567,30 +571,26 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     {
         base.FrameUpdate(args);
 
-        var viewportWidth = MessagesScroll.Size.X;
-        if (ConversationView.Visible && viewportWidth > 0f)
-        {
-            if (!MathHelper.CloseToPercent(_lastMessageViewportWidth, viewportWidth, 0.01f))
-            {
-                _lastMessageViewportWidth = viewportWidth;
-                _pendingMessageReflow = true;
-            }
-        }
-        else
-        {
-            _lastMessageViewportWidth = 0f;
-        }
-
-        if (_pendingMessageReflow && ConversationView.Visible && MessagesScroll.Size.X > 0f)
-        {
-            _pendingMessageReflow = false;
-            RebuildMessages();
-        }
-
         if (!_scrollToBottom || !MessagesScroll.Visible)
             return;
 
         _scrollToBottom = false;
         MessagesScroll.VScrollTarget = float.PositiveInfinity;
+    }
+
+    private static bool CanKeepRenderedConversation(NanoChatUiState previous, NanoChatUiState next, uint chat)
+    {
+        if (!previous.Recipients.TryGetValue(chat, out var previousRecipient) ||
+            !next.Recipients.TryGetValue(chat, out var nextRecipient) ||
+            previousRecipient.Name != nextRecipient.Name ||
+            previousRecipient.JobTitle != nextRecipient.JobTitle)
+            return false;
+
+        var previousMessages = previous.Messages.GetValueOrDefault(chat);
+        var nextMessages = next.Messages.GetValueOrDefault(chat);
+        if (previousMessages == null || nextMessages == null)
+            return previousMessages == nextMessages;
+
+        return previousMessages.SequenceEqual(nextMessages);
     }
 }

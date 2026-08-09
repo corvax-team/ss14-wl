@@ -66,10 +66,4 @@ public sealed partial class NanoChatCardComponent : Component
     [DataField]
     public bool ListNumber = true;
 
-    /// <summary>
-    ///     Whether the owning PDA's NanoChat program is not currently in the foreground,
-    ///     used to decide whether to suppress notifications for the active chat.
-    /// </summary>
-    [DataField]
-    public bool IsClosed = true;
 }

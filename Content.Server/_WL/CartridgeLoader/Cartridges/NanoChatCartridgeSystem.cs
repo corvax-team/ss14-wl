@@ -5,15 +5,14 @@ using Content.Server.Radio;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
-using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared._WL.NanoChat;
 using Content.Shared.PDA;
+using Content.Shared.Popups;
 using Content.Shared.Radio.Components;
 using Content.Shared.Tag;
 using Content.Shared.UserInterface;
-using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -30,14 +29,11 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private StationSystem _station = default!;
     [Dependency] private TagSystem _tag = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private IConfigurationManager _cfgManager = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     // Messages get cut off in notification previews after this point.
     private const int NotificationMaxLength = 64;
     private const string NoStationDirectoryTag = "NanoChatNoStationDirectory";
-
-    private int _maxNameLength;
-    private int _maxIdJobLength;
 
     public override void Initialize()
     {
@@ -46,8 +42,6 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
 
-        Subs.CVar(_cfgManager, CCVars.MaxNameLength, value => _maxNameLength = value, true);
-        Subs.CVar(_cfgManager, CCVars.MaxIdJobLength, value => _maxIdJobLength = value, true);
     }
 
     public override void Update(float frameTime)
@@ -69,21 +63,6 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
             nanoChat.Card = newCard;
             UpdateUi((uid, nanoChat), loader);
         }
-    }
-
-    private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
-    {
-        if (!TryComp<CartridgeComponent>(ent, out var cartridge) ||
-            cartridge.LoaderUid is not { } pda ||
-            !TryComp<CartridgeLoaderComponent>(pda, out var loader) ||
-            !GetCardEntity(pda, out var card))
-        {
-            return;
-        }
-
-        // Notifications for the currently selected chat are only suppressed while the program
-        // is actually the foreground program and the PDA UI is open.
-        _nanoChat.SetClosed((card, card.Comp), loader.ActiveProgram != ent.Owner || !_ui.IsUiOpen(pda, PdaUiKey.Key));
     }
 
     private void OnMessage(Entity<NanoChatCartridgeComponent> ent, ref CartridgeMessageEvent args)
@@ -121,7 +100,6 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
                 break;
         }
 
-        UpdateClosed(ent);
         UpdateUi(ent, loaderUid);
     }
 
@@ -144,10 +122,19 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
             return;
 
         if (GetCardInfo(msg.RecipientNumber.Value) is not { } recipient)
+        {
+            _popup.PopupEntity(
+                Loc.GetString("nanochat-contact-not-found", ("number", msg.RecipientNumber.Value.ToString("D4"))),
+                msg.Actor,
+                msg.Actor);
             return;
+        }
 
         if (!_nanoChat.EnsureRecipientExists((card, card.Comp), msg.RecipientNumber.Value, recipient))
+        {
+            _popup.PopupEntity(Loc.GetString("nanochat-contact-limit-reached"), msg.Actor, msg.Actor);
             return;
+        }
 
         _nanoChat.SetCurrentChat((card, card.Comp), msg.RecipientNumber);
 
@@ -183,38 +170,12 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         if (msg.RecipientNumber == null)
             return;
 
-        var recipientNumber = msg.RecipientNumber.Value;
-        var removed = _nanoChat.TryDeleteChat((card, card.Comp), recipientNumber);
-
-        if (card.Comp.Number is { } ownNumber)
-            removed |= DeleteReciprocalChats(card.Owner, ownNumber, recipientNumber) > 0;
-
-        if (!removed)
+        if (!_nanoChat.TryDeleteChat((card, card.Comp), msg.RecipientNumber.Value))
             return;
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
             $"{ToPrettyString(msg.Actor):user} deleted NanoChat conversation with #{msg.RecipientNumber:D4}");
-    }
-
-    private int DeleteReciprocalChats(EntityUid sourceCardUid, uint sourceNumber, uint recipientNumber)
-    {
-        var removedCount = 0;
-
-        var query = EntityQueryEnumerator<NanoChatCardComponent>();
-        while (query.MoveNext(out var cardUid, out var card))
-        {
-            if (cardUid == sourceCardUid || card.Number != recipientNumber)
-                continue;
-
-            if (!_nanoChat.TryDeleteChat((cardUid, card), sourceNumber))
-                continue;
-
-            removedCount++;
-            UpdateUiForCard(cardUid);
-        }
-
-        return removedCount;
     }
 
     private void HandleToggleMute(Entity<NanoChatCardComponent> card)
@@ -239,13 +200,12 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         if (!_nanoChat.EnsureRecipientExists((card, card.Comp), msg.RecipientNumber.Value, GetCardInfo(msg.RecipientNumber.Value)))
             return;
 
-        var content = msg.Content;
-        if (!string.IsNullOrWhiteSpace(content))
-        {
-            content = FormattedMessage.EscapeText(content.Trim());
-            if (content.Length > NanoChatMessage.MaxLength)
-                content = content[..NanoChatMessage.MaxLength];
-        }
+        if (string.IsNullOrWhiteSpace(msg.Content))
+            return;
+
+        var content = FormattedMessage.EscapeText(msg.Content.Trim());
+        if (content.Length > NanoChatMessage.MaxLength)
+            content = content[..NanoChatMessage.MaxLength];
 
         var message = new NanoChatMessage(_timing.CurTime, content, card.Comp.Number.Value);
 
@@ -354,7 +314,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
         _nanoChat.AddMessage((recipient, recipient.Comp), senderNumber, message with { DeliveryFailed = false });
 
-        if (recipient.Comp.IsClosed || _nanoChat.GetCurrentChat((recipient, recipient.Comp)) != senderNumber)
+        if (!IsChatVisible(recipient, senderNumber))
             HandleUnreadNotification(recipient, message, senderNumber);
 
         var msgEv = new NanoChatMessageReceivedEvent(recipient);
@@ -364,25 +324,32 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
     private void HandleUnreadNotification(Entity<NanoChatCardComponent> recipient, NanoChatMessage message, uint senderNumber)
     {
-        var hasSelectedCurrentChat = _nanoChat.GetCurrentChat((recipient, recipient.Comp)) == senderNumber;
-
-        if (!hasSelectedCurrentChat && _nanoChat.GetRecipient((recipient, recipient.Comp), senderNumber) is { } senderRecipient)
+        if (_nanoChat.GetRecipient((recipient, recipient.Comp), senderNumber) is { } senderRecipient)
             _nanoChat.SetRecipient((recipient, recipient.Comp), senderNumber, senderRecipient with { HasUnread = true });
 
         var senderName = _nanoChat.GetRecipient((recipient, recipient.Comp), senderNumber)?.Name ?? $"#{senderNumber:D4}";
 
         if (recipient.Comp.NotificationsMuted ||
             recipient.Comp.PdaUid is not { } pdaUid ||
-            !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader) ||
-            (hasSelectedCurrentChat &&
-                _ui.IsUiOpen(pdaUid, PdaUiKey.Key) &&
-                HasComp<NanoChatCartridgeComponent>(loader.ActiveProgram)))
+            !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader))
             return;
 
         _cartridge.SendNotification(pdaUid,
             Loc.GetString("nanochat-notification-title"),
             Loc.GetString("nanochat-notification-message", ("sender", senderName)) + $": {TruncateMessage(message.Content)}",
             loader);
+    }
+
+    private bool IsChatVisible(Entity<NanoChatCardComponent> recipient, uint senderNumber)
+    {
+        if (_nanoChat.GetCurrentChat((recipient, recipient.Comp)) != senderNumber ||
+            recipient.Comp.PdaUid is not { } pdaUid ||
+            !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader) ||
+            loader.ActiveProgram is not { } activeProgram ||
+            !HasComp<NanoChatCartridgeComponent>(activeProgram))
+            return false;
+
+        return _ui.IsUiOpen(pdaUid, PdaUiKey.Key);
     }
 
     private void UpdateUiForCard(EntityUid cardUid)

@@ -50,14 +50,6 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
         Dirty(card);
     }
 
-    public void SetClosed(Entity<NanoChatCardComponent?> card, bool closed)
-    {
-        if (!Resolve(card, ref card.Comp))
-            return;
-
-        card.Comp.IsClosed = closed;
-    }
-
     public IReadOnlyDictionary<uint, NanoChatRecipient> GetRecipients(Entity<NanoChatCardComponent?> card)
     {
         if (!Resolve(card, ref card.Comp))

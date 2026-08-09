@@ -99,7 +99,7 @@ public sealed partial class NanoChatSystem : SharedNanoChatSystem
 
     private void ScrambleMessages(NanoChatCardComponent component)
     {
-        foreach (var (recipientNumber, messages) in component.Messages)
+        foreach (var (recipientNumber, messages) in component.Messages.ToArray())
         {
             for (var i = 0; i < messages.Count; i++)
             {

@@ -6,9 +6,9 @@
                                HorizontalExpand="True"
                                VerticalExpand="True">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        <controls:StripeBack MinSize="36 36">
+        <controls:StripeBack MinSize="30 30">
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="4 0" SeparationOverride="3">
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="6 1 0 1">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="6 0 0 0" SeparationOverride="7">
                     <Label Name="TitleLabel" StyleClasses="LabelHeading" VerticalAlignment="Center" ClipText="True" />
                     <Label Name="OwnNumberLabel" StyleClasses="LabelSubText" VerticalAlignment="Center" ClipText="True" />
                 </BoxContainer>
@@ -52,12 +52,9 @@
                     <BoxContainer Name="ConversationView" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Visible="False">
                     <BoxContainer Name="MessageArea" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0 0 0 4">
                         <PanelContainer Name="CurrentChatHeader" StyleClasses="AngleRect" HorizontalExpand="True" Margin="0 0 0 2">
-                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="6 3" SeparationOverride="4">
-                                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                                    <Label Name="CurrentChatName" StyleClasses="LabelHeading" ClipText="True" />
-                                    <Label Name="CurrentChatDetails" StyleClasses="LabelSubText" ClipText="True" />
-                                </BoxContainer>
-                                <Button Name="DeleteChatButton" StyleClasses="ButtonSquare" MinSize="24 24" MaxSize="24 24">
+                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="6 1" SeparationOverride="4">
+                                <Label Name="CurrentChatDetails" StyleClasses="LabelSubText" HorizontalExpand="True" VerticalAlignment="Center" ClipText="True" />
+                                <Button Name="DeleteChatButton" StyleClasses="ButtonSquare" MinSize="22 22" MaxSize="22 22">
                                     <TextureRect StyleClasses="ButtonSquare" TexturePath="/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png" Stretch="KeepAspectCentered" MinSize="14 14" />
                                 </Button>
                             </BoxContainer>
