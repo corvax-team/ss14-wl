@@ -49,6 +49,7 @@ public sealed partial class RecordsTab : Control
         PopulateEnumOptions(EmploymentAcademicTitle, Enum.GetValues<RecordAcademicTitle>(), "records-academic-title-value");
         PopulateBooleanOptions(MedicalDnr);
         PopulateBooleanOptions(SecuritySupervision);
+        ConfigureTextLimits();
 
         BindLineEdit(MedicalWeight, EmitMedical);
         BindLineEdit(MedicalPostmortem, EmitMedical);
@@ -445,6 +446,24 @@ public sealed partial class RecordsTab : Control
         _employmentStorage = StructuredCharacterRecords.WriteEmployment(record);
         OnEmploymentRecordChanged?.Invoke(_employmentStorage);
         UpdatePreview();
+    }
+
+    private void ConfigureTextLimits()
+    {
+        MedicalSurgeries.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        MedicalMedication.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        MedicalPhysiological.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        MedicalPsychological.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        MedicalNotes.SetCharacterLimit(StructuredCharacterRecords.MaxNotesTextLength);
+
+        SecurityPermits.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        SecurityArrests.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        SecurityImprisonment.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        SecurityNotes.SetCharacterLimit(StructuredCharacterRecords.MaxNotesTextLength);
+
+        EmploymentLicenses.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        EmploymentHistory.SetCharacterLimit(StructuredCharacterRecords.MaxEmploymentHistoryLength);
+        EmploymentNotes.SetCharacterLimit(StructuredCharacterRecords.MaxNotesTextLength);
     }
 
     private void UpdateAcademicTitleVisibility(bool clearHiddenValues)

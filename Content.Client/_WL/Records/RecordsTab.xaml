@@ -47,14 +47,14 @@
 
                         <BoxContainer Name="OrganicMedicalFields" Orientation="Vertical" HorizontalExpand="True">
                             <Label Text="{Loc 'records-surgeries'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                            <records:RecordTextEdit Name="MedicalSurgeries" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                            <records:RecordTextEdit Name="MedicalSurgeries" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                             <Label Text="{Loc 'records-medication'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                            <records:RecordTextEdit Name="MedicalMedication" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                            <records:RecordTextEdit Name="MedicalMedication" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         </BoxContainer>
                         <Label Text="{Loc 'records-physiological-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="MedicalPhysiological" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="MedicalPhysiological" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-psychological-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="MedicalPsychological" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="MedicalPsychological" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
                         <records:RecordTextEdit Name="MedicalNotes" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
 
@@ -115,11 +115,11 @@
                             <records:RecordOptionButton Name="SecuritySupervision" MinWidth="220" MaxWidth="320" HorizontalExpand="True"/>
                         </GridContainer>
                         <Label Text="{Loc 'records-permits'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="SecurityPermits" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="SecurityPermits" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-arrest-history'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="SecurityArrests" MinHeight="90" MaxHeight="150" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="SecurityArrests" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-imprisonment-history'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="SecurityImprisonment" MinHeight="90" MaxHeight="150" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="SecurityImprisonment" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
                         <records:RecordTextEdit Name="SecurityNotes" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
 
@@ -160,7 +160,7 @@
                             </BoxContainer>
                         </PanelContainer>
                         <Label Text="{Loc 'records-licenses'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="EmploymentLicenses" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="EmploymentLicenses" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-employment-history'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
                         <records:RecordTextEdit Name="EmploymentHistory" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>

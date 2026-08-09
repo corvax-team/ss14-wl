@@ -121,6 +121,21 @@ public sealed class StructuredCharacterRecordsTest
     }
 
     [Test]
+    public void EmploymentHistoryUsesItsExpandedLimit()
+    {
+        var history = new string('x', StructuredCharacterRecords.MaxEmploymentHistoryLength + 1);
+
+        var restored = StructuredCharacterRecords.ReadEmployment(
+            StructuredCharacterRecords.WriteEmployment(new EmploymentRecordData
+            {
+                EmploymentHistory = history,
+            }));
+
+        Assert.That(restored.EmploymentHistory, Has.Length.EqualTo(
+            StructuredCharacterRecords.MaxEmploymentHistoryLength));
+    }
+
+    [Test]
     public void VersionOneEmploymentRecordRemainsReadable()
     {
         const string versionOne = "WL_EMPLOYMENT_V1:7;1:09:Professor10:01.01.28700:0:0:0:";
