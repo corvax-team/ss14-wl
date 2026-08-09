@@ -122,6 +122,7 @@ public sealed class RecordTextEdit : PanelContainer
             return;
         }
 
+        _pendingClampedText = null;
         UpdateCharacterCounter();
         OnTextChanged?.Invoke(args);
     }

@@ -28,9 +28,9 @@ public sealed class RecordDateEdit : BoxContainer
             var day = Day.Text.Trim();
             var month = Month.Text.Trim();
             var year = Year.Text.Trim();
-            return day.Length == 0 && month.Length == 0 && year.Length == 0
-                ? string.Empty
-                : $"{day}.{month}.{year}";
+            return day.Length == 2 && month.Length == 2 && year.Length == 4
+                ? $"{day}.{month}.{year}"
+                : string.Empty;
         }
     }
 

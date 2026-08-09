@@ -106,7 +106,7 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
     // WL-Changes-Records-Start
     private void OnPrinted(Entity<CriminalRecordsConsoleComponent> ent, ref PrintStationRecord msg)
     {
-        if (!ent.Comp.CanPrintEntries)
+        if (!ent.Comp.CanPrintEntries || !_access.IsAllowed(msg.Actor, ent))
             return;
 
         var owning = _station.GetOwningStation(ent.Owner);
