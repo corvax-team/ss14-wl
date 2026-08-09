@@ -285,7 +285,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCivilian
   name: civilian beret
-  description: An non-agressive beret with a purple stripe. Stylish and gives away something french.
+  description: A non-agressive beret with a purple stripe. Stylish and gives away something french.
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Hats/beret_civilian.rsi
@@ -311,7 +311,7 @@
     - ClothMade
     - WhitelistChameleon
 
- - type: entity
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretRobotech
   name: robotech's beret
