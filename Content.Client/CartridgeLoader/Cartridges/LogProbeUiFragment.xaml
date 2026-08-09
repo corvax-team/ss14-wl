@@ -19,9 +19,11 @@
         <BoxContainer Orientation="Vertical" Name="ProbedDeviceContainer"/>
     </ScrollContainer>
     <!-- WL-Changes: NanoChat Start -->
-    <BoxContainer Orientation="Vertical" Name="NanoChatContainer" Margin="4 4" Visible="False">
+    <BoxContainer Orientation="Vertical" Name="NanoChatContainer" Margin="4 4" Visible="False" VerticalExpand="True">
         <Label Name="NanoChatHeader" StyleClasses="LabelSubText"/>
-        <BoxContainer Orientation="Vertical" Name="NanoChatContactsContainer"/>
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Orientation="Vertical" Name="NanoChatContactsContainer"/>
+        </ScrollContainer>
     </BoxContainer>
     <!-- WL-Changes: NanoChat End -->
     <BoxContainer Orientation="Horizontal" Margin="4 8">

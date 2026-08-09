@@ -21,6 +21,7 @@ nanochat-card-examine-number = Её номер NanoChat: [color=lightblue]#{ $nu
 nanochat-number-placeholder = Введите номер…
 nanochat-start-chat = Начать чат
 nanochat-delete-chat = Удалить чат
+nanochat-delete-chat-confirm = Нажмите ещё раз, чтобы удалить чат
 nanochat-search-contacts = Найти контакты
 nanochat-return-to-chats = Вернуться к чатам
 nanochat-search = Поиск

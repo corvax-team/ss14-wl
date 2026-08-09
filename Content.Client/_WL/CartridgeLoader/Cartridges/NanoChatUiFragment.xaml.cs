@@ -8,6 +8,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared;
 using Robust.Shared.Maths;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Client._WL.CartridgeLoader.Cartridges;
 
@@ -32,6 +33,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     private NanoChatViewMode _viewMode;
     private uint? _selectedChat;
     private uint? _pendingNewChat;
+    private uint? _deleteConfirmationChat;
     private bool _scrollToBottom;
     private uint? _lastRenderedChat;
     private const string DirectoryVisibleTexture = "/Textures/_WL/Interface/NanoChat/eye-open.svg.192dpi.png";
@@ -68,12 +70,21 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         ListNumberButton.OnPressed += _ => ToggleListNumber?.Invoke();
         DeleteChatButton.OnPressed += _ =>
         {
-            if ((_selectedChat ?? _state?.CurrentChat) is { } number)
+            if ((_selectedChat ?? _state?.CurrentChat) is not { } number)
+                return;
+
+            if (_deleteConfirmationChat != number)
             {
-                _selectedChat = null;
-                DeleteChat?.Invoke(number);
-                Rebuild();
+                _deleteConfirmationChat = number;
+                DeleteChatButton.ToolTip = Loc.GetString("nanochat-delete-chat-confirm");
+                DeleteChatButton.ModulateSelfOverride = Color.FromHex("#C95C5C");
+                return;
             }
+
+            ResetDeleteConfirmation();
+            _selectedChat = null;
+            DeleteChat?.Invoke(number);
+            Rebuild();
         };
         SendButton.OnPressed += _ => SubmitMessage();
         MessageInput.OnTextEntered += _ => SubmitMessage();
@@ -166,13 +177,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         var directory = _state?.Directory;
         if (directory is null || directory.Count == 0)
         {
-            LookupList.AddChild(new Label
-            {
-                Text = Loc.GetString("nanochat-directory-empty"),
-                HorizontalAlignment = HAlignment.Center,
-                Margin = new Thickness(4, 6),
-                StyleClasses = { "LabelSubText" },
-            });
+            LookupList.AddChild(CreateDirectoryEmptyLabel());
             return;
         }
 
@@ -224,15 +229,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         }
 
         if (!anyEntries)
-        {
-            LookupList.AddChild(new Label
-            {
-                Text = Loc.GetString("nanochat-directory-empty"),
-                HorizontalAlignment = HAlignment.Center,
-                Margin = new Thickness(4, 6),
-                StyleClasses = { "LabelSubText" },
-            });
-        }
+            LookupList.AddChild(CreateDirectoryEmptyLabel());
     }
 
     private void RebuildChatList()
@@ -320,6 +317,9 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         MessageList.RemoveAllChildren();
 
         var activeChat = _selectedChat ?? state.CurrentChat;
+        if (_deleteConfirmationChat != activeChat)
+            ResetDeleteConfirmation();
+
         var hasChats = state.Recipients.Count > 0;
         var focusComposer = activeChat is not null && !MessageInputContainer.Visible;
         WelcomeView.Visible = !hasChats;
@@ -339,9 +339,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         NoConversationSelectedDetails.Text = Loc.GetString("nanochat-select-chat-details");
 
         if (activeChat is not { } current)
-        {
             return;
-        }
 
         var hasRecipient = state.Recipients.TryGetValue(current, out var selectedRecipient);
         CurrentChatDetails.Text = hasRecipient && selectedRecipient.JobTitle is { } jobTitle
@@ -352,7 +350,8 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             : Loc.GetString("nanochat-unknown-contact");
         CurrentChatHeader.PanelOverride = HeaderPanel;
         CurrentChatHeader.ModulateSelfOverride = null;
-        DeleteChatButton.ToolTip = Loc.GetString("nanochat-delete-chat");
+        if (_deleteConfirmationChat == null)
+            DeleteChatButton.ToolTip = Loc.GetString("nanochat-delete-chat");
         UpdateComposerState(MessageInput.Text);
 
         if (_lastRenderedChat != current)
@@ -396,7 +395,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
                 MaxWidth = MessageBubbleMaxWidth - 22f,
                 HorizontalExpand = true,
             };
-            messageLabel.SetMessage(message.Content, MessageTextColor);
+            messageLabel.SetMessage(FormattedMessage.FromUnformatted(message.Content), MessageTextColor);
             contents.AddChild(messageLabel);
             contents.AddChild(new Label
             {
@@ -456,7 +455,19 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         if (!uint.TryParse(NumberInput.Text.Trim(), out var number) || number == _state?.OwnNumber)
             return;
 
-        var directoryEntry = _state?.Directory?.FirstOrDefault(r => r.Number == number);
+        NanoChatRecipient? directoryEntry = null;
+        if (_state?.Directory is { } directory)
+        {
+            foreach (var candidate in directory)
+            {
+                if (candidate.Number != number)
+                    continue;
+
+                directoryEntry = candidate;
+                break;
+            }
+        }
+
         if (directoryEntry is { } knownContact)
         {
             RequestNewChat(knownContact);
@@ -512,6 +523,24 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
         const int maxCharacters = 30;
         return details.Length <= maxCharacters ? details : details[..(maxCharacters - 1)] + "…";
+    }
+
+    private static Label CreateDirectoryEmptyLabel()
+    {
+        return new Label
+        {
+            Text = Loc.GetString("nanochat-directory-empty"),
+            HorizontalAlignment = HAlignment.Center,
+            Margin = new Thickness(4, 6),
+            StyleClasses = { "LabelSubText" },
+        };
+    }
+
+    private void ResetDeleteConfirmation()
+    {
+        _deleteConfirmationChat = null;
+        DeleteChatButton.ToolTip = Loc.GetString("nanochat-delete-chat");
+        DeleteChatButton.ModulateSelfOverride = null;
     }
 
     private static StyleBoxFlat CreatePanelStyle(string background, Color border)

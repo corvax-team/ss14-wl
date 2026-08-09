@@ -963,6 +963,10 @@
     jobIcon: JobIconVisitor
   - type: PresetIdCard
     job: Visitor
+  # WL-Changes: NanoChat Start
+  - type: NanoChatCard
+    canAccessStationDirectory: false
+  # WL-Changes: NanoChat End
 
 #Antags
 

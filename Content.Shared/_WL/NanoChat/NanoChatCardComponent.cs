@@ -43,6 +43,18 @@ public sealed partial class NanoChatCardComponent : Component
     public int MaxRecipients = 50;
 
     /// <summary>
+    ///     The maximum amount of messages retained per conversation.
+    /// </summary>
+    [DataField]
+    public int MaxMessagesPerChat = 100;
+
+    /// <summary>
+    ///     The minimum delay between messages sent from this card.
+    /// </summary>
+    [DataField]
+    public TimeSpan MessageSendDelay = TimeSpan.FromSeconds(1);
+
+    /// <summary>
     ///     Last time a message was sent, for rate limiting.
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
@@ -66,4 +78,9 @@ public sealed partial class NanoChatCardComponent : Component
     [DataField]
     public bool ListNumber = true;
 
+    /// <summary>
+    ///     Whether this card may view the station NanoChat directory.
+    /// </summary>
+    [DataField]
+    public bool CanAccessStationDirectory = true;
 }

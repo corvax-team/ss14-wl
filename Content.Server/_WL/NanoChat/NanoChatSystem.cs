@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
@@ -120,7 +121,11 @@ public sealed partial class NanoChatSystem : SharedNanoChatSystem
                 if (!component.Messages.ContainsKey(newRecipient))
                     component.Messages[newRecipient] = new List<NanoChatMessage>();
 
-                component.Messages[newRecipient].AddRange(messages);
+                var recipientMessages = component.Messages[newRecipient];
+                recipientMessages.AddRange(messages);
+                if (recipientMessages.Count > component.MaxMessagesPerChat)
+                    recipientMessages.RemoveRange(0, recipientMessages.Count - component.MaxMessagesPerChat);
+
                 component.Messages[recipientNumber].Clear();
             }
         }
@@ -128,16 +133,20 @@ public sealed partial class NanoChatSystem : SharedNanoChatSystem
 
     private string ScrambleText(string text)
     {
-        var chars = text.ToCharArray();
-        var n = chars.Length;
+        var elements = new List<string>();
+        var enumerator = StringInfo.GetTextElementEnumerator(text);
+        while (enumerator.MoveNext())
+            elements.Add((string) enumerator.Current);
+
+        var n = elements.Count;
 
         while (n > 1)
         {
             n--;
             var k = _random.Next(n + 1);
-            (chars[k], chars[n]) = (chars[n], chars[k]);
+            (elements[k], elements[n]) = (elements[n], elements[k]);
         }
 
-        return new string(chars);
+        return string.Concat(elements);
     }
 }

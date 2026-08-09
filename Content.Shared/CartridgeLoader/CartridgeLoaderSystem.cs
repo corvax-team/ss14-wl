@@ -73,6 +73,9 @@ public sealed partial class CartridgeLoaderSystem : EntitySystem
                 UpdateCartridgeInstallationStatus((args.Entity, cartridge), GetSlotCartridgeStatus(ent, args.Entity));
         }
 
+        //WL-Changes-NanoChat-DuplicateCartridge
+        RefreshSlotCartridgeStatus(ent);
+
         var evt = new CartridgeAddedEvent(ent);
         RaiseLocalEvent(args.Entity, ref evt);
         UpdateUiState(ent.AsNullable());
@@ -88,10 +91,21 @@ public sealed partial class CartridgeLoaderSystem : EntitySystem
         foreach (var program in GetDiskPrograms(loader))
         {
             if (MetaData(program).EntityPrototype == cartridgeProto)
-                return InstallationStatus.Readonly;
+                return InstallationStatus.Duplicate;
         }
 
         return InstallationStatus.Cartridge;
+    }
+
+    private void RefreshSlotCartridgeStatus(Entity<CartridgeLoaderComponent> loader)
+    {
+        if (_itemSlotsSystem.GetItemOrNull(loader, CartridgeLoaderComponent.CartridgeSlotId) is not { } cartridgeUid ||
+            !TryComp<CartridgeComponent>(cartridgeUid, out var cartridge))
+            return;
+
+        UpdateCartridgeInstallationStatus(
+            (cartridgeUid, cartridge),
+            GetSlotCartridgeStatus(loader, cartridgeUid));
     }
     //WL-Changes-NanoChat-End
 
@@ -118,6 +132,9 @@ public sealed partial class CartridgeLoaderSystem : EntitySystem
             cartridge.LoaderUid = null;
             Dirty(args.Entity, cartridge);
         }
+
+        //WL-Changes-NanoChat-DuplicateCartridge
+        RefreshSlotCartridgeStatus(ent);
 
         var removed = new CartridgeRemovedEvent(ent);
         RaiseLocalEvent(args.Entity, ref removed);

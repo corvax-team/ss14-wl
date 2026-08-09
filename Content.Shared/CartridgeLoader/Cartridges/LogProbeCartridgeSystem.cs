@@ -1,6 +1,8 @@
 //WL-Changes-NanoChat-Start
+using System.Linq;
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared._WL.NanoChat;
+using Robust.Shared.Network;
 //WL-Changes-NanoChat-End
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
@@ -19,6 +21,8 @@ namespace Content.Shared.CartridgeLoader.Cartridges;
 public sealed partial class LogProbeCartridgeSystem : EntitySystem
 {
     [Dependency] private CartridgeLoaderSystem _cartridge = default!;
+    //WL-Changes-NanoChat-NetworkGuard
+    [Dependency] private INetManager _net = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -44,7 +48,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
     /// </summary>
     private void AfterInteract(Entity<LogProbeCartridgeComponent> ent, ref CartridgeRelayedEvent<AfterInteractEvent> args)
     {
-        if (args.Args.Handled || !args.Args.CanReach || args.Args.Target is not { } target)
+        if (!_net.IsServer || args.Args.Handled || !args.Args.CanReach || args.Args.Target is not { } target)
             return;
 
         if (!TryComp(target, out AccessReaderComponent? accessReaderComponent))
@@ -74,11 +78,13 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         ent.Comp.NanoChat = TryComp<NanoChatCardComponent>(target, out var nanoChatCard)
             ? new NanoChatData(
                 new Dictionary<uint, NanoChatRecipient>(nanoChatCard.Recipients),
-                new Dictionary<uint, List<NanoChatMessage>>(nanoChatCard.Messages),
+                nanoChatCard.Messages.ToDictionary(
+                    pair => pair.Key,
+                    pair => new List<NanoChatMessage>(pair.Value)),
                 nanoChatCard.Number,
                 GetNetEntity(target))
             : null;
-            //WL-Changes-NanoChat-End
+        //WL-Changes-NanoChat-End
 
         Dirty(ent);
         UpdateUiState(ent, args.Loader);
@@ -135,6 +141,11 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
 
     private void UpdateUiState(Entity<LogProbeCartridgeComponent> ent, EntityUid loaderUid)
     {
+        //WL-Changes-NanoChat-NetworkGuard-Start
+        if (!_net.IsServer)
+            return;
+        //WL-Changes-NanoChat-NetworkGuard-End
+
         //WL-Changes-NanoChat-LogProbe
         var state = new LogProbeUiState(ent.Comp.EntityName, ent.Comp.PulledAccessLogs, ent.Comp.NanoChat);
         _cartridge.UpdateCartridgeUiState(loaderUid, state);

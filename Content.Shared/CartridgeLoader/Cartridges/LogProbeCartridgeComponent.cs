@@ -29,7 +29,7 @@ public sealed partial class LogProbeCartridgeComponent : Component
     /// <summary>
     /// NanoChat data pulled from the last scanned ID card, if any.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public NanoChatData? NanoChat;
     //WL-Changes-NanoChat-End
 

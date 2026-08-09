@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared.Examine;
 using Robust.Shared.Timing;
@@ -58,12 +59,14 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
         return card.Comp.Recipients;
     }
 
-    public IReadOnlyDictionary<uint, List<NanoChatMessage>> GetMessages(Entity<NanoChatCardComponent?> card)
+    public IReadOnlyDictionary<uint, IReadOnlyList<NanoChatMessage>> GetMessages(Entity<NanoChatCardComponent?> card)
     {
         if (!Resolve(card, ref card.Comp))
-            return new Dictionary<uint, List<NanoChatMessage>>();
+            return new Dictionary<uint, IReadOnlyList<NanoChatMessage>>();
 
-        return card.Comp.Messages;
+        return card.Comp.Messages.ToDictionary(
+            pair => pair.Key,
+            pair => (IReadOnlyList<NanoChatMessage>) pair.Value.ToArray());
     }
 
     public void SetRecipient(Entity<NanoChatCardComponent?> card, uint number, NanoChatRecipient recipient)
@@ -91,7 +94,10 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
         return new List<NanoChatMessage>(messages);
     }
 
-    public void AddMessage(Entity<NanoChatCardComponent?> card, uint recipientNumber, NanoChatMessage message)
+    public void AddMessage(Entity<NanoChatCardComponent?> card,
+        uint recipientNumber,
+        NanoChatMessage message,
+        bool sentByOwner = false)
     {
         if (!Resolve(card, ref card.Comp))
             return;
@@ -103,7 +109,12 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
         }
 
         messages.Add(message);
-        card.Comp.LastMessageTime = _timing.CurTime;
+        if (messages.Count > card.Comp.MaxMessagesPerChat)
+            messages.RemoveRange(0, messages.Count - card.Comp.MaxMessagesPerChat);
+
+        if (sentByOwner)
+            card.Comp.LastMessageTime = _timing.CurTime;
+
         Dirty(card);
     }
 
@@ -195,14 +206,18 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
 
         var removedRecipient = card.Comp.Recipients.Remove(recipientNumber);
         var removedMessages = card.Comp.Messages.Remove(recipientNumber);
+        var clearedCurrent = false;
 
         if (card.Comp.CurrentChat == recipientNumber)
+        {
             card.Comp.CurrentChat = null;
+            clearedCurrent = true;
+        }
 
-        if (removedRecipient || removedMessages)
+        if (removedRecipient || removedMessages || clearedCurrent)
             Dirty(card);
 
-        return removedRecipient || removedMessages;
+        return removedRecipient || removedMessages || clearedCurrent;
     }
 
     /// <summary>

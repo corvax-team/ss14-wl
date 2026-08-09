@@ -29,6 +29,9 @@ log-probe-printout-entry = #{$number} / {$time} / {$accessor}
 log-probe-nanochat-header = NanoChat number: #{$number}
 log-probe-nanochat-header-no-number = NanoChat: no number assigned
 log-probe-nanochat-contact = {$name} #{$number} ({$count} messages)
+log-probe-nanochat-message = {$time} · {$direction}: {$message}
+log-probe-nanochat-direction-outgoing = outgoing
+log-probe-nanochat-direction-incoming = incoming
 # WL-Changes: NanoChat End
 
 astro-nav-program-name = AstroNav
