@@ -34,6 +34,8 @@ public static class RecordPrintIdentityBuilder
             loc($"humanoid-profile-editor-sex-{record.Sex.ToString().ToLowerInvariant()}-text"),
             species,
             $"{record.Height} {loc("records-height-unit-centimeters")}",
+            record.Fingerprint ?? noData,
+            record.DNA ?? noData,
             string.IsNullOrWhiteSpace(languages) ? noData : languages,
             confederation,
             string.IsNullOrWhiteSpace(record.Country) ? noData : record.Country);

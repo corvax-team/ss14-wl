@@ -226,9 +226,21 @@ public sealed class StructuredCharacterRecordsTest
         var printed = StructuredRecordFormatter.FormatDocument(
             "Security dossier",
             "#8A3F42",
-            new RecordPrintIdentity("Employee", "MANUFACTURE DATE:", "01.01.2850", "Male", "IPC", "180 cm", "Common", "None", "None"),
+            new RecordPrintIdentity(
+                "Employee",
+                "MANUFACTURE DATE:",
+                "01.01.2850",
+                "Male",
+                "IPC",
+                "180 cm",
+                "No fingerprint",
+                "No DNA",
+                "Common",
+                "None",
+                "None"),
             body,
-            key => key);
+            key => key,
+            includeForensics: true);
 
         Assert.Multiple(() =>
         {
@@ -236,7 +248,37 @@ public sealed class StructuredCharacterRecordsTest
             Assert.That(printed, Does.Not.Contain("WL_ADDRESS_V1"));
             Assert.That(printed, Does.Contain("MANUFACTURE DATE:"));
             Assert.That(printed, Does.Contain("180 cm"));
+            Assert.That(printed, Does.Contain("records-view-fingerprint"));
+            Assert.That(printed, Does.Contain("records-view-dna"));
+            Assert.That(printed, Does.Contain("No fingerprint"));
+            Assert.That(printed, Does.Contain("No DNA"));
             Assert.That(FormattedMessage.TryFromMarkup(printed, out _), Is.True);
+        });
+
+        var printedWithoutForensics = StructuredRecordFormatter.FormatDocument(
+            "General record",
+            "#252529",
+            new RecordPrintIdentity(
+                "Employee",
+                "DATE OF BIRTH:",
+                "01.01.2850",
+                "Male",
+                "Human",
+                "180 cm",
+                "Fingerprint",
+                "DNA",
+                "Common",
+                "None",
+                "None"),
+            body,
+            key => key);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(printedWithoutForensics, Does.Not.Contain("records-view-fingerprint"));
+            Assert.That(printedWithoutForensics, Does.Not.Contain("records-view-dna"));
+            Assert.That(printedWithoutForensics, Does.Not.Contain("Fingerprint"));
+            Assert.That(printedWithoutForensics, Does.Not.Contain("DNA"));
         });
     }
 
