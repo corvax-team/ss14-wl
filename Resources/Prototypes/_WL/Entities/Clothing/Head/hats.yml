@@ -83,7 +83,7 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatBeretSupplyDepartmentBeret
+  id: ClothingHeadHatBeretCargo
   name: cargo beret
   description: Takes real men
   components:

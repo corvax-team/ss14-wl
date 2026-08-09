@@ -7,7 +7,7 @@ ent-ClothingHeadHatBeretHoP = берет главы персонала
 ent-ClothingHeadHatBeretCaptain = берет капитана
     .desc = Синий берет с золотым значком NT. Заставляет окружающих уважать вас, но не вызывает желания работать. Слава NT!
 
-ent-ClothingHeadHatBeretSupplyDepartmentBeret = берет отдела снабжения
+ent-ClothingHeadHatBeretCargo = берет отдела снабжения
     .desc = Берет для настоящих мужчин.
 
 ent-ClothingHeadHatPostmanCap = кепка почтальона
