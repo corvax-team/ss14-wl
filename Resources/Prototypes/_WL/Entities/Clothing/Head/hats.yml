@@ -1,13 +1,13 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretDSS
-  name: takes DSB
+  name: DoS beret 
   description: Demonstrates the status of the best of the best.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_security_black.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_security_black.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_security_black.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_security_black.rsi # WL-berets-resprite
   - type: Tag
     tags:
     - ClothMade
@@ -20,9 +20,9 @@
   description: Blue beret. Smells like bureaucracy.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_hop.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_hop.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_hop.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_hop.rsi # WL-berets-resprite
 
 - type: entity
   parent: ClothingHeadBase
@@ -31,9 +31,9 @@
   description: Blue beret with gold NT badge. Makes people respect you, but doesn't make you want to work. Glory to NT!
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_captain.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_captain.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_captain.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_captain.rsi # WL-berets-resprite
 
 #WL Workers Lyvsi start
 - type: entity
@@ -43,9 +43,9 @@
   description: Designed for show-off, take care of your head.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_ce.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_ce.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_ce.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_ce.rsi # WL-berets-resprite
   - type: Tag
     tags:
     - ClothMade
@@ -55,13 +55,13 @@
 - type: entity
   parent: ClothingHeadBase
   id: SeniorEngineerBeret
-  name: lead engineer
+  name: senior engineer beret
   description: Underneath it may be a singularity... or baldness, who knows?
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_senior_engineer.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_senior_engineer.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_senior_engineer.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_senior_engineer.rsi # WL-berets-resprite
   - type: Tag
     tags:
     - ClothMade
@@ -84,13 +84,13 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSupplyDepartmentBeret
-  name: beret supply department
+  name: cargo beret
   description: Takes real men
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_cargo.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_cargo.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_cargo.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_cargo.rsi # WL-berets-resprite
 
 - type: entity
   parent: ClothingHeadBase
@@ -122,13 +122,13 @@
 - type: entity
   id: ClothingHeadHatBeretRD
   parent: ClothingHeadHatBeretRND
-  name: Director of Research beret
+  name: research director's beret
   description: A beret for real Director of Research
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_researcher.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_researcher.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_researcher.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_researcher.rsi # WL-berets-resprite
 
 - type: entity
   id: ClothingHeadHatBeretAdjutant
@@ -137,9 +137,9 @@
   description: A beret for real adjutant
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_aidedecamp.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_aidedecamp.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_aidedecamp.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_aidedecamp.rsi # WL-berets-resprite
 
 - type: entity
   id: ClothingHeadHatAdjutantCap
@@ -159,9 +159,9 @@
   description: That's much better, isn't it?
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_blue_shield.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_blue_shield.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_blue_shield.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_blue_shield.rsi # WL-berets-resprite
   - type: Tag
     tags:
     - PetWearable
@@ -267,9 +267,9 @@
   description: A beret with a junior commanders rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_security_senior.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_security_senior.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_security_senior.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_security_senior.rsi # WL-berets-resprite
   - type: Tag
     tags:
     - ClothMade
@@ -279,3 +279,65 @@
     - HamsterWearable
     - WhitelistChameleon
 # WL-redo-427-resprite-end
+
+# WL-berets-resprite-start
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCivilian
+  name: civilian beret
+  description: An non-agressive beret with a purple stripe. Stylish and gives away something french.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_civilian.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_civilian.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretAtmos
+  name: atmostech's beret
+  description: Fancy way to tell you're one of the blue subdepartment's purists.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_atmos.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_atmos.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+ - type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretRobotech
+  name: robotech's beret
+  description: Screams that you're not only not like the others at research department, but you know what machine oil is.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_robo.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_robo.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+ - type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCCAdjutant
+  name: centcom adjutant's beret
+  description: For those in the limbo of being in the lowers of the higher-ups.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/centcom_adjutant_beret.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/centcom_adjutant_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+# WL-berets-resprite-end
