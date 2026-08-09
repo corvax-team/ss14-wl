@@ -27,9 +27,9 @@
   description: A beret worn by those in the Nanotrasen Navy.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Head/Hats/centcom_naval_beret.rsi
+      sprite: _WL/Clothing/Head/Hats/centcom_naval_beret.rsi # WL-berets-resprite
     - type: Clothing
-      sprite: Corvax/Clothing/Head/Hats/centcom_naval_beret.rsi
+      sprite: _WL/Clothing/Head/Hats/centcom_naval_beret.rsi # WL-berets-resprite
 
 - type: entity
   parent: ClothingHeadBase
@@ -38,9 +38,9 @@
   description: A blue beret made of durathread with a genuine golden badge, denoting its owner as a Leader of ERT.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Head/Hats/ERT_leader_beret.rsi
+      sprite: _WL/Clothing/Head/Hats/ERT_leader_beret.rsi # WL-berets-resprite
     - type: Clothing
-      sprite: Corvax/Clothing/Head/Hats/ERT_leader_beret.rsi
+      sprite: _WL/Clothing/Head/Hats/ERT_leader_beret.rsi # WL-berets-resprite
 
 - type: entity
   parent: ClothingHeadBase
@@ -71,9 +71,9 @@
   description: A robust beret with the medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Head/Hats/beret_security_medic.rsi
+      sprite: _WL/Clothing/Head/Hats/beret_security_medic.rsi # WL-berets-resprite
     - type: Clothing
-      sprite: Corvax/Clothing/Head/Hats/beret_security_medic.rsi
+      sprite: _WL/Clothing/Head/Hats/beret_security_medic.rsi # WL-berets-resprite
 
 - type: entity
   parent: ClothingHeadBase
@@ -93,9 +93,9 @@
   description: Black beret with a silver badge.
   components:
   - type: Sprite
-    sprite: Corvax/Clothing/Head/Hats/beret_pilot.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_pilot.rsi # WL-berets-resprite
   - type: Clothing
-    sprite: Corvax/Clothing/Head/Hats/beret_pilot.rsi
+    sprite: _WL/Clothing/Head/Hats/beret_pilot.rsi # WL-berets-resprite
 
 - type: entity
   parent: ClothingHeadBase
