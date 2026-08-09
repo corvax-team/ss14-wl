@@ -1,4 +1,7 @@
-﻿using Robust.Shared.Serialization;
+﻿//WL-Changes-NanoChat-Start
+using Content.Shared._WL.CartridgeLoader.Cartridges;
+//WL-Changes-NanoChat-End
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.CartridgeLoader.Cartridges;
 
@@ -15,11 +18,19 @@ public sealed class LogProbeUiState : BoundUserInterfaceState
     /// </summary>
     public List<PulledAccessLog> PulledLogs;
 
-    public LogProbeUiState(string entityName, List<PulledAccessLog> pulledLogs)
+    //WL-Changes-NanoChat-Start
+    /// <summary>
+    /// NanoChat data pulled from the scanned ID card, if any.
+    /// </summary>
+    public NanoChatData? NanoChat;
+
+    public LogProbeUiState(string entityName, List<PulledAccessLog> pulledLogs, NanoChatData? nanoChat = null)
     {
         EntityName = entityName;
         PulledLogs = pulledLogs;
+        NanoChat = nanoChat;
     }
+    //WL-Changes-NanoChat-End
 }
 
 [Serializable, NetSerializable, DataRecord]

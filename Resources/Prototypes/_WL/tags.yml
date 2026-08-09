@@ -68,6 +68,9 @@
   id: KitchenMagazine
 
 - type: Tag
+  id: NanoChatNoStationDirectory
+
+- type: Tag
   id: WhitelistChameleonPassports
 
 - type: Tag

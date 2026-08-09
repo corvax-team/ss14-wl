@@ -69,7 +69,8 @@ public sealed partial class CartridgeLoaderSystem : EntitySystem
             else if (args.Container.ID == CartridgeLoaderComponent.UnremovableContainerId)
                 UpdateCartridgeInstallationStatus((args.Entity, cartridge), InstallationStatus.Readonly);
             else
-                UpdateCartridgeInstallationStatus((args.Entity, cartridge), InstallationStatus.Cartridge);
+                //WL-Changes-NanoChat-DuplicateCartridge
+                UpdateCartridgeInstallationStatus((args.Entity, cartridge), GetSlotCartridgeStatus(ent, args.Entity));
         }
 
         var evt = new CartridgeAddedEvent(ent);
@@ -77,6 +78,22 @@ public sealed partial class CartridgeLoaderSystem : EntitySystem
         UpdateUiState(ent.AsNullable());
         UpdateAppearanceData(ent);
     }
+
+    //WL-Changes-NanoChat-Start
+    private InstallationStatus GetSlotCartridgeStatus(Entity<CartridgeLoaderComponent> loader, EntityUid cartridgeUid)
+    {
+        if (MetaData(cartridgeUid).EntityPrototype is not { } cartridgeProto)
+            return InstallationStatus.Cartridge;
+
+        foreach (var program in GetDiskPrograms(loader))
+        {
+            if (MetaData(program).EntityPrototype == cartridgeProto)
+                return InstallationStatus.Readonly;
+        }
+
+        return InstallationStatus.Cartridge;
+    }
+    //WL-Changes-NanoChat-End
 
     private void OnItemRemoved(Entity<CartridgeLoaderComponent> ent, ref EntRemovedFromContainerMessage args)
     {

@@ -1,3 +1,7 @@
+//WL-Changes-NanoChat-Start
+using Content.Shared._WL.CartridgeLoader.Cartridges;
+using Content.Shared._WL.NanoChat;
+//WL-Changes-NanoChat-End
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -23,6 +27,8 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private PaperSystem _paper = default!;
+    //WL-Changes-NanoChat-Dependency
+    [Dependency] private SharedNanoChatSystem _nanoChat = default!;
 
     public override void Initialize()
     {
@@ -63,6 +69,16 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
 
         // Reverse the list so the oldest is at the bottom
         ent.Comp.PulledAccessLogs.Reverse();
+
+        //WL-Changes-NanoChat-Start
+        ent.Comp.NanoChat = TryComp<NanoChatCardComponent>(target, out var nanoChatCard)
+            ? new NanoChatData(
+                new Dictionary<uint, NanoChatRecipient>(nanoChatCard.Recipients),
+                new Dictionary<uint, List<NanoChatMessage>>(nanoChatCard.Messages),
+                nanoChatCard.Number,
+                GetNetEntity(target))
+            : null;
+            //WL-Changes-NanoChat-End
 
         Dirty(ent);
         UpdateUiState(ent, args.Loader);
@@ -119,7 +135,8 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
 
     private void UpdateUiState(Entity<LogProbeCartridgeComponent> ent, EntityUid loaderUid)
     {
-        var state = new LogProbeUiState(ent.Comp.EntityName, ent.Comp.PulledAccessLogs);
+        //WL-Changes-NanoChat-LogProbe
+        var state = new LogProbeUiState(ent.Comp.EntityName, ent.Comp.PulledAccessLogs, ent.Comp.NanoChat);
         _cartridge.UpdateCartridgeUiState(loaderUid, state);
     }
 }
