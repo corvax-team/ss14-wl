@@ -239,6 +239,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         var channel = _prototype.Index(sender.Comp.RadioChannel);
         var sendAttemptEvent = new RadioSendAttemptEvent(channel, sender);
         RaiseLocalEvent(ref sendAttemptEvent);
+        RaiseLocalEvent(sender.Owner, ref sendAttemptEvent);
         if (sendAttemptEvent.Cancelled)
             return new List<Entity<NanoChatCardComponent>>();
 
@@ -278,6 +279,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
             var receiveAttemptEv = new RadioReceiveAttemptEvent(channel, sender, recipientPda);
             RaiseLocalEvent(ref receiveAttemptEv);
+            RaiseLocalEvent(recipientPda, ref receiveAttemptEv);
             if (receiveAttemptEv.Cancelled)
                 continue;
 
