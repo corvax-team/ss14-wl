@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
-using Content.Server.Power.Components;
 using Content.Server.Radio;
+using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
@@ -10,7 +10,6 @@ using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared._WL.NanoChat;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
-using Content.Shared.Radio.Components;
 using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -24,6 +23,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private SharedNanoChatSystem _nanoChat = default!;
+    [Dependency] private RadioSystem _radio = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
@@ -243,6 +243,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
             return new List<Entity<NanoChatCardComponent>>();
 
         var senderStation = _station.GetOwningStation(senderLoader);
+        var senderMap = Transform(senderLoader).MapID;
 
         var foundRecipients = new List<Entity<NanoChatCardComponent>>();
         var cardQuery = EntityQueryEnumerator<NanoChatCardComponent>();
@@ -271,7 +272,8 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
             if (!channel.LongRange && recipientStation != senderStation)
                 continue;
 
-            if (!HasActiveServer(senderStation.Value) || !HasActiveServer(recipientStation.Value))
+            if (!_radio.HasActiveServer(senderMap, sender.Comp.RadioChannel) ||
+                !_radio.HasActiveServer(Transform(recipientPda).MapID, sender.Comp.RadioChannel))
                 continue;
 
             var receiveAttemptEv = new RadioReceiveAttemptEvent(channel, sender, recipientPda);
@@ -283,18 +285,6 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         }
 
         return deliverable;
-    }
-
-    private bool HasActiveServer(EntityUid station)
-    {
-        var query = EntityQueryEnumerator<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent>();
-        while (query.MoveNext(out var uid, out _, out _, out var power))
-        {
-            if (power.Powered && _station.GetOwningStation(uid) == station)
-                return true;
-        }
-
-        return false;
     }
 
     private bool DeliverMessageToRecipient(Entity<NanoChatCardComponent> sender,
