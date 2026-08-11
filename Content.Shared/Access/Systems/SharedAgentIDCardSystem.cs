@@ -55,10 +55,12 @@ public abstract partial class SharedAgentIdCardSystem : EntitySystem
         // Clone the target's NanoChat number/state onto the agent ID, similar to how it steals access.
         if (TryComp<NanoChatCardComponent>(args.Target, out var targetNanoChat) &&
             TryComp<NanoChatCardComponent>(ent, out var ownNanoChat) &&
-            targetNanoChat.Number != null &&
-            ownNanoChat.Number != targetNanoChat.Number)
+            targetNanoChat.Number != null)
         {
-            _nanoChat.SetNumber((ent.Owner, ownNanoChat), targetNanoChat.Number.Value);
+            if (ownNanoChat.Number != targetNanoChat.Number)
+                _nanoChat.SetNumber((ent.Owner, ownNanoChat), targetNanoChat.Number.Value);
+
+            _nanoChat.SetCanCommunicate((ent.Owner, ownNanoChat), targetNanoChat.CanCommunicate);
         }
         //WL-Changes-NanoChat-End
     }
