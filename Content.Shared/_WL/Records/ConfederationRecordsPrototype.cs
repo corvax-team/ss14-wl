@@ -1,4 +1,5 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using Content.Shared.Roles;
 
 namespace Content.Shared._WL.Records;
@@ -14,6 +15,12 @@ public sealed partial class ConfederationRecordsPrototype : IPrototype
 
     [DataField]
     public string Description { get; private set; } = "Unknown";
+
+    [DataField]
+    public ResPath? Icon { get; private set; }
+
+    [DataField]
+    public int Order { get; private set; }
 
     [DataField(serverOnly: true)]
     public JobSpecial[] Special { get; private set; } = Array.Empty<JobSpecial>();

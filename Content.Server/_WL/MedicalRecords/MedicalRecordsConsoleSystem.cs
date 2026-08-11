@@ -1,5 +1,6 @@
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
+using Content.Server._WL.Records;
 using Content.Shared.StationRecords.Components;
 using Content.Shared.StationRecords.Events;
 using Content.Shared.StationRecords.Systems;
@@ -75,6 +76,9 @@ public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
 
     private void OnPrinted(Entity<MedicalRecordsConsoleComponent> ent, ref PrintStationRecord msg)
     {
+        if (!ent.Comp.CanPrintEntries)
+            return;
+
         var owning = _station.GetOwningStation(ent.Owner);
 
         if (owning == null)
@@ -82,29 +86,16 @@ public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
 
         if (_records.TryGetRecord<GeneralStationRecord>(new StationRecordKey(msg.Id, owning.Value), out var record))
         {
-            string languages = string.Empty;
-
-            for (int i = 0; i < record.Languages.Count; i++)
-            {
-                languages += Loc.GetString(_prototypeManager.Index(record.Languages[i]).Name);
-
-                if (i != record.Languages.Count - 1)
-                    languages += ", ";
-                else
-                    languages += ".";
-            }
-
-            ent.Comp.ContextPrint = $"""
-                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(record.Fullname)
-                ? record.Fullname : record.Name)}
-                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(record.DateOfBirth)
-                ? record.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
-                {Loc.GetString("records-species")} {Loc.GetString(_prototypeManager.Index<SpeciesPrototype>(record.Species).Name)}
-                {Loc.GetString("records-height", ("height", record.Height))}
-                {Loc.GetString("records-language")} {languages}
-                {(!string.IsNullOrEmpty(record.SecurityRecord) ? record.SecurityRecord
-                : Loc.GetString("medical-records-console-no-record"))}
-                """;
+            var identity = RecordPrintIdentityBuilder.FromStationRecord(record, _prototypeManager, Loc.GetString);
+            ent.Comp.ContextPrint = StructuredRecordFormatter.FormatDocument(
+                Loc.GetString("records-print-medical-title"),
+                "#36678A",
+                identity,
+                StructuredRecordFormatter.FormatMedical(
+                    record.MedicalRecord,
+                    Loc.GetString,
+                    record.Species is not ("Ipc" or "Android" or "Golem")),
+                Loc.GetString);
         }
         else
             return;

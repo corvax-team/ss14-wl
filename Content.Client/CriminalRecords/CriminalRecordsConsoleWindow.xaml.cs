@@ -1,4 +1,5 @@
 using Content.Client.UserInterface.Controls;
+using Content.Client._WL.Records; // WL-Changes-Records
 using Content.Shared._WL.Languages;
 using Content.Shared._WL.Records; //  WL-Records-Start
 using Content.Shared.Access.Systems;
@@ -280,28 +281,10 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             WantedReason.Visible = false;
         }
 
-        // WL-Records-Start
-        var confederation = string.Empty;
-
-        if (_proto.TryIndex<ConfederationRecordsPrototype>(stationRecord.Confederation, out var protoConf))
-            confederation = Loc.GetString(protoConf.Name);
-        else
-            confederation = Loc.GetString("generic-not-available-shorthand");
-
-        SecurityRecord.Text = $"""
-                {Loc.GetString("records-full-name-edit")} {(!string.IsNullOrEmpty(stationRecord.Fullname)
-                ? stationRecord.Fullname : stationRecord.Name)}
-                {Loc.GetString("records-date-of-birth-edit")}  {(!string.IsNullOrEmpty(stationRecord.DateOfBirth)
-                ? stationRecord.DateOfBirth : Loc.GetString("generic-not-available-shorthand"))}
-                {Loc.GetString("records-confederation-edit")} {confederation}
-                {Loc.GetString("records-country-edit")} {(!string.IsNullOrEmpty(stationRecord.Country)
-                ? stationRecord.Country : Loc.GetString("generic-not-available-shorthand"))}
-                {Loc.GetString("records-species")} {Loc.GetString(_proto.Index<SpeciesPrototype>(stationRecord.Species).Name)}
-                {Loc.GetString("records-height", ("height", stationRecord.Height))}
-                {(!string.IsNullOrEmpty(stationRecord.SecurityRecord) ? stationRecord.SecurityRecord
-                : Loc.GetString("criminal-records-console-no-security-record"))}
-                """;
-        // WL-Records-End
+        // WL-Changes-Records-Start
+        var identity = RecordIdentityBuilder.FromStationRecord(stationRecord, _proto, Loc.GetString);
+        SecurityRecordView.SetData(RecordViewBuilder.Security(identity, stationRecord.SecurityRecord, Loc.GetString, true));
+        // WL-Changes-Records-End
     }
 
     private void AddStatusSelect(SecurityStatus status)

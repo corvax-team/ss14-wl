@@ -29,5 +29,8 @@ public enum InstallationStatus
 {
     Cartridge,
     Installed,
-    Readonly
+    Readonly,
+    // WL-Changes-NanoChat-DuplicateCartridge-Start
+    Duplicate,
+    // WL-Changes-NanoChat-DuplicateCartridge-End
 }

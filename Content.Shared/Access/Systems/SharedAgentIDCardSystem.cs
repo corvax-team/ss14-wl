@@ -1,4 +1,7 @@
 using Content.Shared.Access.Components;
+//WL-Changes-NanoChat-Start
+using Content.Shared._WL.NanoChat;
+//WL-Changes-NanoChat-End
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Lock;
@@ -21,6 +24,8 @@ public abstract partial class SharedAgentIdCardSystem : EntitySystem
     [Dependency] private SharedIdCardSystem _card = default!;
     [Dependency] private SharedJobSystem _job = default!;
     [Dependency] private SharedJobStatusSystem _jobStatus = default!;
+    //WL-Changes-NanoChat-Dependency
+    [Dependency] private SharedNanoChatSystem _nanoChat = default!;
 
     /// <summary>
     /// Steals access from interacted ids.
@@ -45,6 +50,17 @@ public abstract partial class SharedAgentIdCardSystem : EntitySystem
             args.User);
         if (addedLength > 0)
             Dirty(ent, access);
+
+        //WL-Changes-NanoChat-Start
+        // Clone the target's NanoChat number/state onto the agent ID, similar to how it steals access.
+        if (TryComp<NanoChatCardComponent>(args.Target, out var targetNanoChat) &&
+            TryComp<NanoChatCardComponent>(ent, out var ownNanoChat) &&
+            targetNanoChat.Number != null &&
+            ownNanoChat.Number != targetNanoChat.Number)
+        {
+            _nanoChat.SetNumber((ent.Owner, ownNanoChat), targetNanoChat.Number.Value);
+        }
+        //WL-Changes-NanoChat-End
     }
 
     [SubscribeLocalEvent]

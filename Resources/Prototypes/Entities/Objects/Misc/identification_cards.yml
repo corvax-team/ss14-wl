@@ -25,6 +25,7 @@
     - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
+  - type: NanoChatCard # WL-Changes: NanoChat
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
@@ -962,6 +963,10 @@
     jobIcon: JobIconVisitor
   - type: PresetIdCard
     job: Visitor
+  # WL-Changes: NanoChat Start
+  - type: NanoChatCard
+    canAccessStationDirectory: false
+  # WL-Changes: NanoChat End
 
 #Antags
 

@@ -59,6 +59,7 @@ public sealed partial class PdaProgramItem : ContainerButton
                 break;
 
             case InstallationStatus.Readonly:
+            case InstallationStatus.Duplicate: // WL-Changes-NanoChat-DuplicateCartridge
             default:
                 break;
         }
@@ -91,6 +92,7 @@ public sealed partial class PdaProgramItem : ContainerButton
                 InstallButton.Text = Loc.GetString("cartridge-bound-user-interface-uninstall-button");
                 break;
             case InstallationStatus.Readonly:
+            case InstallationStatus.Duplicate: // WL-Changes-NanoChat-DuplicateCartridge
                 InstallButton.Visible = false;
                 break;
         }

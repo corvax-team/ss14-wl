@@ -3,7 +3,15 @@
                                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                                 Orientation="Vertical"
                                 VerticalExpand="True">
-    <PanelContainer>
+    <!-- WL-Changes: NanoChat Start -->
+    <BoxContainer Orientation="Vertical" Name="NanoChatContainer" Margin="4 4" Visible="False" VerticalExpand="True">
+        <Label Name="NanoChatHeader" StyleClasses="LabelSubText"/>
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Orientation="Vertical" Name="NanoChatContactsContainer"/>
+        </ScrollContainer>
+    </BoxContainer>
+    <!-- WL-Changes: NanoChat End -->
+    <PanelContainer Name="AccessLogsHeader">
         <PanelContainer.PanelOverride>
             <gfx:StyleBoxFlat BackgroundColor="#000000FF"
                               BorderColor="#5a5a5a"
@@ -15,7 +23,7 @@
             <Label Align="Left" SetWidth="390" ClipText="True" Text="{Loc 'log-probe-label-accessor'}"/>
         </BoxContainer>
     </PanelContainer>
-    <ScrollContainer VerticalExpand="True" HScrollEnabled="True">
+    <ScrollContainer Name="AccessLogsScroll" VerticalExpand="True" HScrollEnabled="True">
         <BoxContainer Orientation="Vertical" Name="ProbedDeviceContainer"/>
     </ScrollContainer>
     <BoxContainer Orientation="Horizontal" Margin="4 8">

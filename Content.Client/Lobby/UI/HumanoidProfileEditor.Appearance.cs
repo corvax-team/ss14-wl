@@ -228,12 +228,14 @@ public sealed partial class HumanoidProfileEditor
         UpdateVoiceControls();
         UpdateTTSVoicesControls(); // Corvax-TTS
         UpdateSpeciesGuidebookIcon();
+        UpdateRecordsEdit(); // WL-Changes-Records
         ReloadPreview();
     }
 
     private void SetAge(int newAge)
     {
         Profile = Profile?.WithAge(newAge);
+        UpdateRecordsEdit(); // WL-Changes-Records
         ReloadPreview();
         RefreshSkills(); // WL-Skills
     }
@@ -263,6 +265,7 @@ public sealed partial class HumanoidProfileEditor
         UpdateVoiceControls();
         UpdateTTSVoicesControls(); // Corvax-TTS
         _markingsModel.SetOrganSexes(newSex);
+        UpdateRecordsEdit(); // WL-Changes-Records
         ReloadPreview();
     }
 

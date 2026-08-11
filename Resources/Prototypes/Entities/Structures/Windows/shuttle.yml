@@ -94,3 +94,8 @@
   - type: DamageVisuals
     damageOverlay:
       sprite: Structures/Windows/cracks_diagonal.rsi
+  # WL-Changes-start: diagonal walls port from CorvaxGoob
+  - type: Construction
+    graph: WindowDiagonal
+    node: shuttleWindowDiagonal
+  # WL-Changes-end

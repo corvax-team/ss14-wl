@@ -2,34 +2,46 @@
   id: ConfederationOfOrionStates
   name: records-confederation-of-orion-states
   description: records-confederation-of-orion-states-desc
+  icon: /Textures/_WL/Interface/Records/Regions/kog.png
+  order: 0
   passportPrototype: OrionPassport
 
 - type: confederation
   id: SocialConfederation
   name: records-confederation-social
   description: records-confederation-social-desc
+  icon: /Textures/_WL/Interface/Records/Regions/soccon.png
+  order: 1
   passportPrototype: SocconPassport
 
 - type: confederation
   id: InterspeciesAlliance
   name: records-confederation-interspecies-alliance
   description: records-confederation-interspecies-alliance-desc
+  icon: /Textures/_WL/Interface/Records/Regions/ma.png
+  order: 2
   passportPrototype: AlliancePassport
 
 - type: confederation
   id: HolyEmpireOfEden
   name: records-confederation-holy-empire-of-edem
   description: records-confederation-holy-empire-of-edem-desc
+  icon: /Textures/_WL/Interface/Records/Regions/edem.png
+  order: 3
   passportPrototype: EdemPassport
 
 - type: confederation
   id: Metafront
   name: records-confederation-metafront
   description: records-confederation-metafront-desc
+  icon: /Textures/_WL/Interface/Records/Regions/metafront.png
+  order: 4
   passportPrototype: MetafrontPassport
 
 - type: confederation
   id: NoConfederation
   name: records-confederation-no
   description: records-confederation-no-desc
+  icon: /Textures/_WL/Interface/Records/Regions/other.png
+  order: 5
   passportPrototype: OtherPassport
