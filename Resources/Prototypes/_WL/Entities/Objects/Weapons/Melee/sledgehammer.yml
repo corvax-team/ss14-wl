@@ -2,7 +2,7 @@
   name: Sledgehammer DT-4
   suffix: Security, _WL
   parent: [ BaseItem, BaseSecurityContraband ]
-  id: Security-sledgehammer
+  id: SledgeSec
   description: Big... Black... Sledgehammer DT-4. Created specifically to knock out doors, walls, and windows. Or maybe to break bones.
   components:
   - type: Sprite
@@ -22,6 +22,6 @@
     damage:
       types:
         Blunt: 30
-        Structural: 60
+        Structural: 50
   - type: Item
     size: Ginormous
