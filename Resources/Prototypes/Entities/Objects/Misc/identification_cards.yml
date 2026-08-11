@@ -1,6 +1,6 @@
 - type: entity
   parent: Clothing
-  id: IDCardStandard
+  id: IDCardBase
   name: identification card
   description: A card necessary to access various areas aboard the station.
   abstract: true
@@ -25,7 +25,6 @@
     - WhitelistChameleonIdCard
   - type: StealTarget
     stealGroup: IDCard
-  - type: NanoChatCard # WL-Changes: NanoChat
   # Goobstation edit start
   - type: EmitSoundOnPickup
     sound:
@@ -43,6 +42,13 @@
       params:
         volume: -5
   # Goobstation edit end
+
+- type: entity
+  parent: IDCardBase
+  id: IDCardStandard
+  abstract: true
+  components:
+  - type: NanoChatCard # WL-Changes: NanoChat
 
 #IDs with layers
 
@@ -971,10 +977,19 @@
 #Antags
 
 - type: entity
-  parent: [PassengerIDCard, BaseChameleon]
+  parent: [IDCardBase, BaseChameleon]
   id: AgentIDCard
+  name: passenger ID card
   suffix: Agent
   components:
+  - type: Sprite
+    layers:
+    - state: default
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Passenger
+  - type: PresetIdCard
+    job: Passenger
   - type: Access
     tags:
     - Maintenance
@@ -1024,7 +1039,7 @@
     - NuclearOperative
 
 - type: entity
-  parent: [ IDCardStandard, BaseSyndicateContraband ]
+  parent: [ IDCardBase, BaseSyndicateContraband ]
   id: SyndicateIDCard
   name: syndicate ID card
   components:
@@ -1103,7 +1118,7 @@
     jobIcon: JobIconSyndicateCommander
 
 - type: entity
-  parent: [ IDCardStandard, BaseHighlyIllegalContraband ]
+  parent: [ IDCardBase, BaseHighlyIllegalContraband ]
   id: NinjaIDCard
   name: ninja ID card
   suffix: Ninja
@@ -1129,7 +1144,7 @@
     - Maintenance
 
 - type: entity
-  parent: [ IDCardStandard, BaseMajorContraband ]
+  parent: [ IDCardBase, BaseMajorContraband ]
   id: PirateIDCard
   name: pirate ID card
   components:
@@ -1145,7 +1160,7 @@
     jobIcon: JobIconPirate
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: XenoborgIDCard
   name: xenoborg ID card
   components:
@@ -1157,7 +1172,7 @@
     - Xenoborg
 
 - type: entity
-  parent: [ IDCardStandard, BaseMagicalContraband ]
+  parent: [ IDCardBase, BaseMagicalContraband ]
   id: WizardIDCard
   name: wizard ID card
   components:
@@ -1180,7 +1195,7 @@
 #ERT/Centcomm
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: CentcomIDCard
   name: command officer ID card
   components:
@@ -1200,7 +1215,7 @@
     job: CentralCommandOfficial
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: ERTLeaderIDCard
   name: ERT leader ID card
   components:
@@ -1220,7 +1235,7 @@
     job: ERTLeader
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: ERTChaplainIDCard
   name: ERT chaplain ID card
   components:
@@ -1240,7 +1255,7 @@
     job: ERTChaplain
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: ERTEngineerIDCard
   name: ERT engineer ID card
   components:
@@ -1260,7 +1275,7 @@
     job: ERTEngineer
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: ERTJanitorIDCard
   name: ERT janitor ID card
   components:
@@ -1280,7 +1295,7 @@
     job: ERTJanitor
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: ERTMedicIDCard
   name: ERT medic ID card
   components:
@@ -1300,7 +1315,7 @@
     job: ERTMedical
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: ERTSecurityIDCard
   name: ERT security ID card
   components:
@@ -1320,7 +1335,7 @@
     job: ERTSecurity
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: CentcomIDCardDeathsquad
   name: death squad ID card
   components:
@@ -1338,7 +1353,7 @@
     job: DeathSquad
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: CBURNIDcard
   name: CBURN ID card
   suffix: CBURN
@@ -1359,7 +1374,7 @@
     job: CBURN
 
 - type: entity
-  parent: IDCardStandard
+  parent: IDCardBase
   id: UniversalIDCard
   name: universal ID card
   suffix: Admin
@@ -1379,8 +1394,6 @@
   - type: IdCard
     jobTitle: job-title-universal
     jobIcon: JobIconAdmin
-  - type: NanoChatCard # WL-Changes: hide admin cards from NanoChat
-    canCommunicate: false
   - type: Access
     groups:
     - AllAccess

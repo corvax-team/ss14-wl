@@ -51,15 +51,6 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
         Dirty(card);
     }
 
-    public void SetCanCommunicate(Entity<NanoChatCardComponent?> card, bool canCommunicate)
-    {
-        if (!Resolve(card, ref card.Comp) || card.Comp.CanCommunicate == canCommunicate)
-            return;
-
-        card.Comp.CanCommunicate = canCommunicate;
-        Dirty(card);
-    }
-
     public IReadOnlyDictionary<uint, NanoChatRecipient> GetRecipients(Entity<NanoChatCardComponent?> card)
     {
         if (!Resolve(card, ref card.Comp))

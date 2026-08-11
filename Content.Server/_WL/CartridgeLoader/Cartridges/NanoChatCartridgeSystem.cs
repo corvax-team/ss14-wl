@@ -6,6 +6,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Database;
+using Content.Shared.Station.Components;
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared._WL.NanoChat;
 using Content.Shared.PDA;
@@ -112,8 +113,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
     private void HandleNewChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
     {
-        if (!card.Comp.CanCommunicate ||
-            msg.RecipientNumber == null ||
+        if (msg.RecipientNumber == null ||
             msg.Content == null ||
             msg.RecipientNumber == card.Comp.Number)
             return;
@@ -186,8 +186,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         EntityUid loader,
         NanoChatUiMessageEvent msg)
     {
-        if (!card.Comp.CanCommunicate ||
-            msg.RecipientNumber == null ||
+        if (msg.RecipientNumber == null ||
             msg.Content == null ||
             card.Comp.Number == null ||
             msg.RecipientNumber == card.Comp.Number)
@@ -250,7 +249,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         if (sendAttemptEvent.Cancelled)
             return new List<Entity<NanoChatCardComponent>>();
 
-        var senderStation = _station.GetOwningStation(senderLoader);
+        var senderStation = GetCommunicationStation(senderLoader);
         var senderMap = Transform(senderLoader).MapID;
 
         var foundRecipients = new List<Entity<NanoChatCardComponent>>();
@@ -272,7 +271,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
             if (!HasAccessibleNanoChat(recipient, out var recipientPda))
                 continue;
 
-            var recipientStation = _station.GetOwningStation(recipientPda);
+            var recipientStation = GetCommunicationStation(recipientPda);
 
             if (senderStation == null || recipientStation == null)
                 continue;
@@ -398,8 +397,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     {
         pdaUid = default;
 
-        if (!card.Comp.CanCommunicate ||
-            card.Comp.PdaUid is not { } pda ||
+        if (card.Comp.PdaUid is not { } pda ||
             !TryComp<CartridgeLoaderComponent>(pda, out var loader))
             return false;
 
@@ -430,8 +428,8 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
         var ownNumber = ownCard?.Number ?? 0;
         List<NanoChatRecipient>? directory;
-        if (_station.GetOwningStation(loader) is { } station &&
-            ownCard is { CanCommunicate: true, CanAccessStationDirectory: true })
+        if (GetCommunicationStation(loader) is { } station &&
+            ownCard is { CanAccessStationDirectory: true })
         {
             ent.Comp.Station = station;
 
@@ -446,7 +444,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
                     nanoChatCard.Number is not { } number ||
                     number == ownNumber ||
                     idCard.FullName is not { } fullName ||
-                    _station.GetOwningStation(recipientPda) != station)
+                    GetCommunicationStation(recipientPda) != station)
                     continue;
 
                 directory.Add(new NanoChatRecipient(number, fullName, idCard.LocalizedJobTitle));
@@ -479,5 +477,33 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
         var state = new NanoChatUiState(recipients, messages, directory, currentChat, ownNumber, maxRecipients, notificationsMuted, listNumber);
         _cartridge.UpdateCartridgeUiState(loader, state);
+    }
+
+    /// <summary>
+    ///     Gets the station whose local NanoChat network an entity may use. Grids that are not station
+    ///     members can use the network while they are on a map belonging to exactly one station.
+    /// </summary>
+    private EntityUid? GetCommunicationStation(EntityUid entity)
+    {
+        if (_station.GetOwningStation(entity) is { } station)
+            return station;
+
+        var mapId = Transform(entity).MapID;
+        EntityUid? mapStation = null;
+        var query = EntityQueryEnumerator<StationDataComponent>();
+        while (query.MoveNext(out var stationUid, out _))
+        {
+            if (_station.GetLargestGrid(stationUid) is not { } stationGrid ||
+                Transform(stationGrid).MapID != mapId)
+                continue;
+
+            // An unowned grid on a multi-station map cannot be assigned safely.
+            if (mapStation != null)
+                return null;
+
+            mapStation = stationUid;
+        }
+
+        return mapStation;
     }
 }

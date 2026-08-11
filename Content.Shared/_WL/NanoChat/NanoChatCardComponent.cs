@@ -83,11 +83,4 @@ public sealed partial class NanoChatCardComponent : Component
     /// </summary>
     [DataField]
     public bool CanAccessStationDirectory = true;
-
-    /// <summary>
-    ///     Whether this card can participate in NanoChat conversations.
-    ///     Disabled cards keep access to the PDA program but cannot be resolved as contacts.
-    /// </summary>
-    [DataField]
-    public bool CanCommunicate = true;
 }
