@@ -13,6 +13,7 @@ using Content.Shared.Popups;
 using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server._WL.CartridgeLoader.Cartridges;
 
@@ -323,8 +324,8 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
             return;
 
         _cartridge.SendNotification(pdaUid,
-            Loc.GetString("nanochat-notification-title"),
-            Loc.GetString("nanochat-notification-message", ("sender", senderName)) + $": {TruncateMessage(message.Content)}",
+            Loc.GetString("nanochat-notification-title", ("sender", FormattedMessage.EscapeText(senderName))),
+            TruncateMessage(message.Content),
             loader);
     }
 

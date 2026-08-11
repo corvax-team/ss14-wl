@@ -11,8 +11,7 @@ nanochat-directory-empty = No other NanoChat users found
 nanochat-no-messages = No messages yet
 nanochat-message-placeholder = Type a message…
 nanochat-send = Send
-nanochat-notification-title = New NanoChat message
-nanochat-notification-message = Message from { $sender }
+nanochat-notification-title = NanoChat · [color=#999999]{ $sender }[/color]
 nanochat-toggle-list-number = List your number in directory
 nanochat-message-too-long = Message too long ({ $current }/{ $max })
 nanochat-delivery-failed = failed to deliver
