@@ -70,14 +70,8 @@ public sealed partial class SolarFlareRule : StationEventSystem<SolarFlareRuleCo
             if (!flare.AffectedChannels.Contains(args.Channel.ID))
                 continue;
 
-            // WL-Changes-start: NanoChat telecom integration
-            if (!flare.OnlyJamHeadsets ||
-                HasComp<HeadsetComponent>(args.RadioReceiver) ||
-                HasComp<HeadsetComponent>(args.RadioSource) ||
-                HasComp<TelecomServerDependentComponent>(args.RadioReceiver) ||
-                HasComp<TelecomServerDependentComponent>(args.RadioSource))
+            if (!flare.OnlyJamHeadsets || (HasComp<HeadsetComponent>(args.RadioReceiver) || HasComp<HeadsetComponent>(args.RadioSource)))
                 args.Cancelled = true;
-            // WL-Changes-end
         }
     }
 }

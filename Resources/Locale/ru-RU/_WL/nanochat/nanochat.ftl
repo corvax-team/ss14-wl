@@ -37,3 +37,10 @@ nanochat-message-status-failed = { $time } · не доставлено
 nanochat-contact-not-found = Пользователь с номером #{ $number } не найден.
 nanochat-contact-limit-reached = Достигнут лимит активных чатов.
 nanochat-message-preview-own = Я: { $message }
+
+log-probe-nanochat-header = Номер NanoChat: #{ $number }
+log-probe-nanochat-header-no-number = NanoChat: номер не присвоен
+log-probe-nanochat-contact = { $name } #{ $number } ({ $count } сообщ.)
+log-probe-nanochat-message = { $time } · { $direction }: { $message }
+log-probe-nanochat-direction-outgoing = исходящее
+log-probe-nanochat-direction-incoming = входящее

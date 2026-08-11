@@ -17,4 +17,3 @@
       sprite: _WL/Interface/Misc/nanochat_program.rsi
       state: nanochat
   - type: NanoChatCartridge
-  - type: TelecomServerDependent
