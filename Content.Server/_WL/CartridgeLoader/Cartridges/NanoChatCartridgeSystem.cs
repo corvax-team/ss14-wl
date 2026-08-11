@@ -112,7 +112,10 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
     private void HandleNewChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
     {
-        if (msg.RecipientNumber == null || msg.Content == null || msg.RecipientNumber == card.Comp.Number)
+        if (!card.Comp.CanCommunicate ||
+            msg.RecipientNumber == null ||
+            msg.Content == null ||
+            msg.RecipientNumber == card.Comp.Number)
             return;
 
         if (GetCardInfo(msg.RecipientNumber.Value) is not { } recipient)
@@ -183,7 +186,10 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         EntityUid loader,
         NanoChatUiMessageEvent msg)
     {
-        if (msg.RecipientNumber == null || msg.Content == null || card.Comp.Number == null ||
+        if (!card.Comp.CanCommunicate ||
+            msg.RecipientNumber == null ||
+            msg.Content == null ||
+            card.Comp.Number == null ||
             msg.RecipientNumber == card.Comp.Number)
             return;
 
@@ -392,7 +398,9 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     {
         pdaUid = default;
 
-        if (card.Comp.PdaUid is not { } pda || !TryComp<CartridgeLoaderComponent>(pda, out var loader))
+        if (!card.Comp.CanCommunicate ||
+            card.Comp.PdaUid is not { } pda ||
+            !TryComp<CartridgeLoaderComponent>(pda, out var loader))
             return false;
 
         if (!_cartridge.HasProgram<NanoChatCartridgeComponent>((pda, loader)))
@@ -422,7 +430,8 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
 
         var ownNumber = ownCard?.Number ?? 0;
         List<NanoChatRecipient>? directory;
-        if (_station.GetOwningStation(loader) is { } station && ownCard is { CanAccessStationDirectory: true })
+        if (_station.GetOwningStation(loader) is { } station &&
+            ownCard is { CanCommunicate: true, CanAccessStationDirectory: true })
         {
             ent.Comp.Station = station;
 

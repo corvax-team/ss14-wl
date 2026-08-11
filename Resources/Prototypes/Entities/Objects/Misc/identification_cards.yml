@@ -1379,6 +1379,8 @@
   - type: IdCard
     jobTitle: job-title-universal
     jobIcon: JobIconAdmin
+  - type: NanoChatCard # WL-Changes: hide admin cards from NanoChat
+    canCommunicate: false
   - type: Access
     groups:
     - AllAccess
