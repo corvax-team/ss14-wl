@@ -27,6 +27,11 @@
     head: ClothingHeadHatCorpsoft
 
 - type: loadout
+  id: RoboticistBeret
+  equipment:
+    head: ClothingHeadHatBeretRobotech
+
+- type: loadout
   id: SkullBandana
   equipment:
     head: ClothingHeadBandSkull

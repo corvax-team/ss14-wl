@@ -1700,7 +1700,8 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianHead
-  - ClothingHeadHatPostmanCap # WL-Changes
+  - PostmanHead
+  - CargoTechnicianBeret # WL-berets-resprite
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -1824,7 +1825,7 @@
   minLimit: 0
   loadouts:
   - CargoTechnicianWintercoat
-  - ClothingOuterPostmanJacket # WL-Changes
+  - PostmanJacket # WL-Changes
 
 - type: loadoutGroup
   id: CargoTechnicianShoes
@@ -2313,6 +2314,14 @@
   - AtmosphericTechnicianWintercoat
   - AtmosphericsOveralls # CorvaxAtmosFashion
 
+- type: loadoutGroup # WL-berets-resprite-start
+  id: AtmosphericTechnicianHead
+  name: loadout-group-atmospheric-technician-head
+  minLimit: 0
+  loadouts:
+  - AtmosphericTechnicianBeret
+  - EngineeringBeret # WL-berets-resprite-end
+
 - type: loadoutGroup
   id: AtmosphericTechnicianBackpack
   name: loadout-group-atmospheric-technician-backpack
@@ -2402,6 +2411,7 @@
   - RoboticistCap
   - SkullBandana
   - ScientificBeret
+  - RoboticistBeret # WL-berets-resprite
 
 - type: loadoutGroup
   id: ScientistNeck

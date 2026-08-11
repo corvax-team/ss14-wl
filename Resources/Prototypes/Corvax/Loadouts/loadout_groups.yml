@@ -45,7 +45,14 @@
   id: SeniorEngineerHead
   name: loadout-group-senior-engineer-head
   loadouts:
-  - SeniorEngineerBeret
+  - StationEngineerSeniorHardhat
+  - StationEngineerSeniorBeret
+  - EngineeringBeret
+  - AtmosphericTechnicianBeret
+  - StationEngineerHardhatYellow
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatRed
+  - EngineerCap
 
 - type: loadoutGroup
   id: SeniorEngineerJumpsuit

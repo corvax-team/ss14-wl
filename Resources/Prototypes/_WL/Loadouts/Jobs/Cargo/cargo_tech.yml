@@ -4,11 +4,16 @@
     jumpsuit: ClothingUniformJumpsuitPostman
 
 - type: loadout
-  id: ClothingOuterPostmanJacket
+  id: PostmanJacket
   equipment:
     outerClothing: ClothingOuterPostmanJacket
 
 - type: loadout
-  id: ClothingHeadHatPostmanCap
+  id: PostmanHead
   equipment:
     head: ClothingHeadHatPostmanCap
+
+- type: loadout
+  id: CargoTechnicianBeret
+  equipment:
+    head: ClothingHeadHatBeretCargo
