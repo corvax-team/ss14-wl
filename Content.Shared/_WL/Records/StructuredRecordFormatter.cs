@@ -58,9 +58,11 @@ public static class StructuredRecordFormatter
         return builder.ToString().TrimEnd();
     }
 
-    public static string FormatMedical(string storage, Func<string, string> loc, bool organic)
+    public static string FormatMedical(string storage, Func<string, string> loc, string species)
     {
         var record = StructuredCharacterRecords.ReadMedical(storage);
+        var organic = RecordSpeciesClassification.IsOrganic(species);
+        var manufactured = RecordSpeciesClassification.IsManufactured(species);
         var builder = new StringBuilder();
         AppendHeading(builder, loc("records-view-medical-directions"), "#36678A");
         AppendAuthor(builder, loc("records-weight"), record.Weight, loc("records-value-no-data"));
@@ -68,11 +70,15 @@ public static class StructuredRecordFormatter
         AppendAuthor(builder, loc("records-do-not-resuscitate"), YesNo(record.DoNotResuscitate, loc));
         AppendAuthor(builder, loc("records-refused-treatment"), record.RefusedTreatment, loc("records-value-not-applicable"));
         AppendAuthor(builder, loc("records-emergency-contact"), record.EmergencyContact, loc("records-value-not-applicable"));
+        if (organic || manufactured)
+            AppendSection(builder,
+                loc(manufactured ? "records-repair-records" : "records-surgeries"),
+                record.Surgeries,
+                loc("records-value-no-data"),
+                "#36678A");
+
         if (organic)
-        {
-            AppendSection(builder, loc("records-surgeries"), record.Surgeries, loc("records-value-no-data"), "#36678A");
             AppendSection(builder, loc("records-medication"), record.Medication, loc("records-value-no-data"), "#36678A");
-        }
         AppendSection(builder, loc("records-physiological-notes"), record.PhysiologicalNotes, loc("records-value-no-data"), "#36678A");
         AppendSection(builder, loc("records-psychological-notes"), record.PsychologicalNotes, loc("records-value-no-data"), "#36678A");
         AppendSection(builder, loc("records-notes"), record.Notes, loc("records-value-no-data"), "#36678A");

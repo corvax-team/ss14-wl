@@ -193,8 +193,14 @@ public sealed partial class RecordsTab : Control
         SetSecurity(StructuredCharacterRecords.ReadSecurity(securityStorage));
         SetEmployment(StructuredCharacterRecords.ReadEmployment(employmentStorage));
         var normalizedDateOfBirth = SetDateOfBirth(storedDateOfBirth);
-        OrganicMedicalFields.Visible = IsOrganic(species);
-        BirthDateLabel.Text = Loc.GetString(IsManufactured(species)
+        var organic = RecordSpeciesClassification.IsOrganic(species);
+        var manufactured = RecordSpeciesClassification.IsManufactured(species);
+        MedicalProcedureFields.Visible = organic || manufactured;
+        MedicalProceduresLabel.Text = Loc.GetString(manufactured
+            ? "records-repair-records"
+            : "records-surgeries");
+        OrganicMedicalFields.Visible = organic;
+        BirthDateLabel.Text = Loc.GetString(manufactured
             ? "records-date-of-manufacture-edit"
             : "records-date-of-birth-edit");
         _updating = false;
@@ -760,7 +766,7 @@ public sealed partial class RecordsTab : Control
             string.Empty,
             string.Empty,
             ValueOr(NameEdit.Text, noData),
-            Loc.GetString(IsManufactured(_species)
+            Loc.GetString(RecordSpeciesClassification.IsManufactured(_species)
                 ? "records-date-of-manufacture-edit"
                 : "records-date-of-birth-edit"),
             ValueOr(date, noData),
@@ -772,7 +778,7 @@ public sealed partial class RecordsTab : Control
             ValueOr(CountryEdit.Text, noData));
 
         _previewWindow.SetRecords(
-            RecordViewBuilder.Medical(identity, _medicalStorage, IsOrganic(_species), Loc.GetString),
+            RecordViewBuilder.Medical(identity, _medicalStorage, _species, Loc.GetString),
             RecordViewBuilder.Security(identity, _securityStorage, Loc.GetString),
             RecordViewBuilder.Employment(identity, _employmentStorage, Loc.GetString),
             RecordTabs.CurrentTab);
@@ -797,9 +803,6 @@ public sealed partial class RecordsTab : Control
         button.AddItem(Loc.GetString("records-value-yes"), 1);
         button.SelectId(0);
     }
-
-    private static bool IsOrganic(string species) => species is not ("Ipc" or "Android" or "Golem");
-    private static bool IsManufactured(string species) => species is "Ipc" or "Android";
 
     private void BindDatePart(LineEdit edit, int maxLength, Action callback)
     {

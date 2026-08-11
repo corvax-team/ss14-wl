@@ -113,7 +113,7 @@ public sealed partial class MedicalRecordsConsoleWindow : FancyWindow
         RecordView.SetData(RecordViewBuilder.Medical(
             identity,
             stationRecord.MedicalRecord,
-            stationRecord.Species is not ("Ipc" or "Android" or "Golem"),
+            stationRecord.Species,
             Loc.GetString,
             true));
     }

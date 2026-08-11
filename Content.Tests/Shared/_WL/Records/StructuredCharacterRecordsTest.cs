@@ -305,12 +305,45 @@ public sealed class StructuredCharacterRecordsTest
             Notes = "[bold]author markup[/bold]",
         });
 
-        var printed = StructuredRecordFormatter.FormatMedical(storage, key => key, true);
+        var printed = StructuredRecordFormatter.FormatMedical(storage, key => key, "Human");
         Assert.Multiple(() =>
         {
             Assert.That(printed, Does.Not.Contain("[bold]author markup[/bold]"));
             Assert.That(printed, Does.Contain("author markup"));
             Assert.That(FormattedMessage.TryFromMarkup(printed, out _), Is.True);
+        });
+    }
+
+    [Test]
+    public void ManufacturedSpeciesUseRepairRecords()
+    {
+        var storage = StructuredCharacterRecords.WriteMedical(new MedicalRecordData
+        {
+            Surgeries = "Replaced actuator",
+            Medication = "Oil",
+        });
+
+        var human = StructuredRecordFormatter.FormatMedical(storage, key => key, "Human");
+        var ipc = StructuredRecordFormatter.FormatMedical(storage, key => key, "Ipc");
+        var android = StructuredRecordFormatter.FormatMedical(storage, key => key, "Android");
+        var golem = StructuredRecordFormatter.FormatMedical(storage, key => key, "Golem");
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(human, Does.Contain("records-surgeries"));
+            Assert.That(human, Does.Contain("records-medication"));
+
+            Assert.That(ipc, Does.Contain("records-repair-records"));
+            Assert.That(ipc, Does.Not.Contain("records-surgeries"));
+            Assert.That(ipc, Does.Not.Contain("records-medication"));
+
+            Assert.That(android, Does.Contain("records-repair-records"));
+            Assert.That(android, Does.Not.Contain("records-surgeries"));
+            Assert.That(android, Does.Not.Contain("records-medication"));
+
+            Assert.That(golem, Does.Not.Contain("records-repair-records"));
+            Assert.That(golem, Does.Not.Contain("records-surgeries"));
+            Assert.That(golem, Does.Not.Contain("records-medication"));
         });
     }
 }

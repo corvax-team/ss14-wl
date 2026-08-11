@@ -7,10 +7,12 @@ namespace Content.Client._WL.Records;
 
 public static class RecordViewBuilder
 {
-    public static RecordViewData Medical(RecordIdentityData identity, string storage, bool organic, Func<string, string> loc,
+    public static RecordViewData Medical(RecordIdentityData identity, string storage, string species, Func<string, string> loc,
         bool inGame = false)
     {
         var record = StructuredCharacterRecords.ReadMedical(storage);
+        var organic = RecordSpeciesClassification.IsOrganic(species);
+        var manufactured = RecordSpeciesClassification.IsManufactured(species);
         var sections = new List<RecordViewSection>
         {
             IdentitySection(identity, loc, inGame),
@@ -27,11 +29,14 @@ public static class RecordViewBuilder
             ]),
         };
 
+        if (organic || manufactured)
+            sections.Add(LongSection(manufactured ? "records-repair-records" : "records-surgeries",
+                record.Surgeries,
+                "records-value-no-data",
+                loc));
+
         if (organic)
-        {
-            sections.Add(LongSection("records-surgeries", record.Surgeries, "records-value-no-data", loc));
             sections.Add(LongSection("records-medication", record.Medication, "records-value-no-data", loc));
-        }
 
         sections.Add(LongSection("records-physiological-notes", record.PhysiologicalNotes, "records-value-no-data", loc));
         sections.Add(LongSection("records-psychological-notes", record.PsychologicalNotes, "records-value-no-data", loc));

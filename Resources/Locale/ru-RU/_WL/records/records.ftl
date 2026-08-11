@@ -38,6 +38,7 @@ records-refused-treatment = Отказ от соматической медиц�
 records-last-updated = Последнее изменение:
 records-do-not-resuscitate = Не реанимировать
 records-surgeries = Хирургические вмешательства
+records-repair-records = Ремонтные записи
 records-medication = Медикаментозная терапия
 records-physiological-notes = Физиологические особенности
 records-psychological-notes = Психологические особенности

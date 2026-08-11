@@ -45,9 +45,11 @@
                             <records:RecordOptionButton Name="MedicalDnr" MinWidth="220" MaxWidth="320" HorizontalExpand="True"/>
                         </GridContainer>
 
-                        <BoxContainer Name="OrganicMedicalFields" Orientation="Vertical" HorizontalExpand="True">
-                            <Label Text="{Loc 'records-surgeries'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
+                        <BoxContainer Name="MedicalProcedureFields" Orientation="Vertical" HorizontalExpand="True">
+                            <Label Name="MedicalProceduresLabel" Text="{Loc 'records-surgeries'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
                             <records:RecordTextEdit Name="MedicalSurgeries" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
+                        </BoxContainer>
+                        <BoxContainer Name="OrganicMedicalFields" Orientation="Vertical" HorizontalExpand="True">
                             <Label Text="{Loc 'records-medication'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
                             <records:RecordTextEdit Name="MedicalMedication" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         </BoxContainer>
