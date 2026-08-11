@@ -99,6 +99,7 @@ public static class StructuredCharacterRecords
     public const int MaxEducationEntries = 8;
     public const int MaxShortTextLength = 256;
     public const int MaxLongTextLength = 2048;
+    public const int MaxEmploymentHistoryLength = 4096;
     public const int MaxNotesTextLength = 4096;
 
     /// <summary>
@@ -255,7 +256,7 @@ public static class StructuredCharacterRecords
             AcademicTitleField = version >= 2 ? ClampShort(fields[2]) : string.Empty,
             AcademicTitleDate = ClampShort(fields[version >= 2 ? 3 : 2]),
             Licenses = ClampLong(fields[version >= 2 ? 4 : 3]),
-            EmploymentHistory = ClampLong(fields[version >= 2 ? 5 : 4]),
+            EmploymentHistory = ClampEmploymentHistory(fields[version >= 2 ? 5 : 4]),
             Notes = ClampNotes(fields[version >= 2 ? 6 : 5]),
             LastUpdated = ClampShort(fields[version >= 2 ? 7 : 6]),
         };
@@ -287,7 +288,7 @@ public static class StructuredCharacterRecords
             ClampShort(record.AcademicTitleField),
             ClampShort(record.AcademicTitleDate),
             ClampLong(record.Licenses),
-            ClampLong(record.EmploymentHistory),
+            ClampEmploymentHistory(record.EmploymentHistory),
             ClampNotes(record.Notes),
             ClampShort(record.LastUpdated),
         };
@@ -422,6 +423,7 @@ public static class StructuredCharacterRecords
 
     private static string ClampShort(string? value) => NormalizeShortText(value);
     private static string ClampLong(string? value) => Clamp(value, MaxLongTextLength);
+    private static string ClampEmploymentHistory(string? value) => Clamp(value, MaxEmploymentHistoryLength);
     private static string ClampNotes(string? value) => Clamp(value, MaxNotesTextLength);
 
     private static string ClampSerialized(string? value, int maxLength)

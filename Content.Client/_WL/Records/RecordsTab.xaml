@@ -16,11 +16,11 @@
                         <records:RecordOptionButton Name="ConfederationButton" MinWidth="210" HorizontalExpand="True" Access="Public"/>
                         <Label Name="BirthDateLabel" Text="{Loc 'records-date-of-birth-edit'}" VAlign="Center" MinWidth="135"/>
                         <BoxContainer Orientation="Horizontal" MinWidth="210">
-                            <LineEdit Name="BirthDayEdit" PlaceHolder="{Loc 'records-date-of-birth-day'}" MinWidth="45" MaxWidth="55"/>
+                            <LineEdit Name="BirthDayEdit" PlaceHolder="{Loc 'records-date-day'}" MinWidth="45" MaxWidth="55"/>
                             <Label Text="." VAlign="Center" Margin="3 0"/>
-                            <LineEdit Name="BirthMonthEdit" PlaceHolder="{Loc 'records-date-of-birth-month'}" MinWidth="45" MaxWidth="55"/>
+                            <LineEdit Name="BirthMonthEdit" PlaceHolder="{Loc 'records-date-month'}" MinWidth="45" MaxWidth="55"/>
                             <Label Text="." VAlign="Center" Margin="3 0"/>
-                            <LineEdit Name="BirthYearEdit" PlaceHolder="{Loc 'records-date-of-birth-year'}" Editable="False" MinWidth="75" MaxWidth="90"/>
+                            <LineEdit Name="BirthYearEdit" PlaceHolder="{Loc 'records-date-year'}" ToolTip="{Loc 'records-date-of-birth-year-tooltip'}" Editable="False" MinWidth="75" MaxWidth="90"/>
                         </BoxContainer>
                         <Label Text="{Loc 'records-country-edit'}" VAlign="Center" MinWidth="145" Margin="12 0 0 0"/>
                         <LineEdit Name="CountryEdit" MinWidth="210" HorizontalExpand="True" Access="Public"/>
@@ -47,21 +47,21 @@
 
                         <BoxContainer Name="OrganicMedicalFields" Orientation="Vertical" HorizontalExpand="True">
                             <Label Text="{Loc 'records-surgeries'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                            <records:RecordTextEdit Name="MedicalSurgeries" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                            <records:RecordTextEdit Name="MedicalSurgeries" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                             <Label Text="{Loc 'records-medication'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                            <records:RecordTextEdit Name="MedicalMedication" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                            <records:RecordTextEdit Name="MedicalMedication" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         </BoxContainer>
                         <Label Text="{Loc 'records-physiological-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="MedicalPhysiological" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="MedicalPhysiological" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-psychological-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="MedicalPsychological" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="MedicalPsychological" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
                         <records:RecordTextEdit Name="MedicalNotes" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
 
                         <PanelContainer StyleClasses="LowDivider" Margin="0 12 0 8"/>
                         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
                             <Label Text="{Loc 'records-last-updated'}" VAlign="Center" MinWidth="205"/>
-                            <LineEdit Name="MedicalLastUpdated" MinWidth="320" HorizontalExpand="True"/>
+                            <records:RecordDateEdit Name="MedicalLastUpdated" MinWidth="320" HorizontalExpand="True"/>
                         </BoxContainer>
                     </BoxContainer>
                 </ScrollContainer>
@@ -115,18 +115,18 @@
                             <records:RecordOptionButton Name="SecuritySupervision" MinWidth="220" MaxWidth="320" HorizontalExpand="True"/>
                         </GridContainer>
                         <Label Text="{Loc 'records-permits'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="SecurityPermits" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="SecurityPermits" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-arrest-history'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="SecurityArrests" MinHeight="90" MaxHeight="150" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="SecurityArrests" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-imprisonment-history'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="SecurityImprisonment" MinHeight="90" MaxHeight="150" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="SecurityImprisonment" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
                         <records:RecordTextEdit Name="SecurityNotes" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
 
                         <PanelContainer StyleClasses="LowDivider" Margin="0 12 0 8"/>
                         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
                             <Label Text="{Loc 'records-last-updated'}" VAlign="Center" MinWidth="205"/>
-                            <LineEdit Name="SecurityLastUpdated" MinWidth="320" HorizontalExpand="True"/>
+                            <records:RecordDateEdit Name="SecurityLastUpdated" MinWidth="320" HorizontalExpand="True"/>
                         </BoxContainer>
                     </BoxContainer>
                 </ScrollContainer>
@@ -155,12 +155,12 @@
                                 </BoxContainer>
                                 <BoxContainer Name="AcademicTitleDateContainer" Orientation="Vertical" HorizontalExpand="True" MinWidth="250">
                                     <Label Text="{Loc 'records-academic-title-date'}" StyleClasses="LabelSubText" Margin="0 0 0 2"/>
-                                    <LineEdit Name="EmploymentAcademicTitleDate" HorizontalExpand="True"/>
+                                    <records:RecordDateEdit Name="EmploymentAcademicTitleDate" HorizontalExpand="True"/>
                                 </BoxContainer>
                             </BoxContainer>
                         </PanelContainer>
                         <Label Text="{Loc 'records-licenses'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
-                        <records:RecordTextEdit Name="EmploymentLicenses" MinHeight="82" MaxHeight="140" HorizontalExpand="True"/>
+                        <records:RecordTextEdit Name="EmploymentLicenses" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-employment-history'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
                         <records:RecordTextEdit Name="EmploymentHistory" MinHeight="120" MaxHeight="180" HorizontalExpand="True"/>
                         <Label Text="{Loc 'records-notes'}" StyleClasses="LabelSubText" Margin="0 10 0 3"/>
@@ -169,7 +169,7 @@
                         <PanelContainer StyleClasses="LowDivider" Margin="0 12 0 8"/>
                         <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Left">
                             <Label Text="{Loc 'records-last-updated'}" VAlign="Center" MinWidth="205"/>
-                            <LineEdit Name="EmploymentLastUpdated" MinWidth="320" HorizontalExpand="True"/>
+                            <records:RecordDateEdit Name="EmploymentLastUpdated" MinWidth="320" HorizontalExpand="True"/>
                         </BoxContainer>
                     </BoxContainer>
                 </ScrollContainer>
