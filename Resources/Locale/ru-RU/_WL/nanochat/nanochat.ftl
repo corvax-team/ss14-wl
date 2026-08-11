@@ -1,0 +1,45 @@
+nanochat-program-name = NanoChat
+nanochat-cartridge-name = картридж NanoChat
+nanochat-cartridge-desc = Программа для обмена короткими сообщениями между КПК.
+nanochat-title = NanoChat
+nanochat-own-number = #{ $number }
+nanochat-unknown-contact = Неизвестный пользователь
+nanochat-no-chats = Нет активных чатов
+nanochat-select-chat = Выберите чат, чтобы начать
+nanochat-directory-title = Поиск пользователей
+nanochat-directory-empty = Другие пользователи NanoChat не найдены
+nanochat-no-messages = Сообщений пока нет
+nanochat-message-placeholder = Введите сообщение…
+nanochat-send = Отправить
+nanochat-notification-title = NanoChat · [color=#999999]{ $sender }[/color]
+nanochat-toggle-list-number = Показывать номер в поиске
+nanochat-message-too-long = Слишком длинное сообщение ({ $current }/{ $max })
+nanochat-delivery-failed = не доставлено
+nanochat-card-examine-no-number = Похоже, ей не присвоен номер NanoChat.
+nanochat-card-examine-number = Её номер NanoChat: [color=lightblue]#{ $number }[/color].
+nanochat-number-placeholder = Введите номер…
+nanochat-start-chat = Начать чат
+nanochat-delete-chat = Удалить чат
+nanochat-delete-chat-confirm = Нажмите ещё раз, чтобы удалить чат
+nanochat-search-contacts = Найти контакты
+nanochat-return-to-chats = Вернуться к чатам
+nanochat-search = Поиск
+nanochat-return = Чаты
+nanochat-disable-notifications = Отключить уведомления
+nanochat-enable-notifications = Включить уведомления
+nanochat-show-in-search = Разрешить другим пользователям находить меня в NanoChat.
+nanochat-hide-from-search = Скрыть мой контакт из поиска NanoChat.
+nanochat-welcome-title = Начните новый диалог
+nanochat-welcome-details = Найдите пользователя по номеру или в каталоге NanoChat.
+nanochat-select-chat-details = Выберите существующий диалог слева или найдите новый контакт.
+nanochat-message-status-failed = { $time } · не доставлено
+nanochat-contact-not-found = Пользователь с номером #{ $number } не найден.
+nanochat-contact-limit-reached = Достигнут лимит активных чатов.
+nanochat-message-preview-own = Я: { $message }
+
+log-probe-nanochat-header = Номер NanoChat: #{ $number }
+log-probe-nanochat-header-no-number = NanoChat: номер не присвоен
+log-probe-nanochat-contact = { $name } #{ $number } ({ $count } сообщ.)
+log-probe-nanochat-message = { $time } · { $direction }: { $message }
+log-probe-nanochat-direction-outgoing = исходящее
+log-probe-nanochat-direction-incoming = входящее
