@@ -39,6 +39,9 @@ public sealed partial class LogProbeUiFragment : BoxContainer
             count++;
         }
 
+        var showAccessLogs = nanoChat == null || logs.Count > 0;
+        AccessLogsHeader.Visible = showAccessLogs;
+        AccessLogsScroll.Visible = showAccessLogs;
         UpdateNanoChat(nanoChat);
     }
 

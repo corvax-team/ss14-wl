@@ -14,6 +14,7 @@ using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using System.Text;
 
 namespace Content.Shared.CartridgeLoader.Cartridges;
@@ -51,7 +52,10 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         if (!_net.IsServer || args.Args.Handled || !args.Args.CanReach || args.Args.Target is not { } target)
             return;
 
-        if (!TryComp(target, out AccessReaderComponent? accessReaderComponent))
+        var hasAccessReader = TryComp(target, out AccessReaderComponent? accessReaderComponent);
+        var hasNanoChat = TryComp(target, out NanoChatCardComponent? nanoChatCard);
+
+        if (!hasAccessReader && !hasNanoChat)
             return;
 
         //Play scanning sound with slightly randomized pitch
@@ -61,21 +65,24 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         ent.Comp.EntityName = Name(target);
         ent.Comp.PulledAccessLogs.Clear();
 
-        foreach (var accessRecord in accessReaderComponent.AccessLog)
+        if (accessReaderComponent != null)
         {
-            var log = new PulledAccessLog(
-                accessRecord.AccessTime,
-                accessRecord.Accessor
-            );
+            foreach (var accessRecord in accessReaderComponent.AccessLog)
+            {
+                var log = new PulledAccessLog(
+                    accessRecord.AccessTime,
+                    accessRecord.Accessor
+                );
 
-            ent.Comp.PulledAccessLogs.Add(log);
+                ent.Comp.PulledAccessLogs.Add(log);
+            }
         }
 
         // Reverse the list so the oldest is at the bottom
         ent.Comp.PulledAccessLogs.Reverse();
 
         //WL-Changes-NanoChat-Start
-        ent.Comp.NanoChat = TryComp<NanoChatCardComponent>(target, out var nanoChatCard)
+        ent.Comp.NanoChat = nanoChatCard != null
             ? new NanoChatData(
                 new Dictionary<uint, NanoChatRecipient>(nanoChatCard.Recipients),
                 nanoChatCard.Messages.ToDictionary(
@@ -123,13 +130,49 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         // generate the actual printout text
         var builder = new StringBuilder();
         builder.AppendLine(Loc.GetString("log-probe-printout-device", ("name", ent.Comp.EntityName)));
-        builder.AppendLine(Loc.GetString("log-probe-printout-header"));
-        var number = 1;
-        foreach (var log in ent.Comp.PulledAccessLogs)
+
+        //WL-Changes-NanoChat-Start
+        if (ent.Comp.NanoChat is { } nanoChat)
         {
-            var time = TimeSpan.FromSeconds(Math.Truncate(log.Time.TotalSeconds)).ToString();
-            builder.AppendLine(Loc.GetString("log-probe-printout-entry", ("number", number), ("time", time), ("accessor", log.Accessor)));
-            number++;
+            builder.AppendLine(nanoChat.CardNumber is { } cardNumber
+                ? Loc.GetString("log-probe-nanochat-header", ("number", cardNumber.ToString("D4")))
+                : Loc.GetString("log-probe-nanochat-header-no-number"));
+
+            foreach (var (recipientNumber, recipient) in nanoChat.Recipients)
+            {
+                var messages = nanoChat.Messages.GetValueOrDefault(recipientNumber);
+                builder.AppendLine(Loc.GetString("log-probe-nanochat-contact",
+                    ("name", FormattedMessage.EscapeText(recipient.Name)),
+                    ("number", recipientNumber.ToString("D4")),
+                    ("count", messages?.Count ?? 0)));
+
+                if (messages == null)
+                    continue;
+
+                foreach (var message in messages)
+                {
+                    var direction = message.Sender == nanoChat.CardNumber
+                        ? Loc.GetString("log-probe-nanochat-direction-outgoing")
+                        : Loc.GetString("log-probe-nanochat-direction-incoming");
+                    builder.AppendLine(Loc.GetString("log-probe-nanochat-message",
+                        ("time", message.Timestamp.ToString(@"hh\:mm")),
+                        ("direction", direction),
+                        ("message", FormattedMessage.EscapeText(message.Content))));
+                }
+            }
+        }
+        //WL-Changes-NanoChat-End
+
+        if (ent.Comp.NanoChat == null || ent.Comp.PulledAccessLogs.Count > 0)
+        {
+            builder.AppendLine(Loc.GetString("log-probe-printout-header"));
+            var number = 1;
+            foreach (var log in ent.Comp.PulledAccessLogs)
+            {
+                var time = TimeSpan.FromSeconds(Math.Truncate(log.Time.TotalSeconds)).ToString();
+                builder.AppendLine(Loc.GetString("log-probe-printout-entry", ("number", number), ("time", time), ("accessor", log.Accessor)));
+                number++;
+            }
         }
 
         var paperComp = Comp<PaperComponent>(paper);
