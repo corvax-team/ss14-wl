@@ -40,7 +40,10 @@ nanochat-message-preview-own = Me: { $message }
 
 log-probe-nanochat-header = NanoChat number: #{ $number }
 log-probe-nanochat-header-no-number = NanoChat: no number assigned
-log-probe-nanochat-contact = { $name } #{ $number } ({ $count } messages)
+log-probe-nanochat-contact = { $name } #{ $number } ({ $count ->
+    [one] { $count } message
+   *[other] { $count } messages
+})
 log-probe-nanochat-message = { $time } · { $direction }: { $message }
 log-probe-nanochat-direction-outgoing = outgoing
 log-probe-nanochat-direction-incoming = incoming
