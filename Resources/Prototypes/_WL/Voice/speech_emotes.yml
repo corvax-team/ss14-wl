@@ -1,0 +1,40 @@
+- type: emote
+  id: Meow
+  name: chat-emote-name-meow
+  category: Vocal
+  available: false
+  icon: Corvax/Interface/Emotes/purr.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-meow"]
+  chatTriggers:
+  - мяукает
+  - мяу
+  - миу
+  - мьяу
+  - миау
+  - meow
+  - meowing
+  - мяукаит
+
+- type: emote
+  id: Tajarahiss
+  name: chat-emote-name-hiss
+  category: Vocal
+  available: false
+  icon: Corvax/Interface/Emotes/purr.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-hissing"]
+  chatTriggers:
+  - шипит
+  - шипеть
+

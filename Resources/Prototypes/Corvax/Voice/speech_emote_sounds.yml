@@ -28,6 +28,10 @@
       collection: Weh
     Gasp:
       path: /Audio/Corvax/Effects/Tajaran/gasp.ogg
+    Meow:
+      collection: meow_tajaran
+    Tajarahiss:
+      collection: Tajarahiss
     DefaultDeathgasp:
       collection: MaleDeathGasp
 
@@ -60,6 +64,8 @@
       collection: Weh
     Gasp:
       path: /Audio/Corvax/Effects/Tajaran/gasp.ogg
+    Meow:
+      collection: meow_tajaran
     DefaultDeathgasp:
       collection: FemaleDeathGasp
 
