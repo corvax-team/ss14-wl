@@ -5,6 +5,9 @@
   description: Bluespace technologies on the application of bureaucracy.
   components:
   # WL-Changes-start
+  - type: Rotatable
+  - type: Transform
+    noRot: false
   - type: MaterialStorage
     whitelist:
       tags:
