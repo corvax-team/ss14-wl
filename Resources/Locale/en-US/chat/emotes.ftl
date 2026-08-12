@@ -40,7 +40,7 @@ chat-emote-name-growl = Growl
 chat-emote-name-flap = Flap Wings
 # WL-Changes:
 chat-emote-name-hiss = Hiss
-chat-emote-name-meow = Mewo
+chat-emote-name-meow = Meow
 
 # Message
 chat-emote-msg-scream = screams!
