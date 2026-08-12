@@ -15,5 +15,6 @@
     ClothingOuterWinterAtmos: 2
     ClothingNeckScarfStripedLightBlue: 3
     ClothingNeckTieAtmos: 3 # WL-Changes: Респрайт РНД и новые вещи
+    ClothingHeadHatBeretAtmos: 2 # WL-berets-resprite
   contrabandInventory:
     ToyFigurineAtmosTech: 1

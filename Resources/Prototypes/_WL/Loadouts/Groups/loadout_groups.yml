@@ -13,14 +13,6 @@
   loadouts:
   - BoxFolderClipboard
 
-- type: loadoutGroup
-  id: AtmosHead
-  name: loadout-group-AtmosHead
-  minLimit: 0
-  maxLimit: 1
-  loadouts:
-  - SeniorEngineerBeret
-
 # Command
 - type: loadoutGroup
   id: AdjutantHead

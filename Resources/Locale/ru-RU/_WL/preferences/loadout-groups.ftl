@@ -2,7 +2,7 @@ loadout-group-MedicalDoctorNeck = Врач, шея
 
 loadout-group-Utility = Служебное
 
-loadout-group-AtmosHead = Атмосферный техник, голова
+loadout-group-atmospheric-technician-head = Атмосферный техник, голова
 
 loadout-group-adjutant-head = Адъютант, голова
 loadout-group-adjutant-jumpsuit = Адъютант, комбинезон
