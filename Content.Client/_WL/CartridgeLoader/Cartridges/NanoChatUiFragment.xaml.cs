@@ -580,20 +580,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             ? nextMessages.Count
             : 0;
 
-        if (nextCount <= previousCount)
-            return false;
-
-        var latestMessage = nextMessages![^1];
-        return latestMessage.Sender == nextState.OwnNumber || IsNearBottom();
-    }
-
-    private bool IsNearBottom()
-    {
-        if (!MessagesScroll.Visible)
-            return true;
-
-        var hiddenHeight = MessageList.DesiredSize.Y - (MessagesScroll.VScroll + MessagesScroll.Size.Y);
-        return hiddenHeight <= 28f || MathHelper.CloseToPercent(hiddenHeight, 0f, 0.08f);
+        return nextCount > previousCount;
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
@@ -601,6 +588,11 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         base.FrameUpdate(args);
 
         if (!_scrollToBottom || !MessagesScroll.Visible)
+            return;
+
+        // UI frame updates run before queued layout updates. Keep the request until the newly
+        // rebuilt message list has been measured and the scroll range reflects its final height.
+        if (!MessageList.IsMeasureValid || !MessagesScroll.IsArrangeValid)
             return;
 
         _scrollToBottom = false;
