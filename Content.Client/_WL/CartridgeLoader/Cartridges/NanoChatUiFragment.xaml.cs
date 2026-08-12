@@ -39,6 +39,7 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     private const string DirectoryVisibleTexture = "/Textures/_WL/Interface/NanoChat/eye-open.svg.192dpi.png";
     private const string DirectoryHiddenTexture = "/Textures/_WL/Interface/NanoChat/eye-slash.svg.192dpi.png";
     private const float MessageBubbleMaxWidth = 300f;
+    internal const float FollowBottomThreshold = 28f;
 
     private static readonly Color AccentColor = Color.FromHex("#58BCE8");
     private static readonly Color SelectedEntryColor = Color.FromHex("#27404D");
@@ -415,7 +416,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         }
 
         _lastRenderedChat = current;
-        RequestScrollToBottom();
     }
 
     private void SubmitMessage()
@@ -580,7 +580,32 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             ? nextMessages.Count
             : 0;
 
-        return nextCount > previousCount;
+        if (nextCount <= previousCount)
+            return false;
+
+        var latestMessage = nextMessages![^1];
+        var viewportBottom = MessagesScroll.VScrollTarget + MessagesScroll.Size.Y;
+        return ShouldFollowNewMessage(
+            latestMessage.Sender,
+            nextState.OwnNumber,
+            MessageList.Size.Y,
+            viewportBottom);
+    }
+
+    /// <summary>
+    ///     Decides whether a new message should move the viewport. The dimensions must describe the
+    ///     existing list before it is rebuilt, so an incoming message cannot change this decision.
+    /// </summary>
+    internal static bool ShouldFollowNewMessage(
+        uint sender,
+        uint ownNumber,
+        float contentHeight,
+        float viewportBottom)
+    {
+        if (sender == ownNumber)
+            return true;
+
+        return contentHeight - viewportBottom <= FollowBottomThreshold;
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
