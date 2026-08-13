@@ -33,11 +33,11 @@ public sealed partial class LogProbeUiFragment : BoxContainer
 
         ProbedDeviceContainer.RemoveAllChildren();
 
-        var count =  1;
+        var count = logs.Count;
         foreach (var log in logs)
         {
             AddAccessLog(log, count);
-            count++;
+            count--;
         }
 
         var showAccessLogs = nanoChat == null || logs.Count > 0;

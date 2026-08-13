@@ -145,7 +145,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         if (ent.Comp.NanoChat == null || ent.Comp.PulledAccessLogs.Count > 0)
         {
             AppendPrintSectionHeading(builder, Loc.GetString("log-probe-section-access-logs"));
-            var number = 1;
+            var number = ent.Comp.PulledAccessLogs.Count;
             foreach (var log in ent.Comp.PulledAccessLogs)
             {
                 var time = TimeSpan.FromSeconds(Math.Truncate(log.Time.TotalSeconds)).ToString();
@@ -153,7 +153,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
                     ("number", number),
                     ("time", time),
                     ("accessor", FormattedMessage.EscapeText(log.Accessor))));
-                number++;
+                number--;
             }
 
             if (ent.Comp.PulledAccessLogs.Count == 0)
