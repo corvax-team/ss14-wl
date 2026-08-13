@@ -49,6 +49,8 @@ public partial struct NanoChatGroup
 {
     public const int MaxMembers = 64;
     public const int MaxNameLength = 32;
+    public const int MaxNameMarkupLength = 128;
+    public const int MaxGroupsPerCreator = 8;
 
     public uint Id;
     public string Name;

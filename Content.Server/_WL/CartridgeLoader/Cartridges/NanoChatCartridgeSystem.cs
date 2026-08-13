@@ -212,41 +212,6 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         _nanoChat.SetBlocked((card, card.Comp), target, blocked);
     }
 
-    private void HandleCreateGroup(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        if (card.Comp.Number is not { } creatorNumber ||
-            msg.Content is null ||
-            msg.Content.Length > NanoChatGroup.MaxNameLength ||
-            msg.MemberNumbers is null ||
-            msg.MemberNumbers.Count > NanoChatGroup.MaxMembers - 1)
-            return;
-
-        var name = FormattedMessage.RemoveMarkupPermissive(msg.Content).Trim();
-        if (name.Length is 0 or > NanoChatGroup.MaxNameLength || GetGroupMember(creatorNumber) is not { } creator)
-            return;
-
-        var invited = new List<NanoChatGroupMember>();
-        foreach (var number in msg.MemberNumbers.Distinct())
-        {
-            if (number == creatorNumber ||
-                _nanoChat.IsBlocked((card, card.Comp), number) ||
-                GetGroupMember(number) is not { } member)
-                continue;
-
-            if (TryGetAccessibleCard(number, out var invitedCard) &&
-                _nanoChat.IsBlocked((invitedCard.Owner, invitedCard.Comp), creatorNumber))
-                continue;
-
-            invited.Add(member);
-        }
-
-        if (!_nanoChatServer.TryCreateGroup(name, creator, invited, out var group))
-            return;
-
-        SyncGroupToMembers(group);
-        _nanoChat.SetCurrentGroup((card, card.Comp), group.Id);
-    }
-
     private void HandleSelectConversation(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
     {
         if (msg.Conversation is not { } conversation)
@@ -268,108 +233,6 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         group.HasUnread = false;
         _nanoChat.SetGroup((card, card.Comp), group);
         _nanoChat.SetCurrentGroup((card, card.Comp), conversation.Id);
-    }
-
-    private void HandleRenameGroup(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        if (card.Comp.Number is not { } actor ||
-            msg.Conversation is not { Type: NanoChatConversationType.Group } conversation ||
-            msg.Content is null ||
-            msg.Content.Length > NanoChatGroup.MaxNameLength)
-            return;
-
-        var name = FormattedMessage.RemoveMarkupPermissive(msg.Content).Trim();
-        if (name.Length is 0 or > NanoChatGroup.MaxNameLength || !_nanoChatServer.TryRenameGroup(conversation.Id, actor, name))
-            return;
-
-        if (_nanoChatServer.TryGetGroup(conversation.Id, out var group))
-            SyncGroupToMembers(group);
-    }
-
-    private void HandleAddGroupMember(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        if (card.Comp.Number is not { } actor ||
-            msg.Conversation is not { Type: NanoChatConversationType.Group } conversation ||
-            msg.TargetNumber is not { } target)
-            return;
-
-        if (_nanoChat.IsBlocked((card, card.Comp), target) ||
-            GetGroupMember(target) is not { } member ||
-            !TryGetAccessibleCard(target, out var targetCard) ||
-            _nanoChat.IsBlocked((targetCard.Owner, targetCard.Comp), actor))
-        {
-            _popup.PopupEntity(
-                Loc.GetString("nanochat-contact-not-found", ("number", target.ToString("D4"))),
-                msg.Actor,
-                msg.Actor);
-            return;
-        }
-
-        if (!_nanoChatServer.TryAddGroupMember(conversation.Id, actor, member))
-            return;
-
-        if (_nanoChatServer.TryGetGroup(conversation.Id, out var group))
-            SyncGroupToMembers(group);
-    }
-
-    private void HandleRemoveGroupMember(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        if (card.Comp.Number is not { } actor ||
-            msg.Conversation is not { Type: NanoChatConversationType.Group } conversation ||
-            msg.TargetNumber is not { } target ||
-            !_nanoChatServer.TryRemoveGroupMember(conversation.Id, actor, target))
-            return;
-
-        RemoveGroupFromNumber(target, conversation.Id);
-        if (_nanoChatServer.TryGetGroup(conversation.Id, out var group))
-            SyncGroupToMembers(group);
-    }
-
-    private void HandleSetGroupAdmin(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        if (card.Comp.Number is not { } actor ||
-            msg.Conversation is not { Type: NanoChatConversationType.Group } conversation ||
-            msg.TargetNumber is not { } target ||
-            msg.Value is not { } admin ||
-            !_nanoChatServer.TrySetGroupAdmin(conversation.Id, actor, target, admin))
-            return;
-
-        if (_nanoChatServer.TryGetGroup(conversation.Id, out var group))
-            SyncGroupToMembers(group);
-    }
-
-    private void HandleLeaveGroup(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        if (card.Comp.Number is not { } actor ||
-            msg.Conversation is not { Type: NanoChatConversationType.Group } conversation ||
-            !_nanoChatServer.TryLeaveGroup(conversation.Id, actor, out _))
-            return;
-
-        _nanoChat.RemoveGroup((card, card.Comp), conversation.Id);
-        if (_nanoChatServer.TryGetGroup(conversation.Id, out var group))
-            SyncGroupToMembers(group);
-    }
-
-    private void HandleDeleteGroup(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        if (card.Comp.Number is not { } actor ||
-            msg.Conversation is not { Type: NanoChatConversationType.Group } conversation ||
-            !_nanoChatServer.TryGetGroup(conversation.Id, out var group) ||
-            !_nanoChatServer.TryDeleteGroup(conversation.Id, actor))
-            return;
-
-        foreach (var number in group.Members.Keys)
-            RemoveGroupFromNumber(number, conversation.Id);
-    }
-
-    private void HandleToggleGroupMute(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
-    {
-        if (msg.Conversation is not { Type: NanoChatConversationType.Group } conversation ||
-            !_nanoChat.TryGetGroup((card, card.Comp), conversation.Id, out var group))
-            return;
-
-        group.NotificationsMuted = !group.NotificationsMuted;
-        _nanoChat.SetGroup((card, card.Comp), group);
     }
 
     private void HandleDeleteChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
@@ -410,19 +273,10 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
             recipientNumber == card.Comp.Number)
             return;
 
-        if (string.IsNullOrWhiteSpace(msg.Content) || msg.Content.Length > NanoChatMessage.MaxMarkupLength)
-            return;
-
-        var content = msg.Content.Trim();
-        var plainContent = FormattedMessage.RemoveMarkupPermissive(content).Trim();
-        if (plainContent.Length == 0 || plainContent.Length > NanoChatMessage.MaxLength)
+        if (!TryPrepareMessage(card.Comp, msg.Content, out var content, out var plainContent))
             return;
 
         if (_nanoChat.IsBlocked((card, card.Comp), recipientNumber.Value))
-            return;
-
-        if (card.Comp.LastMessageTime != TimeSpan.Zero &&
-            _timing.CurTime - card.Comp.LastMessageTime < card.Comp.MessageSendDelay)
             return;
 
         if (!_nanoChat.EnsureRecipientExists((card, card.Comp), recipientNumber.Value, GetCardInfo(recipientNumber.Value)))
@@ -455,112 +309,19 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         RaiseLocalEvent(ref msgEv);
     }
 
-    private void HandleSendGroupMessage(Entity<NanoChatCartridgeComponent> cartridge,
-        Entity<NanoChatCardComponent> card,
-        EntityUid loader,
-        NanoChatUiMessageEvent msg)
+    private bool TryPrepareMessage(
+        NanoChatCardComponent card,
+        string rawContent,
+        out string content,
+        out string plainContent)
     {
-        if (card.Comp.Number is not { } senderNumber ||
-            msg.Conversation is not { Type: NanoChatConversationType.Group } conversation ||
-            msg.Content is null ||
-            !_nanoChatServer.TryGetGroup(conversation.Id, out var group) ||
-            !group.Members.ContainsKey(senderNumber) ||
-            msg.Content.Length > NanoChatMessage.MaxMarkupLength)
-            return;
+        content = rawContent.Trim();
+        plainContent = FormattedMessage.RemoveMarkupPermissive(content).Trim();
 
-        var content = msg.Content.Trim();
-        var plainContent = FormattedMessage.RemoveMarkupPermissive(content).Trim();
-        if (plainContent.Length is 0 or > NanoChatMessage.MaxLength)
-            return;
-
-        if (card.Comp.LastMessageTime != TimeSpan.Zero &&
-            _timing.CurTime - card.Comp.LastMessageTime < card.Comp.MessageSendDelay)
-            return;
-
-        var intended = group.Members.Count - 1;
-        var baseMessage = new NanoChatMessage(_gameTicker.RoundDuration(), content, senderNumber);
-        var deliveredNumbers = new HashSet<uint>();
-        var recipientNumbers = group.Members.Keys
-            .Where(number => number != senderNumber)
-            .ToHashSet();
-        var candidatesByNumber = AttemptMessageDelivery(cartridge, loader, recipientNumbers);
-
-        foreach (var (recipientNumber, candidates) in candidatesByNumber)
-        {
-            foreach (var recipient in candidates)
-            {
-                if (DeliverGroupMessage(recipient, group, baseMessage))
-                    deliveredNumbers.Add(recipientNumber);
-            }
-        }
-
-        var message = baseMessage with
-        {
-            DeliveryFailed = deliveredNumbers.Count == 0,
-            DeliveredRecipients = (byte) deliveredNumbers.Count,
-            IntendedRecipients = (byte) intended,
-        };
-        _nanoChat.AddGroupMessage((card, card.Comp), group.Id, message, sentByOwner: true);
-
-        _adminLogger.Add(LogType.Chat,
-            LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} sent NanoChat group message to '{group.Name}' " +
-            $"({deliveredNumbers.Count}/{intended} recipients): {plainContent}");
-
-        var msgEv = new NanoChatMessageReceivedEvent(card);
-        RaiseLocalEvent(ref msgEv);
-    }
-
-    private bool DeliverGroupMessage(
-        Entity<NanoChatCardComponent> recipient,
-        NanoChatServerGroup serverGroup,
-        NanoChatMessage message)
-    {
-        // Blocking is personal: the sender remains in the group, but their messages are not
-        // delivered to cards that have blocked them.
-        if (_nanoChat.IsBlocked((recipient, recipient.Comp), message.Sender))
-            return false;
-
-        if (!_nanoChat.TryGetGroup((recipient, recipient.Comp), serverGroup.Id, out var localGroup))
-            localGroup = serverGroup.Snapshot();
-        else
-            localGroup = serverGroup.Snapshot(localGroup.HasUnread, localGroup.NotificationsMuted);
-
-        _nanoChat.SetGroup((recipient, recipient.Comp), localGroup);
-        _nanoChat.AddGroupMessage((recipient, recipient.Comp), serverGroup.Id, message);
-
-        if (!IsGroupVisible(recipient, serverGroup.Id))
-        {
-            localGroup.HasUnread = true;
-            _nanoChat.SetGroup((recipient, recipient.Comp), localGroup);
-            HandleGroupNotification(recipient, serverGroup, message);
-        }
-
-        var msgEv = new NanoChatMessageReceivedEvent(recipient);
-        RaiseLocalEvent(ref msgEv);
-        UpdateUiForCard(recipient);
-        return true;
-    }
-
-    private void HandleGroupNotification(
-        Entity<NanoChatCardComponent> recipient,
-        NanoChatServerGroup group,
-        NanoChatMessage message)
-    {
-        if (recipient.Comp.NotificationsMuted ||
-            (_nanoChat.TryGetGroup((recipient, recipient.Comp), group.Id, out var localGroup) && localGroup.NotificationsMuted) ||
-            recipient.Comp.PdaUid is not { } pdaUid ||
-            !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader))
-            return;
-
-        var sender = group.Members.TryGetValue(message.Sender, out var member)
-            ? member.Name
-            : $"#{message.Sender:D4}";
-        _cartridge.SendNotification(
-            pdaUid,
-            $"{FormattedMessage.EscapeText(group.Name)} · {FormattedMessage.EscapeText(sender)}",
-            TruncateMessage(FormattedMessage.RemoveMarkupPermissive(message.Content)),
-            loader);
+        return rawContent.Length <= NanoChatMessage.MaxMarkupLength &&
+               plainContent.Length is > 0 and <= NanoChatMessage.MaxLength &&
+               (card.LastMessageTime == TimeSpan.Zero ||
+                _timing.CurTime - card.LastMessageTime >= card.MessageSendDelay);
     }
 
     /// <summary>
@@ -757,62 +518,6 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
         }
 
         return null;
-    }
-
-    private NanoChatGroupMember? GetGroupMember(uint number)
-    {
-        if (GetCardInfo(number) is not { } recipient)
-            return null;
-
-        return new NanoChatGroupMember(
-            recipient.Number,
-            recipient.Name,
-            recipient.JobTitle,
-            recipient.JobIcon);
-    }
-
-    private bool TryGetAccessibleCard(uint number, out Entity<NanoChatCardComponent> result)
-    {
-        var query = EntityQueryEnumerator<NanoChatCardComponent>();
-        while (query.MoveNext(out var uid, out var card))
-        {
-            if (card.Number != number || !HasAccessibleNanoChat((uid, card), out _))
-                continue;
-
-            result = (uid, card);
-            return true;
-        }
-
-        result = default;
-        return false;
-    }
-
-    private void SyncGroupToMembers(NanoChatServerGroup group)
-    {
-        var query = EntityQueryEnumerator<NanoChatCardComponent>();
-        while (query.MoveNext(out var uid, out var card))
-        {
-            if (card.Number is not { } number || !group.Members.ContainsKey(number))
-                continue;
-
-            var hasLocalGroup = _nanoChat.TryGetGroup((uid, card), group.Id, out var local);
-            var hasUnread = hasLocalGroup && local.HasUnread;
-            var muted = hasLocalGroup && local.NotificationsMuted;
-            _nanoChat.SetGroup((uid, card), group.Snapshot(hasUnread, muted));
-            UpdateUiForCard(uid);
-        }
-    }
-
-    private void RemoveGroupFromNumber(uint number, uint groupId)
-    {
-        var query = EntityQueryEnumerator<NanoChatCardComponent>();
-        while (query.MoveNext(out var uid, out var card))
-        {
-            if (card.Number != number || !_nanoChat.RemoveGroup((uid, card), groupId))
-                continue;
-
-            UpdateUiForCard(uid);
-        }
     }
 
     private bool HasAccessibleNanoChat(Entity<NanoChatCardComponent> card, out EntityUid pdaUid)

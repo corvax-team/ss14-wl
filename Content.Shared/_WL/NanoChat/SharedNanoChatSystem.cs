@@ -109,6 +109,7 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
         }
 
         messages.Add(message);
+        TrimHistory(messages, card.Comp.MaxMessagesPerConversation);
 
         if (sentByOwner)
             card.Comp.LastMessageTime = _timing.CurTime;
@@ -185,9 +186,31 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
         }
 
         messages.Add(message);
+        TrimHistory(messages, card.Comp.MaxMessagesPerConversation);
         if (sentByOwner)
             card.Comp.LastMessageTime = _timing.CurTime;
         Dirty(card);
+    }
+
+    public bool TryUseGroupManagementCooldown(Entity<NanoChatCardComponent?> card)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return false;
+
+        if (card.Comp.LastGroupManagementTime != TimeSpan.Zero &&
+            _timing.CurTime - card.Comp.LastGroupManagementTime < card.Comp.GroupManagementDelay)
+            return false;
+
+        card.Comp.LastGroupManagementTime = _timing.CurTime;
+        Dirty(card);
+        return true;
+    }
+
+    public static void TrimHistory(List<NanoChatMessage> messages, int maximum)
+    {
+        var removeCount = messages.Count - Math.Max(0, maximum);
+        if (removeCount > 0)
+            messages.RemoveRange(0, removeCount);
     }
 
     public bool RemoveGroup(Entity<NanoChatCardComponent?> card, uint groupId)

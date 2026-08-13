@@ -13,6 +13,8 @@ namespace Content.Shared._WL.NanoChat;
 [AutoGenerateComponentPause, AutoGenerateComponentState]
 public sealed partial class NanoChatCardComponent : Component
 {
+    public const int DefaultMaxMessagesPerConversation = 2048;
+
     /// <summary>
     ///     The number assigned to this card.
     /// </summary>
@@ -68,6 +70,13 @@ public sealed partial class NanoChatCardComponent : Component
     public int MaxRecipients = 50;
 
     /// <summary>
+    ///     Maximum retained messages in each direct or group conversation.
+    ///     UI transfer is paged independently of this storage limit.
+    /// </summary>
+    [DataField]
+    public int MaxMessagesPerConversation = DefaultMaxMessagesPerConversation;
+
+    /// <summary>
     ///     The minimum delay between messages sent from this card.
     /// </summary>
     [DataField]
@@ -78,6 +87,18 @@ public sealed partial class NanoChatCardComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan LastMessageTime;
+
+    /// <summary>
+    ///     Minimum delay between group management operations.
+    /// </summary>
+    [DataField]
+    public TimeSpan GroupManagementDelay = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    ///     Last group management attempt, kept separate from message sending.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan LastGroupManagementTime;
 
     /// <summary>
     ///     Whether to send notifications.

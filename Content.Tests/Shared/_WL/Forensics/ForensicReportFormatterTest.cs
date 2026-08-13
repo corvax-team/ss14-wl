@@ -15,7 +15,7 @@ public sealed class ForensicReportFormatterTest
             ["fingerprint"],
             ["fiber"],
             ["shared-dna"],
-            ["shared-dna", "solution-dna"],
+            [" shared-dna ", "solution-dna"],
             ["residue"],
             key => key);
 

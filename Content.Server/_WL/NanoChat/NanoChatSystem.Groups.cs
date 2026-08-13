@@ -19,7 +19,9 @@ public sealed partial class NanoChatSystem
     {
         group = default!;
 
-        if (string.IsNullOrWhiteSpace(name) || name.Length > NanoChatGroup.MaxNameLength)
+        if (string.IsNullOrWhiteSpace(name) ||
+            name.Length > NanoChatGroup.MaxNameLength ||
+            _groups.Values.Count(existing => existing.Creator == creator.Number) >= NanoChatGroup.MaxGroupsPerCreator)
             return false;
 
         var members = new Dictionary<uint, NanoChatGroupMember>
@@ -39,7 +41,7 @@ public sealed partial class NanoChatSystem
             return false;
 
         var id = _nextGroupId++;
-        group = new NanoChatServerGroup(id, name, members);
+        group = new NanoChatServerGroup(id, creator.Number, name, members);
         _groups.Add(id, group);
         return true;
     }
@@ -141,15 +143,17 @@ public sealed partial class NanoChatSystem
 public sealed class NanoChatServerGroup
 {
     public uint Id { get; }
+    public uint Creator { get; }
     public string Name { get; set; }
     public Dictionary<uint, NanoChatGroupMember> Members { get; }
     public List<uint> JoinOrder { get; }
 
     public int AdminCount => Members.Values.Count(member => member.IsAdmin);
 
-    public NanoChatServerGroup(uint id, string name, Dictionary<uint, NanoChatGroupMember> members)
+    public NanoChatServerGroup(uint id, uint creator, string name, Dictionary<uint, NanoChatGroupMember> members)
     {
         Id = id;
+        Creator = creator;
         Name = name;
         Members = members;
         JoinOrder = members.Keys.ToList();

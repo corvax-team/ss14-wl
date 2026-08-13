@@ -51,6 +51,7 @@ public static class ForensicReportFormatter
     {
         var distinctValues = values
             .Where(value => !string.IsNullOrWhiteSpace(value))
+            .Select(value => value.Trim())
             .Distinct(StringComparer.Ordinal)
             .ToList();
 
@@ -70,7 +71,7 @@ public static class ForensicReportFormatter
         foreach (var value in distinctValues)
         {
             builder.Append("[color=").Append(ValueColor).Append("]• ")
-                .Append(Escape(value.Trim())).AppendLine("[/color]");
+                .Append(Escape(value)).AppendLine("[/color]");
         }
     }
 

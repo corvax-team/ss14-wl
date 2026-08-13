@@ -365,115 +365,81 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         foreach (var recipient in contacts)
         {
             var conversation = new NanoChatConversationId(NanoChatConversationType.Direct, recipient.Number);
-            var isSelected = GetActiveConversation() == conversation;
-            var preview = GetLastMessagePreview(recipient.Number);
-            var button = new Button
-            {
-                HorizontalExpand = true,
-                Pressed = isSelected,
-                ToggleMode = true,
-                ToolTip = recipient.Name,
-                ModulateSelfOverride = isSelected ? SelectedEntryColor : null,
-            };
-            var row = new BoxContainer
-            {
-                Orientation = LayoutOrientation.Horizontal,
-                HorizontalExpand = true,
-                Margin = new Thickness(3, 2),
-            };
-            var labels = new BoxContainer
-            {
-                Orientation = LayoutOrientation.Vertical,
-                HorizontalExpand = true,
-            };
-            labels.AddChild(new Label
-            {
-                Text = FormatListText(FormatDirectDisplayName(recipient.Name)),
-                HorizontalExpand = true,
-                ClipText = true,
-                ToolTip = recipient.Name,
-            });
-            labels.AddChild(new Label
-            {
-                Text = FormatListText(preview),
-                StyleClasses = { "LabelSubText" },
-                HorizontalExpand = true,
-                ClipText = true,
-                ToolTip = preview,
-            });
-            row.AddChild(labels);
-            if (recipient.HasUnread && !isSelected)
-            {
-                row.AddChild(new PanelContainer
-                {
-                    MinSize = new Vector2i(6, 6),
-                    MaxSize = new Vector2i(6, 6),
-                    VerticalAlignment = VAlignment.Center,
-                    Margin = new Thickness(4, 0, 0, 0),
-                    PanelOverride = new StyleBoxFlat { BackgroundColor = AccentColor },
-                });
-            }
-            button.AddChild(row);
-            button.OnPressed += _ =>
-            {
-                _selectedConversation = conversation;
-                _viewMode = NanoChatViewMode.Chats;
-                SelectConversation?.Invoke(conversation);
-                Rebuild();
-            };
-            ChatList.AddChild(button);
+            ChatList.AddChild(CreateConversationButton(
+                conversation,
+                FormatDirectDisplayName(recipient.Name),
+                recipient.Name,
+                recipient.HasUnread));
         }
 
         foreach (var group in groups)
         {
             var conversation = new NanoChatConversationId(NanoChatConversationType.Group, group.Id);
-            var isSelected = GetActiveConversation() == conversation;
-            var preview = GetLastGroupMessagePreview(group.Id);
-            var button = new Button
-            {
-                HorizontalExpand = true,
-                Pressed = isSelected,
-                ToggleMode = true,
-                ToolTip = group.Name,
-                ModulateSelfOverride = isSelected ? SelectedEntryColor : null,
-            };
-            var row = new BoxContainer
-            {
-                Orientation = LayoutOrientation.Horizontal,
-                HorizontalExpand = true,
-                Margin = new Thickness(3, 2),
-                SeparationOverride = 4,
-            };
-            row.AddChild(CreateFixedIcon(GroupTexture, 19, 24, HAlignment.Left));
-            var labels = new BoxContainer { Orientation = LayoutOrientation.Vertical, HorizontalExpand = true };
-            labels.AddChild(new Label
-            {
-                Text = FormatListText(group.Name),
-                HorizontalExpand = true,
-                ClipText = true,
-                ToolTip = group.Name,
-            });
-            labels.AddChild(new Label
-            {
-                Text = FormatListText(preview),
-                StyleClasses = { "LabelSubText" },
-                HorizontalExpand = true,
-                ClipText = true,
-                ToolTip = preview,
-            });
-            row.AddChild(labels);
-            if (group.HasUnread && !isSelected)
-                row.AddChild(CreateUnreadDot());
-            button.AddChild(row);
-            button.OnPressed += _ =>
-            {
-                _selectedConversation = conversation;
-                _viewMode = NanoChatViewMode.Chats;
-                SelectConversation?.Invoke(conversation);
-                Rebuild();
-            };
-            ChatList.AddChild(button);
+            ChatList.AddChild(CreateConversationButton(
+                conversation,
+                group.Name,
+                group.Name,
+                group.HasUnread,
+                CreateFixedIcon(GroupTexture, 19, 24, HAlignment.Left)));
         }
+    }
+
+    private Button CreateConversationButton(
+        NanoChatConversationId conversation,
+        string displayName,
+        string fullName,
+        bool unread,
+        Control? icon = null)
+    {
+        var isSelected = GetActiveConversation() == conversation;
+        var preview = GetLastMessagePreview(conversation);
+        var button = new Button
+        {
+            HorizontalExpand = true,
+            Pressed = isSelected,
+            ToggleMode = true,
+            ToolTip = fullName,
+            ModulateSelfOverride = isSelected ? SelectedEntryColor : null,
+        };
+        var row = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Horizontal,
+            HorizontalExpand = true,
+            Margin = new Thickness(3, 2),
+            SeparationOverride = icon == null ? 0 : 4,
+        };
+        if (icon != null)
+            row.AddChild(icon);
+
+        var labels = new BoxContainer { Orientation = LayoutOrientation.Vertical, HorizontalExpand = true };
+        labels.AddChild(new Label
+        {
+            Text = FormatListText(displayName),
+            HorizontalExpand = true,
+            ClipText = true,
+            ToolTip = fullName,
+        });
+        labels.AddChild(new Label
+        {
+            Text = FormatListText(preview),
+            StyleClasses = { "LabelSubText" },
+            HorizontalExpand = true,
+            ClipText = true,
+            ToolTip = preview,
+        });
+        row.AddChild(labels);
+        if (unread && !isSelected)
+            row.AddChild(CreateUnreadDot());
+
+        button.AddChild(row);
+        button.OnPressed += _ =>
+        {
+            _selectedConversation = conversation;
+            _viewMode = NanoChatViewMode.Chats;
+            SelectConversation?.Invoke(conversation);
+            Rebuild();
+        };
+        return button;
     }
 
     private void RebuildMessages()
@@ -576,9 +542,8 @@ public sealed partial class NanoChatUiFragment : BoxContainer
             var contents = new BoxContainer { Orientation = LayoutOrientation.Vertical, Margin = new Thickness(8, 6, 8, 5) };
             if (current.Type == NanoChatConversationType.Group && !own)
             {
-                var senderMember = state.Groups[current.Id].Members.GetValueOrDefault(message.Sender);
-                var senderName = senderMember.Name is { } name
-                    ? ShortenDisplayName(name)
+                var senderName = state.Groups[current.Id].Members.TryGetValue(message.Sender, out var senderMember)
+                    ? ShortenDisplayName(senderMember.Name)
                     : $"#{message.Sender:D4}";
                 contents.AddChild(new Label
                 {
@@ -726,27 +691,14 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         UpdateStartChatState(NumberInput.Text);
     }
 
-    private string GetLastMessagePreview(uint number)
+    private string GetLastMessagePreview(NanoChatConversationId conversation)
     {
-        if (_state!.Messages.TryGetValue(number, out var messages) && messages.Count > 0)
+        var messages = GetMessages(_state!, conversation);
+        if (messages is { Count: > 0 })
         {
             var message = messages[^1];
             var plain = FormattedMessage.RemoveMarkupPermissive(message.Content);
             return message.Sender == _state!.OwnNumber
-                ? Loc.GetString("nanochat-message-preview-own", ("message", plain))
-                : plain;
-        }
-
-        return Loc.GetString("nanochat-no-messages");
-    }
-
-    private string GetLastGroupMessagePreview(uint groupId)
-    {
-        if (_state!.GroupMessages.TryGetValue(groupId, out var messages) && messages.Count > 0)
-        {
-            var message = messages[^1];
-            var plain = FormattedMessage.RemoveMarkupPermissive(message.Content);
-            return message.Sender == _state.OwnNumber
                 ? Loc.GetString("nanochat-message-preview-own", ("message", plain))
                 : plain;
         }
@@ -856,23 +808,37 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
         if (conversation.Type == NanoChatConversationType.Direct)
         {
-            _groupNameDraftFor = null;
-            if (!_state.Recipients.TryGetValue(conversation.Id, out var recipient))
-                return;
-
-            SettingsTitle.Text = recipient.Name;
-            GroupRenameRow.Visible = false;
-            MuteConversationButton.Visible = false;
-            DeleteGroupButton.Visible = false;
-            LeaveOrBlockButton.Text = Loc.GetString(_state.BlockedNumbers.Contains(recipient.Number)
-                ? "nanochat-unblock-contact"
-                : "nanochat-block-contact");
-            ConversationSettingsList.AddChild(CreatePersonRow(recipient.Name,
-                recipient.JobTitle,
-                recipient.Number,
-                recipient.JobIcon));
+            RebuildDirectSettings(conversation);
             return;
         }
+
+        RebuildGroupSettings(conversation);
+    }
+
+    private void RebuildDirectSettings(NanoChatConversationId conversation)
+    {
+        _groupNameDraftFor = null;
+        if (_state == null || !_state.Recipients.TryGetValue(conversation.Id, out var recipient))
+            return;
+
+        SettingsTitle.Text = recipient.Name;
+        GroupRenameRow.Visible = false;
+        MuteConversationButton.Visible = false;
+        DeleteGroupButton.Visible = false;
+        LeaveOrBlockButton.Text = Loc.GetString(_state.BlockedNumbers.Contains(recipient.Number)
+            ? "nanochat-unblock-contact"
+            : "nanochat-block-contact");
+        ConversationSettingsList.AddChild(CreatePersonRow(
+            recipient.Name,
+            recipient.JobTitle,
+            recipient.Number,
+            recipient.JobIcon));
+    }
+
+    private void RebuildGroupSettings(NanoChatConversationId conversation)
+    {
+        if (_state == null)
+            return;
 
         if (!_state.Groups.TryGetValue(conversation.Id, out var group) ||
             !group.Members.TryGetValue(_state.OwnNumber, out var ownMember))
@@ -907,41 +873,53 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         }
 
         foreach (var member in group.Members.Values.OrderByDescending(member => member.IsAdmin).ThenBy(member => member.Name))
-        {
-            var canManage = ownMember.IsAdmin && member.Number != _state.OwnNumber;
-            var row = new BoxContainer { Orientation = LayoutOrientation.Horizontal, HorizontalExpand = true, SeparationOverride = 3 };
-            row.AddChild(CreatePersonRow(
-                member.Name,
-                member.JobTitle,
-                member.Number,
-                member.JobIcon,
-                member.IsAdmin && !canManage));
-            if (canManage)
-            {
-                var removeButton = new Button
-                {
-                    Text = "×",
-                    ToolTip = Loc.GetString("nanochat-group-remove-member"),
-                    MinSize = new Vector2i(28, 28),
-                    MaxSize = new Vector2i(28, 28),
-                };
-                removeButton.OnPressed += _ => RemoveGroupMember?.Invoke(conversation, member.Number);
-                row.AddChild(removeButton);
+            ConversationSettingsList.AddChild(CreateGroupMemberRow(conversation, member, ownMember.IsAdmin));
+    }
 
-                var adminButton = new Button
-                {
-                    ToolTip = Loc.GetString(member.IsAdmin ? "nanochat-group-remove-admin" : "nanochat-group-make-admin"),
-                    ToggleMode = true,
-                    Pressed = member.IsAdmin,
-                    MinSize = new Vector2i(28, 28),
-                    MaxSize = new Vector2i(28, 28),
-                };
-                adminButton.AddChild(CreateInsetIcon(CrownTexture, 14, 4));
-                adminButton.OnPressed += _ => SetGroupAdmin?.Invoke(conversation, member.Number, !member.IsAdmin);
-                row.AddChild(adminButton);
-            }
-            ConversationSettingsList.AddChild(row);
-        }
+    private Control CreateGroupMemberRow(
+        NanoChatConversationId conversation,
+        NanoChatGroupMember member,
+        bool ownMemberIsAdmin)
+    {
+        var canManage = ownMemberIsAdmin && member.Number != _state?.OwnNumber;
+        var row = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Horizontal,
+            HorizontalExpand = true,
+            SeparationOverride = 3,
+        };
+        row.AddChild(CreatePersonRow(
+            member.Name,
+            member.JobTitle,
+            member.Number,
+            member.JobIcon,
+            member.IsAdmin && !canManage));
+
+        if (!canManage)
+            return row;
+
+        var removeButton = new Button
+        {
+            Text = "×",
+            ToolTip = Loc.GetString("nanochat-group-remove-member"),
+            MinSize = new Vector2i(28, 28),
+            MaxSize = new Vector2i(28, 28),
+        };
+        removeButton.OnPressed += _ => RemoveGroupMember?.Invoke(conversation, member.Number);
+        row.AddChild(removeButton);
+
+        var adminButton = new Button
+        {
+            ToolTip = Loc.GetString(member.IsAdmin ? "nanochat-group-remove-admin" : "nanochat-group-make-admin"),
+            ToggleMode = true,
+            Pressed = member.IsAdmin,
+            MinSize = new Vector2i(28, 28),
+            MaxSize = new Vector2i(28, 28),
+        };
+        adminButton.AddChild(CreateInsetIcon(CrownTexture, 14, 4));
+        adminButton.OnPressed += _ => SetGroupAdmin?.Invoke(conversation, member.Number, !member.IsAdmin);
+        row.AddChild(adminButton);
+        return row;
     }
 
     private Control CreatePersonRow(

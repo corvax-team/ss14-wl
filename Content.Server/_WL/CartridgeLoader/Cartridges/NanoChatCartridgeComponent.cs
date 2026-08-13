@@ -31,8 +31,8 @@ public sealed partial class NanoChatCartridgeComponent : Component
     public ProtoId<RadioChannelPrototype> RadioChannel = "Common";
 
     /// <summary>
-    ///     Amount of history requested by this open client per conversation. History on the card is
-    ///     unlimited; only BUI transfer is paged.
+    ///     Amount of retained history requested by this open client per conversation.
+    ///     The card applies its own generous storage cap; BUI transfer is paged separately.
     /// </summary>
     public Dictionary<Content.Shared._WL.NanoChat.NanoChatConversationId, int> LoadedMessageCounts = new();
 }

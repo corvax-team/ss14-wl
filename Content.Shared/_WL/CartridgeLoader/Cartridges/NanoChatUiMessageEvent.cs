@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.StatusIcon;
 using Content.Shared._WL.NanoChat;
@@ -186,6 +187,21 @@ public readonly partial struct NanoChatData(
     public HashSet<uint> BlockedNumbers { get; } = blockedNumbers;
     public uint? CardNumber { get; } = cardNumber;
     public NetEntity Card { get; } = card;
+
+    public static NanoChatData FromCard(NanoChatCardComponent card, NetEntity cardEntity)
+        => new(
+            new Dictionary<uint, NanoChatRecipient>(card.Recipients),
+            card.Messages.ToDictionary(pair => pair.Key, pair => new List<NanoChatMessage>(pair.Value)),
+            card.Messages.ToDictionary(pair => pair.Key, pair => pair.Value.Count),
+            card.Groups.ToDictionary(pair => pair.Key, pair => CloneGroup(pair.Value)),
+            card.GroupMessages.ToDictionary(pair => pair.Key, pair => new List<NanoChatMessage>(pair.Value)),
+            card.GroupMessages.ToDictionary(pair => pair.Key, pair => pair.Value.Count),
+            new HashSet<uint>(card.BlockedNumbers),
+            card.Number,
+            cardEntity);
+
+    private static NanoChatGroup CloneGroup(NanoChatGroup group)
+        => group with { Members = new Dictionary<uint, NanoChatGroupMember>(group.Members) };
 }
 
 /// <summary>

@@ -45,7 +45,27 @@ public sealed class NanoChatPagingTest
     }
 
     [Test]
-    public void HistoryIsPagedWithoutBeingTruncated()
+    public void CreatorCannotExceedActiveGroupLimit()
+    {
+        var system = new NanoChatSystem();
+        var creator = new NanoChatGroupMember(1, "Creator");
+        var second = new NanoChatGroupMember(2, "Second");
+        uint firstGroupId = 0;
+
+        for (var i = 0; i < NanoChatGroup.MaxGroupsPerCreator; i++)
+        {
+            Assert.That(system.TryCreateGroup($"Group {i}", creator, [second], out var group), Is.True);
+            if (firstGroupId == 0)
+                firstGroupId = group.Id;
+        }
+
+        Assert.That(system.TryCreateGroup("One too many", creator, [second], out _), Is.False);
+        Assert.That(system.TryDeleteGroup(firstGroupId, creator.Number), Is.True);
+        Assert.That(system.TryCreateGroup("Replacement", creator, [second], out _), Is.True);
+    }
+
+    [Test]
+    public void RetainedHistoryIsPagedWithoutMutatingStorage()
     {
         const uint chat = 1234;
         var conversation = new NanoChatConversationId(NanoChatConversationType.Direct, chat);
@@ -83,6 +103,22 @@ public sealed class NanoChatPagingTest
             Assert.That(secondPage[chat], Has.Count.EqualTo(100));
             Assert.That(secondPage[chat][0].Content, Is.EqualTo("20"));
             Assert.That(hasOlder, Does.Contain(conversation));
+        });
+    }
+
+    [Test]
+    public void HistoryRetentionKeepsNewestMessages()
+    {
+        const int retained = NanoChatCardComponent.DefaultMaxMessagesPerConversation;
+        var history = CreateHistory(1234, retained + 100);
+
+        SharedNanoChatSystem.TrimHistory(history, retained);
+
+        Assert.Multiple(() =>
+        {
+            Assert.That(history, Has.Count.EqualTo(retained));
+            Assert.That(history[0].Content, Is.EqualTo("100"));
+            Assert.That(history[^1].Content, Is.EqualTo((retained + 99).ToString()));
         });
     }
 

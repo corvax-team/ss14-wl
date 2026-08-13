@@ -88,22 +88,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
 
         //WL-Changes-NanoChat-Start
         ent.Comp.NanoChat = nanoChatCard != null
-            ? new NanoChatData(
-                new Dictionary<uint, NanoChatRecipient>(nanoChatCard.Recipients),
-                nanoChatCard.Messages.ToDictionary(
-                    pair => pair.Key,
-                    pair => new List<NanoChatMessage>(pair.Value)),
-                nanoChatCard.Messages.ToDictionary(pair => pair.Key, pair => pair.Value.Count),
-                nanoChatCard.Groups.ToDictionary(
-                    pair => pair.Key,
-                    pair => pair.Value),
-                nanoChatCard.GroupMessages.ToDictionary(
-                    pair => pair.Key,
-                    pair => new List<NanoChatMessage>(pair.Value)),
-                nanoChatCard.GroupMessages.ToDictionary(pair => pair.Key, pair => pair.Value.Count),
-                new HashSet<uint>(nanoChatCard.BlockedNumbers),
-                nanoChatCard.Number,
-                GetNetEntity(target))
+            ? NanoChatData.FromCard(nanoChatCard, GetNetEntity(target))
             : null;
         //WL-Changes-NanoChat-End
 
