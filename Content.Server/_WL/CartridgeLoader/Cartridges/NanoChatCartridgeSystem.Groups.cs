@@ -32,11 +32,8 @@ public sealed partial class NanoChatCartridgeSystem
         {
             if (number == creatorNumber ||
                 _nanoChat.IsBlocked((card, card.Comp), number) ||
-                GetGroupMember(number) is not { } member)
-                continue;
-
-            if (TryGetAccessibleCard(number, out var invitedCard) &&
-                _nanoChat.IsBlocked((invitedCard.Owner, invitedCard.Comp), creatorNumber))
+                GetGroupMember(number) is not { } member ||
+                IsBlockedByAnyCard(number, creatorNumber))
                 continue;
 
             invited.Add(member);
@@ -77,8 +74,7 @@ public sealed partial class NanoChatCartridgeSystem
 
         if (_nanoChat.IsBlocked((card, card.Comp), target) ||
             GetGroupMember(target) is not { } member ||
-            !TryGetAccessibleCard(target, out var targetCard) ||
-            _nanoChat.IsBlocked((targetCard.Owner, targetCard.Comp), actor))
+            IsBlockedByAnyCard(target, actor))
         {
             _popup.PopupEntity(
                 Loc.GetString("nanochat-contact-not-found", ("number", target.ToString("D4"))),
@@ -130,7 +126,7 @@ public sealed partial class NanoChatCartridgeSystem
             !_nanoChatServer.TryLeaveGroup(conversation.Id, actor, out _))
             return;
 
-        _nanoChat.RemoveGroup((card, card.Comp), conversation.Id);
+        RemoveGroupFromNumber(actor, conversation.Id);
         if (_nanoChatServer.TryGetGroup(conversation.Id, out var group))
             SyncGroupToMembers(group);
     }
@@ -276,19 +272,15 @@ public sealed partial class NanoChatCartridgeSystem
             recipient.JobIcon);
     }
 
-    private bool TryGetAccessibleCard(uint number, out Entity<NanoChatCardComponent> result)
+    private bool IsBlockedByAnyCard(uint number, uint blockedNumber)
     {
         var query = EntityQueryEnumerator<NanoChatCardComponent>();
         while (query.MoveNext(out var uid, out var card))
         {
-            if (card.Number != number || !HasAccessibleNanoChat((uid, card), out _))
-                continue;
-
-            result = (uid, card);
-            return true;
+            if (card.Number == number && _nanoChat.IsBlocked((uid, card), blockedNumber))
+                return true;
         }
 
-        result = default;
         return false;
     }
 
