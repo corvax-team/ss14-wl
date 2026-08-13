@@ -5,6 +5,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Kitchen.Components;
 using Content.Server.NameIdentifier;
 using Content.Shared.Database;
+using Content.Shared.GameTicking;
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared._WL.NanoChat;
 using Content.Shared.Kitchen;
@@ -37,6 +38,7 @@ public sealed partial class NanoChatSystem : SharedNanoChatSystem
 
         SubscribeLocalEvent<NanoChatCardComponent, MapInitEvent>(OnCardInit);
         SubscribeLocalEvent<NanoChatCardComponent, BeingMicrowavedEvent>(OnMicrowaved, after: [typeof(IdCardSystem)]);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => ResetGroups());
     }
 
     private void OnInserted(Entity<NanoChatCardComponent> ent, ref EntGotInsertedIntoContainerMessage args)
@@ -81,6 +83,7 @@ public sealed partial class NanoChatSystem : SharedNanoChatSystem
         if (randomPick <= 0.10f)
         {
             ent.Comp.Messages.Clear();
+            ent.Comp.GroupMessages.Clear();
 
             _adminLogger.Add(LogType.Action,
                 LogImpact.Medium,
@@ -123,11 +126,27 @@ public sealed partial class NanoChatSystem : SharedNanoChatSystem
 
                 var recipientMessages = component.Messages[newRecipient];
                 recipientMessages.AddRange(messages);
-                if (recipientMessages.Count > component.MaxMessagesPerChat)
-                    recipientMessages.RemoveRange(0, recipientMessages.Count - component.MaxMessagesPerChat);
 
                 component.Messages[recipientNumber].Clear();
             }
+        }
+
+        // Group membership is server-authoritative, so microwaving a card may corrupt
+        // the local text but must never move messages between unrelated groups.
+        foreach (var messages in component.GroupMessages.Values)
+            ScrambleMessageContents(messages);
+    }
+
+    private void ScrambleMessageContents(List<NanoChatMessage> messages)
+    {
+        for (var i = 0; i < messages.Count; i++)
+        {
+            if (!_random.Prob(0.5f))
+                continue;
+
+            var message = messages[i];
+            message.Content = ScrambleText(message.Content);
+            messages[i] = message;
         }
     }
 

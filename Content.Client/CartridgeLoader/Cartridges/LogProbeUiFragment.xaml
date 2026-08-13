@@ -1,31 +1,36 @@
-﻿ <cartridges:LogProbeUiFragment xmlns="https://spacestation14.io"
+﻿<cartridges:LogProbeUiFragment xmlns="https://spacestation14.io"
                                 xmlns:cartridges="clr-namespace:Content.Client.CartridgeLoader.Cartridges"
                                 xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                                 Orientation="Vertical"
                                 VerticalExpand="True">
     <!-- WL-Changes: NanoChat Start -->
-    <BoxContainer Orientation="Vertical" Name="NanoChatContainer" Margin="4 4" Visible="False" VerticalExpand="True">
-        <Label Name="NanoChatHeader" StyleClasses="LabelSubText"/>
-        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
-            <BoxContainer Orientation="Vertical" Name="NanoChatContactsContainer"/>
-        </ScrollContainer>
-    </BoxContainer>
-    <!-- WL-Changes: NanoChat End -->
-    <PanelContainer Name="AccessLogsHeader">
-        <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#000000FF"
-                              BorderColor="#5a5a5a"
-                              BorderThickness="0 0 0 1"/>
-        </PanelContainer.PanelOverride>
-        <BoxContainer Orientation="Horizontal" Margin="4 8">
-            <Label Align="Right" SetWidth="26" ClipText="True" Text="{Loc 'log-probe-label-number'}"/>
-            <Label Align="Center" SetWidth="100" ClipText="True" Text="{Loc 'log-probe-label-time'}"/>
-            <Label Align="Left" SetWidth="390" ClipText="True" Text="{Loc 'log-probe-label-accessor'}"/>
+    <ScrollContainer Name="ResultsScroll" VerticalExpand="True" HScrollEnabled="False">
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4 2">
+            <BoxContainer Orientation="Vertical" Name="NanoChatContainer" Visible="False" HorizontalExpand="True">
+                <Label Text="{Loc 'log-probe-section-nanochat'}" StyleClasses="LabelHeading" Margin="4 4 4 0"/>
+                <Label Name="NanoChatHeader" StyleClasses="LabelSubText" Margin="4 0 4 4"/>
+                <BoxContainer Orientation="Vertical" Name="NanoChatContactsContainer" HorizontalExpand="True"/>
+            </BoxContainer>
+
+            <BoxContainer Orientation="Vertical" Name="AccessLogsSection" HorizontalExpand="True">
+                <Label Text="{Loc 'log-probe-section-access-logs'}" StyleClasses="LabelHeading" Margin="4 6 4 2"/>
+                <PanelContainer Name="AccessLogsHeader">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#000000FF"
+                                          BorderColor="#5a5a5a"
+                                          BorderThickness="0 0 0 1"/>
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Horizontal" Margin="4 6">
+                        <Label Align="Right" SetWidth="30" ClipText="True" Text="{Loc 'log-probe-label-number'}"/>
+                        <Label Align="Center" SetWidth="76" ClipText="True" Text="{Loc 'log-probe-label-time'}"/>
+                        <Label Align="Left" HorizontalExpand="True" ClipText="True" Text="{Loc 'log-probe-label-accessor'}"/>
+                    </BoxContainer>
+                </PanelContainer>
+                <BoxContainer Orientation="Vertical" Name="ProbedDeviceContainer" HorizontalExpand="True"/>
+            </BoxContainer>
         </BoxContainer>
-    </PanelContainer>
-    <ScrollContainer Name="AccessLogsScroll" VerticalExpand="True" HScrollEnabled="True">
-        <BoxContainer Orientation="Vertical" Name="ProbedDeviceContainer"/>
     </ScrollContainer>
+    <!-- WL-Changes: NanoChat End -->
     <BoxContainer Orientation="Horizontal" Margin="4 8">
         <Button Name="PrintButton" HorizontalAlignment="Left" Text="{Loc 'log-probe-print-button'}" Disabled="True"/>
         <BoxContainer HorizontalExpand="True"/>
