@@ -32,6 +32,7 @@ public sealed class RecordOptionButton : OptionButton
     private readonly Label? _defaultSelectedLabel;
     private EllipsisLabel? _compactSelectedLabel;
     private Texture? _pendingIcon;
+    private string? _compactToolTip;
 
     public bool CompactItems
     {
@@ -41,10 +42,16 @@ public sealed class RecordOptionButton : OptionButton
             if (_compactItems == value)
                 return;
 
+            if (!value)
+                ClearCompactToolTip();
+
             _compactItems = value;
             OptionsScroll.MaxWidth = value ? CompactPopupMaxWidth : DefaultPopupMaxWidth;
             OptionsScroll.HScrollEnabled = !value;
             UpdateSelectedLabelMode();
+
+            if (value)
+                SetCompactToolTip(_labels.GetValueOrDefault(SelectedId));
         }
     }
 
@@ -142,7 +149,7 @@ public sealed class RecordOptionButton : OptionButton
         _selectedIcon.Visible = false;
         if (_compactSelectedLabel != null)
             _compactSelectedLabel.FullText = string.Empty;
-        ToolTip = null;
+        ClearCompactToolTip();
         UpdatePopupHeight();
     }
 
@@ -320,7 +327,7 @@ public sealed class RecordOptionButton : OptionButton
             foreach (var rune in _fullText.EnumerateRunes())
             {
                 if (!font.TryGetCharMetrics(rune, UIScale, out var metrics))
-                    continue;
+                    break;
 
                 if (width + metrics.Advance > availableWidth)
                     break;
@@ -374,7 +381,24 @@ public sealed class RecordOptionButton : OptionButton
         var label = _labels.GetValueOrDefault(id);
         if (_compactSelectedLabel != null)
             _compactSelectedLabel.FullText = label ?? string.Empty;
-        ToolTip = _compactItems ? label : null;
+        if (_compactItems)
+            SetCompactToolTip(label);
+    }
+
+    private void SetCompactToolTip(string? value)
+    {
+        if (ToolTip == _compactToolTip)
+            ToolTip = value;
+
+        _compactToolTip = value;
+    }
+
+    private void ClearCompactToolTip()
+    {
+        if (ToolTip == _compactToolTip)
+            ToolTip = null;
+
+        _compactToolTip = null;
     }
 
     private void UpdatePopupHeight()

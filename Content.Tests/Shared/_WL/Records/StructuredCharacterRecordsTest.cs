@@ -81,6 +81,7 @@ public sealed class StructuredCharacterRecordsTest
             Assert.That(SpecialtyGroupCatalog.ContainsSubgroup("computer-science-1"), Is.True);
             Assert.That(SpecialtyGroupCatalog.GetSubgroups("mathematics-and-mechanics"),
                 Does.Not.Contain("mathematics-and-mechanics-1"));
+            Assert.That(SpecialtyGroupCatalog.ContainsSubgroup("mathematics-and-mechanics-1"), Is.True);
         });
     }
 
