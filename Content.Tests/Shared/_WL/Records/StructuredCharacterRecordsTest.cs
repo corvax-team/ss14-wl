@@ -12,8 +12,13 @@ public sealed class StructuredCharacterRecordsTest
     [Test]
     public void SpecialtyCatalogContainsEveryWikiGroup()
     {
+        var sectionGroups = SpecialtyGroupCatalog.Sections.SelectMany(section => section.Groups).ToList();
+
         Assert.Multiple(() =>
         {
+            Assert.That(SpecialtyGroupCatalog.Sections, Has.All.Property(nameof(SpecialtySection.Groups)).Not.Empty);
+            Assert.That(sectionGroups, Is.Unique);
+            Assert.That(sectionGroups, Is.EqualTo(SpecialtyGroupCatalog.Groups));
             Assert.That(SpecialtyGroupCatalog.Subgroups.Keys,
                 Is.EquivalentTo(StructuredCharacterRecords.SpecialtyGroups));
             Assert.That(StructuredCharacterRecords.SpecialtyGroups, Has.Count.EqualTo(55));

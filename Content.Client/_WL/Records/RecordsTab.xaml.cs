@@ -504,31 +504,14 @@ public sealed partial class RecordsTab : Control
         };
         var specialtyGroupValues = new List<string> { string.Empty };
         specialtyGroup.AddItem(Loc.GetString("records-value-not-specified"), 0);
-        var specialtySections = new (string FirstGroup, string LocalizationSuffix)[]
+        foreach (var section in SpecialtyGroupCatalog.Sections)
         {
-            ("mathematics-and-mechanics", "natural-sciences"),
-            ("architecture", "technical-sciences"),
-            ("clinical-medicine", "medical-sciences"),
-            ("weapons-and-armament-systems", "military-and-security-sciences"),
-            ("industrial-ecology-and-biotechnology", "agricultural-sciences"),
-            ("economics-and-management", "social-and-humanities"),
-        };
-        for (var sectionIndex = 0; sectionIndex < specialtySections.Length; sectionIndex++)
-        {
-            var section = specialtySections[sectionIndex];
-            var nextSection = sectionIndex + 1 < specialtySections.Length
-                ? specialtySections[sectionIndex + 1].FirstGroup
-                : null;
-            var groups = StructuredCharacterRecords.SpecialtyGroups
-                .SkipWhile(group => group != section.FirstGroup)
-                .TakeWhile(group => group != nextSection)
-                .ToList();
-            var sectionName = Loc.GetString($"records-specialty-section-{section.LocalizationSuffix}");
-            var groupNames = groups
+            var sectionName = Loc.GetString($"records-specialty-section-{section.Id}");
+            var groupNames = section.Groups
                 .Select(group => Loc.GetString($"records-specialty-group-value-{group}"));
             specialtyGroup.AddSectionHeader(sectionName, $"{sectionName} {string.Join(' ', groupNames)}");
 
-            foreach (var group in groups)
+            foreach (var group in section.Groups)
             {
                 specialtyGroupValues.Add(group);
                 specialtyGroup.AddItem(
