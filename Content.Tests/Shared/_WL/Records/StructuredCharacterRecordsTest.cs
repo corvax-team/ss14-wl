@@ -16,7 +16,8 @@ public sealed class StructuredCharacterRecordsTest
         {
             Assert.That(SpecialtyGroupCatalog.Subgroups.Keys,
                 Is.EquivalentTo(StructuredCharacterRecords.SpecialtyGroups));
-            Assert.That(SpecialtyGroupCatalog.Subgroups.Values.Sum(group => group.Count), Is.EqualTo(104));
+            Assert.That(StructuredCharacterRecords.SpecialtyGroups, Has.Count.EqualTo(55));
+            Assert.That(SpecialtyGroupCatalog.Subgroups.Values.Sum(group => group.Count), Is.EqualTo(303));
             Assert.That(SpecialtyGroupCatalog.Subgroups.Values, Has.All.Not.Empty);
         });
     }
@@ -29,8 +30,52 @@ public sealed class StructuredCharacterRecordsTest
         Assert.Multiple(() =>
         {
             Assert.That(subgroupIds, Is.Unique);
+            Assert.That(subgroupIds, Has.All.Contains("-2026-"));
+            Assert.That(subgroupIds, Has.All.Length.LessThanOrEqualTo(StructuredCharacterRecords.MaxShortTextLength));
             Assert.That(subgroupIds.All(id => id.All(character =>
                 char.IsAsciiLetterLower(character) || char.IsAsciiDigit(character) || character == '-')), Is.True);
+        });
+    }
+
+    [Test]
+    public void EveryCurrentSpecialtySelectionRoundTrips()
+    {
+        foreach (var group in SpecialtyGroupCatalog.Groups)
+        {
+            foreach (var subgroup in SpecialtyGroupCatalog.GetSubgroups(group))
+            {
+                var restored = StructuredCharacterRecords.ReadEmployment(
+                    StructuredCharacterRecords.WriteEmployment(new EmploymentRecordData
+                    {
+                        Education =
+                        [
+                            new EducationRecordData
+                            {
+                                SpecialtyGroup = group,
+                                SpecialtySubgroup = subgroup,
+                            },
+                        ],
+                    }));
+
+                Assert.Multiple(() =>
+                {
+                    Assert.That(restored.Education, Has.Count.EqualTo(1));
+                    Assert.That(restored.Education[0].SpecialtyGroup, Is.EqualTo(group));
+                    Assert.That(restored.Education[0].SpecialtySubgroup, Is.EqualTo(subgroup));
+                });
+            }
+        }
+    }
+
+    [Test]
+    public void PreviousSpecialtyCatalogValuesRemainRecognized()
+    {
+        Assert.Multiple(() =>
+        {
+            Assert.That(SpecialtyGroupCatalog.ContainsGroup("computer-science"), Is.True);
+            Assert.That(SpecialtyGroupCatalog.ContainsSubgroup("computer-science-1"), Is.True);
+            Assert.That(SpecialtyGroupCatalog.GetSubgroups("mathematics-and-mechanics"),
+                Does.Not.Contain("mathematics-and-mechanics-1"));
         });
     }
 

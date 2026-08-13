@@ -92,7 +92,7 @@ public static class RecordViewBuilder
             for (var i = 0; i < record.Education.Count; i++)
             {
                 var education = record.Education[i];
-                var group = StructuredCharacterRecords.SpecialtyGroups.Contains(education.SpecialtyGroup)
+                var group = SpecialtyGroupCatalog.ContainsGroup(education.SpecialtyGroup)
                     ? loc($"records-specialty-group-value-{education.SpecialtyGroup}")
                     : education.SpecialtyGroup;
                 var subgroup = SpecialtyGroupCatalog.ContainsSubgroup(education.SpecialtySubgroup)

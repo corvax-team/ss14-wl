@@ -494,23 +494,67 @@ public sealed partial class RecordsTab : Control
             return;
 
         var specialty = new LineEdit { Text = record.Specialty, HorizontalExpand = true, MinWidth = 230 };
-        var specialtyGroup = new RecordOptionButton { HorizontalExpand = true, MinWidth = 230, MaxWidth = 600 };
+        var specialtyGroup = new RecordOptionButton
+        {
+            HorizontalExpand = true,
+            MinWidth = 230,
+            MaxWidth = 600,
+            CompactItems = true,
+            Filterable = true,
+        };
         var specialtyGroupValues = new List<string> { string.Empty };
         specialtyGroup.AddItem(Loc.GetString("records-value-not-specified"), 0);
-        foreach (var group in StructuredCharacterRecords.SpecialtyGroups)
+        var specialtySections = new (string FirstGroup, string LocalizationSuffix)[]
         {
-            specialtyGroupValues.Add(group);
-            specialtyGroup.AddItem(Loc.GetString($"records-specialty-group-value-{group}"), specialtyGroupValues.Count - 1);
+            ("mathematics-and-mechanics", "natural-sciences"),
+            ("architecture", "technical-sciences"),
+            ("clinical-medicine", "medical-sciences"),
+            ("weapons-and-armament-systems", "military-and-security-sciences"),
+            ("industrial-ecology-and-biotechnology", "agricultural-sciences"),
+            ("economics-and-management", "social-and-humanities"),
+        };
+        for (var sectionIndex = 0; sectionIndex < specialtySections.Length; sectionIndex++)
+        {
+            var section = specialtySections[sectionIndex];
+            var nextSection = sectionIndex + 1 < specialtySections.Length
+                ? specialtySections[sectionIndex + 1].FirstGroup
+                : null;
+            var groups = StructuredCharacterRecords.SpecialtyGroups
+                .SkipWhile(group => group != section.FirstGroup)
+                .TakeWhile(group => group != nextSection)
+                .ToList();
+            var sectionName = Loc.GetString($"records-specialty-section-{section.LocalizationSuffix}");
+            var groupNames = groups
+                .Select(group => Loc.GetString($"records-specialty-group-value-{group}"));
+            specialtyGroup.AddSectionHeader(sectionName, $"{sectionName} {string.Join(' ', groupNames)}");
+
+            foreach (var group in groups)
+            {
+                specialtyGroupValues.Add(group);
+                specialtyGroup.AddItem(
+                    Loc.GetString($"records-specialty-group-value-{group}"),
+                    specialtyGroupValues.Count - 1);
+            }
         }
         var specialtyGroupIndex = specialtyGroupValues.IndexOf(record.SpecialtyGroup);
         if (specialtyGroupIndex < 0 && !string.IsNullOrWhiteSpace(record.SpecialtyGroup))
         {
             specialtyGroupValues.Add(record.SpecialtyGroup);
             specialtyGroupIndex = specialtyGroupValues.Count - 1;
-            specialtyGroup.AddItem(record.SpecialtyGroup, specialtyGroupIndex);
+            var displayName = SpecialtyGroupCatalog.ContainsGroup(record.SpecialtyGroup)
+                ? Loc.GetString($"records-specialty-group-value-{record.SpecialtyGroup}")
+                : record.SpecialtyGroup;
+            specialtyGroup.AddItem(displayName, specialtyGroupIndex);
         }
         specialtyGroup.SelectId(Math.Max(0, specialtyGroupIndex));
-        var specialtySubgroup = new RecordOptionButton { HorizontalExpand = true, MinWidth = 230, MaxWidth = 600 };
+        var specialtySubgroup = new RecordOptionButton
+        {
+            HorizontalExpand = true,
+            MinWidth = 230,
+            MaxWidth = 600,
+            CompactItems = true,
+            Filterable = true,
+        };
         var specialtySubgroupValues = new List<string>();
         void PopulateSpecialtySubgroups(string selected)
         {

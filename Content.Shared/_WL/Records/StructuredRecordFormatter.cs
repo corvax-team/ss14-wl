@@ -125,7 +125,7 @@ public static class StructuredRecordFormatter
                 var education = record.Education[i];
                 AppendHeading(builder, $"{loc("records-education")} {i + 1}", "#356A49");
                 AppendAuthor(builder, loc("records-specialty"), education.Specialty, loc("records-value-no-data"));
-                var specialtyGroup = StructuredCharacterRecords.SpecialtyGroups.Contains(education.SpecialtyGroup)
+                var specialtyGroup = SpecialtyGroupCatalog.ContainsGroup(education.SpecialtyGroup)
                     ? loc($"records-specialty-group-value-{education.SpecialtyGroup}")
                     : education.SpecialtyGroup;
                 var specialtySubgroup = SpecialtyGroupCatalog.ContainsSubgroup(education.SpecialtySubgroup)
