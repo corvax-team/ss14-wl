@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._WL.Records;
@@ -110,7 +111,7 @@ public static class StructuredRecordFormatter
         return builder.ToString().TrimEnd();
     }
 
-    public static string FormatEmployment(string storage, Func<string, string> loc)
+    public static string FormatEmployment(string storage, IPrototypeManager prototypeManager, Func<string, string> loc)
     {
         var record = StructuredCharacterRecords.ReadEmployment(storage);
         var builder = new StringBuilder();
@@ -125,10 +126,10 @@ public static class StructuredRecordFormatter
                 var education = record.Education[i];
                 AppendHeading(builder, $"{loc("records-education")} {i + 1}", "#356A49");
                 AppendAuthor(builder, loc("records-specialty"), education.Specialty, loc("records-value-no-data"));
-                var specialtyGroup = SpecialtyGroupCatalog.ContainsGroup(education.SpecialtyGroup)
+                var specialtyGroup = SpecialtyGroupCatalog.ContainsGroup(prototypeManager, education.SpecialtyGroup)
                     ? loc($"records-specialty-group-value-{education.SpecialtyGroup}")
                     : education.SpecialtyGroup;
-                var specialtySubgroup = SpecialtyGroupCatalog.ContainsSubgroup(education.SpecialtySubgroup)
+                var specialtySubgroup = SpecialtyGroupCatalog.ContainsSubgroup(prototypeManager, education.SpecialtySubgroup)
                     ? loc(SpecialtyGroupCatalog.GetSubgroupLocalizationKey(education.SpecialtySubgroup))
                     : education.SpecialtySubgroup;
                 AppendAuthor(builder, loc("records-specialty-group"), specialtyGroup, loc("records-value-no-data"));

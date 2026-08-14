@@ -1,36 +1,59 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Content.Shared._WL.Records;
 using NUnit.Framework;
+using Robust.Shared.IoC;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 
 namespace Content.Tests.Shared._WL.Records;
 
 [TestFixture]
-public sealed class StructuredCharacterRecordsTest
+public sealed class StructuredCharacterRecordsTest : ContentUnitTest
 {
+    private IPrototypeManager _prototypeManager = default!;
+
+    [OneTimeSetUp]
+    public void OneTimeSetup()
+    {
+        IoCManager.Resolve<ISerializationManager>().Initialize();
+        _prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+        _prototypeManager.Initialize();
+        var prototypePath = Path.GetFullPath(Path.Combine(
+            AppContext.BaseDirectory,
+            "../../Resources/Prototypes/_WL/Records/specialtyGroups.yml"));
+        using var stream = File.OpenText(prototypePath);
+        _prototypeManager.LoadFromStream(stream);
+        _prototypeManager.ResolveResults();
+    }
+
     [Test]
     public void SpecialtyCatalogContainsEveryWikiGroup()
     {
-        var sectionGroups = SpecialtyGroupCatalog.Sections.SelectMany(section => section.Groups).ToList();
+        var sections = SpecialtyGroupCatalog.GetSections(_prototypeManager);
+        var groups = SpecialtyGroupCatalog.GetGroups(_prototypeManager);
+        var subgroups = SpecialtyGroupCatalog.GetSubgroups(_prototypeManager);
+        var sectionGroups = sections.SelectMany(section => section.Groups).ToList();
 
         Assert.Multiple(() =>
         {
-            Assert.That(SpecialtyGroupCatalog.Sections, Has.All.Property(nameof(SpecialtySection.Groups)).Not.Empty);
+            Assert.That(sections, Has.All.Property(nameof(SpecialtySection.Groups)).Not.Empty);
             Assert.That(sectionGroups, Is.Unique);
-            Assert.That(sectionGroups, Is.EqualTo(SpecialtyGroupCatalog.Groups));
-            Assert.That(SpecialtyGroupCatalog.Subgroups.Keys,
-                Is.EquivalentTo(StructuredCharacterRecords.SpecialtyGroups));
-            Assert.That(StructuredCharacterRecords.SpecialtyGroups, Has.Count.EqualTo(55));
-            Assert.That(SpecialtyGroupCatalog.Subgroups.Values.Sum(group => group.Count), Is.EqualTo(303));
-            Assert.That(SpecialtyGroupCatalog.Subgroups.Values, Has.All.Not.Empty);
+            Assert.That(sectionGroups, Is.EqualTo(groups));
+            Assert.That(subgroups.Keys, Is.EquivalentTo(groups));
+            Assert.That(groups, Has.Count.EqualTo(55));
+            Assert.That(subgroups.Values.Sum(group => group.Count), Is.EqualTo(303));
+            Assert.That(subgroups.Values, Has.All.Not.Empty);
         });
     }
 
     [Test]
     public void SpecialtySubgroupIdsAreUnique()
     {
-        var subgroupIds = SpecialtyGroupCatalog.Subgroups.Values.SelectMany(group => group).ToList();
+        var subgroupIds = SpecialtyGroupCatalog.GetSubgroups(_prototypeManager).Values.SelectMany(group => group).ToList();
 
         Assert.Multiple(() =>
         {
@@ -45,9 +68,9 @@ public sealed class StructuredCharacterRecordsTest
     [Test]
     public void EveryCurrentSpecialtySelectionRoundTrips()
     {
-        foreach (var group in SpecialtyGroupCatalog.Groups)
+        foreach (var group in SpecialtyGroupCatalog.GetGroups(_prototypeManager))
         {
-            foreach (var subgroup in SpecialtyGroupCatalog.GetSubgroups(group))
+            foreach (var subgroup in SpecialtyGroupCatalog.GetSubgroups(_prototypeManager, group))
             {
                 var restored = StructuredCharacterRecords.ReadEmployment(
                     StructuredCharacterRecords.WriteEmployment(new EmploymentRecordData
@@ -77,11 +100,11 @@ public sealed class StructuredCharacterRecordsTest
     {
         Assert.Multiple(() =>
         {
-            Assert.That(SpecialtyGroupCatalog.ContainsGroup("computer-science"), Is.True);
-            Assert.That(SpecialtyGroupCatalog.ContainsSubgroup("computer-science-1"), Is.True);
-            Assert.That(SpecialtyGroupCatalog.GetSubgroups("mathematics-and-mechanics"),
+            Assert.That(SpecialtyGroupCatalog.ContainsGroup(_prototypeManager, "computer-science"), Is.True);
+            Assert.That(SpecialtyGroupCatalog.ContainsSubgroup(_prototypeManager, "computer-science-1"), Is.True);
+            Assert.That(SpecialtyGroupCatalog.GetSubgroups(_prototypeManager, "mathematics-and-mechanics"),
                 Does.Not.Contain("mathematics-and-mechanics-1"));
-            Assert.That(SpecialtyGroupCatalog.ContainsSubgroup("mathematics-and-mechanics-1"), Is.True);
+            Assert.That(SpecialtyGroupCatalog.ContainsSubgroup(_prototypeManager, "mathematics-and-mechanics-1"), Is.True);
         });
     }
 

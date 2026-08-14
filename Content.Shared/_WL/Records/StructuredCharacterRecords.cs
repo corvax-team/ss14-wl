@@ -102,12 +102,6 @@ public static class StructuredCharacterRecords
     public const int MaxEmploymentHistoryLength = 4096;
     public const int MaxNotesTextLength = 4096;
 
-    /// <summary>
-    /// Canonical specialty groups from the WL education article.
-    /// The concrete specialty remains free-form.
-    /// </summary>
-    public static readonly IReadOnlyList<string> SpecialtyGroups = SpecialtyGroupCatalog.Groups;
-
     private const string MedicalPrefix = "WL_MEDICAL_V1:";
     private const string SecurityPrefix = "WL_SECURITY_V1:";
     private const string EmploymentV1Prefix = "WL_EMPLOYMENT_V1:";

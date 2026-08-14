@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Content.Shared._WL.Records;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._WL.Records;
 
@@ -77,7 +78,7 @@ public static class RecordViewBuilder
         return new RecordViewData(RecordViewKind.Security, identity, sections);
     }
 
-    public static RecordViewData Employment(RecordIdentityData identity, string storage, Func<string, string> loc,
+    public static RecordViewData Employment(RecordIdentityData identity, string storage, IPrototypeManager prototypeManager, Func<string, string> loc,
         bool inGame = false)
     {
         var record = StructuredCharacterRecords.ReadEmployment(storage);
@@ -92,10 +93,10 @@ public static class RecordViewBuilder
             for (var i = 0; i < record.Education.Count; i++)
             {
                 var education = record.Education[i];
-                var group = SpecialtyGroupCatalog.ContainsGroup(education.SpecialtyGroup)
+                var group = SpecialtyGroupCatalog.ContainsGroup(prototypeManager, education.SpecialtyGroup)
                     ? loc($"records-specialty-group-value-{education.SpecialtyGroup}")
                     : education.SpecialtyGroup;
-                var subgroup = SpecialtyGroupCatalog.ContainsSubgroup(education.SpecialtySubgroup)
+                var subgroup = SpecialtyGroupCatalog.ContainsSubgroup(prototypeManager, education.SpecialtySubgroup)
                     ? loc(SpecialtyGroupCatalog.GetSubgroupLocalizationKey(education.SpecialtySubgroup))
                     : education.SpecialtySubgroup;
                 educationSections.Add(new RecordViewSection(
