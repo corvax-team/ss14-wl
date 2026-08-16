@@ -17,7 +17,7 @@
     insertOnInteract: false
   # WL-Changes-end
   - type: Sprite
-    sprite: _WL/Structures/Machines/fax_machine.rsi # WL-Resprite
+    sprite: Structures/Machines/fax_machine.rsi
     drawdepth: SmallObjects
     layers:
     - state: icon
@@ -29,7 +29,7 @@
     - state: 
       map: [ "enum.FaxMachineVisuals.VisualState" ]
   - type: Icon
-    sprite: _WL/Structures/Machines/fax_machine.rsi # WL-Resprite
+    sprite: Structures/Machines/fax_machine.rsi
     state: icon
   - type: Appearance
   - type: Physics

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "taken from https://github.com/tgstation/tgstation/blob/master/icons/obj/service/bureaucracy.dmi",
+    "copyright": "taken from https://github.com/tgstation/tgstation/blob/master/icons/obj/service/bureaucracy.dmi. paper_bin0 paper_bin1 made by ReArtInt",
     "size": {
         "x": 32,
         "y": 32
@@ -12,6 +12,14 @@
         },
         {
             "name": "card-cracked"
+        },
+        {
+            "name": "paper_bin0",
+            "directions": 4
+        },
+        {
+            "name": "paper_bin1",
+            "directions": 4
         }
     ]
 }
