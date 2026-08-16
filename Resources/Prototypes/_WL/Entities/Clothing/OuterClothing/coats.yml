@@ -151,11 +151,3 @@
     sprite: _WL/Clothing/OuterClothing/Coats/musical.rsi
   - type: Clothing
     sprite: _WL/Clothing/OuterClothing/Coats/musical.rsi
-
-
-# From forms
-- type: entity
-  parent: ClothingOuterCoatLabCmo
-  id: ClothingOuterCoatLabCmoVissent
-  name: light blue medical coat
-  description: A worn, oversized medical coat, broken in to the point of anatomical comfort. It smells of antiseptics and lavender and bears traces of gray wool.

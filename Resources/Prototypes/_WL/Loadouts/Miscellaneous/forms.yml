@@ -132,3 +132,12 @@
   storage:
     back:
     - WristwatchGoldFreealeq
+
+- type: loadout
+  id: HeadsetTacticScience
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: bambanater123123
+  storage:
+    back:
+    - ClothingHeadsetTacticScience

@@ -40,16 +40,3 @@
     coverage: EYES
   - type: NightVisionEye
     isEquipment: true
-
-
-# From forms
-- type: entity
-  parent: ClothingEyesGlasses
-  id: ClothingEyesGlassesKawariReArt
-  name: old glasses
-  description: Worn out glasses with blue frame and square lenses. On one of the temples is written "Toshiro Kawari".
-  components:
-  - type: Sprite
-    sprite: _WL/Clothing/Eyes/Glasses/kawariglasses.rsi
-  - type: Clothing
-    sprite: _WL/Clothing/Eyes/Glasses/kawariglasses.rsi

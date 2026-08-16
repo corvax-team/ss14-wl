@@ -110,9 +110,3 @@
       sprite: _WL/Clothing/Uniforms/Jumpskirt/whitesuit.rsi
     - type: Clothing
       sprite: _WL/Clothing/Uniforms/Jumpskirt/whitesuit.rsi
-
-- type: entity
-  parent: ClothingUniformJumpskirtWarden
-  id: ClothingUniformJumpskirtBrigmedicBambanater
-  name: expensive Brigmedic uniform
-  description: A pristine Brig-Medic uniform bearing the insignia of an Eden combat medic, adorned with silver threading and silver shoulder boards. The patch reads "Kri.Yu." Visible in the breast pocket are the "Mar.E" (Empire) and "Arm.M" patches.
