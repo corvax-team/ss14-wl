@@ -106,7 +106,7 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
     // WL-Changes-Records-Start
     private void OnPrinted(Entity<CriminalRecordsConsoleComponent> ent, ref PrintStationRecord msg)
     {
-        if (!ent.Comp.CanPrintEntries)
+        if (!ent.Comp.CanPrintEntries || !_access.IsAllowed(msg.Actor, ent))
             return;
 
         var owning = _station.GetOwningStation(ent.Owner);
@@ -122,7 +122,8 @@ public sealed partial class CriminalRecordsConsoleSystem : SharedCriminalRecords
                 "#8A3F42",
                 identity,
                 StructuredRecordFormatter.FormatSecurity(record.SecurityRecord, Loc.GetString),
-                Loc.GetString);
+                Loc.GetString,
+                includeForensics: true);
         }
         else
             return;

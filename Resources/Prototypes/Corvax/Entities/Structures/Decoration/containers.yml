@@ -36,6 +36,12 @@
               SheetSteel:
                 min: 10
                 max: 20
+          # WL-Start
+          - !type:WeightedSpawnEntityBehavior
+            weightedEntityTable: "ShippingContainerLootTable"
+            minSpawn: 1
+            maxSpawn: 1
+          # WL-End
           - !type:PlaySoundBehavior
             sound:
               collection: MetalBreak

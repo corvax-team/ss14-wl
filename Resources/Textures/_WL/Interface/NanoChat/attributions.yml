@@ -1,0 +1,9 @@
+- files: ["eye-open.svg.192dpi.png", "eye-closed.svg.192dpi.png", "eye-slash.svg.192dpi.png"]
+  license: "CC0-1.0"
+  copyright: "SVG Repo"
+  source: "https://www.svgrepo.com/"
+
+- files: ["bell.svg.192dpi.png", "bell-slash.svg.192dpi.png"]
+  license: "CC-BY-4.0"
+  copyright: "CoreUI"
+  source: "https://coreui.io/icons/"

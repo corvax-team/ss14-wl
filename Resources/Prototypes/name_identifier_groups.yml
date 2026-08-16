@@ -60,3 +60,10 @@
   format: name-identifier-format-telepad
   minValue: 0
   maxValue: 999
+
+# WL-Changes: NanoChat Start
+- type: nameIdentifierGroup
+  id: NanoChat
+  minValue: 1000
+  maxValue: 9999
+# WL-Changes: NanoChat End

@@ -99,46 +99,8 @@ public static class StructuredCharacterRecords
     public const int MaxEducationEntries = 8;
     public const int MaxShortTextLength = 256;
     public const int MaxLongTextLength = 2048;
+    public const int MaxEmploymentHistoryLength = 4096;
     public const int MaxNotesTextLength = 4096;
-
-    /// <summary>
-    /// Canonical specialty groups from the WL education article.
-    /// The concrete specialty remains free-form.
-    /// </summary>
-    public static readonly IReadOnlyList<string> SpecialtyGroups = new[]
-    {
-        "mathematics-and-mechanics",
-        "computer-science",
-        "physical-sciences",
-        "chemical-sciences",
-        "biological-sciences",
-        "planetary-and-environmental-sciences",
-        "construction-and-architecture",
-        "electronics-and-communications",
-        "information-technology",
-        "energy",
-        "mechanical-engineering",
-        "materials-and-chemical-technology",
-        "resource-use-and-transport",
-        "technosphere-safety",
-        "clinical-medicine",
-        "preventive-medicine",
-        "medical-biological-sciences",
-        "pharmaceutical-sciences",
-        "agronomy-and-crop-production",
-        "forestry-and-water-management",
-        "animal-husbandry-and-veterinary",
-        "agricultural-engineering-and-food-technology",
-        "law-and-politics",
-        "economics-and-management",
-        "psychology-and-sociology",
-        "history-and-philosophy",
-        "pedagogy-and-philology",
-        "arts-and-cognitive-sciences",
-        "military-training-and-education",
-        "strategy-and-operational-art",
-        "security-and-law-enforcement",
-    };
 
     private const string MedicalPrefix = "WL_MEDICAL_V1:";
     private const string SecurityPrefix = "WL_SECURITY_V1:";
@@ -255,7 +217,7 @@ public static class StructuredCharacterRecords
             AcademicTitleField = version >= 2 ? ClampShort(fields[2]) : string.Empty,
             AcademicTitleDate = ClampShort(fields[version >= 2 ? 3 : 2]),
             Licenses = ClampLong(fields[version >= 2 ? 4 : 3]),
-            EmploymentHistory = ClampLong(fields[version >= 2 ? 5 : 4]),
+            EmploymentHistory = ClampEmploymentHistory(fields[version >= 2 ? 5 : 4]),
             Notes = ClampNotes(fields[version >= 2 ? 6 : 5]),
             LastUpdated = ClampShort(fields[version >= 2 ? 7 : 6]),
         };
@@ -287,7 +249,7 @@ public static class StructuredCharacterRecords
             ClampShort(record.AcademicTitleField),
             ClampShort(record.AcademicTitleDate),
             ClampLong(record.Licenses),
-            ClampLong(record.EmploymentHistory),
+            ClampEmploymentHistory(record.EmploymentHistory),
             ClampNotes(record.Notes),
             ClampShort(record.LastUpdated),
         };
@@ -422,6 +384,7 @@ public static class StructuredCharacterRecords
 
     private static string ClampShort(string? value) => NormalizeShortText(value);
     private static string ClampLong(string? value) => Clamp(value, MaxLongTextLength);
+    private static string ClampEmploymentHistory(string? value) => Clamp(value, MaxEmploymentHistoryLength);
     private static string ClampNotes(string? value) => Clamp(value, MaxNotesTextLength);
 
     private static string ClampSerialized(string? value, int maxLength)

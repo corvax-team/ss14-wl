@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._WL.Records;
@@ -11,6 +12,8 @@ public sealed record RecordPrintIdentity(
     string Sex,
     string Species,
     string Height,
+    string Fingerprint,
+    string DNA,
     string Languages,
     string Confederation,
     string Country);
@@ -29,7 +32,8 @@ public static class StructuredRecordFormatter
         string accent,
         RecordPrintIdentity identity,
         string body,
-        Func<string, string> loc)
+        Func<string, string> loc,
+        bool includeForensics = false)
     {
         var builder = new StringBuilder();
         builder.Append("[head=2][color=").Append(accent).Append(']')
@@ -42,6 +46,11 @@ public static class StructuredRecordFormatter
         AppendAutomatic(builder, loc("records-sex"), identity.Sex, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-species"), identity.Species, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-height-label"), identity.Height, loc("records-value-no-data"));
+        if (includeForensics)
+        {
+            AppendAutomatic(builder, loc("records-view-fingerprint"), identity.Fingerprint, loc("records-value-no-data"));
+            AppendAutomatic(builder, loc("records-view-dna"), identity.DNA, loc("records-value-no-data"));
+        }
         AppendAutomatic(builder, loc("records-language"), identity.Languages, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-confederation-edit"), identity.Confederation, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-country-edit"), identity.Country, loc("records-value-no-data"));
@@ -50,9 +59,11 @@ public static class StructuredRecordFormatter
         return builder.ToString().TrimEnd();
     }
 
-    public static string FormatMedical(string storage, Func<string, string> loc, bool organic)
+    public static string FormatMedical(string storage, Func<string, string> loc, string species)
     {
         var record = StructuredCharacterRecords.ReadMedical(storage);
+        var organic = RecordSpeciesClassification.IsOrganic(species);
+        var manufactured = RecordSpeciesClassification.IsManufactured(species);
         var builder = new StringBuilder();
         AppendHeading(builder, loc("records-view-medical-directions"), "#36678A");
         AppendAuthor(builder, loc("records-weight"), record.Weight, loc("records-value-no-data"));
@@ -60,11 +71,15 @@ public static class StructuredRecordFormatter
         AppendAuthor(builder, loc("records-do-not-resuscitate"), YesNo(record.DoNotResuscitate, loc));
         AppendAuthor(builder, loc("records-refused-treatment"), record.RefusedTreatment, loc("records-value-not-applicable"));
         AppendAuthor(builder, loc("records-emergency-contact"), record.EmergencyContact, loc("records-value-not-applicable"));
+        if (organic || manufactured)
+            AppendSection(builder,
+                loc(manufactured ? "records-repair-records" : "records-surgeries"),
+                record.Surgeries,
+                loc("records-value-no-data"),
+                "#36678A");
+
         if (organic)
-        {
-            AppendSection(builder, loc("records-surgeries"), record.Surgeries, loc("records-value-no-data"), "#36678A");
             AppendSection(builder, loc("records-medication"), record.Medication, loc("records-value-no-data"), "#36678A");
-        }
         AppendSection(builder, loc("records-physiological-notes"), record.PhysiologicalNotes, loc("records-value-no-data"), "#36678A");
         AppendSection(builder, loc("records-psychological-notes"), record.PsychologicalNotes, loc("records-value-no-data"), "#36678A");
         AppendSection(builder, loc("records-notes"), record.Notes, loc("records-value-no-data"), "#36678A");
@@ -96,7 +111,7 @@ public static class StructuredRecordFormatter
         return builder.ToString().TrimEnd();
     }
 
-    public static string FormatEmployment(string storage, Func<string, string> loc)
+    public static string FormatEmployment(string storage, IPrototypeManager prototypeManager, Func<string, string> loc)
     {
         var record = StructuredCharacterRecords.ReadEmployment(storage);
         var builder = new StringBuilder();
@@ -111,10 +126,10 @@ public static class StructuredRecordFormatter
                 var education = record.Education[i];
                 AppendHeading(builder, $"{loc("records-education")} {i + 1}", "#356A49");
                 AppendAuthor(builder, loc("records-specialty"), education.Specialty, loc("records-value-no-data"));
-                var specialtyGroup = StructuredCharacterRecords.SpecialtyGroups.Contains(education.SpecialtyGroup)
+                var specialtyGroup = SpecialtyGroupCatalog.ContainsGroup(prototypeManager, education.SpecialtyGroup)
                     ? loc($"records-specialty-group-value-{education.SpecialtyGroup}")
                     : education.SpecialtyGroup;
-                var specialtySubgroup = SpecialtyGroupCatalog.ContainsSubgroup(education.SpecialtySubgroup)
+                var specialtySubgroup = SpecialtyGroupCatalog.ContainsSubgroup(prototypeManager, education.SpecialtySubgroup)
                     ? loc(SpecialtyGroupCatalog.GetSubgroupLocalizationKey(education.SpecialtySubgroup))
                     : education.SpecialtySubgroup;
                 AppendAuthor(builder, loc("records-specialty-group"), specialtyGroup, loc("records-value-no-data"));

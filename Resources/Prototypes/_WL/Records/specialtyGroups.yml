@@ -1,0 +1,158 @@
+- type: specialtyGroupCatalog
+  id: WLRecordsSpecialties
+  sections:
+  - id: natural-sciences
+    groups:
+    - mathematics-and-mechanics
+    - computer-and-information-sciences
+    - physics-and-astronomy
+    - chemistry
+    - earth-sciences
+    - biological-sciences
+  - id: technical-sciences
+    groups:
+    - architecture
+    - construction-engineering-and-technology
+    - computer-science-and-engineering
+    - information-security
+    - electronics-radio-engineering-and-communications
+    - photonics-instrumentation-optical-and-biotechnical-systems
+    - electrical-and-thermal-power-engineering
+    - nuclear-power-and-technology
+    - mechanical-engineering
+    - physical-and-technical-sciences-and-technologies
+    - chemical-technologies
+    - technosphere-safety-and-environmental-engineering
+    - applied-geology-mining-oil-and-gas-and-geodesy
+    - materials-technology
+    - ground-transport-engineering-and-technology
+    - aviation-and-aerospace-engineering
+    - air-navigation-and-aerospace-operation
+    - shipbuilding-and-water-transport-engineering
+    - control-in-technical-systems
+    - nanotechnology-and-nanomaterials
+    - light-industry-technologies
+  - id: medical-sciences
+    groups:
+    - clinical-medicine
+    - preventive-medicine
+    - medical-biological-sciences
+    - pharmaceutical-sciences
+  - id: military-and-security-sciences
+    groups:
+    - weapons-and-armament-systems
+    - military-training-and-education
+    - strategy-and-operational-art
+    - security-and-law-enforcement
+  - id: agricultural-sciences
+    groups:
+    - industrial-ecology-and-biotechnology
+    - agriculture-forestry-and-fisheries
+    - veterinary-and-animal-science
+  - id: social-and-humanities
+    groups:
+    - economics-and-management
+    - sociology-and-social-work
+    - jurisprudence
+    - political-sciences
+    - mass-media-and-library-science
+    - service-and-tourism
+    - education-and-pedagogical-sciences
+    - linguistics-and-literary-studies
+    - history-and-archaeology
+    - philosophy-ethics-and-religious-studies
+    - physical-education-and-sports
+    - art-history
+    - cultural-studies-and-sociocultural-projects
+    - performing-arts-and-literary-creation
+    - musical-art
+    - visual-and-applied-arts
+    - screen-arts
+  subgroupCounts:
+    mathematics-and-mechanics: 6
+    computer-and-information-sciences: 4
+    physics-and-astronomy: 6
+    chemistry: 3
+    earth-sciences: 6
+    biological-sciences: 4
+    architecture: 8
+    construction-engineering-and-technology: 3
+    computer-science-and-engineering: 4
+    information-security: 6
+    electronics-radio-engineering-and-communications: 6
+    photonics-instrumentation-optical-and-biotechnical-systems: 6
+    electrical-and-thermal-power-engineering: 3
+    nuclear-power-and-technology: 5
+    mechanical-engineering: 7
+    physical-and-technical-sciences-and-technologies: 4
+    chemical-technologies: 4
+    technosphere-safety-and-environmental-engineering: 3
+    applied-geology-mining-oil-and-gas-and-geodesy: 9
+    materials-technology: 2
+    ground-transport-engineering-and-technology: 9
+    aviation-and-aerospace-engineering: 12
+    air-navigation-and-aerospace-operation: 9
+    shipbuilding-and-water-transport-engineering: 11
+    control-in-technical-systems: 6
+    nanotechnology-and-nanomaterials: 3
+    light-industry-technologies: 5
+    clinical-medicine: 7
+    preventive-medicine: 2
+    medical-biological-sciences: 3
+    pharmaceutical-sciences: 2
+    weapons-and-armament-systems: 4
+    military-training-and-education: 3
+    strategy-and-operational-art: 3
+    security-and-law-enforcement: 2
+    industrial-ecology-and-biotechnology: 4
+    agriculture-forestry-and-fisheries: 11
+    veterinary-and-animal-science: 3
+    economics-and-management: 10
+    sociology-and-social-work: 4
+    jurisprudence: 5
+    political-sciences: 3
+    mass-media-and-library-science: 5
+    service-and-tourism: 3
+    education-and-pedagogical-sciences: 7
+    linguistics-and-literary-studies: 5
+    history-and-archaeology: 5
+    philosophy-ethics-and-religious-studies: 4
+    physical-education-and-sports: 4
+    art-history: 4
+    cultural-studies-and-sociocultural-projects: 7
+    performing-arts-and-literary-creation: 11
+    musical-art: 13
+    visual-and-applied-arts: 10
+    screen-arts: 5
+  legacySubgroupCounts:
+    mathematics-and-mechanics: 3
+    computer-science: 2
+    physical-sciences: 4
+    chemical-sciences: 2
+    biological-sciences: 4
+    planetary-and-environmental-sciences: 4
+    construction-and-architecture: 4
+    electronics-and-communications: 4
+    information-technology: 3
+    energy: 3
+    mechanical-engineering: 4
+    materials-and-chemical-technology: 3
+    resource-use-and-transport: 3
+    technosphere-safety: 1
+    clinical-medicine: 7
+    preventive-medicine: 2
+    medical-biological-sciences: 3
+    pharmaceutical-sciences: 2
+    agronomy-and-crop-production: 3
+    forestry-and-water-management: 2
+    animal-husbandry-and-veterinary: 3
+    agricultural-engineering-and-food-technology: 3
+    law-and-politics: 3
+    economics-and-management: 3
+    psychology-and-sociology: 4
+    history-and-philosophy: 4
+    pedagogy-and-philology: 3
+    arts-and-cognitive-sciences: 10
+    military-training-and-education: 3
+    strategy-and-operational-art: 3
+    security-and-law-enforcement: 2

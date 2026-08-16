@@ -28,7 +28,7 @@ public sealed partial class GeneralRecord : Control
         //     ("gender", record.Gender.ToString()));
 
         var identity = RecordIdentityBuilder.FromStationRecord(record, prototypeManager, Loc.GetString);
-        RecordView.SetData(RecordViewBuilder.Employment(identity, record.EmploymentRecord, Loc.GetString, true));
+        RecordView.SetData(RecordViewBuilder.Employment(identity, record.EmploymentRecord, prototypeManager, Loc.GetString, true));
         // WL-Changes-Records-End
 
         if (canDelete && id != null)

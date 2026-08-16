@@ -205,8 +205,11 @@ public sealed partial class RadioSystem : EntitySystem
         _messages.Remove(message);
     }
 
-    /// <inheritdoc cref="TelecomServerComponent"/>
-    private bool HasActiveServer(MapId mapId, string channelId)
+    // WL-Changes-start: NanoChat channel availability
+    /// <summary>
+    ///     Returns whether the map has a powered telecom server that supports the requested channel.
+    /// </summary>
+    public bool HasActiveServer(MapId mapId, ProtoId<RadioChannelPrototype> channelId)
     {
         var servers = EntityQuery<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent, TransformComponent>();
         foreach (var (_, keys, power, transform) in servers)
@@ -220,4 +223,5 @@ public sealed partial class RadioSystem : EntitySystem
         }
         return false;
     }
+    // WL-Changes-end
 }

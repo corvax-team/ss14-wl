@@ -96,6 +96,7 @@
         - id: NotekeeperCartridge
         - id: NanoTaskCartridge
         - id: NewsReaderCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
   - type: ActivatableUI
     key: enum.PdaUiKey.Key
     singleUser: true
@@ -162,6 +163,7 @@
         - id: NanoTaskCartridge
         - id: NewsReaderCartridge
         - id: WantedListCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: BasePDA
@@ -177,6 +179,7 @@
         - id: NanoTaskCartridge
         - id: NewsReaderCartridge
         - id: MedTekCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: BasePDA
@@ -438,6 +441,7 @@
         children:
         - id: CrewManifestCartridge
         - id: NewsReaderCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   name: chaplain PDA
@@ -495,6 +499,7 @@
         - id: NanoTaskCartridge
         - id: NewsReaderCartridge
         - id: AstroNavCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: BasePDA
@@ -541,6 +546,7 @@
         - id: NanoTaskCartridge
         - id: NewsReaderCartridge
         - id: AstroNavCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: BasePDA
@@ -893,6 +899,7 @@
         - id: NewsReaderCartridge
         - id: WantedListCartridge
         - id: LogProbeCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: BaseSecurityPDA
@@ -966,6 +973,7 @@
         - id: WantedListCartridge
         - id: LogProbeCartridge
         - id: AstroNavCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: CentcomPDA
@@ -994,6 +1002,7 @@
         - id: WantedListCartridge
         - id: MedTekCartridge
         - id: AstroNavCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1114,6 +1123,7 @@
         children:
         - id: NotekeeperCartridge
         - id: NanoTaskCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: [ SyndiPDA, BaseSyndicateContraband ]
@@ -1154,6 +1164,7 @@
         - id: NotekeeperCartridge
         - id: NanoTaskCartridge
         - id: MedTekCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: [ SyndiOperativePDA, BaseSyndicateContraband ]
@@ -1203,6 +1214,7 @@
         - id: WantedListCartridge
         - id: LogProbeCartridge
         - id: AstroNavCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: ERTLeaderPDA
@@ -1374,6 +1386,7 @@
         - id: NewsReaderCartridge
         - id: WantedListCartridge
         - id: LogProbeCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: BaseMedicalPDA
@@ -1404,6 +1417,7 @@
         - id: NewsReaderCartridge
         - id: WantedListCartridge
         - id: MedTekCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: ClownPDA

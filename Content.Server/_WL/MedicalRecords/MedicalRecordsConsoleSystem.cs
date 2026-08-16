@@ -94,7 +94,7 @@ public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
                 StructuredRecordFormatter.FormatMedical(
                     record.MedicalRecord,
                     Loc.GetString,
-                    record.Species is not ("Ipc" or "Android" or "Golem")),
+                    record.Species),
                 Loc.GetString);
         }
         else

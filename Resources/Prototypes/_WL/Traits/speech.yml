@@ -16,3 +16,13 @@
   components:
   - type: ReplacementAccent
     accent: chinese
+
+- type: trait
+  id: MorAccent
+  name: trait-mor-name
+  description: trait-mor-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: ReplacementAccent
+    accent: mor

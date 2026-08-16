@@ -1,0 +1,91 @@
+<cartridges:NanoChatUiFragment xmlns="https://spacestation14.io"
+                               xmlns:cartridges="clr-namespace:Content.Client._WL.CartridgeLoader.Cartridges"
+                               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                               Margin="0"
+                               Orientation="Vertical"
+                               HorizontalExpand="True"
+                               VerticalExpand="True">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <controls:StripeBack MinSize="30 30">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="4 0" SeparationOverride="3">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="6 0 0 0" SeparationOverride="7">
+                    <Label Name="TitleLabel" StyleClasses="LabelHeading" VerticalAlignment="Center" ClipText="True" />
+                    <Label Name="OwnNumberLabel" StyleClasses="LabelSubText" VerticalAlignment="Center" ClipText="True" />
+                </BoxContainer>
+                <Button Name="MuteButton" StyleClasses="ButtonSquare" MinSize="26 26" MaxSize="26 26" Margin="0 0 2 0">
+                    <Control HorizontalExpand="True" VerticalExpand="True">
+                        <TextureRect Name="BellIcon" TexturePath="/Textures/_WL/Interface/NanoChat/bell.svg.192dpi.png" Stretch="KeepAspectCentered" MinSize="16 16" />
+                        <TextureRect Name="BellMutedIcon" TexturePath="/Textures/_WL/Interface/NanoChat/bell-slash.svg.192dpi.png" Stretch="KeepAspectCentered" MinSize="16 16" Visible="False" />
+                    </Control>
+                </Button>
+                <Button Name="LookupButton" MinWidth="56" SetHeight="26" Margin="0 0 2 0" />
+                <Button Name="ListNumberButton" StyleClasses="ButtonSquare" MinSize="26 26" MaxSize="26 26" ToggleMode="True">
+                    <TextureRect Name="ListNumberIcon" TexturePath="/Textures/_WL/Interface/NanoChat/eye-open.svg.192dpi.png" Stretch="KeepAspectCentered" MinSize="16 16" />
+                </Button>
+            </BoxContainer>
+        </controls:StripeBack>
+
+        <BoxContainer Name="ChatView" Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True" Margin="0 4 0 0" SeparationOverride="3">
+            <PanelContainer StyleClasses="AngleRect" VerticalExpand="True" HorizontalExpand="True" MinWidth="138" SizeFlagsStretchRatio="1.02">
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="ChatList" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4" SeparationOverride="3">
+                        <Label Name="NoChatsLabel" StyleClasses="LabelSubText" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </BoxContainer>
+                </ScrollContainer>
+            </PanelContainer>
+
+            <PanelContainer StyleClasses="AngleRect" VerticalExpand="True" HorizontalExpand="True" SizeFlagsStretchRatio="1.88">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="5">
+                    <BoxContainer Name="WelcomeView" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+                        <Control VerticalExpand="True" SizeFlagsStretchRatio="4" />
+                        <Label Name="WelcomeTitle" StyleClasses="LabelHeading" HorizontalAlignment="Center" ClipText="True" />
+                        <Label Name="WelcomeDetails" StyleClasses="LabelSubText" HorizontalAlignment="Center" HorizontalExpand="True" ClipText="True" Margin="8 4" />
+                        <Button Name="WelcomeLookupButton" HorizontalAlignment="Center" MinWidth="140" Margin="0 8" />
+                        <Control VerticalExpand="True" SizeFlagsStretchRatio="6" />
+                    </BoxContainer>
+                    <BoxContainer Name="NoConversationSelectedView" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Visible="False">
+                        <Control VerticalExpand="True" SizeFlagsStretchRatio="4" />
+                        <Label Name="NoConversationSelectedLabel" StyleClasses="LabelHeading" HorizontalAlignment="Center" ClipText="True" />
+                        <Label Name="NoConversationSelectedDetails" StyleClasses="LabelSubText" HorizontalAlignment="Center" HorizontalExpand="True" ClipText="True" Margin="8 4" />
+                        <Control VerticalExpand="True" SizeFlagsStretchRatio="6" />
+                    </BoxContainer>
+                    <BoxContainer Name="ConversationView" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Visible="False">
+                    <BoxContainer Name="MessageArea" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0 0 0 4">
+                        <PanelContainer Name="CurrentChatHeader" StyleClasses="AngleRect" HorizontalExpand="True" Margin="0 0 0 2">
+                            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="6 1" SeparationOverride="4">
+                                <Label Name="CurrentChatDetails" StyleClasses="LabelSubText" HorizontalExpand="True" VerticalAlignment="Center" ClipText="True" />
+                                <Button Name="DeleteChatButton" StyleClasses="ButtonSquare" MinSize="22 22" MaxSize="22 22">
+                                    <TextureRect StyleClasses="ButtonSquare" TexturePath="/Textures/Interface/VerbIcons/delete_transparent.svg.192dpi.png" Stretch="KeepAspectCentered" MinSize="14 14" />
+                                </Button>
+                            </BoxContainer>
+                        </PanelContainer>
+                        <ScrollContainer Name="MessagesScroll" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+                            <BoxContainer Name="MessageList" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0 1" SeparationOverride="4" />
+                        </ScrollContainer>
+                    </BoxContainer>
+
+                    <BoxContainer Name="MessageInputContainer" Orientation="Vertical" HorizontalExpand="True" Visible="False">
+                        <Label Name="CharacterCount" HorizontalAlignment="Right" StyleClasses="LabelSubText" Margin="0 0 4 2" Visible="False" />
+                        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                            <LineEdit Name="MessageInput" HorizontalExpand="True" PlaceHolder="{Loc 'nanochat-message-placeholder'}" />
+                            <Button Name="SendButton" Text="{Loc 'nanochat-send'}" MinWidth="64" SetHeight="30" Disabled="True" Margin="4 0 0 0" />
+                        </BoxContainer>
+                    </BoxContainer>
+                    </BoxContainer>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer Name="LookupView" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="0 4 0 0" Visible="False">
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 4">
+                <LineEdit Name="NumberInput" HorizontalExpand="True" PlaceHolder="{Loc 'nanochat-number-placeholder'}" />
+                <Button Name="StartChatButton" Text="{Loc 'nanochat-start-chat'}" Disabled="True" Margin="4 0 0 0" />
+            </BoxContainer>
+            <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True" VerticalExpand="True">
+                <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="LookupList" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4" SeparationOverride="3" />
+                </ScrollContainer>
+            </PanelContainer>
+        </BoxContainer>
+    </BoxContainer>
+</cartridges:NanoChatUiFragment>

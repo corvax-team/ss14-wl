@@ -151,6 +151,12 @@ public sealed partial class CartridgeLoaderSystem
         if (!HasComp<CartridgeComponent>(cartridge))
             return false;
 
+        //WL-Changes-NanoChat-DuplicateCartridge-Start
+        RefreshSlotCartridgeStatus(ent);
+        if (Comp<CartridgeComponent>(cartridge).InstallationStatus == InstallationStatus.Duplicate)
+            return false;
+        //WL-Changes-NanoChat-DuplicateCartridge-End
+
         if (MetaData(cartridge).EntityPrototype is not { } cartridgeProto)
             return false;
 

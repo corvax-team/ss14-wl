@@ -1,0 +1,27 @@
+- type: entity
+  name: Sledgehammer DT-4
+  suffix: Security, _WL
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: WeaponMeleeBreachingHammer
+  description: Big... Black... Sledgehammer DT-4. Created specifically to knock out doors, walls, and windows. Or maybe to break bones.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Weapons/Melee/Sec_sledgehammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 0.65
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+        Structural: 10
+    soundHit:
+      path: /Audio/_WL/Items/sledgehammer.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 30
+        Structural: 50
+  - type: Item
+    size: Ginormous

@@ -1,0 +1,19 @@
+- type: entity
+  parent: BasePDACartridge
+  id: NanoChatCartridge
+  name: картридж NanoChat
+  description: Программа для обмена короткими сообщениями между КПК.
+  components:
+  - type: Sprite
+    state: cart-y
+  - type: Icon
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-y
+  - type: UIFragment
+    ui: !type:NanoChatUi
+  - type: Cartridge
+    programName: nanochat-program-name
+    icon:
+      sprite: _WL/Interface/Misc/nanochat_program.rsi
+      state: nanochat
+  - type: NanoChatCartridge

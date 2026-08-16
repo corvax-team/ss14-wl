@@ -2,15 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Content.Shared._WL.Records;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._WL.Records;
 
 public static class RecordViewBuilder
 {
-    public static RecordViewData Medical(RecordIdentityData identity, string storage, bool organic, Func<string, string> loc,
+    public static RecordViewData Medical(RecordIdentityData identity, string storage, string species, Func<string, string> loc,
         bool inGame = false)
     {
         var record = StructuredCharacterRecords.ReadMedical(storage);
+        var organic = RecordSpeciesClassification.IsOrganic(species);
+        var manufactured = RecordSpeciesClassification.IsManufactured(species);
         var sections = new List<RecordViewSection>
         {
             IdentitySection(identity, loc, inGame),
@@ -27,11 +30,14 @@ public static class RecordViewBuilder
             ]),
         };
 
+        if (organic || manufactured)
+            sections.Add(LongSection(manufactured ? "records-repair-records" : "records-surgeries",
+                record.Surgeries,
+                "records-value-no-data",
+                loc));
+
         if (organic)
-        {
-            sections.Add(LongSection("records-surgeries", record.Surgeries, "records-value-no-data", loc));
             sections.Add(LongSection("records-medication", record.Medication, "records-value-no-data", loc));
-        }
 
         sections.Add(LongSection("records-physiological-notes", record.PhysiologicalNotes, "records-value-no-data", loc));
         sections.Add(LongSection("records-psychological-notes", record.PsychologicalNotes, "records-value-no-data", loc));
@@ -72,7 +78,7 @@ public static class RecordViewBuilder
         return new RecordViewData(RecordViewKind.Security, identity, sections);
     }
 
-    public static RecordViewData Employment(RecordIdentityData identity, string storage, Func<string, string> loc,
+    public static RecordViewData Employment(RecordIdentityData identity, string storage, IPrototypeManager prototypeManager, Func<string, string> loc,
         bool inGame = false)
     {
         var record = StructuredCharacterRecords.ReadEmployment(storage);
@@ -87,10 +93,10 @@ public static class RecordViewBuilder
             for (var i = 0; i < record.Education.Count; i++)
             {
                 var education = record.Education[i];
-                var group = StructuredCharacterRecords.SpecialtyGroups.Contains(education.SpecialtyGroup)
+                var group = SpecialtyGroupCatalog.ContainsGroup(prototypeManager, education.SpecialtyGroup)
                     ? loc($"records-specialty-group-value-{education.SpecialtyGroup}")
                     : education.SpecialtyGroup;
-                var subgroup = SpecialtyGroupCatalog.ContainsSubgroup(education.SpecialtySubgroup)
+                var subgroup = SpecialtyGroupCatalog.ContainsSubgroup(prototypeManager, education.SpecialtySubgroup)
                     ? loc(SpecialtyGroupCatalog.GetSubgroupLocalizationKey(education.SpecialtySubgroup))
                     : education.SpecialtySubgroup;
                 educationSections.Add(new RecordViewSection(

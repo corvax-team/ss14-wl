@@ -1,4 +1,4 @@
-﻿- type: accent
+- type: accent
   id: cischi
   wordReplacements:
     accent-cischi-words-1: accent-cischi-words-replace-1
@@ -122,7 +122,6 @@
     wl-accent-french-words-76: wl-accent-french-words-replace-76
     wl-accent-french-words-77: wl-accent-french-words-replace-77
 
-#wl chinese accent
 - type: accent
   id: chinese
   wordReplacements:
@@ -192,3 +191,61 @@
     wl-accent-chinese-words-64: wl-accent-chinese-words-replace-64
     wl-accent-chinese-words-65: wl-accent-chinese-words-replace-65
     wl-accent-chinese-words-66: wl-accent-chinese-words-replace-66
+
+- type: accent
+  id: mor
+  wordReplacements:
+    wl-accent-mor-words-1: wl-accent-mor-words-replace-1
+    wl-accent-mor-words-2: wl-accent-mor-words-replace-2
+    wl-accent-mor-words-3: wl-accent-mor-words-replace-3
+    wl-accent-mor-words-4: wl-accent-mor-words-replace-4
+    wl-accent-mor-words-5: wl-accent-mor-words-replace-5
+    wl-accent-mor-words-6: wl-accent-mor-words-replace-6
+    wl-accent-mor-words-7: wl-accent-mor-words-replace-7
+    wl-accent-mor-words-8: wl-accent-mor-words-replace-8
+    wl-accent-mor-words-9: wl-accent-mor-words-replace-9
+    wl-accent-mor-words-10: wl-accent-mor-words-replace-10
+    wl-accent-mor-words-11: wl-accent-mor-words-replace-11
+    wl-accent-mor-words-12: wl-accent-mor-words-replace-12
+    wl-accent-mor-words-13: wl-accent-mor-words-replace-13
+    wl-accent-mor-words-14: wl-accent-mor-words-replace-14
+    wl-accent-mor-words-15: wl-accent-mor-words-replace-15
+    wl-accent-mor-words-16: wl-accent-mor-words-replace-16
+    wl-accent-mor-words-17: wl-accent-mor-words-replace-17
+    wl-accent-mor-words-18: wl-accent-mor-words-replace-18
+    wl-accent-mor-words-19: wl-accent-mor-words-replace-19
+    wl-accent-mor-words-20: wl-accent-mor-words-replace-20
+    wl-accent-mor-words-21: wl-accent-mor-words-replace-21
+    wl-accent-mor-words-22: wl-accent-mor-words-replace-22
+    wl-accent-mor-words-23: wl-accent-mor-words-replace-23
+    wl-accent-mor-words-24: wl-accent-mor-words-replace-24
+    wl-accent-mor-words-25: wl-accent-mor-words-replace-25
+    wl-accent-mor-words-26: wl-accent-mor-words-replace-26
+    wl-accent-mor-words-27: wl-accent-mor-words-replace-27
+    wl-accent-mor-words-28: wl-accent-mor-words-replace-28
+    wl-accent-mor-words-29: wl-accent-mor-words-replace-29
+    wl-accent-mor-words-30: wl-accent-mor-words-replace-30
+    wl-accent-mor-words-31: wl-accent-mor-words-replace-31
+    wl-accent-mor-words-32: wl-accent-mor-words-replace-32
+    wl-accent-mor-words-33: wl-accent-mor-words-replace-33
+    wl-accent-mor-words-34: wl-accent-mor-words-replace-34
+    wl-accent-mor-words-35: wl-accent-mor-words-replace-35
+    wl-accent-mor-words-36: wl-accent-mor-words-replace-36
+    wl-accent-mor-words-37: wl-accent-mor-words-replace-37
+    wl-accent-mor-words-38: wl-accent-mor-words-replace-38
+    wl-accent-mor-words-39: wl-accent-mor-words-replace-39
+    wl-accent-mor-words-40: wl-accent-mor-words-replace-40
+    wl-accent-mor-words-41: wl-accent-mor-words-replace-41
+    wl-accent-mor-words-42: wl-accent-mor-words-replace-42
+    wl-accent-mor-words-43: wl-accent-mor-words-replace-43
+    wl-accent-mor-words-44: wl-accent-mor-words-replace-44
+    wl-accent-mor-words-45: wl-accent-mor-words-replace-45
+    wl-accent-mor-words-46: wl-accent-mor-words-replace-46
+    wl-accent-mor-words-47: wl-accent-mor-words-replace-47
+    wl-accent-mor-words-48: wl-accent-mor-words-replace-48
+    wl-accent-mor-words-49: wl-accent-mor-words-replace-49
+    wl-accent-mor-words-50: wl-accent-mor-words-replace-50
+    wl-accent-mor-words-51: wl-accent-mor-words-replace-51
+    wl-accent-mor-words-52: wl-accent-mor-words-replace-52
+    wl-accent-mor-words-53: wl-accent-mor-words-replace-53
+    wl-accent-mor-words-54: wl-accent-mor-words-replace-54

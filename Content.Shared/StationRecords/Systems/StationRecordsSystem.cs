@@ -54,14 +54,18 @@ public sealed partial class StationRecordsSystem : EntitySystem
     [Dependency] private EntityQuery<FingerprintComponent> _fingerprintQuery = default!;
     [Dependency] private EntityQuery<DnaComponent> _dnaQuery = default!;
 
-    [SubscribeLocalEvent]
-    private void OnPlayerSpawn(PlayerSpawnCompleteEvent args)
+    // WL-Changes-Records-Start
+    /// <summary>
+    /// Creates a station record from the fully initialized spawned character.
+    /// </summary>
+    public void CreateGeneralRecord(PlayerSpawnCompleteEvent args)
     {
         if (!_recordsQuery.TryComp(args.Station, out var stationRecords))
             return;
 
         CreateGeneralRecord((args.Station, stationRecords), args.Mob, args.Profile, args.JobId);
     }
+    // WL-Changes-Records-End
 
     [SubscribeLocalEvent]
     private void OnRename(ref EntityRenamedEvent ev)
