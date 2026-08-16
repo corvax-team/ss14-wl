@@ -6,13 +6,13 @@
   suffix: Empty
   components:
   - type: Sprite
-    sprite: _WL/Objects/Misc/bureaucracy.rsi/ # WL-changes
+    sprite: _WL/Objects/Misc/bureaucracy.rsi # WL-changes
     state: paper_bin0
     drawdepth: SmallObjects
     noRot: true
   - type: Appearance
   - type: ItemMapper
-    sprite: _WL/Objects/Misc/bureaucracy.rsi/ # WL-changes
+    sprite: _WL/Objects/Misc/bureaucracy.rsi # WL-changes
     mapLayers:
       paper_bin1:
         whitelist:
