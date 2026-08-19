@@ -119,7 +119,7 @@
   id: LawyerClipboardSkirgan
   effects:
   - !type:CkeyRequirementLoadoutEffect
-    ckey: skirgan
+    ckey: Skirgan
   storage:
     back:
     - BoxFolderLawyerClipboardEmptySkirgan
