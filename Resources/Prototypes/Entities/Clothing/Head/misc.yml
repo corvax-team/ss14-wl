@@ -202,8 +202,8 @@
     proto: regal
   - type: StaticPrice
     price: 3000
-  - type: MobsterAccent
-    relayAccent: true
+    # - type: MobsterAccent WL-Changes: cringe accent rm
+    #   relayAccent: true
 
 - type: entity
   parent: [ ClothingHeadBase, BaseSyndicateContraband ]

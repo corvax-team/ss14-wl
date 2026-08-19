@@ -1036,10 +1036,9 @@
   - type: Icon
     state: pda-musician
   - type: Instrument
-    allowPercussion: false
+    allowProgramChange: true
+    allowPercussion: true
     handheld: true
-    program: 2
-    bank: 100 # Defined in space-station-14.sf2
 
 - type: entity
   parent: MusicianPDA

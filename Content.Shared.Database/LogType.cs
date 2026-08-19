@@ -432,7 +432,7 @@ public enum LogType
 
     //WL-Changes-start
     /// <summary>
-    /// ������������� ���������� ��-�������
+    /// WL-Commands?
     /// </summary>
     WLCommand = 94,
     //WL-Changes-end
@@ -449,7 +449,7 @@ public enum LogType
 
     //WL-Changes-start
     /// <summary>
-    /// �������� ��������� � HTTP-api �������.
+    /// WL-httpApi
     /// </summary>
     WLHttpApi = 97,
     //WL-Changes-end
@@ -503,4 +503,11 @@ public enum LogType
     /// Silicon law changes.
     /// </summary>
     SiliconLaw = 107,
+
+    //WL-Changes-start
+    /// <summary>
+    /// WL-Commands?
+    /// </summary>
+    WLCharDesc = 109,
+    //WL-Changes-end
 }
