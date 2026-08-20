@@ -73,12 +73,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
 
         CopySkills(original, clone.Value); // WL-Skills
 
-        // WL-Changes-HeightFix-Start
-        if (TryComp<HumanoidProfileComponent>(clone, out var cloneProfile))
-        {
-            _profile.ApplyHeight((clone.Value, cloneProfile));
-        }
-        // WL-Changes-HeightFix-End
+        _profile.ApplyHeight(clone.Value); // WL-Changes-HeightFix
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)
