@@ -1,7 +1,6 @@
 using Content.Server._WL.Nutrition.Components;
 using Content.Server._WL.Nutrition.Events;
 using Content.Server.Body.Systems;
-using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
 using Content.Shared.Body.Components;
@@ -15,7 +14,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Prototypes;
 using Robust.Server.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -34,7 +32,6 @@ public sealed partial class SuckableFoodSystem : EntitySystem
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private IPrototypeManager _protoMan = default!;
-    [Dependency] private IComponentFactory _componentFactory = default!;
     [Dependency] private FlavorProfileSystem _flavor = default!;
 
     private const float UpdatePeriod = 2f; // in seconds
@@ -93,7 +90,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
                 if (!suckableComp.IsSucking)
                     continue;
 
-                if (!EnsureSolutionEntity((food, suckableComp, solContainerManComp), out var solutionEntity, out var solution))
+                if (!_solutionContainerSystem.TryGetSolution((food, solContainerManComp), suckableComp.Solution, out var solutionEntity, out var solution))
                     continue;
 
                 var dissolvedSol = _solutionContainerSystem.SplitSolution(solutionEntity.Value, suckableComp.DissolveAmount * UpdatePeriod);
@@ -120,30 +117,16 @@ public sealed partial class SuckableFoodSystem : EntitySystem
             _updateTimer -= UpdatePeriod;
     }
 
-    public void SetState(Entity<SuckableFoodComponent> foodEnt, EntityUid? sucker) => foodEnt.Comp.SuckingEntity = sucker;
-
-    public bool EnsureSolutionEntity(
-        Entity<SuckableFoodComponent, SolutionManagerComponent?> foodEnt,
-        [NotNullWhen(true)] out Entity<SolutionComponent>? solEnt,
-        [NotNullWhen(true)] out Solution? solution)
-    {
-        solEnt = null;
-        solution = null;
-
-        if (!Resolve(foodEnt, ref foodEnt.Comp2, false))
-            return false;
-
-        return _solutionContainerSystem.TryGetSolution((foodEnt, foodEnt.Comp2), foodEnt.Comp1.Solution, out solEnt, out solution);
-    }
+    private void SetSucker(Entity<SuckableFoodComponent> foodEnt, EntityUid? sucker) => foodEnt.Comp.SuckingEntity = sucker;
 
     private void OnEquip(EntityUid food, SuckableFoodComponent comp, GotEquippedEvent ev)
     {
         if (ev.SlotFlags.HasFlag(SlotFlags.MASK))
             _forensics.TransferDna(food, ev.EquipTarget);
 
-        SetState((food, comp), ev.EquipTarget);
+        SetSucker((food, comp), ev.EquipTarget);
 
-        if (!EnsureSolutionEntity((food, comp), out _, out var sol))
+        if (!_solutionContainerSystem.TryGetSolution(food, comp.Solution, out _, out var sol))
             return;
 
         var flavor = _flavor.GetLocalizedFlavorsMessage(food, ev.EquipTarget, sol);
@@ -157,7 +140,7 @@ public sealed partial class SuckableFoodSystem : EntitySystem
 
     private void ResetSucker<T>(EntityUid food, SuckableFoodComponent comp, T ev)
     {
-        SetState((food, comp), null);
+        SetSucker((food, comp), null);
     }
 
 

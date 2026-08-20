@@ -28,273 +28,272 @@ using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server._WL.Android
+namespace Content.Server._WL.Android;
+
+public sealed partial class AndroidSystem : EntitySystem
 {
-    public sealed partial class AndroidSystem : EntitySystem
+    [Dependency] private BatterySystem _battery = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private DoAfterSystem _doAfter = default!;
+    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private MovementSpeedModifierSystem _move = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private PointLightSystem _pointLight = default!;
+    [Dependency] private ItemToggleSystem _toggle = default!;
+    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private ContainerSystem _container = default!;
+    [Dependency] private AppearanceSystem _appearance = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    private const float AndroidDoAfterChargeTime = 1f;
+
+    public override void Initialize()
     {
-        [Dependency] private BatterySystem _battery = default!;
-        [Dependency] private PowerCellSystem _powerCell = default!;
-        [Dependency] private DoAfterSystem _doAfter = default!;
-        [Dependency] private IGameTiming _gameTiming = default!;
-        [Dependency] private IRobustRandom _random = default!;
-        [Dependency] private StatusEffectsSystem _statusEffect = default!;
-        [Dependency] private MovementSpeedModifierSystem _move = default!;
-        [Dependency] private PopupSystem _popup = default!;
-        [Dependency] private PointLightSystem _pointLight = default!;
-        [Dependency] private ItemToggleSystem _toggle = default!;
-        [Dependency] private AudioSystem _audio = default!;
-        [Dependency] private ActionsSystem _actions = default!;
-        [Dependency] private ContainerSystem _container = default!;
-        [Dependency] private AppearanceSystem _appearance = default!;
-        [Dependency] private SharedVisualBodySystem _visualBody = default!;
+        base.Initialize();
 
-        [ViewVariables(VVAccess.ReadOnly)]
-        private const float AndroidDoAfterChargeTime = 1f;
+        SubscribeLocalEvent<AndroidChargeTargetComponent, GetVerbsEvent<AlternativeVerb>>(OnVerb);
 
-        public override void Initialize()
+        SubscribeLocalEvent<GameRuleStartedEvent>(OnGameRuleStart);
+        SubscribeLocalEvent<GameRuleEndedEvent>(OnGameRuleEnd);
+
+        SubscribeLocalEvent<AndroidComponent, ComponentStartup>(OnStartup);
+
+        SubscribeLocalEvent<AndroidComponent, AndroidChargeEvent>(OnDoAfter);
+        SubscribeLocalEvent<AndroidComponent, BeforeDealHeatDamageFromLightBulbEvent>(OnGetLightBulb);
+        SubscribeLocalEvent<AndroidComponent, RefreshMovementSpeedModifiersEvent>(OnModifiersRefresh);
+        SubscribeLocalEvent<AndroidComponent, ItemToggledEvent>(OnToggle);
+        SubscribeLocalEvent<AndroidComponent, ToggleActionEvent>(OnToggleLightAction);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<AndroidComponent, PowerCellDrawComponent, PowerCellSlotComponent>();
+        while (query.MoveNext(out var uid, out var androidComp, out var powerCellDrawComp, out var powerCellSlotComp))
         {
-            base.Initialize();
+            CheckAndDoForcedSleep(uid, androidComp);
 
-            SubscribeLocalEvent<AndroidChargeTargetComponent, GetVerbsEvent<AlternativeVerb>>(OnVerb);
-
-            SubscribeLocalEvent<GameRuleStartedEvent>(OnGameRuleStart);
-            SubscribeLocalEvent<GameRuleEndedEvent>(OnGameRuleEnd);
-
-            SubscribeLocalEvent<AndroidComponent, ComponentStartup>(OnStartup);
-
-            SubscribeLocalEvent<AndroidComponent, AndroidChargeEvent>(OnDoAfter);
-            SubscribeLocalEvent<AndroidComponent, BeforeDealHeatDamageFromLightBulbEvent>(OnGetLightBulb);
-            SubscribeLocalEvent<AndroidComponent, RefreshMovementSpeedModifiersEvent>(OnModifiersRefresh);
-            SubscribeLocalEvent<AndroidComponent, ItemToggledEvent>(OnToggle);
-            SubscribeLocalEvent<AndroidComponent, ToggleActionEvent>(OnToggleLightAction);
-        }
-
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
-
-            var query = EntityQueryEnumerator<AndroidComponent, PowerCellDrawComponent, PowerCellSlotComponent>();
-            while (query.MoveNext(out var uid, out var androidComp, out var powerCellDrawComp, out var powerCellSlotComp))
+            if (!_powerCell.HasDrawCharge(uid))
             {
-                CheckAndDoForcedSleep(uid, androidComp);
-
-                if (!_powerCell.HasDrawCharge(uid))
-                {
-                    continue;
-                }
-
-                var shouldDraw = ShouldDrawCheck((uid, androidComp));
-
-                _powerCell.SetDrawEnabled((uid, powerCellDrawComp), shouldDraw);
+                continue;
             }
+
+            var shouldDraw = ShouldDrawCheck((uid, androidComp));
+
+            _powerCell.SetDrawEnabled((uid, powerCellDrawComp), shouldDraw);
+        }
+    }
+
+    private void OnStartup(EntityUid uid, AndroidComponent component, ComponentStartup args)
+    {
+        _actions.AddAction(uid, ref component.ToggleLightActionEntity, component.TogglelLightAction);
+
+        if (TryComp<ContainerManagerComponent>(uid, out var containerManager))
+        {
+            var lightEntity = Spawn(component.LightEntityPrototype, Transform(uid).Coordinates);
+            component.LightEntity = lightEntity;
+
+            var container = _container.EnsureContainer<ContainerSlot>(uid, "light");
+            container.OccludesLight = false;
+            _container.Insert(lightEntity, container, null, true);
+        }
+    }
+
+    private void OnToggle(EntityUid uid, AndroidComponent component, ItemToggledEvent args)
+    {
+        UpdateLight(uid, component);
+    }
+
+    #region Light
+    private void OnToggleLightAction(EntityUid uid, AndroidComponent component, ToggleActionEvent args)
+    {
+        if (args.Handled || args.Action != component.ToggleLightActionEntity)
+            return;
+
+        UpdateLight(uid, component, !args.Action.Comp.Toggled);
+
+        args.Toggle = true;
+        args.Handled = true;
+    }
+
+    private void UpdateLight(EntityUid uid, AndroidComponent component, bool? enabled = null)
+    {
+        if (!component.LightEntity.HasValue)
+            return;
+
+        var lightEntity = component.LightEntity.Value;
+
+        if (enabled != null)
+        {
+            _pointLight.SetEnabled(lightEntity, enabled.Value);
+            _appearance.SetData(uid, AndroidLightVisuals.Enabled, enabled);
+
+            _audio.PlayPvs(component.ToggleLightSound, uid);
         }
 
-        private void OnStartup(EntityUid uid, AndroidComponent component, ComponentStartup args)
+        _pointLight.SetEnergy(lightEntity, _toggle.IsActivated(uid) ? component.LightBaseRadius : component.LightBaseRadius / 3f);
+
+        if (!HasComp<HumanoidProfileComponent>(uid))
+            return;
+
+        if (!_visualBody.TryGatherMarkingsData(uid,
+            [HumanoidVisualLayers.Overlay],
+            out var organData,
+            out _,
+            out var applied)
+                || applied.Count == 0)
+            return;
+
+        if (!organData.TryGetValue("Eyes", out var marking))
+            return;
+
+        var ledColor = marking.EyeColor.WithAlpha(255);
+        _pointLight.SetColor(lightEntity, ledColor);
+    }
+    #endregion Light
+
+    private void OnModifiersRefresh(EntityUid android, AndroidComponent comp, RefreshMovementSpeedModifiersEvent args)
+    {
+        if (comp.IsUnderIonStorm)
+            args.ModifySpeed(comp.IonStormSlownessFactor, comp.IonStormSlownessFactor);
+    }
+
+    private void OnGameRuleStart(ref GameRuleStartedEvent args)
+    {
+        if (!TryComp<IonStormRuleComponent>(args.RuleEntity, out _))
+            return;
+
+        var query = EntityQueryEnumerator<AndroidComponent, MovementSpeedModifierComponent>();
+        while (query.MoveNext(out var android, out var androidComp, out var movementSpeedComp))
         {
-            _actions.AddAction(uid, ref component.ToggleLightActionEntity, component.TogglelLightAction);
-
-            if (TryComp<ContainerManagerComponent>(uid, out var containerManager))
-            {
-                var lightEntity = Spawn(component.LightEntityPrototype, Transform(uid).Coordinates);
-                component.LightEntity = lightEntity;
-
-                var container = _container.EnsureContainer<ContainerSlot>(uid, "light");
-                container.OccludesLight = false;
-                _container.Insert(lightEntity, container, null, true);
-            }
-        }
-
-        private void OnToggle(EntityUid uid, AndroidComponent component, ItemToggledEvent args)
-        {
-            UpdateLight(uid, component);
-        }
-
-        #region Light
-        private void OnToggleLightAction(EntityUid uid, AndroidComponent component, ToggleActionEvent args)
-        {
-            if (args.Handled || args.Action != component.ToggleLightActionEntity)
+            if (!_random.Prob(androidComp.IonStormSlownessProbability))
                 return;
 
-            UpdateLight(uid, component, !args.Action.Comp.Toggled);
+            androidComp.IsUnderIonStorm = true;
+            _move.RefreshMovementSpeedModifiers((android, movementSpeedComp));
 
-            args.Toggle = true;
+            _popup.PopupEntity(Loc.GetString(androidComp.IonStormPopupMessage), android, android, Shared.Popups.PopupType.Medium);
+
+            EnsureComp<StutteringAccentComponent>(android);
+        }
+    }
+
+    private void OnGameRuleEnd(ref GameRuleEndedEvent args)
+    {
+        if (!TryComp<IonStormRuleComponent>(args.RuleEntity, out _))
+            return;
+
+        var query = EntityQueryEnumerator<AndroidComponent, MovementSpeedModifierComponent>();
+        while (query.MoveNext(out var android, out var androidComp, out var movementSpeedComp))
+        {
+            androidComp.IsUnderIonStorm = false;
+            _move.RefreshMovementSpeedModifiers((android, movementSpeedComp));
+
+            RemComp<StutteringAccentComponent>(android);
+        }
+    }
+
+    private void OnGetLightBulb(EntityUid android, AndroidComponent comp, BeforeDealHeatDamageFromLightBulbEvent args)
+    {
+        args.Cancel();
+    }
+
+    private void CheckAndDoForcedSleep(EntityUid android, AndroidComponent comp)
+    {
+        if (_gameTiming.CurTime < comp.NextTime)
+            return;
+
+        comp.NextTime = _gameTiming.CurTime + comp.TimeBetweenChecks;
+
+        if (!_powerCell.TryGetBatteryFromSlot(android, out var battery))
+            return;
+
+        if (battery == null || !_powerCell.HasDrawCharge(android))
+        {
+            DoForcedSleep(android, comp);
+        }
+    }
+
+    private void DoForcedSleep(EntityUid android, AndroidComponent comp)
+    {
+        if (_random.Prob(comp.ForcedSleepChance))
+        {
+            var duration = _random.Next(comp.SleepTimeMin, comp.SleepTimeMax);
+            _statusEffect.TryAddStatusEffectDuration(android, SleepingSystem.StatusEffectForcedSleeping, duration);
+        }
+    }
+
+    private void OnVerb(EntityUid target, AndroidChargeTargetComponent comp, GetVerbsEvent<AlternativeVerb> args)
+    {
+        if (!args.CanInteract)
+            return;
+
+        if (!HasComp<AndroidComponent>(args.User) ||
+            !_powerCell.TryGetBatteryFromSlot(args.User, out var batteryEnt) ||
+            batteryEnt.Value.Comp.State == BatteryState.Full)
+            return;
+
+        if (!TryComp<BatteryComponent>(args.Target, out var targetBattery) ||
+            targetBattery.State == BatteryState.Empty)
+            return;
+
+        var doAfter = new DoAfterArgs(EntityManager, args.User, AndroidDoAfterChargeTime, new AndroidChargeEvent(), args.User, target, null)
+        {
+            BlockDuplicate = true,
+            DuplicateCondition = DuplicateConditions.SameEvent,
+            BreakOnDamage = true,
+            BreakOnHandChange = true,
+            BreakOnMove = true
+        };
+
+        args.Verbs.Add(new AlternativeVerb()
+        {
+            Act = () => _doAfter.TryStartDoAfter(doAfter),
+            IconEntity = GetNetEntity(target),
+            Text = Loc.GetString("android-system-charge-verb")
+        });
+    }
+
+    private void OnDoAfter(EntityUid android, AndroidComponent comp, AndroidChargeEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        if (!_powerCell.TryGetBatteryFromSlot(android, out var batteryEnt) || !TryComp<BatteryComponent>(batteryEnt, out var battery))
+        {
             args.Handled = true;
+            return;
         }
 
-        private void UpdateLight(EntityUid uid, AndroidComponent component, bool? enabled = null)
+        float chargeTransfer = Math.Clamp(comp.ChargeRate, 0f, battery.MaxCharge - _battery.GetCharge(batteryEnt.Value.Owner));
+
+        if (chargeTransfer == 0f
+            || !HasComp<BatteryComponent>(args.Target)
+            || _battery.GetCharge(args.Target.Value) < chargeTransfer * comp.TargetDecreaseFactor)
         {
-            if (!component.LightEntity.HasValue)
-                return;
-
-            var lightEntity = component.LightEntity.Value;
-
-            if (enabled != null)
-            {
-                _pointLight.SetEnabled(lightEntity, enabled.Value);
-                _appearance.SetData(uid, AndroidLightVisuals.Enabled, enabled);
-
-                _audio.PlayPvs(component.ToggleLightSound, uid);
-            }
-
-            _pointLight.SetEnergy(lightEntity, _toggle.IsActivated(uid) ? component.LightBaseRadius : component.LightBaseRadius / 3f);
-
-            if (!HasComp<HumanoidProfileComponent>(uid))
-                return;
-
-            if (!_visualBody.TryGatherMarkingsData(uid,
-                [HumanoidVisualLayers.Overlay],
-                out var organData,
-                out _,
-                out var applied)
-                    || applied.Count == 0)
-                return;
-
-            if (!organData.TryGetValue("Eyes", out var marking))
-                return;
-
-            var ledColor = marking.EyeColor.WithAlpha(255);
-            _pointLight.SetColor(lightEntity, ledColor);
+            args.Handled = true;
+            return;
         }
-        #endregion Light
 
-        private void OnModifiersRefresh(EntityUid android, AndroidComponent comp, RefreshMovementSpeedModifiersEvent args)
+        _battery.ChangeCharge((batteryEnt.Value, battery), chargeTransfer);
+        _battery.ChangeCharge(args.Target.Value, -chargeTransfer * comp.TargetDecreaseFactor);
+
+        if (battery.State == BatteryState.Full)
         {
-            if (comp.IsUnderIonStorm)
-                args.ModifySpeed(comp.IonStormSlownessFactor, comp.IonStormSlownessFactor);
+            args.Handled = true;
+            return;
         }
 
-        private void OnGameRuleStart(ref GameRuleStartedEvent args)
-        {
-            if (!TryComp<IonStormRuleComponent>(args.RuleEntity, out _))
-                return;
+        args.Repeat = true;
+    }
 
-            var query = EntityQueryEnumerator<AndroidComponent, MovementSpeedModifierComponent>();
-            while (query.MoveNext(out var android, out var androidComp, out var movementSpeedComp))
-            {
-                if (!_random.Prob(androidComp.IonStormSlownessProbability))
-                    return;
-
-                androidComp.IsUnderIonStorm = true;
-                _move.RefreshMovementSpeedModifiers((android, movementSpeedComp));
-
-                _popup.PopupEntity(Loc.GetString(androidComp.IonStormPopupMessage), android, android, Shared.Popups.PopupType.Medium);
-
-                EnsureComp<StutteringAccentComponent>(android);
-            }
-        }
-
-        private void OnGameRuleEnd(ref GameRuleEndedEvent args)
-        {
-            if (!TryComp<IonStormRuleComponent>(args.RuleEntity, out _))
-                return;
-
-            var query = EntityQueryEnumerator<AndroidComponent, MovementSpeedModifierComponent>();
-            while (query.MoveNext(out var android, out var androidComp, out var movementSpeedComp))
-            {
-                androidComp.IsUnderIonStorm = false;
-                _move.RefreshMovementSpeedModifiers((android, movementSpeedComp));
-
-                RemComp<StutteringAccentComponent>(android);
-            }
-        }
-
-        private void OnGetLightBulb(EntityUid android, AndroidComponent comp, BeforeDealHeatDamageFromLightBulbEvent args)
-        {
-            args.Cancel();
-        }
-
-        private void CheckAndDoForcedSleep(EntityUid android, AndroidComponent comp)
-        {
-            if (_gameTiming.CurTime < comp.NextTime)
-                return;
-
-            comp.NextTime = _gameTiming.CurTime + comp.TimeBetweenChecks;
-
-            if (!_powerCell.TryGetBatteryFromSlot(android, out var battery))
-                return;
-
-            if (battery == null || !_powerCell.HasDrawCharge(android))
-            {
-                DoForcedSleep(android, comp);
-            }
-        }
-
-        private void DoForcedSleep(EntityUid android, AndroidComponent comp)
-        {
-            if (_random.Prob(comp.ForcedSleepChance))
-            {
-                var duration = _random.Next(comp.SleepTimeMin, comp.SleepTimeMax);
-                _statusEffect.TryAddStatusEffectDuration(android, SleepingSystem.StatusEffectForcedSleeping, duration);
-            }
-        }
-
-        private void OnVerb(EntityUid target, AndroidChargeTargetComponent comp, GetVerbsEvent<AlternativeVerb> args)
-        {
-            if (!args.CanInteract)
-                return;
-
-            if (!HasComp<AndroidComponent>(args.User) ||
-                !_powerCell.TryGetBatteryFromSlot(args.User, out var batteryEnt) ||
-                batteryEnt.Value.Comp.State == BatteryState.Full)
-                return;
-
-            if (!TryComp<BatteryComponent>(args.Target, out var targetBattery) ||
-                targetBattery.State == BatteryState.Empty)
-                return;
-
-            var doAfter = new DoAfterArgs(EntityManager, args.User, AndroidDoAfterChargeTime, new AndroidChargeEvent(), args.User, target, null)
-            {
-                BlockDuplicate = true,
-                DuplicateCondition = DuplicateConditions.SameEvent,
-                BreakOnDamage = true,
-                BreakOnHandChange = true,
-                BreakOnMove = true
-            };
-
-            args.Verbs.Add(new AlternativeVerb()
-            {
-                Act = () => _doAfter.TryStartDoAfter(doAfter),
-                IconEntity = GetNetEntity(target),
-                Text = Loc.GetString("android-system-charge-verb")
-            });
-        }
-
-        private void OnDoAfter(EntityUid android, AndroidComponent comp, AndroidChargeEvent args)
-        {
-            if (args.Cancelled || args.Handled)
-                return;
-
-            if (!_powerCell.TryGetBatteryFromSlot(android, out var batteryEnt) || !TryComp<BatteryComponent>(batteryEnt, out var battery))
-            {
-                args.Handled = true;
-                return;
-            }
-
-            float chargeTransfer = Math.Clamp(comp.ChargeRate, 0f, battery.MaxCharge - _battery.GetCharge(batteryEnt.Value.Owner));
-
-            if (chargeTransfer == 0f
-                || !HasComp<BatteryComponent>(args.Target)
-                || _battery.GetCharge(args.Target.Value) < chargeTransfer * comp.TargetDecreaseFactor)
-            {
-                args.Handled = true;
-                return;
-            }
-
-            _battery.ChangeCharge((batteryEnt.Value, battery), chargeTransfer);
-            _battery.ChangeCharge(args.Target.Value, -chargeTransfer * comp.TargetDecreaseFactor);
-
-            if (battery.State == BatteryState.Full)
-            {
-                args.Handled = true;
-                return;
-            }
-
-            args.Repeat = true;
-        }
-
-        private bool ShouldDrawCheck(Entity<AndroidComponent> ent)
-        {
-            return !HasComp<SleepingComponent>(ent);
-        }
+    private bool ShouldDrawCheck(Entity<AndroidComponent> ent)
+    {
+        return !HasComp<SleepingComponent>(ent);
     }
 }

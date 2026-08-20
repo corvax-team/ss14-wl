@@ -1,19 +1,18 @@
 using Robust.Shared.Audio;
 
-namespace Content.Server._WL.Economics.Components
+namespace Content.Server._WL.Economics.Components;
+
+[RegisterComponent]
+public sealed partial class PokerCardComponent : Component
 {
-    [RegisterComponent]
-    public sealed partial class PokerCardComponent : Component
-    {
-        [DataField]
-        public SoundSpecifier FlipSound = new SoundPathSpecifier(@"/Audio/_WL/Economics/flip.ogg");
+    [DataField]
+    public SoundSpecifier FlipSound = new SoundPathSpecifier(@"/Audio/_WL/Economics/flip.ogg");
 
-        [DataField]
-        public LocId FlippedCardName = "pokercard-comp-flipped-card";
+    [DataField]
+    public LocId FlippedCardName = "pokercard-comp-flipped-card";
 
-        [DataField]
-        public bool FlipPopup = true;
+    [DataField]
+    public bool FlipPopup = true;
 
-        public string OriginalName = "";
-    }
+    public string OriginalName = "";
 }

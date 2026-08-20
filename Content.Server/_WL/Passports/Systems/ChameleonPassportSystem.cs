@@ -3,80 +3,79 @@ using Content.Shared._WL.Passports.Components;
 using Content.Shared._WL.Passports.Systems;
 using Robust.Server.GameObjects;
 
-namespace Content.Server._WL.Passports.Systems
+namespace Content.Server._WL.Passports.Systems;
+
+public sealed partial class ChameleonPassportSystem : SharedChameleonPassportSystem
 {
-    public sealed partial class ChameleonPassportSystem : SharedChameleonPassportSystem
+    [Dependency] private SharedChameleonPassportSystem _passportSystem = default!;
+    [Dependency] private UserInterfaceSystem _uiSystem = default!;
+
+    public override void Initialize()
     {
-        [Dependency] private SharedChameleonPassportSystem _passportSystem = default!;
-        [Dependency] private UserInterfaceSystem _uiSystem = default!;
+        base.Initialize();
+        // BUI
+        SubscribeLocalEvent<ChameleonPassportComponent, AfterActivatableUIOpenEvent>(AfterUIOpen);
+        SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportNameChangedMessage>(OnNameChanged);
+        SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportSpeciesChangedMessage>(OnSpeciesChanged);
+        SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportGenderChangedMessage>(OnGenderChanged);
+        SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportDateOfBirthChangedMessage>(OnDateOfBirthChanged);
+        SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportPIDChangedMessage>(OnPIDChanged);
+    }
 
-        public override void Initialize()
-        {
-            base.Initialize();
-            // BUI
-            SubscribeLocalEvent<ChameleonPassportComponent, AfterActivatableUIOpenEvent>(AfterUIOpen);
-            SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportNameChangedMessage>(OnNameChanged);
-            SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportSpeciesChangedMessage>(OnSpeciesChanged);
-            SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportGenderChangedMessage>(OnGenderChanged);
-            SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportDateOfBirthChangedMessage>(OnDateOfBirthChanged);
-            SubscribeLocalEvent<ChameleonPassportComponent, ChameleonPassportPIDChangedMessage>(OnPIDChanged);
-        }
+    private void AfterUIOpen(EntityUid uid, ChameleonPassportComponent component, AfterActivatableUIOpenEvent args)
+    {
+        if (!_uiSystem.HasUi(uid, ChameleonPassportUiKey.Key))
+            return;
 
-        private void AfterUIOpen(EntityUid uid, ChameleonPassportComponent component, AfterActivatableUIOpenEvent args)
-        {
-            if (!_uiSystem.HasUi(uid, ChameleonPassportUiKey.Key))
-                return;
+        if (!TryComp<PassportComponent>(uid, out var passport))
+            return;
 
-            if (!TryComp<PassportComponent>(uid, out var passport))
-                return;
+        var state = new ChameleonPassportBoundUserInterfaceState(
+            passport.DisplayName,
+            passport.DisplaySpecies,
+            passport.DisplayGender,
+            passport.DisplayDateOfBirth,
+            passport.DisplayPID);
+        _uiSystem.SetUiState(uid, ChameleonPassportUiKey.Key, state);
+    }
 
-            var state = new ChameleonPassportBoundUserInterfaceState(
-                passport.DisplayName,
-                passport.DisplaySpecies,
-                passport.DisplayGender,
-                passport.DisplayDateOfBirth,
-                passport.DisplayPID);
-            _uiSystem.SetUiState(uid, ChameleonPassportUiKey.Key, state);
-        }
+    private void OnNameChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportNameChangedMessage args)
+    {
+        if (!TryComp<PassportComponent>(uid, out var passport))
+            return;
 
-        private void OnNameChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportNameChangedMessage args)
-        {
-            if (!TryComp<PassportComponent>(uid, out var passport))
-                return;
+        _passportSystem.TryChangeNameTitle(uid, args.Name, passport);
+    }
 
-            _passportSystem.TryChangeNameTitle(uid, args.Name, passport);
-        }
+    private void OnSpeciesChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportSpeciesChangedMessage args)
+    {
+        if (!TryComp<PassportComponent>(uid, out var passport))
+            return;
 
-        private void OnSpeciesChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportSpeciesChangedMessage args)
-        {
-            if (!TryComp<PassportComponent>(uid, out var passport))
-                return;
+        _passportSystem.TryChangeSpeciesTitle(uid, args.Species, passport);
+    }
 
-            _passportSystem.TryChangeSpeciesTitle(uid, args.Species, passport);
-        }
+    private void OnGenderChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportGenderChangedMessage args)
+    {
+        if (!TryComp<PassportComponent>(uid, out var passport))
+            return;
 
-        private void OnGenderChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportGenderChangedMessage args)
-        {
-            if (!TryComp<PassportComponent>(uid, out var passport))
-                return;
+        _passportSystem.TryChangeGenderTitle(uid, args.Gender, passport);
+    }
 
-            _passportSystem.TryChangeGenderTitle(uid, args.Gender, passport);
-        }
+    private void OnDateOfBirthChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportDateOfBirthChangedMessage args)
+    {
+        if (!TryComp<PassportComponent>(uid, out var passport))
+            return;
 
-        private void OnDateOfBirthChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportDateOfBirthChangedMessage args)
-        {
-            if (!TryComp<PassportComponent>(uid, out var passport))
-                return;
+        _passportSystem.TryChangeDateOfBirthTitle(uid, args.DateOfBirth, passport);
+    }
 
-            _passportSystem.TryChangeDateOfBirthTitle(uid, args.DateOfBirth, passport);
-        }
+    private void OnPIDChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportPIDChangedMessage args)
+    {
+        if (!TryComp<PassportComponent>(uid, out var passport))
+            return;
 
-        private void OnPIDChanged(EntityUid uid, ChameleonPassportComponent comp, ChameleonPassportPIDChangedMessage args)
-        {
-            if (!TryComp<PassportComponent>(uid, out var passport))
-                return;
-
-            _passportSystem.TryChangePIDTitle(uid, args.PID, passport);
-        }
+        _passportSystem.TryChangePIDTitle(uid, args.PID, passport);
     }
 }

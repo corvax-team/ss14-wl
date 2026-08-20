@@ -63,7 +63,7 @@ public sealed partial class NanoChatSystem : SharedNanoChatSystem
             return;
 
         _name.GenerateUniqueName(ent, _nameIdentifierGroup, out var number);
-        ent.Comp.Number = (uint) number;
+        ent.Comp.Number = (uint)number;
         Dirty(ent);
     }
 
@@ -136,7 +136,7 @@ public sealed partial class NanoChatSystem : SharedNanoChatSystem
         var elements = new List<string>();
         var enumerator = StringInfo.GetTextElementEnumerator(text);
         while (enumerator.MoveNext())
-            elements.Add((string) enumerator.Current);
+            elements.Add((string)enumerator.Current);
 
         var n = elements.Count;
 
