@@ -109,8 +109,7 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
         }
 
         messages.Add(message);
-        if (messages.Count > card.Comp.MaxMessagesPerChat)
-            messages.RemoveRange(0, messages.Count - card.Comp.MaxMessagesPerChat);
+        TrimHistory(messages, card.Comp.MaxMessagesPerConversation);
 
         if (sentByOwner)
             card.Comp.LastMessageTime = _timing.CurTime;
@@ -132,6 +131,118 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
             return;
 
         card.Comp.CurrentChat = recipient;
+        if (recipient != null)
+            card.Comp.CurrentGroup = null;
+        Dirty(card);
+    }
+
+    public void SetCurrentGroup(Entity<NanoChatCardComponent?> card, uint? groupId)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        card.Comp.CurrentGroup = groupId;
+        if (groupId != null)
+            card.Comp.CurrentChat = null;
+        Dirty(card);
+    }
+
+    public void SetGroup(Entity<NanoChatCardComponent?> card, NanoChatGroup group)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return;
+
+        card.Comp.Groups[group.Id] = group;
+        card.Comp.GroupMessages.TryAdd(group.Id, new List<NanoChatMessage>());
+        Dirty(card);
+    }
+
+    public bool TryGetGroup(Entity<NanoChatCardComponent?> card, uint groupId, out NanoChatGroup group)
+    {
+        group = default;
+        return Resolve(card, ref card.Comp) && card.Comp.Groups.TryGetValue(groupId, out group);
+    }
+
+    public HashSet<uint> GetBlockedNumbers(Entity<NanoChatCardComponent?> card)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return new HashSet<uint>();
+
+        return new HashSet<uint>(card.Comp.BlockedNumbers);
+    }
+
+    public void AddGroupMessage(Entity<NanoChatCardComponent?> card,
+        uint groupId,
+        NanoChatMessage message,
+        bool sentByOwner = false)
+    {
+        if (!Resolve(card, ref card.Comp) || !card.Comp.Groups.ContainsKey(groupId))
+            return;
+
+        if (!card.Comp.GroupMessages.TryGetValue(groupId, out var messages))
+        {
+            messages = new List<NanoChatMessage>();
+            card.Comp.GroupMessages[groupId] = messages;
+        }
+
+        messages.Add(message);
+        TrimHistory(messages, card.Comp.MaxMessagesPerConversation);
+        if (sentByOwner)
+            card.Comp.LastMessageTime = _timing.CurTime;
+        Dirty(card);
+    }
+
+    public bool TryUseGroupManagementCooldown(Entity<NanoChatCardComponent?> card)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return false;
+
+        if (card.Comp.LastGroupManagementTime != TimeSpan.Zero &&
+            _timing.CurTime - card.Comp.LastGroupManagementTime < card.Comp.GroupManagementDelay)
+            return false;
+
+        card.Comp.LastGroupManagementTime = _timing.CurTime;
+        Dirty(card);
+        return true;
+    }
+
+    public static void TrimHistory(List<NanoChatMessage> messages, int maximum)
+    {
+        var removeCount = messages.Count - Math.Max(0, maximum);
+        if (removeCount > 0)
+            messages.RemoveRange(0, removeCount);
+    }
+
+    public bool RemoveGroup(Entity<NanoChatCardComponent?> card, uint groupId)
+    {
+        if (!Resolve(card, ref card.Comp))
+            return false;
+
+        var removed = card.Comp.Groups.Remove(groupId);
+        removed |= card.Comp.GroupMessages.Remove(groupId);
+        if (card.Comp.CurrentGroup == groupId)
+        {
+            card.Comp.CurrentGroup = null;
+            removed = true;
+        }
+
+        if (removed)
+            Dirty(card);
+        return removed;
+    }
+
+    public bool IsBlocked(Entity<NanoChatCardComponent?> card, uint number)
+        => Resolve(card, ref card.Comp) && card.Comp.BlockedNumbers.Contains(number);
+
+    public void SetBlocked(Entity<NanoChatCardComponent?> card, uint number, bool blocked)
+    {
+        if (!Resolve(card, ref card.Comp) || card.Comp.Number == number)
+            return;
+
+        if (blocked)
+            card.Comp.BlockedNumbers.Add(number);
+        else
+            card.Comp.BlockedNumbers.Remove(number);
         Dirty(card);
     }
 
@@ -192,7 +303,10 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
 
         card.Comp.Messages.Clear();
         card.Comp.Recipients.Clear();
+        card.Comp.Groups.Clear();
+        card.Comp.GroupMessages.Clear();
         card.Comp.CurrentChat = null;
+        card.Comp.CurrentGroup = null;
         Dirty(card);
     }
 

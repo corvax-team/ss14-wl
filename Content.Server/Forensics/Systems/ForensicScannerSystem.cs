@@ -1,5 +1,7 @@
 using System.Linq;
-using System.Text;
+// WL-Changes-start: formatted forensic printouts
+using Content.Shared._WL.Forensics;
+// WL-Changes-end
 using Content.Server.Popups;
 using Content.Shared.UserInterface;
 using Content.Shared.DoAfter;
@@ -207,40 +209,17 @@ namespace Content.Server.Forensics
 
             _metaData.SetEntityName(printed, Loc.GetString("forensic-scanner-report-title", ("entity", component.LastScannedName)));
 
-            var text = new StringBuilder();
-
-            text.AppendLine(Loc.GetString("forensic-scanner-interface-fingerprints"));
-            foreach (var fingerprint in component.Fingerprints)
-            {
-                text.AppendLine(fingerprint);
-            }
-            text.AppendLine();
-            text.AppendLine(Loc.GetString("forensic-scanner-interface-fibers"));
-            foreach (var fiber in component.Fibers)
-            {
-                text.AppendLine(fiber);
-            }
-            text.AppendLine();
-            text.AppendLine(Loc.GetString("forensic-scanner-interface-dnas"));
-            foreach (var dna in component.TouchDNAs)
-            {
-                text.AppendLine(dna);
-            }
-            foreach (var dna in component.SolutionDNAs)
-            {
-                Log.Debug(dna);
-                if (component.TouchDNAs.Contains(dna))
-                    continue;
-                text.AppendLine(dna);
-            }
-            text.AppendLine();
-            text.AppendLine(Loc.GetString("forensic-scanner-interface-residues"));
-            foreach (var residue in component.Residues)
-            {
-                text.AppendLine(residue);
-            }
-
-            _paperSystem.SetContent((printed, paperComp), text.ToString());
+            // WL-Changes-start: structured forensic printout
+            var text = ForensicReportFormatter.Format(
+                component.LastScannedName,
+                component.Fingerprints,
+                component.Fibers,
+                component.TouchDNAs,
+                component.SolutionDNAs,
+                component.Residues,
+                Loc.GetString);
+            _paperSystem.SetContent((printed, paperComp), text);
+            // WL-Changes-end
             _audioSystem.PlayPvs(component.SoundPrint, uid,
                 AudioParams.Default
                 .WithVariation(0.25f)

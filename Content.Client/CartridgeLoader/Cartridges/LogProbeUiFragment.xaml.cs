@@ -1,4 +1,5 @@
 ﻿//WL-Changes-NanoChat-Start
+using System.Linq;
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 //WL-Changes-NanoChat-End
 using Content.Shared.CartridgeLoader.Cartridges;
@@ -32,17 +33,17 @@ public sealed partial class LogProbeUiFragment : BoxContainer
 
         ProbedDeviceContainer.RemoveAllChildren();
 
-        var count =  1;
+        var count = logs.Count;
         foreach (var log in logs)
         {
             AddAccessLog(log, count);
-            count++;
+            count--;
         }
 
         var showAccessLogs = nanoChat == null || logs.Count > 0;
-        AccessLogsHeader.Visible = showAccessLogs;
-        AccessLogsScroll.Visible = showAccessLogs;
+        AccessLogsSection.Visible = showAccessLogs;
         UpdateNanoChat(nanoChat);
+        ResultsScroll.VScrollTarget = 0;
     }
 
     private void UpdateNanoChat(NanoChatData? nanoChat)
@@ -60,39 +61,144 @@ public sealed partial class LogProbeUiFragment : BoxContainer
             ? Loc.GetString("log-probe-nanochat-header", ("number", number.ToString("D4")))
             : Loc.GetString("log-probe-nanochat-header-no-number");
 
-        foreach (var (recipientNumber, recipient) in data.Recipients)
+        if (data.BlockedNumbers.Count > 0)
         {
-            var messageCount = data.Messages.TryGetValue(recipientNumber, out var messages) ? messages.Count : 0;
+            var blockedContacts = string.Join(", ", data.BlockedNumbers.Order().Select(blockedNumber =>
+                data.Recipients.TryGetValue(blockedNumber, out var recipient)
+                    ? $"{recipient.Name} #{blockedNumber:D4}"
+                    : $"#{blockedNumber:D4}"));
             NanoChatContactsContainer.AddChild(new Label
             {
-                Text = Loc.GetString("log-probe-nanochat-contact",
-                    ("name", recipient.Name),
-                    ("number", recipientNumber.ToString("D4")),
-                    ("count", messageCount)),
+                Text = Loc.GetString("log-probe-nanochat-blocked-list-ui", ("contacts", blockedContacts)),
                 StyleClasses = { "LabelSubText" },
+                Margin = new Thickness(4, 0, 4, 4),
             });
-
-            if (messages == null)
-                continue;
-
-            foreach (var message in messages)
-            {
-                var direction = message.Sender == data.CardNumber
-                    ? Loc.GetString("log-probe-nanochat-direction-outgoing")
-                    : Loc.GetString("log-probe-nanochat-direction-incoming");
-                var text = Loc.GetString("log-probe-nanochat-message",
-                    ("time", message.Timestamp.ToString(@"hh\:mm")),
-                    ("direction", direction),
-                    ("message", message.Content));
-                var messageLabel = new RichTextLabel
-                {
-                    HorizontalExpand = true,
-                    Margin = new Thickness(8, 1, 2, 2),
-                };
-                messageLabel.SetMessage(FormattedMessage.FromUnformatted(text));
-                NanoChatContactsContainer.AddChild(messageLabel);
-            }
         }
+
+        if (data.Recipients.Count > 0)
+            AddSectionHeading("log-probe-section-direct-chats");
+
+        foreach (var (recipientNumber, recipient) in data.Recipients.OrderBy(pair => pair.Value.Name))
+        {
+            data.Messages.TryGetValue(recipientNumber, out var messages);
+            var messageCount = data.MessageCounts.GetValueOrDefault(recipientNumber, messages?.Count ?? 0);
+            var blocked = data.BlockedNumbers.Contains(recipientNumber)
+                ? Loc.GetString("log-probe-nanochat-blocked-suffix")
+                : string.Empty;
+            var (panel, conversation) = CreateConversationCard(Loc.GetString("log-probe-nanochat-contact",
+                ("name", recipient.Name),
+                ("number", recipientNumber.ToString("D4")),
+                ("count", messageCount),
+                ("blocked", blocked)));
+
+            if (messages != null)
+            {
+                foreach (var message in messages)
+                {
+                    var direction = message.Sender == data.CardNumber
+                        ? Loc.GetString("log-probe-nanochat-direction-outgoing")
+                        : Loc.GetString("log-probe-nanochat-direction-incoming");
+                    var text = Loc.GetString("log-probe-nanochat-message",
+                        ("time", message.Timestamp.ToString(@"hh\:mm")),
+                        ("direction", direction),
+                        ("message", FormattedMessage.RemoveMarkupPermissive(message.Content)));
+                    AddMessageLabel(conversation, text);
+                }
+            }
+
+            AddTruncationNotice(conversation, messages?.Count ?? 0, messageCount);
+            NanoChatContactsContainer.AddChild(panel);
+        }
+
+        if (data.Groups.Count > 0)
+            AddSectionHeading("log-probe-section-group-chats");
+
+        foreach (var (groupId, group) in data.Groups.OrderBy(pair => pair.Value.Name))
+        {
+            data.GroupMessages.TryGetValue(groupId, out var messages);
+            var messageCount = data.GroupMessageCounts.GetValueOrDefault(groupId, messages?.Count ?? 0);
+            var (panel, conversation) = CreateConversationCard(Loc.GetString("log-probe-nanochat-group",
+                ("name", group.Name),
+                ("count", messageCount)));
+
+            if (messages != null)
+            {
+                foreach (var message in messages)
+                {
+                    var sender = group.Members.TryGetValue(message.Sender, out var member)
+                        ? member.Name
+                        : $"#{message.Sender:D4}";
+                    var text = Loc.GetString("log-probe-nanochat-group-message",
+                        ("time", message.Timestamp.ToString(@"hh\:mm")),
+                        ("sender", sender),
+                        ("message", FormattedMessage.RemoveMarkupPermissive(message.Content)));
+                    AddMessageLabel(conversation, text);
+                }
+            }
+
+            AddTruncationNotice(conversation, messages?.Count ?? 0, messageCount);
+            NanoChatContactsContainer.AddChild(panel);
+        }
+    }
+
+    private void AddSectionHeading(string localeKey)
+    {
+        NanoChatContactsContainer.AddChild(new Label
+        {
+            Text = Loc.GetString(localeKey),
+            StyleClasses = { "LabelHeading" },
+            Margin = new Thickness(4, 4, 4, 2),
+        });
+    }
+
+    private static (PanelContainer Panel, BoxContainer Content) CreateConversationCard(string heading)
+    {
+        var content = new BoxContainer
+        {
+            Orientation = LayoutOrientation.Vertical,
+            HorizontalExpand = true,
+            Margin = new Thickness(6, 4),
+        };
+        content.AddChild(new Label
+        {
+            Text = heading,
+            StyleClasses = { "LabelSubText" },
+        });
+
+        var panel = new PanelContainer
+        {
+            HorizontalExpand = true,
+            Margin = new Thickness(0, 0, 0, 4),
+            StyleClasses = { "AngleRect" },
+        };
+        panel.AddChild(content);
+        return (panel, content);
+    }
+
+    private static void AddMessageLabel(BoxContainer conversation, string text)
+    {
+        var messageLabel = new RichTextLabel
+        {
+            HorizontalExpand = true,
+            Margin = new Thickness(8, 1, 2, 1),
+        };
+        messageLabel.SetMessage(FormattedMessage.FromUnformatted(text));
+        conversation.AddChild(messageLabel);
+    }
+
+    private void AddTruncationNotice(BoxContainer conversation, int visibleCount, int totalCount)
+    {
+        if (visibleCount >= totalCount)
+            return;
+
+        conversation.AddChild(new Label
+        {
+            Text = Loc.GetString("log-probe-nanochat-preview-truncated",
+                ("shown", visibleCount),
+                ("total", totalCount)),
+            StyleClasses = { "LabelSubText" },
+            Margin = new Thickness(8, 2, 2, 1),
+        });
     }
     //WL-Changes-NanoChat-End
 

@@ -21,6 +21,11 @@ namespace Content.Shared.CartridgeLoader.Cartridges;
 
 public sealed partial class LogProbeCartridgeSystem : EntitySystem
 {
+    //WL-Changes-LogProbe-Formatting-Start
+    private const string PrintAccentColor = "#445F78";
+    private const string PrintDividerColor = "#77777D";
+    //WL-Changes-LogProbe-Formatting-End
+
     [Dependency] private CartridgeLoaderSystem _cartridge = default!;
     //WL-Changes-NanoChat-NetworkGuard
     [Dependency] private INetManager _net = default!;
@@ -83,13 +88,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
 
         //WL-Changes-NanoChat-Start
         ent.Comp.NanoChat = nanoChatCard != null
-            ? new NanoChatData(
-                new Dictionary<uint, NanoChatRecipient>(nanoChatCard.Recipients),
-                nanoChatCard.Messages.ToDictionary(
-                    pair => pair.Key,
-                    pair => new List<NanoChatMessage>(pair.Value)),
-                nanoChatCard.Number,
-                GetNetEntity(target))
+            ? NanoChatData.FromCard(nanoChatCard, GetNetEntity(target))
             : null;
         //WL-Changes-NanoChat-End
 
@@ -127,56 +126,43 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         _audio.PlayEntity(ent.Comp.PrintSound, user, paper);
         _hands.PickupOrDrop(user, paper, checkActionBlocker: false);
 
-        // generate the actual printout text
+        //WL-Changes-LogProbe-Formatting-Start
+        // Generate the actual printout text.
         var builder = new StringBuilder();
-        builder.AppendLine(Loc.GetString("log-probe-printout-device", ("name", ent.Comp.EntityName)));
+        builder.Append("[head=3][color=").Append(PrintAccentColor).Append(']')
+            .Append(FormattedMessage.EscapeText(Loc.GetString("log-probe-printout-title")))
+            .AppendLine("[/color][/head]");
+        builder.AppendLine(Loc.GetString("log-probe-printout-device-formatted",
+            ("name", FormattedMessage.EscapeText(ent.Comp.EntityName))));
+        builder.Append("[color=").Append(PrintDividerColor)
+            .AppendLine("]────────────────────────[/color]");
 
         //WL-Changes-NanoChat-Start
         if (ent.Comp.NanoChat is { } nanoChat)
-        {
-            builder.AppendLine(nanoChat.CardNumber is { } cardNumber
-                ? Loc.GetString("log-probe-nanochat-header", ("number", cardNumber.ToString("D4")))
-                : Loc.GetString("log-probe-nanochat-header-no-number"));
-
-            foreach (var (recipientNumber, recipient) in nanoChat.Recipients)
-            {
-                var messages = nanoChat.Messages.GetValueOrDefault(recipientNumber);
-                builder.AppendLine(Loc.GetString("log-probe-nanochat-contact",
-                    ("name", FormattedMessage.EscapeText(recipient.Name)),
-                    ("number", recipientNumber.ToString("D4")),
-                    ("count", messages?.Count ?? 0)));
-
-                if (messages == null)
-                    continue;
-
-                foreach (var message in messages)
-                {
-                    var direction = message.Sender == nanoChat.CardNumber
-                        ? Loc.GetString("log-probe-nanochat-direction-outgoing")
-                        : Loc.GetString("log-probe-nanochat-direction-incoming");
-                    builder.AppendLine(Loc.GetString("log-probe-nanochat-message",
-                        ("time", message.Timestamp.ToString(@"hh\:mm")),
-                        ("direction", direction),
-                        ("message", FormattedMessage.EscapeText(message.Content))));
-                }
-            }
-        }
+            AppendNanoChatPrintout(builder, nanoChat);
         //WL-Changes-NanoChat-End
 
         if (ent.Comp.NanoChat == null || ent.Comp.PulledAccessLogs.Count > 0)
         {
-            builder.AppendLine(Loc.GetString("log-probe-printout-header"));
-            var number = 1;
+            AppendPrintSectionHeading(builder, Loc.GetString("log-probe-section-access-logs"));
+            var number = ent.Comp.PulledAccessLogs.Count;
             foreach (var log in ent.Comp.PulledAccessLogs)
             {
                 var time = TimeSpan.FromSeconds(Math.Truncate(log.Time.TotalSeconds)).ToString();
-                builder.AppendLine(Loc.GetString("log-probe-printout-entry", ("number", number), ("time", time), ("accessor", log.Accessor)));
-                number++;
+                builder.AppendLine(Loc.GetString("log-probe-printout-entry-formatted",
+                    ("number", number),
+                    ("time", time),
+                    ("accessor", FormattedMessage.EscapeText(log.Accessor))));
+                number--;
             }
+
+            if (ent.Comp.PulledAccessLogs.Count == 0)
+                builder.AppendLine(Loc.GetString("log-probe-printout-no-access-logs"));
         }
 
         var paperComp = Comp<PaperComponent>(paper);
         _paper.SetContent((paper, paperComp), builder.ToString());
+        //WL-Changes-LogProbe-Formatting-End
 
         _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(user):user} printed out LogProbe logs ({paper}) of {ent.Comp.EntityName}");
         Dirty(ent);
@@ -189,8 +175,103 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
             return;
         //WL-Changes-NanoChat-NetworkGuard-End
 
-        //WL-Changes-NanoChat-LogProbe
-        var state = new LogProbeUiState(ent.Comp.EntityName, ent.Comp.PulledAccessLogs, ent.Comp.NanoChat);
+        //WL-Changes-NanoChat-Start
+        NanoChatData? nanoChatPreview = ent.Comp.NanoChat is { } nanoChat
+            ? NanoChatLogProbePreview.Create(
+                nanoChat,
+                ent.Comp.NanoChatUiMessageLimit,
+                ent.Comp.NanoChatUiMessagesPerConversation)
+            : null;
+        var state = new LogProbeUiState(ent.Comp.EntityName, ent.Comp.PulledAccessLogs, nanoChatPreview);
+        //WL-Changes-NanoChat-End
         _cartridge.UpdateCartridgeUiState(loaderUid, state);
     }
+
+    //WL-Changes-NanoChat-Start
+    private void AppendNanoChatPrintout(StringBuilder builder, NanoChatData nanoChat)
+    {
+        AppendPrintSectionHeading(builder, Loc.GetString("log-probe-section-nanochat"));
+        builder.AppendLine(nanoChat.CardNumber is { } cardNumber
+            ? Loc.GetString("log-probe-nanochat-header-formatted", ("number", cardNumber.ToString("D4")))
+            : Loc.GetString("log-probe-nanochat-header-no-number-formatted"));
+
+        if (nanoChat.BlockedNumbers.Count > 0)
+        {
+            var blocked = string.Join(", ", nanoChat.BlockedNumbers.Order().Select(number => $"#{number:D4}"));
+            builder.AppendLine(Loc.GetString("log-probe-nanochat-blocked-list", ("numbers", blocked)));
+        }
+
+        if (nanoChat.Recipients.Count > 0)
+        {
+            AppendPrintSectionHeading(builder, Loc.GetString("log-probe-section-direct-chats"));
+            foreach (var (recipientNumber, recipient) in nanoChat.Recipients.OrderBy(pair => pair.Value.Name))
+            {
+                var messages = nanoChat.Messages.GetValueOrDefault(recipientNumber);
+                var messageCount = nanoChat.MessageCounts.GetValueOrDefault(recipientNumber, messages?.Count ?? 0);
+                var blocked = nanoChat.BlockedNumbers.Contains(recipientNumber)
+                    ? Loc.GetString("log-probe-nanochat-blocked-suffix")
+                    : string.Empty;
+                builder.AppendLine(Loc.GetString("log-probe-nanochat-contact-formatted",
+                    ("name", FormattedMessage.EscapeText(recipient.Name)),
+                    ("number", recipientNumber.ToString("D4")),
+                    ("count", messageCount),
+                    ("blocked", blocked)));
+
+                if (messages == null)
+                    continue;
+
+                foreach (var message in messages)
+                {
+                    var direction = message.Sender == nanoChat.CardNumber
+                        ? Loc.GetString("log-probe-nanochat-direction-outgoing")
+                        : Loc.GetString("log-probe-nanochat-direction-incoming");
+                    builder.AppendLine(Loc.GetString("log-probe-nanochat-message-formatted",
+                        ("time", message.Timestamp.ToString(@"hh\:mm")),
+                        ("direction", direction),
+                        ("message", FormattedMessage.EscapeText(FormattedMessage.RemoveMarkupPermissive(message.Content)))));
+                }
+            }
+        }
+
+        if (nanoChat.Groups.Count == 0)
+        {
+            if (nanoChat.Recipients.Count == 0)
+                builder.AppendLine(Loc.GetString("log-probe-printout-no-conversations"));
+            return;
+        }
+
+        AppendPrintSectionHeading(builder, Loc.GetString("log-probe-section-group-chats"));
+        foreach (var (groupId, group) in nanoChat.Groups.OrderBy(pair => pair.Value.Name))
+        {
+            var messages = nanoChat.GroupMessages.GetValueOrDefault(groupId);
+            var messageCount = nanoChat.GroupMessageCounts.GetValueOrDefault(groupId, messages?.Count ?? 0);
+            builder.AppendLine(Loc.GetString("log-probe-nanochat-group-formatted",
+                ("name", FormattedMessage.EscapeText(group.Name)),
+                ("count", messageCount)));
+
+            if (messages == null)
+                continue;
+
+            foreach (var message in messages)
+            {
+                var sender = group.Members.TryGetValue(message.Sender, out var member)
+                    ? member.Name
+                    : $"#{message.Sender:D4}";
+                builder.AppendLine(Loc.GetString("log-probe-nanochat-group-message-formatted",
+                    ("time", message.Timestamp.ToString(@"hh\:mm")),
+                    ("sender", FormattedMessage.EscapeText(sender)),
+                    ("message", FormattedMessage.EscapeText(FormattedMessage.RemoveMarkupPermissive(message.Content)))));
+            }
+        }
+    }
+
+    private static void AppendPrintSectionHeading(StringBuilder builder, string title)
+    {
+        builder.AppendLine();
+        builder.Append("[color=").Append(PrintAccentColor).Append("][bold]› ")
+            .Append(FormattedMessage.EscapeText(title))
+            .AppendLine("[/bold][/color]");
+    }
+
+    //WL-Changes-NanoChat-End
 }

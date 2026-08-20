@@ -10,6 +10,8 @@ namespace Content.Server._WL.CartridgeLoader.Cartridges;
 [RegisterComponent, Access(typeof(NanoChatCartridgeSystem))]
 public sealed partial class NanoChatCartridgeComponent : Component
 {
+    public const int MessagePageSize = 50;
+
     /// <summary>
     ///     The station this cartridge's loader currently belongs to.
     /// </summary>
@@ -27,4 +29,10 @@ public sealed partial class NanoChatCartridgeComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<RadioChannelPrototype> RadioChannel = "Common";
+
+    /// <summary>
+    ///     Amount of retained history requested by this open client per conversation.
+    ///     The card applies its own generous storage cap; BUI transfer is paged separately.
+    /// </summary>
+    public Dictionary<Content.Shared._WL.NanoChat.NanoChatConversationId, int> LoadedMessageCounts = new();
 }

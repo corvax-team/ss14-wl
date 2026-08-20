@@ -1,5 +1,6 @@
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Robust.Shared.GameStates;
+using Robust.Shared.Analyzers;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._WL.NanoChat;
@@ -8,10 +9,12 @@ namespace Content.Shared._WL.NanoChat;
 ///     Stores NanoChat data on an ID card. This is the single source of truth for a NanoChat
 ///     identity - the cartridge only keeps a reference to the card that is currently inserted.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedNanoChatSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedNanoChatSystem), Other = AccessPermissions.Read)]
 [AutoGenerateComponentPause, AutoGenerateComponentState]
 public sealed partial class NanoChatCardComponent : Component
 {
+    public const int DefaultMaxMessagesPerConversation = 2048;
+
     /// <summary>
     ///     The number assigned to this card.
     /// </summary>
@@ -31,10 +34,34 @@ public sealed partial class NanoChatCardComponent : Component
     public Dictionary<uint, List<NanoChatMessage>> Messages = new();
 
     /// <summary>
+    ///     Group conversations stored on this card, keyed by a separate group ID.
+    /// </summary>
+    [DataField]
+    public Dictionary<uint, NanoChatGroup> Groups = new();
+
+    /// <summary>
+    ///     Group message history stored on this card.
+    /// </summary>
+    [DataField]
+    public Dictionary<uint, List<NanoChatMessage>> GroupMessages = new();
+
+    /// <summary>
+    ///     NanoChat numbers blocked by this card.
+    /// </summary>
+    [DataField]
+    public HashSet<uint> BlockedNumbers = new();
+
+    /// <summary>
     ///     The currently selected chat recipient number.
     /// </summary>
     [DataField]
     public uint? CurrentChat;
+
+    /// <summary>
+    ///     The currently selected group. Mutually exclusive with <see cref="CurrentChat"/>.
+    /// </summary>
+    [DataField]
+    public uint? CurrentGroup;
 
     /// <summary>
     ///     The maximum amount of recipients this card supports.
@@ -43,10 +70,11 @@ public sealed partial class NanoChatCardComponent : Component
     public int MaxRecipients = 50;
 
     /// <summary>
-    ///     The maximum amount of messages retained per conversation.
+    ///     Maximum retained messages in each direct or group conversation.
+    ///     UI transfer is paged independently of this storage limit.
     /// </summary>
     [DataField]
-    public int MaxMessagesPerChat = 100;
+    public int MaxMessagesPerConversation = DefaultMaxMessagesPerConversation;
 
     /// <summary>
     ///     The minimum delay between messages sent from this card.
@@ -59,6 +87,18 @@ public sealed partial class NanoChatCardComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan LastMessageTime;
+
+    /// <summary>
+    ///     Minimum delay between group management operations.
+    /// </summary>
+    [DataField]
+    public TimeSpan GroupManagementDelay = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    ///     Last group management attempt, kept separate from message sending.
+    /// </summary>
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan LastGroupManagementTime;
 
     /// <summary>
     ///     Whether to send notifications.
