@@ -173,7 +173,7 @@ public sealed class RecordCardView : BoxContainer
         }
 
         var content = field.Source == RecordValueSource.Placeholder
-            ? (Control) value
+            ? (Control)value
             : new PanelContainer
             {
                 HorizontalExpand = true,

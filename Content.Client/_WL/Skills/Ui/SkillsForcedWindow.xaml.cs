@@ -119,7 +119,7 @@ public sealed partial class SkillsForcedWindow : FancyWindow
                 IsLocked = defaultLevel == 4
             };
 
-            skillSelector.UpdateAvailability(unspentPoints, _skillsSystem);
+            skillSelector.UpdateAvailability(unspentPoints);
 
             skillSelector.OnSkillLevelChanged += (newLevel) =>
             {
