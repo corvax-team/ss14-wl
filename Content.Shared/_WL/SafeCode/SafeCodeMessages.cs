@@ -4,33 +4,19 @@ namespace Content.Shared._WL.SafeCode;
 
 
 [Serializable, NetSerializable]
-public sealed class SafeCodeBoundUserInterfaceState : BoundUserInterfaceState
+public sealed class SafeCodeBoundUserInterfaceState(int codeLength, bool locked, bool? lastAttemptCorrect = null) : BoundUserInterfaceState
 {
-    public int CodeLength { get; }
-    public bool Locked { get; }
-    public bool? LastAttemptCorrect { get; }
-
-    public SafeCodeBoundUserInterfaceState(int codeLength, bool locked, bool? lastAttemptCorrect = null)
-    {
-        CodeLength = codeLength;
-        Locked = locked;
-        LastAttemptCorrect = lastAttemptCorrect;
-    }
+    public int CodeLength { get; } = codeLength;
+    public bool Locked { get; } = locked;
+    public bool? LastAttemptCorrect { get; } = lastAttemptCorrect;
 }
 
 
 [Serializable, NetSerializable]
-public sealed class SafeCodeRequestMessage : BoundUserInterfaceMessage
+public sealed class SafeCodeRequestMessage(string code) : BoundUserInterfaceMessage
 {
-    public string Code { get; }
-
-    public SafeCodeRequestMessage(string code)
-    {
-        Code = code;
-    }
+    public string Code { get; } = code;
 }
 
 [Serializable, NetSerializable]
-public sealed class SafeCodeLockRequestMessage : BoundUserInterfaceMessage
-{
-}
+public sealed class SafeCodeLockRequestMessage : BoundUserInterfaceMessage;

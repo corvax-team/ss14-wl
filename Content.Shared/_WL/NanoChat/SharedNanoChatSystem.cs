@@ -66,7 +66,7 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
 
         return card.Comp.Messages.ToDictionary(
             pair => pair.Key,
-            pair => (IReadOnlyList<NanoChatMessage>) pair.Value.ToArray());
+            pair => (IReadOnlyList<NanoChatMessage>)pair.Value.ToArray());
     }
 
     public void SetRecipient(Entity<NanoChatCardComponent?> card, uint number, NanoChatRecipient recipient)
@@ -91,7 +91,7 @@ public abstract partial class SharedNanoChatSystem : EntitySystem
         if (!Resolve(card, ref card.Comp) || !card.Comp.Messages.TryGetValue(recipientNumber, out var messages))
             return null;
 
-        return new List<NanoChatMessage>(messages);
+        return [.. messages];
     }
 
     public void AddMessage(Entity<NanoChatCardComponent?> card,
