@@ -1,9 +1,9 @@
-//WL-Changes-NanoChat-Start
+// WL-Changes-NanoChat-Start
 using System.Linq;
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared._WL.NanoChat;
 using Robust.Shared.Network;
-//WL-Changes-NanoChat-End
+// WL-Changes-NanoChat-End
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -21,14 +21,13 @@ namespace Content.Shared.CartridgeLoader.Cartridges;
 
 public sealed partial class LogProbeCartridgeSystem : EntitySystem
 {
-    //WL-Changes-LogProbe-Formatting-Start
+    // WL-Changes-LogProbe-Formatting-Start
     private const string PrintAccentColor = "#445F78";
     private const string PrintDividerColor = "#77777D";
-    //WL-Changes-LogProbe-Formatting-End
+    // WL-Changes-LogProbe-Formatting-End
 
     [Dependency] private CartridgeLoaderSystem _cartridge = default!;
-    //WL-Changes-NanoChat-NetworkGuard
-    [Dependency] private INetManager _net = default!;
+    [Dependency] private INetManager _net = default!; // WL-Changes: NanoChat
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -37,8 +36,6 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private PaperSystem _paper = default!;
-    //WL-Changes-NanoChat-Dependency
-    [Dependency] private SharedNanoChatSystem _nanoChat = default!;
 
     public override void Initialize()
     {
@@ -129,13 +126,10 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
         //WL-Changes-LogProbe-Formatting-Start
         // Generate the actual printout text.
         var builder = new StringBuilder();
-        builder.Append("[head=3][color=").Append(PrintAccentColor).Append(']')
-            .Append(FormattedMessage.EscapeText(Loc.GetString("log-probe-printout-title")))
-            .AppendLine("[/color][/head]");
+        builder.Append($"[head=3][color={PrintAccentColor}]{FormattedMessage.EscapeText(Loc.GetString("log-probe-printout-title"))}[/color][/head]").AppendLine();
         builder.AppendLine(Loc.GetString("log-probe-printout-device-formatted",
             ("name", FormattedMessage.EscapeText(ent.Comp.EntityName))));
-        builder.Append("[color=").Append(PrintDividerColor)
-            .AppendLine("]────────────────────────[/color]");
+        builder.Append($"[color={PrintDividerColor}]────────────────────────[/color]").AppendLine();
 
         //WL-Changes-NanoChat-Start
         if (ent.Comp.NanoChat is { } nanoChat)
@@ -268,9 +262,7 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem
     private static void AppendPrintSectionHeading(StringBuilder builder, string title)
     {
         builder.AppendLine();
-        builder.Append("[color=").Append(PrintAccentColor).Append("][bold]› ")
-            .Append(FormattedMessage.EscapeText(title))
-            .AppendLine("[/bold][/color]");
+        builder.Append($"[color={PrintAccentColor}][bold]› {FormattedMessage.EscapeText(title)}[/bold][/color]").AppendLine();
     }
 
     //WL-Changes-NanoChat-End

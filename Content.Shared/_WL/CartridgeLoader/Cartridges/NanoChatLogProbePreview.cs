@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Content.Shared._WL.NanoChat;
 
@@ -46,7 +44,7 @@ public static class NanoChatLogProbePreview
             new Dictionary<uint, NanoChatGroup>(source.Groups),
             groupMessages,
             new Dictionary<uint, int>(source.GroupMessageCounts),
-            new HashSet<uint>(source.BlockedNumbers),
+            [.. source.BlockedNumbers],
             source.CardNumber,
             source.Card);
     }

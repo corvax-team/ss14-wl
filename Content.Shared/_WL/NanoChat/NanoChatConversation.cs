@@ -18,57 +18,39 @@ public enum NanoChatConversationType : byte
 /// A display snapshot of a group member. Group permissions remain server-authoritative.
 /// </summary>
 [Serializable, NetSerializable, DataRecord]
-public partial struct NanoChatGroupMember
-{
-    public uint Number;
-    public string Name;
-    public string? JobTitle;
-    public ProtoId<JobIconPrototype> JobIcon;
-    public bool IsAdmin;
-
-    public NanoChatGroupMember(
+public partial struct NanoChatGroupMember(
         uint number,
         string name,
         string? jobTitle = null,
         ProtoId<JobIconPrototype>? jobIcon = null,
         bool isAdmin = false)
-    {
-        Number = number;
-        Name = name;
-        JobTitle = jobTitle;
-        JobIcon = jobIcon ?? "JobIconUnknown";
-        IsAdmin = isAdmin;
-    }
+{
+    public uint Number = number;
+    public string Name = name;
+    public string? JobTitle = jobTitle;
+    public ProtoId<JobIconPrototype> JobIcon = jobIcon ?? "JobIconUnknown";
+    public bool IsAdmin = isAdmin;
 }
 
 /// <summary>
 /// Card-local group metadata. Message history is stored separately on the card.
 /// </summary>
 [Serializable, NetSerializable, DataRecord]
-public partial struct NanoChatGroup
+public partial struct NanoChatGroup(
+        uint id,
+        string name,
+        Dictionary<uint, NanoChatGroupMember> members,
+        bool hasUnread = false,
+        bool notificationsMuted = false)
 {
     public const int MaxMembers = 64;
     public const int MaxNameLength = 32;
     public const int MaxNameMarkupLength = 128;
     public const int MaxGroupsPerCreator = 8;
 
-    public uint Id;
-    public string Name;
-    public Dictionary<uint, NanoChatGroupMember> Members;
-    public bool HasUnread;
-    public bool NotificationsMuted;
-
-    public NanoChatGroup(
-        uint id,
-        string name,
-        Dictionary<uint, NanoChatGroupMember> members,
-        bool hasUnread = false,
-        bool notificationsMuted = false)
-    {
-        Id = id;
-        Name = name;
-        Members = members;
-        HasUnread = hasUnread;
-        NotificationsMuted = notificationsMuted;
-    }
+    public uint Id = id;
+    public string Name = name;
+    public Dictionary<uint, NanoChatGroupMember> Members = members;
+    public bool HasUnread = hasUnread;
+    public bool NotificationsMuted = notificationsMuted;
 }

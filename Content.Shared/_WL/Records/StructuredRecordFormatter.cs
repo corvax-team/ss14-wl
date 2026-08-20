@@ -188,11 +188,11 @@ public static class StructuredRecordFormatter
     {
         if (string.IsNullOrWhiteSpace(value))
         {
-            builder.Append($"[color={PlaceholderColor}][italic]{Escape(fallback)}").AppendLine("[/italic][/color]");
+            builder.Append($"[color={PlaceholderColor}][italic]{Escape(fallback)}[/italic][/color]").AppendLine();
             return;
         }
 
-        builder.Append($"[color={color}]{Escape(value.Trim())}").AppendLine("[/color]");
+        builder.Append($"[color={color}]{Escape(value.Trim())}[/color]").AppendLine();
     }
 
     private static string Escape(string value) => FormattedMessage.EscapeText(value);
