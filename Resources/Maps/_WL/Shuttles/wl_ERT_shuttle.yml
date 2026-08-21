@@ -36,7 +36,6 @@ entities:
     - type: MetaData
       name: NT-ERT-224 "Воспрещающий"
     - type: Transform
-      pos: -0.49305555,-0.49305555
       parent: invalid
     - type: MapGrid
       chunks:

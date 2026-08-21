@@ -25,9 +25,8 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: NT Evac PA-165
+      name: NTP Emergency "Кейс"
     - type: Transform
-      pos: -0.42187548,-0.4453125
     - type: MapGrid
       chunks:
         0,0:

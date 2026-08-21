@@ -34,9 +34,8 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: NT Kvass JL-514
+      name: NT-RCC-514 "Квас"
     - type: Transform
-      pos: -0.683745,-0.60096264
     - type: MapGrid
       chunks:
         0,0:

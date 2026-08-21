@@ -29,9 +29,8 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: Fenrir-evac
+      name: NTF Emergency "Клоп"
     - type: Transform
-      pos: -0.5234375,-0.4765625
       parent: invalid
     - type: MapGrid
       chunks:

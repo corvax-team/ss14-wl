@@ -109,9 +109,8 @@ entities:
   - uid: 24967
     components:
     - type: MetaData
-      name: NSHOE 72G "Мамкин буйвол"
+      name: NT-SEC SHO-726 "Мамкин буйвол"
     - type: Transform
-      pos: -3.6805258,-1.0227704
       parent: invalid
     - type: MapGrid
       chunks:

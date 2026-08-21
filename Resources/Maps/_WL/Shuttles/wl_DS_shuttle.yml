@@ -30,7 +30,6 @@ entities:
     - type: MetaData
       name: ERR-#%!* "Линчеватель"
     - type: Transform
-      pos: -0.4861111,-0.4965278
       parent: invalid
     - type: MapGrid
       chunks:
