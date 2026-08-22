@@ -1,4 +1,5 @@
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._WL.Android;
 
@@ -41,10 +42,10 @@ public sealed partial class AndroidComponent : Component
     public SoundSpecifier ToggleLightSound = new SoundPathSpecifier("/Audio/Machines/button.ogg");
 
     [DataField("lightPrototype")]
-    public String LightEntityPrototype = "AndroidLightMarker";
+    public EntProtoId LightEntityPrototype = "AndroidLightMarker";
 
     [DataField]
-    public string TogglelLightAction = "ActionToggleAndroidLight";
+    public EntProtoId TogglelLightAction = "ActionToggleAndroidLight";
 
     [DataField]
     public float LightBaseRadius = 3.5f;
