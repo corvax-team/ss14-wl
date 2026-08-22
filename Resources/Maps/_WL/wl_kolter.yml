@@ -37275,7 +37275,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -28.5,41.5
     - type: GridFill
-      path: /Maps/_WL/Shuttles/wl_kolter_sec.yml
+      path: /Maps/_WL/Shuttles/Kolter/wl_kolter_sec.yml
       addComponents: []
   - uid: 25821
     components:
