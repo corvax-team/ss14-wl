@@ -1,0 +1,45 @@
+<ui:PaperFieldEditPopup xmlns="https://spacestation14.io"
+                        xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                        xmlns:ui="clr-namespace:Content.Client._WL.Paper.UI"
+                        MouseFilter="Stop">
+    <PanelContainer StyleClasses="BorderedWindowPanel">
+        <BoxContainer Orientation="Vertical" Margin="8" MinWidth="260">
+            <BoxContainer Name="SingleLineContainer" Orientation="Horizontal" SeparationOverride="5">
+                <LineEdit Name="SingleLineInput" HorizontalExpand="True" MinWidth="220" />
+                <Button Name="SingleLineSaveButton"
+                        Text="✓"
+                        MinWidth="30"
+                        ToolTip="{Loc 'paper-ui-form-field-confirm-tooltip'}" />
+            </BoxContainer>
+
+            <BoxContainer Name="MultilineContainer" Orientation="Vertical" MinWidth="340">
+                <PanelContainer HorizontalExpand="True" MinHeight="100">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#202126" BorderColor="#60636d" BorderThickness="1" />
+                    </PanelContainer.PanelOverride>
+                    <TextEdit Name="MultilineInput"
+                              HorizontalExpand="True"
+                              VerticalExpand="True"
+                              Margin="5" />
+                </PanelContainer>
+                <BoxContainer Orientation="Horizontal" Margin="0 5 0 0">
+                    <Label Name="MultilineHint"
+                           StyleClasses="LabelSecondaryColor"
+                           FontColorOverride="#9a9a9a"
+                           Margin="0 2 8 0"
+                           HorizontalExpand="True" />
+                    <Button Name="MultilineSaveButton"
+                            Text="✓"
+                            MinWidth="30"
+                            ToolTip="{Loc 'paper-ui-form-field-confirm-tooltip'}" />
+                </BoxContainer>
+            </BoxContainer>
+
+            <Label Name="FillStatus"
+                   StyleClasses="LabelSecondaryColor"
+                   FontColorOverride="#7e7e7e"
+                   HorizontalAlignment="Right"
+                   Margin="0 3 0 0" />
+        </BoxContainer>
+    </PanelContainer>
+</ui:PaperFieldEditPopup>

@@ -6,6 +6,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
+using Content.Shared._WL.Paper;
 using Content.Shared.Paper;
 using Content.Shared.Verbs;
 using Robust.Shared.Timing;
@@ -25,7 +26,7 @@ namespace Content.Server._WL.Documents
         {
             base.Initialize();
 
-            SubscribeLocalEvent<PrintedDocumentFormatComponent, MapInitEvent>(OnMapInit);
+            SubscribeLocalEvent<PrintedDocumentFormatComponent, MapInitEvent>(OnMapInit, after: [typeof(PaperSystem)]);
             SubscribeLocalEvent<PrintedDocumentFormatComponent, GotEquippedHandEvent>(OnPick);
             SubscribeLocalEvent<PrintedDocumentFormatComponent, GetVerbsEvent<AlternativeVerb>>(OnVerb);
             SubscribeLocalEvent<PrintedDocumentFormatComponent, InteractUsingEvent>(OnInteract, before: [typeof(PaperSystem)]);
@@ -46,11 +47,11 @@ namespace Content.Server._WL.Documents
 
             var formattedDate = $"{_gameTime.CurTime.Subtract(_gameTick.RoundStartTimeSpan).ToString(@"hh\:mm\:ss")} {DateTime.Now.AddYears(-1700):dd.MM.yyy}";
 
-            var content = Loc.GetString(paperComp.Content)
-                .Replace(Loc.GetString("doc-var-date"), formattedDate)
-                .Replace(Loc.GetString("doc-var-station"), stationName ?? "Station XX-000");
-
-            _paper.SetContent((document, paperComp), content);
+            FormatDocument(
+                (document, paperComp),
+                true,
+                (Loc.GetString("doc-var-date"), formattedDate),
+                (Loc.GetString("doc-var-station"), stationName ?? "Station XX-000"));
         }
 
         private void OnPick(EntityUid document, PrintedDocumentFormatComponent comp, GotEquippedHandEvent args)
@@ -103,11 +104,28 @@ namespace Content.Server._WL.Documents
             _mind.TryGetMind(user, out var mindId, out _);
             var job = _job.MindTryGetJobName(mindId);
 
-            var content = paper.Comp.Content
-                .Replace(Loc.GetString("doc-var-name"), Identity.Name(user, EntityManager))
-                .Replace(Loc.GetString("doc-var-job"), job != null ? TextTools.CapitalizeString(job) : null);
+            FormatDocument(
+                paper,
+                false,
+                (Loc.GetString("doc-var-name"), Identity.Name(user, EntityManager)),
+                (Loc.GetString("doc-var-job"), job != null ? TextTools.CapitalizeString(job) : string.Empty));
+        }
 
-            _paper.SetContent(paper, content);
+        private void FormatDocument(
+            Entity<PaperComponent> paper,
+            bool localizeLegacy,
+            params (string Search, string Replacement)[] replacements)
+        {
+            if (localizeLegacy && !HasComp<StructuredPaperComponent>(paper))
+                _paper.SetContent(paper, Loc.GetString(paper.Comp.Content));
+
+            _paper.TransformContent(paper, content =>
+            {
+                foreach (var (search, replacement) in replacements)
+                    content = content.Replace(search, replacement);
+
+                return content;
+            });
         }
     }
 }

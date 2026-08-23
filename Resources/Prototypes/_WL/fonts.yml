@@ -1,3 +1,23 @@
 - type: font
   id: WingdingsPixel
   path: /Fonts/_WL/Pixelated-Wingdings.ttf
+
+- type: font
+  id: HandwritingNeat
+  path: /Fonts/_WL/Handwriting/BadScript/BadScript-Regular.ttf
+
+- type: font
+  id: HandwritingQuick
+  path: /Fonts/_WL/Handwriting/Caveat/Caveat.ttf
+
+- type: font
+  id: HandwritingFormal
+  path: /Fonts/_WL/Handwriting/MarckScript/MarckScript-Regular.ttf
+
+- type: font
+  id: HandwritingHeavy
+  path: /Fonts/_WL/Handwriting/Pangolin/Pangolin-Regular.ttf
+
+- type: font
+  id: HandwritingMessy
+  path: /Fonts/_WL/Handwriting/Neucha/Neucha.ttf

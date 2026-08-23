@@ -25,4 +25,10 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     /// </summary>
     [DataField]
     public int? MaxTraitPoints;
+
+    /// <summary>
+    /// Selecting a trait replaces the previously selected trait in this category.
+    /// </summary>
+    [DataField]
+    public bool MutuallyExclusive;
 }

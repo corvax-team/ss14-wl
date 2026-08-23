@@ -822,6 +822,21 @@ namespace Content.Shared.Preferences
 
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
 
+            if (traitCategory?.MutuallyExclusive == true)
+            {
+                foreach (var selected in list.ToArray())
+                {
+                    if (selected == traitId ||
+                        !protoManager.TryIndex<TraitPrototype>(selected, out var selectedProto) ||
+                        selectedProto.Category != category)
+                    {
+                        continue;
+                    }
+
+                    list.Remove(selected);
+                }
+            }
+
             if (traitCategory == null || traitCategory.MaxTraitPoints < 0)
             {
                 return new(this)
@@ -1205,6 +1220,7 @@ namespace Content.Shared.Preferences
         {
             // Track points count for each group.
             var groups = new Dictionary<string, int>();
+            var exclusiveGroups = new HashSet<string>();
             var result = new List<ProtoId<TraitPrototype>>();
 
             foreach (var trait in traits)
@@ -1221,6 +1237,9 @@ namespace Content.Shared.Preferences
 
                 // No category so dump it.
                 if (!protoManager.Resolve(traitProto.Category, out var category))
+                    continue;
+
+                if (category.MutuallyExclusive && !exclusiveGroups.Add(category.ID))
                     continue;
 
                 var existing = groups.GetOrNew(category.ID);

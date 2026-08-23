@@ -3,6 +3,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Corvax.Documents;
 using Content.Shared.GameTicking;
 using Content.Shared.Lathe;
+using Content.Shared._WL.Paper; // WL-Changes: Structured paper forms
 using Content.Shared.Paper;
 using Content.Shared.Station;
 
@@ -28,20 +29,31 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
         var station = _station.GetOwningStation(result.ResultItem);
         var stationName = station != null ? Name(station.Value) : null;
 
-        if (_itemSlots.TryGetSlot(ent.Owner, ent.Comp.SlotName, out var slot) && slot.Item is { Valid: true } idCardEntity
-            && TryComp<IdCardComponent>(idCardEntity, out var idCard))
+        // WL-Changes-StructuredPaper-Start
+        IdCardComponent? idCard = null;
+        if (_itemSlots.TryGetSlot(ent.Owner, ent.Comp.SlotName, out var slot) &&
+            slot.Item is { Valid: true } idCardEntity)
         {
-            _paper.SetContent(result.ResultItem, FormatString(Loc.GetString(paperComp.Content), stationName, idCard));
+            TryComp(idCardEntity, out idCard);
         }
-        else
-        {
-            _paper.SetContent(result.ResultItem, FormatString(Loc.GetString(paperComp.Content), stationName));
-        }
+
+        var stationTime = GetTimeStation();
+        if (!HasComp<StructuredPaperComponent>(result.ResultItem))
+            _paper.SetContent(result.ResultItem, Loc.GetString(paperComp.Content));
+
+        _paper.TransformContent((result.ResultItem, paperComp), content =>
+            FormatString(content, stationName, idCard, stationTime));
+        // WL-Changes-StructuredPaper-End
     }
 
-    public string FormatString(string content, string? station, IdCardComponent? idCard = null)
+    // WL-Changes-StructuredPaper-Start
+    public string FormatString(
+        string content,
+        string? station,
+        IdCardComponent? idCard = null,
+        string? stationTime = null)
     {
-        var stationTime = GetTimeStation();
+        stationTime ??= GetTimeStation();
 
         content = content
             .Replace(Loc.GetString("doc-var-date"), stationTime)
@@ -53,6 +65,7 @@ public sealed partial class DocumentPrinterSystem : EntitySystem
 
         return content;
     }
+    // WL-Changes-StructuredPaper-End
 
     private string GetTimeStation()
     {

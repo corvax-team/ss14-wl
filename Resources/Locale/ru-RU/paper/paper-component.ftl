@@ -9,6 +9,7 @@ paper-component-examine-detail-has-words = На листе что-то напи�
 paper-component-examine-detail-stamped-by = На { CAPITALIZE($paper) } имеются следующие печати: { $stamps }.
 paper-component-illiterate = Вы не можете писать.
 paper-component-illiterate-mime = Ваш обет запрещает вам писать.
+paper-component-write-field-no-pen = Чтобы заполнить поле, нужно держать ручку в активной руке.
 
 paper-component-action-stamp-paper-other = { CAPITALIZE($user) } ставит печать на { $target } с помощью { $stamp }.
 paper-component-action-stamp-paper-self = Вы ставите печать на { $target } с помощью { $stamp }.

@@ -1,0 +1,37 @@
+- type: entity
+  parent: Paper
+  id: PaperStructuredFormExample
+  components:
+  - type: StructuredPaper
+    elements:
+    - id: header
+      type: StaticText
+      locId: structured-paper-example-header
+    - id: title
+      type: StaticText
+      locId: structured-paper-example-title
+    - id: employee-name-label
+      type: StaticText
+      locId: structured-paper-example-employee-name-label
+    - id: employee-name
+      type: SingleLineField
+    - id: position-label
+      type: StaticText
+      locId: structured-paper-example-position-label
+    - id: position
+      type: SingleLineField
+    - id: reason-label
+      type: StaticText
+      locId: structured-paper-example-reason-label
+    - id: reason
+      type: MultilineField
+    - id: date-label
+      type: StaticText
+      locId: structured-paper-example-date-label
+    - id: date
+      type: SingleLineField
+    - id: signature-label
+      type: StaticText
+      locId: structured-paper-example-signature-label
+    - id: signature
+      type: SingleLineField

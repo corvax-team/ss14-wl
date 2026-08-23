@@ -1,6 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using Content.Shared._WL.Paper; // WL-Changes: Structured paper forms
 
 namespace Content.Shared.Paper;
 
@@ -38,12 +39,28 @@ public sealed partial class PaperComponent : Component
         public readonly string Text;
         public readonly List<StampDisplayInfo> StampedBy;
         public readonly PaperAction Mode;
+        // WL-Changes-StructuredPaper-Start
+        public readonly List<StructuredPaperElement>? Elements;
+        public readonly PaperEditAccess EditAccess;
+        public readonly NetEntity? Editor;
+        // WL-Changes-StructuredPaper-End
 
-        public PaperBoundUserInterfaceState(string text, List<StampDisplayInfo> stampedBy, PaperAction mode = PaperAction.Read)
+        public PaperBoundUserInterfaceState(
+            string text,
+            List<StampDisplayInfo> stampedBy,
+            PaperAction mode = PaperAction.Read,
+            List<StructuredPaperElement>? elements = null,
+            PaperEditAccess editAccess = PaperEditAccess.None,
+            NetEntity? editor = null)
         {
             Text = text;
             StampedBy = stampedBy;
             Mode = mode;
+            // WL-Changes-StructuredPaper-Start
+            Elements = elements;
+            EditAccess = editAccess;
+            Editor = editor;
+            // WL-Changes-StructuredPaper-End
         }
     }
 
@@ -57,6 +74,76 @@ public sealed partial class PaperComponent : Component
             Text = text;
         }
     }
+
+    // WL-Changes-StructuredPaper-Start
+    [Serializable, NetSerializable]
+    public sealed class PaperInputFieldMessage : BoundUserInterfaceMessage
+    {
+        public readonly string FieldId;
+        public readonly string Text;
+
+        public PaperInputFieldMessage(string fieldId, string text)
+        {
+            FieldId = fieldId;
+            Text = text;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class PaperRequestFieldEditMessage : BoundUserInterfaceMessage
+    {
+        public readonly string FieldId;
+
+        public PaperRequestFieldEditMessage(string fieldId)
+        {
+            FieldId = fieldId;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class PaperSignFieldMessage : BoundUserInterfaceMessage
+    {
+        public readonly string FieldId;
+
+        public PaperSignFieldMessage(string fieldId)
+        {
+            FieldId = fieldId;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class PaperAppendTextMessage : BoundUserInterfaceMessage
+    {
+        public readonly string Text;
+
+        public PaperAppendTextMessage(string text)
+        {
+            Text = text;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class PaperAppendElementsMessage : BoundUserInterfaceMessage
+    {
+        public readonly List<StructuredPaperElement> Elements;
+
+        public PaperAppendElementsMessage(List<StructuredPaperElement> elements)
+        {
+            Elements = elements;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class PaperInputStructureMessage : BoundUserInterfaceMessage
+    {
+        public readonly List<StructuredPaperElement> Elements;
+
+        public PaperInputStructureMessage(List<StructuredPaperElement> elements)
+        {
+            Elements = elements;
+        }
+    }
+    // WL-Changes-StructuredPaper-End
 
     [Serializable, NetSerializable]
     public enum PaperUiKey

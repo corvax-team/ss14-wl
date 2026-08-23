@@ -1,7 +1,10 @@
 using System.Linq;
 using Content.Client.Lobby.UI.Roles;
 using Content.Client.Stylesheets;
+using Content.Shared._WL.Paper;
 using Content.Shared.Traits;
+using Robust.Client.Graphics;
+using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 
@@ -75,6 +78,18 @@ public sealed partial class HumanoidProfileEditor
                 var trait = _prototypeManager.Index<TraitPrototype>(traitProto);
                 var selector = new TraitPreferenceSelector(trait);
 
+                // WL-StructuredPaper-Start: show handwriting choices in their actual in-game font.
+                if (trait.Components.TryGetComponent(
+                        _entManager.ComponentFactory,
+                        out PaperHandwritingComponent? handwriting))
+                {
+                    var (path, size) = GetHandwritingPreview(handwriting.Style);
+                    selector.Checkbox.Label.FontOverride = new VectorFont(
+                        _resManager.GetResource<FontResource>(path),
+                        size);
+                }
+                // WL-StructuredPaper-End
+
                 selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
                 if (selector.Preference)
                     selectionCount += trait.Cost;
@@ -111,7 +126,7 @@ public sealed partial class HumanoidProfileEditor
                 if (selector == null)
                     continue;
 
-                if (category is { MaxTraitPoints: >= 0 } &&
+                if (category is { MaxTraitPoints: >= 0, MutuallyExclusive: false } &&
                     selector.Cost + selectionCount > category.MaxTraitPoints)
                 {
                     selector.Checkbox.Label.FontColorOverride = Color.Red;
@@ -121,4 +136,19 @@ public sealed partial class HumanoidProfileEditor
             }
         }
     }
+
+    // WL-StructuredPaper-Start
+    private static (ResPath Path, int Size) GetHandwritingPreview(PaperHandwritingStyle style)
+    {
+        return style switch
+        {
+            PaperHandwritingStyle.Neat => (new ResPath("/Fonts/_WL/Handwriting/BadScript/BadScript-Regular.ttf"), 15),
+            PaperHandwritingStyle.Quick => (new ResPath("/Fonts/_WL/Handwriting/Caveat/Caveat.ttf"), 17),
+            PaperHandwritingStyle.Formal => (new ResPath("/Fonts/_WL/Handwriting/MarckScript/MarckScript-Regular.ttf"), 16),
+            PaperHandwritingStyle.Heavy => (new ResPath("/Fonts/_WL/Handwriting/Pangolin/Pangolin-Regular.ttf"), 14),
+            PaperHandwritingStyle.Messy => (new ResPath("/Fonts/_WL/Handwriting/Neucha/Neucha.ttf"), 16),
+            _ => (new ResPath("/Fonts/NotoSans/NotoSans-Regular.ttf"), 12),
+        };
+    }
+    // WL-StructuredPaper-End
 }

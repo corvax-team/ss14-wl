@@ -38,6 +38,7 @@ using Content.Shared.Examine;
 using Content.Shared.Whitelist;
 using Content.Shared._WL.Fax.Messages;
 using Robust.Shared.Timing;
+using Content.Shared._WL.Paper; // WL-Changes: Structured paper forms
 
 namespace Content.Server.Fax;
 
@@ -412,8 +413,22 @@ public sealed partial class FaxSystem : EntitySystem
                     args.Data.TryGetValue(FaxConstants.FaxPaperPrototypeData, out string? prototypeId);
                     args.Data.TryGetValue(FaxConstants.FaxPaperLockedData, out bool? locked);
                     args.Data.TryGetValue(FaxConstants.FaxPaperSenderFaxNameData, out string? senderFaxName);
+                    // WL-Changes-StructuredPaper-Start
+                    args.Data.TryGetValue(
+                        FaxConstants.FaxPaperStructuredElementsData,
+                        out List<StructuredPaperElement>? structuredElements);
+                    // WL-Changes-StructuredPaper-End
 
-                    var printout = new FaxPrintout(content, name, label, prototypeId, stampState, stampedBy, locked ?? false, senderFaxName);
+                    var printout = new FaxPrintout(
+                        content,
+                        name,
+                        label,
+                        prototypeId,
+                        stampState,
+                        stampedBy,
+                        locked ?? false,
+                        senderFaxName,
+                        structuredElements);
                     Receive(uid, printout, args.SenderAddress);
 
                     break;
@@ -617,13 +632,19 @@ public sealed partial class FaxSystem : EntitySystem
         TryComp<NameModifierComponent>(sendEntity, out var nameMod);
 
         // TODO: See comment in 'Send()' about not being able to copy whole entities
+        // WL-Changes-StructuredPaper-Start
+        var structuredElements = TryComp<StructuredPaperComponent>(sendEntity, out var structured)
+            ? structured.Elements.ConvertAll(element => element.Copy())
+            : null;
+        // WL-Changes-StructuredPaper-End
         var printout = new FaxPrintout(paper.Content,
-                                       nameMod?.BaseName ?? metadata.EntityName,
-                                       labelComponent?.CurrentLabel,
-                                       metadata.EntityPrototype?.ID ?? component.PrintPaperId,
-                                       paper.StampState,
-                                       paper.StampedBy,
-                                       paper.EditingDisabled);
+            nameMod?.BaseName ?? metadata.EntityName,
+            labelComponent?.CurrentLabel,
+            metadata.EntityPrototype?.ID ?? component.PrintPaperId,
+            paper.StampState,
+            paper.StampedBy,
+            paper.EditingDisabled,
+            structuredElements: structuredElements);
 
         component.PrintingQueue.Enqueue(printout);
         component.SendTimeoutRemaining += component.SendTimeout;
@@ -671,6 +692,11 @@ public sealed partial class FaxSystem : EntitySystem
         TryComp<LabelComponent>(sendEntity, out var labelComponent);
 
         var content = paper.Content;
+        // WL-Changes-StructuredPaper-Start
+        var structuredElements = TryComp<StructuredPaperComponent>(sendEntity, out var structured)
+            ? structured.Elements.ConvertAll(element => element.Copy())
+            : null;
+        // WL-Changes-StructuredPaper-End
 
         if (component.AddSenderInfo)
         {
@@ -681,14 +707,30 @@ public sealed partial class FaxSystem : EntitySystem
             var time = _gameTicker.RoundDuration();
             var timeString = TimeSpan.FromSeconds(Math.Truncate(time.TotalSeconds)).ToString();
 
-            content += "\n";
-            content += Loc.GetString(component.SenderInfo,
+            var senderInfo = Loc.GetString(component.SenderInfo,
                 ("sender_name", component.FaxName),
                 ("sender_addr", faxMachineAddress),
                 ("recipient_name", component.DestinationFaxName ?? Loc.GetString("fax-machine-popup-source-unknown")),
                 ("recipient_addr", component.DestinationFaxAddress),
                 ("time", timeString)
             );
+            content += "\n" + senderInfo;
+
+            // WL-Changes-StructuredPaper-Start
+            if (structuredElements != null)
+            {
+                var senderInfoId = "fax-sender-info";
+                var suffix = 2;
+                while (structuredElements.Exists(element => element.Id == senderInfoId))
+                    senderInfoId = $"fax-sender-info-{suffix++}";
+
+                structuredElements.Add(new StructuredPaperElement(
+                    senderInfoId,
+                    StructuredPaperElementType.StaticText,
+                    "\n" + senderInfo,
+                    newLineAfter: false));
+            }
+            // WL-Changes-StructuredPaper-End
         }
 
         var payload = new NetworkPayload()
@@ -715,6 +757,11 @@ public sealed partial class FaxSystem : EntitySystem
             payload[FaxConstants.FaxPaperStampStateData] = paper.StampState;
             payload[FaxConstants.FaxPaperStampedByData] = paper.StampedBy;
         }
+
+        // WL-Changes-StructuredPaper-Start
+        if (structuredElements != null)
+            payload[FaxConstants.FaxPaperStructuredElementsData] = structuredElements;
+        // WL-Changes-StructuredPaper-End
 
         _deviceNetworkSystem.QueuePacket(uid, component.DestinationFaxAddress, payload);
 
@@ -776,7 +823,22 @@ public sealed partial class FaxSystem : EntitySystem
 
         if (TryComp<PaperComponent>(printed, out var paper))
         {
-            _paperSystem.SetContent((printed, paper), printout.Content);
+            // WL-Changes-StructuredPaper-Start
+            if (printout.StructuredElements != null)
+            {
+                var structured = EnsureComp<StructuredPaperComponent>(printed);
+                structured.TemplateLocId = null;
+                structured.Elements = printout.StructuredElements.ConvertAll(element => element.Copy());
+                _paperSystem.RefreshStructuredContent((printed, paper), structured);
+            }
+            else
+            {
+                // Old queued/networked printouts do not carry element data. If they reference a prototype which is
+                // structured now, preserve their actual transmitted text as a legacy free-form copy.
+                RemComp<StructuredPaperComponent>(printed);
+                _paperSystem.SetContent((printed, paper), printout.Content);
+            }
+            // WL-Changes-StructuredPaper-End
 
             // Apply stamps
             if (printout.StampState != null)
@@ -788,6 +850,7 @@ public sealed partial class FaxSystem : EntitySystem
             }
 
             paper.EditingDisabled = printout.Locked;
+            Dirty(printed, paper); // WL-Changes: EditingDisabled is networked.
         }
 
         _metaData.SetEntityName(printed, printout.Name);

@@ -8,6 +8,7 @@ humanoid-profile-editor-sex-label = Пол:
 humanoid-profile-editor-sex-male-text = Мужской
 humanoid-profile-editor-sex-female-text = Женский
 humanoid-profile-editor-sex-unsexed-text = Отсутствует
+humanoid-profile-editor-voice-label = Голос:
 humanoid-profile-editor-age-label = Возраст:
 humanoid-profile-editor-skin-color-label = Цвет кожи:
 humanoid-profile-editor-species-label = Вид:

@@ -1,6 +1,7 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Materials;
 using Content.Shared.Paper;
+using Content.Shared._WL.Paper; // WL-Changes: Structured paper forms
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -211,11 +212,25 @@ public sealed partial class FaxPrintout
     [DataField]
     public string? SenderFaxName { get; private set; } = default!;
 
+    // WL-Changes-StructuredPaper-Start
+    [DataField]
+    public List<StructuredPaperElement>? StructuredElements { get; private set; }
+    // WL-Changes-StructuredPaper-End
+
     private FaxPrintout()
     {
     }
 
-    public FaxPrintout(string content, string name, string? label = null, string? prototypeId = null, string? stampState = null, List<StampDisplayInfo>? stampedBy = null, bool locked = false, string? senderFaxName = null)
+    public FaxPrintout(
+        string content,
+        string name,
+        string? label = null,
+        string? prototypeId = null,
+        string? stampState = null,
+        List<StampDisplayInfo>? stampedBy = null,
+        bool locked = false,
+        string? senderFaxName = null,
+        List<StructuredPaperElement>? structuredElements = null)
     {
         Content = content;
         Name = name;
@@ -225,5 +240,8 @@ public sealed partial class FaxPrintout
         StampedBy = stampedBy ?? new List<StampDisplayInfo>();
         Locked = locked;
         SenderFaxName = senderFaxName;
+        // WL-Changes-StructuredPaper-Start
+        StructuredElements = structuredElements?.ConvertAll(element => element.Copy());
+        // WL-Changes-StructuredPaper-End
     }
 }

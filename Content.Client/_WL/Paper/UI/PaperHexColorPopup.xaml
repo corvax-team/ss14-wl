@@ -1,0 +1,11 @@
+<ui:PaperHexColorPopup xmlns="https://spacestation14.io"
+                       xmlns:ui="clr-namespace:Content.Client._WL.Paper.UI">
+    <PanelContainer StyleClasses="BorderedWindowPanel">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="5" Margin="8">
+            <LineEdit Name="HexInput" Text="#1b487e" MinWidth="110"
+                      PlaceHolder="{Loc 'paper-ui-form-format-color-hex-placeholder'}" />
+            <Button Name="ConfirmButton" Text="✓" MinWidth="30"
+                    ToolTip="{Loc 'paper-ui-form-format-color-apply'}" />
+        </BoxContainer>
+    </PanelContainer>
+</ui:PaperHexColorPopup>

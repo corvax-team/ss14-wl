@@ -1,0 +1,65 @@
+- type: traitCategory
+  id: Handwriting
+  name: trait-category-handwriting
+  maxTraitPoints: 1
+  mutuallyExclusive: true
+
+- type: trait
+  id: HandwritingDefault
+  name: trait-handwriting-default-name
+  description: trait-handwriting-default-desc
+  category: Handwriting
+  cost: 1
+  components:
+  - type: PaperHandwriting
+    style: Default
+
+- type: trait
+  id: HandwritingNeat
+  name: trait-handwriting-neat-name
+  description: trait-handwriting-neat-desc
+  category: Handwriting
+  cost: 1
+  components:
+  - type: PaperHandwriting
+    style: Neat
+
+- type: trait
+  id: HandwritingQuick
+  name: trait-handwriting-quick-name
+  description: trait-handwriting-quick-desc
+  category: Handwriting
+  cost: 1
+  components:
+  - type: PaperHandwriting
+    style: Quick
+
+- type: trait
+  id: HandwritingFormal
+  name: trait-handwriting-formal-name
+  description: trait-handwriting-formal-desc
+  category: Handwriting
+  cost: 1
+  components:
+  - type: PaperHandwriting
+    style: Formal
+
+- type: trait
+  id: HandwritingHeavy
+  name: trait-handwriting-heavy-name
+  description: trait-handwriting-heavy-desc
+  category: Handwriting
+  cost: 1
+  components:
+  - type: PaperHandwriting
+    style: Heavy
+
+- type: trait
+  id: HandwritingMessy
+  name: trait-handwriting-messy-name
+  description: trait-handwriting-messy-desc
+  category: Handwriting
+  cost: 1
+  components:
+  - type: PaperHandwriting
+    style: Messy
