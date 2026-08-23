@@ -1,7 +1,7 @@
 - type: marking
   id: MurineTail
   bodyPart: Tail
-  groupWhitelist: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid, Human, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/murine_parts.rsi
       state: tail
@@ -9,7 +9,7 @@
 - type: marking
   id: MurineEars
   bodyPart: HeadTop
-  groupWhitelist: [Murine, Felinid]
+  groupWhitelist: [Murine, Felinid, Human, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/murine_parts.rsi
       state: ears

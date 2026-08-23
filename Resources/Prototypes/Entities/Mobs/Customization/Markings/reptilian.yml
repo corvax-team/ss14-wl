@@ -75,7 +75,7 @@
 - type: marking
   id: LizardHornsCurled
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Cischi] #WL-changes
+  groupWhitelist: [Reptilian, Cischi, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_curled
@@ -83,7 +83,7 @@
 - type: marking
   id: LizardHornsRam
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Cischi] #WL-changes
+  groupWhitelist: [Reptilian, Cischi, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_ram
@@ -91,7 +91,7 @@
 - type: marking
   id: LizardHornsShort
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Cischi] #WL-changes
+  groupWhitelist: [Reptilian, Cischi, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_short
@@ -99,7 +99,7 @@
 - type: marking
   id: LizardHornsSimple
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Cischi] #WL-changes
+  groupWhitelist: [Reptilian, Cischi, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_simple
@@ -107,7 +107,7 @@
 - type: marking
   id: LizardHornsDouble
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian]
+  groupWhitelist: [Reptilian, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_double
@@ -115,7 +115,7 @@
 - type: marking
   id: LizardTailSmooth
   bodyPart: Tail
-  groupWhitelist: [Reptilian]
+  groupWhitelist: [Reptilian, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_smooth_primary
@@ -133,7 +133,7 @@
 - type: marking
   id: LizardTailSpikes
   bodyPart: Tail
-  groupWhitelist: [Reptilian]
+  groupWhitelist: [Reptilian, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_spikes
@@ -141,7 +141,7 @@
 - type: marking
   id: LizardTailLTiger
   bodyPart: Tail
-  groupWhitelist: [Reptilian]
+  groupWhitelist: [Reptilian, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_ltiger
@@ -149,7 +149,7 @@
 - type: marking
   id: LizardTailDTiger
   bodyPart: Tail
-  groupWhitelist: [Reptilian]
+  groupWhitelist: [Reptilian, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_dtiger
@@ -259,7 +259,7 @@
 - type: marking
   id: LizardHornsArgali
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Cischi] #WL-changes
+  groupWhitelist: [Reptilian, Cischi, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_argali
@@ -267,7 +267,7 @@
 - type: marking
   id: LizardHornsAyrshire
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Cischi] #WL-changes
+  groupWhitelist: [Reptilian, Cischi, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_ayrshire
@@ -275,7 +275,7 @@
 - type: marking
   id: LizardHornsMyrsore
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Cischi] #WL-changes
+  groupWhitelist: [Reptilian, Cischi, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_myrsore
@@ -283,7 +283,7 @@
 - type: marking
   id: LizardHornsBighorn
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Cischi] #WL-changes
+  groupWhitelist: [Reptilian, Cischi, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_bighorn
@@ -291,7 +291,7 @@
 - type: marking
   id: LizardHornsDemonic
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian]
+  groupWhitelist: [Reptilian, Human, Android, Felinid] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_demonic
