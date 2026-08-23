@@ -1,0 +1,34 @@
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBackHolsterRifle
+  name: shoulder pouch for rifles
+  description: Tactical pouch. Can be hung on the back, including over a bulletproof vest. Suitable for transporting and storing your automatic rifle.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Back/Misc/holsterrifle.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Back/Misc/holsterrifle.rsi
+    slots:
+    - suitStorage
+    - back
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        insertSound:
+          collection: storageRustle
+        ejectSound:
+          collection: storageRustle
+        name: clothing-boots-sidearm
+        priority: 4
+        whitelist:
+          tags:
+          - Rifle
+  - type: ItemMapper
+    mapLayers:
+      icon-overlay:
+        whitelist:
+          tags:
+          - Rifle
+  - type: Appearance

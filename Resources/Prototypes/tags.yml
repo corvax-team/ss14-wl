@@ -349,6 +349,9 @@
   id: CluwneHorn # ConstructionGraph: JonkBot
 
 - type: Tag
+  id: Cobra # Overlay whitelist: ClothingBeltHolsterred
+
+- type: Tag
   id: Cola  # Storage whitelist: DrinkCanPack. ItemCounter: DrinkCanPack
 
 - type: Tag
@@ -965,6 +968,9 @@
   id: Mineshaft # PrefabDunGen whitelist on Mineshaft DungeonConfig.
 
 - type: Tag
+  id: Mk58 # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
   id: ModularReceiver # ConstructionGraph: ImprovisedShotgunGraph
 
 - type: Tag
@@ -1016,6 +1022,9 @@
 
 - type: Tag
   id: NozzleBackTank # Used by WeaponSprayNozzle to find a tagged entity for supplying ammo.
+
+- type: Tag
+  id: NT1984 # Overlay whitelist: ClothingBeltHolsterDSS
 
 - type: Tag
   id: Nugget # ItemCounter: FoodBoxNugget
@@ -1185,6 +1194,9 @@
 - type: Tag
   id: ProximitySensor # This tag is used as a common ingredient in the construction of various machines and bots.
 
+- type: Tag
+  id: Python # Overlay whitelist: ClothingBeltHolsterred
+
 ## Q ##
 
 - type: Tag
@@ -1214,6 +1226,9 @@
 
 - type: Tag
   id: ReptilianFood # SpecialDigestible: OrganReptilianStomach
+
+- type: Tag
+  id: Rifle # Storage whitelist: ClothingBackHolsterRifle
 
 - type: Tag
   id: RifleStock # ConstructionGraph: ImprovisedShotgunGraph
@@ -1302,6 +1317,12 @@
   id: Sidearm # Storage whitelist: ClothingBeltSecurity, ClothingShoesMilitaryBase
 
 - type: Tag
+  id: SidearmNT # Storage whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: SidearmSyndie # Storage whitelist: ClothingBeltRedHolster
+
+- type: Tag
   id: SignalTrigger # ConstructionGraph: GlassBox
 
 - type: Tag
@@ -1332,6 +1353,9 @@
 
 - type: Tag # Used on mech equipment.
   id: SmallMech # Equipment whitelist on MechHamtr
+
+- type: Tag
+  id: SMG # Storage whitelist: ClothingBeltHolsterSMG
 
 - type: Tag
   id: Smokable # Storage whitelist: BaseSmokingPipe (and children)
@@ -1433,6 +1457,9 @@
   id: Taser # Storage whitelist: ClothingBeltSecurity
 
 - type: Tag
+  id: TC12 # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
   id: TeleportScrollWarp # whitelists a warp point for the wizard's teleport scroll
 
 - type: Tag
@@ -1521,6 +1548,9 @@
 - type: Tag
   id: VimPilot # Used synonymously with harmless animals such as mice, station pets, or genetic ancestors (monkeys).
                # Storage whitelist: MechVim, PetCarrier, BodyBag, MachineArtifactCrusher
+
+- type: Tag
+  id: Viper # Overlay whitelist: ClothingBeltHolsterred
 
 - type: Tag
   id: VoiceTrigger # ConstructionGraph: Vim

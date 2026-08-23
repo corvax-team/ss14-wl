@@ -120,3 +120,15 @@
     Telecrystal: 1
   categories:
   - UplinkPointless
+
+# Holster
+
+- type: listing
+  id: UplinkRedHolster
+  name: uplink-red-holster-name
+  description: uplink-red-holster-desc
+  productEntity: ClothingBeltRedHolster
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkWearables

@@ -160,6 +160,13 @@
         volume: 2.25
   - type: StaticPrice
     price: 1500 # Botany can shit these out like candy, but let's see how it goes
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmSyndie
+    - Python
+  # White-List components end
 
 - type: entity
   parent: WeaponRevolverPython
