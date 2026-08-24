@@ -15,6 +15,9 @@
   maxHeight: 185
   # WL-Changes-end: Height
   # lastNames: names_vulpkanin_last # Corvax-LastnameGender
+  # WL-Changes-start: Age
+  minAge: 20
+  # WL-Changes-end: Age
   defaultSoundsBySex:
   - MaleVulpkanin
   - FemaleVulpkanin
