@@ -23,8 +23,8 @@
     ToyFigurineNukieCommander: 1
     ClothingUniformJumpskirtTacticalMaid: 5
     ClothingHandsTacticalMaidGloves: 5
-    ClothingBeltRedHolster: 3 # Corvax WL
   emaggedInventory:
     ClothingOuterCoatSyndieCapArmored: 1
     ClothingOuterWinterSyndieCapArmored: 1
     ClothingHeadHatTacticalMaidHeadband: 5
+    ClothingBeltRedHolster: 1 # Corvax WL

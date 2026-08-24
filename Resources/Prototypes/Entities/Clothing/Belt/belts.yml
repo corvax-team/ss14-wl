@@ -113,12 +113,12 @@
   - type: Clothing
     sprite: Clothing/Belt/holster.rsi
     slots:
-    - suitStorage
+    - suitStorage #wl-changes-holsters
     - Belt
   - type: Storage
     grid:
     - 0,0,3,1
-    whitelist:
+    whitelist: #wl-changes-holsters
       tags:
         - MagazinePistol
         - MagazineMagnum
@@ -137,7 +137,7 @@
   - type: Clothing
     sprite: Clothing/Belt/syndieholster.rsi
     slots:
-    - suitStorage
+    - suitStorage   #wl-changes-holsters
     - Belt
   - type: Storage
     maxItemSize: Huge
