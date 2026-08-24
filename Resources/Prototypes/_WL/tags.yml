@@ -72,3 +72,9 @@
 
 - type: Tag
   id: Cult
+
+- type: Tag
+  id: TrayScanner
+
+- type: Tag
+  id: MesonGlasses
