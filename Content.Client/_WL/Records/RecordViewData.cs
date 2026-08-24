@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Content.Client._WL.Records;
 
 public enum RecordViewKind

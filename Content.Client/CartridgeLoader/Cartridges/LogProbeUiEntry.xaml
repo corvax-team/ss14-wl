@@ -2,7 +2,7 @@
               xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
               Margin="4 2"
               Orientation="Vertical">
-    <!-- WL-Changes: LogProbe UI Start -->
+    <!-- WL-Changes: LogProbe UI Start | Include Margin -->
     <BoxContainer Orientation="Horizontal">
         <Label Name="NumberLabel"
                Align="Right"

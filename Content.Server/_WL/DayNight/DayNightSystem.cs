@@ -3,92 +3,91 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using System.Numerics;
 
-namespace Content.Server._WL.DayNight
+namespace Content.Server._WL.DayNight;
+
+public sealed partial class DayNightSystem : EntitySystem
 {
-    public sealed partial class DayNightSystem : EntitySystem
+    [Dependency] private IGameTiming _gameTime = default!;
+    [Dependency] private MapSystem _mapSys = default!;
+
+    public override void Initialize()
     {
-        [Dependency] private IGameTiming _gameTime = default!;
-        [Dependency] private MapSystem _mapSys = default!;
+        base.Initialize();
 
-        public override void Initialize()
+        SubscribeLocalEvent<DayNightComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedMapSystem)]);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<DayNightComponent>();
+        while (query.MoveNext(out var map, out var dayNightComp))
         {
-            base.Initialize();
+            if (!TryComp<MapLightComponent>(map, out var mapLightComp))
+                continue;
 
-            SubscribeLocalEvent<DayNightComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedMapSystem)]);
+            if (!TryComp<MapComponent>(map, out var mapComponent))
+                continue;
+
+            if (!dayNightComp.WasInit || mapComponent.MapPaused)
+                continue;
+
+            if (_gameTime.CurTime >= dayNightComp.NextCycle)
+                dayNightComp.NextCycle += dayNightComp.FullCycle;
+
+            var color = CalculateColor(
+                _gameTime.CurTime,
+                dayNightComp.FullCycle,
+                dayNightComp.NextCycle,
+                Color.FromHex(dayNightComp.DayHex),
+                Color.FromHex(dayNightComp.NightHex),
+                dayNightComp.DayNightRatio);
+
+            if (color == mapLightComp.AmbientLightColor) //Оптимизация для случаев, если цикл дня и ночи огромен.
+                continue;
+
+            _mapSys.SetAmbientLight(mapComponent.MapId, color);
         }
+    }
 
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
+    private void OnMapInit(EntityUid station, DayNightComponent comp, MapInitEvent args)
+    {
+        if (!TryComp<MapComponent>(station, out var mapComponent))
+            return;
 
-            var query = EntityQueryEnumerator<DayNightComponent>();
-            while (query.MoveNext(out var map, out var dayNightComp))
-            {
-                if (!TryComp<MapLightComponent>(map, out var mapLightComp))
-                    continue;
+        _mapSys.SetAmbientLight(mapComponent.MapId, Color.FromHex(comp.DayHex));
+        comp.NextCycle = _gameTime.CurTime + comp.FullCycle;
+        comp.WasInit = true;
+    }
 
-                if (!TryComp<MapComponent>(map, out var mapComponent))
-                    continue;
+    public static Color CalculateColor(TimeSpan currentTime, TimeSpan fullCycle, TimeSpan nextCycle, Color dayColor, Color nightColor, Vector2 dayNightRatio)
+    {
+        currentTime = currentTime - (nextCycle - fullCycle);
 
-                if (!dayNightComp.WasInit || mapComponent.MapPaused)
-                    continue;
+        var pair = dayNightRatio.X + dayNightRatio.Y;
 
-                if (_gameTime.CurTime >= dayNightComp.NextCycle)
-                    dayNightComp.NextCycle += dayNightComp.FullCycle;
+        var dayTime = fullCycle.TotalMinutes / pair * dayNightRatio.X;
+        var nightTime = fullCycle.TotalMinutes / pair * dayNightRatio.Y;
 
-                var color = CalculateColor(
-                    _gameTime.CurTime,
-                    dayNightComp.FullCycle,
-                    dayNightComp.NextCycle,
-                    Color.FromHex(dayNightComp.DayHex),
-                    Color.FromHex(dayNightComp.NightHex),
-                    dayNightComp.DayNightRatio);
+        var isDay = currentTime.TotalMinutes <= dayTime;
 
-                if (color == mapLightComp.AmbientLightColor) //Оптимизация для случаев, если цикл дня и ночи огромен.
-                    continue;
+        var filledPercentage = isDay
+            ? currentTime.TotalMinutes / dayTime
+            : (currentTime.TotalMinutes - dayTime) / nightTime;
 
-                _mapSys.SetAmbientLight(mapComponent.MapId, color);
-            }
-        }
+        var r = isDay
+            ? dayColor.R + (nightColor.R - dayColor.R) * filledPercentage
+            : nightColor.R + (dayColor.R - nightColor.R) * filledPercentage;
+        var g = isDay
+            ? dayColor.G + (nightColor.G - dayColor.G) * filledPercentage
+            : nightColor.G + (dayColor.G - nightColor.G) * filledPercentage;
+        var b = isDay
+            ? dayColor.B + (nightColor.B - dayColor.B) * filledPercentage
+            : nightColor.B + (dayColor.B - nightColor.B) * filledPercentage;
 
-        private void OnMapInit(EntityUid station, DayNightComponent comp, MapInitEvent args)
-        {
-            if (!TryComp<MapComponent>(station, out var mapComponent))
-                return;
+        var result = new Color((float)r, (float)g, (float)b);
 
-            _mapSys.SetAmbientLight(mapComponent.MapId, Color.FromHex(comp.DayHex));
-            comp.NextCycle = _gameTime.CurTime + comp.FullCycle;
-            comp.WasInit = true;
-        }
-
-        public static Color CalculateColor(TimeSpan currentTime, TimeSpan fullCycle, TimeSpan nextCycle, Color dayColor, Color nightColor, Vector2 dayNightRatio)
-        {
-            currentTime = currentTime - (nextCycle - fullCycle);
-
-            var pair = dayNightRatio.X + dayNightRatio.Y;
-
-            var dayTime = fullCycle.TotalMinutes / pair * dayNightRatio.X;
-            var nightTime = fullCycle.TotalMinutes / pair * dayNightRatio.Y;
-
-            var isDay = currentTime.TotalMinutes <= dayTime;
-
-            var filledPercentage = isDay
-                ? currentTime.TotalMinutes / dayTime
-                : (currentTime.TotalMinutes - dayTime) / nightTime;
-
-            var r = isDay
-                ? dayColor.R + (nightColor.R - dayColor.R) * filledPercentage
-                : nightColor.R + (dayColor.R - nightColor.R) * filledPercentage;
-            var g = isDay
-                ? dayColor.G + (nightColor.G - dayColor.G) * filledPercentage
-                : nightColor.G + (dayColor.G - nightColor.G) * filledPercentage;
-            var b = isDay
-                ? dayColor.B + (nightColor.B - dayColor.B) * filledPercentage
-                : nightColor.B + (dayColor.B - nightColor.B) * filledPercentage;
-
-            var result = new Color((float)r, (float)g, (float)b);
-
-            return result;
-        }
+        return result;
     }
 }

@@ -112,9 +112,19 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Clothing
     sprite: Clothing/Belt/holster.rsi
+    slots:
+    - suitStorage #wl-changes-holsters
+    - Belt
   - type: Storage
     grid:
     - 0,0,3,1
+    whitelist: #wl-changes-holsters
+      tags:
+        - MagazinePistol
+        - MagazineMagnum
+        - MagazinePistolHighCapacity
+        - SpeedLoaderMagnum
+        - Sidearm
 
 - type: entity
   parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
@@ -126,6 +136,9 @@
     sprite: Clothing/Belt/syndieholster.rsi
   - type: Clothing
     sprite: Clothing/Belt/syndieholster.rsi
+    slots:
+    - suitStorage   #wl-changes-holsters
+    - Belt
   - type: Storage
     maxItemSize: Huge
     grid:

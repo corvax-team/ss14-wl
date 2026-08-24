@@ -22,7 +22,7 @@ public static class RecordIdentityBuilder
             ? loc(confederationPrototype.Name)
             : noData;
         var languages = record.Languages
-            .Select(id => prototypes.TryIndex<LanguagePrototype>(id, out var language) ? loc(language.Name) : id.Id)
+            .Select(id => prototypes.TryIndex(id, out var language) ? loc(language.Name) : id.Id)
             .ToList();
 
         return new RecordIdentityData(

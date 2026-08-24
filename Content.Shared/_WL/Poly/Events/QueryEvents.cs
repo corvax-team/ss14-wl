@@ -3,28 +3,16 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._WL.Poly.Events
 {
     [Serializable, NetSerializable]
-    public sealed partial class PolyServerQueryEvent : EntityEventArgs
+    public sealed partial class PolyServerQueryEvent(NetEntity entity, string queryId) : EntityEventArgs
     {
-        public readonly NetEntity Entity;
-        public readonly string QueryId;
-
-        public PolyServerQueryEvent(NetEntity entity, string queryId)
-        {
-            Entity = entity;
-            QueryId = queryId;
-        }
+        public readonly NetEntity Entity = entity;
+        public readonly string QueryId = queryId;
     }
 
     [Serializable, NetSerializable]
-    public sealed partial class PolyClientResponseEvent : EntityEventArgs
+    public sealed partial class PolyClientResponseEvent(byte[]? png_stream, string queryId) : EntityEventArgs
     {
-        public readonly byte[]? Stream;
-        public readonly string QueryId;
-
-        public PolyClientResponseEvent(byte[]? png_stream, string queryId)
-        {
-            Stream = png_stream;
-            QueryId = queryId;
-        }
+        public readonly byte[]? Stream = png_stream;
+        public readonly string QueryId = queryId;
     }
 }

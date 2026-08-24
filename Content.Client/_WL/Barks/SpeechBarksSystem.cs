@@ -278,7 +278,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             cadence *= bark.Prosody.DelayScale;
             cadence = Math.Max(
                 cadence,
-                (float) playbackDuration.TotalSeconds * PlaybackFractionBeforeNextBark);
+                (float)playbackDuration.TotalSeconds * PlaybackFractionBeforeNextBark);
             cadence += boundary.GetAdditionalDelay();
             bark.NextSound = _timing.CurTime + TimeSpan.FromSeconds(cadence);
 
@@ -305,7 +305,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
             return;
 
         var requiredLifetime =
-            (float) playbackDuration.TotalSeconds +
+            (float)playbackDuration.TotalSeconds +
             SharedAudioSystem.AudioDespawnBuffer;
         timedDespawn.Lifetime = Math.Max(timedDespawn.Lifetime, requiredLifetime);
     }

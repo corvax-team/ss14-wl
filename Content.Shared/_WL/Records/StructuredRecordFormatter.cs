@@ -162,13 +162,13 @@ public static class StructuredRecordFormatter
 
     private static void AppendAutomatic(StringBuilder builder, string label, string value, string fallback)
     {
-        builder.Append("[bold]").Append(Escape(label)).Append("[/bold] ");
+        builder.Append($"[bold]{Escape(label)}[/bold] ");
         AppendValue(builder, value, fallback, AutomaticColor);
     }
 
     private static void AppendAuthor(StringBuilder builder, string label, string value, string? fallback = null)
     {
-        builder.Append("[bold]").Append(Escape(label)).Append("[/bold] ");
+        builder.Append($"[bold]{Escape(label)}[/bold] ");
         AppendValue(builder, value, fallback ?? string.Empty, AuthorColor);
     }
 
@@ -181,21 +181,18 @@ public static class StructuredRecordFormatter
 
     private static void AppendHeading(StringBuilder builder, string title, string accent)
     {
-        builder.Append("[color=").Append(accent).Append("][bold]› ")
-            .Append(Escape(title)).AppendLine("[/bold][/color]");
+        builder.Append($"[color={accent}][bold]› {Escape(title)}[/bold][/color]");
     }
 
     private static void AppendValue(StringBuilder builder, string value, string fallback, string color)
     {
         if (string.IsNullOrWhiteSpace(value))
         {
-            builder.Append("[color=").Append(PlaceholderColor).Append("][italic]")
-                .Append(Escape(fallback)).AppendLine("[/italic][/color]");
+            builder.Append($"[color={PlaceholderColor}][italic]{Escape(fallback)}[/italic][/color]").AppendLine();
             return;
         }
 
-        builder.Append("[color=").Append(color).Append(']')
-            .Append(Escape(value.Trim())).AppendLine("[/color]");
+        builder.Append($"[color={color}]{Escape(value.Trim())}[/color]").AppendLine();
     }
 
     private static string Escape(string value) => FormattedMessage.EscapeText(value);

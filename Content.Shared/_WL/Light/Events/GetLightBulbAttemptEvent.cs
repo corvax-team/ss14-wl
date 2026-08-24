@@ -1,12 +1,6 @@
-namespace Content.Shared._WL.Light.Events
-{
-    public sealed partial class BeforeDealHeatDamageFromLightBulbEvent : CancellableEntityEventArgs
-    {
-        public readonly EntityUid Bulb;
+namespace Content.Shared._WL.Light.Events;
 
-        public BeforeDealHeatDamageFromLightBulbEvent(EntityUid bulb)
-        {
-            Bulb = bulb;
-        }
-    }
+public sealed partial class BeforeDealHeatDamageFromLightBulbEvent(EntityUid bulb) : CancellableEntityEventArgs
+{
+    public readonly EntityUid Bulb = bulb;
 }

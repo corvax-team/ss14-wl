@@ -156,7 +156,6 @@
       types:
         Asphyxiation: -2.0
   - type: Wagging
-  - type: HairballSpitter # WL-Changes
   # WL-Changes: Languages
   - type: Languages
     speaking:

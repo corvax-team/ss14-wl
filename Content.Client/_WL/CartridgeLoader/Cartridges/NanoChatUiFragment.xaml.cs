@@ -1,5 +1,4 @@
 using System.Linq;
-
 using Content.Client.RichText;
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared._WL.NanoChat;
@@ -10,8 +9,6 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
-using Robust.Shared;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;

@@ -23,7 +23,7 @@ public sealed partial class ConfederationRecordsPrototype : IPrototype
     public int Order { get; private set; }
 
     [DataField(serverOnly: true)]
-    public JobSpecial[] Special { get; private set; } = Array.Empty<JobSpecial>();
+    public JobSpecial[] Special { get; private set; } = [];
 
     [DataField]
     public ProtoId<EntityPrototype> PassportPrototype { get; private set; } = new();

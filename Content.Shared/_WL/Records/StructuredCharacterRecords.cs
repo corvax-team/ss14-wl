@@ -311,9 +311,9 @@ public static class StructuredCharacterRecords
     private static string WriteFields(string prefix, IReadOnlyList<string> fields)
     {
         var builder = new StringBuilder(prefix);
-        builder.Append(fields.Count).Append(';');
+        builder.Append($"{fields.Count};");
         foreach (var field in fields)
-            builder.Append(field.Length).Append(':').Append(field);
+            builder.Append($"{field.Length}:{field}");
 
         return builder.ToString();
     }

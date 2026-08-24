@@ -40,6 +40,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
     [Dependency] private NameModifierSystem _nameMod = default!;
     [Dependency] private IdentitySystem _identity = default!;
     [Dependency] private SharedSkillsSystem _skills = default!; // WL-Skills
+    [Dependency] private HumanoidProfileSystem _profile = default!; // WL-Changes-HeightFix
 
     public override bool TryCloning(
         EntityUid original,
@@ -71,6 +72,8 @@ public sealed partial class CloningSystem : SharedCloningSystem
         CloneComponents(original, clone.Value, settings);
 
         CopySkills(original, clone.Value); // WL-Skills
+
+        _profile.ApplyHeight(clone.Value); // WL-Changes-HeightFix
 
         // Add equipment first so that SetEntityName also renames the ID card.
         if (settings.CopyEquipment != null)

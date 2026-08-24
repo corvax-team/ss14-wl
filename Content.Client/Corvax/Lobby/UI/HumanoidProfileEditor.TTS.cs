@@ -1,5 +1,4 @@
 using Content.Client._WL.Barks.UI; // WL-Changes
-using Content.Client._WL.Barks; // WL-Changes
 using Content.Client.Corvax.TTS;
 using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared._WL.CCVars; // WL-Changes
@@ -44,10 +43,10 @@ public sealed partial class HumanoidProfileEditor
             MinWidth = 180,
         };
         if (ttsEnabled)
-            _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-tts"), (int) SpeechMode.Tts);
+            _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-tts"), (int)SpeechMode.Tts);
 
-        _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-barks"), (int) SpeechMode.Barks);
-        _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-disabled"), (int) SpeechMode.Disabled);
+        _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-barks"), (int)SpeechMode.Barks);
+        _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-disabled"), (int)SpeechMode.Disabled);
 
         var speechMode = _cfgManager.GetCVar(WLCVars.SpeechMode);
         if (!ttsEnabled && speechMode == SpeechMode.Tts)
@@ -56,16 +55,16 @@ public sealed partial class HumanoidProfileEditor
             _cfgManager.SetCVar(WLCVars.SpeechMode, speechMode);
         }
 
-        _speechModeButton.SelectId((int) speechMode);
+        _speechModeButton.SelectId((int)speechMode);
         _speechModeButton.OnItemSelected += args =>
         {
             _speechModeButton.SelectId(args.Id);
-            _cfgManager.SetCVar(WLCVars.SpeechMode, (SpeechMode) args.Id);
+            _cfgManager.SetCVar(WLCVars.SpeechMode, (SpeechMode)args.Id);
         };
 
         var modeText = new BoxContainer
         {
-            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            Orientation = LayoutOrientation.Vertical,
             HorizontalExpand = true,
         };
         modeText.AddChild(new Label
@@ -80,7 +79,7 @@ public sealed partial class HumanoidProfileEditor
 
         var modeRow = new BoxContainer
         {
-            Orientation = BoxContainer.LayoutOrientation.Horizontal,
+            Orientation = LayoutOrientation.Horizontal,
             HorizontalExpand = true,
             Margin = new Thickness(10, 7),
             VerticalAlignment = VAlignment.Center,
@@ -90,12 +89,13 @@ public sealed partial class HumanoidProfileEditor
 
         var voiceContainer = new BoxContainer
         {
-            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            Orientation = LayoutOrientation.Vertical,
             HorizontalExpand = true,
             VerticalExpand = true,
         };
         voiceContainer.AddChild(modeRow);
         voiceContainer.AddChild(speechTabs);
+        // WL-Changes-end
 
         var children = new List<Control>();
         foreach (var child in TabContainer.Children)
@@ -107,13 +107,14 @@ public sealed partial class HumanoidProfileEditor
         {
             if (i == 1) // Set the tab to the 2nd place.
             {
-                TabContainer.AddChild(voiceContainer);
+                TabContainer.AddChild(voiceContainer); // WL-Changes: Speech barks
             }
             TabContainer.AddChild(children[i]);
         }
 
         TabContainer.SetTabTitle(1, Loc.GetString("humanoid-profile-editor-voice-tab"));
 
+        // WL-Changes-Start: Speech barks
         if (_ttsTab is { } currentTtsTab)
         {
             currentTtsTab.OnVoiceSelected += voiceId =>
@@ -148,10 +149,12 @@ public sealed partial class HumanoidProfileEditor
             Profile = Profile?.WithBarkMaxDelay(delay);
             SetDirty();
         };
+        // WL-Changes-end
     }
 
     private void UpdateTTSVoicesControls()
     {
+        // WL-Changes-Start: Speech barks
         if (Profile is null)
             return;
 
@@ -162,8 +165,8 @@ public sealed partial class HumanoidProfileEditor
             Profile.BarkPitch,
             Profile.BarkMinDelay,
             Profile.BarkMaxDelay);
+        // WL-Changes-End
     }
-    // WL-Changes-End
 
     private void SetVoice(string newVoice)
     {

@@ -24,12 +24,8 @@ public static class ForensicReportFormatter
         Func<string, string> loc)
     {
         var builder = new StringBuilder();
-        builder.Append("[head=3][color=").Append(AccentColor).Append(']')
-            .Append(Escape(loc("forensic-scanner-printout-title")))
-            .AppendLine("[/color][/head]");
-        builder.Append("[bold]").Append(Escape(loc("forensic-scanner-printout-object")))
-            .Append("[/bold] [color=").Append(AutomaticColor).Append(']')
-            .Append(Escape(entityName)).AppendLine("[/color]");
+        builder.Append($"[head=3][color={AccentColor}]{Escape(loc("forensic-scanner-printout-title"))}[/color][/head]").AppendLine();
+        builder.Append($"[bold]{Escape(loc("forensic-scanner-printout-object"))}[/bold] [color={AutomaticColor}]{Escape(entityName)}[/color]").AppendLine();
         builder.AppendLine("[color=#77777D]────────────────────────[/color]");
 
         AppendSection(builder, loc("forensic-scanner-interface-fingerprints"), fingerprints, loc);
@@ -56,22 +52,17 @@ public static class ForensicReportFormatter
             .ToList();
 
         builder.AppendLine();
-        builder.Append("[color=").Append(AccentColor).Append("][bold]› ")
-            .Append(Escape(title)).Append(" · ").Append(distinctValues.Count)
-            .AppendLine("[/bold][/color]");
+        builder.Append($"[color={AccentColor}][bold]› {Escape(title)} · {distinctValues.Count}[/bold][/color]").AppendLine();
 
         if (distinctValues.Count == 0)
         {
-            builder.Append("[color=").Append(PlaceholderColor).Append("][italic]")
-                .Append(Escape(loc("forensic-scanner-printout-no-traces")))
-                .AppendLine("[/italic][/color]");
+            builder.Append($"[color={PlaceholderColor}][italic]{Escape(loc("forensic-scanner-printout-no-traces"))}[/italic][/color]").AppendLine();
             return;
         }
 
         foreach (var value in distinctValues)
         {
-            builder.Append("[color=").Append(ValueColor).Append("]• ")
-                .Append(Escape(value)).AppendLine("[/color]");
+            builder.Append($"[color={ValueColor}]• {Escape(value)}[/color]").AppendLine();
         }
     }
 

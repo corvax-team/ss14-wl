@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by @Rookaboots_nina(discord)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "overlay-mk58"
+        },
+        {
+            "name": "equipped-BELT",
+            "directions": 4
+        },
+	{
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
+        },
+        {
+            "name": "overlay-ts12"
+        },
+        {
+            "name": "overlay-nt1984"
+        }
+    ]
+}

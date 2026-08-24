@@ -1,9 +1,8 @@
-namespace Content.Server._WL.Economics.Components
+namespace Content.Server._WL.Economics.Components;
+
+[RegisterComponent]
+public sealed partial class PokerCardContainerComponent : Component
 {
-    [RegisterComponent]
-    public sealed partial class PokerCardContainerComponent : Component
-    {
-        [DataField]
-        public bool TakePopup = true;
-    }
+    [DataField]
+    public bool TakePopup = true;
 }

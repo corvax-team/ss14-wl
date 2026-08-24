@@ -10,20 +10,13 @@ public enum MedicalRecordsConsoleKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class MedicalRecordsConsoleState : BoundUserInterfaceState
+public sealed class MedicalRecordsConsoleState(Dictionary<uint, string>? recordListing, StationRecordsFilter? newFilter, bool canPrintRecords) : BoundUserInterfaceState
 {
     public uint? SelectedKey = null;
     public GeneralStationRecord? StationRecord = null;
-    public readonly Dictionary<uint, string>? RecordListing;
-    public readonly StationRecordsFilter? Filter;
-    public readonly bool CanPrintRecords;
-
-    public MedicalRecordsConsoleState(Dictionary<uint, string>? recordListing, StationRecordsFilter? newFilter, bool canPrintRecords)
-    {
-        RecordListing = recordListing;
-        Filter = newFilter;
-        CanPrintRecords = canPrintRecords;
-    }
+    public readonly Dictionary<uint, string>? RecordListing = recordListing;
+    public readonly StationRecordsFilter? Filter = newFilter;
+    public readonly bool CanPrintRecords = canPrintRecords;
 
     public MedicalRecordsConsoleState() : this(null, null, false) { }
 
@@ -31,25 +24,14 @@ public sealed class MedicalRecordsConsoleState : BoundUserInterfaceState
 }
 
 [Serializable, NetSerializable]
-public sealed class MedicalRecordsSelectStationRecord : BoundUserInterfaceMessage
+public sealed class MedicalRecordsSelectStationRecord(uint? selectedKey) : BoundUserInterfaceMessage
 {
-    public readonly uint? SelectedKey;
-
-    public MedicalRecordsSelectStationRecord(uint? selectedKey)
-    {
-        SelectedKey = selectedKey;
-    }
+    public readonly uint? SelectedKey = selectedKey;
 }
 
 [Serializable, NetSerializable]
-public sealed class MedicalRecordsSetStationRecordFilter : BoundUserInterfaceMessage
+public sealed class MedicalRecordsSetStationRecordFilter(StationRecordFilterType type, string value) : BoundUserInterfaceMessage
 {
-    public readonly StationRecordFilterType Type;
-    public readonly string Value;
-
-    public MedicalRecordsSetStationRecordFilter(StationRecordFilterType type, string value)
-    {
-        Type = type;
-        Value = value;
-    }
+    public readonly StationRecordFilterType Type = type;
+    public readonly string Value = value;
 }

@@ -6,7 +6,4 @@
 /// </summary>
 
 [RegisterComponent]
-public sealed partial class CapsSpareSafeComponent : Component
-{
-
-}
+public sealed partial class CapsSpareSafeComponent : Component;

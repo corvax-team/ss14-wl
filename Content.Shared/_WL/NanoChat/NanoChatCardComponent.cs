@@ -1,6 +1,5 @@
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Robust.Shared.GameStates;
-using Robust.Shared.Analyzers;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._WL.NanoChat;

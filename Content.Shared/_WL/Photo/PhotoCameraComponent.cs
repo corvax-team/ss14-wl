@@ -34,17 +34,11 @@ public sealed partial class PhotoCameraComponent : Component
 }
 
 [Serializable, NetSerializable]
-public sealed class PhotoCameraUiState : BoundUserInterfaceState
+public sealed class PhotoCameraUiState(NetEntity cameraEntity, bool hasPaper) : BoundUserInterfaceState
 {
-    public NetEntity CameraEntity { get; }
+    public NetEntity CameraEntity { get; } = cameraEntity;
 
-    public bool HasPaper { get; }
-
-    public PhotoCameraUiState(NetEntity cameraEntity, bool hasPaper)
-    {
-        CameraEntity = cameraEntity;
-        HasPaper = hasPaper;
-    }
+    public bool HasPaper { get; } = hasPaper;
 }
 
 [Serializable, NetSerializable]
@@ -54,12 +48,7 @@ public enum PhotoCameraUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class PhotoCameraTakeImageMessage : BoundUserInterfaceMessage
+public sealed class PhotoCameraTakeImageMessage(byte[] data) : BoundUserInterfaceMessage
 {
-    public byte[] Data { get; }
-
-    public PhotoCameraTakeImageMessage(byte[] data)
-    {
-        Data = data;
-    }
+    public byte[] Data { get; } = data;
 }

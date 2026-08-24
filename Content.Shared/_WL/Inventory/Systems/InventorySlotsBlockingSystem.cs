@@ -4,92 +4,91 @@ using Content.Shared.Inventory.Events;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
-namespace Content.Shared._WL.Inventory.Systems
+namespace Content.Shared._WL.Inventory.Systems;
+
+public sealed partial class InventorySlotsBlockingSystem : EntitySystem
 {
-    public sealed partial class InventorySlotsBlockingSystem : EntitySystem
+    [Dependency] private InventorySystem _inventory = default!;
+
+    public override void Initialize()
     {
-        [Dependency] private InventorySystem _inventory = default!;
+        base.Initialize();
 
-        public override void Initialize()
+        SubscribeLocalEvent<InventoryComponent, IsEquippingAttemptEvent>(OnEquip);
+        SubscribeLocalEvent<InventoryComponent, IsUnequippingAttemptEvent>(OnUnequip);
+    }
+
+    private void OnEquip(EntityUid entity, InventoryComponent _, IsEquippingAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!TryComp<InventoryComponent>(args.EquipTarget, out var comp))
+            return;
+
+        if (!IsSlotBlocked((args.EquipTarget, comp), args.SlotFlags, out var reasons))
+            return;
+
+        args.Reason = Loc.GetString("isb-system-reason", ("entities", string.Join(", ", reasons.Select(e => Identity.Name(e, EntityManager)))));
+        args.Cancel();
+    }
+
+    private void OnUnequip(EntityUid entity, InventoryComponent _, IsUnequippingAttemptEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!TryComp<InventoryComponent>(args.UnEquipTarget, out var comp))
+            return;
+
+        if (!IsSlotBlocked((args.UnEquipTarget, comp), args.Slot, out var reasons))
+            return;
+
+        args.Reason = Loc.GetString("isb-system-reason", ("entities", string.Join(", ", reasons.Select(e => Identity.Name(e, EntityManager)))));
+        args.Cancel();
+    }
+
+    public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, SlotDefinition slotDef, [NotNullWhen(true)] out List<EntityUid>? reasons)
+    {
+        var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef.SlotFlags, out reasons);
+        return blocked;
+    }
+
+    public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, SlotFlags slotFlags, [NotNullWhen(true)] out List<EntityUid>? reasons)
+    {
+        reasons = new();
+
+        var entity = entityWithInventoryComp.Owner;
+        var inventoryComp = entityWithInventoryComp.Comp;
+
+        for (var indexer = 0; indexer < inventoryComp.Slots.Length; indexer++)
         {
-            base.Initialize();
+            var slotEntity = inventoryComp.Containers[indexer].ContainedEntity;
+            if (slotEntity == null)
+                continue;
 
-            SubscribeLocalEvent<InventoryComponent, IsEquippingAttemptEvent>(OnEquip);
-            SubscribeLocalEvent<InventoryComponent, IsUnequippingAttemptEvent>(OnUnequip);
-        }
+            var extraSlots = SlotFlags.NONE;
+            if (TryComp<ExtraBlockingInventorySlotsComponent>(slotEntity, out var extraBlockingSlotsComp))
+                extraBlockingSlotsComp.Slots.ForEach(s => extraSlots |= s);
 
-        private void OnEquip(EntityUid entity, InventoryComponent _, IsEquippingAttemptEvent args)
-        {
-            if (args.Cancelled)
-                return;
-
-            if (!TryComp<InventoryComponent>(args.EquipTarget, out var comp))
-                return;
-
-            if (!IsSlotBlocked((args.EquipTarget, comp), args.SlotFlags, out var reasons))
-                return;
-
-            args.Reason = Loc.GetString("isb-system-reason", ("entities", string.Join(", ", reasons.Select(e => Identity.Name(e, EntityManager)))));
-            args.Cancel();
-        }
-
-        private void OnUnequip(EntityUid entity, InventoryComponent _, IsUnequippingAttemptEvent args)
-        {
-            if (args.Cancelled)
-                return;
-
-            if (!TryComp<InventoryComponent>(args.UnEquipTarget, out var comp))
-                return;
-
-            if (!IsSlotBlocked((args.UnEquipTarget, comp), args.Slot, out var reasons))
-                return;
-
-            args.Reason = Loc.GetString("isb-system-reason", ("entities", string.Join(", ", reasons.Select(e => Identity.Name(e, EntityManager)))));
-            args.Cancel();
-        }
-
-        public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, SlotDefinition slotDef, [NotNullWhen(true)] out List<EntityUid>? reasons)
-        {
-            var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef.SlotFlags, out reasons);
-            return blocked;
-        }
-
-        public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, SlotFlags slotFlags, [NotNullWhen(true)] out List<EntityUid>? reasons)
-        {
-            reasons = new();
-
-            var entity = entityWithInventoryComp.Owner;
-            var inventoryComp = entityWithInventoryComp.Comp;
-
-            for (var indexer = 0; indexer < inventoryComp.Slots.Length; indexer++)
+            var inventorySlotDef = inventoryComp.Slots[indexer];
+            if (inventorySlotDef.BlockSlots.Any(s => s.HasFlag(slotFlags)) || extraSlots.HasFlag(slotFlags))
             {
-                var slotEntity = inventoryComp.Containers[indexer].ContainedEntity;
-                if (slotEntity == null)
-                    continue;
-
-                var extraSlots = SlotFlags.NONE;
-                if (TryComp<ExtraBlockingInventorySlotsComponent>(slotEntity, out var extraBlockingSlotsComp))
-                    extraBlockingSlotsComp.Slots.ForEach(s => extraSlots |= s);
-
-                var inventorySlotDef = inventoryComp.Slots[indexer];
-                if (inventorySlotDef.BlockSlots.Any(s => s.HasFlag(slotFlags)) || extraSlots.HasFlag(slotFlags))
-                {
-                    reasons.Add(slotEntity.Value);
-                }
+                reasons.Add(slotEntity.Value);
             }
-
-            return reasons.Count > 0;
         }
 
-        public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, string slot, [NotNullWhen(true)] out List<EntityUid>? reasons)
-        {
-            reasons = new();
+        return reasons.Count > 0;
+    }
 
-            if (!_inventory.TryGetSlot(entityWithInventoryComp.Owner, slot, out var slotDef, entityWithInventoryComp.Comp))
-                return false;
+    public bool IsSlotBlocked(Entity<InventoryComponent> entityWithInventoryComp, string slot, [NotNullWhen(true)] out List<EntityUid>? reasons)
+    {
+        reasons = new();
 
-            var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef, out reasons);
-            return blocked;
-        }
+        if (!_inventory.TryGetSlot(entityWithInventoryComp.Owner, slot, out var slotDef, entityWithInventoryComp.Comp))
+            return false;
+
+        var blocked = IsSlotBlocked(entityWithInventoryComp, slotDef, out reasons);
+        return blocked;
     }
 }

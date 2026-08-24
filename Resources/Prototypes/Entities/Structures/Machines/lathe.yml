@@ -407,6 +407,7 @@
     - ManualStorageSecurityStatic
     - ManualStorageCommandStatic
     - SecBalaclavStatic
+    - SecHolsterStatic
     # WL-changes-storage end
     dynamicPacks:
     - SalvageSecurityBoards
@@ -420,8 +421,8 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SyndicateAmmoStatic
-  - type: MaterialStorage
-    whitelist: *StandardMaterialWhitelist
+#  - type: MaterialStorage
+#    whitelist: *StandardMaterialWhitelist #WL-changes-holsters
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]

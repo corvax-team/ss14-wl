@@ -9,11 +9,6 @@ public abstract partial class SharedTraySystem : EntitySystem
     [Dependency] private SharedAppearanceSystem _appearance = default!;
     [Dependency] private SharedItemSystem _item = default!;
 
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     public void UpdateVisuals(EntityUid uid, TrayComponent component)
     {
         _appearance.SetData(uid, TrayVisualState.HasEntities, component.ConnectedEntities.Count > 0);

@@ -20,3 +20,75 @@
     Gold: 100
     Plastic: 500
     Uranium: 300
+
+- type: latheRecipe
+  id: ClothingBeltHolsterDSS
+  result: ClothingBeltHolsterDSS
+  categories:
+  - Clothing
+  completetime: 4
+  materials:
+    Plastic: 500
+
+- type: latheRecipe
+  id: ClothingBackHolsterRifle
+  result: ClothingBackHolsterRifle
+  categories:
+  - Clothing
+  completetime: 10
+  materials:
+    Plastic: 500
+    Cloth: 1500
+
+- type: latheRecipe
+  id: ClothingBeltHolsterSMG
+  result: ClothingBeltHolsterSMG
+  categories:
+  - Clothing
+  completetime: 10
+  materials:
+    Plastic: 500
+    Durathread: 1000
+    Steel: 100
+
+- type: latheRecipe
+  id: ClothingBeltBrownHolster
+  result: ClothingBeltBrownHolster
+  categories:
+  - Clothing
+  completetime: 5
+  materials:
+    Plastic: 500
+    Durathread: 500
+    Steel: 100
+
+- type: latheRecipe
+  id: ClothingBeltBlackHolster
+  result: ClothingBeltBlackHolster
+  categories:
+  - Clothing
+  completetime: 5
+  materials:
+    Plastic: 500
+    Durathread: 500
+    Steel: 100
+
+- type: latheRecipe
+  id: ClothingBeltHolster
+  result: ClothingBeltHolster
+  categories:
+  - Clothing
+  completetime: 10
+  materials:
+    Plastic: 1000
+    Durathread: 1000
+    Steel: 100
+
+- type: latheRecipe
+  id: ClothingBeltBlackShoulderHolster
+  result: ClothingBeltBlackShoulderHolster
+  categories:
+  - Clothing
+  completetime: 10
+  materials:
+    Durathread: 1000

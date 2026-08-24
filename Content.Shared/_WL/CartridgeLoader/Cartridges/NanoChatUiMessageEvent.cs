@@ -8,44 +8,33 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._WL.CartridgeLoader.Cartridges;
 
 [Serializable, NetSerializable]
-public sealed class NanoChatUiMessageEvent : CartridgeMessageEvent
-{
-    /// <summary>
-    ///     The type of UI message being sent.
-    /// </summary>
-    public readonly NanoChatUiMessageType Type;
-
-    /// <summary>
-    ///     The recipient's NanoChat number, if applicable.
-    /// </summary>
-    public readonly uint? RecipientNumber;
-
-    /// <summary>
-    ///     Message content or a group name, depending on <see cref="Type"/>.
-    /// </summary>
-    public readonly string? Content;
-
-    public readonly NanoChatConversationId? Conversation;
-    public readonly uint? TargetNumber;
-    public readonly List<uint>? MemberNumbers;
-    public readonly bool? Value;
-
-    public NanoChatUiMessageEvent(NanoChatUiMessageType type,
+public sealed class NanoChatUiMessageEvent(NanoChatUiMessageType type,
         uint? recipientNumber = null,
         string? content = null,
         NanoChatConversationId? conversation = null,
         uint? targetNumber = null,
         List<uint>? memberNumbers = null,
-        bool? value = null)
-    {
-        Type = type;
-        RecipientNumber = recipientNumber;
-        Content = content;
-        Conversation = conversation;
-        TargetNumber = targetNumber;
-        MemberNumbers = memberNumbers;
-        Value = value;
-    }
+        bool? value = null) : CartridgeMessageEvent
+{
+    /// <summary>
+    ///     The type of UI message being sent.
+    /// </summary>
+    public readonly NanoChatUiMessageType Type = type;
+
+    /// <summary>
+    ///     The recipient's NanoChat number, if applicable.
+    /// </summary>
+    public readonly uint? RecipientNumber = recipientNumber;
+
+    /// <summary>
+    ///     Message content or a group name, depending on <see cref="Type"/>.
+    /// </summary>
+    public readonly string? Content = content;
+
+    public readonly NanoChatConversationId? Conversation = conversation;
+    public readonly uint? TargetNumber = targetNumber;
+    public readonly List<uint>? MemberNumbers = memberNumbers;
+    public readonly bool? Value = value;
 }
 
 [Serializable, NetSerializable]
@@ -71,50 +60,47 @@ public enum NanoChatUiMessageType : byte
 }
 
 [Serializable, NetSerializable, DataRecord]
-public partial struct NanoChatRecipient
-{
-    /// <summary>
-    ///     The recipient's unique NanoChat number.
-    /// </summary>
-    public uint Number;
-
-    /// <summary>
-    ///     The recipient's display name, typically from their ID card.
-    /// </summary>
-    public string Name;
-
-    /// <summary>
-    ///     The recipient's job title, if available.
-    /// </summary>
-    public string? JobTitle;
-
-    /// <summary>
-    ///     The job icon copied from the recipient's ID card.
-    /// </summary>
-    public ProtoId<JobIconPrototype> JobIcon;
-
-    /// <summary>
-    ///     Whether this recipient has unread messages.
-    /// </summary>
-    public bool HasUnread;
-
-    public NanoChatRecipient(
+public partial struct NanoChatRecipient(
         uint number,
         string name,
         string? jobTitle = null,
         bool hasUnread = false,
         ProtoId<JobIconPrototype>? jobIcon = null)
-    {
-        Number = number;
-        Name = name;
-        JobTitle = jobTitle;
-        HasUnread = hasUnread;
-        JobIcon = jobIcon ?? "JobIconUnknown";
-    }
+{
+    /// <summary>
+    ///     The recipient's unique NanoChat number.
+    /// </summary>
+    public uint Number = number;
+
+    /// <summary>
+    ///     The recipient's display name, typically from their ID card.
+    /// </summary>
+    public string Name = name;
+
+    /// <summary>
+    ///     The recipient's job title, if available.
+    /// </summary>
+    public string? JobTitle = jobTitle;
+
+    /// <summary>
+    ///     The job icon copied from the recipient's ID card.
+    /// </summary>
+    public ProtoId<JobIconPrototype> JobIcon = jobIcon ?? "JobIconUnknown";
+
+    /// <summary>
+    ///     Whether this recipient has unread messages.
+    /// </summary>
+    public bool HasUnread = hasUnread;
 }
 
 [Serializable, NetSerializable, DataRecord]
-public partial struct NanoChatMessage
+public partial struct NanoChatMessage(
+        TimeSpan timestamp,
+        string content,
+        uint sender,
+        bool deliveryFailed = false,
+        byte deliveredRecipients = 0,
+        byte intendedRecipients = 0)
 {
     public const int MaxLength = 256;
     public const int MaxMarkupLength = 1024;
@@ -122,45 +108,29 @@ public partial struct NanoChatMessage
     /// <summary>
     ///     When the message was sent.
     /// </summary>
-    public TimeSpan Timestamp;
+    public TimeSpan Timestamp = timestamp;
 
     /// <summary>
     ///     The content of the message.
     /// </summary>
-    public string Content;
+    public string Content = content;
 
     /// <summary>
     ///     The NanoChat number of the sender.
     /// </summary>
-    public uint Sender;
+    public uint Sender = sender;
 
     /// <summary>
     ///     Whether the message failed to deliver to the recipient.
     ///     Happens if the recipient is out of range or there's no active telecomms server.
     /// </summary>
-    public bool DeliveryFailed;
+    public bool DeliveryFailed = deliveryFailed;
 
     /// <summary>
     ///     Delivery counters used by group conversations.
     /// </summary>
-    public byte DeliveredRecipients;
-    public byte IntendedRecipients;
-
-    public NanoChatMessage(
-        TimeSpan timestamp,
-        string content,
-        uint sender,
-        bool deliveryFailed = false,
-        byte deliveredRecipients = 0,
-        byte intendedRecipients = 0)
-    {
-        Timestamp = timestamp;
-        Content = content;
-        Sender = sender;
-        DeliveryFailed = deliveryFailed;
-        DeliveredRecipients = deliveredRecipients;
-        IntendedRecipients = intendedRecipients;
-    }
+    public byte DeliveredRecipients = deliveredRecipients;
+    public byte IntendedRecipients = intendedRecipients;
 }
 
 /// <summary>
@@ -196,7 +166,7 @@ public readonly partial struct NanoChatData(
             card.Groups.ToDictionary(pair => pair.Key, pair => CloneGroup(pair.Value)),
             card.GroupMessages.ToDictionary(pair => pair.Key, pair => new List<NanoChatMessage>(pair.Value)),
             card.GroupMessages.ToDictionary(pair => pair.Key, pair => pair.Value.Count),
-            new HashSet<uint>(card.BlockedNumbers),
+            [.. card.BlockedNumbers],
             card.Number,
             cardEntity);
 

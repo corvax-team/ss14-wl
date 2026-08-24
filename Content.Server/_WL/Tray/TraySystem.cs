@@ -29,8 +29,6 @@ public sealed partial class TraySystem : SharedTraySystem
 
     public override void Initialize()
     {
-        base.Initialize();
-
         SubscribeLocalEvent<TrayComponent, ComponentInit>(OnInit);
 
         SubscribeLocalEvent<TrayComponent, InteractUsingEvent>(OnInteractUsing);

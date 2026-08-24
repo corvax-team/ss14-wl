@@ -130,7 +130,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
         );
 
         var evt = new PassportProfileUpdatedEvent(profile);
-        RaiseLocalEvent(passport, ref evt);
+        RaiseLocalEvent(passport, evt);
         Dirty(passport);
     }
 
@@ -148,7 +148,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
         passport.Comp.IsClosed = !passport.Comp.IsClosed;
 
         var passportEvent = new PassportToggleEvent();
-        RaiseLocalEvent(passport, ref passportEvent);
+        RaiseLocalEvent(passport, passportEvent);
 
         Dirty(passport);
     }
@@ -170,6 +170,6 @@ public sealed partial class SharedPassportSystem : EntitySystem
             result[j++] = PIDChars[random.Next(PIDChars.Length)];
         }
 
-        return new string(result);
+        return new(result);
     }
 }
