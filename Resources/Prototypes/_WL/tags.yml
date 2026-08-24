@@ -72,3 +72,6 @@
 
 - type: Tag
   id: Cult
+
+- type: Tag
+  id: FireResistant

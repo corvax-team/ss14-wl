@@ -543,6 +543,7 @@
     - PetWearable
     - ClothMade
     - WhitelistChameleon
+    - FireResistant # WL-Changes
 
 - type: entity
   parent: [ClothingHeadBase, BaseFoldable]
@@ -750,6 +751,7 @@
     - PetWearable
     - ClothMade
     - WhitelistChameleon
+    - FireResistant # WL-Changes
 
 - type: entity
   parent: ClothingHeadBase
@@ -830,6 +832,7 @@
     - Recyclable
     - HamsterWearable
     - WhitelistChameleon
+    - FireResistant # WL-Changes
 
 - type: entity
   parent: ClothingHeadBase
