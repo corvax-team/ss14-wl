@@ -763,16 +763,10 @@ namespace Content.Server.Ghost
                 out _,
                 out _,
                 out var applied))
-            {
-                Log.Warning("Не получилось скопировать маркинги");
                 return;
-            }
 
             if (applied == null)
-            {
-                Log.Warning("applied == null");
                 return;
-            }
 
             var markings = new List<Marking>();
 

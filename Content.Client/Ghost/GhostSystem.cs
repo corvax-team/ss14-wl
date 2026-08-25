@@ -134,7 +134,6 @@ namespace Content.Client.Ghost
                         _sprite.LayerSetColor((ent, sprite),
                             layerId,
                             new Color(marking.MarkingColors[i].R, marking.MarkingColors[i].G, marking.MarkingColors[i].B, marking.MarkingColors[i].A * ent.Comp.Alpha));
-                        Log.Info($"{marking.MarkingColors[i]}");
                     }
                 }
             }
