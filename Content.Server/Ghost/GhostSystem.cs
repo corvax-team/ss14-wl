@@ -629,8 +629,10 @@ namespace Content.Server.Ghost
                 _ghostState.SetGhostSprite((ghost, state), mind);
             }
 
+            // Wl-Changes-Start: Ghost hair
             if (sourceBody != null)
                 CopyHairToGhost(sourceBody.Value, ghost);
+            // Wl-Changes-End: Ghost hair
 
             // Try setting the ghost entity name to either the character name or the player name.
             // If all else fails, it'll default to the default entity prototype name, "observer".

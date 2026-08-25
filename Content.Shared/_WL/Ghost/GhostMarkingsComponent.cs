@@ -10,5 +10,5 @@ public sealed partial class GhostMarkingsComponent : Component
     public List<Marking> Markings = new();
 
     [DataField, AutoNetworkedField]
-    public float Alpha = 0.75f;
+    public float Alpha = 0.85f;
 }
