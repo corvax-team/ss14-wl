@@ -579,7 +579,7 @@ namespace Content.Server.Ghost
             bool canReturn = false)
         {
             _transformSystem.TryGetMapOrGridCoordinates(targetEntity, out var spawnPosition);
-            return SpawnGhost(mind, spawnPosition, targetEntity, canReturn); // Wl-Changes: Ghost hair
+            return SpawnGhost(mind, spawnPosition, canReturn, targetEntity); // Wl-Changes: Ghost hair
         }
 
         private bool IsValidSpawnPosition(EntityCoordinates? spawnPosition)
@@ -600,7 +600,7 @@ namespace Content.Server.Ghost
         }
 
         public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityCoordinates? spawnPosition = null,
-            EntityUid? sourceBody = null, bool canReturn = false) // Wl-Changes: Ghost hair
+            bool canReturn = false, EntityUid? sourceBody = null) // Wl-Changes: Ghost hair
         {
             if (!Resolve(mind, ref mind.Comp))
                 return null;
@@ -749,7 +749,7 @@ namespace Content.Server.Ghost
             if (playerEntity != null)
                 _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
 
-            var ghost = SpawnGhost((mindId, mind), position, playerEntity, canReturn); // Wl-Changes: Ghost hair
+            var ghost = SpawnGhost((mindId, mind), position, canReturn, playerEntity); // Wl-Changes: Ghost hair
 
             if (ghost == null)
                 return false;
