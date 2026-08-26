@@ -1,0 +1,215 @@
+- type: marking
+  id: HumanHornBison
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: bison-normal
+
+- type: marking
+  id: HumanHornBisonR
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: bison-right
+
+- type: marking
+  id: HumanHornBisonL
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: bison-left
+
+- type: marking
+  id: HumanHornBuffalo
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: buffalo-normal
+
+- type: marking
+  id: HumanHornBuffaloR
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: buffalo-right
+
+- type: marking
+  id: HumanHornBuffaloL
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: buffalo-left
+
+- type: marking
+  id: HumanHornCandle
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Candle-normal
+
+- type: marking
+  id: HumanHornCandleR
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Candle-right
+
+- type: marking
+  id: HumanHornCandleL
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Candle-left
+
+- type: marking
+  id: HumanHornCoral
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Coral-normal
+
+- type: marking
+  id: HumanHornCoralR
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Coral-right
+
+- type: marking
+  id: HumanHornCoralL
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Coral-left
+
+- type: marking
+  id: HumanHornDeer
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: deer-normal
+
+- type: marking
+  id: HumanHornDeerR
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: deer-right
+
+- type: marking
+  id: HumanHornDeerL
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: deer-left
+
+- type: marking
+  id: HumanHornKylin
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Kylin-normal
+
+- type: marking
+  id: HumanHornKylinR
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Kylin-right
+
+- type: marking
+  id: HumanHornKylinL
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Kylin-left
+
+- type: marking
+  id: HumanHornPallas
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Pallas-normal
+
+- type: marking
+  id: HumanHornPallasR
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Pallas-right
+
+- type: marking
+  id: HumanHornPallasL
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: Pallas-left
+
+- type: marking
+  id: HumanHornSail
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: sail-normal
+
+- type: marking
+  id: HumanHornSailL
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: sail-left
+
+- type: marking
+  id: HumanHornSailR
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: sail-right
+
+- type: marking
+  id: HumanHornSide
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: side-normal
+
+- type: marking
+  id: HumanHornSideL
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: side-left
+
+- type: marking
+  id: HumanHornSideR
+  bodyPart: HeadTop
+  groupWhitelist: [Human, Android, Felinid]
+  sprites:
+    - sprite: _WL/Mobs/Customization/horns.rsi
+      state: side-right
