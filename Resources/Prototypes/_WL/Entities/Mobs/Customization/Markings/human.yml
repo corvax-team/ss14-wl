@@ -49,7 +49,7 @@
 - type: marking
   id: HumanHornCandle
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: candle-normal
@@ -57,7 +57,7 @@
 - type: marking
   id: HumanHornCandleR
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: candle-right
@@ -65,7 +65,7 @@
 - type: marking
   id: HumanHornCandleL
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: candle-left
@@ -73,7 +73,7 @@
 - type: marking
   id: HumanHornCoral
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: coral-normal
@@ -81,7 +81,7 @@
 - type: marking
   id: HumanHornCoralR
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: coral-right
@@ -89,7 +89,7 @@
 - type: marking
   id: HumanHornCoralL
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: coral-left
@@ -169,7 +169,7 @@
 - type: marking
   id: HumanHornSail
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: sail-normal
@@ -177,7 +177,7 @@
 - type: marking
   id: HumanHornSailL
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: sail-left
@@ -185,7 +185,7 @@
 - type: marking
   id: HumanHornSailR
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: sail-right
@@ -193,7 +193,7 @@
 - type: marking
   id: HumanHornSide
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: side-normal
@@ -201,7 +201,7 @@
 - type: marking
   id: HumanHornSideL
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: side-left
@@ -209,7 +209,7 @@
 - type: marking
   id: HumanHornSideR
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Felinid]
+  groupWhitelist: [Human, Android, Felinid, Reptilian]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: side-right
