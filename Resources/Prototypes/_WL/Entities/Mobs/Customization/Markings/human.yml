@@ -52,7 +52,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Candle-normal
+      state: candle-normal
 
 - type: marking
   id: HumanHornCandleR
@@ -60,7 +60,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Candle-right
+      state: candle-right
 
 - type: marking
   id: HumanHornCandleL
@@ -68,7 +68,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Candle-left
+      state: candle-left
 
 - type: marking
   id: HumanHornCoral
@@ -76,7 +76,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Coral-normal
+      state: coral-normal
 
 - type: marking
   id: HumanHornCoralR
@@ -84,7 +84,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Coral-right
+      state: coral-right
 
 - type: marking
   id: HumanHornCoralL
@@ -92,7 +92,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Coral-left
+      state: coral-left
 
 - type: marking
   id: HumanHornDeer
@@ -124,7 +124,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Kylin-normal
+      state: kylin-normal
 
 - type: marking
   id: HumanHornKylinR
@@ -132,7 +132,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Kylin-right
+      state: kylin-right
 
 - type: marking
   id: HumanHornKylinL
@@ -140,7 +140,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Kylin-left
+      state: kylin-left
 
 - type: marking
   id: HumanHornPallas
@@ -148,7 +148,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Pallas-normal
+      state: pallas-normal
 
 - type: marking
   id: HumanHornPallasR
@@ -156,7 +156,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Pallas-right
+      state: pallas-right
 
 - type: marking
   id: HumanHornPallasL
@@ -164,7 +164,7 @@
   groupWhitelist: [Human, Android, Felinid]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
-      state: Pallas-left
+      state: pallas-left
 
 - type: marking
   id: HumanHornSail

@@ -44,27 +44,27 @@
       "directions": 4
     },
     {
-      "name": "Candle-left",
+      "name": "candle-left",
       "directions": 4
     },
     {
-      "name": "Candle-normal",
+      "name": "candle-normal",
       "directions": 4
     },
     {
-      "name": "Candle-right",
+      "name": "candle-right",
       "directions": 4
     },
     {
-      "name": "Coral-left",
+      "name": "coral-left",
       "directions": 4
     },
     {
-      "name": "Coral-normal",
+      "name": "coral-normal",
       "directions": 4
     },
     {
-      "name": "Coral-right",
+      "name": "coral-right",
       "directions": 4
     },
     {
@@ -80,27 +80,27 @@
       "directions": 4
     },
     {
-      "name": "Kylin-left",
+      "name": "kylin-left",
       "directions": 4
     },
     {
-      "name": "Kylin-normal",
+      "name": "kylin-normal",
       "directions": 4
     },
     {
-      "name": "Kylin-right",
+      "name": "kylin-right",
       "directions": 4
     },
     {
-      "name": "Pallas-left",
+      "name": "pallas-left",
       "directions": 4
     },
     {
-      "name": "Pallas-normal",
+      "name": "pallas-normal",
       "directions": 4
     },
     {
-      "name": "Pallas-right",
+      "name": "pallas-right",
       "directions": 4
     },
     {
