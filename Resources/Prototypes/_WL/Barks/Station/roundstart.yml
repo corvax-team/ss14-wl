@@ -1,0 +1,107 @@
+- type: speechBark
+  id: WLBarkHumanOne
+  name: wl-bark-human-one
+  sound: /Audio/_WL/Barks/Normalized/Station/speak_1.ogg
+  category: humanoid
+
+- type: speechBark
+  id: WLBarkHumanTwo
+  name: wl-bark-human-two
+  sound: /Audio/_WL/Barks/Normalized/Station/speak_2.ogg
+  category: humanoid
+
+- type: speechBark
+  id: WLBarkHumanThree
+  name: wl-bark-human-three
+  sound: /Audio/_WL/Barks/Normalized/Station/speak_3.ogg
+  category: humanoid
+
+- type: speechBark
+  id: WLBarkHumanFour
+  name: wl-bark-human-four
+  sound: /Audio/_WL/Barks/Normalized/Station/speak_4.ogg
+  category: humanoid
+
+- type: speechBark
+  id: WLBarkLizard
+  name: wl-bark-lizard
+  sound: /Audio/_WL/Barks/Normalized/Station/lizard.ogg
+  category: creature
+
+- type: speechBark
+  id: WLBarkArachnid
+  name: wl-bark-arachnid
+  sound: /Audio/_WL/Barks/Normalized/Station/arachnid.ogg
+  category: creature
+
+- type: speechBark
+  id: WLBarkSlime
+  name: wl-bark-slime
+  sound: /Audio/_WL/Barks/Normalized/Station/slime.ogg
+  category: creature
+
+- type: speechBark
+  id: WLBarkVox
+  name: wl-bark-vox
+  sound: /Audio/_WL/Barks/Normalized/Station/vox.ogg
+  category: creature
+
+- type: speechBark
+  id: WLBarkVulpkanin
+  name: wl-bark-vulpkanin
+  sound: /Audio/_WL/Barks/Normalized/Station/vulp.ogg
+  category: creature
+
+- type: speechBark
+  id: WLBarkPAI
+  name: wl-bark-pai
+  sound: /Audio/_WL/Barks/Normalized/Station/pai.ogg
+  category: synthetic
+
+- type: speechBark
+  id: WLBarkBorg
+  name: wl-bark-borg
+  sound: /Audio/_WL/Barks/Normalized/Station/borg.ogg
+  category: synthetic
+
+- type: speechBark
+  id: WLBarkSyndieBorg
+  name: wl-bark-syndie-borg
+  sound: /Audio/_WL/Barks/Normalized/Station/syndieborg.ogg
+  category: synthetic
+
+- type: speechBark
+  id: WLBarkMoth
+  name: wl-bark-moth
+  sound: /Audio/_WL/Barks/Normalized/Station/moth.ogg
+  category: creature
+
+- type: speechBark
+  id: WLBarkArachnidClick
+  name: wl-bark-arachnid-click
+  sound: /Audio/_WL/Barks/Normalized/Station/arachnid_click.ogg
+  category: creature
+
+- type: speechBark
+  id: WLBarkSlimeSquish
+  name: wl-bark-slime-squish
+  sound: /Audio/_WL/Barks/Normalized/Station/slime_squish.ogg
+  category: creature
+
+- type: speechBark
+  id: WLBarkXenoborg
+  name: wl-bark-xenoborg
+  sound: /Audio/_WL/Barks/Normalized/Station/xenoborg.ogg
+  category: synthetic
+
+- type: speechBark
+  id: WLBarkXenoborgChime
+  name: wl-bark-xenoborg-chime
+  sound: /Audio/_WL/Barks/Normalized/Station/xenoborg_chime.ogg
+  category: instrument
+
+- type: speechBark
+  id: WLBarkXenoborgPing
+  name: wl-bark-xenoborg-ping
+  sound: /Audio/_WL/Barks/Normalized/Station/xenoborg_ping.ogg
+  category: instrument

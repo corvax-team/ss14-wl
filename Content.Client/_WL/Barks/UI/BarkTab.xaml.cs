@@ -14,7 +14,7 @@ public sealed partial class BarkTab : Control
 {
     private static readonly (string Name, string[] Categories)[] CategoryGroups =
     [
-        ("humanoid-profile-editor-bark-group-general", ["standard", "voice", "synth"]),
+        ("humanoid-profile-editor-bark-group-general", ["standard", "voice", "synth", "humanoid", "creature", "synthetic", "instrument"]),
         ("humanoid-profile-editor-bark-group-undertale", ["undertale", "undertale_yellow", "deltarune", "deltarune_rewritten", "underswap"]),
         ("humanoid-profile-editor-bark-group-games", ["minecraft", "oneshot", "dont_starve", "ace_attorney", "banjo_kazooie"]),
         ("humanoid-profile-editor-bark-group-stations", ["goon_station", "citadel_station"]),
