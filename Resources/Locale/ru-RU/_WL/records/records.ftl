@@ -17,7 +17,7 @@ records-employment-placeholder = Нажмите "Шаблон" для загру
 
 records-full-name-edit = ФИО:
 records-date-of-birth-edit = ДАТА РОЖДЕНИЯ:
-records-date-of-manufacture-edit = ДАТА ИЗГОТОВЛЕНИЯ:
+records-date-of-manufacture-edit = ДАТА ПОЯВЛЕНИЯ МОЗГА:
 records-date-day = ДД
 records-date-month = ММ
 records-date-year = ГГГГ
