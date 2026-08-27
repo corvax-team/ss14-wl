@@ -25,7 +25,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
     private const float PitchVariation = 0.1f;
     private const float MinPlaybackPitch = 0.45f;
     private const float MaxPlaybackPitch = 1.85f;
-    private const float MaxBarkPlaybackSeconds = 0.6f;
+    private const float MaxBarkPlaybackSeconds = 0.3f;
     // Let adjacent grains overlap slightly without allowing long samples to
     // pile up into an unintelligible wall of sound.
     private const float PlaybackFractionBeforeNextBark = 0.75f;
@@ -271,7 +271,7 @@ public sealed partial class SpeechBarksSystem : EntitySystem
                     streamEntity = entityStream.Entity;
             }
 
-            ExtendAudioLifetime(streamEntity, playbackDuration);
+            LimitAudioLifetime(streamEntity, playbackDuration);
 
             bark.Played++;
             var cadence = _random.NextFloat(bark.MinDelay, bark.MaxDelay);
@@ -298,16 +298,13 @@ public sealed partial class SpeechBarksSystem : EntitySystem
         }
     }
 
-    private void ExtendAudioLifetime(EntityUid? streamEntity, TimeSpan playbackDuration)
+    private void LimitAudioLifetime(EntityUid? streamEntity, TimeSpan playbackDuration)
     {
         if (streamEntity == null ||
             !TryComp<TimedDespawnComponent>(streamEntity.Value, out var timedDespawn))
             return;
 
-        var requiredLifetime =
-            (float)playbackDuration.TotalSeconds +
-            SharedAudioSystem.AudioDespawnBuffer;
-        timedDespawn.Lifetime = Math.Max(timedDespawn.Lifetime, requiredLifetime);
+        timedDespawn.Lifetime = (float)playbackDuration.TotalSeconds;
     }
 
     private sealed class ActiveBark(
