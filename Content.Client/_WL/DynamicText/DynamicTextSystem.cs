@@ -17,6 +17,7 @@ public sealed partial class DynamicTextSystem : EntitySystem
     [Dependency] private MindSystem _mindSystem = default!;
 
     private EntityUid? _editingEntity;
+
     public override void Initialize()
     {
         base.Initialize();

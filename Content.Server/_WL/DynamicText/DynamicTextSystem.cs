@@ -45,8 +45,8 @@ public sealed partial class DynamicTextSystem : EntitySystem
             return;
 
         if (args.SenderSession.AttachedEntity != ent
-            && _mindSystem.TryGetMind(ent.Value, out var _, out var _)
-            && HasComp<MobStateComponent>(ent))
+            && (_mindSystem.TryGetMind(ent.Value, out var _, out var _)
+            || HasComp<MobStateComponent>(ent)))
             return;
 
         var comp = EnsureComp<DynamicTextComponent>(ent.Value);
@@ -73,8 +73,8 @@ public sealed partial class DynamicTextSystem : EntitySystem
             return;
 
         if (args.SenderSession.AttachedEntity != ent
-            && _mindSystem.TryGetMind(ent.Value, out var _, out var _)
-            && HasComp<MobStateComponent>(ent))
+            && (_mindSystem.TryGetMind(ent.Value, out var _, out var _)
+            || HasComp<MobStateComponent>(ent)))
             return;
 
         var comp = EnsureComp<DynamicTextComponent>(ent.Value);
