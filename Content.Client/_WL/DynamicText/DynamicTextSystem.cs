@@ -1,5 +1,7 @@
 using Content.Client._WL.DynamicText.UI;
+using Content.Client.Mind;
 using Content.Shared._WL.DynamicText;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
@@ -12,6 +14,9 @@ public sealed partial class DynamicTextSystem : EntitySystem
     [Dependency] private IEntityManager _ent = default!;
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+
+    private EntityUid? _editingEntity;
     public override void Initialize()
     {
         base.Initialize();
@@ -23,8 +28,15 @@ public sealed partial class DynamicTextSystem : EntitySystem
     private void OnGetVerbs(GetVerbsEvent<Verb> args)
     {
         if (_player.LocalEntity is not { } player ||
-            args.User != player ||
-            args.Target != player)
+            args.User != player)
+        {
+            return;
+        }
+
+        var isSelf = args.Target == player;
+
+        if (!isSelf &&
+            (_mindSystem.TryGetMind(args.Target, out _, out _) || HasComp<MobStateComponent>(args.Target)))
         {
             return;
         }
@@ -35,21 +47,24 @@ public sealed partial class DynamicTextSystem : EntitySystem
             Icon = new SpriteSpecifier.Texture(
                 new ResPath("/Textures/_WL/Interface/VerbIcons/pen.svg.192dpi.png")),
             ClientExclusive = true,
-            Act = () => _userInterfaceManager
-                .GetUIController<DynamicTextUIController>()
-                .OpenWindow(),
+
+            Act = () =>
+            {
+                SetEditingEntity(args.Target);
+
+                _userInterfaceManager
+                    .GetUIController<DynamicTextUIController>()
+                    .OpenWindow();
+            },
         });
     }
 
     public void SaveDynamicText(string text)
     {
-        if (!_player.LocalEntity.HasValue)
+        if (_editingEntity is not { } editingEntity)
             return;
 
-        if (!_ent.TryGetNetEntity(_player.LocalEntity.Value, out var netEntity))
-            return;
-
-        if (text is null)
+        if (!_ent.TryGetNetEntity(editingEntity, out var netEntity))
             return;
 
         RaiseNetworkEvent(new SetDynamicTextEvent(netEntity.Value, text));
@@ -57,10 +72,10 @@ public sealed partial class DynamicTextSystem : EntitySystem
 
     public void RequestDynamicText()
     {
-        if (!_player.LocalEntity.HasValue)
+        if (_editingEntity is not { } editingEntity)
             return;
 
-        if (!_ent.TryGetNetEntity(_player.LocalEntity.Value, out var netEntity))
+        if (!_ent.TryGetNetEntity(editingEntity, out var netEntity))
             return;
 
         RaiseNetworkEvent(new RequestDynamicTextEvent(netEntity.Value));
@@ -69,5 +84,15 @@ public sealed partial class DynamicTextSystem : EntitySystem
     private void OnDynamicTextReceived(RequestedDynamicTextEvent ev, EntitySessionEventArgs args)
     {
         _userInterfaceManager.GetUIController<DynamicTextUIController>().SetDynamicText(ev.DynamicText);
+    }
+
+    public void SetEditingEntity(EntityUid uid)
+    {
+        _editingEntity = uid;
+    }
+
+    public void ClearEditingEntity()
+    {
+        _editingEntity = null;
     }
 }
