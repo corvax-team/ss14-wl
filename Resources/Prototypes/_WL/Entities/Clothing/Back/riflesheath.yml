@@ -32,3 +32,6 @@
           tags:
           - Rifle
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
