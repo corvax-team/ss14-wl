@@ -14,5 +14,3 @@
         type: StationaryComputerBUI
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
-  - type: ApcPowerReceiver
-    powerLoad: 400
