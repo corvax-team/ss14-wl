@@ -28,7 +28,7 @@
   - Clothing
   completetime: 4
   materials:
-    Plastic: 500
+    Plastic: 200
 
 - type: latheRecipe
   id: ClothingBackHolsterRifle
@@ -37,8 +37,8 @@
   - Clothing
   completetime: 10
   materials:
-    Plastic: 500
-    Cloth: 1500
+    Plastic: 300
+    Cloth: 1000
 
 - type: latheRecipe
   id: ClothingBeltHolsterSMG
@@ -47,8 +47,8 @@
   - Clothing
   completetime: 10
   materials:
-    Plastic: 500
-    Durathread: 1000
+    Plastic: 300
+    Durathread: 500
     Steel: 100
 
 - type: latheRecipe
@@ -58,9 +58,9 @@
   - Clothing
   completetime: 5
   materials:
-    Plastic: 500
-    Durathread: 500
-    Steel: 100
+    Plastic: 300
+    Durathread: 300
+    Steel: 50
 
 - type: latheRecipe
   id: ClothingBeltBlackHolster
@@ -69,9 +69,9 @@
   - Clothing
   completetime: 5
   materials:
-    Plastic: 500
-    Durathread: 500
-    Steel: 100
+    Plastic: 300
+    Durathread: 300
+    Steel: 50
 
 - type: latheRecipe
   id: ClothingBeltHolster
@@ -80,8 +80,8 @@
   - Clothing
   completetime: 10
   materials:
-    Plastic: 1000
-    Durathread: 1000
+    Plastic: 500
+    Durathread: 500
     Steel: 100
 
 - type: latheRecipe
@@ -91,4 +91,6 @@
   - Clothing
   completetime: 10
   materials:
-    Durathread: 1000
+    Plastic: 500
+    Durathread: 500
+    Steel: 100

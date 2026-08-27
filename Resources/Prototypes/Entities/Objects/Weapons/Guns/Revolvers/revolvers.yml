@@ -111,6 +111,13 @@
     ammoSlots: [ null, null, null, null, null, null ]
   - type: StealTarget
     stealGroup: OfficerHandgun
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmNT
+    - Inspector
+  # White-List components end
 
 - type: entity
   name: Mateba
@@ -128,6 +135,13 @@
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmNT
+    - Mateba
+  # White-List components end
 
 - type: entity
   parent: WeaponRevolverMateba

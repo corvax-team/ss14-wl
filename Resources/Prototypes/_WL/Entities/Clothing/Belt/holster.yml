@@ -55,6 +55,9 @@
           tags:
           - SMG
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
 
 - type: entity
   parent: ClothingBeltBase
@@ -97,7 +100,26 @@
         whitelist:
           tags:
           - NT1984
+      overlay-inspector:
+        whitelist:
+          tags:
+          - Inspector
+      overlay-mateba:
+        whitelist:
+          tags:
+          - Mateba
+      overlay-disabler:
+        whitelist:
+          tags:
+          - Disabler
+      overlay-energy-magnum:
+        whitelist:
+          tags:
+          - EnergyMagnum
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
 
 - type: entity
   parent: ClothingBeltBase
@@ -139,6 +161,9 @@
             - MagazinePistolHighCapacity
             - SpeedLoaderMagnum
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
 
 - type: entity
   id: ClothingBeltBlackHolster
@@ -150,6 +175,9 @@
     sprite: _WL/Clothing/Belt/holsterblack.rsi
   - type: Clothing
     sprite: _WL/Clothing/Belt/holsterblack.rsi
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
 
 - type: entity
   parent: ClothingBeltBase
@@ -189,9 +217,12 @@
           tags:
           - Viper
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: ClothingBeltHolster
   id: ClothingBeltBlackShoulderHolster
   name: noir shoulder holster
   description: 'A synthetic holster to carry a handgun and ammo. WARNING: VERY badasses only.'
@@ -203,13 +234,3 @@
     slots:
     - suitStorage
     - Belt
-  - type: Storage
-    grid:
-    - 0,0,3,1
-    whitelist:
-      tags:
-        - MagazinePistol
-        - MagazineMagnum
-        - MagazinePistolHighCapacity
-        - SpeedLoaderMagnum
-        - Sidearm

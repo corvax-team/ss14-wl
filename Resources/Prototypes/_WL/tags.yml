@@ -102,3 +102,15 @@
 
 - type: Tag
   id: SMG # Storage whitelist: ClothingBeltHolsterSMG
+
+- type: Tag
+  id: Disabler # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: Mateba # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: EnergyMagnum # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: Inspector # Overlay whitelist: ClothingBeltHolsterDSS

@@ -125,6 +125,8 @@
         - MagazinePistolHighCapacity
         - SpeedLoaderMagnum
         - Sidearm
+      components:
+        - Handcuff
 
 - type: entity
   parent: [ClothingBeltStorageBase, BaseSyndicateContraband]
@@ -150,6 +152,12 @@
       - CartridgeAmmo
   - type: StaticPrice
     price: 500
+  - type: ItemMapper #wl-changes-holsters
+    mapLayers:
+      icon-overlay:
+        whitelist:
+          tags:
+          - Sidearm
 
 ## Webbing
 
