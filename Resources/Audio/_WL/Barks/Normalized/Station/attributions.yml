@@ -1,0 +1,39 @@
+- files: ["speak_1.ogg", "speak_2.ogg", "speak_3.ogg", "speak_4.ogg", "lizard.ogg", "slime.ogg", "vulp.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Goonstation; modified by Whisper; trimmed, faded, resampled and normalized for Corvax Whitelist"
+  source: "https://github.com/goonstation/goonstation/tree/eb3e7df6292d23f6af2f18b4372d3a8ba4b0fda7/sound/misc/talk"
+
+- files: ["arachnid.ogg", "arachnid_click.ogg"]
+  license: "CC-BY-4.0"
+  copyright: "Recorded by PixelTheKermit; arachnid_click modified by Dutch-VanDerLinde; processed for Corvax Whitelist"
+  source: "https://github.com/space-wizards/space-station-14/pull/23548"
+
+- files: ["vox.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Paradise Station; modified by Errant; processed for Corvax Whitelist"
+  source: "https://github.com/ParadiseSS13/Paradise/commit/43e60ab01eda88fe30eb93612614bde836e55fe4"
+
+- files: ["pai.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Created by hubismal; processed for Corvax Whitelist"
+  source: "https://github.com/space-wizards/space-station-14/commit/3421e4f4de2613df1e92a4169a778335bc9faac4"
+
+- files: ["borg.ogg", "syndieborg.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "Recorded and mixed by MilenVolf; processed for Corvax Whitelist"
+  source: "https://github.com/space-wizards/space-station-14/pull/27205"
+
+- files: ["moth.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "BeeStation; processed for Corvax Whitelist"
+  source: "https://github.com/BeeStation/BeeStation-Hornet/commit/11ba3fa04105c93dd96a63ad4afaef4b20c02d0d"
+
+- files: ["slime_squish.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Paradise Station; processed for Corvax Whitelist"
+  source: "https://github.com/ParadiseSS13/Paradise/commit/60d27e07de73f0fe72f4cff78b9c4100fd1d3b19"
+
+- files: ["xenoborg.ogg", "xenoborg_chime.ogg", "xenoborg_ping.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "Recorded and mixed by DarkIcedCoffe; processed for Corvax Whitelist"
+  source: "https://github.com/space-wizards/space-station-14/pull/36867"

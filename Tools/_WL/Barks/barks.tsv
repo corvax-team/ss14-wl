@@ -1,0 +1,32 @@
+status	id	category	source_repo	commit	source_path	output	license	reason
+accepted	WLBarkHumanOne	humanoid	https://github.com/goonstation/goonstation	eb3e7df629	Resources/Audio/Voice/Talk/speak_1.ogg	Resources/Audio/_WL/Barks/Normalized/Station/speak_1.ogg	CC-BY-NC-SA-3.0	Goonstation talk sound
+accepted	WLBarkHumanTwo	humanoid	https://github.com/goonstation/goonstation	eb3e7df629	Resources/Audio/Voice/Talk/speak_2.ogg	Resources/Audio/_WL/Barks/Normalized/Station/speak_2.ogg	CC-BY-NC-SA-3.0	Goonstation talk sound
+accepted	WLBarkHumanThree	humanoid	https://github.com/goonstation/goonstation	eb3e7df629	Resources/Audio/Voice/Talk/speak_3.ogg	Resources/Audio/_WL/Barks/Normalized/Station/speak_3.ogg	CC-BY-NC-SA-3.0	Goonstation talk sound
+accepted	WLBarkHumanFour	humanoid	https://github.com/goonstation/goonstation	eb3e7df629	Resources/Audio/Voice/Talk/speak_4.ogg	Resources/Audio/_WL/Barks/Normalized/Station/speak_4.ogg	CC-BY-NC-SA-3.0	Goonstation talk sound
+accepted	WLBarkLizard	creature	https://github.com/goonstation/goonstation	eb3e7df629	Resources/Audio/Voice/Talk/lizard.ogg	Resources/Audio/_WL/Barks/Normalized/Station/lizard.ogg	CC-BY-NC-SA-3.0	Goonstation talk sound
+accepted	WLBarkArachnid	creature	https://github.com/space-wizards/space-station-14	8269a500b3	Resources/Audio/Voice/Talk/arachnid.ogg	Resources/Audio/_WL/Barks/Normalized/Station/arachnid.ogg	CC-BY-4.0	Recorded by PixelTheKermit
+accepted	WLBarkSlime	creature	https://github.com/goonstation/goonstation	eb3e7df629	Resources/Audio/Voice/Talk/slime.ogg	Resources/Audio/_WL/Barks/Normalized/Station/slime.ogg	CC-BY-NC-SA-3.0	Goonstation talk sound
+accepted	WLBarkVox	creature	https://github.com/ParadiseSS13/Paradise	43e60ab01e	Resources/Audio/Voice/Talk/vox.ogg	Resources/Audio/_WL/Barks/Normalized/Station/vox.ogg	CC-BY-SA-3.0	Paradise shriek derivative
+accepted	WLBarkVulpkanin	creature	https://github.com/goonstation/goonstation	da7c8965c4	Resources/Audio/Voice/Talk/vulp.ogg	Resources/Audio/_WL/Barks/Normalized/Station/vulp.ogg	CC-BY-NC-SA-3.0	Goonstation pug talk sound
+accepted	WLBarkPAI	synthetic	https://github.com/space-wizards/space-station-14	f5bb790edb	Resources/Audio/Voice/Talk/pai.ogg	Resources/Audio/_WL/Barks/Normalized/Station/pai.ogg	CC-BY-3.0	Created by hubismal
+accepted	WLBarkBorg	synthetic	https://github.com/space-wizards/space-station-14	7ee18433c8	Resources/Audio/Voice/Talk/Silicon/borg.ogg	Resources/Audio/_WL/Barks/Normalized/Station/borg.ogg	CC-BY-SA-4.0	Recorded and mixed by MilenVolf
+accepted	WLBarkSyndieBorg	synthetic	https://github.com/space-wizards/space-station-14	7ee18433c8	Resources/Audio/Voice/Talk/Silicon/syndieborg.ogg	Resources/Audio/_WL/Barks/Normalized/Station/syndieborg.ogg	CC-BY-SA-4.0	Recorded and mixed by MilenVolf
+accepted	WLBarkMoth	creature	https://github.com/BeeStation/BeeStation-Hornet	11ba3fa041	Resources/Audio/Voice/Moth/moth_squeak.ogg	Resources/Audio/_WL/Barks/Normalized/Station/moth.ogg	CC-BY-SA-3.0	BeeStation moth squeak
+accepted	WLBarkArachnidClick	creature	https://github.com/space-wizards/space-station-14	13fba25edc	Resources/Audio/Voice/Arachnid/arachnid_click.ogg	Resources/Audio/_WL/Barks/Normalized/Station/arachnid_click.ogg	CC-BY-4.0	Recorded by PixelTheKermit and modified by Dutch-VanDerLinde
+accepted	WLBarkSlimeSquish	creature	https://github.com/ParadiseSS13/Paradise	60d27e07de	Resources/Audio/Voice/Slime/slime_squish.ogg	Resources/Audio/_WL/Barks/Normalized/Station/slime_squish.ogg	CC-BY-SA-3.0	Paradise slime squish
+accepted	WLBarkXenoborg	synthetic	https://github.com/space-wizards/space-station-14	722620c1cf	Resources/Audio/Voice/Xenoborg/xenoborg_talk.ogg	Resources/Audio/_WL/Barks/Normalized/Station/xenoborg.ogg	CC-BY-SA-4.0	Recorded and mixed by DarkIcedCoffe
+accepted	WLBarkXenoborgChime	instrument	https://github.com/space-wizards/space-station-14	722620c1cf	Resources/Audio/Voice/Xenoborg/xenoborg_chime.ogg	Resources/Audio/_WL/Barks/Normalized/Station/xenoborg_chime.ogg	CC-BY-SA-4.0	Recorded and mixed by DarkIcedCoffe
+accepted	WLBarkXenoborgPing	instrument	https://github.com/space-wizards/space-station-14	722620c1cf	Resources/Audio/Voice/Xenoborg/xenoborg_ping.ogg	Resources/Audio/_WL/Barks/Normalized/Station/xenoborg_ping.ogg	CC-BY-SA-4.0	Recorded and mixed by DarkIcedCoffe
+rejected	-	-	https://github.com/AdventureTimeSS14/space_station_ADT	ac7b3f9dd9	Resources/Audio/ADT/Voice/Vocal-Barks	-	mixed	Already imported by WL PR 779
+rejected	-	-	https://github.com/SS14EchoProtocol/Echo-Protocol-SS14	8d503f650b	Resources/Audio/_ECHO/Voice/Vocal-Barks	-	mixed	ADT duplicates; unique files are unattributed or commercial game extracts
+rejected	-	-	https://github.com/Space-Onyx/space-onyx-14	131d5c3535	Resources/Audio/ADT/Voice/Vocal-Barks	-	mixed	ADT duplicates
+rejected	-	-	https://github.com/Utopia-Station-14/utopia-station	32da59f45e	Resources/Audio/_Utopia/Voice/Vocal-Barks	-	mixed	ADT and Echo duplicates
+rejected	-	-	https://github.com/ss14-ganimed/Ganimed14	e7445f2597	Resources/Audio/ADT/Voice/Vocal-Barks	-	mixed	ADT duplicates
+rejected	-	-	https://github.com/wega-team/ss14-wega	master	Resources/Audio/_Wega/Voice/Barks	-	CC-BY-SA-3.0	Already imported as WL BlueMoon set
+rejected	-	-	https://github.com/Azure-Peak/Azure-Peak	e1eca53d52	code/modules/blooper/voice/bloopers	-	unknown	No per-file audio provenance; known game extracts mixed with unknown files
+rejected	-	-	https://github.com/citadel-station/citadel-main	31b47497ab	modular_citadel/sound/voice	-	mixed	Existing WL BlueMoon and ADT sets trace back to Citadel
+rejected	-	-	https://github.com/NovaSector/NovaSector	8bdef12404	modular_nova/modules/blooper	-	unknown	No verified per-file candidates found
+rejected	-	-	https://github.com/Rotwood-Vale/Ratwood-2.0	2d9b73acde	code/modules/blooper	-	unknown	No verified per-file candidates found
+rejected	-	-	https://github.com/Ochre-Valley/Ochre-Valley	3a1e119561	code/modules/blooper	-	unknown	No verified per-file candidates found
+rejected	-	-	https://github.com/Sandstorm-Station/Sandstorm-Station-13	59340f53bd	code/modules/blooper	-	unknown	No verified per-file candidates found
+rejected	-	-	https://github.com/Monkestation/OculisStation	b62d47160e	code/modules/blooper	-	unknown	No verified per-file candidates found
