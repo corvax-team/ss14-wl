@@ -25,7 +25,7 @@ public sealed partial class LogProbeCartridgeComponent : Component
     [DataField, AutoNetworkedField]
     public List<PulledAccessLog> PulledAccessLogs = new();
 
-    //WL-Changes-NanoChat-Start
+    // WL-Changes-NanoChat-Start
     /// <summary>
     /// NanoChat data pulled from the last scanned ID card, if any.
     /// </summary>
@@ -44,7 +44,7 @@ public sealed partial class LogProbeCartridgeComponent : Component
     /// </summary>
     [DataField]
     public int NanoChatUiMessagesPerConversation = 25;
-    //WL-Changes-NanoChat-End
+    // WL-Changes-NanoChat-End
 
     /// <summary>
     /// The sound to make when we scan something with access

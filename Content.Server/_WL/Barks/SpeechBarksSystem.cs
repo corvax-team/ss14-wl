@@ -1,4 +1,3 @@
-using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared._WL.Barks;
 using Robust.Shared.Prototypes;

@@ -1,3 +1,7 @@
 - type: font
   id: WingdingsPixel
   path: /Fonts/_WL/Pixelated-Wingdings.ttf
+
+- type: font
+  id: JetBrainsMono
+  path: /Fonts/_WL/JetBrainsMono/JetBrainsMonoNL-Regular.ttf

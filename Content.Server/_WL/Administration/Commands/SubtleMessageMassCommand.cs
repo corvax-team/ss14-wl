@@ -28,8 +28,7 @@ public sealed partial class SubtleMessageMassCommand : LocalizedEntityCommands
             return;
         }
 
-        var player = shell.Player;
-        if (player == null)
+        if (shell.Player is not { } player)
         {
             shell.WriteLine(Loc.GetString("shell-only-players-can-run-this-command"));
             return;

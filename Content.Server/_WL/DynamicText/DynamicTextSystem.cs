@@ -5,7 +5,6 @@ using Content.Shared._WL.DynamicText;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
-using Content.Shared.Popups;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -15,9 +14,11 @@ namespace Content.Server._WL.DynamicText;
 public sealed partial class DynamicTextSystem : EntitySystem
 {
     [Dependency] private IEntityManager _ent = default!;
-    [Dependency] private IConfigurationManager _cfm = default!;
+    [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+
+    private int _maxLength;
 
     public override void Initialize()
     {
@@ -26,6 +27,13 @@ public sealed partial class DynamicTextSystem : EntitySystem
         SubscribeNetworkEvent<SetDynamicTextEvent>(SetDynamicText);
         SubscribeNetworkEvent<RequestDynamicTextEvent>(RequestDynamicText);
         SubscribeLocalEvent<CharacterInformationComponent, ExaminedEvent>(OnExamine);
+        _cfg.OnValueChanged(WLCVars.MaxDynamicTextLength, (val) => _maxLength = val, true);
+    }
+
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        _cfg.UnsubValueChanged(WLCVars.MaxDynamicTextLength, (val) => _maxLength = val);
     }
 
     private void SetDynamicText(SetDynamicTextEvent ev, EntitySessionEventArgs args)
@@ -39,10 +47,8 @@ public sealed partial class DynamicTextSystem : EntitySystem
         if (args.SenderSession.AttachedEntity != ent)
             return;
 
-        var maxDynamicTextLength = _cfm.GetCVar(WLCVars.MaxDynamicTextLength);
-
-        var newText = ev.DynamicText.Length > maxDynamicTextLength
-            ? FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText)[..maxDynamicTextLength]
+        var newText = ev.DynamicText.Length > _maxLength
+            ? FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText)[.._maxLength]
             : FormattedMessage.RemoveMarkupOrThrow(ev.DynamicText);
 
         if (newText == comp.DynamicText)

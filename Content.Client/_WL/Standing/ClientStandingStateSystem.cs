@@ -2,13 +2,14 @@ using Content.Shared.Standing;
 using Content.Shared.GameTicking;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
+using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client._WL.Standing
 {
     public sealed partial class ClientStandingStateSystem : EntitySystem
     {
         [Dependency] private SpriteSystem _sprite = default!;
-        private Dictionary<EntProtoId, Shared.DrawDepth.DrawDepth> _cachedDrawDepths = default!;
+        private Dictionary<EntProtoId, DrawDepth> _cachedDrawDepths = default!;
 
         public override void Initialize()
         {
@@ -35,7 +36,7 @@ namespace Content.Client._WL.Standing
 
             if (!_cachedDrawDepths.TryGetValue(prototype.ID, out var oldDrawDepth))
             {
-                oldDrawDepth = Shared.DrawDepth.DrawDepth.Objects;
+                oldDrawDepth = DrawDepth.Objects;
             }
 
             _sprite.SetDrawDepth((ent, spriteComp), (int)oldDrawDepth);
@@ -57,12 +58,12 @@ namespace Content.Client._WL.Standing
                 if (TryComp<SpriteComponent>(user, out var innerSpriteCompNull) &&
                     innerSpriteCompNull is SpriteComponent innerSpriteComp)
                 {
-                    var dd = (Shared.DrawDepth.DrawDepth)innerSpriteComp.DrawDepth;
+                    var dd = (DrawDepth)innerSpriteComp.DrawDepth;
                     _cachedDrawDepths[prototype.ID] = dd;
                 }
             }
 
-            _sprite.SetDrawDepth(user, (int)Shared.DrawDepth.DrawDepth.WallTops);
+            _sprite.SetDrawDepth(user, (int)DrawDepth.WallTops);
         }
 
         private void OnRoundEnd(RoundRestartCleanupEvent _)

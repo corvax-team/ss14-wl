@@ -1,11 +1,10 @@
 using Content.Shared.Damage;
 
-namespace Content.Shared._WL.Slippery
+namespace Content.Shared._WL.Slippery;
+
+[RegisterComponent, AutoGenerateComponentState]
+public sealed partial class HardSlipComponent : Component
 {
-    [RegisterComponent, AutoGenerateComponentState]
-    public sealed partial class HardSlipComponent : Component
-    {
-        [DataField(required: true), AutoNetworkedField]
-        public DamageSpecifier FallDamage = default!;
-    }
+    [DataField(required: true), AutoNetworkedField]
+    public DamageSpecifier FallDamage = default!;
 }

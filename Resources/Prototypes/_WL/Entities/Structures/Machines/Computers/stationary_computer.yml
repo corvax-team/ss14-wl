@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: StationaryComputer
+  suffix: DEBUG
+  components:
+  - type: StationaryComputer
+    baseContent:
+    - stationary-computer-welcome-string
+  - type: ActivatableUI
+    key: enum.StationaryComputerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.StationaryComputerUiKey.Key:
+        type: StationaryComputerBUI
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 400

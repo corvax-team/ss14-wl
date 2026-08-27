@@ -1,21 +1,19 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._WL.StationGoal
+namespace Content.Shared._WL.StationGoal;
+
+[Prototype]
+public sealed partial class StationGoalConfigurationPrototype : IPrototype
 {
-    [Prototype]
-    public sealed partial class StationGoalConfigurationPrototype : IPrototype
-    {
-        [ViewVariables]
-        [IdDataField]
-        public string ID { get; private set; } = default!;
+    [IdDataField]
+    public string ID { get; private set; } = default!;
 
-        [DataField]
-        public int MinGoals { get; private set; } = 1;
+    [DataField]
+    public int MinGoals { get; private set; } = 1;
 
-        [DataField]
-        public int MaxGoals { get; private set; } = 4;
+    [DataField]
+    public int MaxGoals { get; private set; } = 4;
 
-        [DataField]
-        public int Priority { get; private set; } = 0;
-    }
+    [DataField]
+    public int Priority { get; private set; } = 0;
 }

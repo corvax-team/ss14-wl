@@ -103,7 +103,7 @@ public sealed partial class SkillSelector : Control
         button.ToolTip = Loc.GetString($"skill-{skillType.ToString().ToLower()}-level-{level}-desc");
     }
 
-    public void UpdateAvailability(int unspentPoints, SharedSkillsSystem skillsSystem)
+    public void UpdateAvailability(int unspentPoints)
     {
         if (_isLocked)
             return;

@@ -8,6 +8,7 @@ role_timers = false
 peaceful_end = false
 cryo_sleep_rejoining = true
 secret_weight_prototype = "Secret"
+map_pool = "WhitelistMapPool"
 
 [server]
 lobby_name = "️🛰️ Corvax — Вайтлист ☕"

@@ -72,7 +72,7 @@ public sealed partial class SkillsAdminWindow : FancyWindow
                 IsLocked = false
             };
 
-            skillSelector.UpdateAvailability(int.MaxValue, _skillsSystem);
+            skillSelector.UpdateAvailability(int.MaxValue);
 
             skillSelector.OnSkillLevelChanged += (newLevel) =>
             {

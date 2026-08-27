@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Shared.CCVar;
 using Content.Shared._WL.Shaders.Components;
 using Robust.Client.Graphics;
-using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
@@ -112,7 +111,7 @@ namespace Content.Client._WL.Shaders
 
                 shader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
 
-                shader?.SetParameter("curTime", (float)((_timing.CurTime - _times[_count]).TotalMilliseconds));
+                shader?.SetParameter("curTime", (float)(_timing.CurTime - _times[_count]).TotalMilliseconds);
 
                 worldHandle.UseShader(shader);
                 _count++;

@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server.Administration.Logs;
 using Content.Server._WL.NanoChat;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Database;
@@ -190,8 +189,8 @@ public sealed partial class NanoChatCartridgeSystem
         var message = baseMessage with
         {
             DeliveryFailed = deliveredNumbers.Count == 0,
-            DeliveredRecipients = (byte) deliveredNumbers.Count,
-            IntendedRecipients = (byte) intended,
+            DeliveredRecipients = (byte)deliveredNumbers.Count,
+            IntendedRecipients = (byte)intended,
         };
 
         var localGroup = _nanoChat.TryGetGroup((card, card.Comp), group.Id, out var existingGroup)
@@ -244,8 +243,8 @@ public sealed partial class NanoChatCartridgeSystem
         NanoChatMessage message)
     {
         if (recipient.Comp.NotificationsMuted ||
-            (_nanoChat.TryGetGroup((recipient, recipient.Comp), group.Id, out var localGroup) &&
-             localGroup.NotificationsMuted) ||
+            _nanoChat.TryGetGroup((recipient, recipient.Comp), group.Id, out var localGroup) &&
+             localGroup.NotificationsMuted ||
             recipient.Comp.PdaUid is not { } pdaUid ||
             !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader))
             return;

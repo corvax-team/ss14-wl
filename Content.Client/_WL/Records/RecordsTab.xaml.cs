@@ -7,8 +7,6 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
-using Robust.Shared.IoC;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -304,7 +302,7 @@ public sealed partial class RecordsTab : Control
         SecurityResidenceDetails.Text = residence.Details;
         UpdateResidenceCustomVisibility();
         SecurityFeatures.Text = record.IdentifyingFeatures;
-        SecurityMaritalStatus.SelectId((int) record.MaritalStatus);
+        SecurityMaritalStatus.SelectId((int)record.MaritalStatus);
         SecurityRelatives.Text = record.CloseRelatives;
         SecurityEmergencyContact.Text = record.EmergencyContact;
         SetText(SecurityPermits, record.Permits);
@@ -324,7 +322,7 @@ public sealed partial class RecordsTab : Control
         foreach (var education in record.Education)
             AddEducationEntry(education, false);
 
-        EmploymentAcademicTitle.SelectId((int) record.AcademicTitle);
+        EmploymentAcademicTitle.SelectId((int)record.AcademicTitle);
         EmploymentAcademicTitleField.Text = record.AcademicTitleField;
         EmploymentAcademicTitleDate.SetText(record.AcademicTitleDate);
         UpdateAcademicTitleVisibility(false);
@@ -374,7 +372,7 @@ public sealed partial class RecordsTab : Control
                 Details = SecurityResidenceDetails.Text,
             }),
             IdentifyingFeatures = SecurityFeatures.Text,
-            MaritalStatus = (RecordMaritalStatus) SecurityMaritalStatus.SelectedId,
+            MaritalStatus = (RecordMaritalStatus)SecurityMaritalStatus.SelectedId,
             CloseRelatives = SecurityRelatives.Text,
             EmergencyContact = SecurityEmergencyContact.Text,
             Permits = GetText(SecurityPermits),
@@ -427,10 +425,10 @@ public sealed partial class RecordsTab : Control
         if (_updating)
             return;
 
-        var hasAcademicTitle = EmploymentAcademicTitle.SelectedId != (int) RecordAcademicTitle.NotApplicable;
+        var hasAcademicTitle = EmploymentAcademicTitle.SelectedId != (int)RecordAcademicTitle.NotApplicable;
         var record = new EmploymentRecordData
         {
-            AcademicTitle = (RecordAcademicTitle) EmploymentAcademicTitle.SelectedId,
+            AcademicTitle = (RecordAcademicTitle)EmploymentAcademicTitle.SelectedId,
             AcademicTitleField = hasAcademicTitle ? EmploymentAcademicTitleField.Text : string.Empty,
             AcademicTitleDate = hasAcademicTitle ? EmploymentAcademicTitleDate.Text : string.Empty,
             Licenses = GetText(EmploymentLicenses),
@@ -446,7 +444,7 @@ public sealed partial class RecordsTab : Control
                 Specialty = entry.Specialty.Text,
                 SpecialtyGroup = entry.SpecialtyGroupValues[entry.SpecialtyGroup.SelectedId],
                 SpecialtySubgroup = entry.SpecialtySubgroupValues[entry.SpecialtySubgroup.SelectedId],
-                Degree = (RecordAcademicDegree) entry.Degree.SelectedId,
+                Degree = (RecordAcademicDegree)entry.Degree.SelectedId,
                 Institution = entry.Institution.Text,
                 DiplomaDate = entry.DiplomaDate.Text,
             });
@@ -477,7 +475,7 @@ public sealed partial class RecordsTab : Control
 
     private void UpdateAcademicTitleVisibility(bool clearHiddenValues)
     {
-        var visible = EmploymentAcademicTitle.SelectedId != (int) RecordAcademicTitle.NotApplicable;
+        var visible = EmploymentAcademicTitle.SelectedId != (int)RecordAcademicTitle.NotApplicable;
         AcademicTitleFieldContainer.Visible = visible;
         AcademicTitleDateContainer.Visible = visible;
 
@@ -574,7 +572,7 @@ public sealed partial class RecordsTab : Control
         PopulateSpecialtySubgroups(record.SpecialtySubgroup);
         var degree = new RecordOptionButton { HorizontalExpand = true, MinWidth = 230, MaxWidth = 380 };
         PopulateEnumOptions(degree, Enum.GetValues<RecordAcademicDegree>(), "records-degree");
-        degree.SelectId((int) record.Degree);
+        degree.SelectId((int)record.Degree);
         var institution = new LineEdit { Text = record.Institution, HorizontalExpand = true, MinWidth = 230 };
         var diplomaDate = new RecordDateEdit { HorizontalExpand = true, MinWidth = 230 };
         diplomaDate.SetText(record.DiplomaDate);

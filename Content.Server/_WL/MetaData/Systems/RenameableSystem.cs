@@ -58,7 +58,7 @@ public sealed partial class RenameableSystem : EntitySystem
         if (string.IsNullOrWhiteSpace(str))
             return false;
 
-        if (str.Any(c => char.IsNumber(c) || char.IsPunctuation(c)))
+        if (str.Any(char.IsPunctuation))
             return false;
 
         return true;
