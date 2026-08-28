@@ -4,11 +4,9 @@ using Content.Server._WL.Records;
 using Content.Shared.StationRecords.Components;
 using Content.Shared.StationRecords.Events;
 using Content.Shared.StationRecords.Systems;
-using Content.Shared._WL.Languages;
 using Content.Shared._WL.MedicalRecords;
 using Content.Shared._WL.MedicalRecords.Components;
 using Content.Shared._WL.Records;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Paper;
 using Content.Shared.StationRecords;
 using Robust.Server.GameObjects;
@@ -94,7 +92,7 @@ public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
                 StructuredRecordFormatter.FormatMedical(
                     record.MedicalRecord,
                     Loc.GetString,
-                    record.Species is not ("Ipc" or "Android" or "Golem")),
+                    record.Species),
                 Loc.GetString);
         }
         else

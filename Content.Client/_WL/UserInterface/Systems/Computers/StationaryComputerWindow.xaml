@@ -1,0 +1,44 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+             xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+             xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+             xmlns:this="clr-namespace:Content.Client._WL.UserInterface.Systems.Computers"
+             Title="{Loc 'ent-StationaryComputer'}"
+             MinSize="250 300"
+             SetSize="850 700">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <PanelContainer Margin="10" VerticalExpand="True">
+            <PanelContainer Name="BackgroundPanel">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#0C0C0C" />
+                </PanelContainer.PanelOverride>
+            </PanelContainer>
+
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="3 5">
+                <this:ExtendedScrollContainer Name="OutputScroll" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+                        <BoxContainer Orientation="Vertical" Name="MainBoxContainer">
+
+                        </BoxContainer>
+                        <BoxContainer HorizontalExpand="True" Margin="4 0 4 4">
+                            <Label Name="DiscPathLabel" HorizontalAlignment="Left"/>
+                            <this:CmdLineEdit Name="InputLine" Access="Public" HorizontalAlignment="Left"/>
+                            <this:BlinkingCaret Name="Caret" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                        </BoxContainer>
+                    </BoxContainer>
+                </this:ExtendedScrollContainer>
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- Footer -->
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
+                <Label Text="{Loc 'stationary-computer-footer-left'}" StyleClasses="WindowFooterText" />
+                <Label Text="{Loc 'stationary-computer-footer-right'}" StyleClasses="WindowFooterText"
+                        HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
+                <TextureRect StyleClasses="NTLogoDark" Stretch="KeepAspectCentered"
+                        VerticalAlignment="Center" HorizontalAlignment="Right" SetSize="19 19"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>

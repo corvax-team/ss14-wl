@@ -1,6 +1,5 @@
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Maths;
 
 namespace Content.Client._WL.Records;
 

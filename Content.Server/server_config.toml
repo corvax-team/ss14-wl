@@ -146,7 +146,7 @@ pg_database = "ss14"
 
 [log]
 # Level of logging to display. 0 = verbose, 1 = debug, 2 = info, 3 = warnings, 4 = errors, 5 = fatal
-level = 2
+level = 1
 # Write logs to disk? True to enable, false to disable.
 enabled = false
 

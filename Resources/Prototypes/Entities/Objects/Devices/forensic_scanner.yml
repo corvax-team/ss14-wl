@@ -53,7 +53,9 @@
     backgroundImageTile: true
     backgroundPatchMargin: 6.0, 0.0, 6.0, 0.0
     contentMargin: 12.0, 0.0, 6.0, 0.0
-    maxWritableArea: 368.0, 256.0
+    # WL-Changes-start: allow forensic and LogProbe printouts to be resized vertically
+    maxWritableArea: 368.0, 0.0
+    # WL-Changes-end
   - type: GuideHelp
     guides:
     - Forensics

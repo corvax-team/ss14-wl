@@ -26,6 +26,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
 
     public event Action<ProtoId<LoadoutPrototype>>? OnLoadoutPressed;
     public event Action<ProtoId<LoadoutPrototype>>? OnLoadoutUnpressed;
+    public bool HasLoadouts { get; private set; } // WL-Changes: items from forms
 
     public LoadoutGroupContainer(HumanoidCharacterProfile profile, RoleLoadout loadout, LoadoutGroupPrototype groupProto, ICommonSession session, IDependencyCollection collection)
     {
@@ -83,7 +84,8 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
         // Corvax-Loadouts-End
 
         // Get all loadout prototypes for this group.
-        var validProtos = groupLoadouts.Select(id => protoMan.Index(id)); // Corvax-Loadouts-Edit
+        var validProtos = groupLoadouts.Select(id => protoMan.Index(id)) //; // Corvax-Loadouts-Edit
+            .Where(proto => _groupProto.ID != "FormInventory" || loadout.IsValid(profile, session, proto.ID, collection, out _)); // WL-Changes: items from forms
 
         // Get all loadout prototypes for this group.
         //var validProtos = _groupProto.Loadouts.Select(id => protoMan.Index(id));
@@ -165,6 +167,7 @@ public sealed partial class LoadoutGroupContainer : BoxContainer
                     CreateLoadoutUI(protos[0], profile, loadout, session, collection, loadoutSystem)
                 );
             }
+            HasLoadouts = validProtos.Any(); // WL-Changes: items from forms
         }
     }
 

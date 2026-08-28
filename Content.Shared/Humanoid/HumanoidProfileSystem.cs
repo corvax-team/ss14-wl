@@ -62,6 +62,7 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
             barks.MaxDelay = profile.BarkMaxDelay;
             Dirty(ent.Owner, barks);
         }
+        ent.Comp.BrainSource = profile.BrainSource;
         // WL-Changes-End
         // Corvax-TTS-end
         //Wl-Changes: Height start

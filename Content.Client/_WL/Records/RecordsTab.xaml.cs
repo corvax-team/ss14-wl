@@ -7,7 +7,7 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
-using Robust.Shared.Maths;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Client._WL.Records;
@@ -21,6 +21,7 @@ public sealed partial class RecordsTab : Control
     public Action<string>? OnGeneralRecordNameChanged;
     public Action<string>? OnGeneralRecordAgeChanged;
     public Action<OptionButton.ItemSelectedEventArgs>? OnGeneralRecordConfederationChanged;
+    public Action<OptionButton.ItemSelectedEventArgs>? OnBrainSourceChanged;
     public Action<string>? OnGeneralRecordCountryChanged;
 
     private readonly List<EducationEntryControls> _educationEntries = new();
@@ -31,11 +32,13 @@ public sealed partial class RecordsTab : Control
     private string _speciesDisplay = string.Empty;
     private string _sexDisplay = string.Empty;
     private string _confederationDisplay = string.Empty;
+    private string _brainSourceDisplay = string.Empty;
     private string _medicalStorage = string.Empty;
     private string _securityStorage = string.Empty;
     private string _employmentStorage = string.Empty;
     private int _height;
     private RecordsPreviewWindow? _previewWindow;
+    private readonly IPrototypeManager _prototypeManager = IoCManager.Resolve<IPrototypeManager>();
 
     public RecordsTab()
     {
@@ -49,12 +52,13 @@ public sealed partial class RecordsTab : Control
         PopulateEnumOptions(EmploymentAcademicTitle, Enum.GetValues<RecordAcademicTitle>(), "records-academic-title-value");
         PopulateBooleanOptions(MedicalDnr);
         PopulateBooleanOptions(SecuritySupervision);
+        ConfigureTextLimits();
 
         BindLineEdit(MedicalWeight, EmitMedical);
         BindLineEdit(MedicalPostmortem, EmitMedical);
         BindLineEdit(MedicalEmergencyContact, EmitMedical);
         BindLineEdit(MedicalRefusedTreatment, EmitMedical);
-        BindLineEdit(MedicalLastUpdated, EmitMedical);
+        MedicalLastUpdated.OnDateChanged += EmitMedical;
         BindTextEdit(MedicalSurgeries, EmitMedical);
         BindTextEdit(MedicalMedication, EmitMedical);
         BindTextEdit(MedicalPhysiological, EmitMedical);
@@ -63,6 +67,11 @@ public sealed partial class RecordsTab : Control
         MedicalDnr.OnItemSelected += args =>
         {
             MedicalDnr.SelectId(args.Id);
+            EmitMedical();
+        };
+        BrainSourceButton.OnItemSelected += args =>
+        {
+            OnBrainSourceChanged?.Invoke(args);
             EmitMedical();
         };
 
@@ -74,7 +83,7 @@ public sealed partial class RecordsTab : Control
         BindLineEdit(SecurityFeatures, EmitSecurity);
         BindLineEdit(SecurityRelatives, EmitSecurity);
         BindLineEdit(SecurityEmergencyContact, EmitSecurity);
-        BindLineEdit(SecurityLastUpdated, EmitSecurity);
+        SecurityLastUpdated.OnDateChanged += EmitSecurity;
         BindTextEdit(SecurityPermits, EmitSecurity);
         BindTextEdit(SecurityArrests, EmitSecurity);
         BindTextEdit(SecurityImprisonment, EmitSecurity);
@@ -96,9 +105,9 @@ public sealed partial class RecordsTab : Control
             EmitSecurity();
         };
 
-        BindLineEdit(EmploymentAcademicTitleDate, EmitEmployment);
+        EmploymentAcademicTitleDate.OnDateChanged += EmitEmployment;
         BindLineEdit(EmploymentAcademicTitleField, EmitEmployment);
-        BindLineEdit(EmploymentLastUpdated, EmitEmployment);
+        EmploymentLastUpdated.OnDateChanged += EmitEmployment;
         BindTextEdit(EmploymentLicenses, EmitEmployment);
         BindTextEdit(EmploymentHistory, EmitEmployment);
         BindTextEdit(EmploymentNotes, EmitEmployment);
@@ -117,8 +126,8 @@ public sealed partial class RecordsTab : Control
                 OnGeneralRecordNameChanged?.Invoke(NameEdit.Text.Trim());
             UpdatePreview();
         };
-        BirthDayEdit.OnTextChanged += _ => UpdateBirthDate();
-        BirthMonthEdit.OnTextChanged += _ => UpdateBirthDate();
+        BindDatePart(BirthDayEdit, 2, UpdateBirthDate);
+        BindDatePart(BirthMonthEdit, 2, UpdateBirthDate);
         CountryEdit.OnTextChanged += _ =>
         {
             if (!_updating)
@@ -128,6 +137,11 @@ public sealed partial class RecordsTab : Control
         ConfederationButton.OnItemSelected += args =>
         {
             OnGeneralRecordConfederationChanged?.Invoke(args);
+            UpdatePreview();
+        };
+        BrainSourceButton.OnItemSelected += args =>
+        {
+            OnBrainSourceChanged?.Invoke(args);
             UpdatePreview();
         };
         RecordTabs.OnTabChanged += _ => UpdatePreview();
@@ -170,6 +184,7 @@ public sealed partial class RecordsTab : Control
         string speciesDisplay,
         string sexDisplay,
         string confederationDisplay,
+        string brainSourceDisplay,
         string fullName,
         string country,
         string storedDateOfBirth,
@@ -182,6 +197,7 @@ public sealed partial class RecordsTab : Control
         _speciesDisplay = speciesDisplay;
         _sexDisplay = sexDisplay;
         _confederationDisplay = confederationDisplay;
+        _brainSourceDisplay = brainSourceDisplay;
         _height = height;
         _medicalStorage = medicalStorage;
         _securityStorage = securityStorage;
@@ -192,10 +208,18 @@ public sealed partial class RecordsTab : Control
         SetSecurity(StructuredCharacterRecords.ReadSecurity(securityStorage));
         SetEmployment(StructuredCharacterRecords.ReadEmployment(employmentStorage));
         var normalizedDateOfBirth = SetDateOfBirth(storedDateOfBirth);
-        OrganicMedicalFields.Visible = IsOrganic(species);
-        BirthDateLabel.Text = Loc.GetString(IsManufactured(species)
+        var organic = RecordSpeciesClassification.IsOrganic(species);
+        var manufactured = RecordSpeciesClassification.IsManufactured(species);
+        MedicalProcedureFields.Visible = organic || manufactured;
+        MedicalProceduresLabel.Text = Loc.GetString(manufactured
+            ? "records-repair-records"
+            : "records-surgeries");
+        OrganicMedicalFields.Visible = organic;
+        BirthDateLabel.Text = Loc.GetString(manufactured
             ? "records-date-of-manufacture-edit"
             : "records-date-of-birth-edit");
+        BrainSourceLabel.Visible = species is "Android";
+        BrainSourceButton.Visible = species is "Android";
         _updating = false;
         UpdatePreview();
         UpdateEducationLayout();
@@ -269,7 +293,7 @@ public sealed partial class RecordsTab : Control
         SetText(MedicalPhysiological, record.PhysiologicalNotes);
         SetText(MedicalPsychological, record.PsychologicalNotes);
         SetText(MedicalNotes, record.Notes);
-        MedicalLastUpdated.Text = record.LastUpdated;
+        MedicalLastUpdated.SetText(record.LastUpdated);
     }
 
     private void SetSecurity(SecurityRecordData record)
@@ -294,7 +318,7 @@ public sealed partial class RecordsTab : Control
         SecurityResidenceDetails.Text = residence.Details;
         UpdateResidenceCustomVisibility();
         SecurityFeatures.Text = record.IdentifyingFeatures;
-        SecurityMaritalStatus.SelectId((int) record.MaritalStatus);
+        SecurityMaritalStatus.SelectId((int)record.MaritalStatus);
         SecurityRelatives.Text = record.CloseRelatives;
         SecurityEmergencyContact.Text = record.EmergencyContact;
         SetText(SecurityPermits, record.Permits);
@@ -302,7 +326,7 @@ public sealed partial class RecordsTab : Control
         SetText(SecurityArrests, record.ArrestHistory);
         SetText(SecurityImprisonment, record.ImprisonmentHistory);
         SetText(SecurityNotes, record.Notes);
-        SecurityLastUpdated.Text = record.LastUpdated;
+        SecurityLastUpdated.SetText(record.LastUpdated);
     }
 
     private void SetEmployment(EmploymentRecordData record)
@@ -314,14 +338,14 @@ public sealed partial class RecordsTab : Control
         foreach (var education in record.Education)
             AddEducationEntry(education, false);
 
-        EmploymentAcademicTitle.SelectId((int) record.AcademicTitle);
+        EmploymentAcademicTitle.SelectId((int)record.AcademicTitle);
         EmploymentAcademicTitleField.Text = record.AcademicTitleField;
-        EmploymentAcademicTitleDate.Text = record.AcademicTitleDate;
+        EmploymentAcademicTitleDate.SetText(record.AcademicTitleDate);
         UpdateAcademicTitleVisibility(false);
         SetText(EmploymentLicenses, record.Licenses);
         SetText(EmploymentHistory, record.EmploymentHistory);
         SetText(EmploymentNotes, record.Notes);
-        EmploymentLastUpdated.Text = record.LastUpdated;
+        EmploymentLastUpdated.SetText(record.LastUpdated);
         UpdateEducationButton();
     }
 
@@ -364,7 +388,7 @@ public sealed partial class RecordsTab : Control
                 Details = SecurityResidenceDetails.Text,
             }),
             IdentifyingFeatures = SecurityFeatures.Text,
-            MaritalStatus = (RecordMaritalStatus) SecurityMaritalStatus.SelectedId,
+            MaritalStatus = (RecordMaritalStatus)SecurityMaritalStatus.SelectedId,
             CloseRelatives = SecurityRelatives.Text,
             EmergencyContact = SecurityEmergencyContact.Text,
             Permits = GetText(SecurityPermits),
@@ -417,10 +441,10 @@ public sealed partial class RecordsTab : Control
         if (_updating)
             return;
 
-        var hasAcademicTitle = EmploymentAcademicTitle.SelectedId != (int) RecordAcademicTitle.NotApplicable;
+        var hasAcademicTitle = EmploymentAcademicTitle.SelectedId != (int)RecordAcademicTitle.NotApplicable;
         var record = new EmploymentRecordData
         {
-            AcademicTitle = (RecordAcademicTitle) EmploymentAcademicTitle.SelectedId,
+            AcademicTitle = (RecordAcademicTitle)EmploymentAcademicTitle.SelectedId,
             AcademicTitleField = hasAcademicTitle ? EmploymentAcademicTitleField.Text : string.Empty,
             AcademicTitleDate = hasAcademicTitle ? EmploymentAcademicTitleDate.Text : string.Empty,
             Licenses = GetText(EmploymentLicenses),
@@ -436,7 +460,7 @@ public sealed partial class RecordsTab : Control
                 Specialty = entry.Specialty.Text,
                 SpecialtyGroup = entry.SpecialtyGroupValues[entry.SpecialtyGroup.SelectedId],
                 SpecialtySubgroup = entry.SpecialtySubgroupValues[entry.SpecialtySubgroup.SelectedId],
-                Degree = (RecordAcademicDegree) entry.Degree.SelectedId,
+                Degree = (RecordAcademicDegree)entry.Degree.SelectedId,
                 Institution = entry.Institution.Text,
                 DiplomaDate = entry.DiplomaDate.Text,
             });
@@ -447,9 +471,27 @@ public sealed partial class RecordsTab : Control
         UpdatePreview();
     }
 
+    private void ConfigureTextLimits()
+    {
+        MedicalSurgeries.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        MedicalMedication.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        MedicalPhysiological.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        MedicalPsychological.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        MedicalNotes.SetCharacterLimit(StructuredCharacterRecords.MaxNotesTextLength);
+
+        SecurityPermits.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        SecurityArrests.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        SecurityImprisonment.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        SecurityNotes.SetCharacterLimit(StructuredCharacterRecords.MaxNotesTextLength);
+
+        EmploymentLicenses.SetCharacterLimit(StructuredCharacterRecords.MaxLongTextLength);
+        EmploymentHistory.SetCharacterLimit(StructuredCharacterRecords.MaxEmploymentHistoryLength);
+        EmploymentNotes.SetCharacterLimit(StructuredCharacterRecords.MaxNotesTextLength);
+    }
+
     private void UpdateAcademicTitleVisibility(bool clearHiddenValues)
     {
-        var visible = EmploymentAcademicTitle.SelectedId != (int) RecordAcademicTitle.NotApplicable;
+        var visible = EmploymentAcademicTitle.SelectedId != (int)RecordAcademicTitle.NotApplicable;
         AcademicTitleFieldContainer.Visible = visible;
         AcademicTitleDateContainer.Visible = visible;
 
@@ -459,7 +501,7 @@ public sealed partial class RecordsTab : Control
         var wasUpdating = _updating;
         _updating = true;
         EmploymentAcademicTitleField.Text = string.Empty;
-        EmploymentAcademicTitleDate.Text = string.Empty;
+        EmploymentAcademicTitleDate.SetText(string.Empty);
         _updating = wasUpdating;
     }
 
@@ -469,23 +511,50 @@ public sealed partial class RecordsTab : Control
             return;
 
         var specialty = new LineEdit { Text = record.Specialty, HorizontalExpand = true, MinWidth = 230 };
-        var specialtyGroup = new RecordOptionButton { HorizontalExpand = true, MinWidth = 230, MaxWidth = 600 };
+        var specialtyGroup = new RecordOptionButton
+        {
+            HorizontalExpand = true,
+            MinWidth = 230,
+            MaxWidth = 600,
+            CompactItems = true,
+            Filterable = true,
+        };
         var specialtyGroupValues = new List<string> { string.Empty };
         specialtyGroup.AddItem(Loc.GetString("records-value-not-specified"), 0);
-        foreach (var group in StructuredCharacterRecords.SpecialtyGroups)
+        foreach (var section in SpecialtyGroupCatalog.GetSections(_prototypeManager))
         {
-            specialtyGroupValues.Add(group);
-            specialtyGroup.AddItem(Loc.GetString($"records-specialty-group-value-{group}"), specialtyGroupValues.Count - 1);
+            var sectionName = Loc.GetString($"records-specialty-section-{section.Id}");
+            var groupNames = section.Groups
+                .Select(group => Loc.GetString($"records-specialty-group-value-{group}"));
+            specialtyGroup.AddSectionHeader(sectionName, $"{sectionName} {string.Join(' ', groupNames)}");
+
+            foreach (var group in section.Groups)
+            {
+                specialtyGroupValues.Add(group);
+                specialtyGroup.AddItem(
+                    Loc.GetString($"records-specialty-group-value-{group}"),
+                    specialtyGroupValues.Count - 1);
+            }
         }
         var specialtyGroupIndex = specialtyGroupValues.IndexOf(record.SpecialtyGroup);
         if (specialtyGroupIndex < 0 && !string.IsNullOrWhiteSpace(record.SpecialtyGroup))
         {
             specialtyGroupValues.Add(record.SpecialtyGroup);
             specialtyGroupIndex = specialtyGroupValues.Count - 1;
-            specialtyGroup.AddItem(record.SpecialtyGroup, specialtyGroupIndex);
+            var displayName = SpecialtyGroupCatalog.ContainsGroup(_prototypeManager, record.SpecialtyGroup)
+                ? Loc.GetString($"records-specialty-group-value-{record.SpecialtyGroup}")
+                : record.SpecialtyGroup;
+            specialtyGroup.AddItem(displayName, specialtyGroupIndex);
         }
         specialtyGroup.SelectId(Math.Max(0, specialtyGroupIndex));
-        var specialtySubgroup = new RecordOptionButton { HorizontalExpand = true, MinWidth = 230, MaxWidth = 600 };
+        var specialtySubgroup = new RecordOptionButton
+        {
+            HorizontalExpand = true,
+            MinWidth = 230,
+            MaxWidth = 600,
+            CompactItems = true,
+            Filterable = true,
+        };
         var specialtySubgroupValues = new List<string>();
         void PopulateSpecialtySubgroups(string selected)
         {
@@ -495,7 +564,7 @@ public sealed partial class RecordsTab : Control
             specialtySubgroup.AddItem(Loc.GetString("records-value-not-specified"), 0);
 
             var selectedGroup = specialtyGroupValues[specialtyGroup.SelectedId];
-            foreach (var subgroup in SpecialtyGroupCatalog.GetSubgroups(selectedGroup))
+            foreach (var subgroup in SpecialtyGroupCatalog.GetSubgroups(_prototypeManager, selectedGroup))
             {
                 specialtySubgroupValues.Add(subgroup);
                 specialtySubgroup.AddItem(
@@ -508,7 +577,7 @@ public sealed partial class RecordsTab : Control
             {
                 specialtySubgroupValues.Add(selected);
                 subgroupIndex = specialtySubgroupValues.Count - 1;
-                var displayName = SpecialtyGroupCatalog.ContainsSubgroup(selected)
+                var displayName = SpecialtyGroupCatalog.ContainsSubgroup(_prototypeManager, selected)
                     ? Loc.GetString(SpecialtyGroupCatalog.GetSubgroupLocalizationKey(selected))
                     : selected;
                 specialtySubgroup.AddItem(displayName, subgroupIndex);
@@ -519,9 +588,10 @@ public sealed partial class RecordsTab : Control
         PopulateSpecialtySubgroups(record.SpecialtySubgroup);
         var degree = new RecordOptionButton { HorizontalExpand = true, MinWidth = 230, MaxWidth = 380 };
         PopulateEnumOptions(degree, Enum.GetValues<RecordAcademicDegree>(), "records-degree");
-        degree.SelectId((int) record.Degree);
+        degree.SelectId((int)record.Degree);
         var institution = new LineEdit { Text = record.Institution, HorizontalExpand = true, MinWidth = 230 };
-        var diplomaDate = new LineEdit { Text = record.DiplomaDate, HorizontalExpand = true, MinWidth = 230 };
+        var diplomaDate = new RecordDateEdit { HorizontalExpand = true, MinWidth = 230 };
+        diplomaDate.SetText(record.DiplomaDate);
 
         var specialtyField = CreateEducationField("records-specialty", specialty, out var specialtyLabel);
         var specialtyGroupField = CreateEducationField("records-specialty-group", specialtyGroup, out var specialtyGroupLabel);
@@ -623,7 +693,7 @@ public sealed partial class RecordsTab : Control
 
         BindLineEdit(specialty, EmitEmployment);
         BindLineEdit(institution, EmitEmployment);
-        BindLineEdit(diplomaDate, EmitEmployment);
+        diplomaDate.OnDateChanged += EmitEmployment;
         degree.OnItemSelected += args =>
         {
             degree.SelectId(args.Id);
@@ -740,7 +810,7 @@ public sealed partial class RecordsTab : Control
             string.Empty,
             string.Empty,
             ValueOr(NameEdit.Text, noData),
-            Loc.GetString(IsManufactured(_species)
+            Loc.GetString(RecordSpeciesClassification.IsManufactured(_species)
                 ? "records-date-of-manufacture-edit"
                 : "records-date-of-birth-edit"),
             ValueOr(date, noData),
@@ -749,12 +819,13 @@ public sealed partial class RecordsTab : Control
             $"{_height} {Loc.GetString("records-height-unit-centimeters")}",
             noData,
             ValueOr(_confederationDisplay, noData),
+            ValueOr(_brainSourceDisplay, noData),
             ValueOr(CountryEdit.Text, noData));
 
         _previewWindow.SetRecords(
-            RecordViewBuilder.Medical(identity, _medicalStorage, IsOrganic(_species), Loc.GetString),
+            RecordViewBuilder.Medical(identity, _medicalStorage, _species, Loc.GetString),
             RecordViewBuilder.Security(identity, _securityStorage, Loc.GetString),
-            RecordViewBuilder.Employment(identity, _employmentStorage, Loc.GetString),
+            RecordViewBuilder.Employment(identity, _employmentStorage, _prototypeManager, Loc.GetString),
             RecordTabs.CurrentTab);
     }
 
@@ -778,8 +849,28 @@ public sealed partial class RecordsTab : Control
         button.SelectId(0);
     }
 
-    private static bool IsOrganic(string species) => species is not ("Ipc" or "Android" or "Golem");
-    private static bool IsManufactured(string species) => species is "Ipc" or "Android";
+    private void BindDatePart(LineEdit edit, int maxLength, Action callback)
+    {
+        edit.OnTextChanged += _ =>
+        {
+            if (_updating)
+                return;
+
+            var sanitized = new string(edit.Text
+                .Where(character => character is >= '0' and <= '9')
+                .Take(maxLength)
+                .ToArray());
+            if (edit.Text != sanitized)
+            {
+                _updating = true;
+                edit.Text = sanitized;
+                edit.CursorPosition = Math.Min(edit.CursorPosition, sanitized.Length);
+                _updating = false;
+            }
+
+            callback();
+        };
+    }
 
     private static void BindLineEdit(LineEdit edit, Action callback)
     {
@@ -825,7 +916,7 @@ public sealed partial class RecordsTab : Control
         IReadOnlyList<string> SpecialtySubgroupValues,
         OptionButton Degree,
         LineEdit Institution,
-        LineEdit DiplomaDate);
+        RecordDateEdit DiplomaDate);
 
     private sealed record EducationFieldLabel(Label Label, string LocalizationKey);
 }

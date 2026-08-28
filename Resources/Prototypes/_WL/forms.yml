@@ -1,0 +1,181 @@
+- type: entity
+  parent: ClothingEyesGlasses
+  id: ClothingEyesGlassesKawariReArt
+  name: old glasses
+  description: Worn out glasses with blue frame and square lenses. On one of the temples is written "Toshiro Kawari".
+  suffix: Forms
+  components:
+  - type: Sprite
+    sprite: _WL/Forms/kawariglasses.rsi
+  - type: Clothing
+    sprite: _WL/Forms/kawariglasses.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretSecurityPilot
+  id: ClothingHeadHatBeretSecurityPilotAurora
+  name: tattered beret
+  description: A pilot's beret with a patch stitched in pink thread on the back. The word is illegible.
+  suffix: Forms
+
+- type: entity
+  parent: ClothingHeadHatCowboyBrown
+  id: ClothingHeadHatCowboyBrownAurora
+  name: cowboy hat
+  description: A few strands of light-colored synthetic hair are visible inside.
+  suffix: Forms
+
+- type: entity
+  parent: ClothingHeadHatBeretQM
+  id: ClothingHeadHatBeretQMRellimo
+  description: A quartermaster's beret with two cutouts for someone's ears and an arctic fox badge.
+  suffix: Forms
+
+- type: entity
+  parent: ClothingHeadHatTophat
+  id: ClothingHeadHatTophatSrochnik
+  name: black hat
+  description: A stylish black top hat.
+  suffix: Forms
+
+- type: entity
+  parent: ClothingNeckChoker
+  id: ClothingNeckPendantCL_w
+  name: crystal pendant
+  description: A simple pendant featuring a small pink crystal. The translucent crystal refracts light in a whimsical way, revealing a tiny image of a rose inside. It is an interesting—though likely inexpensive—piece of jewelry made of simple glass.
+  suffix: Forms
+  components:
+  - type: Sprite
+    sprite: _WL/Forms/pendant_cl.rsi
+  - type: Clothing
+    sprite: _WL/Forms/pendant_cl.rsi
+
+- type: entity
+  parent: ClothingOuterCoatLabCmo
+  id: ClothingOuterCoatLabCmoVissent
+  name: light blue medical coat
+  description: A worn, oversized medical coat, broken in to the point of anatomical comfort. It smells of antiseptics and lavender and bears traces of gray wool.
+  suffix: Forms
+
+- type: entity
+  parent: ClothingUniformJumpskirtWarden
+  id: ClothingUniformJumpskirtBrigmedicBambanater
+  name: expensive Brigmedic uniform
+  description: A pristine Brig-Medic uniform bearing the insignia of an Eden combat medic, adorned with silver threading and silver shoulder boards. The patch reads "Kri.Yu." Visible in the breast pocket are the "Mar.E" (Empire) and "Arm.M" patches.
+  suffix: Forms
+
+- type: entity
+  parent: ClothingUniformJumpsuitScientist
+  id: ClothingUniformJumpsuitScientistRiki
+  name: Outlandish costume
+  description: It looks like the uniform of a researcher from outside these sectors.
+  suffix: Forms
+  components:
+  - type: Sprite
+    sprite: _WL/Forms/scientist_riki.rsi
+  - type: Clothing
+    sprite: _WL/Forms/scientist_riki.rsi
+
+- type: entity
+  parent: WristwatchGold
+  id: WristwatchGoldFreealeq
+  name: engraved gold watch
+  description: This gold watch looks worn. A faint inscription in italics "M.E." is visible near the dial.
+  suffix: Forms
+
+- type: entity
+  parent: ViolinInstrument
+  id: ViolinInstrumentDanger
+  name: handmade violin
+  description: A violin with a faint sheen. Signs of wear had long since appeared on the neck and chin rest, while the body was marked by barely perceptible lines formed by accumulations of varnish—running lengthwise along the top and across the bottom.
+  suffix: Forms
+
+- type: entity
+  parent: BoxFolderCentComClipboardEmpty
+  id: BoxFolderLawyerClipboardEmptySkirgan
+  name: legal department tablet
+  description: An expensive tablet made of heavy material. The Legal Department’s shield.
+  suffix: Forms
+  components:
+  - type: Sprite
+    sprite: _WL/Forms/lawyer_clipboard.rsi
+  - type: Item
+    sprite: _WL/Forms/lawyer_clipboard.rsi
+  - type: Clothing
+    sprite: _WL/Forms/lawyer_clipboard.rsi
+
+- type: entity
+  parent: LuxuryPen
+  id: LuxuryPenSyndiCarp
+  name: accounting pen
+  description: A handy pen for drafting and filling out legitimate payment orders and questionable documents.
+  suffix: Forms
+
+- type: entity
+  parent: FlippoLighter
+  id: FlippoEngravedLighterComrade
+  name: an expensive engraved lighter
+  description: A durable gold-plated metal lighter built to last. Its body features the engraved initials "V.Sh." in a calligraphic script, along with various intricate ornamental designs. The lighter appears almost new.
+  suffix: Forms
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/Lighters/lighters.rsi
+    layers:
+    - state: zippo_engraved_icon_base
+      map: ["base"]
+    - state: zippo_top
+      map: ["top"]
+      visible: false
+    - state: zippo_engraved_open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+
+- type: entity
+  parent: FlippoLighter
+  id: FlippoEngravedLighterWhitley
+  name: gold flippo lighter
+  description: A flip-top lighter with a gold-anodized finish. It frequently turns up in the pockets of low-ranking military officers. Gaudy, yet it certainly stands out.
+  suffix: Forms
+  components:
+  - type: Sprite
+    sprite: _WL/Forms/lighter_whitley.rsi
+    layers:
+    - state: gold_icon_base
+      map: ["base"]
+    - state: gold_top
+      map: ["top"]
+      visible: false
+    - state: gold_open
+      map: ["open"]
+      visible: false
+    - state: lighter_flame
+      map: ["flame"]
+      visible: false
+      shader: unshaded
+  - type: Item
+    sprite: _WL/Forms/lighter_whitley.rsi
+    heldPrefix: gold
+  - type: ToggleableVisuals
+    inhandVisuals:
+      left:
+      - state: gold-inhand-left-flame
+        shader: unshaded
+      right:
+      - state: gold-inhand-right-flame
+        shader: unshaded
+
+- type: entity
+  parent: ClothingHeadsetTacticDSS
+  id: ClothingHeadsetTacticScience
+  name: tactical scientific headphones
+  description: Standard tactical headphones with a microphone, but featuring a purple line instead of a red one. Turquoise hair is visible on the headband.
+  suffix: Forms
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyScience
+      - EncryptionKeyCommon

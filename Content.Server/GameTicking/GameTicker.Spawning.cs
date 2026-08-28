@@ -435,6 +435,14 @@ namespace Content.Server.GameTicking
             }
 
             var ghost = _ghost.SpawnGhost(mind.Value);
+
+            // Wl-Changes-Start: Ghost hair
+            var profile = GetPlayerProfile(player);
+
+            if (ghost != null)
+                _ghost.CopyHairToGhost(profile, ghost.Value);
+            // Wl-Changes-End: Ghost hair
+
             if (makeObserver)
                 _role.MindAddRole(mind.Value, "MindRoleObserver");
 

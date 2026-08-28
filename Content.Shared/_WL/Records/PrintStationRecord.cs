@@ -3,12 +3,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._WL.Records;
 
 [Serializable, NetSerializable]
-public sealed class PrintStationRecord : BoundUserInterfaceMessage
+public sealed class PrintStationRecord(uint id) : BoundUserInterfaceMessage
 {
-    public PrintStationRecord(uint id)
-    {
-        Id = id;
-    }
-
-    public readonly uint Id;
+    public readonly uint Id = id;
 }

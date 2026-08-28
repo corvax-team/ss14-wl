@@ -1,0 +1,7 @@
+- type: trait
+  id: Wagging
+  name: trait-wagging-name
+  description: trait-wagging-desc
+  category: Quirks
+  components:
+    - type: Wagging

@@ -75,6 +75,8 @@ public sealed partial class LoadoutWindow : FancyWindow
                     continue;
 
                 var container = new LoadoutGroupContainer(profile, loadout, protoManager.Index(group), session, collection);
+                if (!container.HasLoadouts) // WL-Changes: items from forms
+                    continue;
                 LoadoutGroupsContainer.AddTab(container, Loc.GetString(groupProto.Name));
                 _groups.Add(container);
 

@@ -43,7 +43,7 @@
         conditions:
         # Golem
         - !type:MetabolizerTypeCondition
-          type: [ Golem, Animal ]
+          type: [ Golem, Akula ]
           inverted: true
 # WL species end
         damage:
@@ -54,7 +54,7 @@
         conditions:
         # Golem
         - !type:MetabolizerTypeCondition
-          type: [ Golem, Animal ]
+          type: [ Golem, Akula ]
           inverted: true
 # WL species end
         type: Local

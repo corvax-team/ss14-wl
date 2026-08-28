@@ -3,10 +3,15 @@ using Content.Shared.Actions;
 using Content.Shared.Ghost;
 using Content.Shared.NightVision;
 using Content.Shared.Overlays;
+using Content.Shared._WL.Ghost; // Wl-Changes: Ghost hair
+using Content.Shared.Humanoid.Markings; // Wl-Changes: Ghost hair
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.Player;
+using Robust.Shared.Utility; // Wl-Changes: Ghost hair
+using Robust.Shared.Prototypes;
+using Robust.Client.Graphics; // Wl-Changes: Ghost hair
 
 namespace Content.Client.Ghost
 {
@@ -18,6 +23,8 @@ namespace Content.Client.Ghost
         [Dependency] private ContentEyeSystem _contentEye = default!;
         [Dependency] private SpriteSystem _sprite = default!;
         [Dependency] private SharedNightVisionSystem _nv = default!;
+        [Dependency] private MarkingManager _marking = default!; // Wl-Changes: Ghost hair
+        [Dependency] private IPrototypeManager _prototypeManager = default!; // Wl-Changes: Ghost hair
 
         public int AvailableGhostRoleCount { get; private set; }
 
@@ -70,6 +77,9 @@ namespace Content.Client.Ghost
             SubscribeLocalEvent<EyeComponent, ToggleLightingActionEvent>(OnToggleLighting);
             SubscribeLocalEvent<EyeComponent, ToggleFoVActionEvent>(OnToggleFoV);
             SubscribeLocalEvent<GhostComponent, ToggleGhostsActionEvent>(OnToggleGhosts);
+
+            SubscribeLocalEvent<GhostMarkingsComponent, ComponentStartup>(OnGhostHairStartup); // Wl-Changes: Ghost hair
+            SubscribeLocalEvent<GhostMarkingsComponent, AfterAutoHandleStateEvent>(OnGhostHairState); // Wl-Changes: Ghost hair
         }
 
         private void OnStartup(EntityUid uid, GhostComponent component, ComponentStartup args)
@@ -77,6 +87,58 @@ namespace Content.Client.Ghost
             if (TryComp(uid, out SpriteComponent? sprite))
                 _sprite.SetVisible((uid, sprite), GhostVisibility || uid == _playerManager.LocalEntity);
         }
+
+        // WL-Changes-Start: Ghost Hair
+        private void OnGhostHairStartup(Entity<GhostMarkingsComponent> ent, ref ComponentStartup args)
+        {
+            ApplyGhostHair(ent);
+        }
+
+        private void OnGhostHairState(Entity<GhostMarkingsComponent> ent, ref AfterAutoHandleStateEvent args)
+        {
+            ApplyGhostHair(ent);
+        }
+
+        private void ApplyGhostHair(Entity<GhostMarkingsComponent> ent)
+        {
+            if (!TryComp<SpriteComponent>(ent, out var sprite))
+                return;
+
+            if (!TryComp<GhostComponent>(ent, out var ghost))
+                return;
+
+            foreach (var marking in ent.Comp.Markings)
+            {
+                if (!_marking.TryGetMarking(marking, out var proto))
+                    continue;
+
+                for (var i = 0; i < proto.Sprites.Count; i++)
+                {
+                    if (proto.Sprites[i] is not SpriteSpecifier.Rsi rsi)
+                        continue;
+
+                    var layerId = $"{proto.ID}-{rsi.RsiState}";
+
+                    if (!_sprite.LayerMapTryGet((ent, sprite), layerId, out _, false))
+                    {
+                        var layerIndex = _sprite.AddLayer((ent, sprite), rsi);
+                        _sprite.LayerMapSet((ent, sprite), layerId, layerIndex);
+
+                        sprite.LayerSetShader(layerIndex, "unshaded");
+                    }
+
+                    _sprite.LayerSetSprite((ent, sprite), layerId, rsi);
+
+                    if (marking.MarkingColors != null && i < marking.MarkingColors.Count)
+                    {
+                        _sprite.LayerSetColor((ent, sprite),
+                            layerId,
+                            new Color(marking.MarkingColors[i].R, marking.MarkingColors[i].G, marking.MarkingColors[i].B, marking.MarkingColors[i].A * ent.Comp.Alpha));
+                    }
+                }
+            }
+        }
+        // WL-Changes-End: Ghost Hair
 
         private void OnToggleLighting(EntityUid uid, EyeComponent component, ToggleLightingActionEvent args)
         {

@@ -72,3 +72,45 @@
 
 - type: Tag
   id: Cult
+
+- type: Tag
+  id: Cobra # Overlay whitelist: ClothingBeltHolsterred
+
+- type: Tag
+  id: Viper # Overlay whitelist: ClothingBeltHolsterred
+
+- type: Tag
+  id: Python # Overlay whitelist: ClothingBeltHolsterred
+
+- type: Tag
+  id: SidearmNT # Storage whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: SidearmSyndie # Storage whitelist: ClothingBeltRedHolster
+
+- type: Tag
+  id: Mk58 # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: TC12 # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: NT1984 # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: Rifle # Storage whitelist: ClothingBackHolsterRifle
+
+- type: Tag
+  id: SMG # Storage whitelist: ClothingBeltHolsterSMG
+
+- type: Tag
+  id: Disabler # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: Mateba # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: EnergyMagnum # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: Inspector # Overlay whitelist: ClothingBeltHolsterDSS

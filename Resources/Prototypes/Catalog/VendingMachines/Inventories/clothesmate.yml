@@ -9,6 +9,7 @@
     ClothingRandomSpawner: 8
     ClothingUniformRandomShorts: 4
     ClothingHeadHatBeret: 4
+    ClothingHeadHatBeretCivilian: 3 # WL-berets-resprite
     ClothingHeadBandBlack: 2
     ClothingHeadBandBlue: 2
     ClothingHeadBandGreen: 2

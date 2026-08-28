@@ -107,7 +107,7 @@
   - type: ZombieImmune
   - type: Vocal
     emoteSounds: Skeleton
-  - type: SkeletonAccent
+    # - type: SkeletonAccent WL-Changes: Cringe accent rm
   - type: Fixtures
     fixtures:
       fix1:

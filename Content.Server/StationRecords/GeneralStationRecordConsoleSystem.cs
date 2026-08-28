@@ -59,7 +59,7 @@ public sealed partial class GeneralStationRecordConsoleSystem : SharedGeneralSta
             Loc.GetString("records-print-employment-title"),
             "#356A49",
             identity,
-            StructuredRecordFormatter.FormatEmployment(record.EmploymentRecord, Loc.GetString),
+            StructuredRecordFormatter.FormatEmployment(record.EmploymentRecord, _prototypes, Loc.GetString),
             Loc.GetString);
         ent.Comp.CanPrintEntries = false;
         ent.Comp.TimePrintRemaining = ent.Comp.TimePrint;

@@ -24,6 +24,9 @@ public static class RecordPrintIdentityBuilder
         var species = prototypes.TryIndex<SpeciesPrototype>(record.Species, out var speciesPrototype)
             ? loc(speciesPrototype.Name)
             : noData;
+        var brainSource = prototypes.TryIndex(record.BrainSource, out BrainSourcePrototype? brainSourcePrototype) && record.Species is "Android"
+            ? loc(brainSourcePrototype.Name)
+            : noData;
 
         return new RecordPrintIdentity(
             string.IsNullOrWhiteSpace(record.Fullname) ? record.Name : record.Fullname,
@@ -34,8 +37,11 @@ public static class RecordPrintIdentityBuilder
             loc($"humanoid-profile-editor-sex-{record.Sex.ToString().ToLowerInvariant()}-text"),
             species,
             $"{record.Height} {loc("records-height-unit-centimeters")}",
+            record.Fingerprint ?? noData,
+            record.DNA ?? noData,
             string.IsNullOrWhiteSpace(languages) ? noData : languages,
             confederation,
+            brainSource,
             string.IsNullOrWhiteSpace(record.Country) ? noData : record.Country);
     }
 }

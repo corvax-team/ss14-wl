@@ -3,6 +3,7 @@
   id: JobCaptain
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - CaptainHead
   - CaptainNeck
   - CaptainJumpsuit
@@ -19,6 +20,7 @@
   id: JobHeadOfPersonnel
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - HoPHead
   - HoPNeck
@@ -48,6 +50,7 @@
   id: JobPassenger
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
@@ -68,6 +71,7 @@
   id: JobBartender
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
@@ -86,6 +90,7 @@
   id: JobServiceWorker
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
@@ -101,6 +106,7 @@
   id: JobChef
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ChefHead
   - ChefMask
@@ -119,6 +125,7 @@
   id: JobLibrarian
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - LibrarianJumpsuit # WL-change: formal uniforms are integrated into the role group
   - LibrarianOuterClothing # WL-change: wardrobe refresh
@@ -135,6 +142,7 @@
   id: JobLawyer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit # WL-change: formal uniforms are integrated into the role group
@@ -152,6 +160,7 @@
   canCustomizeName: true
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ChaplainHead
   - ChaplainMask
@@ -172,6 +181,7 @@
   id: JobJanitor
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - JanitorHead
   - JanitorJumpsuit
@@ -190,6 +200,7 @@
   id: JobBotanist
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - BotanistHead
   - BotanistJumpsuit
@@ -208,6 +219,7 @@
   canCustomizeName: true
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ClownHead
   - ClownJumpsuit
@@ -226,6 +238,7 @@
   canCustomizeName: true
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - MimeHead
   - MimeMask
@@ -245,6 +258,7 @@
   canCustomizeName: true
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
@@ -264,6 +278,7 @@
   id: JobQuartermaster
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
@@ -283,6 +298,7 @@
   id: JobCargoTechnician
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
@@ -302,6 +318,7 @@
   id: JobSalvageSpecialist
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
@@ -319,6 +336,7 @@
   id: JobChiefEngineer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
@@ -337,6 +355,7 @@
   id: JobTechnicalAssistant
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
@@ -351,6 +370,7 @@
   id: JobStationEngineer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - StationEngineerHead
   - StationEngineerJumpsuit
@@ -369,12 +389,13 @@
   id: JobAtmosphericTechnician
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - AtmosphericTechnicianShoes
-  - AtmosHead # WL-Changes
+  - AtmosphericTechnicianHead # WL-Changes
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
@@ -387,6 +408,7 @@
   id: JobResearchDirector
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
@@ -407,6 +429,7 @@
   id: JobScientist
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ScientistHead
   - ScientistNeck
@@ -428,6 +451,7 @@
   id: JobResearchAssistant
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
@@ -444,6 +468,7 @@
   id: JobHeadOfSecurity
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
@@ -463,6 +488,7 @@
   id: JobWarden
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
@@ -481,6 +507,7 @@
   id: JobSecurityOfficer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
@@ -500,6 +527,7 @@
   id: JobDetective
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - DetectiveHead
   - DetectiveJumpsuit # WL-change: use the security uniform group
   - SecurityBackpack
@@ -518,6 +546,7 @@
   id: JobSecurityCadet
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - AssistiveItems
@@ -533,6 +562,7 @@
   id: JobReporter
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ReporterJumpsuit # WL-change: formal uniforms are integrated into the role group
   - ReporterHead
@@ -551,6 +581,7 @@
   id: JobPsychologist
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack

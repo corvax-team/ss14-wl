@@ -118,6 +118,13 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 1000
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmSyndie
+    - Viper
+  # White-List components end
 
 - type: entity
   name: echis
@@ -154,6 +161,13 @@
     autoRefillRate: 2s
     affectedByEmp: true
   - type: AmmoCounter
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmSyndie
+    - Viper
+  # White-List components end
 
 - type: entity
   name: cobra
@@ -204,6 +218,13 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 1500
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmSyndie
+    - Cobra
+  # White-List components end
 
 - type: entity
   name: mk 58
@@ -230,6 +251,13 @@
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: StealTarget
     stealGroup: OfficerHandgun
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmNT
+    - Mk58
+  # White-List components end
 
 - type: entity
   name: N1984
@@ -274,3 +302,10 @@
         whitelist:
           tags:
             - CartridgeMagnum
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmNT
+    - NT1984
+  # White-List components end

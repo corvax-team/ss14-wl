@@ -2,7 +2,7 @@ loadout-group-MedicalDoctorNeck = Врач, шея
 
 loadout-group-Utility = Служебное
 
-loadout-group-AtmosHead = Атмосферный техник, голова
+loadout-group-atmospheric-technician-head = Атмосферный техник, голова
 
 loadout-group-adjutant-head = Адъютант, голова
 loadout-group-adjutant-jumpsuit = Адъютант, комбинезон
@@ -15,3 +15,5 @@ loadout-group-sec-badges-wl = Значки отличия, шея
 
 loadout-group-photo = Фотоаппарат
 loadout-group-corp-uniform = Формальные комбинезоны
+
+loadout-group-form-inventory = Вещи по квенте

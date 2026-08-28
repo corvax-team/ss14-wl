@@ -102,3 +102,14 @@
   - SecBalaclavGreenRecipe
   - SecBalaclavRedRecipe
   - SecBalaclavTanRecipe
+
+- type: latheRecipePack
+  id: SecHolsterStatic
+  recipes:
+  - ClothingBeltHolsterDSS
+  - ClothingBackHolsterRifle
+  - ClothingBeltHolsterSMG
+  - ClothingBeltBrownHolster
+  - ClothingBeltBlackHolster
+  - ClothingBeltBlackShoulderHolster
+  - ClothingBeltHolster

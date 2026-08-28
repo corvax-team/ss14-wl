@@ -74,6 +74,9 @@ public sealed partial record GeneralStationRecord : StationRecord
     public string Confederation = string.Empty;
 
     [DataField]
+    public string BrainSource = string.Empty;
+
+    [DataField]
     public string Country = string.Empty;
 
     [DataField]

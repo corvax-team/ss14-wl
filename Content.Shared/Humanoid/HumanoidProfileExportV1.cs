@@ -115,6 +115,9 @@ public sealed partial class HumanoidCharacterProfileV1
     public string Confederation;
 
     [DataField]
+    public string BrainSource;
+
+    [DataField]
     public string Country;
 
     [DataField("skills")]
@@ -123,7 +126,7 @@ public sealed partial class HumanoidCharacterProfileV1
     //WL-Changes: Records end
     public HumanoidCharacterProfile ToV2()
     {
-        return new(Name, FlavorText, OocText, Species, TTSVoice, Age, Height, Sex, GetDefaultVoice(Species, Sex), Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, JobSubnames, AntagPreferences, TraitPreferences, Loadouts, JobUnblockings, MedicalRecord, SecurityRecord, EmploymentRecord, FullName, DateOfBirth, Confederation, Country, Skills); //WL-Changes; WL fiches
+        return new(Name, FlavorText, OocText, Species, TTSVoice, Age, Height, Sex, GetDefaultVoice(Species, Sex), Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, JobSubnames, AntagPreferences, TraitPreferences, Loadouts, JobUnblockings, MedicalRecord, SecurityRecord, EmploymentRecord, FullName, DateOfBirth, Confederation, BrainSource, Country, Skills); //WL-Changes; WL fiches
     }
 
     // In V2 voices are stored as a separate database entry, this picks the default for the species and sex, which would give the same voice as pre-nubody.

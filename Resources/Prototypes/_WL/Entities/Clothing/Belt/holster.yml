@@ -1,0 +1,240 @@
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltHolsterSMG
+  name: smg shoulder holster
+  description: 'Holster for submachine guns. Can be worn under a coat and over a bulletproof vest. Has 2 magazine pouches.'
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Belt/holstersmg.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Belt/holstersmg.rsi
+    slots:
+    - suitStorage
+    - Belt
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      item:
+        insertSound:
+          collection: storageRustle
+        ejectSound: /Audio/Weapons/Guns/Misc/selector.ogg
+        name: clothing-holster-sidearm
+        priority: 4
+        whitelist:
+          tags:
+          - SMG
+      gun_magazine_1:
+        name: clothing-holster-spare-magzine
+        insertSound:
+          collection: storageRustle
+        ejectSound:
+          collection: storageRustle
+        startingItem: null
+        priority: 3
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGunTopMounted
+            - MagazinePistolSubMachineGun
+      gun_magazine_2:
+        name: clothing-holster-spare-magzine
+        insertSound:
+          collection: storageRustle
+        ejectSound:
+          collection: storageRustle
+        startingItem: null
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolSubMachineGunTopMounted
+            - MagazinePistolSubMachineGun
+  - type: ItemMapper
+    mapLayers:
+      icon-overlay:
+        whitelist:
+          tags:
+          - SMG
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      gun_magazine_1: !type:ContainerSlot
+      gun_magazine_2: !type:ContainerSlot
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltHolsterDSS
+  name: DSS belt holster
+  description: 'Plastic holster with a latch. Specifically designed for NT service pistols. Can be attached to a belt or body armor.'
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Belt/holsterdss.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Belt/holsterdss.rsi
+    slots:
+    - suitStorage
+    - Belt
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedRotation: -90
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-holster-sidearm
+        priority: 4
+        whitelist:
+          tags:
+            - SidearmNT
+  - type: ItemMapper
+    mapLayers:
+      overlay-mk58:
+        whitelist:
+          tags:
+          - Mk58
+      overlay-ts12:
+        whitelist:
+          tags:
+          - TC12
+      overlay-nt1984:
+        whitelist:
+          tags:
+          - NT1984
+      overlay-inspector:
+        whitelist:
+          tags:
+          - Inspector
+      overlay-mateba:
+        whitelist:
+          tags:
+          - Mateba
+      overlay-disabler:
+        whitelist:
+          tags:
+          - Disabler
+      overlay-energy-magnum:
+        whitelist:
+          tags:
+          - EnergyMagnum
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltBrownHolster
+  name: belt holster
+  description: 'Standard issue pistol holster. Can be worn on a belt or on a greatcoat. Has a pocket for one magazine. Provides a buff to authority when visible.'
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Belt/holsterbrown.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Belt/holsterbrown.rsi
+    slots:
+    - suitStorage
+    - Belt
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedRotation: -90
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-holster-sidearm
+        priority: 4
+        whitelist:
+          tags:
+          - Sidearm
+      gun_magazine:
+        name: clothing-holster-spare-magzine
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 1
+        whitelist:
+          tags:
+            - MagazinePistol
+            - MagazineMagnum
+            - MagazinePistolHighCapacity
+            - SpeedLoaderMagnum
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+
+- type: entity
+  id: ClothingBeltBlackHolster
+  parent: ClothingBeltBrownHolster
+  name: black belt holster
+  description: 'Standard issue pistol holster. Can be worn on a belt or on a coat. Has a pocket for one magazine. Provides a coolness buff when visible.'
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Belt/holsterblack.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Belt/holsterblack.rsi
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltRedHolster
+  name: syndicate belt holster
+  description: 'A concealed-carry pistol holster for Syndicate agents and operatives. Everything for quick extraction and elimination. Designed exclusively for Syndicate weapons.'
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Belt/holsterred.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Belt/holsterred.rsi
+    slots:
+    - suitStorage
+    - Belt
+  - type: Item
+    size: Small
+  - type: ItemSlots
+    slots:
+      item:
+        name: clothing-holster-sidearm
+        priority: 4
+        whitelist:
+          tags:
+          - SidearmSyndie
+  - type: ItemMapper
+    mapLayers:
+      overlay-cobra:
+        whitelist:
+          tags:
+          - Cobra
+      overlay-python:
+        whitelist:
+          tags:
+          - Python
+      overlay-viper:
+        whitelist:
+          tags:
+          - Viper
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+
+- type: entity
+  parent: ClothingBeltHolster
+  id: ClothingBeltBlackShoulderHolster
+  name: noir shoulder holster
+  description: 'A synthetic holster to carry a handgun and ammo. WARNING: VERY badasses only.'
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Belt/holstershoulderblack.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Belt/holstershoulderblack.rsi
+    slots:
+    - suitStorage
+    - Belt

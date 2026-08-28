@@ -5,6 +5,6 @@ namespace Content.Shared._WL.Photo.Filters;
 [RegisterComponent]
 public sealed partial class PhotoCameraFilterComponent : Component
 {
-    [DataField()]
+    [DataField]
     public ComponentRegistry FilterComponents = new();
 }

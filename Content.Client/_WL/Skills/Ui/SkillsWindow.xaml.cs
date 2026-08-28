@@ -143,7 +143,7 @@ public sealed partial class SkillsWindow : FancyWindow
             {
                 if (panel.Children.ElementAt(0) is SkillSelector selector)
                 {
-                    selector.UpdateAvailability(unspentPoints, _skillsSystem);
+                    selector.UpdateAvailability(unspentPoints);
                 }
             }
         }

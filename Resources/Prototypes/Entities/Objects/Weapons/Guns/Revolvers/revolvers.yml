@@ -111,6 +111,13 @@
     ammoSlots: [ null, null, null, null, null, null ]
   - type: StealTarget
     stealGroup: OfficerHandgun
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmNT
+    - Inspector
+  # White-List components end
 
 - type: entity
   name: Mateba
@@ -128,6 +135,13 @@
     fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmNT
+    - Mateba
+  # White-List components end
 
 - type: entity
   parent: WeaponRevolverMateba
@@ -160,6 +174,13 @@
         volume: 2.25
   - type: StaticPrice
     price: 1500 # Botany can shit these out like candy, but let's see how it goes
+  # White-List components
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmSyndie
+    - Python
+  # White-List components end
 
 - type: entity
   parent: WeaponRevolverPython

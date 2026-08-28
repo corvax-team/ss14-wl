@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._ES.Camera;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
@@ -65,6 +66,9 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected SharedTransformSystem TransformSystem = default!;
     [Dependency] private SharedStaminaSystem _stamina = default!;
     [Dependency] private DamageExamineSystem _damageExamine = default!;
+    // ES START
+    [Dependency] private ESScreenshakeSystem _shake = default!;
+    // ES END
 
     [Dependency] private EntityQuery<DamageableComponent> _damageQuery = default!;
 
@@ -595,6 +599,18 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
         if (damageResult.GetTotal() > FixedPoint2.Zero && !TerminatingOrDeleted(target.Value))
         {
             DoDamageEffect(targets, user, targetXform);
+
+            // ES START
+            // dog shit copy plaste but thats melee for you
+            var userShakeRotation = new ESScreenshakeParameters()
+                { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
+            var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
+            _shake.Screenshake(user, null, userShakeRotation);
+            foreach (var shakeTarget in targets)
+            {
+                _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
+            }
+            // ES END
         }
     }
 
@@ -760,6 +776,18 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
             var target = entities.First();
             _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, ProtoMan), hitEvent.HitSoundOverride, component);
         }
+
+        // ES START
+        // dog shit copy plaste but thats melee for you
+        var userShakeRotation = new ESScreenshakeParameters()
+            { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
+        var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
+        _shake.Screenshake(user, null, userShakeRotation);
+        foreach (var shakeTarget in targets)
+        {
+            _shake.Screenshake(shakeTarget, otherShakeTranslation, null);
+        }
+        // ES END
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero && targets.Count > 0)
         {

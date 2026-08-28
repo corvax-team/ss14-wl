@@ -64,3 +64,8 @@
           tags:
             - MagazinePistol
         whitelistFailPopup: gun-magazine-whitelist-fail
+  - type: Tag
+    tags:
+    - Sidearm
+    - SidearmNT
+    - TC12

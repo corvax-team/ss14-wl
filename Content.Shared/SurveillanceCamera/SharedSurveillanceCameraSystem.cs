@@ -1,4 +1,7 @@
+using Content.Shared.ActionBlocker; //WL-Changes
 using Content.Shared.Emp;
+using Content.Shared.Item.ItemToggle; //WL-Changes
+using Content.Shared.Item.ItemToggle.Components; //WL-Changes
 using Content.Shared.SurveillanceCamera.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
@@ -7,11 +10,19 @@ namespace Content.Shared.SurveillanceCamera;
 
 public abstract partial class SharedSurveillanceCameraSystem : EntitySystem
 {
+    [Dependency] private ActionBlockerSystem _actionBlocker = default!; //WL-Changes-Включение/выключение
+    [Dependency] private ItemToggleSystem _itemToggle = default!; //WL-Changes-Включение/выключение
+
     public override void Initialize()
     {
         SubscribeLocalEvent<SurveillanceCameraComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpDisabledRemovedEvent>(OnEmpDisabledRemoved);
+        // WL-Changes-Start
+        SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggledEvent>(OnToggle);
+        SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggleActivateAttemptEvent>(OnActivateAttempt);
+        SubscribeLocalEvent<SurveillanceCameraComponent, ItemToggleDeactivateAttemptEvent>(OnDeactivateAttempt);
+        // WL-Changes-End
     }
 
     private void AddVerbs(EntityUid uid, SurveillanceCameraComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -38,17 +49,52 @@ public abstract partial class SharedSurveillanceCameraSystem : EntitySystem
             args.Disabled = true;
             SetActive(uid, false);
         }
+
+        //WL-Changes-Включение/выключение-Start
+        _itemToggle.TryDeactivate(uid, predicted: false);
+        //WL-Changes-Включение/выключение-End
     }
 
     private void OnEmpDisabledRemoved(EntityUid uid, SurveillanceCameraComponent component, ref EmpDisabledRemovedEvent args)
     {
-        SetActive(uid, true);
+        //WL-Changes-Включение/выключение-Start
+        if (!HasComp<ItemToggleComponent>(uid))
+            SetActive(uid, true);
+        //WL-Changes-Включение/выключение-End
     }
 
     // TODO: predict the rest of the server side system
     public virtual void SetActive(EntityUid camera, bool setting, SurveillanceCameraComponent? component = null) { }
 
     protected virtual void OpenSetupInterface(EntityUid uid, EntityUid player, SurveillanceCameraComponent? camera = null) { }
+
+    #region CorvaxWL
+    //WL-Changes-Включение/выключение-Start
+
+    private void OnToggle(Entity<SurveillanceCameraComponent> entity, ref ItemToggledEvent args)
+    {
+        SetActive(entity, args.Activated);
+    }
+
+    private void OnActivateAttempt(Entity<SurveillanceCameraComponent> entity, ref ItemToggleActivateAttemptEvent args)
+    {
+        if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value) || HasComp<EmpDisabledComponent>(entity))
+        {
+            args.Cancelled = true;
+            return;
+        }
+    }
+
+    private void OnDeactivateAttempt(Entity<SurveillanceCameraComponent> entity, ref ItemToggleDeactivateAttemptEvent args)
+    {
+        if (args.User != null && !_actionBlocker.CanComplexInteract(args.User.Value) || HasComp<EmpDisabledComponent>(entity))
+        {
+            args.Cancelled = true;
+            return;
+        }
+    }
+    //WL-Changes-Включение/выключение-End
+    #endregion
 }
 
 [Serializable, NetSerializable]

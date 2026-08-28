@@ -45,6 +45,7 @@ public abstract partial class SharedAgentIdCardSystem : EntitySystem
             args.User);
         if (addedLength > 0)
             Dirty(ent, access);
+
     }
 
     [SubscribeLocalEvent]

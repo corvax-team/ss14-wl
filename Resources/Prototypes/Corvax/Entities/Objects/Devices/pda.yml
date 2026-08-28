@@ -46,6 +46,7 @@
         - id: NewsReaderCartridge
         - id: WantedListCartridge
         - id: AstroNavCartridge
+        - id: NanoChatCartridge # WL-Changes: NanoChat
 
 - type: entity
   parent: BaseSecurityPDA

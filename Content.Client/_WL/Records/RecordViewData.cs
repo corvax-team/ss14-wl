@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Content.Client._WL.Records;
 
 public enum RecordViewKind
@@ -38,6 +36,7 @@ public sealed record RecordIdentityData(
     string Height,
     string Languages,
     string Confederation,
+    string BrainSource,
     string Country);
 
 public sealed record RecordViewData(

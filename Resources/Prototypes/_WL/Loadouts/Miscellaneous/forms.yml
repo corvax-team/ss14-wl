@@ -1,0 +1,143 @@
+- type: loadout
+  id: BeretPilotAurora
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: aurora_puff
+  storage:
+    back:
+    - ClothingHeadHatBeretSecurityPilotAurora
+
+- type: loadout
+  id: LuxuryPenSyndiCarp
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: SyndiCarp
+  storage:
+    back:
+    - LuxuryPenSyndiCarp
+
+- type: loadout
+  id: CowboyHatAurora
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: aurora_puff
+  storage:
+    back:
+    - ClothingHeadHatCowboyBrownAurora
+
+- type: loadout
+  id: FlippoLighterComrade
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: Comrade_Karp
+  storage:
+    back:
+    - FlippoEngravedLighterComrade
+
+- type: loadout
+  id: FlippoLighterWhitley
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: whitley
+  storage:
+    back:
+    - FlippoEngravedLighterWhitley
+
+- type: loadout
+  id: BeretQMRellimo
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: Rellimo
+  storage:
+    back:
+    - ClothingHeadHatBeretQMRellimo
+
+- type: loadout
+  id: UniformBrigmedicBambanater
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: bambanater123123
+  storage:
+    back:
+    - ClothingUniformJumpskirtBrigmedicBambanater
+
+- type: loadout
+  id: ViolinInstrumentDanger
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: Danger_Grub
+  storage:
+    back:
+    - ViolinInstrumentDanger
+
+- type: loadout
+  id: UniformScientistRiki
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: RikiTheParrot
+  storage:
+    back:
+    - ClothingUniformJumpsuitScientistRiki
+
+- type: loadout
+  id: HatTophatSrochnik
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: Srochnik
+  storage:
+    back:
+    - ClothingHeadHatTophatSrochnik
+
+- type: loadout
+  id: NeckPendantCL_w
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: CL_w
+  storage:
+    back:
+    - ClothingNeckPendantCL_w
+
+- type: loadout
+  id: CoatLabCmoVissent
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: Vissent
+  storage:
+    back:
+    - ClothingOuterCoatLabCmoVissent
+
+- type: loadout
+  id: EyesGlassesReArt
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: ReArtInt
+  storage:
+    back:
+    - ClothingEyesGlassesKawariReArt
+
+- type: loadout
+  id: LawyerClipboardSkirgan
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: Skirgan
+  storage:
+    back:
+    - BoxFolderLawyerClipboardEmptySkirgan
+
+- type: loadout
+  id: WristwatchGoldFreealeq
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: freealeq
+  storage:
+    back:
+    - WristwatchGoldFreealeq
+
+- type: loadout
+  id: HeadsetTacticScience
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: bambanater123123
+  storage:
+    back:
+    - ClothingHeadsetTacticScience

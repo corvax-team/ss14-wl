@@ -10,71 +10,69 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Enums;
 
-namespace Content.Server._WL.Destructible.Thresholds.Behaviors
+namespace Content.Server._WL.Destructible.Thresholds.Behaviors;
+
+[UsedImplicitly, DataDefinition]
+public sealed partial class FrozeBodyBehavior : IThresholdBehavior
 {
-    [UsedImplicitly]
-    [DataDefinition]
-    public sealed partial class FrozeBodyBehavior : IThresholdBehavior
+    public const float InterpolateStrength = 0.88f;
+    public static readonly Color InterpolateColor = Color.CadetBlue;
+
+    public void Execute(EntityUid bodyId, DestructibleSystem system, EntityUid? cause = null)
     {
-        public const float InterpolateStrength = 0.88f;
-        public static readonly Color InterpolateColor = Color.CadetBlue;
+        var entMan = system.EntityManager;
+        //var humanoidProfileSys = entMan.System<HumanoidProfileSystem>();
+        var transformSys = entMan.System<TransformSystem>();
+        var popupSys = entMan.System<SharedPopupSystem>();
+        var metaDataSys = entMan.System<MetaDataSystem>();
 
-        public void Execute(EntityUid bodyId, DestructibleSystem system, EntityUid? cause = null)
+        var frozenComp = entMan.EnsureComponent<FrozenComponent>(bodyId);
+
+        //Обновляем цвет кожи
+        if (!entMan.TryGetComponent<HumanoidProfileComponent>(bodyId, out var humanoidProfileComp))
+            return;
+        /*
+
+        var curColor = humanoidAppearnceComp.SkinColor;
+        frozenComp.BaseSkinColor = curColor;
+
+        humanoidProfileSys.SetSkinColor(
+            bodyId,
+            Color.InterpolateBetween(curColor, InterpolateColor, InterpolateStrength),
+            sync: true,
+            verify: false
+            );
+        */
+
+        //Устанавливаем префикс
+        var baseName = Identity.Name(bodyId, entMan);
+        frozenComp.BaseName = baseName;
+
+        var genderString = humanoidProfileComp.Gender switch
         {
-            var entMan = system.EntityManager;
-            //var humanoidProfileSys = entMan.System<HumanoidProfileSystem>();
-            var transformSys = entMan.System<TransformSystem>();
-            var popupSys = entMan.System<SharedPopupSystem>();
-            var metaDataSys = entMan.System<MetaDataSystem>();
+            Gender.Male => "male",
+            Gender.Female => "female",
+            _ => "other"
+        };
 
-            var frozenComp = entMan.EnsureComponent<FrozenComponent>(bodyId);
+        var newName = $"{Loc.GetString(frozenComp.FrozenPrefix, ("gender", genderString))} {baseName}";
 
-            //Обновляем цвет кожи
-            if (!entMan.TryGetComponent<HumanoidProfileComponent>(bodyId, out var humanoidProfileComp))
-                return;
-            /*
+        metaDataSys.SetEntityName(bodyId, newName);
 
-            var curColor = humanoidAppearnceComp.SkinColor;
-            frozenComp.BaseSkinColor = curColor;
+        //Запрещаем хил тела и разрешаем клонирование, убрав компонент гниения
+        entMan.RemoveComponent<PerishableComponent>(bodyId);
+        entMan.RemoveComponent<InjectableSolutionComponent>(bodyId);
 
-            humanoidProfileSys.SetSkinColor(
-                bodyId,
-                Color.InterpolateBetween(curColor, InterpolateColor, InterpolateStrength),
-                sync: true,
-                verify: false
-                );
-            */
+        //Поп-ап
+        var msg = Loc.GetString(frozenComp.FrozenPopup,
+            ("name", baseName),
+            ("gender", genderString));
 
-            //Устанавливаем префикс
-            var baseName = Identity.Name(bodyId, entMan);
-            frozenComp.BaseName = baseName;
-
-            var genderString = humanoidProfileComp.Gender switch
-            {
-                Gender.Male => "male",
-                Gender.Female => "female",
-                _ => "other"
-            };
-
-            var newName = $"{Loc.GetString(frozenComp.FrozenPrefix, ("gender", genderString))} {baseName}";
-
-            metaDataSys.SetEntityName(bodyId, newName);
-
-            //Запрещаем хил тела и разрешаем клонирование, убрав компонент гниения
-            entMan.RemoveComponent<PerishableComponent>(bodyId);
-            entMan.RemoveComponent<InjectableSolutionComponent>(bodyId);
-
-            //Поп-ап
-            var msg = Loc.GetString(frozenComp.FrozenPopup,
-                ("name", baseName),
-                ("gender", genderString));
-
-            popupSys.PopupCoordinates(
-                msg,
-                transformSys.GetMoverCoordinates(bodyId),
-                Robust.Shared.Player.Filter.Pvs(bodyId),
-                true,
-                PopupType.LargeCaution);
-        }
+        popupSys.PopupCoordinates(
+            msg,
+            transformSys.GetMoverCoordinates(bodyId),
+            Robust.Shared.Player.Filter.Pvs(bodyId),
+            true,
+            PopupType.LargeCaution);
     }
 }

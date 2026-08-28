@@ -1,0 +1,11 @@
+- type: brainSource
+  id: Synthetic
+  name: brain-source-synthetic
+  description: brain-source-synthetic-desc
+  specieBonus: AndroidSkillBonuses
+
+- type: brainSource
+  id: Translplanted
+  name: brain-source-translplanted
+  description: brain-source-translplanted-desc
+  specieBonus: HumanSkillBonuses

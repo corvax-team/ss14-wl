@@ -195,6 +195,7 @@ namespace Content.Shared.Preferences
             string fullName, // WL-Records
             string dateOfBirth, // WL-Records
             string confederation, // WL-Records
+            string brainSource, // WL-Records
             string country, // WL-Records
 
             Dictionary<string, Dictionary<byte, int>> skills // WL-Skills
@@ -230,6 +231,7 @@ namespace Content.Shared.Preferences
             FullName = fullName; // WL-Records
             DateOfBirth = dateOfBirth; // WL-Records
             Confederation = confederation; // WL-Records
+            BrainSource = brainSource; // WL-Records
             Country = country;
             Skills = skills; // WL-Skills
             //WL-Changes-end
@@ -277,6 +279,7 @@ namespace Content.Shared.Preferences
                 other.FullName, // WL-Records
                 other.DateOfBirth, // WL-Records
                 other.Confederation, // WL-Records
+                other.BrainSource, // WL-Records
                 other.Country, // WL-Records
                 other.Skills) // WL-Skills
         {
@@ -525,6 +528,8 @@ namespace Content.Shared.Preferences
         [DataField]
         public string Confederation { get; set; } = string.Empty;
         [DataField]
+        public string BrainSource { get; set; } = string.Empty;
+        [DataField]
         public string Country { get; set; } = string.Empty;
 
         [DataField("height")] public int Height { get; private set; } = 165; // WL-Height
@@ -577,6 +582,10 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithConfederation(string confederation)
         {
             return new(this) { Confederation = confederation };
+        }
+        public HumanoidCharacterProfile WithBrainSource(string brainSource)
+        {
+            return new(this) { BrainSource = brainSource };
         }
         public HumanoidCharacterProfile WithCountry(string country)
         {
@@ -889,6 +898,7 @@ namespace Content.Shared.Preferences
             if (FullName != other.FullName) return false;
             if (DateOfBirth != other.DateOfBirth) return false;
             if (Confederation != other.Confederation) return false;
+            if (BrainSource != other.BrainSource) return false;
             if (Country != other.Country) return false;
             if (!_jobSubnames.SequenceEqual(other._jobSubnames)) return false;
             if (!_jobUnblockings.SequenceEqual(other._jobUnblockings)) return false;
@@ -1035,6 +1045,7 @@ namespace Content.Shared.Preferences
             var fullName = StructuredCharacterRecords.NormalizeShortText(FullName);
             var dateOfBirth = StructuredCharacterRecords.NormalizeShortText(DateOfBirth);
             var confederation = StructuredCharacterRecords.NormalizeShortText(Confederation);
+            var brainSource = StructuredCharacterRecords.NormalizeShortText(BrainSource);
             var country = StructuredCharacterRecords.NormalizeShortText(Country);
             if (!prototypeManager.HasIndex<ConfederationRecordsPrototype>(confederation))
                 confederation = prototypeManager.HasIndex(DefaultConfederation)
@@ -1136,6 +1147,7 @@ namespace Content.Shared.Preferences
             FullName = fullName; // WL-Records
             DateOfBirth = dateOfBirth; // WL-Records
             Confederation = confederation; // WL-Records
+            BrainSource = brainSource; // WL-Records
             Country = country; // WL-Records
             Age = age;
             Height = height; // WL-Height
@@ -1308,6 +1320,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(FullName);
             hashCode.Add(DateOfBirth);
             hashCode.Add(Confederation);
+            hashCode.Add(BrainSource);
             hashCode.Add(Country);
             unchecked
             {

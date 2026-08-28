@@ -93,3 +93,6 @@
   - type: MeleeRequiresWield
   - type: AltFireMelee
     attackType: Heavy
+  - type: Tag
+    tags:
+    - Rifle

@@ -9,22 +9,14 @@ public enum CharacterInformationUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class CharacterInformationBuiState : BoundUserInterfaceState
-{
-    public NetEntity Uid;
-    public string CharacterName;
-    public string FlavorText;
-    public string? OocText;
-
-    public CharacterInformationBuiState(
+public sealed class CharacterInformationBuiState(
         NetEntity uid,
         string characterName,
         string flavorText,
-        string? oocText)
-    {
-        Uid = uid;
-        CharacterName = characterName;
-        FlavorText = flavorText;
-        OocText = oocText;
-    }
+        string? oocText) : BoundUserInterfaceState
+{
+    public NetEntity Uid = uid;
+    public string CharacterName = characterName;
+    public string FlavorText = flavorText;
+    public string? OocText = oocText;
 }

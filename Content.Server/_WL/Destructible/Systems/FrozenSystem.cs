@@ -5,53 +5,52 @@ using Content.Shared.HealthExaminable;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Rejuvenate;
 
-namespace Content.Server._WL.Destructible.Systems
+namespace Content.Server._WL.Destructible.Systems;
+
+public sealed partial class FrozenSystem : EntitySystem
 {
-    public sealed partial class FrozenSystem : EntitySystem
+    [Dependency] private MetaDataSystem _metaData = default!;
+
+    public override void Initialize()
     {
-        [Dependency] private MetaDataSystem _metaData = default!;
+        base.Initialize();
 
-        public override void Initialize()
-        {
-            base.Initialize();
+        SubscribeLocalEvent<FrozenComponent, RefreshNameModifiersEvent>(OnRefreshName);
+        SubscribeLocalEvent<FrozenComponent, BeforeDamageChangedEvent>(BeforeDamageChanged);
+        SubscribeLocalEvent<FrozenComponent, CloningEvent>(OnClone);
+        SubscribeLocalEvent<FrozenComponent, HealthBeingExaminedEvent>(OnHealthExamine);
+        SubscribeLocalEvent<FrozenComponent, RejuvenateEvent>(OnRejuvenate);
+    }
 
-            SubscribeLocalEvent<FrozenComponent, RefreshNameModifiersEvent>(OnRefreshName);
-            SubscribeLocalEvent<FrozenComponent, BeforeDamageChangedEvent>(BeforeDamageChanged);
-            SubscribeLocalEvent<FrozenComponent, CloningEvent>(OnClone);
-            SubscribeLocalEvent<FrozenComponent, HealthBeingExaminedEvent>(OnHealthExamine);
-            SubscribeLocalEvent<FrozenComponent, RejuvenateEvent>(OnRejuvenate);
-        }
+    private void OnRefreshName(EntityUid ent, FrozenComponent comp, RefreshNameModifiersEvent args)
+    {
+        args.AddModifier(comp.FrozenPrefix);
+        args.AddModifier(comp.BaseName, int.MinValue);
+    }
 
-        private void OnRefreshName(EntityUid ent, FrozenComponent comp, RefreshNameModifiersEvent args)
-        {
-            args.AddModifier(comp.FrozenPrefix);
-            args.AddModifier(comp.BaseName, int.MinValue);
-        }
+    private void BeforeDamageChanged(EntityUid ent, FrozenComponent comp, ref BeforeDamageChangedEvent args)
+    {
+        args.Damage.DamageDict[comp.FrozenDamage.Id] = 0f;
+        args.Damage.TrimZeros();
+    }
 
-        private void BeforeDamageChanged(EntityUid ent, FrozenComponent comp, ref BeforeDamageChangedEvent args)
-        {
-            args.Damage.DamageDict[comp.FrozenDamage.Id] = 0f;
-            args.Damage.TrimZeros();
-        }
+    private void OnClone(EntityUid ent, FrozenComponent comp, ref CloningEvent args)
+    {
+        var target = args.CloneUid;
+        _metaData.SetEntityName(target, comp.BaseName, raiseEvents: true);
+        //_profile.SetSkinColor(target, comp.BaseSkinColor);
+    }
 
-        private void OnClone(EntityUid ent, FrozenComponent comp, ref CloningEvent args)
-        {
-            var target = args.CloneUid;
-            _metaData.SetEntityName(target, comp.BaseName, raiseEvents: true);
-            //_profile.SetSkinColor(target, comp.BaseSkinColor);
-        }
+    private void OnHealthExamine(EntityUid ent, FrozenComponent comp, HealthBeingExaminedEvent args)
+    {
+        args.Message.AddMarkupOrThrow("\n" + Loc.GetString(comp.FrozenHealthString));
+    }
 
-        private void OnHealthExamine(EntityUid ent, FrozenComponent comp, HealthBeingExaminedEvent args)
-        {
-            args.Message.AddMarkupOrThrow("\n" + Loc.GetString(comp.FrozenHealthString));
-        }
+    private void OnRejuvenate(EntityUid ent, FrozenComponent comp, RejuvenateEvent args)
+    {
+        _metaData.SetEntityName(ent, comp.BaseName, raiseEvents: true);
+        // _profile.SetSkinColor(ent, comp.BaseSkinColor);
 
-        private void OnRejuvenate(EntityUid ent, FrozenComponent comp, RejuvenateEvent args)
-        {
-            _metaData.SetEntityName(ent, comp.BaseName, raiseEvents: true);
-            // _profile.SetSkinColor(ent, comp.BaseSkinColor);
-
-            RemComp<FrozenComponent>(ent);
-        }
+        RemComp<FrozenComponent>(ent);
     }
 }

@@ -107,7 +107,7 @@
   - type: RatKing
     hungerPerArmyUse: 25
     hungerPerDomainUse: 50
-  - type: MobsterAccent
+    # - type: MobsterAccent WL-Changes: cringe accent rm
   - type: Speech
     speechVerb: SmallMob
   - type: ToolRefinable
@@ -296,8 +296,8 @@
     coefficient: 0.2 # they don't make da roolz, but they sneaky
   - type: MobPrice
     price: 500 # rat wealth
-  - type: MobsterAccent
-    isBoss: false
+    # - type: MobsterAccent WL-Changes: cringe accent rm
+    # isBoss: false
   - type: Speech
     speechVerb: SmallMob
   - type: GuideHelp

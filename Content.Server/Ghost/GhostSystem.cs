@@ -25,6 +25,11 @@ using Content.Shared.GameTicking;
 using Content.Shared.Follower.Components;
 using Content.Shared.Ghost;
 using Content.Shared.GhostTypes;
+using Content.Shared.Humanoid; // Wl-Changes: Ghost hair
+using Content.Shared.Humanoid.Markings; // Wl-Changes: Ghost hair
+using Content.Shared.Body; // Wl-Changes: Ghost hair
+using Content.Shared._WL.Ghost; // Wl-Changes: Ghost hair
+using Content.Shared.Preferences; // Wl-Changes: Ghost hair
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -76,6 +81,7 @@ namespace Content.Server.Ghost
         [Dependency] private NameModifierSystem _nameMod = default!;
         [Dependency] private GhostSpriteStateSystem _ghostState = default!;
         [Dependency] private RoleSystem _role = default!; // WL-Changes
+        [Dependency] private SharedVisualBodySystem _visualBody = default!; // WL-Changes: GhostHair
 
         //WL-ReturnToLobby-start
         public TimeSpan GhostReturnToLobbyButtonCooldown { get; private set; }
@@ -573,7 +579,7 @@ namespace Content.Server.Ghost
             bool canReturn = false)
         {
             _transformSystem.TryGetMapOrGridCoordinates(targetEntity, out var spawnPosition);
-            return SpawnGhost(mind, spawnPosition, canReturn);
+            return SpawnGhost(mind, spawnPosition, canReturn, targetEntity); // Wl-Changes: Ghost hair
         }
 
         private bool IsValidSpawnPosition(EntityCoordinates? spawnPosition)
@@ -594,7 +600,7 @@ namespace Content.Server.Ghost
         }
 
         public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityCoordinates? spawnPosition = null,
-            bool canReturn = false)
+            bool canReturn = false, EntityUid? sourceBody = null) // Wl-Changes: Ghost hair
         {
             if (!Resolve(mind, ref mind.Comp))
                 return null;
@@ -622,6 +628,11 @@ namespace Content.Server.Ghost
             {
                 _ghostState.SetGhostSprite((ghost, state), mind);
             }
+
+            // Wl-Changes-Start: Ghost hair
+            if (sourceBody != null)
+                CopyHairToGhost(sourceBody.Value, ghost);
+            // Wl-Changes-End: Ghost hair
 
             // Try setting the ghost entity name to either the character name or the player name.
             // If all else fails, it'll default to the default entity prototype name, "observer".
@@ -738,13 +749,67 @@ namespace Content.Server.Ghost
             if (playerEntity != null)
                 _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
 
-            var ghost = SpawnGhost((mindId, mind), position, canReturn);
+            var ghost = SpawnGhost((mindId, mind), position, canReturn, playerEntity); // Wl-Changes: Ghost hair
 
             if (ghost == null)
                 return false;
 
             return true;
         }
+
+        // Wl-Changes-Start: Ghost hair
+        public void CopyHairToGhost(EntityUid sourceUid, EntityUid ghostUid)
+        {
+            if (!_visualBody.TryGatherMarkingsData(sourceUid,
+                new HashSet<HumanoidVisualLayers> { HumanoidVisualLayers.Hair, HumanoidVisualLayers.FacialHair },
+                out _,
+                out _,
+                out var applied))
+                return;
+
+            if (applied == null)
+                return;
+
+            var markings = new List<Marking>();
+
+            foreach (var organMarkings in applied.Values)
+            {
+                if (organMarkings.TryGetValue(HumanoidVisualLayers.Hair, out var hairMarkings))
+                    markings.AddRange(hairMarkings);
+
+                if (organMarkings.TryGetValue(HumanoidVisualLayers.FacialHair, out var facialHairMarkings))
+                    markings.AddRange(facialHairMarkings);
+            }
+
+            if (markings.Count == 0)
+                return;
+
+            var ghostHair = EnsureComp<GhostMarkingsComponent>(ghostUid);
+            ghostHair.Markings = markings;
+            Dirty(ghostUid, ghostHair);
+        }
+
+        public void CopyHairToGhost(HumanoidCharacterProfile profile, EntityUid ghostUid)
+        {
+            var markings = new List<Marking>();
+
+            foreach (var organMarkings in profile.Appearance.Markings.Values)
+            {
+                if (organMarkings.TryGetValue(HumanoidVisualLayers.Hair, out var hairMarkings))
+                    markings.AddRange(hairMarkings);
+
+                if (organMarkings.TryGetValue(HumanoidVisualLayers.FacialHair, out var facialHairMarkings))
+                    markings.AddRange(facialHairMarkings);
+            }
+
+            if (markings.Count == 0)
+                return;
+
+            var ghostHair = EnsureComp<GhostMarkingsComponent>(ghostUid);
+            ghostHair.Markings = markings;
+            Dirty(ghostUid, ghostHair);
+        }
+        // Wl-Changes-End: Ghost hair
     }
 
     public sealed class GhostAttemptHandleEvent(MindComponent mind, bool canReturnGlobal) : HandledEntityEventArgs

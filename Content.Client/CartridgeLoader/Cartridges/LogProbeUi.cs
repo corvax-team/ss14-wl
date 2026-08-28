@@ -31,6 +31,7 @@ public sealed partial class LogProbeUi : UIFragment
         if (state is not LogProbeUiState cast)
             return;
 
-        _fragment?.UpdateState(cast.EntityName, cast.PulledLogs);
+        //WL-Changes-NanoChat-LogProbe
+        _fragment?.UpdateState(cast.EntityName, cast.PulledLogs, cast.NanoChat);
     }
 }

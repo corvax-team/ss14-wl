@@ -378,7 +378,7 @@
     duration: 120
     maxDuration: 240
   - type: SolarFlareRule
-    onlyJamHeadsets: true
+    onlyJamHeadsets: false # WL-Changes: NanoChat telecom integration
     affectedChannels:
     - Common
     extraChannels:

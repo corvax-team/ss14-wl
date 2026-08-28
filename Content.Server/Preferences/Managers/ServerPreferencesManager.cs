@@ -227,6 +227,7 @@ namespace Content.Server.Preferences.Managers
                 profile.FullName, // WL-Records
                 profile.DateOfBirth, // WL-Records
                 profile.Confederation, // WL-Records
+                profile.BrainSource ?? "", // WL-Records
                 profile.Country, // WL-Records
                 jobSkills // WL-Skills
             )

@@ -72,6 +72,9 @@
   # White-List components
   - type: GunStandingRequired
   - type: Execution
+  - type: Tag
+    tags:
+    - SMG
   # White-List components end
 
 - type: entity

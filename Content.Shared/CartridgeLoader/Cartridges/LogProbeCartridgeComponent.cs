@@ -1,3 +1,6 @@
+//WL-Changes-NanoChat-Start
+using Content.Shared._WL.CartridgeLoader.Cartridges;
+//WL-Changes-NanoChat-End
 using Content.Shared.Paper;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -21,6 +24,27 @@ public sealed partial class LogProbeCartridgeComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public List<PulledAccessLog> PulledAccessLogs = new();
+
+    // WL-Changes-NanoChat-Start
+    /// <summary>
+    /// NanoChat data pulled from the last scanned ID card, if any.
+    /// </summary>
+    [DataField]
+    public NanoChatData? NanoChat;
+
+    /// <summary>
+    /// Maximum number of NanoChat messages sent to the LogProbe UI in one state update.
+    /// The complete scan remains available on the server for printing.
+    /// </summary>
+    [DataField]
+    public int NanoChatUiMessageLimit = 250;
+
+    /// <summary>
+    /// Maximum number of recent messages shown for one NanoChat conversation in LogProbe.
+    /// </summary>
+    [DataField]
+    public int NanoChatUiMessagesPerConversation = 25;
+    // WL-Changes-NanoChat-End
 
     /// <summary>
     /// The sound to make when we scan something with access

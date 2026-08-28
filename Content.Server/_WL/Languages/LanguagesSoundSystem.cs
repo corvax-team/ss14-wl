@@ -1,5 +1,4 @@
 using Content.Shared.Chat;
-using Content.Server.Chat.Systems;
 using Content.Shared._WL.Languages;
 using Content.Shared._WL.Languages.Components;
 using Robust.Shared.Prototypes;
@@ -56,10 +55,10 @@ public sealed partial class LanguagesSoundsSystem : EntitySystem
             var listener = session.AttachedEntity.Value;
             var xform = xformQuery.GetComponent(listener);
             var distance = (sourcePos - _xforms.GetWorldPosition(xform, xformQuery)).Length();
-            if (distance > ChatSystem.VoiceRange)
+            if (distance > SharedChatSystem.VoiceRange)
                 continue;
 
-            if (distance > ChatSystem.VoiceRange * ChatSystem.VoiceRange && isWhisper)
+            if (distance > SharedChatSystem.VoiceRange * SharedChatSystem.VoiceRange && isWhisper)
                 continue;
 
             var check = _languages.CanUnderstand(uid, listener, overrideLang: proto.ID);
