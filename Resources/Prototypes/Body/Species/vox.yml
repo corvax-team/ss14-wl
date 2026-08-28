@@ -265,7 +265,7 @@
   #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon
-    weaponId: "CuffedVoxAttack"
+    weaponId: CuffedVoxAttack
   #WL-Changes-End
 
 - type: entity
@@ -425,4 +425,5 @@
       types:
         Blunt: 5
     range: 0.5
+    attackRate: 0.5
 #WL-Changes-End

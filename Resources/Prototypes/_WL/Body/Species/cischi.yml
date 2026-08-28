@@ -129,7 +129,7 @@
   - type: Damageable
     damageModifierSet: Cischi
   - type: CuffedMeleeWeapon
-    weaponId: "CuffedHumanAttack"
+    weaponId: CuffedHumanAttack
 
   - type: Inventory
     templateId: cischi

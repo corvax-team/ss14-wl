@@ -145,7 +145,7 @@
     specieLanguage: Urlum
   - type: AddHeightItem
   - type: CuffedMeleeWeapon
-    weaponId: "CuffedHumanAttack"
+    weaponId: CuffedHumanAttack
 
 - type: entity
   parent: OrganBase

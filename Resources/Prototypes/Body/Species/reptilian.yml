@@ -198,7 +198,7 @@
   #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon
-    weaponId: "CuffedReptilianAttack"
+    weaponId: CuffedReptilianAttack
   #WL-Changes-End
 
 - type: entity
@@ -376,4 +376,5 @@
       types:
         Piercing: 9
     range: 0.5
+    attackRate: 0.5
 #WL-Changes-End

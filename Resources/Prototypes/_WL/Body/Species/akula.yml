@@ -116,7 +116,7 @@
       specieLanguage: Sarengis
     #Wl-Changes-Start
     - type: CuffedMeleeWeapon
-      weaponId: "CuffedAkulaAttack"
+      weaponId: CuffedAkulaAttack
     #WL-Changes-End
 
 - type: entity
@@ -258,4 +258,5 @@
         Piercing: 7
         Slash: 3
     range: 0.5
+    attackRate: 0.5
 #WL-Changes-End

@@ -168,7 +168,7 @@
   # WL-Changes: Languages
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon
-    weaponId: "CuffedTajarAttack"
+    weaponId: CuffedTajarAttack
   #WL-Changes-End
 
 - type: entity
@@ -331,4 +331,5 @@
       types:
         Piercing: 7
     range: 0.5
+    attackRate: 0.5
 #WL-Changes-End

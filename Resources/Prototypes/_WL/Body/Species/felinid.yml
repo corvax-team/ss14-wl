@@ -175,7 +175,7 @@
         Piercing: -0.5
         Slash: -0.5
   - type: CuffedMeleeWeapon
-    weaponId: "CuffedHumanAttack"
+    weaponId: CuffedHumanAttack
 
 - type: entity
   parent: OrganBase

@@ -110,7 +110,7 @@
   #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon
-    weaponId: "CuffedHumanAttack"
+    weaponId: CuffedHumanAttack
   #WL-Changes-End
 
 - type: entity
@@ -251,4 +251,5 @@
         Piercing: 2
         Blunt: 3
     range: 0.5
+    attackRate: 0.5
 #WL-Changes-End
