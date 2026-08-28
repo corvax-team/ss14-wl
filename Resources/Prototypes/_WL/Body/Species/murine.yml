@@ -95,6 +95,7 @@
   - BaseSpeciesMobOrganic
   id: MobMurine
   components:
+  - type: Swimmer
   - type: Hunger
     baseDecayRate: 0.032
   - type: Icon

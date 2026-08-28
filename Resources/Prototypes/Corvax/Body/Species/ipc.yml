@@ -87,6 +87,8 @@
   id: MobIpc
   name: Urist McHands
   components:
+  - type: Swimmer #WL
+    swimSpeedModifier: 0.6
   - type: CharacterInformation
   - type: Damageable
     damageModifierSet: Ipc

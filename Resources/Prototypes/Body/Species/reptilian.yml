@@ -137,6 +137,8 @@
   id: MobReptilian
   name: Urist McScales
   components:
+  - type: Swimmer #WL
+    swimSpeedModifier: 1.1
   - type: Puller
     needsHands: false
   - type: Butcherable

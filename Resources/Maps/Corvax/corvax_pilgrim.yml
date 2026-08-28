@@ -146,6 +146,7 @@ entities:
     - type: OccluderTree
     - type: Parallax
       parallax: IceWater
+    - type: PlanetaryStation #WL
     - type: MapLight
       ambientLightColor: '#180A1CFF'
     - type: MapAtmosphere

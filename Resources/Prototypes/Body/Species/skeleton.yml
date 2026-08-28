@@ -75,6 +75,8 @@
   id: MobSkeletonPerson
   name: Urist McBones
   components:
+  - type: Swimmer #WL
+    swimSpeedModifier: 0.6
   - type: Damageable
     damageModifierSet: Skeleton
   - type: Injurable

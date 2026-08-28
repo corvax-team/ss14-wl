@@ -74,6 +74,7 @@
   id: MobArachnid
   name: Urist McWebs
   components:
+  - type: Swimmer #WL
   - type: Respirator
     damage:
       types:
@@ -162,7 +163,7 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [ Animal ] # [ Arachnid ] before # WL-Changes
- 
+
 - type: entity
   parent: OrganArachnid
   id: OrganArachnidInternal

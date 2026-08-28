@@ -127,6 +127,7 @@
   - BaseSpeciesMobOrganic
   id: MobTajaran
   components:
+  - type: Swimmer #WL
   - type: Hunger
     baseDecayRate: 0.02
   - type: Thirst

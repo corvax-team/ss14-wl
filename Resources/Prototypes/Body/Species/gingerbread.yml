@@ -43,6 +43,7 @@
   id: MobGingerbread
   name: Urist McCookie
   components:
+  - type: Swimmer #WL
   - type: Butcherable
     spawned:
     - id: FoodBakedCookie

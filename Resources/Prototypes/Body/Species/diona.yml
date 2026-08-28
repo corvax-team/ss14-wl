@@ -72,6 +72,8 @@
   id: MobDiona
   name: Urist McPlants
   components:
+  - type: Swimmer #WL
+    swimSpeedModifier: 0.8
   - type: Respirator
     damage:
       types:
