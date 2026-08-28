@@ -196,6 +196,10 @@
       - SintaUnati
     specieLanguage: SintaUnati
   #WL-Changes: Languages end
+  #Wl-Changes-Start
+  - type: CuffedMeleeWeapon
+    weaponId: "CuffedReptilianAttack"
+  #WL-Changes-End
 
 - type: entity
   parent: OrganBaseOrganic
@@ -359,3 +363,17 @@
 - type: entity
   parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganReptilianInternal, OrganReptilianMetabolizer ]
   id: OrganReptilianKidneys
+
+#WL-Changes-Start
+- type: entity
+  id: CuffedReptilianAttack
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 9
+    range: 0.5
+#WL-Changes-End

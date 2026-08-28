@@ -108,6 +108,10 @@
       - OldEarth
     specieLanguage: OldEarth
   #WL-Changes: Languages end
+  #Wl-Changes-Start
+  - type: CuffedMeleeWeapon
+    weaponId: "CuffedHumanAttack"
+  #WL-Changes-End
 
 - type: entity
   parent: OrganBaseOrganic
@@ -233,3 +237,18 @@
 - type: entity
   parent: [ OrganBaseKidneys, OrganHumanInternal, OrganHumanMetabolizer ]
   id: OrganHumanKidneys
+
+#WL-Changes-Start
+- type: entity
+  id: CuffedHumanAttack
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 2
+        Blunt: 3
+    range: 0.5
+#WL-Changes-End

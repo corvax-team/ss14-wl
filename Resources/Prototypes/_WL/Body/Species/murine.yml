@@ -144,6 +144,8 @@
       - Urlum
     specieLanguage: Urlum
   - type: AddHeightItem
+  - type: CuffedMeleeWeapon
+    weaponId: "CuffedHumanAttack"
 
 - type: entity
   parent: OrganBase
