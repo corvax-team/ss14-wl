@@ -5,7 +5,7 @@ namespace Content.Shared._WL.Clothing.Components;
 /// <summary>
 /// Allows neckwear to be drawn either below or above outer clothing.
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class AdjustableNeckwearLayerComponent : Component
 {
     [DataField, AutoNetworkedField]

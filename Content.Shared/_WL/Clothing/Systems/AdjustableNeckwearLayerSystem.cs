@@ -4,14 +4,17 @@ using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Item;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._WL.Clothing.Systems;
 
-public sealed class AdjustableNeckwearLayerSystem : EntitySystem
+public sealed partial class AdjustableNeckwearLayerSystem : EntitySystem
 {
+    [Dependency] private SharedItemSystem _itemSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -19,7 +22,9 @@ public sealed class AdjustableNeckwearLayerSystem : EntitySystem
         SubscribeLocalEvent<AdjustableNeckwearLayerComponent, GetEquipmentVisualsEvent>(OnGetVisuals);
         SubscribeLocalEvent<AdjustableNeckwearLayerComponent,
             InventoryRelayedEvent<GetVerbsEvent<EquipmentVerb>>>(OnGetRelayedVerbs);
+        SubscribeLocalEvent<AdjustableNeckwearLayerComponent, GetVerbsEvent<EquipmentVerb>>(OnGetVerbs);
         SubscribeLocalEvent<AdjustableNeckwearLayerComponent, ToggleNeckwearLayerEvent>(OnToggleLayer);
+        SubscribeLocalEvent<AdjustableNeckwearLayerComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
     }
 
     private static void OnGetVisuals(
@@ -37,7 +42,20 @@ public sealed class AdjustableNeckwearLayerSystem : EntitySystem
         Entity<AdjustableNeckwearLayerComponent> entity,
         ref InventoryRelayedEvent<GetVerbsEvent<EquipmentVerb>> args)
     {
-        var verbArgs = args.Args;
+        AddVerb(entity, args.Args);
+    }
+
+    private void OnGetVerbs(
+        Entity<AdjustableNeckwearLayerComponent> entity,
+        ref GetVerbsEvent<EquipmentVerb> args)
+    {
+        AddVerb(entity, args);
+    }
+
+    private void AddVerb(
+        Entity<AdjustableNeckwearLayerComponent> entity,
+        GetVerbsEvent<EquipmentVerb> verbArgs)
+    {
         if (!verbArgs.CanAccess || !verbArgs.CanInteract ||
             !TryComp(entity, out ClothingComponent? clothing) ||
             clothing.InSlot != "neck")
@@ -74,7 +92,15 @@ public sealed class AdjustableNeckwearLayerSystem : EntitySystem
 
         entity.Comp.AboveOuterClothing = !entity.Comp.AboveOuterClothing;
         Dirty(entity);
+        _itemSystem.VisualsChanged(entity);
         args.Handled = true;
+    }
+
+    private void OnAfterHandleState(
+        Entity<AdjustableNeckwearLayerComponent> entity,
+        ref AfterAutoHandleStateEvent args)
+    {
+        _itemSystem.VisualsChanged(entity);
     }
 }
 
