@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieRed
   name: red-tie
   description: A neosilk clip-on red tie.
@@ -20,7 +20,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieDet
   name: detective's tie
   description: A loosely tied necktie, a perfect accessory for the over-worked detective.
@@ -40,7 +40,7 @@
   # WL-Changes-End: Респрайт РНД и новые вещи End
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieSci
   name: scientist's tie
   description: Why do we all have to wear these ridiculous ties?

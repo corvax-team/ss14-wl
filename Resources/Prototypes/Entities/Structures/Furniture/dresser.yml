@@ -239,7 +239,8 @@
       weight: 0.03
     - id: ClothingOuterCoatLab
       weight: 0.03
-    - id: ClothingOuterDameDane
+    - id: ClothingOuterBlazerClassicWhite # WL-change: replace Dame Dane set
+    - id: ClothingUniformJumpsuitClassicRedShirtWhitePants # WL-change: replace Dame Dane set
       weight: 0.03
     - id: ClothingOuterWinterCoat
       weight: 0.03

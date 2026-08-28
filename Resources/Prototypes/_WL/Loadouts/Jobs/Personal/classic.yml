@@ -1,0 +1,299 @@
+- type: loadout
+  id: ClassicBlackShirtBlackPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtBlackPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlackShirtBluePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtBluePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlackShirtDarkPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtDarkPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlackShirtDarkgreenPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtDarkgreenPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlackShirtGreyPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtGreyPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlackShirtRedPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtRedPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlackShirtTanPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtTanPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlueShirtBlackPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlueShirtBlackPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlueShirtDarkPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlueShirtDarkPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlueShirtGreyPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlueShirtGreyPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicBlueShirtRedPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicBlueShirtRedPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicGreyShirtBlackPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicGreyShirtBlackPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicGreyShirtBluePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicGreyShirtBluePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicGreyShirtDarkgreenPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicGreyShirtDarkgreenPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicGreyShirtDarkwhitePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicGreyShirtDarkwhitePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicLightblueShirtBlackPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicLightblueShirtBlackPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicLightblueShirtDarkwhitePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicLightblueShirtDarkwhitePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicLightblueShirtTanPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicLightblueShirtTanPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicLightblueShirtWhitePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicLightblueShirtWhitePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicLightgreenShirtBlackPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicLightgreenShirtBlackPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicLightgreenShirtBluePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicLightgreenShirtBluePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicLightgreenShirtDarkPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicLightgreenShirtDarkPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicLightgreenShirtTanPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicLightgreenShirtTanPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicRedShirtBlackPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicRedShirtBlackPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicRedShirtBluePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicRedShirtBluePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicRedShirtWhitePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicRedShirtWhitePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicTanShirtBlackPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtBlackPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicTanShirtBluePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtBluePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicTanShirtDarkPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtDarkPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicTanShirtDarkgreenPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtDarkgreenPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicWhiteShirtBlackPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtBlackPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicWhiteShirtBluePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtBluePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicWhiteShirtDarkPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtDarkPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicWhiteShirtDarkgreenPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtDarkgreenPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicWhiteShirtDarkwhitePants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtDarkwhitePants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicWhiteShirtGreyPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtGreyPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicWhiteShirtRedPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtRedPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: ClassicWhiteShirtTanPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtTanPants
+  groupBy: "WLClassicFormal"
+
+- type: loadout
+  id: WLTurtleneckLightgreen
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTurtleneckLightgreen
+  groupBy: "WLGreenTurtlenecks"
+
+- type: loadout
+  id: WLTurtleneckDarkgreen
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTurtleneckDarkgreen
+  groupBy: "WLGreenTurtlenecks"
+
+- type: loadout
+  id: WLClassicBlazerBlue
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicBlue
+  groupBy: "WLClassicBlazers"
+
+- type: loadout
+  id: WLClassicBlazerDark
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicDark
+  groupBy: "WLClassicBlazers"
+
+- type: loadout
+  id: WLClassicBlazerDarkgreen
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicDarkgreen
+  groupBy: "WLClassicBlazers"
+
+- type: loadout
+  id: WLClassicBlazerDarkwhite
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicDarkwhite
+  groupBy: "WLClassicBlazers"
+
+- type: loadout
+  id: WLClassicBlazerGrey
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicGrey
+  groupBy: "WLClassicBlazers"
+
+- type: loadout
+  id: WLClassicBlazerLightblue
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicLightblue
+  groupBy: "WLClassicBlazers"
+
+- type: loadout
+  id: WLClassicBlazerNoir
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicNoir
+  groupBy: "WLClassicBlazers"
+
+- type: loadout
+  id: WLClassicBlazerRed
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicRed
+  groupBy: "WLClassicBlazers"
+
+- type: loadout
+  id: WLClassicBlazerTan
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicTan
+  groupBy: "WLClassicBlazers"
+
+- type: loadout
+  id: WLClassicBlazerWhite
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicWhite
+  groupBy: "WLClassicBlazers"

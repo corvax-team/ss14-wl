@@ -312,6 +312,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -341,22 +343,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
+
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 
 - type: loadoutGroup
   id: PassengerFace
@@ -432,9 +458,44 @@
   id: BartenderJumpsuit
   name: loadout-group-bartender-jumpsuit
   loadouts:
-  - BartenderJumpsuit
-  - BartenderJumpskirt
-  - BartenderJumpsuitPurple
+  - ClassicWhiteShirtBlackPants
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 # WL-Change-start
   - JumpsuitColorWhite
   - JumpskirtColorWhite
@@ -489,6 +550,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -518,21 +581,6 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
 - type: loadoutGroup
@@ -575,8 +623,44 @@
   id: ChefJumpsuit
   name: loadout-group-chef-jumpsuit
   loadouts:
-  - ChefJumpsuit
-  - ChefJumpskirt
+  - ClassicWhiteShirtBlackPants
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 # WL-Change-start
   - JumpsuitColorWhite
   - JumpskirtColorWhite
@@ -631,6 +715,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -660,21 +746,6 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
 - type: loadoutGroup
@@ -696,32 +767,103 @@
   id: LibrarianJumpsuit
   name: loadout-group-librarian-jumpsuit
   loadouts:
-  - LibrarianJumpsuit
-  - LibrarianJumpskirt
-  - CuratorJumpsuit
-  - CuratorJumpskirt
+  - ClassicWhiteShirtTanPants
+  - ClassicWhiteShirtRedPants
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
 
-#- type: loadoutGroup
-#  id: LibrarianJobTrinkets
-#  name: loadout-group-jobtrinkets
-#  minLimit: 0
-#  loadouts:
+- type: loadoutGroup
+  id: LibrarianOuterClothing
+  name: loadout-group-librarian-outerclothing
+  minLimit: 0
+  loadouts:
+  - WLClassicBlazerBlue
+  - WLClassicBlazerDark
+  - WLClassicBlazerDarkgreen
+  - WLClassicBlazerDarkwhite
+  - WLClassicBlazerGrey
+  - WLClassicBlazerLightblue
+  - WLClassicBlazerNoir
+  - WLClassicBlazerRed
+  - WLClassicBlazerTan
+  - WLClassicBlazerWhite
 
 - type: loadoutGroup
   id: LawyerJumpsuit
   name: loadout-group-lawyer-jumpsuit
   loadouts:
-  - LawyerJumpsuit
-  - LawyerJumpskirt
-  - LawyerJumpsuitBlue
-  - LawyerJumpskirtBlue
-  - LawyerJumpsuitPurple
-  - LawyerJumpskirtPurple
-  - LawyerJumpsuitRed
-  - LawyerJumpskirtRed
-  - LawyerJumpsuitGood
-  - LawyerJumpskirtGood
-
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: LawyerNeck
   name: loadout-group-lawyer-neck
@@ -815,6 +957,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -844,23 +988,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: ChaplainOuterClothing
   name: loadout-group-chaplain-outerclothing
@@ -963,6 +1130,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -992,23 +1161,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: JanitorGloves
   name: loadout-group-janitor-gloves
@@ -1102,6 +1294,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -1131,23 +1325,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: BotanistBackpack
   name: loadout-group-botanist-backpack
@@ -1242,6 +1459,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -1271,23 +1490,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: ClownBackpack
   name: loadout-group-clown-backpack
@@ -1407,6 +1649,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -1436,23 +1680,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: MimeBackpack
   name: loadout-group-mime-backpack
@@ -1553,6 +1820,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -1582,29 +1851,63 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: MusicianOuterClothing
   name: loadout-group-musician-outerclothing
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  - MusicianCarpskinBlazer
+  - WLClassicBlazerBlue
+  - WLClassicBlazerDark
+  - WLClassicBlazerDarkgreen
+  - WLClassicBlazerDarkwhite
+  - WLClassicBlazerGrey
+  - WLClassicBlazerLightblue
+  - WLClassicBlazerNoir
+  - WLClassicBlazerRed
+  - WLClassicBlazerTan
+  - WLClassicBlazerWhite
 
 - type: loadoutGroup
   id: Instruments
@@ -1763,6 +2066,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -1792,23 +2097,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: CargoTechnicianBackpack
   name: loadout-group-cargo-technician-backpack
@@ -1896,6 +2224,44 @@
   - ChiefEngineerParadeUniform #WL Workers Lyvsi engi resprite
   - ChiefEngineerParadeUniformJumpskirt #WL Workers Lyvsi engi resprite
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: ChiefEngineerNeck
   name: loadout-group-chief-engineer-neck
@@ -1985,6 +2351,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -2014,21 +2382,6 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
 #- type: loadoutGroup
@@ -2037,6 +2390,44 @@
 #  minLimit: 0
 #  loadouts:
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: StationEngineerHead
   name: loadout-group-station-engineer-head
@@ -2114,6 +2505,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -2143,23 +2536,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: StationEngineerBackpack
   name: loadout-group-station-engineer-backpack
@@ -2258,6 +2674,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -2287,23 +2705,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
   name: loadout-group-atmospheric-technician-outerclothing
@@ -2373,6 +2814,44 @@
   - ResearchDirectorJumpskirtClassical
   # Corvax-Loadouts-End
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
   name: loadout-group-research-director-outerclothing
@@ -2474,6 +2953,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -2503,23 +2984,46 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: ScientistBackpack
   name: loadout-group-scientist-backpack
@@ -2633,6 +3137,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -2662,21 +3168,6 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
 #- type: loadoutGroup
@@ -2686,6 +3177,44 @@
 #  loadouts:
 
 # Security
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: HeadofSecurityHead
   name: loadout-group-head-of-security-head
@@ -2781,6 +3310,13 @@
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
   loadouts:
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtWhitePants
   - SecurityJumpsuit
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
@@ -2796,6 +3332,8 @@
   - JumpsuitTurtleneckBlack
   - JumpskirtTurtleneckBlackSleeveless
   - JumpsuitTurtleneckBlackSleeveless
+  # WL-Changes-start: grouped classic security suits
+  # WL-Changes-end
   # Wl-change-end
 
 - type: loadoutGroup
@@ -2855,20 +3393,47 @@
   - DetectiveFedoraGrey
 
 - type: loadoutGroup
-  id: DetectiveNeck
-  name: loadout-group-detective-neck
-  minLimit: 0
-  loadouts:
-  - DetectiveTie
-
-- type: loadoutGroup
   id: DetectiveJumpsuit
   name: loadout-group-detective-jumpsuit
   loadouts:
-  - DetectiveJumpsuit
-  - DetectiveJumpskirt
-  - NoirJumpsuit
-  - NoirJumpskirt
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtDarkPants
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
   # Wl-change-start
   - JumpskirtTurtleneckRed
   - JumpsuitTurtleneckRed
@@ -2886,6 +3451,15 @@
   - DetectiveCoat
   - DetectiveCoatGrey
   - ClothingOuterCoatDetectiveDark # WL-Changes
+  - DetectiveTrenchcoatArmoredDark # WL-Changes
+  - DetectiveTrenchcoatArmoredLight # WL-Changes
+  - DetectiveTrenchcoatArmoredNoir # WL-Changes
+  - DetectiveTrenchcoatArmoredTan # WL-Changes
+  - DetectiveTrenchcoatArmoredBlue # WL-Changes
+  - DetectiveTrenchcoatArmoredKhaki # WL-Changes
+  - DetectiveBlazerArmoredDark # WL-Changes
+  - DetectiveBlazerArmoredLight # WL-Changes
+  - DetectiveBlazerArmoredNoir # WL-Changes
   - SecurityOfficerWintercoat
 
 - type: loadoutGroup
@@ -2899,6 +3473,13 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtWhitePants
   - SecurityJumpsuitGrey # Corvax-Resprite
   - SecurityJumpskirtGrey # Corvax-Resprite
   - RedJumpsuit
@@ -2934,8 +3515,44 @@
   id: ReporterJumpsuit
   name: loadout-group-reporter-jumpsuit
   loadouts:
-  - ReporterJumpsuit
-  - JournalistJumpsuit
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 # WL-Change-start
   - JumpsuitColorWhite
   - JumpskirtColorWhite
@@ -2990,6 +3607,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -3019,21 +3638,6 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
 - type: loadoutGroup
@@ -3049,6 +3653,16 @@
   minLimit: 0
   loadouts:
   - ReporterPressVest
+  - WLClassicBlazerBlue
+  - WLClassicBlazerDark
+  - WLClassicBlazerDarkgreen
+  - WLClassicBlazerDarkwhite
+  - WLClassicBlazerGrey
+  - WLClassicBlazerLightblue
+  - WLClassicBlazerNoir
+  - WLClassicBlazerRed
+  - WLClassicBlazerTan
+  - WLClassicBlazerWhite
 
 #- type: loadoutGroup
 #  id: ReporterJobTrinkets
@@ -3116,6 +3730,8 @@
   - JumpsuitTurtleneckYellow
   - JumpskirtTurtleneckGreen
   - JumpsuitTurtleneckGreen
+  - JumpskirtTurtleneckDarkgreen
+  - JumpsuitTurtleneckDarkgreen
   - JumpskirtTurtleneckBrown
   - JumpsuitTurtleneckBrown
   - JumpskirtTurtleneckRed
@@ -3145,21 +3761,6 @@
   - ClothingUniformJumpskirtYellowTurtleneckDress
   - ClothingUniformJumpskirtGreenTurtleneckDress
   - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
 # WL-Change-end
 
 #- type: loadoutGroup
@@ -3169,6 +3770,44 @@
 #  loadouts:
 
 # Other
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
 - type: loadoutGroup
   id: SurvivalSyndicate
   name: loadout-group-survival-syndicate

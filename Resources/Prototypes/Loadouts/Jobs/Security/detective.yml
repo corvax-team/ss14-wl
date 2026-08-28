@@ -11,6 +11,7 @@
 
 # Neck
 - type: loadout
+  groupBy: "Ties" # WL-change-add
   id: DetectiveTie
   equipment:
     neck: ClothingNeckTieDet
@@ -19,25 +20,25 @@
 - type: loadout
   id: DetectiveJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitDetective
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtDarkPants
   groupBy: "WLDJJ" # WL-change-add
 
 - type: loadout
   id: DetectiveJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtDetective
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtBlackPants
   groupBy: "WLDJJ" # WL-change-add
 
 - type: loadout
   id: NoirJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitDetectiveGrey
+    jumpsuit: ClothingUniformJumpsuitClassicGreyShirtDarkwhitePants
   groupBy: "WLDJJ" # WL-change-add
 
 - type: loadout
   id: NoirJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpskirtDetectiveGrey
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtGreyPants
   groupBy: "WLDJJ" # WL-change-add
 
 # OuterClothing
@@ -55,3 +56,48 @@
   id: DetectiveCoatGrey
   equipment:
     outerClothing: ClothingOuterCoatDetectiveLoadoutGrey
+
+- type: loadout
+  id: DetectiveTrenchcoatArmoredDark
+  equipment:
+    outerClothing: ClothingOuterTrenchcoatArmoredDarkDetective
+
+- type: loadout
+  id: DetectiveTrenchcoatArmoredLight
+  equipment:
+    outerClothing: ClothingOuterTrenchcoatArmoredLightDetective
+
+- type: loadout
+  id: DetectiveTrenchcoatArmoredNoir
+  equipment:
+    outerClothing: ClothingOuterTrenchcoatArmoredNoirDetective
+
+- type: loadout
+  id: DetectiveTrenchcoatArmoredTan
+  equipment:
+    outerClothing: ClothingOuterTrenchcoatArmoredTanDetective
+
+- type: loadout
+  id: DetectiveTrenchcoatArmoredBlue
+  equipment:
+    outerClothing: ClothingOuterTrenchcoatArmoredBlueDetective
+
+- type: loadout
+  id: DetectiveTrenchcoatArmoredKhaki
+  equipment:
+    outerClothing: ClothingOuterTrenchcoatArmoredKhakiDetective
+
+- type: loadout
+  id: DetectiveBlazerArmoredDark
+  equipment:
+    outerClothing: ClothingOuterBlazerArmoredDarkDetective
+
+- type: loadout
+  id: DetectiveBlazerArmoredLight
+  equipment:
+    outerClothing: ClothingOuterBlazerArmoredLightDetective
+
+- type: loadout
+  id: DetectiveBlazerArmoredNoir
+  equipment:
+    outerClothing: ClothingOuterBlazerArmoredNoirDetective

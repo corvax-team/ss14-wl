@@ -17,9 +17,9 @@
   description: A skirt version of the CentCom turtleneck, rarer and more sought after than the original.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi # WL-change: wardrobe refresh
     - type: Clothing
-      sprite: Corvax/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi # WL-change: wardrobe refresh
 
 - type: entity
   parent: ClothingUniformSkirtBase

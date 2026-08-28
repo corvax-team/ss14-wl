@@ -266,7 +266,11 @@ public sealed partial class ClientClothingSystem : ClothingSystem
 
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
-        var slotLayerExists = _sprite.LayerMapTryGet((equipee, sprite), slot, out var index, false);
+        // WL-Changes-Start: Allow individual clothing to render relative to another inventory slot.
+        var insertionSlot = ev.InsertionSlot ?? slot;
+        var slotLayerExists = _sprite.LayerMapTryGet((equipee, sprite), insertionSlot, out var index, false);
+        var insertedLayer = false;
+        // WL-Changes-End
 
         // Select displacement maps
         var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
@@ -298,7 +302,11 @@ public sealed partial class ClientClothingSystem : ClothingSystem
 
             if (slotLayerExists)
             {
-                index++;
+                // WL-Changes-Start: Insert before the selected slot when requested.
+                if (!ev.InsertBeforeSlot || insertedLayer)
+                    index++;
+                insertedLayer = true;
+                // WL-Changes-End
                 // note that every insertion requires reshuffling & remapping all the existing layers.
                 _sprite.AddBlankLayer((equipee, sprite), index);
                 _sprite.LayerMapSet((equipee, sprite), key, index);

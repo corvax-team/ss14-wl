@@ -94,6 +94,23 @@
     ClothingHandsGlovesColorPurple: 2
     ClothingHandsGlovesFingerless: 2 # WL-changes
     ClothingEyesGlassesCheapSunglasses: 3
+    ClothingOuterTrenchcoatTan: 3 # WL-change: unarmored trenchcoats
+    ClothingOuterTrenchcoatBlue: 3 # WL-change: unarmored trenchcoats
+    ClothingOuterTrenchcoatKhaki: 3 # WL-change: unarmored trenchcoats
+    # WL-change-start: tracksuits are kept at the bottom of the regular inventory
+    ClothingUniformJumpsuitTracksuitBlackwhiteBluewhite: 3
+    ClothingUniformJumpsuitTracksuitBlackwhiteRedgold: 3
+    ClothingUniformJumpsuitTracksuitBluewhite: 3
+    ClothingUniformJumpsuitTracksuitBluewhiteBlackwhite: 3
+    ClothingUniformJumpsuitTracksuitReddark: 3
+    ClothingUniformJumpsuitTracksuitRedgold: 3
+    ClothingUniformJumpsuitTracksuitRedgoldBlackwhite: 3
+    ClothingUniformJumpsuitTracksuitTanwhite: 3
+    ClothingUniformJumpsuitTracksuitTanwhiteWhitegold: 3
+    ClothingUniformJumpsuitTracksuitWhitedark: 3
+    ClothingUniformJumpsuitTracksuitWhitegold: 3
+    ClothingUniformJumpsuitTracksuitWhitegoldTanwhite: 3
+    # WL-change-end
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2

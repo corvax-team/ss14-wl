@@ -120,7 +120,8 @@
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
-  - FormalUniform # LibrarianJumpsuit # WL-Changes: Formal uniform
+  - LibrarianJumpsuit # WL-change: formal uniforms are integrated into the role group
+  - LibrarianOuterClothing # WL-change: wardrobe refresh
   - CommonBackpack
   - Glasses
   - AssistiveItems
@@ -136,7 +137,7 @@
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
   - LawyerNeck
-  - FormalUniform # LawyerJumpsuit # WL-Changes: Formal uniform
+  - LawyerJumpsuit # WL-change: formal uniforms are integrated into the role group
   - CommonBackpack
   - Glasses
   - AssistiveItems
@@ -500,8 +501,7 @@
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - DetectiveHead
-  - DetectiveNeck
-  - FormalUniform # - DetectiveJumpsuit # WL-Changes: Formal uniform
+  - DetectiveJumpsuit # WL-change: use the security uniform group
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
@@ -534,7 +534,7 @@
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - GroupTankHarness
-  - FormalUniform # ReporterJumpsuit # WL-Changes: Formal uniform
+  - ReporterJumpsuit # WL-change: formal uniforms are integrated into the role group
   - ReporterHead
   - ReporterOuterClothing
   - CommonBackpack

@@ -1,19 +1,25 @@
 - type: vendingMachineInventory
   id: LawDrobeInventory
   startingInventory:
-    ClothingUniformJumpsuitLawyerBlue: 1
-    ClothingUniformJumpskirtLawyerBlue: 1
-    ClothingUniformJumpsuitLawyerPurple: 1
-    ClothingUniformJumpskirtLawyerPurple: 1
-    ClothingUniformJumpsuitLawyerRed: 1
-    ClothingUniformJumpskirtLawyerRed: 1
-    ClothingUniformJumpsuitLawyerBlack: 1
-    ClothingUniformJumpskirtLawyerBlack: 1
-    ClothingUniformJumpsuitLawyerGood: 1
+    # WL-change-start: classic IAA suits and matching blazers
+    ClothingUniformJumpsuitClassicWhiteShirtBlackPants: 1
+    ClothingOuterBlazerClassicNoir: 1
+    ClothingUniformJumpsuitClassicWhiteShirtBluePants: 1
+    ClothingOuterBlazerClassicBlue: 1
+    ClothingUniformJumpsuitClassicWhiteShirtRedPants: 1
+    ClothingOuterBlazerClassicRed: 1
+    ClothingUniformJumpsuitClassicLightblueShirtWhitePants: 1
+    ClothingOuterBlazerClassicLightblue: 1
+    # WL-change-end
     ClothingNeckBtTieBlack: 2 # WL-Changes: Респрайт РНД и новые вещи
     ClothingNeckBtTieLong: 2 # WL-Changes: Респрайт РНД и новые вещи
     ClothingNeckBtTieRed: 2 # WL-Changes: Респрайт РНД и новые вещи
-    ClothingUniformJumpskirtLawyerGood: 1
+    # WL-change-start: matching classic neckties
+    ClothingNeckTieDet: 2
+    ClothingNeckTieBlue: 2
+    ClothingNeckTieRed: 2
+    ClothingNeckTieLightBlue: 2
+    # WL-change-end
     ClothingShoesBootsLaceup: 2
     ClothingHeadsetIAA: 2 # Corvax-IAA
     ClothingNeckLawyerbadge: 2

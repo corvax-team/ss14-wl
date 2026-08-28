@@ -16,9 +16,9 @@
   description: Looks like someone skinned this blazer off some long extinct disco-animal. It has an enigmatic white rectangle on the back and the right sleeve.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/OuterClothing/Coats/disco.rsi
+      sprite: _WL/Clothing/OuterClothing/disco_blazer.rsi # WL-Changes: resprite
     - type: Clothing
-      sprite: Corvax/Clothing/OuterClothing/Coats/disco.rsi
+      sprite: _WL/Clothing/OuterClothing/disco_blazer.rsi # WL-Changes: resprite
 
 - type: entity
   parent: ClothingOuterStorageBase

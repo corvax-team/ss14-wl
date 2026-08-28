@@ -315,14 +315,26 @@
 - type: loadout
   id: JumpskirtTurtleneckGreen
   equipment:
-    jumpsuit: ClothingUniformJumpskirtTurtleneckGreen
+    jumpsuit: ClothingUniformJumpskirtTurtleneckLightgreen # WL-change: replace old green turtleneck
   groupBy: "WLTJ"    
     
 - type: loadout
   id: JumpsuitTurtleneckGreen
   equipment:
-    jumpsuit: ClothingUniformJumpsuitTurtleneckGreen  
+    jumpsuit: ClothingUniformJumpsuitTurtleneckLightgreen # WL-change: replace old green turtleneck
   groupBy: "WLTJ" 
+
+- type: loadout
+  id: JumpskirtTurtleneckDarkgreen
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTurtleneckDarkgreen
+  groupBy: "WLTJ"
+
+- type: loadout
+  id: JumpsuitTurtleneckDarkgreen
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTurtleneckDarkgreen
+  groupBy: "WLTJ"
 
 - type: loadout
   id: JumpskirtTurtleneckBrown

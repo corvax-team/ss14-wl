@@ -91,6 +91,7 @@
   - TiePurple
   - TiePink
   - TieRainbow
+  - DetectiveTie
   - FacescarfRed
   - FacescarfGreen
   - FacescarfGrey
@@ -106,28 +107,3 @@
   minLimit: 0
   loadouts:
   - Photo
-
-- type: loadoutGroup
-  id: FormalUniform
-  name: loadout-group-corp-uniform
-  loadouts:
-  - DetectiveJumpsuit
-  - DetectiveJumpskirt
-  - NoirJumpsuit
-  - NoirJumpskirt
-  - LibrarianJumpsuit
-  - LibrarianJumpskirt
-  - CuratorJumpsuit
-  - CuratorJumpskirt
-  - LawyerJumpsuit
-  - LawyerJumpskirt
-  - LawyerJumpsuitBlue
-  - LawyerJumpskirtBlue
-  - LawyerJumpsuitPurple
-  - LawyerJumpskirtPurple
-  - LawyerJumpsuitRed
-  - LawyerJumpskirtRed
-  - LawyerJumpsuitGood
-  - LawyerJumpskirtGood
-  - ReporterJumpsuit
-  - JournalistJumpsuit

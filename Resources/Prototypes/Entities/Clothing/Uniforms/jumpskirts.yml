@@ -496,9 +496,9 @@
   description: A dress for special occasions.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/centcomformaldress.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi # WL-Changes: resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/centcomformaldress.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi # WL-Changes: resprite
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -876,9 +876,9 @@
   description: A fancy skirt for the musically inclined. Perfect for any lounge act!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/musician.rsi # WL-Changes: resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/musician.rsi
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/musician.rsi # WL-Changes: resprite
 
 - type: entity
   parent: ClothingUniformSkirtBase

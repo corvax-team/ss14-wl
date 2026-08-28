@@ -1,0 +1,314 @@
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicBlue
+  name: blue blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/blue_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/blue_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicDark
+  name: dark blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/dark_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/dark_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicDarkgreen
+  name: darkgreen blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/darkgreen_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/darkgreen_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicDarkwhite
+  name: darkwhite blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/darkwhite_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/darkwhite_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicGrey
+  name: grey blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/grey_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/grey_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicLeather
+  name: leather blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/musician.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/musician.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicLeatherRegular
+  name: leather blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/leather_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/leather_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicLightblue
+  name: lightblue blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/lightblue_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/lightblue_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicNoir
+  name: noir blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/noir_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/noir_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicRed
+  name: red blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/red_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/red_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicTan
+  name: tan blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/tan_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/tan_blazer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterBlazerClassicWhite
+  name: white blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/white_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/white_blazer.rsi
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterTrenchcoatBlue
+  name: blue trenchcoat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/blue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/blue.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterTrenchcoatKhaki
+  name: khaki trenchcoat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/khaki.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/khaki.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterTrenchcoatTan
+  name: tan trenchcoat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/tan.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/tan.rsi
+
+# Unarmored detective-style trenches start opened.
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterTrenchDark
+  name: dark trench
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/dark_detective.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/dark_detective.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterTrenchLight
+  name: light trench
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/light_detective.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/light_detective.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterTrenchNoir
+  name: noir trench
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/noir_detective.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/noir_detective.rsi
+
+# Armored trenchcoats inherit the protection of the detective coat.
+- type: entity
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterTrenchcoatArmoredTanDetective
+  name: armored tan detective trenchcoat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/tan.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/tan.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterTrenchcoatArmoredBlueDetective
+  name: armored blue detective trenchcoat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/blue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/blue.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterTrenchcoatArmoredKhakiDetective
+  name: armored khaki detective trenchcoat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/khaki.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/Trenchcoats/khaki.rsi
+- type: entity
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterTrenchcoatArmoredDarkDetective
+  name: armored dark detective trenchcoat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/dark_detective.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/dark_detective.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterTrenchcoatArmoredLightDetective
+  name: armored light detective trenchcoat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/light_detective.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/light_detective.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterTrenchcoatArmoredNoirDetective
+  name: armored noir detective trenchcoat
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/noir_detective.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/noir_detective.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterBlazerArmoredDarkDetective
+  name: armored dark detective blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/dark_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/dark_blazer.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterBlazerArmoredLightDetective
+  name: armored light detective blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/darkwhite_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/darkwhite_blazer.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterBlazerArmoredNoirDetective
+  name: armored noir detective blazer
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Classic/noir_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Classic/noir_blazer.rsi
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterBomberBlue
+  name: blue bomber jacket
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/blue_bomber.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/blue_bomber.rsi
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterBomberLeather
+  name: leather bomber jacket
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/leather_bomber.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/leather_bomber.rsi
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSnake
+  name: snake jacket
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/snake.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/snake.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTurtleneckLightgreen
+  name: light green turtleneck
+  components:
+  - type: Sprite
+    sprite: _WL/_ADT/Uniforms/Jumpsuit/turtleneck_lightgreen.rsi
+  - type: Clothing
+    sprite: _WL/_ADT/Uniforms/Jumpsuit/turtleneck_lightgreen.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTurtleneckDarkgreen
+  name: dark green turtleneck
+  components:
+  - type: Sprite
+    sprite: _WL/_ADT/Uniforms/Jumpsuit/turtleneck_darkgreen.rsi
+  - type: Clothing
+    sprite: _WL/_ADT/Uniforms/Jumpsuit/turtleneck_darkgreen.rsi

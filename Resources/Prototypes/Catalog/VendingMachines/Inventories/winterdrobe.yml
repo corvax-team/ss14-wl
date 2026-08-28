@@ -10,8 +10,10 @@
     ClothingUniformJumpsuitTurtleneckAzure: 2
     ClothingUniformJumpskirtTurtleneckYellow: 2 
     ClothingUniformJumpsuitTurtleneckYellow: 2
-    ClothingUniformJumpskirtTurtleneckGreen: 2
-    ClothingUniformJumpsuitTurtleneckGreen: 2
+    ClothingUniformJumpskirtTurtleneckLightgreen: 2
+    ClothingUniformJumpsuitTurtleneckLightgreen: 2
+    ClothingUniformJumpskirtTurtleneckDarkgreen: 2
+    ClothingUniformJumpsuitTurtleneckDarkgreen: 2
     ClothingUniformJumpskirtTurtleneckBrown: 2
     ClothingUniformJumpsuitTurtleneckBrown: 2
     ClothingUniformJumpskirtTurtleneckRed: 2
@@ -55,13 +57,17 @@
     ClothingNeckScarfStripedLightBlue: 3
     ClothingNeckScarfStripedOrange: 3
     ClothingNeckScarfStripedPurple: 3
-    ClothingOuterCoatTrench: 6
+    ClothingOuterTrenchcoatTan: 6
+    ClothingOuterTrenchcoatBlue: 6
+    ClothingOuterTrenchcoatKhaki: 6
     ClothingOuterWinterCoat: 6
     ClothingShoesBootsWinter: 6
     ClothingOuterFlannelRed: 2
     ClothingOuterFlannelBlue: 2
     ClothingOuterFlannelGreen: 2
     ClothingOuterCoatBomber: 3
+    ClothingOuterBomberBlue: 3
+    ClothingOuterBomberLeather: 3
     ClothingHeadHatCanadaBeanie: 4
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2

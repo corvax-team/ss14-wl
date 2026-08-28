@@ -3,16 +3,21 @@
   id: MusicianJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitMusician
-  groupBy: "WLJJ" # WL-change-add
+  groupBy: "WLMusicianCarpskinUniform" # WL-change: wardrobe refresh
 
 - type: loadout
   id: MusicianJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtMusician
-  groupBy: "WLJJ" # WL-change-add
+  groupBy: "WLMusicianCarpskinUniform" # WL-change: wardrobe refresh
 
 # Outerclothing
 - type: loadout
   id: MusicianWintercoat
   equipment:
     outerClothing: ClothingOuterWinterMusician
+
+- type: loadout
+  id: MusicianCarpskinBlazer
+  equipment:
+    outerClothing: ClothingOuterBlazerClassicLeather
