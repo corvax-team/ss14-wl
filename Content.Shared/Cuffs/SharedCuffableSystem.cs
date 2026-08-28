@@ -804,7 +804,8 @@ namespace Content.Shared.Cuffs
 
             if (args.Weapon is { } weapon
                 && TryComp<CuffedMeleeWeaponComponent>(uid, out var cuffedMelee)
-                && cuffedMelee.WeaponUid == weapon.Owner)
+                && cuffedMelee.WeaponUid == weapon.Owner
+                && !args.Disarm)
             {
                 return;
             }

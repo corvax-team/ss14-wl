@@ -21,12 +21,12 @@ public sealed partial class CuffedMeleeWeaponSystem : EntitySystem
         if (!TryComp<CuffableComponent>(uid, out var cuffs))
             return;
 
-        if (_inventorySystem.TryGetSlotEntity(uid, "mask", out var mask)
-            && HasComp<EmoteBlockerComponent>(mask.Value))
-            return;
-
         if (!cuffs.CanStillInteract && comp.WeaponUid == null)
         {
+            if (_inventorySystem.TryGetSlotEntity(uid, "mask", out var mask)
+                && HasComp<EmoteBlockerComponent>(mask.Value))
+                return;
+
             comp.WeaponUid = PredictedSpawnAttachedTo(comp.WeaponId, Transform(uid).Coordinates);
             Dirty(uid, comp);
         }
