@@ -242,7 +242,7 @@ public abstract partial class SharedMoverController : VirtualController
         // Should we use tile friction or not?
         if (weightless || inAirHelpless)
         {
-            // Find the speed we should be moving at and make sure we're not trying to move faster than that.
+            // Find the speed we should be moving at and make sure we're not trying to move faster than that
             var walkSpeed = moveSpeedComponent?.WeightlessWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
             var sprintSpeed = moveSpeedComponent?.WeightlessSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
 
