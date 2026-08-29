@@ -94,7 +94,6 @@
   id: MobHuman
   name: Urist McHands
   components:
-  - type: Swimmer #WL
   - type: Butcherable
     spawned:
     - id: FoodMeatHuman

@@ -88,7 +88,8 @@
   name: Urist McHands
   components:
   - type: Swimmer #WL
-    swimSpeedModifier: 0.6
+    swimSpeedModifier: 0.5
+    swimAccelerationModifier: 0.2
   - type: CharacterInformation
   - type: Damageable
     damageModifierSet: Ipc

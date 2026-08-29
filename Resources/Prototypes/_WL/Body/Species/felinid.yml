@@ -95,7 +95,6 @@
   - BaseSpeciesMobOrganic
   id: MobFelinid
   components:
-  - type: Swimmer
   - type: Vocal
     emoteSounds: FemaleFelinid
   - type: MovementSpeedModifier

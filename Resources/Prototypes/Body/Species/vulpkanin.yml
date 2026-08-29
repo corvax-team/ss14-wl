@@ -175,7 +175,6 @@
   id: MobVulpkanin
   name: Urist McArfArf
   components:
-  - type: Swimmer #WL
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

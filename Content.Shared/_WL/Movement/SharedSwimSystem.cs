@@ -1,19 +1,29 @@
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
-using Content.Shared.Station.Components;
+using Content.Shared.Movement.Events;
+using Content.Shared.Parallax;
 using Robust.Shared.Map;
 
 namespace Content.Shared.Movement.Systems;
 
 public sealed partial class SharedSwimSystem : EntitySystem
 {
+    private static readonly HashSet<string> SwimmableParallaxes = new(StringComparer.Ordinal)
+    {
+        "Water",
+        "IceWater",
+    };
+
     [Dependency] private EntityQuery<SwimmerComponent> _swimmerQuery = default!;
+    [Dependency] private MovementSpeedModifierSystem _speedModifier = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<SwimmerComponent, IsWeightlessEvent>(OnSwimmerIsWeightless);
+        SubscribeLocalEvent<SwimmerComponent, CanWeightlessMoveEvent>(OnSwimmerCanWeightlessMove);
+        SubscribeLocalEvent<SwimmerComponent, RefreshWeightlessModifiersEvent>(OnSwimmerRefreshWeightless);
     }
 
     private void OnSwimmerIsWeightless(Entity<SwimmerComponent> entity, ref IsWeightlessEvent args)
@@ -23,6 +33,22 @@ public sealed partial class SharedSwimSystem : EntitySystem
 
         args.IsWeightless = true;
         args.Handled = true;
+
+        _speedModifier.RefreshWeightlessModifiers(entity.Owner);
+    }
+
+    private void OnSwimmerCanWeightlessMove(Entity<SwimmerComponent> entity, ref CanWeightlessMoveEvent args)
+    {
+        if (CanSwim(entity.Owner))
+            args.CanMove = true;
+    }
+
+    private void OnSwimmerRefreshWeightless(Entity<SwimmerComponent> entity, ref RefreshWeightlessModifiersEvent args)
+    {
+        if (!CanSwim(entity.Owner))
+            return;
+
+        args.ModifyAcceleration(entity.Comp.SwimAccelerationModifier, entity.Comp.SwimSpeedModifier);
     }
 
     public bool CanSwim(EntityUid uid, TransformComponent? xform = null)
@@ -39,13 +65,12 @@ public sealed partial class SharedSwimSystem : EntitySystem
         if (mapUid == null || mapUid == EntityUid.Invalid || xform.MapID == MapId.Nullspace)
             return false;
 
-        var stations = EntityQueryEnumerator<PlanetaryStationComponent, TransformComponent>();
-        while (stations.MoveNext(out _, out var stationXform))
-        {
-            if (stationXform.MapUid == mapUid)
-                return true;
-        }
+        return HasSwimmableParallax(mapUid.Value);
+    }
 
-        return false;
+    private bool HasSwimmableParallax(EntityUid mapUid)
+    {
+        return TryComp<ParallaxComponent>(mapUid, out var px)
+               && SwimmableParallaxes.Contains(px.Parallax);
     }
 }

@@ -99,7 +99,8 @@
    id: MobGolem
    components:
      - type: Swimmer
-       swimSpeedModifier: 0.548
+       swimSpeedModifier: 0.5
+       swimAccelerationModifier: 0.15
      - type: OfferItem # CorvaxGoob-Offer
      - type: Damageable
        damageModifierSet: Golem

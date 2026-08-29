@@ -12,5 +12,5 @@ public sealed partial class SwimmerComponent : Component
     public float SwimAccelerationModifier = 0.5f;
 
     [DataField, AutoNetworkedField]
-    public float SwimDrag = 3f;
+    public float SwimDrag = 12f;
 }

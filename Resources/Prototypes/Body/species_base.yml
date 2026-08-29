@@ -247,5 +247,5 @@
   - type: Swimmer
     swimSpeedModifier: 1
     swimAccelerationModifier: 0.5
-    swimDrag: 3
+    swimDrag: 12
   #WLSwiming - end

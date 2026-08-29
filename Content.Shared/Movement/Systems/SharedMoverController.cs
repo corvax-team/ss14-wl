@@ -212,8 +212,9 @@ public abstract partial class SharedMoverController : VirtualController
 
         // If the body is in air but isn't weightless then it can't move
         var weightless = _gravity.IsWeightless(uid);
-        var canSwim = _swim.CanSwim(uid, xform); //WLSwiming
         var inAirHelpless = false;
+
+        var canSwim = _swim.CanSwim(uid, xform); //WLSwiming
 
         if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
         {
@@ -241,26 +242,14 @@ public abstract partial class SharedMoverController : VirtualController
         // Should we use tile friction or not?
         if (weightless || inAirHelpless)
         {
-            //WLSwiming - start
-            SwimmerComponent? swimmer = null;
-            var swimming = canSwim && TryComp(uid, out swimmer);
-
-            var swimSpeedModifier = swimming ? swimmer!.SwimSpeedModifier : 1f;
-            //WLSwiming - end
-
-            // Find the speed we should be moving at and make sure we're not trying to move faster than that
-            var walkSpeed = (moveSpeedComponent?.WeightlessWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed) * swimSpeedModifier; //WLSwiming
-            var sprintSpeed = (moveSpeedComponent?.WeightlessSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed) * swimSpeedModifier; //WLSwiming
+            // Find the speed we should be moving at and make sure we're not trying to move faster than that.
+            var walkSpeed = moveSpeedComponent?.WeightlessWalkSpeed ?? MovementSpeedModifierComponent.DefaultBaseWalkSpeed;
+            var sprintSpeed = moveSpeedComponent?.WeightlessSprintSpeed ?? MovementSpeedModifierComponent.DefaultBaseSprintSpeed;
 
             wishDir = AssertValidWish(mover, walkSpeed, sprintSpeed);
 
             var ev = new CanWeightlessMoveEvent(uid);
             RaiseLocalEvent(uid, ref ev, true);
-
-            //WLSwiming - start
-            if (canSwim)
-                ev.CanMove = true;
-            //WLSwiming - end
 
             touching = ev.CanMove || xform.GridUid != null || MapGridQuery.HasComp(xform.GridUid);
 
@@ -283,21 +272,12 @@ public abstract partial class SharedMoverController : VirtualController
                 friction = moveSpeedComponent?.OffGridFriction ?? _offGridDamping;
             }
 
+            accel = moveSpeedComponent?.WeightlessAcceleration ?? MovementSpeedModifierComponent.DefaultWeightlessAcceleration;
+
             //WLSwiming - start
-            accel = (moveSpeedComponent?.WeightlessAcceleration ?? MovementSpeedModifierComponent.DefaultWeightlessAcceleration) * swimSpeedModifier;
-
-            if (swimming)
+            if (canSwim && TryComp(uid, out SwimmerComponent? swimmer))
             {
-                accel *= swimmer!.SwimAccelerationModifier;
-
-                if (wishDir != Vector2.Zero)
-                {
-                    friction = accel;
-                }
-                else
-                {
-                    friction = swimmer.SwimDrag;
-                }
+                friction = wishDir != Vector2.Zero ? accel : swimmer.SwimDrag * _airDamping;
             }
             //WLSwiming - end
         }

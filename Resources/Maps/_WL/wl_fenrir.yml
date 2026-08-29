@@ -84,7 +84,6 @@ entities:
     - type: OccluderTree
     - type: Parallax
       parallax: Water
-    - type: PlanetaryStation
     - type: LightCycle
       originalColor: '#856C50FF'
       minLightLevel: 1

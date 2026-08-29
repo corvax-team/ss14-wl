@@ -163,7 +163,6 @@
   id: MobVox
   name: Urist McVox
   components:
-  - type: Swimmer #WL
   - type: Damageable
     damageModifierSet: Vox
   - type: Speech

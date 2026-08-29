@@ -90,8 +90,8 @@
   id: MobAkula
   components: # TODO: Give species uniq features
     - type: Swimmer
-      swimSpeedModifier: 1.45
-      swimAccelerationModifier: 1
+      swimSpeedModifier: 1.5
+      swimAccelerationModifier: 1.75
     - type: Hunger
     - type: Icon
       sprite: _WL/Mobs/Species/Akula/parts.rsi

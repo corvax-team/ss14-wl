@@ -126,7 +126,6 @@ entities:
           Nitrogen: 82.10312
     - type: Parallax
       parallax: Water
-    - type: PlanetaryStation #WL
     - type: MapLight
       ambientLightColor: '#E0A0C0FF'
     - type: LightCycle
