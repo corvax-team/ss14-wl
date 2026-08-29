@@ -1,20 +1,14 @@
 using Content.Shared.Gravity;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
-using Content.Shared.Parallax;
 using Robust.Shared.Map;
 
 namespace Content.Shared.Movement.Systems;
 
 public sealed partial class SharedSwimSystem : EntitySystem
 {
-    private static readonly HashSet<string> SwimmableParallaxes = new(StringComparer.Ordinal)
-    {
-        "Water",
-        "IceWater",
-    };
-
     [Dependency] private EntityQuery<SwimmerComponent> _swimmerQuery = default!;
+    [Dependency] private EntityQuery<SwimmableMapComponent> _swimmableMapQuery = default!;
     [Dependency] private MovementSpeedModifierSystem _speedModifier = default!;
 
     public override void Initialize()
@@ -65,12 +59,6 @@ public sealed partial class SharedSwimSystem : EntitySystem
         if (mapUid == null || mapUid == EntityUid.Invalid || xform.MapID == MapId.Nullspace)
             return false;
 
-        return HasSwimmableParallax(mapUid.Value);
-    }
-
-    private bool HasSwimmableParallax(EntityUid mapUid)
-    {
-        return TryComp<ParallaxComponent>(mapUid, out var px)
-               && SwimmableParallaxes.Contains(px.Parallax);
+        return _swimmableMapQuery.HasComp(mapUid.Value);
     }
 }
