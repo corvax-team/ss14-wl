@@ -6,8 +6,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
 using Content.Shared.Verbs;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._WL.Clothing.Systems;
 
@@ -34,7 +32,7 @@ public sealed partial class AdjustableNeckwearLayerSystem : EntitySystem
         if (entity.Comp.AboveOuterClothing)
             return;
 
-        args.InsertionSlot = "outerClothing";
+        args.InsertionSlot = entity.Comp.InsertionSlot;
         args.InsertBeforeSlot = true;
     }
 
@@ -58,7 +56,7 @@ public sealed partial class AdjustableNeckwearLayerSystem : EntitySystem
     {
         if (!verbArgs.CanAccess || !verbArgs.CanInteract ||
             !TryComp(entity, out ClothingComponent? clothing) ||
-            clothing.InSlot != "neck")
+            clothing.InSlot != entity.Comp.EquippedSlot)
         {
             return;
         }
@@ -69,7 +67,7 @@ public sealed partial class AdjustableNeckwearLayerSystem : EntitySystem
 
         verbArgs.Verbs.Add(new EquipmentVerb
         {
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
+            Icon = entity.Comp.VerbIcon,
             Text = Loc.GetString(entity.Comp.AboveOuterClothing
                 ? "adjustable-neckwear-layer-verb-below"
                 : "adjustable-neckwear-layer-verb-above"),
@@ -84,7 +82,7 @@ public sealed partial class AdjustableNeckwearLayerSystem : EntitySystem
     {
         if (args.Handled ||
             !TryComp(entity, out ClothingComponent? clothing) ||
-            clothing.InSlot != "neck" ||
+            clothing.InSlot != entity.Comp.EquippedSlot ||
             Transform(entity).ParentUid != args.Performer)
         {
             return;

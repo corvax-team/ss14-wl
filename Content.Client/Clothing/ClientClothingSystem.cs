@@ -302,7 +302,8 @@ public sealed partial class ClientClothingSystem : ClothingSystem
 
             if (slotLayerExists)
             {
-                // WL-Changes-Start: Insert before the selected slot when requested.
+                // WL-Changes-Start: The first insertion at the bookmark index shifts the selected slot up.
+                // Later layers advance toward that shifted bookmark, preserving their visual order.
                 if (!ev.InsertBeforeSlot || insertedLayer)
                     index++;
                 insertedLayer = true;
