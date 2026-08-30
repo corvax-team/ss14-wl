@@ -2,13 +2,13 @@
 - type: loadout
   id: ReporterJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicLightblueShirtDarkwhitePants
+    jumpsuit: ClothingUniformJumpsuitClassicLightblueShirtDarkwhitePants # WL-change: wardrobe refresh
   groupBy: "WLRJJ" # WL-change-add
 
 - type: loadout
   id: JournalistJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicBlueShirtGreyPants
+    jumpsuit: ClothingUniformJumpsuitClassicBlueShirtGreyPants # WL-change: wardrobe refresh
   groupBy: "WLRJJ" # WL-change-add
 
 # Head

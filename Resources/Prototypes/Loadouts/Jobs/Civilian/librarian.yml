@@ -2,23 +2,23 @@
 - type: loadout
   id: LibrarianJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicTanShirtDarkgreenPants
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtDarkgreenPants # WL-change: wardrobe refresh
   groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: LibrarianJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicLightgreenShirtTanPants
+    jumpsuit: ClothingUniformJumpsuitClassicLightgreenShirtTanPants # WL-change: wardrobe refresh
   groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: CuratorJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicTanShirtDarkPants
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtDarkPants # WL-change: wardrobe refresh
   groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: CuratorJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtDarkgreenPants
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtDarkgreenPants # WL-change: wardrobe refresh
   groupBy: "WLJJ" # WL-change-add

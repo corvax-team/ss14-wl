@@ -20,25 +20,25 @@
 - type: loadout
   id: DetectiveJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicTanShirtDarkPants
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtDarkPants # WL-change: wardrobe refresh
   groupBy: "WLDJJ" # WL-change-add
 
 - type: loadout
   id: DetectiveJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicTanShirtBlackPants
+    jumpsuit: ClothingUniformJumpsuitClassicTanShirtBlackPants # WL-change: wardrobe refresh
   groupBy: "WLDJJ" # WL-change-add
 
 - type: loadout
   id: NoirJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicGreyShirtDarkwhitePants
+    jumpsuit: ClothingUniformJumpsuitClassicGreyShirtDarkwhitePants # WL-change: wardrobe refresh
   groupBy: "WLDJJ" # WL-change-add
 
 - type: loadout
   id: NoirJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtGreyPants
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtGreyPants # WL-change: wardrobe refresh
   groupBy: "WLDJJ" # WL-change-add
 
 # OuterClothing
@@ -57,6 +57,7 @@
   equipment:
     outerClothing: ClothingOuterCoatDetectiveLoadoutGrey
 
+# WL-change-start: armored detective outer clothing
 - type: loadout
   id: DetectiveTrenchcoatArmoredDark
   equipment:
@@ -101,3 +102,4 @@
   id: DetectiveBlazerArmoredNoir
   equipment:
     outerClothing: ClothingOuterBlazerArmoredNoirDetective
+# WL-change-end

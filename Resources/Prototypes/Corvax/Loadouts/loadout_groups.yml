@@ -31,6 +31,7 @@
   - MagistrateOuterClothingRobeFancy
   - MagistrateOuterClothingRobeRed
 
+# WL-change-start: wardrobe refresh
 - type: loadoutGroup
   id: IAAOuterClothing
   name: loadout-group-iaa-outerclothing
@@ -46,6 +47,7 @@
   - WLClassicBlazerRed
   - WLClassicBlazerTan
   - WLClassicBlazerWhite
+# WL-change-end
 
 # Engineering
 - type: loadoutGroup
@@ -76,6 +78,7 @@
   loadouts:
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -114,6 +117,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 
 - type: loadoutGroup
   id: SeniorEngineerBackpack
@@ -157,6 +161,7 @@
   loadouts:
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -195,6 +200,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 
 - type: loadoutGroup
   id: SeniorResearcherBackpack
@@ -242,6 +248,7 @@
   id: PilotJumpsuit
   name: loadout-group-pilot-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtDarkPants
   - ClassicBlackShirtGreyPants
@@ -249,6 +256,7 @@
   - ClassicBlackShirtTanPants
   - ClassicRedShirtBlackPants
   - ClassicRedShirtWhitePants
+  # WL-change-end
   - JumpsuitPilot
   - JumpskirtPilot
   - TrooperUniform
@@ -288,6 +296,7 @@
   id: BrigmedicJumpsuit
   name: loadout-group-brigmedic-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtDarkPants
   - ClassicBlackShirtGreyPants
@@ -295,6 +304,7 @@
   - ClassicBlackShirtTanPants
   - ClassicRedShirtBlackPants
   - ClassicRedShirtWhitePants
+  # WL-change-end
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
   # Wl-change-start
@@ -356,6 +366,7 @@
   id: SeniorOfficerJumpsuit
   name: loadout-group-senior-officer-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtDarkPants
   - ClassicBlackShirtGreyPants
@@ -363,6 +374,7 @@
   - ClassicBlackShirtTanPants
   - ClassicRedShirtBlackPants
   - ClassicRedShirtWhitePants
+  # WL-change-end
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - JumpsuitSeniorDSS # WL-Changes: DSS adding, WL-redo-427-resprite
@@ -437,6 +449,7 @@
   - ClothingUniformJumpskirtBlueElegantDress
   - ClothingUniformJumpskirtBlueTurtleneckDress
   # WL-Change-End
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -475,6 +488,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 
 - type: loadoutGroup
   id: SeniorPhysicianOuterClothing

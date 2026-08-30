@@ -130,8 +130,10 @@ ent-ClothingUniformJumpskirtCasualGreen = повседневная зелёна�
     .desc = Свободная потёртая зелёная рубашка с серой юбкой — идеальный вариант для тех, кто хочет расслабиться.
 ent-ClothingUniformJumpskirtOldDress = старое платье
     .desc = Очень старое поношенное платье.
+# WL-change-start: wardrobe refresh
 ent-ClothingUniformJumpskirtMusician = юбка-костюм из карпокожи
     .desc = Роскошная юбка-костюм из лучших карповых чешуек, идеально подходящая для выступлений в стиле лаунж!
+# WL-change-end
 # WL-change-psych-start
 ent-ClothingUniformJumpskirtPsychologist = юбка-комбинезон психотерапевта
     .desc = Я не теряю вещи. Я кладу вещи в места, которые потом ускользают от меня.

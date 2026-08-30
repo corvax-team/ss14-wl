@@ -14,13 +14,13 @@
 - type: loadout
   id: ChefJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtDarkPants
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtDarkPants # WL-change: wardrobe refresh
   groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: ChefJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtGreyPants
+    jumpsuit: ClothingUniformJumpsuitClassicWhiteShirtGreyPants # WL-change: wardrobe refresh
   groupBy: "WLJJ" # WL-change-add
 
 # Outer clothing

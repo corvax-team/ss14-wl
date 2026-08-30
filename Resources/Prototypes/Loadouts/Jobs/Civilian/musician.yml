@@ -12,6 +12,7 @@
   groupBy: "WLMusicianCarpskinUniform" # WL-change: wardrobe refresh
 
 # Outerclothing
+# WL-change-start: wardrobe refresh
 - type: loadout
   id: MusicianWintercoat
   equipment:
@@ -21,3 +22,4 @@
   id: MusicianCarpskinBlazer
   equipment:
     outerClothing: ClothingOuterBlazerClassicLeather
+# WL-change-end

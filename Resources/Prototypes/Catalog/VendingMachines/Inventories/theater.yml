@@ -37,12 +37,14 @@
     ClothingHeadPaperSackSmile: 2
     ClothingEyesBlindfold: 1
     ClothingHeadRastaHat: 2
+    # WL-change-start: wardrobe refresh
     ClothingUniformJumpsuitClassicRedShirtWhitePants: 2
     ClothingOuterBlazerClassicWhite: 2
     ClothingUniformJumpsuitSnake: 2
     ClothingShoesSnake: 2
     ClothingOuterSnake: 2
     ClothingOuterBlazerClassicLeather: 2 # WL-change: musician carpskin blazer
+    # WL-change-end
     ClothingHeadHatMitreClown: 1
     ClothingOuterClownPriest: 1
     ClothingMaskSadMime: 1

@@ -345,6 +345,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -383,6 +384,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 
 - type: loadoutGroup
   id: PassengerFace
@@ -458,6 +460,7 @@
   id: BartenderJumpsuit
   name: loadout-group-bartender-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicWhiteShirtBlackPants
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
@@ -496,6 +499,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 # WL-Change-start
   - JumpsuitColorWhite
   - JumpskirtColorWhite
@@ -623,6 +627,7 @@
   id: ChefJumpsuit
   name: loadout-group-chef-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicWhiteShirtBlackPants
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
@@ -661,6 +666,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 # WL-Change-start
   - JumpsuitColorWhite
   - JumpskirtColorWhite
@@ -767,6 +773,7 @@
   id: LibrarianJumpsuit
   name: loadout-group-librarian-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicWhiteShirtTanPants
   - ClassicWhiteShirtRedPants
   - ClassicBlackShirtBlackPants
@@ -805,12 +812,14 @@
   - ClassicWhiteShirtDarkgreenPants
   - ClassicWhiteShirtDarkwhitePants
   - ClassicWhiteShirtGreyPants
+  # WL-change-end
 
 - type: loadoutGroup
   id: LibrarianOuterClothing
   name: loadout-group-librarian-outerclothing
   minLimit: 0
   loadouts:
+  # WL-change-start: wardrobe refresh
   - WLClassicBlazerBlue
   - WLClassicBlazerDark
   - WLClassicBlazerDarkgreen
@@ -821,11 +830,13 @@
   - WLClassicBlazerRed
   - WLClassicBlazerTan
   - WLClassicBlazerWhite
+  # WL-change-end
 
 - type: loadoutGroup
   id: LawyerJumpsuit
   name: loadout-group-lawyer-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -864,6 +875,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: LawyerNeck
   name: loadout-group-lawyer-neck
@@ -990,6 +1002,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -1028,6 +1041,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: ChaplainOuterClothing
   name: loadout-group-chaplain-outerclothing
@@ -1163,6 +1177,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -1201,6 +1216,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: JanitorGloves
   name: loadout-group-janitor-gloves
@@ -1327,6 +1343,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -1365,6 +1382,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: BotanistBackpack
   name: loadout-group-botanist-backpack
@@ -1492,6 +1510,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -1530,6 +1549,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: ClownBackpack
   name: loadout-group-clown-backpack
@@ -1682,6 +1702,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -1720,6 +1741,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: MimeBackpack
   name: loadout-group-mime-backpack
@@ -1853,6 +1875,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -1891,12 +1914,14 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: MusicianOuterClothing
   name: loadout-group-musician-outerclothing
   minLimit: 0
   loadouts:
   - MusicianWintercoat
+  # WL-change-start: wardrobe refresh
   - MusicianCarpskinBlazer
   - WLClassicBlazerBlue
   - WLClassicBlazerDark
@@ -1908,6 +1933,7 @@
   - WLClassicBlazerRed
   - WLClassicBlazerTan
   - WLClassicBlazerWhite
+  # WL-change-end
 
 - type: loadoutGroup
   id: Instruments
@@ -2100,6 +2126,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -2138,6 +2165,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: CargoTechnicianBackpack
   name: loadout-group-cargo-technician-backpack
@@ -2225,6 +2253,7 @@
   - ChiefEngineerParadeUniform #WL Workers Lyvsi engi resprite
   - ChiefEngineerParadeUniformJumpskirt #WL Workers Lyvsi engi resprite
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -2263,6 +2292,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: ChiefEngineerNeck
   name: loadout-group-chief-engineer-neck
@@ -2391,6 +2421,7 @@
 #  minLimit: 0
 #  loadouts:
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -2429,6 +2460,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: StationEngineerHead
   name: loadout-group-station-engineer-head
@@ -2539,6 +2571,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -2577,6 +2610,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: StationEngineerBackpack
   name: loadout-group-station-engineer-backpack
@@ -2708,6 +2742,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -2746,6 +2781,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
   name: loadout-group-atmospheric-technician-outerclothing
@@ -2823,6 +2859,7 @@
   - ResearchDirectorJumpskirtClassical
   # Corvax-Loadouts-End
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -2861,6 +2898,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
   name: loadout-group-research-director-outerclothing
@@ -2996,6 +3034,7 @@
   - ClothingUniformJumpskirtRedTurtleneckDress
 # WL-Change-end
 
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -3034,6 +3073,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: ScientistBackpack
   name: loadout-group-scientist-backpack
@@ -3187,6 +3227,7 @@
 #  loadouts:
 
 # Security
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -3225,6 +3266,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: HeadofSecurityHead
   name: loadout-group-head-of-security-head
@@ -3320,6 +3362,7 @@
   id: SecurityJumpsuit
   name: loadout-group-security-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtDarkPants
   - ClassicBlackShirtGreyPants
@@ -3327,6 +3370,7 @@
   - ClassicBlackShirtTanPants
   - ClassicRedShirtBlackPants
   - ClassicRedShirtWhitePants
+  # WL-change-end
   - SecurityJumpsuit
   - SecurityJumpskirt
   - SecurityJumpsuitGrey
@@ -3406,6 +3450,7 @@
   id: DetectiveJumpsuit
   name: loadout-group-detective-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicWhiteShirtBlackPants
   - ClassicWhiteShirtDarkPants
   - ClassicBlackShirtBlackPants
@@ -3444,6 +3489,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
   # Wl-change-start
   - JumpskirtTurtleneckRed
   - JumpsuitTurtleneckRed
@@ -3483,6 +3529,7 @@
   id: SecurityCadetJumpsuit
   name: loadout-group-security-cadet-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtDarkPants
   - ClassicBlackShirtGreyPants
@@ -3490,6 +3537,7 @@
   - ClassicBlackShirtTanPants
   - ClassicRedShirtBlackPants
   - ClassicRedShirtWhitePants
+  # WL-change-end
   - SecurityJumpsuitGrey # Corvax-Resprite
   - SecurityJumpskirtGrey # Corvax-Resprite
   - RedJumpsuit
@@ -3525,6 +3573,7 @@
   id: ReporterJumpsuit
   name: loadout-group-reporter-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
   - ClassicWhiteShirtBlackPants
   - ClassicWhiteShirtBluePants
   - ClassicBlackShirtBlackPants
@@ -3563,6 +3612,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 # WL-Change-start
   - JumpsuitColorWhite
   - JumpskirtColorWhite
@@ -3663,6 +3713,7 @@
   minLimit: 0
   loadouts:
   - ReporterPressVest
+  # WL-change-start: wardrobe refresh
   - WLClassicBlazerBlue
   - WLClassicBlazerDark
   - WLClassicBlazerDarkgreen
@@ -3673,6 +3724,7 @@
   - WLClassicBlazerRed
   - WLClassicBlazerTan
   - WLClassicBlazerWhite
+  # WL-change-end
 
 #- type: loadoutGroup
 #  id: ReporterJobTrinkets
@@ -3780,6 +3832,7 @@
 #  loadouts:
 
 # Other
+  # WL-change-start: wardrobe refresh
   - ClassicBlackShirtBlackPants
   - ClassicBlackShirtBluePants
   - ClassicBlackShirtDarkPants
@@ -3818,6 +3871,7 @@
   - ClassicWhiteShirtGreyPants
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
+  # WL-change-end
 - type: loadoutGroup
   id: SurvivalSyndicate
   name: loadout-group-survival-syndicate

@@ -29,19 +29,19 @@
 - type: loadout
   id: BartenderJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtRedPants
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtRedPants # WL-change: wardrobe refresh
   groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: BartenderJumpskirt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicRedShirtBlackPants
+    jumpsuit: ClothingUniformJumpsuitClassicRedShirtBlackPants # WL-change: wardrobe refresh
   groupBy: "WLJJ" # WL-change-add
 
 - type: loadout
   id: BartenderJumpsuitPurple
   equipment:
-    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtGreyPants
+    jumpsuit: ClothingUniformJumpsuitClassicBlackShirtGreyPants # WL-change: wardrobe refresh
   groupBy: "WLJJ" # WL-change-add
 
 # Outer clothing

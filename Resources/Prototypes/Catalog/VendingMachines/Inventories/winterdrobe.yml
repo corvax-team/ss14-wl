@@ -10,10 +10,12 @@
     ClothingUniformJumpsuitTurtleneckAzure: 2
     ClothingUniformJumpskirtTurtleneckYellow: 2 
     ClothingUniformJumpsuitTurtleneckYellow: 2
+    # WL-change-start: wardrobe refresh
     ClothingUniformJumpskirtTurtleneckLightgreen: 2
     ClothingUniformJumpsuitTurtleneckLightgreen: 2
     ClothingUniformJumpskirtTurtleneckDarkgreen: 2
     ClothingUniformJumpsuitTurtleneckDarkgreen: 2
+    # WL-change-end
     ClothingUniformJumpskirtTurtleneckBrown: 2
     ClothingUniformJumpsuitTurtleneckBrown: 2
     ClothingUniformJumpskirtTurtleneckRed: 2
@@ -57,17 +59,21 @@
     ClothingNeckScarfStripedLightBlue: 3
     ClothingNeckScarfStripedOrange: 3
     ClothingNeckScarfStripedPurple: 3
+    # WL-change-start: wardrobe refresh
     ClothingOuterTrenchcoatTan: 6
     ClothingOuterTrenchcoatBlue: 6
     ClothingOuterTrenchcoatKhaki: 6
+    # WL-change-end
     ClothingOuterWinterCoat: 6
     ClothingShoesBootsWinter: 6
     ClothingOuterFlannelRed: 2
     ClothingOuterFlannelBlue: 2
     ClothingOuterFlannelGreen: 2
     ClothingOuterCoatBomber: 3
+    # WL-change-start: wardrobe refresh
     ClothingOuterBomberBlue: 3
     ClothingOuterBomberLeather: 3
+    # WL-change-end
     ClothingHeadHatCanadaBeanie: 4
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
