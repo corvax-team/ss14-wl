@@ -1,0 +1,24 @@
+- files: ["malegiggle.ogg"]
+  license: CC-BY-SA-4.0
+  copyright: "Original sound taken from SierraBay12. Renamed to malegiggle.ogg
+  source: https://github.com/SierraBay/SierraBay12/blob/038366fa68954700282532d84809f86d6b9b6966/mods/emote_panel/sound/giggle_male_1.ogg
+
+- files: ["femalelaugh1.ogg"]
+  license: CC-BY-SA-4.0
+  copyright: "Original sound taken from SierraBay12. Renamed to femalelaugh1.ogg
+  source: https://github.com/SierraBay/SierraBay12/blob/038366fa68954700282532d84809f86d6b9b6966/mods/emote_panel/sound/laugh_female_1.ogg
+
+- files: ["femalelaugh2.ogg"]
+  license: CC-BY-SA-4.0
+  copyright: "Original sound taken from SierraBay12. Renamed to femalelaugh2.ogg
+  source: https://github.com/SierraBay/SierraBay12/blob/038366fa68954700282532d84809f86d6b9b6966/mods/emote_panel/sound/laugh_female_2.ogg
+
+- files: ["femalelaugh3.ogg"]
+  license: CC-BY-SA-4.0
+  copyright: "Original sound taken from SierraBay12. Renamed to femalelaugh3.ogg
+  source: https://github.com/SierraBay/SierraBay12/blob/038366fa68954700282532d84809f86d6b9b6966/mods/emote_panel/sound/laugh_female_3.ogg
+
+- files: ["manlaugh3.ogg"]
+  license: CC-BY-SA-4.0
+  copyright: "Original sound taken from SierraBay12. Renamed to manlaugh3.ogg
+  source: https://github.com/SierraBay/SierraBay12/blob/038366fa68954700282532d84809f86d6b9b6966/mods/emote_panel/sound/laugh_male_1.ogg

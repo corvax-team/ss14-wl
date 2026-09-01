@@ -23,3 +23,13 @@
     - /Audio/_WL/Voice/Vulpkanin/dog_bark1.ogg
     - /Audio/_WL/Voice/Vulpkanin/dog_bark2.ogg
     - /Audio/_WL/Voice/Vulpkanin/dog_bark3.ogg
+
+- type: soundCollection
+  id: FemaleGiggle
+  files:
+    - /Audio/Voice/Human/womanlaugh.ogg # Этот звук больше похож на хихиканье, чем на полноценный смех, а полноценный смех добавлен отдельно
+
+- type: soundCollection
+  id: MaleGiggle
+  files:
+    - /Audio/_WL/Voice/Human/malegiggle.ogg

@@ -1,4 +1,5 @@
 # species
+
 - type: emoteSounds
   id: MaleAkula
   params:
@@ -16,6 +17,8 @@
       collection: MaleSigh
     Crying:
       collection: MaleCry
+    Giggle:
+      collection: MaleGiggle
 
 - type: emoteSounds
   id: FemaleAkula
@@ -34,6 +37,8 @@
       collection: FemaleSigh
     Crying:
       collection: FemaleCry
+    Giggle:
+      collection: FemaleGiggle
 
 - type: emoteSounds
   id: MaleFelinid
@@ -54,6 +59,8 @@
       collection: MaleSigh
     Crying:
       collection: MaleCry
+    Giggle:
+      collection: MaleGiggle
 
 - type: emoteSounds
   id: FemaleFelinid
@@ -74,6 +81,8 @@
       collection: FemaleSigh
     Crying:
       collection: FemaleCry
+    Giggle:
+      collection: FemaleGiggle
 
 - type: emoteSounds
   id: UnisexGolem
@@ -120,6 +129,8 @@
       collection: MaleSigh
     Crying:
       collection: MaleCry
+    Giggle:
+      collection: MaleGiggle
     Whistle:
       collection: Whistles
     Weh:
@@ -164,6 +175,8 @@
       collection: FemaleSigh
     Crying:
       collection: FemaleCry
+    Giggle:
+      collection: FemaleGiggle
     Whistle:
       collection: Whistles
     Weh:

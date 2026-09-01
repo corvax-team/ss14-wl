@@ -41,6 +41,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    # WL-changes start
+    Giggle:
+      collection: MaleGiggle
+    # WL-changes end
 
 - type: emoteSounds
   id: FemaleHuman
@@ -84,6 +88,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # WL-changes start
+    Giggle:
+      collection: FemaleGiggle
+    # WL-changes end
 
 - type: emoteSounds
   id: MaleReptilian
@@ -177,6 +185,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    # WL-changes start
+    Giggle:
+      collection: MaleGiggle
+    # WL-changes end
   params:
     variation: 0.125
 
@@ -222,6 +234,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # WL-changes start
+    Giggle:
+      collection: FemaleGiggle
+    # WL-changes start
   params:
     variation: 0.125
 
@@ -533,6 +549,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Giggle: # WL-changes start
+      collection: MaleGiggle # WL-changes end
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -578,6 +596,11 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    #WL-changes start
+    Giggle: 
+      collection: FemaleGiggle
+    #WL-changes end
+
 
 # body emotes
 - type: emoteSounds

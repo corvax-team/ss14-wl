@@ -1,0 +1,18 @@
+- type: emote
+  id: Giggle
+  name: chat-emote-name-giggle
+  category: Vocal
+  icon: Interface/Emotes/giggle.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgTransponder
+    tags:
+    - SiliconEmotes
+  chatMessages: ["chat-emote-msg-giggle"]
+  chatTriggers:
+    - хихикает
+    - хихикнул
+    - хихикнула
