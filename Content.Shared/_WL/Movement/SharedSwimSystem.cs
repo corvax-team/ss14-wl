@@ -9,56 +9,73 @@ public sealed partial class SharedSwimSystem : EntitySystem
 {
     [Dependency] private EntityQuery<SwimmerComponent> _swimmerQuery = default!;
     [Dependency] private EntityQuery<SwimmableMapComponent> _swimmableMapQuery = default!;
-    [Dependency] private MovementSpeedModifierSystem _speedModifier = default!;
+    [Dependency] private EntityQuery<TransformComponent> _xformQuery = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SwimmerComponent, IsWeightlessEvent>(OnSwimmerIsWeightless);
+        SubscribeLocalEvent<GravityAffectedComponent, IsWeightlessEvent>(OnIsWeightless);
         SubscribeLocalEvent<SwimmerComponent, CanWeightlessMoveEvent>(OnSwimmerCanWeightlessMove);
         SubscribeLocalEvent<SwimmerComponent, RefreshWeightlessModifiersEvent>(OnSwimmerRefreshWeightless);
     }
 
-    private void OnSwimmerIsWeightless(Entity<SwimmerComponent> entity, ref IsWeightlessEvent args)
+    private void OnIsWeightless(Entity<GravityAffectedComponent> entity, ref IsWeightlessEvent args)
     {
-        if (args.Handled || !CanSwim(entity.Owner))
+        if (args.IsWeightless)
+            return;
+
+        if (!_xformQuery.TryComp(entity.Owner, out var xform))
+            return;
+
+        if (!IsInWater(xform))
             return;
 
         args.IsWeightless = true;
-        args.Handled = true;
-
-        _speedModifier.RefreshWeightlessModifiers(entity.Owner);
     }
 
     private void OnSwimmerCanWeightlessMove(Entity<SwimmerComponent> entity, ref CanWeightlessMoveEvent args)
     {
-        if (CanSwim(entity.Owner))
+        if (_xformQuery.TryComp(entity.Owner, out var xform) && IsInWater(xform))
             args.CanMove = true;
     }
 
     private void OnSwimmerRefreshWeightless(Entity<SwimmerComponent> entity, ref RefreshWeightlessModifiersEvent args)
     {
-        if (!CanSwim(entity.Owner))
+        if (!_xformQuery.TryComp(entity.Owner, out var xform) || !IsInWater(xform))
             return;
 
         args.ModifyAcceleration(entity.Comp.SwimAccelerationModifier, entity.Comp.SwimSpeedModifier);
     }
 
-    public bool CanSwim(EntityUid uid, TransformComponent? xform = null)
+    public bool IsInWater(TransformComponent xform)
     {
-        if (!_swimmerQuery.HasComp(uid))
-            return false;
-
-        xform ??= Transform(uid);
-
         if (xform.GridUid != null)
             return false;
 
         var mapUid = xform.MapUid;
-        if (mapUid == null || mapUid == EntityUid.Invalid || xform.MapID == MapId.Nullspace)
+        if (mapUid is not { Valid: true } || xform.MapID == MapId.Nullspace)
             return false;
 
-        return _swimmableMapQuery.HasComp(mapUid.Value);
+        return _swimmableMapQuery.HasComp(mapUid);
+    }
+
+    public bool IsInWater(EntityUid uid)
+    {
+        return _xformQuery.TryComp(uid, out var xform) && IsInWater(xform);
+    }
+
+    public float? TryGetWaterResistance(TransformComponent xform)
+    {
+        if (xform.GridUid != null)
+            return null;
+
+        var mapUid = xform.MapUid;
+        if (mapUid is not { Valid: true } || xform.MapID == MapId.Nullspace)
+            return null;
+
+        return _swimmableMapQuery.TryComp(mapUid, out var swimmableMap)
+            ? swimmableMap.WaterResistance
+            : null;
     }
 }

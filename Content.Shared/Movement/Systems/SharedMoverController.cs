@@ -214,8 +214,6 @@ public abstract partial class SharedMoverController : VirtualController
         var weightless = _gravity.IsWeightless(uid);
         var inAirHelpless = false;
 
-        var canSwim = _swim.CanSwim(uid, xform); //WLSwiming
-
         if (physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid))
         {
             if (!weightless)
@@ -275,9 +273,9 @@ public abstract partial class SharedMoverController : VirtualController
             accel = moveSpeedComponent?.WeightlessAcceleration ?? MovementSpeedModifierComponent.DefaultWeightlessAcceleration;
 
             //WLSwiming - start
-            if (canSwim && TryComp(uid, out SwimmerComponent? swimmer))
+            if (_swim.TryGetWaterResistance(xform) is { } waterResistance)
             {
-                friction = wishDir != Vector2.Zero ? accel : swimmer.SwimDrag * _airDamping;
+                friction = waterResistance;
             }
             //WLSwiming - end
         }
