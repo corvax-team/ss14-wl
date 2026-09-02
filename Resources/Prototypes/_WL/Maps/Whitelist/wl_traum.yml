@@ -1,24 +1,23 @@
 - type: gameMap
-  id: CorvaxWLSirocco
-  mapName: 'Сирокко'
-  mapPath: /Maps/_WL/wl_sirocco.yml
+  id: CorvaxWLTraum
+  mapName: 'Траум Аутпост'
+  mapPath: /Maps/_WL/wl_traum.yml
   maxRandomOffset: 0
   randomRotation: false
   minPlayers: 25
   stations:
-    CorvaxSirocco:
+    CorvaxTraum:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Сирокко {1}'
+          mapNameTemplate: '{0} Траум Аутпост {1}'
           nameGenerator:
            !type:NanotrasenNameGenerator
-            prefixCreator: 'PS'
+            prefixCreator: "NB"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_WL/Shuttles/Sirocco/wl_sirocco_evac.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/Traum/wl_traum_evac.yml
         - type: StationJobs
           availableJobs:
-
             # command
             Captain: [ 1, 1 ]
             IAA: [ 1, 1 ]
@@ -35,16 +34,16 @@
             CargoTechnician: [ 3, 3 ]
 
             # engineering
-            AtmosphericTechnician: [ 2, 2 ]
+            AtmosphericTechnician: [ 3, 3 ]
             SeniorEngineer: [ 1, 1 ]
             StationEngineer: [ 3, 3 ]
-            TechnicalAssistant: [ 1, 1 ]
+            TechnicalAssistant: [ 2, 2 ]
 
             # medical
             SeniorPhysician: [ 1, 1 ]
-            MedicalDoctor: [ 3, 3 ]
-            MedicalIntern: [ 1, 1 ]
-            Paramedic: [1, 1]
+            MedicalDoctor: [ 4, 4 ]
+            MedicalIntern: [ 2, 2 ]
+            Paramedic: [ 1, 1 ]
             Chemist: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
 
@@ -63,7 +62,7 @@
             Brigmedic: [1, 1 ]
 
             # service
-            Bartender: [ 1, 1 ]
+            Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Chef: [ 1, 1 ]
@@ -73,9 +72,9 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 1, 1 ]
-            ServiceWorker: [ 2, 2 ]
+            ServiceWorker: [ 3, 3 ]
             Passenger: [ -1, -1 ]
 
-            # silicon: 3
+            # silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]

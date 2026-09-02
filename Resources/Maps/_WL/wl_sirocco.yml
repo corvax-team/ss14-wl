@@ -23689,7 +23689,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 99.5,133.5
     - type: GridFill
-      path: /Maps/_WL/Shuttles/Kolter/wl_sirocco_sec.yml
+      path: /Maps/_WL/Shuttles/Sirocco/wl_sirocco_sec.yml
       addComponents: []
   - uid: 370
     components:
