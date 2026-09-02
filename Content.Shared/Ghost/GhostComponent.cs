@@ -44,6 +44,14 @@ public sealed partial class GhostComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? BooActionEntity;
 
+    // WL-Changes-Start
+    [DataField]
+    public EntProtoId ToggleMedicalHudAction = "ActionToggleMedicalHud";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ToggleMedicalHudActionEntity;
+    // WL-Changes-End
+
     // End actions
 
     /// <summary>
@@ -129,3 +137,5 @@ public sealed partial class ToggleGhostVisibilityToAllEvent : InstantActionEvent
 public sealed partial class BooActionEvent : InstantActionEvent { }
 
 public sealed partial class GoLobbyActionEvent : InstantActionEvent { }
+
+public sealed partial class ToggleMedicalHudActionEvent : InstantActionEvent { } // WL-Changes
