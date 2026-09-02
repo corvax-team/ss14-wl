@@ -496,9 +496,9 @@
   description: A dress for special occasions.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi # WL-Changes: resprite
+    sprite: Clothing/Uniforms/Jumpskirt/centcomformaldress.rsi
   - type: Clothing
-    sprite: _WL/Clothing/Uniforms/Jumpskirt/centcom_officer.rsi # WL-Changes: resprite
+    sprite: Clothing/Uniforms/Jumpskirt/centcomformaldress.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
