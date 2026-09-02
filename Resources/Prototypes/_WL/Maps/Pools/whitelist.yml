@@ -2,10 +2,10 @@
   id: WhitelistMapPool
   maps:
 #   Highpop (25+ players)
-# - CorvaxWLRenga # 🔨
-# - CorvaxWLRest # 🔨
   - CorvaxWLMarathon
   - CorvaxWLBagel
+  - CorvaxWLTraum
+  - CorvaxWLSirocco
 # - CorvaxWLAlpha # 🔨
 
 #   MidPop (14-25 players)
@@ -16,5 +16,4 @@
   
 #   LowPop (1-13 players)
   - CorvaxWLNanoStation
-# - CorvaxWLPrairie
   - CorvaxWLMaus
