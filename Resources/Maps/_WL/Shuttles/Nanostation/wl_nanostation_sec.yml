@@ -2,9 +2,9 @@ meta:
   format: 7
   category: Grid
   engineVersion: 283.1.0
-  forkId: syndicate-wl
-  forkVersion: 2aa668281f7a83b9e357f952f6de0ca005492744
-  time: 08/18/2026 22:02:06
+  forkId: ""
+  forkVersion: ""
+  time: 09/03/2026 21:38:46
   entityCount: 121
 maps: []
 grids:
@@ -224,6 +224,10 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 4.5,1.5
+    - type: DeviceList
+      devices:
+      - 66
+      - 65
 - proto: AirCanister
   entities:
   - uid: 21
@@ -661,6 +665,9 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: 3.5,6.5
+    - type: DeviceNetwork
+      deviceLists:
+      - 20
 - proto: GasVentScrubber
   entities:
   - uid: 66
@@ -669,6 +676,9 @@ entities:
       parent: 1
       rot: 3.141592653589793 rad
       pos: 3.5,7.5
+    - type: DeviceNetwork
+      deviceLists:
+      - 20
 - proto: GeneratorWallmountAPU
   entities:
   - uid: 67
