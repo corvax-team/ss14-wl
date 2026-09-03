@@ -239,15 +239,6 @@ entities:
       parent: 1
       rot: 1.5707963267948966 rad
       pos: 5.5,3.5
-    - type: Door
-      changeAirtight: False
-    - type: Docking
-      dockJointId: docking147753
-      dockedWith: invalid
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: False
-        DockStatus: True
 - proto: AirTankFilled
   entities:
   - uid: 3

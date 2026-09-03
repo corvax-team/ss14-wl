@@ -19458,15 +19458,15 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -5.5,10.5
-    - type: GridFill
-      path: /Maps/_WL/Shuttles/Maus/wl_maus_sec.yml
-      addComponents: []
   - uid: 356
     components:
     - type: Transform
       parent: 2
       rot: 3.141592653589793 rad
       pos: -3.5,10.5
+    - type: GridFill
+      path: /Maps/_WL/Shuttles/Maus/wl_maus_sec.yml
+      addComponents: []
   - uid: 357
     components:
     - type: Transform
