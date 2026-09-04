@@ -26551,15 +26551,6 @@ entities:
     - type: Transform
       parent: 25474
       pos: 8.5,19.5
-- proto: BarrelChemFilledMercury
-  entities:
-  - uid: 28363
-    components:
-    - type: Transform
-      parent: 28361
-      pos: -2.5,9.5
-    - type: Physics
-      canCollide: False
 - proto: BarrelChemFilledSilicon
   entities:
   - uid: 25493
@@ -27246,15 +27237,6 @@ entities:
     - type: Transform
       parent: 28339
       pos: -7.5,-0.5
-- proto: BaseBarrelChemRadioactiveFilledUranium
-  entities:
-  - uid: 28364
-    components:
-    - type: Transform
-      parent: 28361
-      pos: -1.5,9.5
-    - type: Physics
-      canCollide: False
 - proto: BeachBall
   entities:
   - uid: 864
@@ -129212,13 +129194,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 53.5,97.5
-  - uid: 28500
-    components:
-    - type: Transform
-      parent: 28495
-      pos: -0.5,7.5
-    - type: Physics
-      canCollide: False
   - uid: 28813
     components:
     - type: Transform
@@ -144595,44 +144570,13 @@ entities:
     - type: Transform
       parent: 2
       pos: 78.382744,99.59276
-- proto: ScrapGeneratorFrame
-  entities:
-  - uid: 28501
-    components:
-    - type: Transform
-      parent: 28495
-      pos: -1.5,7.5
-    - type: Physics
-      canCollide: False
-  - uid: 28502
-    components:
-    - type: Transform
-      parent: 28495
-      pos: -1.5,8.5
-    - type: Physics
-      canCollide: False
 - proto: ScrapGeneratorPlasmaLeaking
   entities:
-  - uid: 28503
-    components:
-    - type: Transform
-      parent: 28495
-      pos: -0.5,8.5
-    - type: Physics
-      canCollide: False
   - uid: 28897
     components:
     - type: Transform
       parent: 28339
       pos: 5.5,-2.5
-- proto: ScrapGeneratorUraniumLeaking
-  entities:
-  - uid: 28504
-    components:
-    - type: Transform
-      parent: 28495
-    - type: Physics
-      canCollide: False
 - proto: ScrapMopBucket
   entities:
   - uid: 17897
@@ -145436,8 +145380,6 @@ entities:
         28365: {}
         28362: {}
         28366: {}
-        28364: {}
-        28363: {}
       storageOpenSound: !type:SoundCollectionSpecifier
         collection: storageRustle
       storageInsertSound: !type:SoundCollectionSpecifier
@@ -145458,8 +145400,6 @@ entities:
           - 28365
           - 28362
           - 28366
-          - 28364
-          - 28363
 - proto: ShippingContainerNakamura
   entities:
   - uid: 17963
@@ -145474,17 +145414,11 @@ entities:
       pos: -4.5,8.5
     - type: Storage
       storedItems:
-        28504: {}
-        28501: {}
-        28502: {}
-        28503: {}
-        28500: {}
         28505: {}
         28499: {}
         28498: {}
         28497: {}
         28496: {}
-        28506: {}
       storageOpenSound: !type:SoundCollectionSpecifier
         collection: storageRustle
       storageInsertSound: !type:SoundCollectionSpecifier
@@ -145495,17 +145429,11 @@ entities:
       containers:
         storagebase: !type:Container
           ents:
-          - 28504
-          - 28501
-          - 28502
-          - 28503
-          - 28500
           - 28505
           - 28499
           - 28498
           - 28497
           - 28496
-          - 28506
 - proto: ShuttersNormal
   entities:
   - uid: 17964
@@ -193730,13 +193658,6 @@ entities:
     - type: Transform
       parent: 24597
       pos: -4.5,7.5
-  - uid: 28506
-    components:
-    - type: Transform
-      parent: 28495
-      pos: 2.5,7.5
-    - type: Physics
-      canCollide: False
 - proto: WheatSeeds
   entities:
   - uid: 24297
