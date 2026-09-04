@@ -130,6 +130,7 @@
   id: ActionToggleMedicalHud
   name: Toggle Medical HUD visibility
   description: Switch between the medical HUD and normal vision.
+  categories: [ HideSpawnMenu ]
   components:
     - type: Action
       checkCanInteract: false
