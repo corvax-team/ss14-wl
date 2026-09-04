@@ -40,7 +40,6 @@
       - Cash
       - Injector # Hypospray and medipens
       - NukeDisk
-      - SecurityBadge
     blacklist:
       tags:
       - CigPack
