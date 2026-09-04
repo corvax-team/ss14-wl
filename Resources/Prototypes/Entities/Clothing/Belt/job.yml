@@ -434,6 +434,16 @@
       - DoorRemote
       - Whistle
       - BalloonPopper
+  - type: ItemSlots   #wl-secpins-start
+    slots:
+      PinSlot:
+        whitelist:
+          components:
+          - SecurityBadge
+  - type: ContainerContainer
+    containers:
+      PinSlot: !type:ContainerSlot
+      storagebase: !type:Container
   - type: ItemMapper
     sprite: *BeltOverlay
     mapLayers:
@@ -449,4 +459,48 @@
         whitelist:
           components:
           - SmokeOnTrigger
+      cya:
+        whitelist:
+          tags:
+          - MajorPin
+      pur:
+        whitelist:
+          tags:
+          - CaptainPin
+      whi:
+        whitelist:
+          tags:
+          - ContractorPin
+      purblu:
+        whitelist:
+          tags:
+          - ChiefLieutenantPin
+      blu:
+        whitelist:
+          tags:
+          - LieutenantPin
+      blugre:
+        whitelist:
+          tags:
+          - SubLieutenantPin
+      gre:
+        whitelist:
+          tags:
+          - ChiefSergeantPin
+      greoran:
+        whitelist:
+          tags:
+          - SergeantPin
+      oran:
+        whitelist:
+          tags:
+          - SubSergeantPin
+      oranyel:
+        whitelist:
+          tags:
+          - CorporalPin
+      yel:
+        whitelist:
+          tags:
+          - PrivatePin #wl-secpins-end
   - type: Appearance
