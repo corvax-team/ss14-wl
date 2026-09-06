@@ -125,6 +125,20 @@
     checkCanInteract: false
   - type: InstantAction
     event: !type:GoLobbyActionEvent
+
+- type: entity
+  id: ActionToggleMedicalHud
+  name: Toggle Medical HUD visibility
+  description: Switch between the medical HUD and normal vision.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Action
+      checkCanInteract: false
+      icon:
+        sprite: Clothing/Eyes/Hud/med.rsi
+        state: icon
+    - type: InstantAction
+      event: !type:ToggleMedicalHudActionEvent
 # WL-Changes-end
 
 # proto for player ghosts specifically
