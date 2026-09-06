@@ -257,6 +257,10 @@
       - Kuniluc
     specieLanguage: Kuniluc
 # WL-Changes: Languages end
+  #Wl-Changes-Start
+  - type: CuffedMeleeWeapon
+    weaponId: CuffedVulpkaninAttack
+  #WL-Changes-End
 
 - type: entity
   parent: OrganBaseOrganic
@@ -394,3 +398,19 @@
 - type: entity
   parent: [ OrganBaseKidneys, OrganVulpkaninInternal, OrganVulpkaninMetabolizer ]
   id: OrganVulpkaninKidneys
+
+#WL-Changes-Start
+- type: entity
+  id: CuffedVulpkaninAttack
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+        Slash: 3
+    range: 0.5
+    attackRate: 0.5
+#WL-Changes-End

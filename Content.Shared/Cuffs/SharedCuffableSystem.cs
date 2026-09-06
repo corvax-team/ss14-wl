@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._WL.Weapons.Melee; // WL-Changes
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
@@ -82,7 +83,7 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<CuffableComponent, PullStoppedMessage>(OnPull);
             SubscribeLocalEvent<CuffableComponent, DropAttemptEvent>(CheckAct);
             SubscribeLocalEvent<CuffableComponent, PickupAttemptEvent>(CheckAct);
-            SubscribeLocalEvent<CuffableComponent, AttackAttemptEvent>(CheckAct);
+            SubscribeLocalEvent<CuffableComponent, AttackAttemptEvent>(CheckAttack); // Wl-Changes
             SubscribeLocalEvent<CuffableComponent, UseAttemptEvent>(CheckAct);
             SubscribeLocalEvent<CuffableComponent, InteractionAttemptEvent>(CheckInteract);
 
@@ -794,6 +795,24 @@ namespace Content.Shared.Cuffs
             if (!component.CanStillInteract)
                 args.Cancel();
         }
+
+        // WL-Changes-Start
+        private void CheckAttack(EntityUid uid, CuffableComponent comp, AttackAttemptEvent args)
+        {
+            if (comp.CanStillInteract)
+                return;
+
+            if (args.Weapon is { } weapon
+                && TryComp<CuffedMeleeWeaponComponent>(uid, out var cuffedMelee)
+                && cuffedMelee.WeaponUid == weapon.Owner
+                && !args.Disarm)
+            {
+                return;
+            }
+
+            args.Cancel();
+        }
+        // Wl-Changes-End
 
         private void OnEquipAttempt(EntityUid uid, CuffableComponent component, IsEquippingAttemptEvent args)
         {

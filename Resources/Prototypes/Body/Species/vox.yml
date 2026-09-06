@@ -263,6 +263,10 @@
       - VoxPigin
     specieLanguage: VoxPigin
   #WL-Changes: Languages end
+  #Wl-Changes-Start
+  - type: CuffedMeleeWeapon
+    weaponId: CuffedVoxAttack
+  #WL-Changes-End
 
 - type: entity
   parent: OrganBaseOrganic
@@ -408,3 +412,18 @@
 - type: entity
   parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganVoxInternal, OrganVoxMetabolizer ]
   id: OrganVoxKidneys
+
+#WL-Changes-Start
+- type: entity
+  id: CuffedVoxAttack
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Blunt: 5
+    range: 0.5
+    attackRate: 0.5
+#WL-Changes-End

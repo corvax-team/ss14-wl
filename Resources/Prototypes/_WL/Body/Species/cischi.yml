@@ -128,6 +128,8 @@
   - type: Thirst
   - type: Damageable
     damageModifierSet: Cischi
+  - type: CuffedMeleeWeapon
+    weaponId: CuffedHumanAttack
 
   - type: Inventory
     templateId: cischi
