@@ -67846,7 +67846,7 @@ entities:
       parent: 25479
       rot: -1.5707963267948966 rad
       pos: 0.5,23.5
-- proto: MobSpawnCockroach
+- proto: SpawnMobCockroach
   entities:
   - uid: 7532
     components:
