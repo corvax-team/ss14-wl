@@ -1,0 +1,46 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerRDNew
+  name: research main terminal
+  description: A computer used to interface with R&D tools.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: rdcomp
+    - map: ["computerLayerKeys"]
+      state: rd_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: ResearchClientNew
+  - type: ResearchMainConsole
+  - type: ActivatableUI
+    key: enum.ResearchMainConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ResearchMainConsoleUiKey.Key:
+        type: ResearchMainConsoleBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 50
+  - type: PowerState
+    idlePowerDraw: 50
+    workingPowerDraw: 1000
+  - type: Computer
+    board: ResearchComputerCircuitboard
+  - type: AccessReader
+    access: [["Research"]]
+  - type: PointLight
+    radius: 1.5
+    energy: 4.0
+    color: "#b53ca1"
+  - type: GuideHelp
+    guides:
+    - Science

@@ -1,0 +1,181 @@
+- type: entity
+  id: RDServerNew
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: mainframe R&D server
+  description: Contains the collective knowledge of the station's scientists. Destroying it would send them back to the stone age. You don't want that do you?
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    snapCardinals: true
+    layers:
+      - state: server-off
+      - state: server-on
+        visible: false
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+      - state: variant-research
+      - state: server_o
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 1.2
+    energy: 3.0
+    color: "#b211b2"
+  - type: LitOnPowered
+  - type: DataStorage
+    name: UwU points
+    allowedStorageFormats:
+      - PointsFormat
+    currentStorageFormat: PointsFormat
+    size: 65536
+  - type: ResearchDataServer
+  - type: ResearchServerNew
+  - type: TechnologyServer
+    supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Machine
+    board: ResearchAndDevelopmentServerMachineCircuitboard
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+        enum.PowerDeviceVisuals.Powered:
+          enum.PowerDeviceVisualLayers.Powered:
+            True: {visible: true}
+            False: {visible: false}
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    enabled: false
+    sound:
+      collection: ServerFans
+
+- type: entity
+  id: BaseRDServer
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  abstract: true
+  components:
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 1.2
+    energy: 3.0
+    color: "#b211b2"
+  - type: LitOnPowered
+  - type: ResearchServerNew
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+        enum.PowerDeviceVisuals.Powered:
+          enum.PowerDeviceVisualLayers.Powered:
+            True: {visible: true}
+            False: {visible: false}
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    enabled: false
+    sound:
+      collection: ServerFans
+
+- type: entity
+  parent: BaseRDServer
+  id: RDServerDataCollection
+  name: data collection server
+  description: Thats collect some data for you.
+  - type: DataStorage
+    name: datastorage-points-name
+    allowedStorageFormats:
+      - PointsFormat
+    currentStorageFormat: PointsFormat
+    size: 65536
+  - type: ResearchServerNew
+    serverName: RDDataCollector
+  - type: ResearchDataServer
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    snapCardinals: true
+    layers:
+      - state: server-off
+      - state: server-on
+        visible: false
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+      - state: variant-research
+      - state: server_o
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+
+- type: entity
+  parent: BaseRDServer
+  id: RDServerTechnology
+  name: technology server
+  description: Thats collect some data for you.
+  - type: DataStorage
+    name: datastorage-points-name
+    allowedStorageFormats:
+      - PointsFormat
+    currentStorageFormat: PointsFormat
+    size: 65536
+  - type: ResearchServerNew
+    serverName: RDTechnology
+  - type: TechnologyServer
+    supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    snapCardinals: true
+    layers:
+      - state: server-off
+      - state: server-on
+        visible: false
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+      - state: variant-research
+      - state: server_o
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]

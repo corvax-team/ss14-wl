@@ -1,0 +1,51 @@
+<Control xmlns="https://spacestation14.io"
+         xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+         xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+         xmlns:wl="clr-namespace:Content.Client._WL.UI">
+    <BoxContainer Name="MainContainer" Orientation="Horizontal" Margin="10 4 10 4" SetSize="360 80">
+        <wl:AnimatedProgressBar Name="MainBar"
+                                Access="Public"
+                                HorizontalExpand="True">
+            <BoxContainer Orientation="Horizontal"
+                          VerticalExpand="True"
+                          HorizontalExpand="True"
+                          SizeFlagsStretchRatio="2"
+                          Margin="10 4 10 4">
+                <PanelContainer Name="Background"
+                                Access="Public"
+                                VerticalExpand="False"
+                                HorizontalExpand="False"
+                                Margin="1"
+                                HorizontalAlignment="Left"
+                                SetSize="60 60">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#000000" BorderColor="#3B3E56" BorderThickness="1" />
+                    </PanelContainer.PanelOverride>
+                    <TextureRect Name="ResearchIcon"
+                                 TextureScale="1.5 1.5"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Center"/>
+                </PanelContainer>
+                    <BoxContainer Orientation="Vertical"
+                                  VerticalExpand="True"
+                                  HorizontalExpand="True"
+                                  SizeFlagsStretchRatio="2"
+                                  Margin="10 4 8 4">
+                        <BoxContainer Orientation="Vertical"
+                                      VerticalExpand="True"
+                                      HorizontalExpand="True"
+                                      Margin="0">
+                            <Label Name="ResearchName" Access="Public"/>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical"
+                                      VerticalExpand="True"
+                                      HorizontalExpand="True"
+                                      Margin="0">
+                            <Label Name="ResearchProgress" Access="Public" Text="10/20" VerticalAlignment="Bottom"/>
+                        </BoxContainer>
+                    </BoxContainer>
+                <Button Name="ResearchButton" Access="Public" SetSize="40 40" Text="X" HorizontalAlignment="Left"/>
+            </BoxContainer>
+        </wl:AnimatedProgressBar>
+    </BoxContainer>
+</Control>

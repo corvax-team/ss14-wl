@@ -2106,6 +2106,13 @@
   - type: Tag
     tags:
     - Fruit
+  # WL-Changes: BirdScience start
+  - type: ResearchScannable
+    pointsType: BioChem
+    category: DebugCategory1
+    name: арбуз
+    description: Боже мой. Ты только что отсканировала арбуз. Это то, почему тебя зовут тупицей.
+  # WL-Changes: BirdScience end
 
 - type: entity
   name: watermelon slice

@@ -1,0 +1,47 @@
+- type: storageFormat
+  id: PointsFormat
+  name: ВЫСШИЙ БАЛЛ
+  color: green
+  storagesList:
+    - type: PointsDataStorage
+      allowedPointsTypes:
+      - IT
+      - Physics
+      - Social
+      - Mech
+      - Instrument
+      - BioChem
+      - Experimental
+
+- type: entity
+  parent: TreasureDatadiskEncrypted
+  id: DebugPointsStorage
+  name: debug points storage
+  components:
+    - type: DataStorage
+      name: Многа очко
+      allowedStorageFormats:
+        - PointsFormat
+      currentStorageFormat: PointsFormat
+      size: 128
+
+- type: storageFormat
+  id: RecipesFormat
+  name: ЭКЩОТИЧЕСИЕ МАСЛА
+  color: blue
+  storagesList:
+    - type: RecipesStorage
+      recipes:
+        - DoubleEmergencyOxygenTank
+
+- type: entity
+  parent: TreasureDatadiskEncrypted
+  id: DebugRecipesStorage
+  name: debug recipes storage
+  components:
+    - type: DataStorage
+      name: Многа очко
+      allowedStorageFormats:
+        - RecipesFormat
+      currentStorageFormat: RecipesFormat
+      size: 128
