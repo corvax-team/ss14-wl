@@ -43,9 +43,8 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: EVAC - "Der Zug"- NT533
+      name: NTAU Emergency "Der Zug"
     - type: Transform
-      pos: -25,-25
       parent: invalid
     - type: MapGrid
       chunks:

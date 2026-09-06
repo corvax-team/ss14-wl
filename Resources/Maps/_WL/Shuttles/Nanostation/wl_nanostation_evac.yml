@@ -35,9 +35,8 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: NT Evac wagon OP-42
+      name: NTV Emergency "Вагончик"
     - type: Transform
-      pos: -0.53125,-0.71875
       parent: invalid
     - type: MapGrid
       chunks:

@@ -101,9 +101,8 @@ entities:
   - uid: 25449
     components:
     - type: MetaData
-      name: NT "Ледокол" PR-030
+      name: NT-SEC PR-030 "Ледокол"
     - type: Transform
-      pos: -30.499998,41.46875
     - type: MapGrid
       chunks:
         0,0:

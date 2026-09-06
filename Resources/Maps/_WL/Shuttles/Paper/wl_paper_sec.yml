@@ -26,9 +26,8 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: NTA "Катафалк" GT-76
+      name: NT-SEC GT-767 "Катафалк" 
     - type: Transform
-      pos: -0.5277774,-0.44444466
       parent: invalid
     - type: MapGrid
       chunks:

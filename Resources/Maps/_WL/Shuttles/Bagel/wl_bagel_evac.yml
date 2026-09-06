@@ -40,9 +40,8 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: NT Evac Lox
+      name: NTM Emergency "Червь"
     - type: Transform
-      pos: 2.2710133,-2.4148211
       parent: invalid
     - type: MapGrid
       chunks:

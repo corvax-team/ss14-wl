@@ -25,9 +25,8 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: NTVGA Evac Rest C-1984
+      name: NTVGA Emergency "Океания"
     - type: Transform
-      pos: -11.800484,-0.7830713
       parent: invalid
     - type: MapGrid
       chunks:
