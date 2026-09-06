@@ -254,6 +254,10 @@
     {
       "name": "layeredstraight2",
       "directions": 4
+    },
+    {
+      "name": "ryan",
+      "directions": 4
     }
   ]
 }

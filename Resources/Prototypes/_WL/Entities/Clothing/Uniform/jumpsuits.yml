@@ -24,6 +24,36 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlackBlazerWhiteShirt
+  name:  black jacket with a white shirt
+  description: an elegant suit with a white shirt
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/whiteshirtblackblazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/whiteshirtblackblazer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlackShirt
+  name:  black shirt
+  description: an elegant black shirt
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/blackshirt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/blackshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlackBlazerBlackShirt
+  name:  black jacket with a black shirt
+  description: an elegant suit with a black shirt
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/blackshirtblackblazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/blackshirtblackblazer.rsi
   id: ClothingUniformJumpsuitWhiteWaiter
   name: white waiter uniform
   description: Doesn't get in the way when you have a food tray.

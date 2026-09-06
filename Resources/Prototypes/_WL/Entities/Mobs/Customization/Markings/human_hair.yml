@@ -194,9 +194,11 @@
       state: spikyponytailalt
 
 - type: marking
-  id: HumanHairSceneEmo
+  id: HumanHairRyan
   bodyPart: Hair
   sprites:
+    - sprite: Corvax/Mobs/Customization/human_hair.rsi
+      state: ryan
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: sceneemo1
     - sprite: _WL/Mobs/Customization/human_hair.rsi

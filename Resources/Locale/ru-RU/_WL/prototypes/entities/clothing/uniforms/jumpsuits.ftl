@@ -36,6 +36,14 @@ ent-ClothingUniformJumpsuitCBURNCommander = униформа командира 
 ent-ClothingUniformJumpsuitBlueShield = формальный костюм офицера "Синий Щит"
     .desc = Красивая рубашка и карго-штаны. Что может быть универсальнее?
 
+ent-ClothingUniformJumpsuitBlackBlazerWhiteShirt = белая рубашка с чёрным пиджаком
+    .desc = Элегантная белая рубашка с чёрным пиджаком.
+
+ent-ClothingUniformJumpsuitBlackShirt = чёрная рубашка
+    .desc = Элегантная чёрная рубашка.
+
+ent-ClothingUniformJumpsuitBlackBlazerBlackShirt = чёрная рубашка с чёрным пиджаком
+    .desc = Элегантная чёрная рубашка с чёрным пиджаком.
 ent-ClothingUniformJumpsuitWeddingSuitWhite = белый костюм
     .desc = Подходит для свадьбы.
 
