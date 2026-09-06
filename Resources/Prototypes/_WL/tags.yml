@@ -74,6 +74,10 @@
   id: Cult
 
 - type: Tag
+  id: TrayScanner
+
+- type: Tag
+  id: MesonGlasses
   id: Cobra # Overlay whitelist: ClothingBeltHolsterred
 
 - type: Tag

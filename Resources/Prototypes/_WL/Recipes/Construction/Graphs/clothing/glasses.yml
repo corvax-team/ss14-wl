@@ -1,0 +1,28 @@
+- type: constructionGraph
+  id: GogglesTray
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: trayGoggles
+          steps:
+            - tag: MesonGlasses
+              name: construction-graph-tag-meson-glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/meson.rsi
+                state: icon
+              doAfter: 4
+            - tag: TrayScanner
+              name: construction-graph-tag-tray-scanner
+              icon:
+                sprite: Objects/Tools/t-ray.rsi
+                state: tray-off
+              doAfter: 4
+            - material: Cable
+              amount: 5
+              doAfter: 4
+            - material: Manipulator
+              amount: 2
+              doAfter: 4
+    - node: trayGoggles
+      entity: ClothingEyesGlassesGogglesTrayEngineer
