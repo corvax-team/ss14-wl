@@ -90,6 +90,8 @@
   id: MobSlimePerson
   name: Urist McWobble
   components:
+  - type: Swimmer #WL
+    swimSpeedModifier: 0.5
   - type: Storage
     clickInsert: false
     grid:

@@ -103,6 +103,7 @@
   - BaseSpeciesNoDna #WL - NoDnaAndorid
   id: MobAndroid
   components:
+  - type: Swimmer
   - type: ZombieImmune
   - type: Barotrauma
     damage:

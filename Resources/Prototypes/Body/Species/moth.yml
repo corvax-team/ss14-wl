@@ -140,6 +140,9 @@
   id: MobMoth
   name: Urist McFluff
   components:
+  - type: Swimmer #WL
+    swimSpeedModifier: 0.8
+    swimAccelerationModifier: 1
   - type: Damageable
     damageModifierSet: Moth
   - type: ZombieAccentOverride
