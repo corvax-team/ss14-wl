@@ -151,3 +151,36 @@
     sprite: _WL/Clothing/OuterClothing/Coats/musical.rsi
   - type: Clothing
     sprite: _WL/Clothing/OuterClothing/Coats/musical.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLongAdjutant
+  name: adjutant's longcoat
+  description: The blue mean longcoat of command department. You wish that wearing that will make you not cut yourself with a piece of paper. 
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_coat.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_coat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatBomberAdjutant
+  name: adjutant's bomber
+  description: Classic. Tells everyone that you're out of touch by those silver "NT" on your back. Or out of weekends.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_bomber.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_bomber.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterCoatParadeAdjutant
+  name: adjutant's parade blazer
+  description: A little bit too much of fancy fashion for a bureaucracy errand boy.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_blazer.rsi

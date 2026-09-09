@@ -272,3 +272,25 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/dss_senior.rsi
 
 # WL-redo-427-resprite-end
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTurtleneckAdjutant
+  name: adjutant's turtleneck
+  description: An utterly bureaucratic white turtleneck, devoid of frills.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/adjutant_turtle.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/adjutant_turtle.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitParadeAdjutant
+  name: adjutant's parade jumpsuit
+  description: A blue jumpsuit with gold accents - for when you need to show off more than just paperwork.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/adjutant_parade.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/adjutant_parade.rsi

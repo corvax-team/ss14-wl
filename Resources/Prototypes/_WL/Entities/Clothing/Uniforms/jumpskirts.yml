@@ -110,3 +110,25 @@
       sprite: _WL/Clothing/Uniforms/Jumpskirt/whitesuit.rsi
     - type: Clothing
       sprite: _WL/Clothing/Uniforms/Jumpskirt/whitesuit.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtTurtleneckAdjutant
+  name: adjutant's turtleneck
+  description: An utterly bureaucratic white turtleneck, devoid of frills.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/adjutant_turtle.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/adjutant_turtle.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtParadeAdjutant
+  name: adjutant's parade jumpskirt
+  description: A blue jumpskirt with gold accents - for when you need to show off more than just paperwork.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/adjutant_parade.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/adjutant_parade.rsi
