@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by wiwin1010 (dc - <@474233051711537163>) edited by muchs (dc - <@429934855913078786>",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bison-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "bison-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "bison-right-slime",
+      "directions": 4
+    },
+    {
+      "name": "buffalo-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "buffalo-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "buffalo-right-slime",
+      "directions": 4
+    },
+    {
+      "name": "bull-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "bull-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "bull-right-slime",
+      "directions": 4
+    },
+    {
+      "name": "candle-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "candle-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "candle-right-slime",
+      "directions": 4
+    },
+    {
+      "name": "coral-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "coral-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "coral-right-slime",
+      "directions": 4
+    },
+    {
+      "name": "deer-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "deer-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "deer-right-slime",
+      "directions": 4
+    },
+    {
+      "name": "kylin-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "kylin-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "kylin-right-slime",
+      "directions": 4
+    },
+    {
+      "name": "pallas-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "pallas-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "pallas-right-slime",
+      "directions": 4
+    },
+    {
+      "name": "sail-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "sail-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "sail-right-slime",
+      "directions": 4
+    },
+    {
+      "name": "side-left-slime",
+      "directions": 4
+    },
+    {
+      "name": "side-normal-slime",
+      "directions": 4
+    },
+    {
+      "name": "side-right-slime",
+      "directions": 4
+    }
+  ]
+}
