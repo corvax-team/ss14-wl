@@ -13,3 +13,11 @@
   targetNode: necklace
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: ClothingEyesGlassesGogglesTrayEngineer
+  graph: GogglesTray
+  startNode: start
+  targetNode: trayGoggles
+  category: construction-category-clothing
+  objectType: Item

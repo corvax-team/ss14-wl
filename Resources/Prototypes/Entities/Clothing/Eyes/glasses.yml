@@ -81,6 +81,7 @@
     coverage: EYES
   - type: Tag
     tags:
+    - MesonGlasses # WL-changes: t-ray goggles
     - PetWearable
     - WhitelistChameleon
 

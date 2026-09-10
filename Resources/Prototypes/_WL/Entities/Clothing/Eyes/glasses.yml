@@ -40,3 +40,53 @@
     coverage: EYES
   - type: NightVisionEye
     isEquipment: true
+
+- type: entity
+  parent: [ClothingEyesBase, BaseEngineeringContraband]
+  id: ClothingEyesGlassesGogglesTrayEngineer
+  name: t-ray goggles
+  description: Goggles that protect your eyes and work like t-ray but better.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/engoggles.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/engoggles.rsi
+    slots:
+    - HEAD
+    - EYES
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      eyes:
+      - state: equipped-EYES
+    equipSound:
+      collection: GogglesEquip
+  - type: TrayScanner
+    range: 8
+  - type: UseDelay
+    delay: 1
+  - type: GenericVisualizer
+    visuals:
+      enum.TrayScannerVisual.Visual:
+        base:
+          On: { state: icon }
+          Off: { state: icon }
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GogglesPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GogglesDrop
+      params:
+        volume: -4
+  - type: EyeProtection
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Construction
+    graph: GogglesTray
+    node: trayGoggles

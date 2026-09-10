@@ -27,3 +27,6 @@
     price: 85
   - type: UseDelay
     delay: 1
+  - type: Tag
+    tags:
+    - TrayScanner # WL-changes: t-ray goggles
