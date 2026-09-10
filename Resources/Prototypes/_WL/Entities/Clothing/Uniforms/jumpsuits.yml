@@ -95,7 +95,7 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/postman.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitAdjutant
   name: adjutant's jumpsuit
   description: Can you sign my petition?
@@ -274,7 +274,7 @@
 # WL-redo-427-resprite-end
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitTurtleneckAdjutant
   name: adjutant's turtleneck
   description: An utterly bureaucratic white turtleneck, devoid of frills.
@@ -285,7 +285,7 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/adjutant_turtle.rsi
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitParadeAdjutant
   name: adjutant's parade jumpsuit
   description: A blue jumpsuit with gold accents - for when you need to show off more than just paperwork.

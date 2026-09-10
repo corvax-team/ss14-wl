@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "By whitleyvk (git), based off kitovas artwork for 220",
+  "copyright": "Skirt by ReArtInt, based off kitovas artwork for 220, folded & open states by whitleyvk (git)",
   "size": {
     "x": 32,
     "y": 32
@@ -11,7 +11,18 @@
       "name": "icon"
     },
     {
+      "name": "icon-open"
+    },
+    {
       "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "folded-equipped-INNERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-INNERCLOTHING",
       "directions": 4
     },
     {
@@ -24,3 +35,5 @@
     }
   ]
 }
+
+
