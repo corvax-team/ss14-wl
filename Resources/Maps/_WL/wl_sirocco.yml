@@ -2,9 +2,9 @@ meta:
   format: 7
   category: Map
   engineVersion: 283.1.0
-  forkId: ""
-  forkVersion: ""
-  time: 09/06/2026 00:14:26
+  forkId: syndicate-wl
+  forkVersion: 34fbfbf673244d0af3698df4d395f580a735a578
+  time: 09/10/2026 19:57:47
   entityCount: 29370
 maps:
 - 1
@@ -24834,19 +24834,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 152.5,64.5
-- proto: AlwaysPoweredLightSodium
-  entities:
-  - uid: 524
-    components:
-    - type: Transform
-      parent: 2
-      rot: 3.141592653589793 rad
-      pos: 76.5,87.5
-  - uid: 525
-    components:
-    - type: Transform
-      parent: 2
-      pos: 81.5,91.5
 - proto: AmeController
   entities:
   - uid: 526
@@ -67846,23 +67833,6 @@ entities:
       parent: 25479
       rot: -1.5707963267948966 rad
       pos: 0.5,23.5
-- proto: SpawnMobCockroach
-  entities:
-  - uid: 7532
-    components:
-    - type: Transform
-      parent: 2
-      pos: 89.5,84.5
-  - uid: 7533
-    components:
-    - type: Transform
-      parent: 2
-      pos: 59.5,44.5
-  - uid: 7534
-    components:
-    - type: Transform
-      parent: 2
-      pos: 13.5,46.5
 - proto: CombatKnife
   entities:
   - uid: 7535
@@ -126703,69 +126673,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 73.5,116.5
-- proto: SpawnMobMouse
-  entities:
-  - uid: 15292
-    components:
-    - type: Transform
-      parent: 2
-      rot: 1.5707963267948966 rad
-      pos: 92.5,130.5
-  - uid: 15293
-    components:
-    - type: Transform
-      parent: 2
-      pos: 53.5,123.5
-  - uid: 15294
-    components:
-    - type: Transform
-      parent: 2
-      pos: 112.5,63.5
-  - uid: 15295
-    components:
-    - type: Transform
-      parent: 2
-      pos: 111.5,113.5
-  - uid: 15296
-    components:
-    - type: Transform
-      parent: 2
-      pos: 78.5,79.5
-  - uid: 15297
-    components:
-    - type: Transform
-      parent: 2
-      pos: 85.5,99.5
-  - uid: 15298
-    components:
-    - type: Transform
-      parent: 2
-      pos: 89.5,93.5
-  - uid: 15299
-    components:
-    - type: Transform
-      parent: 2
-      pos: 53.5,90.5
-  - uid: 15300
-    components:
-    - type: Transform
-      parent: 2
-      pos: 44.5,75.5
-  - uid: 15301
-    components:
-    - type: Transform
-      parent: 2
-      pos: 71.5,68.5
-  - uid: 15302
-    components:
-    - type: Transform
-      parent: 2
-      pos: 97.5,122.5
-  - uid: 15303
-    components:
-    - type: Transform
-      parent: 2
-      pos: 33.5,66.5
 - proto: Multitool
   entities:
   - uid: 15304
@@ -132306,6 +132213,17 @@ entities:
       pos: 70.5,84.5
 - proto: PoweredlightOrange
   entities:
+  - uid: 524
+    components:
+    - type: Transform
+      parent: 2
+      rot: 3.141592653589793 rad
+      pos: 76.5,87.5
+  - uid: 525
+    components:
+    - type: Transform
+      parent: 2
+      pos: 81.5,91.5
   - uid: 16062
     components:
     - type: Transform
@@ -149504,6 +149422,23 @@ entities:
     - type: Transform
       parent: 2
       pos: 33.5,65.5
+- proto: SpawnMobCockroach
+  entities:
+  - uid: 7532
+    components:
+    - type: Transform
+      parent: 2
+      pos: 89.5,84.5
+  - uid: 7533
+    components:
+    - type: Transform
+      parent: 2
+      pos: 59.5,44.5
+  - uid: 7534
+    components:
+    - type: Transform
+      parent: 2
+      pos: 13.5,46.5
 - proto: SpawnMobCorgi
   entities:
   - uid: 18532
@@ -149595,6 +149530,69 @@ entities:
     - type: Transform
       parent: 2
       pos: 53.5,68.5
+- proto: SpawnMobMouse
+  entities:
+  - uid: 15292
+    components:
+    - type: Transform
+      parent: 2
+      rot: 1.5707963267948966 rad
+      pos: 92.5,130.5
+  - uid: 15293
+    components:
+    - type: Transform
+      parent: 2
+      pos: 53.5,123.5
+  - uid: 15294
+    components:
+    - type: Transform
+      parent: 2
+      pos: 112.5,63.5
+  - uid: 15295
+    components:
+    - type: Transform
+      parent: 2
+      pos: 111.5,113.5
+  - uid: 15296
+    components:
+    - type: Transform
+      parent: 2
+      pos: 78.5,79.5
+  - uid: 15297
+    components:
+    - type: Transform
+      parent: 2
+      pos: 85.5,99.5
+  - uid: 15298
+    components:
+    - type: Transform
+      parent: 2
+      pos: 89.5,93.5
+  - uid: 15299
+    components:
+    - type: Transform
+      parent: 2
+      pos: 53.5,90.5
+  - uid: 15300
+    components:
+    - type: Transform
+      parent: 2
+      pos: 44.5,75.5
+  - uid: 15301
+    components:
+    - type: Transform
+      parent: 2
+      pos: 71.5,68.5
+  - uid: 15302
+    components:
+    - type: Transform
+      parent: 2
+      pos: 97.5,122.5
+  - uid: 15303
+    components:
+    - type: Transform
+      parent: 2
+      pos: 33.5,66.5
 - proto: SpawnMobOreCrab
   entities:
   - uid: 18547
@@ -153548,7 +153546,7 @@ entities:
       id: Каюта Квартирмейстера
       setupAvailableNetworks:
       - SurveillanceCameraSupply
-- proto: SurveillanceCameraWirelessRouterConstructed
+- proto: SurveillanceCameraWirelessRouterEntertainment
   entities:
   - uid: 18955
     components:
