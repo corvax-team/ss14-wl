@@ -89,3 +89,4 @@ marking-TajaranHairBangs = Чёлка
 marking-TajaranHairMessy = Растрепанная причёска
 marking-TajaranHairStraight = Прямые волосы
 marking-TajaranHairLong = Длинные волосы
+marking-HumanHairRyan = Райан
