@@ -449,7 +449,7 @@
         whitelist:
           components:
           - SmokeOnTrigger
-      whi:
+      whi:                                                #wl-secpins-start
         whitelist:
           tags:
           - SecurityContractorPin
@@ -493,7 +493,6 @@
         whitelist:
           tags:
           - SecurityPrivatePin
-  - type: Appearance
   - type: ItemSlots
     slots:
       SecPinSlot:
@@ -503,4 +502,5 @@
   - type: ContainerContainer
     containers:
       SecPinSlot: !type:ContainerSlot
-      storagebase: !type:Container
+      storagebase: !type:Container                                                    #wl-secpins-end
+  - type: Appearance
