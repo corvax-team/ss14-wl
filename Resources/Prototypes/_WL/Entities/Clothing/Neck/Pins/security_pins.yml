@@ -17,6 +17,7 @@
     - WhitelistChameleon
     - ClothMade
     - Recyclable
+    - SecPin
 
 # Кадет
 - type: entity
@@ -29,6 +30,13 @@
     rankLoc: security-badge-rank-private
   - type: Clothing
     equippedPrefix: yel
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecurityPrivatePin
+    - SecPin
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -40,6 +48,13 @@
     rankLoc: security-badge-rank-corporal
   - type: Clothing
     equippedPrefix: oranyel
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecurityCorporalPin
+    - SecPin
 
 # Офицер/Детектив/Бригмед/Пилот
 - type: entity
@@ -52,6 +67,13 @@
     state: icon-oran
   - type: Clothing
     equippedPrefix: oran
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecuritySubSergeantPin
+    - SecPin
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -63,6 +85,13 @@
     state: icon-greoran
   - type: Clothing
     equippedPrefix: greoran
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecuritySergeantPin
+    - SecPin
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -74,6 +103,13 @@
     rankLoc: security-badge-rank-chief-sergeant
   - type: Clothing
     equippedPrefix: gre
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecurityChiefSergeantPin
+    - SecPin
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -85,6 +121,13 @@
     rankLoc: security-badge-rank-sub-lieutenant
   - type: Clothing
     equippedPrefix: blugre
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecuritySubLieutenantPin
+    - SecPin
 
 # Смотритель
 - type: entity
@@ -97,6 +140,13 @@
     rankLoc: security-badge-rank-lieutenant
   - type: Clothing
     equippedPrefix: blu
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecurityLieutenantPin
+    - SecPin
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -108,6 +158,13 @@
     rankLoc: security-badge-rank-chief-lieutenant
   - type: Clothing
     equippedPrefix: purblu
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecurityChiefLieutenantPin
+    - SecPin
 
 # ГСБ
 - type: entity
@@ -120,6 +177,13 @@
     rankLoc: security-badge-rank-captain
   - type: Clothing
     equippedPrefix: pur
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecurityCaptainPin
+    - SecPin
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -131,6 +195,13 @@
     rankLoc: security-badge-rank-major
   - type: Clothing
     equippedPrefix: cya
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecurityMajorPin
+    - SecPin
 
 # Контрактник
 - type: entity
@@ -143,3 +214,10 @@
     rankLoc: security-badge-rank-contractor
   - type: Clothing
     equippedPrefix: whi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - SecurityContractorPin
+    - SecPin

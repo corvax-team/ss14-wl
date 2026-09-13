@@ -449,4 +449,58 @@
         whitelist:
           components:
           - SmokeOnTrigger
+      whi:
+        whitelist:
+          tags:
+          - SecurityContractorPin
+      cya:
+        whitelist:
+          tags:
+          - SecurityMajorPin
+      pur:
+        whitelist:
+          tags:
+          - SecurityCaptainPin
+      purblu:
+        whitelist:
+          tags:
+          - SecurityChiefLieutenantPin
+      blu:
+        whitelist:
+          tags:
+          - SecurityLieutenantPin
+      blugre:
+        whitelist:
+          tags:
+          - SecuritySubLieutenantPin
+      gre:
+        whitelist:
+          tags:
+          - SecurityChiefSergeantPin
+      greoran:
+        whitelist:
+          tags:
+          - SecuritySergeantPin
+      oran:
+        whitelist:
+          tags:
+          - SecuritySubSergeantPin
+      oranyel:
+        whitelist:
+          tags:
+          - SecurityCorporalPin
+      yel:
+        whitelist:
+          tags:
+          - SecurityPrivatePin
   - type: Appearance
+  - type: ItemSlots
+    slots:
+      SecPinSlot:
+        whitelist:
+          tags:
+            - SecPin
+  - type: ContainerContainer
+    containers:
+      SecPinSlot: !type:ContainerSlot
+      storagebase: !type:Container

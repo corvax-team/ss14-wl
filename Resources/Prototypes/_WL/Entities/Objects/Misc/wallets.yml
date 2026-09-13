@@ -34,6 +34,7 @@
       tags:
       - Paper
       - Pen
+      - SecPin
       components:
       - Passport
       - IgnitionSource # For lighters
