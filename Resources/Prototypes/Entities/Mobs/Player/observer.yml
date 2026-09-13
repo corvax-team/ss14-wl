@@ -45,7 +45,7 @@
   components:
   - type: Sprite
     sprite: Mobs/Ghosts/ghost_human.rsi
-    color: "#fff8"
+    color: "#ffff" # WL-Changes: GhostHair
     layers:
     - state: animated
       map: [ "ghostVariant" ]
@@ -83,6 +83,7 @@
   - type: Examiner
     skipChecks: true
   - type: Ghost
+    color: "#FFFFFF88" # WL-Changes: GhostHair
   - type: GhostSpriteState
     damageMap:
       Blunt: 3

@@ -1,5 +1,6 @@
 using Content.Shared._WL.CCVars;
 using Content.Shared._WL.Skills.Components;
+using Content.Shared._WL.Records;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
@@ -52,7 +53,7 @@ public abstract partial class SharedSkillsSystem
             bonusPoints = jobPrototype.BonusSkillPoints;
         }
 
-        var racialBonus = CalculateRacialBonus(profile.Species, profile.Age);
+        var racialBonus = CalculateRacialBonus(profile.Species, profile.Age, profile.BrainSource);
         var totalPoints = bonusPoints + racialBonus;
         foreach (SkillType skill in Enum.GetValues(typeof(SkillType)))
         {
@@ -444,16 +445,21 @@ public abstract partial class SharedSkillsSystem
         if (jobId != null && _prototype.TryIndex<JobPrototype>(jobId, out var jobPrototype))
             bonusPoints = jobPrototype.BonusSkillPoints;
 
-        var racialBonus = CalculateRacialBonus(humanoid.Species, humanoid.Age);
+        var racialBonus = CalculateRacialBonus(humanoid.Species, humanoid.Age, humanoid.BrainSource);
         return bonusPoints + racialBonus + comp.BonusPoints;
     }
 
     /// <summary>
     /// Calculates racial bonus of skill points
     /// </summary>
-    private int CalculateRacialBonus(string species, int age)
+    private int CalculateRacialBonus(string species, int age, string brainSource = "")
     {
         var bonus = 0;
+
+        if (_prototype.TryIndex<BrainSourcePrototype>(brainSource, out var brainProto) &&
+                _prototype.TryIndex<RacialSkillBonusPrototype>(brainProto.SpecieBonus, out var bonusProto))
+                return bonusProto.GetBonusForAge(age);
+
         foreach (var racialBonusProto in _prototype.EnumeratePrototypes<RacialSkillBonusPrototype>())
         {
             if (racialBonusProto.Species != species)

@@ -1,0 +1,29 @@
+- type: marking
+  id: GlowingEyeRight
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_r
+  shaders:
+    tattoo_eye_r: unshaded
+
+- type: marking
+  id: GlowingEyeLeft
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+          negative: true
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_l
+  shaders:
+    tattoo_eye_l: unshaded

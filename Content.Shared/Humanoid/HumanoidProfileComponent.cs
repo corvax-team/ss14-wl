@@ -1,3 +1,4 @@
+using Content.Shared._WL.Records;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Humanoid.Prototypes;
@@ -44,5 +45,8 @@ public sealed partial class HumanoidProfileComponent : Component
     // WL-Height-Start
     [DataField("height")]
     [ViewVariables] public int Height = 165;
+
+    [DataField, AutoNetworkedField]
+    public string BrainSource = string.Empty;
     // WL-Height-End
 }

@@ -1,0 +1,215 @@
+- type: marking
+  id: SlimeHornBison
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: bison-normal-slime
+
+- type: marking
+  id: SlimeHornBisonR
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: bison-right-slime
+
+- type: marking
+  id: SlimeHornBisonL
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: bison-left-slime
+
+- type: marking
+  id: SlimeHornBuffalo
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: buffalo-normal-slime
+
+- type: marking
+  id: SlimeHornBuffaloR
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: buffalo-right-slime
+
+- type: marking
+  id: SlimeHornBuffaloL
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: buffalo-left-slime
+
+- type: marking
+  id: SlimeHornCandle
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: candle-normal-slime
+
+- type: marking
+  id: SlimeHornCandleR
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: candle-right-slime
+
+- type: marking
+  id: SlimeHornCandleL
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: candle-left-slime
+
+- type: marking
+  id: SlimeHornCoral
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: coral-normal-slime
+
+- type: marking
+  id: SlimeHornCoralR
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: coral-right-slime
+
+- type: marking
+  id: SlimeHornCoralL
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: coral-left-slime
+
+- type: marking
+  id: SlimeHornDeer
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: deer-normal-slime
+
+- type: marking
+  id: SlimeHornDeerR
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: deer-right-slime
+
+- type: marking
+  id: SlimeHornDeerL
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: deer-left-slime
+
+- type: marking
+  id: SlimeHornKylin
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: kylin-normal-slime
+
+- type: marking
+  id: SlimeHornKylinR
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: kylin-right-slime
+
+- type: marking
+  id: SlimeHornKylinL
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: kylin-left-slime
+
+- type: marking
+  id: SlimeHornPallas
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: pallas-normal-slime
+
+- type: marking
+  id: SlimeHornPallasR
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: pallas-right-slime
+
+- type: marking
+  id: SlimeHornPallasL
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: pallas-left-slime
+
+- type: marking
+  id: SlimeHornSail
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: sail-normal-slime
+
+- type: marking
+  id: SlimeHornSailL
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: sail-left-slime
+
+- type: marking
+  id: SlimeHornSailR
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: sail-right-slime
+
+- type: marking
+  id: SlimeHornSide
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: side-normal-slime
+
+- type: marking
+  id: SlimeHornSideL
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: side-left-slime
+
+- type: marking
+  id: SlimeHornSideR
+  bodyPart: HeadTop
+  groupWhitelist: [Slime]
+  sprites:
+    - sprite: _WL/Mobs/Customization/slimehorns.rsi
+      state: side-right-slime

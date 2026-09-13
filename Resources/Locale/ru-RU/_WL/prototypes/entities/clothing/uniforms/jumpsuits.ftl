@@ -59,3 +59,9 @@ ent-ClothingUniformJumpsuitWitchySweater = разноцветный свитер
 
 ent-ClothingUniformJumpsuitMaidenless = майка без баб
     .desc = Я ой как сомневаюсь, что у носящего эту майку есть здоровые отношения, с девушкой.
+
+ent-ClothingUniformJumpsuitTurtleneckAdjutant = водолазка адъютанта
+    .desc = Абсолютно бюрократическая белая водолазка, лишенная каких-либо излишеств.
+
+ent-ClothingUniformJumpsuitParadeAdjutant = формальный костюм адъютанта
+    .desc = Синий костюм с золотыми вставками, когда необходимо покрасоваться не только бумажной работой.

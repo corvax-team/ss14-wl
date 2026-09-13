@@ -36,6 +36,7 @@ public sealed record RecordIdentityData(
     string Height,
     string Languages,
     string Confederation,
+    string BrainSource,
     string Country);
 
 public sealed record RecordViewData(

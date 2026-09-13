@@ -133,7 +133,7 @@
     baseDecayRate: 0.15
   - type: ContentEye
   - type: Speech
-    allowedEmotes: ['Purr']
+    allowedEmotes: ['Purr', 'Meow', 'Tajarahiss']
   - type: Vocal
     emoteSounds: MaleTajaran
   - type: GrowlingAccent

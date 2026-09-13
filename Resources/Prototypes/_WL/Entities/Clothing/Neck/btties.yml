@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieBlack
   name: black bow-tie
   description: It will suit you very well if you are a gentleman or a lawyer.
@@ -16,7 +16,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieBlue
   name: blue bow-tie
   description: Try to fix it elegantly.
@@ -33,7 +33,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieFriendship
   name: friendship bow-tie
   description: Makes everyone in the area friendly!
@@ -50,7 +50,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieGray
   name: gray bow-tie
   description: And no, it's not for tiders.
@@ -67,7 +67,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieGreen
   name: green bow-tie
   description: Look like a grass. Wait what is grass?
@@ -84,7 +84,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieLightBlue
   name: light blue bow-tie
   description: Just light blue bow tie, what you want to see?
@@ -101,7 +101,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieLong
   name: long black bow-tie
   description: He looks like black, but longer.
@@ -118,7 +118,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieOrange
   name: orange bow-tie
   description: Orange just like your mood.
@@ -135,7 +135,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTiePink
   name: pink bow-tie
   description: Seriously? Pink bow-tie, at least this means something?
@@ -152,7 +152,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTiePurple
   name: purple bow-tie
   description: Stylish purple bow-tie.
@@ -169,7 +169,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieRed
   name: red bow-tie
   description: Suitable for assistants in all areas.
@@ -186,7 +186,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieWhite
   name: white bow-tie
   description: Looks like you have power wearing that bow-tie.
@@ -203,7 +203,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckBtTieYellow
   name: yellow bow-tie
   description: And no, he doesn't radiate happiness.

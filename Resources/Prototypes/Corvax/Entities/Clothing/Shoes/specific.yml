@@ -5,9 +5,9 @@
   description: They may have lost some of their lustre over the years, but these green lizardskin shoes fit you perfectly.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Shoes/Specific/disco.rsi
+      sprite: _WL/Clothing/Shoes/disco.rsi # WL-Changes: resprite
     - type: Clothing
-      sprite: Corvax/Clothing/Shoes/Specific/disco.rsi
+      sprite: _WL/Clothing/Shoes/disco.rsi # WL-Changes: resprite
 
 - type: entity
   parent: ClothingShoesBase

@@ -22,11 +22,15 @@ public sealed partial class HumanoidProfileEditor
 
     private RecordOptionButton? _confederationButton; // WL-Records
 
+    private RecordOptionButton? _brainSourceButton; // WL-Records
+
     private LineEdit HeightEdit => CHeightEdit; // WL-Height
 
     private TextEdit _oocTextEdit = null!; // WL-OOCText
 
     private List<ConfederationRecordsPrototype> _confederations = new(); // WL-Records
+
+    private List<BrainSourcePrototype> _brainSources = new(); // WL-Records
 
     public void RefreshSkills()
     {
@@ -107,6 +111,7 @@ public sealed partial class HumanoidProfileEditor
         _generalRecordCountryEdit = _recordsTab.CountryEdit;
 
         _confederationButton = _recordsTab.ConfederationButton;
+        _brainSourceButton = _recordsTab.BrainSourceButton;
 
         _recordsTab.OnMedicalRecordChanged += OnMedicalRecordChange;
         _recordsTab.OnSecurityRecordChanged += OnSecurityRecordChange;
@@ -117,6 +122,17 @@ public sealed partial class HumanoidProfileEditor
         _recordsTab.OnGeneralRecordCountryChanged += OnGeneralRecordCountryChanged;
 
         _recordsTab.OnGeneralRecordConfederationChanged += SetConfederation;
+        _recordsTab.OnBrainSourceChanged += SetBrainSource;
+
+        _brainSources.AddRange(_prototypeManager
+            .EnumeratePrototypes<BrainSourcePrototype>());
+
+        for (var i = 0; i < _brainSources.Count; i++)
+        {
+            var name = Loc.GetString(_brainSources[i].Name);
+
+            _recordsTab.BrainSourceButton.AddItem(name, i);
+        }
 
         _confederations.AddRange(_prototypeManager
             .EnumeratePrototypes<ConfederationRecordsPrototype>()
@@ -207,6 +223,20 @@ public sealed partial class HumanoidProfileEditor
         SetDirty();
     }
 
+    private void SetBrainSource(OptionButton.ItemSelectedEventArgs args)
+    {
+        if (_brainSourceButton is null)
+            return;
+
+        if (Profile is null)
+            return;
+
+        _brainSourceButton.SelectId(args.Id);
+        Profile = Profile.WithBrainSource(_brainSources[args.Id].ID);
+        SetDirty();
+        UpdateRecordsEdit();
+    }
+
     private void SetConfederation(OptionButton.ItemSelectedEventArgs args)
     {
         if (_confederationButton is null)
@@ -229,9 +259,13 @@ public sealed partial class HumanoidProfileEditor
                 ? Loc.GetString(species.Name)
                 : Profile.Species.Id;
             var confederation = _confederations.FirstOrDefault(proto => proto.ID == Profile.Confederation);
+            var brainSource = _brainSources.FirstOrDefault(proto => proto.ID == Profile.BrainSource);
             var confederationDisplay = confederation == null
                 ? string.Empty
                 : Loc.GetString(confederation.Name);
+            var brainSourceDisplay = brainSource == null
+                ? string.Empty
+                : Loc.GetString(brainSource .Name);
             var sexDisplay = Loc.GetString($"humanoid-profile-editor-sex-{Profile.Sex.ToString().ToLowerInvariant()}-text");
 
             _recordsTab.SetRecords(
@@ -242,6 +276,7 @@ public sealed partial class HumanoidProfileEditor
                 speciesDisplay,
                 sexDisplay,
                 confederationDisplay,
+                brainSourceDisplay,
                 Profile.FullName,
                 Profile.Country,
                 Profile.DateOfBirth,
@@ -255,7 +290,19 @@ public sealed partial class HumanoidProfileEditor
         if (_generalRecordCountryEdit != null)
             _generalRecordCountryEdit.Text = Profile?.Country ?? "";
 
+        if (_brainSourceButton != null)
+        {
+            for (var i = 0; i < _brainSources.Count; i++)
+            {
+                if (Profile?.BrainSource.Equals(_brainSources[i].ID) == true)
+                {
+                    _brainSourceButton.SelectId(i);
+                }
+            }
+        }
+
         if (_confederationButton != null)
+        {
             for (var i = 0; i < _confederations.Count; i++)
             {
                 if (Profile?.Confederation.Equals(_confederations[i].ID) == true)
@@ -263,6 +310,7 @@ public sealed partial class HumanoidProfileEditor
                     _confederationButton.SelectId(i);
                 }
             }
+        }
     }
 
     private void UpdateHeightEdit()
@@ -310,7 +358,7 @@ public sealed partial class HumanoidProfileEditor
         );
 
         var bonusPoints = jobProto.BonusSkillPoints;
-        var racialBonus = CalculateRacialBonus(Profile.Species, Profile.Age);
+        var racialBonus = CalculateRacialBonus(Profile.Species, Profile.Age, Profile.BrainSource);
         var totalPoints = bonusPoints + racialBonus;
 
         _skillsWindow = new SkillsWindow(jobProto.ID, currentSkills, defaultSkills, totalPoints);
@@ -331,9 +379,14 @@ public sealed partial class HumanoidProfileEditor
         ReloadPreview();
     }
 
-    private int CalculateRacialBonus(string species, int age)
+    private int CalculateRacialBonus(string species, int age, string brainSource = "")
     {
         var bonus = 0;
+
+        if (_prototypeManager.TryIndex<BrainSourcePrototype>(brainSource, out var brainProto) &&
+                _prototypeManager.TryIndex<RacialSkillBonusPrototype>(brainProto.SpecieBonus, out var bonusProto))
+                return bonusProto.GetBonusForAge(age);
+
         foreach (var racialBonusProto in _prototypeManager.EnumeratePrototypes<RacialSkillBonusPrototype>())
         {
             if (racialBonusProto.Species != species)

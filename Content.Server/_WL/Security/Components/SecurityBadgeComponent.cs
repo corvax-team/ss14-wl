@@ -8,5 +8,5 @@ public sealed partial class SecurityBadgeComponent : Component, IClothingSlots
     [DataField(required: true)]
     public LocId RankLoc { get; set; }
 
-    public SlotFlags Slots => SlotFlags.NECK;
+    public SlotFlags Slots => SlotFlags.NECK | SlotFlags.IDCARD;
 }

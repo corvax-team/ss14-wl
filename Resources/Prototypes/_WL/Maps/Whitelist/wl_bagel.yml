@@ -16,7 +16,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'AM'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_WL/Shuttles/wl_bagel_evac.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/Bagel/wl_bagel_evac.yml
         - type: StationJobs
           availableJobs:
 
@@ -50,7 +50,7 @@
             Chemist: [ 2, 2 ]
 
             # science
-            SeniorResearcher: [ 1, 1 ]
+            SeniorResearcher: [ 2, 2 ]
             Scientist: [ 3, 3 ]
             ResearchAssistant: [ 2, 2 ]
 
