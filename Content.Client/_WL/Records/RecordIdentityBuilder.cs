@@ -21,6 +21,9 @@ public static class RecordIdentityBuilder
         var confederation = prototypes.TryIndex<ConfederationRecordsPrototype>(record.Confederation, out var confederationPrototype)
             ? loc(confederationPrototype.Name)
             : noData;
+        var brainSource = prototypes.TryIndex<BrainSourcePrototype>(record.BrainSource, out var brainSourcePrototype)
+            ? loc(brainSourcePrototype.Name)
+            : noData;
         var languages = record.Languages
             .Select(id => prototypes.TryIndex(id, out var language) ? loc(language.Name) : id.Id)
             .ToList();
@@ -40,6 +43,7 @@ public static class RecordIdentityBuilder
             $"{record.Height} {loc("records-height-unit-centimeters")}",
             languages.Count == 0 ? noData : string.Join(", ", languages),
             confederation,
+            brainSource,
             string.IsNullOrWhiteSpace(record.Country) ? noData : record.Country);
     }
 }

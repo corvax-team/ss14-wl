@@ -1,0 +1,536 @@
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlackShirtBlackPants
+  name: classic black shirt black pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_black_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_black_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlackShirtBluePants
+  name: classic black shirt blue pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_blue_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_blue_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlackShirtDarkPants
+  name: classic black shirt dark pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_dark_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_dark_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlackShirtDarkgreenPants
+  name: classic black shirt darkgreen pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_darkgreen_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_darkgreen_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlackShirtGreyPants
+  name: classic black shirt grey pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_grey_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_grey_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlackShirtRedPants
+  name: classic black shirt red pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_red_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_red_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlackShirtTanPants
+  name: classic black shirt tan pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_tan_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/black_shirt_tan_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlueShirtBlackPants
+  name: classic blue shirt black pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/blue_shirt_black_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/blue_shirt_black_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlueShirtDarkPants
+  name: classic blue shirt dark pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/blue_shirt_dark_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/blue_shirt_dark_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlueShirtGreyPants
+  name: classic blue shirt grey pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/blue_shirt_grey_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/blue_shirt_grey_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicBlueShirtRedPants
+  name: classic blue shirt red pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/blue_shirt_red_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/blue_shirt_red_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicGreyShirtBlackPants
+  name: classic grey shirt black pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/grey_shirt_black_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/grey_shirt_black_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicGreyShirtBluePants
+  name: classic grey shirt blue pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/grey_shirt_blue_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/grey_shirt_blue_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicGreyShirtDarkgreenPants
+  name: classic grey shirt darkgreen pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/grey_shirt_darkgreen_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/grey_shirt_darkgreen_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicGreyShirtDarkwhitePants
+  name: classic grey shirt darkwhite pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/grey_shirt_darkwhite_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/grey_shirt_darkwhite_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicLightblueShirtBlackPants
+  name: classic lightblue shirt black pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightblue_shirt_black_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightblue_shirt_black_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicLightblueShirtDarkwhitePants
+  name: classic lightblue shirt darkwhite pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightblue_shirt_darkwhite_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightblue_shirt_darkwhite_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicLightblueShirtTanPants
+  name: classic lightblue shirt tan pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightblue_shirt_tan_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightblue_shirt_tan_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicLightblueShirtWhitePants
+  name: classic lightblue shirt white pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightblue_shirt_white_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightblue_shirt_white_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicLightgreenShirtBlackPants
+  name: classic lightgreen shirt black pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightgreen_shirt_black_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightgreen_shirt_black_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicLightgreenShirtBluePants
+  name: classic lightgreen shirt blue pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightgreen_shirt_blue_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightgreen_shirt_blue_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicLightgreenShirtDarkPants
+  name: classic lightgreen shirt dark pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightgreen_shirt_dark_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightgreen_shirt_dark_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicLightgreenShirtTanPants
+  name: classic lightgreen shirt tan pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightgreen_shirt_tan_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/lightgreen_shirt_tan_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicRedShirtBlackPants
+  name: classic red shirt black pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/red_shirt_black_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/red_shirt_black_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicRedShirtBluePants
+  name: classic red shirt blue pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/red_shirt_blue_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/red_shirt_blue_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicRedShirtWhitePants
+  name: classic red shirt white pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/red_shirt_white_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/red_shirt_white_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicTanShirtBlackPants
+  name: classic tan shirt black pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/tan_shirt_black_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/tan_shirt_black_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicTanShirtBluePants
+  name: classic tan shirt blue pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/tan_shirt_blue_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/tan_shirt_blue_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicTanShirtDarkPants
+  name: classic tan shirt dark pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/tan_shirt_dark_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/tan_shirt_dark_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicTanShirtDarkgreenPants
+  name: classic tan shirt darkgreen pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/tan_shirt_darkgreen_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/tan_shirt_darkgreen_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicWhiteShirtBlackPants
+  name: classic white shirt black pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_black_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_black_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicWhiteShirtBluePants
+  name: classic white shirt blue pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_blue_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_blue_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicWhiteShirtDarkPants
+  name: classic white shirt dark pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_dark_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_dark_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicWhiteShirtDarkgreenPants
+  name: classic white shirt darkgreen pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_darkgreen_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_darkgreen_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicWhiteShirtDarkwhitePants
+  name: classic white shirt darkwhite pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_darkwhite_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_darkwhite_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicWhiteShirtGreyPants
+  name: classic white shirt grey pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_grey_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_grey_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicWhiteShirtRedPants
+  name: classic white shirt red pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_red_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_red_pants.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitClassicWhiteShirtTanPants
+  name: classic white shirt tan pants suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_tan_pants.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Classic/white_shirt_tan_pants.rsi
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitBlackwhiteBluewhite
+  name: blackwhite bluewhite tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/blackwhite_bluewhite.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/blackwhite_bluewhite.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitBlackwhiteRedgold
+  name: blackwhite redgold tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/blackwhite_redgold.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/blackwhite_redgold.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitBluewhite
+  name: bluewhite tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/bluewhite.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/bluewhite.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitBluewhiteBlackwhite
+  name: bluewhite blackwhite tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/bluewhite_blackwhite.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/bluewhite_blackwhite.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitReddark
+  name: reddark tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/reddark.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/reddark.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitRedgold
+  name: redgold tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/redgold.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/redgold.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitRedgoldBlackwhite
+  name: redgold blackwhite tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/redgold_blackwhite.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/redgold_blackwhite.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitTanwhite
+  name: tanwhite tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/tanwhite.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/tanwhite.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitTanwhiteWhitegold
+  name: tanwhite whitegold tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/tanwhite_whitegold.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/tanwhite_whitegold.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitWhitedark
+  name: whitedark tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/whitedark.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/whitedark.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitWhitegold
+  name: whitegold tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/whitegold.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/whitegold.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformJumpsuitTracksuitWhitegoldTanwhite
+  name: whitegold tanwhite tracksuit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/whitegold_tanwhite.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/Tracksuit/whitegold_tanwhite.rsi
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSnake
+  name: snake suit
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/snake.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/snake.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtTurtleneckLightgreen
+  name: light green turtleneck with skirt
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_lightgreen_woman.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_lightgreen_woman.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtTurtleneckDarkgreen
+  name: dark green turtleneck with skirt
+  components:
+  - type: Sprite
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_darkgreen_woman.rsi
+  - type: Clothing
+    sprite: _ADT/Clothing/Uniforms/Jumpskirt/turtleneck_darkgreen_woman.rsi
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesSnake
+  name: snake shoes
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Shoes/snake.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Shoes/snake.rsi

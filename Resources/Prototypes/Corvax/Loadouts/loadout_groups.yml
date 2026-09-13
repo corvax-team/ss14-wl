@@ -31,6 +31,24 @@
   - MagistrateOuterClothingRobeFancy
   - MagistrateOuterClothingRobeRed
 
+# WL-change-start: wardrobe refresh
+- type: loadoutGroup
+  id: IAAOuterClothing
+  name: loadout-group-iaa-outerclothing
+  minLimit: 0
+  loadouts:
+  - WLClassicBlazerBlue
+  - WLClassicBlazerDark
+  - WLClassicBlazerDarkgreen
+  - WLClassicBlazerDarkwhite
+  - WLClassicBlazerGrey
+  - WLClassicBlazerLightblue
+  - WLClassicBlazerNoir
+  - WLClassicBlazerRed
+  - WLClassicBlazerTan
+  - WLClassicBlazerWhite
+# WL-change-end
+
 # Engineering
 - type: loadoutGroup
   id: ChiefEngineerBackpack
@@ -60,105 +78,46 @@
   loadouts:
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
-# WL-Change-start
-  - JumpsuitColorWhite
-  - JumpskirtColorWhite
-  - JumpsuitColorBlack
-  - JumpskirtColorBlack
-  - JumpsuitColorBlue
-  - JumpskirtColorBlue
-  - JumpsuitColorYellow
-  - JumpskirtColorYellow
-  - JumpsuitColorGreen
-  - JumpskirtColorGreen
-  - JumpsuitColorOrange
-  - JumpskirtColorOrange
-  - JumpsuitColorRed
-  - JumpskirtColorRed
-  - JumpsuitColorPurple
-  - JumpskirtColorPurple
-  - JumpsuitColorPink
-  - JumpskirtColorPink
-  - JumpsuitColorDarkBlue
-  - JumpskirtColorDarkBlue
-  - JumpsuitColorDarkGreen
-  - JumpskirtColorDarkGreen
-  - ClothingUniformJumpskirtGreenElegantDress
-  - ClothingUniformJumpskirtRedElegantDress
-  - ClothingUniformJumpskirtBlueElegantDress
-  - ClothingUniformJumpskirtPurpleElegantDress
-  - ClothingUniformJumpskirtBlackElegantDress
-  - ClothingUniformJumpskirtCyanStripedDress
-  - ClothingUniformJumpskirtGreenStripedDress
-  - ClothingUniformJumpskirtRedStripedDress
-  - ClothingUniformJumpskirtOrangeStripedDress
-  - ClothingUniformJumpskirtPinkStripedDress
-  - ClothingUniformJumpskirtYellowOldDress
-  - JumpsuitColorTeal
-  - JumpskirtColorTeal
-  - JumpsuitCasualBlue
-  - JumpskirtCasualBlue
-  - JumpsuitCasualPurple
-  - JumpskirtCasualPurple
-  - JumpsuitCasualRed
-  - JumpskirtCasualRed
-  - JumpsuitCasualGreen
-  - JumpskirtCasualGreen 
-  - JumpskirtTurtleneckAquamarine   
-  - JumpsuitTurtleneckAquamarine
-  - JumpskirtTurtleneckWhite
-  - JumpsuitTurtleneckWhite
-  - JumpskirtTurtleneckAzure
-  - JumpsuitTurtleneckAzure
-  - JumpskirtTurtleneckYellow
-  - JumpsuitTurtleneckYellow
-  - JumpskirtTurtleneckGreen
-  - JumpsuitTurtleneckGreen
-  - JumpskirtTurtleneckBrown
-  - JumpsuitTurtleneckBrown
-  - JumpskirtTurtleneckRed
-  - JumpsuitTurtleneckRed
-  - JumpskirtTurtleneckOrange
-  - JumpsuitTurtleneckOrange
-  - JumpskirtTurtleneckPink
-  - JumpsuitTurtleneckPink
-  - JumpskirtTurtleneckGrey
-  - JumpsuitTurtleneckGrey
-  - JumpskirtTurtleneckBlue
-  - JumpsuitTurtleneckBlue
-  - JumpskirtTurtleneckPurple
-  - JumpsuitTurtleneckPurple
-  - JumpskirtTurtleneckBlack
-  - JumpsuitTurtleneckBlack
-  - JumpskirtTurtleneckSalat
-  - JumpsuitTurtleneckSalat
-  - JumpsuitTurtleneckSalatblack
-  - JumpskirtTurtleneckBlackSleeveless
-  - JumpsuitTurtleneckBlackSleeveless
-  - JumpsuitTurtleneckWhiteBlackSleeveless
-  - JumpsuitTurtleneckWhiteSleeveless
-  - JumpskirtTurtleneckWhiteSleeveless
-  - ClothingUniformJumpskirtPurpleTurtleneckDress
-  - ClothingUniformJumpskirtBlueTurtleneckDress
-  - ClothingUniformJumpskirtYellowTurtleneckDress
-  - ClothingUniformJumpskirtGreenTurtleneckDress
-  - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
-# WL-Change-end
+  # WL-change-start: wardrobe refresh
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
+  # WL-change-end
 
 - type: loadoutGroup
   id: SeniorEngineerBackpack
@@ -202,105 +161,46 @@
   loadouts:
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
-# WL-Change-start
-  - JumpsuitColorWhite
-  - JumpskirtColorWhite
-  - JumpsuitColorBlack
-  - JumpskirtColorBlack
-  - JumpsuitColorBlue
-  - JumpskirtColorBlue
-  - JumpsuitColorYellow
-  - JumpskirtColorYellow
-  - JumpsuitColorGreen
-  - JumpskirtColorGreen
-  - JumpsuitColorOrange
-  - JumpskirtColorOrange
-  - JumpsuitColorRed
-  - JumpskirtColorRed
-  - JumpsuitColorPurple
-  - JumpskirtColorPurple
-  - JumpsuitColorPink
-  - JumpskirtColorPink
-  - JumpsuitColorDarkBlue
-  - JumpskirtColorDarkBlue
-  - JumpsuitColorDarkGreen
-  - JumpskirtColorDarkGreen
-  - ClothingUniformJumpskirtGreenElegantDress
-  - ClothingUniformJumpskirtRedElegantDress
-  - ClothingUniformJumpskirtBlueElegantDress
-  - ClothingUniformJumpskirtPurpleElegantDress
-  - ClothingUniformJumpskirtBlackElegantDress
-  - ClothingUniformJumpskirtCyanStripedDress
-  - ClothingUniformJumpskirtGreenStripedDress
-  - ClothingUniformJumpskirtRedStripedDress
-  - ClothingUniformJumpskirtOrangeStripedDress
-  - ClothingUniformJumpskirtPinkStripedDress
-  - ClothingUniformJumpskirtYellowOldDress
-  - JumpsuitColorTeal
-  - JumpskirtColorTeal
-  - JumpsuitCasualBlue
-  - JumpskirtCasualBlue
-  - JumpsuitCasualPurple
-  - JumpskirtCasualPurple
-  - JumpsuitCasualRed
-  - JumpskirtCasualRed
-  - JumpsuitCasualGreen
-  - JumpskirtCasualGreen 
-  - JumpskirtTurtleneckAquamarine   
-  - JumpsuitTurtleneckAquamarine
-  - JumpskirtTurtleneckWhite
-  - JumpsuitTurtleneckWhite
-  - JumpskirtTurtleneckAzure
-  - JumpsuitTurtleneckAzure
-  - JumpskirtTurtleneckYellow
-  - JumpsuitTurtleneckYellow
-  - JumpskirtTurtleneckGreen
-  - JumpsuitTurtleneckGreen
-  - JumpskirtTurtleneckBrown
-  - JumpsuitTurtleneckBrown
-  - JumpskirtTurtleneckRed
-  - JumpsuitTurtleneckRed
-  - JumpskirtTurtleneckOrange
-  - JumpsuitTurtleneckOrange
-  - JumpskirtTurtleneckPink
-  - JumpsuitTurtleneckPink
-  - JumpskirtTurtleneckGrey
-  - JumpsuitTurtleneckGrey
-  - JumpskirtTurtleneckBlue
-  - JumpsuitTurtleneckBlue
-  - JumpskirtTurtleneckPurple
-  - JumpsuitTurtleneckPurple
-  - JumpskirtTurtleneckBlack
-  - JumpsuitTurtleneckBlack
-  - JumpskirtTurtleneckSalat
-  - JumpsuitTurtleneckSalat
-  - JumpsuitTurtleneckSalatblack
-  - JumpskirtTurtleneckBlackSleeveless
-  - JumpsuitTurtleneckBlackSleeveless
-  - JumpsuitTurtleneckWhiteBlackSleeveless
-  - JumpsuitTurtleneckWhiteSleeveless
-  - JumpskirtTurtleneckWhiteSleeveless
-  - ClothingUniformJumpskirtPurpleTurtleneckDress
-  - ClothingUniformJumpskirtBlueTurtleneckDress
-  - ClothingUniformJumpskirtYellowTurtleneckDress
-  - ClothingUniformJumpskirtGreenTurtleneckDress
-  - ClothingUniformJumpskirtRedTurtleneckDress
-  - ClothingUniformJumpsuitSecBlueOJ
-  - ClothingUniformJumpskirtDetectiveGrey
-  - ClothingUniformJumpsuitDetectiveGrey
-  - ClothingUniformJumpskirtDetective
-  - ClothingUniformJumpsuitDetective
-  - ClothingUniformJumpskirtLawyerBlue
-  - ClothingUniformJumpsuitLawyerBlue
-  - ClothingUniformJumpskirtLawyerPurple
-  - ClothingUniformJumpsuitLawyerPurple
-  - ClothingUniformJumpskirtLawyerRed
-  - ClothingUniformJumpsuitLawyerRed
-  - ClothingUniformJumpskirtLawyerBlack
-  - ClothingUniformJumpsuitLawyerBlack
-  - ClothingUniformJumpskirtLawyerGood
-  - ClothingUniformJumpsuitLawyerGood
-# WL-Change-end
+  # WL-change-start: wardrobe refresh
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
+  # WL-change-end
 
 - type: loadoutGroup
   id: SeniorResearcherBackpack
@@ -348,6 +248,15 @@
   id: PilotJumpsuit
   name: loadout-group-pilot-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtWhitePants
+  # WL-change-end
   - JumpsuitPilot
   - JumpskirtPilot
   - TrooperUniform
@@ -387,7 +296,15 @@
   id: BrigmedicJumpsuit
   name: loadout-group-brigmedic-jumpsuit
   loadouts:
-  - JumpsuitSecBlue #Corvax-WL-brigmedic-loadout-update
+  # WL-change-start: wardrobe refresh
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtWhitePants
+  # WL-change-end
   - BrigmedicJumpsuit
   - BrigmedicJumpskirt
   # Wl-change-start
@@ -449,6 +366,15 @@
   id: SeniorOfficerJumpsuit
   name: loadout-group-senior-officer-jumpsuit
   loadouts:
+  # WL-change-start: wardrobe refresh
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtWhitePants
+  # WL-change-end
   - SeniorOfficerJumpsuit
   - SeniorOfficerJumpskirt
   - JumpsuitSeniorDSS # WL-Changes: DSS adding, WL-redo-427-resprite
@@ -523,6 +449,46 @@
   - ClothingUniformJumpskirtBlueElegantDress
   - ClothingUniformJumpskirtBlueTurtleneckDress
   # WL-Change-End
+  # WL-change-start: wardrobe refresh
+  - ClassicBlackShirtBlackPants
+  - ClassicBlackShirtBluePants
+  - ClassicBlackShirtDarkPants
+  - ClassicBlackShirtDarkgreenPants
+  - ClassicBlackShirtGreyPants
+  - ClassicBlackShirtRedPants
+  - ClassicBlackShirtTanPants
+  - ClassicBlueShirtBlackPants
+  - ClassicBlueShirtDarkPants
+  - ClassicBlueShirtGreyPants
+  - ClassicBlueShirtRedPants
+  - ClassicGreyShirtBlackPants
+  - ClassicGreyShirtBluePants
+  - ClassicGreyShirtDarkgreenPants
+  - ClassicGreyShirtDarkwhitePants
+  - ClassicLightblueShirtBlackPants
+  - ClassicLightblueShirtDarkwhitePants
+  - ClassicLightblueShirtTanPants
+  - ClassicLightblueShirtWhitePants
+  - ClassicLightgreenShirtBlackPants
+  - ClassicLightgreenShirtBluePants
+  - ClassicLightgreenShirtDarkPants
+  - ClassicLightgreenShirtTanPants
+  - ClassicRedShirtBlackPants
+  - ClassicRedShirtBluePants
+  - ClassicRedShirtWhitePants
+  - ClassicTanShirtBlackPants
+  - ClassicTanShirtBluePants
+  - ClassicTanShirtDarkPants
+  - ClassicTanShirtDarkgreenPants
+  - ClassicWhiteShirtBlackPants
+  - ClassicWhiteShirtBluePants
+  - ClassicWhiteShirtDarkPants
+  - ClassicWhiteShirtDarkgreenPants
+  - ClassicWhiteShirtDarkwhitePants
+  - ClassicWhiteShirtGreyPants
+  - ClassicWhiteShirtRedPants
+  - ClassicWhiteShirtTanPants
+  # WL-change-end
 
 - type: loadoutGroup
   id: SeniorPhysicianOuterClothing

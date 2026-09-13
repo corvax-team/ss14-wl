@@ -152,6 +152,12 @@
       - CartridgeAmmo
   - type: StaticPrice
     price: 500
+  - type: ItemMapper #wl-changes-holsters
+    mapLayers:
+      icon-overlay:
+        whitelist:
+          tags:
+          - Sidearm
 
 ## Webbing
 

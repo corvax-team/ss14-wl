@@ -11,6 +11,9 @@ public static class RecordViewBuilder
         var record = StructuredCharacterRecords.ReadMedical(storage);
         var organic = RecordSpeciesClassification.IsOrganic(species);
         var manufactured = RecordSpeciesClassification.IsManufactured(species);
+        var brainSource = "records-value-not-applicable";
+        if (species is "Android")
+            brainSource = identity.BrainSource;
         var sections = new List<RecordViewSection>
         {
             IdentitySection(identity, loc, inGame),
@@ -24,6 +27,7 @@ public static class RecordViewBuilder
                 Author("records-refused-treatment", record.RefusedTreatment, "records-value-not-applicable", loc, true,
                     !string.IsNullOrWhiteSpace(record.RefusedTreatment)),
                 Author("records-emergency-contact", record.EmergencyContact, "records-value-not-applicable", loc),
+                Author("records-brain-source", brainSource, "records-value-not-applicable", loc),
             ]),
         };
 

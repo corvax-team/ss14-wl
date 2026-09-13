@@ -1,6 +1,6 @@
 - type: metabolizerType
   id: Akula
-  name: metabolism-group-biorobotic
+  name: metabolism-group-akula
 
 - type: metabolizerType
   id: Biorobotic

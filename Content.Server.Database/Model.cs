@@ -399,6 +399,7 @@ namespace Content.Server.Database
         public string FullName { get; set; } = null!; // WL-Records
         public string DateOfBirth { get; set; } = null!; // WL-Records
         public string Confederation { get; set; } = null!; // WL-Records
+        public string? BrainSource { get; set; } = null!; // WL-Records
         public string Country { get; set; } = null!; // WL-Records
         public int Age { get; set; }
         public int Height { get; set; } // WL-Height

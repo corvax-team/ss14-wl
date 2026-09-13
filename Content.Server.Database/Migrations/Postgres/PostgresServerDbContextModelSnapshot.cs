@@ -1210,7 +1210,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("age");
 
-                    // WL-Changes-Start: Speech barks
                     b.Property<float>("BarkMaxDelay")
                         .HasColumnType("real")
                         .HasColumnName("bark_max_delay");
@@ -1227,7 +1226,10 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("bark_voice");
-                    // WL-Changes-End
+
+                    b.Property<string>("BrainSource")
+                        .HasColumnType("text")
+                        .HasColumnName("brain_source");
 
                     b.Property<string>("CharacterName")
                         .IsRequired()

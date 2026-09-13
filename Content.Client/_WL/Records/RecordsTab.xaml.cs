@@ -21,6 +21,7 @@ public sealed partial class RecordsTab : Control
     public Action<string>? OnGeneralRecordNameChanged;
     public Action<string>? OnGeneralRecordAgeChanged;
     public Action<OptionButton.ItemSelectedEventArgs>? OnGeneralRecordConfederationChanged;
+    public Action<OptionButton.ItemSelectedEventArgs>? OnBrainSourceChanged;
     public Action<string>? OnGeneralRecordCountryChanged;
 
     private readonly List<EducationEntryControls> _educationEntries = new();
@@ -31,6 +32,7 @@ public sealed partial class RecordsTab : Control
     private string _speciesDisplay = string.Empty;
     private string _sexDisplay = string.Empty;
     private string _confederationDisplay = string.Empty;
+    private string _brainSourceDisplay = string.Empty;
     private string _medicalStorage = string.Empty;
     private string _securityStorage = string.Empty;
     private string _employmentStorage = string.Empty;
@@ -65,6 +67,11 @@ public sealed partial class RecordsTab : Control
         MedicalDnr.OnItemSelected += args =>
         {
             MedicalDnr.SelectId(args.Id);
+            EmitMedical();
+        };
+        BrainSourceButton.OnItemSelected += args =>
+        {
+            OnBrainSourceChanged?.Invoke(args);
             EmitMedical();
         };
 
@@ -132,6 +139,11 @@ public sealed partial class RecordsTab : Control
             OnGeneralRecordConfederationChanged?.Invoke(args);
             UpdatePreview();
         };
+        BrainSourceButton.OnItemSelected += args =>
+        {
+            OnBrainSourceChanged?.Invoke(args);
+            UpdatePreview();
+        };
         RecordTabs.OnTabChanged += _ => UpdatePreview();
         PreviewButton.OnPressed += _ => OpenPreview();
         OnResized += UpdateEducationLayout;
@@ -172,6 +184,7 @@ public sealed partial class RecordsTab : Control
         string speciesDisplay,
         string sexDisplay,
         string confederationDisplay,
+        string brainSourceDisplay,
         string fullName,
         string country,
         string storedDateOfBirth,
@@ -184,6 +197,7 @@ public sealed partial class RecordsTab : Control
         _speciesDisplay = speciesDisplay;
         _sexDisplay = sexDisplay;
         _confederationDisplay = confederationDisplay;
+        _brainSourceDisplay = brainSourceDisplay;
         _height = height;
         _medicalStorage = medicalStorage;
         _securityStorage = securityStorage;
@@ -204,6 +218,8 @@ public sealed partial class RecordsTab : Control
         BirthDateLabel.Text = Loc.GetString(manufactured
             ? "records-date-of-manufacture-edit"
             : "records-date-of-birth-edit");
+        BrainSourceLabel.Visible = species is "Android";
+        BrainSourceButton.Visible = species is "Android";
         _updating = false;
         UpdatePreview();
         UpdateEducationLayout();
@@ -803,6 +819,7 @@ public sealed partial class RecordsTab : Control
             $"{_height} {Loc.GetString("records-height-unit-centimeters")}",
             noData,
             ValueOr(_confederationDisplay, noData),
+            ValueOr(_brainSourceDisplay, noData),
             ValueOr(CountryEdit.Text, noData));
 
         _previewWindow.SetRecords(

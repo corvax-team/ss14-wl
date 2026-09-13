@@ -5,9 +5,9 @@
   description: Flare cut trousers and a dirty shirt that might have been classy before someone took a piss in the armpits. It's the dress of a superstar.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Uniforms/Jumpsuit/disco.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpsuit/disco.rsi # WL-Changes: resprite
     - type: Clothing
-      sprite: Corvax/Clothing/Uniforms/Jumpsuit/disco.rsi
+      sprite: _WL/Clothing/Uniforms/Jumpsuit/disco.rsi # WL-Changes: resprite
 
 - type: entity
   parent: ClothingUniformBase

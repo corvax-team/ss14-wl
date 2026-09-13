@@ -16,6 +16,12 @@ public sealed class GetEquipmentVisualsEvent : EntityEventArgs
 
     public readonly string Slot;
 
+    // WL-Changes-Start: Allow individual clothing to choose its visual layer position.
+    public string? InsertionSlot;
+
+    public bool InsertBeforeSlot;
+    // WL-Changes-End
+
     /// <summary>
     ///     The layers that will be added to the entity that is wearing this item.
     /// </summary>

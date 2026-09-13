@@ -43,6 +43,12 @@
                             <LineEdit Name="MedicalRefusedTreatment" MinWidth="320" HorizontalExpand="True"/>
                             <Label Text="{Loc 'records-do-not-resuscitate'}" VAlign="Center" MinWidth="205"/>
                             <records:RecordOptionButton Name="MedicalDnr" MinWidth="220" MaxWidth="320" HorizontalExpand="True"/>
+                            <Label Text="{Loc 'records-brain-source'}" Name="BrainSourceLabel" VAlign="Center" MinWidth="205"/>
+                            <records:RecordOptionButton Name="BrainSourceButton"
+                                                        MinWidth="220"
+                                                        MaxWidth="320"
+                                                        HorizontalExpand="True"
+                                                        Access="Public"/>
                         </GridContainer>
 
                         <BoxContainer Name="MedicalProcedureFields" Orientation="Vertical" HorizontalExpand="True">

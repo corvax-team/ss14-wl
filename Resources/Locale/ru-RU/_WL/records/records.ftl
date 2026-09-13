@@ -17,7 +17,7 @@ records-employment-placeholder = Нажмите "Шаблон" для загру
 
 records-full-name-edit = ФИО:
 records-date-of-birth-edit = ДАТА РОЖДЕНИЯ:
-records-date-of-manufacture-edit = ДАТА ИЗГОТОВЛЕНИЯ:
+records-date-of-manufacture-edit = ДАТА ПОЯВЛЕНИЯ МОЗГА:
 records-date-day = ДД
 records-date-month = ММ
 records-date-year = ГГГГ
@@ -37,6 +37,7 @@ records-emergency-contact = Экстренный контакт:
 records-refused-treatment = Отказ от соматической медицинской помощи:
 records-last-updated = Последнее изменение:
 records-do-not-resuscitate = Не реанимировать
+records-brain-source = Источник мозга:
 records-surgeries = Хирургические вмешательства
 records-repair-records = Ремонтные записи
 records-medication = Медикаментозная терапия
@@ -198,13 +199,17 @@ records-confederation-holy-empire-of-edem = Священная Империя Э
 records-confederation-metafront = Метафронт
 records-confederation-no = Другое
 
+brain-source-synthetic = Синтетический
+brain-source-synthetic-desc = Синтетический мозг.
+brain-source-translplanted = Трансплантированный
+brain-source-translplanted-desc = Трансплантированный мозг.
 
 # Медицинские записи
-records-medical-template = 
+records-medical-template =
     ВЕС: (Килограммы|фунты)
-    ЦВЕТ ГЛАЗ: 
-    ЦВЕТ ВОЛОС: 
-    ЭТНИЧНОСТЬ: 
+    ЦВЕТ ГЛАЗ:
+    ЦВЕТ ВОЛОС:
+    ЭТНИЧНОСТЬ:
     ГИПЕРТОНИЯ: (ДА|НЕТ)
     ПРЕДПОЧИТАЕМЫЙ ЯЗЫК: (Скорее всего стандартный диалект родного языка)
     БЛИЖАЙШИЙ РОДСТВЕННИК: (Фамилия, имя ((тип родства), (возраст)))
@@ -222,11 +227,11 @@ records-medical-template =
     (Или список особенностей, или N|A)
 
 # Охранные записи
-records-security-template = 
+records-security-template =
     ВЕС: (Килограммы)
-    ЦВЕТ ГЛАЗ: 
-    ЦВЕТ ВОЛОС: 
-    ЭТНИЧНОСТЬ: 
+    ЦВЕТ ГЛАЗ:
+    ЦВЕТ ВОЛОС:
+    ЭТНИЧНОСТЬ:
     МЕСТО ПРОЖИВАНИЯ: (планета, город|район, улица или жилой блок, номер жилого блока или здания)
     ОТЛИЧИТЕЛЬНЫЕ ЧЕРТЫ: (все что угодно; протезы, акцент, что хотите.)
     БЛИЖАЙШИЙ РОДСТВЕННИКИ: (полное имя ((тип родства, возраст, место проживание)))
@@ -241,7 +246,7 @@ records-security-template =
     ЗАМЕТКИ: (Любые комментарии от правоохранительных органов)
 
 # Трудовые записи
-records-employment-template = 
+records-employment-template =
     СЕМЕЙНОЕ ПОЛОЖЕНИЕ: (Холост, женат, вдовец|вдова; если не холост, введите имя, пол и возраст супруги)
     БЛИЖАЙШИЙ РОДСТВЕННИК: (Фамилия, имя ((тип родства), (возраст)))
     ПОСЛЕДНЕЕ ИЗМЕНЕНИЕ: (день|месяц|год)

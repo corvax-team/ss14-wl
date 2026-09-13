@@ -114,6 +114,7 @@
     tags:
     - Burnt
     - Trash
+    - FireResistant # WL-Changes
   - type: Solution
     solution:
       reagents:

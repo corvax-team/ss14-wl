@@ -16,6 +16,7 @@ public sealed record RecordPrintIdentity(
     string DNA,
     string Languages,
     string Confederation,
+    string BrainSource,
     string Country);
 
 /// <summary>
@@ -53,6 +54,7 @@ public static class StructuredRecordFormatter
         }
         AppendAutomatic(builder, loc("records-language"), identity.Languages, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-confederation-edit"), identity.Confederation, loc("records-value-no-data"));
+        AppendAutomatic(builder, loc("records-brain-source"), identity.BrainSource, loc("records-value-no-data"));
         AppendAutomatic(builder, loc("records-country-edit"), identity.Country, loc("records-value-no-data"));
         builder.AppendLine("[color=#77777D]────────────────────────────────────────[/color]");
         builder.Append(body.Trim());
