@@ -258,9 +258,7 @@
     list:
     - language: Translate
       languageLevel: 4
-    - language: VoxPigin
-      languageLevel: 4
-    specieLanguage: VoxPigin
+    specieLanguage: Translate
   #WL-Changes: Languages end
 
 - type: entity

@@ -202,9 +202,7 @@
     list:
     - language: Translate
       languageLevel: 4
-    - language: Weaver
-      languageLevel: 4
-    specieLanguage: Weaver
+    specieLanguage: Translate
   #WL-Changes: Languages & hunger end
 
 - type: entity

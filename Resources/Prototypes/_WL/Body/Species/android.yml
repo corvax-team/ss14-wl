@@ -315,9 +315,7 @@
     list:
     - language: Translate
       languageLevel: 4
-    - language: Ternary
-      languageLevel: 4
-    specieLanguage: Ternary
+    specieLanguage: Translate
   #WL-Changes: Languages end
   - type: Instrument
     allowPercussion: false

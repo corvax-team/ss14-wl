@@ -79,7 +79,7 @@
     state: translate
   levelCosts: [0, 0, 0, 0, 0]
   speciesModifiers:
-    Ipc:
+    Vox:
       levelModifiers: [0, 0, 0, 0, 1]
 
 - type: language
@@ -122,6 +122,8 @@
     state: unati
   levelCosts: [0, 1, 2, 1, 2]
   speciesModifiers:
+    Andr:
+      levelModifiers: [0, 0, 0, 1, 0]
     Vox:
       levelModifiers: [0, 0, 0, 1, 0]
     Vulpkanin:
@@ -167,16 +169,18 @@
   speciesModifiers:
     Android:
       levelModifiers: [0, 0, -1, -1, -1]
+    Arachnid:
+      levelModifiers: [0, 0, 1, 1, 999]
     Vox:
-      levelModifiers: [0, 0, 1, 1, 999]
-    Vulpkanin:
       levelModifiers: [0, 0, 1, 2, 999]
-    Ipc:
+    Vulpkanin:
       levelModifiers: [0, 0, 1, 1, 999]
-    Diona:
+    Ipc:
       levelModifiers: [0, 0, -1, -1, -1]
-    Cischi:
+    Diona:
       levelModifiers: [0, 0, 1, 0, 0]
+    Cischi:
+      levelModifiers: [0, 0, 0, -1, -1]
     Golem:
       levelModifiers: [0, 0, -1, -1, -1]
     Human:
@@ -186,12 +190,14 @@
     Moth:
       levelModifiers: [0, 0, 1, 1, 999]
     Akula:
-      levelModifiers: [0, 0, 0, 1, 0]
-    SlimePerson:
       levelModifiers: [0, 0, 1, 1, 999]
+    SlimePerson:
+      levelModifiers: [0, 0, 0, 1, 0]
     Tajaran:
       levelModifiers: [0, 0, 1, 1, 999]
     Reptilian:
+      levelModifiers: [0, 0, 1, 1, 999]
+    Felinid:
       levelModifiers: [0, 0, -1, -1, -1]
   confederationModifiers:
     HolyEmpireOfEden:
@@ -216,9 +222,9 @@
       levelModifiers: [0, 0, 0, 0, 1]
     Vox:
       levelModifiers: [0, 0, 1, 0, 0]
-    Ipc:
+    Vulpkanin:
       levelModifiers: [0, 0, -1, -1, 0]
-    Diona:
+    Ipc:
       levelModifiers: [0, 0, -1, -1, 0]
     Cischi:
       levelModifiers: [0, 0, 1, 0, 0]
@@ -226,13 +232,11 @@
       levelModifiers: [0, 0, -1, -1, 0]
     Murine:
       levelModifiers: [0, 0, 1, 0, 0]
-    Moth:
-      levelModifiers: [0, 0, 0, -1, 0]
     Akula:
+      levelModifiers: [0, 0, 0, -1, 0]
+    SlimePerson:
       levelModifiers: [0, 0, 1, 0, 0]
     Tajaran:
-      levelModifiers: [0, 0, -1, -1, 0]
-    Reptilian:
       levelModifiers: [0, 0, -1, -1, 0]
   confederationModifiers:
     InterspeciesAlliance:
@@ -257,14 +261,10 @@
       levelModifiers: [0, 0, 0, 1, 0]
     Ipc:
       levelModifiers: [0, 0, -1, -1, -1]
-    Cischi:
-      levelModifiers: [0, 0, -1, -1, -1]
     Golem:
       levelModifiers: [0, 0, -1, -1, -1]
-    Murine:
+    Akula:
       levelModifiers: [0, 0, -1, 0, -1]
-    Reptilian:
-      levelModifiers: [0, 0, -1, -1, -1]
 
 - type: language
   id: Weaver
@@ -286,16 +286,14 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: nian
-  levelCosts: [0, 4, 4, 999]
+  levelCosts: [0, 4, 4, 999, 999]
   speciesModifiers:
     Ipc:
-      levelModifiers: [0, -1, -1, 999]
-    Cischi:
-      levelModifiers: [0, -1, -1, 999]
+      levelModifiers: [0, -1, -1, 999, 999]
     Golem:
-      levelModifiers: [0, -1, -1, 999]
-    Murine:
-      levelModifiers: [0, -3, -3, 0, 0]
+      levelModifiers: [0, -1, -1, 999, 999]
+    Moth:
+      levelModifiers: [0, -3, -3, -997, -997]
 
 - type: language
   id: Ternary
@@ -316,10 +314,17 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: android
-  levelCosts: [999]
+  levelCosts: [0, 999, 999, 999, 999]
+  speciesModifiers:
+    Android:
+      levelModifiers: [0, -998, -998, -998, -998]
+    Ipc:
+      levelModifiers: [0, -998, -998, -998, -998]
+    Golem:
+      levelModifiers: [0, -996, -996, -996, -998]
   confederationModifiers:
     Metafront:
-      levelModifiers: [0, -1, 0, 0, 0]
+      levelModifiers: [0, 0, 0, 0, -1]
 
 - type: language
   id: Arachny
@@ -338,17 +343,15 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: arachnid
-  levelCosts: [0, 4, 4, 999]
+  levelCosts: [0, 4, 4, 999, 999]
   speciesModifiers:
     Arachnid:
       levelModifiers: [0, -2, -3, 0, 0]
     Ipc:
       levelModifiers: [0, -1, -2, 0, 0]
-    Cischi:
-      levelModifiers: [0, -1, -2, 0, 0]
     Golem:
       levelModifiers: [0, -1, -2, 0, 0]
-    Murine:
+    Moth:
       levelModifiers: [0, -2, -2, 0, 0]
 
 - type: language
@@ -370,14 +373,12 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: diona
-  levelCosts: [999]
+  levelCosts: [0, 999, 999, 999, 999]
   speciesModifiers:
     Ipc:
-      levelModifiers: [0, 4, 4, 999]
-    Cischi:
-      levelModifiers: [0, 4, 4, 999]
-    Golem:
-      levelModifiers: [0, 4, 4, 999]
+      levelModifiers: [0, -995, -995, 0, 0]
+    Diona:
+      levelModifiers: [0, -998, -998, -997, -997]
 
 - type: language
   id: Slimish
@@ -396,6 +397,14 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: slime
+  levelCosts: [0, 5, 999, 999, 999]
+  speciesModifiers:
+    Ipc:
+      levelModifiers: [0, -3, -996, 0, 0]
+    Golem:
+      levelModifiers: [0, -3, -996, 0, 0]
+    SlimePerson:
+      levelModifiers: [0, -4, -997, -998, -998]
 
 - type: language
   id: VoxPigin
@@ -430,16 +439,14 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: vox
-  levelCosts: [0, 5, 999]
+  levelCosts: [0, 5, 999, 999, 999]
   speciesModifiers:
     Vox:
-      levelModifiers: [0, -4, 0, 0, 0]
+      levelModifiers: [0, -4, -997, -998, -998]
     Ipc:
-      levelModifiers: [0, -3, 0, 0, 0]
-    Cischi:
-      levelModifiers: [0, -3, 0, 0, 0]
+      levelModifiers: [0, -3, -996, -997, -996]
     Golem:
-      levelModifiers: [0, -3, 0, 0, 0]
+      levelModifiers: [0, -3, -996, -997, -996]
 
 - type: language
   id: Urlum
@@ -457,13 +464,11 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: murine
-  levelCosts: [0, 4, 4, 999]
+  levelCosts: [0, 4, 4, 999, 999]
   speciesModifiers:
     Vox:
       levelModifiers: [0, -1, -2, 0, 0]
     Ipc:
-      levelModifiers: [0, -3, -2, 0, 0]
-    Cischi:
       levelModifiers: [0, -3, -2, 0, 0]
     Golem:
       levelModifiers: [0, -3, -2, 0, 0]
@@ -590,15 +595,19 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: top
-  levelCosts: [0, 1, 0, 1, 1]
+  levelCosts: [0, 1, 2, 2, 3]
   speciesModifiers:
+    Vox:
+      levelModifiers: [0, 0, 0, 1, 0]
     Ipc:
-      levelModifiers: [0, 0, 0, -1, 0]
+      levelModifiers: [0, 0, -1, -1, 0]
+    Cischi:
+      levelModifiers: [0, 0, 0, 1, 0]
     Golem:
-      levelModifiers: [0, 0, 0, -1, 0]
+      levelModifiers: [0, 0, -1, -1, 0]
   confederationModifiers:
-    SocialConfederation:
-      levelModifiers: [0, -1, 0, 0, 0]
+    ConfederationOfOrionStates:
+      levelModifiers: [0, -1, -1, 0, 0]
 
 - type: language
   id: BottomTranslate
@@ -631,19 +640,15 @@
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: bottom
-  levelCosts: [0, 1, 2, 2, 3]
+  levelCosts: [0, 1, 0, 1, 1]
   speciesModifiers:
-    Vox:
-      levelModifiers: [0, 0, 0, 1, 0]
     Ipc:
-      levelModifiers: [0, 0, -1, -1, 0]
-    Cischi:
-      levelModifiers: [0, 0, 0, 1, 0]
+      levelModifiers: [0, 0, 0, -1, 0]
     Golem:
-      levelModifiers: [0, 0, -1, -1, 0]
+      levelModifiers: [0, 0, 0, -1, 0]
   confederationModifiers:
-    ConfederationOfOrionStates:
-      levelModifiers: [0, -1, -1, 0, 0]
+    SocialConfederation:
+      levelModifiers: [0, -1, 0, 0, 0]
 
 - type: language
   id: Yangyu
@@ -694,12 +699,18 @@
   speciesModifiers:
     Vox:
       levelModifiers: [0, 0, 0, 1, 0]
+    Vulpkanin:
+      levelModifiers: [0, 0, 0, 1, 0]
     Ipc:
       levelModifiers: [0, 0, -1, -1, 0]
     Cischi:
-      levelModifiers: [0, 0, 0, 1, 0]
+      levelModifiers: [0, 0, 0, -1, 0]
     Golem:
       levelModifiers: [0, 0, -1, -1, 0]
+    Akula:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Reptilian:
+      levelModifiers: [0, 0, 0, 1, 0]
   confederationModifiers:
     HolyEmpireOfEden:
       levelModifiers: [0, 0, -1, 0, 0]
@@ -763,7 +774,7 @@
       levelModifiers: [0, -1, -1, -1, 0]
     Human:
       levelModifiers: [0, 0, 0, -1, 0]
-    Reptilian:
+    Felinid:
       levelModifiers: [0, 0, 0, -1, 0]
 
 - type: language
@@ -843,23 +854,23 @@
   speciesModifiers:
     Android:
       levelModifiers: [0, 0, -1, 0, 0]
+    Arachnid:
+      levelModifiers: [0, 0, 0, 1, 0]
     Vox:
       levelModifiers: [0, 0, 0, 1, 0]
     Vulpkanin:
       levelModifiers: [0, 0, 0, 1, 0]
     Ipc:
       levelModifiers: [0, 0, -1, -1, 0]
-    Cischi:
-      levelModifiers: [0, 0, 0, -1, 0]
     Golem:
       levelModifiers: [0, 0, -1, -1, 0]
+    Human:
+      levelModifiers: [0, 0, -1, 0, 0]
     Murine:
       levelModifiers: [0, 0, -1, 0, 0]
     Moth:
       levelModifiers: [0, 0, -1, 0, 0]
     Akula:
-      levelModifiers: [0, 0, 0, 1, 0]
-    Tajaran:
       levelModifiers: [0, 0, 0, 1, 0]
     Reptilian:
       levelModifiers: [0, 0, 0, 1, 0]
@@ -904,17 +915,17 @@
       levelModifiers: [0, 0, 0, 1, 0]
     Vox:
       levelModifiers: [0, 0, 0, 1, 0]
+    Vulpkanin:
+      levelModifiers: [0, 0, -1, 0, -1]
     Ipc:
       levelModifiers: [0, 0, -1, 0, -1]
     Diona:
-      levelModifiers: [0, 0, -1, 0, -1]
+      levelModifiers: [0, 0, 0, 1, 1]
     Cischi:
       levelModifiers: [0, 0, 0, 1, 1]
     Golem:
-      levelModifiers: [0, 0, 0, 1, 1]
-    Murine:
       levelModifiers: [0, 0, -1, 0, -1]
-    Akula:
+    Murine:
       levelModifiers: [0, 0, 0, 1, 0]
     Moth:
       levelModifiers: [0, 0, 0, 1, 0]

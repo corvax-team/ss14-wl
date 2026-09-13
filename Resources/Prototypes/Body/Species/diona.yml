@@ -173,9 +173,7 @@
     list:
     - language: Translate
       languageLevel: 4
-    - language: RootSpeak
-      languageLevel: 4
-    specieLanguage: RootSpeak
+    specieLanguage: Translate
   #WL-Changes: Languages end
 
 - type: entity

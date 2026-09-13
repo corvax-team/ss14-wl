@@ -103,9 +103,7 @@
     list:
     - language: Translate
       languageLevel: 4
-    - language: OldEarth
-      languageLevel: 4
-    specieLanguage: OldEarth
+    specieLanguage: Translate
   #WL-Changes: Languages end
 
 - type: entity

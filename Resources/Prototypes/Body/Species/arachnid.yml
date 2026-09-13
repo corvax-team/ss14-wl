@@ -144,9 +144,7 @@
     list:
     - language: Translate
       languageLevel: 4
-    - language: Arachny
-      languageLevel: 4
-    specieLanguage: Arachny
+    specieLanguage: Translate
   #WL-Changes: Languages end
 
 - type: entity

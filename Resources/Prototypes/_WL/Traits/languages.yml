@@ -10,7 +10,7 @@
   name: trait-language-unspecie
   description: trait-language-unspecie-desc
   category: Languages
-  cost: -1
+  cost: -4
   whitelist:
     components:
       - Languages
@@ -31,6 +31,174 @@
     - type: ModifyLanguages
       languages:
         - SintaUnati
+
+- type: trait
+  id: OldEarth
+  name: language-oldearth
+  description: language-oldearth-desc
+  category: Languages
+  cost: 3
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - OldEarth
+
+- type: trait
+  id: Kuniluc
+  name: language-vulpa
+  description: language-vulpa-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Kuniluc
+
+- type: trait
+  id: Sarengis
+  name: language-sareng
+  description: language-sareng-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Sarengis
+
+- type: trait
+  id: Weaver
+  name: language-weaver
+  description: language-weaver-desc
+  category: Languages
+  cost: 4
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Weaver
+
+- type: trait
+  id: Ternary
+  name: language-ternary
+  description: language-ternary-desc
+  category: Languages
+  cost: 999
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Ternary
+
+- type: trait
+  id: Arachny
+  name: language-arachny
+  description: language-arachny-desc
+  category: Languages
+  cost: 4
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Arachny
+
+- type: trait
+  id: RootSpeak
+  name: language-rootspeak
+  description: language-rootspeak-desc
+  category: Languages
+  cost: 999
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - RootSpeak
+
+- type: trait
+  id: Slimish
+  name: language-slimish
+  description: language-slimish-desc
+  category: Languages
+  cost: 5
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Slimish
+
+- type: trait
+  id: VoxPigin
+  name: language-vox
+  description: language-vox-desc
+  category: Languages
+  cost: 5
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - VoxPigin
+
+- type: trait
+  id: Urlum
+  name: language-urlum
+  description: language-urlum-desc
+  category: Languages
+  cost: 4
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Urlum
+
+- type: trait
+  id: SikTair
+  name: language-siktair
+  description: language-siktair-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - SikTair
+
+- type: trait
+  id: Wingdings
+  name: language-wingdings
+  description: language-wingdings-desc
+  category: Languages
+  cost: 1
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Wingdings
 
 - type: trait
   id: TopTranslate
@@ -61,34 +229,6 @@
         - BottomTranslate
 
 - type: trait
-  id: Wingdings
-  name: language-wingdings
-  description: language-wingdings-desc
-  category: Languages
-  cost: 1
-  whitelist:
-    components:
-      - Languages
-  components:
-    - type: ModifyLanguages
-      languages:
-        - Wingdings
-
-- type: trait
-  id: Kuniluc
-  name: language-vulpa
-  description: language-vulpa-desc
-  category: Languages
-  cost: 2
-  whitelist:
-    components:
-      - Languages
-  components:
-    - type: ModifyLanguages
-      languages:
-        - Kuniluc
-
-- type: trait
   id: Yangyu
   name: language-yangyu
   description: language-yangyu-desc
@@ -103,20 +243,6 @@
         - Yangyu
 
 - type: trait
-  id: SintaUrssa
-  name: language-urssa
-  description: language-urssa-desc
-  category: Languages
-  cost: 2
-  whitelist:
-    components:
-    - Languages
-  components:
-  - type: ModifyLanguages
-    languages:
-    - SintaUrssa
-
-- type: trait
   id: Taidz
   name: language-taidz
   description: language-taidz-desc
@@ -124,11 +250,11 @@
   cost: 2
   whitelist:
     components:
-    - Languages
+      - Languages
   components:
-  - type: ModifyLanguages
-    languages:
-    - Taidz
+    - type: ModifyLanguages
+      languages:
+        - Taidz
 
 - type: trait
   id: Interlingua
@@ -138,36 +264,22 @@
   cost: 2
   whitelist:
     components:
-    - Languages
+      - Languages
   components:
-  - type: ModifyLanguages
-    languages:
-    - Interlingua
+    - type: ModifyLanguages
+      languages:
+        - Interlingua
 
 - type: trait
-  id: SikTair
-  name: language-siktair
-  description: language-siktair-desc
+  id: SintaUrssa
+  name: language-urssa
+  description: language-urssa-desc
   category: Languages
   cost: 2
   whitelist:
     components:
-    - Languages
+      - Languages
   components:
-  - type: ModifyLanguages
-    languages:
-    - SikTair
-
-- type: trait
-  id: Sareng
-  name: language-sareng
-  description: language-sareng-desc
-  category: Languages
-  cost: 2
-  whitelist:
-    components:
-    - Languages
-  components:
-  - type: ModifyLanguages
-    languages:
-    - Sarengis
+    - type: ModifyLanguages
+      languages:
+        - SintaUrssa

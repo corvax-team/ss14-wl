@@ -140,9 +140,7 @@
     list:
     - language: Translate
       languageLevel: 4
-    - language: Urlum
-      languageLevel: 4
-    specieLanguage: Urlum
+    specieLanguage: Translate
   #WL-Changes: Languages end
   - type: AddHeightItem
 

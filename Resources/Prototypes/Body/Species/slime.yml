@@ -187,9 +187,7 @@
     list:
     - language: Translate
       languageLevel: 4
-    - language: Slimish
-      languageLevel: 4
-    specieLanguage: Slimish
+    specieLanguage: Translate
   #WL-Changes: Languages end
 
 - type: entity
