@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807; fluffycurls, twilight, shortstraightparted, shortstraight, moonprince, messyart, maletowa, longstraight, longlowstraightponytail, Kioku, jimmy, hank, denki, armetaj, pigtail, ponytail_long, ponytail_short, short_cute, short_cute2 made by discord:reartint; spikyponytailalt, hairpunchn, overgrown, licked and pigtailalt by NEBULON, sceneemo1 and sceneemo2 added by ReArtInt",
+  "copyright": "Taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807; fluffycurls, twilight, shortstraightparted, shortstraight, moonprince, messyart, maletowa, longstraight, longlowstraightponytail, Kioku, jimmy, hank, denki, armetaj, pigtail, ponytail_long, ponytail_short, short_cute, short_cute2, twintailgirly, twintailparty, cutemess, knight made by discord:reartint; spikyponytailalt, hairpunchn, overgrown, licked and pigtailalt by NEBULON, sceneemo1 and sceneemo2 added by ReArtInt",
   "size": {
     "x": 32,
     "y": 32
@@ -116,7 +116,15 @@
       "directions": 4
     },
     {
-      "name": "twilight",
+      "name": "twilight1",
+      "directions": 4
+    },
+    {
+      "name": "twilight2",
+      "directions": 4
+    },
+    {
+      "name": "twilight3",
       "directions": 4
     },
     {
@@ -253,6 +261,34 @@
     },
     {
       "name": "layeredstraight2",
+      "directions": 4
+    },
+    {
+      "name": "twintailgirly1",
+      "directions": 4
+    },
+    {
+      "name": "twintailgirly2",
+      "directions": 4
+    },
+    {
+      "name": "twintailparty1",
+      "directions": 4
+    },
+    {
+      "name": "twintailparty2",
+      "directions": 4
+    },
+    {
+      "name": "cutemess1",
+      "directions": 4
+    },
+    {
+      "name": "cutemess2",
+      "directions": 4
+    },
+    {
+      "name": "knight",
       "directions": 4
     },
     {

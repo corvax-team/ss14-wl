@@ -54,3 +54,12 @@ ent-ClothingUniformJumpskirtPinkDesignerDress = розовое дизайнер�
 
 ent-ClothingUniformJumpskirtDivineTunic = божественная туника
     .desc = Ты не греческий бог, но она удобная.
+
+ent-ClothingUniformJumpskirtFlowyDress = лёгкое платье
+    .desc = Оно довольно простое и комфортное.
+
+ent-ClothingUniformJumpskirtForestDress = лесное платье
+    .desc = Неаккуратное, но милое.
+
+ent-ClothingUniformJumpskirtShroomDress = грибное платье
+    .desc = Фея наверняка такое бы носила.
