@@ -74,6 +74,9 @@
   id: Cult
 
 - type: Tag
+  id: FireResistant
+
+- type: Tag
   id: Cobra # Overlay whitelist: ClothingBeltHolsterred
 
 - type: Tag

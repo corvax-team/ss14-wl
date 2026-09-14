@@ -166,6 +166,10 @@
       - SikTair
     specieLanguage: SikTair
   # WL-Changes: Languages
+  #Wl-Changes-Start
+  - type: CuffedMeleeWeapon
+    weaponId: CuffedTajarAttack
+  #WL-Changes-End
 
 - type: entity
   parent: OrganBase
@@ -314,3 +318,18 @@
 - type: entity
   parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganTajaranInternal, OrganTajaranMetabolizer ]
   id: OrganTajaranKidneys
+
+#WL-Changes-Start
+- type: entity
+  id: CuffedTajarAttack
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 7
+    range: 0.5
+    attackRate: 0.5
+#WL-Changes-End

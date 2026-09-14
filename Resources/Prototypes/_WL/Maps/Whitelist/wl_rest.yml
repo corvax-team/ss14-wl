@@ -16,7 +16,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'MFO'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_WL/Shuttles/wl_rest_evac.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/Rest/wl_rest_evac.yml
         - type: StationJobs
           availableJobs:
 

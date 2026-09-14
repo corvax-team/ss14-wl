@@ -36,6 +36,11 @@ public sealed partial class DynamicTextWindow : FancyWindow
     public void SetDynamicText(string text)
     {
         CDynamicTextInput.TextRope = new Rope.Leaf(text);
+
+        CDynamicTextInput.CursorPosition = new TextEdit.CursorPos(
+            text.Length,
+            TextEdit.LineBreakBias.Top);
+
         UpdateCharacterCounter(text.Trim().Length);
     }
 

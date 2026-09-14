@@ -22,6 +22,10 @@
   components:
   - type: Contraband
     severity: Magical
+  - type: Tag
+    tags:
+    - FireResistant # WL-Changes
+
 
 # non-stealth syndicate stuff
 - type: entity

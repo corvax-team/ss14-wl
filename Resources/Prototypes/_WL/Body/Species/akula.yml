@@ -114,6 +114,10 @@
         - Translate
         - Sarengis
       specieLanguage: Sarengis
+    #Wl-Changes-Start
+    - type: CuffedMeleeWeapon
+      weaponId: CuffedAkulaAttack
+    #WL-Changes-End
 
 - type: entity
   parent: OrganBase
@@ -240,3 +244,19 @@
 - type: entity
   parent: [ OrganBaseKidneys, OrganAkulaInternal, OrganAkulaMetabolizer ]
   id: OrganAkulaKidneys
+
+#WL-Changes-Start
+- type: entity
+  id: CuffedAkulaAttack
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 7
+        Slash: 3
+    range: 0.5
+    attackRate: 0.5
+#WL-Changes-End

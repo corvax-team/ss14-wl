@@ -149,6 +149,10 @@
       - Arachny
     specieLanguage: Arachny
   #WL-Changes: Languages end
+  #Wl-Changes-Start
+  - type: CuffedMeleeWeapon
+    weaponId: CuffedArachnidAttack
+  #WL-Changes-End
 
 - type: entity
   parent: OrganBaseOrganic
@@ -162,7 +166,7 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [ Animal ] # [ Arachnid ] before # WL-Changes
- 
+
 - type: entity
   parent: OrganArachnid
   id: OrganArachnidInternal
@@ -269,3 +273,19 @@
 - type: entity
   parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer ]
   id: OrganArachnidKidneys
+
+#WL-Changes-Start
+- type: entity
+  id: CuffedArachnidAttack
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 3
+        Poison: 2
+    range: 0.5
+    attackRate: 0.5
+#WL-Changes-End
