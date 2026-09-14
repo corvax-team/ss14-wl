@@ -117,3 +117,39 @@
 
 - type: Tag
   id: Inspector # Overlay whitelist: ClothingBeltHolsterDSS
+
+- type: Tag
+  id: SecurityPrivatePin
+
+- type: Tag
+  id: SecurityCorporalPin
+
+- type: Tag
+  id: SecuritySubSergeantPin
+
+- type: Tag
+  id: SecuritySergeantPin
+
+- type: Tag
+  id: SecurityChiefSergeantPin
+
+- type: Tag
+  id: SecuritySubLieutenantPin
+
+- type: Tag
+  id: SecurityLieutenantPin
+
+- type: Tag
+  id: SecurityChiefLieutenantPin
+
+- type: Tag
+  id: SecurityCaptainPin
+
+- type: Tag
+  id: SecurityMajorPin
+
+- type: Tag
+  id: SecurityContractorPin
+
+- type: Tag
+  id: SecPin
