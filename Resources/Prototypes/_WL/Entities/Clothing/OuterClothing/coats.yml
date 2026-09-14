@@ -354,12 +354,6 @@
   id: ClothingOuterCoatLongAdjutant
   name: adjutant's longcoat
   description: The blue mean longcoat of command department. You wish that wearing that will make you not cut yourself with a piece of paper.
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterCoatLongAdjutant
-  name: adjutant's longcoat
-  description: The blue mean longcoat of command department. You wish that wearing that will make you not cut yourself with a piece of paper.
   components:
   - type: Sprite
     sprite: _WL/Clothing/OuterClothing/Coats/adjutant_coat.rsi
