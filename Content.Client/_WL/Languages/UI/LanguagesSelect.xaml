@@ -24,7 +24,7 @@
             <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="False">
 
                 <!-- Название + стоимость -->
-                <BoxContainer Orientation="Horizontal">
+                <BoxContainer Orientation="Vertical">
                     <Label Name="NameLabel" StyleClasses="LabelHeading"/>
                     <Label Name="CostLabel" FontColorOverride="#AAAAAA"/>
                 </BoxContainer>
