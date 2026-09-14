@@ -124,6 +124,8 @@
   - BaseSpeciesMobOrganic
   id: MobCischi
   components:
+  - type: Swimmer
+    swimSpeedModifier: 0.8
   - type: Hunger
   - type: Thirst
   - type: Damageable
