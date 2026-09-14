@@ -173,3 +173,211 @@
     sprite: _WL/Clothing/OuterClothing/Coats/green_coat.rsi
   - type: Clothing
     sprite: _WL/Clothing/OuterClothing/Coats/green_coat.rsi
+- type: entity
+  parent: [ClothingOuterStorageBase, ClothingOuterStorageFoldableBase]
+  id: ClothingOuterCoatCaptainTrench
+  name: captain's trench coat
+  description: A fashionable trench coat made by the masters of their craft. It consists of excellent quality textiles, but even so, it is unlikely to protect you from anything.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/captain_trenchcoat.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/captain_trenchcoat.rsi
+  - type: StaticPrice
+    price: 4999
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Heat: 0.7
+
+- type: entity
+  parent: [ClothingOuterCoatCaptainTrench, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterCoatCaptainTrenchOpened
+  name: captain's trench coat
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatAdjutantCC
+  name: centcom adjutant's coat
+  description: A fashionable trench coat made by the masters of their craft. It consists of excellent quality textiles, but even so, it is unlikely to protect you from anything.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/aidedecamp.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/aidedecamp.rsi
+  - type: StaticPrice
+    price: 2500
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Heat: 0.8
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterJohnnySilverhandJacket
+  name: Johnny silverhand jacket
+  description: Ca-can you feel it?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/johnnysilverhandcoat.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/johnnysilverhandcoat.rsi
+
+- type: entity
+  parent: [ ClothingOuterArmorBase, ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSecurityContraband ]
+  id: ClothingOuterCoatDetectiveWhite
+  name: White detective trenchcoat
+  description: Modern-looking trenchcoat with an armored underlay. Someone who wears this means serious business while being stylish.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/wdetective.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/wdetective.rsi
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SmokingPipeFilledTobacco
+        - id: FlippoEngravedLighter
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterEngiCoat
+  name: engineer coat
+  description: The perfect uniform for an experiment with singularity on an april night.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/engicoat.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/engicoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.90
+        Radiation: 0.90
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatBlueAssymetry
+  name: assymetrical coat
+  description: Daring and blue.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/blueassymetry.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/blueassymetry.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatPinkMiniFurcoat
+  name: pink mini fur coat
+  description: Thats not protecting you from the cold, gurl...
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/pinkfluff.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/pinkfluff.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRaspberryCoat
+  name: raspberry coat
+  description: You can finally LARP as a rich person!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/raspberry.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/raspberry.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterCoatBlueCuteCardigan
+  name: blue flowery cardigan
+  description: Soft and comforting for those who deserve it most.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/cutecardigan.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/cutecardigan.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterCoatPurpleCuteCardigan
+  name: purple flowery cardigan
+  description: Soft and comforting for those who deserve it most.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/cutecardiganalt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/cutecardiganalt.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatMusicianBikingJacket
+  name: biking jacket
+  description: You can already feel the music.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/musical.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/musical.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterCoatAppleCoat
+  name: apple coat
+  description: You can almost sit on it and have a picnic in an autumn forest.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/apple_coat.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/apple_coat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterCoatGreenCoatSimple
+  name: green simple coat
+  description: Keeps you warm and cute.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/green_coat.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/green_coat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLongAdjutant
+  name: adjutant's longcoat
+  description: The blue mean longcoat of command department. You wish that wearing that will make you not cut yourself with a piece of paper.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_coat.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_coat.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatBomberAdjutant
+  name: adjutant's bomber
+  description: Classic. Tells everyone that you're out of touch by those silver "NT" on your back. Or out of weekends.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_bomber.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_bomber.rsi
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBaseOpened
+  id: ClothingOuterCoatParadeAdjutant
+  name: adjutant's parade blazer
+  description: A little bit too much of fancy fashion for a bureaucracy errand boy.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_blazer.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Coats/adjutant_blazer.rsi
