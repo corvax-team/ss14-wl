@@ -62,27 +62,36 @@ public sealed partial class ChatSystem
     }
 
     // WL-Changes: Lang X Chat start
-    private void SendInVoiceRangeObfuscated(ChatChannel channel, string message, string wrappedMessage, ChatChannel obfuscatedChannel, string obfuscatedMessage, string obfuscatedWrapMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, InGameICChatType chatType = InGameICChatType.Speak) // Wl-Changes Chat Type
+    private void SendInVoiceRangeObfuscated(ChatChannel channel, string message, string wrappedMessage, ChatChannel obfuscatedChannel, string obfuscatedMessage, string obfuscatedWrapMessage, EntityUid source, ChatTransmitRange range, NetUserId? author = null, InGameICChatType chatType = InGameICChatType.Speak) // WL-Languages
     {
-        foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType)) // Wl-Changes Chat Type
+        foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType)) // WL-Languages
         {
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
                 continue;
             var entHideChat = entRange == MessageRangeCheckResult.HideChat;
 
-            //WL-Changes: Lang X Chat start
-            if (session.AttachedEntity is not { Valid: true } playerEntity)
-            {
+            if (session.AttachedEntity is not { Valid: true } listener) // WL-Languages
                 continue;
-            }
 
-            var listener = playerEntity;
+            //WL-Changes-Start Language
             if (!_languages.CanUnderstand(source, listener, message))
-                _chatManager.ChatMessageToOne(obfuscatedChannel, obfuscatedMessage, obfuscatedWrapMessage, source, entHideChat, session.Channel, author: author);
+            {
+                var listenerMessage =
+                    _languages.ObfuscateMessageFromSource(message, source, listener);
+
+                var listenerWrappedMessage =
+                    _languages.IsObfusEmoting(source, message)
+                        ? _languages.GetEmoteWrappedMessage(listenerMessage, source, Name(source))
+                        : _languages.GetWrappedMessage(listenerMessage, source, Name(source), GetSpeechVerb(source, message), false);
+
+                _chatManager.ChatMessageToOne(obfuscatedChannel, listenerMessage, listenerWrappedMessage, source, entHideChat, session.Channel, author: author);
+            }
             else
-            //WL-Changes: Lang X Chat end
+            {
                 _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
+            }
+            //WL-Changes-End Language
         }
 
         _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));

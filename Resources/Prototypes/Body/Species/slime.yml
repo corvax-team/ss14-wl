@@ -184,13 +184,10 @@
     maxSaturation: 15
   #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - Slimish
-    understood:
-      - Translate
-      - Slimish
-    specieLanguage: Slimish
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
   #WL-Changes: Languages end
 
 - type: entity

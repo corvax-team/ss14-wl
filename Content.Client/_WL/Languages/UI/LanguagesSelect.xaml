@@ -1,0 +1,45 @@
+<controls:LanguagesSelect
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._WL.Languages.UI"
+    xmlns:graphics1="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Margin="0 0 0 8">
+
+    <PanelContainer Name="ColorPanel">
+        <PanelContainer.PanelOverride>
+            <graphics1:StyleBoxFlat
+                BackgroundColor="#25252A"
+                ContentMarginTopOverride="8"
+                ContentMarginBottomOverride="8"
+                ContentMarginLeftOverride="8"
+                ContentMarginRightOverride="8"/>
+        </PanelContainer.PanelOverride>
+
+        <BoxContainer Orientation="Horizontal">
+
+            <!-- Иконка языка -->
+            <TextureRect Name="LanguageIcon" VerticalAlignment="Top" HorizontalAlignment="Left" SetSize="64 64" TextureScale="2 2" Stretch="KeepAspectCentered"/>
+            <Control MinSize="10 0"/>
+
+            <!-- Основной контент -->
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="False">
+
+                <!-- Название + стоимость -->
+                <BoxContainer Orientation="Vertical">
+                    <Label Name="NameLabel" StyleClasses="LabelHeading"/>
+                    <Label Name="CostLabel" FontColorOverride="#AAAAAA"/>
+                </BoxContainer>
+
+                <!-- Описание -->
+                <RichTextLabel Name="DescriptionLabel" StyleClasses="LabelSubText" Margin="0 0 0 4" VerticalExpand="True" HorizontalExpand="False"/>
+
+                <!-- Кнопки уровней -->
+                <BoxContainer Orientation="Horizontal" Margin="0 4 0 0">
+                    <Button Name="Level1Button" Margin="0 0 4 0" MinSize="110 30" ToolTip="{Loc languages-level-1-tooltip}"/>
+                    <Button Name="Level2Button" Margin="0 0 4 0" MinSize="110 30" ToolTip="{Loc languages-level-2-tooltip}"/>
+                    <Button Name="Level3Button" Margin="0 0 4 0" MinSize="110 30" ToolTip="{Loc languages-level-3-tooltip}"/>
+                    <Button Name="Level4Button" MinSize="110 30" ToolTip="{Loc languages-level-4-tooltip}"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</controls:LanguagesSelect>

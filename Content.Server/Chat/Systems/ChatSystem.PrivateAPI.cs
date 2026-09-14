@@ -53,6 +53,17 @@ public sealed partial class ChatSystem
         name = FormattedMessage.EscapeText(name);
 
         // WL-Change: Lang X Chat Start
+        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange, chatType))
+        {
+            EntityUid listener;
+
+            if (session.AttachedEntity is not { Valid: true } playerEntity)
+                continue;
+            listener = session.AttachedEntity.Value;
+
+            _languages.ObfuscateMessageFromSource(message, source, listener);
+        }
+
         var pressureCheckEv = new PressureLanguageCheckEvent(message, source);
         RaiseLocalEvent(source, ref pressureCheckEv);
         if (pressureCheckEv.Cancelled)

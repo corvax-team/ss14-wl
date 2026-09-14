@@ -232,11 +232,13 @@
 
   - type: NoSlip
 
+  #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-    understood:
-      - Translate
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
+  #WL-Changes: Languages end
 
 - type: entity
   parent: OrganBase

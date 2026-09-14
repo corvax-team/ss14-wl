@@ -106,14 +106,13 @@
     - type: Vocal
       emoteSounds: MaleAkula
     - type: Wagging
+  #WL-Changes: Languages start
     - type: Languages
-      speaking:
-        - Translate
-        - Sarengis
-      understood:
-        - Translate
-        - Sarengis
-      specieLanguage: Sarengis
+      list:
+      - language: Translate
+        languageLevel: 4
+      specieLanguage: Translate
+  #WL-Changes: Languages end
     #Wl-Changes-Start
     - type: CuffedMeleeWeapon
       weaponId: CuffedAkulaAttack

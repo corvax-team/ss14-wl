@@ -1,0 +1,11 @@
+<ui:LanguagesTab
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client._WL.Languages.UI">
+
+    <ScrollContainer VerticalExpand="True" HorizontalExpand="False">
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="False">
+            <Label Name="PointsLabel" HorizontalAlignment="Center" Margin="0 0 0 8" StyleClasses="LabelHeading" Text=""/>
+            <BoxContainer Name="LanguagesContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="False" MaxWidth="1200"/>
+        </BoxContainer>
+    </ScrollContainer>
+</ui:LanguagesTab>

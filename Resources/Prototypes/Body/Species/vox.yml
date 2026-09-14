@@ -255,13 +255,10 @@
   - type: Wagging
   #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - VoxPigin
-    understood:
-      - Translate
-      - VoxPigin
-    specieLanguage: VoxPigin
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
   #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon

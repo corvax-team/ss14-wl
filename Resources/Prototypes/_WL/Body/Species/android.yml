@@ -310,14 +310,13 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+  #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - Ternary
-    understood:
-      - Translate
-      - Ternary
-    specieLanguage: Ternary
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
+  #WL-Changes: Languages end
   - type: Instrument
     allowPercussion: false
     handheld: false

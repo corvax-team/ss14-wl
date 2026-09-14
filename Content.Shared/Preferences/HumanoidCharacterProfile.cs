@@ -2,6 +2,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._WL.Skills; // WL-Skills
+using Content.Shared._WL.Languages; // WL-Languages
 using Content.Shared._WL.Records; // WL-Changes-Records
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
@@ -81,6 +82,13 @@ namespace Content.Shared.Preferences
         /// <see cref="_loadouts"/>
         /// </summary>
         public IReadOnlyDictionary<string, RoleLoadout> Loadouts => _loadouts;
+
+        //WL-Changes-Start Language
+        [DataField]
+        private Dictionary<ProtoId<TraitPrototype>, int> _languageLevels = new();
+
+        public IReadOnlyDictionary<ProtoId<TraitPrototype>, int> LanguageLevels => _languageLevels;
+        //WL-Changes-End Language
 
         [DataField]
         private Dictionary<string, RoleLoadout> _loadouts = new();
@@ -185,6 +193,7 @@ namespace Content.Shared.Preferences
 
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
+            Dictionary<ProtoId<TraitPrototype>, int> languageLevels, // WL-Languages
             Dictionary<string, RoleLoadout> loadouts,
 
             //WL-Changes-start
@@ -218,6 +227,7 @@ namespace Content.Shared.Preferences
             PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
+            _languageLevels = languageLevels; // WL-Languages
             _loadouts = loadouts;
 
             //WL-Changes-start
@@ -271,6 +281,7 @@ namespace Content.Shared.Preferences
 
                 new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
                 new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
+                new Dictionary<ProtoId<TraitPrototype>, int>(other.LanguageLevels), // WL-Languages
                 new Dictionary<string, RoleLoadout>(other.Loadouts),
                 new(other.JobUnblockings), // WL-Heigh
                 other.MedicalRecord, // WL-Records
@@ -318,6 +329,57 @@ namespace Content.Shared.Preferences
                 Appearance = HumanoidCharacterAppearance.DefaultWithSpecies(species.Value, sex.Value),
             };
         }
+
+        //WL-Changes-Start Language
+        public HumanoidCharacterProfile WithLanguageLevel(
+            ProtoId<TraitPrototype> traitId,
+            int level)
+        {
+            var levels = new Dictionary<ProtoId<TraitPrototype>, int>(_languageLevels);
+
+            if (level <= 0)
+                levels.Remove(traitId);
+            else
+                levels[traitId] = level;
+
+            return new(this)
+            {
+                _languageLevels = levels
+            };
+        }
+
+        /// <summary>
+        /// Changes a selected language level and keeps it only when the resulting trait set is valid.
+        /// </summary>
+        public HumanoidCharacterProfile WithLanguageLevel(
+            ProtoId<TraitPrototype> traitId,
+            int level,
+            IPrototypeManager protoManager)
+        {
+            var levels = new Dictionary<ProtoId<TraitPrototype>, int>(_languageLevels);
+
+            if (level <= 0)
+                levels.Remove(traitId);
+            else
+                levels[traitId] = level;
+
+            var validTraits = GetValidTraits(_traitPreferences, protoManager, levels);
+            if (!validTraits.Contains(traitId))
+                return new(this);
+
+            return new(this)
+            {
+                _languageLevels = levels
+            };
+        }
+
+        public HumanoidCharacterProfile WithoutLanguageLevel(ProtoId<TraitPrototype> traitId)
+        {
+            var levels = new Dictionary<ProtoId<TraitPrototype>, int>(_languageLevels);
+            levels.Remove(traitId);
+            return new(this) { _languageLevels = levels };
+        }
+        //WL-Changes-End Language
 
         /// <summary>
         /// An enum defining randomizable values in character editor.
@@ -814,53 +876,11 @@ namespace Content.Shared.Preferences
                 _antagPreferences = list,
             };
         }
-
+        //WL-Changes-Start Language
         public HumanoidCharacterProfile WithTraitPreference(ProtoId<TraitPrototype> traitId, IPrototypeManager protoManager)
         {
-            // null category is assumed to be default.
-            if (!protoManager.TryIndex(traitId, out var traitProto))
-                return new(this);
-
-            var category = traitProto.Category;
-
-            // Category not found so dump it.
-            TraitCategoryPrototype? traitCategory = null;
-
-            if (category != null && !protoManager.Resolve(category, out traitCategory))
-                return new(this);
-
-            var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
-
-            if (traitCategory == null || traitCategory.MaxTraitPoints < 0)
-            {
-                return new(this)
-                {
-                    _traitPreferences = list,
-                };
-            }
-
-            var count = 0;
-            foreach (var trait in list)
-            {
-                // If trait not found or another category don't count its points.
-                if (!protoManager.TryIndex<TraitPrototype>(trait, out var otherProto) ||
-                    otherProto.Category != traitCategory)
-                {
-                    continue;
-                }
-
-                count += otherProto.Cost;
-            }
-
-            if (count > traitCategory.MaxTraitPoints && traitProto.Cost != 0)
-            {
-                return new(this);
-            }
-
-            return new(this)
-            {
-                _traitPreferences = list,
-            };
+            var level = _languageLevels.GetValueOrDefault(traitId, 1);
+            return WithTraitPreference(traitId, protoManager, level);
         }
 
         public HumanoidCharacterProfile WithoutTraitPreference(ProtoId<TraitPrototype> traitId, IPrototypeManager protoManager)
@@ -872,6 +892,51 @@ namespace Content.Shared.Preferences
             {
                 _traitPreferences = list,
             };
+        }
+        public HumanoidCharacterProfile WithTraitPreference(
+            ProtoId<TraitPrototype> traitId,
+            IPrototypeManager protoManager,
+            int level)
+         //WL-Changes-End Language
+        {
+            if (!protoManager.TryIndex(traitId, out var traitProto))
+                return new(this);
+
+            var category = traitProto.Category;
+            TraitCategoryPrototype? traitCategory = null;
+
+            if (category != null && !protoManager.Resolve(category, out traitCategory))
+                return new(this);
+
+            var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
+
+            if (traitCategory == null || traitCategory.MaxTraitPoints < 0)
+            {
+                return new(this)
+                {
+                    _traitPreferences = list // WL-Languages
+                };
+            }
+
+            var levels = new Dictionary<ProtoId<TraitPrototype>, int>(_languageLevels) // WL-Languages
+            {
+                [traitId] = level // WL-Languages
+            };
+
+            var validTraits = GetValidTraits(list, protoManager, levels); // WL-Languages
+            if (!validTraits.Contains(traitId)) // WL-Languages
+                return new(this);
+
+            return new(this)
+            {
+                _traitPreferences = list
+            };
+        }
+        public HumanoidCharacterProfile WithoutTraitPreference(ProtoId<TraitPrototype> traitId)
+        {
+            var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences);
+            list.Remove(traitId);
+            return new(this) { _traitPreferences = list }; // WL-Languages
         }
 
         public string Summary =>
@@ -928,6 +993,7 @@ namespace Content.Shared.Preferences
             if (!_jobPriorities.SequenceEqual(other._jobPriorities)) return false;
             if (!_antagPreferences.SequenceEqual(other._antagPreferences)) return false;
             if (!_traitPreferences.SequenceEqual(other._traitPreferences)) return false;
+            if (!_languageLevels.SequenceEqual(other._languageLevels)) return false; // WL-Languages
             if (!Loadouts.SequenceEqual(other.Loadouts)) return false;
             if (FlavorText != other.FlavorText) return false;
             if (TTSVoice != other.TTSVoice) return false; // Corvax-TTS
@@ -1213,32 +1279,58 @@ namespace Content.Shared.Preferences
         /// <summary>
         /// Takes in an IEnumerable of traits and returns a List of the valid traits.
         /// </summary>
-        public List<ProtoId<TraitPrototype>> GetValidTraits(IEnumerable<ProtoId<TraitPrototype>> traits, IPrototypeManager protoManager)
+        public List<ProtoId<TraitPrototype>> GetValidTraits(
+            IEnumerable<ProtoId<TraitPrototype>> traits,
+            IPrototypeManager protoManager,
+            Dictionary<ProtoId<TraitPrototype>, int>? languageLevels = null) // WL-Languages
         {
-            // Track points count for each group.
             var groups = new Dictionary<string, int>();
             var result = new List<ProtoId<TraitPrototype>>();
+            var levels = languageLevels ?? _languageLevels; // WL-Languages
 
             foreach (var trait in traits)
             {
                 if (!protoManager.TryIndex(trait, out var traitProto))
                     continue;
 
-                // Always valid.
                 if (traitProto.Category == null)
                 {
                     result.Add(trait);
                     continue;
                 }
 
-                // No category so dump it.
                 if (!protoManager.Resolve(traitProto.Category, out var category))
                     continue;
 
                 var existing = groups.GetOrNew(category.ID);
-                existing += traitProto.Cost;
+                //WL-Changes-Start Language
+                var traitLevel = levels.GetValueOrDefault(trait, 1);
+                int traitCost;
 
-                // Too expensive.
+                if (LanguageCostSystem.TryGetLanguagePrototype(
+                        traitProto,
+                        protoManager,
+                        out var languagePrototype) &&
+                    languagePrototype != null)
+                {
+                    if (!LanguageCostSystem.TryGetTotalCostForLevel(
+                            languagePrototype,
+                            traitLevel,
+                            Species.Id,
+                            Confederation,
+                            out traitCost))
+                    {
+                        // Keep old language prototypes working until LevelCosts are configured.
+                        traitCost = traitProto.Cost * traitLevel;
+                    }
+                }
+                else
+                {
+                    traitCost = traitProto.Cost;
+                }
+
+                existing += traitCost;
+                //WL-Changes-End Language
                 if (existing > category.MaxTraitPoints)
                     continue;
 
@@ -1290,6 +1382,7 @@ namespace Content.Shared.Preferences
             hashCode.Add(_jobPriorities);
             hashCode.Add(_antagPreferences);
             hashCode.Add(_traitPreferences);
+            hashCode.Add(_languageLevels); // WL-Languages
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
             hashCode.Add(FlavorText);

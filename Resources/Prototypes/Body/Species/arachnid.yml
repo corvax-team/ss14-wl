@@ -141,13 +141,10 @@
       state: creampie_arachnid
   #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - Arachny
-    understood:
-      - Translate
-      - Arachny
-    specieLanguage: Arachny
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
   #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon

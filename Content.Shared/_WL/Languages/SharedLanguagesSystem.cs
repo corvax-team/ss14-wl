@@ -10,6 +10,8 @@ using Robust.Shared.Timing;
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using System.Linq;
+using Content.Shared._WL.Languages.Components.List;
 
 namespace Content.Shared._WL.Languages;
 
@@ -26,6 +28,12 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     private FrozenDictionary<char, LanguagePrototype> _keylan = default!;
 
     const char LanguagePrefix = '+';
+
+    public const int LanguageLevelNone = 0;
+    public const int LanguageLevelBasic = 1;
+    public const int LanguageLevelPartial = 2;
+    public const int LanguageLevelSpeak = 3;
+    public const int LanguageLevelFull = 4;
 
     public override void Initialize()
     {
@@ -98,6 +106,76 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         return SanitizeMessage(obfuscated);
     }
 
+    public string ObfuscateMessageForLevel(
+        string message,
+        ProtoId<LanguagePrototype> language,
+        int languageLevel)
+    {
+        if (!TryGetLanguagePrototype(language, out var prototype))
+            return message;
+
+        if (languageLevel >= LanguageLevelFull)
+            return message;
+
+        if (languageLevel <= LanguageLevelNone)
+            return ObfuscateFully(message, prototype);
+
+        return ObfuscatePartially(message, prototype, languageLevel);
+    }
+
+    private string ObfuscateFully(
+        string message,
+        LanguagePrototype prototype)
+    {
+        var obfuscated = prototype.Obfuscation.Obfuscate(
+            message,
+            _ticker.RoundId);
+
+        return SanitizeMessage(obfuscated);
+    }
+
+    private string ObfuscatePartially(
+        string message,
+        LanguagePrototype prototype,
+        int languageLevel)
+    {
+        var chance = GetLanguageObfuscationChance(languageLevel);
+
+        var words = message.Split(' ');
+        var result = new StringBuilder();
+
+        foreach (var word in words)
+        {
+            if (word.Length == 0)
+                continue;
+
+            if (_random.Prob(chance))
+            {
+                result.Append(
+                    prototype.Obfuscation.Obfuscate(
+                        word,
+                        _ticker.RoundId));
+            }
+            else
+            {
+                result.Append(word);
+            }
+
+            result.Append(' ');
+        }
+
+        return SanitizeMessage(result.ToString());
+    }
+
+    public string ObfuscateMessageForListener(
+        string message,
+        ProtoId<LanguagePrototype> language,
+        EntityUid listener)
+    {
+        var level = GetLanguageLevel(listener, language);
+        return ObfuscateMessageForLevel(message, language, level);
+    }
+
     public bool TryChangeLanguage(NetEntity netEnt, ProtoId<LanguagePrototype> protoId)
     {
         if (!_ent.TryGetEntity(netEnt, out var ent))
@@ -106,7 +184,9 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         if (!TryComp<LanguagesComponent>(ent, out var comp))
             return false;
 
-        if (!comp.Speaking.Contains(protoId))
+        var entry = comp.List.FirstOrDefault(x => x.Language == protoId);
+
+        if (entry == null || entry.LanguageLevel < LanguageLevelSpeak)
             return false;
 
         comp.CurrentLanguage = protoId;
@@ -116,7 +196,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         RaiseNetworkEvent(ev);
         RaiseLocalEvent(ent.Value, ev);
 
-        var ev2 = new LanguagesInfoEvent(netEnt, (string)protoId, comp.Speaking, comp.Understood);
+        var ev2 = new LanguagesInfoEvent(netEnt, (string)protoId, comp.List);
         RaiseNetworkEvent(ev2);
 
         return true;
@@ -124,7 +204,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
 
     public void SyncLanguages(NetEntity netEnt, LanguagesComponent comp)
     {
-        var ev = new LanguagesSyncEvent(netEnt, comp.Speaking, comp.Understood);
+        var ev = new LanguagesSyncEvent(netEnt, comp.List);
         RaiseNetworkEvent(ev);
     }
 
@@ -137,7 +217,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         Dirty(entity, component);
 
         var netEntity = GetNetEntity(entity);
-        var ev = new LanguagesInfoEvent(netEntity, language, component.Speaking, component.Understood);
+        var ev = new LanguagesInfoEvent(netEntity, language, component.List);
         RaiseNetworkEvent(ev);
     }
 
@@ -163,47 +243,75 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
             ? language : null;
     }
 
-    public bool TryProcessLanguageMessage(EntityUid source, string message, out string new_message)
+    public bool TryProcessLanguageMessage(
+        EntityUid source,
+        string message,
+        out string newMessage)
     {
-        new_message = message.Trim();
+        newMessage = _chat.SanitizeMessageCapital(message.Trim());
 
-        if (message.Length == 0)
+        if (string.IsNullOrWhiteSpace(message))
             return false;
 
-        if (TryComp<LanguagesComponent>(source, out var comp))
-        {
-            if (!message.StartsWith(LanguagePrefix))
-                return false;
+        if (!TryComp<LanguagesComponent>(source, out var comp))
+            return false;
 
+        ProtoId<LanguagePrototype>? languageId;
+
+        if (message.StartsWith(LanguagePrefix))
+        {
             if (message.Length <= 2 || char.IsWhiteSpace(message[1]))
             {
-                new_message = string.Empty;
-                _popup.PopupEntity(Loc.GetString("chat-manager-no-language-key"), source, source);
+                _popup.PopupEntity(
+                    Loc.GetString("chat-manager-no-language-key"),
+                    source,
+                    source);
+
                 return false;
             }
 
-            var prefix = message[1];
-            prefix = char.ToLower(prefix);
-            new_message = _chat.SanitizeMessageCapital(message[2..].TrimStart());
+            var prefix = char.ToLower(message[1]);
 
-            if (!_keylan.TryGetValue(prefix, out LanguagePrototype? language))
+            if (!_keylan.TryGetValue(prefix, out var language))
             {
-                var msg = Loc.GetString("chat-manager-no-such-language", ("key", prefix));
-                new_message = string.Empty;
-                _popup.PopupEntity(msg, source, source);
-                return false;
-            }
-            if (language != null)
-            {
-                if (comp.Speaking.Contains(language.ID))
-                    return true;
+                _popup.PopupEntity(
+                    Loc.GetString(
+                        "chat-manager-no-such-language",
+                        ("key", prefix)),
+                    source,
+                    source);
 
-                new_message = string.Empty;
                 return false;
             }
+
+            languageId = language.ID;
+
+            newMessage = _chat.SanitizeMessageCapital(
+                message[2..].TrimStart());
+        }
+        else
+        {
+            languageId = comp.CurrentLanguage;
+
+            if (languageId == null)
+                return false;
         }
 
-        return false;
+        var languageData = comp.List.FirstOrDefault(x => x.Language == languageId);
+
+        if (languageData == null)
+            return false;
+
+        if (languageData.LanguageLevel < LanguageLevelSpeak)
+        {
+            _popup.PopupEntity(
+                Loc.GetString("languages-cannot-speak"),
+                source,
+                source);
+
+            return false;
+        }
+        return true;
     }
 
     private float CheckRadioPass(EntityUid source, string msg)
@@ -249,20 +357,41 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         return newMessage ?? "";
     }
 
+    public int GetLanguageLevel(EntityUid entity, ProtoId<LanguagePrototype> language)
+    {
+        if (!TryComp<LanguagesComponent>(entity, out var comp))
+            return 0;
+
+        var entry = comp.List.FirstOrDefault(x => x.Language == language);
+
+        return entry?.LanguageLevel ?? 0;
+    }
+
+    public float GetLanguageObfuscationChance(int level)
+    {
+        return Math.Clamp(level, LanguageLevelNone, LanguageLevelFull) switch
+        {
+            LanguageLevelNone => 1.00f,
+            LanguageLevelBasic => 0.90f,
+            LanguageLevelPartial => 0.60f,
+            LanguageLevelSpeak => 0.30f,
+            LanguageLevelFull => 0.00f,
+            _ => 1.00f
+        };
+    }
+
     [Serializable, NetSerializable]
     public sealed class LanguagesInfoEvent : EntityEventArgs
     {
         public readonly NetEntity NetEntity;
         public readonly string CurrentLanguage;
-        public readonly List<ProtoId<LanguagePrototype>> Speaking;
-        public readonly List<ProtoId<LanguagePrototype>> Understood;
+        public readonly List<LanguagesList> List;
 
-        public LanguagesInfoEvent(NetEntity netEntity, string current, List<ProtoId<LanguagePrototype>> speeking, List<ProtoId<LanguagePrototype>> understood)
+        public LanguagesInfoEvent(NetEntity netEntity, string current, List<LanguagesList> list)
         {
             NetEntity = netEntity;
             CurrentLanguage = current;
-            Speaking = speeking;
-            Understood = understood;
+            List = list;
         }
     }
 }

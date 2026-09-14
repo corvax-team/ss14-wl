@@ -409,6 +409,8 @@ namespace Content.Client.Lobby.UI
 
             RefreshRecords(); // WL-Records
 
+            RefreshLanguages(); // WL-Languages
+
             //_confederationButton.OnItemSelected += args =>
             //{
 
@@ -505,6 +507,7 @@ namespace Content.Client.Lobby.UI
             UpdateHeightEdit(); // WL-height
             UpdateOocTextEdit(); // WL-OocText
             UpdateRecordsEdit(); // WL-Records
+            UpdateLanguagesEdit(); // WL-Languages
             UpdateAgeEdit();
             UpdateEyePickers();
             UpdateSaveButton();

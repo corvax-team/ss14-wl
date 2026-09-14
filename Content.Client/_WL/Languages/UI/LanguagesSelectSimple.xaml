@@ -1,0 +1,30 @@
+<controls:LanguagesSelectSimple
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._WL.Languages.UI"
+    xmlns:graphics1="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Margin="0 0 0 8">
+
+    <PanelContainer HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <graphics1:StyleBoxFlat BackgroundColor="#25252A"
+                                   ContentMarginTopOverride="8"
+                                   ContentMarginBottomOverride="8"
+                                   ContentMarginLeftOverride="8"
+                                   ContentMarginRightOverride="8"/>
+        </PanelContainer.PanelOverride>
+
+        <BoxContainer Orientation="Horizontal">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <BoxContainer Orientation="Horizontal">
+                    <Label Name="NameLabel" StyleClasses="LabelHeading" HorizontalExpand="True"/>
+                    <Label Name="CostLabel" FontColorOverride="#AAAAAA"/>
+                </BoxContainer>
+                <RichTextLabel Name="DescriptionLabel" StyleClasses="LabelSubText"/>
+            </BoxContainer>
+            <Button Name="ToggleButton"
+                    Text="{Loc 'languages-inactive'}"
+                    MinSize="100 30"
+                    Margin="8 0 0 0"/>
+        </BoxContainer>
+    </PanelContainer>
+</controls:LanguagesSelectSimple>

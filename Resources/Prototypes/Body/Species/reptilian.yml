@@ -188,13 +188,10 @@
   - type: Wagging
   #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - SintaUnati
-    understood:
-      - Translate
-      - SintaUnati
-    specieLanguage: SintaUnati
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
   #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon

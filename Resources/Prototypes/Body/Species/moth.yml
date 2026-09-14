@@ -199,13 +199,10 @@
   - type: Hunger
     baseDecayRate: 0.024 # WL-Changes: hunger cpeed moth
   - type: Languages
-    speaking:
-      - Translate
-      - Weaver
-    understood:
-      - Translate
-      - Weaver
-    specieLanguage: Weaver
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
   #WL-Changes: Languages & hunger end
 
 - type: entity

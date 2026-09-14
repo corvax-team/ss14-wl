@@ -229,6 +229,7 @@ public sealed partial class HumanoidProfileEditor
         UpdateTTSVoicesControls(); // Corvax-TTS
         UpdateSpeciesGuidebookIcon();
         UpdateRecordsEdit(); // WL-Changes-Records
+        UpdateLanguagesEdit(); // WL-Languages
         ReloadPreview();
     }
 

@@ -135,14 +135,13 @@
     speechVerb: SmallMob
     audioParams:
       volume: -5
+  #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - Urlum
-    understood:
-      - Translate
-      - Urlum
-    specieLanguage: Urlum
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
+  #WL-Changes: Languages end
   - type: AddHeightItem
   - type: CuffedMeleeWeapon
     weaponId: CuffedHumanAttack
