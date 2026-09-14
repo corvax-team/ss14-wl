@@ -346,13 +346,13 @@
   levelCosts: [0, 4, 4, 999, 999]
   speciesModifiers:
     Arachnid:
-      levelModifiers: [0, -2, -3, 0, 0]
+      levelModifiers: [0, -2, -3, -998, -998]
     Ipc:
-      levelModifiers: [0, -1, -2, 0, 0]
+      levelModifiers: [0, -1, -2, -998, -997]
     Golem:
-      levelModifiers: [0, -1, -2, 0, 0]
+      levelModifiers: [0, -1, -2, -998, -997]
     Moth:
-      levelModifiers: [0, -2, -2, 0, 0]
+      levelModifiers: [0, -2, -2, -998, -998]
 
 - type: language
   id: RootSpeak
@@ -467,13 +467,13 @@
   levelCosts: [0, 4, 4, 999, 999]
   speciesModifiers:
     Vox:
-      levelModifiers: [0, -1, -2, 0, 0]
+      levelModifiers: [0, -1, -2, -997, -997]
     Ipc:
-      levelModifiers: [0, -3, -2, 0, 0]
+      levelModifiers: [0, -3, -2, -997, -997]
     Golem:
-      levelModifiers: [0, -3, -2, 0, 0]
+      levelModifiers: [0, -3, -2, -997, -997]
     Murine:
-      levelModifiers: [0, -3, -2, 0, 0]
+      levelModifiers: [0, -3, -2, -998, -997]
 
 - type: language
   id: SikTair
