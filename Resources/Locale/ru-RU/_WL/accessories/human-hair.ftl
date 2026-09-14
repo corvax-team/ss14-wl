@@ -96,3 +96,7 @@ marking-HumanHairKiraTwintails = Двойные шипастые хвостик�
 marking-HumanHairDoctorWho = Доктор
 marking-HumanHairOnlyBangs = Только чёлка
 marking-HumanHairLayeredStraight = Прямой вульфкат
+
+marking-HumanHairPigTailAlt = Косичка (Альт.)
+marking-HumanHairLicked = Зализанная длинная
+marking-HumanHairOvergrown = Обросшая

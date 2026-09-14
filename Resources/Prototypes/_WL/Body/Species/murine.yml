@@ -143,6 +143,8 @@
     specieLanguage: Translate
   #WL-Changes: Languages end
   - type: AddHeightItem
+  - type: CuffedMeleeWeapon
+    weaponId: CuffedHumanAttack
 
 - type: entity
   parent: OrganBase

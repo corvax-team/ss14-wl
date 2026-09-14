@@ -26,3 +26,9 @@ ent-ClothingUniformJumpskirtSkullSkirt = топ с черепом
 
 ent-ClothingUniformJumpskirtMenlessShirt = майка без мужчин
     .desc = Дамы, вперёд!
+
+ent-ClothingUniformJumpskirtTurtleneckAdjutant = водолазка с юбкой адъютанта
+    .desc = Абсолютно бюрократическая белая водолазка с юбкой, лишенная каких-либо излишеств.
+
+ent-ClothingUniformJumpskirtParadeAdjutant = формальный костюм с юбкой адъютанта
+    .desc = Синий костюм с юбкой и золотыми вставками, когда необходимо покрасоваться не только бумажной работой.

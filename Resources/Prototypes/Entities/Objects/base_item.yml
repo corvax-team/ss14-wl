@@ -15,6 +15,12 @@
       params:
         volume: -7
   # Goobstation edit end
+  # WL-Changes-Start
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Appearance
+  # WL-Changes-End
   - type: Item
     size: Small
   - type: Animateable

@@ -7,8 +7,11 @@
     contents:
       - id: ClothingUniformJumpsuitAdjutant
       - id: ClothingUniformJumpskirtAdjutant
+      - id: ClothingUniformJumpsuitTurtleneckAdjutant
+      - id: ClothingUniformJumpskirtTurtleneckAdjutant
       - id: ClothingOuterWinterAdjutant
       - id: ClothingHeadHatBeretAdjutant
       - id: ClothingHeadHatAdjutantCap
-      - id: ClothingShoesBootsLaceup
+      - id: ClothingOuterCoatLongAdjutant
+      - id: ClothingOuterCoatBomberAdjutant
 

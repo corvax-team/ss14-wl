@@ -146,6 +146,10 @@
       languageLevel: 4
     specieLanguage: Translate
   #WL-Changes: Languages end
+  #Wl-Changes-Start
+  - type: CuffedMeleeWeapon
+    weaponId: CuffedArachnidAttack
+  #WL-Changes-End
 
 - type: entity
   parent: OrganBaseOrganic
@@ -266,3 +270,19 @@
 - type: entity
   parent: [ OrganBaseKidneys, OrganSpriteHumanInternal, OrganArachnidInternal, OrganAnimalMetabolizer ]
   id: OrganArachnidKidneys
+
+#WL-Changes-Start
+- type: entity
+  id: CuffedArachnidAttack
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 3
+        Poison: 2
+    range: 0.5
+    attackRate: 0.5
+#WL-Changes-End
