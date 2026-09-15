@@ -113,20 +113,6 @@
     noiseAmount: 0 # In case default values change
     noiseMultiplier: 0 # In case default values change
 
-# WL-Changes-start
-- type: entity
-  id: ActionGhostReturnToLobby
-  name: Return to lobby
-  description: "[color=red]IT IS STRICTLY PROHIBITED[/color] to play as characters who have already been in the round. If you witness this, feel free to file a complaint following rule 4."
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Action
-    icon: Interface/eject.png
-    checkCanInteract: false
-  - type: InstantAction
-    event: !type:GoLobbyActionEvent
-# WL-Changes-end
-
 # proto for player ghosts specifically
 - type: entity
   parent: MobObserverBase

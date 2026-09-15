@@ -30,6 +30,7 @@ using Content.Shared.Humanoid.Markings; // Wl-Changes: Ghost hair
 using Content.Shared.Body; // Wl-Changes: Ghost hair
 using Content.Shared._WL.Ghost; // Wl-Changes: Ghost hair
 using Content.Shared.Preferences; // Wl-Changes: Ghost hair
+using Content.Shared.Overlays; // WL-Changes
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -121,6 +122,7 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<GhostComponent, BooActionEvent>(OnActionPerform);
             SubscribeLocalEvent<GhostComponent, ToggleGhostHearingActionEvent>(OnGhostHearingAction);
             SubscribeLocalEvent<GhostComponent, InsertIntoEntityStorageAttemptEvent>(OnEntityStorageInsertAttempt);
+            SubscribeLocalEvent<GhostComponent, ToggleMedicalHudActionEvent>(OnToggleMedicalHud); // WL-Changes
 
             SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
@@ -204,6 +206,33 @@ namespace Content.Server.Ghost
                 args.VisibilityMask |= (int)VisibilityFlags.Ghost;
             }
         }
+
+        // WL-Changes-Start
+        private void OnToggleMedicalHud(EntityUid uid, GhostComponent component, ToggleMedicalHudActionEvent args)
+        {
+            args.Handled = true;
+
+            if (HasComp<ShowHealthBarsComponent>(uid))
+            {
+                RemComp<ShowHealthBarsComponent>(uid);
+                RemComp<ShowHealthIconsComponent>(uid);
+                _actions.SetToggled(component.ToggleMedicalHudActionEntity, true);
+            }
+            else
+            {
+                AddComp<ShowHealthBarsComponent>(uid);
+                AddComp<ShowHealthIconsComponent>(uid);
+                _actions.SetToggled(component.ToggleMedicalHudActionEntity, false);
+            }
+
+            var str = HasComp<ShowHealthBarsComponent>(uid)
+                ? Loc.GetString("ghost-gui-toggle-medical-hud-popup-on")
+                : Loc.GetString("ghost-gui-toggle-medical-hud-popup-off");
+
+            Popup.PopupEntity(str, uid, uid);
+            Dirty(uid, component);
+        }
+        // WL-Changes-End
 
         private void OnGhostHearingAction(EntityUid uid, GhostComponent component, ToggleGhostHearingActionEvent args)
         {
@@ -322,6 +351,7 @@ namespace Content.Server.Ghost
             _actions.AddAction(uid, ref component.ToggleLightingActionEntity, component.ToggleLightingAction);
             _actions.AddAction(uid, ref component.ToggleFoVActionEntity, component.ToggleFoVAction);
             _actions.AddAction(uid, ref component.ToggleGhostsActionEntity, component.ToggleGhostsAction);
+            _actions.AddAction(uid, ref component.ToggleMedicalHudActionEntity, component.ToggleMedicalHudAction); // WL-Changes
         }
 
         #region Ghost Deletion
