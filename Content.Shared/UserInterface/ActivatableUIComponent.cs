@@ -1,4 +1,4 @@
-﻿using Content.Shared.Whitelist;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
@@ -7,7 +7,7 @@ namespace Content.Shared.UserInterface
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
     public sealed partial class ActivatableUIComponent : Component
     {
-        [DataField(required: true, customTypeSerializer: typeof(EnumSerializer))]
+        [DataField(required: true, customTypeSerializer: typeof(EnumSerializer)), AutoNetworkedField] // WL-Changes: Research AutoNetworkedField
         public Enum Key;
 
         /// <summary>
