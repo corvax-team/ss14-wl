@@ -410,7 +410,12 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
         Shoot(gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
-        var shotEv = new GunShotEvent(user, ev.Ammo);
+
+        // WL-Changes-Start:Particles
+        var direction = TransformSystem.ToMapCoordinates(toCoordinates.Value).Position - TransformSystem.ToMapCoordinates(fromCoordinates).Position;
+        // WL-Changes-End:Particles
+
+        var shotEv = new GunShotEvent(user, ev.Ammo, direction); // WL-Changes: Particles
         RaiseLocalEvent(gun, ref shotEv);
 
         // ES START
@@ -707,7 +712,7 @@ public record struct AttemptShootEvent(EntityUid User, string? Message, bool Can
 /// </summary>
 /// <param name="User">The user that fired this gun.</param>
 [ByRefEvent]
-public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo);
+public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo, Vector2? Direction = null); // WL-Cnahges: Particles
 
 /// <summary>
 /// Raised on an entity after firing a gun to see if any components or systems would allow this entity to be pushed
