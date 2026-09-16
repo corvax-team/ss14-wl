@@ -410,3 +410,14 @@
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: overgrown
+
+- type: marking
+  id: HumanHairTwiBun
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twibun1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twibun2
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twibun3

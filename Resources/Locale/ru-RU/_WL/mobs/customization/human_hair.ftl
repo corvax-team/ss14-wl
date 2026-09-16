@@ -101,6 +101,7 @@ marking-HumanHairKnight = Рыцарь
 marking-HumanHairTwintailGirly = Хвостики с бантиками
 marking-HumanHairTwintailParty = Вечериночные хвостики
 marking-HumanHairCuteMess = Растрёпанная уютная
+marking-HumanHairTwiBun = Трёхцветный пучок
 
 marking-HumanHairPigTailAlt = Косичка (Альт.)
 marking-HumanHairLicked = Зализанная длинная
