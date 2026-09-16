@@ -51,12 +51,16 @@ public sealed partial class DynamicTextSystem : EntitySystem
         if (sender == null)
             return;
 
-        if (sender != ent
-            && (_mindSystem.TryGetMind(ent.Value, out var _, out var _)
-            || HasComp<MobStateComponent>(ent)
-            || _mobStateSystem.IsIncapacitated(sender.Value)
-            || HasComp<GhostComponent>(sender.Value)))
+        if (HasComp<GhostComponent>(sender.Value))
             return;
+
+        if (sender != ent
+            && (_mindSystem.TryGetMind(ent.Value, out _, out _)
+                || HasComp<MobStateComponent>(ent)
+                || _mobStateSystem.IsIncapacitated(sender.Value)))
+        {
+            return;
+        }
 
         var comp = EnsureComp<DynamicTextComponent>(ent.Value);
 

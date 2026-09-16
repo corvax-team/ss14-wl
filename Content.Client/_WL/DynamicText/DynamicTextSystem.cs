@@ -36,7 +36,6 @@ public sealed partial class DynamicTextSystem : EntitySystem
         if (_player.LocalEntity is not { } player
             || args.User != player
             || HasComp<GhostComponent>(player)
-            || _mobStateSystem.IsIncapacitated(player)
             || !_interactionSystem.InRangeUnobstructed(player, args.Target))
         {
             return;
@@ -45,7 +44,9 @@ public sealed partial class DynamicTextSystem : EntitySystem
         var isSelf = args.Target == player;
 
         if (!isSelf &&
-            (_mindSystem.TryGetMind(args.Target, out _, out _) || HasComp<MobStateComponent>(args.Target)))
+            (_mindSystem.TryGetMind(args.Target, out _, out _)
+            || HasComp<MobStateComponent>(args.Target)
+            || _mobStateSystem.IsIncapacitated(player)))
         {
             return;
         }
