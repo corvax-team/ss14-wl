@@ -1,7 +1,10 @@
 using Content.Client._WL.DynamicText.UI;
+using Content.Client.Interactable;
 using Content.Client.Mind;
 using Content.Shared._WL.DynamicText;
+using Content.Shared.Ghost;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
@@ -15,6 +18,8 @@ public sealed partial class DynamicTextSystem : EntitySystem
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
     [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private InteractionSystem _interactionSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
 
     private EntityUid? _editingEntity;
 
@@ -28,8 +33,11 @@ public sealed partial class DynamicTextSystem : EntitySystem
 
     private void OnGetVerbs(GetVerbsEvent<Verb> args)
     {
-        if (_player.LocalEntity is not { } player ||
-            args.User != player)
+        if (_player.LocalEntity is not { } player
+            || args.User != player
+            || HasComp<GhostComponent>(player)
+            || _mobStateSystem.IsIncapacitated(player)
+            || !_interactionSystem.InRangeUnobstructed(player, args.Target))
         {
             return;
         }
