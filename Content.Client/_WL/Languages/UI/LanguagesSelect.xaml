@@ -16,7 +16,7 @@
 
         <BoxContainer Orientation="Horizontal">
 
-            <!-- Иконка языка -->
+            <!-- Иконка языка пр -->
             <TextureRect Name="LanguageIcon" VerticalAlignment="Top" HorizontalAlignment="Left" SetSize="64 64" TextureScale="2 2" Stretch="KeepAspectCentered"/>
             <Control MinSize="10 0"/>
 
