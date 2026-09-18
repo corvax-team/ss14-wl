@@ -6,19 +6,6 @@
   hidden: true
 
 - type: trait
-  id: UnSpecie
-  name: trait-language-unspecie
-  description: trait-language-unspecie-desc
-  category: Languages
-  cost: -4
-  whitelist:
-    components:
-      - Languages
-  components:
-    - type: ModifyLanguages
-      specieLanguage: true
-
-- type: trait
   id: SintaUnati
   name: language-unati
   description: language-unati-desc
