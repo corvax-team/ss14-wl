@@ -9,12 +9,6 @@ namespace Content.Shared._WL.Languages.Components;
 public sealed partial class LanguagesComponent : Component
 {
     [DataField]
-    public bool IsUnderstanding = true;
-
-    [DataField]
-    public bool IsSpeaking = true;
-
-    [DataField]
     public ProtoId<LanguagePrototype>? CurrentLanguage = null;
 
     [DataField]
@@ -32,8 +26,6 @@ public sealed partial class LanguagesComponent : Component
     [Serializable, NetSerializable]
     public sealed class State : ComponentState
     {
-        public bool IsUnderstanding = default!;
-        public bool IsSpeaking = default!;
         public ProtoId<LanguagePrototype>? CurrentLanguage = null;
         public List<LanguagesList> List = default!;
     }
