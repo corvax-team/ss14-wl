@@ -86,6 +86,7 @@
 #     species: Cischi
 
   - type: Inventory
+    templateId: diona
     speciesId: reptilian
 #Corvax-Vulp_Port start
     femaleDisplacements:
