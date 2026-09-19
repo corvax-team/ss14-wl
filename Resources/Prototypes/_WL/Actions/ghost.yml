@@ -1,0 +1,25 @@
+- type: entity
+  id: ActionGhostReturnToLobby
+  name: Return to lobby
+  description: "[color=red]IT IS STRICTLY PROHIBITED[/color] to play as characters who have already been in the round. If you witness this, feel free to file a complaint following rule 4."
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon: Interface/eject.png
+    checkCanInteract: false
+  - type: InstantAction
+    event: !type:GoLobbyActionEvent
+
+- type: entity
+  id: ActionToggleMedicalHud
+  name: Toggle Medical HUD visibility
+  description: Switch between the medical HUD and normal vision.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Action
+      checkCanInteract: false
+      icon:
+        sprite: Clothing/Eyes/Hud/med.rsi
+        state: icon
+    - type: InstantAction
+      event: !type:ToggleMedicalHudActionEvent
