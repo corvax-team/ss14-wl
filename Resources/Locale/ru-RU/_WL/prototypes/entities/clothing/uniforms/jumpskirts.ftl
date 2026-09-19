@@ -27,6 +27,12 @@ ent-ClothingUniformJumpskirtSkullSkirt = топ с черепом
 ent-ClothingUniformJumpskirtMenlessShirt = майка без мужчин
     .desc = Дамы, вперёд!
 
+ent-ClothingUniformJumpskirtComfyEngineerSkirt = удобная юбка инженера
+    .desc = С этим, быть инженером в юбке удобнее и стильнее.
+
+ent-ClothingUniformJumpskirtComfyAtmosSkirt = удобная юбка атмосферного техника
+    .desc = С этим, быть инженером в юбке удобнее и стильнее.
+
 ent-ClothingUniformJumpskirtTurtleneckAdjutant = водолазка с юбкой адъютанта
     .desc = Абсолютно бюрократическая белая водолазка с юбкой, лишенная каких-либо излишеств.
 

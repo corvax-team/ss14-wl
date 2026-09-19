@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-4.0",
-  "copyright": "Created by ReArtInt",
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by ReArtInt",
   "size": {
     "x": 32,
     "y": 32
@@ -13,6 +13,14 @@
     },
 	{
       "name": "ear_l_akula",
+      "directions": 4
+    },
+	{
+      "name": "double_ear_r_akula",
+      "directions": 4
+    },
+	{
+      "name": "double_ear_l_akula",
       "directions": 4
     },
 	{

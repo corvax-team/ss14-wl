@@ -62,3 +62,25 @@
       sprite: _WL/Clothing/Shoes/Boots/colorfull_boots.rsi
     - type: Clothing
       sprite: _WL/Clothing/Shoes/Boots/colorfull_boots.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesElegantBlackShoes
+  name: elegant black shoes
+  description: Elegant.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/elegant_black_shoes.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/elegant_black_shoes.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesElegantBrownShoes
+  name: elegant brown shoes
+  description: Elegant.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/elegant_brown_shoes.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/elegant_brown_shoes.rsi

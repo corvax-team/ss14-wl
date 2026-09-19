@@ -223,3 +223,69 @@
     sprite: _WL/Clothing/Uniforms/Jumpsuit/maidenless.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpsuit/maidenless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitStripedShirt
+  name: striped collared shirt
+  description: It's stripy and green.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/stripeshirt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/stripeshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWarmShirt
+  name: warm collared shirt
+  description: It feels warm, also old.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/warmshirt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/warmshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGreenStripeSweater
+  name: green striped sweater
+  description: Only one stripe though.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/greenstripesweater.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/greenstripesweater.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueStripeSweater
+  name: blue striped sweater
+  description: Only one stripe though.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/bluestripesweater.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/bluestripesweater.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAutumnVestShirt
+  name: vest collared shirt
+  description: More cosy.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/autumnvest.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/autumnvest.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAlienShirt
+  name: alien shirt
+  description: Is this a weird old depiction of cischi?
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/alien.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpsuit/alien.rsi

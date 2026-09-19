@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretDSS
-  name: DoS beret 
+  name: DoS beret
   description: Demonstrates the status of the best of the best.
   components:
   - type: Sprite
@@ -249,3 +249,25 @@
     sprite: _WL/Clothing/Head/Hats/beret_captain.rsi
   - type: Clothing
     sprite: _WL/Clothing/Head/Hats/beret_captain.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBlackBeretCap
+  name: black beret cap
+  description: Is it a beret or a cap? It is both!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/black_beret_cap.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/black_beret_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBrownBeretCap
+  name: brown beret cap
+  description: Is it a beret or a cap? It is both!
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/brown_beret_cap.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/brown_beret_cap.rsi

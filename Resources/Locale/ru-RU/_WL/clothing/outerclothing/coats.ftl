@@ -24,3 +24,9 @@ ent-ClothingOuterCoatMusicianBikingJacket = чёрная ветровка
 
 ent-ClothingOuterVestJeansVest = джинсовая жилетка
     .desc = Рок-н-ролл
+
+ent-ClothingOuterCoatAppleCoat = яблочная куртка
+    .desc = На ней почти можно устроить пикник в осеннем лесу.
+
+ent-ClothingOuterCoatGreenCoatSimple = простая зелёная куртка
+    .desc = Простая и тёплая.
