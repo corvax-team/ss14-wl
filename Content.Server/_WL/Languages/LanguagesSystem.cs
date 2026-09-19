@@ -291,10 +291,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
         if (languageProto == null)
             return true;
 
-        return
-            listen_lang.IsUnderstanding &&
-            source_lang.IsSpeaking &&
-            GetLanguageLevel(listener, languageProto.ID) >= LanguageLevelFull;
+        return GetLanguageLevel(listener, languageProto.ID) >= LanguageLevelFull;
     }
 
     public bool NeedTTS(EntityUid source)
@@ -361,7 +358,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
         var canUnderstand = CanUnderstand(source, listener, msg);
         var language = GetLanguagePrototype(source, msg);
 
-        var color = GetColor(language, colorize && canUnderstand, channel.Color);
+        var color = GetColor(language, colorize, channel.Color);
         var (fontSize, fontId) = GetFontParams(language, speech.FontSize, speech.FontId);
 
         string message;
@@ -418,7 +415,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
 
     public Color GetColor(LanguagePrototype? language, bool useColor = true, Color? fallback = null)
     {
-        if (language == null || language.Color == DefaultChatTextColor || !useColor)
+        if (language == null)
             return fallback ?? DefaultChatTextColor;
 
         return language.Color;

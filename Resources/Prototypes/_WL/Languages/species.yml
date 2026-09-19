@@ -168,13 +168,13 @@
   levelCosts: [0, 1, 2, 3, 3]
   speciesModifiers:
     Android:
-      levelModifiers: [0, 0, -1, -1, -1]
+      levelModifiers: [0, 0, -1, -2, -1]
     Arachnid:
       levelModifiers: [0, 0, 1, 1, 999]
     Vox:
       levelModifiers: [0, 0, 1, 2, 999]
     Vulpkanin:
-      levelModifiers: [0, 0, 1, 1, 999]
+      levelModifiers: [0, 0, 0, 0, 0]
     Ipc:
       levelModifiers: [0, 0, -1, -1, -1]
     Diona:
@@ -184,7 +184,7 @@
     Golem:
       levelModifiers: [0, 0, -1, -1, -1]
     Human:
-      levelModifiers: [0, 0, -1, -1, -1]
+      levelModifiers: [0, 0, -1, -2, -1]
     Murine:
       levelModifiers: [0, 0, 1, 1, 999]
     Moth:
@@ -194,13 +194,15 @@
     SlimePerson:
       levelModifiers: [0, 0, 0, 1, 0]
     Tajaran:
-      levelModifiers: [0, 0, 1, 1, 999]
+      levelModifiers: [0, 0, 0, 0, 0]
     Reptilian:
-      levelModifiers: [0, 0, 1, 1, 999]
+      levelModifiers: [0, 0, 0, 0, 0]
     Felinid:
-      levelModifiers: [0, 0, -1, -1, -1]
+      levelModifiers: [0, 0, -1, -2, -1]
   confederationModifiers:
     HolyEmpireOfEden:
+      levelModifiers: [0, -1, -1, 0, 0]
+    ConfederationOfOrionStates:
       levelModifiers: [0, -1, -1, 0, 0]
 
 - type: language
