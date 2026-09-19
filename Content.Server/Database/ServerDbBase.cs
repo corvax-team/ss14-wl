@@ -381,8 +381,13 @@ namespace Content.Server.Database
 
             profile.Traits.Clear();
             profile.Traits.AddRange(
-                humanoid.TraitPreferences
-                        .Select(t => new Trait {TraitName = t})
+                humanoid.TraitPreferences.Select(traitId =>
+                {
+                    var trait = new Trait {TraitName = traitId};
+                    if (humanoid.LanguageLevels.TryGetValue(traitId, out var level))
+                        trait.LanguageLevel = level;
+                    return trait;
+                })
             );
 
             profile.Loadouts.Clear();
