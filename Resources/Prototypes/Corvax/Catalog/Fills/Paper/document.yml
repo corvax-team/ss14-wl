@@ -274,6 +274,14 @@
 
 - type: entity
   parent: PrintedDocument
+  id: PrintedDocumentSettingOfGoal
+  name: Setting Of Goal
+  components:
+  - type: Paper
+    content: doc-text-printer-setting-of-goal
+
+- type: entity
+  parent: PrintedDocument
   id: PrintedDocumentPermissionToCarryWeapons
   name: Permission to carry weapons
   components:
