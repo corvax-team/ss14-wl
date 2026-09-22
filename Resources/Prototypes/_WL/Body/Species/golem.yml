@@ -78,7 +78,7 @@
            32:
              sprite: _WL/Mobs/Species/Golem/displacement.rsi
              state: shoes
-        outerClothing:
+       outerClothing:
          sizeMaps:
            32:
              sprite: _WL/Mobs/Species/Golem/displacement.rsi
