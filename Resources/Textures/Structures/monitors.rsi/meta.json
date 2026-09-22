@@ -37,6 +37,10 @@
         {
             "name": "television",
             "directions": 4
+        },
+        {
+            "name": "on",
+            "directions": 4
         }
     ]
 }
