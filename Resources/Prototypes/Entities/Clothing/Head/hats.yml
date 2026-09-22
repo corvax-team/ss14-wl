@@ -545,9 +545,9 @@
   description: A strange-looking red hat that most certainly belongs to a powerful magic-user.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/redwizard.rsi
+    sprite: _WL/Clothing/Head/Hats/redwizard.rsi #WL-changes: Emo Update 3
   - type: Clothing
-    sprite: Clothing/Head/Hats/redwizard.rsi
+    sprite: _WL/Clothing/Head/Hats/redwizard.rsi #WL-changes: Emo Update 3
   - type: Tag
     tags:
     - PetWearable
@@ -748,9 +748,9 @@
   description: A strange-looking violet hat that most certainly belongs to a powerful magic-user.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/violetwizard.rsi
+    sprite: _WL/Clothing/Head/Hats/violetwizard.rsi #WL-changes: Emo Update 3
   - type: Clothing
-    sprite: Clothing/Head/Hats/violetwizard.rsi
+    sprite: _WL/Clothing/Head/Hats/violetwizard.rsi #WL-changes: Emo Update 3
   - type: Tag
     tags:
     - PetWearable
@@ -803,15 +803,18 @@
   name: fake wizard hat
   description: It has "WIZZARD" written across it in garish sequins. Comes with a cool beard.
   components:
+  #WL-changes-start: Emo Update 3
   - type: Sprite
-    sprite: Clothing/Head/Hats/wizard_fake.rsi
+    sprite: _WL/Clothing/Head/Hats/wizard_fake.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/wizard_fake.rsi
-  - type: HideLayerClothing
-    layers:
-      Hair: HEAD
-      HeadTop : HEAD
-      HeadSide : HEAD
+    sprite: _WL/Clothing/Head/Hats/wizard_fake.rsi
+
+  #- type: HideLayerClothing
+  #  layers:
+  #    Hair: HEAD
+  #    HeadTop : HEAD
+  #    HeadSide : HEAD
+  #WL-changes-end: Emo Update 3
 
 - type: entity
   abstract: true
@@ -827,9 +830,9 @@
   description: A strange-looking blue hat that most certainly belongs to a powerful magic-user.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/wizardhat.rsi
+    sprite: _WL/Clothing/Head/Hats/wizardhat.rsi #WL-changes: Emo Update 3
   - type: Clothing
-    sprite: Clothing/Head/Hats/wizardhat.rsi
+    sprite: _WL/Clothing/Head/Hats/wizardhat.rsi #WL-changes: Emo Update 3
   - type: Tag
     tags:
     - PetWearable

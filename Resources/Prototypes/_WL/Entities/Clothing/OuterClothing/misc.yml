@@ -1,0 +1,69 @@
+- type: entity
+  parent: ClothingOuterWizardBase
+  id: ClothingOuterWizardBlack
+  name:  black wizard robes
+  description: A bizarre gem-encrusted black robe that radiates magical energies.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Misc/blackwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Misc/blackwizard.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingOuterWizardBase
+  id: ClothingOuterWizardGreen
+  name:  green wizard robes
+  description: A bizarre gem-encrusted green robe that radiates magical energies.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Misc/greenwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Misc/greenwizard.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingOuterWizardBase
+  id: ClothingOuterWizardPink
+  name:  pink wizard robes
+  description: A bizarre gem-encrusted pink robe that radiates magical energies.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Misc/pinkwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Misc/pinkwizard.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingOuterWizardBase
+  id: ClothingOuterWizardYellow
+  name:  yellow wizard robes
+  description: A bizarre gem-encrusted yellow robe that radiates magical energies.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Misc/yellowwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Misc/yellowwizard.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingOuterWizardBase
+  id: ClothingOuterWizardCyan
+  name:  cyan wizard robes
+  description: A bizarre gem-encrusted cyan robe that radiates magical energies.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Misc/cyanwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Misc/cyanwizard.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
