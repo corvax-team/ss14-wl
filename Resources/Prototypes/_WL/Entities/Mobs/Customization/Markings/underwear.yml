@@ -2,7 +2,7 @@
 - type: marking
   id: UnderwearMaleMidway
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   coloring:
     default:
@@ -16,7 +16,7 @@
 - type: marking
   id: UnderwearMaleStripe
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   coloring:
     default:
@@ -30,7 +30,7 @@
 - type: marking
   id: UnderwearMaleUk
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   forcedColoring: true
   coloring:
@@ -45,7 +45,7 @@
 - type: marking
   id: UnderwearMankini
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   coloring:
     default:
@@ -59,7 +59,7 @@
 - type: marking
   id: UnderwearLongjohns
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   coloring:
     default:
@@ -73,7 +73,7 @@
 - type: marking
   id: UnderwearMaleKinky
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   coloring:
     default:
@@ -87,7 +87,7 @@
 - type: marking
   id: UnderwearMaleHearts
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   forcedColoring: true
   coloring:
@@ -102,7 +102,7 @@
 - type: marking
   id: UnderwearMaleCommie
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   forcedColoring: true
   coloring:
@@ -117,7 +117,7 @@
 - type: marking
   id: UnderwearMaleBriefs
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   coloring:
     default:
@@ -131,7 +131,7 @@
 - type: marking
   id: UnderwearMaleBoxers
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   coloring:
     default:
@@ -145,7 +145,7 @@
 - type: marking
   id: UnderwearMaleAssblastusa
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Male
   forcedColoring: true
   coloring:
@@ -161,6 +161,7 @@
 - type: marking
   id: UnderwearFemaleUk
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -175,6 +176,7 @@
 - type: marking
   id: UnderwearFemaleThong
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -188,6 +190,7 @@
 - type: marking
   id: UnderwearFemaleStrapless
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -201,6 +204,7 @@
 - type: marking
   id: UnderwearFemaleSport
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -214,6 +218,7 @@
 - type: marking
   id: UnderwearFemaleNeko
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -227,6 +232,7 @@
 - type: marking
   id: UnderwearFemaleLace
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -241,6 +247,7 @@
 - type: marking
   id: UnderwearFemaleKinky
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -255,6 +262,7 @@
 - type: marking
   id: UnderwearFemaleCommie
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -269,6 +277,7 @@
 - type: marking
   id: UnderwearFemaleBralette
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -282,6 +291,7 @@
 - type: marking
   id: UnderwearFemaleBikini
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -295,6 +305,7 @@
 - type: marking
   id: UnderwearFemaleBabydoll
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -308,6 +319,7 @@
 - type: marking
   id: UnderwearFemaleAssblastusa
   bodyPart: UndergarmentBottom
+  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
