@@ -63,6 +63,10 @@
     ClothingShoesBootsCowboyWhite: 1
     ClothingHeadHatWizardFake: 1
     ClothingOuterWizardFake: 1
+    MakeupBrush: 3 # WL-change: EmoUpdate3
+    PocketMirror: 3 # WL-change: EmoUpdate3
+    HairComb: 3 # WL-change: EmoUpdate3
+    BarberScissors: 3 # WL-change: EmoUpdate3
   contrabandInventory:
     ClothingHeadHatRichard: 1
     ToyFigurineBoxer: 1
