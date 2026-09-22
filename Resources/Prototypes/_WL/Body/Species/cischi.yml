@@ -86,35 +86,40 @@
 #     species: Cischi
 
   - type: Inventory
-    speciesId: reptilian
+    templateId: cischi
+#WL-Changes: delete speciesId: reptilian
 #Corvax-Vulp_Port start
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
+            sprite: _WL/Mobs/Species/Cischi/displacement.rsi
             state: jumpsuit-female
       shoes:
         sizeMaps:
           32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: shoes
-
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
+            sprite: _WL/Mobs/Species/Cischi/displacement.rsi
             state: shoes
       outerClothing:
         sizeMaps:
           32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
+            sprite: _WL/Mobs/Species/Cischi/displacement.rsi
+            state: outerclothing
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Cischi/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Cischi/displacement.rsi
+            state: shoes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Cischi/displacement.rsi
             state: outerclothing
 
 - type: entity
@@ -131,31 +136,7 @@
   - type: CuffedMeleeWeapon
     weaponId: CuffedHumanAttack
 
-  - type: Inventory
-    templateId: cischi
-    speciesId: reptilian
-    femaleDisplacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: jumpsuit-female
-      shoes:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: shoes
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: jumpsuit
-      shoes:
-        sizeMaps:
-          32:
-            sprite: Corvax/Mobs/Species/displacement.rsi
-            state: shoes
+#Wl-Changes: delete second inventory 
 
   - type: Bloodstream
     bloodReferenceSolution:
