@@ -7,7 +7,7 @@ using Content.Shared.Damage.Prototypes;
 //using Content.Shared.Execution; //WL-Change
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mind;

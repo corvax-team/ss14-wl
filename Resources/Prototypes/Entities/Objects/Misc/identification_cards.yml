@@ -839,6 +839,24 @@
       offset: *icon-offset
       state: Zookeeper
 
+- type: entity
+  parent: IDCardStandard
+  id: TramDriverIDCard
+  name: tram driver ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: "#ffc500"
+    - state: stripe_bottom
+      color: "#454a50"
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: TramDriver
+  - type: PresetIdCard
+    job: TramDriver
+
 #Supply
 
 - type: entity
@@ -977,7 +995,7 @@
 #Antags
 
 - type: entity
-  parent: [IDCardBase, BaseChameleon]
+  parent: [IDCardStandard, BaseChameleon]
   id: AgentIDCard
   name: passenger ID card
   suffix: Agent
@@ -988,8 +1006,6 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Passenger
-  - type: PresetIdCard
-    job: Passenger
   - type: Access
     tags:
     - Maintenance
@@ -1039,7 +1055,7 @@
     - NuclearOperative
 
 - type: entity
-  parent: [ IDCardBase, BaseSyndicateContraband ]
+  parent: IDCardStandard # Corvax-Contraband
   id: SyndicateIDCard
   name: syndicate ID card
   components:

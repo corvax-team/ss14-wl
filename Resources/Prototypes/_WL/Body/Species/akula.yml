@@ -124,11 +124,9 @@
   - BaseSpeciesMobOrganic
   id: MobAkula
   components: # TODO: Give species uniq features
-    - type: Hunger
     - type: Icon
       sprite: _WL/Mobs/Species/Akula/parts.rsi
       state: full
-    - type: Thirst
     - type: Perishable
     - type: MeleeWeapon
       soundHit:

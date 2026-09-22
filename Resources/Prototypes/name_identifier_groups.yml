@@ -1,4 +1,4 @@
-# Non-fungible apes, anyone?
+﻿# Non-fungible apes, anyone?
 - type: nameIdentifierGroup
   id: Monkey
   format: name-identifier-format-monkey
@@ -48,6 +48,7 @@
 
 # Used to suffix a number to any mob to identify player controlled mob griefing.
 - type: nameIdentifierGroup
+  format: name-identifier-format-parens
   id: GenericNumber
 
 - type: nameIdentifierGroup
@@ -61,9 +62,7 @@
   minValue: 0
   maxValue: 999
 
-# WL-Changes: NanoChat Start
 - type: nameIdentifierGroup
-  id: NanoChat
-  minValue: 1000
-  maxValue: 9999
-# WL-Changes: NanoChat End
+  id: AdjectivePrefix
+  identifierDataset: Adjectives
+  prefix: true

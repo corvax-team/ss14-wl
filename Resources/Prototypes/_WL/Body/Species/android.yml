@@ -188,7 +188,6 @@
           True: { shader: unshaded }
           False: { shader: shaded }
   - type: Temperature
-    currentTemperature: 310.15
     specificHeat: 42 #42
   - type: TemperatureDamage
     heatDamageThreshold: 460

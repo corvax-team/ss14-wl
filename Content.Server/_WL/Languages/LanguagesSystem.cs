@@ -8,6 +8,7 @@ using Content.Shared.Speech;
 using Content.Shared.Speech.Muting;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared._WL.Languages.Components.List;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -22,6 +23,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
     [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     private static readonly Color DefaultChatTextColor = Color.LightGray;
 
@@ -494,9 +496,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
 
     private float CheckVocalizationPass(EntityUid source, string msg)
     {
-        var language = GetLanguagePrototype(source, msg);
-
-        if (language == null)
+        if (GetLanguagePrototype(source, msg) is not { } language)
             return 1f;
 
         if (_atmosphereSystem.GetContainingMixture(source) is { } mixture)
@@ -505,7 +505,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
 
             var pressure_prob = MathF.Min(fixed_pressure / (FullTalkPressure - MinTalkPressure), 1f);
 
-            if (HasComp<MutedComponent>(source))
+            if (_statusEffects.HasEffectComp<MutedStatusEffectComponent>(source))
                 pressure_prob = 0f;
 
             var full_prob = MathF.Min(pressure_prob + language.PressurePass, 1f);

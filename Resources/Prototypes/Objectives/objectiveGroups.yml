@@ -6,7 +6,7 @@
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
-    # TraitorObjectiveGroupSabotage: 1 # WL-Changes
+    # TraitorObjectiveGroupSabotage: 0.5 # WL-Changes
     TraitorObjectiveGroupOther: 1
     TraitorObjectiveGroupNukieDisk: 0.05  #Corvax
 
@@ -147,8 +147,8 @@
 - type: weightedRandom
   id: ChangelingObjectiveGroupDevour
   weights:
-    ChangelingUniqueIdentityObjective: 1
-    # eventually: devour most
+    ChangelingDevouredCountObjective: 1
+    ChangelingMostDevouredObjective: 1
 
 - type: weightedRandom
   id: ChangelingObjectiveGroupEscapeDummy
@@ -159,8 +159,8 @@
   id: ChangelingObjectiveGroupEscape
   weights:
     ChangelingSurviveObjective: 0.5
-    ChangelingEscapeIdentityObjective: 1
-    # eventually: escape as a job/dept
+    ChangelingEscapeDepartmentObjective: 1.0
+    ChangelingEscapeIdentityObjective: 1.5
 
 - type: weightedRandom
   id: ChangelingObjectiveGroupKillDummy

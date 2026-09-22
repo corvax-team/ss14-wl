@@ -6,5 +6,11 @@
   components:
   - type: Action
     useDelay: 1
-    icon: { sprite: _WL/Interface/Actions/android.rsi, state: light-off }
-    iconOn: { sprite: _WL/Interface/Actions/android.rsi, state: light-on }
+  - type: Sprite
+    sprite: _WL/Interface/Actions/android.rsi
+    layers:
+    - state: light-off
+      map: ["enum.ActionVisuals.Icon"]
+    - state: light-on
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false

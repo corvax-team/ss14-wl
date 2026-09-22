@@ -1,4 +1,4 @@
-using Content.Server.Speech.Components;
+using Content.Shared.Speech.Components;
 using Content.Shared._WL.Barks;
 using Robust.Shared.Prototypes;
 

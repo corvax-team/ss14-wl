@@ -12,7 +12,7 @@ namespace Content.Server._WL.Nutrition.Systems;
 [UsedImplicitly]
 public sealed partial class GolemHeatSystem : EntitySystem
 {
-    [Dependency] private HungerSystem _hunger = default!;
+    [Dependency] private SatiationSystem _satiation = default!;
     [Dependency] private MovementSpeedModifierSystem _movement = default!;
     [Dependency] private TemperatureSystem _temperature = default!;
 
@@ -26,11 +26,11 @@ public sealed partial class GolemHeatSystem : EntitySystem
 
     private void ChangeGolemHeat(EntityUid uid, float frameTime)
     {
-        if (!TryComp(uid, out HungerComponent? hungerComponent))
+        if (!TryComp<SatiationComponent>(uid, out var satiation))
             return;
 
         var movementSpeed = EnsureComp<MovementSpeedModifierComponent>(uid);
-        var hunger = _hunger.GetHunger(hungerComponent);
+        var hunger = _satiation.GetValueOrNull((uid, satiation), SatiationSystem.Hunger);
 
         if (hunger < HungerBoostThreshold)
         {
@@ -38,8 +38,7 @@ public sealed partial class GolemHeatSystem : EntitySystem
             return;
         }
 
-        if (TryComp(uid, out TemperatureComponent? temperatureComponent))
-            _temperature.ChangeHeat(uid, HeatChangePerSecond * frameTime, true, temperatureComponent);
+        _temperature.ChangeHeat((uid, null), HeatChangePerSecond * frameTime, true);
 
         _movement.ChangeBaseSpeed(uid, BoostedWalkSpeed, BoostedSprintSpeed, Acceleration, movementSpeed);
     }

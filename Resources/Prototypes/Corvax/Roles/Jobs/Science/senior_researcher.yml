@@ -11,9 +11,8 @@
       time: 60h
       # WL-Changes-start
     - !type:AgeRequirement
-      age: 8 # WL-Changes-AgeRequirement
+      age: 8
       # WL-Changes-end
-  weight: 9
   startingGear: SeniorResearcherGear
   icon: "JobIconSeniorResearcher"
   supervisors: job-supervisors-rd

@@ -1,6 +1,6 @@
 - type: entity
   id: LockerAdjutant
-  parent: LockerBaseSecure
+  parent: LockerBase
   name: adjutant's locker
   components:
   - type: Appearance

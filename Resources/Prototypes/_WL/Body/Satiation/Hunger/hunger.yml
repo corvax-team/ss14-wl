@@ -1,0 +1,21 @@
+- type: satiation
+  parent: NormalSatiationHunger
+  id: GolemHunger
+  baseChangeRate: -0.03
+  maximumValue: 200
+  thresholds:
+    Overfed: 200
+    Okay: 185
+    Peckish: 100
+    Starving: 50
+    Dead: 0
+
+- type: satiation
+  parent: NormalSatiationHunger
+  id: MurineHunger
+  baseChangeRate: -0.032
+
+- type: satiation
+  parent: NormalSatiationHunger
+  id: MothHunger
+  baseChangeRate: -0.024
