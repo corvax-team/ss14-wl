@@ -89,11 +89,9 @@
   - BaseSpeciesMobOrganic
   id: MobAkula
   components: # TODO: Give species uniq features
-    - type: Hunger
     - type: Icon
       sprite: _WL/Mobs/Species/Akula/parts.rsi
       state: full
-    - type: Thirst
     - type: Perishable
     - type: MeleeWeapon
       soundHit:
@@ -106,14 +104,13 @@
     - type: Vocal
       emoteSounds: MaleAkula
     - type: Wagging
+  #WL-Changes: Languages start
     - type: Languages
-      speaking:
-        - Translate
-        - Sarengis
-      understood:
-        - Translate
-        - Sarengis
-      specieLanguage: Sarengis
+      list:
+      - language: Translate
+        languageLevel: 4
+      specieLanguage: Translate
+  #WL-Changes: Languages end
     #Wl-Changes-Start
     - type: CuffedMeleeWeapon
       weaponId: CuffedAkulaAttack

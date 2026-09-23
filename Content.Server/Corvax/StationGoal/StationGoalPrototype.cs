@@ -1,6 +1,5 @@
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 
 namespace Content.Server.Corvax.StationGoal
 {
@@ -14,8 +13,8 @@ namespace Content.Server.Corvax.StationGoal
 
         [DataField] public float Weight { get; private set; } = 1;
 
-        [DataField(customTypeSerializer: typeof(PrototypeIdHashSetSerializer<DepartmentPrototype>))]
-        public HashSet<string> Department = new();
+        [DataField]
+        public HashSet<ProtoId<DepartmentPrototype>> Department = new();
 //
 //        [IdDataFieldAttribute]
 //        public string ID { get; } = default!;

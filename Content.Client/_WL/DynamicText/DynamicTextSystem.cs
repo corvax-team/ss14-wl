@@ -1,7 +1,10 @@
 using Content.Client._WL.DynamicText.UI;
+using Content.Client.Interactable;
 using Content.Client.Mind;
 using Content.Shared._WL.DynamicText;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
@@ -15,6 +18,8 @@ public sealed partial class DynamicTextSystem : EntitySystem
     [Dependency] private IPlayerManager _player = default!;
     [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
     [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private InteractionSystem _interactionSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
 
     private EntityUid? _editingEntity;
 
@@ -28,8 +33,10 @@ public sealed partial class DynamicTextSystem : EntitySystem
 
     private void OnGetVerbs(GetVerbsEvent<Verb> args)
     {
-        if (_player.LocalEntity is not { } player ||
-            args.User != player)
+        if (_player.LocalEntity is not { } player
+            || args.User != player
+            || HasComp<GhostComponent>(player)
+            || !_interactionSystem.InRangeUnobstructed(player, args.Target))
         {
             return;
         }
@@ -37,7 +44,9 @@ public sealed partial class DynamicTextSystem : EntitySystem
         var isSelf = args.Target == player;
 
         if (!isSelf &&
-            (_mindSystem.TryGetMind(args.Target, out _, out _) || HasComp<MobStateComponent>(args.Target)))
+            (_mindSystem.TryGetMind(args.Target, out _, out _)
+            || HasComp<MobStateComponent>(args.Target)
+            || _mobStateSystem.IsIncapacitated(player)))
         {
             return;
         }

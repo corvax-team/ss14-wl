@@ -1,4 +1,3 @@
-using Content.Server._WL.CharacterInformation;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Shared._WL.CCVars;
@@ -6,7 +5,9 @@ using Content.Shared._WL.DynamicText;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -20,6 +21,7 @@ public sealed partial class DynamicTextSystem : EntitySystem
     [Dependency] private PopupSystem _popup = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private MobStateSystem _mobStateSystem = default!;
 
     private int _maxLength;
 
@@ -44,10 +46,21 @@ public sealed partial class DynamicTextSystem : EntitySystem
         if (!_ent.TryGetEntity(ev.Entity, out var ent))
             return;
 
-        if (args.SenderSession.AttachedEntity != ent
-            && (_mindSystem.TryGetMind(ent.Value, out var _, out var _)
-            || HasComp<MobStateComponent>(ent)))
+        var sender = args.SenderSession.AttachedEntity;
+
+        if (sender == null)
             return;
+
+        if (HasComp<GhostComponent>(sender.Value))
+            return;
+
+        if (sender != ent
+            && (_mindSystem.TryGetMind(ent.Value, out _, out _)
+                || HasComp<MobStateComponent>(ent)
+                || _mobStateSystem.IsIncapacitated(sender.Value)))
+        {
+            return;
+        }
 
         var comp = EnsureComp<DynamicTextComponent>(ent.Value);
 
@@ -64,17 +77,27 @@ public sealed partial class DynamicTextSystem : EntitySystem
         var name = Name(ent.Value);
         _popup.PopupEntity(Loc.GetString("dynamic-text-changed-popup", ("name", name)), ent.Value);
 
-        _adminLogger.Add(LogType.WLCharDesc, LogImpact.Low, $"{ent.Value} change description of {name}: {newText}.");
+        Log.Info($"Dynamic text of {name} changed to: {newText}");
+
+        _adminLogger.Add(LogType.WLCharDesc,
+            LogImpact.Low,
+            $"{ToPrettyString(args.SenderSession.AttachedEntity):actor} changed the description of {ToPrettyString(ent.Value):entity} to: {newText}.");
     }
 
     private void RequestDynamicText(RequestDynamicTextEvent ev, EntitySessionEventArgs args)
     {
         if (!_ent.TryGetEntity(ev.Entity, out var ent))
             return;
+        var sender = args.SenderSession.AttachedEntity;
 
-        if (args.SenderSession.AttachedEntity != ent
+        if (sender == null)
+            return;
+
+        if (sender != ent
             && (_mindSystem.TryGetMind(ent.Value, out var _, out var _)
-            || HasComp<MobStateComponent>(ent)))
+            || HasComp<MobStateComponent>(ent)
+            || _mobStateSystem.IsIncapacitated(sender.Value)
+            || HasComp<GhostComponent>(sender.Value)))
             return;
 
         var comp = EnsureComp<DynamicTextComponent>(ent.Value);

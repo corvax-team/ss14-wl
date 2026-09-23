@@ -6,7 +6,6 @@ using Content.Shared.Store.Components;
 using Content.Shared.StoreDiscount.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Store;
@@ -205,7 +204,7 @@ public partial class ListingData : IEquatable<ListingData>
     public List<ListingEventEntry>? ProductEvents;
 
     [NonSerialized]
-    [DataField("priceModifyFunctions", serverOnly: true, customTypeSerializer: typeof(PrototypeIdDictionarySerializer<PriceModify, CurrencyPrototype>))]
+    [DataField("priceModifyFunctions", serverOnly: true)]
     public Dictionary<string, PriceModify> PriceModifyFunctions = new();
     //WL-Changes-end
 
@@ -382,6 +381,12 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
     /// </summary>
     [DataField]
     public Dictionary<string, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>> CostModifiersBySourceId = new();
+
+    /// <summary>
+    /// If true, then this entry was locked.
+    /// </summary>
+    [DataField]
+    public bool Locked = false;
 
     /// <inheritdoc />
     public ListingDataWithCostModifiers(ListingData listingData)

@@ -1,6 +1,6 @@
 using System.Threading;
 using Content.Server.Administration.Logs;
-using Content.Server.AlertLevel;
+using Content.Shared.AlertLevel;
 using Content.Shared.CCVar;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -10,7 +10,6 @@ using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
-using Content.Shared.AlertLevel; // WL-Changes: Alert Level Rework
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.GameTicking;
@@ -149,13 +148,11 @@ namespace Content.Server.RoundEnd
             if (requester != null)
             {
                 var stationUid = _stationSystem.GetOwningStation(requester.Value);
-                if (TryComp<AlertLevelComponent>(stationUid, out var alertLevel))
+                if (TryComp<AlertLevelComponent>(stationUid, out var alertLevelComp))
                 {
                     duration = ProtoMan
-                        // WL-Changes-start: Alert Level Rework
-                        .Index<AlertLevelPrototype>(alertLevel.CurrentLevel)
+                        .Index(alertLevelComp.CurrentAlertLevel)
                         .ShuttleTime;
-                        // WL-Changes-end
                 }
             }
 

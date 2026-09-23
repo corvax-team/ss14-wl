@@ -1,5 +1,5 @@
 - type: entity
-  parent: WindoorSecureCommandLocked
+  parent: WindoorCommandLocked
   id: WindoorSecureAdjutantLocked
   suffix: Adjutant, Locked
   components:

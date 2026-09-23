@@ -103,14 +103,10 @@
        damageModifierSet: Golem
      - type: Injurable
        damageContainer: Golemical
-     - type: Hunger
-       thresholds:
-         Overfed: 200
-         Okay: 185
-         Peckish: 100
-         Starving: 50
-         Dead: 0
-       baseDecayRate: 0.03
+     - type: Satiation
+       satiations:
+         Hunger:
+           prototype: GolemHunger
      - type: HardSlip
        fallDamage:
          types:
@@ -165,7 +161,6 @@
          150: Critical
          200: Dead
      - type: Temperature
-       currentTemperature: 334
        specificHeat: 42
      - type: TemperatureDamage
        heatDamageThreshold: 1273.15
@@ -302,11 +297,13 @@
        damageRecovery:
          types:
            Asphyxiation: -100
+     #WL-Changes: Languages start
      - type: Languages
-       speaking:
-         - Translate
-       understood:
-         - Translate
+       list:
+       - language: Translate
+         languageLevel: 4
+       specieLanguage: Translate
+     #WL-Changes: Languages end
 
  - type: entity
    parent: OrganBase
@@ -400,7 +397,7 @@
    id: OrganGolemFootRight
 
  - type: entity
-   parent: [ OrganGolemInternal, OrganGolemMetabolizer ]
+   parent: [ OrganBaseChildInternal, OrganGolemInternal, OrganGolemMetabolizer ]
    id: OrganGolemCore
    name: Spark
    description: "A prison for the soul"

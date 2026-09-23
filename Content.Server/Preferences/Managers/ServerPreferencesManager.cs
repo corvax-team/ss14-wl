@@ -219,6 +219,7 @@ namespace Content.Server.Preferences.Managers
                 jobSubnames,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
+                new Dictionary<ProtoId<TraitPrototype>, int>(),
                 loadouts,
                 jobUnblockings,
                 profile.MedicalRecord, // WL-Records

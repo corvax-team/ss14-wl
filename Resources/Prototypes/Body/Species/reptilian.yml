@@ -168,11 +168,8 @@
     damage:
       types:
         Slash: 5
-  - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
   - type: TemperatureDamage
-    heatDamageThreshold: 400
+    heatDamageThreshold: 321.15
     coldDamageThreshold: 285
     coldDamage:
       types:
@@ -188,13 +185,10 @@
   - type: Wagging
   #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - SintaUnati
-    understood:
-      - Translate
-      - SintaUnati
-    specieLanguage: SintaUnati
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
   #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon

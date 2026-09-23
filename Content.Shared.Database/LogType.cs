@@ -508,6 +508,6 @@ public enum LogType
     /// <summary>
     /// WL-Commands?
     /// </summary>
-    WLCharDesc = 109,
+    WLCharDesc = 108,
     //WL-Changes-end
 }

@@ -41,15 +41,14 @@ public sealed partial class LavaPrepareFlammableEntityEffectSystem
             return;
 
         // AppearanceComponent block
-        if (!HasComp<AppearanceComponent>(uid))
-            EnsureComp<AppearanceComponent>(uid);
+        EnsureComp<AppearanceComponent>(uid);
 
         // ReactiveComponent block
         if (!HasComp<ReactiveComponent>(uid))
         {
             var reactive = EnsureComp<ReactiveComponent>(uid);
 
-            reactive.ReactiveGroups ??= new Dictionary<string, HashSet<ReactionMethod>>();
+            reactive.ReactiveGroups ??= new Dictionary<ProtoId<ReactiveGroupPrototype>, HashSet<ReactionMethod>>();
 
             if (!reactive.ReactiveGroups.ContainsKey("Extinguish"))
                 reactive.ReactiveGroups["Extinguish"] = new HashSet<ReactionMethod>();
@@ -58,8 +57,7 @@ public sealed partial class LavaPrepareFlammableEntityEffectSystem
         }
 
         // InjurableComponent block
-        if (!HasComp<InjurableComponent>(uid))
-            EnsureComp<InjurableComponent>(uid);
+        EnsureComp<InjurableComponent>(uid);
 
         // DamageableComponent block
         if (!HasComp<DamageableComponent>(uid))
@@ -85,9 +83,9 @@ public sealed partial class LavaPrepareFlammableEntityEffectSystem
         flammable.Damage = fireDamage;
 
         // DestructibleComponent block
-        if (!HasComp<DestructibleComponent>(uid))
+        // TODO: Переделать эту реализацию, убрав изменение компонента через кода и вернув в него AccessOf
+        if (EnsureComp<DestructibleComponent>(uid, out var destructible))
         {
-            var destructible = EnsureComp<DestructibleComponent>(uid);
             destructible.Thresholds ??= new List<DamageThreshold>();
             destructible.Thresholds.Add(new DamageThreshold
             {

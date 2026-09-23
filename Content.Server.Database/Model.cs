@@ -56,28 +56,8 @@ namespace Content.Server.Database
         public DbSet<CustomVoteLog> CustomVoteLog { get; set; } = null!;
         public DbSet<CustomVoteLogOption> CustomVoteLogOption { get; set; } = null!;
 
-        //WL-Changes: Start
-        public DbSet<DiscordConnection> DiscordConnections { get; set; } = null!;
-        //WL-Changes: End
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //WL-Changes-start
-            modelBuilder.Entity<DiscordConnection>()
-                .HasIndex(c => c.UserGuid)
-                .IsUnique();
-
-            modelBuilder.Entity<DiscordConnection>()
-                .HasIndex(c => c.DiscordId)
-                .IsUnique();
-
-            modelBuilder.Entity<DiscordConnection>()
-                .Property(p => p.DiscordId)
-                .HasConversion(
-                    p => p.ToString(),
-                    p => ulong.Parse(p));
-            //WL-Changes-end
-
             modelBuilder.Entity<Preference>()
                 .HasIndex(p => p.UserId)
                 .IsUnique();

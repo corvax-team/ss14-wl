@@ -1,9 +1,11 @@
 - type: entity
   abstract: true
-  parent: [ BaseStructureDynamic, SmallConstructibleMachine ]
+  parent: [ BaseStructureDynamic, SmallConstructibleMachine, BaseSmallConstructibleMachineDestructible ]
   id: SurveillanceWirelessCameraBase
   name: wireless camera
   description: A camera. It's watching you. Kinda.
+  placement:
+    mode: SnapgridCenter
   components:
     #WL-Changes: включение/выключение Start
     - type: ItemToggle
@@ -11,22 +13,21 @@
         path: /Audio/Machines/button.ogg
       soundDeactivate:
         path: /Audio/Machines/button.ogg
-    - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.ToggleableVisuals.Enabled:
-          enable:
-            True: { visible: true }
-            False: { visible: false }
     #WL-Changes: включение/выключение End
     - type: InteractionOutline
     - type: Eye
     - type: WirelessNetworkConnection
       range: 200
     - type: Damageable
-      damageModifierSet: Metallic
-    - type: Injurable
-      damageContainer: StructuralInorganic
+      damageModifierSet: GlassMod
+    - type: Destructible
+      thresholds:
+      - trigger: !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalGlassBreak
     - type: Rotatable
       rotateWhileAnchored: true
     - type: Fixtures
@@ -52,8 +53,6 @@
       interfaces:
         enum.SurveillanceCameraSetupUiKey.Camera:
           type: SurveillanceCameraSetupBoundUi
-  placement:
-    mode: SnapgridCenter
 
 - type: entity
   abstract: true
@@ -72,12 +71,12 @@
       noRot: true
       sprite: Structures/monitors.rsi
       #WL-Changes start
-      layers:
-      - state: television
-      - state: on
-        visible: false
-        shader: unshaded
-        map: [ "enable" ]
+#       layers:
+#       - state: television
+#       - state: on
+#         visible: false
+#         shader: unshaded
+#         map: [ "enable" ]
       #WL-Changes end
 
 - type: entity
@@ -93,12 +92,12 @@
       noRot: true
       sprite: Structures/monitors.rsi
       #WL-Changes: анимация включения/выключения Start
-      layers:
-      - state: mobilevision
-      - state: on
-        visible: false
-        shader: unshaded
-        map: [ "enable" ]
+#       layers:
+#       - state: mobilevision
+#       - state: on
+#         visible: false
+#         shader: unshaded
+#         map: [ "enable" ]
       #WL-Changes: анимация включения/выключения End
 
 - type: entity

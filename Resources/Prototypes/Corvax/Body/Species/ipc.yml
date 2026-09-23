@@ -107,7 +107,7 @@
     speechSounds: Alto
   - type: ZombieImmune
   - type: Vocal
-    emoteSounds: UnsexedIpc
+    emoteSounds: UnisexIpc
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -248,11 +248,9 @@
     - Ipc
 ###
   - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 42
   - type: TemperatureDamage
     heatDamageThreshold: 325
-    coldDamageThreshold: 260
+    coldDamageThreshold: 273.15
     coldDamage:
       types:
         Cold: 0 #per second, scales with temperature & other constants
@@ -272,13 +270,10 @@
     thermalRegulationTemperatureThreshold: 2
   #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - Ternary
-    understood:
-      - Translate
-      - Ternary
-    specieLanguage: Ternary
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
   #WL-Changes: Languages end
   # WL-Midi-Start
   - type: Instrument
@@ -370,7 +365,9 @@
       map: ["base"]
 
 - type: entity
-  parent: [ OrganBase ]
+  parent:
+  - OrganBase
+  - OrganBaseChildInternal
   id: OrganIPCEyes
   components:
   - type: Sprite

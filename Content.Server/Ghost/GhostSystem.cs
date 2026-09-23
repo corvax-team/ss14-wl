@@ -23,7 +23,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.GameTicking;
 using Content.Shared.Follower.Components;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
+using Content.Shared.Ghost.Systems;
 using Content.Shared.GhostTypes;
 using Content.Shared.Humanoid; // Wl-Changes: Ghost hair
 using Content.Shared.Humanoid.Markings; // Wl-Changes: Ghost hair
@@ -54,6 +55,10 @@ using Robust.Shared.Random;
 
 namespace Content.Server.Ghost
 {
+    /// <summary>
+    /// A system for handling interactions with ghosts ("observers").
+    /// These are noncorporeal player entities (generally after dying in-round) that can roam and warp around.
+    /// </summary>
     public sealed partial class GhostSystem : SharedGhostSystem
     {
         [Dependency] private SharedActionsSystem _actions = default!;
@@ -118,83 +123,14 @@ namespace Content.Server.Ghost
             SubscribeNetworkEvent<WarpToRandomFollowedRequestEvent>(OnWarpToRandomFollowedRequest);
             SubscribeNetworkEvent<WarpToRandomRequestEvent>(OnWarpToRandomRequest);
 
-            SubscribeLocalEvent<GhostComponent, BooActionEvent>(OnActionPerform);
             SubscribeLocalEvent<GhostComponent, ToggleGhostHearingActionEvent>(OnGhostHearingAction);
             SubscribeLocalEvent<GhostComponent, InsertIntoEntityStorageAttemptEvent>(OnEntityStorageInsertAttempt);
 
             SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
 
-            //WL-ReturnToLobby-start
-            SubscribeLocalEvent<GhostComponent, GoLobbyActionEvent>(OnReturnToLobby);
-            SubscribeLocalEvent<GhostComponent, MindAddedMessage>(OnMindAdded);
-            SubscribeLocalEvent<GhostComponent, PlayerAttachedEvent>(OnAttached);
-
-            SubscribeLocalEvent<GhostRoleComponent, TakeGhostRoleEvent>(OnGhostRoleTaked);
-
-            SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => _cachedSessionsDeathTime.Clear());
-
-            Subs.CVar(_configurationManager, WLCVars.GhostReturnToLobbyButtonCooldown,
-                (newValue) => GhostReturnToLobbyButtonCooldown = TimeSpan.FromSeconds(newValue));
-            //WL-ReturnToLobby-end
-
             SubscribeLocalEvent<GhostComponent, GetVisMaskEvent>(OnGhostVis);
         }
-
-        //WL-ReturnToLobby-start
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
-
-            var query = EntityQueryEnumerator<GhostComponent, ActionsComponent, ActorComponent>();
-            while (query.MoveNext(out var uid, out var ghostComp, out var actionsComp, out var actorComp))
-            {
-                if (ghostComp.WasGivenReturnButtonAction)
-                    continue;
-
-                if (!_cachedSessionsDeathTime.TryGetValue(actorComp.PlayerSession.UserId, out var deathTime))
-                    continue;
-
-                if (deathTime + GhostReturnToLobbyButtonCooldown > _gameTiming.CurTime)
-                    continue;
-
-                ghostComp.WasGivenReturnButtonAction = true;
-
-                _actions.AddAction(uid, ref ghostComp.ReturnToLobbyActionEntity, ghostComp.ReturnToLobbyAction, component: actionsComp);
-            }
-        }
-
-        private void OnReturnToLobby(EntityUid ghost, GhostComponent component, GoLobbyActionEvent args)
-        {
-            if (!_player.TryGetSessionByEntity(ghost, out var session))
-                return;
-
-            _gameTicker.Respawn(session);
-            _cachedSessionsDeathTime.Remove(session.UserId);
-        }
-
-        private void OnAttached(EntityUid entity, GhostComponent component, PlayerAttachedEvent args)
-        {
-            if (!_player.TryGetSessionByEntity(entity, out var session))
-                return;
-
-            _cachedSessionsDeathTime.TryAdd(session.UserId, _gameTiming.CurTime);
-        }
-
-        private void OnMindAdded(EntityUid ghost, GhostComponent component, MindAddedMessage args)
-        {
-            var user = args.Mind.Comp.UserId;
-            if (user == null)
-                return;
-
-            _cachedSessionsDeathTime.TryAdd(user.Value, _gameTiming.CurTime);
-        }
-
-        private void OnGhostRoleTaked(EntityUid entity, GhostRoleComponent component, ref TakeGhostRoleEvent args)
-        {
-            _cachedSessionsDeathTime.Remove(args.Player.UserId);
-        }
-        //WL-ReturnToLobby-end
 
         private void OnGhostVis(Entity<GhostComponent> ent, ref GetVisMaskEvent args)
         {
@@ -226,33 +162,6 @@ namespace Content.Server.Ghost
 
             Popup.PopupEntity(str, uid, uid);
             Dirty(uid, component);
-        }
-
-        private void OnActionPerform(EntityUid uid, GhostComponent component, BooActionEvent args)
-        {
-            if (args.Handled)
-                return;
-
-            var entities = _lookup.GetEntitiesInRange(args.Performer, component.BooRadius).ToList();
-            // Shuffle the possible targets so we don't favor any particular entities
-            _random.Shuffle(entities);
-
-            var booCounter = 0;
-            foreach (var ent in entities)
-            {
-                var handled = DoGhostBooEvent(ent);
-
-                if (handled)
-                    booCounter++;
-
-                if (booCounter >= component.BooMaxTargets)
-                    break;
-            }
-
-            if (booCounter == 0)
-                _popup.PopupEntity(Loc.GetString("ghost-component-boo-action-failed"), uid, uid);
-
-            args.Handled = true;
         }
 
         private void OnRelayMoveInput(EntityUid uid, GhostOnMoveComponent component, ref MoveInputEvent args)
@@ -499,7 +408,7 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
+                yield return new GhostWarp(GetNetEntity(uid), warp.Location == null ? Name(uid) : Loc.GetString(warp.Location), true);
             }
         }
 
@@ -567,10 +476,16 @@ namespace Content.Server.Ghost
             }
         }
 
-        public bool DoGhostBooEvent(EntityUid target)
+        /// <summary>
+        /// Raises a GhostBooEvent on a particular entity.
+        /// </summary>
+        /// <param name="target">The target of the action.</param>
+        /// <param name="allowedIntensity">The permitted intensity of the response.</param>
+        /// <returns>Whether or not the target had a response.</returns>
+        public bool DoGhostBooEvent(EntityUid target, GhostBooIntensity allowedIntensity = GhostBooIntensity.Normal)
         {
-            var ghostBoo = new GhostBooEvent();
-            RaiseLocalEvent(target, ghostBoo, true);
+            var ghostBoo = new GhostBooEvent(allowedIntensity);
+            RaiseLocalEvent(target, ref ghostBoo, true);
 
             return ghostBoo.Handled;
         }
@@ -674,6 +589,15 @@ namespace Content.Server.Ghost
                     _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} was forced to ghost via command");
                 else
                     _adminLog.Add(LogType.Mind, $"{ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
+            }
+
+            if (playerEntity != null && !forced)
+            {
+                var entityCancelEv = new GhostAttemptEvent(mindId);
+                RaiseLocalEvent(playerEntity.Value, ref entityCancelEv);
+
+                if (entityCancelEv.Cancelled)
+                    return false;
             }
 
             var handleEv = new GhostAttemptHandleEvent(mind, canReturnGlobal);

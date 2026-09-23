@@ -12,6 +12,5 @@
       children:
       - id: Grille
       # - id: GrilleBroken #Corvax-WL Changes
-      - id: ClockworkGrille #Corvax-WL Changes
   placement:
     mode: AlignTileAny

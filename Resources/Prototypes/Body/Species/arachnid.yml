@@ -85,6 +85,7 @@
     productionLength: 2
     entityProduced: MaterialWebSilk1
     hungerCost: 4 # Should total to 25 total silk on full hunger
+    minHungerThreshold: Peckish
   - type: Tag
     tags:
     - CanPilot
@@ -141,13 +142,10 @@
       state: creampie_arachnid
   #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - Arachny
-    understood:
-      - Translate
-      - Arachny
-    specieLanguage: Arachny
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
   #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon

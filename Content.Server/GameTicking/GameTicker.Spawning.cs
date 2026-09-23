@@ -7,7 +7,6 @@ using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
 using Content.Server.Roles.Jobs; //WL-Changes
 using Content.Server.Spawners.Components;
-using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
@@ -167,6 +166,15 @@ namespace Content.Server.GameTicking
             // Can't spawn players with a dummy ticker!
             if (DummyTicker)
                 return;
+
+            // Corvax-GoLobby-start
+            var selectedSlot = _ghostGoLobby.GetSelectedSlot(player.UserId);
+            if (!_ghostGoLobby.CanUseCharacter(player.UserId, selectedSlot))
+            {
+                _chatManager.DispatchServerMessage(player, Loc.GetString("ghost-go-lobby-used"));
+                return;
+            }
+            // Corvax-GoLobby-end 
 
             if (station == EntityUid.Invalid)
             {
