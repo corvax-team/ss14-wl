@@ -504,7 +504,7 @@ public sealed partial class TTSSystem : EntitySystem
             if (check)
 
             {
-                RaiseNetworkEvent(distance > SharedChatSystem.WhisperClearRang ? obfTtsEvent : fullTtsEvent, session);
+                RaiseNetworkEvent(distance > SharedChatSystem.WhisperClearRange ? obfTtsEvent : fullTtsEvent, session);
                 continue;
             }
 
@@ -512,7 +512,7 @@ public sealed partial class TTSSystem : EntitySystem
                 continue;
 
             var listenerLangMessage = _languages.ObfuscateMessageForListener(
-                distance > ChatSystem.WhisperClearRange ? langObfusMessage : langMessage,
+                distance > SharedChatSystem.WhisperClearRange ? langObfusMessage : langMessage,
                 language.ID,
                 listener);
 
