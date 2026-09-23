@@ -1,0 +1,51 @@
+- type: job
+  id: Chaplain
+  name: job-name-chaplain
+  description: job-description-chaplain
+  playTimeTracker: JobChaplain
+  startingGear: ChaplainGear
+  subnames:
+  - Male: религиовед
+  icon: "JobIconChaplain"
+  supervisors: job-supervisors-hop
+  guides: [ Service ] # TODO: should have a more specific guidebook page instead of using the department itself
+  access:
+  - Chapel
+  - Maintenance
+  - Service # WL-Changes
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: BibleUser #Lets them heal with bibles
+  # WL-Changes-AgeRequirement Start
+  requirements:
+    - !type:AgeRequirement
+      age: 0 # WL-Changes-AgeRequirement
+  # WL-Changes-AgeRequirement End
+  # WL-Skills-start
+  bonusSkillPoints: 24
+  defaultSkills:
+    Bureaucracy: 2
+  # WL-Skills-end
+
+- type: startingGear
+  id: ChaplainGear
+  equipment:
+    shoes: ClothingShoesColorBlack
+    id: ChaplainPDA
+    ears: ClothingHeadsetService
+  storage:
+    back:
+    - RubberStampChaplain
+
+- type: chameleonOutfit
+  id: ChaplainChameleonOutfit
+  job: Chaplain
+  equipment:
+    head: ClothingHeadHatPlaguedoctor
+    eyes: ClothingEyesGlasses
+    mask: ClothingMaskPlague
+    neck: ClothingNeckStoleChaplain
+    outerClothing: ClothingOuterPlagueSuit
+    gloves: ClothingHandsGlovesColorBlack
+

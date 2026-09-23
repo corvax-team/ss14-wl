@@ -1,4 +1,4 @@
-﻿using Content.Shared.StationRecords.Systems;
+using Content.Shared.StationRecords.Systems;
 
 // WL-Changes-Records-Start
 using Content.Server.Power.Components;
