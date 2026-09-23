@@ -5,78 +5,82 @@
   keylang: 'т'
   obfuscation:
     !type:WordsReplacementObfuscation
-      replacement:
-        - Lorem
-        - ipsum
-        - dolor
-        - sit
-        - amet
-        - consectetur
-        - adipisci
-        - elit
-        - sed
-        - eiusmod
-        - tempor
-        - incidunt
-        - ut
-        - labore
-        - et
-        - dolore
-        - magna
-        - aliqua
-        - Ut
-        - enim
-        - ad
-        - minim
-        - veniam
-        - quis
-        - nostru
-        - exercitatione
-        - ulla
-        - corpori
-        - suscipi
-        - laboriosa
-        - nisi
-        - ut
-        - aliquid
-        - ex
-        - ea
-        - commodi
-        - consequatur
-        - Quis
-        - aute
-        - iure
-        - reprehenderit
-        - in
-        - voluptate
-        - velit
-        - esse
-        - cillu
-        - dolore
-        - e
-        - fugia
-        - nulla
-        - pariatu
-        - Excepteur
-        - sin
-        - obcaeca
-        - cupidita
-        - no
-        - proiden
-        - sunt
-        - in
-        - culpa
-        - qui
-        - officia
-        - deserunt
-        - mollit
-        - anim
-        - id
-        - est
-        - laborum
+    replacement:
+    - Lorem
+    - ipsum
+    - dolor
+    - sit
+    - amet
+    - consectetur
+    - adipisci
+    - elit
+    - sed
+    - eiusmod
+    - tempor
+    - incidunt
+    - ut
+    - labore
+    - et
+    - dolore
+    - magna
+    - aliqua
+    - Ut
+    - enim
+    - ad
+    - minim
+    - veniam
+    - quis
+    - nostru
+    - exercitatione
+    - ulla
+    - corpori
+    - suscipi
+    - laboriosa
+    - nisi
+    - ut
+    - aliquid
+    - ex
+    - ea
+    - commodi
+    - consequatur
+    - Quis
+    - aute
+    - iure
+    - reprehenderit
+    - in
+    - voluptate
+    - velit
+    - esse
+    - cillu
+    - dolore
+    - e
+    - fugia
+    - nulla
+    - pariatu
+    - Excepteur
+    - sin
+    - obcaeca
+    - cupidita
+    - no
+    - proiden
+    - sunt
+    - in
+    - culpa
+    - qui
+    - officia
+    - deserunt
+    - mollit
+    - anim
+    - id
+    - est
+    - laborum
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: translate
+  levelCosts: [0, 0, 0, 0, 0]
+  speciesModifiers:
+    Vox:
+      levelModifiers: [0, 0, 0, 0, 1]
 
 - type: language
   id: SintaUnati
@@ -86,36 +90,67 @@
   keylang: 'у'
   obfuscation:
     !type:ByCharReplacementObfuscation
-      maxlength: 6
-      replacement:
-      - we
-      - s
-      - i
-      - ss
-      - te
-      - re
-      - so
-      - he
-      - su
-      - ky
-      - i
-      - s
-      - w
-      - e
-      - h
-      - h
-      - weh
-      - l
-      - s
-      - o
-      - f
-      - h
-      - k
-      - c
-      - r
+    maxlength: 6
+    replacement:
+    - we
+    - s
+    - i
+    - ss
+    - te
+    - re
+    - so
+    - he
+    - su
+    - ky
+    - i
+    - s
+    - w
+    - e
+    - h
+    - h
+    - weh
+    - l
+    - s
+    - o
+    - f
+    - h
+    - k
+    - c
+    - r
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: unati
+  levelCosts: [0, 1, 2, 1, 2]
+  speciesModifiers:
+    Andr:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Vox:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Vulpkanin:
+      levelModifiers: [0, 0, 0, 1, 1]
+    Ipc:
+      levelModifiers: [0, 0, -1, 0, -1]
+    Diona:
+      levelModifiers: [0, 0, 0, 1, 1]
+    Cischi:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Golem:
+      levelModifiers: [0, 0, -1, 0, -1]
+    Murine:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Moth:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Akula:
+      levelModifiers: [0, 0, 0, 1, 0]
+    SlimePerson:
+      levelModifiers: [0, 0, 0, 1, 1]
+    Tajaran:
+      levelModifiers: [0, 0, 0, 1, 1]
+    Reptilian:
+      levelModifiers: [0, 0, -1, 0, -1]
+  confederationModifiers:
+    ConfederationOfOrionStates:
+      levelModifiers: [0, 0, -1, 0, 0]
 
 - type: language
   id: OldEarth
@@ -125,11 +160,48 @@
   keylang: 'з'
   obfuscation:
     !type:Utf16ReplacementObfuscation
-      utf16start: 224
-      utf16end: 382
+    utf16start: 224
+    utf16end: 382
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: human
+  levelCosts: [0, 1, 2, 3, 3]
+  speciesModifiers:
+    Android:
+      levelModifiers: [0, 0, -1, -1, -1]
+    Arachnid:
+      levelModifiers: [0, 0, 1, 1, 999]
+    Vox:
+      levelModifiers: [0, 0, 1, 2, 999]
+    Vulpkanin:
+      levelModifiers: [0, 0, 1, 1, 999]
+    Ipc:
+      levelModifiers: [0, 0, -1, -1, -1]
+    Diona:
+      levelModifiers: [0, 0, 1, 0, 0]
+    Cischi:
+      levelModifiers: [0, 0, 0, -1, -1]
+    Golem:
+      levelModifiers: [0, 0, -1, -1, -1]
+    Human:
+      levelModifiers: [0, 0, -1, -1, -1]
+    Murine:
+      levelModifiers: [0, 0, 1, 1, 999]
+    Moth:
+      levelModifiers: [0, 0, 1, 1, 999]
+    Akula:
+      levelModifiers: [0, 0, 1, 1, 999]
+    SlimePerson:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Tajaran:
+      levelModifiers: [0, 0, 1, 1, 999]
+    Reptilian:
+      levelModifiers: [0, 0, 1, 1, 999]
+    Felinid:
+      levelModifiers: [0, 0, -1, -1, -1]
+  confederationModifiers:
+    HolyEmpireOfEden:
+      levelModifiers: [0, -1, -1, 0, 0]
 
 - type: language
   id: Kuniluc
@@ -139,11 +211,36 @@
   keylang: 'к'
   obfuscation:
     !type:Utf16ReplacementObfuscation
-      utf16start: 224
-      utf16end: 382
+    utf16start: 224
+    utf16end: 382
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: vulpa
+  levelCosts: [0, 1, 1, 2, 1]
+  speciesModifiers:
+    Arachnid:
+      levelModifiers: [0, 0, 0, 0, 1]
+    Vox:
+      levelModifiers: [0, 0, 1, 0, 0]
+    Vulpkanin:
+      levelModifiers: [0, 0, -1, -1, 0]
+    Ipc:
+      levelModifiers: [0, 0, -1, -1, 0]
+    Cischi:
+      levelModifiers: [0, 0, 1, 0, 0]
+    Golem:
+      levelModifiers: [0, 0, -1, -1, 0]
+    Murine:
+      levelModifiers: [0, 0, 1, 0, 0]
+    Akula:
+      levelModifiers: [0, 0, 0, -1, 0]
+    SlimePerson:
+      levelModifiers: [0, 0, 1, 0, 0]
+    Tajaran:
+      levelModifiers: [0, 0, -1, -1, 0]
+  confederationModifiers:
+    InterspeciesAlliance:
+      levelModifiers: [0, -1, 0, 0, 0]
 
 - type: language
   id: Sarengis
@@ -153,11 +250,21 @@
   keylang: 'р'
   obfuscation:
     !type:Utf16ReplacementObfuscation
-      utf16start: 902
-      utf16end: 1023
+    utf16start: 902
+    utf16end: 1023
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: sareng
+  levelCosts: [0, 1, 2, 2, 2]
+  speciesModifiers:
+    Vox:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Ipc:
+      levelModifiers: [0, 0, -1, -1, -1]
+    Golem:
+      levelModifiers: [0, 0, -1, -1, -1]
+    Akula:
+      levelModifiers: [0, 0, -1, 0, -1]
 
 - type: language
   id: Weaver
@@ -170,15 +277,23 @@
   pressurePass: .4
   obfuscation:
     !type:LengthObfuscation
-      replacement:
-      - пищит
-      - щебечет
-      - щебечет и двигает усиками
-      - щебечет и активно двигает тельцем
+    replacement:
+    - пищит
+    - щебечет
+    - щебечет и двигает усиками
+    - щебечет и активно двигает тельцем
   needTTS: false
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: nian
+  levelCosts: [0, 4, 4, 999, 999]
+  speciesModifiers:
+    Ipc:
+      levelModifiers: [0, -1, -1, 999, 999]
+    Golem:
+      levelModifiers: [0, -1, -1, 999, 999]
+    Moth:
+      levelModifiers: [0, -3, -3, -997, -997]
 
 - type: language
   id: Ternary
@@ -192,13 +307,24 @@
     collection: TernarySounds
   obfuscation:
     !type:ByCharReplacementObfuscation
-      replacement:
-        - 0
-        - 1
-        - 2
+    replacement:
+    - 0
+    - 1
+    - 2
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: android
+  levelCosts: [0, 999, 999, 999, 999]
+  speciesModifiers:
+    Android:
+      levelModifiers: [0, -998, -998, -998, -998]
+    Ipc:
+      levelModifiers: [0, -998, -998, -998, -998]
+    Golem:
+      levelModifiers: [0, -996, -996, -996, -998]
+  confederationModifiers:
+    Metafront:
+      levelModifiers: [0, 0, 0, 0, -1]
 
 - type: language
   id: Arachny
@@ -212,11 +338,21 @@
     collection: ArachnySounds
   obfuscation:
     !type:Utf16ReplacementObfuscation
-      utf16start: 224
-      utf16end: 382
+    utf16start: 224
+    utf16end: 382
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: arachnid
+  levelCosts: [0, 4, 4, 999, 999]
+  speciesModifiers:
+    Arachnid:
+      levelModifiers: [0, -2, -3, -998, -998]
+    Ipc:
+      levelModifiers: [0, -1, -2, -998, -997]
+    Golem:
+      levelModifiers: [0, -1, -2, -998, -997]
+    Moth:
+      levelModifiers: [0, -2, -2, -998, -998]
 
 - type: language
   id: RootSpeak
@@ -229,14 +365,20 @@
   pressurePass: .4
   obfuscation:
     !type:LengthObfuscation
-      replacement:
-      - шуршит
-      - трещит ветками
-      - трясёт лозами и листьями
+    replacement:
+    - шуршит
+    - трещит ветками
+    - трясёт лозами и листьями
   needTTS: false
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: diona
+  levelCosts: [0, 999, 999, 999, 999]
+  speciesModifiers:
+    Ipc:
+      levelModifiers: [0, -995, -995, 0, 0]
+    Diona:
+      levelModifiers: [0, -998, -998, -997, -997]
 
 - type: language
   id: Slimish
@@ -248,13 +390,21 @@
   emoting: true
   obfuscation:
     !type:LengthObfuscation
-      replacement:
-      - булькает
-      - несколько раз булькает
-      - булькает и бурлит
+    replacement:
+    - булькает
+    - несколько раз булькает
+    - булькает и бурлит
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: slime
+  levelCosts: [0, 5, 999, 999, 999]
+  speciesModifiers:
+    Ipc:
+      levelModifiers: [0, -3, -996, 0, 0]
+    Golem:
+      levelModifiers: [0, -3, -996, 0, 0]
+    SlimePerson:
+      levelModifiers: [0, -4, -997, -998, -998]
 
 - type: language
   id: VoxPigin
@@ -264,31 +414,39 @@
   keylang: 'в'
   obfuscation:
     !type:ByCharReplacementObfuscation
-      replacement:
-        - г
-        - з
-        - с
-        - ф
-        - дх
-        - а
-        - ра
-        - и
-        - ии
-        - ка
-        - к
-        - ц
-        - рр
-        - са
-        - а
-        - х
-        - кс
-        - г
-        - скр
-        - ск
-        - кр
+    replacement:
+    - г
+    - з
+    - с
+    - ф
+    - дх
+    - а
+    - ра
+    - и
+    - ии
+    - ка
+    - к
+    - ц
+    - рр
+    - са
+    - а
+    - х
+    - кс
+    - г
+    - скр
+    - ск
+    - кр
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: vox
+  levelCosts: [0, 5, 999, 999, 999]
+  speciesModifiers:
+    Vox:
+      levelModifiers: [0, -4, -997, -998, -998]
+    Ipc:
+      levelModifiers: [0, -3, -996, -997, -996]
+    Golem:
+      levelModifiers: [0, -3, -996, -997, -996]
 
 - type: language
   id: Urlum
@@ -300,12 +458,22 @@
   emoting: true
   obfuscation:
     !type:LengthObfuscation
-      replacement:
-      - слегка попискивает
-      - пищит
+    replacement:
+    - слегка попискивает
+    - пищит
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: murine
+  levelCosts: [0, 4, 4, 999, 999]
+  speciesModifiers:
+    Vox:
+      levelModifiers: [0, -1, -2, -997, -997]
+    Ipc:
+      levelModifiers: [0, -3, -2, -997, -997]
+    Golem:
+      levelModifiers: [0, -3, -2, -997, -997]
+    Murine:
+      levelModifiers: [0, -3, -2, -998, -997]
 
 - type: language
   id: SikTair
@@ -315,8 +483,458 @@
   keylang: 'я'
   obfuscation:
     !type:Utf16ReplacementObfuscation
-      utf16start: 224
-      utf16end: 382
+    utf16start: 224
+    utf16end: 382
   icon:
     sprite: /Textures/_WL/Interface/Languages/languages.rsi
     state: default
+  levelCosts: [0, 2, 1, 3, 2]
+  speciesModifiers:
+    Android:
+      levelModifiers: [0, 0, 1, 0, 0]
+    Arachnid:
+      levelModifiers: [0, 0, 1, 0, 0]
+    Vox:
+      levelModifiers: [0, 0, 1, 0, 0]
+    Vulpkanin:
+      levelModifiers: [0, -1, 0, -2, 0]
+    Ipc:
+      levelModifiers: [0, -1, 0, -1, -1]
+    Cischi:
+      levelModifiers: [0, 0, 1, 0, 1]
+    Golem:
+      levelModifiers: [0, -1, 0, -1, -1]
+    Murine:
+      levelModifiers: [0, 0, 0, 1, 1]
+    Akula:
+      levelModifiers: [0, 0, 0, -1, 0]
+    SlimePerson:
+      levelModifiers: [0, 0, 0, 1, 1]
+    Tajaran:
+      levelModifiers: [0, -1, 0, -2, 0]
+    Reptilian:
+      levelModifiers: [0, 0, 0, -1, 0]
+
+- type: language
+  id: Wingdings
+  name: language-wingdings
+  description: language-wingdings-desc
+  color: '#a6a6a6'
+  keylang: 'ж'
+  needTTS: false
+  emoting: true
+  radioPass: 0
+  pressurePass: 1
+  obfuscation:
+    !type:LengthObfuscation
+    replacement:
+    - показывает жест
+    - показывает несколько жестов
+    - быстро показывает множество различных жестов
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: hand
+  levelCosts: [0, 0, 1, 0, 1]
+  speciesModifiers:
+    Ipc:
+      levelModifiers: [0, 0, 0, 0, -1]
+    Diona:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Golem:
+      levelModifiers: [0, 0, 0, 1, 0]
+  confederationModifiers:
+    NoConfederation:
+      levelModifiers: [0, 0, 0, 0, -1]
+
+- type: language
+  id: TopTranslate
+  name: language-toptranslate
+  description: language-toptranslate-desc
+  color: '#00c5d7'
+  keylang: 'ш'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+    maxlength: 5
+    replacement:
+    - les
+    - as
+    - ter
+    - ro
+    - ew
+    - wote
+    - im
+    - um
+    - un
+    - nu
+    - ret
+    - w
+    - a
+    - b
+    - hes
+    - je
+    - uex
+    - xer
+    - x
+    - th
+    - tho
+    - the
+    - tha
+    - ro
+    - ium
+    - lam
+    - terr
+    - jo
+    - je
+    - re
+    - la
+    - le
+    - xlo
+    - ry
+    - y
+    - thx
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: top
+  levelCosts: [0, 1, 2, 2, 3]
+  speciesModifiers:
+    Vox:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Ipc:
+      levelModifiers: [0, 0, -1, -1, 0]
+    Cischi:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Golem:
+      levelModifiers: [0, 0, -1, -1, 0]
+  confederationModifiers:
+    ConfederationOfOrionStates:
+      levelModifiers: [0, -1, -1, 0, 0]
+
+- type: language
+  id: BottomTranslate
+  name: language-bottomtranslate
+  description: language-bottomtranslate-desc
+  color: '#963a1e'
+  keylang: 'ц'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+    replacement:
+    - e
+    - a
+    - i
+    - o
+    - u
+    - re
+    - lo
+    - ke
+    - tu
+    - ru
+    - fi
+    - ti
+    - m
+    - d
+    - s
+    - k
+    - t
+    - p
+    - oo
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: bottom
+  levelCosts: [0, 1, 0, 1, 1]
+  speciesModifiers:
+    Ipc:
+      levelModifiers: [0, 0, 0, -1, 0]
+    Golem:
+      levelModifiers: [0, 0, 0, -1, 0]
+  confederationModifiers:
+    SocialConfederation:
+      levelModifiers: [0, -1, 0, 0, 0]
+
+- type: language
+  id: Yangyu
+  name: language-yangyu
+  description: language-yangyu-desc
+  color: '#ff8000'
+  keylang: 'г'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+    replacement:
+    - sh
+    - ju
+    - ij
+    - e
+    - y
+    - k
+    - y
+    - d
+    - wa
+    - ts
+    - shi
+    - ō
+    - u
+    - a
+    - s
+    - i
+    - z
+    - g
+    - jo
+    - en
+    - ido
+    - ai
+    - ta
+    - ni
+    - ik
+    - yu
+    - yo
+    - yi
+    - ng
+    - ch
+    - zh
+    - li
+    - ":"
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: felinid
+  levelCosts: [0, 1, 2, 2, 1]
+  speciesModifiers:
+    Vox:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Vulpkanin:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Ipc:
+      levelModifiers: [0, 0, -1, -1, 0]
+    Cischi:
+      levelModifiers: [0, 0, 0, -1, 0]
+    Golem:
+      levelModifiers: [0, 0, -1, -1, 0]
+    Akula:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Reptilian:
+      levelModifiers: [0, 0, 0, 1, 0]
+  confederationModifiers:
+    HolyEmpireOfEden:
+      levelModifiers: [0, 0, -1, 0, 0]
+    SocialConfederation:
+      levelModifiers: [0, 0, -1, 0, 0]
+
+- type: language
+  id: Taidz
+  name: language-taidz
+  description: language-taidz-desc
+  color: '#9E4F00'
+  keylang: 't'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+    replacement:
+    - sh
+    - gu
+    - ij
+    - e
+    - y
+    - k
+    - y
+    - d
+    - wa
+    - ts
+    - shi
+    - ō
+    - u
+    - a
+    - s
+    - i
+    - z
+    - g
+    - go
+    - en
+    - ido
+    - ai
+    - da
+    - ni
+    - ig
+    - yu
+    - yo
+    - yi
+    - mg
+    - ch
+    - zh
+    - ly
+    - ":"
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: felinid
+  levelCosts: [0, 2, 2, 2, 1]
+  speciesModifiers:
+    Vox:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Ipc:
+      levelModifiers: [0, -1, 0, -1, 0]
+    Cischi:
+      levelModifiers: [0, -1, -1, -1, 0]
+    Golem:
+      levelModifiers: [0, -1, -1, -1, 0]
+    Human:
+      levelModifiers: [0, 0, 0, -1, 0]
+    Felinid:
+      levelModifiers: [0, 0, 0, -1, 0]
+
+- type: language
+  id: Interlingua
+  name: language-interlingua
+  description: language-interlingua-desc
+  color: '#775026'
+  keylang: 'i'
+  obfuscation:
+    !type:WordsReplacementObfuscation
+    replacement:
+    - Lorem
+    - ipzum
+    - dolor
+    - zit
+    - amed
+    - consectetur
+    - adipisci
+    - elit
+    - sed
+    - eiusmod
+    - tempor
+    - inczidunt
+    - ud
+    - labore
+    - ed
+    - dolore
+    - magna
+    - aliqua
+    - Ud
+    - enim
+    - ad
+    - minim
+    - veniam
+    - quiz
+    - nostru
+    - exerzitatione
+    - ulla
+    - corpori
+    - zuzsipi
+    - laborioza
+    - nizi
+    - ut
+    - aliquid
+    - ex
+    - ea
+    - commodi
+    - conzequatur
+    - reprehenderit
+    - in
+    - voluptate
+    - velit
+    - ezze
+    - cillu
+    - dolore
+    - e
+    - zin
+    - obcaeca
+    - cupidita
+    - no
+    - proiden
+    - sunt
+    - in
+    - culpa
+    - qui
+    - officia
+    - deserunt
+    - mollit
+    - anim
+    - id
+    - ezt
+    - laborum
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: felinid
+  levelCosts: [0, 1, 2, 1, 1]
+  speciesModifiers:
+    Android:
+      levelModifiers: [0, 0, -1, 0, 0]
+    Arachnid:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Vox:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Vulpkanin:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Ipc:
+      levelModifiers: [0, 0, -1, -1, 0]
+    Golem:
+      levelModifiers: [0, 0, -1, -1, 0]
+    Human:
+      levelModifiers: [0, 0, -1, 0, 0]
+    Murine:
+      levelModifiers: [0, 0, -1, 0, 0]
+    Moth:
+      levelModifiers: [0, 0, -1, 0, 0]
+    Akula:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Reptilian:
+      levelModifiers: [0, 0, 0, 1, 0]
+  confederationModifiers:
+    NoConfederation:
+      levelModifiers: [0, -1, 0, 0, 0]
+
+- type: language
+  id: SintaUrssa
+  name: language-urssa
+  description: language-urssa-desc
+  color: '#470806'
+  keylang: 'x'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+    maxlength: 6
+    replacement:
+    - r
+    - s
+    - h
+    - k
+    - t
+    - a
+    - ss
+    - so
+    - se
+    - h
+    - he
+    - ro
+    - ta
+    - o
+    - e
+    - u
+    - k
+    - ka
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: urhs
+  levelCosts: [0, 1, 2, 1, 2]
+  speciesModifiers:
+    Arachnid:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Vox:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Vulpkanin:
+      levelModifiers: [0, 0, -1, 0, -1]
+    Ipc:
+      levelModifiers: [0, 0, -1, 0, -1]
+    Diona:
+      levelModifiers: [0, 0, 0, 1, 1]
+    Cischi:
+      levelModifiers: [0, 0, 0, 1, 1]
+    Golem:
+      levelModifiers: [0, 0, -1, 0, -1]
+    Murine:
+      levelModifiers: [0, 0, 0, 1, 0]
+    Moth:
+      levelModifiers: [0, 0, 0, 1, 0]
+    SlimePerson:
+      levelModifiers: [0, 0, 0, 0, 1]
+    Tajaran:
+      levelModifiers: [0, 0, 0, -1, -1]
+    Reptilian:
+      levelModifiers: [0, 0, -1, 0, -1]
+  confederationModifiers:
+    InterspeciesAlliance:
+      levelModifiers: [0, 0, -1, 0, 0]

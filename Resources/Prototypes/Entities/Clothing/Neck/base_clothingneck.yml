@@ -33,15 +33,13 @@
 
 - type: entity
   abstract: true
-  parent: ClothingNeckBase
+  parent: [ TemperatureProtectionMinimal, ClothingNeckBase ]
   id: ClothingScarfBase
   components:
-  - type: TemperatureProtection # CorvaxWL-Changes
-    heatingCoefficient: 1.01    # CorvaxWL-Changes
-    coolingCoefficient: 0.4     # CorvaxWL-Changes
   - type: Tag
     tags:
     - Scarf
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+    - MonkeyWearable

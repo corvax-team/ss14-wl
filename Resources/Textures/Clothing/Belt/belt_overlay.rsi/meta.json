@@ -152,7 +152,7 @@
       "name": "trashbag"
     },
     {
-      "name": "trashbag_blue"
+      "name": "trashbag_holding"
     },
     {
       "name": "wetfloorsign"
@@ -168,6 +168,39 @@
     },
     {
       "name": "wrench_medical"
+    },
+    {
+      "name": "blu"
+    },
+    {
+      "name": "gre"
+    },
+    {
+      "name": "yel"
+    },
+    {
+      "name": "cya"
+    },
+    {
+      "name": "oran"
+    },
+    {
+      "name": "pur"
+    },
+    {
+      "name": "greoran"
+    },
+    {
+      "name": "blugre"
+    },
+    {
+      "name": "purblu"
+    },
+    {
+      "name": "whi"
+    },
+    {
+      "name": "oranyel" 
     },
     {
       "name": "analyzer-equipped-BELT",

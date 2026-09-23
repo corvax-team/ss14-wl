@@ -53,6 +53,7 @@
     - id: PlushieLizardJobWarden
       prob: 0.02
     - id: SecApartmentTablet # Corvax-SecApartment
+    - id: ClothingBeltHolsterDSS # wl-holsters
 
 - type: entityTable
   id: FillLockerWardenHarduit
@@ -79,6 +80,8 @@
     - id: FlashlightSeclite
       prob: 0.8
     - id: WeaponDisabler
+    - id: SecurityBola
+      amount: 2
     - id: ClothingUniformJumpsuitSecGrey
       prob: 0.3
     - id: ClothingHeadHelmetBasic
@@ -106,6 +109,7 @@
     - id: ClothingHeadsetTacticDSS
       prob: 0.7
     # WL-Changes: DSS uniform end
+    - id: ClothingBeltHolsterDSS #wl-holsters
 
 - type: entity
   id: LockerBrigmedicFilled
@@ -164,6 +168,7 @@
     - id: Defibrillator
     - id: MedkitAdvancedFilled
       # Corvax-Brigmedic-End
+    - id: ClothingBeltHolsterDSS #wl-holsters
 
 - type: entity
   id: LockerDetectiveFilled
@@ -199,6 +204,7 @@
     - id: BoxTapeRecorder # DeltaV
     - id: PlushieLizardJobDetective
       prob: 0.02
+    - id: ClothingBeltHolsterDSS #wl-holsters
 
 - type: entity
   id: ClosetBombFilled

@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._WL.Weapons.Melee; // WL-Changes
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Components;
 using Content.Shared.Administration.Logs;
@@ -82,7 +83,7 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<CuffableComponent, PullStoppedMessage>(OnPull);
             SubscribeLocalEvent<CuffableComponent, DropAttemptEvent>(CheckAct);
             SubscribeLocalEvent<CuffableComponent, PickupAttemptEvent>(CheckAct);
-            SubscribeLocalEvent<CuffableComponent, AttackAttemptEvent>(CheckAct);
+            SubscribeLocalEvent<CuffableComponent, AttackAttemptEvent>(CheckAttack); // Wl-Changes
             SubscribeLocalEvent<CuffableComponent, UseAttemptEvent>(CheckAct);
             SubscribeLocalEvent<CuffableComponent, InteractionAttemptEvent>(CheckInteract);
 
@@ -458,12 +459,7 @@ namespace Content.Shared.Cuffs
                 if (freeHands == 2)
                     break;
             }
-
-            if (_virtualItem.TrySpawnVirtualItemInHand(handcuff, uid, out var virtItem1))
-                EnsureComp<UnremoveableComponent>(virtItem1.Value);
-
-            if (_virtualItem.TrySpawnVirtualItemInHand(handcuff, uid, out var virtItem2))
-                EnsureComp<UnremoveableComponent>(virtItem2.Value);
+            _virtualItem.TrySpawnUnremoveableVirtualItemInHand(handcuff, uid, count: 2);
         }
 
         /// <summary>
@@ -524,7 +520,10 @@ namespace Content.Shared.Cuffs
 
             var cuffTime = handcuffComponent.CuffTime;
 
-            if (HasComp<StunnedComponent>(target))
+            var stunEv = new CheckIncapacitatedCuffEvent();
+            RaiseLocalEvent(target, ref stunEv);
+
+            if (stunEv.Incapacitated)
                 cuffTime = MathF.Max(0.1f, cuffTime - handcuffComponent.StunBonus);
 
             if (HasComp<DisarmProneComponent>(target))
@@ -795,6 +794,24 @@ namespace Content.Shared.Cuffs
                 args.Cancel();
         }
 
+        // WL-Changes-Start
+        private void CheckAttack(EntityUid uid, CuffableComponent comp, AttackAttemptEvent args)
+        {
+            if (comp.CanStillInteract)
+                return;
+
+            if (args.Weapon is { } weapon
+                && TryComp<CuffedMeleeWeaponComponent>(uid, out var cuffedMelee)
+                && cuffedMelee.WeaponUid == weapon.Owner
+                && !args.Disarm)
+            {
+                return;
+            }
+
+            args.Cancel();
+        }
+        // Wl-Changes-End
+
         private void OnEquipAttempt(EntityUid uid, CuffableComponent component, IsEquippingAttemptEvent args)
         {
             // is this a self-equip, or are they being stripped?
@@ -882,4 +899,11 @@ namespace Content.Shared.Cuffs
         /// </summary>
         public SlotFlags TargetSlots { get; set; }
     }
+
+    /// <summary>
+    /// Raised on the entity being cuffed to determine if their cuffing doafter should get a stuncuff timer reduction.
+    /// </summary>
+    /// <seealso cref="HandcuffComponent.StunBonus"/>
+    [ByRefEvent]
+    public record struct CheckIncapacitatedCuffEvent(bool Incapacitated);
 }

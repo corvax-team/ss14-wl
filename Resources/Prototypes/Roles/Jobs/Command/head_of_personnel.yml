@@ -30,7 +30,6 @@
       inverted: true
       traits:
       - Muted
-  weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
   supervisors: job-supervisors-captain

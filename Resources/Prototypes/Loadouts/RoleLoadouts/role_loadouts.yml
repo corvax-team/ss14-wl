@@ -127,7 +127,8 @@
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
-  - FormalUniform # LibrarianJumpsuit # WL-Changes: Formal uniform
+  - LibrarianJumpsuit # WL-change: formal uniforms are integrated into the role group
+  - LibrarianOuterClothing # WL-change: wardrobe refresh
   - CommonBackpack
   - Glasses
   - AssistiveItems
@@ -144,7 +145,7 @@
   - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - LawyerNeck
-  - FormalUniform # LawyerJumpsuit # WL-Changes: Formal uniform
+  - LawyerJumpsuit # WL-change: formal uniforms are integrated into the role group
   - CommonBackpack
   - Glasses
   - AssistiveItems
@@ -247,7 +248,7 @@
   - MimeBelt
   - Glasses
   - AssistiveItems
-  - SurvivalMime
+  - Survival
   - Trinkets
   #- MimeJobTrinkets
   - WLNeck # WL-Changes: Neck add
@@ -528,8 +529,7 @@
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - FormInventory # WL-Changes: Form inventory loadout
   - DetectiveHead
-  - DetectiveNeck
-  - FormalUniform # - DetectiveJumpsuit # WL-Changes: Formal uniform
+  - DetectiveJumpsuit # WL-change: use the security uniform group
   - SecurityBackpack
   - DetectiveOuterClothing
   - SecurityShoes
@@ -564,7 +564,7 @@
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
-  - FormalUniform # ReporterJumpsuit # WL-Changes: Formal uniform
+  - ReporterJumpsuit # WL-change: formal uniforms are integrated into the role group
   - ReporterHead
   - ReporterOuterClothing
   - CommonBackpack
@@ -591,6 +591,21 @@
   - Trinkets
   #- PsychologistJobTrinkets
   - WLNeck # WL-Changes: Neck add
+  - GroupSpeciesBreathTool
+
+- type: roleLoadout
+  id: JobTramDriver
+  groups:
+  - GroupTankHarness
+  - CommonBackpack
+  - TramDriverJumpsuit
+  - TramDriverOuterClothing #Vest and such
+  - TramDriverHat
+  - TramDriverGloves
+  - Glasses
+  - Survival
+  - Trinkets
+  #- TramDriverJobTrinkets
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
@@ -632,6 +647,13 @@
   - GroupTankHarness
 
 - type: roleLoadout
+  id: RoleSurvivalExtendedAntag # Used by antagonists that spawn off-station (e.g wizards)
+  groups:
+  - SurvivalExtendedAntag
+  - GroupSpeciesBreathTool
+  - GroupTankHarness
+
+- type: roleLoadout
   id: RoleSurvivalMedical
   groups:
   - SurvivalMedical
@@ -669,6 +691,12 @@
   groups:
   - GroupEVATank
   - SurvivalExtended
+
+- type: roleLoadout
+  id: RoleSurvivalEVAAntag # Used by antagonists that spawn off-station AND in space (e.g ninjas)
+  groups:
+  - GroupEVATank
+  - SurvivalExtendedAntag
 
 - type: roleLoadout
   id: RoleSurvivalSpaceNinja

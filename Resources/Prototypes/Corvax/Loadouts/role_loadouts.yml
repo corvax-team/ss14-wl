@@ -4,7 +4,8 @@
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - LawyerNeck
-  - LawyerJumpsuit
+  - LawyerJumpsuit # WL-change: formal uniforms are integrated into the role group
+  - IAAOuterClothing # WL-change: wardrobe refresh
   - CommonBackpack
   - Survival
   - Trinkets

@@ -64,7 +64,7 @@ public sealed partial class NanoChatSystem : SharedNanoChatSystem
         if (ent.Comp.Number != null)
             return;
 
-        _name.GenerateUniqueName(ent, _nameIdentifierGroup, out var number);
+        _name.GenerateUniqueNameModifier(_nameIdentifierGroup, out var number);
         ent.Comp.Number = (uint)number;
         Dirty(ent);
     }

@@ -22,7 +22,7 @@
   - type: Charger
     slotId: charger_slot
     portable: true
-  - type: PowerChargerVisuals
+  # - type: PowerChargerVisuals WL-Changes: Fix tests
   - type: StaticPrice
     price: 500
   - type: Tag
@@ -31,6 +31,7 @@
     containers:
       charger_slot: !type:ContainerSlot
   - type: ItemSlots
+    allowSmartEquip: true
     slots:
       charger_slot:
         ejectOnInteract: true

@@ -1,15 +1,19 @@
 - type: vendingMachineInventory
   id: DetDrobeInventory
   startingInventory:
-    ClothingUniformJumpsuitDetective: 2
-    ClothingUniformJumpskirtDetective: 2
+    ClothingUniformJumpsuitClassicWhiteShirtBlackPants: 2 # WL-change: wardrobe refresh
+    ClothingUniformJumpsuitClassicWhiteShirtDarkPants: 2 # WL-change: wardrobe refresh
     ClothingShoesColorBrown: 2
-    ClothingOuterCoatDetectiveLoadout: 1
-    ClothingOuterCoatDetectiveLoadoutGrey: 1
-    ClothingOuterCoatDetectiveDark: 1 # Corvax-Resprite-Detective
+    ClothingOuterTrenchcoatArmoredDarkDetective: 1 # WL-change: wardrobe refresh
+    ClothingOuterTrenchcoatArmoredLightDetective: 1 # WL-change: wardrobe refresh
+    ClothingOuterTrenchcoatArmoredNoirDetective: 1 # WL-change: wardrobe refresh
+    ClothingOuterTrenchcoatArmoredTanDetective: 1 # WL-change: wardrobe refresh
+    ClothingOuterTrenchcoatArmoredBlueDetective: 1 # WL-change: wardrobe refresh
+    ClothingOuterTrenchcoatArmoredKhakiDetective: 1 # WL-change: wardrobe refresh
+    ClothingOuterBlazerArmoredDarkDetective: 1 # WL-change: wardrobe refresh
+    ClothingOuterBlazerArmoredLightDetective: 1 # WL-change: wardrobe refresh
+    ClothingOuterBlazerArmoredNoirDetective: 1 # WL-change: wardrobe refresh
     ClothingHeadHatFedoraBrown: 2
-    ClothingUniformJumpsuitDetectiveGrey: 2
-    ClothingUniformJumpskirtDetectiveGrey: 2
     ClothingOuterVestDetective: 2
     ClothingNeckTieDet: 2
     ClothingHeadHatFedoraGrey: 2

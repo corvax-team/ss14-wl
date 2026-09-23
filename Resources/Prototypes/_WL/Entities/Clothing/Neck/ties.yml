@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieAtmos
   name: atmos tie
   description: Too stylish for fire.
@@ -16,7 +16,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieBlue
   name: blue tie
   description: You got blood on my suit.
@@ -33,7 +33,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieEngi
   name: engineering tie
   description: Not insulated.
@@ -50,7 +50,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieGray
   name: gray tie
   description: You feel mysterious.
@@ -67,7 +67,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieGreen
   name: green tie
   description: Look like a grass. Wait what is grass?
@@ -84,7 +84,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieJani
   name: janitor tie
   description: Looking at him you seem to glide.
@@ -101,7 +101,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieLightBlue
   name: light blue tie
   description: No, not this time.
@@ -118,7 +118,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieMed
   name: medic tie
   description: What is a license?
@@ -135,7 +135,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieOperative
   name: operative tie
   description: 5 minute adventure.
@@ -152,7 +152,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieOrange
   name: orange tie
   description: Orange just like your mood.
@@ -169,7 +169,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTiePink
   name: pink tie
   description: Stylish pink tie.
@@ -186,7 +186,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTiePurple
   name: purple tie
   description: Stylish purple tie.
@@ -203,7 +203,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieRainbow
   name: rainbow tie
   description: Suitable for cool parties.
@@ -220,7 +220,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieSyndie
   name: syndicate tie
   description: Wear this if you want kill people with stylish.
@@ -237,7 +237,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieWhite
   name: white tie
   description: So white you can't even see it on you.
@@ -254,7 +254,7 @@
     - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingNeckAdjustableLayerBase
   id: ClothingNeckTieYellow
   name: yellow tie
   description: Does he radiate joy?.

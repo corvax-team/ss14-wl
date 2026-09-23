@@ -22,9 +22,9 @@
     CrateEngineeringCableBulk: 1.5
     CrateHydroponicsSeeds: 1.5
     CrateHydroponicsTools: 1
-    CrateServiceJanitorialSupplies: 1.5
-    CrateServiceColorfulLights: 1
-    CrateServiceReplacementLights: 1
+    CrateJanitorialSupplies: 1.5
+    CrateJanitorialColorfulLights: 1
+    CrateJanitorialReplacementLights: 1
     CrateServiceBureaucracy: 1
     CrateFoodSoftdrinks: 1
     CrateFoodPizza: 0.7
@@ -33,7 +33,7 @@
     CrateFunPlushie: 0.6
     CrateSalvageEquipment: 0.5
     CrateEmergencyFire: 0.7
-    CrateEmergencyInternals: 0.7
+    CrateEmergencyEVA: 0.7
     CrateMaterialGlass: 0.5
     CrateMaterialSteel: 0.5
     CrateMaterialPlastic: 0.5

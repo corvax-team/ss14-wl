@@ -8,22 +8,14 @@
     snap:
     - Wall
   components:
-  - type: FloorOccluder
   - type: Transform
     anchored: true
   - type: SyncSprite
   - type: Clickable
   # WL-Changes: Animated Water Start
   - type: Sprite
-    sprite: _WL/Tiles/Planet/water.rsi
+    sprite: Tiles/TileEntities/liquid-water.rsi # TODO:RESPRITE
     drawdepth: BelowFloor
-    layers:
-      - state: water
-  - type: IconSmooth
-    key: floor
-    additionalKeys:
-    - walls
-    base: water
   - type: Solution
     id: pool
     solution:
@@ -49,7 +41,7 @@
           !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         layer:
-          - SlipLayer
+          - WallLayer # WL-Changes: before `SlipLayer`
         mask:
           - ItemMask
         density: 1000
@@ -68,3 +60,34 @@
   - type: TileEntityEffect
     effects:
     - !type:Extinguish
+  - type: IconSmooth
+    key: water
+    base: water
+    additionalKeys:
+    - walls
+  - type: PlacementReplacement
+    key: tileOverlay
+
+- type: entity
+  parent: FloorWaterEntity
+  id: FloorSwimmingPoolEntity
+  name: swimming pool
+  description: Refreshing and relaxing!
+  components:
+  - type: FloorOccluder
+  - type: Sprite
+    sprite: Tiles/TileEntities/swimming-pool.rsi
+  - type: IconSmooth
+    key: pool
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false

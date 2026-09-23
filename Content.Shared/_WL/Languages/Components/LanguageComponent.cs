@@ -1,6 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Content.Shared._WL.Languages.Components.List;
 
 namespace Content.Shared._WL.Languages.Components;
 
@@ -14,12 +15,6 @@ public sealed partial class LanguagesComponent : Component
     public bool IsSpeaking = true;
 
     [DataField]
-    public List<ProtoId<LanguagePrototype>> Speaking = [];
-
-    [DataField]
-    public List<ProtoId<LanguagePrototype>> Understood = [];
-
-    [DataField]
     public ProtoId<LanguagePrototype>? CurrentLanguage = null;
 
     [DataField]
@@ -31,13 +26,15 @@ public sealed partial class LanguagesComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan PopupCooldown = TimeSpan.FromSeconds(1);
 
+    [DataField, AutoNetworkedField]
+    public List<LanguagesList> List = [];
+
     [Serializable, NetSerializable]
     public sealed class State : ComponentState
     {
         public bool IsUnderstanding = default!;
         public bool IsSpeaking = default!;
         public ProtoId<LanguagePrototype>? CurrentLanguage = null;
-        public List<ProtoId<LanguagePrototype>> Speaking = default!;
-        public List<ProtoId<LanguagePrototype>> Understood = default!;
+        public List<LanguagesList> List = default!;
     }
 }

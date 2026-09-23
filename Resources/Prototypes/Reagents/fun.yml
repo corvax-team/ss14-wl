@@ -37,12 +37,14 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Moth ]
 #WL-changes-start
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
@@ -54,7 +56,7 @@
   group: Toxins
   desc: reagent-desc-buzzochloric-bees
   physicalDesc: reagent-physical-desc-buzzy
-  contrabandSeverity: Minor
+  contrabandSeverity: Corvax444 # Corvax-Contraband
   flavor: bee
   color: "#FFD35D"
   tileReactions:
@@ -196,6 +198,7 @@
 
 - type: reagent
   id: Razorium
+  contrabandSeverity: Corvax444 # Corvax-Contraband
   name: reagent-name-razorium
   group: Toxins
   slipData:
@@ -304,7 +307,8 @@
           min: 160.15 # not quite enough for cryo, but can speed it up if you wanna take the risk
         amount: -10000
 #WL-changes-start
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -500
         conditions:
         - !type:MetabolizerTypeCondition
@@ -380,7 +384,7 @@
       effects:
       - !type:Emote
         emote: Weh
-        showInChat: true
+        showInChat: false
         showInGuidebook: true
         force: true
         probability: 0.5
@@ -415,7 +419,7 @@
       effects:
       - !type:Emote
         emote: Hew
-        showInChat: true
+        showInChat: false
         showInGuidebook: true
         force: true
         probability: 0.5
@@ -437,41 +441,8 @@
           min: 50
 
 - type: reagent
-  id: CorgiJuice
-  name: reagent-name-corgiessence
-  group: Toxins
-  desc: reagent-desc-corgiessence
-  physicalDesc: reagent-physical-desc-fluffy
-  flavor: dogfood
-  color: "#ed9715"
-  metabolisms:
-    Bloodstream:
-      metabolismRate: 0.2
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: CorgiJuice
-          min: 15
-        damage:
-          types:
-            Cellular: 0.5
-      - !type:Polymorph
-        prototype: SmartCorgiMorph
-        conditions:
-        - !type:ReagentCondition
-          reagent: CorgiJuice
-          min: 50
-      - !type:AdjustReagent
-        reagent: CorgiJuice
-        amount: -20
-        conditions:
-        - !type:ReagentCondition
-          reagent: CorgiJuice
-          min: 50
-
-- type: reagent
   id: Felinase
+  contrabandSeverity: Corvax445 # Corvax-Contraband
   name: reagent-name-catessence
   group: Toxins
   desc: reagent-desc-catessence
@@ -511,7 +482,6 @@
           reagent: Felinase
           min: 10
         emote: Cough
-        showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05
@@ -562,7 +532,6 @@
           reagent: Caninase
           min: 10
         emote: Cough
-        showInChat: true
         showInGuidebook: true
         force: true
         probability: 0.05

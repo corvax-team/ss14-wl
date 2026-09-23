@@ -7,15 +7,12 @@ namespace Content.Server.Corvax.TTS;
 // ReSharper disable once InconsistentNaming
 public sealed partial class TTSSystem
 {
-    // WL-Changes-start
-    //private static readonly Regex _regexInvalidChars = new Regex(@"[^a-zA-Zа-яА-ЯёЁ0-9,\-+?!. ]");
-    private static readonly Regex _regexInvalidChars = new Regex(@"[^a-zA-ZäöüÄÖÜа-яА-ЯёЁ0-9,\-+?!. ]");
-    //private static readonly Regex _regexWordBoundary = new Regex(@"(?<![a-zA-Zа-яёА-ЯЁ])[a-zA-Zа-яёА-ЯЁ]+?(?![a-zA-Zа-яёА-ЯЁ])", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-    private static readonly Regex _regexWordBoundary = new Regex(@"(?<![a-zA-ZäöüÄÖÜа-яёА-ЯЁ])[a-zA-ZäöüÄÖÜа-яёА-ЯЁ]+?(?![a-zA-ZäöüÄÖÜа-яёА-ЯЁ])", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-    // WL-Changes-End
-    private static readonly Regex _regexLatToCyr = new Regex(@"[a-zA-Z]", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-    private static readonly Regex _regexDecimal = new Regex(@"(?<=[1-90])(\.|,)(?=[1-90])");
-    private static readonly Regex _regexDigits = new Regex(@"\d+");
+    private static readonly Regex RegexInvalidChars = new Regex(@"[^a-zA-ZäöüÄÖÜа-яА-ЯёЁ0-9,\-+?!. ]"); // WL-Changes
+    private static readonly Regex RegexLatToCyr = new Regex(@"[a-zA-Z]", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+    private static readonly Regex RegexWordBoundary = new Regex(@"(?<![a-zA-ZäöüÄÖÜа-яёА-ЯЁ])[a-zA-ZäöüÄÖÜа-яёА-ЯЁ]+?(?![a-zA-ZäöüÄÖÜа-яёА-ЯЁ])", RegexOptions.Multiline | RegexOptions.IgnoreCase); // WL-Changes
+    private static readonly Regex RegexDecimal = new Regex(@"(?<=[1-90])(\.|,)(?=[1-90])");
+    private static readonly Regex RegexDigits = new Regex(@"\d+");
+
     private void OnTransformSpeech(TransformSpeechEvent args)
     {
         if (!_isEnabled) return;
@@ -25,11 +22,11 @@ public sealed partial class TTSSystem
     private string Sanitize(string text)
     {
         text = text.Trim();
-        text = _regexInvalidChars.Replace(text, "");
-        text = _regexLatToCyr.Replace(text, ReplaceLat2Cyr);
-        text = _regexWordBoundary.Replace(text, ReplaceMatchedWord);
-        text = _regexDecimal.Replace(text, " целых ");
-        text = _regexDigits.Replace(text, ReplaceWord2Num);
+        text = RegexInvalidChars.Replace(text, "");
+        text = RegexWordBoundary.Replace(text, ReplaceMatchedWord);
+        text = RegexLatToCyr.Replace(text, ReplaceLat2Cyr);
+        text = RegexDecimal.Replace(text, " целых ");
+        text = RegexDigits.Replace(text, ReplaceWord2Num);
         text = text.Trim();
         return text;
     }
@@ -38,6 +35,7 @@ public sealed partial class TTSSystem
     {
         if (ReverseTranslit.TryGetValue(oneChar.Value.ToLower(), out var replace))
             return replace;
+
         return oneChar.Value;
     }
 
@@ -45,6 +43,7 @@ public sealed partial class TTSSystem
     {
         if (WordReplacement.TryGetValue(word.Value.ToLower(), out var replace))
             return replace;
+
         return word.Value;
     }
 
@@ -52,6 +51,7 @@ public sealed partial class TTSSystem
     {
         if (!long.TryParse(word.Value, out var number))
             return word.Value;
+
         return NumberConverter.NumberToText(number);
     }
 
@@ -346,44 +346,43 @@ public sealed partial class TTSSystem
             // WL-German-End
         };
 
-    private static readonly IReadOnlyDictionary<string, string> ReverseTranslit =
-        new Dictionary<string, string>()
-        {
-            {"a", "а"},
-            {"b", "б"},
-            {"v", "в"},
-            {"g", "г"},
-            {"d", "д"},
-            {"e", "е"},
-            {"je", "ё"},
-            {"zh", "ж"},
-            {"z", "з"},
-            {"i", "и"},
-            {"y", "й"},
-            {"k", "к"},
-            {"l", "л"},
-            {"m", "м"},
-            {"n", "н"},
-            {"o", "о"},
-            {"p", "п"},
-            {"r", "р"},
-            {"s", "с"},
-            {"t", "т"},
-            {"u", "у"},
-            {"f", "ф"},
-            {"h", "х"},
-            {"c", "ц"},
-            {"x", "кс"},
-            {"ch", "ч"},
-            {"sh", "ш"},
-            {"jsh", "щ"},
-            {"hh", "ъ"},
-            {"ih", "ы"},
-            {"jh", "ь"},
-            {"eh", "э"},
-            {"ju", "ю"},
-            {"ja", "я"},
-        };
+    private static readonly IReadOnlyDictionary<string, string> ReverseTranslit = new Dictionary<string, string>()
+    {
+        {"a", "а"},
+        {"b", "б"},
+        {"v", "в"},
+        {"g", "г"},
+        {"d", "д"},
+        {"e", "е"},
+        {"je", "ё"},
+        {"zh", "ж"},
+        {"z", "з"},
+        {"i", "и"},
+        {"y", "й"},
+        {"k", "к"},
+        {"l", "л"},
+        {"m", "м"},
+        {"n", "н"},
+        {"o", "о"},
+        {"p", "п"},
+        {"r", "р"},
+        {"s", "с"},
+        {"t", "т"},
+        {"u", "у"},
+        {"f", "ф"},
+        {"h", "х"},
+        {"c", "ц"},
+        {"x", "кс"},
+        {"ch", "ч"},
+        {"sh", "ш"},
+        {"jsh", "щ"},
+        {"hh", "ъ"},
+        {"ih", "ы"},
+        {"jh", "ь"},
+        {"eh", "э"},
+        {"ju", "ю"},
+        {"ja", "я"},
+    };
 }
 
 // Source: https://codelab.ru/s/csharp/digits2phrase
@@ -405,19 +404,19 @@ public static class NumberConverter
         "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"
     };
 
-	private static readonly string[] Hunds =
-	{
-		"", "сто", "двести", "триста", "четыреста",
-		"пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот"
-	};
+    private static readonly string[] Hunds =
+    {
+        "", "сто", "двести", "триста", "четыреста",
+        "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот"
+    };
 
-	private static readonly string[] Tens =
-	{
-		"", "десять", "двадцать", "тридцать", "сорок", "пятьдесят",
-		"шестьдесят", "семьдесят", "восемьдесят", "девяносто"
-	};
+    private static readonly string[] Tens =
+    {
+        "", "десять", "двадцать", "тридцать", "сорок", "пятьдесят",
+        "шестьдесят", "семьдесят", "восемьдесят", "девяносто"
+    };
 
-	public static string NumberToText(long value, bool male = true)
+    public static string NumberToText(long value, bool male = true)
     {
         if (value >= (long)Math.Pow(10, 15))
             return String.Empty;
@@ -425,91 +424,91 @@ public static class NumberConverter
         if (value == 0)
             return "ноль";
 
-		var str = new StringBuilder();
+        var str = new StringBuilder();
 
-		if (value < 0)
-		{
-			str.Append("минус");
-			value = -value;
-		}
+        if (value < 0)
+        {
+            str.Append("минус");
+            value = -value;
+        }
 
         value = AppendPeriod(value, 1000000000000, str, "триллион", "триллиона", "триллионов", true);
         value = AppendPeriod(value, 1000000000, str, "миллиард", "миллиарда", "миллиардов", true);
         value = AppendPeriod(value, 1000000, str, "миллион", "миллиона", "миллионов", true);
         value = AppendPeriod(value, 1000, str, "тысяча", "тысячи", "тысяч", false);
 
-		var hundreds = (int)(value / 100);
-		if (hundreds != 0)
-			AppendWithSpace(str, Hunds[hundreds]);
+        var hundreds = (int)(value / 100);
+        if (hundreds != 0)
+            AppendWithSpace(str, Hunds[hundreds]);
 
-		var less100 = (int)(value % 100);
+        var less100 = (int)(value % 100);
         var frac20 = male ? Frac20Male : Frac20Female;
-		if (less100 < 20)
-			AppendWithSpace(str, frac20[less100]);
-		else
-		{
-			var tens = less100 / 10;
-			AppendWithSpace(str, Tens[tens]);
-			var less10 = less100 % 10;
-			if (less10 != 0)
-				str.Append(" " + frac20[less100%10]);
-		}
+        if (less100 < 20)
+            AppendWithSpace(str, frac20[less100]);
+        else
+        {
+            var tens = less100 / 10;
+            AppendWithSpace(str, Tens[tens]);
+            var less10 = less100 % 10;
+            if (less10 != 0)
+                str.Append(" " + frac20[less100 % 10]);
+        }
 
-		return str.ToString();
-	}
+        return str.ToString();
+    }
 
-	private static void AppendWithSpace(StringBuilder stringBuilder, string str)
-	{
-		if (stringBuilder.Length > 0)
-			stringBuilder.Append(" ");
-		stringBuilder.Append(str);
-	}
+    private static void AppendWithSpace(StringBuilder stringBuilder, string str)
+    {
+        if (stringBuilder.Length > 0)
+            stringBuilder.Append(" ");
+        stringBuilder.Append(str);
+    }
 
-	private static long AppendPeriod(
+    private static long AppendPeriod(
         long value,
         long power,
-		StringBuilder str,
-		string declension1,
-		string declension2,
-		string declension5,
-		bool male)
-	{
-		var thousands = (int)(value / power);
-		if (thousands > 0)
-		{
-			AppendWithSpace(str, NumberToText(thousands, male, declension1, declension2, declension5));
-			return value % power;
-		}
-		return value;
-	}
+        StringBuilder str,
+        string declension1,
+        string declension2,
+        string declension5,
+        bool male)
+    {
+        var thousands = (int)(value / power);
+        if (thousands > 0)
+        {
+            AppendWithSpace(str, NumberToText(thousands, male, declension1, declension2, declension5));
+            return value % power;
+        }
+        return value;
+    }
 
-	private static string NumberToText(
+    private static string NumberToText(
         long value,
         bool male,
-		string valueDeclensionFor1,
-		string valueDeclensionFor2,
-		string valueDeclensionFor5)
-	{
-		return
+        string valueDeclensionFor1,
+        string valueDeclensionFor2,
+        string valueDeclensionFor5)
+    {
+        return
             NumberToText(value, male)
-			+ " "
-			+ GetDeclension((int)(value % 10), valueDeclensionFor1, valueDeclensionFor2, valueDeclensionFor5);
-	}
+            + " "
+            + GetDeclension((int)(value % 10), valueDeclensionFor1, valueDeclensionFor2, valueDeclensionFor5);
+    }
 
-	private static string GetDeclension(int val, string one, string two, string five)
-	{
-		var t = (val % 100 > 20) ? val % 10 : val % 20;
+    private static string GetDeclension(int val, string one, string two, string five)
+    {
+        var t = (val % 100 > 20) ? val % 10 : val % 20;
 
-		switch (t)
-		{
-			case 1:
-				return one;
-			case 2:
-			case 3:
-			case 4:
-				return two;
-			default:
-				return five;
-		}
-	}
+        switch (t)
+        {
+            case 1:
+                return one;
+            case 2:
+            case 3:
+            case 4:
+                return two;
+            default:
+                return five;
+        }
+    }
 }

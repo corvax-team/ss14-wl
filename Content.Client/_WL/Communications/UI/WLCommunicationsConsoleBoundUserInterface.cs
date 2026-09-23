@@ -91,19 +91,19 @@ namespace Content.Client._WL.Communications.UI
                 _menu.CanBroadcast = commsState.CanBroadcast;
                 _menu.CanCall = commsState.CanCall;
                 _menu.CountdownStarted = commsState.CountdownStarted;
-                _menu.AlertLevelSelectable = commsState.AlertLevels != null && !float.IsNaN(commsState.CurrentAlertDelay) && commsState.CurrentAlertDelay <= 0;
-                _menu.EmergencySelectable = commsState.Emergencys != null && !float.IsNaN(commsState.CurrentEmergencyDelay) && commsState.CurrentEmergencyDelay <= 0;
-                _menu.CurrentLevel = commsState.CurrentAlert;
-                _menu.CountdownEnd = commsState.ExpectedCountdownEnd;
-                _menu.CurrentEmergency = commsState.CurrentEmergency;
-                _menu.UpdateCountdown();
-                _menu.UpdateAlertLevels(commsState.AlertLevels, _menu.CurrentLevel);
-                _menu.UpdateEmergency(commsState.Emergencys, _menu.CurrentEmergency);
-                _menu.AlertLevelButton.Disabled = !_menu.AlertLevelSelectable;
-                _menu.EmergencyButton.Disabled = !_menu.EmergencySelectable;
-                _menu.EmergencyShuttleButton.Disabled = !_menu.CanCall;
-                _menu.AnnounceButton.Disabled = !_menu.CanAnnounce;
-                _menu.BroadcastButton.Disabled = !_menu.CanBroadcast;
+                // _menu.AlertLevelSelectable = commsState.AlertLevels != null && !float.IsNaN(commsState.CurrentAlertDelay) && commsState.CurrentAlertDelay <= 0;
+                // _menu.EmergencySelectable = commsState.Emergencys != null && !float.IsNaN(commsState.CurrentEmergencyDelay) && commsState.CurrentEmergencyDelay <= 0;
+                // _menu.CurrentLevel = commsState.CurrentAlert;
+                // _menu.CountdownEnd = commsState.ExpectedCountdownEnd;
+                // _menu.CurrentEmergency = commsState.CurrentEmergency;
+                // _menu.UpdateCountdown();
+                // _menu.UpdateAlertLevels(commsState.AlertLevels, _menu.CurrentLevel);
+                // _menu.UpdateEmergency(commsState.Emergencys, _menu.CurrentEmergency);
+                // _menu.AlertLevelButton.Disabled = !_menu.AlertLevelSelectable;
+                // _menu.EmergencyButton.Disabled = !_menu.EmergencySelectable;
+                // _menu.EmergencyShuttleButton.Disabled = !_menu.CanCall;
+                // _menu.AnnounceButton.Disabled = !_menu.CanAnnounce;
+                // _menu.BroadcastButton.Disabled = !_menu.CanBroadcast;
             }
         }
     }

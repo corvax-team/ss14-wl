@@ -351,3 +351,24 @@
       state: layeredstraight1
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: layeredstraight2
+
+- type: marking
+  id: HumanHairPigTailAlt
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: pigtailalt
+
+- type: marking
+  id: HumanHairLicked
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: licked
+
+- type: marking
+  id: HumanHairOvergrown
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: overgrown

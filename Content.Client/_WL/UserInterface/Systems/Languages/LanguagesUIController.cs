@@ -140,19 +140,19 @@ public sealed partial class LanguagesUIController : UIController, IOnStateEntere
     private void LanguagesUpdated(LanguagesData data)
     {
         if (_window == null)
-        {
             return;
-        }
 
-        var (entity, current, speeking, understood) = data;
+        var (entity, current, list) = data;
 
         if (_player.LocalEntity != entity)
             return;
-        //UpdateRoleType();
 
         _window.Languages.RemoveAllChildren();
 
-        List<string> groups = new List<string>() { Loc.GetString("ui-languages-knowed-languages") };
+        List<string> groups = new List<string>()
+        {
+            Loc.GetString("ui-languages-knowed-languages")
+        };
 
         var isPlace = true;
 
@@ -163,22 +163,21 @@ public sealed partial class LanguagesUIController : UIController, IOnStateEntere
                 Orientation = BoxContainer.LayoutOrientation.Vertical,
                 Modulate = Color.White
             };
-
             var languageText = new FormattedMessage();
             languageText.TryAddMarkup(title, out _);
-
             var languageLabel = new RichTextLabel
             {
                 StyleClasses = { StyleClass.TooltipTitle }
             };
-
             languageLabel.SetMessage(languageText);
-
             languageControl.AddChild(languageLabel);
-
-
-            foreach (var protoId in speeking)
+            foreach (var languageData in list)
             {
+                if (languageData.LanguageLevel <= 0)
+                    continue;
+
+                var protoId = languageData.Language;
+
                 var language = _languages.GetLanguagePrototype(protoId);
                 if (language == null)
                     continue;
@@ -189,24 +188,20 @@ public sealed partial class LanguagesUIController : UIController, IOnStateEntere
                 languageItemControl.Icon.Texture = _sprite.Frame0(language.Icon);
                 var titleMessage = new FormattedMessage();
                 var descriptionMessage = new FormattedMessage();
-                titleMessage.AddText(Loc.GetString(language.Name));
+                titleMessage.AddText($"{Loc.GetString(language.Name)} • {languageData.LanguageLevel} {Loc.GetString("ui-languages-level")}");
                 descriptionMessage.AddText(Loc.GetString(language.Description));
 
                 languageItemControl.Title.SetMessage(titleMessage);
                 languageItemControl.Description.SetMessage(descriptionMessage);
 
                 if (current == (string)protoId)
-                {
                     languageItemControl.ChooseButton.Pressed = true;
-                }
+
                 languageControl.AddChild(languageItemControl);
                 isPlace = false;
             }
-
-
             _window.Languages.AddChild(languageControl);
         }
-
         _window.RolePlaceholder.Visible = isPlace;
     }
 
@@ -241,7 +236,7 @@ public sealed partial class LanguagesUIController : UIController, IOnStateEntere
         else
             return;
 
-        var data = new LanguagesData(entt, comp.CurrentLanguage, comp.Speaking, comp.Understood);
+        var data = new LanguagesData(entt, comp.CurrentLanguage, comp.List);
 
         LanguagesUpdated(data);
     }

@@ -7,13 +7,17 @@ using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chat.Managers;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Chat;
+using Content.Shared.Database;
 using Content.Shared.Roles;
+using Robust.Shared.Network;
 
 namespace Content.Server.Roles;
 
 public sealed partial class RoleSystem : SharedRoleSystem
 {
+    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private IChatManager _chat = default!;
     // WL-Changes: start
     [Dependency] private IServerPreferencesManager _servPrefMan = default!;
@@ -126,6 +130,21 @@ public sealed partial class RoleSystem : SharedRoleSystem
             default,
             false,
             session.Channel);
+    }
+
+    protected override void UpdateCharacterWindow(NetUserId? user, MindStringRepresentation mindString)
+    {
+        if (Player.TryGetSessionById(user, out var session))
+        {
+            RaiseNetworkEvent(new MindRoleTypeChangedEvent(), session.Channel);
+        }
+        else
+        {
+            _adminLogger.Add(
+                LogType.Mind,
+                LogImpact.Medium,
+                $"The Character Window of {mindString} potentially did not update immediately : session error");
+        }
     }
 }
 

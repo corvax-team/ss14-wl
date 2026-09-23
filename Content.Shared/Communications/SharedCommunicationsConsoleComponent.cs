@@ -1,3 +1,5 @@
+using Content.Shared.AlertLevel;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Communications
@@ -15,41 +17,24 @@ namespace Content.Shared.Communications
         public readonly bool CanCall;
         public readonly TimeSpan? ExpectedCountdownEnd;
         public readonly bool CountdownStarted;
-        public List<string>? AlertLevels;
-        public string CurrentAlert;
-        public float CurrentAlertDelay;
-        // WL-Changes-start
-        public string CurrentEmergency;
-        public List<string>? Emergencys;
-        public float CurrentEmergencyDelay; 
-        // WL-Changes-end
 
-        public CommunicationsConsoleInterfaceState(bool canAnnounce, bool canCall, List<string>? alertLevels, string currentAlert, float currentAlertDelay, string currentEmergency, List<string>? emergencys, float currentEmergencyDelay, TimeSpan? expectedCountdownEnd = null) // WL-Changes
+
+        public CommunicationsConsoleInterfaceState(
+            bool canAnnounce,
+            bool canCall,
+            TimeSpan? expectedCountdownEnd = null)
         {
             CanAnnounce = canAnnounce;
             CanCall = canCall;
             ExpectedCountdownEnd = expectedCountdownEnd;
             CountdownStarted = expectedCountdownEnd != null;
-            AlertLevels = alertLevels;
-            CurrentAlert = currentAlert;
-            CurrentAlertDelay = currentAlertDelay;
-            // WL-Changes-start
-            CurrentEmergency = currentEmergency;
-            Emergencys = emergencys;
-            CurrentEmergencyDelay = currentEmergencyDelay;
-            // WL-Changes-end
         }
     }
 
     [Serializable, NetSerializable]
-    public sealed class CommunicationsConsoleSelectAlertLevelMessage : BoundUserInterfaceMessage
+    public sealed class CommunicationsConsoleSelectAlertLevelMessage(ProtoId<AlertLevelPrototype> level) : BoundUserInterfaceMessage
     {
-        public readonly string Level;
-
-        public CommunicationsConsoleSelectAlertLevelMessage(string level)
-        {
-            Level = level;
-        }
+        public ProtoId<AlertLevelPrototype> Level = level;
     }
 
     // WL-Changes-start

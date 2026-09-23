@@ -1,0 +1,14 @@
+- type: soundCollection
+  id: meow_tajaran
+  files:
+  - /Audio/_WL/Effects/Species/Tajaran/Meow/Meow_1.ogg
+  - /Audio/_WL/Effects/Species/Tajaran/Meow/Meow_2.ogg
+  - /Audio/_WL/Effects/Species/Tajaran/Meow/Meow_3.ogg
+
+- type: soundCollection
+  id: Tajarahiss
+  files:
+  - /Audio/_WL/Effects/Species/Tajaran/Tajarahiss/Tajarahiss_1.ogg
+  - /Audio/_WL/Effects/Species/Tajaran/Tajarahiss/Tajarahiss_2.ogg
+  - /Audio/_WL/Effects/Species/Tajaran/Tajarahiss/Tajarahiss_3.ogg
+

@@ -29,7 +29,6 @@
       inverted: true
       traits:
       - Muted
-  weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
   joinNotifyCrew: true

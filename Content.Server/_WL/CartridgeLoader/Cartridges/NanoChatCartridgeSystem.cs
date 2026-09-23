@@ -13,6 +13,7 @@ using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared._WL.NanoChat;
 using Content.Shared.PDA;
 using Content.Shared.Popups;
+using Content.Shared.Radio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;

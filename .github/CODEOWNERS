@@ -1,15 +1,14 @@
 # Last match in file takes precedence.
 
 # Ping for all PRs
-* @Morb0
 * @JerryImMouse
 * @tau27 @oldschoolotaku
 
 # Maps
-/Resources/Prototypes/Maps/** @Morb0 @DIMMoon1 @kvant8
-/Resources/Maps/** @Morb0 @DIMMoon1 @kvant8
-/Resources/Prototypes/_WL/Maps/** @NotSoDana
-/Resources/Maps/_WL/** @NotSoDana
+/Resources/Prototypes/Maps/**
+/Resources/Maps/**
+/Resources/Prototypes/_WL/Maps/**
+/Resources/Maps/_WL/**
 
 # Sprites
-/Resources/Textures/** @ReArtInt @oldschoolotaku
+/Resources/Textures/** @whitleyvk @oldschoolotaku

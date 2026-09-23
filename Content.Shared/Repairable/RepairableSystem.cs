@@ -17,7 +17,7 @@ public sealed partial class RepairableSystem : EntitySystem
     [Dependency] private DamageableSystem _damageableSystem = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private SharedBloodstreamSystem _bloodstream = default!; // WL-Changes
+    [Dependency] private BloodstreamSystem _bloodstream = default!; // WL-Changes
 
     public override void Initialize()
     {

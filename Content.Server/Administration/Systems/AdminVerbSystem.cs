@@ -683,8 +683,11 @@ namespace Content.Server.Administration.Systems
                     {
                         _quickDialog.OpenDialog(player, "Добавление языка", "Язык", (string language) =>
                         {
-                            _languages.AddLanguage(args.Target, language);
-                        });
+                            _quickDialog.OpenDialog(player, "Уровень языка", "Уровень", (int level) =>
+                            {
+                                _languages.AddLanguage(args.Target, language, level);
+                            });
+                        }); // WL-Languages
                     },
                     Impact = LogImpact.Extreme,
                     ConfirmationPopup = true

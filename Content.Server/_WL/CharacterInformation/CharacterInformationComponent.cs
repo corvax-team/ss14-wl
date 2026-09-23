@@ -13,8 +13,4 @@ public sealed partial class CharacterInformationComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
     public string OocText = string.Empty;
-
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
-    public string DynamicText = string.Empty;
 }

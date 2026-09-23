@@ -62,7 +62,8 @@ public sealed partial class TraySystem : SharedTraySystem
             || !_apperance.TryGetData<bool>(uid, TrayVisualState.Closed, out var closed, appearance))
             return;
 
-        _sprite.LayerSetVisible(uid, TrayVisualLayers.Cap, closed);
+        if (component.HasCap)
+            _sprite.LayerSetVisible(uid, TrayVisualLayers.Cap, closed);
     }
 }
 
