@@ -1,7 +1,6 @@
 - type: roleLoadout
   id: JobAdjutant
   groups:
-  - FormInventory
   - AdjutantHead
   - AdjutantJumpsuit
   - AdjutantBackpack
