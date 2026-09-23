@@ -124,6 +124,10 @@
   - BaseSpeciesMobOrganic
   id: MobCischi
   components:
+# WL-Changes: Swimmer start
+  - type: Swimmer
+    swimSpeedModifier: 0.8
+# WL-Changes: Swimmer end
   - type: Damageable
     damageModifierSet: Cischi
   - type: CuffedMeleeWeapon

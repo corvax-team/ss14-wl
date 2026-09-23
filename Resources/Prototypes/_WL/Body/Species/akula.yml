@@ -104,16 +104,17 @@
     - type: Vocal
       emoteSounds: MaleAkula
     - type: Wagging
-  #WL-Changes: Languages start
+    #Wl-Changes-Start
     - type: Languages
       list:
       - language: Translate
         languageLevel: 4
       specieLanguage: Translate
-  #WL-Changes: Languages end
-    #Wl-Changes-Start
     - type: CuffedMeleeWeapon
       weaponId: CuffedAkulaAttack
+    - type: Swimmer
+      swimSpeedModifier: 1.5
+      swimAccelerationModifier: 1.75
     #WL-Changes-End
 
 - type: entity

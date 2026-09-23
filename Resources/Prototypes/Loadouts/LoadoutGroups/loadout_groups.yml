@@ -3278,6 +3278,10 @@
   - HeadofSecurityJumpsuitBlack
   - HeadofSecurityJumpskirtBlack
   # Corvax-Loadouts-End
+  # WL-Loadouts-Start
+  - JumpsuitHosParade
+  - JumpskirtHosParade
+  # WL-Loadouts-End
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
