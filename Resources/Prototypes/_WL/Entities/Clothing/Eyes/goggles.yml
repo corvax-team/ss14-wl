@@ -107,3 +107,41 @@
   - type: ShowSyndicateIcons
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
+
+- type: entity
+  parent: [ClothingEyesBase, BaseEngineeringContraband]
+  id: ClothingEyesAltGogglesEngineer
+  name: alternative engineer goggles
+  description: Blue-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/engigoggles.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/engigoggles.rsi
+    slots:
+    - HEAD
+    - EYES
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+      eyes:
+      - state: equipped-EYES
+    equipSound:
+      collection: GogglesEquip
+  - type: EmitSoundOnPickup
+    sound:
+      collection: GogglesPickup
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      collection: GogglesDrop
+      params:
+        volume: -4
+  - type: EyeProtection
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - PetWearable
+    - WhitelistChameleon

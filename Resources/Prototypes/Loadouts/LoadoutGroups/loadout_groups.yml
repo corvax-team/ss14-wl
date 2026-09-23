@@ -59,6 +59,19 @@
   - ClothingNeckAutismPin
   - ClothingNeckGoldAutismPin
   - TowelColorWhite
+  # Corvax-Loadouts-Start
+  - ClothingNeckAtharaPin
+  - ClothingNeckCorvaxPin
+  - ClothingNeckEchoPin
+  - ClothingNeckElysiumPin
+  - ClothingNeckMainPin
+  - ClothingNeckNebulaPin
+  - ClothingNeckNovaPin
+  - ClothingNeckSolarisPin
+  - ClothingNeckLumenPin
+  - ClothingNeckVoidPin
+  - ClothingNeckWhiteListPin
+  # Corvax-Loadouts-End
 
 - type: loadoutGroup
   id: AssistiveItems
@@ -72,19 +85,6 @@
   - OffsetCaneMime
   - OffsetCaneNT
   - Cane
-   # Corvax-Loadouts-Start
-  - ClothingNeckAtharaPin
-  - ClothingNeckCorvaxPin
-  - ClothingNeckEchoPin
-  - ClothingNeckElysiumPin
-  - ClothingNeckMainPin
-  - ClothingNeckNebulaPin
-  - ClothingNeckNovaPin
-  - ClothingNeckSolarisPin
-  - ClothingNeckLumenPin
-  - ClothingNeckVoidPin
-  - ClothingNeckWhiteListPin
-  # Corvax-Loadouts-End
 
 - type: loadoutGroup
   id: GroupTankHarness
@@ -1765,17 +1765,6 @@
   - MimeSuspendersRed
   - MimeSuspendersBlack
 
-- type: loadoutGroup
-  id: SurvivalMime
-  name: loadout-group-survival-mime
-  minLimit: 2
-  hidden: true
-  loadouts:
-  - EmergencyNitrogenMime
-  - EmergencyOxygenMime
-  - EmergencySpeciesMothMime
-  - LoadoutSpeciesVoxNitrogen
-
 #- type: loadoutGroup
 #  id: MimeJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -3289,6 +3278,10 @@
   - HeadofSecurityJumpsuitBlack
   - HeadofSecurityJumpskirtBlack
   # Corvax-Loadouts-End
+  # WL-Loadouts-Start
+  - JumpsuitHosParade
+  - JumpskirtHosParade
+  # WL-Loadouts-End
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -3872,8 +3865,50 @@
   - ClassicWhiteShirtRedPants
   - ClassicWhiteShirtTanPants
   # WL-change-end
+
 - type: loadoutGroup
-  id: SurvivalSyndicate
+  id: TramDriverJumpsuit
+  name: loadout-group-tramdriver-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - TramDriverJumpsuit
+
+- type: loadoutGroup
+  id: TramDriverOuterClothing
+  name: loadout-group-tramdriver-outerclothing
+  minLimit: 0
+  loadouts:
+  - TramDriverSuit
+
+- type: loadoutGroup
+  id: TramDriverHat
+  name: loadout-group-tramdriver-hat
+  loadouts:
+  - TramDriverHat
+
+- type: loadoutGroup
+  id: TramDriverGloves
+  name: loadout-group-tramdriver-gloves
+  minLimit: 0
+  loadouts:
+  - TramDriverGlovesWhite
+  - TramDriverGlovesBlack
+
+# Other
+
+- type: loadoutGroup
+  id: SurvivalExtendedAntag # Larger survival box containing food/water, used by antags that spawn off-station (e.g ninjas, wizards)
+  name: loadout-group-survival-extended
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenExtendedAntag
+  - EmergencyOxygenExtendedAntag
+  - LoadoutSpeciesVoxNitrogen
+
+- type: loadoutGroup
+  id: SurvivalSyndicate # Larger survival box containing food, used by syndicate operatives that spawn off-station (e.g nukies)
   name: loadout-group-survival-syndicate
   minLimit: 2
   hidden: true
@@ -3884,7 +3919,7 @@
   - LoadoutSpeciesVoxNitrogen
 
 - type: loadoutGroup
-  id: SurvivalMilitaryDouble
+  id: SurvivalMilitaryDouble # Survival box mostly used by ERT/deathsquad
   name: loadout-group-survival-military
   minLimit: 2
   hidden: true

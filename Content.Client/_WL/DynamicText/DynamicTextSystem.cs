@@ -2,7 +2,7 @@ using Content.Client._WL.DynamicText.UI;
 using Content.Client.Interactable;
 using Content.Client.Mind;
 using Content.Shared._WL.DynamicText;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;

@@ -1,13 +1,13 @@
-﻿using System.Text;
+using System.Text;
 using Content.Server._WL.Languages;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server.Speech.Components;
 using Content.Shared._Goobstation.TapeRecorder;
 using Content.Shared._Goobstation.TapeRecorder.Components;
 using Content.Shared._Goobstation.TapeRecorder.Systems;
 using Content.Shared._WL.Languages.Components;
 using Content.Shared.Chat;
+using Content.Shared.Speech.Components;
 using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Corvax.TTS;
 using Content.Shared.Paper;

@@ -90,6 +90,8 @@
   id: MobSlimePerson
   name: Urist McWobble
   components:
+  - type: Swimmer #WL
+    swimSpeedModifier: 0.5
   - type: Storage
     clickInsert: false
     grid:
@@ -124,6 +126,7 @@
   - type: Damageable
     damageModifierSet: Slime
   - type: PassiveDamage # Around 8 damage a minute healed
+    intervalHaltOnDamageTaken: 5s
     allowedStates:
     - Alive
     damage:

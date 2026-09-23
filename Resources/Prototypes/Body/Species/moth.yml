@@ -140,6 +140,9 @@
   id: MobMoth
   name: Urist McFluff
   components:
+  - type: Swimmer #WL
+    swimSpeedModifier: 0.8
+    swimAccelerationModifier: 1
   - type: Damageable
     damageModifierSet: Moth
   - type: ZombieAccentOverride
@@ -178,11 +181,8 @@
     damage:
       types:
         Heat: 2.5 # moths burn more easily
-  - type: Temperature
-    currentTemperature: 310.15
-    specificHeat: 46
   - type: TemperatureDamage # Moths hate the heat and thrive in the cold.
-    heatDamageThreshold: 320
+    heatDamageThreshold: 314.15
     coldDamageThreshold: 230
     coldDamage:
       types:
@@ -196,8 +196,10 @@
       275: 0.8
       250: 0.7
   #WL-Changes: Languages & hunger start
-  - type: Hunger
-    baseDecayRate: 0.024 # WL-Changes: hunger cpeed moth
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: MothHunger
   - type: Languages
     list:
     - language: Translate

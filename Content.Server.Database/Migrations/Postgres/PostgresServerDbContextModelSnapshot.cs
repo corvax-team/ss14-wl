@@ -915,36 +915,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("custom_vote_log_option", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DiscordConnection", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasColumnName("discord_connections_id");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("DiscordId")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("discord_id");
-
-                    b.Property<Guid>("UserGuid")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_guid");
-
-                    b.HasKey("Id")
-                        .HasName("PK_discord_connections");
-
-                    b.HasIndex("DiscordId")
-                        .IsUnique();
-
-                    b.HasIndex("UserGuid")
-                        .IsUnique();
-
-                    b.ToTable("discord_connections", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")

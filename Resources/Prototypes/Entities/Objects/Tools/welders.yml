@@ -30,6 +30,7 @@
   - type: Item
     size: Small
     sprite: Objects/Tools/welder.rsi
+  - type: ItemToggleExaminableStatus
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -63,6 +64,7 @@
   - type: ItemToggleHot
   - type: ComponentToggler
     components:
+    - type: IgniteOnMeleeHit
     - type: DisarmMalus
       malus: 0.6
   - type: ToggleableVisuals
@@ -87,7 +89,7 @@
   - type: Tool
     useSound:
       collection: Welder
-    qualities: Welding
+    qualities: [ Welding ]
   - type: WeldingSparks # Goobstation
   - type: Welder
   - type: PointLight
@@ -165,7 +167,7 @@
 
 - type: entity
   name: experimental welding tool
-  parent: [SolutionToolWelderExperimental, BaseWelder]
+  parent: [BaseCorvaxContraband431DepartmentsEngineering, SolutionToolWelderExperimental, BaseWelder] # Corvax-Contraband
   id: WelderExperimental
   description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
   components:

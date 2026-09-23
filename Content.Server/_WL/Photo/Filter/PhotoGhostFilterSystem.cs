@@ -1,6 +1,6 @@
 using Content.Shared._WL.Photo.Filters;
 using Content.Shared.Coordinates;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 

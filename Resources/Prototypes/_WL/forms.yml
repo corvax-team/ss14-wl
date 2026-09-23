@@ -11,7 +11,7 @@
     sprite: _WL/Forms/kawariglasses.rsi
 
 - type: entity
-  parent: ClothingHeadHatBeretSecurityPilot
+  parent: ClothingHeadHatBeretSecurityPilotWL
   id: ClothingHeadHatBeretSecurityPilotAurora
   name: tattered beret
   description: A pilot's beret with a patch stitched in pink thread on the back. The word is illegible.

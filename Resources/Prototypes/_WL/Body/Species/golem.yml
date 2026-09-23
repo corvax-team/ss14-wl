@@ -66,29 +66,23 @@
    - type: HumanoidProfile
      species: Golem
    - type: Inventory
-     speciesId: reptilian
-     femaleDisplacements:
-       jumpsuit:
-         sizeMaps:
-           32:
-             sprite: Corvax/Mobs/Species/displacement.rsi
-             state: jumpsuit-female
-       shoes:
-         sizeMaps:
-           32:
-             sprite: Corvax/Mobs/Species/displacement.rsi
-             state: shoes
+     #WL-Changes: delete speciesId: reptilian
      displacements:
        jumpsuit:
          sizeMaps:
            32:
-             sprite: Corvax/Mobs/Species/displacement.rsi
+             sprite: _WL/Mobs/Species/Golem/displacement.rsi
              state: jumpsuit
        shoes:
          sizeMaps:
            32:
-             sprite: Corvax/Mobs/Species/displacement.rsi
+             sprite: _WL/Mobs/Species/Golem/displacement.rsi
              state: shoes
+       outerClothing:
+         sizeMaps:
+           32:
+             sprite: _WL/Mobs/Species/Golem/displacement.rsi
+             state: outerclothing
 
  - type: entity
    save: false
@@ -98,19 +92,18 @@
    - BaseSpeciesMob
    id: MobGolem
    components:
+     - type: Swimmer
+       swimSpeedModifier: 0.5
+       swimAccelerationModifier: 0.15
      - type: OfferItem # CorvaxGoob-Offer
      - type: Damageable
        damageModifierSet: Golem
      - type: Injurable
        damageContainer: Golemical
-     - type: Hunger
-       thresholds:
-         Overfed: 200
-         Okay: 185
-         Peckish: 100
-         Starving: 50
-         Dead: 0
-       baseDecayRate: 0.03
+     - type: Satiation
+       satiations:
+         Hunger:
+           prototype: GolemHunger
      - type: HardSlip
        fallDamage:
          types:
@@ -165,7 +158,6 @@
          150: Critical
          200: Dead
      - type: Temperature
-       currentTemperature: 334
        specificHeat: 42
      - type: TemperatureDamage
        heatDamageThreshold: 1273.15
@@ -402,7 +394,7 @@
    id: OrganGolemFootRight
 
  - type: entity
-   parent: [ OrganGolemInternal, OrganGolemMetabolizer ]
+   parent: [ OrganBaseChildInternal, OrganGolemInternal, OrganGolemMetabolizer ]
    id: OrganGolemCore
    name: Spark
    description: "A prison for the soul"

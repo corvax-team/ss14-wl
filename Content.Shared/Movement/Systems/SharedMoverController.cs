@@ -45,6 +45,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private SharedContainerSystem _container = default!;
     [Dependency] private SharedMapSystem _mapSystem = default!;
     [Dependency] private SharedGravitySystem _gravity = default!;
+    [Dependency] private SharedSwimSystem _swim = default!; //WLSwiming
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private TagSystem _tags = default!;
 
@@ -104,7 +105,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected virtual void OnMoverStartup(Entity<InputMoverComponent> ent, ref ComponentStartup args)
     {
-       _blocker.UpdateCanMove(ent, ent.Comp);
+        _blocker.UpdateCanMove(ent, ent.Comp);
     }
 
     public override void Shutdown()
@@ -270,6 +271,13 @@ public abstract partial class SharedMoverController : VirtualController
             }
 
             accel = moveSpeedComponent?.WeightlessAcceleration ?? MovementSpeedModifierComponent.DefaultWeightlessAcceleration;
+
+            //WLSwiming - start
+            if (_swim.TryGetWaterResistance(xform) is { } waterResistance)
+            {
+                friction = waterResistance;
+            }
+            //WLSwiming - end
         }
         else
         {
@@ -350,7 +358,7 @@ public abstract partial class SharedMoverController : VirtualController
                 var soundModifier = mover.Sprinting ? InputMoverComponent.SprintingSoundModifier : InputMoverComponent.WalkingSoundModifier;
 
                 var audioParams = sound.Params
-                    .WithVolume(sound.Params.Volume + soundModifier)
+                    .AddVolume(sound.Params.Volume + soundModifier)
                     .WithVariation(sound.Params.Variation ?? mobMover.FootstepVariation);
 
                 // If we're a relay target then predict the sound for all relays.
@@ -586,7 +594,7 @@ public abstract partial class SharedMoverController : VirtualController
 
         // If the coordinates have a FootstepModifier component
         // i.e. component that emit sound on footsteps emit that sound
-        var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(xform.GridUid.Value, grid, position);
+        var anchored = _mapSystem.GetAnchoredEntities(xform.GridUid.Value, grid, position);
 
         while (anchored.MoveNext(out var maybeFootstep))
         {

@@ -862,34 +862,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("custom_vote_log_option", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.DiscordConnection", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("discord_connections_id");
-
-                    b.Property<string>("DiscordId")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("discord_id");
-
-                    b.Property<Guid>("UserGuid")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("user_guid");
-
-                    b.HasKey("Id")
-                        .HasName("PK_discord_connections");
-
-                    b.HasIndex("DiscordId")
-                        .IsUnique();
-
-                    b.HasIndex("UserGuid")
-                        .IsUnique();
-
-                    b.ToTable("discord_connections", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
                 {
                     b.Property<int>("Id")

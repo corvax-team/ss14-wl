@@ -1,0 +1,4 @@
+- type: nameIdentifierGroup
+  id: NanoChat
+  minValue: 1000
+  maxValue: 9999
