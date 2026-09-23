@@ -3,7 +3,6 @@
   id: JobCaptain
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - CaptainHead
   - CaptainNeck
   - CaptainJumpsuit
@@ -15,12 +14,12 @@
   #- CaptainJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - HoPHead
   - HoPNeck
@@ -33,6 +32,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Silicons
 - type: roleLoadout
@@ -50,7 +50,6 @@
   id: JobPassenger
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - PassengerJumpsuit
   - CommonBackpack
@@ -66,12 +65,12 @@
   #- PassengerJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobBartender
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - BartenderHead
   - BartenderJumpsuit
@@ -85,12 +84,12 @@
   - WLNeck # WL-Changes: Neck add
   - BartenderJobTrinkets
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobServiceWorker
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - BartenderJumpsuit
   - CommonBackpack
@@ -101,12 +100,12 @@
   #- ServiceWorkerJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobChef
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ChefHead
   - ChefMask
@@ -120,12 +119,12 @@
   #- ChefJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobLibrarian
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - LibrarianJumpsuit # WL-change: formal uniforms are integrated into the role group
   - LibrarianOuterClothing # WL-change: wardrobe refresh
@@ -137,12 +136,12 @@
   #- LibrarianJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobLawyer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - LawyerNeck
   - LawyerJumpsuit # WL-change: formal uniforms are integrated into the role group
@@ -154,13 +153,13 @@
   #- LawyerJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobChaplain
   canCustomizeName: true
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ChaplainHead
   - ChaplainMask
@@ -176,12 +175,12 @@
   #- ChaplainJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobJanitor
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - JanitorHead
   - JanitorJumpsuit
@@ -195,12 +194,12 @@
   - WLNeck # WL-Changes: Neck add
   - JanitorJobTrinkets
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobBotanist
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - BotanistHead
   - BotanistJumpsuit
@@ -213,13 +212,13 @@
   #- BotanistJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobClown
   canCustomizeName: true
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ClownHead
   - ClownJumpsuit
@@ -232,13 +231,13 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - ClownJobTrinkets
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobMime
   canCustomizeName: true
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - MimeHead
   - MimeMask
@@ -252,13 +251,13 @@
   - Trinkets
   #- MimeJobTrinkets
   - WLNeck # WL-Changes: Neck add
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobMusician
   canCustomizeName: true
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - MusicianJumpsuit
   - CommonBackpack
@@ -272,13 +271,13 @@
   - WLNeck # WL-Changes: Neck add
   - Instruments
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Cargo
 - type: roleLoadout
   id: JobQuartermaster
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - QuartermasterHead
   - QuartermasterNeck
@@ -293,12 +292,12 @@
   #- QuartermasterJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - CargoTechnicianHead
   - CargoTechnicianJumpsuit
@@ -313,12 +312,12 @@
   #- CargoTechnicianJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobSalvageSpecialist
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - SalvageSpecialistBackpack
   - SalvageSpecialistOuterClothing
@@ -330,13 +329,13 @@
   #- SalvageSpecialistJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Engineering
 - type: roleLoadout
   id: JobChiefEngineer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ChiefEngineerHead
   - ChiefEngineerJumpsuit
@@ -350,12 +349,12 @@
   #- ChiefEngineerJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobTechnicalAssistant
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - TechnicalAssistantJumpsuit
   - StationEngineerBackpack
@@ -365,12 +364,12 @@
   #- TechnicalAssistantJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobStationEngineer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - StationEngineerHead
   - StationEngineerJumpsuit
@@ -384,12 +383,12 @@
   #- StationEngineerJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
@@ -402,13 +401,13 @@
   #- AtmosphericTechnicianJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Science
 - type: roleLoadout
   id: JobResearchDirector
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ResearchDirectorHead
   - ResearchDirectorNeck
@@ -424,12 +423,12 @@
   #- ResearchDirectorJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobScientist
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ScientistHead
   - ScientistNeck
@@ -446,12 +445,12 @@
   #- ScientistJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobResearchAssistant
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ResearchAssistantJumpsuit
   - ScientistBackpack
@@ -462,13 +461,13 @@
   #- ResearchAssistantJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Security
 - type: roleLoadout
   id: JobHeadOfSecurity
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - HeadofSecurityHead
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
@@ -483,12 +482,12 @@
   - HOSBadges # WL-Changes
   - HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobWarden
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
@@ -502,12 +501,12 @@
   - WardenBadges # WL-Changes
   - WardenJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobSecurityOfficer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - SecurityHead
   - SecurityJumpsuit
   - SecurityBackpack
@@ -522,12 +521,12 @@
   - OfficerBadges # WL-Changes
   - SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobDetective
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - DetectiveHead
   - DetectiveJumpsuit # WL-change: use the security uniform group
   - SecurityBackpack
@@ -541,12 +540,12 @@
   - DetectiveJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - PhotoGroup # WL-Changes: Photo to lodauts
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - AssistiveItems
@@ -556,13 +555,13 @@
   - WLNeck # WL-Changes: Neck add
   - CadetBadges # WL-Changes
   - GroupSpeciesBreathToolSecurity
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Wildcards
 - type: roleLoadout
   id: JobReporter
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - ReporterJumpsuit # WL-change: formal uniforms are integrated into the role group
   - ReporterHead
@@ -576,12 +575,12 @@
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
   - PhotoGroup # WL-Changes: Photo to lodauts
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobPsychologist
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
-  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - PsychologistJumpsuit
   - MedicalBackpack
@@ -592,6 +591,7 @@
   #- PsychologistJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobTramDriver
@@ -607,6 +607,7 @@
   - Trinkets
   #- TramDriverJobTrinkets
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit

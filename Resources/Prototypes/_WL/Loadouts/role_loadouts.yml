@@ -1,7 +1,6 @@
 - type: roleLoadout
   id: JobAdjutant
   groups:
-  - FormInventory
   - AdjutantHead
   - AdjutantJumpsuit
   - AdjutantBackpack
@@ -10,3 +9,4 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory
