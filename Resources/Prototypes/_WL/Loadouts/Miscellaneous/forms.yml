@@ -137,7 +137,7 @@
   id: HeadsetTacticScience
   effects:
   - !type:CkeyRequirementLoadoutEffect
-    ckey: bambanater123123
+    ckey: localhost@inventor05
   storage:
     back:
     - ClothingHeadsetTacticScience

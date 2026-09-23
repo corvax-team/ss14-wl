@@ -11,13 +11,14 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 #Law
 
 - type: roleLoadout
   id: JobMagistrate
   groups:
-  - Inventory # Corvax-Loadouts
+  # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
   - MagistrateHead
   - MagistrateJumpsuit
   - MagistrateOuterClothing
@@ -25,6 +26,7 @@
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Engineering
 - type: roleLoadout
@@ -41,6 +43,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Science
 - type: roleLoadout
@@ -59,6 +62,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Security
 - type: roleLoadout
@@ -76,6 +80,7 @@
   - WLNeck # WL-Changes: Neck add
   - PilotBadges # WL-Changes
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobBrigmedic
@@ -93,6 +98,7 @@
   - WLNeck # WL-Changes: Neck add
   - BrigMedicBadges # WL-Changes
   - GroupSpeciesBreathTool
+  - FormInventory # WL-Changes: Form inventory loadout
 
 - type: roleLoadout
   id: JobSeniorOfficer
@@ -109,6 +115,7 @@
   - WLNeck # WL-Changes: Neck add
   - InstructorBadges # WL-Changes
   - GroupSpeciesBreathToolSecurity
+  - FormInventory # WL-Changes: Form inventory loadout
 
 # Medical
 - type: roleLoadout
@@ -128,3 +135,4 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathToolMedical
+  - FormInventory # WL-Changes: Form inventory loadout
