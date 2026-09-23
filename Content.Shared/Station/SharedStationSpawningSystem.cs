@@ -13,6 +13,8 @@ namespace Content.Shared.Station;
 
 public abstract partial class SharedStationSpawningSystem : EntitySystem
 {
+    private const string FormInventory = "FormInventory"; //WL-changes
+
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] protected InventorySystem InventorySystem = default!;
     [Dependency] private SharedHandsSystem _handsSystem = default!;
@@ -32,7 +34,7 @@ public abstract partial class SharedStationSpawningSystem : EntitySystem
     {
         // Order loadout selections by the order they appear on the prototype.
         foreach (var group in loadout.SelectedLoadouts
-            .OrderBy(x => x.Key == "FormInventory")
+            .OrderBy(x => x.Key == FormInventory)
             .ThenBy(x => roleProto.Groups.FindIndex(e => e == x.Key)))
         {
             foreach (var items in group.Value)
