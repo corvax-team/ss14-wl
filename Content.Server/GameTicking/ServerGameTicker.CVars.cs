@@ -26,6 +26,13 @@ public sealed partial class ServerGameTicker
 
     private WebhookIdentifier? _webhookIdentifier;
 
+    //WL-Change: Send Manifest in Discord Start
+    private WebhookIdentifier? _webhookIdentifierManifest;
+
+    private Color _webhookEmbedColor;
+
+    //WL-Change: Send Manifest in Discord End
+
     [ViewVariables]
     private string? RoundEndSoundCollection { get; set; }
 
@@ -94,6 +101,21 @@ public sealed partial class ServerGameTicker
         },
             true);
         Subs.CVar(Cfg, CCVars.RoundEndSoundCollection, value => RoundEndSoundCollection = value, true);
+        //WL-Change: Send Manifest in Discord Start
+        Subs.CVar(_cfg, WLCVars.DiscordRoundManifestWebhook, value =>
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+            {
+                _discord.GetWebhook(value, data => _webhookIdentifierManifest = data.ToIdentifier());
+            }
+        }, true);
+        Subs.CVar(_cfg, WLCVars.DiscordRoundManifestWebhookEmbedColor, value =>
+        {
+            _webhookEmbedColor = Color.DeepSkyBlue;
+            if (Color.TryParse(value, out var color))
+                _webhookEmbedColor = color;
+        }, true);
+        //WL-Change: Send Manifest in Discord End
 #if EXCEPTION_TOLERANCE
             Subs.CVar(Cfg, CCVars.RoundStartFailShutdownCount, value => RoundStartFailShutdownCount = value, true);
 #endif

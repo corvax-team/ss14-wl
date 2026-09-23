@@ -161,6 +161,11 @@ public sealed partial class ServerGameTicker
                 continue;
             RaiseNetworkEvent(GetStatusMsg(playerSession), playerSession.Channel);
         }
+
+        // Harmony start - ready manifest
+        var playerToggledReady = new PlayerToggledReadyEvent();
+        RaiseLocalEvent(ref playerToggledReady);
+        // Harmony end - ready manifest
     }
 
     public void ToggleReady(ICommonSession player, bool ready)
@@ -178,10 +183,19 @@ public sealed partial class ServerGameTicker
 
         _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
         RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
+        // Harmony start - ready manifest
+        var playerToggledReady = new PlayerToggledReadyEvent();
+        RaiseLocalEvent(ref playerToggledReady);
+        // Harmony end - ready manifest
         // update server info to reflect new ready count
         UpdateInfoText();
     }
 
     public override bool UserHasJoinedGame(NetUserId userId)
         => PlayerGameStatuses.TryGetValue(userId, out var status) && status == PlayerGameStatus.JoinedGame;
+
+    // Harmony start - ready manifest
+    [ByRefEvent]
+    public struct PlayerToggledReadyEvent;
+    // Harmony end - ready manifest
 }

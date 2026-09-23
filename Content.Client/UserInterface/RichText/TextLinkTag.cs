@@ -61,51 +61,34 @@ public sealed partial class TextLinkTag : IMarkupTagHandler
     /// </summary>
     public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
+        // WL-Changes-start
         control = null;
-        LinkData linkData = default;
-
-        var linkTypeResolved = false;
 
         if (!node.Value.TryGetString(out var text))
-        {
             return false;
-        }
 
-        foreach (var (attrname, resolver) in _resolvers)
+        var label = new RichTextLabel()
         {
-            if (!node.Attributes.ContainsKey(attrname))
-                continue;
+            MouseFilter = Control.MouseFilterMode.Stop,
+            DefaultCursorShape = Control.CursorShape.Hand,
+            Margin = new Thickness(1),
+            HorizontalExpand = true,
+            VerticalExpand = true,
+        };
 
-            if(!resolver(node, out linkData))
-            {
-                return false;
-            }
+        label.SetMessage(text, defaultColor: LinkColor);
 
-            linkTypeResolved = true;
-            break;
-        }
+        label.OnMouseEntered += _ => label.SetMessage(text, defaultColor: Color.LightSkyBlue);
+        label.OnMouseExited += _ => label.SetMessage(text, defaultColor: Color.CornflowerBlue);
 
-        if (!linkTypeResolved)
-        {
-            return false;
-        }
+        if (node.Attributes.TryGetValue("tip", out var tipParameter) &&
+            tipParameter.TryGetString(out var tipText))
+            label.ToolTip = tipText;
 
-
-        // color= > resolver-supplied color > default
-        var linkColor = ResolveColorOverride(node) ?? linkData.Color ?? DefaultLinkColor;
-        var linkLabel = new TextLinkLabel() { Text = text, LinkString = linkData.LinkString, LinkEntity = linkData.LinkEntity, LinkColor = linkColor};
-
-        // eat my ass about where this magic number comes from
-        // our UI stack is awful. Finding this magic number was awful.
-        // The entire system is full of TODOs and unhelpful obsoletes that just say to go to another system which is using the EXACT SAME OBSOLETED OBJECTS
-        var boldFont = new NotoFontFamilyStack(_cache).GetFont(FontTag.DefaultSize, FontKind.Bold);
-        if (linkData.LinkEntity is not null)
-        {
-            linkLabel.FontOverride = boldFont;
-        }
-
-        _chat ??= _entity.System<SharedChatSystem>();
-        linkLabel.UpdateLabelProperties(_chat);
+        if (node.Attributes.TryGetValue("link", out var linkParameter) &&
+            linkParameter.TryGetString(out var link))
+            label.OnKeyBindDown += args => OnKeybindDown(args, link, label);
+        // WL-Changes-end
 
         control = linkLabel;
         return true;
