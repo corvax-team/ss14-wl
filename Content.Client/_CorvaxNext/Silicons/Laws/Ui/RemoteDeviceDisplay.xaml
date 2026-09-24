@@ -1,13 +1,13 @@
 <!-- WL-Changes-start -->
 <Control xmlns="https://spacestation14.io"
-         xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+         xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
          Margin="0 0 0 10">
     <PanelContainer VerticalExpand="True" StyleClasses="BackgroundDark">
         <BoxContainer Orientation="Vertical"
                       HorizontalExpand="True"
                       VerticalExpand="True"
                       Margin="5 5 5 5">
-            <customControls:HSeparator Margin="0 5 0 5"/>
+            <controls:Separator StyleClasses="LowDivider" Margin="0 5 0 5"/>
             <RichTextLabel Name="DeviceName"/>
             <BoxContainer Name="RemoteControlButtons" Orientation="Horizontal" HorizontalExpand="True" Margin="0 5 0 0">
                 <Button Name="MoveButton" StyleClasses="chatSelectorOptionButton" Text="{Loc ai-remote-ui-menu-moveto}"/>

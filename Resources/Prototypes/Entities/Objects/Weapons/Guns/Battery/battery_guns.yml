@@ -119,9 +119,9 @@
   - type: Execution # WL-Changes
 
 - type: entity
-  id: BaseWeaponBatterySmall
-  parent: BaseWeaponBattery
   abstract: true
+  parent: BaseWeaponBatteryNoAmmoCounter
+  id: BaseWeaponBatterySmallNoAmmoCounter
   components:
   - type: Item
     size: Small
@@ -137,6 +137,13 @@
     slots:
     - Belt
     - suitStorage
+
+- type: entity
+  abstract: true
+  parent: BaseWeaponBatterySmallNoAmmoCounter
+  id: BaseWeaponBatterySmall
+  components:
+  - type: AmmoCounter
 
 - type: entity
   id: BaseWeaponPowerCellSmall
@@ -585,7 +592,7 @@
       - Belt
   - type: BatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 62.5
+    fireCost: 40
   - type: GuideHelp
     guides:
     - Security
@@ -622,7 +629,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: BatteryAmmoProvider
-    proto: BulletDisablerSmg
+    proto: BulletDisablerSmgSlowing
     fireCost: 25
   - type: MagazineVisuals
     magState: mag

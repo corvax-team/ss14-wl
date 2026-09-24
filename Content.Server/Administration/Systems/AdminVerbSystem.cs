@@ -11,7 +11,6 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Mind;
 using Content.Server.Prayer;
 using Content.Server.Silicons.Laws;
-using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -35,12 +34,11 @@ using Robust.Shared.Console;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Mind;
+using Content.Shared.Station.Systems;
 using static Content.Shared.Configurable.ConfigurationComponent;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
@@ -58,7 +56,6 @@ namespace Content.Server.Administration.Systems
         [Dependency] private IConsoleHost _console = default!;
         [Dependency] private IAdminLogManager _adminLogs = default!;
         [Dependency] private IAdminManager _adminManager = default!;
-        [Dependency] private IGameTiming _gameTiming = default!;
         [Dependency] private SharedMapSystem _map = default!;
         [Dependency] private AdminSystem _adminSystem = default!;
         [Dependency] private DisposalTubeSystem _disposalTubes = default!;
@@ -77,6 +74,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private IPlayerManager _playerManager = default!;
         [Dependency] private SiliconLawSystem _siliconLawSystem = default!;
         [Dependency] private AfkConfirmSystem _afkConfirm = default!;
+        [Dependency] private SharedTransformSystem _transformSystem = default!;
 
         [Dependency] private LanguagesSystem _languages = default!; //WL-Changes: Languages
 
@@ -96,7 +94,7 @@ namespace Content.Server.Administration.Systems
         {
             AddAdminVerbs(ev);
             AddDebugVerbs(ev);
-            AddSmiteVerbs(ev);
+            AddPrototypeVerbs(ev);
             AddTricksVerbs(ev);
             AddAntagVerbs(ev);
         }

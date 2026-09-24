@@ -2,6 +2,8 @@ using Content.Server.Fax;
 using Content.Server.MassMedia.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._WL.StationGoal;
+using Content.Shared.Station.Systems;
+using Content.Shared.Corvax.CCCVars;
 using Content.Shared.Fax.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Paper;
