@@ -232,7 +232,7 @@
     entity: WrappedParcel
     containerId: contents
   # WL-Changes-start
-  cost: 1500
+  cost: 1400
   # WL-Changes-end
   category: cargoproduct-category-name-service
   group: market
