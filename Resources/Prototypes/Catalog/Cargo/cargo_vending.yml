@@ -231,7 +231,9 @@
   container:
     entity: WrappedParcel
     containerId: contents
-  cost: 1200
+  # WL-Changes-start
+  cost: 1500
+  # WL-Changes-end
   category: cargoproduct-category-name-service
   group: market
 
