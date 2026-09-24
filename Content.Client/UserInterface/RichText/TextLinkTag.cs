@@ -61,36 +61,54 @@ public sealed partial class TextLinkTag : IMarkupTagHandler
     /// </summary>
     public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
-        // WL-Changes-start
         control = null;
+        LinkData linkData = default;
+
+        var linkTypeResolved = false;
 
         if (!node.Value.TryGetString(out var text))
-            return false;
-
-        var label = new RichTextLabel()
         {
-            MouseFilter = Control.MouseFilterMode.Stop,
-            DefaultCursorShape = Control.CursorShape.Hand,
-            Margin = new Thickness(1),
-            HorizontalExpand = true,
-            VerticalExpand = true,
-        };
+            return false;
+        }
 
-        label.SetMessage(text, defaultColor: LinkColor);
+        foreach (var (attrname, resolver) in _resolvers)
+        {
+            if (!node.Attributes.ContainsKey(attrname))
+                continue;
 
-        label.OnMouseEntered += _ => label.SetMessage(text, defaultColor: Color.LightSkyBlue);
-        label.OnMouseExited += _ => label.SetMessage(text, defaultColor: Color.CornflowerBlue);
+            if(!resolver(node, out linkData))
+            {
+                return false;
+            }
 
-        if (node.Attributes.TryGetValue("tip", out var tipParameter) &&
-            tipParameter.TryGetString(out var tipText))
-            label.ToolTip = tipText;
+            linkTypeResolved = true;
+            break;
+        }
 
-        if (node.Attributes.TryGetValue("link", out var linkParameter) &&
-            linkParameter.TryGetString(out var link))
-            label.OnKeyBindDown += args => OnKeybindDown(args, link, label);
-        // WL-Changes-end
+        if (!linkTypeResolved)
+        {
+            return false;
+        }
+
+
+        // color= > resolver-supplied color > default
+        var linkColor = ResolveColorOverride(node) ?? linkData.Color ?? DefaultLinkColor;
+        var linkLabel = new TextLinkLabel() { Text = text, LinkString = linkData.LinkString, LinkEntity = linkData.LinkEntity, LinkColor = linkColor};
+
+        // eat my ass about where this magic number comes from
+        // our UI stack is awful. Finding this magic number was awful.
+        // The entire system is full of TODOs and unhelpful obsoletes that just say to go to another system which is using the EXACT SAME OBSOLETED OBJECTS
+        var boldFont = new NotoFontFamilyStack(_cache).GetFont(FontTag.DefaultSize, FontKind.Bold);
+        if (linkData.LinkEntity is not null)
+        {
+            linkLabel.FontOverride = boldFont;
+        }
+
+        _chat ??= _entity.System<SharedChatSystem>();
+        linkLabel.UpdateLabelProperties(_chat);
 
         control = linkLabel;
+
         return true;
     }
 

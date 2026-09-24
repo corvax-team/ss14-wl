@@ -382,7 +382,7 @@ namespace Content.Server.GameTicking
 
             Role.MindAddJobRole(newMind, silent: silent, jobPrototype: jobId);
             // jobName = _jobs.MindTryGetJobName(newMind);
-            jobName = Role.GetSubnameBySesssion(player, jobPrototype.ID) ?? _jobs.MindTryGetJobName(newMind); // WL-changes
+            jobName = Role.GetSubname(character, jobPrototype.ID) ?? _jobs.MindTryGetJobName(newMind); // WL-changes
             _admin.UpdatePlayerList(player);
         }
 

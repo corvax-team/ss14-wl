@@ -77,5 +77,10 @@ public sealed partial class ShuttleComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan? FTLCooldownOverride = null;
+
+    //WL-Changes-start
+    [DataField]
+    public bool GodShuttle = false;
+    //WL-Changes-end
 }
 

@@ -1,9 +1,4 @@
-using Content.Server._WL.CharacterInformation;
-using Content.Server.Access.Systems;
-using Content.Server.Humanoid;
-using Content.Server.Mind;
-using Content.Server.PDA;
-using Content.Server.Station.Components;
+using Content.Shared._WL.CharacterInformation;
 using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -32,7 +27,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server.Roles;
 
 namespace Content.Shared.Station.Systems;
 
@@ -43,7 +37,7 @@ public sealed partial class StationSpawningSystem : EntitySystem
     [Dependency] private ActorSystem _actors = default!;
     [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
     [Dependency] private IdentitySystem _identity = default!;
-    [Dependency] private RoleSystem _role = default!; // WL-Changes
+    [Dependency] private SharedRoleSystem _role = default!; // WL-Changes
     [Dependency] private InventorySystem _inventory = default!;
     [Dependency] private MetaDataSystem _metadata = default!;
     [Dependency] private SharedHandsSystem _handsSystem = default!;
@@ -272,7 +266,8 @@ public sealed partial class StationSpawningSystem : EntitySystem
     public void SetPdaAndIdCardData(EntityUid entity,
         string characterName,
         JobPrototype jobPrototype,
-        EntityUid? station)
+        EntityUid? station,
+        HumanoidCharacterProfile? profile = null) // WL-Changes: Subnames
     {
         if (!_inventory.TryGetSlotEntity(entity, "id", out var idUid))
             return;
@@ -286,9 +281,15 @@ public sealed partial class StationSpawningSystem : EntitySystem
 
         _cardSystem.TryChangeFullName(cardId, characterName, card);
 
-        var jobName = _role.GetSubnameByEntity(entity, jobPrototype.ID) //WL-changes
-            ?? jobPrototype.LocalizedName; //WL-changes
-        _cardSystem.TryChangeJobTitle(cardId, jobName, card); //WL-changes
+        // WL-Changes: Subnames start
+
+        var jobName = jobPrototype.LocalizedName;
+
+        if (profile is not null)
+            jobName = _role.GetSubname(profile, jobPrototype.ID);
+
+        _cardSystem.TryChangeJobTitle(cardId, jobName, card);
+        // WL-Changes: Subnames end
 
         if (ProtoMan.Resolve(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);
@@ -403,7 +404,7 @@ public sealed partial class StationSpawningSystem : EntitySystem
 
         if (prototype != null && TryComp(entity.Value, out MetaDataComponent? metaData))
         {
-            SetPdaAndIdCardData(entity.Value, metaData.EntityName, prototype, station);
+            SetPdaAndIdCardData(entity.Value, metaData.EntityName, prototype, station/*WL: Start*/, profile/*WL: End*/); // WL-Changes: subnames
         }
 
         DoJobSpecials(job, entity.Value);

@@ -19,7 +19,7 @@ public sealed partial class GeneralStationRecordConsoleSystem : SharedGeneralSta
 {
     // WL-Changes-Records-Start
     [Dependency] private StationRecordsSystem _records = default!;
-    [Dependency] private StationSystem _station = default!;
+    [Dependency] private ServerStationSystem _station = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private IPrototypeManager _prototypes = default!;
     [Dependency] private PaperSystem _paper = default!;

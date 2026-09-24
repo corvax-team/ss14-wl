@@ -1,4 +1,4 @@
-namespace Content.Server._WL.CharacterInformation;
+namespace Content.Shared._WL.CharacterInformation;
 
 /// <summary>
 ///     Adds examine details verb and store information that can be accessed without mob actor

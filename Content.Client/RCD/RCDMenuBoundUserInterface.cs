@@ -109,7 +109,7 @@ public sealed partial class RCDMenuBoundUserInterface : BoundUserInterface
             {
                 IconSpecifier = RadialMenuIconSpecifier.With(groupInfo.Sprite),
                 ToolTip = Loc.GetString(groupInfo.Tooltip),
-                Order = groupInfo.Order,
+                Order = i,
             };
             i++;
         }

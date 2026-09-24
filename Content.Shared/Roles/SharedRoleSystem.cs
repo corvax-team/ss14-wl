@@ -30,6 +30,7 @@ public abstract partial class SharedRoleSystem : EntitySystem
     [Dependency] protected ISharedPlayerManager Player = default!;
     [Dependency] private EntityWhitelistSystem _whitelist = default!;
     [Dependency] private SharedMindSystem _minds = default!;
+    [Dependency] private ActorSystem _actors = default!; // WL-Changes
 
     private JobRequirementOverridePrototype? _requirementOverride;
 
