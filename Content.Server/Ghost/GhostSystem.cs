@@ -21,7 +21,6 @@ using Content.Shared.Database;
 using Content.Shared.Eye;
 using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
-using Content.Shared.GameTicking;
 using Content.Shared.Follower.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost.Components;

@@ -1,4 +1,6 @@
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Construction.Conditions;
@@ -20,9 +22,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
 
 namespace Content.Server.Voting.Managers
 {
