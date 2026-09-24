@@ -256,7 +256,10 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
             return false;
 
         if (!TryComp<LanguagesComponent>(source, out var comp))
-            return false;
+        {
+            newMessage = _chat.SanitizeMessageCapital(message.Trim()) ?? string.Empty;
+            return !string.IsNullOrWhiteSpace(newMessage);
+        }
 
         ProtoId<LanguagePrototype>? languageId;
 

@@ -32,6 +32,8 @@ namespace Content.Shared.Station.Systems;
 
 public sealed partial class StationSpawningSystem : EntitySystem
 {
+    private const string FormInventory = "FormInventory"; //WL-changes
+
     [Dependency] private IConfigurationManager _configurationManager = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ActorSystem _actors = default!;
@@ -61,7 +63,9 @@ public sealed partial class StationSpawningSystem : EntitySystem
     public void EquipRoleLoadout(EntityUid entity, RoleLoadout loadout, RoleLoadoutPrototype roleProto)
     {
         // Order loadout selections by the order they appear on the prototype.
-        foreach (var group in loadout.SelectedLoadouts.OrderBy(x => roleProto.Groups.FindIndex(e => e == x.Key)))
+        foreach (var group in loadout.SelectedLoadouts
+            .OrderBy(x => x.Key == FormInventory) // WL-Changes: Forms
+            .ThenBy(x => roleProto.Groups.FindIndex(e => e == x.Key)))
         {
             foreach (var items in group.Value)
             {

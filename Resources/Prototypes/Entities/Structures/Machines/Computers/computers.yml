@@ -786,7 +786,7 @@
   - type: UserInterface
     interfaces:
       enum.CommunicationsConsoleUiKey.Key:
-        type: WLCommunicationsConsoleBoundUserInterface # Corvax-WL
+        type: CommunicationsConsoleBoundUserInterface # Corvax-WL TODO: fix console to wl again
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
   - type: Computer

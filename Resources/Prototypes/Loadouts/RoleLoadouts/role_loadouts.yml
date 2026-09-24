@@ -270,7 +270,7 @@
   - Trinkets
   #- MusicianJobTrinkets
   - WLNeck # WL-Changes: Neck add
-  - Instruments
+  #WL-Changes: remove duplicate loadout group - Instruments
   - GroupSpeciesBreathTool
 
 # Cargo

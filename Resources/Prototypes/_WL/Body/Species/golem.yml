@@ -66,29 +66,23 @@
    - type: HumanoidProfile
      species: Golem
    - type: Inventory
-     speciesId: reptilian
-     femaleDisplacements:
-       jumpsuit:
-         sizeMaps:
-           32:
-             sprite: Corvax/Mobs/Species/displacement.rsi
-             state: jumpsuit-female
-       shoes:
-         sizeMaps:
-           32:
-             sprite: Corvax/Mobs/Species/displacement.rsi
-             state: shoes
+     #WL-Changes: delete speciesId: reptilian
      displacements:
        jumpsuit:
          sizeMaps:
            32:
-             sprite: Corvax/Mobs/Species/displacement.rsi
+             sprite: _WL/Mobs/Species/Golem/displacement.rsi
              state: jumpsuit
        shoes:
          sizeMaps:
            32:
-             sprite: Corvax/Mobs/Species/displacement.rsi
+             sprite: _WL/Mobs/Species/Golem/displacement.rsi
              state: shoes
+       outerClothing:
+         sizeMaps:
+           32:
+             sprite: _WL/Mobs/Species/Golem/displacement.rsi
+             state: outerclothing
 
  - type: entity
    save: false

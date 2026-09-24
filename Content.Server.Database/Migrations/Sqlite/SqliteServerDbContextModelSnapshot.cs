@@ -1497,6 +1497,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("trait_id");
 
+                    b.Property<int>("LanguageLevel")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("language_level");
+
                     b.Property<int>("ProfileId")
                         .HasColumnType("INTEGER")
                         .HasColumnName("profile_id");

@@ -3,9 +3,8 @@
   effects:
   - !type:CkeyRequirementLoadoutEffect
     ckey: aurora_puff
-  storage:
-    back:
-    - ClothingHeadHatBeretSecurityPilotAurora
+  equipment:
+    head: ClothingHeadHatBeretSecurityPilotAurora
 
 - type: loadout
   id: LuxuryPenSyndiCarp
@@ -21,9 +20,8 @@
   effects:
   - !type:CkeyRequirementLoadoutEffect
     ckey: aurora_puff
-  storage:
-    back:
-    - ClothingHeadHatCowboyBrownAurora
+  equipment:
+    head: ClothingHeadHatCowboyBrownAurora
 
 - type: loadout
   id: FlippoLighterComrade
@@ -48,18 +46,16 @@
   effects:
   - !type:CkeyRequirementLoadoutEffect
     ckey: Rellimo
-  storage:
-    back:
-    - ClothingHeadHatBeretQMRellimo
+  equipment:
+    head: ClothingHeadHatBeretQMRellimo
 
 - type: loadout
   id: UniformBrigmedicBambanater
   effects:
   - !type:CkeyRequirementLoadoutEffect
     ckey: bambanater123123
-  storage:
-    back:
-    - ClothingUniformJumpskirtBrigmedicBambanater
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBrigmedicBambanater
 
 - type: loadout
   id: ViolinInstrumentDanger
@@ -75,36 +71,32 @@
   effects:
   - !type:CkeyRequirementLoadoutEffect
     ckey: RikiTheParrot
-  storage:
-    back:
-    - ClothingUniformJumpsuitScientistRiki
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientistRiki
 
 - type: loadout
   id: HatTophatSrochnik
   effects:
   - !type:CkeyRequirementLoadoutEffect
     ckey: Srochnik
-  storage:
-    back:
-    - ClothingHeadHatTophatSrochnik
+  equipment:
+    head: ClothingHeadHatTophatSrochnik
 
 - type: loadout
   id: NeckPendantCL_w
   effects:
   - !type:CkeyRequirementLoadoutEffect
     ckey: CL_w
-  storage:
-    back:
-    - ClothingNeckPendantCL_w
+  equipment:
+    neck: ClothingNeckPendantCL_w
 
 - type: loadout
   id: CoatLabCmoVissent
   effects:
   - !type:CkeyRequirementLoadoutEffect
     ckey: Vissent
-  storage:
-    back:
-    - ClothingOuterCoatLabCmoVissent
+  equipment:
+    outerClothing: ClothingOuterCoatLabCmoVissent
 
 - type: loadout
   id: EyesGlassesReArt

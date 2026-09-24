@@ -889,16 +889,18 @@ namespace Content.Shared.Preferences
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences);
             list.Remove(traitId);
 
+            var levels = new Dictionary<ProtoId<TraitPrototype>, int>(_languageLevels);
+            levels.Remove(traitId);
             return new(this)
             {
                 _traitPreferences = list,
+                _languageLevels = levels,
             };
         }
         public HumanoidCharacterProfile WithTraitPreference(
             ProtoId<TraitPrototype> traitId,
             IPrototypeManager protoManager,
             int level)
-         //WL-Changes-End Language
         {
             if (!protoManager.TryIndex(traitId, out var traitProto))
                 return new(this);
@@ -909,35 +911,51 @@ namespace Content.Shared.Preferences
             if (category != null && !protoManager.Resolve(category, out traitCategory))
                 return new(this);
 
-            var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences) { traitId };
+            var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences)
+            {
+                traitId
+            };
+
+            var levels = new Dictionary<ProtoId<TraitPrototype>, int>(_languageLevels);
+
+            if (LanguageCostSystem.TryGetLanguagePrototype(traitProto, protoManager, out _))
+            {
+                if (level <= 0)
+                    levels.Remove(traitId);
+                else
+                    levels[traitId] = level;
+            }
 
             if (traitCategory == null || traitCategory.MaxTraitPoints < 0)
             {
                 return new(this)
                 {
-                    _traitPreferences = list // WL-Languages
+                    _traitPreferences = list,
+                    _languageLevels = levels
                 };
             }
 
-            var levels = new Dictionary<ProtoId<TraitPrototype>, int>(_languageLevels) // WL-Languages
-            {
-                [traitId] = level // WL-Languages
-            };
-
-            var validTraits = GetValidTraits(list, protoManager, levels); // WL-Languages
-            if (!validTraits.Contains(traitId)) // WL-Languages
+            var validTraits = GetValidTraits(list, protoManager, levels);
+            if (!validTraits.Contains(traitId))
                 return new(this);
 
             return new(this)
             {
-                _traitPreferences = list
+                _traitPreferences = list,
+                _languageLevels = levels
             };
         }
         public HumanoidCharacterProfile WithoutTraitPreference(ProtoId<TraitPrototype> traitId)
         {
             var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences);
             list.Remove(traitId);
-            return new(this) { _traitPreferences = list }; // WL-Languages
+            var levels = new Dictionary<ProtoId<TraitPrototype>, int>(_languageLevels);
+            levels.Remove(traitId);
+            return new(this)
+            {
+                _traitPreferences = list,
+                _languageLevels = levels
+            };
         }
 
         public string Summary =>
@@ -1161,8 +1179,30 @@ namespace Content.Shared.Preferences
                 .ToList();
 
             var traits = TraitPreferences
-                         .Where(prototypeManager.HasIndex)
-                         .ToList();
+                .Where(prototypeManager.HasIndex)
+                .ToList();
+
+            var languageLevels = new Dictionary<ProtoId<TraitPrototype>, int>();
+
+            foreach (var trait in traits)
+            {
+                if (!prototypeManager.TryIndex(trait, out var traitProto))
+                    continue;
+
+                if (!LanguageCostSystem.TryGetLanguagePrototype(traitProto, prototypeManager, out _))
+                    continue;
+
+                languageLevels[trait] = Math.Clamp(
+                    _languageLevels.GetValueOrDefault(trait, 1),
+                    1,
+                    4);
+            }
+
+            var validTraits = GetValidTraits(traits, prototypeManager, languageLevels);
+
+            languageLevels = languageLevels
+                .Where(x => validTraits.Contains(x.Key))
+                .ToDictionary(x => x.Key, x => x.Value);
 
             // WL-Skills-Start
             var validSkills = new Dictionary<string, Dictionary<byte, int>>();
@@ -1238,7 +1278,8 @@ namespace Content.Shared.Preferences
             _antagPreferences.UnionWith(antags);
 
             _traitPreferences.Clear();
-            _traitPreferences.UnionWith(GetValidTraits(traits, prototypeManager));
+            _traitPreferences.UnionWith(validTraits);
+            _languageLevels = languageLevels;
 
             // Corvax-TTS-Start
             prototypeManager.TryIndex<TTSVoicePrototype>(TTSVoice, out var TTS_voice);

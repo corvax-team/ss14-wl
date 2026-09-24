@@ -1,34 +1,16 @@
-#- type: entity
-#  parent: DrinkGlass
-#  id: DrinkBerryshake
-#  suffix: ягодный милкшейк
-#  components:
-#  - type: SolutionContainerManager
-#    solutions:
-#      drink:
-#        maxVol: 30
-#        reagents:
-#        - ReagentId: Berryshake
-#          Quantity: 30
-#  - type: Icon
-#    sprite: _WL/Objects/Consumable/Drinks/berryshake.rsi
-#    state: icon
-
-#- type: entity
-#  parent: DrinkGlass
-#  id: DrinkChocoshake
-#  suffix: шоколадный милкшейк
-#  components:
-#  - type: SolutionContainerManager
-#    solutions:
-#      drink:
-#        maxVol: 30
-#        reagents:
-#        - ReagentId: Chocoshake
-#          Quantity: 30
-#  - type: Icon
-#    sprite: _WL/Objects/Consumable/Drinks/chocoshake.rsi
-#    state: icon
+- type: entity
+  parent: DrinkGlass
+  id: DrinkBerryshake
+  suffix: ягодный милкшейк
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Berryshake
+        Quantity: 30
+  - type: Icon
+    sprite: _WL/Objects/Consumable/Drinks/berryshake.rsi
+    state: icon
 
 - type: entity
   parent: [DrinkVisualsAllFilled, DrinkBottlePlasticSmallBaseFull]
@@ -58,4 +40,18 @@
         Quantity: 60
   - type: Icon
     sprite: _WL/Objects/Consumable/Drinks/darkbeerglass.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkChocoshake
+  suffix: шоколадный милкшейк
+  components:
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Chocoshake
+        Quantity: 30
+  - type: Icon
+    sprite: _WL/Objects/Consumable/Drinks/chocoshake.rsi
     state: icon
