@@ -32,6 +32,7 @@
   - Survival
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - WLHoPGlasses # WL-Changes: Glasses add
   - GroupSpeciesBreathTool
 
 # Silicons
@@ -292,6 +293,7 @@
   - Trinkets
   #- QuartermasterJobTrinkets
   - WLNeck # WL-Changes: Neck add
+  - WLQMGlasses # WL-Changes: Glasses add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -349,6 +351,7 @@
   - Trinkets
   #- ChiefEngineerJobTrinkets
   - WLNeck # WL-Changes: Neck add
+  - WLCEGlasses # WL-Changes: Glasses add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -423,6 +426,7 @@
   - Trinkets
   #- ResearchDirectorJobTrinkets
   - WLNeck # WL-Changes: Neck add
+  - WLRDGlasses # WL-Changes: Glasses add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -481,6 +485,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - HOSBadges # WL-Changes
+  - WLHOSGlasses # WL-Changes: Glasses add
   - HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
 

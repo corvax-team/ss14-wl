@@ -55,3 +55,29 @@
   equipment:
     outerClothing: ClothingOuterWinterCMO
 
+# WL-Changes: chief medical officer loadout Start
+- type: loadout
+  id: ChiefMedicalOfficerGlassesCommand
+  equipment:
+    eyes: ClothingEyesGlassesCommand
+
+- type: loadout
+  id: ChiefMedicalOfficerHudCommand
+  equipment:
+    eyes: ClothingEyesHudCommand
+
+- type: loadout
+  id: ChiefMedicalOfficerSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: loadout
+  id: ChiefMedicalOfficerHudMedical
+  equipment:
+    eyes: ClothingEyesHudMedical
+
+- type: loadout
+  id: ChiefMedicalOfficerEyepatchHudMedical
+  equipment:
+    eyes: ClothingEyesEyepatchHudMedical
+# WL-Changes: chief medical officer eyes loadout End
