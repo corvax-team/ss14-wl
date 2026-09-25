@@ -45,7 +45,10 @@
         - id: ChemistryBottlePotassium
         - id: ChemistryBottlePhosphorus
         - id: ChemistryBottleNitrogen
-        - id: ChemistryBottleHydrogen
+        # WL-Changes start
+        # - id: ChemistryBottleHydrogen
+        - id: ChemistryBottleAmmonia
+        # WL-Chznges end
         - id: ChemistryBottleEthanol
         - id: RadiumChemistryVial
         - id: ChlorineChemistryVial
