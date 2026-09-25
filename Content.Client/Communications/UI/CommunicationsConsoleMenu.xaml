@@ -1,8 +1,9 @@
 <comms:CommunicationsConsoleMenu xmlns="https://spacestation14.io"
     xmlns:comms="clr-namespace:Content.Client.Communications.UI"
     xmlns:widgets="clr-namespace:Content.Client.Communications.UI.Widgets"
+    xmlns:wlwidgets="clr-namespace:Content.Client._WL.Communications.UI.Widgets"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-    MinSize="450 642" SetSize="450 642"
+    MinSize="650 892" SetSize="650 892"
     Title="{Loc 'comms-console-menu-title'}">
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="12">
         <PanelContainer StyleClasses="PanelDark" VerticalExpand="True">
@@ -22,6 +23,16 @@
 
                 <PanelContainer StyleClasses="BackgroundPanelDark">
                     <widgets:AlertLevelControls Name="AlertLevelControls" Margin="0 12 0 12" />
+                </PanelContainer>
+
+            </BoxContainer>
+
+            <!-- WL-Changes: Emergency -->
+            <BoxContainer Orientation="Vertical"
+                Margin="0 2">
+
+                <PanelContainer StyleClasses="BackgroundPanelDark">
+                    <wlwidgets:EmergencyLevelControls Name="EmergencyLevelControls" Margin="0 12 0 12" />
                 </PanelContainer>
 
             </BoxContainer>

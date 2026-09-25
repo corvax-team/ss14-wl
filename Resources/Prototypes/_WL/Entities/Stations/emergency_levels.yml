@@ -1,0 +1,14 @@
+- type: entity
+  id: BaseStationEmergencyLevels
+  abstract: true
+  components:
+  - type: EmergencyLevel
+    availableEmergencyLevels:
+    - NoEmergency
+    - Revolution
+    - CriticalDepressurization
+    - BiologicalHazard
+    - War
+    - Lose
+    - Revenant
+    - Dragon
