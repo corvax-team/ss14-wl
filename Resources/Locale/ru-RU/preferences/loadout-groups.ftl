@@ -60,6 +60,7 @@ loadout-group-librarian-jumpsuit = Библиотекарь, комбинезо�
 
 loadout-group-lawyer-jumpsuit = Адвокат, комбинезон
 loadout-group-lawyer-neck = Адвокат, шея
+loadout-group-lawyer-glasses = Адвокат, очки
 
 loadout-group-chaplain-head = Священник, голова
 loadout-group-chaplain-mask = Священник, маска

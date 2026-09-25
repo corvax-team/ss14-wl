@@ -154,6 +154,7 @@
   - Trinkets
   #- LawyerJobTrinkets
   - WLNeck # WL-Changes: Neck add
+  - WLLawyerGlasses # WL-Changes: Glasses add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -176,6 +177,7 @@
   - Trinkets
   #- ChaplainJobTrinkets
   - WLNeck # WL-Changes: Neck add
+  - WLLawyerGlasses # WL-Changes: Glasses add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout

@@ -894,6 +894,17 @@
   loadouts:
   - LawyerNeck
 
+  #WL-changes-start
+- type: loadoutGroup
+  id: WLLawyerGlasses
+  name: loadout-group-lawyer-glasses
+  minLimit: 0
+  loadouts:
+  - LawyerGlassesCommand
+  - LawyerHudCommand
+  - LawyerSunglasses
+#WL-changes-end
+
 #- type: loadoutGroup
 #  id: LawyerJobTrinkets
 #  name: loadout-group-jobtrinkets
