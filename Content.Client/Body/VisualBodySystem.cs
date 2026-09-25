@@ -242,7 +242,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
                         (target, target.Comp),
                         // Similar logic as above, but this makes the displacement layer go below the
                         // original sprite. So it should be all the displacements, then all the sprite layers on top
-                        spriteLayer, //Wl-Changes
+                        index + i + 1,
                         layerId,
                         out _
                     );
