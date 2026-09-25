@@ -42,7 +42,7 @@ namespace Content.Server.Voting.Managers
             {StandardVoteType.Map, CCVars.VoteMapEnabled},
             {StandardVoteType.Votekick, CCVars.VotekickEnabled},
             // WL-Changes-start
-            {StandardVoteType.EvacuationShuttle, WLCVars.VoteShuttleEnabled},
+            {StandardVoteType.EvacuationShuttle, WLCCVars.VoteShuttleEnabled},
             // WL-Changes-end
         };
 
@@ -108,7 +108,7 @@ namespace Content.Server.Voting.Managers
                 Title = Loc.GetString("ui-vote-shuttle-title"),
                 Duration = alone
                     ? TimeSpan.FromSeconds(_cfg.GetCVar(CCVars.VoteTimerAlone))
-                    : TimeSpan.FromSeconds(_cfg.GetCVar(WLCVars.VoteShuttleTimer))
+                    : TimeSpan.FromSeconds(_cfg.GetCVar(WLCCVars.VoteShuttleTimer))
             };
 
             if (alone)
@@ -124,7 +124,7 @@ namespace Content.Server.Voting.Managers
 
             var vote = CreateVote(options);
 
-            TimeoutStandardVote(StandardVoteType.EvacuationShuttle, TimeSpan.FromSeconds(_cfg.GetCVar(WLCVars.VoteShuttleTimeout)));
+            TimeoutStandardVote(StandardVoteType.EvacuationShuttle, TimeSpan.FromSeconds(_cfg.GetCVar(WLCCVars.VoteShuttleTimeout)));
 
             vote.OnFinished += (_, args) =>
             {
@@ -132,7 +132,7 @@ namespace Content.Server.Voting.Managers
                 var noVotes = vote.VotesPerOption[false];
 
                 var total = yesVotes + noVotes;
-                var ratio = _cfg.GetCVar(WLCVars.VoteShuttlePlayersRatio);
+                var ratio = _cfg.GetCVar(WLCCVars.VoteShuttlePlayersRatio);
 
                 var picked = total > 0 && (float)yesVotes / (float)total >= (float)ratio;
 

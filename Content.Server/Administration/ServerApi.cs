@@ -120,7 +120,7 @@ public sealed partial class ServerApi : IPostInjectInit
         _config.OnValueChanged(CCVars.AdminApiToken, UpdateCorvaxToken, true);
 
         //WL-Changes-start
-        _config.OnValueChanged(WLCVars.WLApiToken, UpdateWLToken, true);
+        _config.OnValueChanged(WLCCVars.WLApiToken, UpdateWLToken, true);
         //WL-Changes-end
     }
 
@@ -129,7 +129,7 @@ public sealed partial class ServerApi : IPostInjectInit
         _config.UnsubValueChanged(CCVars.AdminApiToken, UpdateCorvaxToken);
 
         //WL-Changes-start
-        _config.UnsubValueChanged(WLCVars.WLApiToken, UpdateWLToken);
+        _config.UnsubValueChanged(WLCCVars.WLApiToken, UpdateWLToken);
         //WL-Changes-end
     }
 

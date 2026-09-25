@@ -46,16 +46,16 @@ public sealed partial class SpeechBarksSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _cfg.OnValueChanged(WLCVars.BarksVolume, OnVolumeChanged, true);
-        _cfg.OnValueChanged(WLCVars.SpeechMode, OnSpeechModeChanged, true);
+        _cfg.OnValueChanged(WLCCVars.BarksVolume, OnVolumeChanged, true);
+        _cfg.OnValueChanged(WLCCVars.SpeechMode, OnSpeechModeChanged, true);
         SubscribeNetworkEvent<PlaySpeechBarksEvent>(OnBarks);
     }
 
     public override void Shutdown()
     {
         StopPreview();
-        _cfg.UnsubValueChanged(WLCVars.BarksVolume, OnVolumeChanged);
-        _cfg.UnsubValueChanged(WLCVars.SpeechMode, OnSpeechModeChanged);
+        _cfg.UnsubValueChanged(WLCCVars.BarksVolume, OnVolumeChanged);
+        _cfg.UnsubValueChanged(WLCCVars.SpeechMode, OnSpeechModeChanged);
         _active.Clear();
         base.Shutdown();
     }

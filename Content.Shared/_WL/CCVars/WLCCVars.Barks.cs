@@ -3,7 +3,7 @@ using Robust.Shared.Configuration;
 
 namespace Content.Shared._WL.CCVars;
 
-public sealed partial class WLCVars
+public sealed partial class WLCCVars
 {
     /// <summary>
     /// Selects how spoken chat messages are voiced on this client.

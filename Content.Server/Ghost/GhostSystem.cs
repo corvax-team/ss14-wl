@@ -90,7 +90,7 @@ namespace Content.Server.Ghost
 
         //WL-ReturnToLobby-start
         public TimeSpan GhostReturnToLobbyButtonCooldown { get; private set; }
-            = TimeSpan.FromSeconds(WLCVars.GhostReturnToLobbyButtonCooldown.DefaultValue);
+            = TimeSpan.FromSeconds(WLCCVars.GhostReturnToLobbyButtonCooldown.DefaultValue);
 
         private readonly Dictionary<NetUserId, TimeSpan> _cachedSessionsDeathTime = new();
         //WL-ReturnToLobby-end

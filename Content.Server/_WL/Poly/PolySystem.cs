@@ -39,11 +39,11 @@ public sealed partial class PolySystem : EntitySystem
     {
         base.Initialize();
 
-        _readyToPick = _configMan.GetCVar(WLCVars.PolyNeededRoundEndCleanup);
-        _chooseInterval = TimeSpan.FromSeconds(_configMan.GetCVar(WLCVars.PolyMessageChooseCooldown));
+        _readyToPick = _configMan.GetCVar(WLCCVars.PolyNeededRoundEndCleanup);
+        _chooseInterval = TimeSpan.FromSeconds(_configMan.GetCVar(WLCCVars.PolyMessageChooseCooldown));
 
-        Subs.CVar(_configMan, WLCVars.PolyMessageChooseCooldown, (new_value) => _chooseInterval = TimeSpan.FromSeconds(new_value), true);
-        Subs.CVar(_configMan, WLCVars.PolyNeededRoundEndCleanup, (needed) => _neededCleanup = needed);
+        Subs.CVar(_configMan, WLCCVars.PolyMessageChooseCooldown, (new_value) => _chooseInterval = TimeSpan.FromSeconds(new_value), true);
+        Subs.CVar(_configMan, WLCCVars.PolyNeededRoundEndCleanup, (needed) => _neededCleanup = needed);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>((_) =>
         {
