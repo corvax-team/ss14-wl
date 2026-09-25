@@ -250,6 +250,21 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganMothExternal ]
   id: OrganMothTorso
+  components:
+  - type: VisualOrganMarkings
+  #WL-changes-start
+    markingsDisplacement:
+      UndergarmentTop:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Moth/displacement.rsi
+            state: jumpsuit-female
+      UndergarmentBottom:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Moth/displacement.rsi
+            state: jumpsuit-male
+  #WL-changes-end
 
 - type: entity
   parent: [ OrganBaseHead, OrganMothExternal ]

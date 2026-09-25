@@ -239,6 +239,14 @@
   - type: VisualOrganMarkings
     hideableLayers:
     - enum.HumanoidVisualLayers.Tail
+    #WL-changes-start
+    markingsDisplacement:
+      UndergarmentBottom:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+     #WL-changes-end
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganReptilianExternal ]

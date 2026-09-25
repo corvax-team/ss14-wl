@@ -297,6 +297,16 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganVulpkaninExternal ]
   id: OrganVulpkaninTorso
+  #WL-changes-start
+  components:
+  - type: VisualOrganMarkings
+    markingsDisplacement:
+      UndergarmentBottom:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      #WL-changes-end
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganVulpkaninExternal ]

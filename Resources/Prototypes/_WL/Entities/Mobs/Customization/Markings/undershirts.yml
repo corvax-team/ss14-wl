@@ -9,7 +9,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: band
 
 - type: marking
@@ -23,7 +23,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: bluepolo
 
 - type: marking
@@ -37,7 +37,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: blueshirtsport
 
 - type: marking
@@ -51,7 +51,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: grayyellowpolo
 
 - type: marking
@@ -65,7 +65,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: greenshirtsport
 
 - type: marking
@@ -79,7 +79,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: ian
 
 - type: marking
@@ -93,7 +93,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: ilovent
 
 - type: marking
@@ -107,7 +107,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: lover
 
 - type: marking
@@ -121,7 +121,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: matroska
 
 - type: marking
@@ -135,7 +135,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: peace
 
 - type: marking
@@ -149,7 +149,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: pogoman
 
 - type: marking
@@ -163,7 +163,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: redpolo
 
 - type: marking
@@ -177,7 +177,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: redshirtsport
 
 - type: marking
@@ -191,7 +191,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: redtop
 
 - type: marking
@@ -205,7 +205,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_alien
 
 - type: marking
@@ -219,7 +219,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_assblastusa
 
 - type: marking
@@ -233,7 +233,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_bluejersey
 
 - type: marking
@@ -247,7 +247,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_clown
 
 - type: marking
@@ -261,7 +261,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_commie
 
 - type: marking
@@ -275,7 +275,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_meat
 
 - type: marking
@@ -289,7 +289,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_nano
 
 - type: marking
@@ -303,7 +303,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_question
 
 - type: marking
@@ -317,7 +317,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_redjersey
 
 - type: marking
@@ -331,7 +331,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_skull
 
 - type: marking
@@ -345,7 +345,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_ss14
 
 - type: marking
@@ -359,7 +359,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_stripes
 
 - type: marking
@@ -373,7 +373,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_tiedye
 
 - type: marking
@@ -386,7 +386,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: shirt_white
 
 - type: marking
@@ -400,7 +400,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: sports_bra
 
 - type: marking
@@ -414,7 +414,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: sports_bra_alt
 
 - type: marking
@@ -428,7 +428,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: tank_fire
 
 - type: marking
@@ -442,7 +442,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: tank_midriff
 
 - type: marking
@@ -456,7 +456,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: tank_stripes
 
 - type: marking
@@ -470,7 +470,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: uk
 
 - type: marking
@@ -483,7 +483,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: whitepolo
 
 - type: marking
@@ -496,7 +496,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: whiteshortsleeve
 
 - type: marking
@@ -510,5 +510,5 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/undershirts.rsi
+    - sprite: _WL/Mobs/Customization/undershirts.rsi
       state: whitetop
