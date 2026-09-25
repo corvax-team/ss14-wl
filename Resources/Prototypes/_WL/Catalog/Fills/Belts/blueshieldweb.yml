@@ -2,7 +2,7 @@
   id: BeltBlueShieldEntityTable
   table: !type:AllSelector
     children:
-    - id: Truncheon
+    # - id: Truncheon TODO:FIX break tests
     - id: Handcuffs
     - id: HoloprojectorField
     - id: MagazinePistol

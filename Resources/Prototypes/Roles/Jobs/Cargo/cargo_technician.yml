@@ -12,6 +12,7 @@
   - Male: старший логист
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
+  guides: [ Cargo ] # TODO: should have a more specific guidebook page instead of using the department itself
   access:
   - Cargo
   - Maintenance

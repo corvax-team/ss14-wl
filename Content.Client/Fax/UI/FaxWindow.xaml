@@ -1,5 +1,6 @@
 <DefaultWindow
     xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     Title="{Loc 'fax-machine-ui-window'}"
     MinSize="617 300">
     <!-- WL-Changes: MinSize="380 220">  -->
@@ -78,7 +79,7 @@
                 </BoxContainer>
                 <!-- WL-Changes-end -->
                 
-                <PanelContainer StyleClasses="LowDivider" Margin="0 4 0 4"/>
+                <controls:Separator StyleClasses="LowDivider" Margin="0 4 0 4"/>
 
                 <!-- Send & Copy -->
                 <BoxContainer Orientation="Vertical">

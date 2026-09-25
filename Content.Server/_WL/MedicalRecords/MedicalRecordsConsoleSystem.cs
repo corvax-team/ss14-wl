@@ -18,7 +18,7 @@ namespace Content.Server._WL.MedicalRecords.Systems;
 public sealed partial class MedicalRecordsConsoleSystem : EntitySystem
 {
     [Dependency] private StationRecordsSystem _records = default!;
-    [Dependency] private StationSystem _station = default!;
+    [Dependency] private ServerStationSystem _station = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
     [Dependency] private SharedAudioSystem _audioSystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;

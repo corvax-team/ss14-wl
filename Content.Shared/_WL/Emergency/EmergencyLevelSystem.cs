@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._WL.CCVars;
 using Content.Shared.Chat;
-using Content.Shared.Station;
+using Content.Shared.Station.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
@@ -18,7 +18,7 @@ public sealed partial class EmergencyLevelSystem : EntitySystem
     [Dependency] private IPrototypeManager _prototype = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private SharedChatSystem _chat = default!;
-    [Dependency] private SharedStationSystem _station = default!;
+    [Dependency] private StationSystem _station = default!;
     private static string _fallbackEmergencyKey = "emergency-level-unknown";
     private static string _fallbackEmergencyName = $"{_fallbackEmergencyKey}";
     private static string _fallbackEmergencyAnnouncement = $"{_fallbackEmergencyKey}-announcement";

@@ -1,5 +1,7 @@
 using Content.Client.Administration.UI.CustomControls;
 using Content.Client.Guidebook.Richtext;
+using Content.Client.Stylesheets;
+using Content.Client.UserInterface.Controls;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
@@ -40,9 +42,10 @@ public abstract class BaseInfoControl : PanelContainer, IDocumentTag
             Margin = new Thickness(10, 10, 10, 15),
         };
 
-        var leftSeparator = new VSeparator(controlColor)
+        var leftSeparator = new Separator
         {
-            MinSize = new Vector2(4, 5)
+            MinSize = new Vector2(4, 5),
+            StyleClasses = { StyleClass.LowDivider }
         };
 
         var rightContentBox = new BoxContainer()

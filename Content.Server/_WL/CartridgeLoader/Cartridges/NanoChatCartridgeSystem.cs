@@ -3,11 +3,11 @@ using Content.Server.Administration.Logs;
 using Content.Server.Radio;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
-using Content.Server.GameTicking;
 using Content.Server._WL.NanoChat;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Database;
+using Content.Shared.GameTicking;
 using Content.Shared.Station.Components;
 using Content.Shared._WL.CartridgeLoader.Cartridges;
 using Content.Shared._WL.NanoChat;
@@ -31,7 +31,7 @@ public sealed partial class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private SharedNanoChatSystem _nanoChat = default!;
     [Dependency] private NanoChatSystem _nanoChatServer = default!;
     [Dependency] private RadioSystem _radio = default!;
-    [Dependency] private StationSystem _station = default!;
+    [Dependency] private ServerStationSystem _station = default!;
     [Dependency] private SharedUserInterfaceSystem _ui = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
 

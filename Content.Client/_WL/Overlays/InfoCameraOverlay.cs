@@ -1,6 +1,6 @@
 using Content.Client._WL.Photo;
-using Content.Client.GameTicking.Managers;
 using Content.Shared._WL.Photo.Filters;
+using Content.Shared.GameTicking;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
@@ -15,7 +15,7 @@ public sealed partial class InfoCameraOverlay : Overlay
     [Dependency] private IResourceCache _cache = default!;
     [Dependency] private IGameTiming _timing = default!;
     private readonly PhotoSystem _photo;
-    private readonly ClientGameTicker _gameTicker;
+    private readonly GameTicker _gameTicker;
 
     private readonly VectorFont _baseFont;
 
@@ -28,7 +28,7 @@ public sealed partial class InfoCameraOverlay : Overlay
         ZIndex = 9;
 
         _photo = _entManager.System<PhotoSystem>();
-        _gameTicker = _entManager.System<ClientGameTicker>();
+        _gameTicker = _entManager.System<GameTicker>();
 
         _baseFont = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSansDisplay/NotoSansDisplay-Regular.ttf"), 20);
     }

@@ -5,7 +5,7 @@ using Content.Shared._WL.Photo;
 using Content.Shared._WL.Photo.Filters;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Materials;
-using Content.Shared.Timing;
+using Content.Shared.Timing.Systems;
 using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;

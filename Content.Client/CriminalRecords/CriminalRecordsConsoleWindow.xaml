@@ -137,7 +137,7 @@
         </BoxContainer>
         <!-- Footer -->
         <BoxContainer Orientation="Vertical">
-            <PanelContainer StyleClasses="LowDivider" />
+            <controls:Separator StyleClasses="LowDivider"/>
             <BoxContainer Orientation="Horizontal"
                           Margin="10 2 5 0"
                           VerticalAlignment="Bottom">
