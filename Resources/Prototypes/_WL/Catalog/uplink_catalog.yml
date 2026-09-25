@@ -109,6 +109,18 @@
   categories:
   - UplinkDeception
 
+- type: listing
+  id: UplinkThievingGloves
+  name: uplink-thieving-gloves-name
+  description: uplink-thieving-gloves-desc
+  productEntity: ThievingGloves
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkWearables
+
 # Wallet
 
 - type: listing
