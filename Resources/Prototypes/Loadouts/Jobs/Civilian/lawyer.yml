@@ -64,3 +64,20 @@
   id: LawyerNeck
   equipment:
     neck: ClothingNeckLawyerbadge
+
+# WL-Changes: lawyer loadout Start
+- type: loadout
+  id: LawyerGlassesCommand
+  equipment:
+    eyes: ClothingEyesGlassesCommand
+
+- type: loadout
+  id: LawyerHudCommand
+  equipment:
+    eyes: ClothingEyesHudCommand
+
+- type: loadout
+  id: LawyerSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+# WL-Changes: lawyer eyes loadout End

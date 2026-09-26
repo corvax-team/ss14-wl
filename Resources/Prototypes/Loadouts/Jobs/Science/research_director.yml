@@ -54,3 +54,20 @@
   id: ResearchDirectorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterRD
+
+# WL-Changes: research director officer loadout Start
+- type: loadout
+  id: ResearchDirectorGlassesCommand
+  equipment:
+    eyes: ClothingEyesGlassesCommand
+
+- type: loadout
+  id: ResearchDirectorHudCommand
+  equipment:
+    eyes: ClothingEyesHudCommand
+
+- type: loadout
+  id: ResearchDirectorSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+# WL-Changes: research director eyes loadout End
