@@ -16,7 +16,7 @@ public abstract partial class SharedSkillsSystem
     /// <returns>True if the skill is sufficient</returns>
     public bool HasSkill(EntityUid uid, SkillType skill, int requiredLevel = 1, SkillsComponent? comp = null)
     {
-        if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
+        if (!_cfg.GetCVar(WLCCVars.SkillsEnabled))
             return true;
 
         if (!Resolve(uid, ref comp))
@@ -31,7 +31,7 @@ public abstract partial class SharedSkillsSystem
     /// </summary>
     public bool HasExactSkill(EntityUid uid, SkillType skill, int exactLevel, SkillsComponent? comp = null)
     {
-        if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
+        if (!_cfg.GetCVar(WLCCVars.SkillsEnabled))
             return true;
 
         if (!Resolve(uid, ref comp))
@@ -46,7 +46,7 @@ public abstract partial class SharedSkillsSystem
     /// </summary>
     public int GetSkillLevel(EntityUid uid, SkillType skill, SkillsComponent? comp = null)
     {
-        if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
+        if (!_cfg.GetCVar(WLCCVars.SkillsEnabled))
             return 1;
 
         if (!Resolve(uid, ref comp))
@@ -60,7 +60,7 @@ public abstract partial class SharedSkillsSystem
     /// </summary>
     public bool CheckSkillChance(EntityUid uid, SkillType skill, float baseSuccessChance = 0.5f, SkillsComponent? comp = null)
     {
-        if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
+        if (!_cfg.GetCVar(WLCCVars.SkillsEnabled))
             return true;
 
         if (!Resolve(uid, ref comp))
@@ -87,7 +87,7 @@ public abstract partial class SharedSkillsSystem
     /// </summary>
     public float GetSkillEfficiency(EntityUid uid, SkillType skill, SkillsComponent? comp = null)
     {
-        if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
+        if (!_cfg.GetCVar(WLCCVars.SkillsEnabled))
             return 1.0f;
 
         if (!Resolve(uid, ref comp))
@@ -110,7 +110,7 @@ public abstract partial class SharedSkillsSystem
     /// </summary>
     public bool CanPerformComplexAction(EntityUid uid, SkillsComponent? comp = null, params (SkillType skill, int requiredLevel)[] requirements)
     {
-        if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
+        if (!_cfg.GetCVar(WLCCVars.SkillsEnabled))
             return true;
 
         if (!Resolve(uid, ref comp))

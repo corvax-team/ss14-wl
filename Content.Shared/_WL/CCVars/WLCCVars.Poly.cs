@@ -5,7 +5,7 @@ namespace Content.Shared._WL.CCVars;
 /// <summary>
 ///     WL modules console variables
 /// </summary>
-public sealed partial class WLCVars
+public sealed partial class WLCCVars
 {
     /// <summary>
     /// Интервал, через который Поли™ будет готова выбрать новое сообщение!

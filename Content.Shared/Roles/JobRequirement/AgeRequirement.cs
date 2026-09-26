@@ -44,7 +44,7 @@ public sealed partial class AgeRequirement : JobRequirement
         if (job is null)
             return true;
 
-        if (cfgMan.GetCVar(WLCVars.IsAgeCheckNeeded) == false)
+        if (cfgMan.GetCVar(WLCCVars.IsAgeCheckNeeded) == false)
             return true;
 
         var isNeeded = true;

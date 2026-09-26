@@ -1,61 +1,48 @@
-- type: emergencyList
-  id: stationEmergency
-  defaultEmergency: NoEmergency
-  emergencys:
-    - NoEmergency
-    - Revolution
-    - CriticalDepressurization
-    - BiologicalHazard
-    - War
-    - Lose
-    - Revenant
-    - Dragon
-    - Unknown
-
-- type: emergency
+- type: emergencyLevel
   id: NoEmergency
-  name: emergency-no-emergency
-  uniqueStartAnnouncement: emergency-no-emergency-universal-announcement
-  announcement: emergency-no-emergency-announcement
-  soundAnnouncment: false
+  name: emergency-level-no-emergency
+  uniqueStartAnnouncement: emergency-level-no-emergency-universal-announcement
+  announcement: emergency-level-no-emergency-announcement
   color: Green
 
-- type: emergency
+- type: emergencyLevel
   id: Revolution
-  name: emergency-revolution
-  announcement: emergency-revolution-announcement
+  name: emergency-level-revolution
+  announcement: emergency-level-revolution-announcement
+  sound: /Audio/Misc/delta.ogg
 
-- type: emergency
+- type: emergencyLevel
   id: CriticalDepressurization
-  name: emergency-critical-depressurization
-  announcement: emergency-critical-depressurization-announcement
+  name: emergency-level-critical-depressurization
+  announcement: emergency-level-critical-depressurization-announcement
+  sound: /Audio/Misc/delta.ogg
 
-- type: emergency
+- type: emergencyLevel
   id: BiologicalHazard
-  name: emergency-biological-hazard
-  announcement: emergency-biological-hazard-announcement
+  name: emergency-level-biological-hazard
+  announcement: emergency-level-biological-hazard-announcement
+  sound: /Audio/Misc/delta.ogg
 
-- type: emergency
+- type: emergencyLevel
   id: War
-  name: emergency-war
-  announcement: emergency-war-announcement
+  name: emergency-level-war
+  announcement: emergency-level-war-announcement
+  sound: /Audio/Misc/delta.ogg
 
-- type: emergency
+- type: emergencyLevel
   id: Lose
-  name: emergency-lose
-  announcement: emergency-lose-announcement
+  name: emergency-level-lose
+  announcement: emergency-level-lose-announcement
+  sound: /Audio/Misc/delta.ogg
 
-- type: emergency
+- type: emergencyLevel
   id: Revenant
-  name: emergency-revenant
-  announcement: emergency-revenant-announcement
+  name: emergency-level-revenant
+  announcement: emergency-level-revenant-announcement
+  sound: /Audio/Misc/delta.ogg
 
-- type: emergency
+- type: emergencyLevel
   id: Dragon
-  name: emergency-dragon
-  announcement: emergency-dragon-announcement
-
-- type: emergency
-  id: Unknown
-  name: emergency-unknown
-  announcement: emergency-unknown-announcement
+  name: emergency-level-dragon
+  announcement: emergency-level-dragon-announcement
+  sound: /Audio/Misc/delta.ogg

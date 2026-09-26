@@ -18,14 +18,14 @@ public sealed partial class SpeechSoundSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        _cfg.OnValueChanged(WLCVars.SpeechMode, (val) => _mode = val, true);
+        _cfg.OnValueChanged(WLCCVars.SpeechMode, (val) => _mode = val, true);
         SubscribeNetworkEvent<PlaySpeechSoundEvent>(OnPlaySpeechSound);
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        _cfg.UnsubValueChanged(WLCVars.SpeechMode, (val) => _mode = val);
+        _cfg.UnsubValueChanged(WLCCVars.SpeechMode, (val) => _mode = val);
     }
 
     private void OnPlaySpeechSound(PlaySpeechSoundEvent ev)

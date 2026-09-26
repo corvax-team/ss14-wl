@@ -5,7 +5,7 @@ namespace Content.Shared._WL.CCVars;
 /// <summary>
 ///     WL modules console variables
 /// </summary>
-public sealed partial class WLCVars
+public sealed partial class WLCCVars
 {
     /// <summary>
     /// Через сколько времени(в секундах) появится кнопка возвращения в лобби.
@@ -28,6 +28,6 @@ public sealed partial class WLCVars
     /// <summary>
     /// Время через которое кнопка для установки ЧП будет активна
     /// </summary>
-    public static readonly CVarDef<int> GameEmergencylChangeDelay =
-    CVarDef.Create("game.emergency_change_delay", 30, CVar.SERVERONLY);
+    public static readonly CVarDef<int> GameEmergencyLevelChangeDelay =
+    CVarDef.Create("game.emergency_level_change_delay", 30, CVar.SERVERONLY);
 }

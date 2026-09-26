@@ -1,3 +1,4 @@
+using Content.Shared._WL.Emergency;
 using Content.Shared.AlertLevel;
 using Content.Shared.Communications;
 using Content.Client.UserInterface.Controls;
@@ -17,6 +18,7 @@ public sealed partial class CommunicationsConsoleMenu : FancyWindow
     public event Action? OnShuttleCalled;
     public event Action? OnShuttleRecalled;
     public event Action<ProtoId<AlertLevelPrototype>>? OnAlertLevelChanged;
+    public event Action<ProtoId<EmergencyLevelPrototype>>? OnEmergencyLevelChanged; // WL-Changes: Emergency
     public event Action<string>? OnRadioAnnounce;
     public event Action<string>? OnScreenBroadcast;
 
@@ -29,6 +31,7 @@ public sealed partial class CommunicationsConsoleMenu : FancyWindow
         MessagingControls.OnScreenBroadcast += message => OnScreenBroadcast?.Invoke(message);
 
         AlertLevelControls.OnAlertLevelChanged += newLevel => OnAlertLevelChanged?.Invoke(newLevel);
+        EmergencyLevelControls.OnEmergencyLevelChanged += newLevel => OnEmergencyLevelChanged?.Invoke(newLevel); // WL-Changes: Emergency
 
         ShuttleControls.OnShuttleCalled += () => OnShuttleCalled?.Invoke();
         ShuttleControls.OnShuttleRecalled += () => OnShuttleRecalled?.Invoke();
@@ -49,13 +52,23 @@ public sealed partial class CommunicationsConsoleMenu : FancyWindow
     public void UpdateState(CommunicationsConsoleInterfaceState commsState,
         ProtoId<AlertLevelPrototype> currentAlertLevel,
         List<ProtoId<AlertLevelPrototype>>? selectableAlertLevels,
-        bool canChangeAlertLevel)
+        bool canChangeAlertLevel,
+        // WL-Changes-start: Emergency
+        ProtoId<EmergencyLevelPrototype> currentEmergencyLevel,
+        List<ProtoId<EmergencyLevelPrototype>>? selectableEmergencyLevels,
+        bool canChangeEmergencyLevel)
+        // WL-Changes-end
     {
         MessagingControls.CanRadioAnnounce = commsState.CanAnnounce;
         MessagingControls.CanScreenBroadcast = commsState.CanBroadcast;
 
         var alertLevelSelectable = selectableAlertLevels != null && canChangeAlertLevel;
         AlertLevelControls.UpdateAlertLevels(selectableAlertLevels, currentAlertLevel, alertLevelSelectable);
+
+        // WL-Changes-start: Emergency
+        var emergencyLevelSelectable = selectableEmergencyLevels != null && canChangeEmergencyLevel;
+        EmergencyLevelControls.UpdateEmergencyLevels(selectableEmergencyLevels, currentEmergencyLevel, emergencyLevelSelectable);
+        // WL-Changes-end
 
         ShuttleControls.UpdateState(commsState.CanCall, commsState.CountdownStarted, commsState.ExpectedCountdownEnd);
     }

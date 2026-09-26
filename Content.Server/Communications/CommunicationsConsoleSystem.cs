@@ -1,7 +1,4 @@
-// WL-Changes-start
-using Content.Server._WL.Emergency.Components;
-using Content.Server._WL.Emergency;
-// WL-Changes-end
+using Content.Shared._WL.Emergency;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.DeviceNetwork.Systems;
@@ -41,11 +38,7 @@ namespace Content.Server.Communications
         [Dependency] private IConfigurationManager _cfg = default!;
         [Dependency] private IAdminLogManager _adminLogger = default!;
         [Dependency] private IdentitySystem _identity = default!;
-        
-        // WL-Changes: Start
-        [Dependency] private IPrototypeManager _prototypeManager = default!;
         [Dependency] private EmergencyLevelSystem _emergencySystem = default!;
-        // WL-Changes: End
 
         private const float UIUpdateInterval = 5.0f;
 
@@ -53,10 +46,10 @@ namespace Content.Server.Communications
         {
             // All events that refresh the BUI
             SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
-            SubscribeLocalEvent<EmergencyChangedEvent>(OnEmergencyChanged); // WL-Changes
+            SubscribeLocalEvent<EmergencyLevelChangedEvent>(OnEmergencyLevelChanged); // WL-Changes
             SubscribeLocalEvent<RoundEndSystemChangedEvent>(_ => OnGenericBroadcastEvent());
             SubscribeLocalEvent<AlertLevelDelayFinishedEvent>((ref AlertLevelDelayFinishedEvent ev) => OnGenericBroadcastEvent());
-            SubscribeLocalEvent<EmergencyDelayFinished>(_ => OnGenericBroadcastEvent()); // WL-Changes
+            SubscribeLocalEvent<EmergencyLevelDelayFinishedEvent>((ref EmergencyLevelDelayFinishedEvent ev) => OnGenericBroadcastEvent()); // WL-Changes
 
             // Messages from the BUI
             SubscribeLocalEvent<CommunicationsConsoleComponent, CommunicationsConsoleSelectAlertLevelMessage>(OnSelectAlertLevelMessage);
@@ -129,7 +122,7 @@ namespace Content.Server.Communications
         }
 
         // WL-Changes-Start
-        private void OnEmergencyChanged(EmergencyChangedEvent args)
+        private void OnEmergencyLevelChanged(ref EmergencyLevelChangedEvent args)
         {
             var query = EntityQueryEnumerator<CommunicationsConsoleComponent>();
             while (query.MoveNext(out var uid, out var comp))
@@ -239,7 +232,7 @@ namespace Content.Server.Communications
             var stationUid = _stationSystem.GetOwningStation(uid);
             if (stationUid != null)
             {
-                _emergencySystem.SetEmergency(stationUid.Value, message.Emergency, true);
+                _emergencySystem.SetLevel(stationUid.Value, message.Level);
             }
         }
 

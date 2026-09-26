@@ -11,6 +11,7 @@
     - BaseStationCentcomm
     - BaseStationEvacuation
     - BaseStationAlertLevels
+    - BaseStationEmergencyLevels # WL-Changes: Emergency
     - BaseStationMagnet
     - BaseStationExpeditions
     - BaseStationSiliconLawCrewsimov

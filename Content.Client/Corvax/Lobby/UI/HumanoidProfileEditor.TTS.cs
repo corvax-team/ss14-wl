@@ -48,18 +48,18 @@ public sealed partial class HumanoidProfileEditor
         _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-barks"), (int)SpeechMode.Barks);
         _speechModeButton.AddItem(Loc.GetString("ui-options-speech-mode-disabled"), (int)SpeechMode.Disabled);
 
-        var speechMode = _cfgManager.GetCVar(WLCVars.SpeechMode);
+        var speechMode = _cfgManager.GetCVar(WLCCVars.SpeechMode);
         if (!ttsEnabled && speechMode == SpeechMode.Tts)
         {
             speechMode = SpeechMode.Barks;
-            _cfgManager.SetCVar(WLCVars.SpeechMode, speechMode);
+            _cfgManager.SetCVar(WLCCVars.SpeechMode, speechMode);
         }
 
         _speechModeButton.SelectId((int)speechMode);
         _speechModeButton.OnItemSelected += args =>
         {
             _speechModeButton.SelectId(args.Id);
-            _cfgManager.SetCVar(WLCVars.SpeechMode, (SpeechMode)args.Id);
+            _cfgManager.SetCVar(WLCCVars.SpeechMode, (SpeechMode)args.Id);
         };
 
         var modeText = new BoxContainer
