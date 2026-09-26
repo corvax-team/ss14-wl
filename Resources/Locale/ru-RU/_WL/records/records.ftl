@@ -195,7 +195,7 @@ records-height = РОСТ: {$height}
 records-confederation-of-orion-states = Конфедерация Орионских Государств
 records-confederation-social = Социалистическая Конфедерация
 records-confederation-interspecies-alliance = Межвидовой Альянс
-records-confederation-holy-empire-of-edem = Священная Империя Эдема
+records-confederation-holy-empire-of-edem = Священная Империя Эдем
 records-confederation-metafront = Метафронт
 records-confederation-no = Другое
 
