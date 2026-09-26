@@ -5,9 +5,9 @@
   description: A stylish striped red scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/red.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/red.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/red.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/red.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -16,9 +16,9 @@
   description: A stylish striped blue scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/blue.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/blue.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/blue.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/blue.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -27,9 +27,9 @@
   description: A stylish striped green scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/green.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/green.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/green.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/green.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -38,9 +38,9 @@
   description: A stylish striped black scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Scarfs/black.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/black.rsi #WL-changes: purple scarf resprite
     - type: Clothing
-      sprite: Clothing/Neck/Scarfs/black.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/black.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -49,9 +49,9 @@
   description: A stylish striped brown scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Scarfs/brown.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/brown.rsi #WL-changes: purple scarf resprite
     - type: Clothing
-      sprite: Clothing/Neck/Scarfs/brown.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/brown.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -60,9 +60,9 @@
   description: A stylish striped light blue scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Scarfs/lightblue.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/lightblue.rsi #WL-changes: purple scarf resprite
     - type: Clothing
-      sprite: Clothing/Neck/Scarfs/lightblue.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/lightblue.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -71,9 +71,9 @@
   description: A stylish striped orange scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Scarfs/orange.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/orange.rsi #WL-changes: purple scarf resprite
     - type: Clothing
-      sprite: Clothing/Neck/Scarfs/orange.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/orange.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -82,9 +82,9 @@
   description: A stylish striped purple scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Scarfs/purple.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/purple.rsi #WL-changes: purple scarf resprite
     - type: Clothing
-      sprite: Clothing/Neck/Scarfs/purple.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/purple.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: [ ClothingScarfBase ] # Corvax-Contraband BaseSyndicateContraband
@@ -93,9 +93,9 @@
   description: A stylish striped syndicate green scarf. The perfect winter accessory for those with a keen fashion sense, and those who are in the mood to steal something.
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Scarfs/syndiegreen.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/syndiegreen.rsi #WL-changes: purple scarf resprite
     - type: Clothing
-      sprite: Clothing/Neck/Scarfs/syndiegreen.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/syndiegreen.rsi #WL-changes: purple scarf resprite
     - type: StaticPrice
       price: 500
 
@@ -106,9 +106,9 @@
   description: A stylish striped syndicate red scarf. The perfect winter accessory for those with a keen fashion sense, and those who are in the mood to steal something.
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Scarfs/syndiered.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/syndiered.rsi #WL-changes: purple scarf resprite
     - type: Clothing
-      sprite: Clothing/Neck/Scarfs/syndiered.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/syndiered.rsi #WL-changes: purple scarf resprite
     - type: StaticPrice
       price: 500
 
@@ -119,9 +119,9 @@
   description: A stylish striped centcomm colored scarf. The perfect winter accessory for those with a keen fashion sense, and those who need to do paperwork in the cold.
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Scarfs/centcom.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/centcom.rsi #WL-changes: purple scarf resprite
     - type: Clothing
-      sprite: Clothing/Neck/Scarfs/centcom.rsi
+      sprite: _WL/Clothing/Neck/Scarfs/centcom.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -130,9 +130,9 @@
   description: A striped scarf, a mandatory accessory for artists.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/zebra.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/zebra.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/zebra.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/zebra.rsi #WL-changes: purple scarf resprite
 
 # Pride Scarves
 - type: entity
@@ -142,9 +142,9 @@
   description: A stylish striped asexual scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/ace.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/ace.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/ace.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/ace.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -153,9 +153,9 @@
   description: A stylish striped aromantic scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/aro.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/aro.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/aro.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/aro.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -164,9 +164,9 @@
   description: A stylish striped aroace scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/aroace.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/aroace.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/aroace.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/aroace.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -175,9 +175,9 @@
   description: A stylish striped bisexual scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/bi.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/bi.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/bi.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/bi.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -186,9 +186,9 @@
   description: A stylish striped gay scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/gay.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/gay.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/gay.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/gay.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -197,9 +197,9 @@
   description: A stylish striped intersex scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/inter.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/inter.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/inter.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/inter.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -208,9 +208,9 @@
   description: A stylish striped lesbian scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/lesbian.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/lesbian.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -219,9 +219,9 @@
   description: A stylish striped pan scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/pan.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/pan.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/pan.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/pan.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -230,9 +230,9 @@
   description: A stylish striped non-binary scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/non.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/non.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/non.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/non.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -241,9 +241,9 @@
   description: A stylish rainbow scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/rainbow.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/rainbow.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/rainbow.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/rainbow.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -252,9 +252,9 @@
   description: A stylish striped trans scarf. The perfect winter accessory for those with a keen fashion sense, and those who just can't handle a cold breeze on their necks.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/trans.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/trans.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/trans.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/trans.rsi #WL-changes: purple scarf resprite
 
 - type: entity
   parent: ClothingScarfBase
@@ -263,6 +263,6 @@
   description: Long bacon! Perfect for sharing with your girlfriend!
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi #WL-changes: purple scarf resprite
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi
+    sprite: _WL/Clothing/Neck/Scarfs/PrideScarfs/lesbian-long.rsi #WL-changes: purple scarf resprite
