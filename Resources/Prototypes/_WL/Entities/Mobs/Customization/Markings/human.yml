@@ -145,7 +145,7 @@
 - type: marking
   id: HumanHornPallas
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Cischi]
+  groupWhitelist: [Human, Android, Cischi, Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: pallas-normal
@@ -153,7 +153,7 @@
 - type: marking
   id: HumanHornPallasR
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Cischi]
+  groupWhitelist: [Human, Android, Cischi, Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: pallas-right
@@ -161,7 +161,7 @@
 - type: marking
   id: HumanHornPallasL
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Cischi]
+  groupWhitelist: [Human, Android, Cischi, Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: pallas-left
@@ -169,7 +169,7 @@
 - type: marking
   id: HumanHornSail
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Reptilian, Cischi]
+  groupWhitelist: [Human, Android, Reptilian, Cischi, Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: sail-normal
@@ -177,7 +177,7 @@
 - type: marking
   id: HumanHornSailL
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Reptilian, Cischi]
+  groupWhitelist: [Human, Android, Reptilian, Cischi, Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: sail-left
@@ -185,7 +185,7 @@
 - type: marking
   id: HumanHornSailR
   bodyPart: HeadTop
-  groupWhitelist: [Human, Android, Reptilian, Cischi]
+  groupWhitelist: [Human, Android, Reptilian, Cischi, Vulpkanin]
   sprites:
     - sprite: _WL/Mobs/Customization/horns.rsi
       state: sail-right

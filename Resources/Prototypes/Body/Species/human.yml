@@ -3,7 +3,7 @@
   id: Human
   limits:
     enum.HumanoidVisualLayers.HeadTop:
-      limit: 1
+      limit: 2 # WL-change
       required: false
     enum.HumanoidVisualLayers.Hair:
       limit: 1
