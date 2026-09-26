@@ -1,0 +1,131 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/79e394320d79cc9151b63368a3ced3ded30cb819/icons/mob/clothing/underwear.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "male_briefs",
+            "directions": 4
+        },
+        {
+            "name": "male_boxers",
+            "directions": 4
+        },
+        {
+            "name": "male_stripe",
+            "directions": 4
+        },
+        {
+            "name": "male_midway",
+            "directions": 4
+        },
+        {
+            "name": "male_longjohns",
+            "directions": 4
+        },
+        {
+            "name": "male_kinky",
+            "directions": 4
+        },
+        {
+            "name": "male_mankini",
+            "directions": 4
+        },
+        {
+            "name": "male_hearts",
+            "directions": 4
+        },
+        {
+            "name": "male_commie",
+            "directions": 4
+        },
+        {
+            "name": "male_assblastusa",
+            "directions": 4
+        },
+        {
+            "name": "male_uk",
+            "directions": 4
+        },
+        {
+            "name": "female_bikini",
+            "directions": 4
+        },
+        {
+            "name": "female_lace",
+            "directions": 4
+        },
+        {
+            "name": "female_bralette",
+            "directions": 4
+        },
+        {
+            "name": "female_sport",
+            "directions": 4
+        },
+        {
+            "name": "female_thong",
+            "directions": 4
+        },
+        {
+            "name": "female_strapless",
+            "directions": 4
+        },
+        {
+            "name": "female_babydoll",
+            "directions": 4
+        },
+        {
+            "name": "swim_onepiece",
+            "directions": 4
+        },
+        {
+            "name": "swim_strapless_onepiece",
+            "directions": 4
+        },
+        {
+            "name": "swim_twopiece",
+            "directions": 4
+        },
+        {
+            "name": "swim_strapless_twopiece",
+            "directions": 4
+        },
+        {
+            "name": "swim_stripe",
+            "directions": 4
+        },
+        {
+            "name": "swim_halter",
+            "directions": 4
+        },
+        {
+            "name": "female_neko_white",
+            "directions": 4
+        },
+        {
+            "name": "female_neko_black",
+            "directions": 4
+        },
+        {
+            "name": "female_kinky",
+            "directions": 4
+        },
+        {
+            "name": "female_commie",
+            "directions": 4
+        },
+        {
+            "name": "female_assblastusa",
+            "directions": 4
+        },
+        {
+            "name": "female_uk",
+            "directions": 4
+        }
+    ]
+}
