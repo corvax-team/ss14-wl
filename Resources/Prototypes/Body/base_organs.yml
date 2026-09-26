@@ -14,6 +14,15 @@
       required: false
       nudityDefault: [ UndergarmentBottomBoxers ]
 
+#WL-changes-start
+- type: markingsGroup
+  id: Socks
+  limits:
+    enum.HumanoidVisualLayers.Socks:
+      limit: 1
+      required: false
+#WL-changes-end
+
 - type: entity
   id: OrganBase
   name: organ
@@ -79,6 +88,7 @@
       - TailOverlay
       - UndergarmentTop
       - UndergarmentBottom
+      - Socks #WL-changes
       - Special
 
 - type: entity
