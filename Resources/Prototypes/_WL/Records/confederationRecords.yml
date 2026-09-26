@@ -24,7 +24,7 @@
 
 - type: confederation
   id: HolyEmpireOfEden
-  name: records-confederation-holy-empire-of-edem
+  name: records-confederation-holy-edem-empire
   description: records-confederation-holy-empire-of-edem-desc
   icon: /Textures/_WL/Interface/Records/Regions/edem.png
   order: 3
