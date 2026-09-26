@@ -13,7 +13,7 @@
       limit: 3
       required: false
     enum.HumanoidVisualLayers.HeadTop:
-      limit: 1
+      limit: 2 # WL-change
       required: true
       default: [ FoxEar ] # Corvax-Vulp_Port VulpEar
     enum.HumanoidVisualLayers.Snout:
