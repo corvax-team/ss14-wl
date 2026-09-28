@@ -1,0 +1,56 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by ReArtInt",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "cream_white"
+        },
+        {
+            "name": "cream_pink"
+        },
+        {
+            "name": "cream_yellow"
+        },
+        {
+            "name": "cream_green"
+        },
+        {
+            "name": "cream_miku"
+        },
+        {
+            "name": "cream_blue"
+        },
+        {
+            "name": "cream_purple"
+        },
+        {
+            "name": "cream_chocolate"
+        },
+        {
+            "name": "cream_rainbow"
+        },
+        {
+            "name": "cherry"
+        },
+        {
+            "name": "sprinkles"
+        },
+        {
+            "name": "sugar_star"
+        },
+        {
+            "name": "sprinkles_item"
+        },
+        {
+            "name": "sugar_star_item"
+        }
+    ]
+}

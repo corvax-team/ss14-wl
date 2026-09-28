@@ -674,6 +674,12 @@
     entries:
       Burger: Lemon
       Taco: Lemon
+#WL-changes-start: baking
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodLemonSlice
+      amount: 5
+#WL-changes-end: baking
 
 - type: entity
   name: lemoon
@@ -2657,6 +2663,7 @@
     entries:
       Taco: Cherry
       Burger: Cherry
+      Cupcake: CupcakeCherry #WL-changes: Baking
 
 - type: entity
   name: cherry pit
