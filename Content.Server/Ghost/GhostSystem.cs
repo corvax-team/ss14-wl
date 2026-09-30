@@ -89,13 +89,6 @@ namespace Content.Server.Ghost
         [Dependency] private RoleSystem _role = default!; // WL-Changes
         [Dependency] private SharedVisualBodySystem _visualBody = default!; // WL-Changes: GhostHair
 
-        //WL-ReturnToLobby-start
-        public TimeSpan GhostReturnToLobbyButtonCooldown { get; private set; }
-            = TimeSpan.FromSeconds(WLCVars.GhostReturnToLobbyButtonCooldown.DefaultValue);
-
-        private readonly Dictionary<NetUserId, TimeSpan> _cachedSessionsDeathTime = new();
-        //WL-ReturnToLobby-end
-
         [Dependency] private EntityQuery<GhostComponent> _ghostQuery = default!;
         [Dependency] private EntityQuery<FollowerComponent> _followerQuery = default!;
         [Dependency] private EntityQuery<PhysicsComponent> _physicsQuery = default!;
@@ -165,7 +158,7 @@ namespace Content.Server.Ghost
                 ? Loc.GetString("ghost-gui-toggle-medical-hud-popup-on")
                 : Loc.GetString("ghost-gui-toggle-medical-hud-popup-off");
 
-            Popup.PopupEntity(str, uid, uid);
+            _popup.PopupEntity(str, uid, uid);
             Dirty(uid, component);
         }
         // WL-Changes-End
