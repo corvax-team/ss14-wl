@@ -2,39 +2,13 @@
 - type: traitCategory
   id: Languages
   name: trait-category-languages
-  maxTraitPoints: 2
-
-- type: trait
-  id: UnSpecie
-  name: trait-language-unspecie
-  description: trait-language-unspecie-desc
-  category: Languages
-  cost: -1
-  whitelist:
-    components:
-      - Languages
-  components:
-    - type: ModifyLanguages
-      specieLanguage: true
-
-- type: trait
-  id: OldEarth
-  name: trait-language-oldearth
-  description: trait-language-oldearth-desc
-  category: Languages
-  cost: 3
-  whitelist:
-    components:
-      - Languages
-  components:
-    - type: ModifyLanguages
-      languages:
-        - OldEarth
+  maxTraitPoints: 10
+  hidden: true
 
 - type: trait
   id: SintaUnati
-  name: trait-language-sinta
-  description: trait-language-sinta-desc
+  name: language-unati
+  description: language-unati-desc
   category: Languages
   cost: 2
   whitelist:
@@ -46,9 +20,23 @@
         - SintaUnati
 
 - type: trait
-  id: Urhas
-  name: trait-language-urhs
-  description: trait-language-urhs-desc
+  id: OldEarth
+  name: language-oldearth
+  description: language-oldearth-desc
+  category: Languages
+  cost: 3
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - OldEarth
+
+- type: trait
+  id: Kuniluc
+  name: language-vulpa
+  description: language-vulpa-desc
   category: Languages
   cost: 2
   whitelist:
@@ -57,12 +45,152 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Urhas
+        - Kuniluc
+
+- type: trait
+  id: Sarengis
+  name: language-sareng
+  description: language-sareng-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Sarengis
+
+- type: trait
+  id: Weaver
+  name: language-weaver
+  description: language-weaver-desc
+  category: Languages
+  cost: 4
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Weaver
+
+- type: trait
+  id: Ternary
+  name: language-ternary
+  description: language-ternary-desc
+  category: Languages
+  cost: 999
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Ternary
+
+- type: trait
+  id: Arachny
+  name: language-arachny
+  description: language-arachny-desc
+  category: Languages
+  cost: 4
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Arachny
+
+- type: trait
+  id: RootSpeak
+  name: language-rootspeak
+  description: language-rootspeak-desc
+  category: Languages
+  cost: 999
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - RootSpeak
+
+- type: trait
+  id: Slimish
+  name: language-slimish
+  description: language-slimish-desc
+  category: Languages
+  cost: 5
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Slimish
+
+- type: trait
+  id: VoxPigin
+  name: language-vox
+  description: language-vox-desc
+  category: Languages
+  cost: 5
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - VoxPigin
+
+- type: trait
+  id: Urlum
+  name: language-urlum
+  description: language-urlum-desc
+  category: Languages
+  cost: 4
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Urlum
+
+- type: trait
+  id: SikTair
+  name: language-siktair
+  description: language-siktair-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - SikTair
+
+- type: trait
+  id: Wingdings
+  name: language-wingdings
+  description: language-wingdings-desc
+  category: Languages
+  cost: 1
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Wingdings
 
 - type: trait
   id: TopTranslate
-  name: trait-language-top
-  description: trait-language-top-desc
+  name: language-toptranslate
+  description: language-toptranslate-desc
   category: Languages
   cost: 2
   whitelist:
@@ -75,8 +203,8 @@
 
 - type: trait
   id: BottomTranslate
-  name: trait-language-bottom
-  description: trait-language-bottom-desc
+  name: language-bottomtranslate
+  description: language-bottomtranslate-desc
   category: Languages
   cost: 1
   whitelist:
@@ -88,37 +216,9 @@
         - BottomTranslate
 
 - type: trait
-  id: Wingdings
-  name: trait-language-wingdings
-  description: trait-language-wingdings-desc
-  category: Languages
-  cost: 1
-  whitelist:
-    components:
-      - Languages
-  components:
-    - type: ModifyLanguages
-      languages:
-        - Wingdings
-
-- type: trait
-  id: Kuniluc
-  name: trait-language-vulpa
-  description: trait-language-vulpa-desc
-  category: Languages
-  cost: 2
-  whitelist:
-    components:
-      - Languages
-  components:
-    - type: ModifyLanguages
-      languages:
-        - Kuniluc
-
-- type: trait
   id: Yangyu
-  name: trait-language-yangyu
-  description: trait-language-yangyu-desc
+  name: language-yangyu
+  description: language-yangyu-desc
   category: Languages
   cost: 2
   whitelist:
@@ -128,3 +228,45 @@
     - type: ModifyLanguages
       languages:
         - Yangyu
+
+- type: trait
+  id: Taidz
+  name: language-taidz
+  description: language-taidz-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Taidz
+
+- type: trait
+  id: Interlingua
+  name: language-interlingua
+  description: language-interlingua-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - Interlingua
+
+- type: trait
+  id: SintaUrssa
+  name: language-urssa
+  description: language-urssa-desc
+  category: Languages
+  cost: 2
+  whitelist:
+    components:
+      - Languages
+  components:
+    - type: ModifyLanguages
+      languages:
+        - SintaUrssa

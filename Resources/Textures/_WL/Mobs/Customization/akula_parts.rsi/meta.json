@@ -1,20 +1,12 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from https://github.com/Skyrat-SS13/Skyrat-tg/blob/7869517d7347ab32b64c6e4b322a204135edd744/modular_skyrat/master_files/icons/mob/sprite_accessory/tails.dmi and https://github.com/Skyrat-SS13/Skyrat-tg/blob/7869517d7347ab32b64c6e4b322a204135edd744/modular_skyrat/master_files/icons/mob/body_markings/akula_markings.dmi",
+    "copyright": "Resprite by Mortedeus + ReArtInt",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
-        {
-            "name": "tail_shark",
-            "directions": 4
-        },
-        {
-            "name": "tail_fish",
-            "directions": 4
-        },
         {
             "name": "tail_akula_prime",
             "directions": 4
@@ -40,31 +32,35 @@
             "directions": 4
         },
         {
+            "name": "tail_fish_primary",
+            "directions": 4
+        },
+        {
+            "name": "tail_orca_primary",
+            "directions": 4
+        },
+        {
+            "name": "tail_segmentedtail_primary",
+            "directions": 4
+        },
+        {
+            "name": "tail_segmentedtail_secondary",
+            "directions": 4
+        },
+        {
+            "name": "tail_segmentedtail_tertiary",
+            "directions": 4
+        },
+        {
+            "name": "tail_shark_primary",
+            "directions": 4
+        },
+        {
+            "name": "tail_sharknofin_primary",
+            "directions": 4
+        },
+        {
             "name": "akula_head",
-            "directions": 4
-        },
-        {
-            "name": "akula_r_arm",
-            "directions": 4
-        },
-        {
-            "name": "akula_l_arm",
-            "directions": 4
-        },
-        {
-            "name": "akula_r_hand",
-            "directions": 4
-        },
-        {
-            "name": "akula_l_hand",
-            "directions": 4
-        },
-        {
-            "name": "akula_r_leg",
-            "directions": 4
-        },
-        {
-            "name": "akula_l_leg",
             "directions": 4
         },
         {
@@ -72,11 +68,15 @@
             "directions": 4
         },
         {
-            "name": "akula_highlight_r_arm",
+            "name": "akula_highlight_l_arm",
             "directions": 4
         },
         {
-            "name": "akula_highlight_l_arm",
+            "name": "akula_highlight_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "akula_highlight_r_arm",
             "directions": 4
         },
         {
@@ -84,7 +84,131 @@
             "directions": 4
         },
         {
-            "name": "akula_highlight_l_leg",
+            "name": "akula_l_arm",
+            "directions": 4
+        },
+        {
+            "name": "akula_l_hand",
+            "directions": 4
+        },
+        {
+            "name": "akula_l_leg",
+            "directions": 4
+        },
+        {
+            "name": "akula_r_arm",
+            "directions": 4
+        },
+        {
+            "name": "akula_r_hand",
+            "directions": 4
+        },
+        {
+            "name": "akula_r_leg",
+            "directions": 4
+        },
+        {
+            "name": "head_f_freckles",
+            "directions": 4
+        },
+        {
+            "name": "head_f_spot",
+            "directions": 4
+        },
+        {
+            "name": "head_f_tiger",
+            "directions": 4
+        },
+        {
+            "name": "head_m_freckles",
+            "directions": 4
+        },
+        {
+            "name": "head_m_spot",
+            "directions": 4
+        },
+        {
+            "name": "head_m_tiger",
+            "directions": 4
+        },
+        {
+            "name": "l_arm_freckles",
+            "directions": 4
+        },
+        {
+            "name": "l_arm_polka",
+            "directions": 4
+        },
+        {
+            "name": "l_arm_tiger",
+            "directions": 4
+        },
+        {
+            "name": "l_foot_tiger",
+            "directions": 4
+        },
+        {
+            "name": "l_hand_tiger",
+            "directions": 4
+        },
+        {
+            "name": "l_leg_tiger",
+            "directions": 4
+        },
+        {
+            "name": "r_arm_freckles",
+            "directions": 4
+        },
+        {
+            "name": "r_arm_polka",
+            "directions": 4
+        },
+        {
+            "name": "r_arm_tiger",
+            "directions": 4
+        },
+        {
+            "name": "r_foot_tiger",
+            "directions": 4
+        },
+        {
+            "name": "r_hand_tiger",
+            "directions": 4
+        },
+        {
+            "name": "r_leg_tiger",
+            "directions": 4
+        },
+        {
+            "name": "torso_f_freckles",
+            "directions": 4
+        },
+        {
+            "name": "torso_f_polka",
+            "directions": 4
+        },
+        {
+            "name": "torso_f_spot",
+            "directions": 4
+        },
+        {
+            "name": "torso_f_tiger",
+            "directions": 4
+        },
+        {
+            "name": "torso_m_freckles",
+            "directions": 4
+        },
+        {
+            "name": "torso_m_polka",
+            "directions": 4
+        },
+        {
+            "name": "torso_m_spot_m",
+            "directions": 4
+        },
+        {
+            "name": "torso_m_tiger",
             "directions": 4
         }
     ]

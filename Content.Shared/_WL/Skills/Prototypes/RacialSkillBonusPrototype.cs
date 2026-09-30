@@ -12,7 +12,7 @@ public sealed partial class RacialSkillBonusPrototype : IPrototype
     [IdDataField]
     public string ID { get; private set; } = default!;
 
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SpeciesPrototype>), required: true)]
+    [DataField(required: true)]
     public string Species { get; private set; } = default!;
 
     [DataField]

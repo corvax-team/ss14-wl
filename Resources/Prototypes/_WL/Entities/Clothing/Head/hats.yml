@@ -128,3 +128,83 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatBlackwizard
+  name: black wizard hat
+  description: A strange-looking black hat that most certainly belongs to a powerful magic-user.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/blackwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/blackwizard.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatGreenwizard
+  name: green wizard hat
+  description: A strange-looking green hat that most certainly belongs to a powerful magic-user.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/greenwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/greenwizard.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatPinkwizard
+  name: pink wizard hat
+  description: A strange-looking pink hat that most certainly belongs to a powerful magic-user.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/pinkwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/pinkwizard.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatYellowwizard
+  name: yellow wizard hat
+  description: A strange-looking yellow hat that most certainly belongs to a powerful magic-user.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/yellowwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/yellowwizard.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatCyanwizard
+  name: cyan wizard hat
+  description: A strange-looking cyan hat that most certainly belongs to a powerful magic-user.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/cyanwizard.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/cyanwizard.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - ClothMade
+    - WhitelistChameleon

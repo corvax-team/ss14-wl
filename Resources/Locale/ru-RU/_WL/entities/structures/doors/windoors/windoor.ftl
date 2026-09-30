@@ -1,5 +1,5 @@
-ent-WindoorSecureAdjutantLocked = { ent-WindoorSecureCommandLocked }
-    .desc = { ent-WindoorSecureCommandLocked.desc }
+ent-WindoorSecureAdjutantLocked = { ent-WindoorCommandLocked }
+    .desc = { ent-WindoorCommandLocked.desc }
     .suffix = Адъютант, Закрыт
 
 ent-WindoorReporterLocked = { ent-WindoorServiceLocked }

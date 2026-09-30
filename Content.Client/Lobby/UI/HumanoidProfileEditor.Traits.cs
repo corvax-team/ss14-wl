@@ -37,6 +37,10 @@ public sealed partial class HumanoidProfileEditor
 
         foreach (var trait in traits)
         {
+            //WL-Changes-Start Language
+            if (trait.Category != null && _prototypeManager.TryIndex(trait.Category, out var category) && category.Hidden)
+                continue;
+            //WL-Changes-End Language
             if (trait.Category == null)
             {
                 defaultTraits.Add(trait.ID);

@@ -370,6 +370,7 @@
     - id: SecApartmentTablet
     - id: PrinterDocFlatpack
     # Corvax-End
+    - id: ClothingBeltHolsterDSS #wl-holsters 
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

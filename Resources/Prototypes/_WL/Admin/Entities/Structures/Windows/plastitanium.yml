@@ -1,28 +1,9 @@
 - type: entity
+  parent: PlastitaniumWindow
   id: PlastitaniumWindowIndestructibleSinguloimmune
-  parent: Window
   name: sublight plustitanium window
   description: This is a plasticine window covered with a thin layer of natural light that comes from a sunny Arra-Kisa. If you lean your face back, you will feel as if you are standing outside and the sun is shining on you. It will also set your hair on fire, so don't do it.
   suffix: Singuloimmune, Indestructible, WL
   components:
   - type: ContainmentField
     throwForce: 0
-  - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/plastitanium_window.rsi
-  - type: Icon
-    sprite: Structures/Windows/plastitanium_window.rsi
-  - type: Repairable
-    fuelCost: 15
-    doAfterDelay: 3
-  - type: IconSmooth
-    base: ptwindow
-  - type: Appearance
-  - type: DamageVisuals
-    thresholds: [5, 10, 20]
-    damageDivisor: 2
-    trackAllDamage: true
-    damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
-  - type: StaticPrice
-    price: 100

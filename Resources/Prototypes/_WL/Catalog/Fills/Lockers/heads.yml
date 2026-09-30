@@ -9,6 +9,9 @@
       - id: ClothingBackpackDuffelAdjutant
       - id: ClothingBackpackSatchelAdjutant
       - id: BoxFolderClipboardThreePapers
+      - id: ClothingUniformJumpsuitParadeAdjutant
+      - id: ClothingUniformJumpskirtParadeAdjutant
+      - id: ClothingOuterCoatParadeAdjutant
 
 - type: entity
   id: LockerAdjutantFilled

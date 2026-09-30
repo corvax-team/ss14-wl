@@ -16,7 +16,7 @@
            !type:NanotrasenNameGenerator
             prefixCreator: "AL"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_WL/Shuttles/wl_maus_evac.yml
+          emergencyShuttlePath: /Maps/_WL/Shuttles/Maus/wl_maus_evac.yml
         - type: StationJobs
           availableJobs:
 
@@ -46,14 +46,14 @@
 
             # science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 2, 3 ]
+            Scientist: [ 2, 2 ]
             ResearchAssistant: [ 2, 2 ]
 
             # security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 2, 2 ]
-            SecurityCadet: [ 2, 2 ]
+            SecurityCadet: [ 1, 1 ]
             Detective: [ 1, 1 ]
             Pilot: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]

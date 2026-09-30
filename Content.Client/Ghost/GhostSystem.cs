@@ -1,6 +1,7 @@
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost.Components;
+using Content.Shared.Ghost.Systems;
 using Content.Shared.NightVision;
 using Content.Shared.Overlays;
 using Content.Shared._WL.Ghost; // Wl-Changes: Ghost hair
@@ -30,10 +31,10 @@ namespace Content.Client.Ghost
 
         private bool _ghostVisibility = true;
 
-        private bool GhostVisibility
+        public bool GhostVisibility
         {
             get => _ghostVisibility;
-            set
+            private set
             {
                 if (_ghostVisibility == value)
                 {

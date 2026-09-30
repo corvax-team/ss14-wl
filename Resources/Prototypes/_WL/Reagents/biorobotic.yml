@@ -13,7 +13,8 @@
   metabolisms:
     Bloodstream:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Biorobotic ]
@@ -353,7 +354,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]

@@ -14,7 +14,6 @@ using Content.Server.Administration.Systems;
 using Content.Server.Corvax.Api.AHelp; // Corvax-API
 using Content.Server.Database;
 using Content.Server.GameTicking;
-using Content.Server.GameTicking.Presets;
 using Content.Server.Maps;
 using Content.Server.RoundEnd;
 using Content.Shared._WL.CCVars;
@@ -22,7 +21,9 @@ using Content.Shared.Administration;
 using Content.Shared.Administration.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.GameTicking.Prototypes;
 using Content.Shared.Prototypes;
 using Robust.Server;
 using Robust.Server.ServerStatus;
@@ -257,7 +258,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
         await RunOnMainThread(async () =>
         {
-            var ticker = _entitySystemManager.GetEntitySystem<GameTicker>();
+            var ticker = _entitySystemManager.GetEntitySystem<ServerGameTicker>();
             if (ticker.RunLevel != GameRunLevel.PreRoundLobby)
             {
                 await RespondError(
@@ -297,7 +298,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
         await RunOnMainThread(async () =>
         {
-            var ticker = _entitySystemManager.GetEntitySystem<GameTicker>();
+            var ticker = _entitySystemManager.GetEntitySystem<ServerGameTicker>();
             var gameRule = ticker
                 .GetActiveGameRules()
                 .FirstOrNull(rule =>
@@ -331,7 +332,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
         await RunOnMainThread(async () =>
         {
-            var ticker = _entitySystemManager.GetEntitySystem<GameTicker>();
+            var ticker = _entitySystemManager.GetEntitySystem<ServerGameTicker>();
             if (!_prototypeManager.HasIndex<EntityPrototype>(body.GameRuleId))
             {
                 await RespondError(context,
@@ -341,11 +342,13 @@ public sealed partial class ServerApi : IPostInjectInit
                 return;
             }
 
-            var ruleEntity = ticker.AddGameRule(body.GameRuleId);
+            if (ticker.AddGameRule(body.GameRuleId) is not { } ruleEntity)
+                return;
+
             _sawmill.Info($"Added game rule {body.GameRuleId} by {FormatLogActor(actor)}.");
             if (ticker.RunLevel == GameRunLevel.InRound)
             {
-                ticker.StartGameRule(ruleEntity);
+                ticker.StartGameRule(ruleEntity.AsNullable());
                 _sawmill.Info($"Started game rule {body.GameRuleId} by {FormatLogActor(actor)}.");
             }
 
@@ -457,7 +460,7 @@ public sealed partial class ServerApi : IPostInjectInit
     {
         await RunOnMainThread(async () =>
         {
-            var ticker = _entitySystemManager.GetEntitySystem<GameTicker>();
+            var ticker = _entitySystemManager.GetEntitySystem<ServerGameTicker>();
 
             if (ticker.RunLevel != GameRunLevel.PreRoundLobby)
             {
@@ -480,7 +483,7 @@ public sealed partial class ServerApi : IPostInjectInit
         await RunOnMainThread(async () =>
         {
             var roundEndSystem = _entitySystemManager.GetEntitySystem<RoundEndSystem>();
-            var ticker = _entitySystemManager.GetEntitySystem<GameTicker>();
+            var ticker = _entitySystemManager.GetEntitySystem<ServerGameTicker>();
 
             if (ticker.RunLevel != GameRunLevel.InRound)
             {
@@ -502,7 +505,7 @@ public sealed partial class ServerApi : IPostInjectInit
     {
         await RunOnMainThread(async () =>
         {
-            var ticker = _entitySystemManager.GetEntitySystem<GameTicker>();
+            var ticker = _entitySystemManager.GetEntitySystem<ServerGameTicker>();
 
             ticker.RestartRound();
             _sawmill.Info($"Forced instant round restart by {FormatLogActor(actor)}");
@@ -583,7 +586,7 @@ public sealed partial class ServerApi : IPostInjectInit
 
         var info = await RunOnMainThread<InfoResponse>(() =>
         {
-            var ticker = _entitySystemManager.GetEntitySystem<GameTicker>();
+            var ticker = _entitySystemManager.GetEntitySystem<ServerGameTicker>();
             var adminSystem = _entitySystemManager.GetEntitySystem<AdminSystem>();
 
             var players = new List<InfoResponse.Player>();

@@ -67,6 +67,7 @@ public sealed partial class RCDSystem : EntitySystem
     private readonly ProtoId<RCDPrototype> _deconstructTileProto = "DeconstructTile";
     private readonly ProtoId<RCDPrototype> _deconstructLatticeProto = "DeconstructLattice";
     private static readonly ProtoId<TagPrototype> CatwalkTag = "Catwalk";
+    private static readonly LocId DefaultPrototypeNameLocId = "generic-unknown-title";
 
     private HashSet<EntityUid> _intersectingEntities = new();
 
@@ -96,6 +97,19 @@ public sealed partial class RCDSystem : EntitySystem
         SubscribeNetworkEvent<RPDLayerUpdateEvent>(OnLayerChanged);
         UpdateProtoList(); // dehardcode
         // WL-Changes-end
+    }
+
+    /// <summary>
+    /// Gets the display name of a given RCDPrototype.
+    /// </summary>
+    public string GetPrototypeName(RCDPrototype prototype)
+    {
+        if (prototype.SetName != null)
+            return Loc.GetString(prototype.SetName);
+        else if (prototype.Prototype != null)
+            return ProtoMan.Index(prototype.Prototype).Name; // already localized
+        else
+            return Loc.GetString(DefaultPrototypeNameLocId);
     }
 
     #region Event handling
@@ -198,18 +212,14 @@ public sealed partial class RCDSystem : EntitySystem
 
         var prototype = ProtoMan.Index(component.ProtoId);
 
-        var msg = Loc.GetString("rcd-component-examine-mode-details", ("mode", Loc.GetString(prototype.SetName)));
+        var displayName = GetPrototypeName(prototype);
+
+        string msg;
 
         if (prototype.Mode == RcdMode.ConstructTile || prototype.Mode == RcdMode.ConstructObject)
-        {
-            var name = Loc.GetString(prototype.SetName);
-
-            if (prototype.Prototype != null &&
-                ProtoMan.TryIndex(prototype.Prototype, out var proto)) // don't use Resolve because this can be a tile
-                name = proto.Name;
-
-            msg = Loc.GetString("rcd-component-examine-build-details", ("name", name));
-        }
+            msg = Loc.GetString("rcd-component-examine-build-details", ("name", displayName));
+        else
+            msg = Loc.GetString("rcd-component-examine-mode-details", ("mode", displayName));
 
         args.PushMarkup(msg);
 
@@ -654,7 +664,7 @@ public sealed partial class RCDSystem : EntitySystem
             // Check rule: Respect baseTurf and baseWhitelist
             if (prototype.Prototype != null && _tileDefMan.TryGetDefinition(prototype.Prototype, out var replacementDef))
             {
-                var replacementContentDef = (ContentTileDefinition) replacementDef;
+                var replacementContentDef = (ContentTileDefinition)replacementDef;
 
                 if (replacementContentDef.BaseTurf != tileDef.ID && !replacementContentDef.BaseWhitelist.Contains(tileDef.ID))
                 {
@@ -693,10 +703,10 @@ public sealed partial class RCDSystem : EntitySystem
                     : prototype.Prototype;
 
         if (component.IsRpd && prototype.HasLayers && proto != null &&
-            ProtoMan.TryIndex<EntityPrototype>(proto, out var entityProto) &&
-            entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory) &&
-            _pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, component.CurrentLayer, out var newProtoId))
-            proto = newProtoId;
+                ProtoMan.TryIndex<EntityPrototype>(proto, out var entityProto) &&
+                ProtoMan.TryGetVariantCollection<EntityPrototype>(entityProto, out var altPrototypes) &&
+                (int)component.CurrentLayer <= altPrototypes.Count)
+            proto = altPrototypes[(int)component.CurrentLayer];
         // WL-Changes-end
 
         foreach (var ent in _intersectingEntities)
@@ -756,7 +766,7 @@ public sealed partial class RCDSystem : EntitySystem
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
                     // Continue if no collision is possible
-                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) prototype.CollisionMask) == 0)
+                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int)prototype.CollisionMask) == 0)
                         continue;
 
                     // Continue if our custom collision bounds are not intersected
@@ -870,7 +880,7 @@ public sealed partial class RCDSystem : EntitySystem
                 if (!_tileDefMan.TryGetDefinition(prototype.Prototype, out var tileDef))
                     return;
 
-                _tile.ReplaceTile(tile, (ContentTileDefinition) tileDef, gridUid, mapGrid);
+                _tile.ReplaceTile(tile, (ContentTileDefinition)tileDef, gridUid, mapGrid);
                 _adminLogger.Add(LogType.RCD, LogImpact.High, $"{ToPrettyString(user):user} used RCD to set grid: {gridUid} {position} to {prototype.Prototype}");
                 break;
 
@@ -880,47 +890,38 @@ public sealed partial class RCDSystem : EntitySystem
                     ? prototype.MirrorPrototype
                     : prototype.Prototype;
 
-                var setLayer = false; // WL_changes
+                var setLayer = false; // WL-Changes
 
                 if (component.IsRpd && prototype.HasLayers)
                 {
+                    // WL-Changes: RCD start
                     if (ProtoMan.TryIndex<EntityPrototype>(proto, out var entityProto) &&
-                        entityProto.TryGetComponent<AtmosPipeLayersComponent>(out var atmosPipeLayers, _entityManager.ComponentFactory)) // WL-changes
-                    {
-                        if (_pipeLayersSystem.TryGetAlternativePrototype(atmosPipeLayers, component.CurrentLayer, out var newProtoId))
-                            proto = newProtoId;
-                        else
-                            setLayer = true; // WL-changes
-                    }
+                            ProtoMan.TryGetVariantCollection<EntityPrototype>(entityProto, out var altPrototypes) &&
+                            (int)component.CurrentLayer < altPrototypes.Count)
+                        proto = altPrototypes[(int)component.CurrentLayer];
+                    else
+                        setLayer = true;
+                    // WL-Changes: RCD end
                 }
-
-                // Calculate rotation before spawn
-                var rotation = prototype.Rotation switch
-                {
-                    RcdRotation.Fixed => Angle.Zero,
-                    RcdRotation.Camera => Transform(uid).LocalRotation,
-                    RcdRotation.User => direction.ToAngle(),
-                    _ => Angle.Zero // Fallback
-                };
-
-                var entityCoords = _mapSystem.GridTileToLocal(gridUid, mapGrid, position);
-                var mapCoords = _transform.ToMapCoordinates(entityCoords);
-
-                var ent = Spawn(proto, mapCoords, rotation: rotation);
                 // WL-Changes-end
 
+                Angle rotation;
                 switch (prototype.Rotation)
                 {
                     case RcdRotation.Fixed:
-                        Transform(ent).LocalRotation = Angle.Zero;
+                        rotation = Angle.Zero;
                         break;
                     case RcdRotation.Camera:
-                        Transform(ent).LocalRotation = Transform(uid).LocalRotation;
+                        rotation = Transform(uid).LocalRotation;
                         break;
                     case RcdRotation.User:
-                        Transform(ent).LocalRotation = direction.ToAngle();
+                        rotation = direction.ToAngle();
                         break;
+                    default:
+                        throw new NotImplementedException($"Rotation type {prototype.Rotation} in RCD prototype {prototype.ID} does not have a direction conversion.");
                 }
+
+                var ent = SpawnAttachedTo(prototype.Prototype, _mapSystem.GridTileToLocal(gridUid, mapGrid, position), rotation: rotation);
 
                 if (setLayer && TryComp<AtmosPipeLayersComponent>(ent, out var layers)) // WL-changes
                     _pipeLayersSystem.SetPipeLayer((ent, layers), component.CurrentLayer);

@@ -15,6 +15,7 @@
   startingGear: AtmosphericTechnicianGear
   icon: "JobIconAtmosphericTechnician"
   supervisors: job-supervisors-ce
+  guides: [ Atmospherics ]
   access:
   - Maintenance
   - Engineering

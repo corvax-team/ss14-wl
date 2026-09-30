@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingOuterStorageEdible
+  parent: [ TemperatureProtection, ClothingOuterJacketBase ]
   id: ClothingOuterWinterCoat
   name: winter coat
   description: A heavy jacket made from 'synthetic' animal furs.
@@ -8,11 +8,6 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-  - type: TemperatureProtection
-    heatingCoefficient: 1.1
-    coolingCoefficient: 0.1 # WL-Changes
-  - type: Item
-    size: Normal
   - type: Armor
     modifiers:
       coefficients:
@@ -46,7 +41,7 @@
         ents: []
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: [BaseCorvaxContraband431JobsAtmosphericTechnicianSeniorEngineer, ClothingOuterWinterCoatToggleable] # Corvax-Contraband
   id: ClothingOuterWinterAtmos
   name: atmospherics winter coat
   components:
@@ -92,7 +87,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterBartender
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [BaseCorvaxContraband431DepartmentsCommandJobsCaptain, ClothingOuterWinterCoatToggleable, BaseCommandContraband] # Corvax-Contraband
   id: ClothingOuterWinterCap
   name: captain's winter coat
   components:
@@ -115,7 +110,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterCaptain
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: [BaseCorvaxContraband431JobsCargoTechnician, ClothingOuterWinterCoatToggleable] # Corvax-Contraband
   id: ClothingOuterWinterCargo
   name: cargo winter coat
   components:
@@ -138,7 +133,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterCargo
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [BaseCorvaxContraband431DepartmentsCommandJobsChiefEngineer, ClothingOuterWinterCoatToggleable, BaseCommandContraband] # Corvax-Contraband
   id: ClothingOuterWinterCE
   name: chief engineer's winter coat
   components:
@@ -184,7 +179,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterCentcom
 
 - type: entity
-  parent: ClothingOuterWinterCoat
+  parent: [BaseCorvaxContraband431JobsChef, ClothingOuterWinterCoat] # Corvax-Contraband
   id: ClothingOuterWinterChef
   name: chef's freezer coat
   description: A coat specifically designed for work inside cold storage, sorely needed by cold-blooded lizard chefs.
@@ -206,7 +201,7 @@
       - state: CHEF-equipped-OUTERCLOTHING
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: [BaseCorvaxContraband431JobsChemist, ClothingOuterWinterCoatToggleable] # Corvax-Contraband
   id: ClothingOuterWinterChem
   name: chemistry winter coat
   components:
@@ -236,7 +231,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterChem
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [BaseCorvaxContraband431DepartmentsCommandJobsChiefMedicalOfficer, ClothingOuterWinterCoatToggleable, BaseCommandContraband] # Corvax-Contraband
   id: ClothingOuterWinterCMO
   name: chief medical officer's winter coat
   components:
@@ -276,7 +271,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatclown.rsi
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: [BaseCorvaxContraband431JobsSeniorEngineerStationEngineer, ClothingOuterWinterCoatToggleable] # Corvax-Contraband
   id: ClothingOuterWinterEngi
   name: engineering winter coat
   components:
@@ -329,7 +324,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterSci
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [BaseCorvaxContraband431DepartmentsCommandJobsHeadOfPersonnel, ClothingOuterWinterCoatToggleable, BaseCommandContraband] # Corvax-Contraband
   id: ClothingOuterWinterHoP
   name: head of personnel's winter coat
   components:
@@ -354,7 +349,7 @@
 
 ##########################################################
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable, BaseSecurityCommandContraband]
+  parent: [BaseCorvaxContraband431DepartmentsCommandSecurityJobsHeadOfSecurity, ClothingOuterArmorHoS, ClothingOuterWinterCoatToggleable, BaseSecurityCommandContraband] # Corvax-Contraband
   id: ClothingOuterWinterHoS
   name: head of security's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a head of security from any brig-bound threats and hypothermic events.
@@ -420,7 +415,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterHydro
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: [BaseCorvaxContraband431JobsJanitor, ClothingOuterWinterCoatToggleable] # Corvax-Contraband
   id: ClothingOuterWinterJani
   name: janitorial winter coat
   components:
@@ -450,7 +445,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterJani
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: [BaseCorvaxContraband431JobsMedicalDoctor, ClothingOuterWinterCoatToggleable] # Corvax-Contraband
   id: ClothingOuterWinterMed
   name: medical winter coat
   components:
@@ -526,7 +521,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterMiner
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: [BaseCorvaxContraband431JobsParamedic, ClothingOuterWinterCoatToggleable] # Corvax-Contraband
   id: ClothingOuterWinterPara
   name: paramedic winter coat
   components:
@@ -556,7 +551,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterPara
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [BaseCorvaxContraband431DepartmentsCommandJobsQuartermaster, ClothingOuterWinterCoatToggleable, BaseCommandContraband] # Corvax-Contraband
   id: ClothingOuterWinterQM
   name: quartermaster's winter coat
   components:
@@ -580,7 +575,7 @@
 
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseCommandContraband]
+  parent: [BaseCorvaxContraband431DepartmentsCommandJobsResearchDirector, ClothingOuterWinterCoatToggleable, BaseCommandContraband] # Corvax-Contraband
   id: ClothingOuterWinterRD
   name: research director's winter coat
   components:
@@ -635,7 +630,7 @@
 
 
 - type: entity
-  parent: ClothingOuterWinterCoatToggleable
+  parent: [BaseCorvaxContraband431JobsScientist, ClothingOuterWinterCoatToggleable] # Corvax-Contraband
   id: ClothingOuterWinterSci
   name: science winter coat
   components:
@@ -665,7 +660,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterSci
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
+  parent: [BaseCorvaxContraband431DepartmentsSecurityJobsBrigmedicDetectiveSecurityOfficerSeniorOfficer, ClothingOuterWinterCoatToggleable, BaseSecurityContraband] # Corvax-Contraband
   id: ClothingOuterWinterSec
   name: security winter coat
   components:
@@ -719,7 +714,7 @@
 
 ################################################################
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable, BaseSecurityContraband]
+  parent: [BaseCorvaxContraband431DepartmentsSecurityJobsWarden, ClothingOuterArmorWarden, ClothingOuterWinterCoatToggleable, BaseSecurityContraband] # Corvax-Contraband
   id: ClothingOuterWinterWarden
   name: warden's armored winter coat
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
@@ -762,7 +757,7 @@
     clothingPrototype: ClothingHeadHatHoodWinterWarden
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseSyndicateContraband]
+  parent: [ClothingOuterWinterCoatToggleable] # Corvax-Contraband BaseSyndicateContraband
   id: ClothingOuterWinterSyndieCap
   name: syndicate's winter coat
   description: "The syndicate's winter coat is made of durable fabric, with gilded patterns, and coarse wool."
@@ -787,7 +782,7 @@
 
 ##############################################################
 - type: entity
-  parent: [ BaseSyndicateContraband, ClothingOuterWinterWarden ]
+  parent: [BaseCorvaxContraband432DepartmentsSecurity, BaseSyndicateContraband, ClothingOuterWinterWarden] # Corvax-Contraband
   id: ClothingOuterWinterSyndieCapArmored
   name: syndicate's armored winter coat
   description: "The syndicate's armored winter coat is made of durable fabric, with gilded patterns, and coarse wool."
@@ -801,7 +796,7 @@
 ##############################################################
 
 - type: entity
-  parent: [ClothingOuterWinterCoatToggleable, BaseSyndicateContraband]
+  parent: [ClothingOuterWinterCoatToggleable] # Corvax-Contraband BaseSyndicateContraband
   id: ClothingOuterWinterSyndie
   name: syndicate's winter coat
   description: Insulated winter coat, looks like a merch from "Syndieland".

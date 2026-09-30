@@ -18,6 +18,8 @@
     ClothingNeckScarfStripedOrange: 3
     ClothingShoesBootsWinterEngi: 2
     ClothingNeckTieEngi: 3 # WL-Changes: Респрайт РНД и новые вещи
+    ClothingUniformJumpsuitEngineerVest: 3 # WL-Changes: Эмо обновление 3
+    ClothingUniformJumpskirtComfyEngineerSkirt: 3 # WL-Changes: Эмо обновление 3
   contrabandInventory:
     ToyFigurineEngineer: 1
     ToyFigurineChiefEngineer: 1

@@ -59,13 +59,15 @@
   name: trait-muted-name
   description: trait-muted-desc
   category: Disabilities
-  # WL-Changes-start
+  # WL-Changes: Androids start
   # blacklist:
-    # components:
-      # - BorgChassis
-  # WL-Changes-end
-  components:
-    - type: Muted
+  #   components:
+  #     - BorgChassis
+  # WL-Changes: Androids end
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - TraitStatusEffectMuted
 
 - type: trait
   id: Paracusia

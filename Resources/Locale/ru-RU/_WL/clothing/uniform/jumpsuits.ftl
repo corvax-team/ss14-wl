@@ -60,3 +60,21 @@ ent-ClothingUniformJumpsuitStarSweater = звёздный свитер с под
 
 ent-ClothingUniformJumpsuitBlackCoolVest = чёрная майка
     .desc = Привет красавчик с интернета
+
+ent-ClothingUniformJumpsuitStripedShirt = полосатая рубашка
+    .desc = Полосатая и зелёная.
+
+ent-ClothingUniformJumpsuitWarmShirt = тёплая рубашка
+    .desc = Тёплая и старая.
+
+ent-ClothingUniformJumpsuitGreenStripeSweater = зелёный полосатый свитер
+    .desc = Правда только одна полоска.
+
+ent-ClothingUniformJumpsuitBlueStripeSweater = синий полосатый свитер
+    .desc = Правда только одна полоска.
+
+ent-ClothingUniformJumpsuitAutumnVestShirt = рубашка с жилеткой
+    .desc = Уютненько.
+
+ent-ClothingUniformJumpsuitAlienShirt = инопланетная майка
+    .desc = Это странное ретро изображение цисчи?

@@ -16,6 +16,6 @@ public sealed partial class BuckleableTurretComponent : Component
 
     public EntityUid? ExitRidingActionContainer;
 
-    [DataField("exitAction", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    [DataField("exitAction", required: true)]
     public string ExitRidingAction;
 }

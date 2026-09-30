@@ -21,7 +21,7 @@
       sprite: _WL/Clothing/OuterClothing/disco_blazer.rsi # WL-Changes: resprite
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [BaseCorvaxContraband431JobsAtmosphericTechnician, ClothingOuterStorageBase] # Corvax-Contraband
   id: ClothingAtmosphericsOveralls
   name: atmospherics overalls
   description: A set of fireproof overalls, good for protecting thinner clothes from gas leaks.

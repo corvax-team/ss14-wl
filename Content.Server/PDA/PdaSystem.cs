@@ -1,8 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Access.Systems;
-using Content.Server.AlertLevel;
-using Content.Server.CartridgeLoader;
 using Content.Server.Chat.Managers;
 using Content.Server.Instruments;
 using Content.Server.PDA.Ringer;
@@ -10,8 +8,8 @@ using Content.Server.RoundEnd; // WL-Changes: ETA in PDA
 using Content.Server.Shuttles.Systems; // WL-Changes: ETA in PDA
 using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
-using Content.Server.Traitor.Uplink;
 using Content.Shared.Access.Components;
+using Content.Shared.AlertLevel;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Chat;
 using Content.Shared.DeviceNetwork.Components;
@@ -28,7 +26,7 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes; // WL-Changes: Alert Level Rework
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server.PDA
@@ -38,14 +36,14 @@ namespace Content.Server.PDA
         [Dependency] private CartridgeLoaderSystem _cartridgeLoader = default!;
         [Dependency] private InstrumentSystem _instrument = default!;
         [Dependency] private RingerSystem _ringer = default!;
-        [Dependency] private StationSystem _station = default!;
+        [Dependency] private ServerStationSystem _station = default!;
         [Dependency] private StoreSystem _store = default!;
         [Dependency] private IChatManager _chatManager = default!;
         [Dependency] private UserInterfaceSystem _ui = default!;
         [Dependency] private UnpoweredFlashlightSystem _unpoweredFlashlight = default!;
         [Dependency] private ContainerSystem _containerSystem = default!;
         [Dependency] private IdCardSystem _idCard = default!;
-        [Dependency] private IPrototypeManager _prototypeManager = default!; // WL-Changes: Alert Level Rework
+        [Dependency] private IPrototypeManager _prototype = default!;
         // WL-Changes-start: ETA in PDA
         [Dependency] private RoundEndSystem _roundEnd = default!;
 
@@ -154,19 +152,12 @@ namespace Content.Server.PDA
             UpdatePdaUi(uid, pda);
         }
 
-        public void SetOwner(EntityUid uid, PdaComponent pda, EntityUid owner, string ownerName)
-        {
-            pda.OwnerName = ownerName;
-            pda.PdaOwner = owner;
-            UpdatePdaUi(uid, pda);
-        }
-
         private void OnStationRenamed(StationRenamedEvent ev)
         {
             UpdateAllPdaUisOnStation();
         }
 
-        private void OnAlertLevelChanged(AlertLevelChangedEvent args)
+        private void OnAlertLevelChanged(ref AlertLevelChangedEvent args)
         {
             UpdateAllPdaUisOnStation();
         }
@@ -360,22 +351,11 @@ namespace Content.Server.PDA
         private void UpdateAlertLevel(EntityUid uid, PdaComponent pda)
         {
             var station = _station.GetOwningStation(uid);
-            if (!TryComp(station, out AlertLevelComponent? alertComp) ||
-                alertComp.AlertLevels == null)
+            if (!TryComp(station, out AlertLevelComponent? alertComp))
                 return;
-            pda.StationAlertLevel = alertComp.CurrentLevel;
-            if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var details))
-            {
-                // WL-Changes-start: Alert Level Rework
-                if (_prototypeManager.TryIndex(details, out var index))
-                {
-                    pda.StationAlertColor = index.Color;
-                    pda.StationAlertInstructions = index.Instruction;
-                    if (!string.IsNullOrEmpty(index.SetName))
-                        pda.StationAlertName = index.SetName;
-                }
-                // WL-Changes-end
-            }
+            pda.StationAlertLevel = alertComp.CurrentAlertLevel;
+            if (_prototype.Resolve(alertComp.CurrentAlertLevel, out var level))
+                pda.StationAlertColor = level.Color;
         }
 
         private string? GetDeviceNetAddress(EntityUid uid)
@@ -384,7 +364,7 @@ namespace Content.Server.PDA
 
             if (TryComp(uid, out DeviceNetworkComponent? deviceNetworkComponent))
             {
-                address = deviceNetworkComponent?.Address;
+                address = deviceNetworkComponent.Address;
             }
 
             return address;

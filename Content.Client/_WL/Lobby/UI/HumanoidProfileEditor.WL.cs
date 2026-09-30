@@ -1,10 +1,12 @@
 using System.Linq;
+using Content.Client._WL.Languages.UI; // WL-Languages
 using Content.Shared._WL.Records; // WL-Records
 using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared.Roles;
 using Content.Client._WL.Skills.Ui; // WL-Skills
 using Content.Client._WL.Records; // WL-Records
-using Content.Shared.Humanoid.Prototypes; // WL-Records
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Preferences; // WL-Records
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
@@ -29,8 +31,10 @@ public sealed partial class HumanoidProfileEditor
     private TextEdit _oocTextEdit = null!; // WL-OOCText
 
     private List<ConfederationRecordsPrototype> _confederations = new(); // WL-Records
-
+  
     private List<BrainSourcePrototype> _brainSources = new(); // WL-Records
+  
+    private LanguagesTab? _languagesTab; // WL-Languages
 
     public void RefreshSkills()
     {
@@ -96,6 +100,34 @@ public sealed partial class HumanoidProfileEditor
         }
 
         return spentPoints;
+    }
+
+    private void RefreshLanguages()
+    {
+        if (_languagesTab != null)
+            return;
+
+        _languagesTab = new LanguagesTab();
+        _languagesTab.ProfileChanged += OnLanguagesProfileChanged;
+
+        TabContainer.AddChild(_languagesTab);
+        TabContainer.SetTabTitle(
+            TabContainer.ChildCount - 1,
+            Loc.GetString("humanoid-profile-editor-languages-tab"));
+    }
+
+    private void OnLanguagesProfileChanged(HumanoidCharacterProfile profile)
+    {
+        Profile = profile;
+        SetDirty();
+    }
+
+    private void UpdateLanguagesEdit()
+    {
+        if (_languagesTab != null && Profile != null && _prototypeManager != null)
+        {
+            _languagesTab.Initialize(Profile, _prototypeManager);
+        }
     }
 
     public void RefreshRecords()

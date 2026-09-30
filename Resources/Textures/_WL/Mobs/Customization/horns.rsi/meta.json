@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by wiwin1010 (dc - <@474233051711537163>)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bison-left",
+      "directions": 4
+    },
+    {
+      "name": "bison-normal",
+      "directions": 4
+    },
+    {
+      "name": "bison-right",
+      "directions": 4
+    },
+    {
+      "name": "buffalo-left",
+      "directions": 4
+    },
+    {
+      "name": "buffalo-normal",
+      "directions": 4
+    },
+    {
+      "name": "buffalo-right",
+      "directions": 4
+    },
+    {
+      "name": "bull-left",
+      "directions": 4
+    },
+    {
+      "name": "bull-normal",
+      "directions": 4
+    },
+    {
+      "name": "bull-right",
+      "directions": 4
+    },
+    {
+      "name": "candle-left",
+      "directions": 4
+    },
+    {
+      "name": "candle-normal",
+      "directions": 4
+    },
+    {
+      "name": "candle-right",
+      "directions": 4
+    },
+    {
+      "name": "coral-left",
+      "directions": 4
+    },
+    {
+      "name": "coral-normal",
+      "directions": 4
+    },
+    {
+      "name": "coral-right",
+      "directions": 4
+    },
+    {
+      "name": "deer-left",
+      "directions": 4
+    },
+    {
+      "name": "deer-normal",
+      "directions": 4
+    },
+    {
+      "name": "deer-right",
+      "directions": 4
+    },
+    {
+      "name": "kylin-left",
+      "directions": 4
+    },
+    {
+      "name": "kylin-normal",
+      "directions": 4
+    },
+    {
+      "name": "kylin-right",
+      "directions": 4
+    },
+    {
+      "name": "pallas-left",
+      "directions": 4
+    },
+    {
+      "name": "pallas-normal",
+      "directions": 4
+    },
+    {
+      "name": "pallas-right",
+      "directions": 4
+    },
+    {
+      "name": "sail-left",
+      "directions": 4
+    },
+    {
+      "name": "sail-normal",
+      "directions": 4
+    },
+    {
+      "name": "sail-right",
+      "directions": 4
+    },
+    {
+      "name": "side-left",
+      "directions": 4
+    },
+    {
+      "name": "side-normal",
+      "directions": 4
+    },
+    {
+      "name": "side-right",
+      "directions": 4
+    }
+  ]
+}

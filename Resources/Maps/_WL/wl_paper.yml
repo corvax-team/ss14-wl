@@ -14467,7 +14467,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,-16.5
     - type: GridFill
-      path: /Maps/_WL/Shuttles/wl_paper_sec.yml
+      path: /Maps/_WL/Shuttles/Paper/wl_paper_sec.yml
 - proto: AirlockExternalGlassShuttleLocked
   entities:
   - uid: 325
@@ -18659,16 +18659,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 81.5,11.5
-- proto: BlueTomatoSeeds_wl_paper
-  entities:
-  - uid: 978
-    components:
-    - type: Transform
-      parent: 977
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-      storage: 977
 - proto: BookAME
   entities:
   - uid: 979
@@ -47508,25 +47498,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 15.5,74.5
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          ents:
-          - 978
-          showEnts: False
-          occludes: True
-        paper_label: !type:ContainerSlot
-          ent: null
-          showEnts: False
-          occludes: True
-    - type: EntityStorage
-      air:
-        temperature: 293.14673
-        volume: 200
-        moles:
-          Oxygen: 1.8856695
-          Nitrogen: 7.0937095
-        immutable: False
 - proto: CrateInternals
   entities:
   - uid: 6327

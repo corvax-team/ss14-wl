@@ -80,6 +80,41 @@
       Kidneys: OrganAkulaKidneys
   - type: HumanoidProfile
     species: Akula
+#WL-Changes-start
+  - type: Inventory
+    femaleDisplacements: 
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Akula/displacement.rsi
+            state: jumpsuit-female
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Akula/displacement.rsi
+            state: outerclothing
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Akula/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Akula/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Akula/displacement.rsi
+            state: outerclothing
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Akula/displacement.rsi
+            state: shoes
+#WL-Changes-end
 
 - type: entity
   save: false
@@ -89,11 +124,9 @@
   - BaseSpeciesMobOrganic
   id: MobAkula
   components: # TODO: Give species uniq features
-    - type: Hunger
     - type: Icon
       sprite: _WL/Mobs/Species/Akula/parts.rsi
       state: full
-    - type: Thirst
     - type: Perishable
     - type: MeleeWeapon
       soundHit:
@@ -106,14 +139,18 @@
     - type: Vocal
       emoteSounds: MaleAkula
     - type: Wagging
+    #Wl-Changes-Start
     - type: Languages
-      speaking:
-        - Translate
-        - Sarengis
-      understood:
-        - Translate
-        - Sarengis
-      specieLanguage: Sarengis
+      list:
+      - language: Translate
+        languageLevel: 4
+      specieLanguage: Translate
+    - type: CuffedMeleeWeapon
+      weaponId: CuffedAkulaAttack
+    - type: Swimmer
+      swimSpeedModifier: 1.5
+      swimAccelerationModifier: 1.75
+    #WL-Changes-End
 
 - type: entity
   parent: OrganBase
@@ -240,3 +277,19 @@
 - type: entity
   parent: [ OrganBaseKidneys, OrganAkulaInternal, OrganAkulaMetabolizer ]
   id: OrganAkulaKidneys
+
+#WL-Changes-Start
+- type: entity
+  id: CuffedAkulaAttack
+  components:
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 7
+        Slash: 3
+    range: 0.5
+    attackRate: 0.5
+#WL-Changes-End

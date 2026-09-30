@@ -15,12 +15,13 @@
     checkCanInteract: false
     priority: -9
     itemIconStyle: BigAction
-    icon:
-      sprite: Interface/Actions/actions_ai.rsi
-      state: ai_core
+  - type: Sprite
+    sprite: Interface/Actions/actions_ai.rsi
+    layers:
+    - state: ai_core
   - type: InstantAction
     event: !type:ReturnMindIntoAiEvent
-    
+
 - type: entity
   parent: BaseAction
   id: ActionOpenRemoteDevicesMenu
@@ -32,9 +33,10 @@
     checkCanInteract: false
     priority: -9
     itemIconStyle: BigAction
-    icon:
-      sprite: Mobs/Silicon/chassis.rsi
-      state: robot
+  - type: Sprite
+    sprite: Mobs/Silicon/chassis.rsi
+    layers:
+    - state: robot
   - type: InstantAction
     event: !type:ToggleRemoteDevicesScreenEvent
 # WL-Changes-end

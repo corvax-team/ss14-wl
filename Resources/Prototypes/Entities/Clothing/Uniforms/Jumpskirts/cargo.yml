@@ -1,0 +1,32 @@
+- type: entity
+  parent: [BaseCorvaxContraband431JobsCargoTechnician, ClothingUniformSkirtBase] # Corvax-Contraband
+  id: ClothingUniformJumpskirtCargo
+  name: cargo tech jumpskirt
+  description: A sturdy jumpskirt, issued to members of the Cargo department.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/cargotech.rsi # WL-Changes: Resprite  Day
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/cargotech.rsi # WL-Changes: Resprite  Day
+
+- type: entity
+  parent: [BaseCorvaxContraband431DepartmentsCommandJobsQuartermaster, ClothingUniformSkirtBase, BaseCommandContraband] # Corvax-Contraband
+  id: ClothingUniformJumpskirtQM
+  name: quartermaster's jumpskirt
+  description: 'What can brown do for you?'
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/qm.rsi # WL-Changes: Resprite  Day
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/qm.rsi # WL-Changes: Resprite  Day
+
+- type: entity
+  parent: [BaseCorvaxContraband431DepartmentsCommandJobsQuartermaster, ClothingUniformSkirtBase, BaseCommandContraband] # Corvax-Contraband
+  id: ClothingUniformJumpskirtQMTurtleneck
+  name: quartermasters's turtleneck
+  description: A sharp turtleneck made for the hardy work environment of supply.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirts/Cargo/qmturtleskirt.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirts/Cargo/qmturtleskirt.rsi

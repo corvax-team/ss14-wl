@@ -95,8 +95,12 @@
   - BaseSpeciesMobOrganic
   id: MobMurine
   components:
-  - type: Hunger
-    baseDecayRate: 0.032
+  - type: Satiation
+    satiations:
+      Hunger:
+        prototype: MurineHunger
+      Thirst:
+        prototype: MurineThirst
   - type: Icon
     sprite: _WL/Mobs/Species/Murine/parts.rsi
     state: full
@@ -120,8 +124,6 @@
         Blunt: 5
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
-  - type: Thirst
-    baseDecayRate: 0.12
   # - type: Item # Пока убираю, чтобы разобратся что не так
   #   size: Ginormous
   # - type: Sprite
@@ -135,15 +137,16 @@
     speechVerb: SmallMob
     audioParams:
       volume: -5
+  #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-      - Urlum
-    understood:
-      - Translate
-      - Urlum
-    specieLanguage: Urlum
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
+  #WL-Changes: Languages end
   - type: AddHeightItem
+  - type: CuffedMeleeWeapon
+    weaponId: CuffedHumanAttack
 
 - type: entity
   parent: OrganBase

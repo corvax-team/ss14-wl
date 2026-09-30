@@ -1,4 +1,4 @@
-using Content.Server._WL.Radio.Events;
+using Content.Shared._WL.Radio.Events;
 using Content.Shared.Chat;
 using Content.Shared.PAI;
 using Content.Shared.Silicons.Borgs.Components;

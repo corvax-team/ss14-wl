@@ -12,7 +12,8 @@
       metabolites:
         Theobromine: 0.1
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
@@ -70,7 +71,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 1
 # WL android species start
       - !type:HealthChange
@@ -104,7 +106,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 4 # Coconut water is 94% water
 
 - type: reagent
@@ -118,7 +121,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
 
 - type: reagent
@@ -138,7 +142,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
@@ -196,7 +201,8 @@
       metabolites:
         Theobromine: 0.1
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
@@ -270,7 +276,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
       - !type:HealthChange
         damage:
           types:
@@ -314,7 +321,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
 # WL android species start
       - !type:HealthChange
@@ -354,10 +362,12 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 4
 #WL-changes-start
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -1
         conditions:
         - !type:MetabolizerTypeCondition
@@ -413,7 +423,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 4
 # WL android species start
       - !type:HealthChange
@@ -456,7 +467,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: -2
 # WL android species start
       - !type:HealthChange
@@ -488,7 +500,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
         # TODO heal mimes
 
@@ -510,7 +523,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 6
 # WL android species start
       - !type:HealthChange
@@ -569,7 +583,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 2
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
@@ -650,7 +665,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 4
 # WL android species start
       - !type:HealthChange
@@ -704,9 +720,11 @@
     Digestion:
       effects:
 #WL-changes-start
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 3 # Slightly worse for quenching thirst than just straight water
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: -1.5
         conditions:
         - !type:MetabolizerTypeCondition
@@ -735,7 +753,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: 1
 
 - type: reagent
@@ -749,7 +768,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: 4
 # WL android species start
       - !type:HealthChange
@@ -791,7 +811,8 @@
       metabolites:
         Theobromine: 0.1
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 4
 
 - type: reagent
@@ -805,7 +826,8 @@
   metabolisms:
     Digestion:
       effects:
-        - !type:SatiateThirst
+        - !type:Satiate
+          satiationType: Thirst
           factor: 1
 # WL android species start
         - !type:HealthChange
@@ -881,7 +903,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: 0.6
 
 - type: reagent

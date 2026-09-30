@@ -17,7 +17,7 @@ public sealed partial class EmergencyLevelSystem : EntitySystem
     [Dependency] private IPrototypeManager _proto = default!;
     [Dependency] private ChatSystem _chatSystem = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private StationSystem _stationSystem = default!;
+    [Dependency] private ServerStationSystem _stationSystem = default!;
 
     public override void Initialize()
     {

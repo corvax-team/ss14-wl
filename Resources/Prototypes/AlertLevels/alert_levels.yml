@@ -1,46 +1,28 @@
-# WL-Changes-start: Alert Level Rework
-- type: alertLevelsList
-  id: stationAlerts
-  defaultLevel: Green
-  levels:
-  - Green
-  - Blue
-  - Violet
-  - Yellow
-  - Red
-  - Gamma
-  - Delta
-  - Epsilon
-
 - type: alertLevel
   id: Green
+  name: alert-level-green
   announcement: alert-level-green-announcement
-  # sound: /Audio/Corvax/Misc/green_down.ogg # Corvax-Announcements
+  instructions: alert-level-green-instructions
   color: Green
   emergencyLightColor: LawnGreen
   shuttleTime: 600
 
 - type: alertLevel
   id: Blue
+  name: alert-level-blue
   announcement: alert-level-blue-announcement
-  sound: /Audio/Misc/bluealert.ogg # Corvax-Announcements #base:/Audio/Misc/bluealert.ogg
+  instructions: alert-level-blue-instructions
+  sound: /Audio/Misc/bluealert.ogg
   color: DodgerBlue
-  forceEnableEmergencyLights: true
   emergencyLightColor: DodgerBlue
-  shuttleTime: 600
-
-- type: alertLevel
-  id: Violet
-  announcement: alert-level-violet-announcement
-  sound: /Audio/Misc/notice1.ogg
-  color: Violet
-  emergencyLightColor: Violet
   forceEnableEmergencyLights: true
   shuttleTime: 600
 
 - type: alertLevel
   id: Yellow
+  name: alert-level-yellow
   announcement: alert-level-yellow-announcement
+  instructions: alert-level-yellow-instructions
   sound: /Audio/Misc/notice1.ogg
   color: Yellow
   emergencyLightColor: Goldenrod
@@ -49,43 +31,55 @@
 
 - type: alertLevel
   id: Red
+  name: alert-level-red
   announcement: alert-level-red-announcement
+  instructions: alert-level-red-instructions
   sound: /Audio/Misc/redalert.ogg
   color: Red
   emergencyLightColor: Red
   forceEnableEmergencyLights: true
-  shuttleTime: 600 #No reduction in time as we don't have swiping for red alert like in /tg/. Shuttle times are intended to create friction, so having a way to brainlessly bypass that would be dumb.
+  shuttleTime: 600
+  # No reduction in time as we don't have swiping for red alert like in /tg/.
+  # Shuttle times are intended to create friction,
+  # so having a way to brainlessly bypass that would be dumb.
 
 - type: alertLevel
-  id: Gamma
-  announcement: alert-level-gamma-announcement
-  selectable: false
-  sound:
-    path: /Audio/Corvax/Misc/siren.ogg # Corvax: Return of the old siren sound
-    params:
-      volume: -2
-  disableSelection: true
-  color: PaleVioletRed
-  emergencyLightColor: PaleVioletRed
+  id: Violet
+  name: alert-level-violet
+  announcement: alert-level-violet-announcement
+  instructions: alert-level-violet-instructions
+  sound: /Audio/Misc/notice1.ogg
+  color: Violet
+  emergencyLightColor: Violet
   forceEnableEmergencyLights: true
+  shuttleTime: 600
 
 - type: alertLevel
-  id: Delta
-  announcement: alert-level-delta-announcement
+  abstract: true
+  id: BaseDelta
+  name: alert-level-delta
+  instructions: alert-level-delta-instructions
   selectable: false
-  sound:
-    path: /Audio/Misc/delta.ogg
-    params:
-      volume: -6 # Corvax: Reduce sound volume
   disableSelection: true
-  color: DarkRed
-  emergencyLightColor: Orange
   forceEnableEmergencyLights: true
   shuttleTime: 1200
 
 - type: alertLevel
+  parent: BaseDelta
+  id: DeltaNuke
+  announcement: alert-level-delta-nuke-announcement
+  sound:
+    path: /Audio/Misc/delta.ogg
+    params:
+      volume: -3
+  color: DarkRed
+  emergencyLightColor: Orange
+
+- type: alertLevel
   id: Epsilon
+  name: alert-level-epsilon
   announcement: alert-level-epsilon-announcement
+  instructions: alert-level-epsilon-instructions
   selectable: false
   sound:
     path: /Audio/Misc/epsilon.ogg
@@ -96,4 +90,18 @@
   emergencyLightColor: DarkViolet
   forceEnableEmergencyLights: true
   shuttleTime: 1200
-# WL-Changes-end
+
+- type: alertLevel
+  id: Gamma
+  name: alert-level-gamma
+  announcement: alert-level-gamma-announcement
+  instructions: alert-level-gamma-instructions
+  selectable: false
+  sound:
+    path: /Audio/Corvax/Misc/siren.ogg # Corvax: Return of the old siren sound
+    params:
+      volume: -5 # Corvax
+  disableSelection: true
+  color: PaleVioletRed
+  emergencyLightColor: PaleVioletRed
+  forceEnableEmergencyLights: true

@@ -165,7 +165,7 @@ public sealed partial class AndroidSystem : EntitySystem
 
     private void OnGameRuleStart(ref GameRuleStartedEvent args)
     {
-        if (!TryComp<IonStormRuleComponent>(args.RuleEntity, out _))
+        if (!TryComp<IonStormRuleComponent>(args.Rule, out _))
             return;
 
         var query = EntityQueryEnumerator<AndroidComponent, MovementSpeedModifierComponent>();
@@ -185,7 +185,7 @@ public sealed partial class AndroidSystem : EntitySystem
 
     private void OnGameRuleEnd(ref GameRuleEndedEvent args)
     {
-        if (!TryComp<IonStormRuleComponent>(args.RuleEntity, out _))
+        if (!TryComp<IonStormRuleComponent>(args.Rule, out _))
             return;
 
         var query = EntityQueryEnumerator<AndroidComponent, MovementSpeedModifierComponent>();
@@ -270,11 +270,11 @@ public sealed partial class AndroidSystem : EntitySystem
             return;
         }
 
-        float chargeTransfer = Math.Clamp(comp.ChargeRate, 0f, battery.MaxCharge - _battery.GetCharge(batteryEnt.Value.Owner));
+        float chargeTransfer = Math.Clamp(comp.ChargeRate, 0f, battery.MaxCharge - _battery.GetCharge(batteryEnt.Value.Owner).Item1);
 
         if (chargeTransfer == 0f
             || !HasComp<BatteryComponent>(args.Target)
-            || _battery.GetCharge(args.Target.Value) < chargeTransfer * comp.TargetDecreaseFactor)
+            || _battery.GetCharge(args.Target.Value).Item1 < chargeTransfer * comp.TargetDecreaseFactor)
         {
             args.Handled = true;
             return;

@@ -1,8 +1,10 @@
 using Content.Shared.Access.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Body.Events;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
+using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.Gibbing;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -97,7 +99,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
         SubscribeLocalEvent<BorgChassisComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
         SubscribeLocalEvent<BorgChassisComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<BorgChassisComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<BorgChassisComponent, BeingGibbedEvent>(OnBeingGibbed);
+        SubscribeLocalEvent<BorgChassisComponent, GibbedBeforeDeletionEvent>(OnBeingGibbed);
         SubscribeLocalEvent<BorgChassisComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
         SubscribeLocalEvent<BorgChassisComponent, GetCharacterUnrevivableIcEvent>(OnGetUnrevivableIC);
         SubscribeLocalEvent<BorgChassisComponent, PowerCellSlotEmptyEvent>(OnPowerCellSlotEmpty);
@@ -324,17 +326,15 @@ public abstract partial class SharedBorgSystem : EntitySystem
             SetActive(chassis, false, user: args.Origin);
     }
 
-    private void OnBeingGibbed(Entity<BorgChassisComponent> chassis, ref BeingGibbedEvent args)
+    private void OnBeingGibbed(Entity<BorgChassisComponent> chassis, ref GibbedBeforeDeletionEvent args)
     {
         // Don't use the ItemSlotsSystem eject method since we don't want to play a sound and want we to eject the battery even if the slot is locked.
         if (TryComp<PowerCellSlotComponent>(chassis, out var slotComp) &&
             _container.TryGetContainer(chassis, slotComp.CellSlotId, out var slotContainer))
-        {
-            args.Giblets.UnionWith(_container.EmptyContainer(slotContainer));
-        }
+            _container.EmptyContainer(slotContainer);
 
-        args.Giblets.UnionWith(_container.EmptyContainer(chassis.Comp.BrainContainer));
-        args.Giblets.UnionWith(_container.EmptyContainer(chassis.Comp.ModuleContainer));
+        _container.EmptyContainer(chassis.Comp.BrainContainer);
+        _container.EmptyContainer(chassis.Comp.ModuleContainer);
     }
 
     private void OnGetDeadIC(Entity<BorgChassisComponent> chassis, ref GetCharactedDeadIcEvent args)

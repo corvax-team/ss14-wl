@@ -1,7 +1,7 @@
 trait-category-languages = Языки
 
-trait-language-unspecie = Убрать язык вида
-trait-language-unspecie-desc = Удаляет родной язык вида. Используйте с умом.
+trait-language-unspecie = Убрать "Транслит"
+trait-language-unspecie-desc = Удаляет "Транслит". Используйте с умом.
 
 trait-language-oldearth = Староземной
 trait-language-oldearth-desc = Человеческий язык. Крайне сложен в изучении для не людей.

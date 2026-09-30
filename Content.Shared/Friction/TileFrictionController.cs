@@ -26,6 +26,7 @@ namespace Content.Shared.Friction
         [Dependency] private SharedGravitySystem _gravity = default!;
         [Dependency] private SharedMoverController _mover = default!;
         [Dependency] private SharedMapSystem _map = default!;
+        [Dependency] private SharedSwimSystem _swim = default!; //WLSwiming
 
         [Dependency] private EntityQuery<CanMoveInAirComponent> _canMoveInAirQuery = default!;
         [Dependency] private EntityQuery<TileFrictionModifierComponent> _frictionQuery = default!;
@@ -104,6 +105,13 @@ namespace Content.Shared.Friction
 
                 friction = Math.Max(_minDamping, friction);
 
+                //WLSwiming - start
+                if (_swim.TryGetWaterResistance(xform) is { } waterResistance)
+                {
+                    friction = waterResistance;
+                }
+                //WLSwiming - end
+
                 PhysicsSystem.SetLinearDamping(uid, body, friction);
                 PhysicsSystem.SetAngularDamping(uid, body, friction);
 
@@ -156,7 +164,7 @@ namespace Content.Shared.Friction
                 return tileModifier;
 
             // Check for anchored ents that modify friction
-            var anc = _map.GetAnchoredEntitiesEnumerator(xform.GridUid.Value, grid, tile.GridIndices);
+            var anc = _map.GetAnchoredEntities(xform.GridUid.Value, grid, tile.GridIndices);
             while (anc.MoveNext(out var tileEnt))
             {
                 if (_frictionQuery.TryGetComponent(tileEnt, out var friction))

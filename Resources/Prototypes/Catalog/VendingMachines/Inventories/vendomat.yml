@@ -9,6 +9,12 @@
     FlashlightLantern: 2
     PowerCellSmallPrinted: 3
     MicroManipulatorStockPart: 12
+    # WL-Changes-start
+    RepairTape: 3
+    RepairSpray: 1
+    SkinPatch: 2
+    SteelMesh: 2
+    # WL-Changes-end
   contrabandInventory:
     ProximitySensor: 1
     LeftArmBorg: 1

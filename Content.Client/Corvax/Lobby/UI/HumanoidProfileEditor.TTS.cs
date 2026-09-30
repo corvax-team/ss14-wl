@@ -154,18 +154,19 @@ public sealed partial class HumanoidProfileEditor
 
     private void UpdateTTSVoicesControls()
     {
-        // WL-Changes-Start: Speech barks
-        if (Profile is null)
+        if (Profile is null || _ttsTab is null)
             return;
 
-        _ttsTab?.UpdateControls(Profile, Profile.Sex);
-        _ttsTab?.SetSelectedVoice(Profile.TTSVoice);
+        // WL-Changes-Start: Speech barks
         _barkTab?.SetSelectedBark(
             Profile.BarkVoice,
             Profile.BarkPitch,
             Profile.BarkMinDelay,
             Profile.BarkMaxDelay);
         // WL-Changes-End
+
+        _ttsTab?.UpdateControls(Profile, Profile.Voice);
+        _ttsTab?.SetSelectedVoice(Profile.TTSVoice);
     }
 
     private void SetVoice(string newVoice)

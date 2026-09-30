@@ -73,7 +73,7 @@
     - Power
   - type: WarpPoint
     follow: true
-    location: singularity
+    location: location-singularity
   - type: Sprite
     sprite: Structures/Power/Generation/Singularity/singularity_1.rsi
     layers:

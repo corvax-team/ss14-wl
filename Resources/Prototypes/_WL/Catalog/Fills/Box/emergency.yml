@@ -11,9 +11,7 @@
         - id: ClothingMaskBreath
         - id: EmergencyNitrogenTankFilled
         - id: BioroboticMedipen
-        - id: Flare
         - id: RepairTape
-        - id: DrinkInsulatorBottleFull
   - type: Sprite
     layers:
     - state: internals
@@ -35,9 +33,7 @@
         - id: ClothingMaskBreath
         - id: ExtendedEmergencyNitrogenTankFilled
         - id: BioroboticMedipen
-        - id: Flare
         - id: RepairTape
-        - id: DrinkInsulatorBottleFull
 
 - type: entity
   parent: BoxSurvivalBiorobotic
@@ -53,9 +49,7 @@
         - id: ClothingMaskGasSecurity
         - id: EmergencyOxygenTankFilled
         - id: BioroboticMedipen
-        - id: Flare
         - id: RepairTape
-        - id: DrinkInsulatorBottleFull
 
 - type: entity
   parent: BoxSurvivalBiorobotic
@@ -71,9 +65,7 @@
         - id: ClothingMaskBreathMedical
         - id: EmergencyNitrogenTankFilled
         - id: BioroboticMedipen
-        - id: Flare
         - id: RepairTape
-        - id: DrinkInsulatorBottleFull
 
 - type: entity
   parent: BoxSurvivalBiorobotic
@@ -105,9 +97,7 @@
         - id: ClothingMaskBreath
         - id: EmergencyNitrogenTankFilled
         - id: BioroboticMedipen
-        - id: Flare
         - id: RepairTape
-        - id: DrinkInsulatorBottleFull
 
 - type: entity
   parent: BoxSurvivalBiorobotic
@@ -123,8 +113,6 @@
         - id: ClothingMaskGasSyndicate
         - id: DoubleEmergencyNitrogenTankFilled
         - id: BioroboticMedipen
-        - id: Flare
-        - id: DrinkInsulatorBottleFull
   - type: Sprite
     layers:
     - state: internals
@@ -142,7 +130,6 @@
         children:
         - id: DoubleEmergencyNitrogenTankFilled
         - id: BioroboticMedipen
-        - id: Flare
   - type: Sprite
     layers:
     - state: internals
