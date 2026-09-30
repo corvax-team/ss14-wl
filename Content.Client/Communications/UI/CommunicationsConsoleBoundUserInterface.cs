@@ -1,3 +1,4 @@
+using Content.Shared._WL.Emergency;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.AlertLevel;
@@ -20,6 +21,7 @@ public sealed partial class CommunicationsConsoleBoundUserInterface(EntityUid ow
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private StationSystem _station = default!;
     [Dependency] private AlertLevelSystem _alertLevel = default!;
+    [Dependency] private EmergencyLevelSystem _emergencyLevel = default!; // WL-Changes: Emergency
 
     [ViewVariables]
     private CommunicationsConsoleMenu? _menu;
@@ -35,6 +37,7 @@ public sealed partial class CommunicationsConsoleBoundUserInterface(EntityUid ow
         _menu.OnRadioAnnounce += RadioAnnounceButtonPressed;
         _menu.OnScreenBroadcast += ScreenBroadcastButtonPressed;
         _menu.OnAlertLevelChanged += AlertLevelSelected;
+        _menu.OnEmergencyLevelChanged += EmergencyLevelSelected; // WL-Changes: Emergency
         _menu.OnShuttleCalled += CallShuttle;
         _menu.OnShuttleRecalled += RecallShuttle;
 
@@ -53,6 +56,13 @@ public sealed partial class CommunicationsConsoleBoundUserInterface(EntityUid ow
         // _menu.AlertLevelButton.Disabled = true;
         SendMessage(new CommunicationsConsoleSelectAlertLevelMessage(level));
     }
+
+    // WL-Changes-start: Emergency
+    public void EmergencyLevelSelected(ProtoId<EmergencyLevelPrototype> level)
+    {
+        SendMessage(new CommunicationsConsoleSelectEmergencyLevelMessage(level));
+    }
+    // WL-Changes-end
 
     public void RadioAnnounceButtonPressed(string message)
     {
@@ -89,13 +99,24 @@ public sealed partial class CommunicationsConsoleBoundUserInterface(EntityUid ow
         if (!EntMan.TryGetComponent<AlertLevelComponent>(stationUid, out var alertComp))
             return;
 
+        // WL-Changes-start: Emergency
+        if (!EntMan.TryGetComponent<EmergencyLevelComponent>(stationUid, out var emergencyComp))
+            return;
+        // WL-Changes-end
+
         if (_menu != null)
         {
             var currentAlertLevel = alertComp.CurrentAlertLevel;
             var selectableAlertLevels = _alertLevel.GetSelectableAlertLevels((stationUid.Value, alertComp));
             var canChangeAlertLevel = _alertLevel.CanChangeAlertLevel((stationUid.Value, alertComp));
 
-            _menu.UpdateState(commsState, currentAlertLevel, selectableAlertLevels, canChangeAlertLevel);
+            // WL-Changes-start: Emergency
+            var currentEmergencyLevel = emergencyComp.CurrentEmergencyLevel;
+            var selectableEmergencyLevels = _emergencyLevel.GetSelectableEmergencyLevels((stationUid.Value, emergencyComp));
+            var canChangeEmergencyLevel = _emergencyLevel.CanChangeEmergencyLevel((stationUid.Value, emergencyComp));
+
+            _menu.UpdateState(commsState, currentAlertLevel, selectableAlertLevels, canChangeAlertLevel, currentEmergencyLevel, selectableEmergencyLevels, canChangeEmergencyLevel);
+            // WL-Changes-end
         }
     }
 }

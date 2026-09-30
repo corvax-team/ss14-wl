@@ -59,16 +59,16 @@ public sealed partial class AudioTab : Control
             SpeechMode.Disabled,
             Loc.GetString("ui-options-speech-mode-disabled")));
 
-        if (!ttsEnabled && _cfg.GetCVar(WLCVars.SpeechMode) == SpeechMode.Tts)
-            _cfg.SetCVar(WLCVars.SpeechMode, SpeechMode.Barks);
+        if (!ttsEnabled && _cfg.GetCVar(WLCCVars.SpeechMode) == SpeechMode.Tts)
+            _cfg.SetCVar(WLCCVars.SpeechMode, SpeechMode.Barks);
 
         Control.AddOptionDropDown(
-            WLCVars.SpeechMode,
+            WLCCVars.SpeechMode,
             DropDownSpeechMode,
             speechModes);
 
         Control.AddOptionPercentSlider(
-            WLCVars.BarksVolume,
+            WLCCVars.BarksVolume,
             SliderVolumeBarks,
             scale: ContentAudioSystem.BarksMultiplier);
         // WL-Changes-End

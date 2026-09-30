@@ -20,6 +20,7 @@
     - BaseStationCentcomm
     - BaseStationEvacuation
     - BaseStationAlertLevels
+    - BaseStationEmergencyLevels # WL-Changes: Emergency
     - BaseStationMagnet
     - BaseStationExpeditions
     - BaseStationSalvageJobs
@@ -36,6 +37,7 @@
   parent:
     - BaseStation
     - BaseStationAlertLevels
+    - BaseStationEmergencyLevels # WL-Changes: Emergency
     - BaseStationNanotrasen
   categories: [ HideSpawnMenu ]
   components:

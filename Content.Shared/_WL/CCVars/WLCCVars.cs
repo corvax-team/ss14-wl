@@ -6,7 +6,7 @@ namespace Content.Shared._WL.CCVars;
 ///     WL modules console variables
 /// </summary>
 [CVarDefs]
-public sealed partial class WLCVars
+public sealed partial class WLCCVars
 {
     // Реклама, которая работает!
 }

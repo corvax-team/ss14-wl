@@ -102,7 +102,7 @@ public static class JobRequirements
 
     public static bool IsRoleRestrictionChecksEnabled(IConfigurationManager cfgMan)
     {
-        return cfgMan.GetCVar(WLCVars.RoleRestrictionChecksEnabled);
+        return cfgMan.GetCVar(WLCCVars.RoleRestrictionChecksEnabled);
     }
     // WL-Changes-end
 }

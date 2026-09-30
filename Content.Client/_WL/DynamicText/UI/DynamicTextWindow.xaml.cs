@@ -23,7 +23,7 @@ public sealed partial class DynamicTextWindow : FancyWindow
         IoCManager.InjectDependencies(this);
 
         var loc = IoCManager.Resolve<ILocalizationManager>();
-        _maxLength = _configuration.GetCVar(WLCVars.MaxDynamicTextLength);
+        _maxLength = _configuration.GetCVar(WLCCVars.MaxDynamicTextLength);
 
         CDynamicTextInput.Placeholder = new Rope.Leaf(loc.GetString("dynamic-text-placeholder"));
         CDynamicTextInput.OnTextChanged += args =>

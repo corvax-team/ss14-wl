@@ -1,0 +1,22 @@
+<BoxContainer xmlns="https://spacestation14.io"
+    Orientation="Vertical">
+    <!-- Info about the current emergency level -->
+    <BoxContainer HorizontalAlignment="Center">
+        <Label StyleClasses="StatusFieldTitle" Margin="0 0 9 0"
+            Text="{Loc 'comms-console-emergency-current-level-header'}" />
+        <Label Name="CurrentEmergencyLevelLabel" Margin="9 0 0 0"/>
+    </BoxContainer>
+
+    <Label Name="CurrentEmergencyLevelFlavorLabel" Align="Center" />
+
+    <!-- Controls for changing the emergency level -->
+    <BoxContainer Margin="9 12 9 6">
+        <OptionButton Name="EmergencyLevelSelector" StyleClasses="OpenRight"
+            ToolTip="{Loc 'comms-console-menu-emergency-level-button-tooltip'}"
+            HorizontalExpand="True" SizeFlagsStretchRatio="4" />
+        <Button Name="ConfirmEmergencyLevelButton" StyleClasses="OpenLeft"
+            HorizontalExpand="True" SizeFlagsStretchRatio="1"
+            Text="{Loc 'comms-console-confirm-alert-level-button'}"
+            Disabled="True" />
+    </BoxContainer>
+</BoxContainer>

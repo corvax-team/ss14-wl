@@ -26,7 +26,7 @@ public abstract partial class SharedSkillsSystem
     /// </summary>
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent args)
     {
-        if (args.Profile is not HumanoidCharacterProfile profile || !_cfg.GetCVar(WLCVars.SkillsEnabled))
+        if (args.Profile is not HumanoidCharacterProfile profile || !_cfg.GetCVar(WLCCVars.SkillsEnabled))
             return;
 
         InitializeSkills(args.Mob, args.JobId, profile);
@@ -37,7 +37,7 @@ public abstract partial class SharedSkillsSystem
     /// </summary>
     private void InitializeSkills(EntityUid mob, string? jobId, HumanoidCharacterProfile profile)
     {
-        if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
+        if (!_cfg.GetCVar(WLCCVars.SkillsEnabled))
             return;
 
         var skillsComp = EnsureComp<SkillsComponent>(mob);
@@ -478,7 +478,7 @@ public abstract partial class SharedSkillsSystem
 
     private void OnMapInit(EntityUid uid, InitialSkillsComponent component, MapInitEvent args)
     {
-        if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
+        if (!_cfg.GetCVar(WLCCVars.SkillsEnabled))
             return;
 
         var skillsComp = EnsureComp<SkillsComponent>(uid);

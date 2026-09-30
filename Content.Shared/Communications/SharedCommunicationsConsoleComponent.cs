@@ -1,3 +1,4 @@
+using Content.Shared._WL.Emergency;
 using Content.Shared.AlertLevel;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -39,14 +40,9 @@ namespace Content.Shared.Communications
 
     // WL-Changes-start
     [Serializable, NetSerializable]
-    public sealed class CommunicationsConsoleSelectEmergencyLevelMessage : BoundUserInterfaceMessage
+    public sealed class CommunicationsConsoleSelectEmergencyLevelMessage(ProtoId<EmergencyLevelPrototype> level) : BoundUserInterfaceMessage
     {
-        public readonly string Emergency;
-
-        public CommunicationsConsoleSelectEmergencyLevelMessage(string emergency)
-        {
-            Emergency = emergency;
-        }
+        public ProtoId<EmergencyLevelPrototype> Level = level;
     }
     // WL-Changes-end
 

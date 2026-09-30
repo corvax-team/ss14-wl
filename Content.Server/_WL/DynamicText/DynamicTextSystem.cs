@@ -32,13 +32,13 @@ public sealed partial class DynamicTextSystem : EntitySystem
         SubscribeNetworkEvent<SetDynamicTextEvent>(SetDynamicText);
         SubscribeNetworkEvent<RequestDynamicTextEvent>(RequestDynamicText);
         SubscribeLocalEvent<DynamicTextComponent, ExaminedEvent>(OnExamine);
-        _cfg.OnValueChanged(WLCVars.MaxDynamicTextLength, (val) => _maxLength = val, true);
+        _cfg.OnValueChanged(WLCCVars.MaxDynamicTextLength, (val) => _maxLength = val, true);
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        _cfg.UnsubValueChanged(WLCVars.MaxDynamicTextLength, (val) => _maxLength = val);
+        _cfg.UnsubValueChanged(WLCCVars.MaxDynamicTextLength, (val) => _maxLength = val);
     }
 
     private void SetDynamicText(SetDynamicTextEvent ev, EntitySessionEventArgs args)
