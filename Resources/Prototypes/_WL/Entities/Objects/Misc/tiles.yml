@@ -1,0 +1,189 @@
+# Floor
+
+- type: entity
+  name: dark steel diagonal mini tile
+  parent: FloorTileItemDark
+  id: FloorTileItemDarkDiagonalMini
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: dark-diagonal-mini
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorDarkDiagonalMini
+  - type: Stack
+    stackType: FloorTileDarkDiagonalMini
+
+- type: entity
+  name: steel diagonal mini tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemSteelDiagonalMini
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: steel-diagonal-mini
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorSteelDiagonalMini
+  - type: Stack
+    stackType: FloorTileSteelDiagonalMini
+
+- type: entity
+  name: white steel diagonal mini tile
+  parent: FloorTileItemWhite
+  id: FloorTileItemWhiteDiagonalMini
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: white-diagonal-mini
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorWhiteDiagonalMini
+  - type: Stack
+    stackType: FloorTileWhiteDiagonalMini
+
+# Concrete
+
+- type: entity
+  parent: FloorTileItemBase
+  id: FloorTileItemGrayConcrete
+  name: gray concrete tile
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: grayconcrete
+  - type: Item
+    heldPrefix: generic
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorGrayConcrete
+  - type: Stack
+    stackType: FloorTileGrayConcrete
+
+- type: entity
+  name: gray concrete mono tile
+  parent: FloorTileItemGrayConcrete
+  id: FloorTileItemGrayConcreteMono
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: grayconcrete-mono
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGrayConcreteMono
+  - type: Stack
+    stackType: FloorTileGrayConcreteMono
+
+- type: entity
+  name: gray concrete smooth
+  parent: FloorTileItemGrayConcrete
+  id: FloorTileItemGrayConcreteSmooth
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: grayconcrete-smooth
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGrayConcreteSmooth
+  - type: Stack
+    stackType: FloorTileGrayConcreteSmooth
+
+- type: entity
+  parent: FloorTileItemBase
+  id: FloorTileItemOldConcrete
+  name: old concrete tile
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: oldconcrete
+  - type: Item
+    heldPrefix: generic
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorOldConcrete
+  - type: Stack
+    stackType: FloorTileOldConcrete
+
+- type: entity
+  name: old concrete mono tile
+  parent: FloorTileItemOldConcrete
+  id: FloorTileItemOldConcreteMono
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: oldconcrete-mono
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorOldConcreteMono
+  - type: Stack
+    stackType: FloorTileOldConcreteMono
+
+- type: entity
+  name: old concrete smooth
+  parent: FloorTileItemOldConcrete
+  id: FloorTileItemOldConcreteSmooth
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: oldconcrete-smooth
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorOldConcreteSmooth
+  - type: Stack
+    stackType: FloorTileOldConcreteSmooth
+
+- type: entity
+  parent: FloorTileItemBase
+  id: FloorTileItemIronsandConcrete
+  name: iron sand concrete tile
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: ironsandconcrete
+  - type: Item
+    heldPrefix: ironsandconcrete
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorIronsandConcrete
+  - type: Stack
+    stackType: FloorTileIronsandConcrete
+
+- type: entity
+  parent: FloorTileItemIronsandConcrete
+  id: FloorTileItemIronsandConcreteMono
+  name: iron sand concrete mono tile
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: ironsandconcrete-mono
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorIronsandConcreteMono
+  - type: Stack
+    stackType: FloorTileIronsandConcreteMono
+
+- type: entity
+  parent: FloorTileItemIronsandConcrete
+  id: FloorTileItemIronsandConcreteSmooth
+  name: iron sand concrete smooth
+  components:
+  - type: Sprite
+    path: _WL/Objects/Tiles/tile.rsi
+    state: ironsandconcrete-smooth
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorIronsandConcreteSmooth
+  - type: Stack
+    stackType: FloorTileIronsandConcreteSmooth

@@ -1,0 +1,101 @@
+- type: tile
+  id: FloorOldConcrete
+  parent: BaseStationTile
+  name: tiles-old-concrete-tile
+  sprite: /Textures/_WL/Tiles/Concrete/old-concrete.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemOldConcrete
+
+- type: tile
+  id: FloorOldConcreteMono
+  parent: BaseStationTile
+  name: tiles-old-concrete-slab
+  sprite: /Textures/_WL/Tiles/Concrete/old-concrete-mono.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemOldConcreteMono
+
+- type: tile
+  id: FloorOldConcreteSmooth
+  parent: BaseStationTile
+  name: tiles-old-concrete-smooth
+  sprite: /Textures/_WL/Tiles/Concrete/old-concrete-smooth.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemOldConcreteSmooth
+
+- type: tile
+  id: FloorGrayConcrete
+  parent: BaseStationTile
+  name: tiles-gray-concrete-tile
+  sprite: /Textures/_WL/Tiles/Concrete/gray-concrete.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemGrayConcrete
+
+- type: tile
+  id: FloorGrayConcreteMono
+  parent: BaseStationTile
+  name: tiles-gray-concrete-slab
+  sprite: /Textures/_WL/Tiles/Concrete/gray-concrete-mono.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemGrayConcreteMono
+
+- type: tile
+  id: FloorGrayConcreteSmooth
+  parent: BaseStationTile
+  name: tiles-gray-concrete-smooth
+  sprite: /Textures/_WL/Tiles/Concrete/gray-concrete-smooth.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemGrayConcreteSmooth
+
+- type: tile
+  id: FloorIronsandConcrete
+  parent: BaseStationTile
+  name: tiles-ironsand-concrete-tile
+  sprite: /Textures/_WL/Tiles/Concrete/ironsand-concrete.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemIronsandConcrete
+
+- type: tile
+  id: FloorIronsandConcreteMono
+  parent: BaseStationTile
+  name: tiles-ironsand-concrete-slab
+  sprite: /Textures/_WL/Tiles/Concrete/ironsand-concrete-mono.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemIronsandConcreteMono
+
+- type: tile
+  id: FloorIronsandConcreteSmooth
+  parent: BaseStationTile
+  name: tiles-ironsand-concrete-smooth
+  sprite: /Textures/_WL/Tiles/Concrete/ironsand-concrete-smooth.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemIronsandConcreteSmooth
+
+- type: tile
+  id: FloorAsphalt
+  name: tiles-asphalt
+  sprite: /Textures/_WL/Tiles/Concrete/asphalt.png
+  variants: 10
+  baseTurf: FloorDirt
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepTile
+  heatCapacity: 10000
+  weather: true
