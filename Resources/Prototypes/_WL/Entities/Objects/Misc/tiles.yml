@@ -6,7 +6,7 @@
   id: FloorTileItemDarkDiagonalMini
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: dark-diagonal-mini
   - type: FloorTile
     outputs:
@@ -21,7 +21,7 @@
   id: FloorTileItemSteelDiagonalMini
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: steel-diagonal-mini
   - type: FloorTile
     outputs:
@@ -36,7 +36,7 @@
   id: FloorTileItemWhiteDiagonalMini
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: white-diagonal-mini
   - type: FloorTile
     outputs:
@@ -53,7 +53,7 @@
   name: gray concrete tile
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: grayconcrete
   - type: Item
     heldPrefix: generic
@@ -70,7 +70,7 @@
   id: FloorTileItemGrayConcreteMono
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: grayconcrete-mono
   - type: FloorTile
     outputs:
@@ -85,7 +85,7 @@
   id: FloorTileItemGrayConcreteSmooth
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: grayconcrete-smooth
   - type: FloorTile
     outputs:
@@ -100,7 +100,7 @@
   name: old concrete tile
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: oldconcrete
   - type: Item
     heldPrefix: generic
@@ -117,7 +117,7 @@
   id: FloorTileItemOldConcreteMono
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: oldconcrete-mono
   - type: FloorTile
     outputs:
@@ -132,7 +132,7 @@
   id: FloorTileItemOldConcreteSmooth
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: oldconcrete-smooth
   - type: FloorTile
     outputs:
@@ -147,7 +147,7 @@
   name: iron sand concrete tile
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: ironsandconcrete
   - type: Item
     heldPrefix: ironsandconcrete
@@ -164,7 +164,7 @@
   name: iron sand concrete mono tile
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: ironsandconcrete-mono
   - type: FloorTile
     outputs:
@@ -179,7 +179,7 @@
   name: iron sand concrete smooth
   components:
   - type: Sprite
-    path: _WL/Objects/Tiles/tile.rsi
+    sprite: _WL/Objects/Tiles/tile.rsi
     state: ironsandconcrete-smooth
   - type: FloorTile
     outputs:
