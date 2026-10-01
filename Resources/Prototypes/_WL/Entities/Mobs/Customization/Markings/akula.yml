@@ -1,20 +1,4 @@
 - type: marking
-  id: AkulaTailShark
-  bodyPart: Tail
-  groupWhitelist: [Akula]
-  sprites:
-    - sprite: _WL/Mobs/Customization/akula_parts.rsi
-      state: tail_shark
-
-- type: marking
-  id: AkulaTailFish
-  bodyPart: Tail
-  groupWhitelist: [Akula]
-  sprites:
-    - sprite: _WL/Mobs/Customization/akula_parts.rsi
-      state: tail_fish
-
-- type: marking
   id: AkulaTailAkula
   bodyPart: Tail
   groupWhitelist: [Akula]
@@ -39,6 +23,50 @@
       state: tail_datashark_third
 
 - type: marking
+  id: AkulaTailFish
+  bodyPart: Tail
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: tail_fish_primary
+
+- type: marking
+  id: AkulaTailShark
+  bodyPart: Tail
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: tail_shark_primary
+
+- type: marking
+  id: AkulaTailSharknofin
+  bodyPart: Tail
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: tail_sharknofin_primary
+
+- type: marking
+  id: AkulaTailSegmented
+  bodyPart: Tail
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: tail_segmentedtail_primary
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: tail_segmentedtail_secondary
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: tail_segmentedtail_tertiary
+
+- type: marking
+  id: AkulaTailOrca
+  bodyPart: Tail
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: tail_orca_primary
+
+- type: marking
   id: AkulaHeadOverlay
   bodyPart: Head
   groupWhitelist: [Akula]
@@ -53,6 +81,76 @@
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_highlight_head
+
+- type: marking
+  id: AkulaHeadFFreckles
+  bodyPart: Head
+  groupWhitelist: [Akula]
+  sexRestriction: Female
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: head_f_freckles
+
+- type: marking
+  id: AkulaHeadMFreckles
+  bodyPart: Head
+  groupWhitelist: [Akula]
+  sexRestriction: Male
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: head_m_freckles
+
+- type: marking
+  id: AkulaHeadFSpot
+  bodyPart: Head
+  groupWhitelist: [Akula]
+  sexRestriction: Female
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: head_f_spot
+
+- type: marking
+  id: AkulaHeadMSpot
+  bodyPart: Head
+  groupWhitelist: [Akula]
+  sexRestriction: Male
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: head_m_spot
+
+- type: marking
+  id: AkulaHeadFTiger
+  bodyPart: Head
+  groupWhitelist: [Akula]
+  sexRestriction: Female
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: head_f_tiger
+
+- type: marking
+  id: AkulaHeadMTiger
+  bodyPart: Head
+  groupWhitelist: [Akula]
+  sexRestriction: Male
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: head_m_tiger
+
+- type: marking
+  id: AkulaRArmFreckles
+  bodyPart: RArm
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: r_arm_freckles
+
+- type: marking
+  id: AkulaLArmFreckles
+  bodyPart: LArm
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: l_arm_freckles
 
 - type: marking
   id: AkulaRArmOverlay
@@ -87,6 +185,38 @@
       state: akula_highlight_l_arm
 
 - type: marking
+  id: AkulaRArmPolka
+  bodyPart: RArm
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: r_arm_polka
+
+- type: marking
+  id: AkulaLArmPolka
+  bodyPart: LArm
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: l_arm_polka
+
+- type: marking
+  id: AkulaRArmTiger
+  bodyPart: RArm
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: r_arm_tiger
+
+- type: marking
+  id: AkulaLArmTiger
+  bodyPart: LArm
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: l_arm_tiger
+
+- type: marking
   id: AkulaRHandOverlay
   bodyPart: RHand
   groupWhitelist: [Akula]
@@ -101,6 +231,22 @@
   sprites:
     - sprite: _WL/Mobs/Customization/akula_parts.rsi
       state: akula_l_hand
+
+- type: marking
+  id: AkulaRHandTiger
+  bodyPart: RHand
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: r_hand_tiger
+
+- type: marking
+  id: AkulaLHandTiger
+  bodyPart: LHand
+  groupWhitelist: [Akula]
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: l_hand_tiger
 
 - type: marking
   id: AkulaRLegOverlay
@@ -135,67 +281,105 @@
       state: akula_highlight_l_leg
 
 - type: marking
-  id: AkulaTailSegmented
-  bodyPart: Tail
+  id: AkulaRLegTiger
+  bodyPart: RLeg
   groupWhitelist: [Akula]
   sprites:
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_segmentedtail_primary
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_segmentedtail_secondary
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_segmentedtail_tertiary
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: r_leg_tiger
 
 - type: marking
-  id: AkulaTailSharknofin
-  bodyPart: Tail
+  id: AkulaLLegTiger
+  bodyPart: LLeg
   groupWhitelist: [Akula]
   sprites:
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_sharknofin_primary
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: l_leg_tiger
 
 - type: marking
-  id: AkulaTailOrca
-  bodyPart: Tail
+  id: AkulaRFootTiger
+  bodyPart: RFoot
   groupWhitelist: [Akula]
   sprites:
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_tail_orca_primary
-
-#Animated
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: r_foot_tiger
 
 - type: marking
-  id: AkulaTailFishAnimated
-  bodyPart: Tail
-  groupWhitelist: []
+  id: AkulaLFootTiger
+  bodyPart: LFoot
+  groupWhitelist: [Akula]
   sprites:
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_fish_primary
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: l_foot_tiger
 
 - type: marking
-  id: AkulaTailSegmentedAnimated
-  bodyPart: Tail
-  groupWhitelist: []
+  id: AkulaTorsoFFreckles
+  bodyPart: Chest 
+  groupWhitelist: [Akula]
+  sexRestriction: Female
   sprites:
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_segmentedtail_primary
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_segmentedtail_secondary
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_segmentedtail_tertiary
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: torso_f_freckles
 
 - type: marking
-  id: AkulaTailSharkAnimated
-  bodyPart: Tail
-  groupWhitelist: []
+  id: AkulaTorsoMFreckles
+  bodyPart: Chest 
+  groupWhitelist: [Akula]
+  sexRestriction: Male
   sprites:
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_shark_primary
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: torso_m_freckles
 
 - type: marking
-  id: AkulaTailSharknofinAnimated
-  bodyPart: Tail
-  groupWhitelist: []
+  id: AkulaTorsoFPolka
+  bodyPart: Chest 
+  groupWhitelist: [Akula]
+  sexRestriction: Female
   sprites:
-    - sprite: _WL/Mobs/Customization/all_tails.rsi
-      state: m_waggingtail_sharknofin_primary
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: torso_f_polka
+
+- type: marking
+  id: AkulaTorsoMPolka
+  bodyPart: Chest 
+  groupWhitelist: [Akula]
+  sexRestriction: Male
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: torso_m_polka
+
+- type: marking
+  id: AkulaTorsoFSpot
+  bodyPart: Chest 
+  groupWhitelist: [Akula]
+  sexRestriction: Female
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: torso_f_spot
+
+- type: marking
+  id: AkulaTorsoMSpot
+  bodyPart: Chest 
+  groupWhitelist: [Akula]
+  sexRestriction: Male
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: torso_m_spot_m
+
+- type: marking
+  id: AkulaTorsoFTiger
+  bodyPart: Chest 
+  groupWhitelist: [Akula]
+  sexRestriction: Female
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: torso_f_tiger
+
+- type: marking
+  id: AkulaTorsoMTiger
+  bodyPart: Chest 
+  groupWhitelist: [Akula]
+  sexRestriction: Male
+  sprites:
+    - sprite: _WL/Mobs/Customization/akula_parts.rsi
+      state: torso_m_tiger

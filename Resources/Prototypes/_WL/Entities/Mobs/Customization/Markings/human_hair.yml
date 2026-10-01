@@ -177,7 +177,11 @@
   bodyPart: Hair
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
-      state: twilight
+      state: twilight1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twilight2
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twilight3
 
 - type: marking
   id: HumanHairFluffycurls
@@ -351,3 +355,146 @@
       state: layeredstraight1
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: layeredstraight2
+
+- type: marking
+  id: HumanHairKnight
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: knight
+
+- type: marking
+  id: HumanHairTwintailGirly
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twintailgirly1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twintailgirly2
+
+- type: marking
+  id: HumanHairTwintailParty
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twintailparty1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twintailparty2
+
+- type: marking
+  id: HumanHairCuteMess
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: cutemess1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: cutemess2
+
+- type: marking
+  id: HumanHairPigTailAlt
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: pigtailalt
+
+- type: marking
+  id: HumanHairLicked
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: licked
+
+- type: marking
+  id: HumanHairOvergrown
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: overgrown
+
+- type: marking
+  id: HumanHairTwiBun
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twibun1
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twibun2
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: twibun3
+
+- type: marking
+  id: HumanHairBusinessOvergrown
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: businessovergrown
+
+- type: marking
+  id: HumanHairEmoMessy
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: emomessy
+
+- type: marking
+  id: HumanHairHolly
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: holly
+
+- type: marking
+  id: HumanHairHollyShaved
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: hollyshaved
+
+- type: marking
+  id: HumanHairLongMessy
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: longmessy
+
+- type: marking
+  id: HumanHairMarine
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: marine
+
+- type: marking
+  id: HumanHairPonyTail9
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: ponytail9
+
+- type: marking
+  id: HumanHairPulatoLong
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: pulatolong
+
+- type: marking
+  id: HumanHairPulatoLong2
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: pulatolong2
+
+- type: marking
+  id: HumanHairRyan
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: ryan
+
+- type: marking
+  id: HumanHairShavedknot
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: shavedknot

@@ -34,6 +34,7 @@
       tags:
       - Paper
       - Pen
+      - SecPin
       components:
       - Passport
       - IgnitionSource # For lighters
@@ -127,6 +128,7 @@
       - Paper
       - HighRiskItem
       - Pen
+      - SecPin
       components:
       - Passport
       - IdCard # Hiding cards from others, kinda cool

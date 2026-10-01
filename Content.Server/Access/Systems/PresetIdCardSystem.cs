@@ -15,6 +15,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Station.Components;
 
 namespace Content.Server.Access.Systems;
 
@@ -22,13 +23,13 @@ public sealed partial class PresetIdCardSystem : EntitySystem
 {
     [Dependency] private IdCardSystem _cardSystem = default!;
     [Dependency] private SharedAccessSystem _accessSystem = default!;
-    [Dependency] private StationSystem _stationSystem = default!;
     // WL-Changes: start
     [Dependency] private ContainerSystem _container = default!;
     [Dependency] private RoleSystem _role = default!;
     // WL-Changes: end
 
     private static string IDItemSlot = "id"; //WL-Changes
+    [Dependency] private ServerStationSystem _stationSystem = default!;
 
     public override void Initialize()
     {

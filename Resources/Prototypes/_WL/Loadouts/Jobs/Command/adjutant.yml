@@ -9,6 +9,26 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtAdjutant
 
+- type: loadout
+  id: AdjutantTurtleJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTurtleneckAdjutant
+
+- type: loadout
+  id: AdjutantTurtleJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTurtleneckAdjutant
+
+- type: loadout
+  id: AdjutantParadeJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParadeAdjutant
+
+- type: loadout
+  id: AdjutantParadeJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtParadeAdjutant
+
 # Head
 - type: loadout
   id: AdjutantHead
@@ -41,3 +61,18 @@
   id: AdjutantWintercoat
   equipment:
     outerClothing: ClothingOuterWinterAdjutant
+
+- type: loadout
+  id: AdjutantLongCoat
+  equipment:
+    outerClothing: ClothingOuterCoatLongAdjutant
+
+- type: loadout
+  id: AdjutantBomber
+  equipment:
+    outerClothing: ClothingOuterCoatBomberAdjutant
+
+- type: loadout
+  id: AdjutantParadeCoat
+  equipment:
+    outerClothing: ClothingOuterCoatParadeAdjutant

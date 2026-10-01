@@ -212,3 +212,58 @@
     sprite: _WL/Clothing/Uniforms/Jumpskirt/menless.rsi
   - type: Clothing
     sprite: _WL/Clothing/Uniforms/Jumpskirt/menless.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtComfyEngineerSkirt
+  name: comfy engineer skirt
+  description: With this, engineering in skirt becomes more comfy and stylish.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/engiskirt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/engiskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtComfyAtmosSkirt
+  name: comfy atmos tech skirt
+  description: With this, engineering in skirt becomes more comfy and stylish.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/atmoskirt.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/atmoskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtShroomDress
+  name: mushroom dress
+  description: A fairy could probably wear it.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/shroomdress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/shroomdress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtForestDress
+  name: forest dress
+  description: Messy but cute.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/forestdress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/forestdress.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtFlowyDress
+  name: flowy dress
+  description: It's quite simple and comfortable.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/flowydress.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Uniforms/Jumpskirt/flowydress.rsi

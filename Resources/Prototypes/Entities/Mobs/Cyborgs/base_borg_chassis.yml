@@ -177,34 +177,6 @@
   - type: Damageable
   - type: Injurable
     damageContainer: Silicon
-  - type: Destructible
-    generateOverkillThreshold: false
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Machines/warning_buzzer.ogg
-          params:
-            volume: 5
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
-      - !type:GibBehavior
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          ScrapGlass:
-            min: 1
-            max: 1
-          SheetSteel:
-            min: 10
-            max: 20
   - type: HandheldLight
     toggleOnInteract: false
     wattage: 0.2
@@ -233,7 +205,7 @@
       isLooped: true
   - type: PointLight
     enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
+    lightMask: ConeSingle
     autoRot: true
     radius: 4
     netsync: false
@@ -269,26 +241,43 @@
   - type: MobCollision # WL-Changes: MobCollision works for players only
   # WL-Changes-start
   - type: Languages
-    speaking:
-      - Translate
-    understood:
-      - Translate
-      - BottomTranslate
-      - Kuniluc
-      - OldEarth
-      - RootSpeak
-      - Sarengis
-      - SikTair
-      - SintaUnati
-      - Slimish
-      - TopTranslate
-      - Urhas
-      - Urlum
-      - VoxPigin
-      - Weaver
-      - Wingdings
-      - Yangyu
-      - Arachny
+    list:
+    - language: Translate
+      languageLevel: 4
+    - language: Ternary
+      languageLevel: 4
+    - language: BottomTranslate
+      languageLevel: 2
+    - language: Kuniluc
+      languageLevel: 2
+    - language: OldEarth
+      languageLevel: 2
+    - language: RootSpeak
+      languageLevel: 2
+    - language: Sarengis
+      languageLevel: 2
+    - language: SikTair
+      languageLevel: 2
+    - language: SintaUnati
+      languageLevel: 2
+    - language: Slimish
+      languageLevel: 2
+    - language: TopTranslate
+      languageLevel: 2
+    - language: Urlum
+      languageLevel: 2
+    - language: VoxPigin
+      languageLevel: 2
+    - language: VoxPigin
+      languageLevel: 2
+    - language: Weaver
+      languageLevel: 2
+    - language: Wingdings
+      languageLevel: 2
+    - language: Yangyu
+      languageLevel: 2
+    - language: Arachny
+      languageLevel: 2
     specieLanguage: Ternary
   # WL-Changes-end
 
@@ -298,6 +287,32 @@
   id: BaseBorgChassis
   components:
   - type: IonStormTarget
+  - type: Destructible
+    generateOverkillThreshold: false
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   abstract: true
@@ -539,6 +554,34 @@
   - type: NpcFactionMember
     factions:
     - Xenoborg
+  - type: PointLight
+    color: "#3010ff"
+    energy: 7
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+    - Robotics
+    - Xenoborgs
+  - type: Access
+    tags:
+    - Xenoborg
+  - type: AccessReader
+    access: [["Xenoborg"]]
+  - type: ShowJobIcons # not sure if it is needed
+  - type: ShowCrewIcons
+  - type: InteractionPopup
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Xenoborg
+  - type: BypassLock
+    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.
+  - type: EmpResistance
+    strengthMultiplier: 0
+
+- type: entity
+  abstract: true
+  id: BaseXenoborgDestructible
+  components:
   - type: Destructible
     thresholds:
     - trigger:
@@ -569,24 +612,3 @@
         - cell_slot
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: PointLight
-    color: "#3010ff"
-    energy: 7
-  - type: GuideHelp
-    guides:
-    - Cyborgs
-    - Robotics
-    - Xenoborgs
-  - type: Access
-    tags:
-    - Xenoborg
-  - type: AccessReader
-    access: [["Xenoborg"]]
-  - type: ShowJobIcons # not sure if it is needed
-  - type: ShowCrewIcons
-  - type: InteractionPopup
-    interactSuccessSound:
-      path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: Xenoborg
-  - type: BypassLock
-    bypassDelay: 15 # We don't want people to easily be able to remove xenoborg brains.

@@ -32,6 +32,7 @@
   - type: StationAiOverlay
   - type: ShowElectrocutionHUD
   - type: ActionGrant
+    removeOnShutdown: false
     actions:
     - ActionJumpToCore
     - ActionAIViewLaws
@@ -77,28 +78,44 @@
   # WL-Changes-start
   - type: Languages
     currentLanguage: Translate # Added to stop tests from yapping
-    speaking:
-      - Translate
-      - Ternary
-    understood:
-      - Translate
-      - BottomTranslate
-      - Kuniluc
-      - OldEarth
-      - RootSpeak
-      - Sarengis
-      - SikTair
-      - SintaUnati
-      - Slimish
-      - TopTranslate
-      - Urhas
-      - Urlum
-      - VoxPigin
-      - Weaver
-      - Wingdings
-      - Yangyu
-      - Ternary
-      - Arachny
+    list:
+    - language: Translate
+      languageLevel: 4
+    - language: Ternary
+      languageLevel: 4
+    - language: BottomTranslate
+      languageLevel: 2
+    - language: Kuniluc
+      languageLevel: 2
+    - language: OldEarth
+      languageLevel: 2
+    - language: RootSpeak
+      languageLevel: 2
+    - language: Sarengis
+      languageLevel: 2
+    - language: SikTair
+      languageLevel: 2
+    - language: SintaUnati
+      languageLevel: 2
+    - language: Slimish
+      languageLevel: 2
+    - language: TopTranslate
+      languageLevel: 2
+    - language: Urlum
+      languageLevel: 2
+    - language: VoxPigin
+      languageLevel: 2
+    - language: VoxPigin
+      languageLevel: 2
+    - language: Weaver
+      languageLevel: 2
+    - language: Wingdings
+      languageLevel: 2
+    - language: Yangyu
+      languageLevel: 2
+    - language: Arachny
+      languageLevel: 2
+    specieLanguage: Ternary
   # WL-Changes-end
   - type: CommunicationsConsole
     canShuttle: false
@@ -239,7 +256,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 400
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -248,7 +265,7 @@
         acts: [ "Breakage" ]
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 1000
       behaviors:
       - !type:PlaySoundBehavior
         sound:

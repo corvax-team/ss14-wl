@@ -69,42 +69,12 @@
   group: market
 
 - type: cargoProduct
-  id: EngineeringJetpack
-  icon:
-    sprite: _WL/Objects/Tanks/Jetpacks/blue.rsi #Corvax-WL-Changes
-    state: icon
-  product: CrateEngineeringJetpack
-  cost: 1000
-  category: cargoproduct-category-name-engineering
-  group: market
-
-- type: cargoProduct
-  id: EngineeringMiniJetpack
-  icon:
-    sprite: _WL/Objects/Tanks/Jetpacks/mini.rsi #Corvax-WL-Changes
-    state: icon
-  product: CrateEngineeringMiniJetpack
-  cost: 750
-  category: cargoproduct-category-name-engineering
-  group: market
-
-- type: cargoProduct
   id: AirlockKit
   icon:
     sprite: _WL/Objects/Tools/Toolboxes/toolbox_yellow.rsi #Corvax-WL-Changes
     state: icon
   product: CrateAirlockKit
   cost: 1100
-  category: cargoproduct-category-name-engineering
-  group: market
-
-- type: cargoProduct
-  id: EvaKit
-  icon:
-    sprite: _WL/Clothing/Head/Helmets/eva.rsi # WL-Changes: resprite
-    state: icon
-  product: CrateEvaKit
-  cost: 5000
   category: cargoproduct-category-name-engineering
   group: market
 

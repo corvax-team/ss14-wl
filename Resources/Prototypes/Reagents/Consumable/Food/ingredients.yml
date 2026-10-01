@@ -13,7 +13,8 @@
         Sugar: 0.4
         Nutriment: 0.2
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: -0.2 #its flour
 
 - type: reagent
@@ -29,7 +30,8 @@
       metabolites:
         Nutriment: 0.2
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: -0.2 #its cornflour
 
 - type: reagent
@@ -97,7 +99,6 @@
       effects:
       - !type:Emote
         emote: Cough
-        showInChat: true
         showInGuidebook: true
         probability: 0.05
   reactiveEffects:
@@ -165,7 +166,8 @@
         Nutriment: 1.5
 #WL-changes-start
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: 1.5
         conditions:
         - !type:MetabolizerTypeCondition
@@ -190,7 +192,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         factor: 1.5
         conditions:
         - !type:MetabolizerTypeCondition
@@ -199,6 +202,7 @@
 
 - type: reagent
   id: CapsaicinOil
+  contrabandSeverity: Corvax442 # Corvax-Contraband
   name: reagent-name-capsaicin-oil
   group: Foods
   desc: reagent-desc-capsaicin-oil
@@ -241,7 +245,8 @@
   metabolisms:
     Digestion:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
         - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment
@@ -284,7 +289,8 @@
       metabolites:
         Nutriment: 0.2
       effects:
-      - !type:SatiateThirst
+      - !type:Satiate
+        satiationType: Thirst
         factor: -0.2
 
 - type: reagent

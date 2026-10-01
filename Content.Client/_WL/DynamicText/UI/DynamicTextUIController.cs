@@ -14,6 +14,9 @@ public sealed partial class DynamicTextUIController : UIController
         {
             _dynamicTextWindow = UIManager.CreateWindow<DynamicTextWindow>();
             _dynamicTextWindow.OnDynamicTextSaveButtonPressed += OnSave;
+
+            if (_dynamicTextWindow != null)
+                _dynamicTextWindow.OnClose += () => _entManager.System<DynamicTextSystem>().ClearEditingEntity();
         }
 
         _entManager.System<DynamicTextSystem>().RequestDynamicText();

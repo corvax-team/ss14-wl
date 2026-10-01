@@ -32,7 +32,7 @@
         - MobLayer
   - type: Inventory
     speciesId: puppy
-    templateId: SmartCorgi
+    templateId: Corgi
     displacements:
       head:
         sizeMaps:

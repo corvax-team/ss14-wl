@@ -178,6 +178,15 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
             // Apply defaults if required
             // Technically it's possible for someone to game themselves into loadouts they shouldn't have
             // If you put invalid ones first but that's your fault for not using sensible defaults
+            //WL-Changes-Start
+            //Do not restore a default loadout if its equipment slot is already occupied.
+            var occupiedSlots = SelectedLoadouts.Values
+                .SelectMany(loadouts => loadouts)
+                .Select(loadout => protoManager.TryIndex(loadout.Prototype, out var proto) ? proto : null)
+                .Where(proto => proto != null)
+                .SelectMany(proto => proto!.Equipment.Keys)
+                .ToHashSet();
+            //WL-Changes-End
             if (loadouts.Count < groupProto.MinLimit)
             {
                 foreach (var protoId in groupProto.Loadouts)
@@ -187,6 +196,11 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
 
                     if (!protoManager.TryIndex(protoId, out var loadoutProto))
                         continue;
+
+//WL-Changes-Start
+                    if (loadoutProto.Equipment.Keys.Any(occupiedSlots.Contains))
+                        continue;
+//WL-Changes-End
 
                     var defaultLoadout = new Loadout()
                     {
@@ -315,6 +329,29 @@ public sealed partial class RoleLoadout : IEquatable<RoleLoadout>
     public bool AddLoadout(ProtoId<LoadoutGroupPrototype> selectedGroup, ProtoId<LoadoutPrototype> selectedLoadout, IPrototypeManager protoManager)
     {
         var groupLoadouts = SelectedLoadouts[selectedGroup];
+        //WL-Changes-Start
+        //Remove selected loadouts that occupy the same equipment slots.
+        var selectedProto = protoManager.Index(selectedLoadout);
+        var occupiedSlots = selectedProto.Equipment.Keys.ToHashSet();
+
+        if (occupiedSlots.Count > 0)
+        {
+            foreach (var (group, loadouts) in SelectedLoadouts)
+            {
+                if (group == selectedGroup)
+                    continue;
+
+                for (var i = loadouts.Count - 1; i >= 0; i--)
+                {
+                    if (!protoManager.TryIndex(loadouts[i].Prototype, out var loadoutProto))
+                        continue;
+
+                    if (loadoutProto.Equipment.Keys.Any(occupiedSlots.Contains))
+                        loadouts.RemoveAt(i);
+                }
+            }
+        }
+        //WL-Changes-End
 
         // Need to unselect existing ones if we're at or above limit
         var groupProto = protoManager.Index(selectedGroup);

@@ -1,3 +1,4 @@
+using Content.Shared._WL.Languages.Components.List;
 using Content.Shared.DoAfter;
 using Robust.Shared.Serialization;
 using Robust.Shared.Prototypes;
@@ -29,11 +30,17 @@ public record struct RadioLanguageCheckEvent(string Message, EntityUid RadioSour
 }
 
 [Serializable, NetSerializable]
-public sealed partial class LanguageChangeEvent(NetEntity entity, ProtoId<LanguagePrototype> protoId) : EntityEventArgs
+public sealed partial class LanguageChangeEvent : EntityEventArgs
 {
-    public NetEntity Entity { get; } = entity;
+    public NetEntity Entity { get; }
 
-    public ProtoId<LanguagePrototype> Language { get; } = protoId;
+    public ProtoId<LanguagePrototype> Language { get; }
+
+    public LanguageChangeEvent(NetEntity entity, ProtoId<LanguagePrototype> protoId)
+    {
+        Entity = entity;
+        Language = protoId;
+    }
 }
 
 [Serializable, NetSerializable]
@@ -42,38 +49,56 @@ public sealed partial class AfterLanguageChangeEvent : SimpleDoAfterEvent
 }
 
 [Serializable, NetSerializable]
-public sealed partial class LanguagesSyncEvent(
-        NetEntity entity,
-        List<ProtoId<LanguagePrototype>> speaking,
-        List<ProtoId<LanguagePrototype>> understood) : EntityEventArgs
+public sealed partial class LanguagesSyncEvent : EntityEventArgs
 {
-    public NetEntity Entity { get; } = entity;
+    public NetEntity Entity { get; }
 
-    public List<ProtoId<LanguagePrototype>> Speaking { get; } = speaking;
+    public List<LanguagesList> List { get; }
 
-    public List<ProtoId<LanguagePrototype>> Understood { get; } = understood;
+    public ProtoId<LanguagePrototype> Language { get; }
+
+    public int LanguageLevel { get; }
+
+    public LanguagesSyncEvent(
+        NetEntity entity,
+        List<LanguagesList> list)
+    {
+        Entity = entity;
+        List = list;
+    }
 }
 
 [Serializable, NetSerializable]
-public sealed partial class LanguageSyncRequestEvent(
-        NetEntity entity,
-        List<ProtoId<LanguagePrototype>> speaking,
-        List<ProtoId<LanguagePrototype>> understood) : EntityEventArgs
+public sealed partial class LanguageSyncRequestEvent : EntityEventArgs
 {
-    public NetEntity Entity { get; } = entity;
+    public NetEntity Entity { get; }
 
-    public List<ProtoId<LanguagePrototype>> Speaking { get; } = speaking;
+    public List<LanguagesList> List { get; }
 
-    public List<ProtoId<LanguagePrototype>> Understood { get; } = understood;
+    public ProtoId<LanguagePrototype> Language { get; }
+
+    public int LanguageLevel { get; }
+
+    public LanguageSyncRequestEvent(NetEntity entity, ProtoId<LanguagePrototype> language, int languageLevel, List<LanguagesList> list)
+    {
+        Entity = entity;
+        Language = language;
+        LanguageLevel = languageLevel;
+        List = list;
+    }
 }
 
 [Serializable, NetSerializable]
-public sealed class LanguageSoundEvent(
-        ProtoId<LanguagePrototype> language,
-        NetEntity? sourceUid = null,
-        bool isWhisper = false) : EntityEventArgs
+public sealed class LanguageSoundEvent : EntityEventArgs
 {
-    public ProtoId<LanguagePrototype> Language { get; } = language;
-    public NetEntity? SourceUid { get; } = sourceUid;
-    public bool IsWhisper { get; } = isWhisper;
+    public ProtoId<LanguagePrototype> Language { get; }
+    public NetEntity? SourceUid { get; }
+    public bool IsWhisper { get; }
+
+    public LanguageSoundEvent(ProtoId<LanguagePrototype> language, NetEntity? sourceUid = null, bool isWhisper = false)
+    {
+        Language = language;
+        SourceUid = sourceUid;
+        IsWhisper = isWhisper;
+    }
 }

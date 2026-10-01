@@ -1,33 +1,32 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.Languages.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // ← Добавили автогенерацию
 public sealed partial class ModifyLanguagesComponent : Component
 {
-    [DataField]
+    /// <summary>
+    /// Если true, то компонент будет удалять указанные языки, а не добавлять их.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public bool ToRemove = false;
 
-    [DataField]
-    public bool ToUnderstood = true;
+    /// <summary>
+    /// Уровень владения языками, который даст этот модификатор.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int LanguageLevel = 0;
 
-    [DataField]
-    public bool ToSpeaking = true;
-
-    [DataField]
+    /// <summary>
+    /// Если указан, то этот язык будет установлен как родной.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public bool SpecieLanguage = false;
 
-    [DataField]
+    /// <summary>
+    /// Список языков, на которые влияет этот модификатор.
+    /// </summary>
+    [DataField, AutoNetworkedField]
     public List<ProtoId<LanguagePrototype>> Languages = [];
-
-    [Serializable, NetSerializable]
-    public sealed class State : ComponentState
-    {
-        public bool ToRemove = default!;
-        public bool ToUnderstood = default!;
-        public bool ToSpeaking = default!;
-        public List<ProtoId<LanguagePrototype>> Languages = default!;
-    }
 }

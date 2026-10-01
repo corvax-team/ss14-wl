@@ -24,5 +24,13 @@ public sealed partial class TraitCategoryPrototype : IPrototype
     ///     The maximum number of traits that can be taken in this category.
     /// </summary>
     [DataField]
-    public int? MaxTraitPoints;
+    public int MaxTraitPoints;
+
+    //WL-Changes-Start Language
+    /// <summary>
+    ///     If true, the category will not be displayed in the character traits.
+    /// </summary>
+    [DataField]
+    public bool Hidden { get; private set; } = false;
+    //WL-Changes-End Language
 }

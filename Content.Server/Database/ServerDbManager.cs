@@ -32,17 +32,6 @@ namespace Content.Server.Database
 
         void Shutdown();
 
-        //WL-Changes-start
-        #region Discord
-        Task<ulong?> GetPlayerDiscordId(Guid guid, CancellationToken token);
-        Task LinkPlayerDiscord(NetUserId userId, ulong discord_id, CancellationToken token);
-
-        Task<bool> IsLinkedToDiscord(NetUserId userId, CancellationToken token);
-
-        Task<PlayerRecord?> GetPlayerByDiscordId(ulong discord_id, CancellationToken token);
-        #endregion
-        //WL-Changes-end
-
         Task<bool> HasPendingModelChanges();
 
         #region Preferences
@@ -436,6 +425,7 @@ namespace Content.Server.Database
         private ISawmill _sawmill = default!;
 
         private bool _synchronous;
+        private bool _snapshot;
         // When running in integration tests, we'll use a single in-memory SQLite database connection.
         // This is that connection, close it when we shut down.
         private SqliteConnection? _sqliteInMemoryConnection;
@@ -452,6 +442,7 @@ namespace Content.Server.Database
             _sawmill = _logMgr.GetSawmill("db.manager");
 
             _synchronous = _cfg.GetCVar(CCVars.DatabaseSynchronous);
+            _snapshot = _cfg.GetCVar(CCVars.DatabaseSnapshot);
 
             var engine = _cfg.GetCVar(CCVars.DatabaseEngine).ToLower();
             var opsLog = _logMgr.GetSawmill("db.op");
@@ -460,7 +451,7 @@ namespace Content.Server.Database
             {
                 case "sqlite":
                     SetupSqlite(out var contextFunc, out var inMemory);
-                    _db = new ServerDbSqlite(contextFunc, inMemory, _cfg, _synchronous, opsLog, _serialization);
+                    _db = new ServerDbSqlite(contextFunc, inMemory, _cfg, _synchronous, opsLog, _serialization, _snapshot);
                     break;
                 case "postgres":
                     var (pgOptions, conString) = CreatePostgresOptions();
@@ -480,32 +471,6 @@ namespace Content.Server.Database
             _sqliteInMemoryConnection?.Dispose();
             _db.Shutdown();
         }
-
-        //WL-Changes-start
-        public Task<ulong?> GetPlayerDiscordId(Guid guid, CancellationToken token)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetPlayerDiscordId(guid, token));
-        }
-
-        public Task LinkPlayerDiscord(NetUserId userId, ulong discord_id, CancellationToken token)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.LinkPlayerDiscord(userId, discord_id, token));
-        }
-
-        public Task<bool> IsLinkedToDiscord(NetUserId userId, CancellationToken token)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.IsLinkedToDiscord(userId, token));
-        }
-
-        public Task<PlayerRecord?> GetPlayerByDiscordId(ulong discord_id, CancellationToken token)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetPlayerByDiscordId(discord_id, token));
-        }
-        //WL-Changes-end
 
         public Task<Preference> InitPrefsAsync(
             NetUserId userId,

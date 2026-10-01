@@ -1,0 +1,17 @@
+humanoid-profile-editor-languages-tab = Языки
+languages-level-1 = Уровень 1
+languages-level-2 = Уровень 2
+languages-level-3 = Уровень 3
+languages-level-4 = Уровень 4
+languages-level-1-tooltip = Вы не сможете говорить, слова на этом языке будут заменяться с шансом 30%
+languages-level-2-tooltip = Вы не сможете говорить, слова на этом языке будут заменяться с шансом 60%
+languages-level-3-tooltip = Вы сможете говорить, слова на этом языке будут заменяться с шансом 90%
+languages-level-4-tooltip = Вы сможете говорить, слова на этом языке будут заменяться с шансом 100%
+languages-point = Очки языков: { $spent } / { $max } (осталось: { $remaining })
+languages-point-unlimited = Выбрано языков: { $count }
+languages-inactive = Выбрать
+ui-languages-cost = Цена: { $cost }
+ui-languages-bonus = Бонус: { $bonus }
+ui-languages-free = Бесплатно
+ui-languages-unavailable = Недоступно
+ui-languages-locked = ✗

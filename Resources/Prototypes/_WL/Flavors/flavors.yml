@@ -23,17 +23,17 @@
   flavorType: Base
   description: горько
 
-#- type: flavor
-#  id: berryshake
-#  flavorType: Base
-#  description: как ягодный милкшейк
-
-#- type: flavor
-#  id: chocoshake
-#  flavorType: Base
-#  description: как шоколадный милкшейк
-
 - type: flavor
   id: darkbeer
   flavorType: Complex
   description: flavor-complex-darkbeer
+
+- type: flavor
+  id: berryshake
+  flavorType: Base
+  description: как ягодный милкшейк
+
+- type: flavor
+  id: chocoshake
+  flavorType: Base
+  description: как шоколадный милкшейк

@@ -9,7 +9,7 @@ using Content.Shared.Speech.Components;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using static Content.Client.Corvax.SponsorOnlyHelpers;
+using static Content.Client.Corvax.SponsorOnlyHelpers; // Corvax-Sponsors
 
 namespace Content.Client.Lobby.UI;
 
@@ -192,8 +192,10 @@ public sealed partial class HumanoidProfileEditor
         {
             var name = Loc.GetString(_species[i].Name);
 
-            if (_species[i].SponsorOnly) // Corvax-Sponsors
-                name += GetSponsorOnlySuffix();
+            // Corvax-Sponsors-start
+            if (_species[i].SponsorOnly)
+                name += GetSponsorOnlySuffix(_species[i].ID);
+            // Corvax-Sponsors-end
 
             SpeciesButton.AddItem(name, i);
 
@@ -229,6 +231,7 @@ public sealed partial class HumanoidProfileEditor
         UpdateTTSVoicesControls(); // Corvax-TTS
         UpdateSpeciesGuidebookIcon();
         UpdateRecordsEdit(); // WL-Changes-Records
+        UpdateLanguagesEdit(); // WL-Languages
         ReloadPreview();
     }
 
@@ -272,6 +275,7 @@ public sealed partial class HumanoidProfileEditor
     private void SetVoice(ProtoId<EmoteSoundsPrototype> newVoice)
     {
         Profile = Profile?.WithVoice(newVoice);
+        UpdateTTSVoicesControls(); // Corvax-TTS
         SetDirty();
     }
 

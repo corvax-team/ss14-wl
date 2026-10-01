@@ -8,6 +8,7 @@ using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Shared.Station.Components;
 using Content.Shared.StationRecords.Components;
 using Content.Shared.StationRecords.Events;
 using Robust.Shared.Enums;
@@ -124,7 +125,10 @@ public sealed partial class StationRecordsSystem : EntitySystem
             fingerprintComponent?.Fingerprint,
             dnaComponent?.DNA,
             profile,
-            /*WL-Changes-start*/languageComponent?.Speaking.ToList() ?? []/*WL-Changes-end*/);
+            /*WL-Changes-start*/languageComponent?.List
+                .Where(x => x.LanguageLevel >= 2)
+                .Select(x => x.Language)
+                .ToList() ?? []/*WL-Changes-end*/);
     }
 
     /// <summary>
@@ -177,6 +181,13 @@ public sealed partial class StationRecordsSystem : EntitySystem
             return;
         }
 
+        var jobWeights = TryComp<StationDataComponent>(station, out var stationData)
+            ? stationData.JobWeights
+            : null;
+        var displayPriority = JobUIComparer.TryCreate(ProtoMan, jobWeights, out var comparer)
+            ? comparer.GetWeight(jobPrototype) ?? 0
+            : 0;
+
         var record = new GeneralStationRecord
         {
             Name = name,
@@ -188,7 +199,7 @@ public sealed partial class StationRecordsSystem : EntitySystem
             JobPrototype = jobId,
             Species = species,
             Gender = gender,
-            DisplayPriority = jobPrototype.RealDisplayWeight,
+            DisplayPriority = displayPriority,
             Fingerprint = mobFingerprint,
             DNA = dna,
             // WL-Changes-start

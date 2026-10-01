@@ -53,4 +53,24 @@ public sealed partial class LanguagePrototype : IPrototype
 
     [DataField]
     public SoundCollectionSpecifier Sound = new SoundCollectionSpecifier("TernarySounds");
+
+    /// <summary>
+    /// Cost of each language level. Index 0 is unused; level N uses index N.
+    /// Example: [0, 0, 1, 0, 1].
+    /// </summary>
+    [DataField]
+    public List<int> LevelCosts { get; private set; } = new();
+
+    /// <summary>
+    /// Per-level cost modifiers by species ID.
+    /// </summary>
+    [DataField]
+    public Dictionary<string, LanguageModifier> SpeciesModifiers { get; private set; } = new();
+
+    /// <summary>
+    /// Per-level cost modifiers by confederation ID.
+    /// </summary>
+    [DataField]
+    public Dictionary<string, LanguageModifier> ConfederationModifiers { get; private set; } = new();
+
 }

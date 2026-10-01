@@ -373,7 +373,7 @@ namespace Content.Client.Lobby.UI
                 (int)PreferenceUnavailableMode.StayInLobby);
             PreferenceUnavailableButton.AddItem(
                 Loc.GetString("humanoid-profile-editor-preference-unavailable-spawn-as-overflow-button",
-                              ("overflowJob", Loc.GetString(SharedGameTicker.FallbackOverflowJobName))),
+                              ("overflowJob", Loc.GetString(GameTicker.FallbackOverflowJobName))),
                 (int)PreferenceUnavailableMode.SpawnAsOverflow);
 
             PreferenceUnavailableButton.OnItemSelected += args =>
@@ -408,6 +408,8 @@ namespace Content.Client.Lobby.UI
             RefreshFlavorText();
 
             RefreshRecords(); // WL-Records
+
+            RefreshLanguages(); // WL-Languages
 
             //_confederationButton.OnItemSelected += args =>
             //{
@@ -505,6 +507,7 @@ namespace Content.Client.Lobby.UI
             UpdateHeightEdit(); // WL-height
             UpdateOocTextEdit(); // WL-OocText
             UpdateRecordsEdit(); // WL-Records
+            UpdateLanguagesEdit(); // WL-Languages
             UpdateAgeEdit();
             UpdateEyePickers();
             UpdateSaveButton();

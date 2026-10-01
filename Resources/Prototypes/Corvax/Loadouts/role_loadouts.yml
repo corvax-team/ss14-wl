@@ -3,6 +3,7 @@
   id: JobIAA
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - LawyerNeck
   - LawyerJumpsuit # WL-change: formal uniforms are integrated into the role group
   - IAAOuterClothing # WL-change: wardrobe refresh
@@ -17,6 +18,7 @@
 - type: roleLoadout
   id: JobMagistrate
   groups:
+  - FormInventory # WL-Changes: Form inventory loadout
   - Inventory # Corvax-Loadouts
   - MagistrateHead
   - MagistrateJumpsuit
@@ -31,6 +33,7 @@
   id: JobSeniorEngineer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - SeniorEngineerHead
   - SeniorEngineerJumpsuit
@@ -47,6 +50,7 @@
   id: JobSeniorResearcher
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - SeniorResearcherHead
   - SeniorResearcherJumpsuit
@@ -65,6 +69,7 @@
   id: JobPilot
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - PilotHead
   - PilotJumpsuit
   - SecurityBackpack
@@ -81,6 +86,7 @@
   id: JobBrigmedic
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - BrigmedicHead
   - BrigmedicMask
   - BrigmedicJumpsuit
@@ -98,6 +104,7 @@
   id: JobSeniorOfficer
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - SeniorOfficerHead
   - SeniorOfficerJumpsuit
   - SeniorOfficerBackpack
@@ -115,6 +122,7 @@
   id: JobSeniorPhysician
   groups:
   # - Inventory # Corvax-Loadouts #Corvax-WL-Remove
+  - FormInventory # WL-Changes: Form inventory loadout
   - GroupTankHarness
   - SeniorPhysicianHead
   - MedicalMask

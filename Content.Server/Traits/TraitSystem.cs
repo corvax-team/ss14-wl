@@ -1,3 +1,4 @@
+using Content.Shared._WL.Languages.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -47,6 +48,40 @@ public sealed partial class TraitSystem : EntitySystem
             if (traitPrototype.Components.Count > 0)
                 EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
 
+            //WL-Changes-Start Language
+            if (TryComp<LanguagesComponent>(args.Mob, out var langsComp))
+            {
+                var profileLangs = args.Profile.LanguageLevels;
+
+                if (profileLangs != null && profileLangs.TryGetValue(traitId, out var selectedLevel))
+                {
+                    bool updated = false;
+
+                    foreach (var entry in traitPrototype.Components.Values)
+                    {
+                        if (entry.Component is ModifyLanguagesComponent modLang)
+                        {
+                            foreach (var langProtoId in modLang.Languages)
+                            {
+                                var index = langsComp.List.FindIndex(x => x.Language == langProtoId);
+                                if (index != -1)
+                                {
+                                    var langEntry = langsComp.List[index];
+                                    langEntry.LanguageLevel = selectedLevel;
+                                    langsComp.List[index] = langEntry;
+                                    updated = true;
+                                }
+                            }
+                        }
+                    }
+
+                    if (updated)
+                    {
+                        Dirty(args.Mob, langsComp);
+                    }
+                }
+            }
+            //WL-Changes-End Language
             // Add all JobSpecials required by the prototype
             foreach (var special in traitPrototype.Specials)
             {

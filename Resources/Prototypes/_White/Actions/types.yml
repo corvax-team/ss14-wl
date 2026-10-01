@@ -8,9 +8,10 @@
     itemIconStyle: BigAction
     priority: -20
     useDelay: 1
-    icon:
-      sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
-      state: icon
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleNightVisionEvent
 
@@ -23,9 +24,10 @@
     itemIconStyle: BigAction
     priority: -20
     useDelay: 1
-    icon:
-      sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
-      state: icon
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+    layers:
+    - state: icon
   - type: InstantAction
     event: !type:ToggleThermalVisionEvent
 

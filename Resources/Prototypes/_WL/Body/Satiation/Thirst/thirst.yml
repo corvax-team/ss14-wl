@@ -1,0 +1,4 @@
+- type: satiation
+  id: MurineThirst
+  parent: NormalSatiationThirst
+  baseChangeRate: -0.12

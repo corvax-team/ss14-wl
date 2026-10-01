@@ -104,6 +104,8 @@
   - type: Item
     size: Tiny
   - type: Injurable
+  - type: Damageable
+    damageModifierSet: Electronic
   - type: TapeCassette
     maxCapacity: 300 # WL-Changes: 180 -> 300
     repairWhitelist:

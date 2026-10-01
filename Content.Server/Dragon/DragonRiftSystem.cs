@@ -94,7 +94,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
                 //var ent = Spawn(comp.SpawnPrototype, xform.Coordinates);
                 var ent = Spawn(_random.Next(comp.SharkSpawnChance) == 0
                     ? comp.SharkSpawnPrototype
-                    : comp.CarpSpawnPrototype,
+                    : comp.SpawnPrototype,
                     xform.Coordinates);
                 //WL-Changes-End
 

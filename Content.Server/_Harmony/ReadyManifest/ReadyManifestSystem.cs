@@ -6,6 +6,7 @@ using Content.Server.Preferences.Managers;
 using Content.Shared._Harmony.ReadyManifest;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
+using Content.Shared.GameTicking.Events;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
@@ -19,7 +20,7 @@ public sealed partial class ReadyManifestSystem : SharedReadyManifestSystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IServerPreferencesManager _prefsManager = default!;
     [Dependency] private EuiManager _euiManager = default!;
-    [Dependency] private GameTicker _gameTicker = default!;
+    [Dependency] private ServerGameTicker _gameTicker = default!;
 
     private readonly Dictionary<ICommonSession, ReadyManifestEui> _openEuis = new();
     private Dictionary<ProtoId<JobPrototype>, ReadyManifestJobData> _jobCounts = new();
@@ -28,7 +29,7 @@ public sealed partial class ReadyManifestSystem : SharedReadyManifestSystem
     {
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStarting);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
-        SubscribeLocalEvent<PlayerToggledReadyEvent>(OnPlayerToggledReady);
+        SubscribeLocalEvent<ServerGameTicker.PlayerToggledReadyEvent>(OnPlayerToggledReady);
         SubscribeLocalEvent<PlayerDisconnectedEvent>(OnPlayerDisconnected);
         SubscribeNetworkEvent<RequestReadyManifestMessage>(OnRequestReadyManifest);
     }
@@ -48,7 +49,7 @@ public sealed partial class ReadyManifestSystem : SharedReadyManifestSystem
         _jobCounts.Clear();
     }
 
-    private void OnPlayerToggledReady(ref PlayerToggledReadyEvent args)
+    private void OnPlayerToggledReady(ref ServerGameTicker.PlayerToggledReadyEvent args)
     {
         // Rebuild the entire ready manifest because I can't directly update the values since it would be too likely to
         // desync, and when I thought about ways to rebuild only the updated jobs, it seemed more

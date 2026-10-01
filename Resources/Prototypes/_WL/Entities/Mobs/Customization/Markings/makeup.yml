@@ -309,3 +309,155 @@
   sprites:
   - sprite: _WL/Mobs/Customization/makeup.rsi
     state: nose_r_dot
+
+- type: marking
+  id: MakeupBlush
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: blush
+
+- type: marking
+  id: MakeupUpperLines
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: upperlines
+
+- type: marking
+  id: MakeupBottomLines
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: bottomlines
+
+- type: marking
+  id: MakeupCheekLines
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: cheeklines
+
+- type: marking
+  id: MakeupCheekDots
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: cheekdots
+
+- type: marking
+  id: MakeupFace
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: face
+
+- type: marking
+  id: MakeupManly
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: manly
+
+- type: marking
+  id: MakeupLashes
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: lashes
+
+- type: marking
+  id: MakeupNose
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Android, Felinid, Moth, Arachnid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: nose
+
+- type: marking
+  id: MakeupLips
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Android, Felinid, Moth, Arachnid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: lips
+
+- type: marking
+  id: MakeupSmile
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: smile
+
+- type: marking
+  id: MakeupUpperShadowStrong
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: uppershadowstrong
+
+- type: marking
+  id: MakeupLowerShadowStrong
+  bodyPart: Eyes
+  groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: lowershadowstrong
+
+- type: marking
+  id: MakeupStrongHuman
+  bodyPart: Chest
+  groupWhitelist: [Human, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: strong_human
+
+- type: marking
+  id: MakeupThinHuman
+  bodyPart: Chest
+  groupWhitelist: [Human, Felinid]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: thin_human
+
+- type: marking
+  id: MakeupStrongLizard
+  bodyPart: Chest
+  groupWhitelist: [Reptilian]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: strong_lizard
+
+- type: marking
+  id: MakeupThinLizard
+  bodyPart: Chest
+  groupWhitelist: [Reptilian]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: thin_lizard
+
+- type: marking
+  id: MakeupStrongAndroid
+  bodyPart: Chest
+  groupWhitelist: [Android]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: strong_android
+
+- type: marking
+  id: MakeupThinAndroid
+  bodyPart: Chest
+  groupWhitelist: [Android]
+  sprites:
+  - sprite: _WL/Mobs/Customization/makeup.rsi
+    state: thin_android

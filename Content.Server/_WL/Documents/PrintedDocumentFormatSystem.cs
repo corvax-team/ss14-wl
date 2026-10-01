@@ -3,6 +3,7 @@ using Content.Server.Corvax.GuideGenerator;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
 using Content.Server.Station.Systems;
+using Content.Shared.GameTicking;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -15,7 +16,7 @@ namespace Content.Server._WL.Documents;
 public sealed partial class PrintedDocumentFormatSystem : EntitySystem
 {
     [Dependency] private PaperSystem _paper = default!;
-    [Dependency] private StationSystem _station = default!;
+    [Dependency] private ServerStationSystem _station = default!;
     [Dependency] private IGameTiming _gameTime = default!;
     [Dependency] private GameTicker _gameTick = default!;
     [Dependency] private JobSystem _job = default!;

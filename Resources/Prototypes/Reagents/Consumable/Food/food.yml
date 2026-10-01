@@ -8,10 +8,13 @@
   flavor: nutriment
   color: "#24591F"
   metabolisms:
-    Metabolites:
+    Digestion:
+      metabolismRate: 1
       effects:
-      - !type:SatiateHunger
-#WL-changes-start
+      - !type:Satiate
+        satiationType: Hunger
+        factor: 3
+# WL-Сhanges: Species start
       - !type:EvenHealthChange
         probability: 0.5
         damage:
@@ -23,8 +26,6 @@
         conditions:
         - !type:MetabolizerTypeCondition
           type: [ Golem ]
-#WL-changes-end
-# WL android species start
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
@@ -43,7 +44,7 @@
         - !type:ReagentCondition
           reagent: Nutriment
           min: 10
-# WL android species end
+# WL-Сhanges: Species end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1.5
@@ -60,7 +61,7 @@
   flavor: vitamin
   color: "#D3D3D3"
   metabolisms:
-    Metabolites: #This makes it not compete with medicines, a large bonus for something that can heal
+    Digestion: #This makes it not compete with medicines, a large bonus for something that can heal
       effects:
       - !type:EvenHealthChange
         probability: 0.5
@@ -115,7 +116,8 @@
           type: [ Biorobotic, Golem ]
           inverted: true
 #WL-changes-end
-      - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+      - !type:Satiate #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+        satiationType: Hunger
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -133,7 +135,7 @@
   flavor: protein
   color: "#FFFFE5"
   metabolisms:
-    Metabolites:
+    Digestion:
       effects:
       - !type:EvenHealthChange
         probability: 0.5
@@ -183,9 +185,8 @@
           type: [ Biorobotic, Golem ]
           inverted: true
 #WL-changes-end
-      - !type:SatiateHunger
-# WL species start
-# WL species end
+      - !type:Satiate
+        satiationType: Hunger
   pricePerUnit: 3
 
 - type: reagent
@@ -198,9 +199,10 @@
   color: white
   meltingPoint: 146.0
   metabolisms:
-    Metabolites:
+    Digestion:
       effects:
-      - !type:SatiateHunger
+      - !type:Satiate
+        satiationType: Hunger
         conditions:
         - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment

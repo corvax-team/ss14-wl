@@ -75,6 +75,8 @@
   id: MobSkeletonPerson
   name: Urist McBones
   components:
+  - type: Swimmer #WL
+    swimSpeedModifier: 0.6
   - type: Damageable
     damageModifierSet: Skeleton
   - type: Injurable
@@ -195,10 +197,10 @@
     randomizeAllSkills: true # WL-Skills
   #WL-Changes: Languages start
   - type: Languages
-    speaking:
-      - Translate
-    understood:
-      - Translate
+    list:
+    - language: Translate
+      languageLevel: 4
+    specieLanguage: Translate
   #WL-Changes: Languages end
 
 - type: entity

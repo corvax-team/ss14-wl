@@ -1,0 +1,11 @@
+- type: loadout
+  id: JumpsuitHosParade
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSParadeMale
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: JumpskirtHosParade
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSParadeMale
+  groupBy: "jumpskirt"

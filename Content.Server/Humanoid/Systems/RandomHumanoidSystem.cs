@@ -59,7 +59,7 @@ public sealed partial class RandomHumanoidSystem : EntitySystem
         EntityManager.InitializeAndStartEntity(humanoid);
 
         // WL-Changes-start
-        EnsureComp<TTSComponent>(humanoid).VoicePrototypeId = profile.Voice;
+        EnsureComp<TTSComponent>(humanoid).VoicePrototypeId = profile.TTSVoice;
         // WL-Changes-end
 
         _visualBody.ApplyProfileTo(humanoid, profile);
