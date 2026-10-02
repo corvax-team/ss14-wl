@@ -75,9 +75,6 @@ namespace Content.Client.Paper.UI
 
             Input.OnKeyBindDown += args => // Solution while TextEdit don't have events
             {
-                // WL-Changes: Alt Typing Indicators Start
-                Typing?.Invoke();
-                // WL-Changes: Alt Typing Indicators End
                 if (args.Function == EngineKeyFunctions.MultilineTextSubmit)
                 {
                     // SaveButton is disabled when we hit the max input limit. Just check
