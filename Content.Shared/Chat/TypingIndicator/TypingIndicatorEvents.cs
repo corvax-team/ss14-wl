@@ -13,12 +13,15 @@ namespace Content.Shared.Chat.TypingIndicator;
 public sealed class TypingChangedEvent : EntityEventArgs
 {
     public readonly TypingIndicatorState State;
+    // WL-Changes: Alt Typing Indicators Start
+    public readonly ProtoId<TypingIndicatorPrototype>? OverrideIndicator;
 
-    public TypingChangedEvent(TypingIndicatorState state)
+    public TypingChangedEvent(TypingIndicatorState state, ProtoId<TypingIndicatorPrototype>? proto = null)
     {
         State = state;
+        OverrideIndicator = proto;
     }
-    // Corvax-TypingIndicator-End
+    // WL-Changes: Alt Typing Indicators End
 }
 
 /// <summary>

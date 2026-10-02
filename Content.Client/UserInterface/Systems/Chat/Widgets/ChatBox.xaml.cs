@@ -211,12 +211,17 @@ public partial class ChatBox : UIWidget, IEntityLinkClickHandler
         _controller.UpdateSelectedChannel(this);
 
         // Warn typing indicator about change
-        _controller.NotifyChatTextChange();
+        // WL-Changes: Alt Typing Indicators Start
+        _controller.NotifySpecificChatTextChange(SelectedChannel);
+        // WL-Changes: Alt Typing Indicators End
     }
 
     private void OnFocusEnter(LineEditEventArgs args)
     {
         // Warn typing indicator about focus
+        // WL-Changes: Alt Typing Indicators Start
+        _controller.CurrentChannel = SelectedChannel;
+        // WL-Changes: Alt Typing Indicators End
         _controller.NotifyChatFocus(true);
     }
 

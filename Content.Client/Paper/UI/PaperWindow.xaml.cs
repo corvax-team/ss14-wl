@@ -42,6 +42,10 @@ namespace Content.Client.Paper.UI
         private DragMode _allowedResizeModes = ~DragMode.None;
 
         public event Action<string>? OnSaved;
+        // WL-Changes: Alt Typing Indicators Start
+        public event Action? Typing;
+        public event Action? SubmitPressed;
+        // WL-Changes: Alt Typing Indicators End
 
         private int _MaxInputLength = -1;
         public int MaxInputLength
@@ -70,12 +74,18 @@ namespace Content.Client.Paper.UI
 
             Input.OnKeyBindDown += args => // Solution while TextEdit don't have events
             {
+                // WL-Changes: Alt Typing Indicators Start
+                Typing?.Invoke();
+                // WL-Changes: Alt Typing Indicators End
                 if (args.Function == EngineKeyFunctions.MultilineTextSubmit)
                 {
                     // SaveButton is disabled when we hit the max input limit. Just check
                     // that flag instead of trying to calculate the input length again
                     if (!SaveButton.Disabled)
                     {
+                        // WL-Changes: Alt Typing Indicators Start
+                        SubmitPressed?.Invoke();
+                        // WL-Changes: Alt Typing Indicators End
                         RunOnSaved();
                         args.Handle();
                     }
@@ -84,11 +94,17 @@ namespace Content.Client.Paper.UI
 
             Input.OnTextChanged += args =>
             {
+                // WL-Changes: Alt Typing Indicators Start
+                Typing?.Invoke();
+                // WL-Changes: Alt Typing Indicators End
                 UpdateFillState();
             };
 
             SaveButton.OnPressed += _ =>
             {
+                // WL-Changes: Alt Typing Indicators Start
+                SubmitPressed?.Invoke();
+                // WL-Changes: Alt Typing Indicators End
                 RunOnSaved();
             };
 

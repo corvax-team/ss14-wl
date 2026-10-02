@@ -25,6 +25,13 @@ public sealed partial class TypingIndicatorVisualizerSystem : VisualizerSystem<T
         if (overrideIndicator != null)
             currentTypingIndicator = overrideIndicator.Value;
 
+        // WL-Changes: Alt Typing Indicators Start
+        if (component.TypingIndicatorOverridePrototype != null)
+        {
+            currentTypingIndicator = component.TypingIndicatorOverridePrototype.Value;
+        }
+        // WL-Changes: Alt Typing Indicators End
+
         if (!ProtoMan.Resolve(currentTypingIndicator, out var proto))
         {
             Log.Error($"Unknown typing indicator id: {component.TypingIndicatorPrototype}");
