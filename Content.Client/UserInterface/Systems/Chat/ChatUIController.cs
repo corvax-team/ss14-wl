@@ -989,11 +989,17 @@ public sealed partial class ChatUIController : UIController
     private static readonly ProtoId<TypingIndicatorPrototype> OocID = "ooc";
     private static readonly ProtoId<TypingIndicatorPrototype> RadioID = "radio";
 
-    public void NotifySpecificChatTextChange(ChatSelectChannel selectedChannel)
+    public void NotifySpecificChatTextChange(ChatSelectChannel selectedChannel, string text = "")
     {
-        var channel = CurrentChannel;
-        if (CurrentChannel == ChatSelectChannel.None)
-            channel = selectedChannel;
+        var channel = selectedChannel;
+        if (!string.IsNullOrEmpty(text))
+        {
+            var (prefixChannel, _, _) = SplitInputContents(text.ToLower());
+            if (prefixChannel != ChatSelectChannel.None)
+                channel = prefixChannel;
+        }
+
+        CurrentChannel = channel;
 
         switch (channel)
         {

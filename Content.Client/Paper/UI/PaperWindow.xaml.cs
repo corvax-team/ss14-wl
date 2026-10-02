@@ -45,6 +45,7 @@ namespace Content.Client.Paper.UI
         // WL-Changes: Alt Typing Indicators Start
         public event Action? Typing;
         public event Action? SubmitPressed;
+        private bool _suppressTyping;
         // WL-Changes: Alt Typing Indicators End
 
         private int _MaxInputLength = -1;
@@ -95,7 +96,8 @@ namespace Content.Client.Paper.UI
             Input.OnTextChanged += args =>
             {
                 // WL-Changes: Alt Typing Indicators Start
-                Typing?.Invoke();
+                if (!_suppressTyping)
+                    Typing?.Invoke();
                 // WL-Changes: Alt Typing Indicators End
                 UpdateFillState();
             };
@@ -279,9 +281,19 @@ namespace Content.Client.Paper.UI
                 // player opens the UI for reading. In this case, don't update the
                 // text input, as this player is currently writing new text and we
                 // don't want to lose any text they already input.
-                Input.TextRope = Rope.Leaf.Empty;
-                Input.CursorPosition = new TextEdit.CursorPos();
-                Input.InsertAtCursor(state.Text);
+                // WL-Changes: Alt Typing Indicators Start
+                _suppressTyping = true;
+                try
+                {
+                    Input.TextRope = Rope.Leaf.Empty;
+                    Input.CursorPosition = new TextEdit.CursorPos();
+                    Input.InsertAtCursor(state.Text);
+                }
+                finally
+                {
+                    _suppressTyping = false;
+                }
+                // WL-Changes: Alt Typing Indicators End
             }
 
             for (var i = 0; i <= state.StampedBy.Count * 3 + 1; i++)

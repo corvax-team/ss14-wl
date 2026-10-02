@@ -80,6 +80,10 @@ public partial class ChatBox : UIWidget, IEntityLinkClickHandler
     private void OnChannelSelect(ChatSelectChannel channel)
     {
         _controller.UpdateSelectedChannel(this);
+        // WL-Changes: Alt Typing Indicators Start
+        if (ChatInput.Input.HasKeyboardFocus())
+            _controller.NotifySpecificChatTextChange(SelectedChannel, ChatInput.Input.Text);
+        // WL-Changes: Alt Typing Indicators End
     }
 
     public void Repopulate()
@@ -212,7 +216,7 @@ public partial class ChatBox : UIWidget, IEntityLinkClickHandler
 
         // Warn typing indicator about change
         // WL-Changes: Alt Typing Indicators Start
-        _controller.NotifySpecificChatTextChange(SelectedChannel);
+        _controller.NotifySpecificChatTextChange(SelectedChannel, ChatInput.Input.Text);
         // WL-Changes: Alt Typing Indicators End
     }
 
@@ -220,7 +224,7 @@ public partial class ChatBox : UIWidget, IEntityLinkClickHandler
     {
         // Warn typing indicator about focus
         // WL-Changes: Alt Typing Indicators Start
-        _controller.CurrentChannel = SelectedChannel;
+        _controller.NotifySpecificChatTextChange(SelectedChannel, ChatInput.Input.Text);
         // WL-Changes: Alt Typing Indicators End
         _controller.NotifyChatFocus(true);
     }

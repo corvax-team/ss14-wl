@@ -81,8 +81,10 @@ public abstract partial class SharedTypingIndicatorSystem : EntitySystem
         }
 
         // WL-Changes: Alt Typing Indicators Start
-        if (ev.State != TypingIndicatorState.Idle)
+        if (ev.State == TypingIndicatorState.Typing)
             SetTypingOverride(uid.Value, ev.OverrideIndicator);
+        else
+            SetTypingOverride(uid.Value, null);
         // WL-Changes: Alt Typing Indicators End
 
         SetTypingIndicatorState(uid.Value, ev.State);
