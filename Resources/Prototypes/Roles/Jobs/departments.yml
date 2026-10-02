@@ -137,7 +137,9 @@
   - Musician
   - Reporter
   - ServiceWorker
-  - TramDriver
+# WL-Change-Start
+#  - TramDriver
+# WL-Change-End
 
 - type: department
   id: Silicon
@@ -158,6 +160,8 @@
   roles:
   - Reporter
   - Psychologist
-  - TramDriver
+# WL-Change-Start
+#  - TramDriver
+# WL-Change-End
   - Pilot # Corvax-Pilot
   primary: false

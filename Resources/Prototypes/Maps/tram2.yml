@@ -36,7 +36,7 @@
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 1, 1 ]
             Reporter: [ 1, 1 ]
-            TramDriver: [ 1, 1 ]
+#            TramDriver: [ 1, 1 ] # WL-Change
             # Engineering (8)
             AtmosphericTechnician: [ 2, 2 ]
             StationEngineer: [ 4, 4 ]
