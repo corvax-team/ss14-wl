@@ -25,6 +25,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using static Robust.Client.UserInterface.Controls.BaseButton;
+using Content.Client._WL.DynamicText; // WL-Changes
 
 namespace Content.Client.UserInterface.Systems.Character;
 
@@ -70,7 +71,11 @@ public sealed partial class CharacterUIController : UIController, IOnStateEntere
 
         _window.DynamicTextButton.OnPressed += _ =>
         {
-            _dynamicText.OpenWindow();
+            if (_player.LocalEntity is { } player)
+            {
+                _ent.System<DynamicTextSystem>().SetEditingEntity(player);
+                _dynamicText.OpenWindow();
+            }
         };
         //WL-Changes-End
 
