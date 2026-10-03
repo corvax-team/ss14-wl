@@ -274,7 +274,8 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
         EntityUid source,
         EntityUid listener,
         string? message = null,
-        ProtoId<LanguagePrototype>? overrideLang = null)
+        ProtoId<LanguagePrototype>? overrideLang = null,
+        int? requiredLevel = null)
     {
         if (source == listener)
             return true;
@@ -293,7 +294,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
         if (languageProto == null)
             return true;
 
-        return GetLanguageLevel(listener, languageProto.ID) >= LanguageLevelFull;
+        return GetLanguageLevel(listener, languageProto.ID) >= (requiredLevel ?? LanguageLevelFull);
     }
 
     public bool NeedTTS(EntityUid source)
@@ -357,10 +358,11 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
         RadioChannelPrototype channel,
         bool colorize = true)
     {
+        var canColor = CanUnderstand(source, listener, msg, requiredLevel: LanguageLevelBasic);
         var canUnderstand = CanUnderstand(source, listener, msg);
         var language = GetLanguagePrototype(source, msg);
 
-        var color = GetColor(language, colorize, channel.Color);
+        var color = GetColor(language, colorize && canColor, channel.Color);
         var (fontSize, fontId) = GetFontParams(language, speech.FontSize, speech.FontId);
 
         string message;
@@ -417,7 +419,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
 
     public Color GetColor(LanguagePrototype? language, bool useColor = true, Color? fallback = null)
     {
-        if (language == null)
+        if (language == null || language.Color == DefaultChatTextColor || !useColor)
             return fallback ?? DefaultChatTextColor;
 
         return language.Color;
@@ -460,7 +462,8 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
         EntityUid source,
         string name,
         SpeechVerbPrototype speech,
-        bool colorize = true)
+        bool colorize = true,
+        EntityUid? listener = null)
     {
         if (string.IsNullOrEmpty(message))
             return string.Empty;
@@ -470,7 +473,9 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
 
         var language = GetLanguagePrototype(source, message);
 
-        var color = GetColor(language, colorize);
+        var canColor = listener == null || CanUnderstand(source, listener.Value, message, requiredLevel: LanguageLevelBasic);
+
+        var color = GetColor(language, colorize && canColor);
 
         var (fontSize, fontId) = GetFontParams(
             language,
