@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text;
+using Content.Server._WL.Languages;
 using Content.Shared.Chat;
 using Content.Shared.Ghost.Components;
 using Content.Shared.Players;
@@ -75,6 +76,7 @@ public sealed partial class ChatSystem
                 continue;
 
             //WL-Changes-Start Language
+            var canColor = _languages.CanUnderstand(source, listener, message, requiredLevel: LanguagesSystem.LanguageLevelBasic);
             if (!_languages.CanUnderstand(source, listener, message))
             {
                 var listenerMessage =
@@ -83,13 +85,14 @@ public sealed partial class ChatSystem
                 var listenerWrappedMessage =
                     _languages.IsObfusEmoting(source, message)
                         ? _languages.GetEmoteWrappedMessage(listenerMessage, source, Name(source))
-                        : _languages.GetWrappedMessage(listenerMessage, source, Name(source), GetSpeechVerb(source, message), false);
+                        : _languages.GetWrappedMessage(listenerMessage, source, Name(source), GetSpeechVerb(source, message), canColor);
 
                 _chatManager.ChatMessageToOne(obfuscatedChannel, listenerMessage, listenerWrappedMessage, source, entHideChat, session.Channel, author: author);
             }
             else
             {
-                _chatManager.ChatMessageToOne(channel, message, wrappedMessage, source, entHideChat, session.Channel, author: author);
+                var listenerWrappedMessage = _languages.GetWrappedMessage(message, source, Name(source), GetSpeechVerb(source, message), canColor, listener);
+                _chatManager.ChatMessageToOne(channel, message, listenerWrappedMessage, source, entHideChat, session.Channel, author: author);
             }
             //WL-Changes-End Language
         }

@@ -462,7 +462,8 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
         EntityUid source,
         string name,
         SpeechVerbPrototype speech,
-        bool colorize = true)
+        bool colorize = true,
+        EntityUid? listener = null)
     {
         if (string.IsNullOrEmpty(message))
             return string.Empty;
@@ -472,7 +473,9 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
 
         var language = GetLanguagePrototype(source, message);
 
-        var color = GetColor(language, colorize);
+        var canColor = listener == null || CanUnderstand(source, listener.Value, message, requiredLevel: LanguageLevelBasic);
+
+        var color = GetColor(language, colorize && canColor);
 
         var (fontSize, fontId) = GetFontParams(
             language,
