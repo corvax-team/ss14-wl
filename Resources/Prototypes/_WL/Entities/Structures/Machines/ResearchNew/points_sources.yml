@@ -1,0 +1,116 @@
+- type: entity
+  id: BaseRDNewPointSource
+  parent: BaseMachinePowered
+  name: "debug R&D point source"
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/rndpointsource.rsi
+    layers:
+    - state: rndpointsource-off
+    - state: rndpointsource
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ResearchClientNew
+  - type: PointsSourceDebug
+    pointsType: IT
+    category: DebugCategory1
+    researches:
+      DebugType1: 10
+      DebugType2: 0
+  - type: PointLight
+    radius: 1.5
+    energy: 3.0
+    color: "#3db83b"
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+
+- type: entity
+  id: BaseRDNewDetector
+  parent: BaseMachinePowered
+  name: "debug R&D DETECTOR"
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/rndpointsource.rsi
+    layers:
+    - state: rndpointsource-off
+    - state: rndpointsource
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ResearchClientNew
+  - type: ResearchDetector
+    detectType: DebugType1
+  - type: PointLight
+    radius: 1.5
+    energy: 3.0
+    color: "#3db83b"
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 1
+
+- type: entity
+  parent: FoodMeat
+  id: FoodMeatDEBUG
+  name: research raw meat
+  description: EXOTIC BUTTERS
+  suffix: DEBUG
+  components:
+    - type: ResearchSource
+      category: DebugCategory1
+      pointsType: BioChem

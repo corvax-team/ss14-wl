@@ -1,0 +1,15 @@
+- type: researchType
+  id: DebugType1
+  name: debug type 1
+  minValue: 1
+  maxValue: 1000
+  scale: !type:ConstMethod
+  condition: !type:TemperatureResearchCondition
+
+- type: researchType
+  id: DebugType2
+  name: debug type 2
+  minValue: 1
+  maxValue: 1000
+  scale: !type:LinearMethod
+  condition: !type:TemperatureResearchCondition

@@ -1,0 +1,194 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                      xmlns:wlResearch="clr-namespace:Content.Client._WL.Research.UI"
+                      xmlns:wl="clr-namespace:Content.Client._WL.UI"
+                      Title="{Loc 'research-console-menu-title'}"
+                      MinSize="1140 400"
+                      SetSize="1340 850">
+    <TabContainer Name="TabContainer" Margin="1 1 1 2">
+        <BoxContainer Orientation="Vertical"
+                      HorizontalExpand="True"
+                      VerticalExpand="True">
+            <BoxContainer Orientation="Horizontal"
+                          HorizontalExpand="True"
+                          VerticalExpand="False"
+                          MinHeight="40"
+                          Margin="5">
+                <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+                    <RichTextLabel Name="MainDisciplineLabel" Text="UwuШки"/>
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalAlignment="Right">
+                    <Button Name="ServerButton" Text="{Loc 'research-console-menu-server-selection-button'}" MinHeight="30"/>
+                </BoxContainer>
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal"
+                          HorizontalExpand="True"
+                          VerticalExpand="True">
+                <BoxContainer Orientation="Vertical"
+                              VerticalExpand="True"
+                              HorizontalExpand="True"
+                              SizeFlagsStretchRatio="2"
+                              Margin="10 4 10 4"
+                              MinWidth="575">
+                    <PanelContainer VerticalExpand="True">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#000000" BorderColor="#3B3E56" BorderThickness="3" />
+                        </PanelContainer.PanelOverride>
+                        <BoxContainer Orientation="Vertical"
+                                      VerticalExpand="True"
+                                      HorizontalExpand="True"
+                                      SizeFlagsStretchRatio="2"
+                                      Margin="10 8 10 8"
+                                      MinWidth="175">
+                            <Label Text="Теханилогия" StyleClasses="LabelKeyText" HorizontalAlignment="Center"/>
+                            <BoxContainer Orientation="Horizontal"
+                                          VerticalExpand="True"
+                                          HorizontalExpand="True"
+                                          SizeFlagsStretchRatio="2"
+                                          Margin="0 4 0 0">
+                                <BoxContainer Orientation="Vertical"
+                                              VerticalExpand="True"
+                                              HorizontalExpand="False"
+                                              SizeFlagsStretchRatio="2"
+                                              Margin="0 4 0 0">
+                                    <Label Text="Типы очко" StyleClasses="LabelKeyText" HorizontalAlignment="Center"/>
+                                    <BoxContainer Name="PointsTypesContainer"
+                                                  Orientation="Vertical"
+                                                  VerticalExpand="True"
+                                                  HorizontalExpand="False"
+                                                  SizeFlagsStretchRatio="2"
+                                                  Margin="0 2 10 2" />
+                                </BoxContainer>
+                                <customControls:VSeparator/>
+                                <BoxContainer Orientation="Vertical"
+                                              HorizontalExpand="True"
+                                              VerticalExpand="True"
+                                              HorizontalAlignment="Center"
+                                              Margin="0 2 10 2">
+                                    <BoxContainer Orientation="Horizontal"
+                                                  HorizontalExpand="True"
+                                                  VerticalExpand="False"
+                                                  VerticalAlignment="Top"
+                                                  HorizontalAlignment="Center"
+                                                  Margin="44 2 10 2">
+                                        <BoxContainer Orientation="Horizontal"
+                                                      VerticalExpand="False"
+                                                      HorizontalExpand="True"
+                                                      MinWidth="120"
+                                                      Margin="10 0 0 0">
+                                            <Label Text="Кол-во" StyleClasses="LabelKeyText" HorizontalAlignment="Center"/>
+                                        </BoxContainer>
+                                        <BoxContainer Orientation="Horizontal"
+                                                      VerticalExpand="False"
+                                                      HorizontalExpand="True"
+                                                      MinWidth="120"
+                                                      Margin="35 0 0 0">
+                                            <Label Text="Макс" StyleClasses="LabelKeyText" HorizontalAlignment="Center"/>
+                                        </BoxContainer>
+                                        <BoxContainer Orientation="Horizontal"
+                                                      VerticalExpand="False"
+                                                      HorizontalExpand="True"
+                                                      MinWidth="120"
+                                                      Margin="10 0 0 0">
+                                            <Label Text="В секунду" StyleClasses="LabelKeyText" HorizontalAlignment="Center"/>
+                                        </BoxContainer>
+                                    </BoxContainer>
+                                    <BoxContainer Name="PointsValuesContainer"
+                                                  Orientation="Vertical"
+                                                  VerticalExpand="True"
+                                                  HorizontalExpand="True"
+                                                  SizeFlagsStretchRatio="2"
+                                                  Margin="0 2 10 2" />
+                                </BoxContainer>
+                            </BoxContainer>
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+                <BoxContainer Orientation="Vertical"
+                              VerticalExpand="True"
+                              HorizontalExpand="True"
+                              SizeFlagsStretchRatio="3"
+                              Margin="0 0 10 10">
+                    <PanelContainer VerticalExpand="True" MinSize="300 200">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        </PanelContainer.PanelOverride>
+                        <ScrollContainer
+                            HScrollEnabled="False"
+                            HorizontalExpand="True"
+                            SizeFlagsStretchRatio="2"
+                            VerticalExpand="True">
+                            <BoxContainer
+                                Name="ResearchQueueContainer"
+                                MinSize="300 256"
+                                Orientation="Vertical"
+                                SizeFlagsStretchRatio="2"
+                                VerticalExpand="True" />
+                        </ScrollContainer>
+                    </PanelContainer>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical"
+                      HorizontalExpand="True"
+                      VerticalExpand="True">
+            <RichTextLabel Text="UwuШки"/>
+            <SplitContainer Orientation="Horizontal"
+                          VerticalExpand="True"
+                          HorizontalExpand="True"
+                          SizeFlagsStretchRatio="2"
+                          Margin="0 2 10 2">
+                <BoxContainer Name="ResearchContainer"
+                              Orientation="Vertical"
+                              VerticalExpand="True"
+                              HorizontalExpand="True"
+                              SizeFlagsStretchRatio="2"
+                              Margin="10"
+                              SetWidth="300">
+                    <PanelContainer VerticalExpand="True" SetSize="120 120">
+                        <PanelContainer.PanelOverride>
+                            <gfx:StyleBoxFlat BackgroundColor="#000000" BorderColor="#3B3E56" BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
+                        <TextureRect Name="ResearchTexture"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"
+                                     Access="Public"/>
+                    </PanelContainer>
+                    <BoxContainer Orientation="Vertical"
+                                  VerticalExpand="True"
+                                  HorizontalExpand="True"
+                                  SizeFlagsStretchRatio="2"
+                                  Margin="10">
+                        <RichTextLabel Name="TechLabel"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top" />
+                        <Control SetHeight="10"/>
+                        <RichTextLabel Name="TechDesc"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top" />
+                    </BoxContainer>
+                    <BoxContainer Orientation="Vertical"
+                                  VerticalExpand="True"
+                                  HorizontalExpand="True"
+                                  SizeFlagsStretchRatio="2"
+                                  Margin="10">
+                        <RichTextLabel Name="ProgressLabel"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" />
+                        <Control SetHeight="10"/>
+                        <wl:AnimatedProgressBar Name="ResearchBar" Value="50" MinHeight="30" Margin="10" />
+                    </BoxContainer>
+                    <Button Name="ResearchButton" Text="ТАКЕНОЛОДЖИЯ" MinHeight="30" Margin="4" SetWidth="300"/>
+                </BoxContainer>
+                <PanelContainer VerticalExpand="True">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#0B0B0E" />
+                    </PanelContainer.PanelOverride>
+                    <wlResearch:TechnologyTreeControl Name="TechTree" MinWidth="900" />
+                </PanelContainer>
+            </SplitContainer>
+        </BoxContainer>
+    </TabContainer>
+</controls:FancyWindow>

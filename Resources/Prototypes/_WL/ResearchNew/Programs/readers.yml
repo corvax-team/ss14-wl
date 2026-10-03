@@ -1,0 +1,20 @@
+- type: program
+  id: PointsReaderProgram
+  name: points reader
+  icon:
+    sprite: _WL/Structures/Machines/universal_computers.rsi
+    state: mining
+  uIKey: enum.PointsDataReaderUiKey.Key
+  uIData:
+    type: PointsDataReadBoundUserInterface
+
+- type: program
+  id: RecipesReaderProgram
+  name: recipes reader
+  icon:
+    sprite: _WL/Structures/Machines/universal_computers.rsi
+    state: mining
+  uIKey: enum.RecipesReaderUiKey.Key
+  uIData:
+    type: RecipesReaderBoundUserInterface
+

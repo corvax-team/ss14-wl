@@ -1,0 +1,8 @@
+- type: researchCategory
+  id: DebugCategory1
+  name: debug
+  maxPoints: 100000000
+  researchTypes:
+    - DebugType1
+    - DebugType2
+  pointsType: BioChem

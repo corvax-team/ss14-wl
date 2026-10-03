@@ -1,0 +1,129 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerRDNew
+  name: research main terminal
+  description: A computer used to interface with R&D tools.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: rdcomp
+    - map: ["computerLayerKeys"]
+      state: rd_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: ResearchClientNew
+  - type: ResearchMainConsole
+  - type: ActivatableUI
+    key: enum.ResearchMainConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ResearchMainConsoleUiKey.Key:
+        type: ResearchMainConsoleBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 50
+  - type: PowerState
+    idlePowerDraw: 50
+    workingPowerDraw: 1000
+  - type: Computer
+    board: ResearchComputerCircuitboard
+  - type: AccessReader
+    access: [["Research"]]
+  - type: PointLight
+    radius: 1.5
+    energy: 4.0
+    color: "#b53ca1"
+  - type: GuideHelp
+    guides:
+    - Science
+
+- type: entity
+  parent: BaseStructureComputer
+  id: UniversalComputer
+  name: aero computer
+  description: OH MY PC
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Animateable
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Construction
+    graph: Computer
+    node: computer
+    containers:
+      - board
+  - type: ApcPowerReceiver
+    powerLoad: 50
+  - type: PowerState
+    idlePowerDraw: 50
+    workingPowerDraw: 500
+  - type: UIPowerState
+  - type: ExtensionCableReceiver
+  - type: ActivatableUIRequiresPower
+  - type: Appearance
+  - type: LitOnPowered
+  - type: PointLight
+    radius: 1.5
+    energy: 3.0
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    offset: "0, 0.4" # shine from the top, not bottom of the computer
+    castShadows: false
+  - type: EmitSoundOnUIOpen
+    sound:
+      collection: Keyboard
+      params:
+        volume: -1
+        variation: 0.10
+        pitch: 1.10  # low pitch keyboard sounds feel kinda weird
+    blacklist:
+      tags:
+      - NoConsoleSound
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+        ents: []
+  - type: LightningTarget
+    priority: 1
+  - type: RequireProjectileTarget
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-computer
+    layoutId: Computer
+  - type: Sprite
+    sprite: _WL/Structures/Machines/universal_computers.rsi
+    layers:
+    - state: computer
+    - state: generic_keyboard
+    - state: rd_key
+  - type: UniversalComputer
+    menuProgram: MenuProgram
+    programs:
+      - StaticProgram
+  - type: UniversalComputerVisuals
+  - type: ActivatableUI
+    key: enum.UCMenuUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.UCMenuUiKey.Key:
+        type: UniversalComputerBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: AccessReader
+    access: [["Research"]]

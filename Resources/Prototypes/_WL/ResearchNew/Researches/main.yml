@@ -1,0 +1,117 @@
+- type: research
+  id: RootResearch
+  name: research-root-name
+  description: research-root-desc
+  icon:
+    sprite: Structures/Machines/tech_disk_printer.rsi
+    state: display
+  discipline: Experimental
+  packagesCost: 10
+  pointsCost:
+    pointsDict:
+      IT: 1
+  children:
+  - SalvageWeapons
+  - Hydroponics
+  - BasicRobotics
+  - SalvageEquipment
+
+- type: research
+  id: SalvageWeapons
+  name: research-technology-salvage-weapons
+  icon:
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    state: icon
+  discipline: Arsenal
+  pointsCost:
+    points:
+      BioChem: 1
+  recipeUnlocks:
+  - WeaponProtoKineticAccelerator
+  - ShuttleGunKineticCircuitboard
+
+- type: research
+  id: BasicRobotics
+  name: research-technology-basic-robotics
+  icon:
+    sprite: Structures/Machines/exosuit_fabricator.rsi
+    state: fab-idle
+  discipline: Experimental
+  pointsCost:
+    pointsDict:
+      IT: 1
+  children:
+    - BasicAnomalousResearch
+    - BasicXenoArcheology
+  recipeUnlocks:
+  - PersonalAIRecipe
+  - ProximitySensor
+  - AiRemoteBrain
+
+- type: research
+  id: SalvageEquipment
+  name: research-technology-salvage-equipment
+  icon:
+    sprite: Objects/Tools/handdrill.rsi
+    state: handdrill
+  discipline: Industrial
+  pointsCost:
+    pointsDict:
+      IT: 1
+  recipeUnlocks:
+  - MiningDrill
+  - MineralScannerEmpty
+  - OreProcessorIndustrialMachineCircuitboard
+  - ClothingMaskWeldingGas
+  - ClothingShoesBootsJump
+
+- type: research
+  id: Hydroponics
+  name: research-technology-basic-hydroponics
+  icon:
+    sprite: Structures/Machines/seed_extractor.rsi
+    state: seedextractor
+  discipline: CivilianServices
+  pointsCost:
+    pointsDict:
+      IT: 1
+  recipeUnlocks:
+  - SeedExtractorMachineCircuitboard
+  - HydroponicsTrayMachineCircuitboard
+  - ReagentGrinderIndustrialMachineCircuitboard
+
+- type: research
+  id: BasicAnomalousResearch
+  name: research-technology-basic-anomalous-research
+  icon:
+    sprite: Objects/Specific/Research/anomalyscanner.rsi
+    state: icon
+  discipline: Experimental
+  pointsCost:
+    pointsDict:
+      IT: 5000
+  recipeUnlocks:
+    - AnomalyScanner
+    - AnomalyLocator
+    - AnomalyLocatorWide
+    - APECircuitboard
+    - AnomalyVesselCircuitboard
+
+- type: research
+  id: BasicXenoArcheology
+  name: research-technology-basic-xenoarcheology
+  icon:
+    sprite: Structures/Machines/artifact_analyzer.rsi
+    state: display
+  discipline: Experimental
+  pointsCost:
+    pointsDict:
+      IT: 1
+  recipeUnlocks:
+    - NodeScanner
+    - AnalysisComputerCircuitboard
+    - ArtifactAnalyzerMachineCircuitboard
+    - ClothingHeadHatHoodBioScientist
+    - ClothingOuterBioScientist
+    - ClothingOuterHardsuitScience
+    - ClothingUniformJumpsuitScienceDangerous

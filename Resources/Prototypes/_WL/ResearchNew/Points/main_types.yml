@@ -1,0 +1,41 @@
+- type: researchPointsType
+  id: IT
+  name: points-type-it-name
+  desc: points-type-it-desc
+  color: "#354276"
+
+- type: researchPointsType
+  id: Physics
+  name: points-type-physics-name
+  desc: points-type-physics-desc
+  color: "#1a89ad"
+
+- type: researchPointsType
+  id: Social
+  name: points-type-social-name
+  desc: points-type-social-desc
+  color: "#75ae22"
+
+- type: researchPointsType
+  id: Mech
+  name: points-type-mech-name
+  desc: points-type-mech-desc
+  color: "#cd610a"
+
+- type: researchPointsType
+  id: Instrument
+  name: points-type-instrument-name
+  desc: points-type-instrument-desc
+  color: "#deaf3e"
+
+- type: researchPointsType
+  id: BioChem
+  name: points-type-biochem-name
+  desc: points-type-biochem-desc
+  color: "#59a59b"
+
+- type: researchPointsType
+  id: Experimental
+  name: points-type-extrimal-name
+  desc: points-type-extrimal-desc
+  color: "#542a6c"
