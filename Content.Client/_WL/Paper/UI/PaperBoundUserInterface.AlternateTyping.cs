@@ -6,7 +6,6 @@ namespace Content.Client.Paper.UI;
 
 public sealed partial class PaperBoundUserInterface
 {
-    // WL-Changes: Alt Typing Indicators Start
     private static readonly ProtoId<TypingIndicatorPrototype> PaperTypingIndicator = "paper";
 
     private TypingIndicatorSystem? _typing;
@@ -22,5 +21,4 @@ public sealed partial class PaperBoundUserInterface
         _typing ??= EntMan.System<TypingIndicatorSystem>();
         _typing?.ClientSubmittedChatText();
     }
-    // WL-Changes: Alt Typing Indicators End
 }

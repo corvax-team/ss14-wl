@@ -6,7 +6,9 @@ using Content.Client.Administration.Managers;
 using Content.Client.Chat;
 using Content.Client.Chat.Managers;
 using Content.Client.Chat.TypingIndicator;
+// WL-Changes: Alt Typing Indicators Start
 using Content.Shared.Chat.TypingIndicator;
+// WL-Changes: Alt Typing Indicators End
 using Content.Client.Chat.UI;
 using Content.Client.Examine;
 using Content.Client.Gameplay;

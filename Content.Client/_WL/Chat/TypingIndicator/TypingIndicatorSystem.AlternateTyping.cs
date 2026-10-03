@@ -6,7 +6,6 @@ namespace Content.Client.Chat.TypingIndicator;
 
 public sealed partial class TypingIndicatorSystem
 {
-    // WL-Changes: Alt Typing Indicators Start
     /// <summary>
     /// Client can type with alternate indicators
     /// </summary>
@@ -20,5 +19,4 @@ public sealed partial class TypingIndicatorSystem
         _lastTextChange = _time.CurTime;
         RaisePredictiveEvent(new TypingChangedEvent(TypingIndicatorState.Typing, protoId));
     }
-    // WL-Changes: Alt Typing Indicators End
 }
