@@ -20,6 +20,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._WL.Skills.Components; // WL-Skills
 using Content.Shared._WL.Skills; // WL-Skills
+using Content.Server.Access.Systems; // WL-Change
+using Content.Server.Roles.Jobs; // WL-Change
+using Content.Server.Mind; // WL-Change
+using Content.Server.Roles; // WL-Skills
 
 namespace Content.Server.Cloning;
 
@@ -41,6 +45,10 @@ public sealed partial class CloningSystem : SharedCloningSystem
     [Dependency] private IdentitySystem _identity = default!;
     [Dependency] private SharedSkillsSystem _skills = default!; // WL-Skills
     [Dependency] private HumanoidProfileSystem _profile = default!; // WL-Changes-HeightFix
+    [Dependency] private IdCardSystem _idCardSystem = default!; // WL-Change
+    [Dependency] private JobSystem _jobs = default!; // WL-Change
+    [Dependency] private MindSystem _mind = default!; // WL-Change
+    [Dependency] private RoleSystem _roles = default!; // WL-Change
 
     public override bool TryCloning(
         EntityUid original,
@@ -198,6 +206,20 @@ public sealed partial class CloningSystem : SharedCloningSystem
             if (cloneItem != null && !_inventory.TryEquip(clone, cloneItem.Value, slot.Name, silent: true, inventory: clone.Comp))
                 Del(cloneItem); // delete it again if the clone cannot equip it
         }
+
+        // WL-Changes-Start
+        if (!_mind.TryGetMind(original, out var mindId, out _)
+            || !_jobs.MindTryGetJob(mindId, out var job)
+            || _roles.GetSubnameByEntity(original, job.ID) is not { } jobName
+            || !_inventory.TryGetSlotEntity(clone, "id", out var idItem)
+            || idItem is not { } id
+            || !_idCardSystem.TryGetIdCard(id, out var idCard))
+        {
+            return;
+        }
+
+        _idCardSystem.TryChangeJobTitle(idCard, jobName);
+        // WL-Changes-End
     }
 
     public override EntityUid? CopyItem(
