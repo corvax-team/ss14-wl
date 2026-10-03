@@ -265,6 +265,14 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganCischiExternal ]
   id: OrganCischiTorso
+  components:
+  - type: VisualOrganMarkings
+    markingsDisplacement:
+      UndergarmentBottom:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Cischi/displacement.rsi
+            state: jumpsuit
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganCischiExternal ]
