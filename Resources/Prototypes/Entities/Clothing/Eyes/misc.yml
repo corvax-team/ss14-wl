@@ -33,11 +33,3 @@
   parent: [ClothingEyesEyepatch, ClothingHeadEyeBaseFlipped]
   id: ClothingEyesEyepatchFlipped
   suffix: flipped
-# WL-Changes-Start
-  components:
-  - type: Clothing
-    clothingVisuals:
-      eyes:
-      - state: equipped-EYES
-        offset: "-0.03125, 0"
-# WL-Changes-End
