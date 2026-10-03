@@ -69,3 +69,20 @@
   id: QuartermasterWintercoat
   equipment:
     outerClothing: ClothingOuterWinterQM
+
+# WL-Changes: quartermaster eyes loadout Start
+- type: loadout
+  id: QuartermasterGlassesCommand
+  equipment:
+    eyes: ClothingEyesGlassesCommand
+
+- type: loadout
+  id: QuartermasterHudCommand
+  equipment:
+    eyes: ClothingEyesHudCommand
+
+- type: loadout
+  id: QuartermasterSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+# WL-Changes: quartermaster eyes loadout End

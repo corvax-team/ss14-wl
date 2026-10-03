@@ -34,6 +34,7 @@ loadout-group-hop-jumpsuit = Глава персонала, комбинезон
 loadout-group-hop-neck = Глава персонала, шея
 loadout-group-hop-backpack = Глава персонала, рюкзак
 loadout-group-hop-outerclothing = Глава персонала, верхняя одежда
+loadout-group-head-of-personnel-glasses = Глава персонала, очки
 
 # Civilian
 loadout-group-passenger-jumpsuit = Пассажир, комбинезон
@@ -59,6 +60,7 @@ loadout-group-librarian-jumpsuit = Библиотекарь, комбинезо�
 
 loadout-group-lawyer-jumpsuit = Адвокат, комбинезон
 loadout-group-lawyer-neck = Адвокат, шея
+loadout-group-lawyer-glasses = Адвокат, очки
 
 loadout-group-chaplain-head = Священник, голова
 loadout-group-chaplain-mask = Священник, маска
@@ -100,6 +102,7 @@ loadout-group-quartermaster-jumpsuit = Квартирмейстер, комби�
 loadout-group-quartermaster-neck = Квартирмейстер, шея
 loadout-group-quartermaster-outerclothing = Квартирмейстер, верхняя одежда
 loadout-group-quartermaster-shoes = Квартирмейстер, обувь
+loadout-group-quartermaster-glasses = Квартирмейстер, очки
 
 loadout-group-cargo-technician-head = Грузчик, голова
 loadout-group-cargo-technician-jumpsuit = Грузчик, комбинезон
@@ -118,6 +121,7 @@ loadout-group-chief-engineer-jumpsuit = Старший инженер, комб�
 loadout-group-chief-engineer-outerclothing = Старший инженер, верхняя одежда
 loadout-group-chief-engineer-neck = Старший инженер, шея
 loadout-group-chief-engineer-shoes = Старший инженер, обувь
+loadout-group-chief-engineer-glasses = Старший инженер, очки
 
 loadout-group-technical-assistant-jumpsuit = Технический ассистент, комбинезон
 
@@ -139,6 +143,8 @@ loadout-group-research-director-neck = Научный руководитель, 
 loadout-group-research-director-jumpsuit = Научный руководитель, комбинезон
 loadout-group-research-director-outerclothing = Научный руководитель, верхняя одежда
 loadout-group-research-director-shoes = Научный руководитель, обувь
+loadout-group-research-director-glasses = Научный руководитель, очки
+
 # WL-Changes: Научный сотрудник start
 loadout-group-scientist-head = Научный сотрудник, голова
 loadout-group-scientist-neck = Научный сотрудник, шея
@@ -155,6 +161,7 @@ loadout-group-head-of-security-head = Глава службы безопасно
 loadout-group-head-of-security-jumpsuit = Глава службы безопасности, комбинезон
 loadout-group-head-of-security-neck = Глава службы безопасности, шея
 loadout-group-head-of-security-outerclothing = Глава службы безопасности, верхняя одежда
+loadout-group-head-of-security-glasses = Глава службы безопасности, очки
 
 loadout-group-warden-head = Смотритель, голова
 loadout-group-warden-jumpsuit = Смотритель, комбинезон
@@ -184,6 +191,7 @@ loadout-group-chief-medical-officer-jumpsuit = Главный врач, комб
 loadout-group-chief-medical-officer-outerclothing = Главный врач, верхняя одежда
 loadout-group-chief-medical-officer-shoes = Главный врач, обувь
 loadout-group-chief-medical-officer-neck = Главный врач, шея
+loadout-group-chief-medical-officer-glasses = Главный врач, очки
 
 loadout-group-medical-doctor-head = Врач, голова
 loadout-group-medical-doctor-jumpsuit = Врач, комбинезон

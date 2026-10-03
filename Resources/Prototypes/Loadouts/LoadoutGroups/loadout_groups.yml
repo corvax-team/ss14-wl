@@ -201,6 +201,17 @@
   - ClothingHeadHatBeretHoP
 #WL-changes-end
 
+#WL-changes-start
+- type: loadoutGroup
+  id: WLHoPGlasses
+  name: loadout-group-head-of-personnel-glasses
+  minLimit: 0
+  loadouts:
+  - HeadOfPersonnelGlassesCommand
+  - HeadOfPersonnelHudCommand
+  - HeadOfPersonnelSunglasses
+#WL-changes-end
+
 - type: loadoutGroup
   id: HoPJumpsuit
   name: loadout-group-hop-jumpsuit
@@ -882,6 +893,17 @@
   minLimit: 0
   loadouts:
   - LawyerNeck
+
+  #WL-changes-start
+- type: loadoutGroup
+  id: WLLawyerGlasses
+  name: loadout-group-lawyer-glasses
+  minLimit: 0
+  loadouts:
+  - LawyerGlassesCommand
+  - LawyerHudCommand
+  - LawyerSunglasses
+#WL-changes-end
 
 #- type: loadoutGroup
 #  id: LawyerJobTrinkets
@@ -2006,6 +2028,17 @@
   - BrownShoes
   - CargoWinterBoots
 
+#WL-changes-start
+- type: loadoutGroup
+  id: WLQMGlasses
+  name: loadout-group-quartermaster-glasses
+  minLimit: 0
+  loadouts:
+  - QuartermasterGlassesCommand
+  - QuartermasterHudCommand
+  - QuartermasterSunglasses
+#WL-changes-end
+
 #- type: loadoutGroup
 #  id: QuartermasterJobTrinkets
 #  name: loadout-group-jobtrinkets
@@ -2230,6 +2263,18 @@
   - ChiefEngineerHead
   - EngineerBeret
   - ChiefEngineerBeretWL #WL Workers Lyvsi engi resprite
+
+  #WL-changes-start
+- type: loadoutGroup
+  id: WLCEGlasses
+  name: loadout-group-chief-engineer-glasses
+  minLimit: 0
+  loadouts:
+  - ChiefEngineerGlassesCommand
+  - ChiefEngineerHudCommand
+  - ChiefEngineerSunglasses
+  - ChiefEngineerMeson
+#WL-changes-end
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -2829,6 +2874,17 @@
   loadouts:
   - ResearchDirectorBeret
 
+  #WL-changes-start
+- type: loadoutGroup
+  id: WLRDGlasses
+  name: loadout-group-research-director-glasses
+  minLimit: 0
+  loadouts:
+  - ResearchDirectorSunglasses
+  - ResearchDirectorHudCommand
+  - ResearchDirectorGlassesCommand
+#WL-changes-end
+
 - type: loadoutGroup
   id: ResearchDirectorNeck
   name: loadout-group-research-director-neck
@@ -3282,6 +3338,18 @@
   - JumpsuitHosParade
   - JumpskirtHosParade
   # WL-Loadouts-End
+
+  #WL-changes-start
+- type: loadoutGroup
+  id: WLHOSGlasses
+  name: loadout-group-head-of-security-glasses
+  minLimit: 0
+  loadouts:
+  - HeadofSecurityGlassesSecurity
+  - HeadofSecurityHudSecurity
+  - HeadofSecurityEyepatchHudSecurity
+  - HeadofSecuritySunglasses
+#WL-changes-end
 
 - type: loadoutGroup
   id: HeadofSecurityNeck

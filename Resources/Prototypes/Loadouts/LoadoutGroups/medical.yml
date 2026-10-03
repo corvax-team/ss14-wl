@@ -75,6 +75,19 @@
   - BrownShoes
   - MedicalWinterBoots
 
+  #WL-changes-start
+- type: loadoutGroup
+  id: WLCMOGlasses
+  name: loadout-group-chief-medical-officer-glasses
+  minLimit: 0
+  loadouts:
+  - ChiefMedicalOfficerGlassesCommand
+  - ChiefMedicalOfficerHudCommand
+  - ChiefMedicalOfficerSunglasses
+  - ChiefMedicalOfficerHudMedical
+  - ChiefMedicalOfficerEyepatchHudMedical
+#WL-changes-end
+
 #- type: loadoutGroup
 #  id: ChiefMedicalOfficerJobTrinkets
 #  name: loadout-group-jobtrinkets
