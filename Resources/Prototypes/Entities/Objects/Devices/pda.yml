@@ -1422,33 +1422,35 @@
   - type: Icon
     state: pda-medical
 
-- type: entity
-  parent: BasePDA
-  id: TramDriverPDA
-  name: tram driver PDA
-  description: A serious driver will always arrive on time.
-  components:
-  # Corvax-Contraband-start
-  - type: Contraband
-    severity: Corvax431
-    allowedDepartments: []
-    allowedJobs: [TramDriver]
-  # Corvax-Contraband-end
-  - type: Pda
-    id: TramDriverIDCard
-  - type: Sprite
-    sprite: Objects/Devices/pda.rsi #WL TODO: Resprite
-  - type: Appearance
-    appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-tramdriver
-  - type: PdaBorderColor
-    borderColor: "#454a50"
-    accentVColor: "#ffc500"
-  - type: Icon
-    sprite: Objects/Devices/pda.rsi #WL TODO: Resprite
-    state: pda-tramdriver
+# WL-Changes-Start
+#- type: entity
+#  parent: BasePDA
+#  id: TramDriverPDA
+#  name: tram driver PDA
+#  description: A serious driver will always arrive on time.
+#  components:
+#  # Corvax-Contraband-start
+#  - type: Contraband
+#    severity: Corvax431
+#    allowedDepartments: []
+#    allowedJobs: [TramDriver]
+#  # Corvax-Contraband-end
+#  - type: Pda
+#    id: TramDriverIDCard
+#  - type: Sprite
+#    sprite: Objects/Devices/pda.rsi #WL TODO: Resprite
+#  - type: Appearance
+#    appearanceDataInit:
+#     enum.PdaVisuals.PdaType:
+#       !type:String
+#       pda-tramdriver
+#  - type: PdaBorderColor
+#    borderColor: "#454a50"
+#    accentVColor: "#ffc500"
+#  - type: Icon
+#    sprite: Objects/Devices/pda.rsi #WL TODO: Resprite
+#    state: pda-tramdriver
+# WL-Changes-End
 
 - type: entity
   parent: BasePDA
