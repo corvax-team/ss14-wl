@@ -134394,13 +134394,15 @@ entities:
     - type: Transform
       parent: 15
       pos: -59.5,-60.5
-- proto: SpawnPointTramDriver
-  entities:
-  - uid: 25721
-    components:
-    - type: Transform
-      parent: 17588
-      pos: -38.5,-22.5
+# WL-Changes-Start
+#- proto: SpawnPointTramDriver
+#  entities:
+#  - uid: 25721
+#    components:
+#    - type: Transform
+#      parent: 17588
+#      pos: -38.5,-22.5
+# WL-Changes-End
 - proto: SpawnPointWarden
   entities:
   - uid: 4660
