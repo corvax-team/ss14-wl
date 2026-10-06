@@ -21,7 +21,7 @@
       shader: unshaded
       visible: false
     - map: [enum.RadioDeviceVisualLayers.Speaker]
-      state: walkietalkie-active
+      state: walkietalkie-on
       shader: unshaded
       visible: false
   - type: Appearance

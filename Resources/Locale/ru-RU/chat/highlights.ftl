@@ -46,7 +46,6 @@ highlights-musician = музыкант, театрал, артист, серви
 highlights-serviceworker = сервисный работник, сервисник
 
 # Station-specific
-highlights-psychologist = психолог
 highlights-reporter = репортёр, репортер, журналист
 highlights-psychologist = психотерапевт
 

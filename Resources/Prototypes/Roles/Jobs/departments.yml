@@ -55,8 +55,6 @@
   - ERTEngineer
   - DeathSquad
   - Adjutant #WL-Changes: Adjutant
-  primary: false
-  weight: 100
 
 - type: department
   id: Engineering

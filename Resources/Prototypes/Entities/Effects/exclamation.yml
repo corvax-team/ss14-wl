@@ -11,15 +11,12 @@
       drawdepth: Effects
       noRot: true
       layers:
-      - state: exclamation_mark
+      - state: cardboard_special
     - type: TimedDespawn
       lifetime: 1
     - type: Tag
       tags:
         - HideContextMenu
-
-
-
 
 - type: entity
   id: WhistleExclamation

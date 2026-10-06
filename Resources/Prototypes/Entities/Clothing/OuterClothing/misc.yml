@@ -254,24 +254,9 @@
   description: A bizarre gem-encrusted violet robe that radiates magical energies.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/wizard_violet.rsi
+    sprite: Clothing/OuterClothing/Misc/violetwizard.rsi #WL-changes: Emo Update 3
   - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/wizard_violet.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-
-# Is this wizard wearing a fanny pack???
-- type: entity
-  parent: ClothingOuterWizardBase
-  id: ClothingOuterWizardViolet
-  name: violet wizard robes
-  description: A bizarre gem-encrusted violet robe that radiates magical energies.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/wizard_violet.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/wizard_violet.rsi
+    sprite: Clothing/OuterClothing/Misc/violetwizard.rsi #WL-changes: Emo Update 3
   - type: Tag
     tags:
     - WhitelistChameleon

@@ -6,11 +6,9 @@
     mode: SnapgridCenter
   components:
   - type: DragonRift
-    spawn: !type:GroupSelector
-      children:
-      - id: MobCarpDragon
-      - id: MobSharkDragon
-        weight: 0.15
+    spawn: MobCarpDragon
+    spawnSharkChance: 0.15
+    spawnShark: MobSharkDragon
   - type: Transform
     anchored: true
   - type: Physics
