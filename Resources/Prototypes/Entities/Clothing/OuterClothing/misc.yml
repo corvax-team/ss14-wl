@@ -254,9 +254,9 @@
   description: A bizarre gem-encrusted violet robe that radiates magical energies.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/violetwizard.rsi #WL-changes: Emo Update 3
+    sprite: _WL/Clothing/OuterClothing/Misc/violetwizard.rsi #WL-changes: Emo Update 3
   - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/violetwizard.rsi #WL-changes: Emo Update 3
+    sprite: _WL/Clothing/OuterClothing/Misc/violetwizard.rsi #WL-changes: Emo Update 3
   - type: Tag
     tags:
     - WhitelistChameleon
