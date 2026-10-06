@@ -19,12 +19,28 @@
 
 На официальном сайте с [документацией](https://docs.spacestation14.io/) имеется вся необходимая информация о контенте SS14, движке, дизайне игры и многом другом. Также имеется много информации для начинающих разработчиков.
 
+Кроме того, ознакомьтесь со следующими ресурсами, содержащими информацию о лицензировании и указании авторства:
+- [Robust Generic Attribution](https://docs.spacestation14.com/en/specifications/robust-generic-attribution.html)
+- [Robust Station Image](https://docs.spacestation14.com/en/specifications/robust-station-image.html)
+
+## Политика к коду сгенерированным ИИ
+Не принимаются материалы, созданные с помощью ИИ без должных усилий и проверки. К ним относятся, в частности:
+
+- Любой код (включая YAML), сгенерированный через GitHub Copilot, ChatGPT и им подобными.
+- Изображения, аудиофайлы и другие ресурсы, созданные с помощью ИИ.
+- Автоматически сгенерированная
+
 ## Сборка
 
-1. Склонируйте этот репозиторий локально
-2. Запустите `RUN_THIS.py` для инициализации подмодулей и скачивания движка.
-3. Скомпилируйте проект.
+1. Склонируйте этот репозиторий:
+```shell
+git clone https://github.com/space-syndicate/space-station-14.git
+```
+2. Запустите `RUN_THIS.py` для инициализации подмодулей и скачивания движка:
+```shell
+cd space-station-14
+python RUN_THIS.py
+```
+3. Скомпилируйте проект используя `dotnet build`
 
-Несколько ассетов лицензированы под [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. Ассеты имеют свою лицензию и авторские права в файле метаданных. [Пример](https://github.com/space-syndicate/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
-
-Обратите внимание, что некоторые ассеты лицензированы на некоммерческой основе [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или аналогичной некоммерческой лицензией, и их необходимо удалить, если вы хотите использовать этот проект в коммерческих целях.
+Некоторые ассеты лицензированы под [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. Ассеты имеют свою лицензию и авторские права в файле метаданных. [Пример](https://github.com/space-syndicate/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).

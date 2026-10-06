@@ -11,12 +11,14 @@
       drawdepth: Effects
       noRot: true
       layers:
-      - state: "cardboard_special"
+      - state: exclamation_mark
     - type: TimedDespawn
       lifetime: 1
     - type: Tag
       tags:
         - HideContextMenu
+
+
 
 
 - type: entity

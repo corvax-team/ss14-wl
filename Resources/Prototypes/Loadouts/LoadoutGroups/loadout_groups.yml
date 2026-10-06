@@ -138,6 +138,11 @@
   loadouts:
   - CaptainHead
   - CaptainCap
+  # Corvax-Loadouts-Start
+  - CaptainBeret
+  - CaptainBicorn
+  - CaptainHat
+    # Corvax-Loadouts-End
 #WL-changes-start
   - ClothingHeadCaptainHat
   - ClothingHeadHatBeretCaptain
@@ -154,6 +159,7 @@
   # Corvax-Loadouts-Start
   - CaptainJumpsuitTurtleneck
   - CaptainJumpskirtTurtleneck
+  - CaptainJumpsuitRoyal
   # Corvax-Loadouts-End
 
 - type: loadoutGroup
@@ -179,6 +185,7 @@
   name: loadout-group-captain-outerclothing
   loadouts:
   - CaptainOuterClothing
+  - CaptainCoat # Corvax-Loadouts
   - CaptainWintercoat
 #wl-Changes-Start
   - ClothingOuterCoatCaptainTrench
@@ -1058,6 +1065,14 @@
   minLimit: 0
   loadouts:
   - ChaplainNeck
+
+- type: loadoutGroup
+  id: ChaplainShoes
+  name: loadout-group-chaplain-shoes
+  loadouts:
+  - BlackShoes
+  - BlackSandals
+  - BrownSandals
 
 #- type: loadoutGroup
 #  id: ChaplainJobTrinkets
@@ -1983,6 +1998,7 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
+  - QuartermasterFormalDress
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -3297,6 +3313,7 @@
   name: loadout-group-head-of-security-outerclothing
   loadouts:
   - HeadofSecurityCoat
+  - HeadofSecurityGreatcoat # Corvax-Loadouts
   - HeadofSecurityWinterCoat
 
 - type: loadoutGroup

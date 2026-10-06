@@ -1,10 +1,15 @@
+using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Server.NPC;
 using Content.Server.NPC.Systems;
 using Content.Server.Pinpointer;
+using Content.Shared.Damage.Components;
 using Content.Shared.Dragon;
+using Content.Shared.EntityTable;
 using Content.Shared.Examine;
 using Content.Shared.Sprite;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.Manager;
@@ -111,6 +116,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
             }
         }
     }
+
 
     private void OnExamined(EntityUid uid, DragonRiftComponent component, ExaminedEvent args)
     {

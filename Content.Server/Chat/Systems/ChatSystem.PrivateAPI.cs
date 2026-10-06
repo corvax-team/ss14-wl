@@ -50,7 +50,7 @@ public sealed partial class ChatSystem
                 speech = proto;
         }
 
-        name = ChatNameLinks ? $"[textlink=\"{FormattedMessage.EscapeStringParameter(name)}\" entity=\"{GetNetEntity(source)}\" entitynamecolor=\"true\"]" : FormattedMessage.EscapeText(name);
+        var messageName = ChatNameLinks ? $"[textlink=\"{FormattedMessage.EscapeStringParameter(name)}\" entity=\"{GetNetEntity(source)}\" entitynamecolor=\"true\"]" : FormattedMessage.EscapeText(name);
 
         // WL-Change: Lang X Chat Start
         foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange, chatType))
