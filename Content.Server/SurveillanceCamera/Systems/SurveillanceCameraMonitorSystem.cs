@@ -12,6 +12,7 @@ using Content.Shared.SurveillanceCamera;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing; // WL-Changes
 
 namespace Content.Server.SurveillanceCamera;
 
@@ -24,6 +25,7 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
     // WL-Changes-Start
     [Dependency] private TransformSystem _transform = default!;
     [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
     private const int MaxSnapshotSize = 1024 * 128; // 128 KB
     // WL-Changes-End
 
@@ -186,7 +188,8 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
         if (message.Data.Length > MaxSnapshotSize
             || !CheckPngSignature(message.Data)
             || component.ActiveCamera == null
-            || !component.Viewers.Contains(actor))
+            || !component.Viewers.Contains(actor)
+            || _timing.CurTime < component.NextSnapshotTime)
         {
             return;
         }
@@ -196,6 +199,8 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
 
         if (TryComp<PhotoCardComponent>(card, out var photo))
             photo.ImageData = message.Data;
+
+        component.NextSnapshotTime = _timing.CurTime + component.SnapshotCooldown;
 
         _popupSystem.PopupEntity(Loc.GetString("surveillance-camera-monitor-snapshot-printed"), uid, actor);
     }
