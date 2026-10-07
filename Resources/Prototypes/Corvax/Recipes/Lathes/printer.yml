@@ -637,3 +637,15 @@
   applyMaterialDiscount: false
   materials:
     PrinterPaper: 100
+
+# WL-Changes-Start
+- type: latheRecipe
+  id: PrintedDocumentSettingOfGoalRecipe
+  result: PrintedDocumentSettingOfGoal
+  categories:
+  - OrdersAndInstructions
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
+# WL-Changes-End
