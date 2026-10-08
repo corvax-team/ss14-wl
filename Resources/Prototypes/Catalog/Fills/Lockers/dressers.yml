@@ -126,6 +126,7 @@
   suffix: Filled, Research Director
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
