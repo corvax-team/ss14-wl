@@ -48,6 +48,28 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSecurityMedicWL
+  name: security medic beret
+  description: A robust beret with the medical insignia emblazoned on it. Uses reinforced fabric to offer sufficient protection.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Head/Hats/beret_security_medic.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Head/Hats/beret_security_medic.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSecurityPilotWL
+  name: pilot beret
+  description: Black beret with a silver badge.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hats/beret_pilot.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hats/beret_pilot.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatBeretCivilian
   name: civilian beret
   description: A non-agressive beret with a purple stripe. Stylish and gives away something french.

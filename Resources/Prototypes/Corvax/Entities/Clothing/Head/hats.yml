@@ -71,9 +71,9 @@
   description: Black beret with a silver badge.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Head/Hats/beret_pilot.rsi # WL-Changes: Resprite
+    sprite: Corvax/Clothing/Head/Hats/beret_pilot.rsi
   - type: Clothing
-    sprite: _WL/Clothing/Head/Hats/beret_pilot.rsi # WL-Changes: Resprite
+    sprite: Corvax/Clothing/Head/Hats/beret_pilot.rsi
 
 - type: entity
   parent: ClothingHeadBase
