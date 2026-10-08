@@ -4,6 +4,7 @@
   suffix: Filled, Captain
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -27,6 +28,7 @@
   suffix: Filled, Chief Engineer
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -46,6 +48,7 @@
   suffix: Filled, Chief Medical Officer
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -68,6 +71,7 @@
   suffix: Filled, Head Of Personnel
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -88,6 +92,7 @@
   suffix: Filled, Head Of Security
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -108,6 +113,7 @@
   suffix: Filled, Quarter Master
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -151,6 +157,7 @@
   suffix: Filled, Warden
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
