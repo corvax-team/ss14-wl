@@ -77,7 +77,7 @@ job-name-syndicate-corpsman = медик оперативников
 job-name-syndicate-operative = ядерный оперативник
 job-name-pirate = пират
 job-name-wizard = волшебник
-job-name-zombie = зомби
+job-name-zombie = карнисавидоз
 
 # Job titles
 job-title-cluwne = клувень
