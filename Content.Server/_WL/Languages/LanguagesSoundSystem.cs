@@ -13,7 +13,6 @@ public sealed partial class LanguagesSoundsSystem : EntitySystem
 {
     [Dependency] private LanguagesSystem _languages = default!;
     [Dependency] private SharedTransformSystem _xforms = default!;
-    [Dependency] private IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
     {
@@ -24,15 +23,16 @@ public sealed partial class LanguagesSoundsSystem : EntitySystem
 
     private void OnEntitySpoke(EntityUid uid, LanguagesComponent component, EntitySpokeEvent args)
     {
-        var msg = args.LangMessage;
-        if (msg == null)
+        if (args.LangMessage is not {} msg)
             return;
 
-        var protoId = _languages.GetLanguagePrototype(uid, msg)?.ID ?? component.CurrentLanguage;
-        if (protoId == null)
+        if (args.Language is not {} langId)
             return;
 
-        var proto = _protoMan.Index<LanguagePrototype>(protoId);
+        var proto = ProtoMan.Index<LanguagePrototype>(langId);
+
+        if (!proto.CustomSound)
+            return;
 
         var isWhisper = args.LangObfusMessage != null && args.ObfuscatedMessage != null;
         HandleSay(uid, proto, isWhisper);
@@ -42,9 +42,6 @@ public sealed partial class LanguagesSoundsSystem : EntitySystem
     {
         var soundEvent = new LanguageSoundEvent(proto.ID, GetNetEntity(uid));
         var whispSoundEvent = new LanguageSoundEvent(proto.ID, GetNetEntity(uid), true);
-
-        if (!proto.CustomSound)
-            return;
 
         var xformQuery = GetEntityQuery<TransformComponent>();
         var sourcePos = _xforms.GetWorldPosition(xformQuery.GetComponent(uid), xformQuery);
@@ -61,7 +58,7 @@ public sealed partial class LanguagesSoundsSystem : EntitySystem
             if (distance > SharedChatSystem.VoiceRange * SharedChatSystem.VoiceRange && isWhisper)
                 continue;
 
-            var check = _languages.CanUnderstand(uid, listener, overrideLang: proto.ID);
+            var check = _languages.CanUnderstand(proto.ID, listener);
 
             if (check) continue;
             RaiseNetworkEvent(!isWhisper ? soundEvent : whispSoundEvent, session);

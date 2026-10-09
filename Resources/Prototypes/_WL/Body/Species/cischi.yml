@@ -129,17 +129,12 @@
   - BaseSpeciesMobOrganic
   id: MobCischi
   components:
-# WL-Changes: Swimmer start
   - type: Swimmer
     swimSpeedModifier: 0.8
-# WL-Changes: Swimmer end
   - type: Damageable
     damageModifierSet: Cischi
   - type: CuffedMeleeWeapon
     weaponId: CuffedHumanAttack
-
-#Wl-Changes: delete second inventory 
-
   - type: Bloodstream
     bloodReferenceSolution:
         reagents:
@@ -153,16 +148,8 @@
       types:
         Bloodloss:
           -1.0
-#   - type: SolutionRegeneration
-#     solution: chemicals
-#     generated:
-#       reagents:
-#       - ReagentId: Cryoxadone
-#         Quantity: 0.1
-
   - type: Temperature
     specificHeat: 42
-
   - type: TemperatureDamage
     heatDamageThreshold: 295.15
     coldDamageThreshold: 233.15
@@ -172,7 +159,6 @@
     heatDamage:
       types:
         Heat: 1.5
-
   - type: ThermalRegulator
     metabolismHeat:  800
     radiatedHeat: 100
@@ -181,12 +167,10 @@
     shiveringHeatRegulation: 2000
     normalBodyTemperature: 283.15
     thermalRegulationTemperatureThreshold: 5
-
   - type: Barotrauma
     damage:
       types:
         Blunt: 0.3
-
   - type: Respirator
     damage:
       types:
@@ -194,33 +178,20 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
-
   - type: PointLight
     energy: 1
     radius: 2
     color: "#10ad83"
-
   - type: CischiAccent
-
   - type: ReplacementAccent
     accent: cischi
-
   - type: FootstepModifier
     footstepSoundCollection:
       collection: BareFootCischi
       params:
         variation: 0.2
         volume: -14
-
   - type: NoSlip
-
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
 
 - type: entity
   parent: OrganBase

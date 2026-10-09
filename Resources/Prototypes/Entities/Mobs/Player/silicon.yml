@@ -78,43 +78,24 @@
   # WL-Changes-start
   - type: Languages
     currentLanguage: Translate # Added to stop tests from yapping
-    list:
-    - language: Translate
-      languageLevel: 4
-    - language: Ternary
-      languageLevel: 4
-    - language: BottomTranslate
-      languageLevel: 2
-    - language: Kuniluc
-      languageLevel: 2
-    - language: OldEarth
-      languageLevel: 2
-    - language: RootSpeak
-      languageLevel: 2
-    - language: Sarengis
-      languageLevel: 2
-    - language: SikTair
-      languageLevel: 2
-    - language: SintaUnati
-      languageLevel: 2
-    - language: Slimish
-      languageLevel: 2
-    - language: TopTranslate
-      languageLevel: 2
-    - language: Urlum
-      languageLevel: 2
-    - language: VoxPigin
-      languageLevel: 2
-    - language: VoxPigin
-      languageLevel: 2
-    - language: Weaver
-      languageLevel: 2
-    - language: Wingdings
-      languageLevel: 2
-    - language: Yangyu
-      languageLevel: 2
-    - language: Arachny
-      languageLevel: 2
+    languages:
+      Translate: 4
+      Ternary: 4
+      BottomTranslate: 2
+      Kuniluc: 2
+      OldEarth: 2
+      RootSpeak: 2
+      Sarengis: 2
+      SikTair: 2
+      SintaUnati: 2
+      Slimish: 2
+      TopTranslate: 2
+      Urlum: 2
+      VoxPigin: 2
+      Weaver: 2
+      Wingdings: 2
+      Yangyu: 2
+      Arachny: 2
     specieLanguage: Ternary
   # WL-Changes-end
   - type: CommunicationsConsole

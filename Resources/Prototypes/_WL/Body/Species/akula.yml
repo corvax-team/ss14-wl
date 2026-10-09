@@ -82,7 +82,7 @@
     species: Akula
 #WL-Changes-start
   - type: Inventory
-    femaleDisplacements: 
+    femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
@@ -140,11 +140,6 @@
       emoteSounds: MaleAkula
     - type: Wagging
     #Wl-Changes-Start
-    - type: Languages
-      list:
-      - language: Translate
-        languageLevel: 4
-      specieLanguage: Translate
     - type: CuffedMeleeWeapon
       weaponId: CuffedAkulaAttack
     - type: Swimmer

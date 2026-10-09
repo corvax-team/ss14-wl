@@ -195,17 +195,12 @@
       289: 0.9
       275: 0.8
       250: 0.7
-  #WL-Changes: Languages & hunger start
+  #WL-Changes: hunger start
   - type: Satiation
     satiations:
       Hunger:
         prototype: MothHunger
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages & hunger end
+  #WL-Changes: hunger end
 
 - type: entity
   parent: OrganBaseOrganic

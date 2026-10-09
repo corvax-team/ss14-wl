@@ -195,13 +195,6 @@
     messagePerceivedByOthers: hugging-success-generic-others
   - type: InitialSkills # WL-Skills
     randomizeAllSkills: true # WL-Skills
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
 
 - type: entity
   parent: OrganBaseOrganic
