@@ -4,6 +4,7 @@
   suffix: Filled, Captain
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -14,6 +15,12 @@
         - id: ClothingHandsGlovesCaptain
         - id: ClothingOuterWinterCap
         - id: ClothingNeckCloakCap
+        # Corvax-Clothing-Start
+        - id: ClothingHeadHatCaptainBeret
+        - id: ClothingHeadCaptainHat
+        - id: ClothingUniformJumpsuitCaptain
+        - id: ClothingUniformJumpskirtCaptain
+        # Corvax-Clothing-End
 
 - type: entity
   id: DresserChiefEngineerFilled
@@ -21,6 +28,7 @@
   suffix: Filled, Chief Engineer
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -29,6 +37,10 @@
         - id: ClothingHeadHatBeretEngineering
         - id: ClothingOuterWinterCE
         - id: ClothingNeckCloakCe
+        # Corvax-Clothing-Start
+        - id: ClothingUniformJumpsuitChiefEngineer
+        - id: ClothingUniformJumpskirtChiefEngineer
+        # Corvax-Clothing-End
 
 - type: entity
   id: DresserChiefMedicalOfficerFilled
@@ -36,6 +48,7 @@
   suffix: Filled, Chief Medical Officer
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -43,10 +56,14 @@
         - id: ClothingUniformJumpsuitCMOTurtle
         - id: ClothingUniformJumpskirtCMOTurtle
         - id: ClothingHeadHatBeretCmo
-        - id: ClothingHeadMirror
+        # - id: ClothingHeadMirror # Corvax
         - id: ClothingEyesGlasses
         - id: ClothingOuterWinterCMO
         - id: ClothingCloakCmo
+        # Corvax-Clothing-Start
+        - id: ClothingUniformJumpsuitCMO
+        - id: ClothingUniformJumpskirtCMO
+        # Corvax-Clothing-End
 
 - type: entity
   id: DresserHeadOfPersonnelFilled
@@ -54,6 +71,7 @@
   suffix: Filled, Head Of Personnel
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -61,6 +79,12 @@
         - id: ClothingOuterWinterHoP
         - id: ClothingEyesGlasses
         - id: ClothingNeckCloakHop
+        # Corvax-Clothing-Start
+        - id: ClothingUniformJumpsuitHoP
+        - id: ClothingUniformJumpskirtHoP
+        - id: ClothingUniformJumpsuitHoPTurtleneck
+        - id: ClothingUniformJumpskirtHoPTurtleneck
+        # Corvax-Clothing-End
 
 - type: entity
   id: DresserHeadOfSecurityFilled
@@ -68,6 +92,7 @@
   suffix: Filled, Head Of Security
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -80,6 +105,7 @@
         - id: ClothingUniformJumpsuitHosFormal
         - id: ClothingOuterWinterHoS
         - id: ClothingNeckCloakHos
+        - id: ClothingHeadHatCapHoS # Corvax-Clothing
 
 - type: entity
   id: DresserQuarterMasterFilled
@@ -87,11 +113,13 @@
   suffix: Filled, Quarter Master
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
         - id: ClothingHeadHatBeretQM
         - id: ClothingUniformJumpsuitQMFormal
+        - id: ClothingUniformJumpskirtQMFormalDress
         - id: ClothingUniformJumpsuitQMTurtleneck
         - id: ClothingUniformJumpskirtQMTurtleneck
         - id: ClothingHandsGlovesColorBrown
@@ -104,6 +132,7 @@
   suffix: Filled, Research Director
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:
@@ -115,6 +144,12 @@
         - id: ClothingOuterWinterRD
         - id: ClothingOuterCoatRD
         - id: ClothingNeckCloakRd
+        # Corvax-Clothing-Start
+        - id: ClothingUniformJumpsuitRDClassical
+        - id: ClothingUniformJumpskirtRDClassical
+        - id: ClothingUniformJumpsuitResearchDirector
+        - id: ClothingUniformJumpskirtResearchDirector
+        # Corvax-Clothing-End
 
 - type: entity
   id: DresserWardenFilled
@@ -122,6 +157,7 @@
   suffix: Filled, Warden
   components:
   - type: EntityTableContainerFill
+    sort: true # WL-Change
     containers:
       storagebase: !type:AllSelector
         children:

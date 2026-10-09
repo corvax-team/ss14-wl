@@ -1,0 +1,163 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/79e394320d79cc9151b63368a3ced3ded30cb819/icons/mob/clothing/underwear.dmi & shirt_ss13 renamed & modified by github:Morb0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "shirt_white",
+            "directions": 4
+        },
+        {
+            "name": "tank_white",
+            "directions": 4
+        },
+        {
+            "name": "lover",
+            "directions": 4
+        },
+        {
+            "name": "ian",
+            "directions": 4
+        },
+        {
+            "name": "uk",
+            "directions": 4
+        },
+        {
+            "name": "ilovent",
+            "directions": 4
+        },
+        {
+            "name": "peace",
+            "directions": 4
+        },
+        {
+            "name": "band",
+            "directions": 4
+        },
+        {
+            "name": "pogoman",
+            "directions": 4
+        },
+        {
+            "name": "matroska",
+            "directions": 4
+        },
+        {
+            "name": "whiteshortsleeve",
+            "directions": 4
+        },
+        {
+            "name": "bluepolo",
+            "directions": 4
+        },
+        {
+            "name": "redpolo",
+            "directions": 4
+        },
+        {
+            "name": "whitepolo",
+            "directions": 4
+        },
+        {
+            "name": "grayyellowpolo",
+            "directions": 4
+        },
+        {
+            "name": "redtop",
+            "directions": 4
+        },
+        {
+            "name": "whitetop",
+            "directions": 4
+        },
+        {
+            "name": "tank_midriff",
+            "directions": 4
+        },
+        {
+            "name": "greenshirtsport",
+            "directions": 4
+        },
+        {
+            "name": "redshirtsport",
+            "directions": 4
+        },
+        {
+            "name": "blueshirtsport",
+            "directions": 4
+        },
+        {
+            "name": "shirt_ss14",
+            "directions": 4
+        },
+        {
+            "name": "tank_fire",
+            "directions": 4
+        },
+        {
+            "name": "shirt_question",
+            "directions": 4
+        },
+        {
+            "name": "shirt_skull",
+            "directions": 4
+        },
+        {
+            "name": "shirt_commie",
+            "directions": 4
+        },
+        {
+            "name": "shirt_nano",
+            "directions": 4
+        },
+        {
+            "name": "shirt_stripes",
+            "directions": 4
+        },
+        {
+            "name": "shirt_meat",
+            "directions": 4
+        },
+        {
+            "name": "shirt_tiedye",
+            "directions": 4
+        },
+        {
+            "name": "shirt_redjersey",
+            "directions": 4
+        },
+        {
+            "name": "shirt_bluejersey",
+            "directions": 4
+        },
+        {
+            "name": "tank_stripes",
+            "directions": 4
+        },
+        {
+            "name": "shirt_alien",
+            "directions": 4
+        },
+        {
+            "name": "shirt_clown",
+            "directions": 4
+        },
+        {
+            "name": "shirt_assblastusa",
+            "directions": 4
+        },
+        {
+            "name": "sports_bra",
+            "directions": 4
+        },
+        {
+            "name": "sports_bra_alt",
+            "directions": 4
+        }
+    ]
+}

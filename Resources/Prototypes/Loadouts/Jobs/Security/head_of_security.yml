@@ -85,3 +85,25 @@
   id: HeadofSecurityWinterCoat
   equipment:
     outerClothing: ClothingOuterWinterHoS
+
+# WL-Changes: head of security loadout Start
+- type: loadout
+  id: HeadofSecurityGlassesSecurity
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+- type: loadout
+  id: HeadofSecurityHudSecurity
+  equipment:
+    eyes: ClothingEyesHudSecurity
+
+- type: loadout
+  id: HeadofSecurityEyepatchHudSecurity
+  equipment:
+    eyes: ClothingEyesEyepatchHudSecurity
+
+- type: loadout
+  id: HeadofSecuritySunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+# WL-Changes: head of security loadout End

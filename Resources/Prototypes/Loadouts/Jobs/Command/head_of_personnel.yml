@@ -68,3 +68,20 @@
   id: HoPWintercoat
   equipment:
     outerClothing: ClothingOuterWinterHoP
+
+# WL-Changes: head of personnel eyes loadout Start
+- type: loadout
+  id: HeadOfPersonnelGlassesCommand
+  equipment:
+    eyes: ClothingEyesGlassesCommand
+
+- type: loadout
+  id: HeadOfPersonnelHudCommand
+  equipment:
+    eyes: ClothingEyesHudCommand
+
+- type: loadout
+  id: HeadOfPersonnelSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+# WL-Changes: head of personnel eyes loadout End

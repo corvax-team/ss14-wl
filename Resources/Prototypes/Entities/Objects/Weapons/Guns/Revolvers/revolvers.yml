@@ -116,7 +116,8 @@
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
   - type: StealTarget
-    stealGroup: OfficerHandgun
+    stealGroup:
+    - OfficerHandgun
   # White-List components
   - type: Tag
     tags:

@@ -76,3 +76,25 @@
   id: BrownShoes
   equipment:
     shoes: ClothingShoesColorBrown
+
+# WL-Changes: chief engineer eyes loadout Start
+- type: loadout
+  id: ChiefEngineerGlassesCommand
+  equipment:
+    eyes: ClothingEyesGlassesCommand
+
+- type: loadout
+  id: ChiefEngineerHudCommand
+  equipment:
+    eyes: ClothingEyesHudCommand
+
+- type: loadout
+  id: ChiefEngineerSunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: loadout
+  id: ChiefEngineerMeson
+  equipment:
+    eyes: ClothingEyesGlassesMeson
+# WL-Changes: chief engineer eyes loadout End
