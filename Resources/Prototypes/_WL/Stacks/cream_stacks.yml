@@ -1,0 +1,6 @@
+- type: stack
+  parent: BaseSmallStack
+  id: PastryCream
+  name: stack-pastrycream
+  icon: { sprite: "_WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi", state: cream_white }
+  spawn: PastryCream
