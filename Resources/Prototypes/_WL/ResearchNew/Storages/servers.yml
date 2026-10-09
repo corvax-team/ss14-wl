@@ -1,0 +1,15 @@
+- type: storageFormat
+  id: TechServerFormat
+  name: datastorage-techserver-name
+  color: yellow
+  storagesList:
+    - type: PointsDataStorage
+      allowedPointsTypes:
+      - IT
+      - Physics
+      - Social
+      - Mech
+      - Instrument
+      - BioChem
+      - Experimental
+    - type: RecipesStorage

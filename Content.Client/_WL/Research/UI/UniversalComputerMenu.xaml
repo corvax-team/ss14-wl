@@ -1,0 +1,12 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'research-console-menu-title'}"
+                      MinSize="1140 400"
+                      SetSize="1140 550">
+    <BoxContainer Name="ProgramsMenu"
+                  Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True">
+    </BoxContainer>
+</controls:FancyWindow>

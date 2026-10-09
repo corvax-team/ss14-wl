@@ -1,0 +1,15 @@
+<ScrollContainer xmlns="https://spacestation14.io"
+              SizeFlagsStretchRatio="8"
+              HorizontalExpand="True"
+              VerticalExpand="True">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True">
+        <BoxContainer Name="RecipesList" Orientation="Vertical" VerticalExpand="True">
+            <Label Name="NoRecipesLabel" Text="НИМА РИСЕПТИКА" HorizontalAlignment="Center" VerticalAlignment="Center"
+            VerticalExpand="True" Visible="False"/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Button />
+                <Button />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</ScrollContainer>

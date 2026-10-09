@@ -1,0 +1,21 @@
+- type: program
+  id: MenuProgram
+  name: Main Menu
+  icon:
+    sprite: _WL/Structures/Machines/universal_computers.rsi
+    state: rdcomp
+  uIKey: enum.UCMenuUiKey.Key
+  uIData:
+    type: UniversalComputerBoundUserInterface
+
+- type: program
+  id: StaticProgram
+  name: static mew
+  icon:
+    sprite: _WL/Structures/Machines/universal_computers.rsi
+    state: mining
+  uIKey: enum.StationaryComputerUiKey.Key
+  uIData:
+    type: StationaryComputerBUI
+  components:
+    - type: StationaryComputer

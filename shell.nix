@@ -52,6 +52,7 @@ let
     python3
     wayland
     nixfmt
+    python314Packages.pillow
   ];
 in
 pkgs.mkShell {

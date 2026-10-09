@@ -246,6 +246,11 @@
   - type: Tag
     tags:
     - Write
+  - type: DAnalyzable
+    id: ESword
+    deconstructPoints:
+      points:
+        IT: 1
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]

@@ -32,8 +32,8 @@ station-beacon-psychology = Психотерапевт
 station-beacon-clinic = Клиника
 
 station-beacon-science = Научный отдел
-station-beacon-research-and-development = РНД
-station-beacon-research-server = Серверная
+station-beacon-research-and-development = НИО
+station-beacon-research-server = Серверная НИО
 station-beacon-research-director = Кабинет НР
 station-beacon-robotics = Робототехника
 station-beacon-artifact-lab = Ксеноархеология
