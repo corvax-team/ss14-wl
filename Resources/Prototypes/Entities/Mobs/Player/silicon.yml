@@ -96,7 +96,6 @@
       Wingdings: 2
       Yangyu: 2
       Arachny: 2
-    specieLanguage: Ternary
   # WL-Changes-end
   - type: CommunicationsConsole
     canShuttle: false

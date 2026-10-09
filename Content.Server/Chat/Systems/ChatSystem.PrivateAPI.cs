@@ -90,7 +90,7 @@ public sealed partial class ChatSystem
         SendInVoiceRangeObfuscated(ChatChannel.Local, message, wrappedMessage, obfuscationChannel, source, range, language, messageName, chatType: chatType); // Wl-Changes Chat Type
         // WL-Change: Lang X Chat End
 
-        var ev = new EntitySpokeEvent(source, message, originalMessage, null, null, /*WL-Changes: Languages*/obfuscatedMessage, null/*WL-Changes: Languages*/);
+        var ev = new EntitySpokeEvent(source, message, originalMessage, null, null, /*WL-Changes: Languages*/obfuscatedMessage, null, language/*WL-Changes: Languages*/);
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
@@ -234,7 +234,7 @@ public sealed partial class ChatSystem
 
         _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
-        var ev = new EntitySpokeEvent(source, message, originalMessage, channel, obfuscatedMessage, selfFullObfuscatedMessage, selfLangMessage);
+        var ev = new EntitySpokeEvent(source, message, originalMessage, channel, obfuscatedMessage, selfFullObfuscatedMessage, selfLangMessage, langId);
         RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)

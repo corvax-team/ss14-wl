@@ -85,11 +85,13 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
 
     private void SetLanguage(SetLanguageEvent ev, EntitySessionEventArgs args)
     {
-        if (!_entMan.TryGetEntity(ev.Entity, out var ent))
+        if (!_entMan.TryGetEntity(ev.Entity, out var ent) ||
+                args.SenderSession.AttachedEntity is not {} userEnt ||
+                ent is {} entity ||
+                entity == userEnt)
             return;
 
-        if (ent is {} entity)
-            TrySetLanguage(entity, ev.Language);
+        TrySetLanguage(entity, ev.Language);
     }
 
     protected override void UpdateLanguagesWindow(EntityUid uid)
