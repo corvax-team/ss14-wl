@@ -189,12 +189,11 @@
   components:
   - type: WizardClothes
 
-# Is this wizard wearing a fanny pack???
 - type: entity
   parent: ClothingOuterWizardBase
-  id: ClothingOuterWizardViolet
-  name: violet wizard robes
-  description: A bizarre gem-encrusted violet robe that radiates magical energies.
+  id: ClothingOuterWizardAbyss
+  name: abyss wizard robes
+  description: A robe with a fashionable leather vest, it is crackling with runic energy.
   components:
   - type: Sprite
     sprite: _WL/Clothing/OuterClothing/Misc/violetwizard.rsi #WL-changes: Emo Update 3
@@ -207,8 +206,8 @@
 
 - type: entity
   parent: ClothingOuterWizardBase
-  id: ClothingOuterWizard
-  name: wizard robes
+  id: ClothingOuterWizardBlue
+  name: blue wizard robes
   description: A bizarre gem-encrusted blue robe that radiates magical energies.
   components:
   - type: Sprite
@@ -246,6 +245,21 @@
     sprite: _WL/Clothing/OuterClothing/Misc/wizard_fake.rsi #WL-changes: Emo Update 3
   - type: Clothing
     sprite: _WL/Clothing/OuterClothing/Misc/wizard_fake.rsi #WL-changes: Emo Update 3
+
+# Is this wizard wearing a fanny pack???
+- type: entity
+  parent: ClothingOuterWizardBase
+  id: ClothingOuterWizardViolet
+  name: violet wizard robes
+  description: A bizarre gem-encrusted violet robe that radiates magical energies.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Misc/violetwizard.rsi #WL-changes: Emo Update 3
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Misc/violetwizard.rsi #WL-changes: Emo Update 3
+  - type: Tag
+    tags:
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterBase
