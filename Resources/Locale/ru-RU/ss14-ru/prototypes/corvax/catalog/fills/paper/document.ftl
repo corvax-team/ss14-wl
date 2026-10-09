@@ -128,3 +128,7 @@ ent-PrintedDocumentNoteBeginningMilitaryActions = НоТа О нАчАлЕ вО�
     .desc = { ent-PrintedDocument.desc }
 ent-PrintedDocumentReportAccomplishmentGoals = ОтЧёТ о ВыПоЛнЕнИи ЦеЛеЙ
     .desc = { ent-PrintedDocument.desc }
+# WL-Changes-Start
+ent-PrintedDocumentSettingOfGoal = Приказ главы о назначении цели
+    .desc = { ent-PrintedDocument.desc }
+# WL-Changes-End

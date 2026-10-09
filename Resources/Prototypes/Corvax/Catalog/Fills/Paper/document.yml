@@ -519,3 +519,14 @@
   components:
     - type: Paper
       content: doc-text-printer-report-accomplishment-goals
+
+# WL-Changes-Start
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentSettingOfGoal
+  name: Setting Of Goal
+  components:
+  - type: Paper
+    content: doc-text-printer-setting-of-goal
+# WL-Changes-End
+
