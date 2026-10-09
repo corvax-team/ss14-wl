@@ -87,8 +87,8 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
     {
         if (!_entMan.TryGetEntity(ev.Entity, out var ent) ||
                 args.SenderSession.AttachedEntity is not {} userEnt ||
-                ent is {} entity ||
-                entity == userEnt)
+                ent is not {} entity ||
+                entity != userEnt)
             return;
 
         TrySetLanguage(entity, ev.Language);
