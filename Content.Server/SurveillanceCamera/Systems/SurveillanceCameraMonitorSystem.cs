@@ -1,5 +1,8 @@
 using System.Linq;
+using Content.Server._WL.Photo; // WL-Changes
+using Content.Server.Popups; // WL-Changes
 using Content.Server.DeviceNetwork.Systems;
+using Content.Shared._WL.Photo; // WL-Changes
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.DeviceNetwork.Systems;
@@ -9,6 +12,7 @@ using Content.Shared.SurveillanceCamera;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing; // WL-Changes
 
 namespace Content.Server.SurveillanceCamera;
 
@@ -18,6 +22,12 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
     [Dependency] private UserInterfaceSystem _userInterface = default!;
     [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private DeviceNetworkRouterSystem _deviceNetworkRouter = default!;
+    // WL-Changes-Start
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    private const int MaxSnapshotSize = 1024 * 128; // 128 KB
+    // WL-Changes-End
 
     public override void Initialize()
     {
@@ -34,6 +44,7 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
             subs.Event<SurveillanceCameraDisconnectMessage>(OnDisconnectMessage);
             subs.Event<SurveillanceCameraMonitorSubnetRequestMessage>(OnSubnetRequest);
             subs.Event<SurveillanceCameraMonitorSwitchMessage>(OnSwitchMessage);
+            subs.Event<PhotoCameraTakeImageMessage>(OnTakeSnapshotMessage); // WL-Changes
             subs.Event<BoundUIClosedEvent>(OnBoundUiClose);
         });
     }
@@ -168,6 +179,39 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
         TrySwitchCameraByAddress(uid, message.Address, message.CameraSubnet, component);
     }
 
+    // WL-Changes-Start
+    private void OnTakeSnapshotMessage(EntityUid uid, SurveillanceCameraMonitorComponent component, PhotoCameraTakeImageMessage message)
+    {
+        if (!(message.Actor is { Valid: true } actor))
+            return;
+
+        if (message.Data.Length > MaxSnapshotSize
+            || !CheckPngSignature(message.Data)
+            || component.ActiveCamera == null
+            || !component.Viewers.Contains(actor)
+            || _timing.CurTime < component.NextSnapshotTime)
+        {
+            return;
+        }
+
+        var card = Spawn("PhotoCard");
+        _transform.SetMapCoordinates(card, _transform.GetMapCoordinates(uid));
+
+        if (TryComp<PhotoCardComponent>(card, out var photo))
+            photo.ImageData = message.Data;
+
+        component.NextSnapshotTime = _timing.CurTime + component.SnapshotCooldown;
+
+        _popupSystem.PopupEntity(Loc.GetString("surveillance-camera-monitor-snapshot-printed"), uid, actor);
+    }
+
+    private static bool CheckPngSignature(ReadOnlySpan<byte> data)
+    {
+        return data.Length >= 8
+               && data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47
+               && data[4] == 0x0D && data[5] == 0x0A && data[6] == 0x1A && data[7] == 0x0A;
+    }
+    //WL-Changes-Ends
     private void OnPowerChanged(EntityUid uid, SurveillanceCameraMonitorComponent component, ref PowerChangedEvent args)
     {
         if (!args.Powered)

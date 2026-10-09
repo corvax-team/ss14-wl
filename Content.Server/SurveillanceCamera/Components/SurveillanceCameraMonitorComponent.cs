@@ -59,4 +59,12 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
     /// </summary>
     [ViewVariables]
     public Dictionary<ProtoId<DeviceFrequencyPrototype>, string> KnownSubnets { get; } = new();
+
+    // WL-Changes-Start
+    [DataField]
+    public TimeSpan SnapshotCooldown = TimeSpan.FromSeconds(2);
+
+    [ViewVariables]
+    public TimeSpan NextSnapshotTime;
+    // WL-Changes-End
 }
