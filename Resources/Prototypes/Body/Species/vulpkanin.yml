@@ -244,13 +244,6 @@
       types:
         Asphyxiation: -2.0
   # Corvax-Vulp_Port end
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon
     weaponId: CuffedVulpkaninAttack

@@ -185,13 +185,6 @@
       types:
         Asphyxiation: -1.0
     maxSaturation: 15
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
 
 - type: entity
   parent: OrganBaseOrganic

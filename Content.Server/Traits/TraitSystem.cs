@@ -62,14 +62,11 @@ public sealed partial class TraitSystem : EntitySystem
                     {
                         if (entry.Component is ModifyLanguagesComponent modLang)
                         {
-                            foreach (var langProtoId in modLang.Languages)
+                            foreach (var (langProtoId, _) in modLang.Languages)
                             {
-                                var index = langsComp.List.FindIndex(x => x.Language == langProtoId);
-                                if (index != -1)
+                                if (langsComp.Languages.ContainsKey(langProtoId))
                                 {
-                                    var langEntry = langsComp.List[index];
-                                    langEntry.LanguageLevel = selectedLevel;
-                                    langsComp.List[index] = langEntry;
+                                    langsComp.Languages[langProtoId] = (LanguageLevel)selectedLevel;
                                     updated = true;
                                 }
                             }
@@ -77,9 +74,7 @@ public sealed partial class TraitSystem : EntitySystem
                     }
 
                     if (updated)
-                    {
                         Dirty(args.Mob, langsComp);
-                    }
                 }
             }
             //WL-Changes-End Language

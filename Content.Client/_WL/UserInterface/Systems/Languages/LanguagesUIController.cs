@@ -27,16 +27,16 @@ namespace Content.Client._WL.UserInterface.Systems.Languages;
 public sealed partial class LanguagesUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<ClientLanguagesSystem>
 {
     [Dependency] private IEntityManager _ent = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
     [Dependency] private IPlayerManager _player = default!;
 
     [UISystemDependency] private readonly ClientLanguagesSystem _languages = default!;
-    [UISystemDependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<AfterLanguageChangeEvent>(OnLanguageChanged);
+        SubscribeNetworkEvent<LanguagesChangedEvent>(OnLanguageChanged);
         SubscribeNetworkEvent<MindRoleTypeChangedEvent>(OnMindRoleChanged);
     }
 
@@ -72,140 +72,116 @@ public sealed partial class LanguagesUIController : UIController, IOnStateEntere
 
     public void OnSystemLoaded(ClientLanguagesSystem system)
     {
-        system.OnLanguagesUpdate += LanguagesUpdated;
+        system.OnLanguagesUpdate += UpdateLanguages;
         _player.LocalPlayerDetached += LanguagesDetached;
     }
 
     public void OnSystemUnloaded(ClientLanguagesSystem system)
     {
-        system.OnLanguagesUpdate -= LanguagesUpdated;
+        system.OnLanguagesUpdate -= UpdateLanguages;
         _player.LocalPlayerDetached -= LanguagesDetached;
     }
 
     public void UnloadButton()
     {
-        if (LanguagesButton == null)
-        {
+        if (LanguagesButton is null)
             return;
-        }
 
         LanguagesButton.OnPressed -= LanguagesButtonPressed;
     }
 
     public void LoadButton()
     {
-        if (LanguagesButton == null)
-        {
+        if (LanguagesButton is null)
             return;
-        }
 
         LanguagesButton.OnPressed += LanguagesButtonPressed;
     }
 
     private void DeactivateButton()
     {
-        if (LanguagesButton == null)
-        {
+        if (LanguagesButton is null)
             return;
-        }
 
         LanguagesButton.Pressed = false;
     }
 
     private void ActivateButton()
     {
-        if (LanguagesButton == null)
-        {
+        if (LanguagesButton is null)
             return;
-        }
 
         LanguagesButton.Pressed = true;
     }
 
     private void ClearLanguages(EntityUid entity)
     {
-        if (_window == null)
+        if (_window is null)
+            return;
+
+        if (_player.LocalEntity != entity)
+            return;
+
+        _window.Languages.RemoveAllChildren();
+        _window.LangPlaceholder.Visible = true;
+    }
+
+    private void UpdateLanguages()
+    {
+        if (_window is null)
+            return;
+
+        if (_player.LocalEntity is not { } ent)
+            return;
+
+        if (!_ent.TryGetComponent<LanguagesComponent>(ent, out var comp)
+                || comp.Languages.Count == 0)
         {
+            ClearLanguages(ent);
             return;
         }
 
-        if (_player.LocalEntity != entity)
-            return;
-
         _window.Languages.RemoveAllChildren();
+        _window.LangPlaceholder.Visible = false;
 
-        _window.RolePlaceholder.Visible = true;
-    }
-
-    private void LanguagesUpdated(LanguagesData data)
-    {
-        if (_window == null)
-            return;
-
-        var (entity, current, list) = data;
-
-        if (_player.LocalEntity != entity)
-            return;
-
-        _window.Languages.RemoveAllChildren();
-
-        List<string> groups = new List<string>()
+        var languageControl = new LanguagesControl
         {
-            Loc.GetString("ui-languages-knowed-languages")
+            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            Modulate = Color.White
         };
 
-        var isPlace = true;
+        var languageText = new FormattedMessage();
+        languageText.TryAddMarkup(Loc.GetString("ui-languages-knowed-languages"), out _);
 
-        foreach (var title in groups)
+        var languageLabel = new RichTextLabel
         {
-            var languageControl = new LanguagesControl
-            {
-                Orientation = BoxContainer.LayoutOrientation.Vertical,
-                Modulate = Color.White
-            };
-            var languageText = new FormattedMessage();
-            languageText.TryAddMarkup(title, out _);
-            var languageLabel = new RichTextLabel
-            {
-                StyleClasses = { StyleClass.TooltipTitle }
-            };
-            languageLabel.SetMessage(languageText);
-            languageControl.AddChild(languageLabel);
-            foreach (var languageData in list)
-            {
-                if (languageData.LanguageLevel <= 0)
-                    continue;
+            StyleClasses = { StyleClass.TooltipTitle }
+        };
 
-                var protoId = languageData.Language;
+        languageLabel.SetMessage(languageText);
+        languageControl.AddChild(languageLabel);
 
-                var language = _languages.GetLanguagePrototype(protoId);
-                if (language == null)
-                    continue;
+        foreach (var (protoId, level) in comp.Languages)
+        {
+            if (level <= 0)
+                continue;
 
-                var languageItemControl = new LanguageItemControl();
-                languageItemControl.SetLanguage(protoId);
-                languageItemControl.OnChoosePressed += LanguageChange;
-                languageItemControl.Icon.Texture = _sprite.Frame0(language.Icon);
-                var titleMessage = new FormattedMessage();
-                var descriptionMessage = new FormattedMessage();
-                titleMessage.AddText($"{Loc.GetString(language.Name)} • {languageData.LanguageLevel} {Loc.GetString("ui-languages-level")}");
-                descriptionMessage.AddText(Loc.GetString(language.Description));
+            if (!_protoMan.TryIndex(protoId, out var language))
+                continue;
 
-                languageItemControl.Title.SetMessage(titleMessage);
-                languageItemControl.Description.SetMessage(descriptionMessage);
+            var languageItemControl = new LanguageItemControl(protoId, level);
 
-                if (current == (string)protoId)
-                    languageItemControl.ChooseButton.Pressed = true;
+            languageItemControl.SetButtonState(comp.CurrentLanguage == protoId);
+            languageItemControl.OnChoosePressed += LanguageChange;
 
-                languageControl.AddChild(languageItemControl);
-                isPlace = false;
-            }
-            _window.Languages.AddChild(languageControl);
+            languageControl.AddChild(languageItemControl);
+            _window.LangPlaceholder.Visible = false;
         }
-        _window.RolePlaceholder.Visible = isPlace;
+
+        _window.Languages.AddChild(languageControl);
     }
 
-    private void OnLanguageChanged(AfterLanguageChangeEvent ev, EntitySessionEventArgs _)
+    private void OnLanguageChanged(LanguagesChangedEvent ev, EntitySessionEventArgs _)
     {
         UpdateLanguages();
     }
@@ -215,39 +191,12 @@ public sealed partial class LanguagesUIController : UIController, IOnStateEntere
         UpdateLanguages();
     }
 
-    private void UpdateLanguages()
-    {
-        if (_window == null || !_window.IsOpen)
-            return;
-
-        if (!_ent.TryGetComponent<LanguagesComponent>(_player.LocalEntity, out var comp))
-        {
-            if (_player.LocalEntity is null)
-                return;
-
-            ClearLanguages(_player.LocalEntity.Value);
-            return;
-        }
-
-        var entity = _player.LocalEntity;
-        EntityUid entt;
-        if (entity.HasValue)
-            entt = entity.Value;
-        else
-            return;
-
-        var data = new LanguagesData(entt, comp.CurrentLanguage, comp.List);
-
-        LanguagesUpdated(data);
-    }
-
     public void LanguageChange(ProtoId<LanguagePrototype> language)
     {
-        if (!_player.LocalEntity.HasValue)
+        if (_player.LocalEntity is not {} ent)
             return;
-        if (!_ent.TryGetNetEntity(_player.LocalEntity.Value, out var netEntity))
-            return;
-        _languages.TryChangeLanguage(netEntity.Value, language);
+
+        _languages.SetLanguage(ent, language);
     }
 
     private void LanguagesDetached(EntityUid uid)
@@ -267,7 +216,7 @@ public sealed partial class LanguagesUIController : UIController, IOnStateEntere
 
     private void ToggleWindow()
     {
-        if (_window == null)
+        if (_window is null)
             return;
 
         LanguagesButton?.SetClickPressed(!_window.IsOpen);

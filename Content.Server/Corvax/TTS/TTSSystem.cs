@@ -1,4 +1,6 @@
 using Content.Server._WL.Languages; //WL-Changes: Languages
+using Content.Shared._WL.Languages; //WL-Changes: Languages
+using Content.Shared._WL.Languages.Components; //WL-Changes: Languages
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Communications;
@@ -222,12 +224,13 @@ public sealed partial class TTSSystem : EntitySystem
             return;
 
         //WL-Changes: Languages start
-        if (args.LangMessage != null)
+        if (args.LangMessage is not null && args.Language is {} langId)
         {
-            if (args.LangObfusMessage != null && args.ObfuscatedMessage != null)
-                HandleLangWhisper(ent.Owner, args.Message, args.ObfuscatedMessage, args.LangMessage, args.LangObfusMessage, protoVoice.Speaker);
+            if (args.LangObfusMessage is not null && args.ObfuscatedMessage is not null)
+                HandleLangWhisper(ent.Owner, args.Message, args.ObfuscatedMessage, args.LangMessage, args.LangObfusMessage, protoVoice.Speaker, langId);
             else
-                HandleLangSay(ent.Owner, args.Message, args.LangMessage, protoVoice.Speaker);
+                HandleLangSay(ent.Owner, args.Message, args.LangMessage, protoVoice.Speaker, langId);
+
             return;
         }
         //WL-Changes: Languages End
@@ -443,7 +446,7 @@ public sealed partial class TTSSystem : EntitySystem
     }
 
     //WL-Changes: Languages start
-    private async void HandleLangSay(EntityUid uid, string message, string langMessage, string speaker)
+    private async void HandleLangSay(EntityUid uid, string message, string langMessage, string speaker, ProtoId<LanguagePrototype> langId)
     {
         var fullSoundData = await GenerateTTS(message, speaker);
         if (fullSoundData is null)
@@ -471,7 +474,7 @@ public sealed partial class TTSSystem : EntitySystem
             if (distance > SharedChatSystem.VoiceRange)
                 continue;
 
-            var check = _languages.CanUnderstand(uid, listener, message);
+            var check = _languages.CanUnderstand(langId, listener);
 
             if (!check)
             {
@@ -492,7 +495,7 @@ public sealed partial class TTSSystem : EntitySystem
         }
     }
 
-    private async void HandleLangWhisper(EntityUid uid, string message, string obfMessage, string langMessage, string langObfusMessage, string speaker)
+    private async void HandleLangWhisper(EntityUid uid, string message, string obfMessage, string langMessage, string langObfusMessage, string speaker, ProtoId<LanguagePrototype> langId)
     {
         var fullSoundData = await GenerateTTS(message, speaker, true);
         if (fullSoundData is null)
@@ -526,7 +529,7 @@ public sealed partial class TTSSystem : EntitySystem
             if (distance > SharedChatSystem.VoiceRange * SharedChatSystem.VoiceRange)
                 continue;
 
-            var check = _languages.CanUnderstand(uid, listener, message);
+            var check = _languages.CanUnderstand(langId, listener);
 
             if (check)
 

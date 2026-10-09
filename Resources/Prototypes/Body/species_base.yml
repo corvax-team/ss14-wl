@@ -159,6 +159,11 @@
     - AnomalyHost
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: OfferItem # CorvaxGoob-Offer
+  #WL-Changes: Languages start
+  - type: Languages
+    languages:
+      Translate: Full
+  #WL-Changes: Languages end
 
 # WL - NoDnaMobs - start
 - type: entity
