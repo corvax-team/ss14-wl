@@ -245,10 +245,15 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganMothExternal ]
   id: OrganMothTorso
+  #WL-Changes-start
   components:
   - type: VisualOrganMarkings
-  #WL-changes-start
     markingsDisplacement:
+      Socks:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Moth/displacement.rsi
+            state: shoes
       UndergarmentTop:
         sizeMaps:
           32:

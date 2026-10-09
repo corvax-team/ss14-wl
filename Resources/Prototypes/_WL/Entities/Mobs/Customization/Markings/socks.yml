@@ -1,0 +1,407 @@
+- type: marking
+  id: AceKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: ace_knee
+
+- type: marking
+  id: AceThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: ace_thigh
+
+- type: marking
+  id: AssblastusaKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: assblastusa_knee
+
+- type: marking
+  id: AssblastusaThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: assblastusa_thigh
+
+- type: marking
+  id: BeeKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: bee_knee
+
+- type: marking
+  id: BeeThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: bee_thigh
+
+- type: marking
+  id: CommieKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: commie_knee
+
+- type: marking
+  id: CommieThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: commie_thigh
+
+- type: marking
+  id: FishnetKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: fishnet_knee
+
+- type: marking
+  id: FishnetThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: fishnet_thigh
+
+- type: marking
+  id: RainbowKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: rainbow_knee
+
+- type: marking
+  id: RainbowThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: rainbow_thigh
+
+- type: marking
+  id: StripedKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: striped_knee_primary
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: striped_knee_secondary
+
+- type: marking
+  id: StripedThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: striped_thigh_primary
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: striped_thigh_secondary
+
+- type: marking
+  id: ThinKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: thin_knee
+
+- type: marking
+  id: ThinThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: thin_thigh
+
+- type: marking
+  id: ThocksSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: thocks
+
+- type: marking
+  id: TransKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: trans_knee
+
+- type: marking
+  id: TransThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: trans_thigh
+
+- type: marking
+  id: UkKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: uk_knee
+
+- type: marking
+  id: UkThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: uk_thigh
+
+- type: marking
+  id: WhiteKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_knee
+
+- type: marking
+  id: TwoDifferentWhiteKneeSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_knee_r
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_knee_l
+
+- type: marking
+  id: WhiteNormSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_norm
+
+- type: marking
+  id: TwoDifferentWhiteNormSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_norm_r
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_norm_l
+
+- type: marking
+  id: WhiteShortSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_short
+
+- type: marking
+  id: TwoDifferentWhiteShortSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_short_r
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_short_l
+
+- type: marking
+  id: WhiteThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_thigh
+
+- type: marking
+  id: TwoDifferentWhiteThighSocks
+  bodyPart: Socks
+  groupWhitelist: [Human, Slime, Android, Felinid, Tajaran, Murine, Vulpkanin, Reptilian, Moth, Arachnid, Akula]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_thigh_r
+    - sprite: _WL/Mobs/Customization/socks.rsi
+      state: white_thigh_l
