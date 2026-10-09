@@ -13,7 +13,7 @@
       limit: 3
       required: false
     enum.HumanoidVisualLayers.HeadTop:
-      limit: 1
+      limit: 2 # WL-change
       required: true
       default: [ FoxEar ] # Corvax-Vulp_Port VulpEar
     enum.HumanoidVisualLayers.Snout:
@@ -187,8 +187,10 @@
         color: "#ccac1f"
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
-  - type: MessyDrinker
-    spillChance: 0.33
+  #Corvax-WL-Changes-start
+  # - type: MessyDrinker #CORVAX-WL changes
+  #   spillChance: 0.33
+  #Corvax-WL-Changes-end
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
@@ -311,6 +313,11 @@
           32:
             sprite: Corvax/Mobs/Species/displacement.rsi
             state: shoes
+      UndergarmentBottom:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
     #WL-Changes-end
 
 - type: entity

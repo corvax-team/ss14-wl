@@ -259,7 +259,17 @@
           32:
             sprite: Mobs/Species/Moth/displacement.rsi
             state: shoes
-    #WL-Changes-end
+      UndergarmentTop:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Moth/displacement.rsi
+            state: jumpsuit-female
+      UndergarmentBottom:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Moth/displacement.rsi
+            state: jumpsuit-male
+  #WL-changes-end
 
 - type: entity
   parent: [ OrganBaseHead, OrganMothExternal ]

@@ -21,7 +21,7 @@ entity-effect-guidebook-spawn-entity =
         [1] Создаёт
         *[other] создать
     } { $amount ->
-        [1] { INDEFINITE($entname) }
+        [1] { INDEFINITE($entname) } { $entname }
         *[other] { $amount } { MAKEPLURAL($entname) }
     }
 
@@ -484,19 +484,19 @@ entity-effect-guidebook-cure-zombie-infection =
     { $chance ->
         [1] Лечит
         *[other] вылечить
-    } развивающийся зомби-вирус
+    } развивающийся карнисавидоз
 
 entity-effect-guidebook-cause-zombie-infection =
     { $chance ->
         [1] Заражает
         *[other] заразить
-    } зомби-вирусом
+    } карнисавидозом
 
 entity-effect-guidebook-innoculate-zombie-infection =
     { $chance ->
         [1] Лечит
         *[other] вылечить
-    } зомби-вирус и обеспечивает иммунитет к нему в будущем
+    } карнисавидоз и обеспечивает иммунитет к нему в будущем
 
 entity-effect-guidebook-reduce-rotting =
     { $chance ->
@@ -574,6 +574,22 @@ entity-effect-guidebook-plant-seeds-remove =
         *[other] убирают
     } семена из растения
 
+entity-effect-guidebook-plant-change-trait =
+    { $chance ->
+        [1] { $change ->
+            [Add] Добавляет {$trait} в растение
+            [Remove] Удаляет {$trait} из растения
+            [Toggle] Переключает {$trait} в растении
+            *[other] Изменяет {$trait} в растении
+        }
+        *[other] { $change ->
+            [Add] добавить {$trait} в растение
+            [Remove] удалить {$trait} из растения
+            [Toggle] переключить {$trait} в растении
+            *[other] изменить {$trait} в растении
+        }
+    }
+
 entity-effect-guidebook-plant-mutate-exude-gasses =
     { $chance ->
         [1] Мутирует
@@ -603,3 +619,9 @@ entity-effect-disarm =
         [1] Обезоруживает
         *[other] обезоружить
     } цель
+
+entity-effect-guidebook-make-trap-in-container =
+    { $chance ->
+        [1] Заключает
+        *[other] заключить
+    } цель в { $entityname }

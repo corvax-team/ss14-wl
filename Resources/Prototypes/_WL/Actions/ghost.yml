@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionToggleMedicalHud
+  name: Toggle Medical HUD visibility
+  description: Switch between the medical HUD and normal vision.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Action
+      checkCanInteract: false
+    - type: InstantAction
+      event: !type:ToggleMedicalHudActionEvent
+    - type: Sprite
+      sprite: Clothing/Eyes/Hud/med.rsi
+      state: icon

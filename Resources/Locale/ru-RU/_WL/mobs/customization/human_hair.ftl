@@ -106,3 +106,15 @@ marking-HumanHairTwiBun = Трёхцветный пучок
 marking-HumanHairPigTailAlt = Косичка (Альт.)
 marking-HumanHairLicked = Зализанная длинная
 marking-HumanHairOvergrown = Обросшая
+
+marking-HumanHairBusinessOvergrown = Деловая обросшая
+marking-HumanHairEmoMessy = Эмо неряшливая
+marking-HumanHairHolly = Голливуд
+marking-HumanHairHollyShaved = Голливуд (выбритый)
+marking-HumanHairLongMessy = Длинная неряшливая
+marking-HumanHairMarine = Морпех
+marking-HumanHairPonyTail9 = Хвостик 9
+marking-HumanHairPulatoLong = Пулато длинная
+marking-HumanHairPulatoLong2 = Пулато длинная 2
+marking-HumanHairRyan = Райан
+marking-HumanHairShavedknot = Выбритый пучок

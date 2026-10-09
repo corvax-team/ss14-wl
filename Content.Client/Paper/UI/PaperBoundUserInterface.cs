@@ -8,7 +8,7 @@ using static Content.Shared.Paper.PaperComponent;
 namespace Content.Client.Paper.UI;
 
 [UsedImplicitly]
-public sealed class PaperBoundUserInterface : BoundUserInterface
+public sealed partial class PaperBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
     private PaperWindow? _window;
@@ -23,6 +23,11 @@ public sealed class PaperBoundUserInterface : BoundUserInterface
 
         _window = this.CreateWindow<PaperWindow>();
         _window.OnSaved += InputOnTextEntered;
+        // WL-Changes: Alt Typing Indicators Start
+        _window.Typing += OnTyping;
+        _window.SubmitPressed += OnSubmit;
+        _window.OnClose += OnSubmit;
+        // WL-Changes: Alt Typing Indicators End
 
         if (EntMan.TryGetComponent<PaperComponent>(Owner, out var paper))
         {

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807; fluffycurls, twilight, shortstraightparted, shortstraight, moonprince, messyart, maletowa, longstraight, longlowstraightponytail, Kioku, jimmy, hank, denki, armetaj, pigtail, ponytail_long, ponytail_short, short_cute, short_cute2, twintailgirly, twintailparty, cutemess, knight, twibun made by discord:reartint; spikyponytailalt, hairpunchn, overgrown, licked and pigtailalt by NEBULON, sceneemo1 and sceneemo2 added by ReArtInt",
+  "copyright": "Taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/commit/ad654e76b4c5dd3972cd2a07eb2d4f9658965807; fluffycurls, twilight, shortstraightparted, shortstraight, moonprince, messyart, maletowa, longstraight, longlowstraightponytail, Kioku, jimmy, hank, denki, armetaj, pigtail, ponytail_long, ponytail_short, short_cute, short_cute2, twintailgirly, twintailparty, cutemess, knight, twibun made by discord:reartint; spikyponytailalt, hairpunchn, overgrown, licked and pigtailalt by NEBULON, sceneemo1 and sceneemo2 added by ReArtInt; ryan, businessovergrown, emomessy by s3ph1ra (dc); ponytail9, longmessy, pulatolong, pulatolong2 by noctyrnal. (git); shavedknot, holly, hollyshaved by @TadJohnson00 (git), marine by whitleyvk (git)",
   "size": {
     "x": 32,
     "y": 32
@@ -313,6 +313,50 @@
     },
 	{
       "name": "twibun3",
+      "directions": 4
+    },
+	{
+      "name": "businessovergrown",
+      "directions": 4
+    },
+    {
+      "name": "emomessy",
+      "directions": 4
+    },
+    {
+      "name": "holly",
+      "directions": 4
+    },
+    {
+      "name": "hollyshaved",
+      "directions": 4
+    },
+    {
+      "name": "longmessy",
+      "directions": 4
+    },
+    {
+      "name": "marine",
+      "directions": 4
+    },
+    {
+      "name": "ponytail9",
+      "directions": 4
+    },
+    {
+      "name": "pulatolong",
+      "directions": 4
+    },
+    {
+      "name": "pulatolong2",
+      "directions": 4
+    },
+    {
+      "name": "ryan",
+      "directions": 4
+    },
+    {
+      "name": "shavedknot",
       "directions": 4
     }
   ]

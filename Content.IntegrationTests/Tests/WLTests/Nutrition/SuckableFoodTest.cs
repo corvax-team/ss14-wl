@@ -35,7 +35,7 @@ public sealed class SuckableFoodTest
 
                 var equippedEntityProto = protoManager.Index<EntityPrototype>(equippedEnt);
 
-                var equippedEntityHasSuckableComponent = equippedEntityProto.HasComponent<SuckableFoodComponent>(componentFactory);
+                var equippedEntityHasSuckableComponent = equippedEntityProto.HasComp<SuckableFoodComponent>(componentFactory);
 
                 var msg = $"Поле {nameof(SuckableFoodComponent)}.{nameof(SuckableFoodComponent.EquippedEntityOnDissolve)} прототипа {proto.ID} не должно ссылаться на сущность ({equippedEnt}), имеющую {nameof(SuckableFoodComponent)} в своих компонентах!";
 

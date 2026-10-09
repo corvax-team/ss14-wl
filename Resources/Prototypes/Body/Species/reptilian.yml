@@ -251,6 +251,11 @@
           32:
             sprite: Corvax/Mobs/Species/displacement.rsi
             state: shoes
+      UndergarmentBottom:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
     #WL-Changes-end
 
 - type: entity

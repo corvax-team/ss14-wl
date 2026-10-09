@@ -68,3 +68,120 @@
       right:
       - state: trash-inhand-right
         color: "#FFFFFF"
+
+- type: entity
+  parent: BaseItem
+  id: FoodSnackWaterNut
+  name: waternut
+  description: The label says, "Straight from Tallas."
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/waternut.rsi
+    state: waternut
+  - type: Item
+    size: Tiny
+    storedOffset: 1,-1
+  - type: Tag
+    tags:
+    - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+    - id: FoodPacketWaterNutTrash
+    - id: FoodSnackWaterNutOpen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: RehydratableItem
+  id: FoodSnackWaterNutOpen
+  name: open waternut
+  description: Just add water! Definitely tastier than any chips.
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/waternut.rsi
+    state: waternut-open
+  - type: Item
+    sprite: _WL/Entities/Objects/Consumable/Food/waternut.rsi
+    heldPrefix: waternut-open
+    storedOffset: 1,-1
+  - type: Rehydratable
+    possibleSpawns:
+    - FoodSnackWaterNutFull
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+
+- type: entity
+  parent: [FoodSnackBase, ItemHeftyBase]
+  id: FoodSnackWaterNutFull
+  name: full waternut
+  description: Great, you filled it with water. It must be delicious!
+  components:
+  - type: FlavorProfile
+    flavors:
+    - water
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/waternut.rsi
+    state: waternut-full
+  - type: Item
+    sprite: _WL/Entities/Objects/Consumable/Food/waternut.rsi
+    heldPrefix: waternut-full
+    storedOffset: 1,-1
+    size: Normal
+  - type: Edible
+  - type: Injurable
+    damageContainer: Biological
+  - type: Solution
+    solution:
+      maxVol: 68
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 13
+      - ReagentId: Water
+        Quantity: 30
+      - ReagentId: Vitamin
+        Quantity: 5
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Water
+        Quantity: 50
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Damageable
+  - type: InjectableSolution
+    solution: food
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketWaterNutTrash
+  name: waternut wrapper
+  components:
+  - type: Sprite
+    sprite: _WL/Entities/Objects/Consumable/Food/waternut.rsi
+    state: waternut-trash
+  - type: Item
+    sprite: _WL/Entities/Objects/Consumable/Food/waternut.rsi
+    inhandVisuals:
+      left:
+      - state: trash-inhand-left
+      right:
+      - state: trash-inhand-right

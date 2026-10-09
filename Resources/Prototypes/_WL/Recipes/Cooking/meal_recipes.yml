@@ -1,6 +1,6 @@
 - type: microwaveMealRecipe
   id: RecipeChickenTabaka
-  name: "char-grilled chicken"
+  name: microwave-meal-recipe-chicken-tabaka-name
   group: Meat
   result: FoodChickenTabaka
   time: 30
@@ -11,7 +11,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCutletCischi
-  name: "cischan cutlet"
+  name: microwave-meal-recipe-cutlet-cischi-name
   group: Meat
   result: FoodCutletCischi
   time: 15
@@ -24,7 +24,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeOnionSliceCischi
-  name: "onion rings"
+  name: microwave-meal-recipe-onion-slice-cischi-name
   result: FoodOnionSliceCischi
   time: 15
   group: Other
@@ -37,7 +37,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFoodPemmican
-  name: "pemmican"
+  name: microwave-meal-recipe-food-pemmican-name
   result: FoodPemmican
   time: 30
   group: Other
@@ -54,4 +54,3 @@
 #    FoodMeatMeatball: 1
 #    FoodDough: 1
 #    FoodOnionSlice: 1
-

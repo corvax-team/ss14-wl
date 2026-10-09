@@ -1,0 +1,29 @@
+- type: tile
+  id: FloorSteelDiagonalMini
+  parent: BaseStationTile
+  name: tiles-steel-floor-diagonal-mini
+  sprite: /Textures/_WL/Tiles/Floor/steel_diagonal_mini.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemSteelDiagonalMini
+
+- type: tile
+  id: FloorWhiteDiagonalMini
+  parent: BaseStationTile
+  name: tiles-white-floor-diagonal-mini
+  sprite: /Textures/_WL/Tiles/Floor/white_diagonal_mini.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemWhiteDiagonalMini
+
+- type: tile
+  id: FloorDarkDiagonalMini
+  parent: BaseStationTile
+  name: tiles-dark-floor-diagonal-mini
+  sprite: /Textures/_WL/Tiles/Floor/dark_diagonal_mini.png
+  variants: 4
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDarkDiagonalMini

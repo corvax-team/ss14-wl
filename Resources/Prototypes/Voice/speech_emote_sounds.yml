@@ -419,8 +419,18 @@
       collection: Hew
     Honk:
       collection: BikeHorn
+    # WL-Changes: Moth Emote Sounds Start
+    Crying:
+      path: /Audio/_WL/Voice/Moth/moth_cry.ogg
+    Cough:
+      path: /Audio/_WL/Voice/Moth/moth_cough.ogg
+    Yawn:
+      path: /Audio/_WL/Voice/Moth/moth_yawn.ogg
+    Sigh:
+      path: /Audio/_WL/Voice/Moth/moth_sigh.ogg
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_WL/Voice/Moth/moth_gasp.ogg
+    # WL-Changes: Moth Emote Sounds End
     DefaultDeathgasp:
       collection: MothDeathGasp
 
