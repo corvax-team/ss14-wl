@@ -294,13 +294,6 @@
        damageRecovery:
          types:
            Asphyxiation: -100
-     #WL-Changes: Languages start
-     - type: Languages
-       list:
-       - language: Translate
-         languageLevel: 4
-       specieLanguage: Translate
-     #WL-Changes: Languages end
 
  - type: entity
    parent: OrganBase

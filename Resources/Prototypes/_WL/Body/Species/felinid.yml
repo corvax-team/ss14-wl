@@ -147,13 +147,6 @@
     sprite: Mobs/Species/Human/parts.rsi
     state: full
   - type: AddHeightItem
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
   - type: Inventory
     femaleDisplacements:
       jumpsuit:

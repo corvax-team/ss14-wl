@@ -1,0 +1,13 @@
+- type: tile
+  id: FloorSnowDug
+  parent: BaseFloorPlanet
+  name: tiles-snow-dug
+  sprite: /Textures/_WL/Tiles/Planet/Snow/snow_dug.png
+  edgeSpritePriority: 1
+  edgeSprites:
+    South: /Textures/_WL/Tiles/Planet/Snow/snow_dug_double_edge_south.png
+    East: /Textures/_WL/Tiles/Planet/Snow/snow_dug_double_edge_east.png
+    North: /Textures/_WL/Tiles/Planet/Snow/snow_dug_double_edge_north.png
+    West: /Textures/_WL/Tiles/Planet/Snow/snow_dug_double_edge_west.png
+  footstepSounds:
+    collection: FootstepSnow

@@ -1,7 +1,7 @@
 ent-AlliancePassport = паспорт МА
     .desc = Без бумажки ты...
     .suffix = Не маппить
-ent-EdemPassport = паспорт Империи Эдема
+ent-EdemPassport = паспорт Империи Эдем
     .desc = Обложка выглядит на удивление новой.
     .suffix = Не маппить
 ent-OrionPassport = паспорт КОГ

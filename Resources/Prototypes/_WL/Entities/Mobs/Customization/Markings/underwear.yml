@@ -10,7 +10,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_midway
 
 - type: marking
@@ -24,7 +24,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_stripe
 
 - type: marking
@@ -39,7 +39,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_uk
 
 - type: marking
@@ -53,7 +53,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_mankini
 
 - type: marking
@@ -67,7 +67,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_longjohns
 
 - type: marking
@@ -81,7 +81,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_kinky
 
 - type: marking
@@ -96,7 +96,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_hearts
 
 - type: marking
@@ -111,7 +111,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_commie
 
 - type: marking
@@ -125,7 +125,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_briefs
 
 - type: marking
@@ -139,7 +139,7 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_boxers
 
 - type: marking
@@ -154,14 +154,14 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: male_assblastusa
 
 # Female
 - type: marking
   id: UnderwearFemaleUk
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -170,13 +170,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_uk
 
 - type: marking
   id: UnderwearFemaleThong
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -184,13 +184,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_thong
 
 - type: marking
   id: UnderwearFemaleStrapless
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -198,13 +198,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_strapless
 
 - type: marking
   id: UnderwearFemaleSport
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -212,13 +212,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_sport
 
 - type: marking
   id: UnderwearFemaleNeko
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -226,13 +226,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_neko_white
 
 - type: marking
   id: UnderwearFemaleLace
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Reptilian, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -241,13 +241,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_lace
 
 - type: marking
   id: UnderwearFemaleKinky
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Moth, Reptilian, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -256,13 +256,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_kinky
 
 - type: marking
   id: UnderwearFemaleCommie
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Moth, Reptilian, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -271,13 +271,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_commie
 
 - type: marking
   id: UnderwearFemaleBralette
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Moth, Reptilian, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -285,13 +285,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_bralette
 
 - type: marking
   id: UnderwearFemaleBikini
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Moth, Reptilian, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -299,13 +299,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_bikini
 
 - type: marking
   id: UnderwearFemaleBabydoll
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Moth, Reptilian, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   coloring:
     default:
@@ -313,13 +313,13 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_babydoll
 
 - type: marking
   id: UnderwearFemaleAssblastusa
   bodyPart: UndergarmentBottom
-  groupWhitelist: [Human, Slime, Moth, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
+  groupWhitelist: [Human, Slime, Moth, Reptilian, Arachnid, Akula, Felinid, Vulpkanin, Android, Murine, Cischi, Tajaran]
   sexRestriction: Female
   forcedColoring: true
   coloring:
@@ -328,5 +328,5 @@
         !type:SimpleColoring
         color: "#FFFFFF"
   sprites:
-    - sprite: _WL/Clothing/Under/underwear.rsi
+    - sprite: _WL/Mobs/Customization/underwear.rsi
       state: female_assblastusa

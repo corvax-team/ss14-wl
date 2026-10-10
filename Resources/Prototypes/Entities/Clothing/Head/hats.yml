@@ -769,7 +769,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/warden.rsi
   - type: StealTarget
-    stealGroup: ClothingHeadHatWarden
+    stealGroup:
+    - ClothingHeadHatWarden
   - type: Tag
     tags:
     - PetWearable
@@ -798,6 +799,48 @@
     - Hair
 
 - type: entity
+  abstract: true
+  parent: [ ClothingHeadBase, BaseMagicalContraband ]
+  id: ClothingHeadHatWizardBase
+  components:
+  - type: WizardClothes
+
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatWizardAbyss
+  name: abyss wizard hat
+  description: A strange looking red-trimmed hat that most certainly belongs to a powerful magic-user.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/wizard_abyss.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/wizard_abyss.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatWizardBlue
+  name: blue wizard hat
+  description: A strange-looking blue hat that most certainly belongs to a powerful magic-user.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/wizard_blue.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/wizard_blue.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - CorgiWearable
+    - ClothMade
+    - Recyclable
+    - HamsterWearable
+    - WhitelistChameleon
+
+- type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWizardFake
   name: fake wizard hat
@@ -817,17 +860,26 @@
   #WL-changes-end: Emo Update 3
 
 - type: entity
-  abstract: true
-  parent: [ ClothingHeadBase, BaseMagicalContraband ]
-  id: ClothingHeadHatWizardBase
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatWizardRed
+  name: red wizard hat
+  description: A strange-looking red hat that most certainly belongs to a powerful magic-user.
   components:
-  - type: WizardClothes
+  - type: Sprite
+    sprite: Clothing/Head/Hats/wizard_red.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/wizard_red.rsi
+  - type: Tag
+    tags:
+    - PetWearable
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadHatWizardBase
-  id: ClothingHeadHatWizard
-  name: wizard hat
-  description: A strange-looking blue hat that most certainly belongs to a powerful magic-user.
+  id: ClothingHeadHatWizardViolet
+  name: violet wizard hat
+  description: A strange-looking violet hat that most certainly belongs to a powerful magic-user.
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Hats/wizardhat.rsi #WL-changes: Emo Update 3
@@ -836,10 +888,7 @@
   - type: Tag
     tags:
     - PetWearable
-    - CorgiWearable
     - ClothMade
-    - Recyclable
-    - HamsterWearable
     - WhitelistChameleon
     - FireResistant # WL-Changes
 

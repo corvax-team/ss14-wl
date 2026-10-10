@@ -1,10 +1,10 @@
 using System.Linq;
 using Content.Shared.Chat;
-using Content.Server.Chat.Systems; // Wl-Changes Chat Type
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Radio;
 using Content.Shared._WL.Languages;
+using Content.Shared._WL.Languages.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -50,22 +50,20 @@ public sealed partial class ChatSystem
                 speech = proto;
         }
 
-        name = ChatNameLinks ? $"[textlink=\"{FormattedMessage.EscapeStringParameter(name)}\" entity=\"{GetNetEntity(source)}\" entitynamecolor=\"true\"]" : FormattedMessage.EscapeText(name);
+        var messageName = ChatNameLinks ? $"[textlink=\"{FormattedMessage.EscapeStringParameter(name)}\" entity=\"{GetNetEntity(source)}\" entitynamecolor=\"true\"]" : FormattedMessage.EscapeText(name);
 
         // WL-Change: Lang X Chat Start
-        foreach (var (session, data) in GetRecipients(source, WhisperMuffledRange, chatType))
-        {
-            EntityUid listener;
+        if (!_languages.TryProcessLanguageMessage(source, message, out var newMessage, out var langId))
+            return;
 
-            if (session.AttachedEntity is not { Valid: true } playerEntity)
-                continue;
-            listener = session.AttachedEntity.Value;
+        if (langId is not {} language)
+            return;
 
-            _languages.ObfuscateMessageFromSource(message, source, listener);
-        }
+        message = newMessage;
 
-        var pressureCheckEv = new PressureLanguageCheckEvent(message, source);
+        var pressureCheckEv = new PressureLanguageCheckEvent(language, message);
         RaiseLocalEvent(source, ref pressureCheckEv);
+
         if (pressureCheckEv.Cancelled)
             return;
         else if (pressureCheckEv.ForceWhisper)
@@ -73,25 +71,26 @@ public sealed partial class ChatSystem
             SendEntityWhisper(source, originalMessage, range, null, nameOverride, chatType: InGameICChatType.Whisper); // Wl-Changes Chat Type
             return;
         }
+
         message = pressureCheckEv.Message;
 
-        var wrappedMessage = _languages.GetWrappedMessage(message, source, name, speech);
+        var wrappedMessage = _languages.GetWrappedMessage(message, language, messageName, speech);
+
         if (wrappedMessage.Length == 0)
             return;
-        var obfuscatedMessage = _languages.ObfuscateMessageFromSource(message, source);
 
-        var isEmoting = _languages.IsObfusEmoting(source, message);
+        var obfuscatedMessage = _languages.ObfuscateMessageForLevel(message, language, LanguageLevel.Full);
 
-        var obfusWrappedMessage = isEmoting ? _languages.GetEmoteWrappedMessage(obfuscatedMessage, source, name)
-            : _languages.GetWrappedMessage(obfuscatedMessage, source, name, speech, false);
+        if (!ProtoMan.TryIndex(language, out var langProto))
+            return;
 
-        var obfuscationChannel = isEmoting ? ChatChannel.Emotes
+        var obfuscationChannel = langProto.Emoting ? ChatChannel.Emotes
             : ChatChannel.Local;
 
-        SendInVoiceRangeObfuscated(ChatChannel.Local, message, wrappedMessage, obfuscationChannel, obfuscatedMessage, obfusWrappedMessage, source, range, chatType: chatType); // Wl-Changes Chat Type
+        SendInVoiceRangeObfuscated(ChatChannel.Local, message, wrappedMessage, obfuscationChannel, source, range, language, messageName, chatType: chatType); // Wl-Changes Chat Type
         // WL-Change: Lang X Chat End
 
-        var ev = new EntitySpokeEvent(source, message, originalMessage, null, null, /*WL-Changes: Languages*/obfuscatedMessage, null/*WL-Changes: Languages*/);
+        var ev = new EntitySpokeEvent(source, message, originalMessage, null, null, /*WL-Changes: Languages*/obfuscatedMessage, null, language/*WL-Changes: Languages*/);
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
@@ -155,15 +154,24 @@ public sealed partial class ChatSystem
         name = ChatNameLinks ? $"[textlink=\"{FormattedMessage.EscapeStringParameter(name)}\" entity=\"{GetNetEntity(source)}\" entitynamecolor=\"true\"]" : FormattedMessage.EscapeText(name);
 
         //WL-Changes: Languages start
-        var wrappedMessage = _languages.GetWhisperWrappedMessage(message, source, nameIdentity);
+        if (!_languages.TryProcessLanguageMessage(source, message, out var newMessage, out var language))
+            return;
+
+        if (language is not {} langId ||
+                !ProtoMan.TryIndex(langId, out var langProto))
+            return;
+
+        message = newMessage;
+
+        var wrappedMessage = _languages.GetWhisperWrappedMessage(message, langId, nameIdentity);
         if (wrappedMessage.Length == 0)
             return;
 
-        var wrappedObfuscatedMessage = _languages.GetWhisperWrappedMessage(obfuscatedMessage, source, nameIdentity, false);
+        var wrappedObfuscatedMessage = _languages.GetWhisperWrappedMessage(obfuscatedMessage, langId, nameIdentity, false);
         var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message",
             ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
 
-        var selfLangMessage = _languages.ObfuscateMessageFromSource(message, source);
+        var selfLangMessage = _languages.ObfuscateMessageForLevel(message, langId, LanguageLevel.Full);
         var selfFullObfuscatedMessage = ObfuscateMessageReadability(selfLangMessage, 0.2f);
         //WL-Changes: Languages end
 
@@ -181,9 +189,9 @@ public sealed partial class ChatSystem
             var afterWrappedMessage = wrappedMessage;
             var afterWrappedObfuscatedMessage = wrappedObfuscatedMessage;
             var afterUnknownMessage = wrappedUnknownMessage;
-            if (!_languages.CanUnderstand(source, listener, message))
+            if (!_languages.CanUnderstand(langId, listener))
             {
-                var listenerLangMessage = _languages.ObfuscateMessageFromSource(message, source, listener);
+                var listenerLangMessage = _languages.ObfuscateMessageForListener(message, langId, listener);
 
                 if (string.IsNullOrWhiteSpace(listenerLangMessage))
                     continue;
@@ -193,7 +201,7 @@ public sealed partial class ChatSystem
                 afterMessage = listenerLangMessage;
                 afterObfusMessage = listenerFullObfuscatedMessage;
 
-                if (_languages.IsObfusEmoting(source, message))
+                if (langProto.Emoting)
                 {
                     afterWrappedMessage = _languages.GetEmoteWrappedMessage(listenerLangMessage, source, nameIdentity);
                     _chatManager.ChatMessageToOne(ChatChannel.Emotes, afterMessage, afterWrappedMessage, source, false, session.Channel);
@@ -203,7 +211,7 @@ public sealed partial class ChatSystem
                 var listenerLanguage = _languages.GetLanguagePrototype(source, message);
                 var listenerColor = _languages.GetColor(listenerLanguage, false);
 
-                afterWrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message-lang", ("entityName", nameIdentity), ("message", FormattedMessage.EscapeText(listenerLangMessage)), ("langColor", listenerColor));
+                afterWrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message-lang", ("entityName", name), ("message", FormattedMessage.EscapeText(listenerLangMessage)), ("langColor", listenerColor));
                 afterWrappedObfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message", ("entityName", nameIdentity), ("message", FormattedMessage.EscapeText(listenerFullObfuscatedMessage)));
                 afterUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message", ("message", FormattedMessage.EscapeText(listenerFullObfuscatedMessage)));
             }
@@ -226,7 +234,7 @@ public sealed partial class ChatSystem
 
         _replay.RecordServerMessage(new ChatMessage(ChatChannel.Whisper, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
 
-        var ev = new EntitySpokeEvent(source, message, originalMessage, channel, obfuscatedMessage, selfFullObfuscatedMessage, selfLangMessage);
+        var ev = new EntitySpokeEvent(source, message, originalMessage, channel, obfuscatedMessage, selfFullObfuscatedMessage, selfLangMessage, langId);
         RaiseLocalEvent(source, ev, true);
         if (!hideLog)
             if (originalMessage == message)

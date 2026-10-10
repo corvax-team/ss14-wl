@@ -99,6 +99,10 @@
   - /Audio/Effects/wood_destroy1.ogg
   - /Audio/Effects/wood_destroy2.ogg
   - /Audio/Effects/wood_destroy_heavy1.ogg
+# WL-Changes-End new sound
+  - /Audio/Effects/Changeling/devour_consume.ogg
+  - /Audio/Effects/Changeling/devour_windup.ogg
+  - /Audio/Effects/Changeling/changeling_transform.ogg
   - /Audio/Effects/gib1.ogg
   - /Audio/Effects/gib2.ogg
-# WL-Changes-End new sound
+  - /Audio/Effects/gib3.ogg
