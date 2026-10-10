@@ -76,6 +76,30 @@
   - /Audio/Voice/Zombie/zombie-2.ogg
   - /Audio/Voice/Zombie/zombie-3.ogg
   - /Audio/Voice/Vox/shriek1.ogg
+# WL-Changes-Start new sound
+  - /Audio/_WL/Effects/Paracusia/tts/femaletts_help1.ogg
+  - /Audio/_WL/Effects/Paracusia/tts/femaletts_help2.ogg
+  - /Audio/_WL/Effects/Paracusia/tts/maletts_help1.ogg
+  - /Audio/_WL/Effects/Paracusia/tts/maletts_help2.ogg
+  - /Audio/_WL/Effects/Paracusia/tts/maletts_help1.ogg
+  - /Audio/Effects/church_bell1.ogg
+  - /Audio/Effects/door_open.ogg
+  - /Audio/Effects/drop.ogg
+  - /Audio/Effects/inneranomaly.ogg
+  - /Audio/Effects/smoke.ogg
+  - /Audio/Voice/Human/cry_female_4.ogg
+  - /Audio/Voice/Human/cry_female_3.ogg
+  - /Audio/Voice/Human/cry_male_4.ogg
+  - /Audio/Voice/Human/manlaugh2.ogg
+  - /Audio/Voice/Human/womanlaugh.ogg
+  - /Audio/Voice/Human/whistle_2.ogg
+  - /Audio/Effects/window_shatter1.ogg
+  - /Audio/Effects/window_shatter2.ogg
+  - /Audio/Effects/window_shatter3.ogg
+  - /Audio/Effects/wood_destroy1.ogg
+  - /Audio/Effects/wood_destroy2.ogg
+  - /Audio/Effects/wood_destroy_heavy1.ogg
+# WL-Changes-End new sound
   - /Audio/Effects/Changeling/devour_consume.ogg
   - /Audio/Effects/Changeling/devour_windup.ogg
   - /Audio/Effects/Changeling/changeling_transform.ogg
