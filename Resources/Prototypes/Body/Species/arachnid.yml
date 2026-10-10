@@ -186,7 +186,7 @@
     sprite: Mobs/Species/Arachnid/parts.rsi
 
 - type: entity
-  parent: [ OrganBaseTorso, OrganArachnidExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganArachnidExternal ]
   id: OrganArachnidTorso
 
 - type: entity
