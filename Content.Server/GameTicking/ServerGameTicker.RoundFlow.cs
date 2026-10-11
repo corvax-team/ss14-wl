@@ -569,6 +569,7 @@ public sealed partial class ServerGameTicker
         );
         RaiseNetworkEvent(roundEndMessageEvent);
         RaiseLocalEvent(roundEndMessageEvent);
+        SendManifestDiscordMessage(roundEndMessageEvent); //WL-Change: Send Manifest in Discord
 
         _replayRoundPlayerInfo = listOfPlayerInfoFinal;
         _replayRoundText = roundEndText;
@@ -605,6 +606,113 @@ public sealed partial class ServerGameTicker
             Log.Error($"Error while sending discord round end message:\n{e}");
         }
     }
+
+    //WL-Change: Send Manifest in Discord Start
+    private async void SendManifestDiscordMessage(RoundEndMessageEvent roundEndMessage)
+    {
+        try
+        {
+            if (_webhookIdentifierManifest == null)
+                return;
+
+            var duration = RoundDuration();
+
+            if (roundEndMessage == null)
+                return;
+
+            string playerInfoText = string.Empty;
+
+            foreach (var playerInfo in roundEndMessage.AllPlayersEndInfo)
+            {
+                if (playerInfoText.Length >= 4000)
+                {
+                    var embedPart1 = new WebhookEmbed
+                    {
+                        Title = Loc.GetString("round-end-manifest-discord-title"),
+                        Description = FormattedMessage.RemoveMarkupPermissive(playerInfoText).Replace("_", "\\_"),
+                        Color = _webhookEmbedColor.ToArgb() & 0xFFFFFF,
+                        Footer = new WebhookEmbedFooter
+                        {
+                            Text = Loc.GetString("round-end-manifest-discord-footer",
+                            ("server", _baseServer.ServerName),
+                            ("round", RoundId),
+                            ("hours", Math.Truncate(duration.TotalHours)),
+                            ("minutes", duration.Minutes),
+                            ("seconds", duration.Seconds))
+                        }
+                    };
+                    var payloadPart1 = new WebhookPayload { Embeds = [embedPart1] };
+                    await _discord.CreateMessage(_webhookIdentifierManifest.Value, payloadPart1);
+
+                    playerInfoText = string.Empty;
+                }
+
+                if (playerInfo.PlayerICName != null)
+                {
+                    playerInfoText += playerInfo.Observer
+                        ? Loc.GetString("round-end-manifest-webhook-player-info-if-observer-text",
+                            ("playerOOCName", playerInfo.PlayerOOCName),
+                            ("playerICName", playerInfo.PlayerICName))
+                        : Loc.GetString("round-end-manifest-webhook-player-info-if-not-observer-text",
+                            ("playerOOCName", playerInfo.PlayerOOCName),
+                            ("playerICName", playerInfo.PlayerICName),
+                            ("playerRole", Loc.GetString(playerInfo.Role)));
+
+                    playerInfoText += '\n';
+                }
+            }
+
+
+            var embed = new WebhookEmbed
+            {
+                Title = Loc.GetString("round-end-manifest-discord-title"),
+                Description = FormattedMessage.RemoveMarkupPermissive(playerInfoText).Replace("_", "\\_"),
+                Color = _webhookEmbedColor.ToArgb() & 0xFFFFFF,
+                Footer = new WebhookEmbedFooter
+                {
+                    Text = Loc.GetString("round-end-manifest-discord-footer",
+                        ("server", _baseServer.ServerName),
+                        ("round", RoundId),
+                        ("hours", Math.Truncate(duration.TotalHours)),
+                        ("minutes", duration.Minutes),
+                        ("seconds", duration.Seconds))
+                }
+            };
+            var payload = new WebhookPayload { Embeds = [embed] };
+            await _discord.CreateMessage(_webhookIdentifierManifest.Value, payload);
+
+            if (!string.IsNullOrEmpty(roundEndMessage.RoundEndText))
+            {
+                if (roundEndMessage.RoundEndText.Length <= 4096)
+                {
+                    embed = new WebhookEmbed
+                    {
+                        Title = Loc.GetString("round-end-text-discord-title"),
+                        Description = FormattedMessage.RemoveMarkupPermissive(roundEndMessage.RoundEndText),
+                        Color = _webhookEmbedColor.ToArgb() & 0xFFFFFF,
+                        Footer = new WebhookEmbedFooter
+                        {
+                            Text = Loc.GetString("round-end-manifest-discord-footer",
+                                ("server", _baseServer.ServerName),
+                                ("round", RoundId),
+                                ("hours", Math.Truncate(duration.TotalHours)),
+                                ("minutes", duration.Minutes),
+                                ("seconds", duration.Seconds))
+                        }
+                    };
+                    payload = new WebhookPayload { Embeds = [embed] };
+                    await _discord.CreateMessage(_webhookIdentifierManifest.Value, payload);
+                }
+            }
+
+            Log.Info("Sent manifest to Discord webhook");
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Error while sending discord manifest:\n{e}");
+        }
+    }
+    //WL-Change: Send Manifest in Discord End
 
     public override void RestartRound()
     {
