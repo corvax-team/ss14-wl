@@ -156,7 +156,7 @@
   abstract: true
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Animal ] # [ Arachnid ] before # WL-Changes
+    metabolizerTypes: [ Arachnid ] # WL-Changes
 
 - type: entity
   parent: OrganArachnid
