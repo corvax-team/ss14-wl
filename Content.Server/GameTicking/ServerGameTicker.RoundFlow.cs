@@ -681,7 +681,8 @@ public sealed partial class ServerGameTicker
             var payload = new WebhookPayload { Embeds = [embed] };
             await _discord.CreateMessage(_webhookIdentifierManifest.Value, payload);
 
-            if (!string.IsNullOrEmpty(roundEndMessage.RoundEndText))
+            if (!string.IsNullOrEmpty(roundEndMessage.RoundEndText) &&
+                roundEndMessage.RoundEndText != "\n")
             {
                 if (roundEndMessage.RoundEndText.Length <= 4096)
                 {
