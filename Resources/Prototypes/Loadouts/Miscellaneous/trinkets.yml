@@ -35,6 +35,14 @@
     back:
     - PlushieLizard
 
+# WL-Changes-Start
+- type: loadout
+  id: BookBase
+  storage:
+    back:
+    - BookBase
+# WL-Changes-End
+
 - type: loadout
   id: PlushieSpaceLizard
   storage:

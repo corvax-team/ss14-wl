@@ -16,6 +16,9 @@
   maxLimit: 3
   loadouts:
   - SpaceLaw # Corvax-HyperLink
+  # WL-Changes-Start
+  - BookBase
+  # WL-Changes-End
   - FlowerWreath
   - Hairflower
   - Headphones
