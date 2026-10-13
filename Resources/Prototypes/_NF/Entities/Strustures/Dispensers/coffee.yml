@@ -27,7 +27,8 @@
     - Bartender
     - Drinks
   - type: StealTarget
-    stealGroup: BoozeDispenser
+    stealGroup:
+    - BoozeDispenser
   - type: StaticPrice
     price: 150
 

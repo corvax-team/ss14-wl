@@ -136,7 +136,8 @@
       state: watchdog
   - type: WantedListCartridge
   - type: StealTarget
-    stealGroup: WantedListCartridge
+    stealGroup:
+    - WantedListCartridge
 
 - type: entity
   parent: [BaseCorvaxContraband431DepartmentsMedical, BasePDACartridge] # Corvax-Contraband

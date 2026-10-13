@@ -235,7 +235,8 @@
         enum.VoiceMaskUIKey.Key:
           type: VoiceMaskBoundUserInterface
     - type: StealTarget
-      stealGroup: HopMask
+      stealGroup:
+      - HopMask
 
 - type: entity
   parent: [ClothingMaskGas, BaseCentcommContraband]

@@ -940,3 +940,36 @@
   confederationModifiers:
     InterspeciesAlliance:
       levelModifiers: [0, 0, -1, 0, 0]
+
+- type: language
+  id: Unknown
+  name: language-translate
+  description: language-translate-desc
+  keylang: 'U'
+  obfuscation:
+    !type:ByCharReplacementObfuscation
+    replacement:
+    - e
+    - a
+    - i
+    - o
+    - u
+    - re
+    - lo
+    - ke
+    - tu
+    - ru
+    - fi
+    - ti
+    - m
+    - d
+    - s
+    - k
+    - t
+    - p
+    - oo
+  icon:
+    sprite: /Textures/_WL/Interface/Languages/languages.rsi
+    state: default
+  levelCosts: [0, 0, 0, 0, 0]
+

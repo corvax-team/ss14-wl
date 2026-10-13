@@ -41,7 +41,7 @@
   equipment:
     shoes: ClothingShoesColorBlack
     id: IAAPDA
-    eyes: ClothingEyesGlassesSunglasses
+    # eyes: ClothingEyesGlassesSunglasses # WL-Changes: glasses add
     ears: ClothingHeadsetIAA
     pocket1: RubberStampIAA
     pocket2: BookSpaceLaw

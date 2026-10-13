@@ -19,7 +19,7 @@ reagent-desc-ammonia-blood = Ничто другое во всей галакт�
 reagent-name-sulfur-blood = сернистая кровь
 reagent-desc-sulfur-blood = Ощущение почти кислотное.
 
-reagent-name-zombie-blood = кровь зомби
+reagent-name-zombie-blood = кровь карнисавида
 reagent-desc-zombie-blood = Не рекомендуется употреблять в пищу. Может быть использована для создания прививки от инфекции.
 
 reagent-name-ichor = ихор

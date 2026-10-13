@@ -125,9 +125,9 @@ public sealed partial class StationRecordsSystem : EntitySystem
             fingerprintComponent?.Fingerprint,
             dnaComponent?.DNA,
             profile,
-            /*WL-Changes-start*/languageComponent?.List
-                .Where(x => x.LanguageLevel >= 2)
-                .Select(x => x.Language)
+            /*WL-Changes-start*/languageComponent?.Languages
+                .Where(x => x.Value >= LanguageLevel.Good)
+                .Select(x => x.Key)
                 .ToList() ?? []/*WL-Changes-end*/);
     }
 

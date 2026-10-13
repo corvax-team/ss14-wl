@@ -17,7 +17,7 @@ job-name-chemist = фармацевт
 job-name-clown = клоун
 job-name-cluwne = клувень
 job-name-cmo = главный врач
-job-name-deathsquad = агент эскадрона смерти
+job-name-deathsquad = коммандос эскадрона смерти
 job-name-detective = детектив
 job-name-doctor = врач
 job-name-engineer = инженер
@@ -77,7 +77,7 @@ job-name-syndicate-corpsman = медик оперативников
 job-name-syndicate-operative = ядерный оперативник
 job-name-pirate = пират
 job-name-wizard = волшебник
-job-name-zombie = зомби
+job-name-zombie = карнисавидоз
 
 # Job titles
 job-title-cluwne = клувень

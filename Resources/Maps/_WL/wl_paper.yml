@@ -45856,14 +45856,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 5.860264,3.37775
-- proto: ClothingNeckMantleCE
-  entities:
-  - uid: 6128
-    components:
-    - type: Transform
-      parent: 6127
-    - type: Physics
-      canCollide: False
 - proto: ClothingNeckMantleHOP
   entities:
   - uid: 1028
@@ -46117,14 +46109,6 @@ entities:
       parent: 19013
       rot: 1.5707963267948966 rad
       pos: 2.1748505,-1.733284
-- proto: ClothingOuterWinterCE
-  entities:
-  - uid: 6129
-    components:
-    - type: Transform
-      parent: 6127
-    - type: Physics
-      canCollide: False
 - proto: ClothingOuterWinterColorWhite
   entities:
   - uid: 6144
@@ -46338,12 +46322,6 @@ entities:
       pos: 82.82156,24.851469
 - proto: ClothingUniformJumpskirtElegantMaid
   entities:
-  - uid: 6130
-    components:
-    - type: Transform
-      parent: 6127
-    - type: Physics
-      canCollide: False
   - uid: 6181
     components:
     - type: Transform
@@ -55877,26 +55855,6 @@ entities:
     - type: Transform
       parent: 2
       pos: 39.5,62.5
-    - type: Storage
-      storedItems:
-        6128:
-          position: 0,0
-          _rotation: South
-        6129:
-          position: 1,0
-          _rotation: South
-        6130:
-          position: 3,0
-          _rotation: South
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          ents:
-          - 6128
-          - 6129
-          - 6130
-          showEnts: False
-          occludes: True
 - proto: DresserChiefMedicalOfficerFilled
   entities:
   - uid: 7726

@@ -1,6 +1,6 @@
 - type: microwaveMealRecipe
   id: RecipeRepairSpray
-  name: repair spray recipe
+  name: microwave-meal-recipe-repair-spray-name
   result: RepairSpray
   time: 5
   group: Medicinal
@@ -12,7 +12,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRepairSprayPlus
-  name: repair spray plus recipe
+  name: microwave-meal-recipe-repair-spray-plus-name
   result: RepairSprayPlus
   time: 10
   group: Medicinal

@@ -120,7 +120,7 @@ story-gen-book-character-trait22 = роботизированный
 story-gen-book-character-trait23 = голографический
 story-gen-book-character-trait24 = истерически смеющийся
 
-story-gen-book-event1 = нашествия зомби
+story-gen-book-event1 = нашествия карнисавидов
 story-gen-book-event2 = ядерного взрыва
 story-gen-book-event3 = массового убийства
 story-gen-book-event4 = внезапной разгерметизации

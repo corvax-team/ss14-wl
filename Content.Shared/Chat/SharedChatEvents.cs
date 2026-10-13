@@ -1,3 +1,4 @@
+using Content.Shared._WL.Languages;
 using Content.Shared.Inventory;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
@@ -74,6 +75,8 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     //WL-Changes: Languages start
     public readonly string? LangMessage;
     public readonly string? LangObfusMessage;
+
+    public readonly ProtoId<LanguagePrototype>? Language;
     //WL-Changes: Languages end
 
     /// <summary>
@@ -82,7 +85,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     /// </summary>
     public RadioChannelPrototype? Channel;
 
-    public EntitySpokeEvent(EntityUid source, string message, string originalMessage, RadioChannelPrototype? channel, string? obfuscatedMessage, /*WL-Changes: Languages*/string? langMessage, string? langObfusMessage/*WL-Changes: Languages*/)
+    public EntitySpokeEvent(EntityUid source, string message, string originalMessage, RadioChannelPrototype? channel, string? obfuscatedMessage, /*WL-Changes: Languages*/string? langMessage, string? langObfusMessage, ProtoId<LanguagePrototype>? language = null/*WL-Changes: Languages*/)
     {
         Source = source;
         Message = message;
@@ -93,6 +96,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
         //WL-Changes: Languages start
         LangMessage = langMessage;
         LangObfusMessage = langObfusMessage;
+        Language = language;
         //WL-Changes: Languages end
     }
 }

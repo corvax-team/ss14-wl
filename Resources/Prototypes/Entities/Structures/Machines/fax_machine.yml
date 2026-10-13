@@ -163,4 +163,5 @@
       receiveNukeCodes: true
       receiveStationGoal: true # Corvax-StationGoal
     - type: StealTarget
-      stealGroup: FaxMachineCaptain
+      stealGroup:
+      - FaxMachineCaptain

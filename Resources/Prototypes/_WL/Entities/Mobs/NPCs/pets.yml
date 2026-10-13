@@ -127,4 +127,5 @@
     - CannotSuicide
     - VimPilot
   - type: StealTarget
-    stealGroup: AnimalGoldie
+    stealGroup:
+    - AnimalGoldie

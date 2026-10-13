@@ -107,7 +107,7 @@
 - type: marking
   id: LizardHornsDouble
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Human, Android] # WL-changes
+  groupWhitelist: [Reptilian, Human, Android, Vulpkanin] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_double
@@ -275,7 +275,7 @@
 - type: marking
   id: LizardHornsMyrsore
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Cischi, Human, Android] # WL-changes
+  groupWhitelist: [Reptilian, Cischi, Human, Android, Vulpkanin] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_myrsore
@@ -291,7 +291,7 @@
 - type: marking
   id: LizardHornsDemonic
   bodyPart: HeadTop
-  groupWhitelist: [Reptilian, Human, Android] # WL-changes
+  groupWhitelist: [Reptilian, Human, Android, Vulpkanin] # WL-changes
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_demonic
