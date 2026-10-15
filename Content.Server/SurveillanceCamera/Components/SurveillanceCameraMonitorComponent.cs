@@ -1,4 +1,5 @@
 using Content.Shared.DeviceNetwork;
+using Robust.Shared.Audio; // WL-Cnanges
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.SurveillanceCamera;
@@ -62,9 +63,22 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
 
     // WL-Changes-Start
     [DataField]
+    public SoundSpecifier PrintSound = new SoundPathSpecifier("/Audio/Machines/printer.ogg");
+
+    [DataField]
     public TimeSpan SnapshotCooldown = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public float SnapshotPrintTime = 2.3f;
 
     [ViewVariables]
     public TimeSpan NextSnapshotTime;
+
+    [ViewVariables]
+    public byte[]? PendingSnapshot;
+
+    [ViewVariables]
+    public TimeSpan SnapshotPrintEndTime;
+
     // WL-Changes-End
 }
