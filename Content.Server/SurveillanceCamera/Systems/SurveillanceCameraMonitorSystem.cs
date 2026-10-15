@@ -1,8 +1,8 @@
 using System.Linq;
+using Content.Server.DeviceNetwork.Systems;
 // WL-Changes-Start
 using Content.Server._WL.Photo;
 using Content.Server.Popups;
-using Content.Server.DeviceNetwork.Systems;
 using Content.Shared._WL.Photo;
 // WL-Changes-End
 using Content.Shared.DeviceNetwork;
