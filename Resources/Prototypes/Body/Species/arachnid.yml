@@ -187,7 +187,7 @@
   components:
   - type: VisualOrgan
     data:
-      sprite: Mobs/Species/Arachnid/parts.rsi
+      sprite: _WL/Mobs/Species/Arachnid/parts.rsi #WL-Changes
   - type: VisualOrganMarkings
     markingData:
       group: Arachnid
@@ -198,7 +198,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _WL/Mobs/Species/Arachnid/parts.rsi #WL-Changes
 
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganArachnidExternal ] #WL-Changes
