@@ -1,0 +1,102 @@
+- type: foodSequenceElement
+  id: CupcakeSprinkles
+  name: food-sequence-cupcake-content-sprinkles
+  final: true
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: sprinkles
+
+- type: foodSequenceElement
+  id: CupcakeCream
+  name: food-sequence-cupcake-content-cream-white
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cream_white
+
+- type: foodSequenceElement
+  id: CupcakeCreamPink
+  name: food-sequence-cupcake-content-cream-pink
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cream_pink
+
+- type: foodSequenceElement
+  id: CupcakeCreamBlue
+  name: food-sequence-cupcake-content-cream-blue
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cream_blue
+
+- type: foodSequenceElement
+  id: CupcakeCreamGreen
+  name: food-sequence-cupcake-content-cream-green
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cream_green
+
+- type: foodSequenceElement
+  id: CupcakeCreamMiku
+  name: food-sequence-cupcake-content-cream-miku
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cream_miku
+
+- type: foodSequenceElement
+  id: CupcakeCreamPurple
+  name: food-sequence-cupcake-content-cream-purple
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cream_purple
+
+- type: foodSequenceElement
+  id: CupcakeCreamYellow
+  name: food-sequence-cupcake-content-cream-yellow
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cream_yellow
+
+- type: foodSequenceElement
+  id: CupcakeCreamChocolate
+  name: food-sequence-cupcake-content-cream-chocolate
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cream_chocolate
+
+- type: foodSequenceElement
+  id: CupcakeCreamRainbow
+  name: food-sequence-cupcake-content-cream-rainbow
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cream_rainbow
+
+- type: foodSequenceElement
+  id: CupcakeCherry
+  name: food-sequence-cupcake-content-cherry
+  final: true
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: cherry
+
+
+- type: foodSequenceElement
+  id: CupcakeAppleSlice
+  name: food-sequence-cupcake-content-apple-slice
+  sprites:
+  - sprite: _WL/Objects/Specific/Hydroponics/apple.rsi
+    state: slice_cupcake
+
+- type: foodSequenceElement
+  id: CupcakeLemonSlice
+  name: food-sequence-cupcake-content-lemon-slice
+  sprites:
+  - sprite: _WL/Objects/Specific/Hydroponics/lemon.rsi
+    state: slice_cupcake
+
+#TBA-start
+- type: foodSequenceElement
+  id: Sugar_Star
+  name: food-sequence-cupcake-content-sugar-star
+  sprites:
+  - sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    state: sugar_star
+#TBA-end
