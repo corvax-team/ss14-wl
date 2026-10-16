@@ -14,3 +14,55 @@
         type: StationaryComputerBUI
       enum.WiresUiKey.Key:
         type: WiresBoundUserInterface
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: PointsReaderDebugComputer
+  suffix: DEBUG
+  name: debug points reader
+  components:
+  - type: DataReader
+  - type: ItemSlots
+    slots:
+      storage_slot:
+        name: хуеприёмник
+  - type: ActivatableUI
+    key: enum.PointsDataReaderUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.PointsDataReaderUiKey.Key:
+        type: PointsDataReadBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: DataStorage
+    name: UwU points
+    allowedStorageFormats:
+      - PointsFormat
+    currentStorageFormat: PointsFormat
+    size: 65536
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: RecipeReaderDebugComputer
+  suffix: DEBUG
+  name: debug recipe reader
+  components:
+  - type: DataReader
+  - type: ItemSlots
+    slots:
+      storage_slot:
+        name: хуеприёмник
+  - type: ActivatableUI
+    key: enum.RecipesReaderUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.RecipesReaderUiKey.Key:
+        type: RecipesReaderBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: DataStorage
+    name: OwO recipes
+    allowedStorageFormats:
+      - RecipesFormat
+    currentStorageFormat: RecipesFormat
+    size: 65536

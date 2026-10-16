@@ -8,7 +8,7 @@ namespace Content.Shared.Research.Components;
 /// <summary>
 /// This is used for an item that is inserted directly into a given lathe to provide it with a recipe.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(BlueprintSystem))]
+[RegisterComponent, NetworkedComponent] // WL-Changes: Birdscience Removed Access(typeof(BlueprintSystem)). Stop add access without no fucking reason.
 public sealed partial class BlueprintComponent : Component
 {
     /// <summary>
