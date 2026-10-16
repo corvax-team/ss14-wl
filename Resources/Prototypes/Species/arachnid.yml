@@ -16,9 +16,9 @@
   youngAge: 30
   oldAge: 70
   maxAge: 100
+  # sexes:
+  # - Unsexed
   # WL-Changes-end
-  sexes:
-  - Unsexed
   defaultSoundsBySex:
   - UnisexArachnid
   - UnisexArachnid
