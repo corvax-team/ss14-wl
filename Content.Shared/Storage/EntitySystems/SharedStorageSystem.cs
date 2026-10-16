@@ -766,6 +766,10 @@ public abstract partial class SharedStorageSystem : EntitySystem
         if (!HasComp<ActorComponent>(args.Args.User) || !TryComp<StorageComponent>(uid, out var storage))
             return;
 
+        if (_inventory.TryGetSlotEntity(uid, "mask", out var mask)
+            && HasComp<EmoteBlockerComponent>(mask.Value))
+            return;
+
         OpenStorageUI(uid, args.Args.User, storage, false);
     }
     // WL-Changes-End
