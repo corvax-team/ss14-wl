@@ -9,3 +9,7 @@ trait-mor-desc = Ваш персонаж когда-то жил в деревн�
 
 trait-wagging-name = Виляние
 trait-wagging-desc = Ваш персонаж может вилять хвостом.
+
+trait-rhotacism-name = Картавость
+trait-rhotacism-desc = Ваш пелсонаж имеет плоблемы с плоизношением буквы "Р".
+

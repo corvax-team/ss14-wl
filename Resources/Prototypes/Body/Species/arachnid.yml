@@ -26,6 +26,11 @@
     enum.HumanoidVisualLayers.RArm:
       limit: 1
       required: false
+    #WL-Changes-start
+    enum.HumanoidVisualLayers.Socks:
+      limit: 1
+      required: false
+    #WL-Changes-end
     enum.HumanoidVisualLayers.LLeg:
       limit: 1
       required: false
@@ -156,7 +161,7 @@
   abstract: true
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Animal ] # [ Arachnid ] before # WL-Changes
+    metabolizerTypes: [ Arachnid ] # WL-Changes
 
 - type: entity
   parent: OrganArachnid

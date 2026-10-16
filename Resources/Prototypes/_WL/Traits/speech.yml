@@ -26,3 +26,12 @@
   components:
   - type: ReplacementAccent
     accent: mor
+
+- type: trait
+  id: Rhotacism
+  name: trait-rhotacism-name
+  description: trait-rhotacism-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: Rhotacism
