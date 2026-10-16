@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "From /tg/station at https://github.com/tgstation/tgstation/commit/179e655a2f046f22b220925a00d935c33af38e9f from icons/mob/actions/actions_items.dmi, edited by whitleyvk (git)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "storage"
+        }
+    ]
+}
