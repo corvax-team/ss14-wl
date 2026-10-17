@@ -561,7 +561,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Arachnid, Golem ]
+          type: [ Animal, Vox, Arachnid, Golem, Plant ] #WL-Change
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -583,13 +583,7 @@
         damage:
           types:
             Poison: 1
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerTypeCondition
-          type: [ Plant ]
-        damage:
-          types:
-            Poison: .25
+# WL-Change delete plant poison
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
