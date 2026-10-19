@@ -158,6 +158,9 @@ public sealed partial class ClientClothingSystem : ClothingSystem
             _sprite.RemoveLayer(entity.AsNullable(), layer);
         }
         revealedLayers.Clear();
+        // WL-changes-Start
+        RefreshLayerOrder(entity);
+        // WL-changes-End
     }
     #endregion Entity Handlers
 
@@ -315,6 +318,9 @@ public sealed partial class ClientClothingSystem : ClothingSystem
         if (ev.Layers.Count == 0)
         {
             RaiseLocalEvent(equipment, new EquipmentVisualsUpdatedEvent(equipee, slot, revealedLayers), true);
+            // WL-changes-Start
+            RefreshLayerOrder(equipee);
+            // WL-changes-End
             return;
         }
 
@@ -326,6 +332,41 @@ public sealed partial class ClientClothingSystem : ClothingSystem
         // WL-Changes-Start: Allow individual clothing to render relative to another inventory slot.
         var insertionSlot = ev.InsertionSlot ?? slot;
         var slotLayerExists = _sprite.LayerMapTryGet((equipee, sprite), insertionSlot, out var index, false);
+        if (!slotLayerExists && insertionSlot != slot)
+            slotLayerExists = _sprite.LayerMapTryGet((equipee, sprite), slot, out index, false);
+
+        if (slotLayerExists && ev.InsertionSlot != null && !ev.InsertBeforeSlot &&
+            inventorySlots.VisualLayerKeys.TryGetValue(insertionSlot, out var targetLayers))
+        {
+            foreach (var key in targetLayers)
+            {
+                if (_sprite.LayerMapTryGet((equipee, sprite), key, out var targetIndex, false))
+                    index = Math.Max(index, targetIndex);
+            }
+        }
+        if (ev.AboveSlots != null)
+        {
+            var dependencies = GetLayerDependencies(equipee);
+            foreach (var target in ev.AboveSlots)
+            {
+                if (HasLayerDependency(dependencies, target, slot, new()) ||
+                    !_inventorySystem.TryGetSlot(equipee, target, out _, inventory) ||
+                    !_sprite.LayerMapTryGet((equipee, sprite), target, out var targetIndex, false))
+                    continue;
+
+                index = slotLayerExists ? Math.Max(index, targetIndex) : targetIndex;
+                slotLayerExists = true;
+                ev.InsertBeforeSlot = false;
+                if (!inventorySlots.VisualLayerKeys.TryGetValue(target, out var layers))
+                    continue;
+
+                foreach (var key in layers)
+                {
+                    if (_sprite.LayerMapTryGet((equipee, sprite), key, out targetIndex, false))
+                        index = Math.Max(index, targetIndex);
+                }
+            }
+        }
         var insertedLayer = false;
         // WL-Changes-End
 
@@ -407,6 +448,9 @@ public sealed partial class ClientClothingSystem : ClothingSystem
         }
 
         RaiseLocalEvent(equipment, new EquipmentVisualsUpdatedEvent(equipee, slot, revealedLayers), true);
+        // WL-changes-Start
+        RefreshLayerOrder(equipee);
+        // WL-changes-End
     }
     #endregion Internal
 }

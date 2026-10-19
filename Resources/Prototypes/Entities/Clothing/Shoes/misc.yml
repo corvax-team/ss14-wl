@@ -161,6 +161,14 @@
   name: speed boots
   description: High-tech boots woven with quantum fibers, able to convert electricity into pure speed!
   components:
+  # WL-changes-Start
+  - type: ClothingLayerOrder
+    above:
+    - outerClothing
+  - type: ClothingSlotBlockingBypass
+    blockers:
+    - outerClothing
+  # WL-changes-End
   - type: Sprite
     sprite: Clothing/Shoes/Boots/speedboots.rsi
     layers:
