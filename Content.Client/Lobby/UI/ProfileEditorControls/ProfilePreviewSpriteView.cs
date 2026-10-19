@@ -1,6 +1,8 @@
 using Content.Shared.Preferences;
+using Content.Client._WL.Body;
 using Content.Shared.Roles;
 using Robust.Client.UserInterface.Controls;
+using Robust.Client.Graphics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
@@ -65,4 +67,13 @@ public sealed partial class ProfilePreviewSpriteView : SpriteView
         base.ExitedTree();
         ClearPreview();
     }
+
+    // WL-changes-Start
+    protected override void Draw(IRenderHandle renderHandle)
+    {
+        if (EntMan.EntityExists(PreviewDummy))
+            EntMan.System<DirectionalBodyLayersSystem>().ApplyDirection(PreviewDummy, OverrideDirection ?? Direction.South);
+        base.Draw(renderHandle);
+    }
+    // WL-changes-End
 }

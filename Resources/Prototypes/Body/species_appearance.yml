@@ -2,6 +2,14 @@
   abstract: true
   id: BaseSpeciesLayers
   components:
+  # WL-changes-Start
+  - type: DirectionalBodyLayers
+    directions:
+      South: [RArm, LArm, RLeg, LLeg, RFoot, LFoot, RHand, LHand]
+      North: [LArm, RArm, LLeg, RLeg, LFoot, RFoot, LHand, RHand]
+      East: [LArm, RArm, LLeg, RLeg, LFoot, RFoot, LHand, RHand]
+      West: [RArm, LArm, RLeg, LLeg, RFoot, LFoot, RHand, LHand]
+  # WL-changes-End
   - type: Sprite
     layers:
     - map: ["enum.BorgVisualLayers.Light"] # WL android race
