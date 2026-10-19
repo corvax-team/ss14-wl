@@ -13,7 +13,7 @@
   description: A special hardsuit helmet designed for working in low-pressure, high thermal environments.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/atmospherics.rsi
+    sprite: _WL/Clothing/Head/Hardsuits/atmospherics.rsi # WL-changes
   - type: HandheldLight
     addPrefix: false
   - type: PointLight
@@ -57,7 +57,7 @@
   description: A sturdy helmet designed for complex industrial operations in space.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/spatiohelm.rsi
+    sprite: _WL/Clothing/Head/Hardsuits/spatiohelm.rsi # WL-changes
   - type: HandheldLight
     addPrefix: false
   - type: PointLight
@@ -431,8 +431,20 @@
   name: cybersun juggernaut helmet
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
   components:
+  # WL-changes-Start
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/cybersun.rsi
+    layers:
+    - state: icon
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+  # WL-changes-End
   - type: PointLight
     color: red
     radius: 5

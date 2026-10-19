@@ -7,6 +7,11 @@
   components:
   - type: Sprite
     sprite: Corvax/Clothing/Head/hardsuits/cburncommander.rsi
+  # WL-changes-Start
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head: []
+  # WL-changes-End
   - type: Armor
     modifiers:
       coefficients:
