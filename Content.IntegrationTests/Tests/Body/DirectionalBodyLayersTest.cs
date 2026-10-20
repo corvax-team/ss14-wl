@@ -11,10 +11,20 @@ using Robust.Shared.Maths;
 
 namespace Content.IntegrationTests.Tests.Body;
 
-[TestFixture("MobHuman")]
-[TestFixture("MobReptilian")]
+[TestFixture(HumanPrototype)]
+[TestFixture(ReptilianPrototype)]
 public sealed class DirectionalBodyLayersTest(string playerPrototype) : InteractionTest
 {
+    private const string HumanPrototype = "MobHuman";
+    private const string ReptilianPrototype = "MobReptilian";
+    private const string SuitPrototype = "ClothingOuterHardsuitEngineering";
+    private const string LeftLegCategory = "LegLeft";
+    private const string RightLegCategory = "LegRight";
+    private const string LeftLegMarking = "TattooSilverburghLeftLeg";
+    private const string RightLegMarking = "TattooSilverburghRightLeg";
+    private const string LeftMarkingLayer = LeftLegMarking + "-tattoo_silverburgh_l_leg";
+    private const string RightMarkingLayer = RightLegMarking + "-tattoo_silverburgh_r_leg";
+
     protected override string PlayerPrototype => playerPrototype;
 
     [TestCase(Direction.South, false)]
@@ -27,10 +37,10 @@ public sealed class DirectionalBodyLayersTest(string playerPrototype) : Interact
         {
             SEntMan.System<Content.Server.Body.VisualBodySystem>().ApplyMarkings(SPlayer, new()
             {
-                ["LegLeft"] = new() { [HumanoidVisualLayers.LLeg] = [new Marking("TattooSilverburghLeftLeg", [Color.Red])] },
-                ["LegRight"] = new() { [HumanoidVisualLayers.RLeg] = [new Marking("TattooSilverburghRightLeg", [Color.Blue])] },
+                [LeftLegCategory] = new() { [HumanoidVisualLayers.LLeg] = [new Marking(LeftLegMarking, [Color.Red])] },
+                [RightLegCategory] = new() { [HumanoidVisualLayers.RLeg] = [new Marking(RightLegMarking, [Color.Blue])] },
             });
-            var suit = SEntMan.SpawnEntity("ClothingOuterHardsuitEngineering", SEntMan.GetComponent<TransformComponent>(SPlayer).Coordinates);
+            var suit = SEntMan.SpawnEntity(SuitPrototype, SEntMan.GetComponent<TransformComponent>(SPlayer).Coordinates);
             Assert.That(SEntMan.System<InventorySystem>().TryEquip(SPlayer, suit, "outerClothing", force: true), Is.True);
         });
         await RunTicks(5);
@@ -40,22 +50,20 @@ public sealed class DirectionalBodyLayersTest(string playerPrototype) : Interact
             var sprite = CEntMan.GetComponent<SpriteComponent>(CPlayer);
             var clothingIndex = sprites.LayerMapGet(CPlayer, "outerClothing");
             var clothing = sprite.AllLayers.ElementAt(clothingIndex);
-            const string rightMarking = "TattooSilverburghRightLeg-tattoo_silverburgh_r_leg";
-            const string leftMarking = "TattooSilverburghLeftLeg-tattoo_silverburgh_l_leg";
-            var marking = sprite.AllLayers.ElementAt(sprites.LayerMapGet(CPlayer, rightMarking));
+            var marking = sprite.AllLayers.ElementAt(sprites.LayerMapGet(CPlayer, RightMarkingLayer));
             var state = (marking.Visible, marking.Color);
 
             CEntMan.System<DirectionalBodyLayersSystem>().ApplyDirection(CPlayer, direction);
             Assert.That(new[]
             {
                 sprites.LayerMapGet(CPlayer, rightInFront ? HumanoidVisualLayers.LLeg : HumanoidVisualLayers.RLeg),
-                sprites.LayerMapGet(CPlayer, rightInFront ? leftMarking : rightMarking),
+                sprites.LayerMapGet(CPlayer, rightInFront ? LeftMarkingLayer : RightMarkingLayer),
                 sprites.LayerMapGet(CPlayer, rightInFront ? HumanoidVisualLayers.RLeg : HumanoidVisualLayers.LLeg),
-                sprites.LayerMapGet(CPlayer, rightInFront ? rightMarking : leftMarking),
+                sprites.LayerMapGet(CPlayer, rightInFront ? RightMarkingLayer : LeftMarkingLayer),
             }, Is.Ordered.Ascending);
             Assert.That(sprites.LayerMapGet(CPlayer, "outerClothing"), Is.EqualTo(clothingIndex));
             Assert.That(sprite.AllLayers.ElementAt(clothingIndex), Is.SameAs(clothing));
-            var moved = sprite.AllLayers.ElementAt(sprites.LayerMapGet(CPlayer, rightMarking));
+            var moved = sprite.AllLayers.ElementAt(sprites.LayerMapGet(CPlayer, RightMarkingLayer));
             Assert.That(moved, Is.SameAs(marking));
             Assert.That((moved.Visible, moved.Color), Is.EqualTo(state));
         });

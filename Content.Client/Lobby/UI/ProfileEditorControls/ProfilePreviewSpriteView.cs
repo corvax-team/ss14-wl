@@ -10,6 +10,8 @@ namespace Content.Client.Lobby.UI.ProfileEditorControls;
 
 public sealed partial class ProfilePreviewSpriteView : SpriteView
 {
+    private const Direction DefaultDirection = Direction.South; // WL-changes
+
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private ISharedPlayerManager _playerManager = default!;
 
@@ -72,7 +74,7 @@ public sealed partial class ProfilePreviewSpriteView : SpriteView
     protected override void Draw(IRenderHandle renderHandle)
     {
         if (EntMan.EntityExists(PreviewDummy))
-            EntMan.System<DirectionalBodyLayersSystem>().ApplyDirection(PreviewDummy, OverrideDirection ?? Direction.South);
+            EntMan.System<DirectionalBodyLayersSystem>().ApplyDirection(PreviewDummy, OverrideDirection ?? DefaultDirection);
         base.Draw(renderHandle);
     }
     // WL-changes-End
