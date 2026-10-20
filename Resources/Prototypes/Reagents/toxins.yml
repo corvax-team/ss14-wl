@@ -62,6 +62,14 @@
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-burning-insides" ]
         probability: 0.33
+# WL-changes-Start
+      - !type:Satiate
+        satiationType: Hunger
+        factor: 1.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Akula ]
+# WL-changes-End
 
 - type: reagent
   id: ChloralHydrate
