@@ -358,22 +358,14 @@ public abstract partial class SharedSkillsSystem
     }
 
     /// <summary>
-    /// Checks if forced skills selection should be shown - only if ONLY default skills are set
+    /// Checks whether the player still has skill points to allocate at spawn.
     /// </summary>
     public bool ShouldForceSkillsSelection(EntityUid uid, string? jobId = null, SkillsComponent? comp = null)
     {
         if (!Resolve(uid, ref comp))
             return false;
 
-        var defaultSkills = GetDefaultSkillsForJob(jobId);
-        foreach (var (skill, level) in comp.Skills)
-        {
-            var defaultLevel = defaultSkills.GetValueOrDefault((byte)skill, 1);
-            if (level != defaultLevel)
-                return false;
-        }
-
-        return true;
+        return comp.UnspentPoints > 0;
     }
 
     #endregion

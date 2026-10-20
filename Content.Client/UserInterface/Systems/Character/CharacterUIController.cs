@@ -321,20 +321,10 @@ public sealed partial class CharacterUIController : UIController, IOnStateEntere
             currentSkills,
             defaultSkills,
             totalPoints,
-            true
+            readOnly: true
         );
 
         _skillsWindow = skillsWindow;
-
-        skillsWindow.OnSkillChanged += (changedJobId, skillKey, newLevel) =>
-        {
-            if (_player.LocalEntity is not { } localEntity)
-                return;
-
-            var skillType = (SkillType)skillKey;
-            var ev = new SelectSkillPressedEvent(_ent.GetNetEntity(localEntity), skillType, newLevel, changedJobId);
-            _entityNetworkManager.SendSystemNetworkMessage(ev);
-        };
 
         skillsWindow.OpenCentered();
     }

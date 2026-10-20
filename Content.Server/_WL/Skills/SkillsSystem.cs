@@ -21,13 +21,7 @@ public sealed partial class SkillsSystem : SharedSkillsSystem
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<SelectSkillPressedEvent>(OnSelectSkill);
         SubscribeLocalEvent<SkillsComponent, SkillsAddedEvent>(OnSkillsAdded);
-    }
-
-    private void OnSelectSkill(SelectSkillPressedEvent args)
-    {
-        TrySetSkillLevel(GetEntity(args.Uid), args.Skill, args.TargetLevel, args.JobId);
     }
 
     private void OnSkillsAdded(EntityUid uid, SkillsComponent component, SkillsAddedEvent args)

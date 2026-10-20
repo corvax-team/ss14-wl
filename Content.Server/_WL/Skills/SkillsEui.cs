@@ -58,7 +58,9 @@ public sealed partial class SkillsEui : BaseEui
 
     private void HandleSkillChanged(SkillsEuiSkillChangedMessage message)
     {
-        if (!_entMan.TryGetComponent<SkillsComponent>(_entity, out var skillsComp))
+        if (IsShutDown || Player.AttachedEntity != _entity ||
+            !Enum.IsDefined((SkillType)message.SkillKey) ||
+            !_entMan.TryGetComponent<SkillsComponent>(_entity, out var skillsComp))
             return;
 
         var skillType = (SkillType)message.SkillKey;

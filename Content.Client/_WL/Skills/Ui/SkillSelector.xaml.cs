@@ -19,6 +19,7 @@ public sealed partial class SkillSelector : Control
     private bool _isLocked;
 
     private readonly bool _upgradeOnly;
+    private readonly bool _readOnly;
 
     public bool IsLocked
     {
@@ -31,7 +32,7 @@ public sealed partial class SkillSelector : Control
     }
 
     public SkillSelector(SkillType skillType, int currentLevel, int[] costs, Color skillColor,
-        int defaultLevel = 1, bool upgradeOnly = false)
+        int defaultLevel = 1, bool upgradeOnly = false, bool readOnly = false)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -41,6 +42,12 @@ public sealed partial class SkillSelector : Control
         _defaultLevel = defaultLevel;
 
         _upgradeOnly = upgradeOnly;
+        _readOnly = readOnly;
+        foreach (var button in new[] { Level1Button, Level2Button, Level3Button, Level4Button })
+        {
+            button.ReadOnly = readOnly;
+            button.Disabled = readOnly;
+        }
 
         ColorPanel.PanelOverride = new StyleBoxFlat
         {
@@ -64,7 +71,7 @@ public sealed partial class SkillSelector : Control
         Level3Button.OnPressed += _ => SetLevel(3);
         Level4Button.OnPressed += _ => SetLevel(4);
 
-        if (_upgradeOnly)
+        if (_upgradeOnly && !_readOnly)
         {
             Level1Button.Disabled = true;
             Level2Button.Disabled = currentLevel <= 2;
@@ -105,7 +112,7 @@ public sealed partial class SkillSelector : Control
 
     public void UpdateAvailability(int unspentPoints)
     {
-        if (_isLocked)
+        if (_isLocked || _readOnly)
             return;
 
         for (int targetLevel = 1; targetLevel <= 4; targetLevel++)
@@ -221,7 +228,7 @@ public sealed partial class SkillSelector : Control
             button.RemoveStyleClass("SkillLevelNormalHover");
             button.RemoveStyleClass("SkillLevelNormalPressed");
 
-            if (button.Disabled)
+            if (_readOnly || button.Disabled)
             {
                 continue;
             }
@@ -246,6 +253,12 @@ public sealed partial class SkillSelector : Control
         }
     }
 
+    public void UpdateLevel(int level)
+    {
+        _currentLevel = level;
+        UpdateUI();
+    }
+
     public void SetLevel(int level)
     {
         if (level == _currentLevel || _isLocked)
@@ -254,8 +267,23 @@ public sealed partial class SkillSelector : Control
         if (_upgradeOnly && level < _currentLevel)
             return;
 
-        _currentLevel = level;
-        UpdateUI();
+        UpdateLevel(level);
         OnSkillLevelChanged?.Invoke(level);
+    }
+}
+
+public sealed class SkillLevelButton : Button
+{
+    public bool ReadOnly { get; set; }
+
+    protected override void DrawModeChanged()
+    {
+        if (ReadOnly && Pressed)
+        {
+            SetOnlyStylePseudoClass(StylePseudoClassPressed);
+            return;
+        }
+
+        base.DrawModeChanged();
     }
 }
