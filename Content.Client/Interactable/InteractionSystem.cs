@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Buckle.Components; // WL-changes
 using Content.Shared.Interaction;
 using Content.Shared.Storage;
 using Robust.Client.GameObjects;
@@ -16,7 +17,14 @@ namespace Content.Client.Interactable
             var faced = base.TryFaceInteraction(user, coordinates);
 
             if (faced)
-                _clientTransform.SnapRenderRotation(user);
+            {
+                // WL-changes-Start
+                var rotationTarget = TryComp<BuckleComponent>(user, out var buckle) && buckle.BuckledTo is { } strap
+                    ? strap
+                    : user;
+                _clientTransform.SnapRenderRotation(rotationTarget);
+                // WL-changes-End
+            }
 
             return faced;
         }
