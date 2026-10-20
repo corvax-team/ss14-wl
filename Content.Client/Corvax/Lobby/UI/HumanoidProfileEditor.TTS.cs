@@ -165,7 +165,7 @@ public sealed partial class HumanoidProfileEditor
             Profile.BarkMaxDelay);
         // WL-Changes-End
 
-        _ttsTab?.UpdateControls(Profile, Profile.Voice);
+        _ttsTab?.UpdateControls(Profile); // WL-changes
         _ttsTab?.SetSelectedVoice(Profile.TTSVoice);
     }
 
