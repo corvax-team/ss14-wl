@@ -64,7 +64,7 @@ public sealed partial class PresetIdCardSystem : EntitySystem
             if (!ev.Profile.JobSubnames.TryGetValue(ev.JobId, out var subname)) //WL-Changes
                 subname = jobProto.LocalizedName; //WL-Changes
 
-            SetupIdAccess((card.Value, preset), true); //WL-Changes
+            SetupIdAccess((card.Value, preset), true, subname); //WL-Changes
             SetupIdName((card.Value, preset));
         }
     }
@@ -117,5 +117,25 @@ public sealed partial class PresetIdCardSystem : EntitySystem
         {
             _card.TryChangeJobIcon(ent, jobIcon);
         }
+    }
+
+    private void SetupIdAccess(Entity<PresetIdCardComponent> ent, bool extended, string jobName)
+    {
+        if (ent.Comp.JobName == null)
+            return;
+
+        if (!ProtoMan.TryIndex(ent.Comp.JobName, out JobPrototype? job))
+        {
+            Log.Error($"Invalid job id ({ent.Comp.JobName}) for preset card");
+            return;
+        }
+
+        _access.SetAccessToJob(ent, job, extended);
+
+        _card.TryChangeJobTitle(ent, jobName);
+        _card.TryChangeJobDepartment(ent, job);
+
+        if (ProtoMan.TryIndex(job.Icon, out var jobIcon))
+            _card.TryChangeJobIcon(ent, jobIcon);
     }
 }

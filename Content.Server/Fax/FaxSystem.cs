@@ -392,7 +392,7 @@ public sealed partial class FaxSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnPrintPayload(Entity<FaxMachineComponent> ent, ref DeviceNetworkPacketEvent<FaxPrintPayload> args)
     {
-        Receive(ent, args.Data.Data, args.SenderAddress);
+        Receive(ent, args.Data.Data, _deviceNetworkSystem.GetAddress(ent.Owner));
     }
 
     private void OnToggleInterface(EntityUid uid, FaxMachineComponent component, AfterActivatableUIOpenEvent args)

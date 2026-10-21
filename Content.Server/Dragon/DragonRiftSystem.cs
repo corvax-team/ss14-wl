@@ -4,6 +4,7 @@ using Content.Server.NPC;
 using Content.Server.NPC.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Dragon;
+using Content.Shared.EntityTable;
 using Content.Shared.Examine;
 using Content.Shared.Pinpointer;
 using Content.Shared.Sprite;
@@ -12,7 +13,6 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.Manager;
-using Robust.Shared.Random; //WL-Changes
 using Robust.Shared.Utility;
 
 namespace Content.Server.Dragon;
@@ -28,7 +28,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
     [Dependency] private NavMapSystem _navMap = default!;
     [Dependency] private NPCSystem _npc = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private IRobustRandom _random = default!; //WL-Changes
+    [Dependency] private EntityTableSystem _entityTable = default!;
 
     public override void Initialize()
     {
@@ -90,27 +90,25 @@ public sealed partial class DragonRiftSystem : EntitySystem
             if (comp.SpawnAccumulator > comp.SpawnCooldown)
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
-                //WL-Changes-Start
-                var ent = Spawn(_random.Prob(comp.SharkSpawnChance)
-                    ? comp.SharkSpawnPrototype
-                    : comp.SpawnPrototype,
-                    xform.Coordinates);
-                //WL-Changes-End
 
-                // Update their look to match the leader.
-                if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
+                foreach (var spawn in _entityTable.GetSpawns(comp.Spawn))
                 {
-                    var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
-                    _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
-                    Dirty(ent, spawnedSprite);
-                }
+                    var ent = Spawn(spawn, xform.Coordinates);
 
-                if (comp.Dragon != null)
-                    _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
+                    // Update their look to match the leader.
+                    if (TryComp<RandomSpriteComponent>(comp.Dragon, out var randomSprite))
+                    {
+                        var spawnedSprite = EnsureComp<RandomSpriteComponent>(ent);
+                        _serManager.CopyTo(randomSprite, ref spawnedSprite, notNullableOverride: true);
+                        Dirty(ent, spawnedSprite);
+                    }
+
+                    if (comp.Dragon != null)
+                        _npc.SetBlackboard(ent, NPCBlackboard.FollowTarget, new EntityCoordinates(comp.Dragon.Value, Vector2.Zero));
+                }
             }
         }
     }
-
 
     private void OnExamined(EntityUid uid, DragonRiftComponent component, ExaminedEvent args)
     {

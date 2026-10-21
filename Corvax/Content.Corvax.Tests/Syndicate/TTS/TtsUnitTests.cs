@@ -59,8 +59,9 @@ public sealed class TtsEventTest
     [Test]
     public void RequestPreviewEventStoresVoiceId()
     {
-        var ev = new RequestPreviewTTSEvent("TestVoice");
+        var ev = new RequestPreviewTTSEvent("TestVoice", "TestPreview" /*WL-PreviewTTSEdit*/);
         Assert.That(ev.VoiceId, Is.EqualTo("TestVoice"));
+        Assert.That(ev.PreviewText, Is.EqualTo("TestPreview")); // WL-PreviewTTSEdit
     }
 
     [Test]

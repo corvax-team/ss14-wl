@@ -4,6 +4,7 @@
   id: BaseSpeciesMob
   components:
   - type: Crawler
+  - type: Dna # WL-Changes
 
 - type: entity
   abstract: true
@@ -15,7 +16,7 @@
   - StripableInventoryBase
   - BaseSpeciesAppearance
   - TTS_speaker # Corvax-TTS
-  id: BaseSpeciesNoDna # WL - NoDnaMobs
+  id: BaseSpeciesMobNoCrawl
   save: false
   components:
   - type: DamageVisuals
@@ -171,16 +172,6 @@
     languages:
       Translate: Full
   #WL-Changes: Languages end
-
-# WL - NoDnaMobs - start
-- type: entity
-  abstract: true
-  parent: BaseSpeciesNoDna
-  id: BaseSpeciesMob
-  save: false
-  components:
-  - type: Dna
-# WL - NoDnaMobs - end
 
 - type: entity
   abstract: true

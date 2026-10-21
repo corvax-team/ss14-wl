@@ -38,6 +38,11 @@ public sealed partial class FaxWindow : DefaultWindow
         RefreshButton.OnPressed += _ => RefreshButtonPressed?.Invoke();
         PeerSelector.OnItemSelected += args =>
             PeerSelected?.Invoke((DeviceAddress)args.Button.GetItemMetadata(args.Id)!);
+
+        // WL-Changes-start
+        OpenStorageButton.OnPressed += _ => SwitchStorageButtonPressed?.Invoke();
+        TurnNotifyButton.OnPressed += _ => SwitchNotifyButtonPressed?.Invoke();
+        // WL-Changes-end
     }
 
     public void UpdateState(FaxUiState state)
@@ -106,7 +111,7 @@ public sealed partial class FaxWindow : DefaultWindow
     {
         OfficePaper = !OfficePaper;
 
-        if(OfficePaper)
+        if (OfficePaper)
             PaperButton.Text = Loc.GetString("fax-machine-ui-paper-button-office");
         else
             PaperButton.Text = Loc.GetString("fax-machine-ui-paper-button-normal");

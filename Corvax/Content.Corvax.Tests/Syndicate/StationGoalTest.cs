@@ -86,7 +86,7 @@ public sealed class StationGoalTest : GameTest
 
         await server.WaitPost(() =>
         {
-            var result = goalSystem.SendStationGoal(station, goalId);
+            var result = goalSystem.SendStationGoal(goalId);
             Assert.That(result, Is.True, $"SendStationGoal returned false for {goalId} (fax did not accept?)");
         });
 
@@ -161,7 +161,7 @@ public sealed class StationGoalTest : GameTest
 
         await server.WaitPost(() =>
         {
-            var result = goalSystem.SendStationGoal(station, goalId);
+            var result = goalSystem.SendStationGoal(goalId);
             Assert.That(result, Is.False,
                 $"SendStationGoal must fail when no fax machine exists on the station, but it returned true for {goalId}.");
         });

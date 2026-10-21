@@ -82,18 +82,15 @@ public sealed class DirectionalBodyLayersTest(string playerPrototype) : Interact
             try
             {
                 transform.SetWorldRotation(CPlayer, Angle.FromDegrees(90));
-                transform.SetRenderRotationOverride(CPlayer, Angle.Zero);
+
                 eye.Rotation = Angle.Zero;
-                AssertOrder(false);
+                AssertOrder(true);
+
                 eye.Rotation = Angle.FromDegrees(90);
-                AssertOrder(true);
-                eye.Rotation = Angle.Zero;
-                transform.SetRenderRotationOverride(CPlayer, Angle.FromDegrees(90));
-                AssertOrder(true);
+                AssertOrder(false);
             }
             finally
             {
-                transform.ClearRenderRotationOverride(CPlayer);
                 eye.Rotation = originalRotation;
             }
 

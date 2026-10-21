@@ -30,7 +30,7 @@ public sealed class FaxUiState : BoundUserInterfaceState
         bool canSend,
         bool canCopy,
         bool isPaperInserted,
-        DeviceAddress? destAddress
+        DeviceAddress? destAddress,
         /*WL-Changes-start*/
         bool isStorageOpen,
         bool isNotifyEnable,
