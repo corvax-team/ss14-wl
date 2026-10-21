@@ -58203,7 +58203,7 @@ entities:
       deviceLists: []
       configurators: []
     - type: StationLimitedNetwork
-    - type: WirelessNetworkConnection
+    - type: WirelessNetwork
       range: 1200
 - proto: ClothingUniformJumpsuitPilot
   entities:
@@ -66550,7 +66550,6 @@ entities:
       pos: -21.5,-3.5
     - type: FaxMachine
       name: Кабинет главы службы безопасности
-      destinationAddress: Кабинет ГСБ
   - uid: 8397
     components:
     - type: Transform
@@ -66558,7 +66557,6 @@ entities:
       pos: -28.5,-16.5
     - type: FaxMachine
       name: Кабинет главы персонала
-      destinationAddress: Кабинет главы персонала
   - uid: 8398
     components:
     - type: Transform
@@ -66566,7 +66564,6 @@ entities:
       pos: -51.5,-51.5
     - type: FaxMachine
       name: Библиотека
-      destinationAddress: Библиотека
   - uid: 8399
     components:
     - type: Transform
@@ -66574,7 +66571,6 @@ entities:
       pos: -22.5,-26.5
     - type: FaxMachine
       name: Кабинет агента внутренних дел
-      destinationAddress: Кабинет агента внутренних дел
   - uid: 8400
     components:
     - type: Transform
@@ -66582,7 +66578,6 @@ entities:
       pos: -32.5,-14.5
     - type: FaxMachine
       name: Мостик
-      destinationAddress: Конференц-зал
   - uid: 8401
     components:
     - type: Transform
@@ -66590,7 +66585,6 @@ entities:
       pos: -39.5,-65.5
     - type: FaxMachine
       name: Научный отдел
-      destinationAddress: Научный Отдел
   - uid: 8402
     components:
     - type: Transform
@@ -66621,7 +66615,6 @@ entities:
       pos: -39.5,-12.5
     - type: FaxMachine
       name: Кабинет капитана
-      destinationAddress: Кабинет капитана
 - proto: FenceMetalBroken
   entities:
   - uid: 20811
@@ -104177,7 +104170,7 @@ entities:
     - type: Transform
       parent: 2
       pos: -19.5,-0.5
-    - type: WirelessNetworkConnection
+    - type: WirelessNetwork
       range: 10000000
     - type: DeviceLinkSource
       range: 1E+09
