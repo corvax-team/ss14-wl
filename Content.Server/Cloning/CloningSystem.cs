@@ -177,6 +177,7 @@ public sealed partial class CloningSystem : SharedCloningSystem
     /// </summary>
     public void CopySkills(EntityUid original, EntityUid clone)
     {
+        using var skillLog = _skills.BeginSkillChange(clone, "Cloning", sourceEntity: original);
         _skills.CopySkills(original, clone);
     }
     // WL-Skills-end

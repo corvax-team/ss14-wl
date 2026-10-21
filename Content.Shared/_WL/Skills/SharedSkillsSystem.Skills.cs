@@ -6,6 +6,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player;
 
 namespace Content.Shared._WL.Skills;
 
@@ -29,18 +30,19 @@ public abstract partial class SharedSkillsSystem
         if (args.Profile is not HumanoidCharacterProfile profile || !_cfg.GetCVar(WLCVars.SkillsEnabled))
             return;
 
-        InitializeSkills(args.Mob, args.JobId, profile);
+        InitializeSkills(args.Mob, args.JobId, profile, args.Player);
     }
 
     /// <summary>
     /// Initializes skills component with default values and applies profile skills
     /// </summary>
-    private void InitializeSkills(EntityUid mob, string? jobId, HumanoidCharacterProfile profile)
+    private void InitializeSkills(EntityUid mob, string? jobId, HumanoidCharacterProfile profile, ICommonSession player)
     {
         if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
             return;
 
         var skillsComp = EnsureComp<SkillsComponent>(mob);
+        using var skillLog = BeginSkillChange(mob, "Spawn", player, source: jobId, force: true);
         skillsComp.Skills.Clear();
 
         skillsComp.CurrentJob = jobId;
@@ -242,11 +244,12 @@ public abstract partial class SharedSkillsSystem
     /// <summary>
     /// Sets skill level with automatic detection of increase/decrease and default level check
     /// </summary>
-    public bool TrySetSkillLevel(EntityUid uid, SkillType skill, int targetLevel, string? jobId = null, SkillsComponent? comp = null)
+    public bool TrySetSkillLevel(EntityUid uid, SkillType skill, int targetLevel, string? jobId = null, SkillsComponent? comp = null, bool logChange = true)
     {
         if (!Resolve(uid, ref comp))
             return false;
 
+        using var skillLog = logChange ? BeginSkillChange(uid, "SkillSelection") : null;
         targetLevel = Math.Clamp(targetLevel, 1, 4);
         var currentLevel = comp.Skills.GetValueOrDefault(skill, 1);
         if (currentLevel == targetLevel)
@@ -380,6 +383,7 @@ public abstract partial class SharedSkillsSystem
         if (!Resolve(uid, ref comp))
             return;
 
+        using var skillLog = BeginSkillChange(uid, "BonusPoints");
         comp.BonusPoints = points;
         Dirty(uid, comp);
     }
@@ -393,6 +397,7 @@ public abstract partial class SharedSkillsSystem
         if (!Resolve(uid, ref comp))
             return;
 
+        using var skillLog = BeginSkillChange(uid, "AdminSkill");
         level = Math.Clamp(level, 1, 4);
         comp.Skills[skill] = level;
 
@@ -407,6 +412,8 @@ public abstract partial class SharedSkillsSystem
     {
         if (!Resolve(uid, ref comp))
             return;
+
+        using var skillLog = BeginSkillChange(uid, "Reset");
 
         foreach (SkillType skill in Enum.GetValues(typeof(SkillType)))
         {
@@ -473,6 +480,7 @@ public abstract partial class SharedSkillsSystem
         if (!_cfg.GetCVar(WLCVars.SkillsEnabled))
             return;
 
+        using var skillLog = BeginSkillChange(uid, "InitialSkills", source: MetaData(uid).EntityPrototype?.ID);
         var skillsComp = EnsureComp<SkillsComponent>(uid);
 
         if (component.RandomizeAllSkills)
@@ -493,8 +501,9 @@ public abstract partial class SharedSkillsSystem
     /// <summary>
     /// Applies the initial skills from the component
     /// </summary>
-    public void ApplyInitialSkills(EntityUid _, SkillsComponent skillsComp, InitialSkillsComponent initial)
+    public void ApplyInitialSkills(EntityUid uid, SkillsComponent skillsComp, InitialSkillsComponent initial)
     {
+        using var skillLog = BeginSkillChange(uid, "InitialSkills");
         if (initial.OverrideExisting)
         {
             skillsComp.Skills.Clear();
@@ -530,6 +539,7 @@ public abstract partial class SharedSkillsSystem
         if (!Resolve(uid, ref comp))
             return;
 
+        using var skillLog = BeginSkillChange(uid, "Randomize");
         minLevel = Math.Clamp(minLevel, 1, 4);
         maxLevel = Math.Clamp(maxLevel, 1, 4);
 
@@ -547,6 +557,7 @@ public abstract partial class SharedSkillsSystem
         if (!Resolve(fromEntity, ref fromSkills, false))
             return;
 
+        using var skillLog = BeginSkillChange(toEntity, "Copy", sourceEntity: fromEntity);
         var toSkills = EnsureComp<SkillsComponent>(toEntity);
 
         toSkills.Skills.Clear();
