@@ -91,6 +91,7 @@ names-ai-dataset-65 = Луи
 
 # Named after the Manchester Mark 1, the successor of which was actually named the Ferranti Mark 1, rather than Manchester Mark 2
 names-ai-dataset-66 = Манчестер Марк 2
+
 names-ai-dataset-67 = МАРК13
 names-ai-dataset-68 = Мария
 names-ai-dataset-69 = Марвин
