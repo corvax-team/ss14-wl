@@ -43,7 +43,7 @@
 
 - type: roleLoadout
   id: JobStationAi
-  nameDataset: NamesAI
+  nameDataset: WLNamesAI # WL: NamesAI > WLNamesAI
   canCustomizeName: true
 
 # Civilian
