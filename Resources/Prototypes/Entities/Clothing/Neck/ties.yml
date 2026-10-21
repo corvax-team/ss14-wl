@@ -12,6 +12,7 @@
     - WhitelistChameleon
     - HamsterWearable
     - MonkeyWearable
+    - JumpsuitAccessories # WL-Changes
 
 - type: entity
   parent: ClothingNeckTieBase
