@@ -1,0 +1,14 @@
+guide-entry-rules-wl = Правила WL 
+guide-entry-rules-wl-r0 = Правило 0 | Мудачество
+guide-entry-rules-wl-r1 = Правило 1.1 | Выход из роли
+guide-entry-rules-wl-r12 = Правило 1.2 | Нарушение игровой атмосферы
+guide-entry-rules-wl-r2 = Правило 2.1 | Ответственная игра на антагонисте
+guide-entry-rules-wl-r22 = Правило 2.2 | Валидхант
+guide-entry-rules-wl-r23 = Правило 2.3 | Самоантагонизм
+guide-entry-rules-wl-r3 = Правило 3.1 | Поддержание уважительной обстановки
+guide-entry-rules-wl-r32 = Правило 3.2 | Метазнания
+guide-entry-rules-wl-r33 = Правило 3.3 | IC и OOC
+guide-entry-rules-wl-r34 = Правило 3.4 | Метапрогрессия
+guide-entry-rules-wl-r4 = Правило 4.1 | Гриф
+guide-entry-rules-wl-r42 = Правило 4.2 | Использование багов и эксплоитов
+guide-entry-rules-wl-r43 = Правило 4.3 | Неприемлемая ролевая игра
