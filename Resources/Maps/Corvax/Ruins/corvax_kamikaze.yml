@@ -9080,8 +9080,23 @@ entities:
       canEditLabel: False
     - type: DeviceLinkSource
       linkedPorts:
+        1518:
+        - - Timer
+          - Trigger
+        1517:
+        - - Timer
+          - Trigger
+        1519:
+        - - Timer
+          - Trigger
+        1520:
+        - - Timer
+          - Trigger
         1480:
         - - Start
+          - Trigger
+        1516:
+        - - Timer
           - Trigger
         1434:
         - - Start
@@ -9114,7 +9129,13 @@ entities:
           - On
         - - Timer
           - Off
+        1521:
+        - - Timer
+          - Trigger
         1375:
+        - - Timer
+          - Trigger
+        1515:
         - - Timer
           - Trigger
     - type: DeviceLinkSink
@@ -9451,7 +9472,7 @@ entities:
     - type: Transform
       parent: 1
       pos: 39.5,-9.5
-- proto: SyndicateBombSignal
+- proto: SyndicateBomb
   entities:
   - uid: 1515
     components:
