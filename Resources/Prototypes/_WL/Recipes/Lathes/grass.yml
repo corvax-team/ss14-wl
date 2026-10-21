@@ -1,0 +1,9 @@
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileMowedJungleAstroGrass
+  result: FloorTileItemMowedJungleAstroGrass
+
+- type: latheRecipe
+  parent: BaseFauxTileRecipe
+  id: FauxTileMowedDarkAstroGrass
+  result: FloorTileItemMowedDarkAstroGrass
