@@ -592,6 +592,14 @@
           types:
             Poison: 1
 # WL-Change delete plant poison
+# WL-changes-Start
+      - !type:Satiate
+        satiationType: Hunger
+        factor: 0.75
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Arachnid ]
+# WL-changes-End
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerTypeCondition
