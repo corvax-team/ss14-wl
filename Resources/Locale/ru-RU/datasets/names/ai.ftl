@@ -3,11 +3,13 @@ names-ai-dataset-2 = 512k
 
 # Ought to be enough for anybody
 names-ai-dataset-3 = 640k
+
 names-ai-dataset-4 = "790"
 names-ai-dataset-5 = Адаптивный Манипулятор
 
 # Named after the famous soundcard
 names-ai-dataset-6 = Адлиб
+
 names-ai-dataset-7 = АЛИСА
 names-ai-dataset-8 = Главный союзный компьютер
 names-ai-dataset-9 = Альфа 2
@@ -26,6 +28,7 @@ names-ai-dataset-21 = Азимов
 
 # The most influential modem ever, created by the bell system. It still lives on today in certain applications
 names-ai-dataset-22 = Бэлл 301
+
 names-ai-dataset-23 = Бишоп
 names-ai-dataset-24 = Блиц
 names-ai-dataset-25 = Коробка
@@ -41,6 +44,7 @@ names-ai-dataset-32 = Крэй-2
 
 # If we're going to have AOL we may as well have some of their major competitors
 names-ai-dataset-33 = КомпСерп
+
 names-ai-dataset-34 = Компьютер
 names-ai-dataset-35 = Милаш
 names-ai-dataset-36 = Дедал
@@ -53,6 +57,7 @@ names-ai-dataset-42 = Эмма-2
 
 # Famous early computer
 names-ai-dataset-43 = ЭНИАК
+
 names-ai-dataset-44 = Эразм
 names-ai-dataset-45 = Абсолют
 names-ai-dataset-46 = Лег-Ко-27
@@ -69,12 +74,15 @@ names-ai-dataset-56 = Хьюи
 
 # A play on the fad apple spawned of putting "i" infront of your tech products name
 names-ai-dataset-57 = айЯдро
+
 # Hell on earth (web browser)
 names-ai-dataset-58 = I.E. 6
+
 names-ai-dataset-59 = Икар
 
 # If you don't get this one you are too young
 names-ai-dataset-60 = Дживс
+
 names-ai-dataset-61 = Рысь
 names-ai-dataset-62 = К.И.Н.Г
 names-ai-dataset-63 = ЗЕТ-1
@@ -97,6 +105,7 @@ names-ai-dataset-77 = ЗЕТ-2
 
 # A play on both NT as in NanoTrasen and NT as in windows NT, of which version 6.0 is windows vista
 names-ai-dataset-78 = NT v6.0
+
 names-ai-dataset-79 = Пакард Бэлл
 names-ai-dataset-80 = ЗЕТ-3
 names-ai-dataset-81 = Проект Y2K
