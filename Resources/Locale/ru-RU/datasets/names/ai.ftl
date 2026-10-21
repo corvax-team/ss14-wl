@@ -1,9 +1,11 @@
 names-ai-dataset-1 = 16-20
 names-ai-dataset-2 = 512k
+
 # Ought to be enough for anybody
 names-ai-dataset-3 = 640k
 names-ai-dataset-4 = "790"
 names-ai-dataset-5 = Адаптивный Манипулятор
+
 # Named after the famous soundcard
 names-ai-dataset-6 = Адлиб
 names-ai-dataset-7 = АЛИСА
@@ -21,6 +23,7 @@ names-ai-dataset-18 = Андроид
 names-ai-dataset-19 = Эниэл
 names-ai-dataset-20 = К.С.А.Н.А.
 names-ai-dataset-21 = Азимов
+
 # The most influential modem ever, created by the bell system. It still lives on today in certain applications
 names-ai-dataset-22 = Бэлл 301
 names-ai-dataset-23 = Бишоп
@@ -32,8 +35,10 @@ names-ai-dataset-28 = Клетка
 names-ai-dataset-29 = Чи
 names-ai-dataset-30 = Чип
 names-ai-dataset-31 = К.Р.Э.Й.Г.
+
 # Commercial supercomputer from the 70s
 names-ai-dataset-32 = Крэй-2
+
 # If we're going to have AOL we may as well have some of their major competitors
 names-ai-dataset-33 = КомпСерп
 names-ai-dataset-34 = Компьютер
@@ -45,6 +50,7 @@ names-ai-dataset-39 = Модем
 names-ai-dataset-40 = Дорфл
 names-ai-dataset-41 = Дьюи
 names-ai-dataset-42 = Эмма-2
+
 # Famous early computer
 names-ai-dataset-43 = ЭНИАК
 names-ai-dataset-44 = Эразм
@@ -60,11 +66,13 @@ names-ai-dataset-53 = Хэдэли
 names-ai-dataset-54 = Гелиос
 names-ai-dataset-55 = УлейБот Сверхразум
 names-ai-dataset-56 = Хьюи
+
 # A play on the fad apple spawned of putting "i" infront of your tech products name
 names-ai-dataset-57 = айЯдро
 # Hell on earth (web browser)
 names-ai-dataset-58 = I.E. 6
 names-ai-dataset-59 = Икар
+
 # If you don't get this one you are too young
 names-ai-dataset-60 = Дживс
 names-ai-dataset-61 = Рысь
@@ -72,6 +80,7 @@ names-ai-dataset-62 = К.И.Н.Г
 names-ai-dataset-63 = ЗЕТ-1
 names-ai-dataset-64 = Рыцарь
 names-ai-dataset-65 = Луи
+
 # Named after the Manchester Mark 1, the successor of which was actually named the Ferranti Mark 1, rather than Manchester Mark 2
 names-ai-dataset-66 = Манчестер Марк 2
 names-ai-dataset-67 = МАРК13
@@ -85,6 +94,7 @@ names-ai-dataset-74 = Монарх
 names-ai-dataset-75 = Дурной3000
 names-ai-dataset-76 = Мультивак
 names-ai-dataset-77 = ЗЕТ-2
+
 # A play on both NT as in NanoTrasen and NT as in windows NT, of which version 6.0 is windows vista
 names-ai-dataset-78 = NT v6.0
 names-ai-dataset-79 = Пакард Бэлл
