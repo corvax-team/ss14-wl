@@ -40066,7 +40066,7 @@ entities:
       pos: 29.5,22.5
     - type: FaxMachine
       name: Квартирмейстер
-      destinationAddress: Кабинет квартирмейстера
+#     destinationAddress: Кабинет квартирмейстера # WL-Changes-FixTests
   - uid: 4844
     components:
     - type: Transform
