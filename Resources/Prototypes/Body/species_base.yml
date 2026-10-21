@@ -1,5 +1,12 @@
 - type: entity
   abstract: true
+  parent: BaseSpeciesMobNoCrawl
+  id: BaseSpeciesMob
+  components:
+  - type: Crawler
+
+- type: entity
+  abstract: true
   parent:
   - BaseMob
   - MobCombat
@@ -182,10 +189,10 @@
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  - BaseSpeciesMob
+  - BaseSpeciesMobNoCrawl
   - BaseMobDestructible
   - BaseHungerThirstSlowdown
-  id: BaseSpeciesMobOrganic
+  id: BaseSpeciesMobOrganicNoCrawl
   save: false
   components:
   - type: Satiation
@@ -251,6 +258,16 @@
     alternateState: human_big_fire # Corvax WL /tg/ resprite
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: StunVisuals
+
+- type: entity
+  abstract: true
+  parent:
+  - BaseSpeciesMobOrganicNoCrawl
+  id: BaseSpeciesMobOrganic
+  save: false
+  components:
+  - type: Crawler
+
   #WLSwiming - start
   - type: Swimmer
     swimSpeedModifier: 1

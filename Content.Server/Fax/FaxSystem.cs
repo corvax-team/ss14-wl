@@ -1,13 +1,14 @@
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
-using Content.Server.DeviceNetwork.Systems;
+using Content.Shared.DeviceNetwork.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Tools;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
+using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Fax;
@@ -45,6 +46,7 @@ public sealed partial class FaxSystem : EntitySystem
     [Dependency] private IAdminManager _adminManager = default!;
     [Dependency] private ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
     [Dependency] private PopupSystem _popupSystem = default!;
     [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private PaperSystem _paperSystem = default!;
@@ -486,7 +488,7 @@ public sealed partial class FaxSystem : EntitySystem
     /// <summary>
     ///     Set fax destination address not checking if he knows it exists
     /// </summary>
-    public void SetDestination(EntityUid uid, string destAddress, FaxMachineComponent? component = null)
+    public void SetDestination(EntityUid uid, DeviceAddress destAddress, FaxMachineComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
@@ -628,7 +630,7 @@ public sealed partial class FaxSystem : EntitySystem
         if (component.DestinationFaxAddress == null)
             return;
 
-        if (!component.KnownFaxes.TryGetValue(component.DestinationFaxAddress, out var faxName))
+        if (!component.KnownFaxes.TryGetValue(component.DestinationFaxAddress.Value, out var faxName))
             return;
 
         if (!TryComp(sendEntity, out MetaDataComponent? metadata) ||
@@ -642,16 +644,38 @@ public sealed partial class FaxSystem : EntitySystem
 
         TryComp<LabelComponent>(sendEntity, out var labelComponent);
 
+        var content = paper.Content;
+
+        if (component.AddSenderInfo)
+        {
+            var faxMachineAddress = _deviceNetworkSystem.GetAddress(uid);
+            if (string.IsNullOrEmpty(faxMachineAddress))
+                faxMachineAddress = Loc.GetString("device-address-unknown");
+
+            var time = _gameTicker.RoundDuration();
+            var timeString = TimeSpan.FromSeconds(Math.Truncate(time.TotalSeconds)).ToString();
+
+            content += "\n";
+            content += Loc.GetString(component.SenderInfo,
+                ("sender_name", component.FaxName),
+                ("sender_addr", faxMachineAddress),
+                ("recipient_name", component.DestinationFaxName ?? Loc.GetString("fax-machine-popup-source-unknown")),
+                ("recipient_addr", component.DestinationFaxAddress),
+                ("time", timeString)
+            );
+        }
+
         var payload = new FaxPrintPayload
         {
             Data = new FaxPrintout(
-                    paper.Content,
+                    content,
                     nameMod?.BaseName ?? metadata.EntityName,
                     labelComponent?.CurrentLabel,
                     metadata.EntityPrototype.ID,
                     paper.StampState,
                     paper.StampedBy,
-                    paper.EditingDisabled),
+                    paper.EditingDisabled,
+                    component.FaxName),
         };
 
         _deviceNetworkSystem.SendPacket(uid, component.DestinationFaxAddress, ref payload);
@@ -674,12 +698,7 @@ public sealed partial class FaxSystem : EntitySystem
     ///     Accepts a new message and adds it to the queue to print
     ///     If has parameter "notifyAdmins" also output a special message to admin chat.
     /// </summary>
-    public void Receive(
-        EntityUid uid,
-        FaxPrintout printout,
-        string? fromAddress = null,
-        FaxMachineComponent? component = null,
-        /*WL-Changes-start*/EntityUid? sender = null/*WL-Changes-end*/)
+    public void Receive(EntityUid uid, FaxPrintout printout, string? fromAddress = null, FaxMachineComponent? component = null, /*WL-Changes-start*/EntityUid? sender = null/*WL-Changes-end*/)
     {
         if (!Resolve(uid, ref component))
             return;
