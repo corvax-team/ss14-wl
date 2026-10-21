@@ -43,7 +43,7 @@ public sealed partial class DirectionalBodyLayersSystem : EntitySystem
             var direction = sprite.EnableDirectionOverride
                 ? sprite.DirectionOverride.Convert(RsiDirectionType.Dir4)
                 : SpriteComponent.Layer.GetDirection(RsiDirectionType.Dir4,
-                    (_transform.GetWorldRotation(uid) + _eye.CurrentEye.Rotation).Reduced().FlipPositive());
+                    (_transform.GetWorldRotation(transform) + _eye.CurrentEye.Rotation).Reduced().FlipPositive());
             ApplyOrder((uid, sprite), order, direction);
         }
     }
