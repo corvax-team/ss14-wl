@@ -10,6 +10,7 @@
       - Medal
       - MonkeyWearable
       - WhitelistChameleon
+      - JumpsuitAccessories # WL-Changes
 
 - type: entity
   parent: ClothingNeckMedalBase

@@ -18,6 +18,7 @@
     - ClothMade
     - Recyclable
     - SecPin
+    - JumpsuitAccessories
 
 # Кадет
 - type: entity
@@ -37,6 +38,7 @@
     - Recyclable
     - SecurityPrivatePin
     - SecPin
+    - JumpsuitAccessories
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -55,6 +57,7 @@
     - Recyclable
     - SecurityCorporalPin
     - SecPin
+    - JumpsuitAccessories
 
 # Офицер/Детектив/Бригмед/Пилот
 - type: entity
@@ -74,6 +77,7 @@
     - Recyclable
     - SecuritySubSergeantPin
     - SecPin
+    - JumpsuitAccessories
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -92,6 +96,7 @@
     - Recyclable
     - SecuritySergeantPin
     - SecPin
+    - JumpsuitAccessories
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -110,6 +115,7 @@
     - Recyclable
     - SecurityChiefSergeantPin
     - SecPin
+    - JumpsuitAccessories
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -128,6 +134,7 @@
     - Recyclable
     - SecuritySubLieutenantPin
     - SecPin
+    - JumpsuitAccessories
 
 # Смотритель
 - type: entity
@@ -147,6 +154,7 @@
     - Recyclable
     - SecurityLieutenantPin
     - SecPin
+    - JumpsuitAccessories
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -165,6 +173,7 @@
     - Recyclable
     - SecurityChiefLieutenantPin
     - SecPin
+    - JumpsuitAccessories
 
 # ГСБ
 - type: entity
@@ -184,6 +193,7 @@
     - Recyclable
     - SecurityCaptainPin
     - SecPin
+    - JumpsuitAccessories
 
 - type: entity
   parent: ClothingNeckSecurityPinBase
@@ -202,6 +212,7 @@
     - Recyclable
     - SecurityMajorPin
     - SecPin
+    - JumpsuitAccessories
 
 # Контрактник
 - type: entity
@@ -221,3 +232,4 @@
     - Recyclable
     - SecurityContractorPin
     - SecPin
+    - JumpsuitAccessories
