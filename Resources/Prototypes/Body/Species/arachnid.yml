@@ -47,6 +47,14 @@
   - type: Inventory
     templateId: arachnid
     speciesId: arachnid
+    #WL-Changes start
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _WL/Mobs/Species/Arachnid/displacement.rsi
+            state: jumpsuit-female
+    #Wl-Changes end
   - type: InitialBody
     organs:
       Torso: OrganArachnidTorso
@@ -177,7 +185,7 @@
   components:
   - type: VisualOrgan
     data:
-      sprite: Mobs/Species/Arachnid/parts.rsi
+      sprite: _WL/Mobs/Species/Arachnid/parts.rsi #WL-Changes
   - type: VisualOrganMarkings
     markingData:
       group: Arachnid
@@ -188,11 +196,17 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Mobs/Species/Arachnid/parts.rsi
+    sprite: _WL/Mobs/Species/Arachnid/parts.rsi #WL-Changes
 
 - type: entity
-  parent: [ OrganBaseTorso, OrganArachnidExternal ]
+  parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganArachnidExternal ] #WL-Changes
   id: OrganArachnidTorso
+#WL-Changes Start
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _WL/Mobs/Species/Arachnid/parts.rsi
+#WL-Changes End
 
 - type: entity
   parent: [ OrganBaseHead, OrganArachnidExternal ]
