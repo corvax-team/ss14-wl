@@ -1216,6 +1216,8 @@ ArmBlade: Armblade # https://github.com/space-wizards/space-station-14/pull/4572
 
 #2026-08-19
 JanitorServiceLight: null
+ClothingUniformJumpskirtPerformer: ClothingUniformJumpskirtVirtualSinger
+ClothingShoesBootsPerformer: ClothingShoesBootsVirtualSinger
 
 #2026-09-21 WL
 BlueTomatoSeeds_wl_paper: null
@@ -1245,3 +1247,16 @@ ClothingHeadHatWizard: ClothingHeadHatWizardBlue
 ClothingOuterWizard: ClothingOuterWizardBlue
 ClothingHeadHatRedwizard: ClothingHeadHatWizardRed
 ClothingHeadHatVioletwizard: ClothingHeadHatWizardViolet
+
+# 2026-10-07
+computerBodyScanner: ComputerBodyScanner
+filingCabinet: FilingCabinet
+filingCabinetRandom: FilingCabinetRandom
+filingCabinetDrawer: FilingCabinetDrawer
+filingCabinetDrawerRandom: FilingCabinetDrawerRandom
+filingCabinetTall: FilingCabinetTall
+filingCabinetTallRandom: FilingCabinetTallRandom
+hydroponicsSoil: HydroponicsSoil
+hydroponicsTray: HydroponicsTray
+trayScanner: TRayScanner
+voicesensor: VoiceSensor

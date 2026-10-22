@@ -288,7 +288,7 @@ public abstract partial class SharedGunSystem
             {
                 ent.Comp.UnspawnedCount--;
                 DirtyField(ent.AsNullable(), nameof(BallisticAmmoProviderComponent.UnspawnedCount));
-                ammoEntity = Spawn(ent.Comp.Proto, args.Coordinates);
+                ammoEntity = PredictedSpawnAttachedTo(ent.Comp.Proto, args.Coordinates);
                 //WL - if autocycle=false put spent ammo back in the gun
                 if (!ent.Comp.AutoCycle)
                 {
@@ -485,7 +485,7 @@ public abstract partial class SharedGunSystem
             var ammoEntity = PredictedSpawnAttachedTo(refiller.AmmoProto, Transform(entity).Coordinates);
             if (!TryBallisticInsert(entity, ammoEntity, null, suppressInsertionSound: true))
             {
-                PredictedQueueDel(ammoEntity);
+                QueueDel(ammoEntity);
                 Log.Error(
                     $"Failed to insert ammo {ammoEntity} into non-full {entity}. This is a configuration error. Is the {nameof(BallisticAmmoSelfRefillerComponent)}'s {nameof(BallisticAmmoSelfRefillerComponent.AmmoProto)} incorrect for the {nameof(BallisticAmmoProviderComponent)}'s {nameof(BallisticAmmoProviderComponent.Whitelist)}?");
                 return;

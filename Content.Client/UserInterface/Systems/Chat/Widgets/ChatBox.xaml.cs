@@ -228,12 +228,18 @@ public partial class ChatBox : UIWidget, IEntityLinkClickHandler
             _controller.NotifySpecificChatTextChange(SelectedChannel, ChatInput.Input.Text);
         // WL-Changes: Alt Typing Indicators End
         _controller.NotifyChatFocus(true);
+
+        // Update the typing preview speech bubble above character's head.
+        _controller.UpdateTypingPreview(this);
     }
 
     private void OnFocusExit(LineEditEventArgs args)
     {
         // Warn typing indicator about focus
         _controller.NotifyChatFocus(false);
+
+        // Remove the typing preview when the chat box loses focus
+        _controller.ClearTypingPreview();
     }
 
     protected override void Dispose(bool disposing)
