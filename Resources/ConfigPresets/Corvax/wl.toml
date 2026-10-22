@@ -49,5 +49,6 @@ enabled = true
 time = 1800
 confirm_timeout = 300
 
-[ghost]
-go_lobby.death_time = 5
+[ghost.go_lobby]
+death_time = 5
+enabled = true
