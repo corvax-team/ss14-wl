@@ -1,0 +1,39 @@
+- type: entity
+  parent: BaseItem
+  id: BaseScanner
+  abstract: true
+  components:
+  - type: Item
+    sprite: Objects/Tools/appraisal-tool.rsi
+    size: Small
+  - type: Clothing
+    sprite: Objects/Tools/appraisal-tool.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: ResearchScanner
+    detectTypes: []
+  - type: ActivatableUI
+    key: enum.ResearchScannerUiKey.Key
+    requireActiveHand: false
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.ResearchScannerUiKey.Key:
+        type: ResearchScannerBoundUserInterface
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 250
+  - type: Tag
+    tags:
+    - Sidearm
+
+- type: entity
+  parent: BaseScanner
+  id: MachineScanner
+  name: machine scanner
+  description: Science machine scanner.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Tools/ResearchNew/scanners.rsi
+    state: machine_scanner

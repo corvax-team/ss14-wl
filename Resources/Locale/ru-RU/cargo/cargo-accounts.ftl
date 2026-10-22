@@ -8,7 +8,7 @@ cargo-account-medical-name = Фонд здравоохранения экипа�
 cargo-account-medical-code = МЕД
 
 cargo-account-science-name = Фонд межзвёздных разработок
-cargo-account-science-code = РНД
+cargo-account-science-code = НИО
 
 cargo-account-security-name = Резервы обороны станции
 cargo-account-security-code = СБ
