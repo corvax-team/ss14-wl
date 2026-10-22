@@ -19,6 +19,7 @@
     state: stamp-mime
   - type: Item
     size: Tiny
+    sprite: Objects/Misc/stamps.rsi # WL-changes
     inhandVisuals:
       left:
       - state: stamp-inhand-left
