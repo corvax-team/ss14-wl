@@ -66,6 +66,7 @@
                 <viewport:ScalingViewport Name="CameraView" MinSize="500 500" MouseFilter="Ignore"/>
                 <TextureRect MinSize="500 500" Name="CameraViewBackground" />
             </Control>
+            <Button Name="SnapshotButton" Text="{Loc 'surveillance-camera-monitor-ui-snapshot'}"/> <!-- WL-Changes  -->
         </BoxContainer>
     </BoxContainer>
 </DefaultWindow>
