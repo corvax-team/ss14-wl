@@ -11,3 +11,13 @@
   - type: Sprite
     sprite: _WL/Objects/Misc/stamps.rsi
     state: stamp-adju
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#345476"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#345476"

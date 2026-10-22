@@ -11,6 +11,16 @@
     - type: Sprite
       sprite: Corvax/Objects/Misc/stamps.rsi
       state: stamp-iaa
+    - type: Item
+      inhandVisuals:
+        left:
+        - state: stamp-inhand-left
+        - state: handle-inhand-left
+          color: "#33CC33"
+        right:
+        - state: stamp-inhand-right
+        - state: handle-inhand-right
+          color: "#33CC33"
 
 - type: entity
   name: magistrate's rubber stamp
@@ -25,3 +35,13 @@
   - type: Sprite
     sprite: Corvax/Objects/Misc/stamps.rsi
     state: stamp-magistrate
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#eebe35"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#eebe35"
