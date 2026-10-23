@@ -133,3 +133,35 @@
   storage:
     back:
     - ClothingHeadsetTacticScience
+
+- type: loadout
+  id: ShoesCombat
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: Swatwsa
+  equipment:
+    shoes: ClothingShoesCombat
+
+- type: loadout
+  id: InsigniaOfKhayarin
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: KelinARTs
+  equipment:
+    neck: ClothingNeckInsigniaOfKhayarin
+
+- type: loadout
+  id: BootsCombatWornout
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: thoriumm
+  equipment:
+    shoes: ClothingShoesBootsCombatWornout
+
+- type: loadout
+  id: LegalDepartmentTrench
+  effects:
+  - !type:CkeyRequirementLoadoutEffect
+    ckey: Skirgan
+  equipment:
+    outerclothing: ClothingOuterCoatLegalDepartmentTrench

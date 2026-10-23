@@ -179,3 +179,39 @@
       key_slots:
       - EncryptionKeyScience
       - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingShoesSwat
+  id: ClothingShoesCombat
+  name: combat shoes 'Klaue-89'
+  description: A groundbreaking footwear model designed for elite units of the OPZ Armed Forces. The heavy-duty, rigid upper—crafted from dense, durable fabric with integrated composite inserts—provides maximum protection without compromising mobility. The sole features an aggressive tread pattern, along with retractable ceramic-carbide spikes in the toe and heel areas, ensuring reliable traction on both concrete and earthen surfaces.
+  suffix: Forms
+
+- type: entity
+  parent: ClothingNeckSharkTeethNecklace
+  id: ClothingNeckInsigniaOfKhayarin
+  name: Insignia of Khayarin
+  description: Небольшой религиозный медальон из темного металла, посвященный одному из божеств Таярин. На его поверхности аккуратно выбиты руны на Сик Таир, складывающиеся в надпись "Во славу Хаярин".
+  suffix: Forms
+
+- type: entity
+  parent: ClothingShoesBootsCombat
+  id: ClothingShoesBootsCombatWornout
+  name: worn-out combat boots
+  description: Custom-made, very expensive leather boots. Life has really taken its toll on them. The white laces turned gray a long time ago.
+  suffix: Forms
+
+- type: entity
+  parent: ClothingOuterCoatCaptainTrench
+  id: ClothingOuterCoatLegalDepartmentTrench
+  name: legal department trench
+  description: A heavy trench coat, custom-made from high-end materials.
+  components:
+  - type: Sprite
+    sprite: _WL/Forms/attorney_trenchcoat.rsi
+  - type: Clothing
+    sprite: _WL/Forms/attorney_trenchcoat.rsi
+
+- type: entity
+  parent: [ClothingOuterCoatLegalDepartmentTrench, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterCoatLegalDepartmentTrenchOpened
