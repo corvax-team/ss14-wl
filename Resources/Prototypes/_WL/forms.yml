@@ -206,6 +206,7 @@
   id: ClothingOuterCoatLegalDepartmentTrench
   name: legal department trench
   description: A heavy trench coat, custom-made from high-end materials.
+  suffix: Forms
   components:
   - type: Sprite
     sprite: _WL/Forms/attorney_trenchcoat.rsi
