@@ -164,4 +164,4 @@
   - !type:CkeyRequirementLoadoutEffect
     ckey: Skirgan
   equipment:
-    outerclothing: ClothingOuterCoatLegalDepartmentTrench
+    outerClothing: ClothingOuterCoatLegalDepartmentTrench

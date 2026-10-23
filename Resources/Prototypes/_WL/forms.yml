@@ -191,7 +191,7 @@
   parent: ClothingNeckSharkTeethNecklace
   id: ClothingNeckInsigniaOfKhayarin
   name: Insignia of Khayarin
-  description: Небольшой религиозный медальон из темного металла, посвященный одному из божеств Таярин. На его поверхности аккуратно выбиты руны на Сик Таир, складывающиеся в надпись "Во славу Хаярин".
+  description: A small religious medallion made of dark metal, dedicated to one of the Tayarin deities. Its surface is neatly engraved with runes in the Sik Tair script, which form the inscription "In honor of Khayarin."
   suffix: Forms
 
 - type: entity
