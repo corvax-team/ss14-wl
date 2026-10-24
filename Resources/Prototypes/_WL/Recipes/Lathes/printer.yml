@@ -1,0 +1,9 @@
+- type: latheRecipe
+  id: PrintedDocumentSettingOfGoalRecipe
+  result: PrintedDocumentSettingOfGoal
+  categories:
+  - OrdersAndInstructions
+  completetime: 2
+  applyMaterialDiscount: false
+  materials:
+    PrinterPaper: 100
