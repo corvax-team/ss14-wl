@@ -21,7 +21,7 @@
           availableJobs: # Total jobs on the station: 59
             # command: 3
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ]
+            IAA: [ 2, 2 ]
             HeadOfPersonnel: [ 1, 1 ]
             # cargo: 6
             Quartermaster: [ 1, 1 ]
