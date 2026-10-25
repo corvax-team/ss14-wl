@@ -61,11 +61,37 @@ public sealed class DirectionalBodyLayersTest(string playerPrototype) : Interact
                 sprites.LayerMapGet(CPlayer, rightInFront ? HumanoidVisualLayers.RLeg : HumanoidVisualLayers.LLeg),
                 sprites.LayerMapGet(CPlayer, rightInFront ? RightMarkingLayer : LeftMarkingLayer),
             }, Is.Ordered.Ascending);
-            Assert.That(sprites.LayerMapGet(CPlayer, "outerClothing"), Is.EqualTo(clothingIndex));
-            Assert.That(sprite.AllLayers.ElementAt(clothingIndex), Is.SameAs(clothing));
+            Assert.That(sprite.AllLayers.ElementAt(sprites.LayerMapGet(CPlayer, "outerClothing")), Is.SameAs(clothing));
             var moved = sprite.AllLayers.ElementAt(sprites.LayerMapGet(CPlayer, RightMarkingLayer));
             Assert.That(moved, Is.SameAs(marking));
             Assert.That((moved.Visible, moved.Color), Is.EqualTo(state));
+        });
+    }
+
+    [Test]
+    public async Task TailMovesBehindBodyOnlyFromTheFront()
+    {
+        await Client.WaitAssertion(() =>
+        {
+            var system = CEntMan.System<DirectionalBodyLayersSystem>();
+            var sprites = CEntMan.System<SpriteSystem>();
+            var sprite = CEntMan.GetComponent<SpriteComponent>(CPlayer);
+            system.ApplyDirection(CPlayer, Direction.North);
+            var original = sprite.AllLayers.ToArray();
+
+            system.ApplyDirection(CPlayer, Direction.South);
+            Assert.That(sprites.LayerMapGet(CPlayer, HumanoidVisualLayers.Tail),
+                Is.LessThan(sprites.LayerMapGet(CPlayer, HumanoidVisualLayers.Chest)));
+            Assert.That(sprites.LayerMapGet(CPlayer, HumanoidVisualLayers.TailOverlay),
+                Is.LessThan(sprites.LayerMapGet(CPlayer, HumanoidVisualLayers.Chest)));
+
+            system.ApplyDirection(CPlayer, Direction.North);
+            Assert.That(sprite.AllLayers, Is.EqualTo(original));
+            system.ApplyDirection(CPlayer, Direction.West);
+            Assert.That(sprites.LayerMapGet(CPlayer, HumanoidVisualLayers.Tail),
+                Is.GreaterThan(sprites.LayerMapGet(CPlayer, "suitstorage")));
+            system.ApplyDirection(CPlayer, Direction.North);
+            Assert.That(sprite.AllLayers, Is.EqualTo(original));
         });
     }
 
