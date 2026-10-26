@@ -24,6 +24,11 @@
     enum.HumanoidVisualLayers.RHand:
       limit: 1
       required: false
+    #WL-Changes-start
+    enum.HumanoidVisualLayers.Socks:
+      limit: 1
+      required: false
+    #WL-Changes-end
     enum.HumanoidVisualLayers.LLeg:
       limit: 1
       required: false
@@ -185,13 +190,6 @@
       types:
         Asphyxiation: -1.0
     maxSaturation: 15
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
 
 - type: entity
   parent: OrganBaseOrganic

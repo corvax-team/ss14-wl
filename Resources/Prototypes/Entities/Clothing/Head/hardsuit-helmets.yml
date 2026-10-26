@@ -13,7 +13,7 @@
   description: A special hardsuit helmet designed for working in low-pressure, high thermal environments.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/atmospherics.rsi
+    sprite: _WL/Clothing/Head/Hardsuits/atmospherics.rsi # WL-changes
   - type: HandheldLight
     addPrefix: false
   - type: PointLight
@@ -57,7 +57,7 @@
   description: A sturdy helmet designed for complex industrial operations in space.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/spatiohelm.rsi
+    sprite: _WL/Clothing/Head/Hardsuits/spatiohelm.rsi # WL-changes
   - type: HandheldLight
     addPrefix: false
   - type: PointLight
@@ -431,8 +431,20 @@
   name: cybersun juggernaut helmet
   description: Made of compressed red matter, this helmet was designed in the Tau chromosphere facility.
   components:
+  # WL-changes-Start
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/cybersun.rsi
+    layers:
+    - state: icon
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+  # WL-changes-End
   - type: PointLight
     color: red
     radius: 5
@@ -531,7 +543,7 @@
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieCommander ]
+  parent: [ BaseTaskForceContraband, ClothingHeadHelmetHardsuitSyndieCommander ]
   id: ClothingHeadHelmetHardsuitERTLeader
   name: ERT leader hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -550,7 +562,7 @@
 
 #ERT Chaplain Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
+  parent: [ BaseTaskForceContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTChaplain
   name: ERT chaplain hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -562,7 +574,7 @@
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
+  parent: [ BaseTaskForceContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTEngineer
   name: ERT engineer hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -583,7 +595,7 @@
 
 #ERT Medical Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieElite ]
+  parent: [ BaseTaskForceContraband, ClothingHeadHelmetHardsuitSyndieElite ]
   id: ClothingHeadHelmetHardsuitERTMedical
   name: ERT medic hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -595,7 +607,7 @@
 
 #ERT Security Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
+  parent: [ BaseTaskForceContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTSecurity
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -614,7 +626,7 @@
 
 #ERT Janitor Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
+  parent: [ BaseTaskForceContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTJanitor
   name: ERT janitor hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -626,7 +638,7 @@
 
 #CBURN Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ BaseCBURNContraband, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetCBURN
   name: CBURN exosuit helmet
   description: A pressure resistant and fireproof hood worn by special cleanup units.

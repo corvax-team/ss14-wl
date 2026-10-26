@@ -14,6 +14,7 @@
   - type: Item
     size: Ginormous
   - type: ItemSlots
+    allowSmartEquip: true
     slots:
       item:
         insertSound:
@@ -81,6 +82,7 @@
     - 0,1,0,1
     storedRotation: -90
   - type: ItemSlots
+    allowSmartEquip: true
     slots:
       item:
         name: clothing-holster-sidearm
@@ -143,6 +145,7 @@
     - 0,1,0,1
     storedRotation: -90
   - type: ItemSlots
+    allowSmartEquip: true
     slots:
       item:
         name: clothing-holster-sidearm
@@ -199,6 +202,7 @@
   - type: Item
     size: Small
   - type: ItemSlots
+    allowSmartEquip: true
     slots:
       item:
         name: clothing-holster-sidearm

@@ -42,6 +42,11 @@ namespace Content.Client.Paper.UI
         private DragMode _allowedResizeModes = ~DragMode.None;
 
         public event Action<string>? OnSaved;
+        // WL-Changes: Alt Typing Indicators Start
+        public event Action? Typing;
+        public event Action? SubmitPressed;
+        private bool _suppressTyping;
+        // WL-Changes: Alt Typing Indicators End
 
         private int _MaxInputLength = -1;
         public int MaxInputLength
@@ -76,6 +81,9 @@ namespace Content.Client.Paper.UI
                     // that flag instead of trying to calculate the input length again
                     if (!SaveButton.Disabled)
                     {
+                        // WL-Changes: Alt Typing Indicators Start
+                        SubmitPressed?.Invoke();
+                        // WL-Changes: Alt Typing Indicators End
                         RunOnSaved();
                         args.Handle();
                     }
@@ -84,11 +92,18 @@ namespace Content.Client.Paper.UI
 
             Input.OnTextChanged += args =>
             {
+                // WL-Changes: Alt Typing Indicators Start
+                if (!_suppressTyping)
+                    Typing?.Invoke();
+                // WL-Changes: Alt Typing Indicators End
                 UpdateFillState();
             };
 
             SaveButton.OnPressed += _ =>
             {
+                // WL-Changes: Alt Typing Indicators Start
+                SubmitPressed?.Invoke();
+                // WL-Changes: Alt Typing Indicators End
                 RunOnSaved();
             };
 
@@ -263,9 +278,19 @@ namespace Content.Client.Paper.UI
                 // player opens the UI for reading. In this case, don't update the
                 // text input, as this player is currently writing new text and we
                 // don't want to lose any text they already input.
-                Input.TextRope = Rope.Leaf.Empty;
-                Input.CursorPosition = new TextEdit.CursorPos();
-                Input.InsertAtCursor(state.Text);
+                // WL-Changes: Alt Typing Indicators Start
+                _suppressTyping = true;
+                try
+                {
+                    Input.TextRope = Rope.Leaf.Empty;
+                    Input.CursorPosition = new TextEdit.CursorPos();
+                    Input.InsertAtCursor(state.Text);
+                }
+                finally
+                {
+                    _suppressTyping = false;
+                }
+                // WL-Changes: Alt Typing Indicators End
             }
 
             for (var i = 0; i <= state.StampedBy.Count * 3 + 1; i++)

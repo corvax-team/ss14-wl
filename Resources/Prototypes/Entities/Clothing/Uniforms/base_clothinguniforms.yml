@@ -45,6 +45,20 @@
     - ClothMade
     - Recyclable
     - WhitelistChameleon
+  # WL-Change-Start
+  - type: ItemSlots
+    slots:
+      JumpsuitAccessories:
+        name: clothing-uniform-accessory
+        ejectOnBreak: true
+        whitelist:
+          tags:
+          - JumpsuitAccessories
+  - type: ContainerContainer
+    containers:
+      JumpsuitAccessories: !type:ContainerSlot
+  - type: ClothingAccessories
+  # WL-Change-Start
 
 - type: entity
   abstract: true

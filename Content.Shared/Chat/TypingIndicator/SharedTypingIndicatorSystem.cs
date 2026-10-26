@@ -80,6 +80,13 @@ public abstract partial class SharedTypingIndicatorSystem : EntitySystem
             return;
         }
 
+        // WL-Changes: Alt Typing Indicators Start
+        if (ev.State == TypingIndicatorState.Typing)
+            SetTypingOverride(uid.Value, ev.OverrideIndicator);
+        else if (ev.State == TypingIndicatorState.None)
+            SetTypingOverride(uid.Value, null);
+        // WL-Changes: Alt Typing Indicators End
+
         SetTypingIndicatorState(uid.Value, ev.State);
     }
 
@@ -90,4 +97,13 @@ public abstract partial class SharedTypingIndicatorSystem : EntitySystem
 
         _appearance.SetData(uid, TypingIndicatorVisuals.State, state, appearance);
     }
+
+    // WL-Changes: Alt Typing Indicators Start
+    private void SetTypingOverride(EntityUid uid, ProtoId<TypingIndicatorPrototype>? protoId)
+    {
+        var comp = EnsureComp<TypingIndicatorComponent>(uid);
+        comp.TypingIndicatorOverridePrototype = protoId;
+        Dirty(uid, comp);
+    }
+    // WL-Changes: Alt Typing Indicators End
 }

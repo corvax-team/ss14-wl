@@ -7,7 +7,6 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server._WL.Poly;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Systems;
@@ -24,7 +23,6 @@ using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.GameTicking.Prototypes;
-using Content.Shared.Prototypes;
 using Robust.Server;
 using Robust.Server.ServerStatus;
 using Robust.Shared.Asynchronous;
@@ -556,7 +554,7 @@ public sealed partial class ServerApi : IPostInjectInit
             if (gameRule.Abstract)
                 continue;
 
-            if (gameRule.HasComponent<GameRuleComponent>(_componentFactory))
+            if (gameRule.HasComp<GameRuleComponent>(_componentFactory))
                 gameRules.Add(gameRule.ID);
         }
 

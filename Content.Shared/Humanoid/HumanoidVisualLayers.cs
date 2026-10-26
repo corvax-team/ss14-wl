@@ -30,6 +30,7 @@ namespace Content.Shared.Humanoid
         LLeg,
         RFoot,
         LFoot,
+        Socks, // Wl-socks
         Overlay,
         Handcuffs,
         StencilMask,

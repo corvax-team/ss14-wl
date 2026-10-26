@@ -150,12 +150,6 @@ public sealed partial class LanguagesTab : Control
         if (_profile == null)
             return;
 
-        var isSpecieRemover = trait.Components.Values
-            .Any(entry => entry.Component is ModifyLanguagesComponent { SpecieLanguage: true });
-
-        if (!isSpecieRemover)
-            return;
-
         var control = new LanguagesSelectSimple();
         control.SetLanguage(
             Loc.GetString(trait.Name),
@@ -215,15 +209,6 @@ public sealed partial class LanguagesTab : Control
         {
             if (!_profile.TraitPreferences.Contains(trait.ID))
                 continue;
-
-            var isSpecieRemover = trait.Components.Values
-                .Any(entry => entry.Component is ModifyLanguagesComponent { SpecieLanguage: true });
-
-            if (isSpecieRemover)
-            {
-                spentPoints += trait.Cost;
-                continue;
-            }
 
             var traitLevel = _profile.LanguageLevels.GetValueOrDefault(trait.ID, 1);
 

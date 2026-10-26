@@ -1,0 +1,10 @@
+- type: tile
+  id: FloorCaveDrought
+  name: tiles-cave-drought
+  sprite: /Textures/_WL/Tiles/Planet/Cave/cavedrought.png
+  variants: 8
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  heatCapacity: 10000

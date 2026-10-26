@@ -20,6 +20,7 @@
   - FloorTileItemSteelMini
   - FloorTileItemSteelVerticalSlatsBordered
   - FloorTileItemSteelHorizontalSlatsBordered
+  - FloorTileItemSteelMono
   - FloorTileItemSteelPavement
   - FloorTileItemSteelPavementVertical
   - FloorTileItemSteelCheckerDark
@@ -119,6 +120,10 @@
   recipes:
   - FauxTileAstroGrass
   - FauxTileMowedAstroGrass
+  # WL-changes-Start
+  - FauxTileMowedJungleAstroGrass
+  - FauxTileMowedDarkAstroGrass
+  # WL-changes-End
   - FauxTileJungleAstroGrass
   - FauxTileDarkAstroGrass
   - FauxTileAstroIce

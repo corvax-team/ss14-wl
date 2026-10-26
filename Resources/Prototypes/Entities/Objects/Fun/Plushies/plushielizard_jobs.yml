@@ -796,3 +796,11 @@
   components:
   - type: Sprite
     sprite: Objects/Fun/plushielizard_jobs/multiweh.rsi
+  # WL-changes-Start
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - sprite: Objects/Fun/Plushies/lizard.rsi
+        state: equipped-HELMET
+        offset: "0, 0.03"
+  # WL-changes-End

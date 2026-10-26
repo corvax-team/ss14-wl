@@ -23,6 +23,8 @@ public sealed class GetEquipmentVisualsEvent(EntityUid equipee, string slot) : E
     public string? InsertionSlot;
 
     public bool InsertBeforeSlot;
+
+    public IReadOnlyList<string>? AboveSlots;
     // WL-Changes-End
 
     /// <summary>

@@ -1227,6 +1227,7 @@
     production: 12
     yield: 2
     potency: 20
+    growthStages: 3 # WL-changes
   - type: PlantHarvest
     harvestRepeat: Repeat
   - type: PlantGrowth

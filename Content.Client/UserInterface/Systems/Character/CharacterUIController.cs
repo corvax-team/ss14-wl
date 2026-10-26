@@ -25,6 +25,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using static Content.Client.CharacterInfo.CharacterInfoSystem;
 using static Robust.Client.UserInterface.Controls.BaseButton;
+using Content.Client._WL.DynamicText; // WL-Changes
 
 namespace Content.Client.UserInterface.Systems.Character;
 
@@ -70,7 +71,11 @@ public sealed partial class CharacterUIController : UIController, IOnStateEntere
 
         _window.DynamicTextButton.OnPressed += _ =>
         {
-            _dynamicText.OpenWindow();
+            if (_player.LocalEntity is { } player)
+            {
+                _ent.System<DynamicTextSystem>().SetEditingEntity(player);
+                _dynamicText.OpenWindow();
+            }
         };
         //WL-Changes-End
 
@@ -316,20 +321,10 @@ public sealed partial class CharacterUIController : UIController, IOnStateEntere
             currentSkills,
             defaultSkills,
             totalPoints,
-            true
+            readOnly: true
         );
 
         _skillsWindow = skillsWindow;
-
-        skillsWindow.OnSkillChanged += (changedJobId, skillKey, newLevel) =>
-        {
-            if (_player.LocalEntity is not { } localEntity)
-                return;
-
-            var skillType = (SkillType)skillKey;
-            var ev = new SelectSkillPressedEvent(_ent.GetNetEntity(localEntity), skillType, newLevel, changedJobId);
-            _entityNetworkManager.SendSystemNetworkMessage(ev);
-        };
 
         skillsWindow.OpenCentered();
     }

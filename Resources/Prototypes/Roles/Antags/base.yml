@@ -76,5 +76,7 @@
   abstract: true
   parent: [ MindshieldRestrictedAntag, CyborgBlacklistedAntag, InternBlacklistedAntag ]
   id: RestrictedAntag
-  jobBlacklist:
-  - TramDriver
+# WL-Change-Start
+#  jobBlacklist:
+#  - TramDriver
+# WL-Change-End

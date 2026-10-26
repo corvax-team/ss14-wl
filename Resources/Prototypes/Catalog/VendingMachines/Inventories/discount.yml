@@ -9,6 +9,9 @@
     FoodSnackEnergy: 3
     CigPackMixed: 2
     DiscountDanLighter: 1
+    # WL-Changes-start
+    FoodSnackWaterNut: 2
+    # WL-Changes-end
   contrabandInventory:
     FoodSnackDanDanNoodles: 3
     FoodBakedBunHoney: 3

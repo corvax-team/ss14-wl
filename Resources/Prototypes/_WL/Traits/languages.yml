@@ -17,7 +17,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - SintaUnati
+        SintaUnati: 4
 
 - type: trait
   id: OldEarth
@@ -31,7 +31,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - OldEarth
+        OldEarth: 4
 
 - type: trait
   id: Kuniluc
@@ -45,7 +45,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Kuniluc
+        Kuniluc: 4
 
 - type: trait
   id: Sarengis
@@ -59,7 +59,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Sarengis
+        Sarengis: 4
 
 - type: trait
   id: Weaver
@@ -73,7 +73,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Weaver
+        Weaver: 4
 
 - type: trait
   id: Ternary
@@ -87,7 +87,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Ternary
+        Ternary: 4
 
 - type: trait
   id: Arachny
@@ -101,7 +101,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Arachny
+        Arachny: 4
 
 - type: trait
   id: RootSpeak
@@ -115,7 +115,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - RootSpeak
+        RootSpeak: 4
 
 - type: trait
   id: Slimish
@@ -129,7 +129,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Slimish
+        Slimish: 4
 
 - type: trait
   id: VoxPigin
@@ -143,7 +143,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - VoxPigin
+        VoxPigin: 4
 
 - type: trait
   id: Urlum
@@ -157,7 +157,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Urlum
+        Urlum: 4
 
 - type: trait
   id: SikTair
@@ -171,7 +171,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - SikTair
+        SikTair: 4
 
 - type: trait
   id: Wingdings
@@ -185,7 +185,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Wingdings
+        Wingdings: 4
 
 - type: trait
   id: TopTranslate
@@ -199,7 +199,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - TopTranslate
+        TopTranslate: 4
 
 - type: trait
   id: BottomTranslate
@@ -213,7 +213,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - BottomTranslate
+        BottomTranslate: 4
 
 - type: trait
   id: Yangyu
@@ -227,7 +227,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Yangyu
+        Yangyu: 4
 
 - type: trait
   id: Taidz
@@ -241,7 +241,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Taidz
+        Taidz: 4
 
 - type: trait
   id: Interlingua
@@ -255,7 +255,7 @@
   components:
     - type: ModifyLanguages
       languages:
-        - Interlingua
+        Interlingua: 4
 
 - type: trait
   id: SintaUrssa
@@ -269,4 +269,4 @@
   components:
     - type: ModifyLanguages
       languages:
-        - SintaUrssa
+        SintaUrssa: 4

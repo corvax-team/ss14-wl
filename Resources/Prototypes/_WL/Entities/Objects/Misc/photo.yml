@@ -43,6 +43,13 @@
     sprite: _WL/Objects/Misc/camera.rsi
     layers:
     - state: card
+  - type: Item
+    sprite: Objects/Misc/bureaucracy.rsi
+    inhandVisuals:
+      left:
+      - state: paper-inhand-left
+      right:
+      - state: paper-inhand-right
   - type: ActivatableUI
     key: enum.PhotoCardUiKey.Key
     requiresComplex: false

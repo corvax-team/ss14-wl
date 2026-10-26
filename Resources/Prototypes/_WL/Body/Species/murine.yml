@@ -35,6 +35,11 @@
     enum.HumanoidVisualLayers.RHand:
       limit: 2
       required: false
+    #WL-Changes-start
+    enum.HumanoidVisualLayers.Socks:
+      limit: 1
+      required: false
+    #WL-Changes-end
     enum.HumanoidVisualLayers.LLeg:
       limit: 2
       required: false
@@ -137,16 +142,29 @@
     speechVerb: SmallMob
     audioParams:
       volume: -5
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
   - type: AddHeightItem
   - type: CuffedMeleeWeapon
     weaponId: CuffedHumanAttack
+  - type: ActionGrant
+    actions:
+    - ActionMurineCheekStorage
+  - type: Actions
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    maxItemSize: Small
+    openOnActivate: false
+    showVerb: false
+    clickInsert: false
+  - type: CheekStorage
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
 
 - type: entity
   parent: OrganBase

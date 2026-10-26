@@ -31,6 +31,11 @@
     enum.HumanoidVisualLayers.RHand:
       limit: 2
       required: false
+    #WL-Changes-start
+    enum.HumanoidVisualLayers.Socks:
+      limit: 1
+      required: false
+    #WL-Changes-end
     enum.HumanoidVisualLayers.LLeg:
       limit: 2
       required: false
@@ -141,11 +146,6 @@
       emoteSounds: MaleAkula
     - type: Wagging
     #Wl-Changes-Start
-    - type: Languages
-      list:
-      - language: Translate
-        languageLevel: 4
-      specieLanguage: Translate
     - type: CuffedMeleeWeapon
       weaponId: CuffedAkulaAttack
     - type: Swimmer
@@ -196,6 +196,14 @@
 - type: entity
   parent: [ OrganBaseTorsoSexed, OrganBaseTorso, OrganAkulaExternal ]
   id: OrganAkulaTorso
+  components:
+    - type: VisualOrganMarkings
+      markingsDisplacement:
+        Socks:
+          sizeMaps:
+            32:
+              sprite: _WL/Mobs/Species/Akula/displacement.rsi
+              state: shoes
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganAkulaExternal ]

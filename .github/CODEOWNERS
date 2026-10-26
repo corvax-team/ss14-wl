@@ -2,13 +2,13 @@
 
 # Ping for all PRs
 * @JerryImMouse
-* @tau27 @oldschoolotaku
+* @tau27 @DarkBanOne0
 
 # Maps
 /Resources/Prototypes/Maps/**
 /Resources/Maps/**
-/Resources/Prototypes/_WL/Maps/**
-/Resources/Maps/_WL/**
+/Resources/Prototypes/_WL/Maps/** @NotSoDana
+/Resources/Maps/_WL/** @NotSoDana
 
 # Sprites
-/Resources/Textures/** @oldschoolotaku
+/Resources/Textures/** @DarkBanOne0

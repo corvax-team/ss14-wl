@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Linq;
 using Content.Shared._WL.Languages.Components;
-using Content.Shared._WL.Languages.Components.List;
 using Content.Shared.Chat;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
@@ -27,6 +26,15 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
+    private Dictionary<LanguageLevel, float> ObfuscationLevels = new()
+    {
+        {LanguageLevel.None, 1f},
+        {LanguageLevel.Low, 0.9f},
+        {LanguageLevel.Medium, 0.6f},
+        {LanguageLevel.Good, 0.3f},
+        {LanguageLevel.Full, 0f}
+    };
+
     private FrozenDictionary<char, LanguagePrototype> _keylan = default!;
 
     const char LanguagePrefix = '+';
@@ -34,8 +42,11 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     public const int LanguageLevelNone = 0;
     public const int LanguageLevelBasic = 1;
     public const int LanguageLevelPartial = 2;
-    public const int LanguageLevelSpeak = 3;
     public const int LanguageLevelFull = 4;
+
+    public const LanguageLevel LanguageLevelSpeak = LanguageLevel.Good;
+    public static ProtoId<LanguagePrototype> DefaultLanguage = "Translate";
+    public static ProtoId<LanguagePrototype> UnknownLanguage = "Unknown";
 
     public override void Initialize()
     {
@@ -66,7 +77,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
 
     public void OnRadioLanguageCheck(EntityUid source, LanguagesComponent comp, ref RadioLanguageCheckEvent args)
     {
-        var passability = CheckRadioPass(source, args.Message);
+        var passability = CheckRadioPass(source, args.Language);
 
         if (passability == 0)
         {
@@ -78,7 +89,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
                 comp.LastPopup = time;
                 var message = Loc.GetString("languages-radio-block");
 
-                _popup.PopupEntity(message, source);
+                _popup.PopupEntity(message, source, source);
             }
 
         }
@@ -93,7 +104,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
                 comp.LastPopup = time;
                 var message = Loc.GetString("languages-radio-part-pass");
 
-                _popup.PopupEntity(message, source);
+                _popup.PopupEntity(message, source, source);
             }
         }
     }
@@ -111,15 +122,15 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     public string ObfuscateMessageForLevel(
         string message,
         ProtoId<LanguagePrototype> language,
-        int languageLevel)
+        LanguageLevel languageLevel)
     {
-        if (!TryGetLanguagePrototype(language, out var prototype))
+        if (!ProtoMan.TryIndex(language, out var prototype))
             return message;
 
-        if (languageLevel >= LanguageLevelFull)
+        if (languageLevel == LanguageLevel.Full)
             return message;
 
-        if (languageLevel <= LanguageLevelNone)
+        if (languageLevel == LanguageLevel.None)
             return ObfuscateFully(message, prototype);
 
         return ObfuscatePartially(message, prototype, languageLevel);
@@ -139,9 +150,9 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     private string ObfuscatePartially(
         string message,
         LanguagePrototype prototype,
-        int languageLevel)
+        LanguageLevel level)
     {
-        var chance = GetLanguageObfuscationChance(languageLevel);
+        var chance = GetLanguageObfuscationChance(level);
 
         var words = message.Split(' ');
         var result = new StringBuilder();
@@ -175,53 +186,27 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         EntityUid listener)
     {
         var level = GetLanguageLevel(listener, language);
+
         return ObfuscateMessageForLevel(message, language, level);
     }
 
-    public bool TryChangeLanguage(NetEntity netEnt, ProtoId<LanguagePrototype> protoId)
+    public bool TrySetLanguage(EntityUid uid, ProtoId<LanguagePrototype> protoId)
     {
-        if (!_ent.TryGetEntity(netEnt, out var ent))
+        if (!TryComp<LanguagesComponent>(uid, out var comp))
             return false;
 
-        if (!TryComp<LanguagesComponent>(ent, out var comp))
-            return false;
-
-        var entry = comp.List.FirstOrDefault(x => x.Language == protoId);
-
-        if (entry == null || entry.LanguageLevel < LanguageLevelSpeak)
+        if (!comp.Languages.TryGetValue(protoId, out var level) ||
+                level < LanguageLevelSpeak)
             return false;
 
         comp.CurrentLanguage = protoId;
-        Dirty(ent.Value, comp);
-
-        var ev = new LanguageChangeEvent(netEnt, protoId);
-        RaiseNetworkEvent(ev);
-        RaiseLocalEvent(ent.Value, ev);
-
-        var ev2 = new LanguagesInfoEvent(netEnt, (string)protoId, comp.List);
-        RaiseNetworkEvent(ev2);
+        Dirty(uid, comp);
+        UpdateLanguagesWindow(uid);
 
         return true;
     }
 
-    public void SyncLanguages(NetEntity netEnt, LanguagesComponent comp)
-    {
-        var ev = new LanguagesSyncEvent(netEnt, comp.List);
-        RaiseNetworkEvent(ev);
-    }
-
-    public void OnLanguageChange(EntityUid entity, string language)
-    {
-        if (!TryComp<LanguagesComponent>(entity, out var component))
-            return;
-
-        component.CurrentLanguage = language;
-        Dirty(entity, component);
-
-        var netEntity = GetNetEntity(entity);
-        var ev = new LanguagesInfoEvent(netEntity, language, component.List);
-        RaiseNetworkEvent(ev);
-    }
+    protected virtual void UpdateLanguagesWindow(EntityUid uid) { }
 
     /// <summary>
     /// На основе префикса
@@ -248,20 +233,26 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     public bool TryProcessLanguageMessage(
         EntityUid source,
         string message,
-        out string newMessage)
+        out string newMessage,
+        [NotNullWhen(true)] out ProtoId<LanguagePrototype>? languageId)
     {
-        newMessage = _chat.SanitizeMessageCapital(message.Trim());
+        newMessage = message.Trim();
+        languageId = null;
 
         if (string.IsNullOrWhiteSpace(message))
             return false;
 
         if (!TryComp<LanguagesComponent>(source, out var comp))
         {
-            newMessage = _chat.SanitizeMessageCapital(message.Trim()) ?? string.Empty;
-            return !string.IsNullOrWhiteSpace(newMessage);
+            languageId = DefaultLanguage;
+            return true;
         }
 
-        ProtoId<LanguagePrototype>? languageId;
+        if (!comp.CanSpeak)
+        {
+            languageId = UnknownLanguage;
+            return true;
+        }
 
         if (message.StartsWith(LanguagePrefix))
         {
@@ -291,23 +282,14 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
 
             languageId = language.ID;
 
-            newMessage = _chat.SanitizeMessageCapital(
-                message[2..].TrimStart());
+            newMessage = SanitizeMessage(message[2..].TrimStart());
         }
         else
-        {
             languageId = comp.CurrentLanguage;
 
-            if (languageId == null)
-                return false;
-        }
-
-        var languageData = comp.List.FirstOrDefault(x => x.Language == languageId);
-
-        if (languageData == null)
-            return false;
-
-        if (languageData.LanguageLevel < LanguageLevelSpeak)
+        if (languageId is not {} protoId ||
+                !comp.Languages.TryGetValue(protoId, out var level) ||
+                level < LanguageLevelSpeak)
         {
             _popup.PopupEntity(
                 Loc.GetString("languages-cannot-speak"),
@@ -316,18 +298,17 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
 
             return false;
         }
+
         return true;
     }
 
-    private float CheckRadioPass(EntityUid source, string msg)
+    private float CheckRadioPass(EntityUid source, ProtoId<LanguagePrototype> langId)
     {
-        var language = GetLanguagePrototype(source, msg);
+        if (!ProtoMan.TryIndex(langId, out var language))
+            return 1.0f;
 
         if (_statusEffects.HasEffectComp<MutedStatusEffectComponent>(source))
             return 0f;
-
-        if (language == null)
-            return 1.0f;
 
         return language.RadioPass;
     }
@@ -339,14 +320,10 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         for (var i = 0; i < message.Length; i++)
         {
             if (char.IsWhiteSpace(modifiedMessage[i]))
-            {
                 continue;
-            }
 
             if (_random.Prob(1 - chance))
-            {
                 modifiedMessage[i] = '~';
-            }
         }
 
         return modifiedMessage.ToString();
@@ -362,41 +339,22 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         return newMessage ?? "";
     }
 
-    public int GetLanguageLevel(EntityUid entity, ProtoId<LanguagePrototype> language)
+    public LanguageLevel GetLanguageLevel(EntityUid entity, ProtoId<LanguagePrototype> language)
     {
         if (!TryComp<LanguagesComponent>(entity, out var comp))
-            return 0;
+            return language == DefaultLanguage ? LanguageLevel.Full : LanguageLevel.None;
 
-        var entry = comp.List.FirstOrDefault(x => x.Language == language);
+        if (!comp.Languages.TryGetValue(language, out var level))
+            return LanguageLevel.None;
 
-        return entry?.LanguageLevel ?? 0;
+        return level;
     }
 
-    public float GetLanguageObfuscationChance(int level)
+    public float GetLanguageObfuscationChance(LanguageLevel level)
     {
-        return Math.Clamp(level, LanguageLevelNone, LanguageLevelFull) switch
-        {
-            LanguageLevelNone => 1.00f,
-            LanguageLevelBasic => 0.90f,
-            LanguageLevelPartial => 0.60f,
-            LanguageLevelSpeak => 0.30f,
-            LanguageLevelFull => 0.00f,
-            _ => 1.00f
-        };
-    }
+        if (!ObfuscationLevels.TryGetValue(level, out var chance))
+            return 1f;
 
-    [Serializable, NetSerializable]
-    public sealed class LanguagesInfoEvent : EntityEventArgs
-    {
-        public readonly NetEntity NetEntity;
-        public readonly string CurrentLanguage;
-        public readonly List<LanguagesList> List;
-
-        public LanguagesInfoEvent(NetEntity netEntity, string current, List<LanguagesList> list)
-        {
-            NetEntity = netEntity;
-            CurrentLanguage = current;
-            List = list;
-        }
+        return chance;
     }
 }

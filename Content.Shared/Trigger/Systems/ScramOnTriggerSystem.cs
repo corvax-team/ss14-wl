@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Buckle; // WL-changes
 using Content.Shared.Maps;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -20,6 +21,7 @@ public sealed partial class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTrigg
     [Dependency] private SharedAudioSystem _audio = default!;
     [Dependency] private INetManager _net = default!;
     [Dependency] private TurfSystem _turfSystem = default!;
+    [Dependency] private SharedBuckleSystem _buckle = default!; // WL-changes
 
     protected override void OnTrigger(Entity<ScramOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
@@ -37,6 +39,8 @@ public sealed partial class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTrigg
         // Can't predict picking random grids and the target location might be out of PVS range.
         if (_net.IsClient)
             return;
+
+        _buckle.Unbuckle(target, args.User); // WL-changes
 
         var targetCoords = SelectRandomTileInRange(target, ent.Comp.TeleportRadius);
 

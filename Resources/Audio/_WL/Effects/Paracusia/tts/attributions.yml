@@ -1,0 +1,24 @@
+- files: ["maletts_help1.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Generated using Silero TTS; model by Silero Team"
+  source: "https://github.com/snakers4/silero-models"
+
+- files: ["maletts_help2.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Generated using Silero TTS; model by Silero Team"
+  source: "https://github.com/snakers4/silero-models"
+
+- files: ["maletts_help3.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Generated using Silero TTS; model by Silero Team"
+  source: "https://github.com/snakers4/silero-models"
+
+- files: ["femaletts_help1.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Generated using Silero TTS; model by Silero Team"
+  source: "https://github.com/snakers4/silero-models"
+
+- files: ["femaletts_help2.ogg"]
+  license: "CC-BY-NC-4.0"
+  copyright: "Generated using Silero TTS; model by Silero Team"
+  source: "https://github.com/snakers4/silero-models"

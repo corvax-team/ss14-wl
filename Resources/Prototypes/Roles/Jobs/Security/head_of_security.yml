@@ -62,7 +62,7 @@
 - type: startingGear
   id: HoSGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity # WL-Changes: head of security eyes loadout
     id: HoSPDA
     gloves: ClothingHandsGlovesCombat
     ears: ClothingHeadsetAltSecurity

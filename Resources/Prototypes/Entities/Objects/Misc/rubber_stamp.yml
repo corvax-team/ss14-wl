@@ -19,6 +19,7 @@
     state: stamp-mime
   - type: Item
     size: Tiny
+    sprite: Objects/Misc/stamps.rsi # WL-changes
     inhandVisuals:
       left:
       - state: stamp-inhand-left
@@ -29,7 +30,8 @@
       - state: handle-inhand-right
         color: "#f8f8f8"
   - type: StealTarget
-    stealGroup: Stamp
+    stealGroup:
+    - Stamp
 
 - type: entity
   name: alternate rubber stamp

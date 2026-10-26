@@ -87,8 +87,15 @@ public sealed partial class RadioSystem : SharedRadioSystem
         var canSend = !sendAttemptEv.Cancelled;
 
         //WL-Changes: Languages start
-        var checkLanguageEv = new RadioLanguageCheckEvent(content, radioSource);
+        if (!_languages.TryProcessLanguageMessage(messageSource, content, out var newMessage, out var language) ||
+                language is not {} langId)
+            return;
+
+        content = newMessage;
+
+        var checkLanguageEv = new RadioLanguageCheckEvent(content, langId);
         RaiseLocalEvent(messageSource, ref checkLanguageEv);
+
         canSend = canSend && !checkLanguageEv.Cancelled;
         content = checkLanguageEv.Message;
         //WL-Changes: Languages end
@@ -123,7 +130,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
             //WL-Changes-start
             var wrappedMsg = _languages.GetRadioWrappedMessageFor(
                 content,
-                messageSource,
+                langId,
                 transform.ParentUid,
                 name,
                 speech,
@@ -146,7 +153,6 @@ public sealed partial class RadioSystem : SharedRadioSystem
                 channel,
                 radioSource,
                 chatMsgEv);
-
 
             RaiseLocalEvent(receiver, ref ev);
             // WL-Changes-end

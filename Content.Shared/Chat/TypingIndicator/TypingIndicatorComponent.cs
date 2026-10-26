@@ -16,4 +16,12 @@ public sealed partial class TypingIndicatorComponent : Component
     /// </summary>
     [DataField("proto"), AutoNetworkedField]
     public ProtoId<TypingIndicatorPrototype> TypingIndicatorPrototype = "default";
+
+    // WL-Changes: Alt Typing Indicators Start
+    /// <summary>
+    ///  Allow the indicator to be temporarily overridden
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public ProtoId<TypingIndicatorPrototype>? TypingIndicatorOverridePrototype;
+    // WL-Changes: Alt Typing Indicators End
 }

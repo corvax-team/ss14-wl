@@ -12,12 +12,13 @@
       state: storage
       sprite: _WL/Objects/Tools/haircomb.rsi
   - type: MagicMirror
-    modifyTime: 3
     organs:
     - Head
     layers:
     - Hair
     - FacialHair
+    changeHairSound: /Audio/_WL/Effects/hairbrush.ogg
+    modifyTime: 3
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
     inHandsOnly: true
@@ -44,7 +45,6 @@
       state: storage
       sprite: _WL/Objects/Tools/mirror.rsi
   - type: MagicMirror
-    modifyTime: 3
     organs:
     - Head
     - Eyes
@@ -52,6 +52,8 @@
     - Hair
     - FacialHair
     - Eyes
+    changeHairSound: null
+    modifyTime: 0
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
     inHandsOnly: true
@@ -74,11 +76,12 @@
     sprite: _WL/Objects/Tools/makeupbrush.rsi
     state: icon
   - type: MagicMirror
-    modifyTime: 3
     organs:
     - Eyes
     layers:
     - Eyes
+    changeHairSound: /Audio/_WL/Effects/makeupbrush.ogg
+    modifyTime: 3
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
     inHandsOnly: true

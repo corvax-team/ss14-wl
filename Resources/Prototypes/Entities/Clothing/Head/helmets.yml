@@ -361,11 +361,9 @@
     # WL-Changes-Start
     clothingVisuals:
       head:
-      - state: off-equipped-HELMET
+      - state: equipped-helmet
       - state: equipped-HELMET-unshaded
         shader: unshaded
-      - state: equipped-HELMET-unshaded
-        shader: shaded
     quickEquip: true
     # WL-Changes-End
   - type: IngestionBlocker

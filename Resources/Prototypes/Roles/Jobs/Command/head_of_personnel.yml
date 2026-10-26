@@ -85,7 +85,7 @@
     gloves: ClothingHandsGlovesHop
     ears: ClothingHeadsetAltCommand
     belt: BoxFolderClipboardThreePapers
-    eyes: ClothingEyesHudCommand
+    # eyes: ClothingEyesHudCommand # WL-Changes: Glasses add
     pocket1: CardCapsSpare # WL-code-safe
   storage:
     back:

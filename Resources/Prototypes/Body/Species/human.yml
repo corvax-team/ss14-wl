@@ -3,7 +3,7 @@
   id: Human
   limits:
     enum.HumanoidVisualLayers.HeadTop:
-      limit: 1
+      limit: 2 # WL-change
       required: false
     enum.HumanoidVisualLayers.Hair:
       limit: 1
@@ -30,6 +30,11 @@
     enum.HumanoidVisualLayers.RHand:
       limit: 1
       required: false
+    #WL-Changes-start
+    enum.HumanoidVisualLayers.Socks:
+      limit: 1
+      required: false
+    #WL-Changes-end
     enum.HumanoidVisualLayers.LLeg:
       limit: 1
       required: false
@@ -98,13 +103,6 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon
     weaponId: CuffedHumanAttack

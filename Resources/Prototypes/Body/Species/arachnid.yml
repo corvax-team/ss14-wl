@@ -26,6 +26,11 @@
     enum.HumanoidVisualLayers.RArm:
       limit: 1
       required: false
+    #WL-Changes-start
+    enum.HumanoidVisualLayers.Socks:
+      limit: 1
+      required: false
+    #WL-Changes-end
     enum.HumanoidVisualLayers.LLeg:
       limit: 1
       required: false
@@ -140,13 +145,6 @@
     sprite:
       sprite: Effects/creampie.rsi
       state: creampie_arachnid
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon
     weaponId: CuffedArachnidAttack
@@ -163,7 +161,7 @@
   abstract: true
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Animal ] # [ Arachnid ] before # WL-Changes
+    metabolizerTypes: [ Arachnid ] # WL-Changes
 
 - type: entity
   parent: OrganArachnid

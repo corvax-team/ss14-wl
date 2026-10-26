@@ -1,4 +1,5 @@
-<Control xmlns="https://spacestation14.io">
+<Control xmlns="https://spacestation14.io"
+         xmlns:skills="clr-namespace:Content.Client._WL.Skills.Ui">
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 2">
         <PanelContainer Name="ColorPanel" VerticalExpand="True" MinWidth="4" Margin="2 0 8 0"/>
 
@@ -6,10 +7,10 @@
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
                 <Label Name="SkillNameLabel" MinWidth="250" VerticalAlignment="Center"/>
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Right">
-                    <Button Name="Level1Button" MinWidth="125" Margin="2 0"/>
-                    <Button Name="Level2Button" MinWidth="125" Margin="2 0"/>
-                    <Button Name="Level3Button" MinWidth="125" Margin="2 0"/>
-                    <Button Name="Level4Button" MinWidth="125" Margin="2 0"/>
+                    <skills:SkillLevelButton Name="Level1Button" MinWidth="125" Margin="2 0"/>
+                    <skills:SkillLevelButton Name="Level2Button" MinWidth="125" Margin="2 0"/>
+                    <skills:SkillLevelButton Name="Level3Button" MinWidth="125" Margin="2 0"/>
+                    <skills:SkillLevelButton Name="Level4Button" MinWidth="125" Margin="2 0"/>
                 </BoxContainer>
             </BoxContainer>
             <BoxContainer Orientation="Vertical" Margin="5 2 0 2">

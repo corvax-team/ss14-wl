@@ -1,0 +1,12 @@
+- type: entity
+  id: ChemistryBottleAmmonia
+  suffix: ammonia
+  parent: BaseChemistryBottleFilled
+  components:
+  - type: Label
+    localizedLabel: reagent-name-ammonia
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Ammonia
+        Quantity: 30

@@ -92,11 +92,11 @@
 - type: tileAlias
   id: FloorGrayConcreteOutsideMono
   target: FloorGrayConcreteMono
-  
+
 - type: tileAlias
   id: FloorGrayConcreteOutsideSmooth
   target: FloorGrayConcreteSmooth
- 
+
 - type: tileAlias
   id: FloorOldConcreteOutside
   target: FloorOldConcrete
@@ -104,7 +104,7 @@
 - type: tileAlias
   id: FloorOldConcreteOutsideMono
   target: FloorOldConcreteMono
-  
+
 - type: tileAlias
   id: FloorOldConcreteOutsideSmooth
   target: FloorOldConcreteSmooth
@@ -128,26 +128,25 @@
 # - type: tileAlias
 #   id: FloorDarkDiagonal
 #   target: FloorDark
-
-- type: tileAlias
-  id: FloorDarkDiagonalMini
-  target: FloorDark
-
+#
+# - type: tileAlias
+#   id: FloorDarkDiagonalMini
+#   target: FloorDark
+#
 # Corvax-Sprites-Start
 # - type: tileAlias
 #   id: FloorDarkOffset
 #   target: FloorDark
-
+#
 # - type: tileAlias
 #   id: FloorSteelDiagonal
 #   target: FloorSteel
 # Corvax-Sprites-End
 
-- type: tileAlias
-  id: FloorSteelDiagonalMini
-  target: FloorSteel
-
-# Corvax-Sprites
+# - type: tileAlias
+#   id: FloorSteelDiagonalMini
+#   target: FloorSteel
+#
 # - type: tileAlias
 #   id: FloorSteelOffset
 #   target: FloorSteel
@@ -160,12 +159,11 @@
 # - type: tileAlias
 #   id: FloorWhiteDiagonal
 #   target: FloorWhite
-
-- type: tileAlias
-  id: FloorWhiteDiagonalMini
-  target: FloorWhite
-
-# Corvax-Sprites
+#
+# - type: tileAlias
+#   id: FloorWhiteDiagonalMini
+#   target: FloorWhite
+#
 # - type: tileAlias
 #   id: FloorWhiteOffset
 #   target: FloorWhite
@@ -258,41 +256,42 @@
   id: FloorIronsandTile
   target: FloorAsteroidIronsand
 
-- type: tileAlias
-  id: FloorIronsandConcrete
-  target: FloorAsteroidIronsand
-
-- type: tileAlias
-  id: FloorIronsandConcreteMono
-  target: FloorAsteroidIronsand
-
-- type: tileAlias
-  id: FloorIronsandConcreteSmooth
-  target: FloorAsteroidIronsand
-
-- type: tileAlias
-  id: FloorGrayConcrete
-  target: FloorConcrete
-
-- type: tileAlias
-  id: FloorGrayConcreteMono
-  target: FloorConcreteMono
-
-- type: tileAlias
-  id: FloorGrayConcreteSmooth
-  target: FloorConcreteSmooth
-
-- type: tileAlias
-  id: FloorOldConcrete
-  target: FloorConcrete
-
-- type: tileAlias
-  id: FloorOldConcreteMono
-  target: FloorConcreteMono
-
-- type: tileAlias
-  id: FloorOldConcreteSmooth
-  target: FloorConcreteSmooth
+# WL-Tiles
+#  - type: tileAlias
+#    id: FloorIronsandConcrete
+#    target: FloorAsteroidIronsand
+#
+#  - type: tileAlias
+#    id: FloorIronsandConcreteMono
+#    target: FloorAsteroidIronsand
+#
+#  - type: tileAlias
+#    id: FloorIronsandConcreteSmooth
+#    target: FloorAsteroidIronsand
+#
+#  - type: tileAlias
+#    id: FloorGrayConcrete
+#    target: FloorConcrete
+#
+#  - type: tileAlias
+#    id: FloorGrayConcreteMono
+#    target: FloorConcreteMono
+#
+#  - type: tileAlias
+#    id: FloorGrayConcreteSmooth
+#    target: FloorConcreteSmooth
+#
+#  - type: tileAlias
+#    id: FloorOldConcrete
+#    target: FloorConcrete
+#
+#  - type: tileAlias
+#    id: FloorOldConcreteMono
+#    target: FloorConcreteMono
+#
+#  - type: tileAlias
+#    id: FloorOldConcreteSmooth
+#    target: FloorConcreteSmooth
 
 - type: tileAlias
   id: IronsandPacked
@@ -306,9 +305,10 @@
   id: PlatingIronsand
   target: Plating
 
-- type: tileAlias
-  id: FloorCaveDrought
-  target: FloorCave
+# WL-Tiles
+#  - type: tileAlias
+#    id: FloorCaveDrought
+#    target: FloorCave
 
 - type: tileAlias
   id: FloorAsteroidSandRedBorderless
@@ -346,9 +346,10 @@
   id: FloorAsteroidIronsandUnvariantizedBorderless
   target: FloorAsteroidIronsand
 
-- type: tileAlias
-  id: FloorSnowDug
-  target: FloorSnow
+# WL-Tiles
+#  - type: tileAlias
+#    id: FloorSnowDug
+#    target: FloorSnow
 
 - type: tileAlias
   id: FloorTechMaint
@@ -378,6 +379,7 @@
   id: FloorDarkSquiggly
   target: FloorExoHorizontal
 
-- type: tileAlias
-  id: FloorAsphalt
-  target: FloorConcrete
+# WL-Tiles
+#  - type: tileAlias
+#    id: FloorAsphalt
+#    target: FloorConcrete

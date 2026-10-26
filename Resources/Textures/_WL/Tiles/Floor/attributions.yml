@@ -1,0 +1,4 @@
+- files: [ "steel_diagonal_mini.png", "white_diagonal_mini.png", "dark_diagonal_mini.png" ]
+  license: "CC0-1.0"
+  copyright: "Created by github user @morb0"
+  source: "https://github.com/space-syndicate/space-station-14/pull/489"

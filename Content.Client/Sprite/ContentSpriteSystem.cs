@@ -179,6 +179,7 @@ public sealed partial class ContentSpriteSystem : EntitySystem
 
                     handle.RenderInRenderTarget(queued.Texture, () =>
                     {
+                        _entManager.System<Content.Client._WL.Body.DirectionalBodyLayersSystem>().ApplyDirection(result.Entity, result.Direction); // WL-changes
                         handle.DrawEntity(result.Entity, result.Texture.Size / 2, Vector2.One, Angle.Zero,
                             overrideDirection: result.Direction);
                     }, Color.Transparent);

@@ -673,19 +673,16 @@ namespace Content.Server.Administration.Systems
             {
                 Verb verb = new()
                 {
-                    Text = Loc.GetString("Добавить язык"),
-                    Message = Loc.GetString("Добавляет язык в пул знания"),
+                    Text = Loc.GetString("Изменить язык"),
+                    Message = Loc.GetString("Изменяет уровень языка от незнания (0) до полного знания (4)."),
                     Category = VerbCategory.Debug,
                     Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
                     Act = () =>
                     {
-                        _quickDialog.OpenDialog(player, "Добавление языка", "Язык", (string language) =>
+                        _quickDialog.OpenDialog(player, "Изменение языка", "Язык", "Уровень", (string language, int level) =>
                         {
-                            _quickDialog.OpenDialog(player, "Уровень языка", "Уровень", (int level) =>
-                            {
-                                _languages.AddLanguage(args.Target, language, level);
-                            });
-                        }); // WL-Languages
+                            _languages.ChangeLanguage(args.Target, language, (LanguageLevel)level);
+                        });
                     },
                     Impact = LogImpact.Extreme,
                     ConfirmationPopup = true

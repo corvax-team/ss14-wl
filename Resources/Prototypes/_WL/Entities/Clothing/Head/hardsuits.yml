@@ -6,6 +6,12 @@
   components:
   - type: Sprite
     sprite: _WL/Clothing/Head/Hardsuits/scienvi.rsi
+  # WL-changes-Start
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  # WL-changes-End
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -16,10 +22,25 @@
   name: blue shield hardsuit helmet
   description: A special helmet worn by the bodyguards of the "first persons".
   components:
-#   - type: Sprite TODO:RESPRITE
-#     sprite: _WL/Clothing/Head/Hardsuits/blueshield.rsi
-#   - type: Clothing
-#     sprite: _WL/Clothing/Head/Hardsuits/blueshield.rsi
+  # WL-changes-Start
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hardsuits/blueshield.rsi
+    layers:
+    - state: icon
+    - state: icon-flash
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hardsuits/blueshield.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+  # WL-changes-End
   - type: PointLight # Corvax-Resprite
     color: cyan
   - type: Armor

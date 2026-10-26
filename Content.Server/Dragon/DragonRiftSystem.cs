@@ -1,17 +1,17 @@
+using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Server.NPC;
 using Content.Server.NPC.Systems;
 using Content.Server.Pinpointer;
+using Content.Shared.Damage.Components;
 using Content.Shared.Dragon;
 using Content.Shared.Examine;
 using Content.Shared.Sprite;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization.Manager;
-using System.Numerics;
-using Content.Shared.Damage.Components;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameStates;
 using Robust.Shared.Random; //WL-Changes
 using Robust.Shared.Utility;
 
@@ -91,8 +91,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
             {
                 comp.SpawnAccumulator -= comp.SpawnCooldown;
                 //WL-Changes-Start
-                //var ent = Spawn(comp.SpawnPrototype, xform.Coordinates);
-                var ent = Spawn(_random.Next(comp.SharkSpawnChance) == 0
+                var ent = Spawn(_random.Prob(comp.SharkSpawnChance)
                     ? comp.SharkSpawnPrototype
                     : comp.SpawnPrototype,
                     xform.Coordinates);
@@ -111,6 +110,7 @@ public sealed partial class DragonRiftSystem : EntitySystem
             }
         }
     }
+
 
     private void OnExamined(EntityUid uid, DragonRiftComponent component, ExaminedEvent args)
     {

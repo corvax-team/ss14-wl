@@ -5,6 +5,14 @@
   description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
   abstract: true
   components:
+  # WL-changes-Start
+  - type: ClothingLayerOrder
+    above:
+    - outerClothing
+  - type: ClothingSlotBlockingBypass
+    blockers:
+    - outerClothing
+  # WL-changes-End
   - type: Sprite
     sprite: Clothing/Shoes/Boots/magboots.rsi
     layers:
@@ -64,7 +72,8 @@
   - type: StaticPrice
     price: 750
   - type: StealTarget
-    stealGroup: ClothingShoesBootsMagAdv
+    stealGroup:
+    - ClothingShoesBootsMagAdv
 
 - type: entity
   parent: [BaseCorvaxContraband431DepartmentsScience, ClothingShoesBootsMagBase] # Corvax-Contraband
@@ -117,7 +126,7 @@
     price: 1500
 
 - type: entity
-  parent: [BaseCentcommContraband, ClothingShoesBootsMagSyndie]
+  parent: [ BaseTaskForceContraband, ClothingShoesBootsMagSyndie ]
   id: ClothingShoesBootsMagERT
   name: ERT magboots
   description: Upgraded magnetic boots utilized by Nanotrasen's Emergency Response Teams, they have a heavy magnetic pull and integrated thrusters. It can hold 0.75 L of gas.

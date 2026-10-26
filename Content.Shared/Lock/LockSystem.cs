@@ -56,6 +56,7 @@ public sealed partial class LockSystem : EntitySystem
         SubscribeLocalEvent<LockedWiresPanelComponent, AttemptChangePanelEvent>(OnAttemptChangePanel);
         SubscribeLocalEvent<LockedAnchorableComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
         SubscribeLocalEvent<LockedStorageComponent, StorageInteractAttemptEvent>(OnStorageInteractAttempt);
+        SubscribeLocalEvent<LockedStorageComponent, StorageInteractUsingAttemptEvent>(OnStorageInteractUsingAttempt); // WL-Changes
 
         SubscribeLocalEvent<UIRequiresLockComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<UIRequiresLockComponent, LockToggledEvent>(LockToggled);
@@ -419,6 +420,14 @@ public sealed partial class LockSystem : EntitySystem
         if (IsLocked(ent.Owner))
             args.Cancelled = true;
     }
+
+    // WL-Changes-Start
+    private void OnStorageInteractUsingAttempt(Entity<LockedStorageComponent> ent, ref StorageInteractUsingAttemptEvent args)
+    {
+        if (IsLocked(ent.Owner))
+            args.Cancelled = true;
+    }
+    // WL-Changes-End
 
     private void OnLockToggleAttempt(Entity<LockedWiresPanelComponent> ent, ref LockToggleAttemptEvent args)
     {

@@ -26,7 +26,7 @@ skill-free-default = Бесплатно (дефолтный уровень)
 skill-free-upgraded = Бесплатно
 
 skills-forced-window-title = Настройка навыков
-skills-forced-warning = Вы должны распределить все доступные очки навыков перед началом игры
+skills-forced-warning = Распределите очки навыков сейчас. После закрытия этого окна изменить выбор будет нельзя.
 skills-confirm-button = Подтвердить
 skills-unspent-warning = У вас остались неиспользованные очки! Потратьте их все для продолжения.
 

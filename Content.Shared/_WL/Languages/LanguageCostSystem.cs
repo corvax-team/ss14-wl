@@ -20,14 +20,16 @@ public static class LanguageCostSystem
         foreach (var entry in trait.Components.Values)
         {
             if (entry.Component is not ModifyLanguagesComponent modifyLanguages ||
-                modifyLanguages.SpecieLanguage ||
                 modifyLanguages.Languages.Count == 0)
             {
                 continue;
             }
 
-            if (prototypeManager.TryIndex(modifyLanguages.Languages[0], out language))
-                return true;
+            foreach (var key in modifyLanguages.Languages.Keys)
+            {
+                if (prototypeManager.TryIndex(key, out language))
+                    return true;
+            }
         }
 
         language = null;

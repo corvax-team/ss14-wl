@@ -36,6 +36,11 @@
     enum.HumanoidVisualLayers.RHand:
       limit: 1
       required: false
+    #WL-Changes-start
+    enum.HumanoidVisualLayers.Socks:
+      limit: 1
+      required: false
+    #WL-Changes-end
     enum.HumanoidVisualLayers.LLeg:
       limit: 1
       required: false
@@ -310,13 +315,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
   - type: Instrument
     allowPercussion: false
     handheld: false

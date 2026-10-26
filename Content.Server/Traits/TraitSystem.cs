@@ -5,7 +5,6 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Content.Shared.Whitelist;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traits;
 
@@ -45,8 +44,10 @@ public sealed partial class TraitSystem : EntitySystem
                 continue;
 
             // Add all components required by the prototype
+#pragma warning disable CS0618 // Enabling compatibility behaviour for TraitPrototype.Components
             if (traitPrototype.Components.Count > 0)
                 EntityManager.AddComponents(args.Mob, traitPrototype.Components, false);
+#pragma warning restore CS0618
 
             //WL-Changes-Start Language
             if (TryComp<LanguagesComponent>(args.Mob, out var langsComp))
@@ -61,14 +62,11 @@ public sealed partial class TraitSystem : EntitySystem
                     {
                         if (entry.Component is ModifyLanguagesComponent modLang)
                         {
-                            foreach (var langProtoId in modLang.Languages)
+                            foreach (var (langProtoId, _) in modLang.Languages)
                             {
-                                var index = langsComp.List.FindIndex(x => x.Language == langProtoId);
-                                if (index != -1)
+                                if (langsComp.Languages.ContainsKey(langProtoId))
                                 {
-                                    var langEntry = langsComp.List[index];
-                                    langEntry.LanguageLevel = selectedLevel;
-                                    langsComp.List[index] = langEntry;
+                                    langsComp.Languages[langProtoId] = (LanguageLevel)selectedLevel;
                                     updated = true;
                                 }
                             }
@@ -76,9 +74,7 @@ public sealed partial class TraitSystem : EntitySystem
                     }
 
                     if (updated)
-                    {
                         Dirty(args.Mob, langsComp);
-                    }
                 }
             }
             //WL-Changes-End Language

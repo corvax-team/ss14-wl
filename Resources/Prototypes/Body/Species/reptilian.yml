@@ -38,6 +38,11 @@
     enum.HumanoidVisualLayers.RHand:
       limit: 1
       required: false
+    #WL-Changes-start
+    enum.HumanoidVisualLayers.Socks:
+      limit: 1
+      required: false
+    #WL-Changes-end
     enum.HumanoidVisualLayers.LLeg:
       limit: 1
       required: false
@@ -185,13 +190,6 @@
       295: 0.8
       285: 0.7
   - type: Wagging
-  #WL-Changes: Languages start
-  - type: Languages
-    list:
-    - language: Translate
-      languageLevel: 4
-    specieLanguage: Translate
-  #WL-Changes: Languages end
   #Wl-Changes-Start
   - type: CuffedMeleeWeapon
     weaponId: CuffedReptilianAttack
@@ -239,6 +237,19 @@
   - type: VisualOrganMarkings
     hideableLayers:
     - enum.HumanoidVisualLayers.Tail
+    #WL-Changes-start
+    markingsDisplacement:
+      Socks:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: shoes
+      UndergarmentBottom:
+        sizeMaps:
+          32:
+            sprite: Corvax/Mobs/Species/displacement.rsi
+            state: jumpsuit
+    #WL-Changes-end
 
 - type: entity
   parent: [ OrganBaseHeadSexed, OrganBaseHead, OrganReptilianExternal ]

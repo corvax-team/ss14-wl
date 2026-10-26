@@ -20,6 +20,7 @@
   - type: AccessReader
     access: [["Security"]]
   - type: Lock
+  - type: LockedStorage
   - type: LockVisuals
 
 - type: entity
@@ -44,6 +45,7 @@
   - type: AccessReader
     access: [["Security"]]
   - type: Lock
+  - type: LockedStorage
   - type: LockVisuals
 
 - type: entity
@@ -68,4 +70,5 @@
   - type: AccessReader
     access: [["Security"]]
   - type: Lock
+  - type: LockedStorage
   - type: LockVisuals

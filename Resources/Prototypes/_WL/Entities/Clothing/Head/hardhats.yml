@@ -9,4 +9,22 @@
     sprite: _WL/Clothing/Head/Hardhats/senior_engineer.rsi
   - type: Clothing
     sprite: _WL/Clothing/Head/Hardhats/senior_engineer.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: off-inhand-left
+      right:
+      - state: off-inhand-right
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+    inhandVisuals:
+      left:
+      - state: on-inhand-left
+      right:
+      - state: on-inhand-right
 #WL Workers lyvsi end

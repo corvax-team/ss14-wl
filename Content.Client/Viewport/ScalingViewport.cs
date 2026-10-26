@@ -185,7 +185,9 @@ namespace Content.Client.Viewport
 
             var drawBox = GetDrawBox();
             var drawBoxGlobal = drawBox.Translated(GlobalPixelPosition);
+            var drawTransform = handle.DrawingHandleScreen.GetTransform(); // WL-Changes-Fixes
             _viewport.RenderScreenOverlaysBelow(handle, this, drawBoxGlobal);
+            handle.DrawingHandleScreen.SetTransform(drawTransform); // WL-Changes-Fixes
 
             ApplySharpnessShader(handle);
 

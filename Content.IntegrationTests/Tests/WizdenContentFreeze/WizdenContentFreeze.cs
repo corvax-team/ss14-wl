@@ -24,8 +24,8 @@ public sealed class WizdenContentFreeze : GameTest
 
         var protoMan = server.ProtoMan;
 
-        var recipesCount = protoMan.Count<FoodRecipePrototype>();
-        var recipesLimit = 226; //Corvax пельмени <3 //218 //WL штучки-дрючки, на корваксе 226
+        var recipesCount = protoMan.Count<MicrowaveMealRecipePrototype>();
+        var recipesLimit = 226; //Corvax пельмени <3 //218  //WL штучки-дрючки, на корваксе 226
 
         if (recipesCount > recipesLimit)
         {

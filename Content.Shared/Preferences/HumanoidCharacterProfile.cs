@@ -471,14 +471,14 @@ namespace Content.Shared.Preferences
         }
 
         // Corvax-TTS-Start
-        public static string RandomTTS(ProtoId<EmoteSoundsPrototype> voicePrototype)
+        public static string RandomTTS() // WL-changes
         {
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
 
             var voiceId = random.Pick(prototypeManager
                 .EnumeratePrototypes<TTSVoicePrototype>()
-                .Where(o => CanHaveVoice(o, voicePrototype)).ToArray()
+                .Where(o => o.RoundStart).ToArray() // WL-changes
             ).ID;
             return voiceId;
         }
@@ -551,7 +551,7 @@ namespace Content.Shared.Preferences
             profile.Name = (randomizeCfg & RandomizeCfg.Name) != 0 ? RandomName(speciesProto, profile.Gender) : baseProfile.Name;
             profile.Age = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomAge(speciesProto) : baseProfile.Age;
             profile.Height = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomHeight(speciesProto) : baseProfile.Height; //WL-Changes: Height
-            profile.TTSVoice = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomTTS(profile.Voice) : baseProfile.TTSVoice; // Corvax-TTS
+            profile.TTSVoice = (randomizeCfg & RandomizeCfg.Age) != 0 ? RandomTTS() : baseProfile.TTSVoice; // Corvax-TTS; WL-changes
 
             profile.Appearance = HumanoidCharacterAppearance.Random(speciesProto, profile.Sex, randomizeCfg, baseProfile.Appearance);
 
@@ -1283,7 +1283,7 @@ namespace Content.Shared.Preferences
 
             // Corvax-TTS-Start
             prototypeManager.TryIndex<TTSVoicePrototype>(TTSVoice, out var TTS_voice);
-            if (TTS_voice is null || !CanHaveVoice(TTS_voice, Voice))
+            if (TTS_voice is null) // WL-changes: TTS does not depend on the emote sound bank.
                 TTSVoice = HumanoidProfileSystem.DefaultSexVoice[sex];
             // Corvax-TTS-End
 
@@ -1383,25 +1383,7 @@ namespace Content.Shared.Preferences
             return result;
         }
 
-        // Corvax-TTS-Start
-        // SHOULD BE NOT PUBLIC, BUT.... Похуй
-        public static bool CanHaveVoice(TTSVoicePrototype voice, ProtoId<EmoteSoundsPrototype> voicePrototype)
-        {
-            if (voice.Sex == Sex.Unsexed)
-                return true;
-
-            var protoId = voicePrototype.Id;
-            if (protoId.StartsWith("Unisex", StringComparison.OrdinalIgnoreCase))
-                return true;
-
-            return voice.Sex switch
-            {
-                Sex.Male => protoId.StartsWith("Male", StringComparison.OrdinalIgnoreCase),
-                Sex.Female => protoId.StartsWith("Female", StringComparison.OrdinalIgnoreCase),
-                _ => false
-            };
-        }
-        // Corvax-TTS-End
+        // WL-changes: Removed TTS restrictions based on emote sound bank names.
 
         public HumanoidCharacterProfile Validated(ICommonSession session, IDependencyCollection collection, string[] sponsorPrototypes)// Corvax-Sponsors
         {

@@ -20,6 +20,7 @@ public sealed partial class SkillsWindow : FancyWindow
     private readonly Dictionary<byte, int> _currentSkills;
     private readonly Dictionary<byte, int> _defaultSkills;
     private readonly bool _upgradeOnly;
+    private readonly bool _readOnly;
     private readonly int _totalPoints;
     private int _spentPoints;
 
@@ -31,7 +32,7 @@ public sealed partial class SkillsWindow : FancyWindow
         string jobId,
         Dictionary<byte, int> currentSkills,
         Dictionary<byte, int> defaultSkills,
-        int totalPoints, bool upgradeOnly = false)
+        int totalPoints, bool upgradeOnly = false, bool readOnly = false)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -42,6 +43,7 @@ public sealed partial class SkillsWindow : FancyWindow
         _currentSkills = new Dictionary<byte, int>(currentSkills);
         _defaultSkills = new Dictionary<byte, int>(defaultSkills);
         _upgradeOnly = upgradeOnly;
+        _readOnly = readOnly;
         _totalPoints = totalPoints;
         _spentPoints = 0;
 
@@ -62,7 +64,7 @@ public sealed partial class SkillsWindow : FancyWindow
             var defaultLevel = _defaultSkills.GetValueOrDefault(skillKey, 1);
             var currentLevel = _currentSkills.GetValueOrDefault(skillKey, defaultLevel);
 
-            var skillSelector = new SkillSelector(skillType, currentLevel, costs, color, defaultLevel, _upgradeOnly)
+            var skillSelector = new SkillSelector(skillType, currentLevel, costs, color, defaultLevel, _upgradeOnly, _readOnly)
             {
                 IsLocked = _upgradeOnly && defaultLevel == 4
             };

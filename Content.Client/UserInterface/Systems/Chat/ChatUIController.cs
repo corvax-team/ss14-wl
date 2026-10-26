@@ -6,24 +6,25 @@ using Content.Client.Administration.Managers;
 using Content.Client.Chat;
 using Content.Client.Chat.Managers;
 using Content.Client.Chat.TypingIndicator;
+// WL-Changes: Alt Typing Indicators Start
+using Content.Shared.Chat.TypingIndicator;
+// WL-Changes: Alt Typing Indicators End
 using Content.Client.Chat.UI;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
 using Content.Client.Mind;
-using Content.Client.Roles;
-using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Codewords;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Decals;
 using Content.Shared.Input;
 using Content.Shared.Radio;
-using Content.Shared.Roles.RoleCodeword;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -60,13 +61,12 @@ public sealed partial class ChatUIController : UIController
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IReplayRecordingManager _replayRecording = default!;
 
-    [UISystemDependency] private readonly ExamineSystem? _examine = default;
-    [UISystemDependency] private readonly GhostSystem? _ghost = default;
-    [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
-    [UISystemDependency] private readonly ChatSystem? _chatSys = default;
-    [UISystemDependency] private readonly TransformSystem? _transform = default;
-    [UISystemDependency] private readonly MindSystem? _mindSystem = default!;
-    [UISystemDependency] private readonly RoleCodewordSystem? _roleCodewordSystem = default!;
+    [UISystemDependency] private readonly ChatSystem? _chatSys = default!;
+    [UISystemDependency] private readonly CodewordSystem? _codeword = default!;
+    [UISystemDependency] private readonly ExamineSystem _examine = default!;
+    [UISystemDependency] private readonly GhostSystem _ghost = default!;
+    [UISystemDependency] private readonly TransformSystem _transform = default!;
+    [UISystemDependency] private readonly TypingIndicatorSystem _typingIndicator = default!;
 
     private SharedChatSystem? _sharedChatSys;
     private static readonly ProtoId<ColorPalettePrototype> ChatNamePalette = "ChatNames";
@@ -892,15 +892,15 @@ public sealed partial class ChatUIController : UIController
             msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, highlight, "color", _highlightsColor);
         }
 
-        // Color any codewords for minds that have roles that use them
-        if (_player.LocalUser != null && _mindSystem != null && _roleCodewordSystem != null)
+        // In case we get messages outside of systems being init.
+        if (_codeword != null)
         {
-            if (_mindSystem.TryGetMind(_player.LocalUser.Value, out var mindId) && _ent.TryGetComponent(mindId, out RoleCodewordComponent? codewordComp))
+            // Color any codewords for minds that have roles that use them
+            foreach (var data in _codeword.GetPlayerCodewords(_player.LocalUser))
             {
-                foreach (var (_, codewordData) in codewordComp.RoleCodewords)
+                foreach (var codeword in data.Codewords)
                 {
-                    foreach (string codeword in codewordData.Codewords)
-                        msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, codeword, "color", codewordData.Color.ToHex());
+                    msg.WrappedMessage = SharedChatSystem.InjectTagAroundString(msg, codeword, "color", data.Color.ToHex());
                 }
             }
         }
@@ -980,6 +980,51 @@ public sealed partial class ChatUIController : UIController
     {
         return MapLocalIfGhost(PreferredChannel);
     }
+
+    // WL-Changes: Alt Typing Indicators Start
+    public ChatSelectChannel CurrentChannel = ChatSelectChannel.None;
+    private static readonly ProtoId<TypingIndicatorPrototype> WhisperID = "whisper";
+    private static readonly ProtoId<TypingIndicatorPrototype> EmoteID = "emote";
+    private static readonly ProtoId<TypingIndicatorPrototype> OocID = "ooc";
+    private static readonly ProtoId<TypingIndicatorPrototype> RadioID = "radio";
+
+    public void NotifySpecificChatTextChange(ChatSelectChannel selectedChannel, string text = "")
+    {
+        var channel = selectedChannel;
+        if (!string.IsNullOrEmpty(text))
+        {
+            var (prefixChannel, _, _) = SplitInputContents(text.ToLower());
+            if (prefixChannel != ChatSelectChannel.None)
+                channel = prefixChannel;
+        }
+
+        CurrentChannel = channel;
+
+        switch (channel)
+        {
+            case ChatSelectChannel.Whisper:
+                _typingIndicator?.ClientAlternateTyping(WhisperID);
+                break;
+
+            case ChatSelectChannel.Radio:
+                _typingIndicator?.ClientAlternateTyping(RadioID);
+                break;
+
+            case ChatSelectChannel.Emotes:
+                _typingIndicator?.ClientAlternateTyping(EmoteID);
+                break;
+
+            case ChatSelectChannel.LOOC:
+            case ChatSelectChannel.OOC:
+                _typingIndicator?.ClientAlternateTyping(OocID);
+                break;
+
+            default:
+                _typingIndicator?.ClientChangedChatText();
+                break;
+        }
+    }
+    // WL-Changes: Alt Typing Indicators End
 
     public void NotifyChatTextChange()
     {
