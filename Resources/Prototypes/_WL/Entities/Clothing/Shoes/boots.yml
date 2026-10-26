@@ -84,3 +84,33 @@
       sprite: _WL/Clothing/Shoes/Boots/elegant_brown_shoes.rsi
     - type: Clothing
       sprite: _WL/Clothing/Shoes/Boots/elegant_brown_shoes.rsi
+
+- type: entity
+  parent: ClothingShoesBootsWork
+  id: ClothingShoesBootsWorkToeless
+  name: workboots-toeless
+  description: changeME.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/workboots-toeless.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/workboots-toeless.rsi
+      clothingVisuals:
+        shoes:
+        - state: equipped-FEET
+        - state: equipped-FEET-reptilian
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ClothingShoesBootsJackToeless
+  name: jackboots-toeless
+  description: changeMe.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/jackboots-toeless.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/jackboots-toeless.rsi
+      clothingVisuals:
+        shoes:
+        - state: equipped-FEET
+        - state: equipped-FEET-reptilian
