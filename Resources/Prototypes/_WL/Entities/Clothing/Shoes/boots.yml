@@ -99,6 +99,8 @@
         shoes:
         - state: equipped-FEET
         - state: equipped-FEET-reptilian
+        - state: equipped-FEET-vox
+        - state: equipped-FEET-akula
 
 - type: entity
   parent: ClothingShoesBootsJack
@@ -114,3 +116,5 @@
         shoes:
         - state: equipped-FEET
         - state: equipped-FEET-reptilian
+        - state: equipped-FEET-vox
+        - state: equipped-FEET-akula
