@@ -16,7 +16,7 @@ public sealed partial class TTSSystem
     private string Sanitize(string text)
     {
         text = text.Trim();
-        text = RegexInvalidChars.Replace(text, "");
+        text = RegexInvalidChars.Replace(text.Replace('~', ' '), ""); // WL-Changes: Keep obscured fragments separated.
         text = RegexWordBoundary.Replace(text, ReplaceMatchedWord);
         text = RegexLatToCyr.Replace(text, ReplaceLat2Cyr);
         text = RegexDecimal.Replace(text, " целых ");

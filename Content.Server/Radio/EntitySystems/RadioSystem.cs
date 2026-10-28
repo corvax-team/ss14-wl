@@ -47,7 +47,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
     {
         if (args.Channel != null && component.Channels.Contains(args.Channel.ID))
         {
-            SendRadioMessage(uid, args.Message, args.Channel, uid);
+            SendRadioMessage(uid, args.Message, args.Channel, uid, languageContext: args.LanguageContext); // WL-Changes
             args.Channel = null; // prevent duplicate messages from other listeners.
         }
     }
@@ -59,7 +59,8 @@ public sealed partial class RadioSystem : SharedRadioSystem
     }
 
     /// <inheritdoc/>
-    public override void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true)
+    public override void SendRadioMessage(EntityUid messageSource, string message, RadioChannelPrototype channel, EntityUid radioSource, bool escapeMarkup = true,
+        LanguageMessageContext? languageContext = null) // WL-Changes
     {
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
@@ -87,11 +88,20 @@ public sealed partial class RadioSystem : SharedRadioSystem
         var canSend = !sendAttemptEv.Cancelled;
 
         //WL-Changes: Languages start
-        if (!_languages.TryProcessLanguageMessage(messageSource, content, out var newMessage, out var language) ||
-                language is not {} langId)
-            return;
+        if (languageContext == null)
+        {
+            if (!_languages.TryProcessLanguageMessage(messageSource, message, out var newMessage, out var language) ||
+                language is not {} languageId)
+            {
+                _messages.Remove(message);
+                return;
+            }
 
-        content = newMessage;
+            languageContext = new LanguageMessageContext(languageId, newMessage);
+        }
+
+        var langId = languageContext.Language;
+        content = languageContext.Message;
 
         var checkLanguageEv = new RadioLanguageCheckEvent(content, langId);
         RaiseLocalEvent(messageSource, ref checkLanguageEv);
@@ -104,6 +114,7 @@ public sealed partial class RadioSystem : SharedRadioSystem
         var hasActiveServer = HasActiveServer(sourceMapId, channel.ID);
         var sourceServerExempt = _exemptQuery.HasComp(radioSource);
 
+        var radioMessages = new Dictionary<EntityUid, string>(); // WL-Changes
         var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
         while (canSend && radioQuery.MoveNext(out var receiver, out var radio, out var transform))
         {
@@ -128,20 +139,30 @@ public sealed partial class RadioSystem : SharedRadioSystem
                 continue;
 
             //WL-Changes-start
+            var listener = HasComp<IntrinsicRadioReceiverComponent>(receiver) ? receiver : transform.ParentUid;
+            if (!radioMessages.TryGetValue(listener, out var listenerMessage))
+            {
+                listenerMessage = _languages.GetUnderstoodMessage(languageContext, listener);
+                if (checkLanguageEv.Passability < 1f)
+                    listenerMessage = _languages.ObfuscateMessageReadability(listenerMessage, checkLanguageEv.Passability);
+
+                radioMessages.Add(listener, listenerMessage);
+            }
             var wrappedMsg = _languages.GetRadioWrappedMessageFor(
                 content,
                 langId,
-                transform.ParentUid,
+                listener,
                 name,
                 speech,
-                channel);
+                channel,
+                listenerMessage: escapeMarkup ? FormattedMessage.EscapeText(listenerMessage) : listenerMessage);
 
             if (string.IsNullOrEmpty(wrappedMsg))
                 continue;
 
             var chatMsg = new ChatMessage(
                 ChatChannel.Radio,
-                message,
+                listenerMessage,
                 wrappedMsg,
                 NetEntity.Invalid,
                 null);
