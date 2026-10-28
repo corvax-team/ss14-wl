@@ -163,7 +163,7 @@ public sealed partial class ChatSystem
             return;
 
         var languageContext = new LanguageMessageContext(langId, newMessage);
-        var pressureCheckEv = new PressureLanguageCheckEvent(langId, newMessage);
+        var pressureCheckEv = new PressureLanguageCheckEvent(langId, newMessage) { IgnorePressure = true };
         RaiseLocalEvent(source, ref pressureCheckEv);
 
         if (pressureCheckEv.Cancelled)
