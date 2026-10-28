@@ -5,11 +5,15 @@ using Content.Shared._WL.Languages.Components;
 
 namespace Content.Shared._WL.Languages.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class LanguagesComponent : Component
 {
     [DataField, AutoNetworkedField]
     public Dictionary<ProtoId<LanguagePrototype>, LanguageLevel> Languages = new();
+
+    /// <summary>Temporary knowledge supplied by installed borg modules, separate from permanent knowledge.</summary>
+    [DataField, AutoNetworkedField]
+    public Dictionary<ProtoId<LanguagePrototype>, LanguageLevel> ModuleLanguages = new();
 
     [DataField, AutoNetworkedField]
     public ProtoId<LanguagePrototype>? CurrentLanguage = null;

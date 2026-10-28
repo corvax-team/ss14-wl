@@ -195,8 +195,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         if (!TryComp<LanguagesComponent>(uid, out var comp))
             return false;
 
-        if (!comp.Languages.TryGetValue(protoId, out var level) ||
-                level < LanguageLevelSpeak)
+        if (GetLanguageLevel(uid, protoId) < LanguageLevelSpeak)
             return false;
 
         comp.CurrentLanguage = protoId;
@@ -207,6 +206,34 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     }
 
     protected virtual void UpdateLanguagesWindow(EntityUid uid) { }
+
+    public void RefreshLanguages(EntityUid uid)
+    {
+        if (!TryComp<LanguagesComponent>(uid, out var comp))
+            return;
+
+        if (comp.CurrentLanguage is not { } current || GetLanguageLevel(uid, current) < LanguageLevelSpeak)
+        {
+            comp.CurrentLanguage = GetKnownLanguages(uid)
+                .Where(pair => pair.Value >= LanguageLevelSpeak)
+                .Select(pair => (ProtoId<LanguagePrototype>?)pair.Key).FirstOrDefault();
+        }
+        Dirty(uid, comp);
+        UpdateLanguagesWindow(uid);
+    }
+
+    public Dictionary<ProtoId<LanguagePrototype>, LanguageLevel> GetKnownLanguages(EntityUid uid)
+    {
+        var result = new Dictionary<ProtoId<LanguagePrototype>, LanguageLevel>();
+        if (!TryComp<LanguagesComponent>(uid, out var comp))
+            return result;
+
+        foreach (var (language, level) in comp.Languages)
+            result[language] = level;
+        foreach (var (language, level) in comp.ModuleLanguages)
+            result[language] = (LanguageLevel)Math.Max((byte)result.GetValueOrDefault(language), (byte)level);
+        return result;
+    }
 
     /// <summary>
     /// На основе префикса
@@ -288,8 +315,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
             languageId = comp.CurrentLanguage;
 
         if (languageId is not {} protoId ||
-                !comp.Languages.TryGetValue(protoId, out var level) ||
-                level < LanguageLevelSpeak)
+                GetLanguageLevel(source, protoId) < LanguageLevelSpeak)
         {
             _popup.PopupEntity(
                 Loc.GetString("languages-cannot-speak"),
@@ -344,10 +370,8 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         if (!TryComp<LanguagesComponent>(entity, out var comp))
             return language == DefaultLanguage ? LanguageLevel.Full : LanguageLevel.None;
 
-        if (!comp.Languages.TryGetValue(language, out var level))
-            return LanguageLevel.None;
-
-        return level;
+        return (LanguageLevel)Math.Max((byte)comp.Languages.GetValueOrDefault(language),
+            (byte)comp.ModuleLanguages.GetValueOrDefault(language));
     }
 
     public float GetLanguageObfuscationChance(LanguageLevel level)
