@@ -134,6 +134,11 @@ public sealed partial class TTSSystem : EntitySystem
         if (!_ttsEnabled)
             return;
 
+        // WL-changes-Start
+        if (!ev.IsPreview && _cfg.GetCVar(WLCVars.SpeechMode) != SpeechMode.Tts)
+            return;
+        // WL-changes-End
+
         // It will stop clogging up your memory if you turn off one of the sliders to 0
         if (ev.IsRadio && _radioVolume <= 0)
         {
