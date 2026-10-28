@@ -43,7 +43,7 @@ public sealed partial class HumanoidProfileComponent : Component
     // Corvax-TTS-End
 
     // WL-Height-Start
-    [DataField("height")]
+    [DataField("height"), AutoNetworkedField]
     [ViewVariables] public int Height = 165;
 
     [DataField, AutoNetworkedField]
