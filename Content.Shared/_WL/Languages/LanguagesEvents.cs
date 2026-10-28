@@ -16,6 +16,7 @@ public record struct PressureLanguageCheckEvent(ProtoId<LanguagePrototype> langu
     public bool Cancelled = false;
     public bool ForceWhisper = false;
     public float Passability = 1f;
+    public bool IgnorePressure; // Whisper ignores atmospheric pressure, but still checks muting.
 }
 
 /// <summary>
