@@ -27,9 +27,10 @@
     tags:
     - Medal
     - MonkeyWearable
+    - WhitelistChameleon
     - ClothMade
     - Recyclable
-    - WhitelistChameleon
+    - JumpsuitAccessories # WL-Changes
 
 - type: entity
   parent: ClothingMedalBase

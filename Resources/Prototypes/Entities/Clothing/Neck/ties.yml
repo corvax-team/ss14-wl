@@ -12,6 +12,7 @@
     - WhitelistChameleon
     - HamsterWearable
     - MonkeyWearable
+    - JumpsuitAccessories # WL-Changes
 
 - type: entity
   parent: ClothingNeckTieBase
@@ -48,6 +49,7 @@
     - Recyclable
     - WhitelistChameleon
     - HamsterWearable # WL-Changes: Респрайт
+    - JumpsuitAccessories #WL-Changes
 
 - type: entity
   parent: ClothingNeckTieBase
@@ -84,3 +86,4 @@
     - Recyclable
     - WhitelistChameleon
     - MonkeyWearable
+    - JumpsuitAccessories # WL-Changes

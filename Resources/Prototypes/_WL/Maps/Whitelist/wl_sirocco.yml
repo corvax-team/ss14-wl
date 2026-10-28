@@ -21,7 +21,7 @@
 
             # command
             Captain: [ 1, 1 ]
-            IAA: [ 1, 1 ]
+            IAA: [ 2, 2 ]
             Adjutant: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
