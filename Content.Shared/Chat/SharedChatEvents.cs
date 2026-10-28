@@ -77,6 +77,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     public readonly string? LangObfusMessage;
 
     public readonly ProtoId<LanguagePrototype>? Language;
+    public LanguageMessageContext? LanguageContext; // WL-Changes
     //WL-Changes: Languages end
 
     /// <summary>

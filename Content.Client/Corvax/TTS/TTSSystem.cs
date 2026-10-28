@@ -226,6 +226,14 @@ public sealed partial class TTSSystem : EntitySystem
 
     private void PlayTTSInternal(PlayTTSEvent ev, Action? onComplete = null)
     {
+        // WL-changes-Start
+        if (!ev.IsPreview && _cfg.GetCVar(WLCVars.SpeechMode) != SpeechMode.Tts)
+        {
+            onComplete?.Invoke();
+            return;
+        }
+        // WL-changes-End
+
         var filePath = new ResPath($"{_fileIdx++}.ogg");
         _contentRoot.AddOrUpdateFile(filePath, ev.Data);
 
