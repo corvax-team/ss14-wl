@@ -15,7 +15,7 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
     public EntityUid? ActiveCamera { get; set; }
 
     [ViewVariables]
-    public string ActiveCameraAddress { get; set; } = string.Empty;
+    public DeviceAddress ActiveCameraAddress { get; set; }
 
     /// <summary>
     /// Last time this monitor was sent a heartbeat.
@@ -34,7 +34,7 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
     /// If the monitor has connected to the camera, this should be set to null.
     /// </summary>
     [ViewVariables]
-    public string? NextCameraAddress { get; set; }
+    public DeviceAddress? NextCameraAddress { get; set; }
 
     /// <summary>
     /// Set of viewers currently looking at this monitor.
@@ -53,13 +53,13 @@ public sealed partial class SurveillanceCameraMonitorComponent : Component
     /// This is cleared when the subnet is changed.
     /// </summary>
     [ViewVariables]
-    public Dictionary<string, string> KnownCameras { get; } = new();
+    public Dictionary<DeviceAddress, string> KnownCameras { get; } = new();
 
     /// <summary>
     /// The subnets known by this camera monitor.
     /// </summary>
     [ViewVariables]
-    public Dictionary<ProtoId<DeviceFrequencyPrototype>, string> KnownSubnets { get; } = new();
+    public Dictionary<ProtoId<DeviceFrequencyPrototype>, DeviceAddress> KnownSubnets { get; } = new();
 
     // WL-Changes-Start
     [DataField]
