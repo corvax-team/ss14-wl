@@ -265,9 +265,6 @@ public abstract partial class SharedGunSystem
 
                 var existingEnt = ent.Comp.Entities[^1];
 
-                if (!TryComp<CartridgeAmmoComponent>(existingEnt, out var cartridge))
-                    return;
-
                 if (ent.Comp.AutoCycle) //WL - if autocycle=false don't remove spent ammo from the gun
                 {
                     ent.Comp.Entities.RemoveAt(ent.Comp.Entities.Count - 1);
@@ -275,7 +272,7 @@ public abstract partial class SharedGunSystem
                     Containers.Remove(existingEnt, ent.Comp.Container);
                     ammoEntity = existingEnt;
                 }
-                else if (cartridge.Spent)
+                else if (!TryComp<CartridgeAmmoComponent>(existingEnt, out var cartridge) || cartridge.Spent)
                     break;
                 else
                 {
