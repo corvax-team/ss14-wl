@@ -1,6 +1,9 @@
 - type: marking
   id: PawSocks
-  bodyPart: RFoot #highest possible layer
+  # WL-changes-Start: TODO. Актуально до изменения порядка слоёв.
+  bodyPart: Socks
+  canBeDisplaced: false
+  # WL-changes-End
   groupWhitelist: [Vulpkanin]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
