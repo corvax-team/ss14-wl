@@ -6,6 +6,8 @@ namespace Content.Shared.Speech.EntitySystems;
 
 public sealed partial class SpanishAccentSystem : RelayAccentSystem<SpanishAccentComponent>
 {
+    [Dependency] private ReplacementAccentSystem _replacement = default!; // WL-changes
+
     // for words in all lowercase (multiple "s" are allowed)
     private static readonly Regex RegexLower = new(@"(?<!\w)(s+h*[bcdfgjklmnpqrtvwxz])");
     // For Capitalized Words (Station -> Estation; Capital "S" Is Replaced Directly, Multiple "S" Are Allowed)
@@ -15,6 +17,8 @@ public sealed partial class SpanishAccentSystem : RelayAccentSystem<SpanishAccen
 
     public override string Accentuate(string message, Entity<SpanishAccentComponent>? ent = null)
     {
+        message = _replacement.ApplyReplacements(message, "spanish", ent?.Owner); // WL-changes
+
         // Insert E before every S that is followed by a consonant that makes a distinct sound
         // (H is excluded because [sh] is a single sound)
         message = InsertS(message);
