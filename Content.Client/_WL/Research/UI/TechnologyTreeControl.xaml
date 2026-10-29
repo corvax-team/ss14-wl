@@ -1,0 +1,5 @@
+<controls:LayoutContainer
+    xmlns:ui="clr-namespace:Content.Client._WL.Research.UI"
+    xmlns:controls="https://spacestation14.io">
+    <ui:ResearchHintControl Name="ResearchHint" />
+</controls:LayoutContainer>

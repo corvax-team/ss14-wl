@@ -1,0 +1,18 @@
+- type: researchMode
+  id: Default
+  name: research-mode-default-name
+  color: "#ffffff"
+
+- type: researchMode
+  id: Deep
+  name: research-mode-deep-name
+  color: "#542a6c"
+  packagesModifier: 2
+  pointsModifier: 0.67
+
+- type: researchMode
+  id: Fast
+  name: research-mode-fast-name
+  color: "#88242d"
+  packagesModifier: 0.67
+  pointsModifier: 2
