@@ -83,7 +83,7 @@ public sealed partial class ScramOnTriggerSystem : XOnTriggerSystem<ScramOnTrigg
                 || _turfSystem.IsTileBlocked(tileRef.Value, (CollisionGroup)physicsComponent.CollisionMask))
                 continue;
 
-            targetCoords = tempTargetCoords;
+            targetCoords = _transform.ToCoordinates(tileRef.Value.GridUid, _transform.ToMapCoordinates(tempTargetCoords)); // WL-changes
             break;
         }
 
