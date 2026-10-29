@@ -81,6 +81,7 @@
   - StutteringAccent
   - GrowlingAccent # Corvax
   - TTS # Corvax-TTS
+  - SpeechBarks # WL-changes
   eventComponents:
   - Damageable # Sprites and damage modifier
   - Flammable # Displacements
