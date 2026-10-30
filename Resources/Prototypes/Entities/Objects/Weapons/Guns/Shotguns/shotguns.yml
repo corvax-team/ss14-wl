@@ -14,7 +14,7 @@
     shape:
     - 0,0,4,0
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
     quickEquip: false
     slots:
     - Back
@@ -69,7 +69,7 @@
   description: An automatic magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/bulldog_icon_48x.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -77,8 +77,9 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Item
     size: Large
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/bulldog.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/bulldog.rsi
     quickEquip: false
     slots:
     - Back
@@ -130,9 +131,9 @@
   description: An immortal classic. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
@@ -162,11 +163,11 @@
   description: A premium semi-automatic shotgun, and the pride of all security forces. Uses .50 shotgun shells.
   components: # intend for Enforcer to have wider choke for semi-auto function
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer_icon_48x.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: BallisticAmmoProvider
 # WL-Gun-Rework-Start
     soundRack:
@@ -195,11 +196,11 @@
   description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses .50 shotgun shells.
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/pump_icon_48x.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1
@@ -224,14 +225,14 @@
   description: Groovy! Uses .50 shotgun shells.
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Item
     size: Small
     shape:
     - 0,0,2,0
-    sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Gun
     fireRate: 3
     soundGunshot: # Corvax-Guns
@@ -272,9 +273,9 @@
     - 0,1,0,1
     storedOffset: 0,-5
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Gun
     fireRate: 4
     soundGunshot: # Corvax-Guns
@@ -296,7 +297,7 @@
   description: Deadly at close range.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/blunderbuss.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/blunderbuss.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2
@@ -312,11 +313,11 @@
   description: A shitty, hand-made shotgun that uses .50 shotgun shells. It can only hold one round in the chamber.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.
@@ -345,11 +346,11 @@
   description: An obscure modification of the Enforcer, fitted with an experimental muffler. Great for those with a strict moral code. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/hushpup.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/hushpup.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/hushpup.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/hushpup.rsi
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/hushpup.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/hushpup.rsi
     shape:
     - 0,0,3,0 # smaller than BaseShotgun by 1 tile
   - type: BallisticAmmoProvider
