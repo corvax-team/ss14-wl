@@ -95,7 +95,7 @@
     sprite: _WL/Objects/Weapons/Guns/LMGs/l6.rsi
   - type: MagazineVisuals
     magState: mag
-    steps: 10
+    steps: 10 # WL-change
     zeroVisible: true
   - type: Appearance
   - type: StaticPrice

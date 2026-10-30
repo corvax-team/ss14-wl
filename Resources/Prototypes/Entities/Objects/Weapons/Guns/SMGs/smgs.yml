@@ -96,7 +96,7 @@
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
   - type: MagazineVisuals
     magState: mag
-    steps: 1
+    steps: 5 # WL-change
     zeroVisible: true
   - type: Appearance
 
