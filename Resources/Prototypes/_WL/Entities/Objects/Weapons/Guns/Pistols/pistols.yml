@@ -40,6 +40,8 @@
     sprite: _WL/Objects/Weapons/Guns/Pistols/TC-12.rsi
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Pistols/TC-12.rsi
+  - type: Item
+    sprite: _WL/Objects/Weapons/Guns/Pistols/TC-12_inhands_64x.rsi
   - type: Gun
     minAngle: 1
     maxAngle: 5

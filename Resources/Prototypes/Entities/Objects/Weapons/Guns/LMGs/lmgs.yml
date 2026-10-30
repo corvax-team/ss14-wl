@@ -11,7 +11,7 @@
     shape:
     - 0,0,4,3
   - type: Clothing
-    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    sprite: _WL/Objects/Weapons/Guns/LMGs/l6.rsi
     quickEquip: false
     slots:
     - Back
@@ -85,15 +85,17 @@
   description: Developed by Waffle Corp, the L6 Squad Automatic Weapon is a deadly light machine gun often used by the Gorlex Marauders. Although bulky and cumbersome, its heavy barrel and high ammo capacity make it perfect for suppressing combatants with a hail of bullets. Feeds from .30 ammo belts.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    sprite: _WL/Objects/Weapons/Guns/LMGs/l6_icon_48x.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-3
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _WL/Objects/Weapons/Guns/LMGs/l6.rsi
   - type: MagazineVisuals
     magState: mag
-    steps: 4
+    steps: 10 # WL-change
     zeroVisible: true
   - type: Appearance
   - type: StaticPrice
@@ -119,7 +121,7 @@
       soundEmpty:
         path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
     - type: Sprite
-      sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+      sprite: _WL/Objects/Weapons/Guns/LMGs/l6_icon_48x.rsi
       layers:
         - state: base
           map: [ "enum.GunVisualLayers.Base" ]
