@@ -8,7 +8,8 @@ ent-ClothingShoesBootsWorkToeless = беспалые рабочие ботинк
 .desc = Модифицированы для видов с когтями на ногах.
     .desc = Модифицированы для видов с когтями на ногах
 
-ent-ClothingShoesBootsJackToeless = Беспалые подкованные ботинки
+ent-ClothingShoesBootsJackToeless = беспалые подкованные ботинки
+.desc = Модифицированы для видов с когтями на ногах.
     .desc = Модифицированы для видов с когтями на ногах
 
 ent-ClothingShoesBootsJackToelessFilled = { ent-ClothingShoesBootsJackToeless }
