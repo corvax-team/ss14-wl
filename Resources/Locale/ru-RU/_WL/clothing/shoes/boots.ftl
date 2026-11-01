@@ -4,7 +4,8 @@ ent-ClothingShoesElegantBlackShoes = элегантные чёрные туфл�
 ent-ClothingShoesElegantBrownShoes = элегантные коричневые туфли
     .desc = Элегантно.
 
-ent-ClothingShoesBootsWorkToeless = Беспалые рабочие ботинки
+ent-ClothingShoesBootsWorkToeless = беспалые рабочие ботинки
+.desc = Модифицированы для видов с когтями на ногах.
     .desc = Модифицированы для видов с когтями на ногах
 
 ent-ClothingShoesBootsJackToeless = Беспалые подкованные ботинки
