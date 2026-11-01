@@ -87,6 +87,7 @@
     species: Akula
 #WL-Changes-start
   - type: Inventory
+    speciesId: akula
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

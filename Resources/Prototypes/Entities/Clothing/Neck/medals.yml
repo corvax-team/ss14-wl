@@ -1,19 +1,39 @@
 - type: entity
   abstract: true
-  parent: ClothingNeckBase
-  id: ClothingNeckMedalBase
+  parent: [SolutionFood, SolutionToolSmall, Clothing]
+  id: ClothingMedalBase
   name: medal
-  description: A medal to show your mettle. May or may not be made of metal.
+  description: A medal to show your mettle. May or may not be made out of metal.
   components:
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
+  - type: Sprite
+    state: icon
+  - type: PhysicalComposition # 50% of the amount of cloth you'd obtain upon butchering
+    materialComposition:
+      Cloth: 100
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 15
   - type: Tag
     tags:
-      - Medal
-      - MonkeyWearable
-      - WhitelistChameleon
-      - JumpsuitAccessories # WL-Changes
+    - Medal
+    - MonkeyWearable
+    - WhitelistChameleon
+    - ClothMade
+    - Recyclable
+    - JumpsuitAccessories # WL-Changes
 
 - type: entity
-  parent: ClothingNeckMedalBase
+  parent: ClothingMedalBase
   id: ClothingNeckBronzeheart
   name: bronzeheart medal
   description: Given to crewmates for exemplary bravery in the face of danger.
@@ -35,7 +55,7 @@
     sprite: Clothing/Neck/Medals/bronzeheart.rsi
 
 - type: entity
-  parent: ClothingNeckMedalBase
+  parent: ClothingMedalBase
   id: ClothingNeckGoldmedal
   name: gold medal of crewmanship
   description: Given to crewmates who display excellent crewmanship.
@@ -60,7 +80,7 @@
     - ClothingNeckGoldmedal
 
 - type: entity
-  parent: ClothingNeckMedalBase
+  parent: ClothingMedalBase
   id: ClothingNeckCargomedal
   name: cargo medal
   description: Given for the best work in the cargo department.
@@ -82,7 +102,7 @@
     sprite: Clothing/Neck/Medals/cargomedal.rsi
 
 - type: entity
-  parent: ClothingNeckMedalBase
+  parent: ClothingMedalBase
   id: ClothingNeckEngineermedal
   name: engineer medal
   description: Given for the best work in the engineering department.
@@ -104,7 +124,7 @@
     sprite: Clothing/Neck/Medals/engineermedal.rsi
 
 - type: entity
-  parent: ClothingNeckMedalBase
+  parent: ClothingMedalBase
   id: ClothingNeckMedicalmedal
   name: medical medal
   description: Given for the best work in the medical department.
@@ -126,7 +146,7 @@
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
 
 - type: entity
-  parent: ClothingNeckMedalBase
+  parent: ClothingMedalBase
   id: ClothingNeckSciencemedal
   name: science medal
   description: Given for the best work in the science department.
@@ -148,7 +168,7 @@
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
 
 - type: entity
-  parent: ClothingNeckMedalBase
+  parent: ClothingMedalBase
   id: ClothingNeckSecuritymedal
   name: security medal
   description: Given for the best work in the security department.
@@ -170,7 +190,7 @@
     sprite: Clothing/Neck/Medals/securitymedal.rsi
 
 - type: entity
-  parent: ClothingNeckMedalBase
+  parent: ClothingMedalBase
   id: ClothingNeckClownmedal
   name: clown medal
   description: Given for the best joke in the universe. HONK!

@@ -13941,7 +13941,7 @@ entities:
     - type: Transform
       parent: 2
       pos: 28.5,23.5
-    - type: WirelessNetworkConnection
+    - type: WirelessNetwork
       range: 2000
   - uid: 252
     components:
@@ -234773,7 +234773,7 @@ entities:
     missingComponents:
     - DamageOnInteract
     - DeviceNetwork
-    - WirelessNetworkConnection
+    - WirelessNetwork
     - Damageable
     - RCDDeconstructable
     - Destructible

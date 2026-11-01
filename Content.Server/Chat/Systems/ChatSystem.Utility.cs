@@ -65,8 +65,9 @@ public sealed partial class ChatSystem
     }
 
     // WL-Changes: Lang X Chat start
-    private void SendInVoiceRangeObfuscated(ChatChannel channel, string message, string wrappedMessage, ChatChannel obfuscatedChannel, EntityUid source, ChatTransmitRange range, ProtoId<LanguagePrototype> langId, string senderName, NetUserId? author = null, InGameICChatType chatType = InGameICChatType.Speak)
+    private void SendInVoiceRangeObfuscated(ChatChannel channel, string message, string wrappedMessage, ChatChannel obfuscatedChannel, EntityUid source, ChatTransmitRange range, ProtoId<LanguagePrototype> langId, string senderName, LanguageMessageContext languageContext, float passability, NetUserId? author = null, InGameICChatType chatType = InGameICChatType.Speak)
     {
+        var speechMessages = new Dictionary<EntityUid, string>();
         foreach (var (session, data) in GetRecipients(source, VoiceRange, chatType))
         {
             var entRange = MessageRangeCheck(session, data, range);
@@ -80,11 +81,15 @@ public sealed partial class ChatSystem
             var canColor = _languages.CanUnderstand(langId, listener, LanguageLevel.Low);
 
             var language = ProtoMan.Index(langId);
+            var understood = _languages.GetUnderstoodMessage(languageContext, listener);
+            if (passability < 1f)
+                understood = _languages.ObfuscateMessageReadability(understood, passability);
 
             if (!_languages.CanUnderstand(langId, listener))
             {
                 var listenerMessage =
-                    _languages.ObfuscateMessageForListener(message, langId, listener);
+                    understood;
+                speechMessages[listener] = listenerMessage;
 
                 var listenerWrappedMessage =
                     language.Emoting
@@ -95,11 +100,13 @@ public sealed partial class ChatSystem
             }
             else
             {
-                var listenerWrappedMessage = _languages.GetWrappedMessage(message, langId, senderName, GetSpeechVerb(source, message), canColor, listener);
-                _chatManager.ChatMessageToOne(channel, message, listenerWrappedMessage, source, entHideChat, session.Channel, author: author);
+                speechMessages[listener] = understood;
+                var listenerWrappedMessage = _languages.GetWrappedMessage(understood, langId, senderName, GetSpeechVerb(source, message), canColor, listener);
+                _chatManager.ChatMessageToOne(channel, understood, listenerWrappedMessage, source, entHideChat, session.Channel, author: author);
             }
         }
 
+        RaiseLocalEvent(source, new LanguageSpeechEvent(langId, speechMessages));
         _replay.RecordServerMessage(new ChatMessage(channel, message, wrappedMessage, GetNetEntity(source), null, MessageRangeHideChatForReplay(range)));
     }
     // WL-Changes: Lang X Chat end

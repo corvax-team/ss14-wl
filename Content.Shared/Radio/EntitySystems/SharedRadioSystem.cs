@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using Content.Shared._WL.Languages; // WL-Changes
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Radio.EntitySystems;
@@ -16,9 +17,10 @@ public abstract partial class SharedRadioSystem : EntitySystem
         string message,
         ProtoId<RadioChannelPrototype> channel,
         EntityUid radioSource,
-        bool escapeMarkup = true)
+        bool escapeMarkup = true,
+        LanguageMessageContext? languageContext = null) // WL-Changes
     {
-        SendRadioMessage(messageSource, message, ProtoMan.Index(channel), radioSource, escapeMarkup: escapeMarkup);
+        SendRadioMessage(messageSource, message, ProtoMan.Index(channel), radioSource, escapeMarkup: escapeMarkup, languageContext: languageContext); // WL-Changes
     }
 
     /// <summary>
@@ -29,12 +31,14 @@ public abstract partial class SharedRadioSystem : EntitySystem
     /// <param name="channel">Radio channel to send the message on.</param>
     /// <param name="radioSource">Entity transmitting the message.</param>
     /// <param name="escapeMarkup">Whether markup in the message should be escaped.</param>
+    /// <param name="languageContext">Shared comprehension results for the original utterance.</param>
     [PublicAPI]
     public virtual void SendRadioMessage(EntityUid messageSource,
         string message,
         RadioChannelPrototype channel,
         EntityUid radioSource,
-        bool escapeMarkup = true)
+        bool escapeMarkup = true,
+        LanguageMessageContext? languageContext = null) // WL-Changes
     {
 
     }

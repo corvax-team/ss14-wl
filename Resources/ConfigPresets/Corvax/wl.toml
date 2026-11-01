@@ -26,6 +26,9 @@ time = 10.0
 [whitelist]
 enabled = true
 
+[votekick]
+enabled = false
+
 [ic]
 flavor_text = true
 flavor_text_length = 1536

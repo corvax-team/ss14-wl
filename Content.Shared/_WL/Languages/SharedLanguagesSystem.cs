@@ -29,9 +29,9 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     private Dictionary<LanguageLevel, float> ObfuscationLevels = new()
     {
         {LanguageLevel.None, 1f},
-        {LanguageLevel.Low, 0.9f},
-        {LanguageLevel.Medium, 0.6f},
-        {LanguageLevel.Good, 0.3f},
+        {LanguageLevel.Low, 0.7f},
+        {LanguageLevel.Medium, 0.4f},
+        {LanguageLevel.Good, 0.1f},
         {LanguageLevel.Full, 0f}
     };
 
@@ -78,6 +78,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
     public void OnRadioLanguageCheck(EntityUid source, LanguagesComponent comp, ref RadioLanguageCheckEvent args)
     {
         var passability = CheckRadioPass(source, args.Language);
+        args.Passability = passability;
 
         if (passability == 0)
         {
@@ -96,7 +97,7 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
 
         else if (passability < 1)
         {
-            args.Message = ObfuscateMessageReadability(args.Message, 1.0f - passability);
+            args.Message = ObfuscateMessageReadability(args.Message, passability);
 
             var time = _timing.CurTime;
             if (time > comp.LastPopup + comp.PopupCooldown)
@@ -188,6 +189,19 @@ public abstract partial class SharedLanguagesSystem : EntitySystem
         var level = GetLanguageLevel(listener, language);
 
         return ObfuscateMessageForLevel(message, language, level);
+    }
+
+    public string GetUnderstoodMessage(LanguageMessageContext context, EntityUid listener)
+    {
+        if (!context.UnderstoodMessages.TryGetValue(listener, out var message))
+        {
+            message = HasComp<LanguagesComponent>(listener)
+                ? ObfuscateMessageForListener(context.Message, context.Language, listener)
+                : context.Message;
+            context.UnderstoodMessages.Add(listener, message);
+        }
+
+        return message;
     }
 
     public bool TrySetLanguage(EntityUid uid, ProtoId<LanguagePrototype> protoId)

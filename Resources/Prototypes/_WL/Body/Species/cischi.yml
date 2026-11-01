@@ -149,9 +149,8 @@
         Bloodloss:
           -1.0
   - type: Temperature
-    specificHeat: 42
   - type: TemperatureDamage
-    heatDamageThreshold: 295.15
+    heatDamageThreshold: 306.15 # TODO: Verify Cischi temperature balance; raised from 295.15 K to tolerate station temperatures.
     coldDamageThreshold: 233.15
     coldDamage:
       types:
@@ -165,7 +164,7 @@
     implicitHeatRegulation: 500
     sweatHeatRegulation: 2000
     shiveringHeatRegulation: 2000
-    normalBodyTemperature: 283.15
+    normalBodyTemperature: 295.15 # TODO: Verify Cischi thermoregulation; raised from 283.15 K alongside the heat damage threshold.
     thermalRegulationTemperatureThreshold: 5
   - type: Barotrauma
     damage:

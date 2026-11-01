@@ -15,6 +15,8 @@ public record struct PressureLanguageCheckEvent(ProtoId<LanguagePrototype> langu
     public string Message = message;
     public bool Cancelled = false;
     public bool ForceWhisper = false;
+    public float Passability = 1f;
+    public bool IgnorePressure; // Whisper ignores atmospheric pressure, but still checks muting.
 }
 
 /// <summary>
@@ -26,6 +28,7 @@ public record struct RadioLanguageCheckEvent(string Message, ProtoId<LanguagePro
     public string Message = Message;
     public ProtoId<LanguagePrototype> Language = langId;
     public bool Cancelled = false;
+    public float Passability = 1f;
 }
 
 [Serializable, NetSerializable]

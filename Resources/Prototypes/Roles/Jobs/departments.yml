@@ -111,8 +111,8 @@
 
 - type: department
   id: Service
-  name: department-Civilian #WL-Changes
-  description: department-Civilian-description # WL-Changes
+  name: department-Service
+  description: department-Service-description
   color: "#9FED58"
   roles:
   - Bartender

@@ -139,6 +139,7 @@
     - ServiceStatic
     - PowerCellsStatic
     - ElectronicsStatic
+    - HydroponicsStatic
     - ManualStorageStatic # WL-changes-storage
     - TapeRecorderStatic # DeltaV
   - type: EmagLatheRecipes
@@ -528,6 +529,7 @@
     - ClothingCivilian
     - ClothingCargo
     - ClothingCommand
+    - ClothingDresses
     - ClothingEngineering
     - ClothingMedical
     - ClothingScience
