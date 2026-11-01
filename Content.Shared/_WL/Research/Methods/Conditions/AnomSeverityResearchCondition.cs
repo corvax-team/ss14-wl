@@ -1,6 +1,6 @@
 using System.Numerics;
 using Content.Shared._WL.Research.Prototypes;
-using Content.Shared.Temperature.Components;
+using Content.Shared.Anomaly.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.Research.Methods;
@@ -9,7 +9,7 @@ public sealed partial class AnomSeverityResearchConditionSystem : ResearchCondit
 {
     protected override void Condition(Entity<AnomalyComponent> entity, ref ResearchConditionEvent<AnomSeverityResearchCondition> args)
     {
-        args.Result = entity.Comp.Temperature * 100;
+        args.Result = entity.Comp.Severity * 100;
 
         args.Points.PointsDict.Add(args.Condition.ExtrimalType, Math.Min(0f, entity.Comp.Severity - args.Condition.MinExtrimal) * 100);
 

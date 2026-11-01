@@ -15,20 +15,23 @@ public sealed partial class ResearchTypePrototype : IPrototype
     [DataField(required: true)]
     private LocId Name { get; set; }
 
-    [DataField(required: true)]
-    public FixedPoint2 MinValue;
-
-    [DataField(required: true)]
-    public FixedPoint2 MaxValue;
-
     [ViewVariables(VVAccess.ReadOnly)]
     public string LocalizedName => Loc.GetString(Name);
+
+    [DataField("min", required: true)]
+    public FixedPoint2 MinValue;
+
+    [DataField("max", required: true)]
+    public FixedPoint2 MaxValue;
 
     [DataField(required: true)]
     public ResearchCondition Condition;
 
     [DataField(required: true)]
     public ScaleMethod Scale;
+
+    [DataField("default")]
+    public FixedPoint2 DefaultValue = FixedPoint2.New(0);
 
     [DataField]
     public int Size = 100;

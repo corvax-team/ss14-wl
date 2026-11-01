@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Shared._WL.Research.Prototypes;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.Research.Methods;
@@ -18,13 +19,13 @@ public sealed partial class DamageResearchConditionSystem : ResearchConditionSys
         {
             foreach (var type in args.Condition.Types)
             {
-                if (damage.DamageDict.TryGetValue(type, out var value)
+                if (damage.DamageDict.TryGetValue(type, out var value))
                         args.Result += value;
             }
 
             foreach (var group in args.Condition.Groups)
             {
-                if (damage.TryGetDamageInGroup(group, out var value)
+                if (damage.TryGetDamageInGroup(ProtoMan.Index(group), out var value))
                         args.Result += value;
             }
         }

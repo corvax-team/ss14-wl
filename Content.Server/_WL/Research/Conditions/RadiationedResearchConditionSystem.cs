@@ -18,12 +18,3 @@ public sealed partial class RadiationedResearchConditionSystem : ResearchConditi
         args.Points.PointsDict.Add(args.Condition.BaseType, 100);
     }
 }
-
-public sealed partial class RadiationedResearchCondition : ResearchConditionBase<RadiationedResearchCondition>
-{
-    [DataField]
-    public float ExtrimMin = 0f;
-
-    [DataField]
-    public float ExtrimHalfPeak = 1f;
-}

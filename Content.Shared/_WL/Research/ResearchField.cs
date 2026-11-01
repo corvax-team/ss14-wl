@@ -97,7 +97,7 @@ public sealed partial class ResearchField
         for (int i = count - 1; i >= 0; i--)
         {
             int[] coords = new int[rank];
-            FixedPoint2 max = 0;
+            FixedPoint2 max = 1;
             var offset = i;
 
             for (int j = rank - 1; j >= 0; j--)
@@ -123,15 +123,13 @@ public sealed partial class ResearchField
 
         for (int i = 0; i < Rank; i++)
         {
-            if (researchData.TryGetValue(ResearchTypes[i], out var value))
-            {
-                var type = protoMan.Index(ResearchTypes[i]);
-                coords[i] = FixedPoint2.Clamp((value - type.MinValue) / (type.MaxValue - type.MinValue) * type.Size, 0, type.Size - 1).Int();
-            }
-            else
-            {
-                coords[i] = 0;
-            }
+            var type = protoMan.Index(ResearchTypes[i]);
+            var value = type.DefaultValue;
+
+            if (researchData.TryGetValue(ResearchTypes[i], out var researchValue))
+                value = researchValue;
+
+            coords[i] = FixedPoint2.Clamp((value - type.MinValue) / (type.MaxValue - type.MinValue) * type.Size, 0, type.Size - 1).Int();
         }
 
         var point = FieldArray.Get(coords.AsSpan()).AddPercent(points, out var diff);

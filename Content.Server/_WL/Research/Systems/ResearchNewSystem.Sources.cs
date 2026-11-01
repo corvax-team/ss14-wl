@@ -96,12 +96,12 @@ public sealed partial class ResearchSystemNew
 
             foreach (var (type, value) in data.PointsDict)
             {
-                var timedType = type;
+                var pointsType = type;
 
-                if (type != ent.Comp.ExtrimalPointsType && ent.Comp.DefaultPointsType is not null)
-                    timedType = ent.Comp.DefaultPointsType.Value;
+                if (type != ent.Comp.ExtrimalPointsType && ent.Comp.DefaultPointsType is { } detectorType)
+                    pointsType = detectorType;
 
-                AddResearch(category, ent.Comp.ResearchType, researchValue, timedType, value / normileCoof * ent.Comp.ResearchPercent, ref args);
+                AddResearch(category, ent.Comp.ResearchType, researchValue, pointsType, value / normileCoof * ent.Comp.ResearchPercent, ref args);
             }
         }
     }
@@ -120,7 +120,7 @@ public sealed partial class ResearchSystemNew
 
         var (researchValue, points) = _researchConditions.GetCondition(ent, typeProto.Condition, args.Detector);
 
-        if (categoryProto.PointsType is not null)
+        if (categoryProto.PointsType is { } pointsType)
         {
             Dictionary<ProtoId<ResearchPointsTypePrototype>, FixedPoint2> newDict = new();
 
@@ -134,7 +134,7 @@ public sealed partial class ResearchSystemNew
                     newDict.Add(type, value);
             }
 
-            newDict.Add(categoryProto.PointsType.Value, pointsSum);
+            newDict.Add(pointsType, pointsSum);
 
             points = new(newDict);
         }
