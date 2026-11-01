@@ -10,8 +10,7 @@
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
     state: tattoo_eye_r
-  shaders:
-    tattoo_eye_r: unshaded
+    shader: unshaded
 
 - type: marking
   id: GlowingEyeLeft
@@ -25,5 +24,4 @@
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
     state: tattoo_eye_l
-  shaders:
-    tattoo_eye_l: unshaded
+    shader: unshaded

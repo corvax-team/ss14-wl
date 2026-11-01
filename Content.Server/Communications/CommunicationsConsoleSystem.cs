@@ -4,7 +4,7 @@ using Content.Server._WL.Emergency;
 // WL-Changes-end
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
-using Content.Server.DeviceNetwork.Systems;
+using Content.Shared.DeviceNetwork.Systems;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
