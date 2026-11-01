@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 292.0.0
+  engineVersion: 290.0.0
   forkId: ""
   forkVersion: ""
-  time: 10/08/2026 01:35:11
+  time: 09/22/2026 17:10:03
   entityCount: 27223
 maps:
 - 1
@@ -3230,14 +3230,6 @@ entities:
       - 14951
       - 14950
       - 14948
-      - 18169
-      - 1589
-      - 18170
-      - 466
-      - 13438
-      - 19471
-      - 14354
-      - 19613
   - uid: 5906
     components:
     - type: MetaData
@@ -3510,10 +3502,6 @@ entities:
       - 13438
       - 19613
       - 14948
-      - 18100
-      - 18165
-      - 14354
-      - 19471
   - uid: 9459
     components:
     - type: MetaData
@@ -86949,8 +86937,6 @@ entities:
       deviceLists:
       - 14953
       - 14954
-      - 5898
-      - 9430
   - uid: 14767
     components:
     - type: Transform
@@ -89120,7 +89106,6 @@ entities:
       - 14953
       - 9430
       - 25649
-      - 5898
   - uid: 13439
     components:
     - type: Transform
@@ -89664,8 +89649,6 @@ entities:
       - 14954
       - 24300
       - 12151
-      - 5898
-      - 9430
   - uid: 19610
     components:
     - type: Transform
@@ -89685,7 +89668,6 @@ entities:
       - 14953
       - 9430
       - 25649
-      - 5898
   - uid: 20533
     components:
     - type: Transform
@@ -124522,9 +124504,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -46.5,-23.5
-    - type: DeviceNetwork
-      deviceLists:
-      - 9430
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 18158
@@ -124541,9 +124520,6 @@ entities:
       parent: 2
       rot: 3.141592653589793 rad
       pos: -49.5,-23.5
-    - type: DeviceNetwork
-      deviceLists:
-      - 5898
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 18170
@@ -124551,9 +124527,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -55.5,-21.5
-    - type: DeviceNetwork
-      deviceLists:
-      - 5898
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 18594
@@ -125307,9 +125280,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -53.5,-21.5
-    - type: DeviceNetwork
-      deviceLists:
-      - 5898
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 853
@@ -125338,9 +125308,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -51.5,-22.5
-    - type: DeviceNetwork
-      deviceLists:
-      - 5898
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 2444
@@ -126500,9 +126467,6 @@ entities:
     - type: Transform
       parent: 2
       pos: -47.5,-20.5
-    - type: DeviceNetwork
-      deviceLists:
-      - 9430
     - type: AtmosPipeColor
       color: '#990000FF'
   - uid: 18200

@@ -32,7 +32,7 @@ public partial record struct AtmosAlarmPayload : IAtmosAlarmableSourcePayload
 public partial record struct AtmosAlarmableSyncAlertsPayload : IAtmosAlarmableSourcePayload
 {
     [DataField]
-    public Dictionary<DeviceAddress, AtmosAlarmType> AlarmStates = new();
+    public Dictionary<string, AtmosAlarmType> AlarmStates = new();
 
     [DataField]
     public HashSet<ProtoId<TagPrototype>> Source { get; set; } = new();

@@ -1,6 +1,5 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Materials;
-using Content.Shared.DeviceNetwork;
 using Content.Shared.Paper;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -28,7 +27,7 @@ public sealed partial class FaxMachineComponent : Component
     /// Device address of fax in network to which data will be send
     /// </summary>
     [DataField("destinationAddress")]
-    public DeviceAddress? DestinationFaxAddress { get; set; }
+    public string? DestinationFaxAddress { get; set; }
 
     /// <summary>
     /// Name of fax in network to which data will be send
@@ -91,7 +90,7 @@ public sealed partial class FaxMachineComponent : Component
     /// Known faxes in network by address with fax names
     /// </summary>
     [ViewVariables]
-    public Dictionary<DeviceAddress, string> KnownFaxes { get; } = new();
+    public Dictionary<string, string> KnownFaxes { get; } = new();
 
     /// <summary>
     /// Print queue of the incoming message

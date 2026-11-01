@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'Трам2' # Corvax
+          mapNameTemplate: 'Tram2'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

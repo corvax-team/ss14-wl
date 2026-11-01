@@ -4,7 +4,7 @@ meta:
   engineVersion: 289.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/07/2026 17:40:39
+  time: 08/22/2026 14:45:39
   entityCount: 366
 maps: []
 grids:
@@ -241,9 +241,7 @@ entities:
       parent: 407
       pos: -9.5,-6.5
     - type: Door
-      state: Closed
-    - type: Weldable
-      isWelded: True
+      state: Welded
     - type: Physics
       canCollide: False
     - type: Airtight

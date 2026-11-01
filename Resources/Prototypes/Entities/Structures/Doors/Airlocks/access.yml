@@ -1246,7 +1246,6 @@
     radarColor: "#B22222"
     highlightedRadarColor: Red
     dockLegendCategory: Arrivals
-  - type: AmbientMusicMarkerArrivals
 
 - type: entity
   parent: AirlockGlassShuttle

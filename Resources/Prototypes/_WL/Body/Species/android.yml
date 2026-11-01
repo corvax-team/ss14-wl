@@ -105,7 +105,7 @@
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  - BaseSpeciesMobNoCrawl #WL - NoDnaAndorid
+  - BaseSpeciesNoDna #WL - NoDnaAndorid
   id: MobAndroid
   components:
   - type: Swimmer

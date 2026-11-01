@@ -1,4 +1,4 @@
-using Content.Shared.DeviceNetwork.Systems;
+using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.Medical.SuitSensors;

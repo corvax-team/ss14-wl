@@ -19,10 +19,7 @@
     state: catwalk_preview
   - type: IconSmooth
     key: catwalk
-    states:
-    - !type:CornerSpriteSmoothing
-      mask: [ catwalk ]
-      base: catwalk_
+    base: catwalk_
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCatwalk

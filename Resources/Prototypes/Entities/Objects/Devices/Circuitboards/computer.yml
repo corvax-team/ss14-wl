@@ -356,7 +356,7 @@
     - type: Sprite
       state: cpu_medical
     - type: ComputerBoard
-      prototype: ComputerBodyScanner
+      prototype: computerBodyScanner
 
 - type: entity
   parent: [BaseCorvaxContraband433DepartmentsCommand, BaseComputerCircuitboard, BaseCommandContraband] # Corvax-Contraband

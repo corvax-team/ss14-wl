@@ -1896,7 +1896,7 @@ entities:
           - 246
           showEnts: False
           occludes: True
-- proto: SyndicateIDCardAdaptive
+- proto: SyndicateIDCard
   entities:
   - uid: 324
     components:

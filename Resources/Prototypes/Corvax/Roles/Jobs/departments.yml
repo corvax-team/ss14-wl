@@ -2,7 +2,7 @@
   id: Legal
   name: department-Legal
   description: department-Legal-description
-  color: "#92827b"
+  color: "#0c344d"
   roles:
   - Magistrate
   - IAA

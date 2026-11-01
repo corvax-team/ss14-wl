@@ -3,10 +3,8 @@ using Content.Server.DeviceLinking.Components;
 using Content.Server.Medical.CrewMonitoring;
 using Content.Server.Pinpointer;
 using Content.Shared.CrewManifest;
-using Content.Shared.DeviceLinking.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Medical.SuitSensors;
-using Content.Shared.Pinpointer;
 using Content.Shared.Roles;
 using Content.Shared.SecApartment;
 using Content.Shared.Station.Systems;
@@ -650,7 +648,7 @@ public sealed partial class SecApartmentSystem : EntitySystem
                 if (TryComp<SignalTimerComponent>(timerUid, out var timerComp))
                 {
                     TimeSpan remaining;
-                    var total = timerComp.Delay;
+                    var total = TimeSpan.FromSeconds(timerComp.Delay);
                     if (TryComp<ActiveSignalTimerComponent>(timerUid, out var activeComp))
                     {
                         remaining = activeComp.TriggerTime - _gameTiming.CurTime;

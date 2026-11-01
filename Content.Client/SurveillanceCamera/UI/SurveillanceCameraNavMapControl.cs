@@ -24,9 +24,9 @@ public sealed partial class SurveillanceCameraNavMapControl : NavMapControl
     private readonly Texture _selectedTexture;
     private readonly Texture _invalidTexture;
 
-    private DeviceAddress _activeCameraAddress = DeviceAddress.Invalid;
+    private string _activeCameraAddress = string.Empty;
     private HashSet<ProtoId<DeviceFrequencyPrototype>> _availableSubnets = [];
-    private (Dictionary<NetEntity, CameraMarker> Cameras, DeviceAddress ActiveAddress, HashSet<ProtoId<DeviceFrequencyPrototype>> AvailableSubnets) _lastState;
+    private (Dictionary<NetEntity, CameraMarker> Cameras, string ActiveAddress, HashSet<ProtoId<DeviceFrequencyPrototype>> AvailableSubnets) _lastState;
 
     public bool EnableCameraSelection { get; set; }
 
@@ -49,7 +49,7 @@ public sealed partial class SurveillanceCameraNavMapControl : NavMapControl
         };
     }
 
-    public void SetActiveCameraAddress(DeviceAddress address)
+    public void SetActiveCameraAddress(string address)
     {
         if (_activeCameraAddress == address)
             return;
@@ -99,7 +99,7 @@ public sealed partial class SurveillanceCameraNavMapControl : NavMapControl
             Texture texture;
             Color color;
 
-            if (marker.Address == DeviceAddress.Invalid)
+            if (string.IsNullOrEmpty(marker.Address))
             {
                 color = CameraInvalidColor;
                 texture = _invalidTexture;

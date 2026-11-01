@@ -279,7 +279,7 @@
       - id: ClothingBeltUtility
       - id: ToolboxArtisticFilled
       - id: GeigerCounter
-      - id: TRayScanner
+      - id: trayScanner
       - id: HandheldGPSBasic
       - id: HandLabeler
       - id: GlowstickGreen

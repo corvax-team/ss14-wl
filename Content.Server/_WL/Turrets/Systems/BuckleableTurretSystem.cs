@@ -7,9 +7,8 @@ using Content.Shared._WL.Turrets;
 using Content.Shared._WL.Turrets.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Destructible;
+using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
-using Content.Shared.DeviceLinking.Components;
-using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
@@ -26,7 +25,6 @@ public sealed partial class BuckleableTurretSystem : EntitySystem
     [Dependency] private ActionsSystem _actions = default!;
     [Dependency] private UserInterfaceSystem _ui = default!;
     [Dependency] private DoAfterSystem _doAfter = default!;
-    [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
 
     public override void Initialize()
     {
@@ -231,12 +229,12 @@ public sealed partial class BuckleableTurretSystem : EntitySystem
 
             var transformComp = Transform(ent);
 
-            if (!HasComp<DeviceNetworkComponent>(ent))
+            if (!TryComp<DeviceNetworkComponent>(ent, out var deviceNetworkComp))
                 continue;
 
             dict.Add(GetNetEntity(ent), new(
                 comp.Riding || !transformComp.Anchored,
-                _deviceNetworkSystem.GetAddress(ent),
+                deviceNetworkComp.Address,
                 Prototype(ent)?.ID));
         }
 

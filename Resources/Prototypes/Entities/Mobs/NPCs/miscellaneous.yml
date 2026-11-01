@@ -139,6 +139,10 @@
   - type: HTN
     rootTask:
       task: KillerTomatoCompound
+  - type: NPCImprintingOnSpawnBehaviour
+    whitelist:
+      components:
+      - HumanoidProfile
   - type: Sprite
     sprite: Mobs/Demons/tomatokiller.rsi
     noRot: true

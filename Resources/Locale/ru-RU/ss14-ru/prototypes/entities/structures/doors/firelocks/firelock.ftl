@@ -6,4 +6,3 @@ ent-FirelockGlass = стеклянный пожарный шлюз
     .desc = { ent-Firelock.desc }
 ent-FirelockEdge = пожарный шлюз
     .desc = { ent-Firelock.desc }
-    .suffix = Край

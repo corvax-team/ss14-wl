@@ -1,6 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Audio;
-using Content.Shared.DeviceNetwork.Systems;
+using Content.Server.DeviceNetwork.Systems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Shared.Atmos;

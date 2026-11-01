@@ -1,5 +1,4 @@
 # Hairs
-
 - type: marking
   id: VulpHairAdhara
   bodyPart: Hair
@@ -190,7 +189,6 @@
       state: spike
 
 # Facial Hairs
-
 - type: marking
   id: VulpFacialHairRuff
   bodyPart: FacialHair

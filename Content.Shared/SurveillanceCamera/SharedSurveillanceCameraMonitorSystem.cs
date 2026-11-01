@@ -7,12 +7,11 @@ namespace Content.Shared.SurveillanceCamera;
 // Camera monitor state. If the camera is null, there should be a blank
 // space where the camera is.
 [Serializable, NetSerializable]
-public sealed class SurveillanceCameraMonitorUiState(
-    NetEntity? activeCamera,
+public sealed class SurveillanceCameraMonitorUiState(NetEntity? activeCamera,
     HashSet<ProtoId<DeviceFrequencyPrototype>> subnets,
-    DeviceAddress activeAddress,
+    string activeAddress,
     ProtoId<DeviceFrequencyPrototype>? activeSubnet,
-    Dictionary<DeviceAddress, string> cameras
+    Dictionary<string, string> cameras
 ) : BoundUserInterfaceState
 {
     // The active camera on the monitor. If this is null, the part of the UI
@@ -23,22 +22,22 @@ public sealed class SurveillanceCameraMonitorUiState(
     // cameras to view because that could be really, really large
     public HashSet<ProtoId<DeviceFrequencyPrototype>> Subnets { get; } = subnets;
 
-    public DeviceAddress ActiveAddress = activeAddress;
+    public string ActiveAddress = activeAddress;
 
     // Currently active subnet.
     public ProtoId<DeviceFrequencyPrototype>? ActiveSubnet { get; } = activeSubnet;
 
     // Known cameras, by address and name.
-    public Dictionary<DeviceAddress, string> Cameras { get; } = cameras;
+    public Dictionary<string, string> Cameras { get; } = cameras;
 }
 
 [Serializable, NetSerializable]
 public sealed class SurveillanceCameraMonitorSwitchMessage(
-    DeviceAddress address,
+    string address,
     ProtoId<DeviceFrequencyPrototype>? cameraSubnet
 ) : BoundUserInterfaceMessage
 {
-    public DeviceAddress Address { get; } = address;
+    public string Address { get; } = address;
     public ProtoId<DeviceFrequencyPrototype>? CameraSubnet { get; } = cameraSubnet;
 }
 
@@ -61,7 +60,6 @@ public sealed class SurveillanceCameraRefreshSubnetsMessage : BoundUserInterface
 // Sent when the user wants to disconnect the monitor from the camera.
 [Serializable, NetSerializable]
 public sealed class SurveillanceCameraDisconnectMessage : BoundUserInterfaceMessage;
-
 [Serializable, NetSerializable]
 public enum SurveillanceCameraMonitorUiKey : byte
 {
@@ -97,6 +95,7 @@ public sealed class SurveillanceCameraSetupSetNetwork(int network) : BoundUserIn
 {
     public int Network { get; } = network;
 }
+
 
 [Serializable, NetSerializable]
 public enum SurveillanceCameraSetupUiKey : byte

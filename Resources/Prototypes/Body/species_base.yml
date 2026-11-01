@@ -1,13 +1,5 @@
 - type: entity
   abstract: true
-  parent: BaseSpeciesMobNoCrawl
-  id: BaseSpeciesMob
-  components:
-  - type: Crawler
-  - type: Dna # WL-Changes
-
-- type: entity
-  abstract: true
   parent:
   - BaseMob
   - MobCombat
@@ -16,7 +8,7 @@
   - StripableInventoryBase
   - BaseSpeciesAppearance
   - TTS_speaker # Corvax-TTS
-  id: BaseSpeciesMobNoCrawl
+  id: BaseSpeciesNoDna # WL - NoDnaMobs
   save: false
   components:
   - type: DamageVisuals
@@ -173,6 +165,16 @@
       Translate: Full
   #WL-Changes: Languages end
 
+# WL - NoDnaMobs - start
+- type: entity
+  abstract: true
+  parent: BaseSpeciesNoDna
+  id: BaseSpeciesMob
+  save: false
+  components:
+  - type: Dna
+# WL - NoDnaMobs - end
+
 - type: entity
   abstract: true
   parent:
@@ -180,10 +182,10 @@
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  - BaseSpeciesMobNoCrawl
+  - BaseSpeciesMob
   - BaseMobDestructible
   - BaseHungerThirstSlowdown
-  id: BaseSpeciesMobOrganicNoCrawl
+  id: BaseSpeciesMobOrganic
   save: false
   components:
   - type: Satiation
@@ -249,16 +251,6 @@
     alternateState: human_big_fire # Corvax WL /tg/ resprite
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: StunVisuals
-
-- type: entity
-  abstract: true
-  parent:
-  - BaseSpeciesMobOrganicNoCrawl
-  id: BaseSpeciesMobOrganic
-  save: false
-  components:
-  - type: Crawler
-
   #WLSwiming - start
   - type: Swimmer
     swimSpeedModifier: 1

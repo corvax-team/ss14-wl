@@ -62,10 +62,9 @@
     - !type:Extinguish
   - type: IconSmooth
     key: water
-    states:
-    - !type:CornerSpriteSmoothing
-      mask: [ water, walls ]
-      base: water
+    base: water
+    additionalKeys:
+    - walls
   - type: PlacementReplacement
     key: tileOverlay
 
@@ -80,10 +79,6 @@
     sprite: Tiles/TileEntities/swimming-pool.rsi
   - type: IconSmooth
     key: pool
-    states:
-    - !type:CornerSpriteSmoothing
-      mask: [ pool ]
-      base: water
   - type: Fixtures
     fixtures:
       fix1:

@@ -331,21 +331,14 @@ public abstract partial class SharedAbsorbentSystem : EntitySystem
         }
         else
         {
-            var absorberSolution = absorberSoln.Comp.Solution;
-            var transferAmount = FixedPoint2.Min(absorberSolution.AvailableVolume, absorber.PickupAmount);
-            if (transferAmount <= FixedPoint2.Zero)
-            {
-                _popups.PopupEntity(Loc.GetString("mopping-system-full", ("used", absorbEnt)), absorbEnt, user);
-                return true;
-            }
-
-            puddleSplit = puddleSolution.SplitSolution(transferAmount);
+            // Note: arguably shouldn't this get all solutions?
+            puddleSplit = puddleSolution.SplitSolutionWithout(absorber.PickupAmount, Puddle.GetAbsorbentReagents(puddleSolution));
             // Despawn if we're done
             if (puddleSolution.Volume == FixedPoint2.Zero)
             {
                 // Spawn a *sparkle*
                 PredictedSpawnAttachedTo(absorber.MoppedEffect, Transform(target).Coordinates);
-                QueueDel(target);
+                PredictedQueueDel(target);
                 isRemoved = true;
             }
         }

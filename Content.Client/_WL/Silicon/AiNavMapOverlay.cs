@@ -141,18 +141,18 @@ public partial class AiNavMapOverlay
 
         foreach (var (chunkOrigin, chunk) in _navMap.Chunks)
         {
-            for (var i = 0; i < NavMapSystem.ArraySize; i++)
+            for (var i = 0; i < SharedNavMapSystem.ArraySize; i++)
             {
-                var tileData = chunk.TileData[i] & NavMapSystem.WallMask;
+                var tileData = chunk.TileData[i] & SharedNavMapSystem.WallMask;
                 if (tileData == 0)
                     continue;
 
                 tileData >>= (int)NavMapChunkType.Wall;
 
-                var relativeTile = NavMapSystem.GetTileFromIndex(i);
-                var tile = (chunk.Origin * NavMapSystem.ChunkSize + relativeTile) * _grid.TileSize;
+                var relativeTile = SharedNavMapSystem.GetTileFromIndex(i);
+                var tile = (chunk.Origin * SharedNavMapSystem.ChunkSize + relativeTile) * _grid.TileSize;
 
-                if (tileData != NavMapSystem.AllDirMask)
+                if (tileData != SharedNavMapSystem.AllDirMask)
                 {
                     AddRectForThinWall(tileData, tile);
                     continue;
@@ -163,10 +163,10 @@ public partial class AiNavMapOverlay
 
                 // North edge
                 var neighborData = 0;
-                if (relativeTile.Y != NavMapSystem.ChunkSize - 1)
+                if (relativeTile.Y != SharedNavMapSystem.ChunkSize - 1)
                     neighborData = chunk.TileData[i + 1];
                 else if (_navMap.Chunks.TryGetValue(chunkOrigin + Vector2i.Up, out neighborChunk))
-                    neighborData = neighborChunk.TileData[i + 1 - NavMapSystem.ChunkSize];
+                    neighborData = neighborChunk.TileData[i + 1 - SharedNavMapSystem.ChunkSize];
 
                 if ((neighborData & southMask) == 0)
                 {
@@ -178,12 +178,12 @@ public partial class AiNavMapOverlay
 
                 // East edge
                 neighborData = 0;
-                if (relativeTile.X != NavMapSystem.ChunkSize - 1)
-                    neighborData = chunk.TileData[i + NavMapSystem.ChunkSize];
+                if (relativeTile.X != SharedNavMapSystem.ChunkSize - 1)
+                    neighborData = chunk.TileData[i + SharedNavMapSystem.ChunkSize];
                 else if (_navMap.Chunks.TryGetValue(chunkOrigin + Vector2i.Right, out neighborChunk))
                 {
                     neighborData =
-                        neighborChunk.TileData[i + NavMapSystem.ChunkSize - NavMapSystem.ArraySize];
+                        neighborChunk.TileData[i + SharedNavMapSystem.ChunkSize - SharedNavMapSystem.ArraySize];
                 }
 
                 if ((neighborData & westMask) == 0)
@@ -199,7 +199,7 @@ public partial class AiNavMapOverlay
                 if (relativeTile.Y != 0)
                     neighborData = chunk.TileData[i - 1];
                 else if (_navMap.Chunks.TryGetValue(chunkOrigin + Vector2i.Down, out neighborChunk))
-                    neighborData = neighborChunk.TileData[i - 1 + NavMapSystem.ChunkSize];
+                    neighborData = neighborChunk.TileData[i - 1 + SharedNavMapSystem.ChunkSize];
 
                 if ((neighborData & northMask) == 0)
                 {
@@ -212,11 +212,11 @@ public partial class AiNavMapOverlay
                 // West edge
                 neighborData = 0;
                 if (relativeTile.X != 0)
-                    neighborData = chunk.TileData[i - NavMapSystem.ChunkSize];
+                    neighborData = chunk.TileData[i - SharedNavMapSystem.ChunkSize];
                 else if (_navMap.Chunks.TryGetValue(chunkOrigin + Vector2i.Left, out neighborChunk))
                 {
                     neighborData =
-                        neighborChunk.TileData[i - NavMapSystem.ChunkSize + NavMapSystem.ArraySize];
+                        neighborChunk.TileData[i - SharedNavMapSystem.ChunkSize + SharedNavMapSystem.ArraySize];
                 }
 
                 if ((neighborData & eastMask) == 0)
@@ -265,19 +265,19 @@ public partial class AiNavMapOverlay
 
         foreach (var chunk in _navMap.Chunks.Values)
         {
-            for (var i = 0; i < NavMapSystem.ArraySize; i++)
+            for (var i = 0; i < SharedNavMapSystem.ArraySize; i++)
             {
-                var tileData = chunk.TileData[i] & NavMapSystem.AirlockMask;
+                var tileData = chunk.TileData[i] & SharedNavMapSystem.AirlockMask;
                 if (tileData == 0)
                     continue;
 
                 tileData >>= (int)NavMapChunkType.Airlock;
 
-                var relative = NavMapSystem.GetTileFromIndex(i);
-                var tile = (chunk.Origin * NavMapSystem.ChunkSize + relative) * _grid.TileSize;
+                var relative = SharedNavMapSystem.GetTileFromIndex(i);
+                var tile = (chunk.Origin * SharedNavMapSystem.ChunkSize + relative) * _grid.TileSize;
 
                 // If the edges of an airlock tile are not all occupied, draw a thin airlock for each edge
-                if (tileData != NavMapSystem.AllDirMask)
+                if (tileData != SharedNavMapSystem.AllDirMask)
                 {
                     AddRectForThinAirlock(tileData, tile);
                     continue;
@@ -298,7 +298,7 @@ public partial class AiNavMapOverlay
         var leftTop = new Vector2(-0.5f, 0.5f - ThinWallThickness);
         var rightBottom = new Vector2(0.5f, 0.5f);
 
-        for (var i = 0; i < NavMapSystem.Directions; i++)
+        for (var i = 0; i < SharedNavMapSystem.Directions; i++)
         {
             var dirMask = 1 << i;
             if ((tileData & dirMask) == 0)
@@ -320,7 +320,7 @@ public partial class AiNavMapOverlay
         var centreTop = new Vector2(0f, 0.5f - FullWallInstep - ThinDoorThickness);
         var centreBottom = new Vector2(0f, 0.5f - FullWallInstep);
 
-        for (var i = 0; i < NavMapSystem.Directions; i++)
+        for (var i = 0; i < SharedNavMapSystem.Directions; i++)
         {
             var dirMask = 1 << i;
             if ((tileData & dirMask) == 0)

@@ -115,9 +115,10 @@ namespace Content.Client.Ghost
 
                 for (var i = 0; i < proto.Sprites.Count; i++)
                 {
-                    var markingLayer = proto.Sprites[i];
-                    var rsi = markingLayer.Sprite;
-                    var layerId = markingLayer.GetLayerID(proto.ID);
+                    if (proto.Sprites[i] is not SpriteSpecifier.Rsi rsi)
+                        continue;
+
+                    var layerId = $"{proto.ID}-{rsi.RsiState}";
 
                     if (!_sprite.LayerMapTryGet((ent, sprite), layerId, out _, false))
                     {

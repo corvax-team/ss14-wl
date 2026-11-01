@@ -51,3 +51,12 @@
   # WL-Changes-end
   path:
     path: /Audio/Jukebox/starlight.ogg
+
+- type: jukebox
+  id: sunset
+  # WL-Changes-start
+  author: PigeonBeans
+  name: Sunset
+  # WL-Changes-end
+  path:
+    path: /Audio/Jukebox/sunset.ogg

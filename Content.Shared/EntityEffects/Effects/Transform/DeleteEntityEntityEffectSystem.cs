@@ -21,7 +21,7 @@ public sealed partial class DeleteEntityEntityEffectSystem : EntityEffectSystem<
             }
         }
 
-        QueueDel(entity);
+        PredictedQueueDel(entity);
     }
 }
 

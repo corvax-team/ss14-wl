@@ -505,7 +505,7 @@
           - CableCoil
     - item: Wirecutter
     - item: Crowbar
-    - item: TRayScanner
+    - item: trayScanner
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: wire-module }
 
@@ -1191,12 +1191,11 @@
           - Dinnerware
           - DonkPocket
           - Donut
-          - FoodSnack
-          - FinishedMeal
           - Pie
           - Pizza
           - Soup
-          - Taco
+          - FoodSnack
+          - FinishedMeal
         blacklist:
           tags:
           - Ingredient
@@ -1212,7 +1211,6 @@
           - FitsInDispenser
           tags:
           - Dinnerware
-          - Cookware
     - hand:
         emptyLabel: borg-slot-ingredients-empty
         emptyRepresentative: BorgModuleRawIngredientPlaceholder
@@ -1224,7 +1222,6 @@
           - Meat
           - Packet
           - Raw
-          - Taco
           - Vegetable
           - WrappedCube
           components:
@@ -1233,6 +1230,7 @@
         blacklist:
           tags:
           - ChiliBowl
+          - Cooked
           - Cookware
           - Dinnerware
           - Donut
@@ -1634,7 +1632,7 @@
     - item: PowerDrill
     - item: WelderExperimental
     - item: Multitool
-    - item: TRayScanner
+    - item: trayScanner
     - item: RCDRecharging
     - item: SelfRechargingFireExtinguisher
   - type: BorgModuleIcon

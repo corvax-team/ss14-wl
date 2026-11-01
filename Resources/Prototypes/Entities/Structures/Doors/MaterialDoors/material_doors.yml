@@ -51,7 +51,8 @@
   - type: Occluder
   - type: BlockWeather
   - type: IconSmooth
-    key: doors
+    key: walls
+    mode: NoSprite
   - type: PlacementReplacement
     key: walls
   - type: StructureAligner
@@ -263,3 +264,4 @@
           MaterialCardboard: *BaseDoorSpawn
   - type: IconSmooth
     key: cards
+    mode: NoSprite
