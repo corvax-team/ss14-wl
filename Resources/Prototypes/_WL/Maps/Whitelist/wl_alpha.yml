@@ -16,7 +16,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'MFK'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Corvax/Shuttles/emergency_corvaxdelta.yml # TODO: Отдельный шаттл для Альфы
+          emergencyShuttlePath: /Maps/Corvax/Shuttles/Emergency/emergency_corvaxdelta.yml # TODO: Отдельный шаттл для Альфы
         - type: StationJobs
           availableJobs: # Total jobs on the station: 59
             # command: 3

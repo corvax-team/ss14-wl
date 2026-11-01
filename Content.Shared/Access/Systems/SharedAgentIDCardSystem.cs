@@ -12,15 +12,15 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Access.Systems;
 
 /// <summary>
-/// Handles things related to the agent ID, such as copying access and the UI.
+/// Handles the UI of the agent ID, as well as automatically updating from voice masks, implants, etc.
 /// </summary>
 public abstract partial class SharedAgentIdCardSystem : EntitySystem
 {
-    [Dependency] private LockSystem _lock = default!;
-    [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedIdCardSystem _card = default!;
     [Dependency] private SharedJobSystem _job = default!;
     [Dependency] private SharedJobStatusSystem _jobStatus = default!;
+    [Dependency] private LockSystem _lock = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
 
     /// <summary>
     /// Steals access from interacted ids.
@@ -45,7 +45,6 @@ public abstract partial class SharedAgentIdCardSystem : EntitySystem
             args.User);
         if (addedLength > 0)
             Dirty(ent, access);
-
     }
 
     [SubscribeLocalEvent]
