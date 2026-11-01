@@ -13,3 +13,11 @@
   maxValue: 1000
   scale: !type:LinearMethod
   condition: !type:TemperatureResearchCondition
+
+- type: researchType
+  id: RadiatoType1
+  name: radio type 1
+  minValue: 0
+  maxValue: 1000
+  scale: !type:ConstMethod
+  condition: !type:RadiationedResearchCondition

@@ -1,4 +1,5 @@
 using Content.Shared._WL.Research;
+using Content.Shared._WL.Research.Methods;
 using Content.Shared._WL.Research.Components;
 using Content.Shared._WL.Research.Prototypes;
 using Content.Shared.Research.Components;
@@ -20,6 +21,10 @@ public sealed partial class ResearchSystemNew
         _consoleHost.RegisterCommand("writepoints", Loc.GetString("research-command-write-points"), "writepoints <uid> <protoId> <value>",
             WritePointsCommand,
             WritePointsCompletion);
+
+        _consoleHost.RegisterCommand("checkcondition", Loc.GetString("research-command-check-condition"), "checkcondition <uid> <protoId>",
+            CheckConditionCommand,
+            CheckConditionCompletion);
     }
 
     [AdminCommand(AdminFlags.Fun)]
@@ -68,6 +73,39 @@ public sealed partial class ResearchSystemNew
         {
             case 1: return CompletionResult.FromHintOptions(CompletionHelper.Components<PointsDataStorageComponent>(args[0]), "<uid>");
             case 2: return CompletionResult.FromHintOptions(CompletionHelper.PrototypeIdsLimited<ResearchPointsTypePrototype>(args[1], ProtoMan), "<protoId>");
+            default: return CompletionResult.Empty;
+        }
+    }
+
+    [AdminCommand(AdminFlags.Fun)]
+    private void CheckConditionCommand(IConsoleShell shell, string argstr, string[] args)
+    {
+        if (args.Length != 2)
+        {
+            shell.WriteError("Argument length must be 2");
+            return;
+        }
+
+        if (!NetEntity.TryParse(args[0], out var uidNet) || !TryGetEntity(uidNet, out var uid) || uid is not { } ent)
+            return;
+
+        if (!ProtoMan.TryIndex<ResearchTypePrototype>(args[1], out var typeProto))
+        {
+            shell.WriteError("Research type proto is wrong");
+            return;
+        }
+
+        var (researchValue, points) = _researchConditions.GetCondition(ent, typeProto.Condition);
+
+        shell.WriteLine($"Conditioned. Value: {researchValue}, points: {points.GetTotal()}. Win95");
+    }
+
+    private CompletionResult CheckConditionCompletion(IConsoleShell shell, string[] args)
+    {
+        switch (args.Length)
+        {
+            case 1: return CompletionResult.FromHintOptions(CompletionHelper.Components<ResearchSourceComponent>(args[0]), "<uid>");
+            case 2: return CompletionResult.FromHintOptions(CompletionHelper.PrototypeIdsLimited<ResearchTypePrototype>(args[1], ProtoMan), "<protoId>");
             default: return CompletionResult.Empty;
         }
     }
