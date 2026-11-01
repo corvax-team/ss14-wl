@@ -35,10 +35,9 @@
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
     prefix: device-address-prefix-crew-monitor
-  - type: WirelessNetwork
+  - type: WirelessNetworkConnection
     range: 500
   - type: StationLimitedNetwork
-  - type: StationTracker
   - type: StaticPrice
     price: 500
   - type: Tag

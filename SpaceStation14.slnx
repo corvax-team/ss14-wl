@@ -13,7 +13,7 @@
   <Folder Name="/Build/">
     <File Path="Tools/generate_hashes.ps1" />
   </Folder>
-  <Folder Name="/Corvax/">
+  <Folder Name="/Corvax Interfaces/">
     <Project Path="Corvax/Content.Corvax.Interfaces.Client/Content.Corvax.Interfaces.Client.csproj">
       <BuildType Solution="DebugOpt|*" Project="Debug" />
       <BuildType Solution="Tools|*" Project="Debug" />
@@ -23,10 +23,6 @@
       <BuildType Solution="Tools|*" Project="Debug" />
     </Project>
     <Project Path="Corvax/Content.Corvax.Interfaces.Shared/Content.Corvax.Interfaces.Shared.csproj">
-      <BuildType Solution="DebugOpt|*" Project="Debug" />
-      <BuildType Solution="Tools|*" Project="Debug" />
-    </Project>
-    <Project Path="Corvax/Content.Corvax.Tests/Content.Corvax.Tests.csproj">
       <BuildType Solution="DebugOpt|*" Project="Debug" />
       <BuildType Solution="Tools|*" Project="Debug" />
     </Project>

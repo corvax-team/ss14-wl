@@ -100,7 +100,7 @@ public sealed partial class TriggerSystem
         if (target == null)
             return;
 
-        QueueDel(target);
+        PredictedQueueDel(target);
         args.Handled = true;
     }
 }

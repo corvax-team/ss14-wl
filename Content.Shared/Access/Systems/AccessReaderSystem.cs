@@ -145,12 +145,12 @@ public sealed partial class AccessReaderSystem : EntitySystem
         component.AccessLogLimit = state.AccessLogLimit;
     }
 
-    private void OnLinkAttempt(EntityUid uid, AccessReaderComponent component, ref LinkAttemptEvent args)
+    private void OnLinkAttempt(EntityUid uid, AccessReaderComponent component, LinkAttemptEvent args)
     {
         if (args.User == null) // AutoLink (and presumably future external linkers) have no user.
             return;
         if (!IsAllowed(args.User.Value, uid, component))
-            args.Cancelled = true;
+            args.Cancel();
     }
 
     private void OnEmagged(EntityUid uid, AccessReaderComponent reader, ref GotEmaggedEvent args)

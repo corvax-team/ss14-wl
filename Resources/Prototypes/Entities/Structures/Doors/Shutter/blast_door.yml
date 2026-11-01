@@ -62,7 +62,8 @@
   - type: WeldingSparksAnimation # Goobstation
     startingOffset: 0, 0.5
   - type: IconSmooth
-    key: doors
+    key: walls
+    mode: NoSprite
   - type: PlacementReplacement
     key: blastdoors
 

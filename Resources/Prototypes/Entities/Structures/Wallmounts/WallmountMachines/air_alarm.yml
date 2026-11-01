@@ -14,9 +14,9 @@
     transmitFrequencyId: AtmosMonitor
     prefix: device-address-prefix-air-alarm
     sendBroadcastAttemptEvent: true
-  - type: WiredNetwork
+  - type: WiredNetworkConnection
   # for output status ports
-  - type: WirelessNetwork
+  - type: WirelessNetworkConnection
     range: 200
   - type: DeviceList
   - type: DeviceNetworkRequiresPower

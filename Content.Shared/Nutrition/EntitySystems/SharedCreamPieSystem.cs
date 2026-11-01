@@ -82,7 +82,7 @@ public abstract partial class SharedCreamPieSystem : EntitySystem
         }
 
         ActivatePayload(creamPie);
-        QueueDel(creamPie);
+        PredictedQueueDel(creamPie);
     }
 
     /// <summary>

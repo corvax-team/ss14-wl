@@ -53,6 +53,7 @@ public sealed partial class SensorMonitoringConsoleSystem
             {
                 streams.Clear();
                 var name = MetaData(ent).EntityName;
+                var address = Comp<DeviceNetworkComponent>(ent).Address;
 
                 foreach (var (streamName, stream) in data.Streams)
                 {
@@ -69,7 +70,7 @@ public sealed partial class SensorMonitoringConsoleSystem
                 {
                     NetId = data.NetId,
                     Name = name,
-                    Address = Comp<DeviceNetworkComponent>(ent),
+                    Address = address,
                     DeviceType = data.DeviceType,
                     Streams = streams.ToArray()
                 });

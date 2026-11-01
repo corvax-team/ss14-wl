@@ -31,10 +31,7 @@
             min: 1
             max: 2
   - type: IconSmooth
-    states:
-    - !type:CornerSpriteSmoothing
-      mask: [ walls, windows, grilles, marble, doors ]
-      base: swindow
+    base: swindow
   - type: Construction
     graph: Window
     node: shuttleWindow
@@ -60,15 +57,15 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/window-diagonal-shuttle.rsi
+    state: state0
   - type: Tag
     tags:
     - Diagonal
     - Window
   - type: IconSmooth
-    states:
-    - !type:DiagonalSpriteSmoothing
-      mask: [ walls, windows, grilles, marble, doors ]
-      base: state
+    mode: Diagonal
+    key: walls
+    base: state
   - type: Icon
     sprite: Structures/Windows/window-diagonal-shuttle.rsi
     state: state0

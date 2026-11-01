@@ -1,5 +1,6 @@
 - type: microwaveMealRecipe
   id: RecipeChickenTabaka
+  name: microwave-meal-recipe-chicken-tabaka-name
   group: Meat
   result: FoodChickenTabaka
   time: 30
@@ -10,6 +11,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeCutletCischi
+  name: microwave-meal-recipe-cutlet-cischi-name
   group: Meat
   result: FoodCutletCischi
   time: 15
@@ -22,6 +24,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeOnionSliceCischi
+  name: microwave-meal-recipe-onion-slice-cischi-name
   result: FoodOnionSliceCischi
   time: 15
   group: Other
@@ -34,6 +37,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeFoodPemmican
+  name: microwave-meal-recipe-food-pemmican-name
   result: FoodPemmican
   time: 30
   group: Other
@@ -43,6 +47,7 @@
 
 #- type: microwaveMealRecipe
 #  id: RecipeEchpochmak
+#  name: echpochmak recipe
 #  result: FoodEchpochmak
 #  time: 5
 #  solids:

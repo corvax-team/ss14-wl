@@ -21,10 +21,16 @@
             "name": "cddrive"
         },
         {
+            "name": "cell"
+        },
+        {
             "name": "charger_APC"
         },
         {
             "name": "command"
+        },
+        {
+            "name": "cpu"
         },
         {
             "name": "cpu_command"
@@ -67,6 +73,21 @@
         },
         {
             "name": "cpuboard"
+        },
+        {
+            "name": "cyborg_upgrade1"
+        },
+        {
+            "name": "cyborg_upgrade2"
+        },
+        {
+            "name": "cyborg_upgrade3"
+        },
+        {
+            "name": "cyborg_upgrade4"
+        },
+        {
+            "name": "cyborg_upgrade5"
         },
         {
             "name": "datadisk_base"
@@ -154,6 +175,12 @@
             "name": "power_mod"
         },
         {
+            "name": "printer"
+        },
+        {
+            "name": "radio"
+        },
+        {
             "name": "science"
         },
         {
@@ -161,6 +188,9 @@
         },
         {
             "name": "service"
+        },
+        {
+            "name": "ssd"
         },
         {
             "name": "std_mod"

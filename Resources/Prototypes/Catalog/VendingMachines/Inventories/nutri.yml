@@ -6,7 +6,6 @@
     HydroponicsToolClippers: 4
     HydroponicsToolScythe: 4
     HydroponicsToolHatchet: 4
-    PlantAnalyzer: 4
     Dropper: 4
     PlantBag: 3
     PlantBGoneSpray: 20
@@ -21,6 +20,8 @@
     BoxAgrichem: 1
     MortarAndPestle: 1
     HandheldJuicer: 1
+    #TO DO:
+    #plant analyzer
   contrabandInventory:
     ChemistryBottleUnstableMutagen: 1
     Joint: 1

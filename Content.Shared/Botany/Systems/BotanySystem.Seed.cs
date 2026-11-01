@@ -121,7 +121,7 @@ public sealed partial class BotanySystem : EntitySystem
         if (snapshot == null)
             return;
 
-        QueueDel(snapshot.Value);
+        PredictedQueueDel(snapshot.Value);
     }
 
     /// <summary>

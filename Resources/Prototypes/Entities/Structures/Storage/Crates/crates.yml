@@ -298,8 +298,6 @@
     sprite: Structures/Storage/Crates/weapon.rsi
   - type: Sprite
     sprite: Structures/Storage/Crates/weapon.rsi
-  - type: Damageable
-    damageModifierSet: PlasteelStaticMod
   - type: AccessReader
     access: [["Armory"]]
 

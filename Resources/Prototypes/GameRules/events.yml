@@ -23,7 +23,6 @@
     - id: SnakeSpawnHorde
     - id: SpiderClownSpawnHorde
     - id: SpiderSpawnHorde
-    - id: VendorMalfunction
     - id: VentClog
 
 - type: entityTable
@@ -85,16 +84,6 @@
     delay:
       min:  20 # Corvax-MRP # 10
       max:  30 # Corvax-MRP # 20
-
-- type: entity
-  abstract: true
-  parent: BaseGameRule
-  id: BaseStationEventVeryShortDelay
-  components:
-  - type: GameRule
-    delay:
-      min:  5
-      max:  10
 
 - type: entity
   id: BaseStationEventShortDelay
@@ -166,8 +155,8 @@
     cost: 10
 
 - type: entity
-  parent: BaseGameRule
   id: BreakerFlip
+  parent: BaseGameRule
   components:
   - type: StationEvent
     startAudio: # Corvax-Announcements
@@ -180,8 +169,8 @@
     cost: 10
 
 - type: entity
-  parent: BaseGameRule
   id: BureaucraticError
+  parent: BaseGameRule
   components:
   - type: StationEvent
     startAnnouncement: station-event-bureaucratic-error-announcement
@@ -462,20 +451,6 @@
     doorToggleChancePerSecond: 0.001
   - type: DynamicRuleCost
     cost: 10
-
-- type: entity
-  parent: BaseStationEventVeryShortDelay
-  id: VendorMalfunction
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-vendor-malfunction-announcement
-    startAudio:
-      path: /Audio/Announcements/announce.ogg
-    weight: 5
-    duration: 1
-  - type: VendorMalfunctionRule
-  - type: DynamicRuleCost
-    cost: 5
 
 - type: entity
   id: VentClog

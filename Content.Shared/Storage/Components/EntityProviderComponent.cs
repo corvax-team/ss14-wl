@@ -25,18 +25,10 @@ public sealed partial class EntityProviderComponent : Component
     public Dictionary<EntProtoId, int> EntityCounter = [];
 
     /// <summary>
-    /// The entity prototype id that will be ejected on usage in hand if <see cref="CanEject"/> is true.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntProtoId? SelectedEntityProtoId;
-
-    /// <summary>
     /// The whitelist that entities have to pass in order to be inserted.
-    /// If this is null, the container won't accept any entity to be inserted.
-    /// You should never add an empty whitelist.
     /// </summary>
-    [DataField]
-    public EntityWhitelist? Whitelist;
+    [DataField(required: true)]
+    public EntityWhitelist Whitelist;
 
     /// <summary>
     /// Whether this provider can transfer its storage to other providers.
@@ -51,23 +43,10 @@ public sealed partial class EntityProviderComponent : Component
     public bool CanReceive = true;
 
     /// <summary>
-    /// Whether this provider can eject entities when manually interacted with.
-    /// </summary>
-    [DataField]
-    public bool CanEject = true;
-
-    /// <summary>
     /// Whether this provider should be deleted after being emptied.
     /// </summary>
     [DataField]
     public bool DeleteIfEmpty;
-
-    /// <summary>
-    /// If not null, providers won't accept more items in total than this count.
-    /// This is a total sum, not individual per entity type.
-    /// </summary>
-    [DataField]
-    public int? MaxEntityCount;
 
     /// <summary>
     /// The sound played whenever the provider is being refilled by a storage or another provider.

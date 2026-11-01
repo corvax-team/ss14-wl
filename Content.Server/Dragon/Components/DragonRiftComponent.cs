@@ -1,5 +1,5 @@
 using Content.Shared.Dragon;
-using Content.Shared.EntityTable.EntitySelectors;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Dragon;
 
@@ -37,9 +37,14 @@ public sealed partial class DragonRiftComponent : SharedDragonRiftComponent
     [DataField]
     public float SpawnCooldown = 30f;
 
-    /// <summary>
-    /// The table of entities to consider for spawning. One will be picked every spawn.
-    /// </summary>
-    [DataField(required: true)]
-    public EntityTableSelector Spawn;
+    [DataField("spawn")]
+    public EntProtoId SpawnPrototype = "MobCarpDragon";
+
+    //WL-Changes-Start
+    [ViewVariables(VVAccess.ReadWrite), DataField("spawnSharkChance")]
+    public float SharkSpawnChance = 0.1f;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("spawnShark")]
+    public EntProtoId SharkSpawnPrototype = "MobSharkDragon";
+    //WL-Changes-End
 }

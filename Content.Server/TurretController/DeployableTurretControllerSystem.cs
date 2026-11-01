@@ -1,7 +1,8 @@
-using Content.Shared.DeviceNetwork.Systems;
+using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.Access;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
+using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.TurretController;
 using Content.Shared.Turrets;
 using Robust.Server.GameObjects;
@@ -9,10 +10,6 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared.DeviceConfigurator;
-using Content.Shared.DeviceConfigurator.Systems;
-using Content.Shared.DeviceLinking;
-using Content.Shared.DeviceNetwork;
 
 namespace Content.Server.TurretController;
 
@@ -24,8 +21,6 @@ public sealed partial class DeployableTurretControllerSystem : SharedDeployableT
     [Dependency] private DeviceListSystem _deviceList = default!;
     [Dependency] private IAdminLogManager _adminLogger = default!;
 
-    private readonly List<OptionDeviceAddress> _deviceCache = new();
-
     [SubscribeLocalEvent]
     private void OnBUIOpened(Entity<DeployableTurretControllerComponent> ent, ref BoundUIOpenedEvent args)
     {
@@ -33,12 +28,9 @@ public sealed partial class DeployableTurretControllerSystem : SharedDeployableT
             return;
 
         var payload = new TurretControllerRequestPayload();
-        _deviceCache.Clear();
-        _deviceList.GetDeviceList(ent.Owner, _deviceCache);
-        foreach (var option in _deviceCache)
+        foreach (var (address, _) in _deviceList.GetDeviceList(ent.Owner))
         {
-            if (option.TryGetAddress(out var address))
-                _deviceNetwork.SendPacket((ent.Owner, deviceNetwork), address, ref payload);
+            _deviceNetwork.SendPacket((ent.Owner, deviceNetwork), address, ref payload);
         }
 
         UpdateUIState(ent);
@@ -76,7 +68,7 @@ public sealed partial class DeployableTurretControllerSystem : SharedDeployableT
             if (!TryComp<DeviceNetworkComponent>(turretUid, out var turretDeviceNetwork))
                 continue;
 
-            if (ent.Comp.LinkedTurrets.Remove((turretDeviceNetwork.Address, turretDeviceNetwork.Prefix)))
+            if (ent.Comp.LinkedTurrets.Remove(turretDeviceNetwork.Address))
                 refreshUi = true;
         }
 
@@ -87,8 +79,12 @@ public sealed partial class DeployableTurretControllerSystem : SharedDeployableT
     [SubscribeLocalEvent]
     private void OnPacketReceived(Entity<DeployableTurretControllerComponent> ent, ref DeviceNetworkPacketEvent<TurretStatePayload> args)
     {
+        if (!TryComp<DeviceNetworkComponent>(ent, out var deviceNetwork) || deviceNetwork.ReceiveFrequency != args.Frequency)
+            return;
+
         // If an update was received from a turret, connect to it and update the UI
-        ent.Comp.LinkedTurrets[args.Sender.Comp.LocAddress] = args.Data.State;
+
+        ent.Comp.LinkedTurrets[args.SenderAddress] = args.Data.State;
         UpdateUIState(ent);
     }
 
@@ -139,7 +135,7 @@ public sealed partial class DeployableTurretControllerSystem : SharedDeployableT
 
     private void UpdateUIState(Entity<DeployableTurretControllerComponent> ent)
     {
-        var turretStates = new Dictionary<LocDeviceAddress, string>();
+        var turretStates = new Dictionary<string, string>();
 
         foreach (var (address, state) in ent.Comp.LinkedTurrets)
         {

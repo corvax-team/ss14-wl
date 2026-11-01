@@ -70,7 +70,7 @@ public sealed class DirectionalBodyLayersTest(string playerPrototype) : Interact
     }
 
     [Test]
-    public async Task FrameOrderFollowsRotationAndCameraWithoutSimulationTicks()
+    public async Task FrameOrderFollowsRenderedRotationAndCameraWithoutSimulationTicks()
     {
         await Client.WaitAssertion(() =>
         {
@@ -79,21 +79,21 @@ public sealed class DirectionalBodyLayersTest(string playerPrototype) : Interact
             var transform = CEntMan.System<TransformSystem>();
             var eye = Client.Resolve<IEyeManager>().CurrentEye;
             var originalRotation = eye.Rotation;
-            var originalBodyRotation = transform.GetWorldRotation(CPlayer);
             try
             {
-                transform.SetWorldRotationNoLerp(CPlayer, Angle.Zero);
+                transform.SetWorldRotation(CPlayer, Angle.FromDegrees(90));
+                transform.SetRenderRotationOverride(CPlayer, Angle.Zero);
                 eye.Rotation = Angle.Zero;
                 AssertOrder(false);
                 eye.Rotation = Angle.FromDegrees(90);
                 AssertOrder(true);
                 eye.Rotation = Angle.Zero;
-                transform.SetWorldRotationNoLerp(CPlayer, Angle.FromDegrees(90));
+                transform.SetRenderRotationOverride(CPlayer, Angle.FromDegrees(90));
                 AssertOrder(true);
             }
             finally
             {
-                transform.SetWorldRotationNoLerp(CPlayer, originalBodyRotation);
+                transform.ClearRenderRotationOverride(CPlayer);
                 eye.Rotation = originalRotation;
             }
 

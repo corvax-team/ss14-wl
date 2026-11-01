@@ -788,7 +788,6 @@
   categories: [HideSpawnMenu]
   name: tomato killer plant
   components:
-  - type: NPCImprinted
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tomatokiller.rsi
   - type: PlantData

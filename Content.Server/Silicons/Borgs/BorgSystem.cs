@@ -1,5 +1,5 @@
 using Content.Server.Administration.Managers;
-using Content.Shared.DeviceNetwork.Systems;
+using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emag.Systems;

@@ -3961,7 +3961,6 @@
   maxLimit: 1
   loadouts:
   - TramDriverJumpsuit
-  - TramDriverJumpskirt
 
 - type: loadoutGroup
   id: TramDriverOuterClothing

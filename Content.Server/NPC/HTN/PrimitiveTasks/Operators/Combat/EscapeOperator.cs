@@ -1,4 +1,4 @@
-﻿using System.Threading;
+using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.NPC.Components;
 using Content.Server.Storage.EntitySystems;
@@ -11,12 +11,18 @@ namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Combat;
 public sealed partial class EscapeOperator : HTNOperator, IHtnConditionalShutdown
 {
     [Dependency] private IEntityManager _entManager = default!;
-    [Dependency] private ContainerSystem _container = default!;
-    [Dependency] private EntityStorageSystem _entityStorage = default!;
-    [Dependency] private SharedCombatModeSystem _combatModeSystem = default!;
+    private ContainerSystem _container = default!;
+    private EntityStorageSystem _entityStorage = default!;
 
     [DataField("shutdownState")]
     public HTNPlanState ShutdownState { get; private set; } = HTNPlanState.TaskFinished;
+
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        base.Initialize(sysManager);
+        _container = sysManager.GetEntitySystem<ContainerSystem>();
+        _entityStorage = sysManager.GetEntitySystem<EntityStorageSystem>();
+    }
 
     public override void Startup(NPCBlackboard blackboard)
     {
@@ -24,7 +30,9 @@ public sealed partial class EscapeOperator : HTNOperator, IHtnConditionalShutdow
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         if (!_container.TryGetContainingContainer(owner, out var container))
+        {
             return;
+        }
 
         var melee = _entManager.EnsureComponent<NPCMeleeCombatComponent>(owner);
         melee.MissChance = blackboard.GetValueOrDefault<float>(NPCBlackboard.MeleeMissChance, _entManager);
@@ -54,7 +62,7 @@ public sealed partial class EscapeOperator : HTNOperator, IHtnConditionalShutdow
     public void ConditionalShutdown(NPCBlackboard blackboard)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        _combatModeSystem.SetInCombatMode(owner, false);
+        _entManager.System<SharedCombatModeSystem>().SetInCombatMode(owner, false);
         _entManager.RemoveComponent<NPCMeleeCombatComponent>(owner);
     }
 

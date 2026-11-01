@@ -180,8 +180,11 @@
           - id: ClothingMaskMime
           - id: ClothingBeltSuspendersRed
           - id: ClothingBeltSuspendersBlack
-        - !type:NestedSelector
-          tableId: RandomVirtualSingerOutfitTable
+        - !type:AllSelector # Performer starter kit
+          children:
+          - id: ClothingUniformJumpskirtPerformer
+          - id: ClothingShoesBootsPerformer
+          - id: ClothingHeadPerformerWig
 
 - type: entity
   parent: CrateGenericSteel

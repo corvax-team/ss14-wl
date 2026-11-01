@@ -5,6 +5,7 @@ using Content.Client.UserInterface.Controls;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Client.Corvax.Ipc;
 
@@ -55,9 +56,10 @@ public sealed partial class IpcFaceMenu : FancyWindow
             if (!_prototype.TryIndex(face, out MarkingPrototype? marking) || marking.Sprites.Count == 0)
                 continue;
 
-            var layer = marking.Sprites[0];
+            if (marking.Sprites[0] is not SpriteSpecifier.Rsi rsi)
+                continue;
 
-            var texture = _sprite.Frame0(layer.Sprite);
+            var texture = _sprite.Frame0(rsi);
             var item = _list.AddItem(Loc.GetString($"marking-{marking.ID}"), texture);
             item.Metadata = marking.ID;
 

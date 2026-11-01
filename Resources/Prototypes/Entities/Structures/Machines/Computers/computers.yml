@@ -471,7 +471,7 @@
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
     prefix: device-address-prefix-crew-monitor
-  - type: WirelessNetwork
+  - type: WirelessNetworkConnection
     range: 1200
   - type: AmbientMusicMarkerMedical
 
@@ -696,8 +696,6 @@
       whitelist:
         components:
         - IdCard
-        - Access
-        requireAll: true
     targetIdSlot:
       name: id-card-console-target-id
       ejectSound: /Audio/Machines/id_swipe.ogg
@@ -707,8 +705,6 @@
       whitelist:
         components:
         - IdCard
-        - Access
-        requireAll: true
   - type: ActivatableUI
     key: enum.IdCardConsoleUiKey.Key
   - type: UserInterface
@@ -749,7 +745,7 @@
 
 - type: entity
   parent: BaseComputerAiAccess
-  id: ComputerBodyScanner
+  id: computerBodyScanner
   name: body scanner computer
   description: A body scanner.
   components:
@@ -1015,7 +1011,7 @@
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
-  - type: WirelessNetwork
+  - type: WirelessNetworkConnection
     range: 200
   - type: DeviceLinkSource
     range: 200
@@ -1430,7 +1426,7 @@
     receiveFrequencyId: SurveillanceCamera
     transmitFrequencyId: SurveillanceCamera
     prefix: device-address-prefix-camera-monitor
-  - type: WiredNetwork
+  - type: WiredNetworkConnection
   - type: DeviceNetworkRequiresPower
   - type: SurveillanceCameraMonitor
   - type: ActivatableUI
@@ -1470,7 +1466,7 @@
     receiveFrequencyId: SurveillanceCamera
     transmitFrequencyId: SurveillanceCamera
     prefix: device-address-prefix-camera-monitor
-  - type: WirelessNetwork
+  - type: WirelessNetworkConnection
     range: 200
   - type: DeviceNetworkRequiresPower
   - type: Speech
@@ -1500,7 +1496,7 @@
     deviceNetId: Wireless
     receiveFrequencyId: Mothership
     transmitFrequencyId: Mothership
-  - type: WirelessNetwork
+  - type: WirelessNetworkConnection
     range: 2000
 
 - type: entity
@@ -1623,7 +1619,7 @@
       prefix: device-address-prefix-sensor-monitor
       sendBroadcastAttemptEvent: true
       examinableAddress: true
-    - type: WiredNetwork
+    - type: WiredNetworkConnection
     - type: DeviceList
     - type: AtmosDevice
 

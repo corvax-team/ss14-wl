@@ -154,13 +154,6 @@ namespace Content.Client.Construction.UI
                 PopulateRecipes?.Invoke(this, (SearchBar.Text, Categories[OptionCategories.SelectedId]));
         }
 
-        protected override void Opened()
-        {
-            base.Opened();
-
-            SearchBar.GrabKeyboardFocus();
-        }
-
         public event EventHandler? ClearAllGhosts;
         public event EventHandler<(string search, string catagory)>? PopulateRecipes;
         public event EventHandler<ConstructionMenuListData?>? RecipeSelected;
@@ -212,7 +205,6 @@ namespace Content.Client.Construction.UI
         {
             OptionCategories.SelectId(categoryId);
             SearchBar.SetText(string.Empty);
-            SearchBar.GrabKeyboardFocus();
             PopulateRecipes?.Invoke(this, (SearchBar.Text, Categories[categoryId]));
         }
 

@@ -16,7 +16,7 @@
     #WL-Changes: включение/выключение End
     - type: InteractionOutline
     - type: Eye
-    - type: WirelessNetwork
+    - type: WirelessNetworkConnection
       range: 200
     - type: Damageable
       damageModifierSet: GlassMod

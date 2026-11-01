@@ -74,7 +74,7 @@
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
-  - type: WirelessNetwork
+  - type: WirelessNetworkConnection
     range: 200
   - type: DeviceLinkSink
     ports:
@@ -99,7 +99,8 @@
   - type: PlacementReplacement
     key: shutters
   - type: IconSmooth
-    key: doors
+    key: walls
+    mode: NoSprite
   - type: StructureAligner
   - type: StructureAlignerPylon
 

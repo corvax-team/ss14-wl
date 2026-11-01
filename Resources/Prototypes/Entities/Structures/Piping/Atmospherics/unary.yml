@@ -286,7 +286,7 @@
       transmitFrequencyId: AtmosMonitor
       sendBroadcastAttemptEvent: true
       examinableAddress: true
-    - type: WiredNetwork
+    - type: WiredNetworkConnection
     - type: PowerSwitch
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: Thermoregulator

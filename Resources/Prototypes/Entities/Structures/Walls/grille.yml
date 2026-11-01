@@ -36,12 +36,9 @@
   - type: PlacementReplacement
     key: grilles
   - type: IconSmooth
-    key: grilles
-    states:
-    - !type:CornerSpriteSmoothing
-      mask: [ walls, grilles, doors, marble ]
-      base: grille
-      index: 0
+    index: 0
+    key: walls
+    base: grille
   - type: Electrified
     requirePower: true
     noWindowInTile: true
@@ -79,7 +76,6 @@
           True: { visible: True }
           False: { visible: False }
   - type: AnimationPlayer
-  - type: TrayScanReveal
   - type: Damageable
     damageModifierSet: RodMetalMod
   - type: Destructible
@@ -111,6 +107,7 @@
   - type: Sprite
     sprite: Structures/Walls/grille-diagonal.rsi
     layers:
+    - state: state0
     - state: electrified_diagonal
       sprite: Effects/electricity.rsi
       map: ["enum.ElectrifiedLayers.Sparks"]
@@ -120,12 +117,10 @@
     sprite: Structures/Walls/grille-diagonal.rsi
     state: state0
   - type: IconSmooth
+    index: 0
+    mode: Diagonal
     key: grilles
-    states:
-    - !type:DiagonalSpriteSmoothing
-      mask: [ walls, windows, grilles, marble, doors ]
-      base: state
-      index: 0
+    base: state
   - type: Fixtures
     fixtures:
       fix1:

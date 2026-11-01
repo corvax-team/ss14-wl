@@ -27,7 +27,6 @@ namespace Content.Server.RatKing
         [Dependency] private HTNSystem _htn = default!;
         [Dependency] private SatiationSystem _satiation = default!;
         [Dependency] private NPCSystem _npc = default!;
-        [Dependency] private NPCPointCommandSystem _pointCommands = default!;
         [Dependency] private PopupSystem _popup = default!;
 
         public override void Initialize()
@@ -99,7 +98,10 @@ namespace Content.Server.RatKing
             if (component.CurrentOrder != RatKingOrderType.CheeseEm)
                 return;
 
-            _pointCommands.CommandFollowers(component.Servants, args.Pointed);
+            foreach (var servant in component.Servants)
+            {
+                _npc.SetBlackboard(servant, NPCBlackboard.CurrentOrderedTarget, args.Pointed);
+            }
         }
 
         public override void UpdateServantNpc(EntityUid uid, RatKingOrderType orderType)

@@ -37,6 +37,9 @@
             "directions": 4
         },
         {
+            "name": "pamphlet"
+        },
+        {
             "name": "paper"
         },
         {

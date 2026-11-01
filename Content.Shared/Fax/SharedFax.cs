@@ -1,4 +1,3 @@
-using Content.Shared.DeviceNetwork;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Fax;
@@ -13,8 +12,8 @@ public enum FaxUiKey : byte
 public sealed class FaxUiState : BoundUserInterfaceState
 {
     public string DeviceName { get; }
-    public Dictionary<DeviceAddress, string> AvailablePeers { get; }
-    public DeviceAddress? DestinationAddress { get; }
+    public Dictionary<string, string> AvailablePeers { get; }
+    public string? DestinationAddress { get; }
     public bool IsPaperInserted { get; }
     public bool CanSend { get; }
     public bool CanCopy { get; }
@@ -26,11 +25,11 @@ public sealed class FaxUiState : BoundUserInterfaceState
     // WL-Changes-end
 
     public FaxUiState(string deviceName,
-        Dictionary<DeviceAddress, string> peers,
+        Dictionary<string, string> peers,
         bool canSend,
         bool canCopy,
         bool isPaperInserted,
-        DeviceAddress? destAddress,
+        string? destAddress,
         /*WL-Changes-start*/
         bool isStorageOpen,
         bool isNotifyEnable,
@@ -91,8 +90,8 @@ public sealed class FaxRefreshMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public sealed class FaxDestinationMessage : BoundUserInterfaceMessage
 {
-    public DeviceAddress Address { get; }
-    public FaxDestinationMessage(DeviceAddress address)
+    public string Address { get; }
+    public FaxDestinationMessage(string address)
     {
         Address = address;
     }
