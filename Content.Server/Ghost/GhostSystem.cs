@@ -695,7 +695,7 @@ namespace Content.Server.Ghost
                 new HashSet<HumanoidVisualLayers> { HumanoidVisualLayers.Hair, HumanoidVisualLayers.FacialHair },
                 out _,
                 out _,
-                out var applied))
+                out var applied, useDisguise: true)) // WL-changes
                 return;
 
             if (applied == null)

@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._WL.Implants; // WL-changes
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
 using Content.Shared.Clothing;
@@ -56,6 +57,20 @@ public sealed partial class ClientClothingSystem : ClothingSystem
     [Dependency] private EntityQuery<InventorySlotsComponent> _inventorySlotsQuery;
     [Dependency] private EntityQuery<SpriteComponent> _spriteQuery;
 
+    // WL-changes-Start
+    private ImitatorImageComponent? GetImitatorImage(EntityUid uid)
+    {
+        return TryComp<ImitatorDisguiseComponent>(uid, out var disguise) &&
+               TryComp<ImitatorImageComponent>(disguise.Image, out var image) ? image : null;
+    }
+
+    public void RefreshImitatorClothing(EntityUid uid)
+    {
+        if (TryComp<InventoryComponent>(uid, out var inventory))
+            UpdateAllSlots((uid, inventory));
+    }
+    // WL-changes-End
+
     #region Entity Handlers
     [SubscribeLocalEvent]
     private void OnAppearanceUpdate(Entity<InventoryComponent> ent, ref AppearanceChangeEvent args)
@@ -98,15 +113,19 @@ public sealed partial class ClientClothingSystem : ClothingSystem
 
         List<PrototypeLayerData>? layers = null;
 
+        // WL-changes-Start
+        var image = GetImitatorImage(args.Equipee);
+        var speciesId = image != null ? image.ClothingSpecies : inventory.SpeciesId;
+        // WL-changes-End
         // first attempt to get species specific data.
-        if (inventory.SpeciesId != null)
-            ent.Comp.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
+        if (speciesId != null) // WL-changes
+            ent.Comp.ClothingVisuals.TryGetValue($"{args.Slot}-{speciesId}", out layers); // WL-changes
 
         // if that returned nothing, attempt to find generic data
         if (layers == null && !ent.Comp.ClothingVisuals.TryGetValue(args.Slot, out layers))
         {
             // No generic data either. Attempt to generate defaults from the item's RSI & item-prefixes
-            if (!TryGetDefaultVisuals(ent, args.Slot, inventory.SpeciesId, out layers))
+            if (!TryGetDefaultVisuals(ent, args.Slot, speciesId, out layers)) // WL-changes
                 return;
         }
 
@@ -324,8 +343,12 @@ public sealed partial class ClientClothingSystem : ClothingSystem
             return;
         }
 
-        if (!string.IsNullOrEmpty(inventory.SpeciesId))
-            SetSpeciesSpecificLayers((equipment, clothingComponent, clothingSprite), inventory.SpeciesId, ev.Layers);
+        // WL-changes-Start
+        var image = GetImitatorImage(equipee);
+        var speciesId = image != null ? image.ClothingSpecies : inventory.SpeciesId;
+        if (!string.IsNullOrEmpty(speciesId))
+            SetSpeciesSpecificLayers((equipment, clothingComponent, clothingSprite), speciesId, ev.Layers);
+        // WL-changes-End
 
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
@@ -371,20 +394,27 @@ public sealed partial class ClientClothingSystem : ClothingSystem
         // WL-Changes-End
 
         // Select displacement maps
-        var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
+        var displacementData = (image?.Displacements ?? inventory.Displacements).GetValueOrDefault(slot); // WL-changes
 
         var equipeeSex = CompOrNull<HumanoidProfileComponent>(equipee)?.Sex;
+        // WL-changes-Start
+        if (TryComp<ImitatorDisguiseComponent>(equipee, out var disguise) &&
+            TryComp<HumanoidProfileComponent>(disguise.Image, out var profile))
+            equipeeSex = profile.Sex;
+        var maleDisplacements = image?.MaleDisplacements ?? inventory.MaleDisplacements;
+        var femaleDisplacements = image?.FemaleDisplacements ?? inventory.FemaleDisplacements;
+        // WL-changes-End
         if (equipeeSex != null)
         {
             switch (equipeeSex)
             {
                 case Sex.Male:
-                    if (inventory.MaleDisplacements.Count > 0)
-                        displacementData = inventory.MaleDisplacements.GetValueOrDefault(slot);
+                    if (maleDisplacements.Count > 0) // WL-changes
+                        displacementData = maleDisplacements.GetValueOrDefault(slot); // WL-changes
                     break;
                 case Sex.Female:
-                    if (inventory.FemaleDisplacements.Count > 0)
-                        displacementData = inventory.FemaleDisplacements.GetValueOrDefault(slot);
+                    if (femaleDisplacements.Count > 0) // WL-changes
+                        displacementData = femaleDisplacements.GetValueOrDefault(slot); // WL-changes
                     break;
             }
         }
@@ -436,7 +466,7 @@ public sealed partial class ClientClothingSystem : ClothingSystem
             if (displacementData is not null)
             {
                 //Checking that the state is not tied to the current race. In this case we don't need to use the displacement maps.
-                if (layerData.State is not null && inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId))
+                if (layerData.State is not null && speciesId is not null && layerData.State.EndsWith(speciesId)) // WL-changes
                     continue;
 
                 if (_displacement.TryAddDisplacement(displacementData, (equipee, sprite), index, key, out var displacementKey))

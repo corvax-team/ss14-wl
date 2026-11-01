@@ -131,7 +131,7 @@ public sealed partial class MagicMirrorSystem : EntitySystem
             }
         }
 
-        _visualBody.ApplyMarkings(args.Target.Value, args.Markings);
+        _visualBody.ApplyMarkings(args.Target.Value, args.Markings, useDisguise: true); // WL-changes
     }
 
     private void OnUiClosed(Entity<MagicMirrorComponent> ent, ref BoundUIClosedEvent args)
@@ -183,7 +183,7 @@ public sealed partial class MagicMirrorSystem : EntitySystem
 
     private void UpdateInterface(Entity<MagicMirrorComponent> ent, EntityUid target)
     {
-        if (!_visualBody.TryGatherMarkingsData(target, ent.Comp.Layers, out var profiles, out var markings, out var applied))
+        if (!_visualBody.TryGatherMarkingsData(target, ent.Comp.Layers, out var profiles, out var markings, out var applied, useDisguise: true)) // WL-changes
             return;
 
         ent.Comp.Target = target;

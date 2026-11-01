@@ -97,7 +97,7 @@ public sealed partial class WaggingSystem : EntitySystem
                 [ent.Comp.Layer],
                 out _,
                 out _,
-                out var applied))
+                out var applied, useDisguise: true)) // WL-changes
         {
             return false;
         }
@@ -149,7 +149,7 @@ public sealed partial class WaggingSystem : EntitySystem
         _visualBody.ApplyMarkings(ent, new()
         {
             [ent.Comp.Organ] = markingsSet
-        });
+        }, useDisguise: true); // WL-changes
 
         return true;
     }
