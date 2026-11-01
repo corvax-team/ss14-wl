@@ -67,6 +67,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction ZoomIn = "ZoomIn";
         public static readonly BoundKeyFunction ResetZoom = "ResetZoom";
         public static readonly BoundKeyFunction CombatIndicator = "CombatIndicator"; //Corvax-Wl-indicator
+        public static readonly BoundKeyFunction Parry = "Parry"; // WL-Changes
 
         public static readonly BoundKeyFunction ArcadeUp = "ArcadeUp";
         public static readonly BoundKeyFunction ArcadeDown = "ArcadeDown";

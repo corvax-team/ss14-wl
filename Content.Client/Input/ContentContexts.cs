@@ -95,6 +95,7 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.LanguageChoose); //WL-Changes: Languages
             human.AddFunction(ContentKeyFunctions.OfferItem); // CorvaxGoob-OfferItem
             human.AddFunction(ContentKeyFunctions.CombatIndicator); //Corvax-Wl-indicator
+            human.AddFunction(ContentKeyFunctions.Parry); // WL-Changes
 
             // actions should be common (for ghosts, mobs, etc)
             common.AddFunction(ContentKeyFunctions.OpenActionsMenu);
