@@ -27,7 +27,7 @@ public sealed partial class AtmosStatsResearchConditionSystem : ResearchConditio
                 break;
         }
 
-        var delta = FixedPoint2.Max(FixedPoint2.Max(args.Result - args.Condition.MinExtrimal, args.Condition.MaxExtrimal - args.Result), 0);
+        var delta = FixedPoint4.Max(FixedPoint4.Max(args.Result - args.Condition.MinExtrimal, args.Condition.MaxExtrimal - args.Result), 0);
 
         args.Points.PointsDict.Add(args.Condition.ExtrimalType, delta * args.Condition.Slope);
 

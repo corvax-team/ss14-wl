@@ -5,11 +5,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.Research.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class ResearchDetectorComponent : Component
 {
-    [DataField("detectType", required: true)]
-    public ProtoId<ResearchTypePrototype> ResearchType;
+    [DataField("detectTypes", required: true)]
+    public List<ProtoId<ResearchTypePrototype>> ResearchTypes;
 
     [DataField("extrimalType")]
     public ProtoId<ResearchPointsTypePrototype> ExtrimalPointsType = "Experimental";
@@ -18,13 +18,10 @@ public sealed partial class ResearchDetectorComponent : Component
     public ProtoId<ResearchPointsTypePrototype>? DefaultPointsType = null;
 
     [DataField]
-    public FixedPoint2 ResearchPercent = 0.01;
+    public FixedPoint4 ResearchPercent = 0.01;
 
     [DataField]
     public float Range = 10f;
-
-    [DataField, AutoNetworkedField]
-    public bool Active = true;
 }
 
 [ByRefEvent]
@@ -34,7 +31,7 @@ public record struct GetResearchDataEvent
 
     public ProtoId<ResearchTypePrototype> ResearchType;
 
-    public Dictionary<ProtoId<ResearchCategoryPrototype>, (FixedPoint2, ResearchPointsSpecifier)> ResearchData;
+    public Dictionary<ProtoId<ResearchCategoryPrototype>, (FixedPoint4, ResearchPointsSpecifier)> ResearchData;
 
     public GetResearchDataEvent(EntityUid detector, ProtoId<ResearchTypePrototype> researchType)
     {

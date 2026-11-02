@@ -20,5 +20,5 @@ public sealed partial class ResearchPointsTypePrototype : IPrototype
     public Color Color { get; set; }
 
     [DataField]
-    public FixedPoint2 PointsSizeCoof = 500;
+    public FixedPoint4 PointsSizeCoof = 500;
 }

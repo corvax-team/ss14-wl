@@ -14,11 +14,11 @@ namespace Content.Shared._WL.Research
     public sealed partial class ResearchPointsSpecifier : IEquatable<ResearchPointsSpecifier>, IRobustCloneable<ResearchPointsSpecifier>
     {
         [DataField("points")]
-        public Dictionary<ProtoId<ResearchPointsTypePrototype>, FixedPoint2> PointsDict { get; set; } = new();
+        public Dictionary<ProtoId<ResearchPointsTypePrototype>, FixedPoint4> PointsDict { get; set; } = new();
 
-        public FixedPoint2 GetTotal()
+        public FixedPoint4 GetTotal()
         {
-            var total = FixedPoint2.Zero;
+            var total = FixedPoint4.Zero;
             foreach (var value in PointsDict.Values)
             {
                 total += value;
@@ -30,7 +30,7 @@ namespace Content.Shared._WL.Research
         {
             foreach (var value in PointsDict.Values)
             {
-                if (value > FixedPoint2.Zero)
+                if (value > FixedPoint4.Zero)
                     return true;
             }
 
@@ -53,7 +53,7 @@ namespace Content.Shared._WL.Research
         #region constructors
         public ResearchPointsSpecifier() { }
 
-        public ResearchPointsSpecifier(Dictionary<ProtoId<ResearchPointsTypePrototype>, FixedPoint2> pointsDict)
+        public ResearchPointsSpecifier(Dictionary<ProtoId<ResearchPointsTypePrototype>, FixedPoint4> pointsDict)
         {
             PointsDict = new(pointsDict);
         }
@@ -63,17 +63,17 @@ namespace Content.Shared._WL.Research
             PointsDict = new(pointsSpec.PointsDict);
         }
 
-        public ResearchPointsSpecifier(ResearchPointsTypePrototype type, FixedPoint2 value)
+        public ResearchPointsSpecifier(ResearchPointsTypePrototype type, FixedPoint4 value)
         {
             PointsDict = new() { { type.ID, value } };
         }
 
-        public ResearchPointsSpecifier(ProtoId<ResearchPointsTypePrototype> typeId, FixedPoint2 value)
+        public ResearchPointsSpecifier(ProtoId<ResearchPointsTypePrototype> typeId, FixedPoint4 value)
         {
             PointsDict = new() { { typeId, value } };
         }
 
-        public ResearchPointsSpecifier(List<ProtoId<ResearchPointsTypePrototype>> typesList, FixedPoint2 value)
+        public ResearchPointsSpecifier(List<ProtoId<ResearchPointsTypePrototype>> typesList, FixedPoint4 value)
         {
             foreach (var typeId in typesList)
             {
@@ -120,14 +120,14 @@ namespace Content.Shared._WL.Research
             }
         }
 
-        public void Clamp(FixedPoint2 minValue, FixedPoint2 maxValue)
+        public void Clamp(FixedPoint4 minValue, FixedPoint4 maxValue)
         {
             DebugTools.Assert(minValue < maxValue);
             ClampMax(maxValue);
             ClampMin(minValue);
         }
 
-        public void ClampMin(FixedPoint2 minValue)
+        public void ClampMin(FixedPoint4 minValue)
         {
             foreach (var (key, value) in PointsDict)
             {
@@ -138,7 +138,7 @@ namespace Content.Shared._WL.Research
             }
         }
 
-        public void ClampMax(FixedPoint2 maxValue)
+        public void ClampMax(FixedPoint4 maxValue)
         {
             foreach (var (key, value) in PointsDict)
             {
@@ -160,9 +160,9 @@ namespace Content.Shared._WL.Research
             }
         }
 
-        public FixedPoint2 GetSize(IPrototypeManager protoManager)
+        public FixedPoint4 GetSize(IPrototypeManager protoManager)
         {
-            var size = FixedPoint2.New(0);
+            var size = FixedPoint4.New(0);
 
             foreach (var (key, value) in PointsDict)
             {
@@ -174,7 +174,7 @@ namespace Content.Shared._WL.Research
             return size;
         }
 
-        public ResearchPointsSpecifier SizedAdd(IPrototypeManager protoManager, ResearchPointsSpecifier other, FixedPoint2 size)
+        public ResearchPointsSpecifier SizedAdd(IPrototypeManager protoManager, ResearchPointsSpecifier other, FixedPoint4 size)
         {
             ResearchPointsSpecifier added = new();
 
@@ -202,7 +202,7 @@ namespace Content.Shared._WL.Research
         }
 
         #region Operators
-        public static ResearchPointsSpecifier operator *(ResearchPointsSpecifier pointsSpec, FixedPoint2 factor)
+        public static ResearchPointsSpecifier operator *(ResearchPointsSpecifier pointsSpec, FixedPoint4 factor)
         {
             ResearchPointsSpecifier newPoints = new();
             foreach (var entry in pointsSpec.PointsDict)
@@ -222,7 +222,7 @@ namespace Content.Shared._WL.Research
             return newPoints;
         }
 
-        public static ResearchPointsSpecifier operator /(ResearchPointsSpecifier pointsSpec, FixedPoint2 factor)
+        public static ResearchPointsSpecifier operator /(ResearchPointsSpecifier pointsSpec, FixedPoint4 factor)
         {
             ResearchPointsSpecifier newPoints = new();
             foreach (var entry in pointsSpec.PointsDict)
@@ -277,7 +277,7 @@ namespace Content.Shared._WL.Research
 
         public static ResearchPointsSpecifier operator *(float factor, ResearchPointsSpecifier pointsSpec) => pointsSpec * factor;
 
-        public static ResearchPointsSpecifier operator *(FixedPoint2 factor, ResearchPointsSpecifier pointsSpec) => pointsSpec * factor;
+        public static ResearchPointsSpecifier operator *(FixedPoint4 factor, ResearchPointsSpecifier pointsSpec) => pointsSpec * factor;
 
         // Is self superset of other
         public bool IsSuperset(ResearchPointsSpecifier? other)
@@ -308,7 +308,7 @@ namespace Content.Shared._WL.Research
             return true;
         }
 
-        public FixedPoint2 this[string key] => PointsDict[key];
+        public FixedPoint4 this[string key] => PointsDict[key];
     }
     #endregion
 }

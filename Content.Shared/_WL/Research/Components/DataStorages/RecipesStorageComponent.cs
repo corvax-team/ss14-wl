@@ -13,7 +13,7 @@ public sealed partial class RecipesStorageComponent : BaseDataStorageComponent
     public List<ProtoId<LatheRecipePrototype>> Recipes = new();
 
     [DataField]
-    public FixedPoint2 SizePerTech = FixedPoint2.New(0.2);
+    public FixedPoint4 SizePerTech = FixedPoint4.New(0.2);
 }
 
 [Serializable, NetSerializable]

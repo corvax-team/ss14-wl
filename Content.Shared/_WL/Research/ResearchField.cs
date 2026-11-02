@@ -13,26 +13,26 @@ namespace Content.Shared._WL.Research;
 [Serializable, NetSerializable]
 public struct ResearchPoint
 {
-    public readonly FixedPoint2 Max;
-    public FixedPoint2 Value { get; private set; }
+    public readonly FixedPoint4 Max;
+    public FixedPoint4 Value { get; private set; }
 
-    public ResearchPoint(FixedPoint2 max)
+    public ResearchPoint(FixedPoint4 max)
     {
         Max = max;
         Value = 0;
     }
 
-    public ResearchPoint AddPoints(FixedPoint2 value, out FixedPoint2 diff)
+    public ResearchPoint AddPoints(FixedPoint4 value, out FixedPoint4 diff)
     {
-        diff = FixedPoint2.Min(Max, (Value + value)) - Value;
+        diff = FixedPoint4.Min(Max, (Value + value)) - Value;
         Value += diff;
 
         return this;
     }
 
-    public ResearchPoint AddPercent(FixedPoint2 value, out FixedPoint2 diff)
+    public ResearchPoint AddPercent(FixedPoint4 value, out FixedPoint4 diff)
     {
-        diff = FixedPoint2.Min(Max - Value, (Max * value));
+        diff = FixedPoint4.Min(Max - Value, (Max * value));
         Value += diff;
 
         return this;
@@ -49,15 +49,15 @@ public sealed partial class ResearchField
 {
     public int Rank { get; private set; }
 
-    public FixedPoint2 Max { get; private set; }
+    public FixedPoint4 Max { get; private set; }
 
     public ProtoId<ResearchTypePrototype>[] ResearchTypes { get; private set; }
 
     private RobustableArray<ResearchPoint> FieldArray;
 
-    private FixedPoint2 _fieldScale;
+    private FixedPoint4 _fieldScale;
 
-    public ResearchField(ProtoId<ResearchTypePrototype>[] researchTypes, FixedPoint2 maxPoints)
+    public ResearchField(ProtoId<ResearchTypePrototype>[] researchTypes, FixedPoint4 maxPoints)
     {
         int[] sizes = new int[researchTypes.Length];
         ResearchTypePrototype[] typesProto = new ResearchTypePrototype[researchTypes.Length];
@@ -80,7 +80,7 @@ public sealed partial class ResearchField
         _fieldScale = fieldSum / maxPoints ;
     }
 
-    private (RobustableArray<ResearchPoint>, FixedPoint2) GenField(ResearchTypePrototype[] researchProtos, ReadOnlySpan<int> sizes)
+    private (RobustableArray<ResearchPoint>, FixedPoint4) GenField(ResearchTypePrototype[] researchProtos, ReadOnlySpan<int> sizes)
     {
         var field = new RobustableArray<ResearchPoint>(sizes);
 
@@ -92,12 +92,12 @@ public sealed partial class ResearchField
             count *= size;
         }
 
-        FixedPoint2 sum = 0;
+        FixedPoint4 sum = 0;
 
         for (int i = count - 1; i >= 0; i--)
         {
             int[] coords = new int[rank];
-            FixedPoint2 max = 1;
+            FixedPoint4 max = 1;
             var offset = i;
 
             for (int j = rank - 1; j >= 0; j--)
@@ -116,7 +116,7 @@ public sealed partial class ResearchField
         return (field, sum);
     }
 
-    public FixedPoint2 ResearchData(Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint2> researchData, FixedPoint2 points)
+    public FixedPoint4 ResearchData(Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> researchData, FixedPoint4 points)
     {
         int[] coords = new int[Rank];
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
@@ -129,7 +129,7 @@ public sealed partial class ResearchField
             if (researchData.TryGetValue(ResearchTypes[i], out var researchValue))
                 value = researchValue;
 
-            coords[i] = FixedPoint2.Clamp((value - type.MinValue) / (type.MaxValue - type.MinValue) * type.Size, 0, type.Size - 1).Int();
+            coords[i] = FixedPoint4.Clamp((value - type.MinValue) / (type.MaxValue - type.MinValue) * type.Size, 0, type.Size - 1).Int();
         }
 
         var point = FieldArray.Get(coords.AsSpan()).AddPercent(points, out var diff);

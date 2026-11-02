@@ -10,11 +10,9 @@ namespace Content.Server._WL.Research.Systems;
 public sealed partial class ResearchSystemNew
 {
     private void InitializeServer()
-    {
-        SubscribeLocalEvent<ResearchServerNewComponent, ComponentStartup>(OnServerStartup);
-        SubscribeLocalEvent<ResearchServerNewComponent, ComponentShutdown>(OnServerShutdown);
-    }
+    { }
 
+    [SubscribeLocalEvent]
     private void OnServerStartup(Entity<ResearchServerNewComponent> ent, ref ComponentStartup args)
     {
         if (TryComp<PointsDataStorageComponent>(ent, out var storage))
@@ -32,6 +30,7 @@ public sealed partial class ResearchSystemNew
         Dirty(ent, ent.Comp);
     }
 
+    [SubscribeLocalEvent]
     private void OnServerShutdown(Entity<ResearchServerNewComponent> ent, ref ComponentShutdown args)
     {
         foreach (var client in new List<EntityUid>(ent.Comp.Clients))

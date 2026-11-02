@@ -29,7 +29,7 @@ public sealed partial class ResearchPrototype : IPrototype
     public ResearchPointsSpecifier PointsCost = new();
 
     [DataField]
-    public FixedPoint2 PackagesCost = 120;
+    public FixedPoint4 PackagesCost = 120;
 
     [DataField("children")]
     public List<ProtoId<ResearchPrototype>> ChildrenResearches = new();

@@ -19,10 +19,10 @@ public sealed partial class ResearchTypePrototype : IPrototype
     public string LocalizedName => Loc.GetString(Name);
 
     [DataField("min", required: true)]
-    public FixedPoint2 MinValue;
+    public FixedPoint4 MinValue;
 
     [DataField("max", required: true)]
-    public FixedPoint2 MaxValue;
+    public FixedPoint4 MaxValue;
 
     [DataField(required: true)]
     public ResearchCondition Condition;
@@ -31,12 +31,12 @@ public sealed partial class ResearchTypePrototype : IPrototype
     public ScaleMethod Scale;
 
     [DataField("default")]
-    public FixedPoint2 DefaultValue = FixedPoint2.New(0);
+    public FixedPoint4 DefaultValue = FixedPoint4.New(0);
 
     [DataField]
     public int Size = 100;
 
-    public FixedPoint2 GetScale(int x)
+    public FixedPoint4 GetScale(int x)
     {
         return Scale.GetModifier(x, Size);
     }

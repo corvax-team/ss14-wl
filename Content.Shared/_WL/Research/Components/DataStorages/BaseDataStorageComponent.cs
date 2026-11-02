@@ -8,8 +8,8 @@ namespace Content.Shared._WL.Research.Components;
 public abstract partial class BaseDataStorageComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 LocalSize;
+    public FixedPoint4 LocalSize;
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public FixedPoint2 ExpiredLocalSize = 0;
+    public FixedPoint4 ExpiredLocalSize = 0;
 }

@@ -97,7 +97,7 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: ResearchDetector
-    detectType: DebugType1
+    detectTypes: [ DebugType1 ]
 
 - type: entity
   parent: FoodMeat
@@ -141,7 +141,7 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: ResearchDetector
-    detectType: AtmosTemperature
+    detectTypes: [ AtmosTemperature ]
   - type: Machine
     board: ThermometerMachineCircuitboard
 
@@ -159,7 +159,7 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: ResearchDetector
-    detectType: AtmosPressure
+    detectTypes: [ AtmosPressure ]
   - type: Machine
     board: BarometerMachineCircuitboard
 
@@ -177,6 +177,6 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: ResearchDetector
-    detectType: AnomalySeverity
+    detectTypes: [ AnomalySeverity ]
   - type: Machine
     board: KantCounterMachineCircuitboard

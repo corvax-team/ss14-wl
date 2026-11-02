@@ -12,7 +12,7 @@ public sealed partial class ResearchMainConsoleComponent : Component
 [Serializable, NetSerializable]
 public sealed class ResearchMainConsoleBoundInterfaceState : BoundUserInterfaceState
 {
-    public Dictionary<ProtoId<ResearchPointsTypePrototype>, (FixedPoint2, FixedPoint2, FixedPoint2)> PointsData;
+    public Dictionary<ProtoId<ResearchPointsTypePrototype>, (FixedPoint4, FixedPoint4, FixedPoint4)> PointsData;
 
     public Dictionary<ProtoId<ResearchPrototype>, ResearchState> ResearchesData;
 
@@ -21,7 +21,7 @@ public sealed class ResearchMainConsoleBoundInterfaceState : BoundUserInterfaceS
     public ProtoId<ResearchPrototype>? RootResearch;
 
     public ResearchMainConsoleBoundInterfaceState(
-            Dictionary<ProtoId<ResearchPointsTypePrototype>, (FixedPoint2, FixedPoint2, FixedPoint2)> pointsData,
+            Dictionary<ProtoId<ResearchPointsTypePrototype>, (FixedPoint4, FixedPoint4, FixedPoint4)> pointsData,
             Dictionary<ProtoId<ResearchPrototype>, ResearchState> researchesData,
             List<ProtoId<ResearchPrototype>> researchQueue,
             ProtoId<ResearchPrototype>? rootResearch)

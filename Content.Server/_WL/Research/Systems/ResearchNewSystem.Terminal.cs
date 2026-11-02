@@ -47,7 +47,7 @@ public sealed partial class ResearchSystemNew
         if (!Resolve(uid, ref component, ref clientComponent, false))
             return;
 
-        var pointsData = new Dictionary<ProtoId<ResearchPointsTypePrototype>, (FixedPoint2, FixedPoint2, FixedPoint2)>();
+        var pointsData = new Dictionary<ProtoId<ResearchPointsTypePrototype>, (FixedPoint4, FixedPoint4, FixedPoint4)>();
         var researchData = new Dictionary<ProtoId<ResearchPrototype>, ResearchState>();
         var researchQueue = new List<ProtoId<ResearchPrototype>>();
 

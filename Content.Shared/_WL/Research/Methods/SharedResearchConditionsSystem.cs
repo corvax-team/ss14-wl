@@ -7,12 +7,12 @@ namespace Content.Shared._WL.Research.Methods;
 public sealed partial class SharedResearchConditionsSystem : EntitySystem, IResearchConditionRaiser
 {
     // ResearchValue, dict of points
-    public (FixedPoint2, ResearchPointsSpecifier) GetCondition<T>(EntityUid target, T condition, EntityUid? sourceEnt = null) where T : ResearchCondition
+    public (FixedPoint4, ResearchPointsSpecifier) GetCondition<T>(EntityUid target, T condition, EntityUid? sourceEnt = null) where T : ResearchCondition
     {
         return condition.RaiseEvent(target, this, sourceEnt);
     }
 
-    public (FixedPoint2, ResearchPointsSpecifier) RaiseConditionEvent<T>(EntityUid target, T effect, EntityUid? sourceEnt) where T : ResearchConditionBase<T>
+    public (FixedPoint4, ResearchPointsSpecifier) RaiseConditionEvent<T>(EntityUid target, T effect, EntityUid? sourceEnt) where T : ResearchConditionBase<T>
     {
         var conditionEv = new ResearchConditionEvent<T>(effect, sourceEnt);
         RaiseLocalEvent(target, ref conditionEv);
@@ -32,12 +32,12 @@ public abstract partial class ResearchConditionSystem<T, TCon> : EntitySystem wh
 
 public interface IResearchConditionRaiser
 {
-    (FixedPoint2, ResearchPointsSpecifier) RaiseConditionEvent<T>(EntityUid target, T condition, EntityUid? sourceEnt) where T : ResearchConditionBase<T>;
+    (FixedPoint4, ResearchPointsSpecifier) RaiseConditionEvent<T>(EntityUid target, T condition, EntityUid? sourceEnt) where T : ResearchConditionBase<T>;
 }
 
 public abstract partial class ResearchConditionBase<T> : ResearchCondition where T : ResearchConditionBase<T>
 {
-    public override (FixedPoint2, ResearchPointsSpecifier) RaiseEvent(EntityUid target, IResearchConditionRaiser raiser, EntityUid? sourceEnt)
+    public override (FixedPoint4, ResearchPointsSpecifier) RaiseEvent(EntityUid target, IResearchConditionRaiser raiser, EntityUid? sourceEnt)
     {
         if (this is not T type)
             return (0, new ResearchPointsSpecifier());
@@ -55,7 +55,7 @@ public abstract partial class ResearchCondition
     [DataField]
     public ProtoId<ResearchPointsTypePrototype> ExtrimalType = "Experimental";
 
-    public abstract (FixedPoint2, ResearchPointsSpecifier) RaiseEvent(EntityUid target, IResearchConditionRaiser raiser, EntityUid? sourceEnt);
+    public abstract (FixedPoint4, ResearchPointsSpecifier) RaiseEvent(EntityUid target, IResearchConditionRaiser raiser, EntityUid? sourceEnt);
 }
 
 [ByRefEvent]
@@ -63,7 +63,7 @@ public abstract partial class ResearchCondition
 public partial record struct ResearchConditionEvent<T>(T Condition, EntityUid? SourceEnt) where T : ResearchConditionBase<T>
 {
     [DataField]
-    public FixedPoint2 Result;
+    public FixedPoint4 Result;
 
     [DataField]
     public ResearchPointsSpecifier Points = new();

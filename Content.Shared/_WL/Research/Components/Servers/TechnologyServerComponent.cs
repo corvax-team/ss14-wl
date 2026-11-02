@@ -36,9 +36,9 @@ public struct ResearchState
 
     public ResearchDepsStatus DepsState { get; set; }
 
-    public FixedPoint2 ResearchedPackages = 0;
+    public FixedPoint4 ResearchedPackages = 0;
 
-    public FixedPoint2 PackagesCostModed = 0;
+    public FixedPoint4 PackagesCostModed = 0;
 
     public ProtoId<ResearchModePrototype> ModeId = "Default";
 

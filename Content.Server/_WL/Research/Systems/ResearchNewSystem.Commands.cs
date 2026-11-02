@@ -48,7 +48,7 @@ public sealed partial class ResearchSystemNew
             return;
         }
 
-        var pointsDict = new ResearchPointsSpecifier(pointsProto, FixedPoint2.New(args[2]));
+        var pointsDict = new ResearchPointsSpecifier(pointsProto, FixedPoint4.New(args[2]));
 
         if (pointsDict.AnyPositive())
         {

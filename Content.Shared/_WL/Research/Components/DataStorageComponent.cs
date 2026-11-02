@@ -18,13 +18,13 @@ public sealed partial class DataStorageComponent : Component
     public string Name;
 
     [DataField(required: true), ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 Size;
+    public FixedPoint4 Size;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public FixedPoint2 LocalSize;
+    public FixedPoint4 LocalSize;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public FixedPoint2 ExpiredSize = 0;
+    public FixedPoint4 ExpiredSize = 0;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool CanBeFormatted = false;
@@ -34,7 +34,7 @@ public sealed partial class DataStorageComponent : Component
 }
 
 [ByRefEvent]
-public record struct RecalcExpiredSizeEvent(FixedPoint2 ExpiredSize);
+public record struct RecalcExpiredSizeEvent(FixedPoint4 ExpiredSize);
 
 [ByRefEvent]
 public record struct DataUpdatedEvent();

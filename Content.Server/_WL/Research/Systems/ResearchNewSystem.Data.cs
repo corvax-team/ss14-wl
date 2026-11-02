@@ -351,7 +351,7 @@ public sealed partial class ResearchSystemNew
         if (!Resolve(uid, ref storage))
             return;
 
-        var ev = new RecalcExpiredSizeEvent(FixedPoint2.Zero);
+        var ev = new RecalcExpiredSizeEvent(FixedPoint4.Zero);
         RaiseLocalEvent(uid, ref ev);
 
         storage.ExpiredSize = ev.ExpiredSize;

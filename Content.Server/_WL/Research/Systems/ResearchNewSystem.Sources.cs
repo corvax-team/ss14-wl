@@ -16,36 +16,103 @@ public sealed partial class ResearchSystemNew
     [Dependency] private SharedTransformSystem _transform = default!;
 
     private void InitializeSource()
-    {
-        SubscribeLocalEvent<PointsSourceDebugComponent, GetServerResearchEvent>(OnDebugServerResearch);
-        SubscribeLocalEvent<ResearchDetectorComponent, GetServerResearchEvent>(OnDetectorServerResearch);
+    { }
 
-        SubscribeLocalEvent<ResearchSourceComponent, GetResearchDataEvent>(OnSourceDetect);
+    [SubscribeLocalEvent]
+    private void OnDetectorServerResearch(Entity<PassiveDetectorComponent> ent, ref GetServerResearchEvent args)
+    {
+        if (!CanProduce(ent))
+            return;
+
+        if (!TryComp<ResearchDetectorComponent>(ent, out var detector))
+            return;
+
+        if (!TryFindResearches(ent.Owner, detector.Range, out var sources))
+            return;
+
+        foreach (var researchType in detector.ResearchTypes)
+        {
+            var ev = new GetResearchDataEvent(ent.Owner, researchType);
+            foreach (var source in sources)
+            {
+                RaiseLocalEvent(source, ref ev);
+            }
+
+            foreach (var (category, (researchValue, data)) in ev.ResearchData)
+            {
+                var normileCoof = data.GetTotal();
+                if (normileCoof <= 0)
+                    continue;
+
+                foreach (var (type, value) in data.PointsDict)
+                {
+                    var pointsType = type;
+
+                    if (type != detector.ExtrimalPointsType && detector.DefaultPointsType is { } detectorType)
+                        pointsType = detectorType;
+
+                    AddResearch(category, researchType, researchValue, pointsType, value / normileCoof * detector.ResearchPercent, ref args);
+                }
+            }
+        }
     }
 
+    [SubscribeLocalEvent]
+    private void OnSourceDetect(Entity<ResearchSourceComponent> ent, ref GetResearchDataEvent args)
+    {
+        if (args.ResearchData.ContainsKey(ent.Comp.Category))
+            return;
+
+        var categoryProto = ProtoMan.Index<ResearchCategoryPrototype>(ent.Comp.Category);
+
+        if (!categoryProto.ResearchTypes.Contains(args.ResearchType))
+            return;
+
+        var typeProto = ProtoMan.Index<ResearchTypePrototype>(args.ResearchType);
+
+        var (researchValue, points) = _researchConditions.GetCondition(ent, typeProto.Condition, args.Detector);
+
+        if (categoryProto.PointsType is { } pointsType)
+        {
+            Dictionary<ProtoId<ResearchPointsTypePrototype>, FixedPoint4> newDict = new();
+
+            FixedPoint4 pointsSum = 0;
+
+            foreach (var (type, value) in points.PointsDict)
+            {
+                if (type != categoryProto.ExtrimalPoints)
+                    pointsSum += value;
+                else
+                    newDict.Add(type, value);
+            }
+
+            newDict.Add(pointsType, pointsSum);
+
+            points = new(newDict);
+        }
+
+        args.ResearchData.Add(ent.Comp.Category, (researchValue, points));
+    }
+
+    [SubscribeLocalEvent]
     private void OnDebugServerResearch(Entity<PointsSourceDebugComponent> ent, ref GetServerResearchEvent args)
     {
         AddResearch(ent.Comp.DebugCategory, ent.Comp.Type, ent.Comp.Value, ent.Comp.PointsType, ent.Comp.Points, ref args);
     }
 
-    public bool CanProduce(Entity<ResearchDetectorComponent> source)
-    {
-        return source.Comp.Active && this.IsPowered(source, EntityManager);
-    }
-
     private void AddResearch(
         ProtoId<ResearchCategoryPrototype> category,
         ProtoId<ResearchTypePrototype> resType,
-        FixedPoint2 resValue,
+        FixedPoint4 resValue,
         ProtoId<ResearchPointsTypePrototype> pointsType,
-        FixedPoint2 pointsValue,
+        FixedPoint4 pointsValue,
         ref GetServerResearchEvent args)
     {
         if (!args.ResearchData.ContainsKey(category))
         {
             args.ResearchData.Add(
                 category,
-                (new Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint2>() {[resType] = resValue},
+                (new Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4>() {[resType] = resValue},
                  new ResearchPointsSpecifier(pointsType, pointsValue))
             );
             return;
@@ -74,71 +141,45 @@ public sealed partial class ResearchSystemNew
         return finded.Count != 0;
     }
 
-    private void OnDetectorServerResearch(Entity<ResearchDetectorComponent> ent, ref GetServerResearchEvent args)
+    public Dictionary<ProtoId<ResearchTypePrototype>, (FixedPoint4, ResearchPointsSpecifier)> GetResearch(
+            EntityUid uid,
+            EntityUid target,
+            ResearchDetectorComponent? detector = null
+        )
     {
-        if (!CanProduce(ent))
-            return;
+        var data = new Dictionary<ProtoId<ResearchTypePrototype>, (FixedPoint4, ResearchPointsSpecifier)>();
 
-        if (!TryFindResearches(ent.Owner, ent.Comp.Range, out var sources))
-            return;
+        if (!Resolve(uid, ref detector))
+            return data;
 
-        var ev = new GetResearchDataEvent(ent.Owner, ent.Comp.ResearchType);
-        foreach (var source in sources)
+        foreach (var researchType in detector.ResearchTypes)
         {
-            RaiseLocalEvent(source, ref ev);
-        }
-
-        foreach (var (category, (researchValue, data)) in ev.ResearchData)
-        {
-            var normileCoof = data.GetTotal();
-            if (normileCoof <= 0)
+            if (data.ContainsKey(researchType))
                 continue;
 
-            foreach (var (type, value) in data.PointsDict)
-            {
-                var pointsType = type;
+            var typeProto = ProtoMan.Index<ResearchTypePrototype>(researchType);
 
-                if (type != ent.Comp.ExtrimalPointsType && ent.Comp.DefaultPointsType is { } detectorType)
-                    pointsType = detectorType;
-
-                AddResearch(category, ent.Comp.ResearchType, researchValue, pointsType, value / normileCoof * ent.Comp.ResearchPercent, ref args);
-            }
+            data[researchType] = _researchConditions.GetCondition(target, typeProto.Condition, uid);
         }
+
+        return data;
     }
 
-    private void OnSourceDetect(Entity<ResearchSourceComponent> ent, ref GetResearchDataEvent args)
+    public bool CanProduce(Entity<PassiveDetectorComponent> source)
     {
-        if (args.ResearchData.ContainsKey(ent.Comp.Category))
+        return source.Comp.Active && this.IsPowered(source, EntityManager);
+    }
+
+    public void TrySendResearch(EntityUid uid, EntityUid? target = null, ResearchDetectorComponent? detector = null, ResearchSourceComponent? source = null)
+    {
+        target ??= uid;
+
+        if (!Resolve(uid, ref detector) || !Resolve(target, ref source))
             return;
 
-        var categoryProto = ProtoMan.Index<ResearchCategoryPrototype>(ent.Comp.Category);
-
-        if (!categoryProto.ResearchTypes.Contains(args.ResearchType))
+        if (!TryGetClientServer(uid, out var serverUid, out var serverComp))
             return;
 
-        var typeProto = ProtoMan.Index<ResearchTypePrototype>(args.ResearchType);
-
-        var (researchValue, points) = _researchConditions.GetCondition(ent, typeProto.Condition, args.Detector);
-
-        if (categoryProto.PointsType is { } pointsType)
-        {
-            Dictionary<ProtoId<ResearchPointsTypePrototype>, FixedPoint2> newDict = new();
-
-            FixedPoint2 pointsSum = 0;
-
-            foreach (var (type, value) in points.PointsDict)
-            {
-                if (type != categoryProto.ExtrimalPoints)
-                    pointsSum += value;
-                else
-                    newDict.Add(type, value);
-            }
-
-            newDict.Add(pointsType, pointsSum);
-
-            points = new(newDict);
-        }
-
-        args.ResearchData.Add(ent.Comp.Category, (researchValue, points));
+        var data = GetResearch(uid, target, detector);
     }
 }

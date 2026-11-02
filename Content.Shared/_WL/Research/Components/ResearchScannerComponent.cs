@@ -25,7 +25,7 @@ public sealed partial class ResearchScannerComponent : Component
     public float ScanDoAfterDuration = 5;
 
     [DataField]
-    public FixedPoint2 ResearchPercent = 0.01;
+    public FixedPoint4 ResearchPercent = 0.01;
 
     [DataField]
     public float Range = 2f;
