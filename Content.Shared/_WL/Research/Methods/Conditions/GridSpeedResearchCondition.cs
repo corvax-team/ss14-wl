@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared._WL.Research.Prototypes;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Physics.Components;
 
@@ -16,10 +17,10 @@ public sealed partial class GridSpeedResearchConditionSystem : ResearchCondition
         switch (args.Condition.Type)
         {
             case GridSpeedType.Linear:
-                args.Result = gridBody.LinearVelocity.Lenght();
+                args.Result = gridBody.LinearVelocity.Length();
                 break;
 
-            case GridSpeedType.Linear:
+            case GridSpeedType.Angular:
                 args.Result = gridBody.AngularVelocity;
                 break;
         }

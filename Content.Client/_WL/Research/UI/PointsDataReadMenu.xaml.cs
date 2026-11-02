@@ -89,7 +89,7 @@ public sealed partial class PointsDataReadMenu : FancyWindow
         foreach (var (key, value) in state.StoragePointsData.PointsDict)
         {
             var diskPointsExist = state.DiskPointsData.PointsDict.TryGetValue(key, out var diskDictValue);
-            var diskValue = diskPointsExist ? diskDictValue : FixedPoint2.New(0);
+            var diskValue = diskPointsExist ? diskDictValue : FixedPoint4.New(0);
 
             _points.PointsDict.Add(key, 0);
 

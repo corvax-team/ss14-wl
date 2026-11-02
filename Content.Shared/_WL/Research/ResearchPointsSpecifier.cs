@@ -201,6 +201,26 @@ namespace Content.Shared._WL.Research
             return added;
         }
 
+        public ResearchPointsSpecifier ConvertToType(ProtoId<ResearchPointsTypePrototype> targetType, List<ProtoId<ResearchPointsTypePrototype>>? blacklist = null)
+        {
+            ResearchPointsSpecifier newSpec = new();
+            blacklist ??= new List<ProtoId<ResearchPointsTypePrototype>>();
+
+            foreach (var (key, value) in PointsDict)
+            {
+                if (blacklist.Contains(key))
+                {
+                    newSpec.PointsDict[key] += value;
+                }
+                else
+                {
+                    newSpec.PointsDict[targetType] += value;
+                }
+            }
+
+            return newSpec;
+        }
+
         #region Operators
         public static ResearchPointsSpecifier operator *(ResearchPointsSpecifier pointsSpec, FixedPoint4 factor)
         {

@@ -4,7 +4,9 @@
   min: 1
   max: 1000
   scale: !type:ConstMethod
-  condition: !type:TemperatureResearchCondition
+  condition:
+    !type:TemperatureResearchCondition
+      points: Physics
 
 - type: researchType
   id: DebugType2
@@ -12,7 +14,9 @@
   min: 1
   max: 1000
   scale: !type:LinearMethod
-  condition: !type:TemperatureResearchCondition
+  condition:
+    !type:TemperatureResearchCondition
+      points: Physics
 
 - type: researchType
   id: RadiatoType1
@@ -20,4 +24,6 @@
   min: 0
   max: 1000
   scale: !type:ConstMethod
-  condition: !type:RadiationedResearchCondition
+  condition:
+    !type:RadiationedResearchCondition
+      points: Physics

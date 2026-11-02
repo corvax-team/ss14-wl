@@ -8,12 +8,6 @@ namespace Content.Shared._WL.Research.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ResearchScannableComponent : Component
 {
-    [DataField("pointsType", required: true)]
-    public ProtoId<ResearchPointsTypePrototype> DefaultPointsType;
-
-    [DataField(required: true)]
-    public ProtoId<ResearchCategoryPrototype> Category;
-
     [DataField]
     public string Name = string.Empty;
 

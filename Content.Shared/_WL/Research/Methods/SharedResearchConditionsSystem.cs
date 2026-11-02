@@ -49,7 +49,7 @@ public abstract partial class ResearchConditionBase<T> : ResearchCondition where
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class ResearchCondition
 {
-    [DataField]
+    [DataField("points", required: true)]
     public ProtoId<ResearchPointsTypePrototype> BaseType;
 
     [DataField]

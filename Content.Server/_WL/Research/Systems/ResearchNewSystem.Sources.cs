@@ -72,24 +72,8 @@ public sealed partial class ResearchSystemNew
 
         var (researchValue, points) = _researchConditions.GetCondition(ent, typeProto.Condition, args.Detector);
 
-        if (categoryProto.PointsType is { } pointsType)
-        {
-            Dictionary<ProtoId<ResearchPointsTypePrototype>, FixedPoint4> newDict = new();
-
-            FixedPoint4 pointsSum = 0;
-
-            foreach (var (type, value) in points.PointsDict)
-            {
-                if (type != categoryProto.ExtrimalPoints)
-                    pointsSum += value;
-                else
-                    newDict.Add(type, value);
-            }
-
-            newDict.Add(pointsType, pointsSum);
-
-            points = new(newDict);
-        }
+        if (categoryProto.DefaultType is { } pointsType)
+            points = points.ConvertToType(pointsType, new List<ProtoId<ResearchPointsTypePrototype>>() { categoryProto.ExtrimalType });
 
         args.ResearchData.Add(ent.Comp.Category, (researchValue, points));
     }
@@ -141,28 +125,39 @@ public sealed partial class ResearchSystemNew
         return finded.Count != 0;
     }
 
-    public Dictionary<ProtoId<ResearchTypePrototype>, (FixedPoint4, ResearchPointsSpecifier)> GetResearch(
+    public bool TryGetResearch(
             EntityUid uid,
             EntityUid target,
-            ResearchDetectorComponent? detector = null
-        )
+            out Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> data,
+            out ResearchPointsSpecifier points,
+            ResearchDetectorComponent? detector = null)
     {
-        var data = new Dictionary<ProtoId<ResearchTypePrototype>, (FixedPoint4, ResearchPointsSpecifier)>();
+        data = new Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4>();
+        points = new ResearchPointsSpecifier();
 
         if (!Resolve(uid, ref detector))
-            return data;
+            return false;
 
-        foreach (var researchType in detector.ResearchTypes)
+        if (!TryComp<ResearchSourceComponent>(target, out var source))
+            return false;
+
+        var category = ProtoMan.Index(source.Category);
+        foreach (var researchType in category.ResearchTypes)
         {
-            if (data.ContainsKey(researchType))
+            if (data.ContainsKey(researchType) || !detector.ResearchTypes.Contains(researchType))
                 continue;
 
             var typeProto = ProtoMan.Index<ResearchTypePrototype>(researchType);
 
-            data[researchType] = _researchConditions.GetCondition(target, typeProto.Condition, uid);
+            var (conditionData, conditionPoints) = _researchConditions.GetCondition(target, typeProto.Condition, uid);
+            data[researchType] = conditionData;
+            points += conditionPoints;
         }
 
-        return data;
+        if (category.DefaultType is {} type)
+            points = points.ConvertToType(type, new List<ProtoId<ResearchPointsTypePrototype>>() { category.ExtrimalType });
+
+        return true;
     }
 
     public bool CanProduce(Entity<PassiveDetectorComponent> source)
@@ -170,16 +165,22 @@ public sealed partial class ResearchSystemNew
         return source.Comp.Active && this.IsPowered(source, EntityManager);
     }
 
-    public void TrySendResearch(EntityUid uid, EntityUid? target = null, ResearchDetectorComponent? detector = null, ResearchSourceComponent? source = null)
+    public void SendResearch(EntityUid uid, EntityUid? extTarget = null, ResearchDetectorComponent? detector = null, ResearchSourceComponent? source = null)
     {
-        target ??= uid;
+        var target = extTarget ?? uid;
 
         if (!Resolve(uid, ref detector) || !Resolve(target, ref source))
             return;
 
-        if (!TryGetClientServer(uid, out var serverUid, out var serverComp))
+        if (!TryGetClientServer(uid, out var serverUid, out var serverComp) || serverUid is not {} server)
             return;
 
-        var data = GetResearch(uid, target, detector);
+        if (!TryGetResearch(uid, target, out var data, out var points, detector))
+            return;
+
+        if (points.Empty)
+            return;
+
+        InsertResearchData(server, source.Category, data, points / points.GetTotal(), serverComp);
     }
 }

@@ -8,6 +8,6 @@ namespace Content.Shared._WL.Research.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PassiveDetectorComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool Active = true;
 }

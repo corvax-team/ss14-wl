@@ -3,6 +3,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Shared._WL.Research;
 using Content.Shared._WL.Research.Components;
 using Content.Shared._WL.Research.Prototypes;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._WL.Research.Systems;
@@ -77,10 +78,9 @@ public sealed partial class ResearchSystemNew
     private void MakeResearch(
             EntityUid ent,
             ResearchServerNewComponent? server = null,
-            ResearchDataServerComponent? data = null,
-            PointsDataStorageComponent? pointsStorage = null)
+            ResearchDataServerComponent? data = null)
     {
-        if (!Resolve(ent, ref server, ref data, ref pointsStorage))
+        if (!Resolve(ent, ref server, ref data))
             return;
 
         foreach (var (key, (maxValue, _)) in server.PointsStatistic)
@@ -96,22 +96,38 @@ public sealed partial class ResearchSystemNew
 
         foreach (var (categoryId, (rawData, pointsData)) in ev.ResearchData)
         {
-            if (!data.ResearchedData.ContainsKey(categoryId))
-            {
-                var categoryProto = ProtoMan.Index(categoryId);
-                data.ResearchedData.Add(categoryId, new ResearchField(categoryProto.ResearchTypes.ToArray(), categoryProto.MaxPoints));
-            }
-
-            var pointsSum = pointsData.GetTotal();
-            if (pointsSum <= 0)
-                continue;
-
-            var addValue = data.ResearchedData[categoryId].ResearchData(rawData, pointsSum);
-
-            var pointsCoof = addValue / pointsSum;
-
-            TryModifyPoints(ent, pointsData * pointsCoof, true, server);
+            InsertResearchData(ent, categoryId, rawData, pointsData, server, data);
         }
+
+        Dirty(ent, server);
+    }
+
+    public void InsertResearchData(
+            EntityUid ent,
+            ProtoId<ResearchCategoryPrototype> categoryId,
+            Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> rawData,
+            ResearchPointsSpecifier pointsData,
+            ResearchServerNewComponent? server = null,
+            ResearchDataServerComponent? data = null)
+    {
+        if (!Resolve(ent, ref server, ref data))
+            return;
+
+        var pointsSum = pointsData.GetTotal();
+        if (pointsSum <= 0)
+            return;
+
+        if (!data.ResearchedData.ContainsKey(categoryId))
+        {
+            var category = ProtoMan.Index(categoryId);
+            data.ResearchedData.Add(categoryId, new ResearchField(category.ResearchTypes.ToArray(), category.MaxPoints));
+        }
+
+        var addValue = data.ResearchedData[categoryId].ResearchData(rawData, pointsSum);
+
+        var pointsCoof = addValue / pointsSum;
+
+        TryModifyPoints(ent, pointsData * pointsCoof, true, server);
 
         Dirty(ent, server);
     }

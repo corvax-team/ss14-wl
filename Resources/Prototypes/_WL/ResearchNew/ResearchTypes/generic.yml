@@ -11,6 +11,7 @@
       intMax: 0.37
   condition:
     !type:AtmosStatsResearchCondition
+      points: Physics
       type: Temperature
 
 - type: researchType
@@ -26,6 +27,7 @@
       intMax: 0.12
   condition:
     !type:AtmosStatsResearchCondition
+      points: Physics
       type: Pressure
       minExtrimal: 50
       maxExtrimal: 170
@@ -38,4 +40,6 @@
   default: 0
   size: 10
   scale: !type:LinearMethod
-  condition: !type:AnomSeverityResearchCondition
+  condition:
+    !type:AnomSeverityResearchCondition
+      points: Physics

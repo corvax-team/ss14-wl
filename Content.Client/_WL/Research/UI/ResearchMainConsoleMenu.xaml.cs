@@ -103,7 +103,7 @@ public sealed partial class ResearchMainConsoleMenu : FancyWindow
                 Margin = new Thickness(10, 1, 0, 0)
             };
 
-            var enumValues = new List<FixedPoint2>();
+            var enumValues = new List<FixedPoint4>();
 
             enumValues.Add(curValue);
             enumValues.Add(maxValue);

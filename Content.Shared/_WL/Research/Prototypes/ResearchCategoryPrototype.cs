@@ -23,8 +23,8 @@ public sealed partial class ResearchCategoryPrototype : IPrototype
     public List<ProtoId<ResearchTypePrototype>> ResearchTypes;
 
     [DataField]
-    public ProtoId<ResearchPointsTypePrototype> ExtrimalPoints = "Experimental";
+    public ProtoId<ResearchPointsTypePrototype> ExtrimalType = "Experimental";
 
     [DataField]
-    public ProtoId<ResearchPointsTypePrototype>? PointsType = null;
+    public ProtoId<ResearchPointsTypePrototype>? DefaultType;
 }

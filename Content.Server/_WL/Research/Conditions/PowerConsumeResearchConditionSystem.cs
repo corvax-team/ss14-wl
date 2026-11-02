@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared._WL.Research.Prototypes;
 using Content.Shared._WL.Research.Methods;
+using Content.Shared.FixedPoint;
 using Content.Server.Power.Components;
 using Robust.Shared.Prototypes;
 
@@ -14,7 +15,7 @@ public sealed partial class PowerConsumeResearchConditionSystem : ResearchCondit
 
         var delta = FixedPoint4.Max(args.Result - args.Condition.ExtrimalValue * args.Condition.Slope, 0);
 
-        args.Points.PointsDict.Add(args.Condition.ExtrimType, delta * args.Condition.Slope);
+        args.Points.PointsDict.Add(args.Condition.ExtrimalType, delta * args.Condition.Slope);
         args.Points.PointsDict.Add(args.Condition.BaseType, 100);
     }
 }
