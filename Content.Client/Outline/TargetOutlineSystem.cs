@@ -71,7 +71,7 @@ public sealed partial class TargetOutlineSystem : EntitySystem
     /// <summary>
     ///     The size of the box around the mouse to use when looking for valid targets.
     /// </summary>
-    public float LookupSize = 1f;
+    public float LookupSize = 1;
 
     private Vector2 LookupVector => new(LookupSize, LookupSize);
 
@@ -131,7 +131,7 @@ public sealed partial class TargetOutlineSystem : EntitySystem
         // TODO: Duplicated in SpriteSystem and DragDropSystem. Should probably be cached somewhere for a frame?
         var mousePos = _eyeManager.PixelToMap(_inputManager.MouseScreenPosition).Position;
         var bounds = new Box2(mousePos - LookupVector, mousePos + LookupVector);
-        var pvsEntities = _lookup.GetEntitiesIntersecting(_eyeManager.CurrentEye.Position.MapId, bounds, LookupFlags.Approximate | LookupFlags.Static); // WL-changes
+        var pvsEntities = _lookup.GetEntitiesIntersecting(_eyeManager.CurrentEye.Position.MapId, bounds, LookupFlags.Approximate | LookupFlags.Static);
 
         foreach (var entity in pvsEntities)
         {

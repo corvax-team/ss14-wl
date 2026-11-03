@@ -98,6 +98,7 @@ public sealed partial class ClientClothingSystem : ClothingSystem
 
         List<PrototypeLayerData>? layers = null;
 
+        // first attempt to get species specific data.
         if (inventory.SpeciesId != null)
             ent.Comp.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
 

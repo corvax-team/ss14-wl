@@ -128,7 +128,8 @@ public abstract partial class SharedVisualBodySystem
 
     private void OnSetModifiers(Entity<VisualBodyComponent> ent, ref HumanoidMarkingModifierMarkingSetMessage args)
     {
-        ApplyMarkings(ent, args.Markings);
+        var markingsEvt = new ApplyOrganMarkingsEvent(args.Markings);
+        RaiseLocalEvent(ent, ref markingsEvt);
     }
 
     /// <summary>
