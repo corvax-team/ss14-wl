@@ -7,4 +7,10 @@ public sealed partial class ActiveParryComponent : Component
 {
     [DataField, AutoNetworkedField]
     public EntityUid Weapon;
+
+    [DataField, AutoNetworkedField]
+    public bool IsParrying = true;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan ParryStartTime;
 }

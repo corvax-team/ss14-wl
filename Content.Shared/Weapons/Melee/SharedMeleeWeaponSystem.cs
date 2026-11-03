@@ -30,6 +30,7 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared._WL.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -566,6 +567,13 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
+        // WL-Changes-Start
+        var beforeMeleeDamage = new BeforeMeleeDamageEvent(target.Value, user, meleeUid, modifiedDamage);
+        RaiseLocalEvent(target.Value, ref beforeMeleeDamage);
+
+        modifiedDamage = beforeMeleeDamage.Damage;
+        // WL-Changes-End
+
         if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
@@ -745,6 +753,13 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
             var attackedEvent = new AttackedEvent(meleeUid, user, GetCoordinates(ev.Coordinates));
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
+
+            // WL-Changes-Start
+            var beforeMeleeDamage = new BeforeMeleeDamageEvent(entity, user, meleeUid, modifiedDamage);
+            RaiseLocalEvent(entity, ref beforeMeleeDamage);
+
+            modifiedDamage = beforeMeleeDamage.Damage;
+            // WL-Changes-End
 
             var damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass);
 

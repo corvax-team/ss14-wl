@@ -111,7 +111,7 @@ namespace Content.Client.Input
                 ContentKeyFunctions.LanguageChoose, //WL-Changes: Languages
                 ContentKeyFunctions.OfferItem, // CorvaxGoob-OfferItem
                 ContentKeyFunctions.CombatIndicator,//Corvax-Wl-indicator
-                ContentKeyFunctions.Parry; // WL-Changes
+                ContentKeyFunctions.Parry, // WL-Changes
 
             ];
 
