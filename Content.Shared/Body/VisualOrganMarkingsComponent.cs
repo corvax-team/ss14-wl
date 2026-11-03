@@ -17,7 +17,7 @@ public sealed partial class VisualOrganMarkingsComponent : Component
     /// <summary>
     /// Defines the type of markings this organ can take
     /// </summary>
-    [DataField(required: true), AutoNetworkedField, AlwaysPushInheritance] // WL-changes
+    [DataField(required: true), AlwaysPushInheritance]
     public OrganMarkingData MarkingData = default!;
 
     /// <summary>

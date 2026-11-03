@@ -1,6 +1,8 @@
+using Content.Shared.Cloning;
 using Content.Shared.DoAfter;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server._WL.Implants;
+namespace Content.Shared._WL.Implants;
 
 [RegisterComponent]
 public sealed partial class ImitatorImplantComponent : Component
@@ -14,5 +16,8 @@ public sealed partial class ImitatorImplantComponent : Component
     public EntityUid? Backup;
 
     [DataField]
-    public EntityUid? Wearer;
+    public bool Used = false;
+
+    [DataField]
+    public ProtoId<CloningSettingsPrototype> Settings = "ImitatorIdentity";
 }

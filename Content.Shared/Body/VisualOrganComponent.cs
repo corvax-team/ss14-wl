@@ -16,7 +16,7 @@ public sealed partial class VisualOrganComponent : Component
     /// <summary>
     /// The sprite layer on the entity that this contributes to
     /// </summary>
-    [DataField(required: true), AutoNetworkedField] // WL-changes
+    [DataField(required: true)]
     public Enum Layer;
 
     /// <summary>
@@ -29,7 +29,7 @@ public sealed partial class VisualOrganComponent : Component
     /// When applying a profile, if the sex is present in this dictionary, overrides the state of the sprite data.
     /// Used for e.g. male vs female torsoes.
     /// </summary>
-    [DataField, AutoNetworkedField] // WL-changes
+    [DataField]
     public Dictionary<Sex, string>? SexStateOverrides;
 
     /// <summary>

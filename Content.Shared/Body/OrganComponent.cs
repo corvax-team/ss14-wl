@@ -20,6 +20,6 @@ public sealed partial class OrganComponent : Component
     /// <summary>
     /// What kind of organ is this, if any
     /// </summary>
-    [DataField, AutoNetworkedField] // WL-changes
+    [DataField]
     public ProtoId<OrganCategoryPrototype>? Category;
 }

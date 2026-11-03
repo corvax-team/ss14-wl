@@ -259,12 +259,9 @@ public sealed partial class IdentitySystem : EntitySystem
         // Always use their actual age and gender, since that can't really be changed by an ID.
         if (Resolve(target, ref target.Comp2, false))
         {
-            // WL-changes-Start
-            var profile = _humanoidProfile.GetAppearanceProfile(target, target.Comp2);
-            gender = profile.Gender;
-            age = profile.Age;
-            species = profile.Species;
-            // WL-changes-End
+            gender = target.Comp2.Gender;
+            age = target.Comp2.Age;
+            species = target.Comp2.Species;
         }
 
         var ageString = _humanoidProfile.GetAgeRepresentation(species, age);

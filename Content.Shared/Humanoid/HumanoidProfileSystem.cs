@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Shared._WL.Implants; // WL-changes
 using Content.Shared.Corvax.TTS;
 using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Examine;
@@ -83,28 +82,16 @@ public sealed partial class HumanoidProfileSystem : EntitySystem
 
     private void OnExamined(Entity<HumanoidProfileComponent> ent, ref ExaminedEvent args)
     {
-        // WL-changes-Start
-        var profile = GetAppearanceProfile(ent, ent.Comp);
-        if (!ent.Comp.Examinable || !profile.Examinable)
+        if (!ent.Comp.Examinable)
             return;
-        // WL-changes-End
+
         var identity = Identity.Entity(ent, EntityManager);
-        var species = GetSpeciesRepresentation(profile.Species).ToLower(); // WL-changes
-        var age = GetAgeRepresentation(profile.Species, profile.Age); // WL-changes
-        var height = GetHeightRepresentation(profile.Height); // WL-changes
+        var species = GetSpeciesRepresentation(ent.Comp.Species).ToLower();
+        var age = GetAgeRepresentation(ent.Comp.Species, ent.Comp.Age);
+        var height = GetHeightRepresentation(ent.Comp.Height); // WL-Height
 
         args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("height", height), ("species", species)));
     }
-
-    // WL-changes-Start
-    public HumanoidProfileComponent GetAppearanceProfile(EntityUid uid, HumanoidProfileComponent fallback)
-    {
-        if (TryComp<ImitatorDisguiseComponent>(uid, out var disguise) &&
-            TryComp<HumanoidProfileComponent>(disguise.Image, out var image))
-            return image;
-        return fallback;
-    }
-    // WL-changes-End
 
     // WL-Height-Start
     public void ApplyHeight(Entity<HumanoidProfileComponent?> ent)

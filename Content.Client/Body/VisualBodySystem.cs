@@ -23,7 +23,6 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
     public override void Initialize()
     {
         base.Initialize();
-        InitializeImitator(); // WL-changes
 
         SubscribeLocalEvent<VisualOrganComponent, OrganGotInsertedEvent>(OnOrganGotInserted);
         SubscribeLocalEvent<VisualOrganComponent, OrganGotRemovedEvent>(OnOrganGotRemoved);
@@ -73,8 +72,6 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
 
     private void ApplyVisual(Entity<VisualOrganComponent> ent, EntityUid target)
     {
-        if (!CanDrawImitatorTarget(target)) // WL-changes
-            return;
         if (!_sprite.LayerMapTryGet(target, ent.Comp.Layer, out var index, true))
             return;
 
@@ -98,8 +95,6 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
 
     private void RemoveVisual(Entity<VisualOrganComponent> ent, EntityUid target)
     {
-        if (!CanDrawImitatorTarget(target)) // WL-changes
-            return;
         if (!_sprite.LayerMapTryGet(target, ent.Comp.Layer, out var index, true))
             return;
 
@@ -199,8 +194,6 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
     /// <param name="target">The visual body entity containing this organ.</param>
     private void ApplyMarkings(Entity<VisualOrganMarkingsComponent> ent, Entity<SpriteComponent?> target)
     {
-        if (!CanDrawImitatorTarget(target)) // WL-changes
-            return;
         if (!Resolve(target, ref target.Comp))
             return;
 
@@ -374,8 +367,6 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
     /// <param name="target">The visual body of the entity.</param>
     private void RemoveMarkings(Entity<VisualOrganMarkingsComponent> ent, Entity<SpriteComponent?> target)
     {
-        if (!CanDrawImitatorTarget(target)) // WL-changes
-            return;
         if (!Resolve(target, ref target.Comp))
             return;
 
@@ -432,8 +423,6 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
 
     private void OnMarkingsChangedVisibility(Entity<VisualOrganMarkingsComponent> ent, ref BodyRelayedEvent<HumanoidLayerVisibilityChangedEvent> args)
     {
-        if (RelayImitatorVisibility(ref args)) // WL-changes
-            return;
         if (!ent.Comp.HideableLayers.Contains(args.Args.Layer))
             return;
 

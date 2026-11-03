@@ -1,4 +1,4 @@
-ent-ImitatorImplant = имплант "имитатор"
+ent-ImitatorImplant = имплант "Имитатор"
     .desc = Этот имплант позволяет пользователю скопировать внешность и голос погибшего гуманоида один раз. Маскировка действует до извлечения импланта.
 ent-ImitatorImplanter = имплантер "Имитатор"
     .desc = { ent-BaseImplantOnlyImplanterSyndi.desc }

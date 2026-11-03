@@ -13,10 +13,20 @@ public sealed partial class ImitatorDisguiseSystem : EntitySystem
     private static readonly ProtoId<ShaderPrototype> Shader = "ImitatorGlitch";
     private readonly Dictionary<EntityUid, ShaderInstance> _shaders = new();
 
-    public override void Initialize()
+    [SubscribeLocalEvent]
+    private void OnImitatorState(Entity<ImitatorDisguiseComponent> ent, ref AfterAutoHandleStateEvent args) => RefreshShader(ent);
+
+    [SubscribeLocalEvent]
+    private void OnImitatorShutdown(Entity<ImitatorDisguiseComponent> ent, ref ComponentShutdown args)
     {
-        base.Initialize();
-        SubscribeLocalEvent<ImitatorDisguiseComponent, BeforePostShaderRenderEvent>(OnRender);
+        ClearShader(ent);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnRender(Entity<ImitatorDisguiseComponent> ent, ref BeforePostShaderRenderEvent args)
+    {
+        if (args.Id == ShaderId)
+            args.Shader.SetParameter("strength", ent.Comp.Instability);
     }
 
     public void RefreshShader(Entity<ImitatorDisguiseComponent> ent)
@@ -38,12 +48,6 @@ public sealed partial class ImitatorDisguiseSystem : EntitySystem
             RaiseShaderEvent = true,
             Before = ContentPostShaderIds.BeforeOutlines,
         });
-    }
-
-    private void OnRender(Entity<ImitatorDisguiseComponent> ent, ref BeforePostShaderRenderEvent args)
-    {
-        if (args.Id == ShaderId)
-            args.Shader.SetParameter("strength", ent.Comp.Instability);
     }
 
     public void ClearShader(EntityUid ent)
