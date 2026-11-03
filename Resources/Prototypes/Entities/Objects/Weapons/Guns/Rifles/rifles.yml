@@ -188,9 +188,9 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Rifles/XL8_icon_48x.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Rifles/XL8.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi
   - type: Item
-    sprite: Objects/Weapons/Guns/Rifles/XL8.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 2

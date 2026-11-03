@@ -36,7 +36,7 @@
     soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
     soundRack: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi
     quickEquip: false
     slots:
     - Belt
@@ -84,6 +84,12 @@
   - type: Item
     size: Small
     sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
+  - type: Clothing
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
   - type: ItemSlots
     slots:
       gun_chamber:

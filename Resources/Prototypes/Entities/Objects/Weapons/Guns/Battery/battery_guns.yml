@@ -316,7 +316,7 @@
   description: A state-of-the-art energy pistol favoured as a sidearm by elite Nanotrasen operatives.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi
+    sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -331,7 +331,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi
+    sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -358,7 +358,7 @@
   - type: Item
     size: Large
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -371,7 +371,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
   - type: Gun
     selectedMode: FullAuto
     fireRate: 3
@@ -398,7 +398,7 @@
     shape:
     - 0,0,4,1
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -411,7 +411,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
     fireRate: 1.5
     soundGunshot:
@@ -475,7 +475,7 @@
       sprintModifier: 0.6
     - type: HeldSpeedModifier
     - type: Sprite
-      sprite: _WL/Objects/Weapons/Guns/Battery/particle_decelerator.rsi
+      sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
       layers:
         - state: base
           map: ["enum.GunVisualLayers.Base"]
