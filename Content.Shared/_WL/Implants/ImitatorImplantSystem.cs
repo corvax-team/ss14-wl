@@ -112,48 +112,15 @@ public sealed partial class ImitatorImplantSystem : EntitySystem
     private void OnRemoved(Entity<ImitatorImplantComponent> ent, ref ImplantRemovedEvent args) => Restore(ent);
 
     [SubscribeLocalEvent]
-    private void OnShutdown(Entity<ImitatorImplantComponent> ent, ref ComponentShutdown args) => Restore(ent);
+    private void OnShutdown(Entity<ImitatorImplantComponent> ent, ref ComponentShutdown args)
+    {
+        Restore(ent);
+
+        QueueDel(ent.Comp.Image);
+    }
 
     [SubscribeLocalEvent]
     private void OnDamageChanged(Entity<ImitatorDisguiseComponent> ent, ref DamageChangedEvent args) => UpdateInstability(ent);
-
-    private IEnumerable<string> SpeechComponents()
-    {
-        var names = new HashSet<string>();
-
-        foreach (var species in ProtoMan.EnumeratePrototypes<SpeciesPrototype>())
-        {
-            if (!species.RoundStart || !ProtoMan.TryIndex(species.Prototype, out var body))
-                continue;
-            foreach (var (name, entry) in body.Components)
-            {
-                if (entry.Component is BaseAccentComponent)
-                    names.Add(name);
-            }
-        }
-
-        foreach (var trait in ProtoMan.EnumeratePrototypes<TraitPrototype>())
-        {
-            if (trait.Category?.Id != "SpeechTraits")
-                continue;
-            names.UnionWith(trait.Components.Keys);
-        }
-
-        return names;
-    }
-
-    private void CopySpeech(EntityUid source, EntityUid target)
-    {
-        var original = TryComp<SpeechComponent>(source, out var sourceSpeech) ? sourceSpeech : new SpeechComponent();
-        var speech = EnsureComp<SpeechComponent>(target);
-        speech.SpeechSounds = original.SpeechSounds;
-        speech.SpeechVerb = original.SpeechVerb;
-        speech.SuffixSpeechVerbs = new(original.SuffixSpeechVerbs);
-        speech.AudioParams = original.AudioParams;
-        speech.SoundCooldownTime = original.SoundCooldownTime;
-        speech.SpeechBubbleOffset = original.SpeechBubbleOffset;
-        Dirty(target, speech);
-    }
 
     private void HideCopyAction(EntityUid implant, SubdermalImplantComponent? comp = null)
     {
@@ -170,16 +137,11 @@ public sealed partial class ImitatorImplantSystem : EntitySystem
 
     private void CopyTo(EntityUid source, EntityUid target, ProtoId<CloningSettingsPrototype>? settings = null)
     {
-        if (settings is {} settingsId)
-        {
-            var settingsProto = _serialization.CreateCopy(ProtoMan.Index(settingsId), notNullableOverride: true);
-            settingsProto.Components.UnionWith(SpeechComponents());
+        if (settings is {} settingsId &&
+                ProtoMan.TryIndex<CloningSettingsPrototype>(settingsId, out var settingsProto))
             _cloning.CloneComponents(source, target, settingsProto);
-        }
 
         _visualBody.CopyAppearanceFrom(source, target);
-
-        // CopySpeech(source, target);
 
         _metadata.SetEntityName(target, Name(source), raiseEvents: false);
         _metadata.SetEntityDescription(target, Description(source));
@@ -212,7 +174,8 @@ public sealed partial class ImitatorImplantSystem : EntitySystem
 
         CopyTo(image, wearer, ent.Comp.Settings);
 
-        EnsureComp<ImitatorDisguiseComponent>(wearer);
+        var disguise = EnsureComp<ImitatorDisguiseComponent>(wearer);
+        UpdateInstability((ent, wearer));
 
         HideCopyAction(ent);
     }

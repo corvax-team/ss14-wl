@@ -20,6 +20,33 @@
   - ScaleVisuals
   - Wagging
   - Speech
+  - Accentless
+  - BackwardsAccent
+  - BarkAccent
+  - BleatingAccent
+  - DamagedSiliconAccent
+  - FrenchAccent
+  - FrontalLisp
+  - GermanAccent
+  - LizardAccent
+  - MobsterAccent
+  - MonkeyAccent
+  - MothAccent
+  - MumbleAccent
+  - OwOAccent
+  - ParrotAccent
+  - PirateAccent
+  - CischiAccent
+  - GolemAccent
+  - Rhotacism
+  - RussianAccent
+  - ScrambledAccent
+  - SkeletonAccent
+  - SlurredAccent
+  - SouthernAccent
+  - SpanishAccent
+  - StutteringAccent
+  - GrowlingAccent # Corvax
   eventComponents:
   - Vocal
   - Wagging
