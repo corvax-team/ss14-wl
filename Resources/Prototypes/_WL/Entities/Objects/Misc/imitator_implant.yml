@@ -15,10 +15,8 @@
   - DetailExaminable
   - DynamicText
   - DirectionalBodyLayers
-  - DamageVisuals
   - HumanoidProfile
   - ScaleVisuals
-  - Wagging
   - Speech
   - Accentless
   - BackwardsAccent
@@ -46,7 +44,7 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
-  - GrowlingAccent # Corvax
+  - GrowlingAccent
   eventComponents:
   - Vocal
   - Wagging
