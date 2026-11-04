@@ -175,7 +175,7 @@ public sealed partial class ImitatorImplantSystem : EntitySystem
         CopyTo(image, wearer, ent.Comp.Settings);
 
         var disguise = EnsureComp<ImitatorDisguiseComponent>(wearer);
-        UpdateInstability((ent, wearer));
+        UpdateInstability((ent, disguise));
 
         HideCopyAction(ent);
     }
