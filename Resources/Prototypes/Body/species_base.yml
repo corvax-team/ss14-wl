@@ -110,7 +110,6 @@
   - type: SleepEmitSound
   - type: SSDIndicator
   - type: StandingState
-  - type: Crawler
 #  - type: Dna WL - NoDnaMobs
   - type: MindContainer
   - type: MindExaminable

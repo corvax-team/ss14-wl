@@ -284,6 +284,7 @@
   # WL-Midi-End
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: OfferItem # CorvaxGoob-Offer
+  - type: Crawler # WL-Changes
 
 - type: entity
   parent: OrganBase
