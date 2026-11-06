@@ -36,6 +36,13 @@
           tags:
           - CaptainSabre
   - type: Appearance
+  # WL-changes-Start
+  - type: ClothingItemMapper
+    mapLayers:
+      sheath-sabre:
+        belt:
+        - state: sheath-sabre-equipped-BELT
+  # WL-changes-End
 
 - type: entity
   parent: ClothingBeltStorageBase
