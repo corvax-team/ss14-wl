@@ -54,7 +54,7 @@
     - id: DoubleEmergencyOxygenTankFilled
     - id: ClothingOuterHardsuitSecurityPilot
     - id: ClothingMaskBreath
-    - id: ClothingShoesBootsMag
+    - id: ClothingShoesBootsMagSec # WL: ClothingShoesBootsMag > ClothingShoesBootsMagSec
 
 - type: entityTable
   id: FillLockerPilotWeapon

@@ -62,6 +62,7 @@
     - id: ClothingOuterHardsuitWarden
     - id: OxygenTankFilled
     - id: ClothingMaskBreath
+    - id: ClothingShoesBootsMagSec # WL
 
 - type: entity
   id: LockerSecurityFilled
@@ -166,7 +167,10 @@
     - id: Defibrillator
     - id: MedkitAdvancedFilled
       # Corvax-Brigmedic-End
-    - id: ClothingBeltHolsterDSS #wl-holsters
+    # WL-start:
+    - id: ClothingBeltHolsterDSS
+    - id: ClothingShoesBootsMagSec
+    # WL-end.
 
 - type: entity
   id: LockerDetectiveFilled
