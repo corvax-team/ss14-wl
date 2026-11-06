@@ -94,3 +94,11 @@
     Plastic: 500
     Durathread: 500
     Steel: 100
+
+- type: latheRecipe
+  id: ClothingShoesBootsMagSec
+  result: ClothingShoesBootsMagSec
+  completetime: 10
+  materials:
+    Steel: 1150
+    Plastic: 550
