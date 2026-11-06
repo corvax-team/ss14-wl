@@ -27,6 +27,7 @@ public sealed partial class DirectionalBodyLayersSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        UpdatesAfter.Add(typeof(Content.Client.Body.VisualBodySystem)); // WL-changes
         UpdatesAfter.Add(typeof(TransformSystem));
         UpdatesAfter.Add(typeof(EyeSystem));
         UpdatesAfter.Add(typeof(ContentEyeSystem));
@@ -83,7 +84,12 @@ public sealed partial class DirectionalBodyLayersSystem : EntitySystem
                 }
             }
         }
-        foreach (var organ in _body.EnumerateOrgans<VisualOrganMarkingsComponent>(entity.Owner))
+        // WL-changes-Start
+        var visualBody = entity.Owner;
+        if (TryComp<Content.Shared._WL.Implants.ImitatorDisguiseComponent>(entity, out var disguise) && disguise.Image is { } image)
+            visualBody = image;
+        foreach (var organ in _body.EnumerateOrgans<VisualOrganMarkingsComponent>(visualBody))
+        // WL-changes-End
         {
             foreach (var marking in organ.Comp2.AppliedMarkings)
             {

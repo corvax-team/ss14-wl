@@ -1,0 +1,89 @@
+- type: cloningSettings
+  id: ImitatorIdentity
+  copyStatusEffects: false
+  copyEquipment: null
+  copyImplants: false
+  copyInternalStorage: false
+  raiseEntityRenamedEvent: false
+  components:
+  - TTS
+  - SpeechBarks
+  - TypingIndicator
+  - Grammar
+  - NameModifier
+  - CharacterInformation
+  - DetailExaminable
+  - DynamicText
+  - DirectionalBodyLayers
+  eventComponents:
+  - Vocal
+  - Wagging
+
+- type: entity
+  parent: [BaseCorvaxContraband436, BaseSubdermalImplant]
+  id: ImitatorImplant
+  name: imitator implant
+  description: This implant lets the user copy a dead humanoid's appearance and voice once. The disguise lasts until the implant is removed.
+  categories: [HideSpawnMenu]
+  components:
+  - type: SubdermalImplant
+    implantAction: ActionImitatorCopy
+    whitelist:
+      components: [Body, HumanoidProfile]
+      requireAll: true
+    blacklist:
+      components: [ImitatorDisguise]
+  - type: ImitatorImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: ImitatorImplanter
+  name: imitator implanter
+  components:
+  - type: Implanter
+    implant: ImitatorImplant
+
+- type: entity
+  parent: BaseAction
+  id: ActionImitatorCopy
+  name: Assume identity
+  description: Changes your name, appearance and voice to match the selected dead humanoid.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+  - type: Sprite
+    sprite: Mobs/Silicon/holograms.rsi
+    layers:
+    - state: ai_female
+      map: ["enum.ActionVisuals.Icon"]
+    - state: ai_female
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+  - type: TargetAction
+    range: 2
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components: [HumanoidProfile]
+    event: !type:ImitatorCopyActionEvent
+
+- type: listing
+  id: UplinkImitatorImplanter
+  name: uplink-imitator-implanter-name
+  description: uplink-imitator-implanter-desc
+  icon: {sprite: /Textures/Mobs/Silicon/holograms.rsi, state: ai_female}
+  productEntity: ImitatorImplanter
+  cost:
+    Telecrystal: 5
+  categories: [UplinkImplants]
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags: [NukeOpsUplink]
+
+- type: shader
+  id: ImitatorGlitch
+  kind: source
+  path: /Textures/_WL/Shaders/imitator_glitch.swsl
+  params:
+    strength: 0.0

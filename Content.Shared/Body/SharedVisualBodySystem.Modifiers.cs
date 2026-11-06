@@ -10,6 +10,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared._WL.Implants; // WL-changes
 
 namespace Content.Shared.Body;
 
@@ -76,12 +77,18 @@ public abstract partial class SharedVisualBodySystem
     /// <param name="profiles">The profiles for the various organs</param>
     /// <param name="markings">The marking parameters for the various organs</param>
     /// <param name="applied">The markings that are applied to the entity</param>
+    /// <param name="useDisguise">Read the visible disguise instead of the real body.</param>
     public bool TryGatherMarkingsData(Entity<VisualBodyComponent?> ent,
         HashSet<HumanoidVisualLayers>? filter,
         [NotNullWhen(true)] out Dictionary<ProtoId<OrganCategoryPrototype>, OrganProfileData>? profiles,
         [NotNullWhen(true)] out Dictionary<ProtoId<OrganCategoryPrototype>, OrganMarkingData>? markings,
-        [NotNullWhen(true)] out Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>>? applied)
+        [NotNullWhen(true)] out Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>>? applied,
+        bool useDisguise = false) // WL-changes
     {
+        // WL-changes-Start
+        if (useDisguise && TryComp<ImitatorDisguiseComponent>(ent, out var disguise) && disguise.Image is { } image)
+            ent = (image, null);
+        // WL-changes-End
         if (!Resolve(ent, ref ent.Comp, logMissing: false))
         {
             profiles = null;
@@ -121,15 +128,14 @@ public abstract partial class SharedVisualBodySystem
 
     private void OnModifiersOpened(Entity<VisualBodyComponent> ent, ref BoundUIOpenedEvent args)
     {
-        TryGatherMarkingsData(ent.AsNullable(), null, out var profiles, out var markings, out var applied);
+        TryGatherMarkingsData(ent.AsNullable(), null, out var profiles, out var markings, out var applied, useDisguise: true); // WL-changes
 
         _userInterface.SetUiState(ent.Owner, HumanoidMarkingModifierKey.Key, new HumanoidMarkingModifierState(applied!, markings!, profiles!));
     }
 
     private void OnSetModifiers(Entity<VisualBodyComponent> ent, ref HumanoidMarkingModifierMarkingSetMessage args)
     {
-        var markingsEvt = new ApplyOrganMarkingsEvent(args.Markings);
-        RaiseLocalEvent(ent, ref markingsEvt);
+        ApplyMarkings(ent, args.Markings, useDisguise: true); // WL-changes
     }
 
     /// <summary>
@@ -137,9 +143,15 @@ public abstract partial class SharedVisualBodySystem
     /// </summary>
     /// <param name="ent">The body whose organs to apply markings to.</param>
     /// <param name="markings">A dictionary of organ categories to markings information. Organs not included in this dictionary will remain unaffected.</param>
+    /// <param name="useDisguise">Edit the visible disguise instead of the real body.</param>
     [PublicAPI]
-    public void ApplyMarkings(EntityUid ent, Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings)
+    public void ApplyMarkings(EntityUid ent, Dictionary<ProtoId<OrganCategoryPrototype>, Dictionary<HumanoidVisualLayers, List<Marking>>> markings,
+        bool useDisguise = false) // WL-changes
     {
+        // WL-changes-Start
+        if (useDisguise && TryComp<ImitatorDisguiseComponent>(ent, out var disguise) && disguise.Image is { } image)
+            ent = image;
+        // WL-changes-End
         var markingsEvt = new ApplyOrganMarkingsEvent(markings);
         RaiseLocalEvent(ent, ref markingsEvt);
     }
