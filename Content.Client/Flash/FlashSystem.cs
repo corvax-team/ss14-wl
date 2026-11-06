@@ -39,7 +39,7 @@ public sealed partial class FlashSystem : SharedFlashSystem
 
         if (!_statusEffects.HasEffectComp<FlashedStatusEffectComponent>(args.Target))
         {
-            _overlay.ScreenshotTexture = null;
+            _overlay.ClearScreenshot(); // WL-changes
             _overlay.RequestScreenTexture = false;
             _overlayMan.RemoveOverlay(_overlay);
         }
@@ -58,7 +58,7 @@ public sealed partial class FlashSystem : SharedFlashSystem
         if (_player.LocalEntity is null || _statusEffects.HasEffectComp<FlashedStatusEffectComponent>(_player.LocalEntity.Value))
             return;
 
-        _overlay.ScreenshotTexture = null;
+        _overlay.ClearScreenshot(); // WL-changes
         _overlay.RequestScreenTexture = false;
         _overlayMan.RemoveOverlay(_overlay);
     }
