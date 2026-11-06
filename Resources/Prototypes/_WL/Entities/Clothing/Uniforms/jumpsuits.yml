@@ -169,6 +169,7 @@
         showEnts: False
         occludes: True
         ent: null
+      JumpsuitAccessories: !type:ContainerSlot
 
 - type: entity
   parent: ClothingUniformBase

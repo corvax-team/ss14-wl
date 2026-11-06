@@ -788,6 +788,7 @@
   categories: [HideSpawnMenu]
   name: tomato killer plant
   components:
+  - type: NPCImprinted
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tomatokiller.rsi
   - type: PlantData
@@ -1227,6 +1228,7 @@
     production: 12
     yield: 2
     potency: 20
+    growthStages: 3 # WL-changes
   - type: PlantHarvest
     harvestRepeat: Repeat
   - type: PlantGrowth

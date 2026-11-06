@@ -105,7 +105,8 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
 
     public void OnPressureLanguageCheck(EntityUid source, LanguagesComponent comp, ref PressureLanguageCheckEvent args)
     {
-        var passability = CheckVocalizationPass(source, args.Language);
+        var passability = CheckVocalizationPass(source, args.Language, args.IgnorePressure);
+        args.Passability = passability;
 
         if (passability == 0)
         {
@@ -115,7 +116,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
             if (time > comp.LastPopup + comp.PopupCooldown)
             {
                 comp.LastPopup = time;
-                var message = Loc.GetString("languages-vacuum-block");
+                var message = Loc.GetString(args.IgnorePressure ? "speech-muted" : "languages-vacuum-block");
 
                 _popup.PopupEntity(message, source, source);
             }
@@ -130,7 +131,7 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
                 args.ForceWhisper = true;
 
             var time = _timing.CurTime;
-            if (time > comp.LastPopup + comp.PopupCooldown)
+            if (!args.IgnorePressure && time > comp.LastPopup + comp.PopupCooldown)
             {
                 comp.LastPopup = time;
                 var message = Loc.GetString("languages-vacuum-part-pass");
@@ -175,7 +176,8 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
         string name,
         SpeechVerbPrototype speech,
         RadioChannelPrototype channel,
-        bool colorize = true)
+        bool colorize = true,
+        string? listenerMessage = null)
     {
         if (!ProtoMan.TryIndex(langId, out var language))
             return string.Empty;
@@ -186,7 +188,9 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
         var color = GetColor(language, colorize && canColor, channel.Color);
         var (fontSize, fontId) = GetFontParams(language, speech.FontSize, speech.FontId);
 
-        if (!canUnderstand)
+        if (listenerMessage != null)
+            msg = listenerMessage;
+        else if (!canUnderstand)
             msg = ObfuscateMessageForListener(msg, langId, listener);
 
         var locId = speech.Bold
@@ -308,9 +312,15 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
             ("langColor", color));
     }
 
-    private float CheckVocalizationPass(EntityUid source, ProtoId<LanguagePrototype> langId)
+    private float CheckVocalizationPass(EntityUid source, ProtoId<LanguagePrototype> langId, bool ignorePressure = false)
     {
         if (!ProtoMan.TryIndex(langId, out var language))
+            return 1f;
+
+        if (_statusEffects.HasEffectComp<MutedStatusEffectComponent>(source))
+            return language.PressurePass;
+
+        if (ignorePressure)
             return 1f;
 
         if (_atmosphereSystem.GetContainingMixture(source) is { } mixture)
@@ -318,9 +328,6 @@ public sealed partial class LanguagesSystem : SharedLanguagesSystem
             var fixed_pressure = MathF.Max(mixture.Pressure - MinTalkPressure, 0f);
 
             var pressure_prob = MathF.Min(fixed_pressure / (FullTalkPressure - MinTalkPressure), 1f);
-
-            if (_statusEffects.HasEffectComp<MutedStatusEffectComponent>(source))
-                pressure_prob = 0f;
 
             var full_prob = MathF.Min(pressure_prob + language.PressurePass, 1f);
 

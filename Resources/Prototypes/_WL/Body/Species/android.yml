@@ -105,7 +105,7 @@
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  - BaseSpeciesNoDna #WL - NoDnaAndorid
+  - BaseSpeciesMobNoCrawl #WL - NoDnaAndorid
   id: MobAndroid
   components:
   - type: Swimmer
@@ -194,7 +194,6 @@
           True: { shader: unshaded }
           False: { shader: shaded }
   - type: Temperature
-    specificHeat: 42 #42
   - type: TemperatureDamage
     heatDamageThreshold: 460
     coldDamageThreshold: 270.3 #293.3 предел

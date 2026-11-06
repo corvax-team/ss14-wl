@@ -14,6 +14,7 @@ public sealed partial class SkillsEui : BaseEui
     private readonly EntityUid _entity;
     private readonly SharedSkillsSystem _skillsSystem;
     private readonly string _jobId;
+    private IDisposable? _selectionLog;
 
     public SkillsEui(EntityUid entity, SharedSkillsSystem skillsSystem, string jobId)
     {
@@ -22,6 +23,19 @@ public sealed partial class SkillsEui : BaseEui
         _entity = entity;
         _skillsSystem = skillsSystem;
         _jobId = jobId;
+    }
+
+    public override void Opened()
+    {
+        base.Opened();
+        _selectionLog = _skillsSystem.BeginSkillChange(_entity, "InitialSelection", Player, group: false);
+    }
+
+    public override void Closed()
+    {
+        base.Closed();
+        _selectionLog?.Dispose();
+        _selectionLog = null;
     }
 
     public override EuiStateBase GetNewState()
@@ -58,11 +72,13 @@ public sealed partial class SkillsEui : BaseEui
 
     private void HandleSkillChanged(SkillsEuiSkillChangedMessage message)
     {
-        if (!_entMan.TryGetComponent<SkillsComponent>(_entity, out var skillsComp))
+        if (IsShutDown || Player.AttachedEntity != _entity ||
+            !Enum.IsDefined((SkillType)message.SkillKey) ||
+            !_entMan.TryGetComponent<SkillsComponent>(_entity, out var skillsComp))
             return;
 
         var skillType = (SkillType)message.SkillKey;
-        _skillsSystem.TrySetSkillLevel(_entity, skillType, message.NewLevel, _jobId, skillsComp);
+        _skillsSystem.TrySetSkillLevel(_entity, skillType, message.NewLevel, _jobId, skillsComp, logChange: false);
 
         StateDirty();
     }

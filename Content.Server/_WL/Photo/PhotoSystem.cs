@@ -131,7 +131,7 @@ public sealed partial class PhotoSystem : SharedPhotoSystem
         return true;
     }
 
-    private static bool CheckPngSignature(ReadOnlySpan<byte> data)
+    public bool CheckPngSignature(ReadOnlySpan<byte> data)
     {
         if (data.Length < 8) return false;
         return data[0] == 0x89 && data[1] == 0x50 && data[2] == 0x4E && data[3] == 0x47 &&

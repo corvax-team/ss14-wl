@@ -145,6 +145,26 @@
   - type: AddHeightItem
   - type: CuffedMeleeWeapon
     weaponId: CuffedHumanAttack
+  - type: ActionGrant
+    actions:
+    - ActionMurineCheekStorage
+  - type: Actions
+  - type: Storage
+    grid:
+    - 0,0,1,1
+    maxItemSize: Small
+    openOnActivate: false
+    showVerb: false
+    clickInsert: false
+  - type: CheekStorage
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
 
 - type: entity
   parent: OrganBase

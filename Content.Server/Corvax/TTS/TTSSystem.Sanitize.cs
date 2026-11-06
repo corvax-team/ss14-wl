@@ -16,7 +16,7 @@ public sealed partial class TTSSystem
     private string Sanitize(string text)
     {
         text = text.Trim();
-        text = RegexInvalidChars.Replace(text, "");
+        text = RegexInvalidChars.Replace(text.Replace('~', ' '), ""); // WL-Changes: Keep obscured fragments separated.
         text = RegexWordBoundary.Replace(text, ReplaceMatchedWord);
         text = RegexLatToCyr.Replace(text, ReplaceLat2Cyr);
         text = RegexDecimal.Replace(text, " целых ");
@@ -453,8 +453,12 @@ public static class NumberConverter
 
     private static void AppendWithSpace(StringBuilder stringBuilder, string str)
     {
+        if (string.IsNullOrEmpty(str))
+            return;
+
         if (stringBuilder.Length > 0)
             stringBuilder.Append(" ");
+
         stringBuilder.Append(str);
     }
 

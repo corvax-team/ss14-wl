@@ -1,0 +1,29 @@
+- type: tile
+  parent: FloorGrass
+  id: FloorGrassJungleMowed
+  name: tiles-mowed-jungle-grass-floor
+  sprite: /Textures/Tiles/GrassJungle/grass.png
+  isSubfloor: true
+  itemDrop: FloorTileItemGrassJungle
+
+- type: tile
+  parent: FloorGrass
+  id: FloorGrassDarkMowed
+  name: tiles-mowed-dark-grass-floor
+  sprite: /Textures/Tiles/GrassDark/grass.png
+  isSubfloor: true
+  itemDrop: null
+
+- type: tile
+  parent: FloorMowedAstroGrass
+  id: FloorMowedJungleAstroGrass
+  name: tiles-mowed-jungle-astro-grass
+  sprite: /Textures/Tiles/GrassJungle/grass.png
+  itemDrop: FloorTileItemMowedJungleAstroGrass
+
+- type: tile
+  parent: FloorMowedAstroGrass
+  id: FloorMowedDarkAstroGrass
+  name: tiles-mowed-dark-astro-grass
+  sprite: /Textures/Tiles/GrassDark/grass.png
+  itemDrop: FloorTileItemMowedDarkAstroGrass

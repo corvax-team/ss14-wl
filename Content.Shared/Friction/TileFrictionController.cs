@@ -80,6 +80,13 @@ namespace Content.Shared.Friction
                 else
                     friction = _frictionModifier * GetTileFriction(uid, body, xform);
 
+                //WLSwiming - start
+                if (_swim.TryGetWaterResistance(xform) is { } waterResistance)
+                {
+                    friction = waterResistance;
+                }
+                //WLSwiming - end
+
                 var bodyModifier = 1f;
 
                 if (_frictionQuery.TryGetComponent(uid, out var frictionComp))
@@ -104,13 +111,6 @@ namespace Content.Shared.Friction
                 friction *= bodyModifier;
 
                 friction = Math.Max(_minDamping, friction);
-
-                //WLSwiming - start
-                if (_swim.TryGetWaterResistance(xform) is { } waterResistance)
-                {
-                    friction = waterResistance;
-                }
-                //WLSwiming - end
 
                 PhysicsSystem.SetLinearDamping(uid, body, friction);
                 PhysicsSystem.SetAngularDamping(uid, body, friction);

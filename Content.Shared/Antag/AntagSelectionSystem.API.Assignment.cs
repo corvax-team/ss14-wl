@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._WL.Skills; // WL-changes
 using Content.Shared.Antag.Components;
 using Content.Shared.Database;
 using Content.Shared.Ghost.Components;
@@ -489,6 +490,7 @@ public abstract partial class AntagSelectionSystem
     [PublicAPI]
     public void AssignAntagComponents(EntityUid entity, AntagSpecifierPrototype antag)
     {
+        using var skillLog = EntityManager.System<SharedSkillsSystem>().BeginSkillChange(entity, "Antagonist", source: antag.ID); // WL-changes
         EntityManager.AddComponents(entity, antag.Components);
     }
 }

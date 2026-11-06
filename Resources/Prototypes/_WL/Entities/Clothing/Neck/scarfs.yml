@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckDarkScarfLight
   name: dark light scarf
   description: A light scarf that keeps you warm withought being too heavy.
@@ -8,14 +8,9 @@
     sprite: _WL/Clothing/Neck/Scarfs/darkscarf.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Scarfs/darkscarf.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckRedScarfLight
   name: red light scarf
   description: A light scarf that keeps you warm withought being too heavy.
@@ -24,14 +19,9 @@
     sprite: _WL/Clothing/Neck/Scarfs/redscarf.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Scarfs/redscarf.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckStarScarfLight
   name: star scarf
   description: Just like wearing the univerce.
@@ -40,14 +30,9 @@
     sprite: _WL/Clothing/Neck/Scarfs/starscarf.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Scarfs/starscarf.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckWhiteScarfLight
   name: white light scarf
   description: A light scarf that keeps you warm withought being too heavy.
@@ -56,8 +41,3 @@
     sprite: _WL/Clothing/Neck/Scarfs/whitescarf.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Scarfs/whitescarf.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable

@@ -1,0 +1,11 @@
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileMowedJungleAstroGrass
+  name: stack-mowed-jungle-astro-grass-floor
+  spawn: FloorTileItemMowedJungleAstroGrass
+
+- type: stack
+  parent: BaseTileStack
+  id: FloorTileMowedDarkAstroGrass
+  name: stack-mowed-dark-astro-grass-floor
+  spawn: FloorTileItemMowedDarkAstroGrass

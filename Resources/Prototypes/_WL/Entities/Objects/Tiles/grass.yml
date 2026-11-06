@@ -1,0 +1,23 @@
+- type: entity
+  parent: FloorTileItemJungleAstroGrass
+  id: FloorTileItemMowedJungleAstroGrass
+  name: mowed jungle astro-grass
+  components:
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorMowedJungleAstroGrass
+  - type: Stack
+    stackType: FloorTileMowedJungleAstroGrass
+
+- type: entity
+  parent: FloorTileItemDarkAstroGrass
+  id: FloorTileItemMowedDarkAstroGrass
+  name: mowed dark astro-grass
+  components:
+  - type: FloorTile
+    outputs:
+    - Plating
+    - FloorMowedDarkAstroGrass
+  - type: Stack
+    stackType: FloorTileMowedDarkAstroGrass

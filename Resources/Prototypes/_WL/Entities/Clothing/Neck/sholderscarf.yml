@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckRedShoulderScarf
   name: red shoulder scarf
   description: not very practical, but at least stylish.
@@ -8,14 +8,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/redss.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/redss.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckOrangeShoulderScarf
   name: orange shoulder scarf
   description: not very practical, but at least stylish.
@@ -24,14 +19,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/orangess.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/orangess.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckYellowShoulderScarf
   name: yellow shoulder scarf
   description: not very practical, but at least stylish.
@@ -40,14 +30,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/yellowss.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/yellowss.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckGreenShoulderScarf
   name: green shoulder scarf
   description: not very practical, but at least stylish.
@@ -56,14 +41,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/greenss.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/greenss.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckCyanShoulderScarf
   name: cyan shoulder scarf
   description: not very practical, but at least stylish.
@@ -72,14 +52,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/cyanss.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/cyanss.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckBlueShoulderScarf
   name: blue shoulder scarf
   description: not very practical, but at least stylish.
@@ -88,14 +63,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/bluess.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/bluess.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckPurpleShoulderScarf
   name: purple shoulder scarf
   description: not very practical, but at least stylish.
@@ -104,14 +74,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/purpless.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/purpless.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckPinkShoulderScarf
   name: pink shoulder scarf
   description: not very practical, but at least stylish.
@@ -120,14 +85,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/pinkss.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/pinkss.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckBlackShoulderScarf
   name: black shoulder scarf
   description: not very practical, but at least stylish.
@@ -136,14 +96,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/blackss.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/blackss.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckGrayShoulderScarf
   name: gray shoulder scarf
   description: not very practical, but at least stylish.
@@ -152,14 +107,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/grayss.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/grayss.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckWhiteShoulderScarf
   name: white shoulder scarf
   description: not very practical, but at least stylish.
@@ -168,14 +118,9 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/whitess.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/whitess.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckBase
+  parent: ClothingScarfBase
   id: ClothingNeckBrownShoulderScarf
   name: brown shoulder scarf
   description: not very practical, but at least stylish.
@@ -184,8 +129,4 @@
     sprite: _WL/Clothing/Neck/ShoulderScarf/brownss.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/ShoulderScarf/brownss.rsi
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
+

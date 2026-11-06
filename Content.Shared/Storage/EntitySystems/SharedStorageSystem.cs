@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.IdentityManagement; // WL-Changes
+using Content.Shared.Speech.Components;// WL-Changes
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -146,6 +148,11 @@ public abstract partial class SharedStorageSystem : EntitySystem
         SubscribeLocalEvent<StorageComponent, ContainerIsInsertingAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<StorageComponent, AreaPickupDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<StorageComponent, GotReclaimedEvent>(OnReclaimed);
+        // WL-Changes-Start
+        SubscribeLocalEvent<StorageComponent, OpenCheekStorageEvent>(OnCheekStorageActivate);
+        SubscribeLocalEvent<CheekStorageComponent, GetVerbsEvent<ActivationVerb>>(AddCheekStorageVerb);
+        SubscribeLocalEvent<CheekStorageComponent, CheekStorageDoAfterEvent>(OnCheekStorageDoAfter);
+        // WL-Changes-End
 
         SubscribeLocalEvent<MetaDataComponent, StackCountChangedEvent>(OnStackCountChanged);
 
@@ -693,6 +700,79 @@ public abstract partial class SharedStorageSystem : EntitySystem
         // Being destroyed so need to recalculate.
         ContainerSystem.EmptyContainer(storageComp.Container, destination: coordinates);
     }
+
+    // WL-Changes-Start
+    private void OnCheekStorageActivate(EntityUid uid, StorageComponent storageComp, OpenCheekStorageEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+
+        if (!HasComp<ActorComponent>(args.Performer))
+            return;
+
+        if (_inventory.TryGetSlotEntity(uid, "mask", out var mask)
+            && HasComp<EmoteBlockerComponent>(mask.Value))
+            return;
+
+        var uiOpen = UI.IsUiOpen(uid, StorageComponent.StorageUiKey.Key, args.Performer);
+
+        if (uiOpen)
+            UI.CloseUi(uid, StorageComponent.StorageUiKey.Key, args.Performer);
+        else
+            OpenStorageUI(uid, args.Performer, storageComp, false);
+    }
+
+    private void AddCheekStorageVerb(EntityUid uid, CheekStorageComponent component, GetVerbsEvent<ActivationVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.User == uid)
+            return;
+
+        if (_inventory.TryGetSlotEntity(uid, "mask", out var mask)
+            && HasComp<EmoteBlockerComponent>(mask.Value))
+            return;
+
+        ActivationVerb verb = new()
+        {
+            Act = () => StartCheekStorageDoAfter(uid, args.User),
+            Text = Loc.GetString("cheek-storage-verb"),
+            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/open.svg.192dpi.png")),
+        };
+        args.Verbs.Add(verb);
+    }
+
+    private void StartCheekStorageDoAfter(EntityUid target, EntityUid user)
+    {
+        var popup = Loc.GetString("cheek-storage-verb-popup",
+            ("user", Identity.Entity(user, EntityManager)),
+            ("target", Identity.Entity(target, EntityManager)));
+        _popupSystem.PopupEntity(popup, target);
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, user, 4, new CheekStorageDoAfterEvent(), target, target: target)
+        {
+            BreakOnMove = true,
+            BreakOnDamage = true,
+        });
+    }
+
+    private void OnCheekStorageDoAfter(EntityUid uid, CheekStorageComponent component, CheekStorageDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        args.Handled = true;
+
+        if (!HasComp<ActorComponent>(args.Args.User) || !TryComp<StorageComponent>(uid, out var storage))
+            return;
+
+        if (_inventory.TryGetSlotEntity(uid, "mask", out var mask)
+            && HasComp<EmoteBlockerComponent>(mask.Value))
+            return;
+
+        OpenStorageUI(uid, args.Args.User, storage, false);
+    }
+    // WL-Changes-End
 
     /// <summary>
     ///     This function gets called when the user clicked on an item in the storage UI. This will either place the

@@ -1,21 +1,39 @@
 using System.Linq;
 using Content.Server.DeviceNetwork.Systems;
+// WL-Changes-Start
+using Content.Server._WL.Photo;
+using Content.Server.Popups;
+using Content.Shared._WL.Photo;
+// WL-Changes-End
 using Content.Shared.DeviceNetwork;
-using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.DeviceNetwork.Systems;
+using Content.Shared.DeviceNetwork.Events;
 using Content.Shared.Power;
 using Content.Shared.SurveillanceCamera;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
+// WL-Changes-Start
+using Robust.Shared.Timing;
+using Robust.Server.Audio;
+// WL-Changes-End
 
 namespace Content.Server.SurveillanceCamera;
 
 public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
 {
     [Dependency] private SurveillanceCameraSystem _surveillanceCameras = default!;
-    [Dependency] private UserInterfaceSystem _userInterface = default!;
+    [Dependency] private SharedUserInterfaceSystem _userInterface = default!;
     [Dependency] private DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private DeviceNetworkRouterSystem _deviceNetworkRouter = default!;
+    // WL-Changes-Start
+    [Dependency] private TransformSystem _transform = default!;
+    [Dependency] private PopupSystem _popupSystem = default!;
+    [Dependency] private IGameTiming _timingSystem = default!;
+    [Dependency] private AudioSystem _audioSystem = default!;
+    [Dependency] private PhotoSystem _photoSystem = default!;
+
+    private const int MaxSnapshotSize = 1024 * 128; // 128 KB
+    // WL-Changes-End
 
     public override void Initialize()
     {
@@ -31,6 +49,7 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
             subs.Event<SurveillanceCameraDisconnectMessage>(OnDisconnectMessage);
             subs.Event<SurveillanceCameraMonitorSubnetRequestMessage>(OnSubnetRequest);
             subs.Event<SurveillanceCameraMonitorSwitchMessage>(OnSwitchMessage);
+            subs.Event<PhotoCameraTakeImageMessage>(OnTakeSnapshotMessage); // WL-Changes
             subs.Event<BoundUIClosedEvent>(OnBoundUiClose);
             subs.Event<BoundUIOpenedEvent>(OnBoundUiOpen);
         });
@@ -54,6 +73,14 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
                 RemComp<ActiveSurveillanceCameraMonitorComponent>(uid);
             }
         }
+
+        // WL-Changes-Start
+        var printingQuery = EntityQueryEnumerator<SurveillanceCameraMonitorComponent>();
+        while (printingQuery.MoveNext(out var uid, out var monitor))
+        {
+            ProcessSnapshotPrint(uid, monitor);
+        }
+        // WL-Changes-End
     }
 
     /// ROUTING:
@@ -100,7 +127,7 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
         if (ent.Comp.NextCameraAddress == payload.SenderAddress)
         {
             if (payload.SenderAddress != null)
-                ent.Comp.ActiveCameraAddress = payload.SenderAddress;
+                ent.Comp.ActiveCameraAddress = payload.SenderAddress.Value;
             TrySwitchCameraByUid(ent, payload.Sender, ent.Comp);
         }
 
@@ -128,7 +155,7 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
         }
 
         if (payload.SenderAddress != null)
-            ent.Comp.KnownCameras.TryAdd(payload.SenderAddress, payload.Name);
+            ent.Comp.KnownCameras.TryAdd(payload.SenderAddress.Value, payload.Name);
         UpdateUserInterface(ent, ent.Comp);
     }
 
@@ -166,13 +193,52 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
         TrySwitchCameraByAddress(uid, message.Address, message.CameraSubnet, component);
     }
 
+    // WL-Changes-Start
+    private void OnTakeSnapshotMessage(EntityUid uid, SurveillanceCameraMonitorComponent component, PhotoCameraTakeImageMessage message)
+    {
+        if (!(message.Actor is { Valid: true } actor))
+            return;
+
+        if (message.Data.Length > MaxSnapshotSize
+            || !_photoSystem.CheckPngSignature(message.Data)
+            || component.ActiveCamera == null
+            || !component.Viewers.Contains(actor)
+            || component.PendingSnapshot != null
+            || _timingSystem.CurTime < component.NextSnapshotTime)
+        {
+            return;
+        }
+
+        component.PendingSnapshot = message.Data;
+        component.SnapshotPrintEndTime = _timingSystem.CurTime + TimeSpan.FromSeconds(component.SnapshotPrintTime);
+        component.NextSnapshotTime = _timingSystem.CurTime + component.SnapshotCooldown;
+
+        _audioSystem.PlayPvs(component.PrintSound, uid);
+
+        _popupSystem.PopupEntity(Loc.GetString("surveillance-camera-monitor-snapshot-printed"), uid, actor);
+    }
+
+    private void ProcessSnapshotPrint(EntityUid uid, SurveillanceCameraMonitorComponent component)
+    {
+        if (component.PendingSnapshot == null || _timingSystem.CurTime < component.SnapshotPrintEndTime)
+            return;
+
+        var card = Spawn("PhotoCard");
+        _transform.SetMapCoordinates(card, _transform.GetMapCoordinates(uid));
+
+        if (TryComp<PhotoCardComponent>(card, out var photo))
+            photo.ImageData = component.PendingSnapshot;
+
+        component.PendingSnapshot = null;
+    }
+    //WL-Changes-Ends
     private void OnPowerChanged(EntityUid uid, SurveillanceCameraMonitorComponent component, ref PowerChangedEvent args)
     {
         if (!args.Powered)
         {
             RemoveActiveCamera(uid, component);
             component.NextCameraAddress = null;
-            component.ActiveSubnet = string.Empty;
+            component.ActiveSubnet = null;
         }
     }
 
@@ -228,7 +294,7 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
         }
 
         monitor.ActiveCamera = null;
-        monitor.ActiveCameraAddress = string.Empty;
+        monitor.ActiveCameraAddress = DeviceAddress.Invalid;
         RemComp<ActiveSurveillanceCameraMonitorComponent>(uid);
         UpdateUserInterface(uid, monitor);
     }
@@ -285,10 +351,9 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
         _deviceNetworkSystem.SendPacket(uid, null, ref payload);
     }
 
-    private void ConnectToSubnet(EntityUid uid, string subnet, SurveillanceCameraMonitorComponent? monitor = null)
+    private void ConnectToSubnet(EntityUid uid, ProtoId<DeviceFrequencyPrototype> subnet, SurveillanceCameraMonitorComponent? monitor = null)
     {
         if (!Resolve(uid, ref monitor)
-            || string.IsNullOrEmpty(subnet)
             || !monitor.KnownSubnets.TryGetValue(subnet, out var address))
         {
             return;
@@ -392,13 +457,13 @@ public sealed partial class SurveillanceCameraMonitorSystem : EntitySystem
         UpdateUserInterface(uid, monitor);
     }
 
-    private void TrySwitchCameraByAddress(EntityUid uid, string address, string? cameraSubnet = null, SurveillanceCameraMonitorComponent? monitor = null)
+    private void TrySwitchCameraByAddress(EntityUid uid, DeviceAddress address, ProtoId<DeviceFrequencyPrototype>? cameraSubnet = null, SurveillanceCameraMonitorComponent? monitor = null)
     {
         if (!Resolve(uid, ref monitor))
             return;
 
         if (cameraSubnet != null && cameraSubnet != monitor.ActiveSubnet)
-            SetActiveSubnet(uid, cameraSubnet, monitor);
+            SetActiveSubnet(uid, cameraSubnet.Value, monitor);
 
         if (monitor.ActiveSubnet is not { } activeSubnet
             || !monitor.KnownSubnets.TryGetValue(activeSubnet, out var subnetAddress))

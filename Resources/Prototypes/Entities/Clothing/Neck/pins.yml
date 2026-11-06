@@ -15,6 +15,14 @@
     - ClothMade #idk man its on the parent
     - MonkeyWearable
     - WhitelistChameleon
+  # WL-Changes-Start
+  - type: Tag
+    tags:
+    - JumpsuitAccessories
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+  # WL-Changes-End
 
 - type: entity
   parent: ClothingNeckPinBase
@@ -36,6 +44,7 @@
     - MonkeyWearable
     - WhitelistChameleon
     - GenderPin
+    - JumpsuitAccessories # WL-Changes
 
 - type: entity
   parent: ClothingGenderPinBase

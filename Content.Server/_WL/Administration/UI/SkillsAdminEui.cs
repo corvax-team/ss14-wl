@@ -88,6 +88,7 @@ public sealed partial class SkillsAdminEui : BaseEui
         var defaultSkills = _skillsSystem.ConvertToSkillTypeDict(_skillsSystem.GetDefaultSkillsForJob(_skillsComp.CurrentJob));
 
         var skillType = (SkillType)message.SkillKey;
+        using var skillLog = _skillsSystem.BeginSkillChange(_targetEntity, "AdminSkill", Player);
         _skillsSystem.SetSkillLevelAdmin(_targetEntity, skillType, message.NewLevel, defaultSkills, _skillsComp);
 
         if (_entMan.TryGetComponent<ActorComponent>(_targetEntity, out var actor))
@@ -103,6 +104,7 @@ public sealed partial class SkillsAdminEui : BaseEui
             return;
 
         var totalBonusPoints = _skillsComp.BonusPoints;
+        using var skillLog = _skillsSystem.BeginSkillChange(_targetEntity, "AdminBonusPoints", Player);
         _skillsSystem.SetBonusPoints(_targetEntity, message.NewBonusPoints, _skillsComp);
         if (_entMan.TryGetComponent<ActorComponent>(_targetEntity, out var actor))
         {
@@ -121,6 +123,7 @@ public sealed partial class SkillsAdminEui : BaseEui
         if (_skillsComp == null)
             return;
 
+        using var skillLog = _skillsSystem.BeginSkillChange(_targetEntity, "AdminReset", Player);
         _skillsSystem.ResetAllSkills(_targetEntity, _skillsComp);
 
         if (_entMan.TryGetComponent<ActorComponent>(_targetEntity, out var actor))

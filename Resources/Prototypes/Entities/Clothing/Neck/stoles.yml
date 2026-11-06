@@ -16,3 +16,11 @@
     sprite: Clothing/Neck/Stoles/chaplain.rsi
   - type: Item
     storedRotation: 90
+  # WL-Changes-Start
+  - type: Tag
+    tags:
+    - JumpsuitAccessories
+    - ClothMade
+    - Recyclable
+    - WhitelistChameleon
+  # WL-Changes-End

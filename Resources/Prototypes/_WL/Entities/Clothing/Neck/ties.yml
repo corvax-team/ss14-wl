@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieAtmos
   name: atmos tie
   description: Too stylish for fire.
@@ -8,15 +8,9 @@
     sprite: _WL/Clothing/Neck/Ties/atmos.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/atmos.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieBlue
   name: blue tie
   description: You got blood on my suit.
@@ -25,15 +19,9 @@
     sprite: _WL/Clothing/Neck/Ties/blue.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/blue.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieEngi
   name: engineering tie
   description: Not insulated.
@@ -42,15 +30,9 @@
     sprite: _WL/Clothing/Neck/Ties/engi.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/engi.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieGray
   name: gray tie
   description: You feel mysterious.
@@ -59,15 +41,9 @@
     sprite: _WL/Clothing/Neck/Ties/gray.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/gray.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieGreen
   name: green tie
   description: Look like a grass. Wait what is grass?
@@ -76,15 +52,9 @@
     sprite: _WL/Clothing/Neck/Ties/green.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/green.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieJani
   name: janitor tie
   description: Looking at him you seem to glide.
@@ -93,15 +63,9 @@
     sprite: _WL/Clothing/Neck/Ties/jani.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/jani.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieLightBlue
   name: light blue tie
   description: No, not this time.
@@ -110,15 +74,9 @@
     sprite: _WL/Clothing/Neck/Ties/lblue.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/lblue.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieMed
   name: medic tie
   description: What is a license?
@@ -127,15 +85,10 @@
     sprite: _WL/Clothing/Neck/Ties/medic.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/medic.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
+
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieOperative
   name: operative tie
   description: 5 minute adventure.
@@ -144,15 +97,9 @@
     sprite: _WL/Clothing/Neck/Ties/oper.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/oper.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieOrange
   name: orange tie
   description: Orange just like your mood.
@@ -161,15 +108,9 @@
     sprite: _WL/Clothing/Neck/Ties/orng.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/orng.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTiePink
   name: pink tie
   description: Stylish pink tie.
@@ -178,15 +119,9 @@
     sprite: _WL/Clothing/Neck/Ties/pink.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/pink.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTiePurple
   name: purple tie
   description: Stylish purple tie.
@@ -195,15 +130,9 @@
     sprite: _WL/Clothing/Neck/Ties/purple.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/purple.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieRainbow
   name: rainbow tie
   description: Suitable for cool parties.
@@ -212,15 +141,9 @@
     sprite: _WL/Clothing/Neck/Ties/rainbow.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/rainbow.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieSyndie
   name: syndicate tie
   description: Wear this if you want kill people with stylish.
@@ -229,15 +152,9 @@
     sprite: _WL/Clothing/Neck/Ties/syndi.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/syndi.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieWhite
   name: white tie
   description: So white you can't even see it on you.
@@ -246,15 +163,9 @@
     sprite: _WL/Clothing/Neck/Ties/white.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/white.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
-  parent: ClothingNeckAdjustableLayerBase
+  parent: ClothingNeckTieBase
   id: ClothingNeckTieYellow
   name: yellow tie
   description: Does he radiate joy?.
@@ -263,12 +174,6 @@
     sprite: _WL/Clothing/Neck/Ties/yelo.rsi
   - type: Clothing
     sprite: _WL/Clothing/Neck/Ties/yelo.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-    - ClothMade
-    - Recyclable
 
 - type: entity
   parent: ClothingNeckBase

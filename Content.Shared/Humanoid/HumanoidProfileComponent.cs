@@ -37,13 +37,19 @@ public sealed partial class HumanoidProfileComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<SpeciesPrototype> Species = HumanoidCharacterProfile.DefaultSpecies;
 
+    /// <summary>
+    /// Whether the humanoid profile shows on examine. Such as "They are a young human".
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool Examinable = true;
+
     // Corvax-TTS-Start
     [DataField, AutoNetworkedField]
     public ProtoId<TTSVoicePrototype> TTSVoice { get; set; } = HumanoidProfileSystem.DefaultVoice;
     // Corvax-TTS-End
 
     // WL-Height-Start
-    [DataField("height")]
+    [DataField("height"), AutoNetworkedField]
     [ViewVariables] public int Height = 165;
 
     [DataField, AutoNetworkedField]

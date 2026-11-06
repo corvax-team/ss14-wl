@@ -509,5 +509,9 @@ public enum LogType
     /// WL-Commands?
     /// </summary>
     WLCharDesc = 108,
+    /// <summary>
+    /// Character skill initialization and changes, including skill point adjustments.
+    /// </summary>
+    Skills = 109,
     //WL-Changes-end
 }

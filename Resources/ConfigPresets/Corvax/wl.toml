@@ -26,6 +26,9 @@ time = 10.0
 [whitelist]
 enabled = true
 
+[votekick]
+enabled = false
+
 [ic]
 flavor_text = true
 flavor_text_length = 1536
@@ -48,3 +51,7 @@ enabled = true
 [afk]
 time = 1800
 confirm_timeout = 300
+
+[ghost.go_lobby]
+death_time = 5
+enabled = true
