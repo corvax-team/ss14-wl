@@ -1,0 +1,7 @@
+- type: entity
+  parent: PrintedDocument
+  id: PrintedDocumentSettingOfGoal
+  name: Setting Of Goal
+  components:
+  - type: Paper
+    content: doc-text-printer-setting-of-goal
