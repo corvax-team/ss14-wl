@@ -1,0 +1,8 @@
+uniform highp float strength;
+
+void fragment() {
+    highp vec4 base = texture2D(TEXTURE, UV);
+    highp float stripe = step(0.0, sin((UV.y + TIME * 0.15) * 200.0));
+    highp vec3 projected = mix(base.rgb, base.rgb * vec3(0.4, 0.85, 1.0), stripe);
+    COLOR = vec4(mix(base.rgb, projected, strength), base.a * (1.0 - strength * stripe));
+}

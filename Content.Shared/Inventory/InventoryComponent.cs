@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Inventory;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(InventorySystem))]
+// [Access(typeof(InventorySystem))] WL-Changes: Copy displacements without entry inventory
 [AutoGenerateComponentState(true)]
 public sealed partial class InventoryComponent : Component
 {

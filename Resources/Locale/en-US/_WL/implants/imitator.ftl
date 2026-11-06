@@ -1,0 +1,9 @@
+ent-ImitatorImplant = imitator implant
+    .desc = This implant lets the user copy a dead humanoid's appearance and voice once. The disguise lasts until the implant is removed.
+ent-ImitatorImplanter = imitator implanter
+    .desc = A compact disposable syringe exclusively designed for the injection of subdermal implants. Make sure to scrub it with soap to remove residual DNA after use!
+ent-ActionImitatorCopy = Assume identity
+    .desc = Changes your appearance and voice to match the selected dead humanoid.
+uplink-imitator-implanter-name = Imitator Implanter
+uplink-imitator-implanter-desc = A single use implant that can be activated to copy a dead humanoid's appearance and voice. The disguise lasts until the implant is removed.
+imitator-invalid-target = You need a humanoid corpse.
