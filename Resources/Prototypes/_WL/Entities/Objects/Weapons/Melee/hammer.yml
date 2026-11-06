@@ -1,0 +1,26 @@
+- type: entity
+  name: hammer
+  parent: BaseItem
+  id: WeaponMeleeHammer
+  description: A great way to quickly convey your point of view to the other person.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Weapons/Melee/hammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    animationRotation: -90
+    wideAnimationRotation: -135
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 16
+    soundHit:
+      collection: MetalThud
+  - type: Item
+    size: Small
+    sprite: _WL/Objects/Weapons/Melee/hammer.rsi
+    useSound:
+      path: /Audio/Items/trayhit2.ogg
+  - type: Construction
+    graph: Hammer
+    node: hammer
