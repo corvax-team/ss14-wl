@@ -132,7 +132,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/taser.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
     slots:
     - Belt
@@ -156,7 +156,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/taser.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
     slots:
     - Belt
@@ -578,7 +578,7 @@
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/practice_disabler.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -588,7 +588,7 @@
   - type: Item
     storedOffset: -1,-5
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/practice_disabler.rsi
     quickEquip: false
     slots:
     - Belt
@@ -627,7 +627,7 @@
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -635,7 +635,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi
     quickEquip: false
     slots:
       - suitStorage
@@ -662,7 +662,7 @@
     tags:
       - Taser
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler_smg.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -700,7 +700,7 @@
     - Taser
     - Sidearm
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/taser.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -930,7 +930,7 @@
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_shotgun_icon_48x.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -943,7 +943,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_shotgun.rsi
   - type: Gun
     fireRate: 2
     soundGunshot:
@@ -960,7 +960,7 @@
       pacifismAllowedMode: true
   - type: Item
     size: Large
-    sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/inhands_64x.rsi
     heldPrefix: energy
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
@@ -974,7 +974,7 @@
   description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_magnum.rsi
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
@@ -988,7 +988,7 @@
     zeroVisible: true
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_magnum.rsi
   - type: StealTarget
     stealGroup:
     - WeaponEnergyMagnum
@@ -1062,7 +1062,6 @@
     startingCharge: 1000
   - type: StaticPrice
     price: 100
-
 - type: entity
   parent: [BaseXenoborgContraband, WeaponAdvancedLaser]
   id: WeaponLaserGunXenoborg

@@ -60,7 +60,7 @@
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
-    steps: 1
+    steps: 5
     zeroVisible: true
   - type: StaticPrice
     price: 2000
