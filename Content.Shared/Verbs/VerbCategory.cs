@@ -91,5 +91,9 @@ namespace Content.Shared.Verbs
 
         public static readonly VerbCategory Metabolizers =
             new("verb-categories-select-target", "/Textures/Interface/VerbIcons/group.svg.192dpi.png");
+
+        // WL-Changes: Birdscience start
+        public static readonly VerbCategory Programs = new("verb-categories-programs", "/Textures/Interface/VerbIcons/settings.svg.192dpi.png");
+        // WL-Changes: Birdscience end
     }
 }
