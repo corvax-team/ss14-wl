@@ -13,7 +13,7 @@ namespace Content.Corvax.Tests.Syndicate;
 [NonParallelizable]
 public sealed class PostMapInitCorvaxTest : PostMapInitTestBase
 {
-    private const string IncludedCorvax = "/Maps/Corvax";
+    private const string IncludedCorvax = "/Maps/_WL/Empty"; // WL-Changes: No need test corvax maps
 
     [Test, TestCaseSource(nameof(GridsSource), new object[] { true, new[] { IncludedCorvax } })]
     [EnsureCVar(Side.Server, typeof(CCVars), nameof(CCVars.GridFill), false)]
