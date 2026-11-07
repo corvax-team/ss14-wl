@@ -86,12 +86,13 @@
 
 - type: entity
   abstract: true
-  id: BoxFolderFill # Include this as a parent prototype to add 0-5 random papers to a folder's inventory when spawned.
+  id: BoxFolderFill # Include this as a parent prototype to add 0-10 random papers to a folder's inventory when spawned.
   suffix: Filled
   components:
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:AllSelector
+        rolls: 2 # WL-changes
         children:
         - id: Paper
           prob: 0.5
@@ -106,14 +107,14 @@
 
 - type: entity
   abstract: true
-  id: BoxFolderFillThreePapers # Like BoxFolderFill, but always has exactly three sheets of standard paper; use for things that should always be consistent, e.g roundstart items
-  suffix: 3 papers
+  id: BoxFolderFillThreePapers # WL-changes: 8 sheets; ID retained for compatibility.
+  suffix: 8 papers # WL-changes
   components:
   - type: EntityTableContainerFill
     containers:
       storagebase:
         id: Paper
-        amount: 3
+        amount: 8 # WL-changes
 
 - type: entity
   parent: [BoxFolderBaseEmpty, BoxFolderFill]
@@ -150,7 +151,7 @@
 - type: entity
   parent: [BoxFolderRedEmpty, BoxFolderFillThreePapers]
   id: BoxFolderRedThreePapers
-  suffix: Red, 3 papers
+  suffix: Red, 8 papers # WL-changes
 
 - type: entity
   parent: BoxFolderBaseEmpty
@@ -179,7 +180,7 @@
 - type: entity
   parent: [BoxFolderBlueEmpty, BoxFolderFillThreePapers]
   id: BoxFolderBlueThreePapers
-  suffix: Blue, 3 papers
+  suffix: Blue, 8 papers # WL-changes
 
 - type: entity
   parent: BoxFolderBaseEmpty
@@ -208,7 +209,7 @@
 - type: entity
   parent: [BoxFolderYellowEmpty, BoxFolderFillThreePapers]
   id: BoxFolderYellowThreePapers
-  suffix: Yellow, 3 papers
+  suffix: Yellow, 8 papers # WL-changes
 
 - type: entity
   parent: BoxFolderBaseEmpty
@@ -237,7 +238,7 @@
 - type: entity
   parent: [BoxFolderGreyEmpty, BoxFolderFillThreePapers]
   id: BoxFolderGreyThreePapers
-  suffix: Grey, 3 papers
+  suffix: Grey, 8 papers # WL-changes
 
 - type: entity
   parent: BoxFolderBaseEmpty
@@ -266,7 +267,7 @@
 - type: entity
   parent: [BoxFolderBlackEmpty, BoxFolderFillThreePapers]
   id: BoxFolderBlackThreePapers
-  suffix: Black, 3 papers
+  suffix: Black, 8 papers # WL-changes
 
 - type: entity
   parent: BoxFolderBaseEmpty
@@ -295,7 +296,7 @@
 - type: entity
   parent: [BoxFolderGreenEmpty, BoxFolderFillThreePapers]
   id: BoxFolderGreenThreePapers
-  suffix: Green, 3 papers
+  suffix: Green, 8 papers # WL-changes
 
 - type: entity
   parent: BoxFolderBaseEmpty
@@ -315,7 +316,7 @@
 - type: entity
   parent: [BoxFolderWhiteEmpty, BoxFolderFillThreePapers]
   id: BoxFolderWhiteThreePapers
-  suffix: White, 3 papers
+  suffix: White, 8 papers # WL-changes
 
 - type: entity
   parent: BoxFolderBaseEmpty
@@ -345,7 +346,7 @@
 - type: entity
   parent: [BoxFolderCentComEmpty, BoxFolderFillThreePapers]
   id: BoxFolderCentComThreePapers
-  suffix: DO NOT MAP; 3 papers
+  suffix: DO NOT MAP; 8 papers # WL-changes
 
 - type: entity
   parent: BoxFolderBaseEmpty
