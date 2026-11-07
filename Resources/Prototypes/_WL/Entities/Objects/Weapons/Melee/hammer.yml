@@ -12,7 +12,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 16
+        Blunt: 12
     soundHit:
       collection: MetalThud
   - type: Item
