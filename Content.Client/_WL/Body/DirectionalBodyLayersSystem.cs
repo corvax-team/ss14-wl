@@ -143,6 +143,7 @@ public sealed partial class DirectionalBodyLayersSystem : EntitySystem
                 }
             }
         }
+        ApplyTailOrder(entity, direction);
         _applied[entity.Owner] = new OrderState(direction, configured.ToArray(), entity.Comp!.AllLayers.ToArray());
     }
 
