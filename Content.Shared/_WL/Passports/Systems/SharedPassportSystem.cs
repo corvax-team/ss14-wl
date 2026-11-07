@@ -116,7 +116,7 @@ public sealed partial class SharedPassportSystem : EntitySystem
 
         var speciesProto = _prototypeManager.Index(profile.Species);
         var genderString = profile.Gender.ToString();
-        passport.Comp.DisplayName = profile.Name;
+        passport.Comp.DisplayName = string.IsNullOrWhiteSpace(profile.FullName) ? profile.Name : profile.FullName;
         passport.Comp.DisplaySpecies = Loc.GetString(speciesProto.Name);
         passport.Comp.DisplayGender = genderString switch
         {
