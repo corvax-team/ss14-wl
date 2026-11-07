@@ -2,6 +2,7 @@
   id: CatEarsStubby
   #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end
@@ -27,6 +28,7 @@
   id: CatEarsCurled
   #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end
@@ -52,6 +54,7 @@
   id: CatEarsTorn
   #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end
@@ -77,6 +80,7 @@
   id: CatTailStripes
   #WL-Changes: Felinid revolution start
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end

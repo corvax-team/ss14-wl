@@ -2,6 +2,7 @@
   id: FoxEars
   #WL-Changes: Felinid revolution start
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Felinid, Human, Android]
   sponsorOnly: false
   #WL-Changes: Felinid revolution end

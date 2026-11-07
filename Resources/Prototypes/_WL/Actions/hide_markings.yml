@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseAction
+  id: ActionHideMarkingsUnderClothing
+  name: Hide ears and tail
+  description: Hide your ears and tail under your clothing, or let them out again.
+  components:
+  - type: Action
+    useDelay: 1
+    itemIconStyle: NoItem
+  - type: Sprite
+    sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
+    layers:
+    - state: tail-wag-icon
+      map: ["enum.ActionVisuals.Icon"]
+    - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
+      state: vulp_ear
+    - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
+      state: vulp_ear_inner
+  - type: GenericVisualizer
+    visuals:
+      enum.ActionState.Toggled:
+        enum.ActionVisuals.Icon:
+          True: { visible: true }
+          False: { visible: true }
+  - type: InstantAction
+    event: !type:ToggleMarkingsUnderClothingEvent

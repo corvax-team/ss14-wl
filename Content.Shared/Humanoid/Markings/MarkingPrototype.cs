@@ -23,6 +23,9 @@ public sealed partial class MarkingPrototype : IPrototype
     [DataField("bodyPart", required: true)]
     public HumanoidVisualLayers BodyPart { get; private set; } = default!;
 
+    [DataField]
+    public bool CanHideUnderClothing { get; private set; } // WL-changes
+
     /// <summary>
     ///     A list of markings groups that are able to use this marking.
     /// </summary>
