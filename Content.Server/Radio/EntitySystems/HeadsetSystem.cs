@@ -48,7 +48,7 @@ public sealed partial class HeadsetSystem : SharedHeadsetSystem
             && TryComp(component.Headset, out EncryptionKeyHolderComponent? keys)
             && keys.Channels.Contains(args.Channel.ID))
         {
-            _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset);
+            _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset, languageContext: args.LanguageContext); // WL-Changes
             args.Channel = null; // prevent duplicate messages from other listeners.
         }
     }

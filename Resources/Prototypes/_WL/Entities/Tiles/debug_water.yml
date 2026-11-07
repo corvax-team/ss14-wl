@@ -12,6 +12,7 @@
       - state: azure_water
   - type: IconSmooth
     key: floor
-    additionalKeys:
-    - walls
-    base: azure_water
+    states:
+    - !type:CornerSpriteSmoothing
+      base: azure_water
+      mask: [ floor, walls ]

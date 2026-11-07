@@ -1,0 +1,5 @@
+- type: entity # WL-Changes
+  id: ClothingShoesBootsJackToelessFilled
+  parent:
+  - ClothingShoesBootsJackToeless
+  - ClothingShoesBootsSecFilled

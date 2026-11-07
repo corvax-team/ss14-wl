@@ -19,3 +19,9 @@
   id: StationEngineerLightreflectJacket
   equipment:
     outerClothing: ClothingOuterVestHazard
+
+# Shoes
+- type: loadout
+  id: WorkBootsToeless
+  equipment:
+    shoes: ClothingShoesBootsWorkToeless

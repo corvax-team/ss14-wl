@@ -32,10 +32,7 @@ public sealed partial class DirectionalBodyLayersSystem
 
                 foreach (var source in prototype.Sprites)
                 {
-                    if (source is not SpriteSpecifier.Rsi rsi)
-                        continue;
-
-                    var key = $"{prototype.ID}-{rsi.RsiState}";
+                    var key = $"{prototype.ID}-{source.GetLayerStateId()}";
                     keys.Add(key);
                     keys.Add($"{key}-displacement");
                 }

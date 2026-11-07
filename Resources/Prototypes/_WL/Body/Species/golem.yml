@@ -158,7 +158,6 @@
          150: Critical
          200: Dead
      - type: Temperature
-       specificHeat: 42
      - type: TemperatureDamage
        heatDamageThreshold: 1273.15
        coldDamageThreshold: 275

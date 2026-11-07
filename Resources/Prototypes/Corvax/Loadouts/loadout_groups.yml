@@ -145,6 +145,7 @@
   name: loadout-group-senior-engineer-shoes
   loadouts:
   - WorkBoots
+  - WorkBootsToeless # WL-Changes
   - EngineeringWinterBoots
 
 # Science
@@ -418,6 +419,7 @@
   loadouts:
   - JackSecBoots # Corvax
   - JackBoots
+  - JackBootsToeless # WL-Changes
   - SecurityWinterBoots
 
 # Medical

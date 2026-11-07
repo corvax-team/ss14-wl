@@ -358,7 +358,7 @@ public abstract partial class SharedMoverController : VirtualController
                 var soundModifier = mover.Sprinting ? InputMoverComponent.SprintingSoundModifier : InputMoverComponent.WalkingSoundModifier;
 
                 var audioParams = sound.Params
-                    .AddVolume(sound.Params.Volume + soundModifier)
+                    .AddVolume(soundModifier) // WL-changes
                     .WithVariation(sound.Params.Variation ?? mobMover.FootstepVariation);
 
                 // If we're a relay target then predict the sound for all relays.

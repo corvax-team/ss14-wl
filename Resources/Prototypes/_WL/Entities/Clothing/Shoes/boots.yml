@@ -84,3 +84,25 @@
       sprite: _WL/Clothing/Shoes/Boots/elegant_brown_shoes.rsi
     - type: Clothing
       sprite: _WL/Clothing/Shoes/Boots/elegant_brown_shoes.rsi
+
+- type: entity
+  parent: ClothingShoesBootsWork
+  id: ClothingShoesBootsWorkToeless
+  name: toeless workboots
+  description: Modified for species with claws on their feet.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/workboots-toeless.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/workboots-toeless.rsi
+
+- type: entity
+  parent: ClothingShoesBootsJack
+  id: ClothingShoesBootsJackToeless
+  name: toeless jackboots
+  description: Modified for species with claws on their feet.
+  components:
+    - type: Sprite
+      sprite: _WL/Clothing/Shoes/Boots/jackboots-toeless.rsi
+    - type: Clothing
+      sprite: _WL/Clothing/Shoes/Boots/jackboots-toeless.rsi

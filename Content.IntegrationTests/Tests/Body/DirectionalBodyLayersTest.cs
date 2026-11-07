@@ -71,6 +71,9 @@ public sealed class DirectionalBodyLayersTest(string playerPrototype) : Interact
     [Test]
     public async Task TailMovesBehindBodyOnlyFromTheFront()
     {
+        if (playerPrototype != ReptilianPrototype)
+            Assert.Ignore("Requires a character with tail layers.");
+
         await Client.WaitAssertion(() =>
         {
             var system = CEntMan.System<DirectionalBodyLayersSystem>();
@@ -96,7 +99,7 @@ public sealed class DirectionalBodyLayersTest(string playerPrototype) : Interact
     }
 
     [Test]
-    public async Task FrameOrderFollowsRenderedRotationAndCameraWithoutSimulationTicks()
+    public async Task FrameOrderFollowsRotationAndCameraWithoutSimulationTicks()
     {
         await Client.WaitAssertion(() =>
         {
@@ -105,21 +108,21 @@ public sealed class DirectionalBodyLayersTest(string playerPrototype) : Interact
             var transform = CEntMan.System<TransformSystem>();
             var eye = Client.Resolve<IEyeManager>().CurrentEye;
             var originalRotation = eye.Rotation;
+            var originalBodyRotation = transform.GetWorldRotation(CPlayer);
             try
             {
-                transform.SetWorldRotation(CPlayer, Angle.FromDegrees(90));
-                transform.SetRenderRotationOverride(CPlayer, Angle.Zero);
+                transform.SetWorldRotationNoLerp(CPlayer, Angle.Zero);
                 eye.Rotation = Angle.Zero;
                 AssertOrder(false);
                 eye.Rotation = Angle.FromDegrees(90);
                 AssertOrder(true);
                 eye.Rotation = Angle.Zero;
-                transform.SetRenderRotationOverride(CPlayer, Angle.FromDegrees(90));
+                transform.SetWorldRotationNoLerp(CPlayer, Angle.FromDegrees(90));
                 AssertOrder(true);
             }
             finally
             {
-                transform.ClearRenderRotationOverride(CPlayer);
+                transform.SetWorldRotationNoLerp(CPlayer, originalBodyRotation);
                 eye.Rotation = originalRotation;
             }
 

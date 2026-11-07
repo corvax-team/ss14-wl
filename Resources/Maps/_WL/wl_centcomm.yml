@@ -31013,7 +31013,7 @@ entities:
     - type: Transform
       parent: 2
       pos: -79.323265,-29.387424
-- proto: ClothingDeathSquadronBackpack
+- proto: ClothingBackpackDeathSquad
   entities:
   - uid: 3369
     components:
