@@ -3,11 +3,11 @@
   id: Vox
   limits:
     enum.HumanoidVisualLayers.Hair:
-      limit: 1
+      limit: 2 # WL-changes
       onlyGroupWhitelisted: true
       required: false
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 1
+      limit: 2 # WL-changes
       onlyGroupWhitelisted: true
       required: false
     enum.HumanoidVisualLayers.Head:
