@@ -11,6 +11,7 @@
 - type: latheRecipePack
   id: BorgModulesStatic
   recipes:
+  - BorgModuleLanguages # WL-changes
   - BorgModuleArtistry
   - BorgModuleCable
   - BorgModuleFireExtinguisher
