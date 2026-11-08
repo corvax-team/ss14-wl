@@ -213,8 +213,10 @@ public sealed partial class FaxPrintout
     [DataField]
     public string? SenderFaxName { get; private set; } = default!;
 
+    // WL-Changes-Start
     [DataField]
     public List<PaperStroke>? Drawings = null;
+    // WL-Changes-End
 
     private FaxPrintout()
     {
@@ -230,6 +232,6 @@ public sealed partial class FaxPrintout
         StampedBy = stampedBy ?? new List<StampDisplayInfo>();
         Locked = locked;
         SenderFaxName = senderFaxName;
-        Drawings = drawings;
+        Drawings = drawings; // WL-Changes
     }
 }
