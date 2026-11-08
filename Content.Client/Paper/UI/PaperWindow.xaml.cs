@@ -467,6 +467,12 @@ namespace Content.Client.Paper.UI
         }
         // WL-Changes-End
 
+        /// <summary>
+        ///     BaseWindow interface. Allow users to drag UI around by grabbing
+        ///     anywhere on the page (like FancyWindow) but try to calculate
+        ///     reasonable dragging bounds because this UI can have round corners,
+        ///     and it can be hard to judge where to click to resize.
+        /// </summary>
         protected override DragMode GetDragModeFor(Vector2 relativeMousePos)
         {
             // WL-Changes-Start
@@ -502,12 +508,6 @@ namespace Content.Client.Paper.UI
             return mode & _allowedResizeModes;
         }
 
-        /// <summary>
-        ///     BaseWindow interface. Allow users to drag UI around by grabbing
-        ///     anywhere on the page (like FancyWindow) but try to calculate
-        ///     reasonable dragging bounds because this UI can have round corners,
-        ///     and it can be hard to judge where to click to resize.
-        /// </summary>
         private void RunOnSaved()
         {
             // Prevent further saving while text processing still in
