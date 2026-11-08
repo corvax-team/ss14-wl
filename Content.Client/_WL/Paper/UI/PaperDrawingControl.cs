@@ -28,9 +28,11 @@ public sealed partial class PaperDrawingControl : Control
 
     private readonly List<StrokeRenderData> _strokes = new();
     private readonly List<StrokeRenderData> _redoStrokes = new();
+
     private StrokeRenderData? _activeStroke;
     private IRenderTexture? _drawingTexture;
     private IRenderTexture? _scratchTexture;
+
     private Vector2 _lastPoint;
     private Vector2 _startPoint;
     private int _pointCount;
@@ -39,13 +41,15 @@ public sealed partial class PaperDrawingControl : Control
     private bool _hasPendingVertices = true;
     private bool _activeIsShape;
     private bool _activeIsDeferred;
+    private int _lockedStrokeCount;
 
     private int MaxStrokes => _configurationManager.GetCVar(WLCVars.PaperMaxStrokes);
     private int MaxPoints => _configurationManager.GetCVar(WLCVars.PaperMaxPoints);
 
     public event Action? HistoryChanged;
-    public bool CanUndo => _activeStroke == null && _strokes.Count > 0;
+    public bool CanUndo => _activeStroke == null && _strokes.Count > _lockedStrokeCount;
     public bool CanRedo => _activeStroke == null && _redoStrokes.Count > 0;
+
     public int StrokeCount => _strokes.Count;
 
     public bool CanDraw
@@ -71,8 +75,17 @@ public sealed partial class PaperDrawingControl : Control
     {
         var incoming = strokes.ToList();
 
-        if (_activeStroke != null || SameStrokes(incoming))
+        if (_activeStroke != null)
             return;
+
+        if (SameStrokes(incoming))
+        {
+            _lockedStrokeCount = _strokes.Count;
+            _redoStrokes.Clear();
+
+            HistoryChanged?.Invoke();
+            return;
+        }
 
         _redoStrokes.Clear();
         _strokes.Clear();
@@ -84,10 +97,10 @@ public sealed partial class PaperDrawingControl : Control
             _pointCount += stroke.Points.Count;
         }
 
+        _lockedStrokeCount = _strokes.Count;
         _renderTextureNeedsRebuild = true;
         HistoryChanged?.Invoke();
     }
-
     private bool SameStrokes(List<PaperStroke> incoming)
     {
         if (incoming.Count != _strokes.Count)
@@ -113,7 +126,7 @@ public sealed partial class PaperDrawingControl : Control
 
     public bool Undo()
     {
-        if (_activeStroke != null || _strokes.Count == 0)
+        if (_activeStroke != null || _strokes.Count <= _lockedStrokeCount)
             return false;
 
         var last = _strokes[^1];

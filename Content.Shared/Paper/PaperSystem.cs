@@ -198,8 +198,13 @@ public sealed partial class PaperSystem : EntitySystem
         // WL-Changes-Start
         if (entity.Comp.Mode == PaperAction.Write)
         {
-            entity.Comp.Drawings = SanitizeDrawings(args.Drawings);
-            Dirty(entity);
+            var sanitized = SanitizeDrawings(args.Drawings);
+
+            if (IsAppendOnly(entity.Comp.Drawings, sanitized))
+            {
+                entity.Comp.Drawings = sanitized;
+                Dirty(entity);
+            }
         }
         // WL-Changes-End
 
@@ -283,6 +288,26 @@ public sealed partial class PaperSystem : EntitySystem
             : SanitizeDrawings(drawings);
 
         Dirty(entity);
+    }
+
+    private static bool IsAppendOnly(List<PaperStroke> old, List<PaperStroke> updated)
+    {
+        if (updated.Count < old.Count)
+            return false;
+
+        for (var i = 0; i < old.Count; i++)
+        {
+            var a = old[i];
+            var b = updated[i];
+
+            if (a.Eraser != b.Eraser
+                || a.Color != b.Color
+                || a.Radius != b.Radius
+                || !a.Points.SequenceEqual(b.Points))
+                return false;
+        }
+
+        return true;
     }
     // WL-Changes-End
 
