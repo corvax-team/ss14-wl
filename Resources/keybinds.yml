@@ -656,3 +656,15 @@ binds:
   key: F
   mod1: Alt
   #Corvax-WL-CombatIndicator - end
+  # WL-Changes-Start
+- function: PaperDrawingUndo
+  type: State
+  key: Z
+  mod1: Control
+  canFocus: true
+- function: PaperDrawingRedo
+  type: State
+  key: Y
+  mod1: Control
+  canFocus: true
+  # WL-Changes-End
