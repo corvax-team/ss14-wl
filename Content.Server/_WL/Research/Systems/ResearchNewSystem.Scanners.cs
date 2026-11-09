@@ -19,25 +19,38 @@ public sealed partial class ResearchSystemNew
     [SubscribeLocalEvent]
     private void OnScannedEvent(Entity<ResearchScannerComponent> ent, ref ScannedResearchEvent args)
     {
+        var outputEv = new PostScannedEvent(args.Target, new List<string>());
+        RaiseLocalEvent(ent, ref outputEv);
+
+        UpdateScanerWindow(ent, outputEv.Output, true);
+    }
+
+    [SubscribeLocalEvent]
+    private void OnScannedTextEvent(Entity<ResearchScannableComponent> ent, ref PostScannedEvent args)
+    {
         if (!TryComp<ResearchScannableComponent>(args.Target, out var scannable))
             return;
 
-        /*
-        if (TryComp<ResearchDetectorComponent>(ent, out var detector) &&
-                TryComp<ResearchSourceComponent>(args.Target, out var source))
-            SendResearch(ent, args.Target, detector, source);
-        */
-
-        var scannerOutput = new List<string>();
-        scannerOutput.Add(Loc.GetString("research-scanner-ui-string-succes"));
+        args.Output.Add(Loc.GetString("research-scanner-ui-string-succes"));
 
         if (scannable.Name != string.Empty)
-            scannerOutput.Add(Loc.GetString("research-scanner-ui-string-name", ("targetString", scannable.Name)));
+            args.Output.Add(Loc.GetString("research-scanner-ui-string-name", ("targetString", scannable.Name)));
 
         if (scannable.Description != string.Empty)
-            scannerOutput.Add(Loc.GetString("research-scanner-ui-string-desc", ("targetString", scannable.Description)));
+            args.Output.Add(Loc.GetString("research-scanner-ui-string-desc", ("targetString", scannable.Description)));
+    }
 
-        UpdateScanerWindow(ent, scannerOutput, true);
+
+    [SubscribeLocalEvent]
+    private void OnScannedEvent(Entity<ResearchDetectorComponent> ent, ref PostScannedEvent args)
+    {
+        if (!TryComp<ResearchSourceComponent>(args.Target, out var source))
+            return;
+
+        if (TryAnalyzeToServer(ent, args.Target, ent.Comp, source))
+            args.Output.Add(Loc.GetString("research-scanner-ui-research-succes"));
+        else
+            args.Output.Add(Loc.GetString("research-scanner-ui-research-fail"));
     }
 
     private void UpdateScanerWindow(EntityUid uid, List<string> strings, bool clearOutput)

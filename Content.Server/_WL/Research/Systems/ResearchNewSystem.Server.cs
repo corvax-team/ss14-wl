@@ -80,8 +80,6 @@ public sealed partial class ResearchSystemNew
             ResearchServerNewComponent? server = null,
             ResearchDataServerComponent? data = null)
     {
-        Logger.Debug("RESEARCH START");
-
         if (!Resolve(ent, ref server, ref data))
             return;
 
@@ -98,14 +96,13 @@ public sealed partial class ResearchSystemNew
 
         foreach (var (categoryId, dataFrame) in ev.ResearchData)
         {
-            Logger.Debug(dataFrame.GetPoints().ToString());
-            ProcessResearchData(ent, categoryId, dataFrame.Data, dataFrame.GetPoints(), server, data);
+            TryProcessResearchData(ent, categoryId, dataFrame.Data, dataFrame.GetPoints(), server, data);
         }
 
         Dirty(ent, server);
     }
 
-    public void ProcessResearchData(
+    public bool TryProcessResearchData(
             EntityUid ent,
             ProtoId<ResearchCategoryPrototype> categoryId,
             Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> rawData,
@@ -114,7 +111,7 @@ public sealed partial class ResearchSystemNew
             ResearchDataServerComponent? data = null)
     {
         if (!Resolve(ent, ref server, ref data) || pointsVecRatio.Empty)
-            return;
+            return false;
 
         if (!data.ResearchedData.ContainsKey(categoryId))
         {
@@ -124,9 +121,10 @@ public sealed partial class ResearchSystemNew
 
         var addValue = data.ResearchedData[categoryId].ResearchData(rawData, pointsVecRatio.GetTotal());
 
-        TryModifyPoints(ent, addValue * pointsVecRatio.Normalize(), true, server);
+        if (!TryModifyPoints(ent, addValue * pointsVecRatio.Normalize(), true, server))
+            return false;
 
-        Dirty(ent, server);
+        return true;
     }
 
     private bool TryModifyPoints(EntityUid uid, ResearchPointsSpecifier pointsData, bool modifyStatistic = false, ResearchServerNewComponent? server = null, PointsDataStorageComponent? storage = null)
@@ -156,14 +154,6 @@ public sealed partial class ResearchSystemNew
         return true;
     }
 
-    /// <summary>
-    /// Registers a client to the specified server.
-    /// </summary>
-    /// <param name="client">The client being registered</param>
-    /// <param name="server">The server the client is being registered to</param>
-    /// <param name="clientComponent"></param>
-    /// <param name="serverComponent"></param>
-    /// <param name="dirtyServer">Whether or not to dirty the server component after registration</param>
     public void RegisterClient(EntityUid client, EntityUid server, ResearchClientNewComponent? clientComponent = null,
         ResearchServerNewComponent? serverComponent = null,  bool dirtyServer = true)
     {
@@ -183,12 +173,6 @@ public sealed partial class ResearchSystemNew
         RaiseLocalEvent(client, ref ev);
     }
 
-    /// <summary>
-    /// Unregisterse a client from its server
-    /// </summary>
-    /// <param name="client"></param>
-    /// <param name="clientComponent"></param>
-    /// <param name="dirtyServer"></param>
     public void UnregisterClient(EntityUid client, ResearchClientNewComponent? clientComponent = null, bool dirtyServer = true)
     {
         if (!Resolve(client, ref clientComponent))
@@ -200,14 +184,6 @@ public sealed partial class ResearchSystemNew
         UnregisterClient(client, server, clientComponent, dirtyServer: dirtyServer);
     }
 
-    /// <summary>
-    /// Unregisters a client from its server
-    /// </summary>
-    /// <param name="client"></param>
-    /// <param name="server"></param>
-    /// <param name="clientComponent"></param>
-    /// <param name="serverComponent"></param>
-    /// <param name="dirtyServer"></param>
     public void UnregisterClient(EntityUid client, EntityUid server, ResearchClientNewComponent? clientComponent = null,
         ResearchServerNewComponent? serverComponent = null, bool dirtyServer = true)
     {

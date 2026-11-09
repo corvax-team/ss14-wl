@@ -28,7 +28,7 @@ public record struct GetServerResearchEvent
     }
 }
 
-public class ResearchDataFrame
+public sealed class ResearchDataFrame
 {
     public Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> Data { get; private set; } = new();
 

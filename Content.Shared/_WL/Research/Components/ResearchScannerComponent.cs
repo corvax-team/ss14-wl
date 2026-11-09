@@ -35,6 +35,9 @@ public sealed partial class ResearchScannerComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Active = true;
+
+    [DataField]
+    public EntityWhitelist? Whitelist;
 }
 
 [Serializable, NetSerializable]
@@ -42,6 +45,9 @@ public sealed partial class ResearchScannerDoAfterEvent : SimpleDoAfterEvent;
 
 [ByRefEvent]
 public record struct ScannedResearchEvent(EntityUid Target);
+
+[ByRefEvent]
+public record struct PostScannedEvent(EntityUid Target, List<string> Output);
 
 [Serializable, NetSerializable]
 public enum ResearchScannerUiKey : byte

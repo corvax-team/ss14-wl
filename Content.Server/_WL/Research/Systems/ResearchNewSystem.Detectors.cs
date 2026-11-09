@@ -20,52 +20,40 @@ public sealed partial class ResearchSystemNew
     [SubscribeLocalEvent]
     private void OnDetectorServerResearch(Entity<PassiveDetectorComponent> ent, ref GetServerResearchEvent args)
     {
-        Logger.Debug("RESEARCHDET START");
-        if (!CanProduce(ent) ||
-                !TryComp<ResearchDetectorComponent>(ent, out var detector) ||
-                !TryFindSources(ent.Owner, detector.Range, out var sources))
+        if (!CanProduce(ent) || !TryComp<ResearchDetectorComponent>(ent, out var detector))
             return;
 
-        Logger.Debug("RESEARCHDET1 START");
-        foreach (var source in sources)
+        foreach (var source in EnumerateSources(ent, ent.Comp.Range))
         {
-            Logger.Debug(source.Id.ToString());
-            if (!TryComp<ResearchSourceComponent>(source, out var sourceComp) ||
-                    !TryAnalyzeByDetector(ent, source, out var data, out var pointsVec))
+            if (!TryAnalyzeByDetector(ent, source, out var data, out var pointsVec))
                 continue;
 
             ResearchDataFrame dataFrame;
 
-            if (!args.ResearchData.TryGetValue(sourceComp.Category, out var currDataFrame))
+            if (!args.ResearchData.TryGetValue(source.Comp.Category, out var currDataFrame))
             {
                 dataFrame = new();
-                args.ResearchData.Add(sourceComp.Category, dataFrame);
+                args.ResearchData.Add(source.Comp.Category, dataFrame);
             }
             else
             {
                 dataFrame = currDataFrame;
             }
-
-            Logger.Debug(dataFrame.TryInsertData(data, ent, pointsVec).ToString());
         }
     }
 
-    private bool TryFindSources(EntityUid ent, float range, out List<EntityUid> finded)
+    private IEnumerable<Entity<ResearchSourceComponent>> EnumerateSources(EntityUid ent, float range)
     {
         var entXForm = Transform(ent);
         var worldPos = _transform.GetWorldPosition(entXForm);
 
         var box = Box2.CenteredAround(worldPos, new Vector2(range));
 
-        finded = new List<EntityUid>();
-
         foreach (var entity in _lookup.GetEntitiesIntersecting(entXForm.MapID, box))
         {
-            if (HasComp<ResearchSourceComponent>(entity))
-                finded.Add(entity);
+            if (TryComp<ResearchSourceComponent>(entity, out var comp))
+                yield return (entity, comp);
         }
-
-        return finded.Count != 0;
     }
 
     public bool CanProduce(Entity<PassiveDetectorComponent> source)
@@ -89,12 +77,9 @@ public sealed partial class ResearchSystemNew
         var ev = new GetResearchDataEvent(detector, detectorComp.ResearchTypes);
         RaiseLocalEvent(source, ref ev);
 
-        Logger.Debug("TRY ANALIZE");
-
         if (ev.PointsVec.Empty)
             return false;
 
-        Logger.Debug("SOME PTS");
         pointsRatioVec = ev.PointsVec * detectorComp.ResearchPercent;
 
         if (detectorComp.DefaultPointsType is {} defaultType &&
@@ -102,6 +87,29 @@ public sealed partial class ResearchSystemNew
             pointsRatioVec = pointsRatioVec.ConvertToType(defaultType, [ExtrimalType]);
 
         data = ev.ResearchData;
+
+        return true;
+    }
+
+    private bool TryAnalyzeToServer(
+            EntityUid detector,
+            EntityUid source,
+            ResearchDetectorComponent? detectorComp = null,
+            ResearchSourceComponent? sourceComp = null)
+    {
+        if (!Resolve(detector, ref detectorComp) || !Resolve(source, ref sourceComp))
+            return false;
+
+        if (!TryGetClientServer(detector, out var serverOut, out var serverCompOut) ||
+                serverOut is not {} server ||
+                serverCompOut is not {} serverComp)
+            return false;
+
+        if (!TryAnalyzeByDetector(detector, source, out var data, out var pointsRatioVec))
+            return false;
+
+        if (!TryProcessResearchData(server, sourceComp.Category, data, pointsRatioVec, serverComp))
+            return false;
 
         return true;
     }

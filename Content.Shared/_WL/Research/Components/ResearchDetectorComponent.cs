@@ -18,9 +18,6 @@ public sealed partial class ResearchDetectorComponent : Component
     public FixedPoint4 ResearchPercent = 0.01;
 
     [DataField]
-    public float Range = 10f;
-
-    [DataField]
     public bool DetectorPriority = true;
 }
 

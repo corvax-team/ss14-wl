@@ -17,6 +17,7 @@ public abstract partial class SharedResearchNewSystem : EntitySystem
 {
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private SharedLatheSystem _lathe = default!;
+    [Dependency] private EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] protected SharedPopupSystem Popup = default!;
     [Dependency] protected SharedAudioSystem Audio = default!;
     [Dependency] protected SharedUserInterfaceSystem UI = default!;
@@ -27,7 +28,7 @@ public abstract partial class SharedResearchNewSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ResearchScannerComponent, ResearchScannerDoAfterEvent>(OnScannerDoAfter);
+        // SubscribeLocalEvent<ResearchScannerComponent, ResearchScannerDoAfterEvent>(OnScannerDoAfter);
     }
 
     [SubscribeLocalEvent]
@@ -45,30 +46,28 @@ public abstract partial class SharedResearchNewSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnScannerAfterInteract(Entity<ResearchScannerComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target is not { } target)
-            return;
-
-        if (!HasComp<ResearchScannableComponent>(target))
-            return;
-
-        if (!args.CanReach)
+        if (args.Target is not { } target||
+                !HasComp<ResearchScannableComponent>(target) ||
+                _entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, target) ||
+                !args.CanReach)
             return;
 
         var doAfterArgs = new DoAfterArgs(
-            EntityManager,
-            args.User,
-            ent.Comp.ScanDoAfterDuration,
-            new ResearchScannerDoAfterEvent(),
-            ent,
-            target: target,
-            used: ent
-        )
+                EntityManager,
+                args.User,
+                ent.Comp.ScanDoAfterDuration,
+                new ResearchScannerDoAfterEvent(),
+                ent,
+                target: target,
+                used: ent)
         {
             DistanceThreshold = ent.Comp.Range
         };
+
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
+    [SubscribeLocalEvent]
     protected virtual void OnScannerDoAfter(EntityUid uid, ResearchScannerComponent component, DoAfterEvent args)
     {
         if (args.Cancelled || args.Handled || args.Args.Target is null)
