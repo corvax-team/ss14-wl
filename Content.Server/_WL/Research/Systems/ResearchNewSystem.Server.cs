@@ -80,6 +80,8 @@ public sealed partial class ResearchSystemNew
             ResearchServerNewComponent? server = null,
             ResearchDataServerComponent? data = null)
     {
+        Logger.Debug("RESEARCH START");
+
         if (!Resolve(ent, ref server, ref data))
             return;
 
@@ -94,27 +96,24 @@ public sealed partial class ResearchSystemNew
             RaiseLocalEvent(client, ref ev);
         }
 
-        foreach (var (categoryId, (rawData, pointsData)) in ev.ResearchData)
+        foreach (var (categoryId, dataFrame) in ev.ResearchData)
         {
-            InsertResearchData(ent, categoryId, rawData, pointsData, server, data);
+            Logger.Debug(dataFrame.GetPoints().ToString());
+            ProcessResearchData(ent, categoryId, dataFrame.Data, dataFrame.GetPoints(), server, data);
         }
 
         Dirty(ent, server);
     }
 
-    public void InsertResearchData(
+    public void ProcessResearchData(
             EntityUid ent,
             ProtoId<ResearchCategoryPrototype> categoryId,
             Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> rawData,
-            ResearchPointsSpecifier pointsData,
+            ResearchPointsSpecifier pointsVecRatio,
             ResearchServerNewComponent? server = null,
             ResearchDataServerComponent? data = null)
     {
-        if (!Resolve(ent, ref server, ref data))
-            return;
-
-        var pointsSum = pointsData.GetTotal();
-        if (pointsSum <= 0)
+        if (!Resolve(ent, ref server, ref data) || pointsVecRatio.Empty)
             return;
 
         if (!data.ResearchedData.ContainsKey(categoryId))
@@ -123,11 +122,9 @@ public sealed partial class ResearchSystemNew
             data.ResearchedData.Add(categoryId, new ResearchField(category.ResearchTypes.ToArray(), category.MaxPoints));
         }
 
-        var addValue = data.ResearchedData[categoryId].ResearchData(rawData, pointsSum);
+        var addValue = data.ResearchedData[categoryId].ResearchData(rawData, pointsVecRatio.GetTotal());
 
-        var pointsCoof = addValue / pointsSum;
-
-        TryModifyPoints(ent, pointsData * pointsCoof, true, server);
+        TryModifyPoints(ent, addValue * pointsVecRatio.Normalize(), true, server);
 
         Dirty(ent, server);
     }

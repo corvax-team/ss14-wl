@@ -11,9 +11,6 @@ public sealed partial class ResearchDetectorComponent : Component
     [DataField("detectTypes", required: true)]
     public List<ProtoId<ResearchTypePrototype>> ResearchTypes;
 
-    [DataField("extrimalType")]
-    public ProtoId<ResearchPointsTypePrototype> ExtrimalPointsType = "Experimental";
-
     [DataField("pointsType")]
     public ProtoId<ResearchPointsTypePrototype>? DefaultPointsType = null;
 
@@ -22,6 +19,9 @@ public sealed partial class ResearchDetectorComponent : Component
 
     [DataField]
     public float Range = 10f;
+
+    [DataField]
+    public bool DetectorPriority = true;
 }
 
 [ByRefEvent]
@@ -29,14 +29,17 @@ public record struct GetResearchDataEvent
 {
     public EntityUid Detector;
 
-    public ProtoId<ResearchTypePrototype> ResearchType;
+    public List<ProtoId<ResearchTypePrototype>> ResearchTypes;
 
-    public Dictionary<ProtoId<ResearchCategoryPrototype>, (FixedPoint4, ResearchPointsSpecifier)> ResearchData;
+    public Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> ResearchData;
 
-    public GetResearchDataEvent(EntityUid detector, ProtoId<ResearchTypePrototype> researchType)
+    public ResearchPointsSpecifier PointsVec;
+
+    public GetResearchDataEvent(EntityUid detector, List<ProtoId<ResearchTypePrototype>> researchTypes)
     {
         Detector = detector;
-        ResearchType = researchType;
+        ResearchTypes = researchTypes;
         ResearchData = new();
+        PointsVec = new();
     }
 }

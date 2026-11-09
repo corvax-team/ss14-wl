@@ -42,7 +42,12 @@ public abstract partial class ResearchConditionBase<T> : ResearchCondition where
         if (this is not T type)
             return (0, new ResearchPointsSpecifier());
 
-        return raiser.RaiseConditionEvent(target, type, sourceEnt);
+        var (value, points) = raiser.RaiseConditionEvent(target, type, sourceEnt);
+
+        points.PointsDict.Add(BaseType, BaseValue);
+        points = points.Normalize();
+
+        return (value, points);
     }
 }
 
@@ -54,6 +59,8 @@ public abstract partial class ResearchCondition
 
     [DataField]
     public ProtoId<ResearchPointsTypePrototype> ExtrimalType = "Experimental";
+
+    public FixedPoint4 BaseValue = 100;
 
     public abstract (FixedPoint4, ResearchPointsSpecifier) RaiseEvent(EntityUid target, IResearchConditionRaiser raiser, EntityUid? sourceEnt);
 }

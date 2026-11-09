@@ -116,7 +116,7 @@ public sealed partial class ResearchField
         return (field, sum);
     }
 
-    public FixedPoint4 ResearchData(Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> researchData, FixedPoint4 points)
+    public FixedPoint4 ResearchData(Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> researchData, FixedPoint4 percent)
     {
         int[] coords = new int[Rank];
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
@@ -132,7 +132,7 @@ public sealed partial class ResearchField
             coords[i] = FixedPoint4.Clamp((value - type.MinValue) / (type.MaxValue - type.MinValue) * type.Size, 0, type.Size - 1).Int();
         }
 
-        var point = FieldArray.Get(coords.AsSpan()).AddPercent(points, out var diff);
+        var point = FieldArray.Get(coords.AsSpan()).AddPercent(percent, out var diff);
         FieldArray.Set(coords.AsSpan(), point);
 
         return diff / _fieldScale;

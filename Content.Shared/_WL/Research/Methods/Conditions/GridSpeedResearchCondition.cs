@@ -25,10 +25,9 @@ public sealed partial class GridSpeedResearchConditionSystem : ResearchCondition
                 break;
         }
 
-        var delta = FixedPoint4.Max(args.Result - args.Condition.ExtrimalValue, 0);
+        var delta = FixedPoint4.Max(args.Result - args.Condition.ExtrimalValue, 0) / 100;
 
-        args.Points.PointsDict.Add(args.Condition.ExtrimalType, delta);
-        args.Points.PointsDict.Add(args.Condition.BaseType, 100);
+        args.Points.PointsDict.Add(args.Condition.ExtrimalType, delta * args.Condition.BaseValue);
     }
 }
 

@@ -21,6 +21,8 @@ public abstract partial class SharedResearchNewSystem : EntitySystem
     [Dependency] protected SharedAudioSystem Audio = default!;
     [Dependency] protected SharedUserInterfaceSystem UI = default!;
 
+    public static ProtoId<ResearchPointsTypePrototype> ExtrimalType = "Experimental";
+
     public override void Initialize()
     {
         base.Initialize();

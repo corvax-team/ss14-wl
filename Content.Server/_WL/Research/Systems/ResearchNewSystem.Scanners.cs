@@ -22,9 +22,11 @@ public sealed partial class ResearchSystemNew
         if (!TryComp<ResearchScannableComponent>(args.Target, out var scannable))
             return;
 
+        /*
         if (TryComp<ResearchDetectorComponent>(ent, out var detector) &&
                 TryComp<ResearchSourceComponent>(args.Target, out var source))
             SendResearch(ent, args.Target, detector, source);
+        */
 
         var scannerOutput = new List<string>();
         scannerOutput.Add(Loc.GetString("research-scanner-ui-string-succes"));

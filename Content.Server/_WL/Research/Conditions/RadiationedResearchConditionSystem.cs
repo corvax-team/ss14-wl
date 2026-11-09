@@ -13,8 +13,6 @@ public sealed partial class RadiationedResearchConditionSystem : ResearchConditi
         args.Result = entity.Comp.CurrentRadiation;
 
         var extrimRatio = Math.Min(0f, entity.Comp.CurrentRadiation - args.Condition.ExtrimMin) / Math.Min(0.1f, args.Condition.ExtrimHalfPeak - args.Condition.ExtrimMin);
-        args.Points.PointsDict.Add(args.Condition.ExtrimalType, extrimRatio * 100);
-
-        args.Points.PointsDict.Add(args.Condition.BaseType, 100);
+        args.Points.PointsDict.Add(args.Condition.ExtrimalType, extrimRatio * args.Condition.BaseValue);
     }
 }

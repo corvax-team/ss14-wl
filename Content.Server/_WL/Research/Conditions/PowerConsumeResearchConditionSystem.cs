@@ -15,8 +15,7 @@ public sealed partial class PowerConsumeResearchConditionSystem : ResearchCondit
 
         var delta = FixedPoint4.Max(args.Result - args.Condition.ExtrimalValue * args.Condition.Slope, 0);
 
-        args.Points.PointsDict.Add(args.Condition.ExtrimalType, delta * args.Condition.Slope);
-        args.Points.PointsDict.Add(args.Condition.BaseType, 100);
+        args.Points.PointsDict.Add(args.Condition.ExtrimalType, delta * args.Condition.Slope / 100 * args.Condition.BaseValue);
     }
 }
 

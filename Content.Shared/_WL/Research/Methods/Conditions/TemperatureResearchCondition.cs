@@ -11,16 +11,18 @@ public sealed partial class TemperatureResearchConditionSystem : ResearchConditi
     {
         args.Result = entity.Comp.Temperature;
 
+        var extraPoints = 0f;
+
         if (entity.Comp.Temperature < args.Condition.MinExtrimal)
         {
-            args.Points.PointsDict.Add(args.Condition.ExtrimalType, args.Condition.MinExtrimal - entity.Comp.Temperature);
+            extraPoints = args.Condition.MinExtrimal - entity.Comp.Temperature;
         }
         else if (entity.Comp.Temperature > args.Condition.MaxExtrimal)
         {
-            args.Points.PointsDict.Add(args.Condition.ExtrimalType, entity.Comp.Temperature - args.Condition.MaxExtrimal);
+            extraPoints = entity.Comp.Temperature - args.Condition.MaxExtrimal;
         }
 
-        args.Points.PointsDict.Add(args.Condition.BaseType, 100);
+        args.Points.PointsDict.Add(args.Condition.ExtrimalType, extraPoints / 100 * args.Condition.BaseValue);
     }
 }
 

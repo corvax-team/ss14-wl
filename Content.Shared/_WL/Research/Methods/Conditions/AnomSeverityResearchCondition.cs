@@ -11,9 +11,7 @@ public sealed partial class AnomSeverityResearchConditionSystem : ResearchCondit
     {
         args.Result = entity.Comp.Severity * 100;
 
-        args.Points.PointsDict.Add(args.Condition.ExtrimalType, Math.Min(0f, entity.Comp.Severity - args.Condition.MinExtrimal) * 100);
-
-        args.Points.PointsDict.Add(args.Condition.BaseType, 100);
+        args.Points.PointsDict.Add(args.Condition.ExtrimalType, Math.Min(0f, entity.Comp.Severity - args.Condition.MinExtrimal) * args.Condition.BaseValue);
     }
 }
 

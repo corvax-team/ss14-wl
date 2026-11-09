@@ -34,9 +34,7 @@ public sealed partial class DamageResearchConditionSystem : ResearchConditionSys
             args.Result = damage.GetTotal();
         }
 
-        args.Points.PointsDict.Add(args.Condition.ExtrimalType, (args.Result - args.Condition.MinExtrimal) / (args.Condition.MaxDamage - args.Condition.MinExtrimal));
-
-        args.Points.PointsDict.Add(args.Condition.BaseType, 100);
+        args.Points.PointsDict.Add(args.Condition.ExtrimalType, (args.Result - args.Condition.MinExtrimal) / (args.Condition.MaxDamage - args.Condition.MinExtrimal) / 100 * args.Condition.BaseValue);
     }
 }
 
