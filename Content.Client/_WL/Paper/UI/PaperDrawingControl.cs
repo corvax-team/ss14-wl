@@ -10,6 +10,7 @@ using Robust.Shared.Graphics;
 using Content.Shared.Input;
 using Robust.Shared.Configuration;
 using Content.Shared._WL.CCVars;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Client._WL.Paper.UI;
 
@@ -46,6 +47,8 @@ public sealed partial class PaperDrawingControl : Control
     private int MaxStrokes => _configurationManager.GetCVar(WLCVars.PaperMaxStrokes);
     private int MaxPoints => _configurationManager.GetCVar(WLCVars.PaperMaxPoints);
 
+    private static readonly ProtoId<ShaderPrototype> EraserShaderId = "PaintEraser";
+
     public event Action? HistoryChanged;
     public bool CanUndo => _activeStroke == null && _strokes.Count > _lockedStrokeCount;
     public bool CanRedo => _activeStroke == null && _redoStrokes.Count > 0;
@@ -62,13 +65,13 @@ public sealed partial class PaperDrawingControl : Control
     public float BrushRadius { get; set; } = 3f;
     public bool Eraser { get; set; }
 
-    public enum DrawTool { Freehand, Line, Circle }
+    public enum DrawTool { Freehand, Line, Circle, Pipette }
     public DrawTool Tool { get; set; }
 
     public PaperDrawingControl()
     {
         IoCManager.InjectDependencies(this);
-        _eraserShader = _prototypeManager.Index<ShaderPrototype>("PaintEraser").InstanceUnique();
+        _eraserShader = _prototypeManager.Index(EraserShaderId).InstanceUnique();
     }
 
     public void SetStrokes(IEnumerable<PaperStroke> strokes)
@@ -122,6 +125,56 @@ public sealed partial class PaperDrawingControl : Control
     public List<PaperStroke> GetStrokes()
     {
         return _strokes.Select(stroke => CloneStroke(stroke.Stroke)).ToList();
+    }
+
+    public bool TryGetStroke(Vector2 coords, [NotNullWhen(true)] out PaperStroke? resultStroke)
+    {
+        resultStroke = null;
+
+        for (var i = _strokes.Count - 1; i >= 0; i--)
+        {
+            var stroke = _strokes[i].Stroke;
+            var points = stroke.Points;
+
+            if (points.Count == 0)
+                continue;
+
+            var radius = stroke.Radius / Math.Min(PixelWidth, PixelHeight);
+
+            if (points.Count == 1)
+            {
+                if (Vector2.DistanceSquared(coords, points[0]) <= radius * radius)
+                {
+                    resultStroke = CloneStroke(stroke);
+                    return true;
+                }
+
+                continue;
+            }
+
+            for (var j = 1; j < points.Count; j++)
+            {
+                var a = points[j - 1];
+                var b = points[j];
+
+                var ab = b - a;
+                var lengthSquared = ab.LengthSquared();
+
+                var t = lengthSquared > 0f
+                    ? Math.Clamp(Vector2.Dot(coords - a, ab) / lengthSquared, 0f, 1f)
+                    : 0f;
+
+                var closest = a + ab * t;
+
+                if (Vector2.DistanceSquared(coords, closest) <= radius * radius)
+                {
+                    resultStroke = CloneStroke(stroke);
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public bool Undo()
@@ -186,6 +239,16 @@ public sealed partial class PaperDrawingControl : Control
         _redoStrokes.Clear();
 
         var point = Normalize(args.PointerLocation.Position - GlobalPixelPosition);
+
+        if (Tool == DrawTool.Pipette)
+        {
+            if (!TryGetStroke(point, out var stroke) || stroke is null)
+                return;
+
+            BrushColor = stroke.Color;
+            return;
+        }
+
         _activeStroke = new StrokeRenderData(new PaperStroke(new List<Vector2> { point }, BrushColor, BrushRadius, Eraser));
         _strokes.Add(_activeStroke);
         _activeIsShape = Tool != DrawTool.Freehand;

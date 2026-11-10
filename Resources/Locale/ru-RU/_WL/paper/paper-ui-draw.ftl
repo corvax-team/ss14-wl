@@ -9,3 +9,4 @@ paper-ui-draw-radius-value = { $radius } px
 paper-ui-draw-eraser = Ластик
 paper-ui-draw-line = Линия
 paper-ui-draw-circle = Круг
+paper-ui-draw-pipette = Пипетка

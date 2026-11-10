@@ -18,10 +18,11 @@
                     MinValue="1" MaxValue="25" Value="1" Rounded="True" />
                 <Label Name="BrushRadiusValueLabel" VerticalAlignment="Center" />
                 <BoxContainer Orientation="Horizontal">
-                    <Button Name="CircleButton" ToggleMode="True" HorizontalExpand="True"/>
                     <Button Name="LineButton" ToggleMode="True" HorizontalExpand="True" />
+                    <Button Name="CircleButton" ToggleMode="True" HorizontalExpand="True"/>
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal">
+                    <Button Name="PipetteButton" ToggleMode="True" HorizontalExpand="True"/>
                     <Button Name="EraserButton" ToggleMode="True" HorizontalExpand="True" />
                 </BoxContainer>
                 <BoxContainer Orientation="Horizontal">

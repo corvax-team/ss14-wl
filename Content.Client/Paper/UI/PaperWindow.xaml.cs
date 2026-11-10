@@ -104,6 +104,7 @@ namespace Content.Client.Paper.UI
             DrawingCanvas.CanKeyboardFocus = true;
             DrawingCanvas.KeyboardFocusOnClick = true;
             DrawingCanvas.HistoryChanged += UpdateHistoryButtons;
+            DrawingCanvas.OnKeyBindUp += _ => DrawingColorSelector.Color = DrawingCanvas.BrushColor != DrawingColorSelector.Color ? DrawingCanvas.BrushColor : DrawingColorSelector.Color;
 
             DrawingColorSelector.Color = Color.Black;
             DrawingColorSelector.OnColorChanged += color => DrawingCanvas.BrushColor = color;
@@ -111,13 +112,6 @@ namespace Content.Client.Paper.UI
             BrushRadiusLabel.Text = Loc.GetString("paper-ui-draw-radius");
             BrushRadiusSlider.OnValueChanged += UpdateBrushRadius;
             UpdateBrushRadius(BrushRadiusSlider);
-
-            EraserButton.Text = Loc.GetString("paper-ui-draw-eraser");
-            EraserButton.OnPressed += _ =>
-            {
-                DrawingCanvas.Eraser = !DrawingCanvas.Eraser;
-                UpdateEraserButton();
-            };
 
             LineButton.Text = Loc.GetString("paper-ui-draw-line");
             LineButton.OnPressed += _ =>
@@ -131,6 +125,20 @@ namespace Content.Client.Paper.UI
             {
                 DrawingCanvas.Tool = DrawingCanvas.Tool == DrawTool.Circle ? DrawTool.Freehand : DrawTool.Circle;
                 UpdateToolButtons();
+            };
+
+            PipetteButton.Text = Loc.GetString("paper-ui-draw-pipette");
+            PipetteButton.OnPressed += _ =>
+            {
+                DrawingCanvas.Tool = DrawingCanvas.Tool == DrawTool.Pipette ? DrawTool.Freehand : DrawTool.Pipette;
+                UpdateToolButtons();
+            };
+
+            EraserButton.Text = Loc.GetString("paper-ui-draw-eraser");
+            EraserButton.OnPressed += _ =>
+            {
+                DrawingCanvas.Eraser = !DrawingCanvas.Eraser;
+                UpdateEraserButton();
             };
             // WL-Changes-End
 
@@ -458,6 +466,7 @@ namespace Content.Client.Paper.UI
         {
             LineButton.Pressed = DrawingCanvas.Tool == DrawTool.Line;
             CircleButton.Pressed = DrawingCanvas.Tool == DrawTool.Circle;
+            PipetteButton.Pressed = DrawingCanvas.Tool == DrawTool.Pipette;
         }
 
         private void UpdateHistoryButtons()
