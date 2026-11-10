@@ -131,6 +131,10 @@ public sealed partial class PaperDrawingControl : Control
     {
         resultStroke = null;
 
+        var size = new Vector2(PixelWidth, PixelHeight);
+        var point = coords * size;
+        var uiScale = UIScale;
+
         for (var i = _strokes.Count - 1; i >= 0; i--)
         {
             var stroke = _strokes[i].Stroke;
@@ -139,11 +143,14 @@ public sealed partial class PaperDrawingControl : Control
             if (points.Count == 0)
                 continue;
 
-            var radius = stroke.Radius / Math.Min(PixelWidth, PixelHeight);
+            var radius = stroke.Radius * uiScale;
+            var radiusSquared = radius * radius;
 
             if (points.Count == 1)
             {
-                if (Vector2.DistanceSquared(coords, points[0]) <= radius * radius)
+                var strokePoint = points[0] * size;
+
+                if (Vector2.DistanceSquared(point, strokePoint) <= radiusSquared)
                 {
                     resultStroke = CloneStroke(stroke);
                     return true;
@@ -154,19 +161,19 @@ public sealed partial class PaperDrawingControl : Control
 
             for (var j = 1; j < points.Count; j++)
             {
-                var a = points[j - 1];
-                var b = points[j];
+                var a = points[j - 1] * size;
+                var b = points[j] * size;
 
                 var ab = b - a;
                 var lengthSquared = ab.LengthSquared();
 
                 var t = lengthSquared > 0f
-                    ? Math.Clamp(Vector2.Dot(coords - a, ab) / lengthSquared, 0f, 1f)
+                    ? Math.Clamp(Vector2.Dot(point - a, ab) / lengthSquared, 0f, 1f)
                     : 0f;
 
                 var closest = a + ab * t;
 
-                if (Vector2.DistanceSquared(coords, closest) <= radius * radius)
+                if (Vector2.DistanceSquared(point, closest) <= radiusSquared)
                 {
                     resultStroke = CloneStroke(stroke);
                     return true;
@@ -236,8 +243,6 @@ public sealed partial class PaperDrawingControl : Control
             || _pointCount >= MaxPoints)
             return;
 
-        _redoStrokes.Clear();
-
         var point = Normalize(args.PointerLocation.Position - GlobalPixelPosition);
 
         if (Tool == DrawTool.Pipette)
@@ -248,6 +253,8 @@ public sealed partial class PaperDrawingControl : Control
             BrushColor = stroke.Color;
             return;
         }
+
+        _redoStrokes.Clear();
 
         _activeStroke = new StrokeRenderData(new PaperStroke(new List<Vector2> { point }, BrushColor, BrushRadius, Eraser));
         _strokes.Add(_activeStroke);
