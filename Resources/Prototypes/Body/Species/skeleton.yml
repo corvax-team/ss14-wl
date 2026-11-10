@@ -3,10 +3,10 @@
   onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
-      limit: 1
+      limit: 2 # WL-changes
       required: false
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 1
+      limit: 2 # WL-changes
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2
