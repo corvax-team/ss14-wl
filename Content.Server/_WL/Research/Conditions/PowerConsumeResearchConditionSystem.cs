@@ -13,17 +13,10 @@ public sealed partial class PowerConsumeResearchConditionSystem : ResearchCondit
     {
         args.Result = entity.Comp.ReceivedPower;
 
-        var delta = FixedPoint4.Max(args.Result - args.Condition.ExtrimalValue * args.Condition.Slope, 0);
+        var delta = FixedPoint4.Max(args.Result - args.Condition.ExtrimalValue, 0);
 
         args.Points.PointsDict.Add(args.Condition.ExtrimalType, delta * args.Condition.Slope / 100 * args.Condition.BaseValue);
+
+        args.Active = args.Result != 0;
     }
-}
-
-public sealed partial class PowerConsumeResearchCondition : ResearchConditionBase<PowerConsumeResearchCondition>
-{
-    [DataField]
-    public float ExtrimalValue = 0f;
-
-    [DataField]
-    public float Slope = 0.01f;
 }

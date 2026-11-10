@@ -38,3 +38,15 @@
       points: Physics
       minExtrimal: 300
       maxDamage: 600
+
+- type: researchType
+  id: PowerScrambler
+  name: research-type-target-total
+  min: 10
+  max: 1010
+  size: 10
+  scale: !type:LinearMethod
+  condition:
+    !type:PowerConsumeResearchCondition
+      points: Mech
+      extrimalValue: 300

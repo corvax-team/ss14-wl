@@ -38,6 +38,6 @@ public sealed partial class ResearchTypePrototype : IPrototype
 
     public FixedPoint4 GetScale(int x)
     {
-        return Scale.GetModifier(x, Size);
+        return Scale.GetModifier(x, Size) * 100;
     }
 }

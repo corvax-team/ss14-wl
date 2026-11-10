@@ -187,3 +187,33 @@
     detectTypes: [ AnomalySeverity ]
   - type: Machine
     board: KantCounterMachineCircuitboard
+
+- type: entity
+  parent: [ BaseRDDetectorMachine, BaseMachineDestructible ]
+  id: PowerScramblerDetector
+  name: power analyzer
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/rndpointsource.rsi
+    layers:
+    - state: rndpointsource-off
+    - state: rndpointsource
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ResearchDetector
+    detectTypes:
+      - PowerScrambler
+    selfOnly: true
+    researchPercent: 0.0006
+  - type: ResearchSource
+    category: PowerScrambler
+  - type: PassiveDetector
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: PowerConsumer
+    voltage: High
+    drawRate: 2000000
