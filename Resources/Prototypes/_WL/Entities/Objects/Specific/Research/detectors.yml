@@ -1,0 +1,54 @@
+- type: entity
+  parent: [ BaseRDDetectorMachine, BaseTargetIndestructible ]
+  id: BaseTargetDetector
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/Research/target.rsi
+    state: target_g
+    noRot: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 5
+            max: 5
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ResearchDetector
+    detectTypes:
+      - SmartTargetBrute
+      - SmartTargetBurn
+      - SmartTargetTotal
+    selfOnly: true
+    researchPercent: 0.2
+  - type: ResearchSource
+    category: SmartTarget
+  - type: DamageStatistics
+  - type: PassiveDetector
+
+- type: entity
+  parent: BaseTargetDetector
+  id: TargetDetectorGray
+  name: smart target
+  description: Very smart target.
+  components:
+  - type: Sprite
+    state: target_g
+
+- type: entity
+  parent: BaseTargetDetector
+  id: TargetDetectorYellow
+  name: yellow smart target
+  description: Very smart target. Yellow.
+  components:
+  - type: Sprite
+    state: target_y

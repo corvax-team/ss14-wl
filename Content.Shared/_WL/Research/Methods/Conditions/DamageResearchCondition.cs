@@ -3,6 +3,7 @@ using Content.Shared._WL.Research.Prototypes;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.Research.Methods;
@@ -15,17 +16,11 @@ public sealed partial class DamageResearchConditionSystem : ResearchConditionSys
     {
         var damage = _damageable.GetPositiveDamage(entity);
 
-        if (!damage.Empty && (args.Condition.Types.Count != 0 || args.Condition.Groups.Count != 0))
+        if (!damage.Empty && args.Condition.DamageContainer is {} container)
         {
-            foreach (var type in args.Condition.Types)
+            foreach (var (type, value) in damage.DamageDict)
             {
-                if (damage.DamageDict.TryGetValue(type, out var value))
-                        args.Result += value;
-            }
-
-            foreach (var group in args.Condition.Groups)
-            {
-                if (damage.TryGetDamageInGroup(ProtoMan.Index(group), out var value))
+                if (_damageable.SupportsType(container, type))
                         args.Result += value;
             }
         }
@@ -41,14 +36,11 @@ public sealed partial class DamageResearchConditionSystem : ResearchConditionSys
 public sealed partial class DamageResearchCondition : ResearchConditionBase<DamageResearchCondition>
 {
     [DataField]
-    public float MinExtrimal = 100f;
+    public FixedPoint4 MinExtrimal = 100;
 
     [DataField]
-    public float MaxDamage = 200f;
+    public FixedPoint4 MaxDamage = 200;
 
     [DataField]
-    public List<ProtoId<DamageTypePrototype>> Types = new();
-
-    [DataField]
-    public List<ProtoId<DamageGroupPrototype>> Groups = new();
+    public ProtoId<DamageContainerPrototype>? DamageContainer;
 }

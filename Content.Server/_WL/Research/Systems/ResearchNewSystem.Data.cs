@@ -197,7 +197,7 @@ public sealed partial class ResearchSystemNew
         if (!writePoints.AnyPositive())
             return false;
 
-        writedPoints = storage.Points.SizedAdd(ProtoMan, writePoints, storage.LocalSize - storage.ExpiredLocalSize);
+        writedPoints = storage.Points.SizedAdd(ProtoMan, ResearchPointsSpecifier.GetPositive(writePoints), storage.LocalSize - storage.ExpiredLocalSize);
         writePoints -= writedPoints;
 
         RecalcPointsSize(uid, storage);

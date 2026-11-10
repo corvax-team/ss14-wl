@@ -14,7 +14,7 @@ public sealed partial class ResearchServerNewComponent : Component
     [DataField("serverName"), ViewVariables(VVAccess.ReadWrite)]
     public string ServerName = "RDMAINSERVER";
 
-    [DataField("points"), AutoNetworkedField]
+    [AutoNetworkedField]
     public Dictionary<ProtoId<ResearchPointsTypePrototype>, (FixedPoint4, FixedPoint4)> PointsStatistic { get; set; } = new(); // max, per second
 
     [AutoNetworkedField]

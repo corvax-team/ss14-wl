@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  parent: BaseMachinePowered
   id: BaseRDDetector
   abstract: true
   components:
@@ -11,13 +11,6 @@
     interfaces:
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.Powered:
-        enum.PowerDeviceVisualLayers.Powered:
-          True: {visible: true}
-          False: {visible: false}
   - type: PointLight
     radius: 1.5
     energy: 3.0
@@ -26,6 +19,19 @@
     powerLoad: 200
   - type: ExtensionCableReceiver
   - type: WiresPanel
+
+- type: entity
+  parent: [ BaseRDDetector, BaseMachinePowered, ConstructibleMachine ]
+  id: BaseRDDetectorMachine
+  abstract: true
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
 
 - type: entity
   parent: [ BaseRDDetector, BaseItem ]
@@ -63,7 +69,7 @@
           collection: MetalBreak
 
 - type: entity
-  parent: BaseRDDetector
+  parent: BaseRDDetectorMachine
   id: RDPointSourceDebug
   name: "debug R&D point source"
   suffix: DEBUG
@@ -82,9 +88,10 @@
     researches:
       DebugType1: 10
       DebugType2: 0
+  - type: PassiveDetector
 
 - type: entity
-  parent: BaseRDDetector
+  parent: BaseRDDetectorMachine
   id: BaseRDNewDetector
   name: "debug R&D DETECTOR"
   suffix: DEBUG
@@ -128,7 +135,7 @@
             defaultPrototype: Beaker
 
 - type: entity
-  parent: BaseRDDetectorItem
+  parent: [ BaseRDDetectorItem, BaseRDDetectorMachine]
   id: ThermometerDetectorMachine
   name: thermometer
   components:
@@ -146,7 +153,7 @@
     board: ThermometerMachineCircuitboard
 
 - type: entity
-  parent: BaseRDDetectorItem
+  parent: [ BaseRDDetectorItem, BaseRDDetectorMachine]
   id: BarometerDetectorMachine
   name: barometer
   components:
@@ -164,7 +171,7 @@
     board: BarometerMachineCircuitboard
 
 - type: entity
-  parent: BaseRDDetectorItem
+  parent: [ BaseRDDetectorItem, BaseRDDetectorMachine ]
   id: KantCounterDetectorMachine
   name: kant counter
   components:

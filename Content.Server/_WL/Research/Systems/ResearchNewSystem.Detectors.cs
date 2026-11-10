@@ -23,7 +23,7 @@ public sealed partial class ResearchSystemNew
         if (!CanProduce(ent) || !TryComp<ResearchDetectorComponent>(ent, out var detector))
             return;
 
-        foreach (var source in EnumerateSources(ent, ent.Comp.Range))
+        foreach (var source in EnumerateSources((ent, detector), ent.Comp.Range))
         {
             if (!TryAnalyzeByDetector(ent, source, out var data, out var pointsVec))
                 continue;
@@ -39,11 +39,19 @@ public sealed partial class ResearchSystemNew
             {
                 dataFrame = currDataFrame;
             }
+
+            dataFrame.TryInsertData(data, ent, pointsVec);
         }
     }
 
-    private IEnumerable<Entity<ResearchSourceComponent>> EnumerateSources(EntityUid ent, float range)
+    private IEnumerable<Entity<ResearchSourceComponent>> EnumerateSources(Entity<ResearchDetectorComponent> ent, float range)
     {
+        if (ent.Comp.SelfOnly && TryComp<ResearchSourceComponent>(ent, out var source))
+        {
+            yield return (ent, source);
+            yield break;
+        }
+
         var entXForm = Transform(ent);
         var worldPos = _transform.GetWorldPosition(entXForm);
 

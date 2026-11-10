@@ -1,0 +1,9 @@
+- type: researchCategory
+  id: SmartTarget
+  name: research-category-self-target
+  maxPoints: 16000000
+  researchTypes:
+    - SmartTargetBrute
+    - SmartTargetBurn
+    - SmartTargetTotal
+  pointsType: Physics

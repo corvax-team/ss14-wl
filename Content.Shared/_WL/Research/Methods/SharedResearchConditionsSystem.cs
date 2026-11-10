@@ -12,11 +12,11 @@ public sealed partial class SharedResearchConditionsSystem : EntitySystem, IRese
         return condition.RaiseEvent(target, this, sourceEnt);
     }
 
-    public (FixedPoint4, ResearchPointsSpecifier) RaiseConditionEvent<T>(EntityUid target, T effect, EntityUid? sourceEnt) where T : ResearchConditionBase<T>
+    public (FixedPoint4, ResearchPointsSpecifier, bool) RaiseConditionEvent<T>(EntityUid target, T effect, EntityUid? sourceEnt) where T : ResearchConditionBase<T>
     {
         var conditionEv = new ResearchConditionEvent<T>(effect, sourceEnt);
         RaiseLocalEvent(target, ref conditionEv);
-        return (conditionEv.Result, conditionEv.Points);
+        return (conditionEv.Result, conditionEv.Points, conditionEv.Active);
     }
 }
 
@@ -32,7 +32,7 @@ public abstract partial class ResearchConditionSystem<T, TCon> : EntitySystem wh
 
 public interface IResearchConditionRaiser
 {
-    (FixedPoint4, ResearchPointsSpecifier) RaiseConditionEvent<T>(EntityUid target, T condition, EntityUid? sourceEnt) where T : ResearchConditionBase<T>;
+    (FixedPoint4, ResearchPointsSpecifier, bool) RaiseConditionEvent<T>(EntityUid target, T condition, EntityUid? sourceEnt) where T : ResearchConditionBase<T>;
 }
 
 public abstract partial class ResearchConditionBase<T> : ResearchCondition where T : ResearchConditionBase<T>
@@ -42,10 +42,13 @@ public abstract partial class ResearchConditionBase<T> : ResearchCondition where
         if (this is not T type)
             return (0, new ResearchPointsSpecifier());
 
-        var (value, points) = raiser.RaiseConditionEvent(target, type, sourceEnt);
+        var (value, points, active) = raiser.RaiseConditionEvent(target, type, sourceEnt);
 
         points.PointsDict.Add(BaseType, BaseValue);
         points = points.Normalize();
+
+        if (!active)
+            points = new ResearchPointsSpecifier();
 
         return (value, points);
     }
@@ -74,6 +77,9 @@ public partial record struct ResearchConditionEvent<T>(T Condition, EntityUid? S
 
     [DataField]
     public ResearchPointsSpecifier Points = new();
+
+    [DataField]
+    public bool Active = true;
 
     public readonly T Condition = Condition;
 

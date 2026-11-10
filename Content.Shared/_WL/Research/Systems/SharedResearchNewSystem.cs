@@ -7,6 +7,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Lathe;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
