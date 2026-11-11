@@ -8,8 +8,8 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared;
 using Robust.Shared.Prototypes;
-using Content.Shared.Corvax.CCCVars;
-using Content.Shared._WL.CCVars; // # CorvaxGoob-Offer
+using Content.Shared.Corvax.CCCVars; // # CorvaxGoob-Offer
+using Content.Shared._WL.CCVars; // WL-Changes
 
 namespace Content.Client.Options.UI.Tabs;
 
