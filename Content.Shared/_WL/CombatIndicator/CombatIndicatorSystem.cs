@@ -7,7 +7,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._WL.CombatIndicator;
 
-public sealed partial class SharedCombatIndicatorSystem : EntitySystem
+public sealed partial class CombatIndicatorSystem : EntitySystem
 {
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
@@ -16,23 +16,23 @@ public sealed partial class SharedCombatIndicatorSystem : EntitySystem
     {
         base.Initialize();
 
-        InitializeInteractions();
-    }
-
-    private void InitializeInteractions()
-    {
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.CombatIndicator, InputCmdHandler.FromDelegate(ToggleCombatIndicator, handle: false, outsidePrediction: false))
-            .Register<SharedCombatIndicatorSystem>();
+            .Register<CombatIndicatorSystem>();
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
 
-        CommandBinds.Unregister<SharedCombatIndicatorSystem>();
+        CommandBinds.Unregister<CombatIndicatorSystem>();
     }
 
+    [SubscribeLocalEvent]
+    private void OnPlayerDetached(PlayerDetachedEvent ev)
+    {
+        RemComp<CombatIndicatorAutoEnableComponent>(ev.Entity);
+    }
 
     private void ToggleCombatIndicator(ICommonSession? session)
     {
@@ -42,19 +42,32 @@ public sealed partial class SharedCombatIndicatorSystem : EntitySystem
         if (session?.AttachedEntity is not { Valid: true } uid)
             return;
 
-        if (!HasComp<HumanoidProfileComponent>(uid)) //only for people, I hope
-            return;
+        var enabled = !HasComp<CombatIndicatorComponent>(uid);
 
-        if (HasComp<CombatIndicatorComponent>(uid))
+        TrySetEnabled(uid, enabled);
+    }
+
+    public bool TrySetEnabled(EntityUid uid, bool value, bool playSound = true)
+    {
+        if (!HasComp<HumanoidProfileComponent>(uid))
+            return false;
+
+        if (value)
         {
-            RemComp<CombatIndicatorComponent>(uid);
+            if (HasComp<CombatIndicatorComponent>(uid))
+                return true;
+
+            var indicator = EnsureComp<CombatIndicatorComponent>(uid);
+
+            if (playSound)
+                _audio.PlayPredicted(indicator.IndicatorSound, uid, uid);
         }
         else
         {
-            var indicator = EnsureComp<CombatIndicatorComponent>(uid);
-            _audio.PlayPredicted(indicator.IndicatorSound, uid, uid);
-            Dirty(uid, indicator);
+            RemComp<CombatIndicatorComponent>(uid);
         }
+
+        return true;
     }
 }
 

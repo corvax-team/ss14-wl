@@ -8,7 +8,8 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared;
 using Robust.Shared.Prototypes;
-using Content.Shared.Corvax.CCCVars; // # CorvaxGoob-Offer
+using Content.Shared.Corvax.CCCVars;
+using Content.Shared._WL.CCVars; // # CorvaxGoob-Offer
 
 namespace Content.Client.Options.UI.Tabs;
 
@@ -45,6 +46,7 @@ public sealed partial class MiscTab : Control
         Control.AddOptionDropDown(CCVars.UILayout, DropDownHudLayout, layoutEntries);
 
         Control.AddOptionCheckBox(CVars.DiscordEnabled, DiscordRich);
+        Control.AddOptionCheckBox(WLCVars.CombatIndicatorAutoEnable, CombatIndicatorAutoEnableCheckBox); // WL-Changes
         Control.AddOptionCheckBox(CCVars.ShowOocPatronColor, ShowOocPatronColor);
         Control.AddOptionCheckBox(CCVars.LoocAboveHeadShow, ShowLoocAboveHeadCheckBox);
         Control.AddOptionCheckBox(CCVars.HudHeldItemShow, ShowHeldItemCheckBox);
