@@ -3,6 +3,7 @@
   parent: BaseItem
   id: BaseWeaponShotgun
   description: A rooty tooty point and shooty.
+  suffix: Дробовик # WL-change
   abstract: true
   components:
   - type: Sprite
@@ -67,6 +68,7 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseItem, BaseGunWieldable, BaseSyndicateContraband] # Corvax-Contraband
   id: WeaponShotgunBulldog
   description: An automatic magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses .50 shotgun shells.
+  suffix: Дробовик, Автомат # WL-change
   components:
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Shotguns/bulldog_icon_48x.rsi
@@ -223,6 +225,7 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurityJobsBartender, BaseWeaponShotgun, BaseSecurityBartenderContraband] # Corvax-Contraband
   id: WeaponShotgunSawn
   description: Groovy! Uses .50 shotgun shells.
+  suffix: Дробовик, Пистолет # WL-change
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Shotguns/sawn.rsi
@@ -265,6 +268,7 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponShotgun, BaseMinorContraband] # Corvax-Contraband
   id: WeaponShotgunHandmade
   description: Looks unreliable. Uses .50 shotgun shells.
+  suffix: Дробовик, Пистолет # WL-change
   components:
   - type: Item
     size: Small
@@ -293,7 +297,7 @@
   name: blunderbuss
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponShotgun, BaseGunWieldable, BaseMinorContraband] # Corvax-Contraband
   id: WeaponShotgunBlunderbuss
-  suffix: Pirate
+  suffix: Дробовик, Pirate
   description: Deadly at close range.
   components:
   - type: Sprite
@@ -344,6 +348,7 @@
   id: WeaponShotgunHushpup
   name: Hushpup
   description: An obscure modification of the Enforcer, fitted with an experimental muffler. Great for those with a strict moral code. Uses .50 shotgun shells.
+  suffix: Дробовик, Глушитель # WL-change
   components:
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Shotguns/hushpup.rsi

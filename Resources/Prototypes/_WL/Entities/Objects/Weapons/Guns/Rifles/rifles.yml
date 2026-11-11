@@ -3,6 +3,7 @@
   parent: BaseItem
   id: WeaponRifleBonza
   description: It's a less common rifle that Lecter's, but it's just as deadly.
+  suffix: Автомат
   components:
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Rifles/bonza.rsi

@@ -22,12 +22,6 @@
       "directions": 4
     },
     {
-      "name": "ishotgunstep1"
-    },
-    {
-      "name": "ishotgunstep2"
-    },
-    {
       "name": "inhand-left",
       "directions": 4
     },
@@ -42,6 +36,12 @@
     {
       "name": "wielded-inhand-right",
       "directions": 4
+    },
+    {
+      "name": "ishotgunstep1"
+    },
+    {
+      "name": "ishotgunstep2"
     }
   ]
 }

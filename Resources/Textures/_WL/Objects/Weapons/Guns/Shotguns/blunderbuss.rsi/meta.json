@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by brainfood1183(Github) inspired by an image created by rezierré#5003 (Discord), wield sprites by RiceMar1244, by RedTerror",
+  "copyright": "Based on RedTerror artwork, edited by whitleyvk (git)",
   "size": {
     "x": 32,
     "y": 32
@@ -27,6 +27,14 @@
         },
         {
             "name": "wielded-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
             "directions": 4
         }
     ]

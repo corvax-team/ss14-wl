@@ -2,6 +2,7 @@
   abstract: true
   parent: BaseItem
   id: BaseWeaponBatteryNoAmmoCounter
+  suffix: Лазер # WL-change
   components:
   - type: Sprite
   - type: Item
@@ -166,6 +167,7 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponPowerCellSmall, BaseSecurityContraband] # Corvax-Contraband
   id: WeaponLaserSvalinn
   description: A cheap and widely used laser pistol.
+  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
@@ -195,6 +197,7 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponBatterySmall, BaseMajorContraband] # Corvax-Contraband
   id: WeaponLaserGun
   description: A weapon using light amplified by the stimulated emission of radiation.
+  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
@@ -224,6 +227,7 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponBatterySmall, BaseMinorContraband] # Corvax-Contraband
   id: WeaponMakeshiftLaser
   description: Better pray it won't burn your hands off.
+  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
@@ -314,9 +318,10 @@
   parent: [BaseCorvaxContraband434DepartmentsCentralCommand, BaseWeaponBatterySmall, BaseCentcommContraband] # Corvax-Contraband
   id: WeaponPulsePistol
   description: A state-of-the-art energy pistol favoured as a sidearm by elite Nanotrasen operatives.
+  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -331,7 +336,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -354,11 +359,12 @@
   parent: [BaseCorvaxContraband434DepartmentsCentralCommand, BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband] # Corvax-Contraband
   id: WeaponPulseCarbine
   description: A high-tech energy carbine favoured by elite Nanotrasen operatives.
+  suffix: Лазер, Карабин # WL-change
   components:
   - type: Item
     size: Large
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -371,7 +377,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
   - type: Gun
     selectedMode: FullAuto
     fireRate: 3
@@ -398,7 +404,7 @@
     shape:
     - 0,0,4,1
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -411,7 +417,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: Gun
     fireRate: 1.5
     soundGunshot:
@@ -529,6 +535,7 @@
   parent: BaseWeaponBatterySmall
   id: WeaponDisablerPractice
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
+  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Battery/practice_disabler.rsi
@@ -578,6 +585,7 @@
   parent: [BaseCorvaxContraband432DepartmentsSecurity, WeaponDisablerPractice, BaseSecurityCommandContraband] # Corvax-Contraband
   id: WeaponDisabler
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi
@@ -606,6 +614,7 @@
   parent: [BaseCorvaxContraband432DepartmentsSecurity, BaseWeaponBattery, BaseSecurityContraband] # Corvax-Contraband
   id: WeaponDisablerSMG
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
+  suffix: Лазер, Карабин # WL-change
   components:
   - type: Item
     size: Large
@@ -647,6 +656,7 @@
   parent: [BaseCorvaxContraband432DepartmentsSecurity, BaseWeaponBatterySmall, BaseSecurityContraband] # Corvax-Contraband
   id: WeaponTaser
   description: A low-capacity, energy-based stun gun used by security teams to subdue targets at close range.
+  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Tag
     tags:
@@ -703,6 +713,7 @@
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponAntiqueLaser
   description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with a mahogany grip and chrome filigree. The object menaces with spikes of energy. On the item is an image of a captain and a clown. The clown is dead. The captain is striking a heroic pose.
+  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
@@ -788,6 +799,7 @@
   parent: [BaseCorvaxContraband432DepartmentsScience, BaseWeaponBatterySmall, BaseScienceContraband] # Corvax-Contraband
   id: WeaponPistolCHIMP
   description: Just because it's a little C.H.I.M.P. doesn't mean it can't punch like an A.P.E.
+  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
@@ -834,7 +846,7 @@
 - type: entity
   parent: [WeaponPistolCHIMP, BaseSyndicateContraband]
   id: WeaponPistolCHIMPUpgraded
-  suffix: Syndicate
+  suffix: Лазер, Syndicate, Пистолет # WL-change
   components:
   - type: BatteryWeaponFireModes
     fireModes:
@@ -1015,10 +1027,12 @@
     startingCharge: 1000
   - type: StaticPrice
     price: 100
+
 - type: entity
   parent: [BaseXenoborgContraband, WeaponAdvancedLaser]
   id: WeaponLaserGunXenoborg
   name: xenoborg laser gun
+  suffix: Лазер, Борг # WL-change
   components:
   - type: BatteryAmmoProvider
     proto: XenoborgLaser
@@ -1034,6 +1048,7 @@
   parent: [BaseXenoborgContraband, WeaponLaserCannon]
   id: WeaponLaserCannonXenoborg
   name: xenoborg laser cannon
+  suffix: Лазер, Борг # WL-change
   components:
   - type: BatteryAmmoProvider
     proto: XenoborgHeavyLaser
@@ -1061,6 +1076,7 @@
   id: WeaponBurstFireLaserXenoborg
   name: xenoborg burst fire laser
   description: An alien weapon, channelling a burst-fire laser through a prism, causing targets to burst into fire.
+  suffix: Лазер, Борг # WL-change
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/xenoborg_burstfire.rsi
@@ -1091,6 +1107,7 @@
   parent: [BaseWeaponBatteryNoAmmoCounter, BaseXenoborgContraband]
   id: WeaponRangeFinderXenoborg
   name: xenoborg range finder
+  suffix: Лазер, Борг # WL-change
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Battery/xenoborg_range_finder.rsi

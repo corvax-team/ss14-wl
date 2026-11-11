@@ -3,6 +3,7 @@
   parent: BaseItem
   id: BaseWeaponPistol
   description: A rooty tooty point and shooty.
+  suffix: Пистолет # WL-change
   abstract: true
   components:
   - type: Sprite
@@ -88,6 +89,7 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponPistol, BaseSyndicateContraband] # Corvax-Contraband
   id: WeaponPistolViper
   description: A common handgun illegally modified by the Syndicate. The Viper sports a selector switch between semi-auto and ‘rock and roll’. The standard sidearm for any soldier who fights under the three serpents. Feeds from .35 pistol magazines.
+  suffix: Пистолет, Карабин # WL-change
   components:
   - type: Gun
     minAngle: 2
@@ -135,6 +137,7 @@
   parent: [ BaseItem, BaseSyndicateContraband ]
   id: WeaponPistolEchis
   description: A cyborg-mounted weapon system based on the Viper pistol. Creates ammunition on the fly from an internal fabricator, which slowly self-charges.
+  suffix: Пистолет, Борг, Карабин # WL-change
   components:
   - type: Gun
     fireRate: 6
@@ -178,6 +181,7 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponPistol, BaseSyndicateContraband] # Corvax-Contraband
   id: WeaponPistolCobra
   description: Integrally suppressed semi-automatic pistol used by the Syndicate, firing caseless subsonic rounds. Favored by any agent who likes to keep things quiet and leave no evidence behind. Feeds from .25 pistol magazines.
+  suffix: Пистолет, Глушитель # WL-change
   components:
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Pistols/cobra.rsi

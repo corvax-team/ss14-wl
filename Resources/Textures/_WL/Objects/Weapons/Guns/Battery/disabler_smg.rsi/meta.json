@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/26818af618762ff52319b3417be8cdc1279e99b7/icons/obj/weapons/guns/energy.dmi",
+    "copyright": "by whitleyvk",
     "size": {
         "x": 32,
         "y": 32
@@ -71,6 +71,44 @@
         },
         {
             "name": "inhand-right-4"
+        },
+        {
+            "name": "wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-left-0"
+        },
+        {
+            "name": "wielded-inhand-left-1"
+        },
+        {
+            "name": "wielded-inhand-left-2"
+        },
+        {
+            "name": "wielded-inhand-left-3"
+        },
+        {
+            "name": "wielded-inhand-left-4"
+        },
+        {
+            "name": "wielded-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-right-0"
+        },
+        {
+            "name": "wielded-inhand-right-1"
+        },
+        {
+            "name": "wielded-inhand-right-2"
+        },
+        {
+            "name": "wielded-inhand-right-3"
+        },
+        {
+            "name": "wielded-inhand-right-4"
         }
     ]
 }

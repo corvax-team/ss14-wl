@@ -3,6 +3,7 @@
   parent: [BaseItem, BaseGunWieldable]
   id: BaseWeaponRifle
   description: A rooty tooty point and shooty.
+  suffix: Автомат # WL-change
   abstract: true
   components:
   - type: Sprite

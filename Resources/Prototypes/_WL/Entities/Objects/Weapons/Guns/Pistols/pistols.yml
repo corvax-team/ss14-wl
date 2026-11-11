@@ -35,6 +35,7 @@
   parent: [BaseWeaponPistol]
   id: WeaponPistolTC12
   description: It's a good pistol that was adopted by Nanotrasen structures much later than the MK, but it hasn't become weaker.
+  suffix: Пистолет
   components:
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Pistols/TC-12.rsi
