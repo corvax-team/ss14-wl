@@ -30,7 +30,7 @@
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-librarian
-    stampedColor: "#345476"
+    stampedColor: "#67584d"
     stampState: "paper_stamp-librarian"
   - type: Sprite
     sprite: _WL/Objects/Misc/stamps.rsi
