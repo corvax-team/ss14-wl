@@ -22,3 +22,8 @@
   id: Shards
   kind: source
   path: "/Textures/_WL/Shaders/Distortion/shards.swsl"
+
+- type: shader
+  id: PaintEraser
+  kind: source
+  path: /Textures/_WL/Shaders/paint_eraser.swsl

@@ -213,11 +213,16 @@ public sealed partial class FaxPrintout
     [DataField]
     public string? SenderFaxName { get; private set; } = default!;
 
+    // WL-Changes-Start
+    [DataField]
+    public List<PaperStroke>? Drawings = null;
+    // WL-Changes-End
+
     private FaxPrintout()
     {
     }
 
-    public FaxPrintout(string content, string name, string? label = null, string? prototypeId = null, string? stampState = null, List<StampDisplayInfo>? stampedBy = null, bool locked = false, string? senderFaxName = null)
+    public FaxPrintout(string content, string name, string? label = null, string? prototypeId = null, string? stampState = null, List<StampDisplayInfo>? stampedBy = null, bool locked = false, string? senderFaxName = null, List<PaperStroke>? drawings = null) // WL-Changes
     {
         Content = content;
         Name = name;
@@ -227,5 +232,6 @@ public sealed partial class FaxPrintout
         StampedBy = stampedBy ?? new List<StampDisplayInfo>();
         Locked = locked;
         SenderFaxName = senderFaxName;
+        Drawings = drawings; // WL-Changes
     }
 }

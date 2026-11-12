@@ -1,6 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using System.Numerics; // WL-Changes
 
 namespace Content.Shared.Paper;
 
@@ -16,6 +17,11 @@ public sealed partial class PaperComponent : Component
 
     [DataField("stampedBy"), AutoNetworkedField]
     public List<StampDisplayInfo> StampedBy { get; set; } = new();
+
+    // WL-Changes-Start
+    [DataField, AutoNetworkedField]
+    public List<PaperStroke> Drawings { get; set; } = new();
+    // WL-Changes-End
 
     /// <summary>
     ///     Stamp to be displayed on the paper, state from bureaucracy.rsi
@@ -38,12 +44,13 @@ public sealed partial class PaperComponent : Component
         public readonly string Text;
         public readonly List<StampDisplayInfo> StampedBy;
         public readonly PaperAction Mode;
-
-        public PaperBoundUserInterfaceState(string text, List<StampDisplayInfo> stampedBy, PaperAction mode = PaperAction.Read)
+        public readonly List<PaperStroke> Drawings; // WL-Changes
+        public PaperBoundUserInterfaceState(string text, List<StampDisplayInfo> stampedBy, PaperAction mode = PaperAction.Read, List<PaperStroke>? drawings = null) // WL-Changes
         {
             Text = text;
             StampedBy = stampedBy;
             Mode = mode;
+            Drawings = drawings ?? new List<PaperStroke>(); // WL-Changes
         }
     }
 
@@ -51,10 +58,12 @@ public sealed partial class PaperComponent : Component
     public sealed class PaperInputTextMessage : BoundUserInterfaceMessage
     {
         public readonly string Text;
+        public readonly List<PaperStroke> Drawings; // WL-Changes
 
-        public PaperInputTextMessage(string text)
+        public PaperInputTextMessage(string text, List<PaperStroke> drawings) // WL-Changes
         {
             Text = text;
+            Drawings = drawings; // WL-Changes
         }
     }
 
@@ -85,3 +94,33 @@ public sealed partial class PaperComponent : Component
         Written
     }
 }
+
+// WL-Changes-Start
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class PaperStroke
+{
+    [DataField]
+    public List<Vector2> Points = new();
+
+    [DataField]
+    public Color Color;
+
+    [DataField]
+    public float Radius;
+
+    [DataField]
+    public bool Eraser;
+
+    public PaperStroke()
+    {
+    }
+
+    public PaperStroke(List<Vector2> points, Color color, float radius, bool eraser)
+    {
+        Points = points;
+        Color = color;
+        Radius = radius;
+        Eraser = eraser;
+    }
+}
+// WL-Changes-End
