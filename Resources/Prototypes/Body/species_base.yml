@@ -110,7 +110,6 @@
   - type: SleepEmitSound
   - type: SSDIndicator
   - type: StandingState
-  - type: Crawler
 #  - type: Dna WL - NoDnaMobs
   - type: MindContainer
   - type: MindExaminable
@@ -249,6 +248,7 @@
     alternateState: human_big_fire # Corvax WL /tg/ resprite
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: StunVisuals
+  - type: Dna # WL-Changes
 
 - type: entity
   abstract: true
