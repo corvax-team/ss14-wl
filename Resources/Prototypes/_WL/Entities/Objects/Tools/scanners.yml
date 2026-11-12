@@ -37,6 +37,10 @@
   - type: Sprite
     sprite: _WL/Objects/Tools/ResearchNew/scanners.rsi
     state: machine_scanner
+  - type: ResearchScanner
+    whitelist:
+      tags:
+      - Structure
   - type: ResearchDetector
     detectTypes: [ DebugType1 ]
   - type: ResearchClientNew

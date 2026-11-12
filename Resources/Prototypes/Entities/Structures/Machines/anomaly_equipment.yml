@@ -338,3 +338,11 @@
   - type: GuideHelp
     guides:
     - AnomalousResearch
+# WL-Changes: BS start
+  - type: SimpleSource
+    id: AnomGen
+    points:
+      points:
+        Mech: 1000
+        Physics: 500
+# WL-Changes: BS end

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseStructureComputer
+  parent: [ BaseStructureComputer, BaseMachineScannable ] # WL-Changes: BS
   id: BaseComputer
   name: computer
   placement:
@@ -84,6 +84,13 @@
   - type: Wires
     boardName: wires-board-name-computer
     layoutId: Computer
+# WL-Changes: BS start
+  - type: SimpleSource
+    id: Computador
+    points:
+      points:
+        Mech: 200
+# WL-Changes: BS end
 #
 #     This is overwritten by children, so needs to be defined there
 #  - type: UserInterface

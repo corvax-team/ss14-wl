@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: StructureHealthMachineStrong
+  parent: [ StructureHealthMachineStrong, BaseMachineScannable ] # WL-Changes: BS
   id: ParticleAcceleratorBase
   placement:
     mode: SnapgridCenter
@@ -46,6 +46,14 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
+# WL-Changes: BS start
+  - type: SimpleSource
+    id: PA
+    points:
+      points:
+        Mech: 1000
+        Physics: 500
+# WL-Changes: BS end
 
 - type: entity
   id: ParticleAcceleratorFinishedPart

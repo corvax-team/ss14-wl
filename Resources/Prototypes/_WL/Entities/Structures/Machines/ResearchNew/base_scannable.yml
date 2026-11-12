@@ -1,0 +1,13 @@
+- type: entity
+  abstract: true
+  id: BaseMachineScannable
+  components:
+  - type: Tag
+    tags:
+      - Machine
+  - type: SimpleSource
+    id: Machine
+    points:
+      points:
+        Mech: 100
+  - type: ResearchScannable

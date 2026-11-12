@@ -13,6 +13,9 @@ public sealed partial class ResearchDataServerComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<ProtoId<ResearchCategoryPrototype>, ResearchField> ResearchedData = new();
+
+    [DataField]
+    public HashSet<string> SimpleData = new();
 }
 
 [ByRefEvent]

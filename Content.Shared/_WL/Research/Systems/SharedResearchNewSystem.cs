@@ -29,7 +29,7 @@ public abstract partial class SharedResearchNewSystem : EntitySystem
     {
         base.Initialize();
 
-        // SubscribeLocalEvent<ResearchScannerComponent, ResearchScannerDoAfterEvent>(OnScannerDoAfter);
+        SubscribeLocalEvent<ResearchScannerComponent, ResearchScannerDoAfterEvent>(OnScannerDoAfter);
     }
 
     [SubscribeLocalEvent]
@@ -47,7 +47,7 @@ public abstract partial class SharedResearchNewSystem : EntitySystem
     [SubscribeLocalEvent]
     private void OnScannerAfterInteract(Entity<ResearchScannerComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Target is not { } target||
+        if (args.Target is not { } target ||
                 !HasComp<ResearchScannableComponent>(target) ||
                 _entityWhitelist.IsWhitelistFail(ent.Comp.Whitelist, target) ||
                 !args.CanReach)
@@ -71,6 +71,17 @@ public abstract partial class SharedResearchNewSystem : EntitySystem
     [SubscribeLocalEvent]
     protected virtual void OnScannerDoAfter(EntityUid uid, ResearchScannerComponent component, DoAfterEvent args)
     {
+        Logger.Debug("DO AFTER????");
+
+        if (args.Cancelled)
+            Logger.Debug("DO AFTEcR cancelled");
+
+        if (args.Handled)
+            Logger.Debug("DO AFTEcR hande");
+
+        if (args.Args.Target is null)
+            Logger.Debug("DO AFTEcR nullelable");
+
         if (args.Cancelled || args.Handled || args.Args.Target is null)
             return;
 

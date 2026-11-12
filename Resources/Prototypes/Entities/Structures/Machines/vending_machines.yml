@@ -108,6 +108,13 @@
   - type: VendingMachineDispenseOnHit
     chance: 0.25
     threshold: 2
+# WL-Changes: BS start
+  - type: SimpleSource
+    id: Vending
+    points:
+      points:
+        Mech: 200
+# WL-Changes: BS end
 
 - type: entity
   id: VendingMachine

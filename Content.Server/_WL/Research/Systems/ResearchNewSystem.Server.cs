@@ -103,14 +103,14 @@ public sealed partial class ResearchSystemNew
     }
 
     public bool TryProcessResearchData(
-            EntityUid ent,
+            EntityUid uid,
             ProtoId<ResearchCategoryPrototype> categoryId,
             Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> rawData,
             ResearchPointsSpecifier pointsVecRatio,
             ResearchServerNewComponent? server = null,
             ResearchDataServerComponent? data = null)
     {
-        if (!Resolve(ent, ref server, ref data) || pointsVecRatio.Empty)
+        if (!Resolve(uid, ref server, ref data) || pointsVecRatio.Empty)
             return false;
 
         if (!data.ResearchedData.ContainsKey(categoryId))
@@ -121,10 +121,26 @@ public sealed partial class ResearchSystemNew
 
         var addValue = data.ResearchedData[categoryId].ResearchData(rawData, pointsVecRatio.GetTotal());
 
-        if (!TryModifyPoints(ent, addValue * pointsVecRatio.Normalize(), true, server))
+        if (!TryModifyPoints(uid, addValue * pointsVecRatio.Normalize(), true, server))
             return false;
 
         return true;
+    }
+
+    public bool TryProcessSimpleData(
+            EntityUid uid,
+            string dataSign,
+            ResearchPointsSpecifier points,
+            ResearchServerNewComponent? server = null,
+            ResearchDataServerComponent? data = null)
+    {
+        if (!Resolve(uid, ref server, ref data) || points.Empty)
+            return false;
+
+        if (!data.SimpleData.Add(dataSign))
+            return false;
+
+        return TryModifyPoints(uid, points, false, server);
     }
 
     private bool TryModifyPoints(EntityUid uid, ResearchPointsSpecifier pointsData, bool modifyStatistic = false, ResearchServerNewComponent? server = null, PointsDataStorageComponent? storage = null)

@@ -19,35 +19,46 @@ public sealed partial class ResearchSystemNew
     [SubscribeLocalEvent]
     private void OnScannedEvent(Entity<ResearchScannerComponent> ent, ref ScannedResearchEvent args)
     {
-        var outputEv = new PostScannedEvent(args.Target, new List<string>());
-        RaiseLocalEvent(ent, ref outputEv);
+        var outputEv = new PostScannedEvent(ent, new List<string>());
+        RaiseLocalEvent(args.Target, ref outputEv);
+        Logger.Debug("SCANNED");
 
         UpdateScanerWindow(ent, outputEv.Output, true);
     }
 
     [SubscribeLocalEvent]
-    private void OnScannedTextEvent(Entity<ResearchScannableComponent> ent, ref PostScannedEvent args)
+    private void OnPostScannedEvent(Entity<ResearchScannableComponent> ent, ref PostScannedEvent args)
     {
-        if (!TryComp<ResearchScannableComponent>(args.Target, out var scannable))
-            return;
+        var name = ent.Comp.Name == string.Empty ? Name(ent) : ent.Comp.Name;
+        var desc = ent.Comp.Description == string.Empty ? Description(ent) : ent.Comp.Description;
 
-        args.Output.Add(Loc.GetString("research-scanner-ui-string-succes"));
+        if (name != string.Empty)
+            args.Output.Add(Loc.GetString("research-scanner-ui-string-name", ("targetString", name)));
 
-        if (scannable.Name != string.Empty)
-            args.Output.Add(Loc.GetString("research-scanner-ui-string-name", ("targetString", scannable.Name)));
-
-        if (scannable.Description != string.Empty)
-            args.Output.Add(Loc.GetString("research-scanner-ui-string-desc", ("targetString", scannable.Description)));
+        if (desc != string.Empty)
+            args.Output.Add(Loc.GetString("research-scanner-ui-string-desc", ("targetString", desc)));
     }
 
-
     [SubscribeLocalEvent]
-    private void OnScannedEvent(Entity<ResearchDetectorComponent> ent, ref PostScannedEvent args)
+    private void OnSourceScannedEvent(Entity<ResearchSourceComponent> ent, ref PostScannedEvent args)
     {
-        if (!TryComp<ResearchSourceComponent>(args.Target, out var source))
+        if (!TryComp<ResearchDetectorComponent>(args.Scanner, out var detector))
             return;
 
-        if (TryAnalyzeToServer(ent, args.Target, ent.Comp, source))
+        if (TryAnalyzeToServer(args.Scanner, ent, detector, ent.Comp))
+            args.Output.Add(Loc.GetString("research-scanner-ui-research-succes"));
+        else
+            args.Output.Add(Loc.GetString("research-scanner-ui-research-fail"));
+    }
+
+    [SubscribeLocalEvent]
+    private void OnSimpleScannedEvent(Entity<SimpleSourceComponent> ent, ref PostScannedEvent args)
+    {
+        if (!TryComp<ResearchDetectorComponent>(args.Scanner, out var detector))
+            return;
+
+        Logger.Debug("SCANNED SIMPLE");
+        if (TrySimpleAnalyze(args.Scanner, ent, detector, ent.Comp))
             args.Output.Add(Loc.GetString("research-scanner-ui-research-succes"));
         else
             args.Output.Add(Loc.GetString("research-scanner-ui-research-fail"));

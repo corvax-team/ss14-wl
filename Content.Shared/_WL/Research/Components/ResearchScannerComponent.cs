@@ -48,7 +48,7 @@ public sealed partial class ResearchScannerDoAfterEvent : SimpleDoAfterEvent;
 public record struct ScannedResearchEvent(EntityUid Target);
 
 [ByRefEvent]
-public record struct PostScannedEvent(EntityUid Target, List<string> Output);
+public record struct PostScannedEvent(EntityUid Scanner, List<string> Output);
 
 [Serializable, NetSerializable]
 public enum ResearchScannerUiKey : byte

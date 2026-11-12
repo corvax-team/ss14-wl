@@ -128,4 +128,21 @@ public sealed partial class ResearchSystemNew
 
         return result;
     }
+
+    private bool TrySimpleAnalyze(
+            EntityUid detector,
+            EntityUid source,
+            ResearchDetectorComponent? detectorComp = null,
+            SimpleSourceComponent? sourceComp = null)
+    {
+        if (!Resolve(detector, ref detectorComp) || !Resolve(source, ref sourceComp))
+            return false;
+
+        if (!TryGetClientServer(detector, out var serverOut, out var serverCompOut) ||
+                serverOut is not {} server ||
+                serverCompOut is not {} serverComp)
+            return false;
+
+        return TryProcessSimpleData(server, sourceComp.Id, sourceComp.Points, serverComp);
+    }
 }
