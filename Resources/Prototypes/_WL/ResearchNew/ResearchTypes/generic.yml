@@ -1,0 +1,45 @@
+- type: researchType
+  id: AtmosTemperature
+  name: research-type-atmos-temp
+  min: 0
+  max: 1000
+  default: 313
+  size: 100
+  scale:
+    !type:FlattedAbsMethod
+      intMin: 0.27
+      intMax: 0.37
+  condition:
+    !type:AtmosStatsResearchCondition
+      points: Physics
+      type: Temperature
+
+- type: researchType
+  id: AtmosPressure
+  name: research-type-atmos-pres
+  min: 0
+  max: 1000
+  default: 101.1
+  size: 100
+  scale:
+    !type:FlattedAbsMethod
+      intMin: 0.08
+      intMax: 0.12
+  condition:
+    !type:AtmosStatsResearchCondition
+      points: Physics
+      type: Pressure
+      minExtrimal: 50
+      maxExtrimal: 170
+
+- type: researchType
+  id: AnomalySeverity
+  name: research-type-anom-sev
+  min: 0
+  max: 100
+  default: 0
+  size: 10
+  scale: !type:LinearMethod
+  condition:
+    !type:AnomSeverityResearchCondition
+      points: Physics

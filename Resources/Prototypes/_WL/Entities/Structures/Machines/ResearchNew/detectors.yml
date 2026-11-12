@@ -1,0 +1,221 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: BaseRDDetector
+  abstract: true
+  components:
+  - type: ResearchClientNew
+  - type: ActivatableUI
+    key: enum.ResearchClientUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: PointLight
+    radius: 1.5
+    energy: 3.0
+    color: "#3db83b"
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: WiresPanel
+
+- type: entity
+  parent: [ BaseRDDetector, BaseMachinePowered, ConstructibleMachine ]
+  id: BaseRDDetectorMachine
+  abstract: true
+  components:
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
+
+- type: entity
+  parent: [ BaseRDDetector, BaseItem ]
+  id: BaseRDDetectorItem
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.10,0.10,0.10"
+        density: 500
+        mask:
+        - TabletopMachineMask
+        layer:
+        - BulletImpassable
+  - type: RequireProjectileTarget
+  - type: Item
+    size: Huge
+  - type: MultiHandedItem
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:EmptyContainersBehaviour
+        containers:
+        - charger_slot
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+- type: entity
+  parent: BaseRDDetectorMachine
+  id: RDPointSourceDebug
+  name: "debug R&D point source"
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/rndpointsource.rsi
+    layers:
+    - state: rndpointsource-off
+    - state: rndpointsource
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ResearchClientNew
+  - type: PointsSourceDebug
+    pointsType: IT
+    category: DebugCategory1
+    researches:
+      DebugType1: 10
+      DebugType2: 0
+  - type: PassiveDetector
+
+- type: entity
+  parent: BaseRDDetectorMachine
+  id: BaseRDNewDetector
+  name: "debug R&D DETECTOR"
+  suffix: DEBUG
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/rndpointsource.rsi
+    layers:
+    - state: rndpointsource-off
+    - state: rndpointsource
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ResearchDetector
+    detectTypes: [ DebugType1 ]
+
+- type: entity
+  parent: FoodMeat
+  id: FoodMeatDEBUG
+  name: research raw meat
+  description: EXOTIC BUTTERS
+  suffix: DEBUG
+  components:
+    - type: ResearchSource
+      categories:
+        - DebugCategory1
+      pointsType: BioChem
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: MachichiMochi
+  name: check check
+  suffix: Machine Board
+  components:
+    - type: ComputeBoard
+      name: Сасать америка
+    - type: MachineBoard
+      prototype: ImpCoffeeMachineEmpty
+      stackRequirements:
+        Steel: 5
+      tagRequirements:
+          GlassBeaker:
+            amount: 1
+            defaultPrototype: Beaker
+
+- type: entity
+  parent: [ BaseRDDetectorItem, BaseRDDetectorMachine]
+  id: ThermometerDetectorMachine
+  name: thermometer
+  components:
+  - type: Sprite
+    sprite: _WL/Structures/Machines/Research/thermometer.rsi
+    snapCardinals: true
+    layers:
+    - state: off
+    - state: normal-unshaded
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ResearchDetector
+    detectTypes: [ AtmosTemperature ]
+  - type: Machine
+    board: ThermometerMachineCircuitboard
+
+- type: entity
+  parent: [ BaseRDDetectorItem, BaseRDDetectorMachine]
+  id: BarometerDetectorMachine
+  name: barometer
+  components:
+  - type: Sprite
+    sprite: _WL/Structures/Machines/Research/barometer.rsi
+    snapCardinals: true
+    layers:
+    - state: off
+    - state: normal-unshaded
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ResearchDetector
+    detectTypes: [ AtmosPressure ]
+  - type: Machine
+    board: BarometerMachineCircuitboard
+
+- type: entity
+  parent: [ BaseRDDetectorItem, BaseRDDetectorMachine ]
+  id: KantCounterDetectorMachine
+  name: kant counter
+  components:
+  - type: Sprite
+    sprite: _WL/Structures/Machines/Research/kant_counter.rsi
+    snapCardinals: true
+    layers:
+    - state: off
+    - state: normal-unshaded
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ResearchDetector
+    detectTypes: [ AnomalySeverity ]
+  - type: Machine
+    board: KantCounterMachineCircuitboard
+
+- type: entity
+  parent: [ BaseRDDetectorMachine, BaseMachineDestructible ]
+  id: PowerScramblerDetector
+  name: power analyzer
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/rndpointsource.rsi
+    layers:
+    - state: rndpointsource-off
+    - state: rndpointsource
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: ResearchDetector
+    detectTypes:
+      - PowerScrambler
+    selfOnly: true
+    researchPercent: 0.0006
+  - type: ResearchSource
+    categories:
+      - PowerScrambler
+  - type: PassiveDetector
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: PowerConsumer
+    voltage: High
+    drawRate: 2000000

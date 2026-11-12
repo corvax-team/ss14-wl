@@ -75,7 +75,7 @@ holopad-science-artifact = Научный — Ксеноархеология
 holopad-science-artifact-north = Научный — Ксеноархеология Север
 holopad-science-artifact-south = Научный — Ксеноархеология Юг
 holopad-science-robotics = Научный — Робототехника
-holopad-science-rnd = Научный — РНД
+holopad-science-rnd = Научный — НИО
 holopad-science-front = Научный — Приёмная
 holopad-science-breakroom = Научный — Комната отдыха
 

@@ -1,6 +1,6 @@
 - type: entity
-  id: ThrusterSmallMachineCircuitboard
   parent: BaseMachineCircuitboard
+  id: ThrusterSmallMachineCircuitboard
   name: small thruster machine board
   components:
   - type: Sprite
@@ -11,3 +11,46 @@
       Manipulator: 1
       Steel: 5
       MetalRod: 2
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: ThermometerMachineCircuitboard
+  name: thermometer machine board
+  components:
+  - type: Sprite
+    state: cyborg_upgrade1
+  - type: MachineBoard
+    prototype: ThermometerDetectorMachine
+    stackRequirements:
+      Manipulator: 1
+      Glass: 1
+      MetalRod: 2
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: BarometerMachineCircuitboard
+  name: barometer machine board
+  components:
+  - type: Sprite
+    state: cyborg_upgrade2
+  - type: MachineBoard
+    prototype: BarometerDetectorMachine
+    stackRequirements:
+      Manipulator: 1
+      Glass: 2
+      MetalRod: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: KantCounterMachineCircuitboard
+  name: kant counter machine board
+  components:
+  - type: Sprite
+    state: cyborg_upgrade2
+  - type: MachineBoard
+    prototype: KantCounterDetectorMachine
+    stackRequirements:
+      Manipulator: 2
+      Glass: 1
+      MetalRod: 1
+      Plasma: 3

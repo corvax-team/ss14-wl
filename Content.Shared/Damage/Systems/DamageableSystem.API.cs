@@ -9,7 +9,7 @@ namespace Content.Shared.Damage.Systems;
 public sealed partial class DamageableSystem
 {
     /// <returns>If the damage container can take the given damage type</returns>
-    private bool SupportsType(ProtoId<DamageContainerPrototype>? container, ProtoId<DamageTypePrototype> type)
+    public bool SupportsType(ProtoId<DamageContainerPrototype>? container, ProtoId<DamageTypePrototype> type) // WL-Changes: BS private to public, REALY need that
     {
         if (container is null)
             return true;

@@ -1,0 +1,52 @@
+- type: researchType
+  id: SmartTargetBrute
+  name: research-type-target-brute
+  min: 80
+  max: 500
+  size: 20
+  scale: !type:LinearMethod
+  condition:
+    !type:DamagePerTimeResearchCondition
+      points: Physics
+      container: Brute
+      minExtrimal: 300
+      maxDamage: 600
+
+- type: researchType
+  id: SmartTargetBurn
+  name: research-type-target-burn
+  min: 28
+  max: 400
+  size: 20
+  scale: !type:LinearMethod
+  condition:
+    !type:DamagePerTimeResearchCondition
+      points: Physics
+      container: Burn
+      minExtrimal: 250
+      maxDamage: 500
+
+- type: researchType
+  id: SmartTargetTotal
+  name: research-type-target-total
+  min: 80
+  max: 500
+  size: 20
+  scale: !type:LinearMethod
+  condition:
+    !type:DamagePerTimeResearchCondition
+      points: Physics
+      minExtrimal: 300
+      maxDamage: 600
+
+- type: researchType
+  id: PowerScrambler
+  name: research-type-target-total
+  min: 10000
+  max: 1010000
+  size: 10
+  scale: !type:LinearMethod
+  condition:
+    !type:PowerConsumeResearchCondition
+      points: Mech
+      extrimalValue: 300000

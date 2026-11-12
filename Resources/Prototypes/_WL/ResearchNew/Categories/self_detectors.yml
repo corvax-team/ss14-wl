@@ -1,0 +1,17 @@
+- type: researchCategory
+  id: SmartTarget
+  name: research-category-self-target
+  maxPoints: 16000000
+  researchTypes:
+    - SmartTargetBrute
+    - SmartTargetBurn
+    - SmartTargetTotal
+  pointsType: Physics
+
+- type: researchCategory
+  id: PowerScrambler
+  name: research-category-power-scrambler
+  maxPoints: 360000
+  researchTypes:
+    - PowerScrambler
+  pointsType: Physics

@@ -44,13 +44,13 @@ ent-ManualStorageSecurityBig = большое ручное хранилище о
 
 # Science
 
-ent-ManualStorageScienceSmall = маленькое ручное хранилище РНД
+ent-ManualStorageScienceSmall = маленькое ручное хранилище НИО
     .desc = { ent-ManualStorageDefaultSmall.desc }
 
-ent-ManualStorageScienceBox = среднее ручное хранилище РНД
+ent-ManualStorageScienceBox = среднее ручное хранилище НИО
     .desc = { ent-ManualStorageDefaultBox.desc }
 
-ent-ManualStorageScienceBig = большое ручное хранилище РНД
+ent-ManualStorageScienceBig = большое ручное хранилище НИО
     .desc = { ent-ManualStorageDefaultBig.desc }
 
 # Engineer
