@@ -83,6 +83,7 @@ public sealed partial class DirectionalBodyLayersSystem : EntitySystem
                 }
             }
         }
+
         foreach (var organ in _body.EnumerateOrgans<VisualOrganMarkingsComponent>(entity.Owner))
         {
             foreach (var marking in organ.Comp2.AppliedMarkings)
