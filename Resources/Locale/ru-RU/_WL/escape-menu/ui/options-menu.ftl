@@ -7,3 +7,5 @@ ui-options-overlay-ghost-hide-distance = Ghost overlay hide range from mouse
 ui-options-show-offer-mode-indicators = Показывать индикатор передачи предмета
 ui-options-function-offer-item = Передать что-либо
 ui-options-function-combat-indicator = Переключить боевой индикатор
+ui-options-general-combat-mode = Боевой режим
+ui-option-auto-toggle-combat-indicator = Автоматически переключать индикатор боевого режима

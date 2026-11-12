@@ -12,6 +12,11 @@
                 <Label Text="{Loc 'ui-options-general-discord'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="DiscordRich" Text="{Loc 'ui-options-discordrich'}" />
+                <!-- WL-Changes-Start -->
+                <Label Text="{Loc 'ui-options-general-combat-mode'}"
+                       StyleClasses="LabelKeyText"/>
+                <CheckBox Name="CombatIndicatorAutoEnableCheckBox" Text="{Loc 'ui-option-auto-toggle-combat-indicator'}" />
+                <!-- WL-Changes-End -->
                 <Label Text="{Loc 'ui-options-general-speech'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="ShowOocPatronColor" Text="{Loc 'ui-options-show-ooc-patron-color'}" />

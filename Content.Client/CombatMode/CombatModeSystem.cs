@@ -1,10 +1,13 @@
 using Content.Client.Hands.Systems;
+using Content.Shared._WL.CCVars; // WL-Changes
+using Content.Shared._WL.CombatIndicator; // WL-Changes
 using Content.Shared.CCVar;
 using Content.Shared.CombatMode;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Player; // WL-Changes
 
 namespace Content.Client.CombatMode;
 
@@ -15,6 +18,7 @@ public sealed partial class CombatModeSystem : SharedCombatModeSystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IEyeManager _eye = default!;
+    [Dependency] private CombatIndicatorSystem _combatIndicator = default!; // WL-Changes
 
     /// <summary>
     /// Raised whenever combat mode changes.
@@ -28,7 +32,30 @@ public sealed partial class CombatModeSystem : SharedCombatModeSystem
         SubscribeLocalEvent<CombatModeComponent, AfterAutoHandleStateEvent>(OnHandleState);
 
         Subs.CVar(_cfg, CCVars.CombatModeIndicatorsPointShow, OnShowCombatIndicatorsChanged, true);
+        Subs.CVar(_cfg, WLCVars.CombatIndicatorAutoEnable, OnCombatIndicatorAutoEnableChanged, true); // WL-Changes
     }
+
+    // WL-Changes-Start
+
+    [SubscribeLocalEvent]
+    private void OnLocalPlayerAttached(LocalPlayerAttachedEvent args)
+    {
+        SendCombatIndicatorAutoEnable();
+    }
+
+    private void OnCombatIndicatorAutoEnableChanged(bool enabled)
+    {
+        SendCombatIndicatorAutoEnable();
+    }
+
+    private void SendCombatIndicatorAutoEnable()
+    {
+        if (_playerManager.LocalSession?.AttachedEntity == null)
+            return;
+
+        RaiseNetworkEvent(new SetCombatIndicatorAutoEnableEvent(_cfg.GetCVar(WLCVars.CombatIndicatorAutoEnable)));
+    }
+    // WL-Changes-End
 
     private void OnHandleState(EntityUid uid, CombatModeComponent component, ref AfterAutoHandleStateEvent args)
     {

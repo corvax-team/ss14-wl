@@ -1,3 +1,4 @@
+using Content.Shared._WL.CombatIndicator; // WL-Changes
 using Content.Shared.Actions;
 using Content.Shared.Mind;
 using Content.Shared.MouseRotator;
@@ -15,6 +16,7 @@ public abstract partial class SharedCombatModeSystem : EntitySystem
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedMindSystem _mind = default!;
     [Dependency] private SharedNPCSystem _npc = default!;
+    [Dependency] private CombatIndicatorSystem _combatIndicator = default!; // WL-Changes
 
     public override void Initialize()
     {
@@ -50,6 +52,23 @@ public abstract partial class SharedCombatModeSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString(msg), args.Performer, args.Performer);
     }
 
+    // WL-Changes-Start
+    [SubscribeNetworkEvent]
+    private void OnCombatIndicatorAutoEnableChanged(SetCombatIndicatorAutoEnableEvent ev, EntitySessionEventArgs args)
+    {
+        if (args.SenderSession.AttachedEntity is not { } entity)
+            return;
+
+        if (!ev.Enabled)
+        {
+            RemComp<CombatIndicatorAutoEnableComponent>(entity);
+            return;
+        }
+
+        EnsureComp<CombatIndicatorAutoEnableComponent>(entity);
+    }
+    // WL-Changes-End
+
     public void SetCanDisarm(EntityUid entity, bool canDisarm, CombatModeComponent? component = null)
     {
         if (!Resolve(entity, ref component))
@@ -76,6 +95,11 @@ public abstract partial class SharedCombatModeSystem : EntitySystem
 
         if (component.CombatToggleActionEntity != null)
             _actionsSystem.SetToggled(component.CombatToggleActionEntity, component.IsInCombatMode);
+
+        // WL-Changes-Start
+        if (HasComp<CombatIndicatorAutoEnableComponent>(entity))
+            _combatIndicator.TrySetEnabled(entity, value, false);
+        // WL-Changes-End
 
         // Change mouse rotator comps if flag is set
         if (!component.ToggleMouseRotator || _npc.IsNpc(entity) && !_mind.TryGetMind(entity, out _, out _))
