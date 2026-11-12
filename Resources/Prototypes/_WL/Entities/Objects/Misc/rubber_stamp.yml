@@ -21,3 +21,27 @@
       - state: stamp-inhand-right
       - state: handle-inhand-right
         color: "#345476"
+
+- type: entity
+  name: librarian's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampLibrarian
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-librarian
+    stampedColor: "#345476"
+    stampState: "paper_stamp-librarian"
+  - type: Sprite
+    sprite: _WL/Objects/Misc/stamps.rsi
+    state: stamp-librarian
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: stamp-inhand-left
+      - state: handle-inhand-left
+        color: "#736767"
+      right:
+      - state: stamp-inhand-right
+      - state: handle-inhand-right
+        color: "#736767"
