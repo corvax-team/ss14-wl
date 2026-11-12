@@ -29,15 +29,18 @@ public record struct GetResearchDataEvent
 {
     public EntityUid Detector;
 
+    public ProtoId<ResearchCategoryPrototype> Category;
+
     public List<ProtoId<ResearchTypePrototype>> ResearchTypes;
 
     public Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> ResearchData;
 
     public ResearchPointsSpecifier PointsVec;
 
-    public GetResearchDataEvent(EntityUid detector, List<ProtoId<ResearchTypePrototype>> researchTypes)
+    public GetResearchDataEvent(EntityUid detector, List<ProtoId<ResearchTypePrototype>> researchTypes, ProtoId<ResearchCategoryPrototype> category)
     {
         Detector = detector;
+        Category = category;
         ResearchTypes = researchTypes;
         ResearchData = new();
         PointsVec = new();

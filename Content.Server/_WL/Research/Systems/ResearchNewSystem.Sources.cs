@@ -29,6 +29,7 @@ public sealed partial class ResearchSystemNew
 
     private bool TryGetConditionsData(
             EntityUid uid,
+            ProtoId<ResearchCategoryPrototype> categoryId,
             List<ProtoId<ResearchTypePrototype>> types,
             out Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> data,
             out ResearchPointsSpecifier pointsVec,
@@ -38,7 +39,7 @@ public sealed partial class ResearchSystemNew
         pointsVec = new();
 
         if (!TryComp<ResearchSourceComponent>(uid, out var source) ||
-                !ProtoMan.TryIndex<ResearchCategoryPrototype>(source.Category, out var category) ||
+                !ProtoMan.TryIndex<ResearchCategoryPrototype>(categoryId, out var category) ||
                 !source.Active)
             return false;
 

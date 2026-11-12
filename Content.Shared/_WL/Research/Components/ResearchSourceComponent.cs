@@ -8,7 +8,7 @@ namespace Content.Shared._WL.Research.Components;
 public sealed partial class ResearchSourceComponent : Component
 {
     [DataField(required: true)]
-    public ProtoId<ResearchCategoryPrototype> Category;
+    public List<ProtoId<ResearchCategoryPrototype>> Categories;
 
     [DataField, AutoNetworkedField]
     public bool Active = true;

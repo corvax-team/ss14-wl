@@ -72,16 +72,15 @@ public sealed partial class ResearchSystemNew
     private bool TryAnalyzeByDetector(
             EntityUid detector,
             EntityUid source,
-            out Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4> data,
-            out ResearchPointsSpecifier pointsRatioVec)
+            out Dictionary<ProtoId<ResearchCategoryPrototype, (Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4>, ResearchPointsSpecifier) data)
     {
         data = new();
-        pointsRatioVec = new();
 
         if (!TryComp<ResearchDetectorComponent>(detector, out var detectorComp) ||
-                !HasComp<ResearchSourceComponent>(source))
+                !TryComp<ResearchSourceComponent>(source))
             return false;
 
+        foreach (category in source.Ca)
         var ev = new GetResearchDataEvent(detector, detectorComp.ResearchTypes);
         RaiseLocalEvent(source, ref ev);
 
