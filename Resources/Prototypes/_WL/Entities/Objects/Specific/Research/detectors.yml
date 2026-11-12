@@ -31,7 +31,8 @@
     selfOnly: true
     researchPercent: 0.2
   - type: ResearchSource
-    category: SmartTarget
+    categories:
+      - SmartTarget
   - type: DamageStatistics
   - type: PassiveDetector
 

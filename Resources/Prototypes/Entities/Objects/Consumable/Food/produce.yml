@@ -2111,7 +2111,8 @@
     name: арбуз
     description: Боже мой. Ты только что отсканировала арбуз. Это то, почему тебя зовут тупицей.
   - type: ResearchSource
-    category: DebugCategory1
+    categories:
+      - DebugCategory1
   # WL-Changes: BirdScience end
 
 - type: entity

@@ -20,7 +20,7 @@ public sealed partial class ResearchSystemNew
     [SubscribeLocalEvent]
     private void OnSourceDetect(Entity<ResearchSourceComponent> ent, ref GetResearchDataEvent args)
     {
-        if (!TryGetConditionsData(ent, args.ResearchTypes, out var data, out var pointsVec, args.Detector))
+        if (!TryGetConditionsData(ent, args.Category, args.ResearchTypes, out var data, out var pointsVec, args.Detector))
             return;
 
         args.ResearchData = data;

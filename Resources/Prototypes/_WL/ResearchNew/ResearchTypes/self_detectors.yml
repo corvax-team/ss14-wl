@@ -42,11 +42,11 @@
 - type: researchType
   id: PowerScrambler
   name: research-type-target-total
-  min: 10
-  max: 1010
+  min: 10000
+  max: 1010000
   size: 10
   scale: !type:LinearMethod
   condition:
     !type:PowerConsumeResearchCondition
       points: Mech
-      extrimalValue: 300
+      extrimalValue: 300000

@@ -114,7 +114,8 @@
   suffix: DEBUG
   components:
     - type: ResearchSource
-      category: DebugCategory1
+      categories:
+        - DebugCategory1
       pointsType: BioChem
 
 - type: entity
@@ -206,7 +207,8 @@
     selfOnly: true
     researchPercent: 0.0006
   - type: ResearchSource
-    category: PowerScrambler
+    categories:
+      - PowerScrambler
   - type: PassiveDetector
   - type: NodeContainer
     examinable: true

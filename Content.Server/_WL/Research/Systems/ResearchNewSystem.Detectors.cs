@@ -25,22 +25,25 @@ public sealed partial class ResearchSystemNew
 
         foreach (var source in EnumerateSources((ent, detector), ent.Comp.Range))
         {
-            if (!TryAnalyzeByDetector(ent, source, out var data, out var pointsVec))
+            if (!TryAnalyzeByDetector(ent, source, out var data))
                 continue;
 
-            ResearchDataFrame dataFrame;
-
-            if (!args.ResearchData.TryGetValue(source.Comp.Category, out var currDataFrame))
+            foreach (var (category, (categoryData, pointsVec)) in data)
             {
-                dataFrame = new();
-                args.ResearchData.Add(source.Comp.Category, dataFrame);
-            }
-            else
-            {
-                dataFrame = currDataFrame;
-            }
+                ResearchDataFrame dataFrame;
 
-            dataFrame.TryInsertData(data, ent, pointsVec);
+                if (!args.ResearchData.TryGetValue(category, out var currDataFrame))
+                {
+                    dataFrame = new();
+                    args.ResearchData.Add(category, dataFrame);
+                }
+                else
+                {
+                    dataFrame = currDataFrame;
+                }
+
+                dataFrame.TryInsertData(categoryData, ent, pointsVec);
+            }
         }
     }
 
@@ -72,30 +75,32 @@ public sealed partial class ResearchSystemNew
     private bool TryAnalyzeByDetector(
             EntityUid detector,
             EntityUid source,
-            out Dictionary<ProtoId<ResearchCategoryPrototype, (Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4>, ResearchPointsSpecifier) data)
+            out Dictionary<ProtoId<ResearchCategoryPrototype>, (Dictionary<ProtoId<ResearchTypePrototype>, FixedPoint4>, ResearchPointsSpecifier)> data)
     {
         data = new();
 
         if (!TryComp<ResearchDetectorComponent>(detector, out var detectorComp) ||
-                !TryComp<ResearchSourceComponent>(source))
+                !TryComp<ResearchSourceComponent>(source, out var sourceComp))
             return false;
 
-        foreach (category in source.Ca)
-        var ev = new GetResearchDataEvent(detector, detectorComp.ResearchTypes);
-        RaiseLocalEvent(source, ref ev);
+        foreach (var category in sourceComp.Categories)
+        {
+            var ev = new GetResearchDataEvent(detector, detectorComp.ResearchTypes, category);
+            RaiseLocalEvent(source, ref ev);
 
-        if (ev.PointsVec.Empty)
-            return false;
+            if (ev.PointsVec.Empty)
+                continue;
 
-        pointsRatioVec = ev.PointsVec * detectorComp.ResearchPercent;
+            var pointsRatioVec = ev.PointsVec * detectorComp.ResearchPercent;
 
-        if (detectorComp.DefaultPointsType is {} defaultType &&
-                detectorComp.DetectorPriority)
-            pointsRatioVec = pointsRatioVec.ConvertToType(defaultType, [ExtrimalType]);
+            if (detectorComp.DefaultPointsType is {} defaultType &&
+                    detectorComp.DetectorPriority)
+                pointsRatioVec = pointsRatioVec.ConvertToType(defaultType, [ExtrimalType]);
 
-        data = ev.ResearchData;
+            data.TryAdd(category, (ev.ResearchData, pointsRatioVec));
+        }
 
-        return true;
+        return data.Count != 0;
     }
 
     private bool TryAnalyzeToServer(
@@ -112,12 +117,15 @@ public sealed partial class ResearchSystemNew
                 serverCompOut is not {} serverComp)
             return false;
 
-        if (!TryAnalyzeByDetector(detector, source, out var data, out var pointsRatioVec))
+        if (!TryAnalyzeByDetector(detector, source, out var data))
             return false;
 
-        if (!TryProcessResearchData(server, sourceComp.Category, data, pointsRatioVec, serverComp))
-            return false;
+        var result = false;
+        foreach (var (category, (researchData, points)) in data)
+        {
+            result |= TryProcessResearchData(server, category, researchData, points, serverComp);
+        }
 
-        return true;
+        return result;
     }
 }
