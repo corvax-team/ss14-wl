@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: CrateChemMedBasic
+  icon:
+    sprite: _WL/Objects/Specific/Chemistry/jug.rsi
+    state: bicaridine
+  product: CrateChemMedBasic
+  cost: 20000
+  category: cargoproduct-category-name-medical
+  group: market
