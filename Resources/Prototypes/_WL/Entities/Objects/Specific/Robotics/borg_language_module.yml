@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseBorgModule
+  id: BorgModuleLanguages
+  name: language card
+  description: A piece of tech that gives cyborgs the ability to speak various languages. Can be programmed with up to 5 languages.
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - sprite: _WL/Objects/Specific/Robotics/borgmodule.rsi
+      state: icon-languages
+  - type: BorgLanguageModule
+  - type: ActivatableUI
+    key: enum.BorgLanguageModuleUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.BorgLanguageModuleUiKey.Key:
+        type: BorgLanguageModuleBoundUserInterface
+
+- type: latheRecipe
+  parent: BaseBorgModuleRecipe
+  id: BorgModuleLanguages
+  result: BorgModuleLanguages
