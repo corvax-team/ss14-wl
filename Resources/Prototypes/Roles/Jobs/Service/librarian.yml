@@ -32,6 +32,7 @@
   storage:
     back:
     - BookRandom
+    - RubberStampLibrarian # WL
 
 - type: chameleonOutfit
   id: LibrarianChameleonOutfit
