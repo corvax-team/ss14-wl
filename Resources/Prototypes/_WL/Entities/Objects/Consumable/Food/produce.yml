@@ -1,0 +1,49 @@
+- type: entity
+  name: lemon slice
+  parent: ProduceSliceBase
+  id: FoodLemonSlice
+  description: Can it still explode?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sour
+  - type: Sprite
+    sprite: _WL/Objects/Specific/Hydroponics/lemon.rsi
+    state: slice
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: JuiceLemon
+        Quantity: 2
+  - type: Tag
+    tags:
+    - Fruit
+    - Slice
+  - type: FoodSequenceElement
+    entries:
+      Burger: CupcakeLemonSlice
+
+- type: entity
+  name: apple slice
+  parent: ProduceSliceBase
+  id: FoodAppleSlice
+  description: Not enough to scare the doctor.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - apple
+  - type: Sprite
+    sprite: _WL/Objects/Specific/Hydroponics/apple.rsi
+    state: slice
+  - type: Solution
+    solution:
+      reagents:
+      - ReagentId: JuiceApple
+        Quantity: 2
+  - type: Tag
+    tags:
+    - Fruit
+    - Slice
+  - type: FoodSequenceElement
+    entries:
+      Burger: CupcakeAppleSlice

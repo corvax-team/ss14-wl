@@ -1,0 +1,310 @@
+- type: entity
+  parent: [SolutionNormal, FoodInjectableBase]
+  id: FoodCupcakeBase
+  name: plain cupcake
+  description: More like a muffin, honestly.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+    layers:
+    - state: base
+    - map: ["foodSequenceLayers"]
+  - type: FoodSequenceStartPoint
+    key: Cupcake
+    contentSeparator: " "
+    maxLayers: 2
+    startPosition: 0, 0
+    offset: 0, 0
+    minLayerOffset: 0, 0
+    maxLayerOffset: 0, 0
+    nameGeneration: food-sequence-cupcake-gen
+  - type: Appearance
+  - type: Solution
+    solution:
+      maxVol: 8
+      canReact: false
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+
+- type: entity
+  parent: FoodInjectableBase
+  id: PastryCream
+  name: white pastry cream
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: cream_white
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeCream
+    - type: Stack
+      stackType: PastryCream
+      count: 10
+
+- type: entity
+  parent: FoodInjectableBase
+  id: PastryCreamPink
+  name: pink pastry cream
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - strawberry
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: cream_pink
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeCreamPink
+
+- type: entity
+  parent: FoodInjectableBase
+  id: PastryCreamBlue
+  name: blue pastry cream
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - berry
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: cream_blue
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeCreamBlue
+
+- type: entity
+  parent: FoodInjectableBase
+  id: PastryCreamGreen
+  name: green pastry cream
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - apple
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: cream_green
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeCreamGreen
+
+- type: entity
+  parent: FoodInjectableBase
+  id: PastryCreamMiku
+  name: miku pastry cream
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - motivating
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: cream_miku
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeCreamMiku
+
+- type: entity
+  parent: FoodInjectableBase
+  id: PastryCreamPurple
+  name: purple pastry cream
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - grape
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: cream_purple
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeCreamPurple
+
+- type: entity
+  parent: FoodInjectableBase
+  id: PastryCreamYellow
+  name: yellow pastry cream
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - sour
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: cream_yellow
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeCreamYellow
+
+- type: entity
+  parent: FoodInjectableBase
+  id: PastryCreamChocolate
+  name: chocolate pastry cream
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - chocolate
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: cream_chocolate
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeCreamChocolate
+
+- type: entity
+  parent: FoodInjectableBase
+  id: PastryCreamRainbow
+  name: rainbow pastry cream
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - fizzy
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: cream_rainbow
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Cream
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeCreamRainbow
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodSprinkles
+  name: sprinkles
+  description: perfect for a cupcake
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - sweet
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: sprinkles_item
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeSprinkles
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodSugarStar
+  name: sugar star
+  description: It is crunchy and great for cupcake decoration
+  components:
+    - type: Item
+    - type: FlavorProfile
+      flavors:
+        - motivating
+    - type: Edible
+      transferAmount: 5
+    - type: Sprite
+      sprite: _WL/Entities/Objects/Consumable/Food/baked/cupcake.rsi
+      state: sprinkles_item
+    - type: Solution
+      solution:
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
+    - type: FoodSequenceElement
+      entries:
+        Cupcake: CupcakeSugarStar
