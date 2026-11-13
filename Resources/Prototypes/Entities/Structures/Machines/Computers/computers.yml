@@ -535,7 +535,7 @@
         occludes: True
         ents: []
   - type: AccessReader
-    access: [["Command"]]
+    access: [["Research"]]
   - type: Lock
     unlockOnClick: false
   - type: EmptyOnMachineDeconstruct
