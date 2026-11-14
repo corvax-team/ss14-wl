@@ -1,0 +1,13 @@
+- type: compromise
+  id: FinanceNormal
+  name: compromise-finance-normal-name
+  description: compromise-finance-normal-desc
+  category: Finance
+  color: Green
+
+- type: compromise
+  id: FinanceRich
+  name: compromise-finance-rich-name
+  description: compromise-finance-rich-desc
+  category: Finance
+  color: Yellow

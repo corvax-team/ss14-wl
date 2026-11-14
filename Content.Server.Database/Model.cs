@@ -113,6 +113,10 @@ namespace Content.Server.Database
                 .HasIndex(j => new { j.ProfileId, j.JobName })
                 .IsUnique();
 
+            modelBuilder.Entity<ProfileCompromiseData>()
+                .HasIndex(j => new { j.ProfileId, j.Category })
+                .IsUnique();
+
             modelBuilder.Entity<ProfileJobSkills>(entity =>
             {
                 var converter = new ValueConverter<Dictionary<byte, int>, string>(
@@ -410,6 +414,8 @@ namespace Content.Server.Database
         public List<ProfileJobSkills> JobSkills { get; } = new(); // WL-Skills
 
         public List<JobUnblocking> JobUnblockings { get; } = new(); //WL-Changes
+        public string CompromiseText { get; set; } = string.Empty; // WL-Changes
+        public List<ProfileCompromiseData> CompromiseData { get; } = new(); // WL-Changes
         public List<ProfileRoleLoadout> Loadouts { get; } = new();
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
@@ -582,6 +588,22 @@ namespace Content.Server.Database
 
     #endregion
     // WL-Skills-end
+
+    // WL-Changes: Start
+    #region Job Skills
+
+    public class ProfileCompromiseData
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string Category { get; set; } = null!;
+        public string Compromise { get; set; } = null!;
+    }
+
+    #endregion
+    // WL-Changes: End
 
     public enum DbPreferenceUnavailableMode
     {

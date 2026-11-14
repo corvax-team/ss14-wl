@@ -1,11 +1,46 @@
-<Control Name="CFlavorText" xmlns="https://spacestation14.io">
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-        <!-- WL-OOCText-Start -->
-        <Label Text="{Loc 'flavor-tab-flavor-text'}" Margin="5 5 0 0" />
-        <TextEdit Name="CFlavorTextInput" Access="Public" MinSize="220 100" HorizontalExpand="True" Margin="5 5 0 0" VerticalExpand="True" />
-        <Label Text=" " />
-        <Label Text="{Loc 'flavor-tab-ooc-text'}" Margin="5 0 0 0" />
-        <TextEdit Name="COocTextInput" Access="Public" MinSize="220 100" HorizontalExpand="True" Margin="5 5 0 0" VerticalExpand="True" />
-        <!-- WL-OOCText-End -->
+<Control Name="CFlavorText" xmlns="https://spacestation14.io"
+                            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <!-- WL-Changes-Start -->
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" MinSize="220 100">
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" MinSize="220 100">
+                <Label Text="{Loc 'flavor-tab-flavor-text'}" Margin="5 5 0 0" />
+                <PanelContainer Access="Public"
+                                VerticalExpand="True"
+                                HorizontalExpand="True"
+                                Margin="5">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#000000" BorderColor="#3B3E56" BorderThickness="1" />
+                    </PanelContainer.PanelOverride>
+                    <TextEdit Name="CFlavorTextInput" Access="Public" MinSize="220 100" HorizontalExpand="True" Margin="5 5 0 0" VerticalExpand="True" />
+                </PanelContainer>
+            </BoxContainer>
+            <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+                <Label Text="{Loc 'flavor-tab-ooc-text'}" Margin="5 5 0 0" />
+            <PanelContainer Access="Public"
+                            VerticalExpand="True"
+                            HorizontalExpand="True"
+                            Margin="5">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#000000" BorderColor="#3B3E56" BorderThickness="1" />
+                </PanelContainer.PanelOverride>
+                <TextEdit Name="COocTextInput" Access="Public" MinSize="220 100" HorizontalExpand="True" Margin="5 5 0 0" VerticalExpand="True" />
+            </PanelContainer>
+            </BoxContainer>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+            <Label Text="{Loc 'flavor-tab-compromise-text'}" Margin="5 5 0 0" />
+            <BoxContainer Name="Compromises" Orientation="Vertical" Margin="5 0 0 0" HorizontalExpand="True" />
+            <PanelContainer Access="Public"
+                            VerticalExpand="True"
+                            HorizontalExpand="True"
+                            Margin="5">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#000000" BorderColor="#3B3E56" BorderThickness="1" />
+                </PanelContainer.PanelOverride>
+                <TextEdit Name="CCompromiseEdit" Access="Public" MinSize="220 100" HorizontalExpand="True" Margin="5 5 0 0" VerticalExpand="True" />
+            </PanelContainer>
+        </BoxContainer>
+        <!-- WL-Changes-End -->
     </BoxContainer>
 </Control>

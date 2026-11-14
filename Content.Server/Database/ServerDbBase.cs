@@ -113,6 +113,7 @@ namespace Content.Server.Database
                 .Include(p => p.JobSubnames)
                 .Include(p => p.JobUnblockings)
                 .Include(p => p.JobSkills)
+                .Include(p => p.CompromiseData)
                 //WL-Changes-end
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
@@ -264,6 +265,20 @@ namespace Content.Server.Database
             profile.SkinColor = appearance.SkinColor.ToHex();
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.OrganMarkings = JsonSerializer.SerializeToDocument(dataNode.ToJsonNode());
+
+            // WL-Changes: Start
+            profile.CompromiseText = humanoid.CompromiseText;
+
+            profile.CompromiseData.Clear();
+            foreach (var (key, value) in humanoid.CompromiseData)
+            {
+                profile.CompromiseData.Add(new ProfileCompromiseData
+                {
+                    Category = key,
+                    Compromise = value
+                });
+            }
+            // WL-Changes: End
 
             // support for downgrades - at some point this should be removed
             var legacyMarkings = appearance.Markings
