@@ -61,6 +61,7 @@
 - type: marking
   id: TajaraTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android]
   sprites:
   - sprite: _WL/Mobs/Customization/tajara_parts.rsi
@@ -69,6 +70,7 @@
 - type: marking
   id: TajaraTailTiger
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android]
   sprites:
   - sprite: _WL/Mobs/Customization/tajara_parts.rsi
@@ -79,6 +81,7 @@
 - type: marking
   id: TajaraEars
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android]
   sprites:
   - sprite: _WL/Mobs/Customization/tajara_parts.rsi

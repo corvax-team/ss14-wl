@@ -23,6 +23,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
     public override void Initialize()
     {
         base.Initialize();
+        InitializeHiddenMarkings(); // WL-changes
 
         SubscribeLocalEvent<VisualOrganComponent, OrganGotInsertedEvent>(OnOrganGotInserted);
         SubscribeLocalEvent<VisualOrganComponent, OrganGotRemovedEvent>(OnOrganGotRemoved);
@@ -280,7 +281,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
             markingProto,
             layerData,
             newLayerIndex: spriteLayerIndex + numDisplacements,
-            visible: baseLayer.Visible);
+            visible: baseLayer.Visible && !IsMarkingTucked(target, markingProto)); // WL-changes
 
         UpdateLayerColor(target, markingConfig, markingLayer, spriteLayer);
 
@@ -301,6 +302,11 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
             );
 
             numDisplacements++;
+            // WL-changes-start
+            if (markingProto.CanHideUnderClothing &&
+                _sprite.LayerMapTryGet(target, $"{layerId}-displacement", out var displacementIndex, false))
+                _sprite.LayerSetVisible(target, displacementIndex, baseLayer.Visible && !IsMarkingTucked(target, markingProto));
+            // WL-changes-end
         }
 
         // Apply shaders
@@ -456,6 +462,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
     /// <param name="visible">The visibility of this marking.</param>
     private void UpdateMarkingLayerVisibility(MarkingPrototype proto, EntityUid body, bool visible)
     {
+        visible &= !IsMarkingTucked(body, proto); // WL-changes
         foreach (var layer in proto.Sprites)
         {
             var layerId = layer.GetLayerID(proto.ID);
@@ -463,6 +470,10 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
             // Not logging, can be called on initialization before the body's sprites are setup!
             if (_sprite.LayerMapTryGet(body, layerId, out var index, logMissing: false))
                 _sprite.LayerSetVisible(body, index, visible);
+            // WL-changes-start
+            if (proto.CanHideUnderClothing && _sprite.LayerMapTryGet(body, $"{layerId}-displacement", out var displacementIndex, false))
+                _sprite.LayerSetVisible(body, displacementIndex, visible);
+            // WL-changes-end
         }
     }
 }

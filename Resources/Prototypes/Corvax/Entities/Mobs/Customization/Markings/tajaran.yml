@@ -308,6 +308,7 @@
 - type: marking
   id: TajaranOutears
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -349,6 +350,7 @@
 - type: marking
   id: TajaranInears
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -391,6 +393,7 @@
 - type: marking
   id: TajaranTailFluffy
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -433,6 +436,7 @@
 - type: marking
   id: TajaranTailM
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -441,6 +445,7 @@
 - type: marking
   id: TajaranTailRing
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -452,6 +457,7 @@
 - type: marking
   id: TajaranTailSkeleton
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -463,6 +469,7 @@
 - type: marking
   id: TajaranTailTip
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -474,6 +481,7 @@
 - type: marking
   id: TajaranTailFluffySkeleton
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -486,6 +494,7 @@
 - type: marking
   id: TajaranTailWingler1
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -497,6 +506,7 @@
 - type: marking
   id: TajaranTailWingler2
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -508,6 +518,7 @@
 - type: marking
   id: TajaranTailWingler3
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Tajaran, Felinid, Android, Human]
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -520,6 +531,7 @@
 - type: marking
   id: TajaranTailFluffyAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -528,6 +540,7 @@
 - type: marking
   id: TailWingler1Animated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -538,6 +551,7 @@
 - type: marking
   id: TailWingler2Animated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -548,6 +562,7 @@
 - type: marking
   id: TailWingler3Animated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -558,6 +573,7 @@
 - type: marking
   id: TailFluffySkeletonAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -568,6 +584,7 @@
 - type: marking
   id: TailTipAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -579,6 +596,7 @@
 - type: marking
   id: TajaranTailMAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -587,6 +605,7 @@
 - type: marking
   id: TailRingAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi
@@ -597,6 +616,7 @@
 - type: marking
   id: TailSkeletonAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/Tajaran/tajaran_tail.rsi

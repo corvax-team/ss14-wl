@@ -13,6 +13,7 @@
 - type: marking
   id: FoxTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android, Human] # WL-Changes: Vulp ears and tails for Felinid
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -24,6 +25,7 @@
 - type: marking
   id: FoxEar
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android, Human] # WL-Changes: Vulp ears and tails for Felinid
 # Coloring for Corvax WL
   coloring:
@@ -44,6 +46,7 @@
 - type: marking
   id: WolfTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android, Human] # WL-Changes: Vulp ears and tails for Felinid
   sponsorOnly: false # Corvax-Sponsors-&-WL-Change-False
   sprites:
@@ -80,6 +83,7 @@
 - type: marking
   id: FoxTailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
@@ -90,6 +94,7 @@
 - type: marking
   id: WolfTailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: Corvax/Mobs/Customization/vulpkanin.rsi
