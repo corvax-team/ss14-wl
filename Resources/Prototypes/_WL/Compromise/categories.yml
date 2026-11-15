@@ -19,7 +19,7 @@
 - type: compromiseCategory
   id: Children
   name: compromise-category-children
-  default: Empty
+  default: NoChildren
   order: 3
 
 - type: compromiseCategory

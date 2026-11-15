@@ -14,7 +14,7 @@ compromise-parents-abandoned-name = Бросили
 compromise-parents-abandoned-desc = Биологические родители субъекта бросили его.
 
 compromise-parents-dead-name = Мертвы
-compromise-parents-dead-father-desc = Оба родителя субъекта мертвы или пропали без вести.
+compromise-parents-dead-desc = Оба родителя субъекта мертвы или пропали без вести.
 
 compromise-parents-not-applicable-name = Не применимо
 compromise-parents-not-applicable-desc = У субъекта нет или в принципе не могло быть родителей из-за особенностей вида или других причин.
