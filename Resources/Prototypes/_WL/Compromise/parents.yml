@@ -1,0 +1,55 @@
+- type: compromise
+  id: Alive
+  name: compromise-parents-alive-name
+  description: compromise-parents-alive-desc
+  category: Parents
+  color: White
+  order: 0
+
+- type: compromise
+  id: NoMother
+  name: compromise-parents-no-mother-name
+  description: compromise-parents-no-other-desc
+  category: Parents
+  color: White
+  order: 1
+
+- type: compromise
+  id: NoFather
+  name: compromise-parents-no-mother-name
+  description: compromise-parents-no-other-desc
+  category: Parents
+  color: White
+  order: 2
+
+- type: compromise
+  id: Adopted
+  name: compromise-parents-adopted-name
+  description: compromise-parents-adopted-desc
+  category: Parents
+  color: White
+  order: 3
+
+- type: compromise
+  id: Abandoned
+  name: compromise-parents-abandoned-name
+  description: compromise-parents-abandoned-desc
+  category: Parents
+  color: White
+  order: 4
+
+- type: compromise
+  id: Dead
+  name: compromise-parents-dead-name
+  description: compromise-parents-dead-desc
+  category: Parents
+  color: White
+  order: 5
+
+- type: compromise
+  id: NotApplicable
+  name: compromise-parents-not-applicable-name
+  description: compromise-parents-not-applicable-desc
+  category: Parents
+  color: White
+  order: 6
