@@ -57,9 +57,6 @@ public sealed partial class CompromiseTabletWindow : FancyWindow
             FilterType.AddItem(GetTypeFilterLocals(item), (int)item);
         }
 
-        //Populate status to filter crew list
-        OnClose += () => _reasonDialog?.Close();
-
         RecordListing.OnItemSelected += args =>
         {
             if (RecordListing[args.ItemIndex].Metadata is not uint cast)
@@ -89,14 +86,12 @@ public sealed partial class CompromiseTabletWindow : FancyWindow
             FilterListingOfRecords(args.Text);
         };
 
-        // WL-Changes-start
         PrintButton.OnPressed += _ =>
         {
             PrintButton.Disabled = true;
             if (_selectedKey != null)
                 OnPrinted?.Invoke(_selectedKey.Value);
         };
-        // WL-Changes-end
     }
 
     public void UpdateState(CompromiseTabletState state)
