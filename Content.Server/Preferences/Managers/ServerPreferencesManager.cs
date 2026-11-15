@@ -113,8 +113,8 @@ namespace Content.Server.Preferences.Managers
 
             foreach (var data in profile.CompromiseData)
             {
-                if (!_prototypeManager.HasIndex<CompromiseCategoryPrototype>(data.Category) ||
-                        !_prototypeManager.HasIndex<CompromisePrototype>(data.Compromise))
+                if (_prototypeManager.HasIndex<CompromiseCategoryPrototype>(data.Category) &&
+                        _prototypeManager.HasIndex<CompromisePrototype>(data.Compromise))
                     compromiseData.TryAdd(data.Category, data.Compromise);
             }
             //WL-Changes-end

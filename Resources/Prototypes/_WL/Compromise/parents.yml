@@ -9,15 +9,15 @@
 - type: compromise
   id: NoMother
   name: compromise-parents-no-mother-name
-  description: compromise-parents-no-other-desc
+  description: compromise-parents-no-mother-desc
   category: Parents
   color: White
   order: 1
 
 - type: compromise
   id: NoFather
-  name: compromise-parents-no-mother-name
-  description: compromise-parents-no-other-desc
+  name: compromise-parents-no-father-name
+  description: compromise-parents-no-father-desc
   category: Parents
   color: White
   order: 2

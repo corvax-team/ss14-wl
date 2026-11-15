@@ -36,8 +36,6 @@ public sealed partial class CompromiseTabletWindow : FancyWindow
     private uint? _selectedKey;
     private CompromiseRecord? _selectedRecord;
 
-    private DialogWindow? _reasonDialog;
-
     private StationRecordFilterType _currentFilterType;
 
     public CompromiseTabletWindow(EntityUid tablet, uint maxLength)
