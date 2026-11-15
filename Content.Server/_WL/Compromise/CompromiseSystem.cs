@@ -31,7 +31,7 @@ public sealed partial class CompromiseSystem : SharedCompromiseSystem
             subs.Event<BoundUIOpenedEvent>(UpdateUserInterface);
             subs.Event<SelectStationRecord>(OnKeySelected);
             subs.Event<SetStationRecordFilter>(OnFiltersChanged);
-            subs.Event<PrintStationRecord>(OnPrinted); // WL-Records
+            subs.Event<PrintCompromiseRecord>(OnPrinted); // WL-Records
         });
     }
 
@@ -85,7 +85,7 @@ public sealed partial class CompromiseSystem : SharedCompromiseSystem
         UpdateUserInterface(ent);
     }
 
-    private void OnPrinted(Entity<CompromiseTabletComponent> ent, ref PrintStationRecord msg)
+    private void OnPrinted(Entity<CompromiseTabletComponent> ent, ref PrintCompromiseRecord msg)
     {
         if (!ent.Comp.CanPrint)
             return;
@@ -102,7 +102,7 @@ public sealed partial class CompromiseSystem : SharedCompromiseSystem
 
         _audioSystem.PlayPvs(ent.Comp.PrintAudio, ent.Owner);
 
-        ent.Comp.ContextPrint = BuildCompromiseText(record)
+        ent.Comp.ContextPrint = BuildCompromiseText(record);
         ent.Comp.CanPrint = false;
         ent.Comp.TimePrintRemaining = ent.Comp.TimePrint;
     }

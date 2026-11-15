@@ -1,9 +1,34 @@
 - type: compromise
+  id: FinanceUltraPoor
+  name: compromise-finance-ultra-poor-name
+  description: compromise-finance-ultra-poor-desc
+  category: Finance
+  color: Green
+  order: 0
+
+- type: compromise
+  id: FinanceSuperPoor
+  name: compromise-finance-super-poor-name
+  description: compromise-finance-super-poor-desc
+  category: Finance
+  color: Green
+  order: 1
+
+- type: compromise
+  id: FinancePoor
+  name: compromise-finance-poor-name
+  description: compromise-finance-poor-desc
+  category: Finance
+  color: Green
+  order: 2
+
+- type: compromise
   id: FinanceNormal
   name: compromise-finance-normal-name
   description: compromise-finance-normal-desc
   category: Finance
   color: Green
+  order: 3
 
 - type: compromise
   id: FinanceRich
@@ -11,3 +36,20 @@
   description: compromise-finance-rich-desc
   category: Finance
   color: Yellow
+  order: 4
+
+- type: compromise
+  id: FinanceSuperRich
+  name: compromise-finance-super-rich-name
+  description: compromise-finance-super-rich-desc
+  category: Finance
+  color: Yellow
+  order: 5
+
+- type: compromise
+  id: FinanceUltraRich
+  name: compromise-finance-ultra-rich-name
+  description: compromise-finance-ultra-rich-desc
+  category: Finance
+  color: Yellow
+  order: 6

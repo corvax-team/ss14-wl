@@ -1,0 +1,31 @@
+- type: compromise
+  id: Alone
+  name: compromise-married-alone-name
+  description: compromise-married-alone-desc
+  category: Married
+  color: White
+  order: 0
+
+- type: compromise
+  id: Relation
+  name: compromise-married-rel-name
+  description: compromise-married-rel-desc
+  category: Married
+  color: White
+  order: 1
+
+- type: compromise
+  id: Married
+  name: compromise-married-married-name
+  description: compromise-married-married-desc
+  category: Married
+  color: White
+  order: 2
+
+- type: compromise
+  id: Widow
+  name: compromise-married-widow-name
+  description: compromise-married-widow-desc
+  category: Married
+  color: White
+  order: 3

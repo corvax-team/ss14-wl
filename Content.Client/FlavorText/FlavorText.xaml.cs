@@ -76,8 +76,6 @@ namespace Content.Client.FlavorText
                     list.Count - 1 < id)
                 return;
 
-            Logger.Debug("Selectable lebbetable");
-
             OnCompromiseSelected?.Invoke(category, list[id]);
         }
 
@@ -105,6 +103,7 @@ namespace Content.Client.FlavorText
                 {
                     HorizontalExpand = true,
                     MinWidth = 80,
+                    MaxWidth = 360,
                     Margin = new Thickness(5)
                 };
 

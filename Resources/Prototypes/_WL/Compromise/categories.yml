@@ -13,7 +13,7 @@
 - type: compromiseCategory
   id: Married
   name: compromise-category-married
-  default: Empty
+  default: Alone
   order: 2
 
 - type: compromiseCategory

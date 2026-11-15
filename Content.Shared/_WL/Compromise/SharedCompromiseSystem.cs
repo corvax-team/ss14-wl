@@ -12,7 +12,7 @@ public abstract partial class SharedCompromiseSystem : EntitySystem
 {
     public string BuildCompromiseText(CompromiseRecord record)
     {
-        var message = string.Emtpy;
+        var message = string.Empty;
 
         if (!record.Valid)
             return message;
