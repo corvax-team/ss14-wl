@@ -65,9 +65,9 @@
   description: An emergency pressure suit meant for prisoners. It's not fully rated for extended use in outer space, but some wardens consider the lack of thermal insulation a feature.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
+    sprite: _WL/Clothing/OuterClothing/Suits/eva_prisoner.rsi # WL-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
+    sprite: _WL/Clothing/OuterClothing/Suits/eva_prisoner.rsi # WL-Changes
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -85,9 +85,9 @@
   description: An ancient space suit, designed by the NTSRA branch of CentComm. It is very finely crafted, allowing for greater mobility than most modern space suits.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/ancient_voidsuit.rsi
+    sprite: _WL/Clothing/OuterClothing/Suits/ancient_voidsuit.rsi # WL-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/ancient_voidsuit.rsi
+    sprite: _WL/Clothing/OuterClothing/Suits/ancient_voidsuit.rsi # WL-Changes
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85
@@ -101,12 +101,12 @@
   description: A void suit made for paramedics.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: _WL/Clothing/OuterClothing/Hardsuits/paramed.rsi # WL-Changes
     layers:
     - state: icon
   - type: Appearance
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/paramed.rsi
+    sprite: _WL/Clothing/OuterClothing/Hardsuits/paramed.rsi # WL-Changes
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9

@@ -11,9 +11,9 @@
     - LEGS
     - FEET
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/general.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/general.rsi # WL-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/general.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/general.rsi # WL-Changes
   - type: HideLayerClothing
     slots:
     - Tail
@@ -36,9 +36,9 @@
   description: An advanced suit that protects against biological contamination, in CMO colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/cmo.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/cmo.rsi # WL-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/cmo.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/cmo.rsi # WL-Changes
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -48,9 +48,9 @@
   description: A suit that protects against biological contamination and caustic spills.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/janitor.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/janitor.rsi # WL-Changes 
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/janitor.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/janitor.rsi # WL-Changes
   - type: Armor
     modifiers:
       coefficients:
@@ -64,9 +64,9 @@
   description: A suit that protects against biological contamination, in Scientist colors.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/scientist.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/scientist.rsi # WL-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/scientist.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/scientist.rsi # WL-Changes
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSecurityContraband]
@@ -76,9 +76,9 @@
   description: A suit that protects against biological contamination, kitted out with additional armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/security.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/security.rsi # WL-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/security.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/security.rsi # WL-Changes
   - type: HideLayerClothing
     slots:
     - Tail
@@ -103,8 +103,8 @@
   description: A suit that strongly protects against biological contamination.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Bio/virology.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/virology.rsi # WL-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/Bio/virology.rsi
+    sprite: _WL/Clothing/OuterClothing/Bio/virology.rsi # WL-Changes
   - type: ZombificationResistance
     zombificationResistanceCoefficient: 0.25
