@@ -2,8 +2,9 @@ using System.Numerics;
 using System.Linq;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._WL.Research;
-using Content.Shared._WL.Research.Methods;
 using Content.Shared._WL.Research.Components;
+using Content.Shared._WL.Research.Events;
+using Content.Shared._WL.Research.Methods;
 using Content.Shared._WL.Research.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
@@ -83,6 +84,16 @@ public sealed partial class ResearchSystemNew
                 !TryComp<ResearchSourceComponent>(source, out var sourceComp))
             return false;
 
+        var attempEv = new ResearchAttemtedEvent((detector, detectorComp), source);
+
+        RaiseLocalEvent(detector, ref attempEv);
+        if (attempEv.Cancelled)
+            return false;
+
+        RaiseLocalEvent(source, ref attempEv);
+        if (attempEv.Cancelled)
+            return false;
+
         foreach (var category in sourceComp.Categories)
         {
             var ev = new GetResearchDataEvent(detector, detectorComp.ResearchTypes, category);
@@ -141,6 +152,16 @@ public sealed partial class ResearchSystemNew
         if (!TryGetClientServer(detector, out var serverOut, out var serverCompOut) ||
                 serverOut is not {} server ||
                 serverCompOut is not {} serverComp)
+            return false;
+
+        var attempEv = new ResearchAttemtedEvent((detector, detectorComp), source);
+
+        RaiseLocalEvent(detector, ref attempEv);
+        if (attempEv.Cancelled)
+            return false;
+
+        RaiseLocalEvent(source, ref attempEv);
+        if (attempEv.Cancelled)
             return false;
 
         return TryProcessSimpleData(server, sourceComp.Id, sourceComp.Points, serverComp);

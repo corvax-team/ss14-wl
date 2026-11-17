@@ -7,3 +7,5 @@ research-type-target-burn = внешние повреждения
 research-type-target-total = общие повреждения
 
 research-type-power-scrambler = потреляемая энергия
+
+research-type-star-detector = звёздный датчик

@@ -41,7 +41,7 @@
 
 - type: researchType
   id: PowerScrambler
-  name: research-type-target-total
+  name: research-type-power-scrambler
   min: 10000
   max: 1010000
   size: 10
@@ -50,3 +50,16 @@
     !type:PowerConsumeResearchCondition
       points: Mech
       extrimalValue: 300000
+
+- type: researchType
+  id: StarDetector
+  name: research-type-star-detector
+  min: 0
+  max: 100
+  size: 100
+  scale:
+    !type:LinearMethod
+      min: 0
+  condition:
+    !type:SolarPanelsResearchCondition
+      points: Physics

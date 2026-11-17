@@ -338,3 +338,23 @@
   - type: GuideHelp
     guides:
     - SolarPanels
+# WL-Changes: Research Start
+  - type: Tag
+    tags:
+      - SolarTracker
+  - type: ItemSlots
+    slots:
+      item:
+        insertSound:
+          path: /Audio/Machines/screwdriveropen.ogg
+        ejectSound:
+          path: /Audio/Machines/screwdriverclose.ogg
+        name: container-slot-astro
+        priority: 4
+        whitelist:
+          tags:
+          - SolarTrackerUpdate
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+# WL-Changes: Research End

@@ -156,3 +156,9 @@
 
 - type: Tag
   id: ScannableMachine
+
+- type: Tag
+  id: SolarTracker
+
+- type: Tag
+  id: SolarTrackerUpdate

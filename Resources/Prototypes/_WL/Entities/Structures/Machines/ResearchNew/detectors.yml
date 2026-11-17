@@ -1,5 +1,4 @@
 - type: entity
-  parent: BaseMachinePowered
   id: BaseRDDetector
   abstract: true
   components:
@@ -11,14 +10,6 @@
     interfaces:
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
-  - type: PointLight
-    radius: 1.5
-    energy: 3.0
-    color: "#3db83b"
-  - type: ApcPowerReceiver
-    powerLoad: 200
-  - type: ExtensionCableReceiver
-  - type: WiresPanel
 
 - type: entity
   parent: [ BaseRDDetector, BaseMachinePowered, ConstructibleMachine ]
@@ -32,6 +23,14 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: {visible: true}
           False: {visible: false}
+  - type: PointLight
+    radius: 1.5
+    energy: 3.0
+    color: "#3db83b"
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: WiresPanel
 
 - type: entity
   parent: [ BaseRDDetector, BaseItem ]
@@ -219,3 +218,29 @@
   - type: PowerConsumer
     voltage: High
     drawRate: 2000000
+
+- type: entity
+  parent: [ BaseRDDetector, BaseElectronics ]
+  id: AstroUpdateBoard
+  name: astro update
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/module.rsi
+    layers:
+    - state: astro_upgrade
+  - type: ResearchDetector
+    detectTypes:
+      - StarDetector
+    selfOnly: true
+    researchPercent: 0.0006
+  - type: ResearchSource
+    categories:
+      - StarDetector
+  - type: PassiveDetector
+  - type: InsertableModule
+    whitelist:
+      tags:
+        - SolarTracker
+  - type: Tag
+    tags:
+      - SolarTrackerUpdate

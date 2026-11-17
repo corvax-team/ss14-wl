@@ -15,3 +15,11 @@
   researchTypes:
     - PowerScrambler
   pointsType: Physics
+
+- type: researchCategory
+  id: StarDetector
+  name: research-category-star-detector
+  maxPoints: 360000
+  researchTypes:
+    - StarDetector
+  pointsType: Physics
