@@ -2209,7 +2209,7 @@ entities:
     - type: GasTileOverlay
     - type: ExplosionAirtightGrid
     - type: BecomesStation
-      id: CorvaxWLTraum
+      id: CorvaxTraum
     - type: RadiationGridResistance
     - type: NavMap
     - type: GridSplitNode
