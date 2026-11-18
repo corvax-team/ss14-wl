@@ -283,6 +283,8 @@ public abstract partial class SharedImplanterSystem : EntitySystem
         implantContainer.OccludesLight = false;
         _container.Insert(implant.Value, implantContainer);
 
+        RaiseLocalEvent(implant.Value, new ImplantationCompleteEvent(user, target)); // WL-Changes
+
         if (ent.Comp is { CurrentMode: ImplanterToggleMode.Inject, ImplantOnly: false })
             DrawMode(ent);
         else
@@ -314,9 +316,19 @@ public abstract partial class SharedImplanterSystem : EntitySystem
             return false;
         }
 
-        var ev = new AddImplantAttemptEvent(user, target, implant.Value, ent.Owner);
-        RaiseLocalEvent(target, ev);
-        return !ev.Cancelled;
+        // WL-Changes-Start
+        var targetEv = new AddImplantAttemptEvent(user, target, implant.Value, ent.Owner);
+        RaiseLocalEvent(target, targetEv);
+
+        var implantEv = new AddImplantAttemptOnImplantEvent(user, target, implant.Value, ent.Owner);
+        RaiseLocalEvent(implant.Value, implantEv);
+
+        return !targetEv.Cancelled && !implantEv.Cancelled;
+
+        //var ev = new AddImplantAttemptEvent(user, target, implant.Value, ent.Owner);
+        //RaiseLocalEvent(target, ev);
+        //return !ev.Cancelled;
+        // WL-Changes-End
     }
 
     /// <summary>
@@ -539,6 +551,26 @@ public sealed class AddImplantAttemptEvent(EntityUid user, EntityUid target, Ent
     public readonly EntityUid Implant = implant;
     public readonly EntityUid Implanter = implanter;
 }
+
+// WL-Changes-Start
+/// <summary>
+/// Raised on the implant during implantation checks so the implant can reject the attempt
+/// </summary>
+public sealed class AddImplantAttemptOnImplantEvent(EntityUid user, EntityUid target, EntityUid implant, EntityUid implanter)
+    : CancellableEntityEventArgs
+{
+    public readonly EntityUid User = user;
+    public readonly EntityUid Target = target;
+    public readonly EntityUid Implant = implant;
+    public readonly EntityUid Implanter = implanter;
+}
+
+public sealed class ImplantationCompleteEvent(EntityUid user, EntityUid target) : EntityEventArgs
+{
+    public readonly EntityUid User = user;
+    public readonly EntityUid Target = target;
+}
+// WL-Changes-End
 
 /// <summary>
 /// Change the chosen implanter in the UI.

@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseAction
+  id: ActionDetonateImplantedVictim
+  name: Detonate explosive implant
+  description: Detonates the implant in the person you injected.
+  components:
+  - type: Action
+    raiseOnUser: false
+    useDelay: 1
+    itemIconStyle: BigAction
+    priority: -20
+  - type: Sprite
+    sprite: Actions/Implants/implants.rsi
+    layers:
+    - state: explosive
+  - type: InstantAction
+    event: !type:DetonateImplantedVictimActionEvent

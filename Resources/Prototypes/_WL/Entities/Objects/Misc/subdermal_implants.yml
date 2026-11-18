@@ -1,0 +1,14 @@
+- type: entity
+  parent: [BaseCorvaxContraband435, BaseSubdermalImplant]
+  id: RemoteDetonationImplant
+  name: explosive implant
+  description: This implant lets the person who injected it detonate its wearer.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RemoteDetonationImplant
+    action: ActionDetonateImplantedVictim
+  - type: Explosive
+    explosionType: Minibomb
+    totalIntensity: 150
+    intensitySlope: 75
+    maxIntensity: 100
