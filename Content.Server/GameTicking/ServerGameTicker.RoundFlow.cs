@@ -701,7 +701,7 @@ public sealed partial class ServerGameTicker
             Color = color.ToArgb() & 0xFFFFFF,
             Footer = new WebhookEmbedFooter
             {
-                Text = foterText;
+                Text = foterText,
             }
         };
         var payload = new WebhookPayload { Embeds = [embed] };
