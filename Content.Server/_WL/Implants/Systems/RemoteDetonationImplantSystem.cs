@@ -1,5 +1,4 @@
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Implants.Components;
 using Content.Shared.Actions;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Implants;
@@ -12,6 +11,7 @@ public sealed partial class RemoteDetonationImplantSystem : EntitySystem
 {
     [Dependency] private SharedActionsSystem _actions = default!;
     [Dependency] private ExplosionSystem _explosion = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
 
     [SubscribeLocalEvent]
     private void OnImplantAttempt(Entity<RemoteDetonationImplantComponent> ent, ref AddImplantAttemptOnImplantEvent args)
@@ -47,6 +47,7 @@ public sealed partial class RemoteDetonationImplantSystem : EntitySystem
         if (ent.Comp.Implanter != args.Performer
             || ent.Comp.Target is not { } target
             || TerminatingOrDeleted(target)
+            || !_transform.InRange(Transform(args.Performer).Coordinates, Transform(target).Coordinates, ent.Comp.MaxDetonationRange)
             || !TryComp<SubdermalImplantComponent>(ent.Owner, out var implant)
             || implant.ImplantedEntity != target
             || !TryComp<ExplosiveComponent>(ent.Owner, out var explosive))

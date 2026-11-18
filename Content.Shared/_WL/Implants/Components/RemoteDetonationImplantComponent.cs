@@ -7,6 +7,9 @@ namespace Content.Shared._WL.Implants.Components;
 public sealed partial class RemoteDetonationImplantComponent : Component
 {
     [DataField]
+    public float MaxDetonationRange = 75f;
+
+    [DataField]
     public EntProtoId Action = "ActionDetonateImplantedVictim";
 
     [DataField]
