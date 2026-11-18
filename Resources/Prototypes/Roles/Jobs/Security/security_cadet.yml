@@ -3,8 +3,11 @@
   name: job-name-cadet
   description: job-description-cadet
   playTimeTracker: JobSecurityCadet
+  # WL-Changes-Start
   subnames:
   - Male: стажёр безопасности
+  - Male: младший офицер
+  # WL-Changes-End
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 10h # Corvax-RoleTime

@@ -3,6 +3,10 @@
   name: job-name-senior-officer
   description: job-description-senior-officer
   playTimeTracker: JobSeniorOfficer
+  # WL-Changes-Start
+  subnames:
+  - Male: старший офицер
+  # WL-Changes-End
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
