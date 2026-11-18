@@ -1,0 +1,51 @@
+- type: entity
+  name: bouquet roses
+  parent: BaseItem
+  id: FlowerBouquetRose
+  description: "It looks beautiful and smells good."
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/rosebouquet.rsi
+    state: icon
+    scale: 1.3,1.3
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: bouquet sunflowers
+  parent: BaseItem
+  id: FlowerBouquetSunflower
+  description: "It looks beautiful and smells good."
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/sunbouquet.rsi
+    state: icon
+    scale: 1.15,1.15
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: bouquet poppies
+  parent: BaseItem
+  id: FlowerBouquetPoppy
+  description: "It looks beautiful and smells good."
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/poppybouquet.rsi
+    state: icon
+    scale: 1.15,1.15
+  - type: Item
+    size: Normal
+
+- type: entity
+  name: mixed bouquet
+  parent: BaseItem
+  id: FlowerBouquetMixed
+  description: "It looks beautiful and smells good."
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Misc/mixedbouquet.rsi
+    state: icon
+    scale: 1.15,1.15
+  - type: Item
+    size: Normal

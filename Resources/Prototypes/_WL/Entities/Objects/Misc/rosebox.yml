@@ -16,7 +16,6 @@
     - type: StaticPrice
       price: 1000
 
-
 - type: entity
   id: RoseBox
   parent: BaseItem
@@ -25,7 +24,14 @@
   components:
     - type: SpawnItemsOnUse
       items:
-        - id: RoseRed
+        - id: FlowerBouquetRose
+          orGroup: Bouquet
+        - id: FlowerBouquetSunflower
+          orGroup: Bouquet
+        - id: FlowerBouquetPoppy
+          orGroup: Bouquet
+        - id: FlowerBouquetMixed
+          orGroup: Bouquet
       sound:
         path: /Audio/Effects/unwrap.ogg
     - type: Sprite
