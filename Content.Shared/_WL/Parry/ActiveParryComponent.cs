@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._WL.Parry;
 
@@ -14,3 +15,9 @@ public sealed partial class ActiveParryComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan ParryStartTime;
 }
+
+[Serializable, NetSerializable]
+public sealed class ParryStartEvent : EntityEventArgs;
+
+[Serializable, NetSerializable]
+public sealed class ParryStopEvent : EntityEventArgs;

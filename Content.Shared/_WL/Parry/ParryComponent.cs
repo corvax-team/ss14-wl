@@ -28,4 +28,16 @@ public sealed partial class ParryComponent : Component
 
     [DataField, AutoNetworkedField]
     public float ForwardOffset = 0.35f;
+
+    /// <summary>
+    /// Minimum time (server only) a hit from an NPC is held back so that a late parry input can still count
+    /// </summary>
+    [DataField]
+    public TimeSpan MinCompensation = TimeSpan.FromSeconds(0.1f);
+
+    /// <summary>
+    /// Maximum hold-back time, regardless of how high the player's ping is
+    /// </summary>
+    [DataField]
+    public TimeSpan MaxCompensation = TimeSpan.FromSeconds(0.3f);
 }

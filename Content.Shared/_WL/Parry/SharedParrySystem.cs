@@ -1,13 +1,16 @@
-using Content.Shared.Input;
+using Content.Shared._WL.Weapons.Melee.Events;
+using Content.Shared.GameTicking;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
-using Content.Shared._WL.Weapons.Melee.Events;
-using Robust.Shared.Input.Binding;
+using Robust.Shared.Audio;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Damage;
+using System.Numerics;
 
 namespace Content.Shared._WL.Parry;
 
@@ -16,26 +19,35 @@ public abstract partial class SharedParrySystem : EntitySystem
     [Dependency] private SharedMeleeWeaponSystem _melee = default!;
     [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private INetManager _net = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private MobStateSystem _mobState = default!;
+
+    private readonly List<PendingHit> _pending = new();
+    private readonly List<PendingHit> _scratch = new();
+
+    private readonly record struct PendingHit(
+        EntityUid Target,
+        EntityUid Attacker,
+        EntityUid Weapon,
+        DamageSpecifier Damage,
+        bool ResistanceBypass,
+        SoundSpecifier? HitSoundOverride,
+        bool Heavy,
+        Vector2 AttackerPos,
+        Vector2 TargetPos,
+        TimeSpan ExpiresAt);
+
     public override void Initialize()
     {
         base.Initialize();
 
-        CommandBinds.Builder
-            .Bind(ContentKeyFunctions.Parry, InputCmdHandler.FromDelegate(enabled: InputParryPressed,
-            disabled: InputParryReleased,
-            handle: false,
-            outsidePrediction: false))
-            .Register<SharedParrySystem>();
-    }
+        SubscribeAllEvent<ParryStartEvent>(OnParryStart);
+        SubscribeAllEvent<ParryStopEvent>(OnParryStop);
 
-    public override void Shutdown()
-    {
-        base.Shutdown();
-
-        CommandBinds.Unregister<SharedParrySystem>();
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => _pending.Clear());
     }
 
     public override void Update(float frameTime)
@@ -56,23 +68,34 @@ public abstract partial class SharedParrySystem : EntitySystem
             activeParry.IsParrying = false;
             Dirty(uid, activeParry);
         }
+
+        if (_net.IsServer)
+            FlushExpiredHits();
     }
 
-    private void InputParryPressed(ICommonSession? session)
+    #region Input
+
+    private void OnParryStart(ParryStartEvent ev, EntitySessionEventArgs args)
     {
-        if (session is null || session.AttachedEntity is not { } user)
+        if (args.SenderSession.AttachedEntity is not { } user)
             return;
 
-        if (!_melee.TryGetWeapon(user, out var weapon, out var _) || !HasComp<ParryComponent>(weapon))
+        if (_mobState.IsIncapacitated(user))
+            return;
+
+        if (!_melee.TryGetWeapon(user, out var weapon, out _) || !HasComp<ParryComponent>(weapon))
             return;
 
         if (!TryStartParry(user, weapon))
             return;
+
+        if (_net.IsServer && TryComp<ActiveParryComponent>(user, out var active))
+            ResolvePendingHits((user, active));
     }
 
-    private void InputParryReleased(ICommonSession? session)
+    private void OnParryStop(ParryStopEvent ev, EntitySessionEventArgs args)
     {
-        if (session is null || session.AttachedEntity is not { } user)
+        if (args.SenderSession.AttachedEntity is not { } user)
             return;
 
         if (!TryComp<ActiveParryComponent>(user, out var activeParry))
@@ -88,6 +111,10 @@ public abstract partial class SharedParrySystem : EntitySystem
         _movementSpeed.RefreshMovementSpeedModifiers(user);
     }
 
+    #endregion
+
+    #region Parry state
+
     [SubscribeLocalEvent]
     private void OnRefreshMovementSpeed(Entity<ActiveParryComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
@@ -97,34 +124,30 @@ public abstract partial class SharedParrySystem : EntitySystem
         args.ModifySpeed(parry.MovementSpeedModifier);
     }
 
-    [SubscribeLocalEvent]
-    private void OnBeforeMeleeDamage(Entity<ActiveParryComponent> ent, ref BeforeMeleeDamageEvent args)
+    private bool TryStartParry(EntityUid uid, EntityUid weapon)
     {
-        Log.Info($"BeforeMeleeDamageEvent: {args.User} -> {ent.Owner}, Damage: {args.Damage}");
-        if (!TryComp<ParryComponent>(ent.Comp.Weapon, out var parry))
-            return;
-        Log.Info($"ParryComponent: {parry.MeleeDamageReduction}, {parry.ParryAngle}, {parry.ParryDuration}, {parry.ParryCooldown}, {parry.NextParryTime}, {parry.AngleOffset}, {parry.ForwardOffset}");
+        if (HasComp<ActiveParryComponent>(uid))
+            return false;
 
-        var directionToAttacker = Angle.FromWorldVec(
-            _transform.GetWorldPosition(args.User) -
-            _transform.GetWorldPosition(ent.Owner));
+        if (!TryComp<ParryComponent>(weapon, out var parry))
+            return false;
 
-        var angleDifference = (directionToAttacker - _transform.GetWorldRotation(ent.Owner)).Reduced();
-
-        if (Math.Abs(angleDifference.Theta) > parry.ParryAngle.Theta / 2)
-            return;
-
-        //Log.Info($"Parry successful! Angle difference: {angleDifference.Theta}, Parry angle: {parry.ParryAngle.Theta}");
-
-        if (ent.Comp.IsParrying)
+        if (_timing.CurTime < parry.NextParryTime)
         {
-            _damageable.TryChangeDamage(args.User, args.Damage * 100f, true, true);
-            args.Damage *= 0f;
-            return;
+            _popup.PopupEntity(Loc.GetString("parry-cooldown"), null, uid, uid);
+            return false;
         }
 
-        args.Damage *= parry.MeleeDamageReduction;
-        TryBreakParry(ent.Owner, ent.Comp);
+        var activeParry = EnsureComp<ActiveParryComponent>(uid);
+
+        activeParry.Weapon = weapon;
+        activeParry.IsParrying = true;
+        activeParry.ParryStartTime = _timing.CurTime;
+        Dirty(uid, activeParry);
+
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+
+        return true;
     }
 
     private void TryBreakParry(EntityUid uid, ActiveParryComponent activeParry)
@@ -139,31 +162,173 @@ public abstract partial class SharedParrySystem : EntitySystem
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
     }
 
-    private bool TryStartParry(EntityUid uid, EntityUid weapon)
+    #endregion
+
+    #region Melee damage
+
+    [SubscribeLocalEvent]
+    private void OnBeforeMeleeDamage(Entity<ActiveParryComponent> ent, ref BeforeMeleeDamageEvent args)
     {
-        if (!HasComp<ActiveParryComponent>(uid))
+        if (args.Deferred)
+            return;
+
+        if (TryParry(ent,
+                args.User,
+                _transform.GetWorldPosition(args.User),
+                _transform.GetWorldPosition(ent.Owner),
+                args.Damage,
+                out var result))
         {
-            if (!TryComp<ParryComponent>(weapon, out var parry))
-                return false;
+            args.Damage = result;
+        }
+    }
 
-            if (_timing.CurTime < parry.NextParryTime)
-            {
-                _popup.PopupEntity(Loc.GetString("parry-cooldown"), null, uid, uid);
-                return false;
-            }
+    [SubscribeLocalEvent]
+    private void OnBeforeMeleeDamageDefer(Entity<ActorComponent> ent, ref BeforeMeleeDamageEvent args)
+    {
+        if (!_net.IsServer ||
+            args.Deferred ||
+            HasComp<ActiveParryComponent>(ent) ||
+            HasComp<ActorComponent>(args.User) || // player vs player is already ordered by client ticks
+            _mobState.IsIncapacitated(ent))
+        {
+            return;
+        }
 
-            var activeParry = EnsureComp<ActiveParryComponent>(uid);
+        if (!_melee.TryGetWeapon(ent, out var weapon, out _) ||
+            !TryComp<ParryComponent>(weapon, out var parry) ||
+            _timing.CurTime < parry.NextParryTime)
+        {
+            return;
+        }
 
-            activeParry.Weapon = weapon;
-            activeParry.IsParrying = true;
-            activeParry.ParryStartTime = _timing.CurTime;
-            Dirty(uid, activeParry);
+        var ping = TimeSpan.FromMilliseconds(ent.Comp.PlayerSession.Channel.Ping);
+        var window = ping + _timing.TickPeriod * 2;
+        window = TimeSpan.FromTicks(Math.Clamp(window.Ticks, parry.MinCompensation.Ticks, parry.MaxCompensation.Ticks));
 
-            _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _pending.Add(new PendingHit(
+            ent.Owner,
+            args.User,
+            args.Weapon,
+            new DamageSpecifier(args.Damage),
+            args.ResistanceBypass,
+            args.HitSoundOverride,
+            args.Heavy,
+            _transform.GetWorldPosition(args.User),
+            _transform.GetWorldPosition(ent.Owner),
+            _timing.CurTime + window));
 
+        args.Deferred = true;
+    }
+
+    private bool TryParry(
+        Entity<ActiveParryComponent> ent,
+        EntityUid attacker,
+        Vector2 attackerPos,
+        Vector2 targetPos,
+        DamageSpecifier damage,
+        out DamageSpecifier result)
+    {
+        result = damage;
+
+        if (!TryComp<ParryComponent>(ent.Comp.Weapon, out var parry))
+            return false;
+
+        var directionToAttacker = Angle.FromWorldVec(attackerPos - targetPos);
+        var angleDifference = (directionToAttacker - _transform.GetWorldRotation(ent.Owner)).Reduced();
+
+        if (Math.Abs(angleDifference.Theta) > parry.ParryAngle.Theta / 2)
+            return false;
+
+        // temporary solution for check parry
+        if (ent.Comp.IsParrying)
+        {
+            if (!TerminatingOrDeleted(attacker))
+                _damageable.TryChangeDamage(attacker, damage * 100f, true, true);
+
+            result = damage * 0f;
             return true;
         }
 
-        return false;
+        result = damage * parry.MeleeDamageReduction;
+
+        TryBreakParry(ent.Owner, ent.Comp);
+
+        return true;
     }
+
+    #endregion
+
+    #region Deferred hits
+
+    private void ResolvePendingHits(Entity<ActiveParryComponent> ent)
+    {
+        _scratch.Clear();
+
+        for (var i = 0; i < _pending.Count; i++)
+        {
+            if (_pending[i].Target == ent.Owner)
+                _scratch.Add(_pending[i]);
+        }
+
+        if (_scratch.Count == 0)
+            return;
+
+        _pending.RemoveAll(h => h.Target == ent.Owner);
+
+        var hits = _scratch.ToArray();
+
+        foreach (var hit in hits)
+        {
+            var damage = hit.Damage;
+
+            // The parry may have been broken by a previous hit in this batch.
+            if (TryComp<ActiveParryComponent>(ent.Owner, out var active))
+                TryParry((ent.Owner, active), hit.Attacker, hit.AttackerPos, hit.TargetPos, hit.Damage, out damage);
+
+            // Even a fully parried hit goes through the normal tail: zero damage log, no-damage sound, UndamagedAttack.
+            ApplyPending(hit, damage);
+        }
+    }
+
+    private void FlushExpiredHits()
+    {
+        if (_pending.Count == 0)
+            return;
+
+        var now = _timing.CurTime;
+        _scratch.Clear();
+
+        for (var i = 0; i < _pending.Count; i++)
+        {
+            if (_pending[i].ExpiresAt <= now)
+                _scratch.Add(_pending[i]);
+        }
+
+        if (_scratch.Count == 0)
+            return;
+
+        _pending.RemoveAll(h => h.ExpiresAt <= now);
+
+        var hits = _scratch.ToArray();
+
+        foreach (var hit in hits)
+        {
+            ApplyPending(hit, hit.Damage);
+        }
+    }
+
+    private void ApplyPending(in PendingHit hit, DamageSpecifier damage)
+    {
+        _melee.ApplyDeferredMeleeHit(
+            hit.Target,
+            hit.Attacker,
+            hit.Weapon,
+            damage,
+            hit.ResistanceBypass,
+            hit.HitSoundOverride,
+            hit.Heavy);
+    }
+
+    #endregion
 }
