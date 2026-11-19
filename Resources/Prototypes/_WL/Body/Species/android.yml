@@ -105,7 +105,7 @@
   - MobRespirator
   - MobAtmosStandard
   - MobFlammable
-  - BaseSpeciesMobNoCrawl #WL - NoDnaAndorid
+  - BaseSpeciesMobNoCrawl
   id: MobAndroid
   components:
   - type: Swimmer
@@ -336,6 +336,7 @@
   - type: Actions
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: OfferItem # CorvaxGoob-Offer
+  - type: Crawler
 
 - type: entity
   parent: OrganBase
