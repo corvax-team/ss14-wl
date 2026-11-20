@@ -279,7 +279,7 @@
       - id: ClothingBeltUtility
       - id: ToolboxArtisticFilled
       - id: GeigerCounter
-      - id: trayScanner
+      - id: TRayScanner
       - id: HandheldGPSBasic
       - id: HandLabeler
       - id: GlowstickGreen
@@ -350,6 +350,7 @@
       - id: RifleStock
       - id: ModularReceiver
       - id: HydroponicsToolScythe
+      - id: WeaponMeleeHammer # WL
     # Rare Group
     - !type:GroupSelector
       weight: 5

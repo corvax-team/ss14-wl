@@ -1,9 +1,8 @@
 using System.IO;
-using System.Threading.Tasks;
-using Content.Shared._WL.Fax.Messages;
+using Content.Shared._WL.Fax.Messages; // WL-Changes
+using Content.Shared.DeviceNetwork;
 using Content.Shared.Fax;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Fax.UI;
@@ -105,7 +104,7 @@ public sealed partial class FaxBoundUi : BoundUserInterface
         SendMessage(new FaxRefreshMessage());
     }
 
-    private void OnPeerSelected(string address)
+    private void OnPeerSelected(DeviceAddress address)
     {
         SendMessage(new FaxDestinationMessage(address));
     }

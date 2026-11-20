@@ -183,12 +183,13 @@
 - type: tileAlias
   id: FloorArcadeBlue2
   target: FloorArcadeBlue
-
-- type: tileAlias
-  id: FloorSteelMono
-  target: FloorSteel
-
+  
 # Corvax-Sprites-Start
+# - type: tileAlias
+#   id: FloorSteelMono
+#   target: FloorSteel
+
+# Corvax-Sprites
 # - type: tileAlias
 #   id: FloorHydro
 #   target: FloorSteel

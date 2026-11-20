@@ -53,6 +53,8 @@
       temperature: 293.15
   - type: Jetpack
     moleUsage: 0.00085
+  - type: ParticleEmitter
+    effectPrototype: JetpackEffect
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -155,6 +157,10 @@
   name: captain's jetpack
   suffix: Empty
   components:
+  # WL-changes-Start
+  - type: GasTankRegeneration
+    molesPerSecond: 0.00114 # Full refill in approximately 30 minutes while switched off.
+  # WL-changes-End
   - type: Sprite
     sprite: _WL/Objects/Tanks/Jetpacks/captain.rsi #Corvax-WL-Changes
   - type: Clothing

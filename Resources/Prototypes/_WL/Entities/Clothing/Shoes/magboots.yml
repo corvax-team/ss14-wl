@@ -1,0 +1,11 @@
+- type: entity
+  parent: [ ClothingShoesBootsMag, ClothingShoesMilitaryBase ]
+  id: ClothingShoesBootsMagSec
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Shoes/Boots/sec_magboots.rsi
+    layers:
+    - state: icon
+      map: [ "enum.ToggleableVisuals.Layer" ]
+  - type: Clothing
+    sprite: _WL/Clothing/Shoes/Boots/sec_magboots.rsi

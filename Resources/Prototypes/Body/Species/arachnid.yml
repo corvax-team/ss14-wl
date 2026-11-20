@@ -4,7 +4,7 @@
   onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
-      limit: 1 # Impstation
+      limit: 2 # WL-changes # Impstation
       required: false
     enum.HumanoidVisualLayers.FacialHair:
       limit: 0
@@ -251,6 +251,10 @@
 - type: entity
   parent: [ OrganArachnidVisual, OrganBaseEyes, OrganArachnidInternal ]
   id: OrganArachnidEyes
+  components:
+  - type: Appearance
+  - type: EyeBlinking
+    eyelidsSprite: /Textures/Mobs/Species/Arachnid/parts.rsi
 
 - type: entity
   parent: [ OrganBaseTongue, OrganArachnidInternal ]

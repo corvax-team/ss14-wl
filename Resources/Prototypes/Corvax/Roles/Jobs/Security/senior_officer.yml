@@ -3,6 +3,8 @@
   name: job-name-senior-officer
   description: job-description-senior-officer
   playTimeTracker: JobSeniorOfficer
+  subnames:
+  - Male: старший офицер СБ
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden

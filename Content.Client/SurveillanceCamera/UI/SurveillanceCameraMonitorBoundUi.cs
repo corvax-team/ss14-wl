@@ -45,7 +45,7 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
             _window?.SetMap(gridUid.Value);
     }
 
-    private void OnCameraSelected(string address, ProtoId<DeviceFrequencyPrototype>? subnet)
+    private void OnCameraSelected(DeviceAddress address, ProtoId<DeviceFrequencyPrototype>? subnet)
     {
         SendMessage(new SurveillanceCameraMonitorSwitchMessage(address, subnet));
     }
