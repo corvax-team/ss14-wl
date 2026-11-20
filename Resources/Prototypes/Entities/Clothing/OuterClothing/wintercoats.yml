@@ -355,9 +355,9 @@
   description: A sturdy, utilitarian winter coat designed to protect a head of security from any brig-bound threats and hypothermic events.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coathosarmored.rsi # WL-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coathosarmored.rsi # WL-Changes
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
   - type: ContainerContainer
@@ -374,7 +374,7 @@
   description: A sturdy coat, a warm coat, but not an armored coat.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Changes
     layers:
     - state: HOS-icon
   - type: Item
@@ -384,10 +384,14 @@
       right:
       - state: HOS-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+      # WL-Changes-Start
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi 
     clothingVisuals:
       outerClothing:
       - state: HOS-equipped-OUTERCLOTHING
+      outerClothing-reptilian: 
+      - state: HOS-equipped-OUTERCLOTHING-reptilian
+      # WL-Changes-End
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
 
@@ -580,7 +584,7 @@
   name: research director's winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Changes
     layers:
     - state: RD-icon
   - type: Item
@@ -590,10 +594,14 @@
       right:
       - state: RD-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+      # WL-Changes-Start
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi 
     clothingVisuals:
       outerClothing:
       - state: RD-equipped-OUTERCLOTHING
+      outerClothing-reptilian: 
+      - state: RD-equipped-OUTERCLOTHING-reptilian
+      # WL-Changes-End
   - type: Armor
     modifiers:
       coefficients:
@@ -720,9 +728,9 @@
   description: A sturdy, utilitarian winter coat designed to protect a warden from any brig-bound threats and hypothermic events.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi # WL-Changes
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi # WL-Changes
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
   - type: ContainerContainer
@@ -739,7 +747,7 @@
   description: A sturdy coat, a warm coat, but not an armored coat.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Changes
     layers:
     - state: WARD-icon
   - type: Item
@@ -749,10 +757,14 @@
       right:
       - state: WARD-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+      # WL-Changes-Start
+    sprite: _WL/Clothing/OuterClothing/WinterCoats/coat.rsi # WL-Changes
     clothingVisuals:
       outerClothing:
       - state: WARD-equipped-OUTERCLOTHING
+      outerClothing-reptilian: 
+      - state: WARD-equipped-OUTERCLOTHING-reptilian
+      # WL-Changes-End
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
 
@@ -788,7 +800,7 @@
   description: "The syndicate's armored winter coat is made of durable fabric, with gilded patterns, and coarse wool."
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
+    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi 
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
   - type: ToggleableClothing
