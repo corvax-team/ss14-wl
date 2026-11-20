@@ -2,6 +2,7 @@
 - type: marking
   id: VulpTailFennec
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ] # WL-Changes: Tails for all
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -12,6 +13,7 @@
 - type: marking
   id: VulpTailFluffy
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ] # WL-Changes: Tails for all
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -22,6 +24,7 @@
 - type: marking
   id: VulpTailHusky
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ] # WL-Changes: Tails for all
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -34,6 +37,7 @@
 - type: marking
   id: VulpTailLong
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ] # WL-Changes: Tails for all
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -44,6 +48,7 @@
 - type: marking
   id: VulpTailVulp
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ] # WL-Changes: Tails for all
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -54,6 +59,7 @@
 - type: marking
   id: VulpTailVulpFade
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ] # WL-Changes: Tails for all
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -64,6 +70,7 @@
 - type: marking
   id: VulpTailCoyote
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ] # WL-Changes: Tails for all
   sprites:
   - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -73,6 +80,7 @@
 - type: marking
   id: VulpTailFennecAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
   - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -83,6 +91,7 @@
 - type: marking
   id: VulpTailFluffyAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
   - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -93,6 +102,7 @@
 - type: marking
   id: VulpTailHuskyAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
   - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -105,6 +115,7 @@
 - type: marking
   id: VulpTailLongAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
   - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -115,6 +126,7 @@
 - type: marking
   id: VulpTailVulpAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
   - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -125,6 +137,7 @@
 - type: marking
   id: VulpTailVulpFadeAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
   - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
@@ -135,6 +148,7 @@
 - type: marking
   id: VulpTailCoyoteAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
   - sprite: Mobs/Customization/Vulpkanin/tail_markings.rsi
