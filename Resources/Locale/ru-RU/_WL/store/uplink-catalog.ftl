@@ -9,3 +9,6 @@ uplink-red-holster-desc = Пистолетная кобура скрытого �
 
 uplink-thieving-gloves-name = Воровские перчатки
 uplink-thieving-gloves-desc = Позволяют быстро, а главное - незаметно обворовывать жертв. Подойдёт для клептоманов.
+
+uplink-remote-detonation-implanter-name = Имплантер "Взрывчатка"
+uplink-remote-detonation-implanter-desc = Вколите имплант другому человеку, чтобы получить возможность взорвать его с минибомбовым уроном.

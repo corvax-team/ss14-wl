@@ -1,0 +1,7 @@
+- type: entity
+  id: RemoteDetonationImplanter
+  name: explosive implant implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: RemoteDetonationImplant

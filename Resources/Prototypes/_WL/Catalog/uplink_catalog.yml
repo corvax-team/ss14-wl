@@ -145,7 +145,7 @@
   categories:
   - UplinkWearables
 
-# Hammer 
+# Hammer
 - type: listing
   id: UplinkMeleeHammer
   name: uplink-hammer-name
@@ -155,3 +155,15 @@
     Telecrystal: 1
   categories:
   - UplinkWeaponry
+
+  # Remote Detonator
+- type: listing
+  id: UplinkRemoteDetonationImplanter
+  name: uplink-remote-detonation-implanter-name
+  description: uplink-remote-detonation-implanter-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: RemoteDetonationImplanter
+  cost:
+    Telecrystal: 12
+  categories:
+    - UplinkImplants
