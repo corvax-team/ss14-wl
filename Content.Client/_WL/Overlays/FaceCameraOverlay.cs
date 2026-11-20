@@ -50,13 +50,16 @@ public sealed partial class FaceCameraOverlay : Overlay
 
         const float scale = 1f;
         var scaleMatrix = Matrix3Helpers.CreateScale(new Vector2(scale, scale));
-        var rotationMatrix = Matrix3Helpers.CreateRotation(-(args.Viewport.Eye?.Rotation ?? Angle.Zero));
+        var eyeRotation = args.Viewport.Eye.Rotation;
 
         var handle = args.WorldHandle;
 
         var query = _entManager.EntityQueryEnumerator<HumanoidProfileComponent>();
         while (query.MoveNext(out var ent, out _))
         {
+            if (!_entManager.TryGetComponent<SpriteComponent>(ent, out var sprite))
+                continue;
+
             Vector2 deltaDir = (_transform.GetWorldRotation(ent) - _transform.GetWorldRotation(uid).Opposite()).ToVec();
             if (MathF.Abs((float)deltaDir.ToAngle().Degrees) > 45f)
                 continue;
@@ -64,6 +67,7 @@ public sealed partial class FaceCameraOverlay : Overlay
             Vector2 worldPos = _transform.GetWorldPosition(ent);
 
             var worldMatrix = Matrix3Helpers.CreateTranslation(worldPos);
+            var rotationMatrix = Matrix3Helpers.CreateRotation(sprite.Rotation - eyeRotation);
 
             var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
             var matty = Matrix3x2.Multiply(rotationMatrix, scaledWorld);

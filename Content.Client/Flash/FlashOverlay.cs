@@ -8,6 +8,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using System.Numerics; // WL-changes
 
 namespace Content.Client.Flash;
 
@@ -20,6 +21,7 @@ public sealed partial class FlashOverlay : Overlay
     [Dependency] private IPlayerManager _playerManager = default!;
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IConfigurationManager _configManager = default!;
+    [Dependency] private IClyde _clyde = default!; // WL-changes
 
     private readonly StatusEffectsSystem _statusSys;
 
@@ -27,7 +29,7 @@ public sealed partial class FlashOverlay : Overlay
     private readonly ShaderInstance _shader;
     private bool _reducedMotion;
     public float PercentComplete;
-    public Texture? ScreenshotTexture;
+    private IRenderTexture? _screenshot; // WL-changes
 
     public FlashOverlay()
     {
@@ -75,10 +77,16 @@ public sealed partial class FlashOverlay : Overlay
     {
         if (RequestScreenTexture && ScreenTexture != null)
         {
-            ScreenshotTexture = ScreenTexture;
+            // WL-changes-Start
+            ClearScreenshot();
+            _screenshot = _clyde.CreateRenderTarget(ScreenTexture.Size,
+                new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb), name: "flash-screenshot");
+            var screen = args.RenderHandle.DrawingHandleScreen;
+            screen.RenderInRenderTarget(_screenshot, () => screen.DrawTexture(ScreenTexture, Vector2.Zero), Color.Transparent);
+            // WL-changes-End
             RequestScreenTexture = false; // we only need the first frame, so we can stop the request now for performance reasons
         }
-        if (ScreenshotTexture == null)
+        if (_screenshot == null) // WL-changes
             return;
 
         var worldHandle = args.WorldHandle;
@@ -95,13 +103,21 @@ public sealed partial class FlashOverlay : Overlay
         {
             _shader.SetParameter("percentComplete", PercentComplete);
             worldHandle.UseShader(_shader);
-            worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds);
+            worldHandle.DrawTextureRectRegion(_screenshot.Texture, args.WorldBounds); // WL-changes
         }
     }
 
     protected override void DisposeBehavior()
     {
         base.DisposeBehavior();
-        ScreenshotTexture = null;
+        ClearScreenshot(); // WL-changes
     }
+
+    // WL-changes-Start
+    public void ClearScreenshot()
+    {
+        _screenshot?.Dispose();
+        _screenshot = null;
+    }
+    // WL-changes-End
 }

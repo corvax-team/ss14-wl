@@ -34,6 +34,7 @@
   - PrintedDocumentPermissionEquipmentRecipe
   - PrintedDocumentPermissionToTravelInCaseOfThreatRecipe
   - PrintedDocumentSearchPermissionRecipe
+  - PrintedDocumentSettingOfGoalRecipe # WL-Change
   - PrintedDocumentPermissionToCarryWeaponsRecipe
   - PrintedDocumentPrescriptionDrugAuthorizationRecipe
   - PrintedDocumentPermissionDisposeBodyRecipe

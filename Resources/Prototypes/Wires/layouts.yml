@@ -198,6 +198,7 @@
   - !type:PowerWireAction
   - !type:AiInteractWireAction
   - !type:AiVisionWireAction
+  - !type:AccessWireAction # WL-changes
 
 - type: wireLayout
   id: BarSign

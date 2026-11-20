@@ -144,3 +144,14 @@
     Telecrystal: 1
   categories:
   - UplinkWearables
+
+# Hammer 
+- type: listing
+  id: UplinkMeleeHammer
+  name: uplink-hammer-name
+  description: uplink-hammer-desc
+  productEntity: WeaponMeleeHammer
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkWeaponry

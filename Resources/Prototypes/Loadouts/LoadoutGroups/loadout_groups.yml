@@ -2686,6 +2686,7 @@
   name: loadout-group-station-engineer-shoes
   loadouts:
   - WorkBoots
+  - WorkBootsToeless # WL-Changes
   - EngineeringWinterBoots
 
 - type: loadoutGroup
@@ -3503,6 +3504,7 @@
   loadouts:
   - JackSecBoots # Corvax
   - JackBoots
+  - JackBootsToeless # WL-Changes
   - SecurityWinterBoots
 
 - type: loadoutGroup

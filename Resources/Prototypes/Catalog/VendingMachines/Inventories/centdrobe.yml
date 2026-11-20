@@ -3,6 +3,7 @@
   startingInventory:
     ClothingShoesBootsLaceup: 3
     ClothingShoesBootsJack: 3
+    ClothingShoesBootsJackToeless: 3 # WL-Changes
     ClothingHandsGlovesCombat: 3
     ClothingEyesGlassesSunglasses: 3
     ClothingUniformJumpsuitCentcomOfficer: 3

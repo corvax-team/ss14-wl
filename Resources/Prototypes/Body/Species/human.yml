@@ -6,11 +6,11 @@
       limit: 2 # WL-change
       required: false
     enum.HumanoidVisualLayers.Hair:
-      limit: 1
+      limit: 2 # WL-changes
       required: false
       weight: 1
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 1
+      limit: 2 # WL-changes
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2

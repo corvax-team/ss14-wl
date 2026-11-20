@@ -172,9 +172,9 @@
   productEntity: BriefcaseWeaponHushpupFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 8
+    Telecrystal: 5 # WL: 8 > 5
   cost:
-    Telecrystal: 10
+    Telecrystal: 7 # WL: 10 > 7
   categories:
   - UplinkWeaponry
 

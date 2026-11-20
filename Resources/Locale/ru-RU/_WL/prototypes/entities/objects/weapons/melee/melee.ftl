@@ -4,3 +4,6 @@ ent-EnergyKnifeBlueShield = энергетический нож офицера "
 ent-WeaponMeleeBreachingHammer = Кувалда DT-4
     .desc = Большая... Чёрная... Кувалда DT-4. Создана специально для выбивания дверей, стен и окон. А ещё может ломать кости.
     .suffix = Security, _WL
+
+ent-WeaponMeleeHammer = молоток
+    .desc = Прекрасный способ быстро донести собеседнику свою точку зрения.
