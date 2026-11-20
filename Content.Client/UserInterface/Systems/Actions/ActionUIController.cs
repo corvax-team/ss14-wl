@@ -52,6 +52,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     private ActionButtonContainer? _container;
     private readonly List<EntityUid?> _actions = new();
+    private bool _pendingDefaultActions; // WL-changes
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
@@ -711,6 +712,7 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     private void AssignSlots(List<SlotAssignment> assignments)
     {
+        _pendingDefaultActions = false; // WL-changes
         if (_actionsSystem == null)
             return;
 
@@ -746,6 +748,16 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
 
     public override void FrameUpdate(FrameEventArgs args)
     {
+        // WL-changes-start
+        if (_pendingDefaultActions)
+        {
+            _pendingDefaultActions = false;
+            LoadDefaultActions();
+            if (_actionsSystem != null)
+                _container?.SetActionData(_actionsSystem, _actions.ToArray());
+            QueueWindowUpdate();
+        }
+        // WL-changes-end
         var wasDragging = IsDragging;
         _menuDragHelper.Update(args.DeltaSeconds);
 
@@ -760,13 +772,12 @@ public sealed partial class ActionUIController : UIController, IOnStateChanged<G
         if (_actionsSystem == null)
             return;
 
-        LoadDefaultActions();
-        _container?.SetActionData(_actionsSystem, _actions.ToArray());
-        QueueWindowUpdate();
+        _pendingDefaultActions = true; // WL-changes
     }
 
     private void OnComponentUnlinked()
     {
+        _pendingDefaultActions = false; // WL-changes
         _container?.ClearActionData();
         QueueWindowUpdate();
         StopTargeting();
