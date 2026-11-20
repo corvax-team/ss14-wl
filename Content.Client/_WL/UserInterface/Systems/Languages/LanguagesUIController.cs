@@ -128,14 +128,20 @@ public sealed partial class LanguagesUIController : UIController, IOnStateEntere
 
     private void UpdateLanguages()
     {
-        if (_window is null)
+        if (_window is not { IsOpen: true })
             return;
 
         if (_player.LocalEntity is not { } ent)
             return;
 
-        if (!_ent.TryGetComponent<LanguagesComponent>(ent, out var comp)
-                || comp.Languages.Count == 0)
+        if (!_ent.TryGetComponent<LanguagesComponent>(ent, out var comp))
+        {
+            ClearLanguages(ent);
+            return;
+        }
+
+        var knownLanguages = _languages.GetKnownLanguages(ent);
+        if (knownLanguages.Count == 0)
         {
             ClearLanguages(ent);
             return;
@@ -161,7 +167,7 @@ public sealed partial class LanguagesUIController : UIController, IOnStateEntere
         languageLabel.SetMessage(languageText);
         languageControl.AddChild(languageLabel);
 
-        foreach (var (protoId, level) in comp.Languages)
+        foreach (var (protoId, level) in knownLanguages)
         {
             if (level <= 0)
                 continue;

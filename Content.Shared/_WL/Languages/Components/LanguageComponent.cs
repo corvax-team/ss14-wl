@@ -5,7 +5,7 @@ using Content.Shared._WL.Languages.Components;
 
 namespace Content.Shared._WL.Languages.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true)]
 public sealed partial class LanguagesComponent : Component
 {
     [DataField, AutoNetworkedField]
