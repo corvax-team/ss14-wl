@@ -7,11 +7,14 @@ using Content.Shared.Interaction;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared._WL.CCVars; // WL-Changes
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Configuration; // WL-Changes
+using System.Numerics; // WL-Changes
 
 namespace Content.Shared.Paper;
 
@@ -26,12 +29,13 @@ public sealed partial class PaperSystem : EntitySystem
     [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private MetaDataSystem _metaSystem = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IConfigurationManager _configurationManager = default!; // WL-Changes
 
     [Dependency] private EntityQuery<PaperComponent> _paperQuery = default!;
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
-
+    private const float MaxStrokeRadius = 25f; // WL-Changes
 
     public override void Initialize()
     {
@@ -191,6 +195,19 @@ public sealed partial class PaperSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
+        // WL-Changes-Start
+        if (entity.Comp.Mode == PaperAction.Write)
+        {
+            var sanitized = SanitizeDrawings(args.Drawings);
+
+            if (IsAppendOnly(entity.Comp.Drawings, sanitized))
+            {
+                entity.Comp.Drawings = sanitized;
+                Dirty(entity);
+            }
+        }
+        // WL-Changes-End
+
         if (args.Text.Length <= entity.Comp.ContentSize)
         {
             SetContent(entity, args.Text);
@@ -213,6 +230,86 @@ public sealed partial class PaperSystem : EntitySystem
         entity.Comp.Mode = PaperAction.Read;
         UpdateUserInterface(entity);
     }
+
+    // WL-Changes-Start
+    public List<PaperStroke> SanitizeDrawings(List<PaperStroke> drawings)
+    {
+        var (maxStrokes, maxPoints) = GetDrawingLimits();
+        var result = new List<PaperStroke>();
+        var pointCount = 0;
+
+        foreach (var stroke in drawings)
+        {
+            if (result.Count >= maxStrokes || pointCount >= maxPoints)
+                break;
+
+            if (stroke.Points.Count == 0
+                || !float.IsFinite(stroke.Radius) || stroke.Radius is < 1f or > MaxStrokeRadius
+                || !float.IsFinite(stroke.Color.R) || stroke.Color.R is < 0f or > 1f
+                || !float.IsFinite(stroke.Color.G) || stroke.Color.G is < 0f or > 1f
+                || !float.IsFinite(stroke.Color.B) || stroke.Color.B is < 0f or > 1f
+                || !float.IsFinite(stroke.Color.A) || stroke.Color.A is < 0f or > 1f)
+                continue;
+
+            var room = maxPoints - pointCount;
+            var points = new List<Vector2>(Math.Min(stroke.Points.Count, room));
+
+            foreach (var point in stroke.Points)
+            {
+                if (points.Count >= room)
+                    break;
+
+                if (!float.IsFinite(point.X) || !float.IsFinite(point.Y))
+                    continue;
+
+                points.Add(Vector2.Clamp(point, Vector2.Zero, Vector2.One));
+            }
+
+            if (points.Count == 0)
+                continue;
+
+            pointCount += points.Count;
+
+            result.Add(new PaperStroke(points, stroke.Color, stroke.Radius, stroke.Eraser));
+        }
+
+        return result;
+    }
+
+    public (int MaxStrokes, int MaxPoints) GetDrawingLimits()
+    {
+        return (_configurationManager.GetCVar(WLCVars.PaperMaxStrokes), _configurationManager.GetCVar(WLCVars.PaperMaxPoints));
+    }
+
+    public void SetDrawings(Entity<PaperComponent> entity, List<PaperStroke>? drawings)
+    {
+        entity.Comp.Drawings = drawings == null
+            ? new List<PaperStroke>()
+            : SanitizeDrawings(drawings);
+
+        Dirty(entity);
+    }
+
+    private static bool IsAppendOnly(List<PaperStroke> old, List<PaperStroke> updated)
+    {
+        if (updated.Count < old.Count)
+            return false;
+
+        for (var i = 0; i < old.Count; i++)
+        {
+            var a = old[i];
+            var b = updated[i];
+
+            if (a.Eraser != b.Eraser
+                || a.Color != b.Color
+                || a.Radius != b.Radius
+                || !a.Points.SequenceEqual(b.Points))
+                return false;
+        }
+
+        return true;
+    }
+    // WL-Changes-End
 
     private void OnRandomPaperContentMapInit(Entity<RandomPaperContentComponent> ent, ref MapInitEvent args)
     {
@@ -307,7 +404,7 @@ public sealed partial class PaperSystem : EntitySystem
 
     private void UpdateUserInterface(Entity<PaperComponent> entity)
     {
-        _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+        _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode, entity.Comp.Drawings)); // WL-Changes
     }
 }
 

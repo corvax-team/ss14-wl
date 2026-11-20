@@ -41,6 +41,10 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.InspectServerComponent);
             common.AddFunction(ContentKeyFunctions.InspectClientComponent);
             common.AddFunction(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
+            // WL-Changes-Start
+            common.AddFunction(ContentKeyFunctions.PaperDrawingUndo);
+            common.AddFunction(ContentKeyFunctions.PaperDrawingRedo);
+            // WL-Changes-End
 
             // Not in engine, because engine cannot check for sanbox/admin status before starting placement.
             common.AddFunction(ContentKeyFunctions.EditorCopyObject);
