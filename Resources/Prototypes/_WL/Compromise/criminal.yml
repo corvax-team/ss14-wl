@@ -1,0 +1,47 @@
+- type: compromise
+  id: Clear
+  name: compromise-criminal-clear-name
+  description: compromise-criminal-clear-desc
+  category: Criminal
+  color: White
+  order: 0
+
+- type: compromise
+  id: LittleTrouble
+  name: compromise-criminal-little-trouble-name
+  description: compromise-criminal-little-trouble-desc
+  category: Criminal
+  color: White
+  order: 1
+
+- type: compromise
+  id: MediumTrouble
+  name: compromise-criminal-medium-trouble-name
+  description: compromise-criminal-medium-trouble-desc
+  category: Criminal
+  color: White
+  order: 2
+
+- type: compromise
+  id: HardTrouble
+  name: compromise-criminal-hard-trouble-name
+  description: compromise-criminal-hard-trouble-desc
+  category: Criminal
+  color: White
+  order: 3
+
+- type: compromise
+  id: Hangman
+  name: compromise-criminal-hangman-name
+  description: compromise-criminal-hangman-desc
+  category: Criminal
+  color: White
+  order: 4
+
+- type: compromise
+  id: Boss
+  name: compromise-criminal-boss-name
+  description: compromise-criminal-boss-desc
+  category: Criminal
+  color: White
+  order: 5

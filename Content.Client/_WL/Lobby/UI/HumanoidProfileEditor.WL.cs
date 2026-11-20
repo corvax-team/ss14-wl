@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client._WL.Languages.UI; // WL-Languages
+using Content.Shared._WL.Compromise; // WL-Skills
 using Content.Shared._WL.Records; // WL-Records
 using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared.Roles;
@@ -30,10 +31,12 @@ public sealed partial class HumanoidProfileEditor
 
     private TextEdit _oocTextEdit = null!; // WL-OOCText
 
+    private TextEdit _compromiseTextEdit = null!; // WL-OOCText
+
     private List<ConfederationRecordsPrototype> _confederations = new(); // WL-Records
-  
+
     private List<BrainSourcePrototype> _brainSources = new(); // WL-Records
-  
+
     private LanguagesTab? _languagesTab; // WL-Languages
 
     public void RefreshSkills()
@@ -358,6 +361,22 @@ public sealed partial class HumanoidProfileEditor
         }
     }
 
+    private void UpdateCompromiseTextEdit()
+    {
+        if (_compromiseTextEdit is not null)
+        {
+            _compromiseTextEdit.TextRope = new Rope.Leaf(Profile?.CompromiseText ?? "");
+        }
+    }
+
+    private void UpdateCompromiseData()
+    {
+        if (_flavorText is not null)
+        {
+            _flavorText.UpdateCompromiseButtons(Profile?.CompromiseData);
+        }
+    }
+
     private void UpdateJobSubnameControls()
     {
         if (Profile == null)
@@ -437,6 +456,33 @@ public sealed partial class HumanoidProfileEditor
             return;
 
         Profile = Profile.WithOocText(content);
+        SetDirty();
+    }
+
+    private void OnCompromiseTextChange(string content)
+    {
+        if (Profile is null)
+            return;
+
+        Profile = Profile.WithCompromiseText(content);
+        SetDirty();
+    }
+
+    private void OnCompromiseDataChange(string category, string compromise)
+    {
+        if (Profile is null)
+            return;
+
+        if (!_prototypeManager.HasIndex<CompromiseCategoryPrototype>(category) ||
+                !_prototypeManager.HasIndex<CompromisePrototype>(compromise))
+            return;
+
+        var compromises = Profile.CompromiseData;
+
+        if (!compromises.TryAdd(category, compromise))
+            compromises[category] = compromise;
+
+        Profile = Profile.WithCompromiseData(compromises);
         SetDirty();
     }
 

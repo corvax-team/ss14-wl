@@ -1,12 +1,13 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._WL.Barks; // WL-Changes
+using Content.Shared._WL.Compromise; // WL-Changes
 using Content.Shared._WL.Skills; // WL-Skills
 using Content.Shared._WL.Languages; // WL-Languages
 using Content.Shared._WL.Records; // WL-Changes-Records
 using Content.Shared.CCVar;
 using Content.Shared.Corvax.TTS;
-using Content.Shared._WL.Barks; // WL-Changes
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.EntityEffects.Effects;
 using Content.Shared.GameTicking;
@@ -207,7 +208,9 @@ namespace Content.Shared.Preferences
             string brainSource, // WL-Records
             string country, // WL-Records
 
-            Dictionary<string, Dictionary<byte, int>> skills // WL-Skills
+            Dictionary<string, Dictionary<byte, int>> skills, // WL-Skills
+            string compromiseText,
+            Dictionary<ProtoId<CompromiseCategoryPrototype>, ProtoId<CompromisePrototype>> compromiseData
             //WL-Changes-end
             )
         {
@@ -244,6 +247,9 @@ namespace Content.Shared.Preferences
             BrainSource = brainSource; // WL-Records
             Country = country;
             Skills = skills; // WL-Skills
+
+            CompromiseText = compromiseText;
+            CompromiseData = compromiseData;
             //WL-Changes-end
 
             var hasHighPrority = false;
@@ -292,7 +298,9 @@ namespace Content.Shared.Preferences
                 other.Confederation, // WL-Records
                 other.BrainSource, // WL-Records
                 other.Country, // WL-Records
-                other.Skills) // WL-Skills
+                other.Skills, // WL-Skills
+                other.CompromiseText,
+                new Dictionary<ProtoId<CompromiseCategoryPrototype>, ProtoId<CompromisePrototype>>(other.CompromiseData)) // WL-Changes
         {
             // WL-Changes-Start: Speech barks
             BarkVoice = other.BarkVoice;
@@ -600,6 +608,13 @@ namespace Content.Shared.Preferences
         public IReadOnlyDictionary<string, bool> JobUnblockings => _jobUnblockings;
 
         [DataField] public Dictionary<string, Dictionary<byte, int>> Skills { get; set; } = new(); // WL-Skills
+
+        [DataField]
+        public string CompromiseText { get; private set; } = "";
+
+
+        [DataField]
+        public Dictionary<ProtoId<CompromiseCategoryPrototype>, ProtoId<CompromisePrototype>> CompromiseData { get; private set; } = new();
         //WL-Changes-end
 
         public HumanoidCharacterProfile WithName(string name)
@@ -612,12 +627,22 @@ namespace Content.Shared.Preferences
             return new(this) { FlavorText = flavorText };
         }
 
-        // WL-OOCText-Start
+        // WL-Changes: Start
         public HumanoidCharacterProfile WithOocText(string oocText)
         {
             return new(this) { OocText = oocText };
         }
-        // WL-OOCText-End
+
+        public HumanoidCharacterProfile WithCompromiseText(string compromiseText)
+        {
+            return new(this) { CompromiseText = compromiseText };
+        }
+
+        public HumanoidCharacterProfile WithCompromiseData(Dictionary<ProtoId<CompromiseCategoryPrototype>, ProtoId<CompromisePrototype>> compromiseData)
+        {
+            return new(this) { CompromiseData = compromiseData };
+        }
+        // WL-Changes: End
 
         // WL-Records-Start
         public HumanoidCharacterProfile WithMedicalRecord(string record)
@@ -987,6 +1012,9 @@ namespace Content.Shared.Preferences
             if (!_jobSubnames.SequenceEqual(other._jobSubnames)) return false;
             if (!_jobUnblockings.SequenceEqual(other._jobUnblockings)) return false;
             if (Skills.Count != other.Skills.Count) return false;
+            if (CompromiseText != other.CompromiseText) return false;
+            if (!CompromiseData.SequenceEqual(other.CompromiseData)) return false;
+
             foreach (var kv in Skills)
             {
                 if (!other.Skills.TryGetValue(kv.Key, out var otherJobSkills))
@@ -1121,6 +1149,18 @@ namespace Content.Shared.Preferences
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
             var oocText = OocText.Length > MaxDescLength ? FormattedMessage.RemoveMarkup(OocText)[..MaxDescLength] : FormattedMessage.RemoveMarkup(OocText); // WL-OOCText
+            var compromiseText = CompromiseText.Length > MaxDescLength ? FormattedMessage.RemoveMarkup(CompromiseText)[..MaxDescLength] : FormattedMessage.RemoveMarkup(CompromiseText); // WL-Changes
+
+            var compromiseData = new Dictionary<ProtoId<CompromiseCategoryPrototype>, ProtoId<CompromisePrototype>>();
+            foreach (var (key, value) in CompromiseData)
+            {
+                if (!prototypeManager.HasIndex<CompromiseCategoryPrototype>(key) ||
+                        !prototypeManager.TryIndex<CompromisePrototype>(value, out var compromise))
+                    continue;
+
+                if (compromise.Category == key)
+                    compromiseData.TryAdd(key, value);
+            }
 
             // WL-Changes-Records-Start
             // Structured storage sanitizes each user-facing field separately and migrates legacy text to notes.
@@ -1264,6 +1304,8 @@ namespace Content.Shared.Preferences
             Appearance = appearance;
             SpawnPriority = spawnPriority;
             Skills = validSkills; // WL-Skills
+            CompromiseText = compromiseText; // WL-Changes
+            CompromiseData = compromiseData; // WL-Changes
 
             _jobPriorities.Clear();
 
@@ -1451,6 +1493,8 @@ namespace Content.Shared.Preferences
             hashCode.Add(Confederation);
             hashCode.Add(BrainSource);
             hashCode.Add(Country);
+            hashCode.Add(CompromiseText);
+            hashCode.Add(CompromiseData);
             unchecked
             {
                 var skillsHash = 0;

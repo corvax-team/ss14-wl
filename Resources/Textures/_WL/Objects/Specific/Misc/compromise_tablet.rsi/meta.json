@@ -1,0 +1,23 @@
+{
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://scrubby.melonmesa.com/dmi/icons/obj/modular_tablet.dmi?codebase=shiptest",
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "screen",
+            "delays": [
+                [
+                    0.4,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "base"
+        }
+    ]
+}

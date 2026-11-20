@@ -1137,6 +1137,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("CompromiseText")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("compromise_text");
+
                     b.Property<string>("Confederation")
                         .IsRequired()
                         .HasColumnType("TEXT")
@@ -1274,6 +1279,36 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsUnique();
 
                     b.ToTable("profile", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileCompromiseData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_compromise_data_id");
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("category");
+
+                    b.Property<string>("Compromise")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("compromise");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_profile_compromise_data");
+
+                    b.HasIndex("ProfileId", "Category")
+                        .IsUnique();
+
+                    b.ToTable("profile_compromise_data", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.ProfileJobSkills", b =>
@@ -2098,6 +2133,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Preference");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ProfileCompromiseData", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("CompromiseData")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_profile_compromise_data_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.ProfileJobSkills", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2320,6 +2367,8 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
                     b.Navigation("Antags");
+
+                    b.Navigation("CompromiseData");
 
                     b.Navigation("JobSkills");
 

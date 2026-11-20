@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Content.Server.Afk;
 using Content.Corvax.Interfaces.Shared;
 using Content.Server.Database;
+using Content.Shared._WL.Compromise;
 using Content.Shared.Body;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.CCVar;
@@ -107,6 +108,15 @@ namespace Content.Server.Preferences.Managers
             var jobSubnames = profile.JobSubnames.ToDictionary(x => x.JobName, x => x.Subname);
             var jobUnblockings = profile.JobUnblockings.ToDictionary(k => k.JobName, v => v.ForceUnblocked);
             var jobSkills = profile.JobSkills.ToDictionary(js => js.JobName, js => js.Skills);
+
+            var compromiseData = new Dictionary<ProtoId<CompromiseCategoryPrototype>, ProtoId<CompromisePrototype>>();
+
+            foreach (var data in profile.CompromiseData)
+            {
+                if (_prototypeManager.HasIndex<CompromiseCategoryPrototype>(data.Category) &&
+                        _prototypeManager.HasIndex<CompromisePrototype>(data.Compromise))
+                    compromiseData.TryAdd(data.Category, data.Compromise);
+            }
             //WL-Changes-end
 
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
@@ -233,7 +243,9 @@ namespace Content.Server.Preferences.Managers
                 profile.Confederation, // WL-Records
                 profile.BrainSource ?? "", // WL-Records
                 profile.Country, // WL-Records
-                jobSkills // WL-Skills
+                jobSkills, // WL-Skills
+                profile.CompromiseText, // WL-Changes
+                compromiseData // WL-Changes
             )
             {
                 // WL-Changes-Start: Speech barks

@@ -122,7 +122,6 @@
   - UplinkWearables
 
 # Wallet
-
 - type: listing
   id: UplinkSyndicateWallet
   name: uplink-syndicate-wallet-name
@@ -134,7 +133,6 @@
   - UplinkPointless
 
 # Holster
-
 - type: listing
   id: UplinkRedHolster
   name: uplink-red-holster-name
@@ -145,7 +143,7 @@
   categories:
   - UplinkWearables
 
-# Hammer 
+# Hammer
 - type: listing
   id: UplinkMeleeHammer
   name: uplink-hammer-name
@@ -155,3 +153,16 @@
     Telecrystal: 1
   categories:
   - UplinkWeaponry
+
+# Passport
+- type: listing
+  id: UplinkCompromiseTablet
+  name: uplink-compromise-tablet-name
+  description: uplink-compromise-tablet-desc
+  productEntity: CompromiseTablet
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkDeception

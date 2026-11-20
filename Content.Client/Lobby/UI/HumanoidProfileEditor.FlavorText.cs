@@ -27,9 +27,14 @@ public sealed partial class HumanoidProfileEditor
 
             _flavorText.OnFlavorTextChanged += OnFlavorTextChange;
 
-            _oocTextEdit = _flavorText.COocTextInput; // WL-OOCText
+            // WL-Changes: Start
+            _oocTextEdit = _flavorText.COocTextInput;
+            _compromiseTextEdit = _flavorText.CCompromiseEdit;
 
-            _flavorText.OnOocTextChanged += OnOocTextChange; // WL-OOCText
+            _flavorText.OnOocTextChanged += OnOocTextChange;
+            _flavorText.OnCompromiseTextChanged += OnCompromiseTextChange;
+            _flavorText.OnCompromiseSelected += OnCompromiseDataChange;
+            // WL-Changes: End
         }
         else
         {
