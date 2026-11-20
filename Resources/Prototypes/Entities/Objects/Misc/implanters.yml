@@ -39,6 +39,7 @@
     - EmpImplant
     - ScramImplant
     - DnaScramblerImplant
+    - ImitatorImplant # WL-changes
     - MicroBombImplant
     - MacroBombImplant
     - DeathAcidifierImplant
