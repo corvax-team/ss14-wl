@@ -167,7 +167,7 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer_icon_48x.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer.rsi # WL-change
   - type: Item
     sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: BallisticAmmoProvider
