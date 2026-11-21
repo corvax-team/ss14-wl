@@ -209,7 +209,7 @@
     - 0,0,1,0
     - 0,1,0,1
     storedOffset: 0,-5
-    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi # WL-change
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi # WL-change
   - type: Clothing
