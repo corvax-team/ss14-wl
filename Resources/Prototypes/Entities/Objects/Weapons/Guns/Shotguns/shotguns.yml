@@ -301,7 +301,7 @@
   description: Deadly at close range.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/blunderbuss.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/blunderbuss.rsi # WL-change
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2
