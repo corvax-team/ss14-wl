@@ -13,7 +13,7 @@
   - type: Item
     size: Large
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi # WL-change
     quickEquip: false
     slots:
     - Back
