@@ -137,7 +137,7 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
-  - type: Clothing
+  - type: Clothing # WL-changes-start
     sprite: _WL/Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Item
     sprite: _WL/Objects/Weapons/Guns/Rifles/lecter.rsi # WL-changes-end
