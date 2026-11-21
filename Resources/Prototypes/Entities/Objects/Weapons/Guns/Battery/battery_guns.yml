@@ -1001,7 +1001,7 @@
     zeroVisible: true
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_magnum.rsi # WL-change
   - type: StealTarget
     stealGroup:
     - WeaponEnergyMagnum
