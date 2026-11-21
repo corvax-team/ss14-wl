@@ -353,7 +353,7 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Shotguns/hushpup.rsi
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/hushpup.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/hushpup.rsi # WL-change
   - type: Item
     sprite: _WL/Objects/Weapons/Guns/Shotguns/hushpup.rsi
     shape:
