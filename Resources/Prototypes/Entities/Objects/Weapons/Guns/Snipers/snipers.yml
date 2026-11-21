@@ -13,7 +13,7 @@
   - type: Item
     size: Large
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi # WL-change
     quickEquip: false
     slots:
     - Back
@@ -60,16 +60,16 @@
   description: A true relic, the Kardashev-Mosin has served in nearly every armed conflict since its creation 670 years ago. The bolt-action design of the rifle remains virtually identical to its original design, whether used for hunting, sniping, or endless trench warfare. Loads 10 rounds of .30 rifle.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood_icon_48x.rsi # WL-change
     layers:
-      - state: base
+      - state: base # WL-changes-start
       - state: base1
         map: [ "enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: Item
     sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi # WL-changes-end
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
@@ -115,16 +115,16 @@
     size: Huge
     shape:
     - 0,0,5,1
-    sprite:  _WL/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    sprite:  _WL/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi # WL-change
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Snipers/heavy_sniper_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/heavy_sniper_48x.rsi # WL-changes-start
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
+        map: ["enum.GunVisualLayers.Mag"] # WL-changes-end
   - type: Clothing
-    sprite:  _WL/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    sprite:  _WL/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi # WL-change
   - type: GunRequiresWield
   - type: Gun
     fireRate: 0.5
@@ -163,11 +163,11 @@
     - Slicing
   - type: Item
     size: Large
-    sprite: _WL/Objects/Weapons/Guns/Snipers/musket.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/musket.rsi # WL-change
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Snipers/musket_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/musket_icon_48x.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Snipers/musket.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/musket.rsi # WL-change
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -209,11 +209,11 @@
     - 0,0,1,0
     - 0,1,0,1
     storedOffset: 0,-5
-    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi # WL-change
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Pistols/N1984.rsi # TODO
+    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi # WL-change
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 8 #it's a flintlock

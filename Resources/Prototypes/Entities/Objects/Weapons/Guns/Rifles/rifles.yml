@@ -11,9 +11,9 @@
     size: Huge
     shape:
     - 0,0,3,2
-    sprite: _WL/Objects/Weapons/Guns/Rifles/ak.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/ak.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Rifles/ak.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/ak.rsi # WL-change
     quickEquip: false
     slots:
     - Back
@@ -79,7 +79,7 @@
   description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Rifles/ak_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/ak_icon_48x.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -131,16 +131,16 @@
   description: "Popular gas-operated combat rifle used heavily by Nanotrasen and SolGov. Operating in semi or fully automatic, its accuracy, stopping power, and reliability make it excel in all manner of environments.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Rifles/lecter_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/lecter_icon_48x.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
-  - type: Clothing
+  - type: Clothing # WL-changes-start
     sprite: _WL/Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Item
-    sprite: _WL/Objects/Weapons/Guns/Rifles/lecter.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/lecter.rsi # WL-changes-end
   - type: GunWieldBonus
     minAngle: -20
     maxAngle: -18
@@ -187,11 +187,11 @@
     Uses .20 rifle ammo.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8_icon_48x.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi # WL-change
   - type: Item
-    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi # WL-change
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 2
@@ -213,7 +213,7 @@
   description: "A designated marksman rifle firing in 3-round bursts. The Estoc was designed as the Lecter’s long-range counterpart, equipped with an extended 20-inch barrel and telescopic sight.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc_icon_48x.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -222,9 +222,9 @@
   - type: Item
     shape:
     - 0,0,4,2
-    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc.rsi # WL-change
   - type: Gun
     minAngle: 21
     maxAngle: 32 

@@ -133,7 +133,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi # WL-change
     quickEquip: false
     slots:
     - Belt
@@ -157,7 +157,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi # WL-change
     quickEquip: false
     slots:
     - Belt
@@ -367,7 +367,7 @@
   suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -382,7 +382,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi # WL-change
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -410,7 +410,7 @@
   - type: Item
     size: Large
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -423,7 +423,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi # WL-change
   - type: Gun
     selectedMode: FullAuto
     fireRate: 3
@@ -450,7 +450,7 @@
     shape:
     - 0,0,4,1
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -463,7 +463,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi # WL-change
   - type: Gun
     fireRate: 1.5
     soundGunshot:
@@ -584,7 +584,7 @@
   suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/practice_disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/practice_disabler.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -594,7 +594,7 @@
   - type: Item
     storedOffset: -1,-5
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/practice_disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/practice_disabler.rsi # WL-change
     quickEquip: false
     slots:
     - Belt
@@ -634,7 +634,7 @@
   suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -642,7 +642,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi # WL-change
     quickEquip: false
     slots:
       - suitStorage
@@ -670,7 +670,7 @@
     tags:
       - Taser
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/disabler_smg.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler_smg.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -711,7 +711,7 @@
     - Taser
     - Sidearm
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -943,7 +943,7 @@
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/energy_shotgun_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_shotgun_icon_48x.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -956,7 +956,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_shotgun.rsi # WL-change
   - type: Gun
     fireRate: 2
     soundGunshot:
@@ -973,7 +973,7 @@
       pacifismAllowedMode: true
   - type: Item
     size: Large
-    sprite: _WL/Objects/Weapons/Guns/Battery/inhands_64x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/inhands_64x.rsi # WL-change
     heldPrefix: energy
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
@@ -987,7 +987,7 @@
   description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_magnum.rsi # WL-change
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
@@ -1001,7 +1001,7 @@
     zeroVisible: true
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_magnum.rsi # WL-change
   - type: StealTarget
     stealGroup:
     - WeaponEnergyMagnum

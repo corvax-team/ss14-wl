@@ -6,7 +6,7 @@
   suffix: Дробовик, Пистолет # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -15,7 +15,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi # WL-change
   - type: ItemSlots
     slots:
       gun_chamber:
@@ -37,7 +37,7 @@
     soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
     soundRack: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi # WL-change
     quickEquip: false
     slots:
     - Belt
@@ -79,19 +79,19 @@
   suffix: Дробовик, Пистолет # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
   - type: Item
     size: Small
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi # WL-changes-start
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
     quickEquip: false
     slots:
     - Belt
-    - suitStorage
+    - suitStorage # WL-changes-end
   - type: ItemSlots
     slots:
       gun_chamber:

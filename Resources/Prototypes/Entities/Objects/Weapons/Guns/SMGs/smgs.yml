@@ -12,7 +12,7 @@
     shape:
     - 0,0,2,1
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/SMGs/atreides.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/atreides.rsi # WL-change
     quickEquip: false
     slots:
     - Back
@@ -83,10 +83,9 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponSubMachineGun, BaseMajorContraband] # Corvax-Contraband
   id: WeaponSubMachineGunAtreides
   description: A rare machine pistol hailing from the Corporate Wars. Its extremely high fire rate and compact profile make it useful in close quarters combat. Despite its age, it is in remarkably good condition. Feeds from .35 SMG magazines.
-  suffix: Карабин # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/SMGs/atreides.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/atreides.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -107,17 +106,16 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponSubMachineGun, BaseSyndicateContraband] # Corvax-Contraband
   id: WeaponSubMachineGunC20r
   description: A classic and widespread submachine gun, infamous for its use by the Gorlex Marauders. One of the first homegrown Waffle Corp. designs, it remains in service today. Feeds from .35 SMG magazines.
-  suffix: Карабин # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi # WL-change
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus
@@ -165,7 +163,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -193,17 +191,16 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponSubMachineGun, BaseSecurityContraband] # Corvax-Contraband
   id: WeaponSubMachineGunDrozd
   description: A modern SMG manufactured by Nanotrasen’s Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
-  suffix: Карабин # WL-change
   components:
     - type: Sprite
-      sprite: _WL/Objects/Weapons/Guns/SMGs/drozd.rsi
+      sprite: _WL/Objects/Weapons/Guns/SMGs/drozd.rsi # WL-change
       layers:
         - state: base
           map: ["enum.GunVisualLayers.Base"]
         - state: mag-0
           map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
-      sprite: _WL/Objects/Weapons/Guns/SMGs/drozd.rsi
+      sprite: _WL/Objects/Weapons/Guns/SMGs/drozd.rsi # WL-change
     - type: Wieldable
       unwieldOnUse: false
     - type: GunWieldBonus
@@ -254,10 +251,9 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponSubMachineGun, BaseSecurityContraband] # Corvax-Contraband
   id: WeaponSubMachineGunWt550
   description: A truly unique firearm, the WT550 was designed by Nanotrasen's Small Arms Division as a compact submachine gun fully controllable with one hand. It contains an exotic internal recoil buffer and feeds from special top-mounted .35 magazines.
-  suffix: Карабин # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/SMGs/wt550.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/wt550.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -270,7 +266,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/SMGs/wt550.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/wt550.rsi # WL-change
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
