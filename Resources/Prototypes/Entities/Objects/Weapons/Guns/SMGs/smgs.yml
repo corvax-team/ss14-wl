@@ -110,7 +110,7 @@
   suffix: Карабин # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
