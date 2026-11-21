@@ -135,7 +135,7 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # WL-change
   - type: Item
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # WL-change
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
