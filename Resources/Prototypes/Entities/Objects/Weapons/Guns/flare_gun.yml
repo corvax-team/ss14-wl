@@ -6,7 +6,7 @@
   suffix: Дробовик, Пистолет # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
