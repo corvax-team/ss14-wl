@@ -117,7 +117,7 @@
     - 0,0,5,1
     sprite:  _WL/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi # WL-change
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Snipers/heavy_sniper_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/heavy_sniper_48x.rsi # WL-changes-start
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
