@@ -213,7 +213,7 @@
   description: "A designated marksman rifle firing in 3-round bursts. The Estoc was designed as the Lecter’s long-range counterpart, equipped with an extended 20-inch barrel and telescopic sight.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc_icon_48x.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
