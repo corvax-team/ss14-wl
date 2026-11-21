@@ -117,7 +117,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/c20r.rsi # WL-change
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus
