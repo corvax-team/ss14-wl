@@ -244,9 +244,8 @@
   id: WeaponMakeshiftLaserNoCell
   categories: [ HideSpawnMenu ]
   name: makeshift laser pistol
-  suffix: No Cell
+  suffix: No Cell, Лазер, Пистолет # WL-change
   description: Better pray it won't burn your hands off.
-  suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
     layers:
@@ -678,6 +677,8 @@
       - state: mag-unshaded-0
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
+  - type: Clothing
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler_smg.rsi
   - type: Gun
     selectedMode: FullAuto
     fireRate: 4.5
