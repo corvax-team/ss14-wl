@@ -177,6 +177,28 @@
   - type: AccessReader
     access: [["Security"]]
 
+#WL security light hardsuit - start
+- type: entityTable
+  id: FillLightSuitStorageSecurity
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitSecurityLight
+    - id: ClothingShoesBootsMagSec # WL
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageSecLight
+  suffix: Light
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLightSuitStorageSecurity
+  - type: AccessReader
+    access: [["Security"]]
+#WL security light hardsuit - end
+
 - type: entityTable
   id: FillSuitStorageSecurity
   table: !type:AllSelector

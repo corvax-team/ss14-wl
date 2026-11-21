@@ -4,3 +4,7 @@ ent-LockerAdjutant = шкаф адъютанта
 ent-LockerAdjutantFilled = { ent-LockerAdjutant }
     .desc = { ent-LockerBaseSecure.desc }
     .suffix = Заполненный
+
+ent-SuitStorageSecLight = { ent-SuitStorageBase }
+    .desc = { ent-SuitStorageBase.desc }
+    .suffix = лёгкий скафандр СБ

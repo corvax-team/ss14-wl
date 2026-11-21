@@ -50,3 +50,40 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+
+#Security light hardsuit
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSecurity
+  id: ClothingHeadHelmetHardsuitSecurityLight
+  name: security light hardsuit helmet
+  description: Reinforced helmet with a large visor for better visibility.
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Head/Hardsuits/security_lighthelm.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _WL/Clothing/Head/Hardsuits/security_lighthelm.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: ItemTogglePointLight
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: Tag
+    tags:
+    - WhitelistChameleon

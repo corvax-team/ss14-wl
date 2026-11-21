@@ -128,7 +128,6 @@
     - id: WeaponDisabler
     - id: TrackingImplanter
       amount: 2
-    - id: ClothingOuterHardsuitBrigmedic
     - id: BoxSterileMask
     - id: ClothingHeadHatBeretBrigmedic
     - id: ClothingOuterCoatAMG
@@ -167,9 +166,14 @@
     - id: Defibrillator
     - id: MedkitAdvancedFilled
       # Corvax-Brigmedic-End
+    # WL-delete start
+    # - id: ClothingOuterHardsuitBrigmedic
+    # WL-delete end
     # WL-start:
     - id: ClothingBeltHolsterDSS
     - id: ClothingShoesBootsMagSec
+    - id: ClothingOuterHardsuitSecurityLight
+    - id: OxygenTankFilled
     # WL-end.
 
 - type: entity
@@ -207,7 +211,11 @@
     - id: BoxTapeRecorder # DeltaV
     - id: PlushieLizardJobDetective
       prob: 0.02
+    # WL-start:
     - id: ClothingBeltHolsterDSS #wl-holsters
+    - id: ClothingOuterHardsuitSecurityLight #wl-light-hardsuit
+    - id: OxygenTankFilled #wl-light-hardsuit
+    # WL-end.
 
 - type: entity
   id: ClosetBombFilled
