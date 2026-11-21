@@ -184,7 +184,7 @@
   suffix: Пистолет, Глушитель # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Pistols/cobra.rsi
+    sprite: _WL/Objects/Weapons/Guns/Pistols/cobra.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
