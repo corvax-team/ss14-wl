@@ -62,7 +62,7 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood_icon_48x.rsi # WL-change
     layers:
-      - state: base
+      - state: base # WL-changes-start
       - state: base1
         map: [ "enum.SolutionContainerLayers.Fill"]
         visible: false
