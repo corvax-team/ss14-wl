@@ -18,7 +18,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Revolvers/deckard.rsi
+    sprite: _WL/Objects/Weapons/Guns/Revolvers/deckard.rsi # WL-change
     quickEquip: false
     slots:
     - suitStorage
