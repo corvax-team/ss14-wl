@@ -211,7 +211,7 @@
     storedOffset: 0,-5
     sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi # WL-change
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi # WL-change
   - type: UseDelayOnShoot
