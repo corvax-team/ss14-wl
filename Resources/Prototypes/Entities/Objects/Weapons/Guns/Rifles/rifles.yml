@@ -191,7 +191,7 @@
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi
   - type: Item
-    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi # WL-change
   - type: CursorOffsetRequiresWield
   - type: EyeCursorOffset
     maxOffset: 2
