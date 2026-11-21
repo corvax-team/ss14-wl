@@ -410,7 +410,7 @@
   - type: Item
     size: Large
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
