@@ -93,7 +93,7 @@
     - state: mag-3
       map: ["enum.GunVisualLayers.Mag"]
   - type: Item
-    sprite: _WL/Objects/Weapons/Guns/LMGs/l6.rsi
+    sprite: _WL/Objects/Weapons/Guns/LMGs/l6.rsi # WL-change
   - type: MagazineVisuals
     magState: mag
     steps: 10 # WL-change
