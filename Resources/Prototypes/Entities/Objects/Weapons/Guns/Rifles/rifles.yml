@@ -140,7 +140,7 @@
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Item
-    sprite: _WL/Objects/Weapons/Guns/Rifles/lecter.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/lecter.rsi # WL-changes-end
   - type: GunWieldBonus
     minAngle: -20
     maxAngle: -18
