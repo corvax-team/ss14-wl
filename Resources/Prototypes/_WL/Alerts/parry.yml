@@ -1,0 +1,7 @@
+- type: alert
+  id: AttackProhibitionAlert
+  icons:
+  - sprite: /Textures/Interface/Alerts/pacified.rsi
+    state: icon
+  name: alerts-attack-prohibition
+  description: alerts-attack-prohibition-desc

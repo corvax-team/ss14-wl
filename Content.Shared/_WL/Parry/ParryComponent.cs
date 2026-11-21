@@ -1,10 +1,17 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.Parry;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ParryComponent : Component
 {
+    [DataField]
+    public EntProtoId ParriedStatusEffect = "StatusEffectCantMeleeAttack";
+
+    [DataField]
+    public TimeSpan AttackProhibitionDuration = TimeSpan.FromSeconds(1f);
+
     [DataField, AutoNetworkedField]
     public float MeleeDamageReduction = 0.6f;
 

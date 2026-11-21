@@ -6,6 +6,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Audio;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -22,8 +23,8 @@ public abstract partial class SharedParrySystem : EntitySystem
     [Dependency] private INetManager _net = default!;
     [Dependency] private SharedPopupSystem _popup = default!;
     [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private DamageableSystem _damageable = default!;
     [Dependency] private MobStateSystem _mobState = default!;
+    [Dependency] private StatusEffectsSystem _statusEffects = default!;
 
     private readonly List<PendingHit> _pending = new();
     private readonly List<PendingHit> _scratch = new();
@@ -240,17 +241,12 @@ public abstract partial class SharedParrySystem : EntitySystem
         if (Math.Abs(angleDifference.Theta) > parry.ParryAngle.Theta / 2)
             return false;
 
-        // temporary solution for check parry
+        result = ent.Comp.IsParrying ? damage * 0f : damage * parry.MeleeDamageReduction;
+
         if (ent.Comp.IsParrying)
         {
-            if (!TerminatingOrDeleted(attacker))
-                _damageable.TryChangeDamage(attacker, damage * 100f, true, true);
-
-            result = damage * 0f;
-            return true;
+            _statusEffects.TryUpdateStatusEffectDuration(attacker, parry.ParriedStatusEffect, parry.AttackProhibitionDuration);
         }
-
-        result = damage * parry.MeleeDamageReduction;
 
         TryBreakParry(ent.Owner, ent.Comp);
 
@@ -282,11 +278,9 @@ public abstract partial class SharedParrySystem : EntitySystem
         {
             var damage = hit.Damage;
 
-            // The parry may have been broken by a previous hit in this batch.
             if (TryComp<ActiveParryComponent>(ent.Owner, out var active))
                 TryParry((ent.Owner, active), hit.Attacker, hit.AttackerPos, hit.TargetPos, hit.Damage, out damage);
 
-            // Even a fully parried hit goes through the normal tail: zero damage log, no-damage sound, UndamagedAttack.
             ApplyPending(hit, damage);
         }
     }
