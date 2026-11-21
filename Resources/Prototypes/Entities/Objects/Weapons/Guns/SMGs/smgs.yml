@@ -270,7 +270,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/SMGs/wt550.rsi
+    sprite: _WL/Objects/Weapons/Guns/SMGs/wt550.rsi # WL-change
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
