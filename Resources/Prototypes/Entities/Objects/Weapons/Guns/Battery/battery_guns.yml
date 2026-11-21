@@ -594,7 +594,7 @@
   - type: Item
     storedOffset: -1,-5
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/practice_disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/practice_disabler.rsi # WL-change
     quickEquip: false
     slots:
     - Belt
