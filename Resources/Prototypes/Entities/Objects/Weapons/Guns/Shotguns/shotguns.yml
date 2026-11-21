@@ -165,7 +165,7 @@
   description: A premium semi-automatic shotgun, and the pride of all security forces. Uses .50 shotgun shells.
   components: # intend for Enforcer to have wider choke for semi-auto function
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer_icon_48x.rsi # WL-change
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Item
