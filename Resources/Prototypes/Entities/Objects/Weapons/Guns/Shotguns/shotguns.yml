@@ -81,7 +81,7 @@
     size: Large
     sprite: _WL/Objects/Weapons/Guns/Shotguns/bulldog.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/bulldog.rsi # WL-change
     quickEquip: false
     slots:
     - Back
