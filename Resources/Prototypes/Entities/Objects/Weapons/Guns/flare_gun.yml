@@ -15,7 +15,7 @@
     shape:
     - 0,0,1,0
     - 0,1,0,1
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun.rsi # WL-change
   - type: ItemSlots
     slots:
       gun_chamber:
