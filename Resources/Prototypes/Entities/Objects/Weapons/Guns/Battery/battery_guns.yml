@@ -157,7 +157,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/taser.rsi # WL-change
     quickEquip: false
     slots:
     - Belt
