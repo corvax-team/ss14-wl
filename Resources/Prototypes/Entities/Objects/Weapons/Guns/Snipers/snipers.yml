@@ -69,7 +69,7 @@
   - type: Item
     sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi # WL-changes-end
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
