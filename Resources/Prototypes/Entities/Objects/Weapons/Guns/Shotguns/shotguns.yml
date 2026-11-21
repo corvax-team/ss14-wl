@@ -133,7 +133,7 @@
   description: An immortal classic. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi # WL-change
   - type: Item
     sprite: _WL/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
