@@ -165,7 +165,7 @@
     size: Large
     sprite: _WL/Objects/Weapons/Guns/Snipers/musket.rsi # WL-change
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Snipers/musket_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/musket_icon_48x.rsi # WL-change
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Snipers/musket.rsi
   - type: Gun
