@@ -202,7 +202,7 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Shotguns/pump_icon_48x.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/pump.rsi # WL-change
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1
