@@ -91,7 +91,7 @@
     quickEquip: false
     slots:
     - Belt
-    - suitStorage
+    - suitStorage # WL-changes-end
   - type: ItemSlots
     slots:
       gun_chamber:
