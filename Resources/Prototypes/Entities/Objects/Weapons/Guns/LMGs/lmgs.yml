@@ -123,7 +123,7 @@
       soundEmpty:
         path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
     - type: Sprite
-      sprite: _WL/Objects/Weapons/Guns/LMGs/l6_icon_48x.rsi
+      sprite: _WL/Objects/Weapons/Guns/LMGs/l6_icon_48x.rsi # WL-change
       layers:
         - state: base
           map: [ "enum.GunVisualLayers.Base" ]
