@@ -191,7 +191,6 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponSubMachineGun, BaseSecurityContraband] # Corvax-Contraband
   id: WeaponSubMachineGunDrozd
   description: A modern SMG manufactured by Nanotrasen’s Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
-  suffix: Карабин # WL-change
   components:
     - type: Sprite
       sprite: _WL/Objects/Weapons/Guns/SMGs/drozd.rsi # WL-change
