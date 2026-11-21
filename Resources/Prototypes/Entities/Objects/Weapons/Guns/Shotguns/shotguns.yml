@@ -198,7 +198,7 @@
   description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses .50 shotgun shells.
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/pump.rsi # WL-change
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Shotguns/pump_icon_48x.rsi
   - type: Clothing
