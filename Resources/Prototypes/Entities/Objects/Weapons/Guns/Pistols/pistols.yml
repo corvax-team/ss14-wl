@@ -283,7 +283,7 @@
   description: An exceptionally powerful ‘hand cannon’ designed as part of Nanotrasen's BFG initiative. Chambered in .45, the lord’s caliber, it is generally considered too unwieldy for standard use but has become something of a status symbol among Nanotrasen officials. Feeds from .45 pistol magazines.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Pistols/N1984.rsi
+    sprite: _WL/Objects/Weapons/Guns/Pistols/N1984.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
