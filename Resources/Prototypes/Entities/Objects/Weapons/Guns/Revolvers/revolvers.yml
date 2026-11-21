@@ -168,7 +168,7 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Revolvers/python.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Revolvers/python.rsi
+    sprite: _WL/Objects/Weapons/Guns/Revolvers/python.rsi # WL-change
   - type: Item
     storedOffset: 0,-2
   - type: Gun
