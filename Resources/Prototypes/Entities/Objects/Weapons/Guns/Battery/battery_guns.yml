@@ -463,7 +463,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_rifle.rsi # WL-change
   - type: Gun
     fireRate: 1.5
     soundGunshot:
