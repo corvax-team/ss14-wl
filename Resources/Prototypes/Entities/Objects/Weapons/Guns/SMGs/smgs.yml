@@ -83,7 +83,6 @@
   parent: [BaseCorvaxContraband434DepartmentsSecurity, BaseWeaponSubMachineGun, BaseMajorContraband] # Corvax-Contraband
   id: WeaponSubMachineGunAtreides
   description: A rare machine pistol hailing from the Corporate Wars. Its extremely high fire rate and compact profile make it useful in close quarters combat. Despite its age, it is in remarkably good condition. Feeds from .35 SMG magazines.
-  suffix: Карабин # WL-change
   components:
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/SMGs/atreides.rsi # WL-change
