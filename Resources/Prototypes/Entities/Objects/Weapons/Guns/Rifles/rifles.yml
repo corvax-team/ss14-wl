@@ -131,7 +131,7 @@
   description: "Popular gas-operated combat rifle used heavily by Nanotrasen and SolGov. Operating in semi or fully automatic, its accuracy, stopping power, and reliability make it excel in all manner of environments.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Rifles/lecter_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/lecter_icon_48x.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
