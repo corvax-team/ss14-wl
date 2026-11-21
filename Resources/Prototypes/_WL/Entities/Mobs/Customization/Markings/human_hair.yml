@@ -500,8 +500,8 @@
       state: shavedknot
 
 - type: marking
-  id: HumanHairPulato4
+  id: HumanHairPulato3
   bodyPart: Hair
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
-      state: pulato4
+      state: pulato3

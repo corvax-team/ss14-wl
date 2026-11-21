@@ -118,4 +118,4 @@ marking-HumanHairPulatoLong = Пулато длинная
 marking-HumanHairPulatoLong2 = Пулато длинная 2
 marking-HumanHairRyan = Райан
 marking-HumanHairShavedknot = Выбритый пучок
-marking-HumanHairPulato4 = Пулато 4
+marking-HumanHairPulato3 = Пулато 3
