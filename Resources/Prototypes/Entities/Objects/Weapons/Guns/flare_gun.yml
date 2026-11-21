@@ -85,7 +85,7 @@
         map: ["enum.GunVisualLayers.Base"]
   - type: Item
     size: Small
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi # WL-changes-start
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Shotguns/flaregun_security.rsi
     quickEquip: false
