@@ -191,7 +191,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Pistols/cobra.rsi
+    sprite: _WL/Objects/Weapons/Guns/Pistols/cobra.rsi # WL-change
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
