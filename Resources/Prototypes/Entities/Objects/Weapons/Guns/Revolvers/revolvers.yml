@@ -79,7 +79,7 @@
     allowedJobs: []
   # Corvax-Contraband-end
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Revolvers/deckard.rsi
+    sprite: _WL/Objects/Weapons/Guns/Revolvers/deckard.rsi # WL-change
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
