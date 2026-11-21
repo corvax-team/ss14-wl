@@ -956,7 +956,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/energy_shotgun.rsi # WL-change
   - type: Gun
     fireRate: 2
     soundGunshot:
