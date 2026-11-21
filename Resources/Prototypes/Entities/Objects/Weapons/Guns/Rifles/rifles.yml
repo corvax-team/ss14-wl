@@ -224,7 +224,7 @@
     - 0,0,4,2
     sprite: _WL/Objects/Weapons/Guns/Rifles/estoc.rsi # WL-change
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/estoc.rsi # WL-change
   - type: Gun
     minAngle: 21
     maxAngle: 32 
