@@ -79,7 +79,7 @@
   description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Rifles/ak_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/ak_icon_48x.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
