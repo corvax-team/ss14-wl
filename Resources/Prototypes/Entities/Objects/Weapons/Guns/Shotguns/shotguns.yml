@@ -235,7 +235,7 @@
     size: Small
     shape:
     - 0,0,2,0
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/sawn.rsi # WL-change
   - type: Gun
     fireRate: 3
     soundGunshot: # Corvax-Guns
