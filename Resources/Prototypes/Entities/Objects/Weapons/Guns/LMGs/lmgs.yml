@@ -12,7 +12,7 @@
     shape:
     - 0,0,4,3
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/LMGs/l6.rsi
+    sprite: _WL/Objects/Weapons/Guns/LMGs/l6.rsi # WL-change
     quickEquip: false
     slots:
     - Back
