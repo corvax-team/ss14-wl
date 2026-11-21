@@ -317,7 +317,7 @@
   description: A shitty, hand-made shotgun that uses .50 shotgun shells. It can only hold one round in the chamber.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi # WL-change
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
   - type: Item
