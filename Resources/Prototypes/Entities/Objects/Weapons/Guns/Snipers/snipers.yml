@@ -213,7 +213,7 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Pistols/N1984.rsi # TODO
+    sprite: _WL/Objects/Weapons/Guns/Snipers/flintlock.rsi # WL-change
   - type: UseDelayOnShoot
   - type: UseDelay
     delay: 8 #it's a flintlock
