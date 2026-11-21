@@ -136,7 +136,7 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Revolvers/mateba.rsi
+    sprite: _WL/Objects/Weapons/Guns/Revolvers/mateba.rsi # WL-change
   - type: Item
     storedOffset: 0,-3
   - type: Gun
