@@ -124,7 +124,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"] # WL-changes-end
   - type: Clothing
-    sprite:  _WL/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    sprite:  _WL/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi # WL-change
   - type: GunRequiresWield
   - type: Gun
     fireRate: 0.5
