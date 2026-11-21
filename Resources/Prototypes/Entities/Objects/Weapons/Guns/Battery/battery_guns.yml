@@ -634,7 +634,7 @@
   suffix: Лазер, Пистолет # WL-change
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
