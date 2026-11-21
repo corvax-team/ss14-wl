@@ -22,7 +22,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: _WL/Objects/Weapons/Guns/Pistols/viper.rsi # WL-change
     quickEquip: false
     slots:
     - suitStorage
