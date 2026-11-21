@@ -279,7 +279,7 @@
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi # WL-change
   - type: Gun
     fireRate: 4
     soundGunshot: # Corvax-Guns
