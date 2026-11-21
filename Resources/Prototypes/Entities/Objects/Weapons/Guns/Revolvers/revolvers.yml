@@ -166,7 +166,7 @@
   description: A powerful double-action revolver manufactured by the Syndicate. Loud and flashy, perfect for any agent looking to make a statement. Loads 6 rounds of .45 magnum.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Revolvers/python.rsi
+    sprite: _WL/Objects/Weapons/Guns/Revolvers/python.rsi # WL-change
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Item
