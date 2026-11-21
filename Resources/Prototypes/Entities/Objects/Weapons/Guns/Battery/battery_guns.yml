@@ -642,7 +642,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler.rsi # WL-change
     quickEquip: false
     slots:
       - suitStorage
