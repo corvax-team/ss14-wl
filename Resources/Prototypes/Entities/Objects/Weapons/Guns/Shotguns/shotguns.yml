@@ -277,7 +277,7 @@
     - 0,1,0,1
     storedOffset: 0,-5
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi # WL-change
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi # WL-change
   - type: Gun
