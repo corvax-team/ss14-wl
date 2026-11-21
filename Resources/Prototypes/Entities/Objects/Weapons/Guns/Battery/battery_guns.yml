@@ -670,7 +670,7 @@
     tags:
       - Taser
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Battery/disabler_smg.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/disabler_smg.rsi # WL-change
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
