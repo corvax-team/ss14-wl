@@ -228,7 +228,7 @@
   suffix: Дробовик, Пистолет # WL-change
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/sawn.rsi # WL-change
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Item
