@@ -11,7 +11,7 @@
     size: Huge
     shape:
     - 0,0,3,2
-    sprite: _WL/Objects/Weapons/Guns/Rifles/ak.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/ak.rsi # WL-change
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
