@@ -423,7 +423,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_carbine.rsi # WL-change
   - type: Gun
     selectedMode: FullAuto
     fireRate: 3
