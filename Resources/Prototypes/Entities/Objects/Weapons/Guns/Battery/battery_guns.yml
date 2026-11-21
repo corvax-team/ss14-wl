@@ -382,7 +382,7 @@
     zeroVisible: false
   - type: Appearance
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi
+    sprite: _WL/Objects/Weapons/Guns/Battery/pulse_pistol.rsi # WL-change
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
