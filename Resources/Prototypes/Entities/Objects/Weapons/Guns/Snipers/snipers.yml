@@ -163,7 +163,7 @@
     - Slicing
   - type: Item
     size: Large
-    sprite: _WL/Objects/Weapons/Guns/Snipers/musket.rsi
+    sprite: _WL/Objects/Weapons/Guns/Snipers/musket.rsi # WL-change
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Snipers/musket_icon_48x.rsi
   - type: Clothing
