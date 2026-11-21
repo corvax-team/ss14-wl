@@ -115,7 +115,7 @@
     size: Huge
     shape:
     - 0,0,5,1
-    sprite:  _WL/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi
+    sprite:  _WL/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi # WL-change
   - type: Sprite
     sprite: _WL/Objects/Weapons/Guns/Snipers/heavy_sniper_48x.rsi
     layers:
