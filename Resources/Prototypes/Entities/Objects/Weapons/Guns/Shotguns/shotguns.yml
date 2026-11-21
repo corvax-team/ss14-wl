@@ -169,7 +169,7 @@
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer.rsi # WL-change
   - type: Item
-    sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: _WL/Objects/Weapons/Guns/Shotguns/enforcer.rsi # WL-change
   - type: BallisticAmmoProvider
 # WL-Gun-Rework-Start
     soundRack:
