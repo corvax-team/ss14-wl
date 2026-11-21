@@ -98,7 +98,7 @@
     angleDecay: 20
     selectedMode: FullAuto # Override of BaseWeaponPistol to default to full-auto
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: _WL/Objects/Weapons/Guns/Pistols/viper.rsi # WL-change
   - type: ItemSlots
     slots:
       gun_magazine:
