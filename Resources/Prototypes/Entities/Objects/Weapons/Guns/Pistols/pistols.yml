@@ -290,7 +290,7 @@
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _WL/Objects/Weapons/Guns/Pistols/N1984.rsi
+    sprite: _WL/Objects/Weapons/Guns/Pistols/N1984.rsi # WL-change
   - type: Gun
     minAngle: 1
     maxAngle: 20
