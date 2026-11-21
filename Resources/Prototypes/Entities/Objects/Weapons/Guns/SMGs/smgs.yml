@@ -203,7 +203,7 @@
         - state: mag-0
           map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
-      sprite: _WL/Objects/Weapons/Guns/SMGs/drozd.rsi
+      sprite: _WL/Objects/Weapons/Guns/SMGs/drozd.rsi # WL-change
     - type: Wieldable
       unwieldOnUse: false
     - type: GunWieldBonus
