@@ -187,7 +187,7 @@
     Uses .20 rifle ammo.
   components:
   - type: Sprite
-    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8_icon_48x.rsi
+    sprite: _WL/Objects/Weapons/Guns/Rifles/XL8_icon_48x.rsi # WL-change
   - type: Clothing
     sprite: _WL/Objects/Weapons/Guns/Rifles/XL8.rsi
   - type: Item
