@@ -2,7 +2,7 @@
 - type: traitCategory
   id: Languages
   name: trait-category-languages
-  maxTraitPoints: 10
+  maxTraitPoints: 6
   hidden: true
 
 - type: trait
