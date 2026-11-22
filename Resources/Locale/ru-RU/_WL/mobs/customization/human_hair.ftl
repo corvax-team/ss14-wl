@@ -119,3 +119,5 @@ marking-HumanHairPulatoLong2 = Пулато длинная 2
 marking-HumanHairRyan = Райан
 marking-HumanHairShavedknot = Выбритый пучок
 marking-HumanHairPulato3 = Пулато 3
+marking-HumanHairBluntbangsAlt1 = Прямая чёлка (Альт. 2)
+marking-HumanHairBluntbangsAlt2 = Прямая чёлка (Альт. 3)
