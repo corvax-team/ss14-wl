@@ -76,3 +76,32 @@
   id: AdjutantParadeCoat
   equipment:
     outerClothing: ClothingOuterCoatParadeAdjutant
+
+# Shoes
+
+- type: loadout
+  id: AdjutantShoesBlack
+  equipment:
+    shoes: ClothingShoesColorBlack
+
+- type: loadout
+  id: AdjutantShoesWhite
+  equipment:
+    shoes: ClothingShoesColorWhite
+
+- type: loadout
+  id: AdjutantShoesLaceup
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+# Gloves
+
+- type: loadout
+  id: AdjutantGlovesWhite
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+- type: loadout
+  id: AdjutantGlovesBlack
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
