@@ -594,8 +594,7 @@ public sealed partial class FaxSystem : EntitySystem
                                        metadata.EntityPrototype?.ID ?? component.PrintPaperId,
                                        paper.StampState,
                                        paper.StampedBy,
-                                       paper.EditingDisabled,
-                                       drawings: paper.Drawings); // WL-Changes
+                                       paper.EditingDisabled);
 
         component.PrintingQueue.Enqueue(printout);
         component.SendTimeoutRemaining += component.SendTimeout;
@@ -676,8 +675,7 @@ public sealed partial class FaxSystem : EntitySystem
                     paper.StampState,
                     paper.StampedBy,
                     paper.EditingDisabled,
-                    component.FaxName,
-                    paper.Drawings), // WL-Changes
+                    component.FaxName),
         };
 
         _deviceNetworkSystem.SendPacket(uid, component.DestinationFaxAddress, ref payload);
@@ -736,7 +734,6 @@ public sealed partial class FaxSystem : EntitySystem
         if (TryComp<PaperComponent>(printed, out var paper))
         {
             _paperSystem.SetContent((printed, paper), printout.Content);
-            _paperSystem.SetDrawings((printed, paper), printout.Drawings); // WL-Changes
 
             // Apply stamps
             if (printout.StampState != null)

@@ -1,16 +1,16 @@
 using System.Numerics;
 using System.Linq;
 using System.Runtime.InteropServices;
-using Content.Shared.Paper;
+using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Input;
+using Content.Shared._WL.Drawing.Components;
+using Content.Shared._WL.CCVars;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Input;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Graphics;
-using Content.Shared.Input;
 using Robust.Shared.Configuration;
-using Content.Shared._WL.CCVars;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Client._WL.Paper.UI;
 
@@ -104,6 +104,7 @@ public sealed partial class PaperDrawingControl : Control
         _renderTextureNeedsRebuild = true;
         HistoryChanged?.Invoke();
     }
+
     private bool SameStrokes(List<PaperStroke> incoming)
     {
         if (incoming.Count != _strokes.Count)
@@ -137,6 +138,9 @@ public sealed partial class PaperDrawingControl : Control
 
         for (var i = _strokes.Count - 1; i >= 0; i--)
         {
+            if (_strokes[i].Stroke.Eraser)
+                continue;
+
             var stroke = _strokes[i].Stroke;
             var points = stroke.Points;
 
@@ -238,21 +242,22 @@ public sealed partial class PaperDrawingControl : Control
         if (!CanDraw
             || args.Function != EngineKeyFunctions.Use
             || PixelWidth <= 0
-            || PixelHeight <= 0
-            || _strokes.Count >= MaxStrokes
-            || _pointCount >= MaxPoints)
+            || PixelHeight <= 0)
             return;
 
         var point = Normalize(args.PointerLocation.Position - GlobalPixelPosition);
 
         if (Tool == DrawTool.Pipette)
         {
-            if (!TryGetStroke(point, out var stroke) || stroke is null)
-                return;
+            if (TryGetStroke(point, out var stroke))
+                BrushColor = stroke.Color;
 
-            BrushColor = stroke.Color;
+            args.Handle();
             return;
         }
+
+        if (_strokes.Count >= MaxStrokes || _pointCount >= MaxPoints)
+            return;
 
         _redoStrokes.Clear();
 

@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
-using Content.Client._WL.Paper.UI; // WL-Changes
-using Robust.Client.UserInterface;
+using Content.Shared._WL.Drawing.Components;
+using Robust.Client.UserInterface; // WL-Changes
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 using Content.Shared.Paper;
