@@ -126,6 +126,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Aviators/pink.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -142,6 +143,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Aviators/green.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -160,6 +162,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Round/black.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -176,6 +179,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Round/blue.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -192,6 +196,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Round/glass.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -208,6 +213,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Round/green.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -224,6 +230,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Round/pink.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -240,6 +247,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Round/purple.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -256,6 +264,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Round/red.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -272,6 +281,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Round/white.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -290,6 +300,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Tactic/black.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -306,6 +317,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Tactic/blue.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -322,6 +334,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Tactic/green.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -338,6 +351,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Tactic/pink.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -354,6 +368,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Tactic/purple.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -370,6 +385,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Tactic/red.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -386,6 +402,7 @@
     sprite: _WL/Clothing/Eyes/Glasses/Tactic/tan.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
 
@@ -402,5 +419,6 @@
     sprite: _WL/Clothing/Eyes/Glasses/Tactic/yellow.rsi
   - type: IdentityBlocker
     coverage: EYES
+  - type: Tag
     tags:
     - HamsterWearable
