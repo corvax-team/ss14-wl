@@ -4,3 +4,33 @@
   id: CheapSunglasses
   equipment:
     eyes: ClothingEyesGlassesCheapSunglasses
+
+- type: loadout
+  id: GlassesAviatorsArmy
+  equipment:
+    eyes: ClothingEyesGlassesAviatorsArmy
+
+- type: loadout
+  id: GlassesAviatorsLight
+  equipment:
+    eyes: ClothingEyesGlassesAviatorsLight
+
+- type: loadout
+  id: GlassesAviatorsDark
+  equipment:
+    eyes: ClothingEyesGlassesAviatorsDark
+
+- type: loadout
+  id: GlassesAviatorsMint
+  equipment:
+    eyes: ClothingEyesGlassesAviatorsMint
+
+- type: loadout
+  id: GlassesAviatorsPink
+  equipment:
+    eyes: ClothingEyesGlassesAviatorsPink
+
+- type: loadout
+  id: GlassesAviatorsGreen
+  equipment:
+    eyes: ClothingEyesGlassesAviatorsGreen

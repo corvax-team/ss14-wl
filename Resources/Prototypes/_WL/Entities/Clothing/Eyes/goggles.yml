@@ -115,9 +115,9 @@
   description: Blue-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Eyes/engigoggles.rsi
+    sprite: _WL/Clothing/Eyes/Glasses/engigoggles.rsi
   - type: Clothing
-    sprite: _WL/Clothing/Eyes/engigoggles.rsi
+    sprite: _WL/Clothing/Eyes/Glasses/engigoggles.rsi
     slots:
     - HEAD
     - EYES

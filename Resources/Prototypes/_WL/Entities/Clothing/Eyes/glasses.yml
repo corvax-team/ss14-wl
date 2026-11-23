@@ -5,9 +5,9 @@
   description: Ballistic glasses that provide flash immunity and a security HUD.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Eyes/ballistic.rsi
+    sprite: _WL/Clothing/Eyes/Hud/ballistic.rsi
   - type: Clothing
-    sprite: _WL/Clothing/Eyes/ballistic.rsi
+    sprite: _WL/Clothing/Eyes/Hud/ballistic.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
@@ -24,9 +24,9 @@
   description: Ballistic glasses that provide flash immunity and a security HUD.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Eyes/ballisticbs.rsi
+    sprite: _WL/Clothing/Eyes/Hud/ballisticbs.rsi
   - type: Clothing
-    sprite: _WL/Clothing/Eyes/ballisticbs.rsi
+    sprite: _WL/Clothing/Eyes/Hud/ballisticbs.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
@@ -40,3 +40,103 @@
     coverage: EYES
   - type: NightVisionEye
     isEquipment: true
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsArmy
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Greenish photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Армейские очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/army.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/army.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsLight
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Blue photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Светлые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/light.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/light.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsDark
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Black photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Тёмные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/dark.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/dark.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsMint
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Mint-colored photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Мятные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/mint.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/mint.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsPink
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Pink photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Розовые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/pink.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/pink.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsGreen
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Green photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Зелёные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/green.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/green.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+    tags:
+    - HamsterWearable

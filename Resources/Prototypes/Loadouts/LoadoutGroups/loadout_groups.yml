@@ -8,6 +8,14 @@
   - GlassesJamjar
   - GlassesJensen
   - CheapSunglasses # WL-Changes
+  # WL-Changes-Start: Eyes add
+  - GlassesAviatorsArmy
+  - GlassesAviatorsLight
+  - GlassesAviatorsDark
+  - GlassesAviatorsMint
+  - GlassesAviatorsPink
+  - GlassesAviatorsGreen
+  # WL-Changes-End: Eyes add
 
 - type: loadoutGroup
   id: Trinkets
