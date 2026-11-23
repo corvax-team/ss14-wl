@@ -9,12 +9,31 @@
   - GlassesJensen
   - CheapSunglasses # WL-Changes
   # WL-Changes-Start: Eyes add
+  # Aviators
   - GlassesAviatorsArmy
   - GlassesAviatorsLight
   - GlassesAviatorsDark
   - GlassesAviatorsMint
   - GlassesAviatorsPink
   - GlassesAviatorsGreen
+  # Round
+  - GlassesRoundBlack
+  - GlassesRoundBlue
+  - GlassesRoundGlass
+  - GlassesRoundGreen
+  - GlassesRoundPink
+  - GlassesRoundPurple
+  - GlassesRoundRed
+  - GlassesRoundWhite
+  # Tactic
+  - GlassesTacticBlack
+  - GlassesTacticBlue
+  - GlassesTacticGreen
+  - GlassesTacticPink
+  - GlassesTacticPurple
+  - GlassesTacticRed
+  - GlassesTacticTan
+  - GlassesTacticYellow
   # WL-Changes-End: Eyes add
 
 - type: loadoutGroup

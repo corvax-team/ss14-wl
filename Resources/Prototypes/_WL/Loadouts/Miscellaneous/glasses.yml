@@ -5,32 +5,138 @@
   equipment:
     eyes: ClothingEyesGlassesCheapSunglasses
 
+# Aviators
 - type: loadout
+  groupBy: "Aviators"
   id: GlassesAviatorsArmy
   equipment:
     eyes: ClothingEyesGlassesAviatorsArmy
 
 - type: loadout
+  groupBy: "Aviators"
   id: GlassesAviatorsLight
   equipment:
     eyes: ClothingEyesGlassesAviatorsLight
 
 - type: loadout
+  groupBy: "Aviators"
   id: GlassesAviatorsDark
   equipment:
     eyes: ClothingEyesGlassesAviatorsDark
 
 - type: loadout
+  groupBy: "Aviators"
   id: GlassesAviatorsMint
   equipment:
     eyes: ClothingEyesGlassesAviatorsMint
 
 - type: loadout
+  groupBy: "Aviators"
   id: GlassesAviatorsPink
   equipment:
     eyes: ClothingEyesGlassesAviatorsPink
 
 - type: loadout
+  groupBy: "Aviators"
   id: GlassesAviatorsGreen
   equipment:
     eyes: ClothingEyesGlassesAviatorsGreen
+
+# Round
+- type: loadout
+  groupBy: "Round"
+  id: GlassesRoundBlack
+  equipment:
+    eyes: ClothingEyesGlassesRoundBlack
+
+- type: loadout
+  groupBy: "Round"
+  id: GlassesRoundBlue
+  equipment:
+    eyes: ClothingEyesGlassesRoundBlue
+
+- type: loadout
+  groupBy: "Round"
+  id: GlassesRoundGlass
+  equipment:
+    eyes: ClothingEyesGlassesRoundGlass
+
+- type: loadout
+  groupBy: "Round"
+  id: GlassesRoundGreen
+  equipment:
+    eyes: ClothingEyesGlassesRoundGreen
+
+- type: loadout
+  groupBy: "Round"
+  id: GlassesRoundPink
+  equipment:
+    eyes: ClothingEyesGlassesRoundPink
+
+- type: loadout
+  groupBy: "Round"
+  id: GlassesRoundPurple
+  equipment:
+    eyes: ClothingEyesGlassesRoundPurple
+
+- type: loadout
+  groupBy: "Round"
+  id: GlassesRoundRed
+  equipment:
+    eyes: ClothingEyesGlassesRoundRed
+
+- type: loadout
+  groupBy: "Round"
+  id: GlassesRoundWhite
+  equipment:
+    eyes: ClothingEyesGlassesRoundWhite
+
+# Tactic
+
+- type: loadout
+  groupBy: "Tactic"
+  id: GlassesTacticBlack
+  equipment:
+    eyes: ClothingEyesGlassesTacticBlack
+
+- type: loadout
+  groupBy: "Tactic"
+  id: GlassesTacticBlue
+  equipment:
+    eyes: ClothingEyesGlassesTacticBlue
+
+- type: loadout
+  groupBy: "Tactic"
+  id: GlassesTacticGreen
+  equipment:
+    eyes: ClothingEyesGlassesTacticGreen
+
+- type: loadout
+  groupBy: "Tactic"
+  id: GlassesTacticPink
+  equipment:
+    eyes: ClothingEyesGlassesTacticPink
+
+- type: loadout
+  groupBy: "Tactic"
+  id: GlassesTacticPurple
+  equipment:
+    eyes: ClothingEyesGlassesTacticPurple
+
+- type: loadout
+  groupBy: "Tactic"
+  id: GlassesTacticRed
+  equipment:
+    eyes: ClothingEyesGlassesTacticRed
+
+- type: loadout
+  groupBy: "Tactic"
+  id: GlassesTacticTan
+  equipment:
+    eyes: ClothingEyesGlassesTacticTan
+
+- type: loadout
+  groupBy: "Tactic"
+  id: GlassesTacticYellow
+  equipment:
+    eyes: ClothingEyesGlassesTacticYellow
