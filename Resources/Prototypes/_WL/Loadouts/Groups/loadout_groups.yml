@@ -45,6 +45,23 @@
   - LeatherSatchel
 
 - type: loadoutGroup
+  id: AdjutantGloves
+  name: loadout-group-adjutant-gloves
+  minLimit: 0
+  loadouts:
+  - AdjutantGlovesBlack
+  - AdjutantGlovesWhite
+
+- type: loadoutGroup
+  id: AdjutantShoes
+  name: loadout-group-adjutant-shoes
+  minLimit: 1
+  loadouts:
+  - AdjutantShoesBlack
+  - AdjutantShoesWhite
+  - AdjutantShoesLaceup
+
+- type: loadoutGroup
   id: AdjutantOuterClothing
   name: loadout-group-adjutant-outerclothing
   minLimit: 0
