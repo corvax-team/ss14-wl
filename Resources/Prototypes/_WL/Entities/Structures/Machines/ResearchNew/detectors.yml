@@ -244,3 +244,112 @@
   - type: Tag
     tags:
       - SolarTrackerUpdate
+
+- type: entity
+  parent: [BaseStructure, BaseStructureHealth, BaseRDDetector]
+  id: TeslaCoilDetector
+  name: detector tesla coil
+  description: A machine that converts lightning strikes into an electric current.
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: Structures/Power/Generation/Tesla/coil.rsi
+    noRot: true
+    layers:
+    - state: coil
+      map: ["enabled"]
+    - state: coilhit
+      visible: false
+      map: ["hit"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TeslaCoilVisuals.Enabled:
+        enabled:
+          True: { state: coil_open }
+          False: { state: coil }
+      enum.TeslaCoilVisuals.Lightning:
+        hit:
+          True: { visible: true }
+          False: { visible: false }
+  - type: LightningSparking
+  - type: AnimationPlayer
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: HVPower
+  - type: PowerMonitoringDevice
+    group: Generator
+    loadNode: input
+    collectionName: teslaCoil
+    sprite: Structures/Power/Generation/Tesla/coil.rsi
+    state: coil
+  - type: Battery
+    netsync: false
+    maxCharge: 1000000
+    startingCharge: 0
+  - type: BatteryDischarger
+  - type: TeslaCoil
+    chargeFromLightning: 1000000
+  - type: LightningTarget
+    priority: 4
+    hitProbability: 0.5
+    lightningResistance: 10
+    lightningExplode: false
+  - type: PowerNetworkBattery
+    maxSupply: 350000
+    supplyRampTolerance: 350000
+  - type: Electrified
+    onHandInteract: false
+    onInteractUsing: false
+    onBump: false
+    usesApcPower: false
+    highVoltageNode: input
+  - type: Anchorable
+  - type: InteractionOutline
+  - type: ExaminableDamage
+    messages: WindowMessages
+  - type: Repairable
+  - type: DamageVisuals
+    thresholds: [8, 16, 25]
+    damageDivisor: 3.333
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Structures/Power/Generation/Tesla/coil_cracks.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 225
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 4
+  - type: ResearchDetector
+    detectTypes:
+      - StarDetector
+    selfOnly: true
+    researchPercent: 0.0006
+  - type: ResearchSource
+    categories:
+      - StarDetector
+  - type: PassiveDetector
