@@ -1,3 +1,5 @@
+# Визоры
+
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]
   id: ClothingEyesBallisticSecurity
@@ -5,9 +7,9 @@
   description: Ballistic glasses that provide flash immunity and a security HUD.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Eyes/ballistic.rsi
+    sprite: _WL/Clothing/Eyes/Hud/ballistic.rsi
   - type: Clothing
-    sprite: _WL/Clothing/Eyes/ballistic.rsi
+    sprite: _WL/Clothing/Eyes/Hud/ballistic.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
@@ -24,9 +26,9 @@
   description: Ballistic glasses that provide flash immunity and a security HUD.
   components:
   - type: Sprite
-    sprite: _WL/Clothing/Eyes/ballisticbs.rsi
+    sprite: _WL/Clothing/Eyes/Hud/ballisticbs.rsi
   - type: Clothing
-    sprite: _WL/Clothing/Eyes/ballisticbs.rsi
+    sprite: _WL/Clothing/Eyes/Hud/ballisticbs.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
@@ -40,3 +42,383 @@
     coverage: EYES
   - type: NightVisionEye
     isEquipment: true
+
+# Авиаторы
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsArmy
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Greenish photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Армейские очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/army.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/army.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsLight
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Blue photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Светлые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/light.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/light.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsDark
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Black photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Тёмные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/dark.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/dark.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsMint
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Mint-colored photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Мятные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/mint.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/mint.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsPink
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Pink photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Розовые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/pink.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/pink.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAviatorsGreen
+  name: aviators
+  description: Ideal for a fighter shuttle pilot. Green photochromic lenses are unlikely to protect against cosmic radiation.
+  suffix: Зелёные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/green.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Aviators/green.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+# Круглые очки
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesRoundBlack
+  name: round black glasses
+  description: You look like a policeman in them... or as a blind man.
+  suffix: Чёрные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Round/black.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Round/black.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesRoundBlue
+  name: round blue glasses
+  description: You look like a policeman in them... or as a blind man.
+  suffix: Синие очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Round/blue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Round/blue.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesRoundGlass
+  name: round glasses
+  description: You look like a nerd in them.
+  suffix: Обычные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Round/glass.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Round/glass.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesRoundGreen
+  name: round green glasses
+  description: You look like a policeman in them... or as a blind man.
+  suffix: Зелёные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Round/green.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Round/green.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesRoundPink
+  name: round pink glasses
+  description: You look like a policeman in them... or as a blind man.
+  suffix: Розовые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Round/pink.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Round/pink.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesRoundPurple
+  name: round purple glasses
+  description: You look like a policeman in them... or as a blind man.
+  suffix: Фиолетовые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Round/purple.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Round/purple.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesRoundRed
+  name: round red glasses
+  description: You look like a policeman in them... or as a blind man.
+  suffix: Красные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Round/red.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Round/red.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesRoundWhite
+  name: round white glasses
+  description: You look like a policeman in them... or as a blind man.
+  suffix: Белые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Round/white.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Round/white.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+# Тактические очки
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesTacticBlack
+  name: tactic black glasses
+  description: For real experts in their field.
+  suffix: Черные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/black.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/black.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesTacticBlue
+  name: tactic blue glasses
+  description: For real experts in their field.
+  suffix: Синие очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/blue.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/blue.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesTacticGreen
+  name: tactic green glasses
+  description: For real experts in their field.
+  suffix: Зелёные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/green.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/green.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesTacticPink
+  name: tactic pink glasses
+  description: For real experts in their field.
+  suffix: Розовые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/pink.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/pink.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesTacticPurple
+  name: tactic purple glasses
+  description: For real experts in their field.
+  suffix: Фиолетовые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/purple.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/purple.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesTacticRed
+  name: tactic red glasses
+  description: For real experts in their field.
+  suffix: Красные очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/red.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/red.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesTacticTan
+  name: tactic tan glasses
+  description: For real experts in their field.
+  suffix: Рыжие очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/tan.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/tan.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesTacticYellow
+  name: tactic yellow glasses
+  description: For real experts in their field.
+  suffix: Жёлтые очки
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/yellow.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/Eyes/Glasses/Tactic/yellow.rsi
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: Tag
+    tags:
+    - HamsterWearable
