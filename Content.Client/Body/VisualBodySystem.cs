@@ -284,6 +284,11 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
 
         UpdateLayerColor(target, markingConfig, markingLayer, spriteLayer);
 
+        // WL-Changes
+        var emissive = markingProto.CanBeEmissive && markingConfig.Emissive;
+        if (emissive)
+            target.Comp.LayerSetShader(spriteLayer, SpriteSystem.UnshadedId.Id);
+
         // Apply displacements
         if (displacement != null && markingProto.CanBeDisplaced)
         {
@@ -304,7 +309,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
         }
 
         // Apply shaders
-        if (layerData.Shader != null)
+        if (layerData.Shader != null && !emissive) // WL-Changes
         {
             // TODO: fix this when LayerSetShader is moved out of component
             target.Comp.LayerSetShader(spriteLayerIndex + numDisplacements, layerData.Shader);

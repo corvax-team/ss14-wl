@@ -19,6 +19,7 @@ markings-limits = { $required ->
         }
 }
 markings-reorder = Выбранные черты
+markings-emissive = Светится в темноте
 
 humanoid-marking-modifier-respect-limits = Учитывать ограничения
 humanoid-marking-modifier-respect-group-sex = Учитывать ограничение расы и пола

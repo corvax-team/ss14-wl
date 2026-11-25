@@ -15,5 +15,8 @@
         </Button>
     </BoxContainer>
 
-    <BoxContainer Name="ColorsContainer" Visible="False" Orientation="Vertical" />
+    <BoxContainer Name="ColorsContainer" Visible="False" Orientation="Vertical">
+        <!-- WL-Changes -->
+        <CheckBox Name="EmissiveCheckBox" Visible="False" Text="{Loc markings-emissive}" />
+    </BoxContainer>
 </BoxContainer>

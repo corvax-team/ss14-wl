@@ -28,28 +28,16 @@ marking-ArachnidEyesJumper-jumper1 = Внешний правый
 marking-ArachnidEyesJumper-jumper2 = Внутренний правый
 marking-ArachnidEyesJumper-jumper3 = Внутренний левый
 marking-ArachnidEyesJumper-jumper4 = Внешний левый
-marking-ArachnidEyesJumperGlowing = Светящиеся глаза прыгуна
-marking-ArachnidEyesJumperGlowing-jumper1 = Внешний правый
-marking-ArachnidEyesJumperGlowing-jumper2 = Внутренний правый
-marking-ArachnidEyesJumperGlowing-jumper3 = Внутренний левый
-marking-ArachnidEyesJumperGlowing-jumper4 = Внешний левый
 marking-ArachnidEyesRound = Круглые глаза
 marking-ArachnidEyesRound-round1 = Внутренний
 marking-ArachnidEyesRound-round2 = Верхний
 marking-ArachnidEyesRound-round3 = Внешний
 marking-ArachnidEyesRound-round4 = Боковые
-marking-ArachnidEyesRoundGlowing = Светящиеся круглые глаза
-marking-ArachnidEyesRoundGlowing-round1 = Внутренний
-marking-ArachnidEyesRoundGlowing-round2 = Верхний
-marking-ArachnidEyesRoundGlowing-round3 = Внешний
-marking-ArachnidEyesRoundGlowing-round4 = Боковые
 marking-SpiderEyesMulti = Многоцветные глаза
 marking-SpiderEyesMulti-multi1 = Верх
 marking-SpiderEyesMulti-multi2 = Верхний средний
 marking-SpiderEyesMulti-multi3 = Нижний средний
 marking-SpiderEyesMulti-multi4 = Низ
-marking-SpiderGlowEyes = Светящиеся глаза
-marking-SpiderGlowEyes-glow = Светящиеся глаза
 
 # RArm
 

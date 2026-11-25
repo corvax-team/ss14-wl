@@ -162,11 +162,16 @@ public sealed partial class MarkingManager
                         : Color.White; // White, if none
 
                     var missingColors = Enumerable.Repeat(lastColor, numMissingColors);
-                    markings[i] = new Marking(marking.ID, existingColors.Concat(missingColors));
+                    markings[i] = new Marking(marking.ID, existingColors.Concat(missingColors)) { Emissive = markings[i].Emissive }; // WL-Changes
                 }
+                // WL-Changes-Start
                 // If there are more colors than sprites, drop the extras
                 else if (existingColors.Count > markingColorCount)
-                    markings[i] = new Marking(marking.ID, existingColors.Take(markingColorCount));
+                    markings[i] = new Marking(marking.ID, existingColors.Take(markingColorCount)) { Emissive = markings[i].Emissive };
+
+                if (!marking.CanBeEmissive)
+                    markings[i] = markings[i] with { Emissive = false };
+                // WL-Changes-End
             }
         }
     }

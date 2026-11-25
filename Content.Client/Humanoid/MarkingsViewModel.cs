@@ -388,6 +388,25 @@ public sealed partial class MarkingsViewModel
         MarkingsChanged?.Invoke(organ, layer);
     }
 
+    // WL-Changes
+    public void TrySetMarkingEmissive(ProtoId<OrganCategoryPrototype> organ,
+        HumanoidVisualLayers layer,
+        ProtoId<MarkingPrototype> markingId,
+        bool emissive)
+    {
+        if (!_prototype.TryIndex(markingId, out var prototype) || !prototype.CanBeEmissive
+            || !_markings.TryGetValue(organ, out var markingSet)
+            || !markingSet.TryGetValue(layer, out var markings))
+            return;
+
+        var markingIndex = markings.FindIndex(marking => marking.MarkingId == markingId);
+        if (markingIndex == -1 || markings[markingIndex].Emissive == emissive)
+            return;
+
+        markings[markingIndex] = markings[markingIndex] with { Emissive = emissive };
+        MarkingsChanged?.Invoke(organ, layer);
+    }
+
     /// <summary>
     /// Ensures the markings within the model are valid.
     /// </summary>

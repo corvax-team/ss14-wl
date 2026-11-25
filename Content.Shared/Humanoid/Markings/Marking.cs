@@ -30,6 +30,11 @@ public partial record struct Marking
     /// </summary>
     public bool Forced;
 
+    // WL-Changes-Start
+    [DataField]
+    public bool Emissive;
+    // WL-Changes-End
+
     public Marking()
     {
         _markingColors = new();
@@ -50,12 +55,23 @@ public partial record struct Marking
     {
         return MarkingId.Equals(other.MarkingId)
             && MarkingColors.SequenceEqual(other.MarkingColors)
-            && Forced.Equals(other.Forced);
+            // WL-Changes-Start
+            && Forced == other.Forced
+            && Emissive == other.Emissive;
+            // WL-Changes-End
     }
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(MarkingId, MarkingColors, Forced);
+        // WL-Changes-Start
+        var hash = new HashCode();
+        hash.Add(MarkingId);
+        hash.Add(Forced);
+        hash.Add(Emissive);
+        foreach (var color in MarkingColors)
+            hash.Add(color);
+        return hash.ToHashCode();
+        // WL-Changes-End
     }
 
     public Marking WithColor(Color color) =>
