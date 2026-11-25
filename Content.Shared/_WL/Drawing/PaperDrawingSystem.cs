@@ -11,8 +11,6 @@ public sealed partial class PaperDrawingSystem : EntitySystem
 {
     [Dependency] private IConfigurationManager _configurationManager = default!;
 
-    private const float MaxStrokeRadius = 25f; // WL-Changes
-
     public List<PaperStroke> SanitizeDrawings(List<PaperStroke> drawings)
     {
         var (maxStrokes, maxPoints) = GetDrawingLimits();
@@ -24,12 +22,7 @@ public sealed partial class PaperDrawingSystem : EntitySystem
             if (result.Count >= maxStrokes || pointCount >= maxPoints)
                 break;
 
-            if (stroke.Points.Count == 0
-                || !float.IsFinite(stroke.Radius) || stroke.Radius is < 1f or > MaxStrokeRadius
-                || !float.IsFinite(stroke.Color.R) || stroke.Color.R is < 0f or > 1f
-                || !float.IsFinite(stroke.Color.G) || stroke.Color.G is < 0f or > 1f
-                || !float.IsFinite(stroke.Color.B) || stroke.Color.B is < 0f or > 1f
-                || !float.IsFinite(stroke.Color.A) || stroke.Color.A is < 0f or > 1f)
+            if (!stroke.IsValid())
                 continue;
 
             var room = maxPoints - pointCount;
@@ -78,13 +71,7 @@ public sealed partial class PaperDrawingSystem : EntitySystem
 
         for (var i = 0; i < old.Count; i++)
         {
-            var a = old[i];
-            var b = updated[i];
-
-            if (a.Eraser != b.Eraser
-                || a.Color != b.Color
-                || a.Radius != b.Radius
-                || !a.Points.SequenceEqual(b.Points))
+            if (!old[i].Equals(updated[i]))
                 return false;
         }
 

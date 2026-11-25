@@ -112,11 +112,7 @@ public sealed partial class PaperDrawingControl : Control
 
         for (var i = 0; i < incoming.Count; i++)
         {
-            var a = incoming[i];
-            var b = _strokes[i].Stroke;
-
-            if (a.Eraser != b.Eraser || a.Color != b.Color || a.Radius != b.Radius
-                || !a.Points.SequenceEqual(b.Points))
+            if (!incoming[i].Equals(_strokes[i].Stroke))
                 return false;
         }
 
