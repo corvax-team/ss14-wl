@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._WL.Compromise;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -126,7 +127,7 @@ public sealed partial class HumanoidCharacterProfileV1
     //WL-Changes: Records end
     public HumanoidCharacterProfile ToV2()
     {
-        return new(Name, FlavorText, OocText, Species, TTSVoice, Age, Height, Sex, GetDefaultVoice(Species, Sex), Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, JobSubnames, AntagPreferences, TraitPreferences, new Dictionary<ProtoId<TraitPrototype>, int>(), Loadouts, JobUnblockings, MedicalRecord, SecurityRecord, EmploymentRecord, FullName, DateOfBirth, Confederation, BrainSource, Country, Skills); //WL-Changes; WL fiches
+        return new(Name, FlavorText, OocText, Species, TTSVoice, Age, Height, Sex, GetDefaultVoice(Species, Sex), Gender, Appearance.ToV2(Species), SpawnPriority, JobPriorities, PreferenceUnavailable, JobSubnames, AntagPreferences, TraitPreferences, new Dictionary<ProtoId<TraitPrototype>, int>(), Loadouts, JobUnblockings, MedicalRecord, SecurityRecord, EmploymentRecord, FullName, DateOfBirth, Confederation, BrainSource, Country, Skills, string.Empty, new Dictionary<ProtoId<CompromiseCategoryPrototype>, ProtoId<CompromisePrototype>>()); //WL-Changes; WL fiches
     }
 
     // In V2 voices are stored as a separate database entry, this picks the default for the species and sex, which would give the same voice as pre-nubody.

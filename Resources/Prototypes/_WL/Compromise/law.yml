@@ -1,0 +1,47 @@
+- type: compromise
+  id: LawClear
+  name: compromise-law-clear-name
+  description: compromise-law-clear-desc
+  category: Law
+  color: White
+  order: 0
+
+- type: compromise
+  id: Little
+  name: compromise-law-little-name
+  description: compromise-law-little-desc
+  category: Law
+  color: White
+  order: 1
+
+- type: compromise
+  id: Middle
+  name: compromise-law-middle-name
+  description: compromise-law-middle-desc
+  category: Law
+  color: White
+  order: 2
+
+- type: compromise
+  id: Hard
+  name: compromise-law-hard-name
+  description: compromise-law-hard-desc
+  category: Law
+  color: White
+  order: 3
+
+- type: compromise
+  id: Wittnes
+  name: compromise-law-wittnes-name
+  description: compromise-law-wittnes-desc
+  category: Law
+  color: White
+  order: 4
+
+- type: compromise
+  id: Work
+  name: compromise-law-work-name
+  description: compromise-law-work-desc
+  category: Law
+  color: White
+  order: 5

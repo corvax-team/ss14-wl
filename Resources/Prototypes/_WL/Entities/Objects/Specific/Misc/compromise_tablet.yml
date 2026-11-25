@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseHandheldComputer
+  id: CompromiseTablet
+  categories: [ DoNotMap ]
+  name: information tablet
+  description: Secret secret.
+  components:
+  - type: Sprite
+    sprite: _WL/Objects/Specific/Misc/compromise_tablet.rsi
+    layers:
+    - state: base
+    - state: screen
+      shader: unshaded
+      visible: false
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Appearance
+  - type: BatteryVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.BatteryVisuals.State:
+        enum.PowerDeviceVisualLayers.Powered:
+          Full: { visible: true }
+          Neither: { visible: true }
+          Empty: { visible: false }
+  - type: ActivatableUI
+    key: enum.CompromiseTabletKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CompromiseTabletKey.Key:
+        type: CompromiseTabletBoundUserInterface
+  - type: CompromiseTablet
+
+- type: entity
+  parent: CompromiseTablet
+  id: CompromiseTabletEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

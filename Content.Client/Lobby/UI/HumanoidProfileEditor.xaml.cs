@@ -221,11 +221,12 @@ namespace Content.Client.Lobby.UI
 
             SaveButton.OnPressed += args =>
             {
-                if (_flavorTextEdit != null && _oocTextEdit != null)
+                if (_flavorTextEdit != null && _oocTextEdit != null && _flavorText is not null) // WL-Changes
                 {
                     Profile = Profile?
                         .WithFlavorText(Rope.Collapse(_flavorTextEdit.TextRope).Trim())
-                        .WithOocText(Rope.Collapse(_oocTextEdit.TextRope).Trim()); //WL-Changes
+                        .WithOocText(Rope.Collapse(_oocTextEdit.TextRope).Trim()) //WL-Changes
+                        .WithCompromiseText(Rope.Collapse(_flavorText.CCompromiseEdit.TextRope).Trim()); //WL-Changes
                 }
                 RefreshSkills(); // WL-Skills
                 Save?.Invoke();
@@ -506,6 +507,8 @@ namespace Content.Client.Lobby.UI
             UpdateJobSubnameControls(); // WL-subnames: Pupchansky
             UpdateHeightEdit(); // WL-height
             UpdateOocTextEdit(); // WL-OocText
+            UpdateCompromiseTextEdit(); // WL-Changes
+            UpdateCompromiseData(); // WL-Changes
             UpdateRecordsEdit(); // WL-Records
             UpdateLanguagesEdit(); // WL-Languages
             UpdateAgeEdit();

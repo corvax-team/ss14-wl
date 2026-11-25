@@ -1206,6 +1206,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("char_name");
 
+                    b.Property<string>("CompromiseText")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("compromise_text");
+
                     b.Property<string>("Confederation")
                         .IsRequired()
                         .HasColumnType("text")
@@ -1343,6 +1348,38 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsUnique();
 
                     b.ToTable("profile", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.ProfileCompromiseData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_compromise_data_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("category");
+
+                    b.Property<string>("Compromise")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("compromise");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_profile_compromise_data");
+
+                    b.HasIndex("ProfileId", "Category")
+                        .IsUnique();
+
+                    b.ToTable("profile_compromise_data", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.ProfileJobSkills", b =>
@@ -2187,6 +2224,18 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Preference");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.ProfileCompromiseData", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("CompromiseData")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_profile_compromise_data_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.ProfileJobSkills", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
@@ -2409,6 +2458,8 @@ namespace Content.Server.Database.Migrations.Postgres
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
                     b.Navigation("Antags");
+
+                    b.Navigation("CompromiseData");
 
                     b.Navigation("JobSkills");
 

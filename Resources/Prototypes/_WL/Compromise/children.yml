@@ -1,0 +1,31 @@
+- type: compromise
+  id: NoChildren
+  name: compromise-children-alone-name
+  description: compromise-children-alone-desc
+  category: Children
+  color: White
+  order: 0
+
+- type: compromise
+  id: One
+  name: compromise-children-one-name
+  description: compromise-children-one-desc
+  category: Children
+  color: White
+  order: 1
+
+- type: compromise
+  id: More
+  name: compromise-children-more-name
+  description: compromise-children-more-desc
+  category: Children
+  color: White
+  order: 2
+
+- type: compromise
+  id: ChildrenDead
+  name: compromise-children-dead-name
+  description: compromise-children-dead-desc
+  category: Children
+  color: White
+  order: 2

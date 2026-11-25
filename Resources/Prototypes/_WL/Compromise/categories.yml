@@ -1,0 +1,35 @@
+- type: compromiseCategory
+  id: Finance
+  name: compromise-category-finance
+  default: FinanceNormal
+  order: 0
+
+- type: compromiseCategory
+  id: Parents
+  name: compromise-category-parents
+  default: Alive
+  order: 1
+
+- type: compromiseCategory
+  id: Married
+  name: compromise-category-married
+  default: Alone
+  order: 2
+
+- type: compromiseCategory
+  id: Children
+  name: compromise-category-children
+  default: NoChildren
+  order: 3
+
+- type: compromiseCategory
+  id: Criminal
+  name: compromise-category-criminal
+  default: Clear
+  order: 4
+
+- type: compromiseCategory
+  id: Law
+  name: compromise-category-law
+  default: Clear
+  order: 4
