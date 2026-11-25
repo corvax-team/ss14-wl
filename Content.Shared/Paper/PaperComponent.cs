@@ -1,3 +1,4 @@
+using Content.Shared._WL.Drawing.Components; // WL-Changes
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -16,6 +17,7 @@ public sealed partial class PaperComponent : Component
 
     [DataField("stampedBy"), AutoNetworkedField]
     public List<StampDisplayInfo> StampedBy { get; set; } = new();
+
 
     /// <summary>
     ///     Stamp to be displayed on the paper, state from bureaucracy.rsi
@@ -38,12 +40,13 @@ public sealed partial class PaperComponent : Component
         public readonly string Text;
         public readonly List<StampDisplayInfo> StampedBy;
         public readonly PaperAction Mode;
-
-        public PaperBoundUserInterfaceState(string text, List<StampDisplayInfo> stampedBy, PaperAction mode = PaperAction.Read)
+        public readonly List<PaperStroke> Drawings; // WL-Changes
+        public PaperBoundUserInterfaceState(string text, List<StampDisplayInfo> stampedBy, PaperAction mode = PaperAction.Read, List<PaperStroke>? drawings = null) // WL-Changes
         {
             Text = text;
             StampedBy = stampedBy;
             Mode = mode;
+            Drawings = drawings ?? new List<PaperStroke>(); // WL-Changes
         }
     }
 
@@ -51,10 +54,12 @@ public sealed partial class PaperComponent : Component
     public sealed class PaperInputTextMessage : BoundUserInterfaceMessage
     {
         public readonly string Text;
+        public readonly List<PaperStroke> Drawings; // WL-Changes
 
-        public PaperInputTextMessage(string text)
+        public PaperInputTextMessage(string text, List<PaperStroke> drawings) // WL-Changes
         {
             Text = text;
+            Drawings = drawings; // WL-Changes
         }
     }
 
@@ -85,3 +90,4 @@ public sealed partial class PaperComponent : Component
         Written
     }
 }
+

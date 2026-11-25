@@ -1,0 +1,12 @@
+paper-ui-draw-button = Рисовать
+paper-ui-write-button = Писать
+paper-ui-draw-undo = Отменить
+paper-ui-draw-undo-tooltip = Отменить последний штрих ({ $keybind })
+paper-ui-draw-redo = Вернуть
+paper-ui-draw-redo-tooltip = Вернуть отменённый штрих ({ $keybind })
+paper-ui-draw-radius = Толщина кисти
+paper-ui-draw-radius-value = { $radius } px
+paper-ui-draw-eraser = Ластик
+paper-ui-draw-line = Линия
+paper-ui-draw-circle = Круг
+paper-ui-draw-pipette = Пипетка

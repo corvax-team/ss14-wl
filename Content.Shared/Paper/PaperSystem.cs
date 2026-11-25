@@ -7,6 +7,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared._WL.Drawing; // WL-Changes
+using Content.Shared._WL.Drawing.Components; // WL-Changes
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
@@ -26,12 +28,12 @@ public sealed partial class PaperSystem : EntitySystem
     [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private MetaDataSystem _metaSystem = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private PaperDrawingSystem _paperDraw = default!;
 
     [Dependency] private EntityQuery<PaperComponent> _paperQuery = default!;
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
-
 
     public override void Initialize()
     {
@@ -191,6 +193,23 @@ public sealed partial class PaperSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
+        // WL-Changes-Start
+        if (entity.Comp.Mode == PaperAction.Write)
+        {
+            var sanitized = _paperDraw.SanitizeDrawings(args.Drawings);
+            var current = TryComp<PaperDrawingComponent>(entity, out var existing)
+                ? existing.Strokes
+                : new List<PaperStroke>();
+
+            if (PaperDrawingSystem.IsAppendOnly(current, sanitized))
+            {
+                var drawing = EnsureComp<PaperDrawingComponent>(entity);
+                drawing.Strokes = sanitized;
+                Dirty(entity, drawing);
+            }
+        }
+        // WL-Changes-End
+
         if (args.Text.Length <= entity.Comp.ContentSize)
         {
             SetContent(entity, args.Text);
@@ -307,7 +326,12 @@ public sealed partial class PaperSystem : EntitySystem
 
     private void UpdateUserInterface(Entity<PaperComponent> entity)
     {
-        _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
+        // WL-Changes-Start
+        TryComp<PaperDrawingComponent>(entity, out var drawing);
+        var strokes = drawing?.Strokes;
+        // WL-Changes-End
+
+        _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode, strokes)); // WL-Changes
     }
 }
 

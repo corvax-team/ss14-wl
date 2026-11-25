@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
-using Robust.Client.UserInterface;
+using Content.Shared._WL.Drawing.Components;
+using Robust.Client.UserInterface; // WL-Changes
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 using Content.Shared.Paper;
@@ -47,7 +48,7 @@ public sealed partial class PaperBoundUserInterface : BoundUserInterface
 
     private void InputOnTextEntered(string text)
     {
-        SendMessage(new PaperInputTextMessage(text));
+        SendMessage(new PaperInputTextMessage(text, _window?.DrawingCanvas.GetStrokes() ?? new List<PaperStroke>())); // WL-Changes
 
         if (_window != null)
         {
