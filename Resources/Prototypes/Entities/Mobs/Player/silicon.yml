@@ -81,21 +81,24 @@
     languages:
       Translate: 4
       Ternary: 4
-      BottomTranslate: 2
-      Kuniluc: 2
-      OldEarth: 2
+      BottomTranslate: 4
+      Kuniluc: 4
+      OldEarth: 4
       RootSpeak: 2
-      Sarengis: 2
-      SikTair: 2
-      SintaUnati: 2
-      Slimish: 2
-      TopTranslate: 2
-      Urlum: 2
-      VoxPigin: 2
-      Weaver: 2
+      Sarengis: 4
+      SikTair: 4
+      SintaUnati: 4
+      Slimish: 4
+      TopTranslate: 4
+      Urlum: 4
+      VoxPigin: 4
+      Weaver: 4
       Wingdings: 2
-      Yangyu: 2
-      Arachny: 2
+      Yangyu: 4
+      Arachny: 4
+      Taidz: 4
+      Interlingua: 4
+      SintaUrssa: 4
   # WL-Changes-end
   - type: CommunicationsConsole
     canShuttle: false

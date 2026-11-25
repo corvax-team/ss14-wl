@@ -1,0 +1,14 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'borg-language-module-title'}"
+                      MinSize="420 260" SetHeight="520">
+    <BoxContainer Orientation="Vertical" SeparationOverride="8" VerticalExpand="True" Margin="12">
+        <Label Name="Notice" HorizontalAlignment="Center" />
+        <ScrollContainer VerticalExpand="True">
+            <BoxContainer Name="Languages" Orientation="Vertical" />
+        </ScrollContainer>
+        <Label Name="Warning" Text="{Loc 'borg-language-module-warning'}"
+               FontColorOverride="Red" HorizontalAlignment="Center" />
+        <Button Name="Confirm" Text="{Loc 'borg-language-module-confirm'}" Disabled="True" />
+    </BoxContainer>
+</controls:FancyWindow>
