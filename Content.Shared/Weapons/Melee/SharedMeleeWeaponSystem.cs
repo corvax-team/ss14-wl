@@ -30,7 +30,7 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared._WL.Weapons.Melee.Events;
+using Content.Shared._WL.Weapons.Melee.Events; // WL-Changes
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;

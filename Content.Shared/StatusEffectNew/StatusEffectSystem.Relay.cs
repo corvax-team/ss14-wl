@@ -25,9 +25,9 @@ using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Interaction.Events; // WL-Changes
 using Robust.Shared.Collections;
 using Robust.Shared.Player;
-using Content.Shared.Interaction.Events;
 
 namespace Content.Shared.StatusEffectNew;
 
