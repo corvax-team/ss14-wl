@@ -1,7 +1,15 @@
 - type: alert
   id: AttackProhibitionAlert
   icons:
-  - sprite: /Textures/Interface/Alerts/pacified.rsi
-    state: icon
+  - sprite: /Textures/_WL/Interface/Alerts/parry_icon.rsi
+    state: parry-icon
   name: alerts-attack-prohibition
   description: alerts-attack-prohibition-desc
+
+- type: alert
+  id: ParryAlert
+  icons:
+  - sprite: /Textures/_WL/Interface/Alerts/parry_icon.rsi
+    state: parry-icon
+  name: alerts-parry
+  description: alerts-parry-desc

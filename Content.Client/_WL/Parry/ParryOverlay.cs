@@ -26,7 +26,7 @@ public sealed partial class ParryOverlay : Overlay
 
     private const float InitialScale = 1.33f;
     private const float FinalScale = 0.9f;
-    private const float IconAlpha = 0.55f;
+    private const float IconAlpha = 1f;
 
     public override OverlaySpace Space =>
         OverlaySpace.WorldSpaceBelowEntities | OverlaySpace.WorldSpaceEntities;
@@ -42,6 +42,7 @@ public sealed partial class ParryOverlay : Overlay
 
         _parryQuery = _entityManager.GetEntityQuery<ParryComponent>();
     }
+
 
     protected override void Draw(in OverlayDrawArgs args)
     {
@@ -60,14 +61,9 @@ public sealed partial class ParryOverlay : Overlay
                 _startedAt.Add(uid, startedAt);
             }
 
-            if (xform.MapID != args.MapId ||
-                !_entityManager.TryGetComponent(activeParry.Weapon, out SpriteComponent? weaponSprite) ||
-                !_sprite.TryGetLayer((activeParry.Weapon, weaponSprite), 0, out var layer, false) ||
-                !layer.Visible ||
-                layer.ActualState is not { } state)
-            {
+            if (xform.MapID != args.MapId
+                || !_entityManager.TryGetComponent(activeParry.Weapon, out SpriteComponent? weaponSprite))
                 continue;
-            }
 
             if (!_parryQuery.TryGetComponent(activeParry.Weapon, out var parryComp))
                 continue;
@@ -97,15 +93,6 @@ public sealed partial class ParryOverlay : Overlay
 
             var worldRotation = facingDirection.ToVec().ToAngle() - eyeRotation;
 
-            var textureDirection = layer.EffectiveDirection(
-                state,
-                facingAngle,
-                facingDirection);
-
-            var texture = state.GetFrame(
-                textureDirection,
-                Math.Clamp(layer.AnimationFrame, 0, state.DelayCount - 1));
-
             var elapsed = (float)(_timing.CurTime - startedAt).TotalSeconds;
             var progress = Math.Clamp(elapsed / (float)parryComp.ParryDuration.TotalSeconds, 0f, 1f);
             var scale = InitialScale + (FinalScale - InitialScale) * progress;
@@ -120,12 +107,29 @@ public sealed partial class ParryOverlay : Overlay
 
             handle.SetTransform(matrix);
 
-            var textureSize = (Vector2)texture.Size / EyeManager.PixelsPerMeter;
-            handle.DrawTexture(
-                texture,
-                -textureSize / 2f,
-                layer.Rotation + parryComp.AngleOffset,
-                Color.White.WithAlpha(IconAlpha));
+            for (var i = 0; _sprite.TryGetLayer((activeParry.Weapon, weaponSprite), i, out var layer, false); i++)
+            {
+                if (!layer.Visible || layer.ActualState is not { } state)
+                    continue;
+
+                var textureDirection = layer.EffectiveDirection(
+                    state,
+                    facingAngle,
+                    facingDirection);
+
+                var texture = state.GetFrame(
+                    textureDirection,
+                    Math.Clamp(layer.AnimationFrame, 0, state.DelayCount - 1));
+
+                var textureSize = (Vector2)texture.Size / EyeManager.PixelsPerMeter;
+                var color = layer.Color.WithAlpha(layer.Color.A * IconAlpha);
+
+                handle.DrawTexture(
+                    texture,
+                    -textureSize / 2f,
+                    layer.Rotation + parryComp.AngleOffset,
+                    color);
+            }
         }
 
         _stale.Clear();

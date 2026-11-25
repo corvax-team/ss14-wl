@@ -6,4 +6,4 @@
   - type: StatusEffectAlert
     alert: AttackProhibitionAlert
     showDuration: true
-  - type: AttackProhibition
+  - type: AttackProhibitionStatusEffect

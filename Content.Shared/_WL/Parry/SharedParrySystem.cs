@@ -7,11 +7,15 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Interaction.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Numerics;
+using Robust.Shared.Audio.Systems;
+using Content.Shared.Effects;
+using Content.Shared.Alert;
 
 namespace Content.Shared._WL.Parry;
 
@@ -25,6 +29,10 @@ public abstract partial class SharedParrySystem : EntitySystem
     [Dependency] private SharedTransformSystem _transform = default!;
     [Dependency] private MobStateSystem _mobState = default!;
     [Dependency] private StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private SharedAudioSystem _audioSystem = default!;
+    [Dependency] private SharedColorFlashEffectSystem _colorFlash = default!;
+    [Dependency] private AlertsSystem _alertsSystem = default!;
 
     private readonly List<PendingHit> _pending = new();
     private readonly List<PendingHit> _scratch = new();
@@ -44,6 +52,8 @@ public abstract partial class SharedParrySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        InitializeParryStatusEffects();
 
         SubscribeAllEvent<ParryStartEvent>(OnParryStart);
         SubscribeAllEvent<ParryStopEvent>(OnParryStop);
@@ -110,11 +120,20 @@ public abstract partial class SharedParrySystem : EntitySystem
         RemComp<ActiveParryComponent>(user);
 
         _movementSpeed.RefreshMovementSpeedModifiers(user);
+        _alertsSystem.ClearAlert(user, parry.ParryAlertProtoId);
     }
 
     #endregion
 
     #region Parry state
+
+    private ParryWeaponLevel GetWeaponLevel(EntityUid weapon)
+    {
+        return TryComp<MeleeWeaponLevelComponent>(weapon, out var comp) ? comp.Level : ParryWeaponLevel.Light;
+    }
+
+    [SubscribeLocalEvent]
+    private void OnAttackAttempt(Entity<ActiveParryComponent> ent, ref AttackAttemptEvent args) => args.Cancel();
 
     [SubscribeLocalEvent]
     private void OnRefreshMovementSpeed(Entity<ActiveParryComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -147,20 +166,25 @@ public abstract partial class SharedParrySystem : EntitySystem
         Dirty(uid, activeParry);
 
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _alertsSystem.ShowAlert(uid, parry.ParryAlertProtoId);
 
         return true;
     }
 
     private void TryBreakParry(EntityUid uid, ActiveParryComponent activeParry)
     {
-        if (TryComp<ParryComponent>(activeParry.Weapon, out var parry))
-        {
-            parry.NextParryTime = _timing.CurTime + parry.ParryCooldown;
-            Dirty(activeParry.Weapon, parry);
-        }
+        if (!TryComp<ParryComponent>(activeParry.Weapon, out var parry))
+            return;
+
+        parry.NextParryTime = _timing.CurTime + parry.ParryCooldown;
+        Dirty(activeParry.Weapon, parry);
+
+        if (_net.IsServer && parry.ParrySound is not null)
+            _audioSystem.PlayPvs(parry.ParrySound, uid);
 
         RemComp<ActiveParryComponent>(uid);
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        _alertsSystem.ClearAlert(uid, parry.ParryAlertProtoId);
     }
 
     #endregion
@@ -235,19 +259,45 @@ public abstract partial class SharedParrySystem : EntitySystem
         if (!TryComp<ParryComponent>(ent.Comp.Weapon, out var parry))
             return false;
 
+        if (!_melee.TryGetWeapon(attacker, out var attackerWeapon, out var attackerMeleeComp))
+            return false;
+
         var directionToAttacker = Angle.FromWorldVec(attackerPos - targetPos);
         var angleDifference = (directionToAttacker - _transform.GetWorldRotation(ent.Owner)).Reduced();
 
         if (Math.Abs(angleDifference.Theta) > parry.ParryAngle.Theta / 2)
             return false;
 
-        result = ent.Comp.IsParrying ? damage * 0f : damage * parry.MeleeDamageReduction;
+        var diff = (int)GetWeaponLevel(ent.Comp.Weapon) - (int)GetWeaponLevel(attackerWeapon);
 
-        if (ent.Comp.IsParrying)
+        if (diff < -1)
         {
-            _statusEffects.TryUpdateStatusEffectDuration(attacker, parry.ParriedStatusEffect, parry.AttackProhibitionDuration);
+            TryBreakParry(ent.Owner, ent.Comp);
+            return false;
         }
 
+        if (ent.Comp.IsParrying && diff >= 0)
+        {
+            if (parry.SuccessfulParryDamage is not null)
+                _damageableSystem.TryChangeDamage(attacker, parry.SuccessfulParryDamage, true);
+
+            _statusEffects.TryUpdateStatusEffectDuration(attacker, parry.ParriedStatusEffect, parry.AttackProhibitionDuration);
+
+            result = damage * 0f;
+            TryBreakParry(ent.Owner, ent.Comp);
+
+            if (_net.IsServer)
+            {
+                _colorFlash.RaiseEffect(
+                    Color.Cyan,
+                    new List<EntityUid> { attacker },
+                    Filter.Pvs(attacker));
+            }
+
+            return true;
+        }
+
+        result = damage * parry.MeleeDamageReduction;
         TryBreakParry(ent.Owner, ent.Comp);
 
         return true;

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem,  BaseParryMelee, ParryMeleeLevelLight ] # WL-Changes-Parry
   id: BaseKnife
   abstract: true
   components:

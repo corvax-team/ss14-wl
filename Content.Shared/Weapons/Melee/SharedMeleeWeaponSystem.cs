@@ -578,7 +578,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 
         ApplyMeleeHit(target.Value, user, meleeUid, component, beforeMeleeDamage.Damage, resistanceBypass, hitEvent.HitSoundOverride, heavy: false);
 
-        // Move to ApplyMeleeHit
+        // Moved to ApplyMeleeHit
         /*if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
@@ -617,7 +617,6 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
                     $"{ToPrettyString(user):actor} melee attacked (light) {ToPrettyString(target.Value):subject} using {ToPrettyString(meleeUid):tool} and dealt 0 damage");
             }
         }
-        // WL-Changes-End
 
         _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, ProtoMan), hitEvent.HitSoundOverride, component);
 
@@ -644,6 +643,7 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
                 UndamagedAttack((meleeUid, component), target.Value, user);
             }
         }*/
+        // WL-Changes-End
     }
 
     protected abstract void DoDamageEffect(HashSet<EntityUid> targets, EntityUid? user,  TransformComponent targetXform);

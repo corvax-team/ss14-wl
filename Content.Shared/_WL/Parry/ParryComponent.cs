@@ -1,3 +1,7 @@
+using Content.Shared.Alert;
+using Content.Shared.Damage;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -7,10 +11,13 @@ namespace Content.Shared._WL.Parry;
 public sealed partial class ParryComponent : Component
 {
     [DataField]
-    public EntProtoId ParriedStatusEffect = "StatusEffectCantMeleeAttack";
+    public EntProtoId ParriedStatusEffect = "StatusEffectAttackProhibition";
 
     [DataField]
-    public TimeSpan AttackProhibitionDuration = TimeSpan.FromSeconds(1f);
+    public ProtoId<AlertPrototype> ParryAlertProtoId = "ParryAlert";
+
+    [DataField, AutoNetworkedField]
+    public DamageSpecifier? SuccessfulParryDamage = null;
 
     [DataField, AutoNetworkedField]
     public float MeleeDamageReduction = 0.6f;
@@ -19,10 +26,10 @@ public sealed partial class ParryComponent : Component
     public float MovementSpeedModifier = 0.65f;
 
     [DataField, AutoNetworkedField]
-    public Angle ParryAngle = Angle.FromDegrees(120f);
+    public Angle ParryAngle = Angle.FromDegrees(160f);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan ParryDuration = TimeSpan.FromSeconds(1000f);
+    public TimeSpan ParryDuration = TimeSpan.FromSeconds(0.65f);
 
     [DataField, AutoNetworkedField]
     public TimeSpan ParryCooldown = TimeSpan.FromSeconds(2.0f);
@@ -30,14 +37,20 @@ public sealed partial class ParryComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan NextParryTime = TimeSpan.Zero;
 
+    [DataField]
+    public TimeSpan AttackProhibitionDuration = TimeSpan.FromSeconds(1.5f);
+
     [DataField, AutoNetworkedField]
     public float AngleOffset = 0.55f;
 
     [DataField, AutoNetworkedField]
     public float ForwardOffset = 0.35f;
 
+    [DataField]
+    public SoundSpecifier ParrySound = new SoundPathSpecifier("/Audio/Weapons/block_metal1.ogg");
+
     /// <summary>
-    /// Minimum time (server only) a hit from an NPC is held back so that a late parry input can still count
+    /// Minimum time a hit from an NPC is held back so that a late parry input can still count
     /// </summary>
     [DataField]
     public TimeSpan MinCompensation = TimeSpan.FromSeconds(0.1f);

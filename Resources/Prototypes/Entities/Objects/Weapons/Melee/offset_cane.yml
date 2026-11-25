@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseParryMelee, ParryMeleeLevelLight ] # WL-Changes-Parry
   id: OffsetCane
   name: standard offset cane
   description: A standard offset cane, essential for getting around when your legs aren't up to the task. May or may not grant you the wisdom of the elderly.
