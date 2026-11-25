@@ -235,9 +235,9 @@
   id: OrganReptilianTorso
   components:
   - type: VisualOrganMarkings
-    hideableLayers:
-    - enum.HumanoidVisualLayers.Tail
     #WL-Changes-start
+    #hideableLayers:
+    #- enum.HumanoidVisualLayers.Tail
     markingsDisplacement:
       Socks:
         sizeMaps:
