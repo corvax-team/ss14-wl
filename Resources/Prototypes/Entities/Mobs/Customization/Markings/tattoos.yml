@@ -104,6 +104,7 @@
 
 - type: marking
   id: TattooEyeRight
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Human, Slime, Reptilian, Android, Felinid]
   coloring:
@@ -117,6 +118,7 @@
 
 - type: marking
   id: TattooEyeLeft
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Human, Slime, Reptilian, Android, Felinid] #WL-Changes: Felinids
   coloring:
@@ -130,6 +132,7 @@
 
 - type: marking
   id: TattooEyeMothRight
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Moth]
   coloring:
@@ -143,6 +146,7 @@
 
 - type: marking
   id: TattooEyeMothLeft
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Moth]
   coloring:
@@ -156,6 +160,7 @@
 
 - type: marking
   id: TattooEyeVulpkaninRight
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Vulpkanin]
   coloring:
@@ -169,6 +174,7 @@
 
 - type: marking
   id: TattooEyeVulpkaninLeft
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Vulpkanin]
   coloring:

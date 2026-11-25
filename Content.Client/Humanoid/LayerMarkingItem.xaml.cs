@@ -56,6 +56,9 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
 
         SelectButton.OnPressed += SelectButtonPressed;
         ColorsButton.OnPressed += ColorsButtonPressed;
+        // WL-Changes
+        EmissiveCheckBox.OnToggled += args =>
+            _markingsModel.TrySetMarkingEmissive(_organ, _layer, _markingPrototype.ID, args.Pressed);
 
         OnKeyBindDown += OnPressed;
         OnKeyBindUp += OnUnpressed;
@@ -114,9 +117,13 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
 
     private void UpdateSelection()
     {
-        var selected = _markingsModel.IsMarkingSelected(_organ, _layer, _markingPrototype.ID);
+        var marking = _markingsModel.GetMarking(_organ, _layer, _markingPrototype.ID);
+        var selected = marking.HasValue;
         SelectButton.Pressed = selected && _interactive;
         ColorsButton.Visible = selected && _interactive && _markingsModel.IsMarkingColorCustomizable(_organ, _layer, _markingPrototype.ID);
+        // WL-Changes
+        EmissiveCheckBox.Visible = _markingPrototype.CanBeEmissive;
+        EmissiveCheckBox.Pressed = marking?.Emissive ?? false;
 
         if (!selected || !_interactive)
         {
@@ -124,12 +131,12 @@ public sealed partial class LayerMarkingItem : BoxContainer, ISearchableControl
             ColorsContainer.Visible = false;
         }
 
-        if (_markingsModel.GetMarking(_organ, _layer, _markingPrototype.ID) is { } marking &&
+        if (marking is { } selectedMarking &&
             _colorSliders is { } sliders)
         {
             for (var i = 0; i < _markingPrototype.GetColorCount(); i++)
             {
-                sliders[i].Color = marking.MarkingColors[i];
+                sliders[i].Color = selectedMarking.MarkingColors[i];
             }
         }
     }

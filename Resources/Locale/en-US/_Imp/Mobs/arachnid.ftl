@@ -32,11 +32,6 @@ marking-ArachnidEyesJumper-jumper2 = Inner Right
 marking-ArachnidEyesJumper-jumper3 = Inner Left
 marking-ArachnidEyesJumper-jumper4 = Outer Left
 
-marking-ArachnidEyesJumperGlowing = Jumper Glowing Eyes
-marking-ArachnidEyesJumperGlowing-jumper1 = Outer Right
-marking-ArachnidEyesJumperGlowing-jumper2 = Inner Right
-marking-ArachnidEyesJumperGlowing-jumper3 = Inner Left
-marking-ArachnidEyesJumperGlowing-jumper4 = Outer Left
 
 marking-ArachnidEyesRound = Round Eyes
 marking-ArachnidEyesRound-round1 = Inner
@@ -44,11 +39,6 @@ marking-ArachnidEyesRound-round2 = Upper
 marking-ArachnidEyesRound-round3 = Outer
 marking-ArachnidEyesRound-round4 = Sides
 
-marking-ArachnidEyesRoundGlowing = Round Glowing Eyes
-marking-ArachnidEyesRoundGlowing-round1 = Inner
-marking-ArachnidEyesRoundGlowing-round2 = Upper
-marking-ArachnidEyesRoundGlowing-round3 = Outer
-marking-ArachnidEyesRoundGlowing-round4 = Sides
 
 marking-SpiderEyesMulti = Multicolor Eyes
 marking-SpiderEyesMulti-multi1 = Top
@@ -56,8 +46,6 @@ marking-SpiderEyesMulti-multi2 = Middle Top
 marking-SpiderEyesMulti-multi3 = Middle Bottom
 marking-SpiderEyesMulti-multi4 = Bottom
 
-marking-SpiderGlowEyes = Glowing Eyes
-marking-SpiderGlowEyes-glow = Glowing Eyes
 
 # RArm
 

@@ -60,6 +60,11 @@ public sealed partial class MarkingPrototype : IPrototype
     [DataField]
     public bool CanBeDisplaced { get; private set; } = true;
 
+    // WL-Changes-Start
+    [DataField]
+    public bool CanBeEmissive { get; private set; }
+    // WL-Changes-End
+
     /// <summary>
     ///     A list of layers associated with this marking.
     /// </summary>

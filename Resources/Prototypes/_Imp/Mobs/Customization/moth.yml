@@ -241,6 +241,7 @@
 
 - type: marking
   id: HeterochromiaMoth
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Moth]
   sprites:
@@ -249,6 +250,7 @@
 
 - type: marking
   id: MothBiggerEyes
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Moth]
   sprites:

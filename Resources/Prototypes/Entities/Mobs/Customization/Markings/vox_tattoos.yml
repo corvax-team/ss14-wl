@@ -107,6 +107,7 @@
 
 - type: marking
   id: TattooEyeVoxRight
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Vox]
   coloring:
@@ -120,6 +121,7 @@
 
 - type: marking
   id: TattooEyeVoxLeft
+  canBeEmissive: true # WL-Changes
   bodyPart: Eyes
   groupWhitelist: [Vox]
   coloring:
