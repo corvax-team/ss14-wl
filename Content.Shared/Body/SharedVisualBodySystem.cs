@@ -120,6 +120,8 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         ent.Comp.MarkingsDisplacement = displacement.ShallowClone();
         ent.Comp.HideableLayers = hideability;
         Dirty(ent);
+        var ev = new Content.Shared._WL.Body.OrganMarkingsChangedEvent(); // WL-changes
+        RaiseLocalEvent(ent, ref ev); // WL-changes
     }
 
     private void OnVisualOrganCopyAppearance(Entity<VisualOrganComponent> ent, ref BodyRelayedEvent<OrganCopyAppearanceEvent> args)

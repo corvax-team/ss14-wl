@@ -1,6 +1,7 @@
 - type: marking
   id: MurineTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Murine, Felinid, Human, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/murine_parts.rsi
@@ -9,6 +10,7 @@
 - type: marking
   id: MurineEars
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Murine, Felinid, Human, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/murine_parts.rsi

@@ -2,6 +2,7 @@
 - type: marking
   id: FoxEarSandfoxLarge
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears_big.rsi
@@ -12,6 +13,7 @@
 - type: marking
   id: FoxEarAcrador
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears_big.rsi
@@ -22,6 +24,7 @@
 - type: marking
   id: FoxEarFennec
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
@@ -32,6 +35,7 @@
 - type: marking
   id: FoxEarSabresune
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
@@ -42,6 +46,7 @@
 - type: marking
   id: FoxEarWolf
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
@@ -52,6 +57,7 @@
 - type: marking
   id: FoxEarRaccoon
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
@@ -72,6 +78,7 @@
 - type: marking
   id: FoxEarPerky
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
@@ -82,6 +89,7 @@
 - type: marking
   id: FoxEarBigWolf
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/ears.rsi
@@ -104,6 +112,7 @@
 - type: marking
   id: VulpTail #Вообще это FoxTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   coloring:
     default:
@@ -123,6 +132,7 @@
 - type: marking
   id: OtieTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
@@ -131,6 +141,7 @@
 - type: marking
   id: MessyTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
@@ -139,6 +150,7 @@
 - type: marking
   id: FluffyTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/vulpkanin_parts.rsi
@@ -147,6 +159,7 @@
 - type: marking
   id: EeveeTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -157,6 +170,7 @@
 - type: marking
   id: FennecTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -167,6 +181,7 @@
 - type: marking
   id: FoxNTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -177,6 +192,7 @@
 - type: marking
   id: FoxN2Tail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -185,6 +201,7 @@
 - type: marking
   id: FoxN3Tail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -195,6 +212,7 @@
 - type: marking
   id: FoxannTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -205,6 +223,7 @@
 - type: marking
   id: HuskyTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -215,6 +234,7 @@
 - type: marking
   id: OtieTailAlt
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -223,6 +243,7 @@
 - type: marking
   id: WolfNTail
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [Vulpkanin, Felinid, Android]
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -233,6 +254,7 @@
 - type: marking
   id: EeveeTailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -243,6 +265,7 @@
 - type: marking
   id: FennecTailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -253,6 +276,7 @@
 - type: marking
   id: FoxNTailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -263,6 +287,7 @@
 - type: marking
   id: FoxN2TailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -271,6 +296,7 @@
 - type: marking
   id: FoxN3TailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -281,6 +307,7 @@
 - type: marking
   id: FoxannTailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -291,6 +318,7 @@
 - type: marking
   id: HuskyTailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -301,6 +329,7 @@
 - type: marking
   id: OtieTailAltAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi
@@ -309,6 +338,7 @@
 - type: marking
   id: WolfNTailAnimated
   bodyPart: Tail
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: []
   sprites:
     - sprite: _WL/Mobs/Customization/all_tails.rsi

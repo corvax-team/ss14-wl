@@ -3,6 +3,7 @@
 - type: marking
   id: VulpEar
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -13,6 +14,7 @@
 - type: marking
   id: VulpEarSharp
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -25,6 +27,7 @@
 - type: marking
   id: VulpEarFade
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -37,6 +40,7 @@
 - type: marking
   id: VulpEarJackal
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -47,6 +51,7 @@
 - type: marking
   id: VulpEarTerrier
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -57,6 +62,7 @@
 - type: marking
   id: VulpEarFennec
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -67,6 +73,7 @@
 - type: marking
   id: VulpEarFox
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -77,6 +84,7 @@
 - type: marking
   id: VulpEarOtie
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -87,6 +95,7 @@
 - type: marking
   id: VulpEarShock
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
@@ -97,6 +106,7 @@
 - type: marking
   id: VulpEarCoyote
   bodyPart: HeadTop
+  canHideUnderClothing: true # WL-changes
   groupWhitelist: [ Vulpkanin, Human, Android, Felinid ]
   sprites:
     - sprite: Mobs/Customization/Vulpkanin/ear_markings.rsi
