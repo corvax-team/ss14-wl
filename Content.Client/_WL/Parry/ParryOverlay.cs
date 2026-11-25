@@ -26,7 +26,6 @@ public sealed partial class ParryOverlay : Overlay
 
     private const float InitialScale = 1.33f;
     private const float FinalScale = 0.9f;
-    private const float IconAlpha = 1f;
 
     public override OverlaySpace Space =>
         OverlaySpace.WorldSpaceBelowEntities | OverlaySpace.WorldSpaceEntities;
@@ -122,13 +121,12 @@ public sealed partial class ParryOverlay : Overlay
                     Math.Clamp(layer.AnimationFrame, 0, state.DelayCount - 1));
 
                 var textureSize = (Vector2)texture.Size / EyeManager.PixelsPerMeter;
-                var color = layer.Color.WithAlpha(layer.Color.A * IconAlpha);
 
                 handle.DrawTexture(
                     texture,
                     -textureSize / 2f,
                     layer.Rotation + parryComp.AngleOffset,
-                    color);
+                    layer.Color);
             }
         }
 
