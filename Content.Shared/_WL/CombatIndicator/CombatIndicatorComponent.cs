@@ -4,10 +4,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._WL.CombatIndicator;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true, true)]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class CombatIndicatorComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntProtoId IndicatorProto = "EffectCombatIndicator";
 
     [DataField]

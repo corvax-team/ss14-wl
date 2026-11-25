@@ -4,18 +4,10 @@ using Robust.Shared.Map;
 
 namespace Content.Client._WL.CombatIndicator;
 
-public sealed partial class CombatIndicatorSystem : EntitySystem
+public sealed partial class CombatIndicatorVisualsSystem : EntitySystem
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<CombatIndicatorComponent, AfterAutoHandleStateEvent>(OnState);
-        SubscribeLocalEvent<CombatIndicatorComponent, ComponentShutdown>(OnShutdown);
-    }
-
-
-    private void OnState(Entity<CombatIndicatorComponent> ent, ref AfterAutoHandleStateEvent args)
+    [SubscribeLocalEvent]
+    private void OnStartup(Entity<CombatIndicatorComponent> ent, ref ComponentStartup args)
     {
         if (ent.Comp.IndicatorEntity != null)
             return;
@@ -26,11 +18,10 @@ public sealed partial class CombatIndicatorSystem : EntitySystem
         ent.Comp.IndicatorEntity = indicator;
     }
 
-
-
+    [SubscribeLocalEvent]
     private void OnShutdown(Entity<CombatIndicatorComponent> ent, ref ComponentShutdown args)
     {
-        PredictedQueueDel(ent.Comp.IndicatorEntity);
+        QueueDel(ent.Comp.IndicatorEntity);
         ent.Comp.IndicatorEntity = null;
     }
 }
