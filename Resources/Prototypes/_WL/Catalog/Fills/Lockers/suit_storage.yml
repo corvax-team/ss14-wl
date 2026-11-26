@@ -1,0 +1,20 @@
+#Security light hardsuit
+- type: entityTable
+  id: FillLightSuitStorageSecurity
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitSecurityLight
+    - id: ClothingShoesBootsMagSec # WL
+
+- type: entity
+  parent: SuitStorageBase
+  id: SuitStorageSecLight
+  suffix: Light
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLightSuitStorageSecurity
+  - type: AccessReader
+    access: [["Security"]]

@@ -74,3 +74,39 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+
+#Security Light Hardsuit
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseSecurityContraband]
+  id: ClothingOuterHardsuitSecurityLight
+  name: security light hardsuit
+  description: "A lightweight spacesuit designed for the basic comfort of security personnel during extravehicular activity. Features an integrated Type I armored vest."
+  components:
+  - type: Sprite
+    sprite: _WL/Clothing/OuterClothing/Hardsuits/security_light.rsi
+  - type: Clothing
+    sprite: _WL/Clothing/OuterClothing/Hardsuits/security_light.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.9
+        Heat: 0.85
+        Caustic: 0.55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSecurityLight
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+    - WhitelistChameleon
