@@ -629,13 +629,12 @@ public sealed partial class ServerGameTicker
                         ("seconds", duration.Seconds));
 
             string playerInfoText = string.Empty;
-            string player = string.Empty;
 
             foreach (var playerInfo in roundEndMessage.AllPlayersEndInfo)
             {
                 if (playerInfo.PlayerICName != null)
                 {
-                    player = playerInfo.Observer
+                    var player = playerInfo.Observer
                         ? Loc.GetString("round-end-manifest-webhook-player-info-if-observer-text",
                             ("playerOOCName", playerInfo.PlayerOOCName),
                             ("playerICName", playerInfo.PlayerICName))
@@ -650,7 +649,7 @@ public sealed partial class ServerGameTicker
 
                     if (player.Length + playerInfoText.Length >= 4096)
                     {
-                        await SendEmeded(playerInfoText,
+                        await SendEmbed(playerInfoText,
                                          Loc.GetString("round-end-manifest-discord-title"),
                                          foterText,
                                          _webhookIdentifierManifest.Value,
@@ -663,18 +662,21 @@ public sealed partial class ServerGameTicker
                 }
             }
 
-            await SendEmeded(playerInfoText,
-                             Loc.GetString("round-end-manifest-discord-title"),
-                             foterText,
-                             _webhookIdentifierManifest.Value,
-                             _webhookEmbedColor);
+            if (playerInfoText.Length > 0)
+            {
+                await SendEmbed(playerInfoText,
+                                 Loc.GetString("round-end-manifest-discord-title"),
+                                 foterText,
+                                 _webhookIdentifierManifest.Value,
+                                 _webhookEmbedColor);
+            }
 
             if (!string.IsNullOrEmpty(roundEndMessage.RoundEndText) &&
                 roundEndMessage.RoundEndText != "\n")
             {
                 if (roundEndMessage.RoundEndText.Length <= 4096)
                 {
-                    await SendEmeded(roundEndMessage.RoundEndText,
+                    await SendEmbed(FormattedMessage.RemoveMarkupPermissive(roundEndMessage.RoundEndText),
                                      Loc.GetString("round-end-text-discord-title"),
                                      foterText,
                                      _webhookIdentifierManifest.Value,
@@ -690,10 +692,8 @@ public sealed partial class ServerGameTicker
         }
     }
 
-    private async Task SendEmeded(string message, string title, string foterText, WebhookIdentifier webhook, Color color)
+    private async Task SendEmbed(string message, string title, string footerText, WebhookIdentifier webhook, Color color)
     {
-
-
         var embed = new WebhookEmbed
         {
             Title = title,
@@ -701,7 +701,7 @@ public sealed partial class ServerGameTicker
             Color = color.ToArgb() & 0xFFFFFF,
             Footer = new WebhookEmbedFooter
             {
-                Text = foterText,
+                Text = footerText,
             }
         };
         var payload = new WebhookPayload { Embeds = [embed] };
