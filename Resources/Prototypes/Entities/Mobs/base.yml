@@ -194,6 +194,7 @@
     damage:
       types:
         Blunt: 5
+  - type: CombatIndicator # WL-Changes: Combat indicator
 
 # Used for mobs that are affected by atmospherics, pressure, and heat
 - type: entity

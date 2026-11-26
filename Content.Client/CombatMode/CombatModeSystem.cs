@@ -18,7 +18,7 @@ public sealed partial class CombatModeSystem : SharedCombatModeSystem
     [Dependency] private IConfigurationManager _cfg = default!;
     [Dependency] private IInputManager _inputManager = default!;
     [Dependency] private IEyeManager _eye = default!;
-    [Dependency] private CombatIndicatorSystem _combatIndicator = default!; // WL-Changes
+    [Dependency] private SharedCombatIndicatorSystem _combatIndicator = default!; // WL-Changes
 
     /// <summary>
     /// Raised whenever combat mode changes.
