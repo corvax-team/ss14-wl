@@ -1,0 +1,16 @@
+- type: antag
+  id: CorticalBorer
+  name: roles-antag-cortical-borer-name
+  antagonist: true
+  objective: roles-antag-cortical-borer-objective
+
+- type: antagSpecifier
+  parent: RestrictedAntag
+  id: CorticalBorer
+  spawnerPrototype: SpawnPointGhostCorticalBorer
+  pickPlayer: false
+  briefing:
+    text: cortical-borer-role-greeting
+    color: Red
+  mindRoles:
+  - MindRoleCorticalBorer

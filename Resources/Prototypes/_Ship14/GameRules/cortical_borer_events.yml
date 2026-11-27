@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseAntagGhostRoleRule
+  id: CorticalBorerSpawn
+  components:
+  - type: StationEvent
+    weight: 4
+    earliestStart: 25
+    minimumPlayers: 7
+    duration: null
+    occursDuringRoundEnd: false
+    maxOccurrences: 1
+  - type: CorticalBorerRule
+  - type: AntagSpawner
+    prototype: MobCorticalBorer
+  - type: AntagSelection
+    agentName: cortical-borer-round-end-agent-name
+    antags:
+    - !type:FixedAntagCount
+      proto: CorticalBorer
+  - type: DynamicRuleCost
+    cost: 35

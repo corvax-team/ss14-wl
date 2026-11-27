@@ -1,0 +1,7 @@
+- type: accent
+  id: corticalBorer
+  fullReplacements:
+  - cortical-borer-accent-1
+  - cortical-borer-accent-2
+  - cortical-borer-accent-3
+  - cortical-borer-accent-4

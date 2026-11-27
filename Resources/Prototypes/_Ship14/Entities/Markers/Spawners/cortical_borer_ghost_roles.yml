@@ -1,0 +1,16 @@
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostCorticalBorer
+  components:
+  - type: GhostRole
+    name: ghost-role-information-cortical-borer-name
+    description: ghost-role-information-cortical-borer-description
+    rules: ghost-role-information-cortical-borer-rules
+    mindRoles:
+    - MindRoleCorticalBorer
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _Ship14/Mobs/Animals/cortical_borer.rsi
+      state: larva

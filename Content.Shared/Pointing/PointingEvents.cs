@@ -18,6 +18,14 @@ public sealed class PointingAttemptEvent : EntityEventArgs
     }
 }
 
+// WL-Changes-Start
+/// <summary>
+/// Raised after validation so an entity can deliver a point without a public notification or arrow.
+/// </summary>
+[ByRefEvent]
+public record struct BeforePublicPointEvent(EntityUid? Target, bool Handled = false);
+// WL-Changes-End
+
 /// <summary>
 /// Raised on the entity who is pointing after they point at something.
 /// </summary>

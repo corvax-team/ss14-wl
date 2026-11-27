@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingEyesHudMedical
+  id: ClothingEyesHudMedicalAdvanced
+  name: advanced medical hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their health status. It can detect viral and parasitic infections.
+  components:
+  - type: CorticalBorerVisor
+
+- type: statusIcon
+  parent: HealthIcon
+  id: HealthIconCorticalBorer
+  priority: 4
+  visibleToGhosts: false
+  icon:
+    sprite: /Textures/_Ship14/Interface/Misc/cortical_borer_health.rsi
+    state: infested

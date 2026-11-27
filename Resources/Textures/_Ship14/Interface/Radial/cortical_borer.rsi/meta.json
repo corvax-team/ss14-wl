@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Agony and Paralysis icons taken from tgstation, Blindness icon copied from Bhijn's and Myr's EyeClose icon. Splat sprite for chem icons made by Alekshhh and modified by potato1234x. All icons modified by TuchkaTochka.",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "agony" }, { "name": "blindness" }, { "name": "paralysis" }, { "name": "epinephrine" },
+    { "name": "space-drugs" }, { "name": "tricordrazine" }, { "name": "ethanol" }, { "name": "leporazine" },
+    { "name": "desoxyephedrine" }, { "name": "dexalin" }
+  ]
+}

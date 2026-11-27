@@ -1,0 +1,15 @@
+- type: entity
+  id: EffectCorticalBorerScreech
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.9
+  - type: ScreechShockWave
+    waveSpeed: 8
+    waveStrength: 0.35
+    downScale: 2
+    fadeTime: 0.75
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
