@@ -8,6 +8,8 @@ loadout-group-adjutant-head = Адъютант, голова
 loadout-group-adjutant-jumpsuit = Адъютант, комбинезон
 loadout-group-adjutant-backpack = Адъютант, рюкзак
 loadout-group-adjutant-outerclothing = Адъютант, верхняя одежда
+loadout-group-adjutant-gloves = Адъютант, перчатки
+loadout-group-adjutant-shoes = Адъютант, обувь
 
 loadout-group-neck-wl = Шея
 

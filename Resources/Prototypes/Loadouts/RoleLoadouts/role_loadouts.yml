@@ -13,6 +13,7 @@
   - Survival
   - Trinkets
   #- CaptainJobTrinkets
+  - Glasses # WL-Changes: Eyes add
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
 
@@ -354,6 +355,7 @@
   #- ChiefEngineerJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - WLCEGlasses # WL-Changes: Glasses add
+  - Glasses # WL-Changes: Eyes add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -369,6 +371,7 @@
   - Trinkets
   #- TechnicalAssistantJobTrinkets
   - WLNeck # WL-Changes: Neck add
+  - Glasses # WL-Changes: Eyes add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -388,6 +391,7 @@
   - Trinkets
   #- StationEngineerJobTrinkets
   - WLNeck # WL-Changes: Neck add
+  - Glasses # WL-Changes: Eyes add
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -404,6 +408,7 @@
   - AssistiveItems
   - SurvivalExtended
   - Trinkets
+  - Glasses # WL-Changes: Eyes add
   #- AtmosphericTechnicianJobTrinkets
   - WLNeck # WL-Changes: Neck add
   - GroupSpeciesBreathTool
@@ -488,6 +493,7 @@
   - WLNeck # WL-Changes: Neck add
   - HOSBadges # WL-Changes
   - WLHOSGlasses # WL-Changes: Glasses add
+  - Glasses # WL-Changes: Eyes add
   - HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -509,6 +515,7 @@
   - WardenBadges # WL-Changes
   - WardenJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  - Glasses # WL-Changes: Eyes add
 
 - type: roleLoadout
   id: JobSecurityOfficer
@@ -529,6 +536,7 @@
   - OfficerBadges # WL-Changes
   - SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
+  - Glasses # WL-Changes: Eyes add
 
 - type: roleLoadout
   id: JobDetective
@@ -548,6 +556,7 @@
   - DetectiveJobTrinkets
   - GroupSpeciesBreathToolSecurity
   - PhotoGroup # WL-Changes: Photo to lodauts
+  - Glasses # WL-Changes: Eyes add
 
 - type: roleLoadout
   id: JobSecurityCadet
@@ -563,6 +572,7 @@
   - WLNeck # WL-Changes: Neck add
   - CadetBadges # WL-Changes
   - GroupSpeciesBreathToolSecurity
+  - Glasses # WL-Changes: Eyes add
 
 # Wildcards
 - type: roleLoadout

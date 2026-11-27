@@ -1,6 +1,6 @@
 ent-BaseMagazineMagnum = пистолетный магазин (.45 магнум)
     .desc = { ent-BaseMagazinePistol.desc }
-ent-MagazineMagnumEmpty = пистолетный магазин (.45 магнум любые)
+ent-MagazineMagnumEmpty = пистолетный магазин (.45 магнум)
     .desc = Магазин на 7 патронов для крупнокалиберных пистолетов.
     .suffix = Пустой
 ent-MagazineMagnum = пистолетный магазин (.45 магнум)

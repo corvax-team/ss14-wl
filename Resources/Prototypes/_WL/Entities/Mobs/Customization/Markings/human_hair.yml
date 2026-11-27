@@ -498,3 +498,24 @@
   sprites:
     - sprite: _WL/Mobs/Customization/human_hair.rsi
       state: shavedknot
+
+- type: marking
+  id: HumanHairPulato3
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: pulato3
+
+- type: marking
+  id: HumanHairBluntbangsAlt2
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: bluntbangsalt2
+
+- type: marking
+  id: HumanHairBluntbangsAlt1
+  bodyPart: Hair
+  sprites:
+    - sprite: _WL/Mobs/Customization/human_hair.rsi
+      state: bluntbangsalt

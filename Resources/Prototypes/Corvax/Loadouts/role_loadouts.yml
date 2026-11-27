@@ -12,6 +12,7 @@
   - Trinkets
   - WLNeck # WL-Changes: Neck add
   - WLLawyerGlasses # WL-Changes: Glasses add
+  - Glasses # WL-Changes: Eyes add
   - GroupSpeciesBreathTool
 
 #Law
@@ -44,6 +45,7 @@
   - SurvivalExtended
   - Trinkets
   - WLNeck # WL-Changes: Neck add
+  - Glasses # WL-Changes: Eyes add
   - GroupSpeciesBreathTool
 
 # Science
@@ -82,6 +84,7 @@
   - WLNeck # WL-Changes: Neck add
   - PilotBadges # WL-Changes
   - GroupSpeciesBreathTool
+  - Glasses # WL-Changes: Eyes add
 
 - type: roleLoadout
   id: JobBrigmedic
@@ -100,6 +103,7 @@
   - WLNeck # WL-Changes: Neck add
   - BrigMedicBadges # WL-Changes
   - GroupSpeciesBreathTool
+  - Glasses # WL-Changes: Eyes add
 
 - type: roleLoadout
   id: JobSeniorOfficer
@@ -117,6 +121,7 @@
   - WLNeck # WL-Changes: Neck add
   - InstructorBadges # WL-Changes
   - GroupSpeciesBreathToolSecurity
+  - Glasses # WL-Changes: Eyes add
 
 # Medical
 - type: roleLoadout

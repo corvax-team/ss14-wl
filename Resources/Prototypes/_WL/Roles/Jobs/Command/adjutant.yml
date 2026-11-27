@@ -37,7 +37,6 @@
   id: AdjutantGear
   equipment:
     eyes: ClothingEyesHudCommand
-    shoes: ClothingShoesBootsLaceup
     id: AdjutantPDA
     ears: ClothingHeadsetAltCommand
     pocket1: CardCapsSpare # WL-code-safe
