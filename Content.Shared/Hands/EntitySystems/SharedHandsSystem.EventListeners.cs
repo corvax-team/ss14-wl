@@ -41,7 +41,7 @@ public abstract partial class SharedHandsSystem
         if (totalHands == 0)
             args.SpeedModifier = 0f;
         else
-            args.SpeedModifier *= (float)freeHands / totalHands;
+            args.SpeedModifier *= 1f / 3f + 2f / 3f * freeHands / totalHands; // WL-Changes
     }
 
     [SubscribeLocalEvent]
