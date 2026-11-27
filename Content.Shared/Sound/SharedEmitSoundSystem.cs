@@ -6,6 +6,7 @@ using Content.Shared.Maps;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Sound.Components;
+using Content.Shared.Strip.Components; // WL-Changes
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Whitelist;
@@ -126,11 +127,21 @@ public abstract partial class SharedEmitSoundSystem : EntitySystem
 
     private void OnEmitSoundOnPickup(EntityUid uid, EmitSoundOnPickupComponent component, GotEquippedHandEvent args)
     {
+        // WL-Changes-Start
+        if (TryComp<ThievingComponent>(args.User, out var thieving) && thieving.Stealthy)
+            return;
+        // WL-Changes-End
+
         TryEmitSound(uid, component, args.User);
     }
 
     private void OnEmitSoundOnDrop(EntityUid uid, EmitSoundOnDropComponent component, DroppedEvent args)
     {
+        // WL-Changes-Start
+        if (TryComp<ThievingComponent>(args.User, out var thieving) && thieving.Stealthy)
+            return;
+        // WL-Changes-End
+
         TryEmitSound(uid, component, args.User);
     }
 
