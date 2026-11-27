@@ -1,0 +1,206 @@
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerParalyze
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -20
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: paralyze
+      map: ["enum.ActionVisuals.Icon"]
+    - state: paralyze-active
+      map: ["enum.ActionVisuals.IconToggled"]
+      visible: false
+  - type: InstantAction
+    event: !type:CorticalBorerParalyzeActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerInfest
+  components:
+  - type: Action
+    checkCanInteract: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -19
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: infest
+      map: ["enum.ActionVisuals.Icon"]
+  - type: TargetAction
+    range: 1.5
+    checkCanAccess: false
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - HumanoidProfile
+    event: !type:CorticalBorerInfestActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerConverse
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -20
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: converse
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CorticalBorerConverseActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerPunish
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -19
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: punish
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CorticalBorerPunishActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerInject
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -18
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: inject
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CorticalBorerInjectActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerReproduce
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -16
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: reproduce
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CorticalBorerReproduceActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerScreech
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    useDelay: 60
+    raiseOnUser: true
+    priority: -17
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: screech
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CorticalBorerScreechActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerControl
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -15
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: control
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CorticalBorerControlActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerLeave
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -14
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: leave
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CorticalBorerLeaveActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerRelease
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -20
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: release
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CorticalBorerReleaseActionEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionCorticalBorerResist
+  components:
+  - type: Action
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    priority: -20
+  - type: Sprite
+    sprite: _Ship14/Interface/Actions/cortical_borer.rsi
+    layers:
+    - state: resist
+      map: ["enum.ActionVisuals.Icon"]
+  - type: InstantAction
+    event: !type:CorticalBorerResistActionEvent

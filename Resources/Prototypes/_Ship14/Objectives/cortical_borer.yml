@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseObjective
+  id: CorticalBorerObjective
+  components:
+  - type: Objective
+    issuer: CorticalBorer
+    difficulty: 1
+    icon:
+      sprite: Mobs/Species/Human/organs.rsi
+      state: brain
+  - type: CorticalBorerObjective
+  - type: RoleRequirement
+    roles:
+    - CorticalBorerRole

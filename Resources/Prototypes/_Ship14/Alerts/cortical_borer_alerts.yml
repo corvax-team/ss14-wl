@@ -1,0 +1,53 @@
+- type: alert
+  id: CorticalBorerChemicals
+  name: cortical-borer-alert-chemicals-name
+  description: cortical-borer-alert-chemicals-description
+  category: Battery
+  alertViewEntity: AlertCorticalBorerChemicalsSpriteView
+  icons:
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals0
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals1
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals2
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals3
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals4
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals5
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals6
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals7
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals8
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals9
+  - sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    state: chemicals10
+  minSeverity: 0
+  maxSeverity: 10
+  clientHandled: false
+
+- type: entity
+  id: AlertCorticalBorerChemicalsSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GenericCounterAlert
+    centerGlyph: true
+    hideLeadingZeroes: true
+  - type: Sprite
+    sprite: /Textures/_Ship14/Interface/Alerts/cortical_borer.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      map: [ "1" ]
+    - sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      map: [ "10" ]
+    - sprite: /Textures/Interface/Alerts/essence_counter.rsi
+      state: "0"
+      map: [ "100" ]

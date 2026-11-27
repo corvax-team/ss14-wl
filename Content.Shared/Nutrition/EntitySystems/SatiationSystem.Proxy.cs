@@ -11,6 +11,14 @@ namespace Content.Shared.Nutrition.EntitySystems;
 // This part provides functions for use in other systems.
 public abstract partial class SatiationSystem
 {
+    // WL-Changes-Start
+    /// <summary>Returns the current signed change per second for a satiation, including its threshold modifiers.</summary>
+    public float? GetChangeRate(Entity<SatiationComponent> entity, ProtoId<SatiationTypePrototype> type)
+    {
+        return entity.Comp.GetOrNull(type)?.ActualChangeRate;
+    }
+    // WL-Changes-End
+
     /// <summary>
     /// Gets <paramref name="entity"/>'s current value of the satiation of <paramref name="type"/>. If this entity does
     /// not have that satiation, returns null.

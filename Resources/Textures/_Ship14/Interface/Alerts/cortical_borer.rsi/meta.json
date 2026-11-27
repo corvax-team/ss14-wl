@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by TuchkaTochka.",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "chemicals0" }, { "name": "chemicals1" }, { "name": "chemicals2" }, { "name": "chemicals3" },
+    { "name": "chemicals4" }, { "name": "chemicals5" }, { "name": "chemicals6" }, { "name": "chemicals7" },
+    { "name": "chemicals8" }, { "name": "chemicals9" }, { "name": "chemicals10" }
+  ]
+}

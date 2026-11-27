@@ -157,6 +157,17 @@ namespace Content.Server.Pointing.EntitySystems
                 _popup.PopupEntity(Loc.GetString("pointing-system-try-point-cannot-reach"), player, player);
                 return false;
             }
+
+            // WL-Changes-Start
+            var beforePublicPoint = new BeforePublicPointEvent(Exists(pointed) ? pointed : null);
+            RaiseLocalEvent(player, ref beforePublicPoint);
+            if (beforePublicPoint.Handled)
+            {
+                _pointers[session] = _gameTiming.CurTime;
+                return true;
+            }
+            // WL-Changes-End
+
             var mapCoordsPointed = _transform.ToMapCoordinates(coordsPointed);
             _rotateToFaceSystem.TryFaceCoordinates(player, mapCoordsPointed.Position);
 

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by TuchkaTochka. Icon borders modified from TiniestShark's Changeling icons.",
+  "size": { "x": 32, "y": 32 },
+  "states": [
+    { "name": "paralyze" }, { "name": "paralyze-active" }, { "name": "infest" }, { "name": "converse" }, { "name": "punish" },
+    { "name": "inject" }, { "name": "reproduce" }, { "name": "control" }, { "name": "leave" },
+    { "name": "release" }, { "name": "resist" }, { "name": "screech" }
+  ]
+}

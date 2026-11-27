@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: CorticalBorer
+  saySound:
+    collection: FootstepSlime
+  askSound:
+    collection: FootstepSlime
+  exclaimSound:
+    collection: FootstepSlime
