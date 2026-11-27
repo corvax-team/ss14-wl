@@ -197,6 +197,7 @@ namespace Content.Client.Options.UI.Tabs
 
             AddButton(ContentKeyFunctions.OfferItem); // CorvaxGoob-Offer
             AddButton(ContentKeyFunctions.CombatIndicator); //Corvax-WL-indicator
+            AddButton(ContentKeyFunctions.Parry); // WL-Changes
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
             AddButton(ContentKeyFunctions.SmartEquipBelt);

@@ -80,7 +80,7 @@
 
 - type: entity
   name: energy sword
-  parent: BaseMeleeWeaponEnergy # Corvax-Contraband: do not inherit a marker for hidden properties.
+  parent: [ BaseMeleeWeaponEnergy, BaseParryMelee, ParryMeleeLevelHeavy ] # Corvax-Contraband: do not inherit a marker for hidden properties. # WL-Changes-Parry
   id: EnergySword
   description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
   components:
@@ -101,7 +101,7 @@
 
 - type: entity
   name: energy dagger
-  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
+  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband, BaseParryMelee, ParryMeleeLevelLight] # WL-Changes-Parry
   id: EnergyDaggerLoud
   description: A not as loud and dangerous dagger with a beam made of pure, concentrated plasma. This one is completely undisguised.
   components:
@@ -168,7 +168,7 @@
 
 - type: entity
   name: pen
-  parent: [BaseMeleeWeaponEnergy, SelectableLock]
+  parent: [BaseMeleeWeaponEnergy, SelectableLock, BaseParryMelee, ParryMeleeLevelLight] # WL-Changes-Parry
   id: EnergyDagger
   suffix: E-Dagger
   description: 'A dark ink pen.'
@@ -267,7 +267,7 @@
 
 - type: entity
   name: energy cutlass
-  parent: BaseMeleeWeaponEnergy # Corvax-Contraband: do not inherit a marker for hidden properties.
+  parent: [ BaseMeleeWeaponEnergy, BaseParryMelee, ParryMeleeLevelHeavy ] # Corvax-Contraband: do not inherit a marker for hidden properties. # WL-Changes-Parry
   id: EnergyCutlass
   description: An exotic energy weapon.
   components:
@@ -292,7 +292,7 @@
 
 - type: entity
   name: double-bladed energy sword
-  parent: [BaseCorvaxContraband435, BaseMeleeWeaponEnergy] # Corvax-Contraband: explicit exception to the wiki.
+  parent: [BaseCorvaxContraband435, BaseMeleeWeaponEnergy, BaseParryMelee, ParryMeleeLevelHeavy] # Corvax-Contraband: explicit exception to the wiki. # WL-Changes-Parry
   id: EnergySwordDouble
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
   components:

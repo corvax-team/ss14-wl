@@ -9,3 +9,4 @@ ui-options-function-offer-item = Передать что-либо
 ui-options-function-combat-indicator = Переключить боевой индикатор
 ui-options-general-combat-mode = Боевой режим
 ui-option-auto-toggle-combat-indicator = Автоматически переключать индикатор боевого режима
+ui-options-function-parry = Парировать

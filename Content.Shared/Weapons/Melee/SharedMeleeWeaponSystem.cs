@@ -30,6 +30,7 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared._WL.Weapons.Melee.Events; // WL-Changes
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -566,7 +567,19 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 
         var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
 
-        if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
+        // WL-Changes-Start
+        var beforeMeleeDamage = new BeforeMeleeDamageEvent(
+            target.Value, user, meleeUid, modifiedDamage, resistanceBypass, hitEvent.HitSoundOverride, false);
+        RaiseLocalEvent(target.Value, ref beforeMeleeDamage);
+
+        // Someone took over this hit and will apply it later via ApplyDeferredMeleeHit.
+        if (beforeMeleeDamage.Deferred)
+            return;
+
+        ApplyMeleeHit(target.Value, user, meleeUid, component, beforeMeleeDamage.Damage, resistanceBypass, hitEvent.HitSoundOverride, heavy: false);
+
+        // Moved to ApplyMeleeHit
+        /*if (Damageable.TryChangeDamage(target.Value, modifiedDamage, out var damageResult, origin:user, ignoreResistances:resistanceBypass))
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
             if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
@@ -604,7 +617,6 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
                     $"{ToPrettyString(user):actor} melee attacked (light) {ToPrettyString(target.Value):subject} using {ToPrettyString(meleeUid):tool} and dealt 0 damage");
             }
         }
-        // WL-Changes-End
 
         _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, ProtoMan), hitEvent.HitSoundOverride, component);
 
@@ -630,10 +642,116 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
             {
                 UndamagedAttack((meleeUid, component), target.Value, user);
             }
-        }
+        }*/
+        // WL-Changes-End
     }
 
     protected abstract void DoDamageEffect(HashSet<EntityUid> targets, EntityUid? user,  TransformComponent targetXform);
+
+    // WL-Changes-Start
+    private void ApplyMeleeHit(
+        EntityUid target,
+        EntityUid user,
+        EntityUid meleeUid,
+        MeleeWeaponComponent component,
+        DamageSpecifier damage,
+        bool resistanceBypass,
+        SoundSpecifier? hitSoundOverride,
+        bool heavy)
+    {
+        var attackName = heavy ? "heavy" : "light";
+
+        if (Damageable.TryChangeDamage(target, damage, out var damageResult, origin: user, ignoreResistances: resistanceBypass))
+        {
+            // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
+            if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
+            {
+                _stamina.TakeStaminaDamage(target, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid);
+            }
+
+            if (meleeUid == user)
+            {
+                AdminLogger.Add(LogType.MeleeHit,
+                    LogImpact.Medium,
+                    $"{ToPrettyString(user):actor} melee attacked ({attackName}) {ToPrettyString(target):subject} using their hands and dealt {damageResult.GetTotal():damage} damage");
+            }
+            else
+            {
+                AdminLogger.Add(LogType.MeleeHit,
+                    LogImpact.Medium,
+                    $"{ToPrettyString(user):actor} melee attacked ({attackName}) {ToPrettyString(target):subject} using {ToPrettyString(meleeUid):tool} and dealt {damageResult.GetTotal():damage} damage");
+            }
+        }
+        else
+        {
+            if (meleeUid == user)
+            {
+                AdminLogger.Add(LogType.MeleeHit,
+                    LogImpact.Medium,
+                    $"{ToPrettyString(user):actor} melee attacked ({attackName}) {ToPrettyString(target):subject} using their hands and dealt 0 damage");
+            }
+            else
+            {
+                AdminLogger.Add(LogType.MeleeHit,
+                    LogImpact.Medium,
+                    $"{ToPrettyString(user):actor} melee attacked ({attackName}) {ToPrettyString(target):subject} using {ToPrettyString(meleeUid):tool} and dealt 0 damage");
+            }
+        }
+
+        _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(damage, ProtoMan), hitSoundOverride, component);
+
+        if (TerminatingOrDeleted(target))
+            return;
+
+        // ES START
+        var userShakeRotation = new ESScreenshakeParameters()
+            { Trauma = 0.08f, DecayRate = 1.0f, Frequency = 0.009f };
+        var otherShakeTranslation = new ESScreenshakeParameters() { Trauma = 0.45f, DecayRate = 1.1f, Frequency = 0.04f };
+        _shake.Screenshake(user, null, userShakeRotation);
+        _shake.Screenshake(target, otherShakeTranslation, null);
+        // ES END
+
+        if (damageResult.GetTotal() > FixedPoint2.Zero)
+        {
+            DoDamageEffect(new HashSet<EntityUid> { target }, user, Transform(target));
+            ResetUndamagedSwingsCount((meleeUid, component));
+        }
+        else
+        {
+            UndamagedAttack((meleeUid, component), target, user);
+        }
+    }
+
+    /// <summary>
+    /// Applies a melee hit that was postponed through <see cref="BeforeMeleeDamageEvent.Deferred"/>.
+    /// <paramref name="damage"/> is the final damage (already modified by whoever deferred the hit).
+    /// Does not raise <see cref="BeforeMeleeDamageEvent"/> again.
+    /// </summary>
+    public void ApplyDeferredMeleeHit(
+        EntityUid target,
+        EntityUid user,
+        EntityUid meleeUid,
+        DamageSpecifier damage,
+        bool resistanceBypass,
+        SoundSpecifier? hitSoundOverride,
+        bool heavy)
+    {
+        if (TerminatingOrDeleted(target))
+            return;
+
+        // The attacker or the weapon may be gone by now (e.g. the NPC died during the window).
+        // The hit still happened, so apply the damage itself and skip the attacker-side extras.
+        if (TerminatingOrDeleted(user) ||
+            TerminatingOrDeleted(meleeUid) ||
+            !TryComp<MeleeWeaponComponent>(meleeUid, out var component))
+        {
+            Damageable.TryChangeDamage(target, damage, ignoreResistances: resistanceBypass);
+            return;
+        }
+
+        ApplyMeleeHit(target, user, meleeUid, component, damage, resistanceBypass, hitSoundOverride, heavy);
+    }
+    // WL-Changes-End
 
     private bool DoHeavyAttack(EntityUid user, HeavyAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
@@ -729,6 +847,9 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
 
         var appliedDamage = new DamageSpecifier();
         var filteredTargets = new HashSet<EntityUid>();
+        // WL-Changes-Start
+        var deferredTargets = new HashSet<EntityUid>();
+        // WL-Changes-End
 
         foreach (var entity in targets)
         {
@@ -745,6 +866,22 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
             var attackedEvent = new AttackedEvent(meleeUid, user, GetCoordinates(ev.Coordinates));
             RaiseLocalEvent(entity, attackedEvent);
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(damage + hitEvent.BonusDamage + attackedEvent.BonusDamage, hitEvent.ModifiersList);
+
+            // WL-Changes-Start
+            var beforeMeleeDamage = new BeforeMeleeDamageEvent(
+                entity, user, meleeUid, modifiedDamage, resistanceBypass, hitEvent.HitSoundOverride, true);
+            RaiseLocalEvent(entity, ref beforeMeleeDamage);
+
+            if (beforeMeleeDamage.Deferred)
+            {
+                // This target is handled later by ApplyDeferredMeleeHit, with its own sound/effects/shake.
+                deferredTargets.Add(entity);
+                filteredTargets.Add(entity);
+                continue;
+            }
+
+            modifiedDamage = beforeMeleeDamage.Damage;
+            // WL-Changes-End
 
             var damageResult = Damageable.ChangeDamage(entity, modifiedDamage, origin: user, ignoreResistances: resistanceBypass);
 
@@ -777,6 +914,21 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
         }
 
         targets.ExceptWith(filteredTargets);
+
+        // WL-Changes-Start
+        EntityUid? soundTarget = null;
+        foreach (var entity in entities)
+        {
+            if (deferredTargets.Contains(entity))
+                continue;
+
+            soundTarget = entity;
+            break;
+        }
+
+        if (soundTarget != null)
+            _meleeSound.PlayHitSound(soundTarget.Value, user, GetHighestDamageSound(appliedDamage, ProtoMan), hitEvent.HitSoundOverride, component);
+        // WL-Changes-End
 
         if (entities.Count != 0)
         {

@@ -1,0 +1,9 @@
+- type: entity
+  parent: StatusEffectBase
+  id: StatusEffectAttackProhibition
+  name: unable to attack
+  components:
+  - type: StatusEffectAlert
+    alert: AttackProhibitionAlert
+    showDuration: true
+  - type: AttackProhibitionStatusEffect

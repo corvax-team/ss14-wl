@@ -1,0 +1,26 @@
+- type: entity
+  id: BaseParryMelee
+  abstract: true
+  components:
+  - type: Parry
+
+- type: entity
+  id: ParryMeleeLevelLight
+  abstract: true
+  components:
+  - type: MeleeWeaponLevel
+    level: Light
+
+- type: entity
+  id: ParryMeleeLevelMiddle
+  abstract: true
+  components:
+  - type: MeleeWeaponLevel
+    level: Middle
+
+- type: entity
+  id: ParryMeleeLevelHeavy
+  abstract: true
+  components:
+  - type: MeleeWeaponLevel
+    level: Heavy

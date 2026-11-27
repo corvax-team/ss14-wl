@@ -1,6 +1,6 @@
 - type: entity
   name: stun baton
-  parent: [BaseCorvaxContraband432DepartmentsSecurity, BaseItem, BaseSecurityContraband] # Corvax-Contraband
+  parent: [BaseCorvaxContraband432DepartmentsSecurity, BaseItem, BaseSecurityContraband, BaseParryMelee, ParryMeleeLevelMiddle] # Corvax-Contraband # WL-Changes-Parry
   id: Stunbaton
   description: A stun baton for incapacitating people with. Has advanced wrist strap technology to prevent cadets accidentally dropping it.
   components:
@@ -104,7 +104,7 @@
 
 - type: entity
   name: truncheon
-  parent: [BaseItem, BaseSecurityContraband]
+  parent: [BaseItem, BaseSecurityContraband,  BaseParryMelee, ParryMeleeLevelMiddle] # WL-Changes-Parry
   id: Truncheon
   description: A rigid, steel-studded baton, meant to harm.
   components:

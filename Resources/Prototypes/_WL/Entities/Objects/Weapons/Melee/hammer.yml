@@ -1,6 +1,6 @@
 - type: entity
   name: hammer
-  parent: BaseItem
+  parent: [ BaseItem,  BaseParryMelee, ParryMeleeLevelLight ]
   id: WeaponMeleeHammer
   description: A great way to quickly convey your point of view to the other person.
   components:

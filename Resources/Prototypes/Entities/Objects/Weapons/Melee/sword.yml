@@ -2,7 +2,7 @@
 
 #BaseSword
 - type: entity
-  parent: BaseItem
+  parent: [ BaseItem, BaseParryMelee, ParryMeleeLevelMiddle ] #WL-Changes-Parry
   id: BaseSword
   abstract: true
   components:
@@ -168,6 +168,10 @@
   - type: Reflect
     slotFlags:
     - NONE
+  # WL-Changes-Start
+  - type: Parry
+    angleOffset: 1.8
+  # WL-Changes-End
 
 #Greatswords
 - type: entity

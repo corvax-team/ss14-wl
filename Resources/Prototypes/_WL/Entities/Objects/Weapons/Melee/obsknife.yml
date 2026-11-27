@@ -1,6 +1,6 @@
 - type: entity
   name: blue shueld energy knife
-  parent: [BaseMeleeWeaponEnergy, SelectableLock, BaseCentcommContraband]
+  parent: [BaseMeleeWeaponEnergy, SelectableLock, BaseCentcommContraband,  BaseParryMelee, ParryMeleeLevelLight]
   id: EnergyKnifeBlueShield
   description: A practical knife with hot plasma in an internal container. When turned on, it will quickly make a hole in the opponent.
   components:

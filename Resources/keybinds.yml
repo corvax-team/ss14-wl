@@ -656,3 +656,8 @@ binds:
   key: F
   mod1: Alt
   #Corvax-WL-CombatIndicator - end
+  # WL-Changes-Start: Parry
+- function: Parry
+  type: State
+  key: Space
+  # WL-Changes-End: Parry

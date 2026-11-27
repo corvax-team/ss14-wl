@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinableButchering, MobNightVision, BaseMobIrradiated ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseSlicingRefinableButchering, MobNightVision, BaseMobIrradiated, ParryMeleeLevelHeavy ] # WL-Changes-Parry
   id: BaseMobDragon
   suffix: ""
   name: space dragon
