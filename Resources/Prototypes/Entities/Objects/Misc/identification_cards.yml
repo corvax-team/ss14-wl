@@ -62,8 +62,8 @@
     layers:
     - state: default
     - sprite: &icon-rsi Interface/Misc/job_icons.rsi
-      # offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
-      offset: &icon-offset -0.18750, 0.03125  # Corvax-ID-sprite 6 pixels left, 1 pixels up
+      offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up # WL-Changes
+      #offset: &icon-offset -0.18750, 0.03125  # Corvax-ID-sprite 6 pixels left, 1 pixels up
       state: Passenger
   - type: PresetIdCard
     job: Passenger
