@@ -24,6 +24,8 @@ public sealed partial class AdvancedCombatComponent : Component
     [DataField("combatResist")]
     public Dictionary<CombatResist, float> CombatResistChances = new();
 
+    #region Disarm
+
     [DataField, AutoNetworkedField]
     public TimeSpan KnockdownTime = TimeSpan.FromSeconds(1);
 
@@ -35,6 +37,42 @@ public sealed partial class AdvancedCombatComponent : Component
 
     [DataField("disarmSuccessSound")]
     public SoundSpecifier DisarmSuccessSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
+
+    #endregion
+
+    #region Grab
+
+    [DataField, AutoNetworkedField]
+    public GrabStage GrabStage = GrabStage.None;
+
+    [DataField("grabCooldowns")]
+    public Dictionary<GrabStage, TimeSpan> GrabStagesCooldowns = new();
+
+    [DataField("grabRespiration")]
+    public Dictionary<GrabStage, float> GrabRespiratonRatios = new();
+
+    [DataField]
+    public Dictionary<GrabStage, float> GrabMaxDistances = new();
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan LastGrab;
+
+    [DataField, AutoNetworkedField]
+    public float RespiratorRatio = 1f;
+
+    [DataField, AutoNetworkedField]
+    public GrabStage GrabbedStage = GrabStage.None;
+
+    [DataField]
+    public HashSet<GrabStage> ThrowableStages = new();
+
+    [DataField]
+    public float ThrowSpeed = 10f;
+
+    [DataField("grabSuccessSound")]
+    public SoundSpecifier GrabSuccessSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
+
+    #endregion
 }
 
 [Serializable, NetSerializable]
@@ -59,4 +97,12 @@ public enum CombatResist {
     Push = 1,
     Disarm = 2,
     Knockdown = 3
+}
+
+[Serializable, NetSerializable]
+public enum GrabStage {
+    None = 0,
+    Passive = 1,
+    Active = 2,
+    Hard = 3
 }

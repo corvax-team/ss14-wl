@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._WL.Combat; // WL-Changes: Combat
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -266,6 +267,17 @@ namespace Content.Shared.Interaction
                 Log.Info($"TryPullObject input validation failed");
                 return true;
             }
+
+            // WL-Changes: Combat start
+            if (userEntity is {} user)
+            {
+                var ev = new CombatActionEvent(userEntity.Value, uid, CombatIntent.Grab);
+                RaiseLocalEvent(userEntity.Value, ev);
+
+                if (ev.Handled)
+                    return false;
+            }
+            // WL-Changes: Combat end
 
             //is this user trying to pull themself?
             if (userEntity.Value == uid)
