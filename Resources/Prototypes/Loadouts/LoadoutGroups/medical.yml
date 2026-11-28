@@ -120,6 +120,7 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  - PathologistJumpsuit # WL-Changes
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
