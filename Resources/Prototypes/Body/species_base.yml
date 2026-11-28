@@ -166,11 +166,30 @@
     - AnomalyHost
   - type: MobCollision # WL-Changes: MobCollision works for players only
   - type: OfferItem # CorvaxGoob-Offer
-  #WL-Changes: Languages start
+  #WL-Changes: start
   - type: Languages
     languages:
       Translate: Full
-  #WL-Changes: Languages end
+  - type: AdvancedCombat
+    actions:
+      Push: 1
+      Disarm: 0.4
+      Knockdown: 0.05
+    combatResist:
+      Push: 0.75
+    grabCooldowns:
+      Active: 0.5
+      Hard: 0.5
+    grabRespiration:
+      Active: 0.9
+      Hard: 0.3
+    grabMaxDistances:
+      Active: 1
+      Hard: 0.7
+    throwableStages:
+      - Active
+      - Hard
+  #WL-Changes: end
 
 - type: entity
   abstract: true

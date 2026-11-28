@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Shared._ES.Camera;
+using Content.Shared._WL.Combat;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
@@ -909,12 +910,19 @@ public abstract partial class SharedMeleeWeaponSystem : EntitySystem
     {
         var target = GetEntity(ev.Target);
 
+        // WL-Changes: AdvCombat start
+        var combatAttackEv = new CombatActionEvent(meleeUid, target, CombatIntent.Disarm);
+        RaiseLocalEvent(user, combatAttackEv);
+
+        if (combatAttackEv.Handled)
+            return true;
+        // WL-Changes: AdvCombat end
+
         if (Deleted(target) ||
             user == target)
         {
             return false;
         }
-
 
         if (MobState.IsIncapacitated(target.Value))
         {
